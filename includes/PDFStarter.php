@@ -156,6 +156,18 @@ switch ($PaperSize) {
 		$Right_Margin = 25; // Half inch = 72/2
 		break;
 
+	case 'T1_portrait':
+
+	$DocumentPaper = 'A6'; $DocumentOrientation ='P';
+
+		$Page_Width=55;
+		$Page_Height=345;
+		$Top_Margin=00;
+		$Bottom_Margin=10;
+		$Left_Margin=40;
+		$Right_Margin=30;
+		break;
+
 	case 'Legal_Landscape':
 
 		$DocumentPaper = 'LEGAL';
