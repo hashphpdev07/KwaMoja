@@ -456,4 +456,21 @@ function ChangeFieldInTable($TableName, $FieldName, $OldValue, $NewValue) {
 	echo ' ... ' . _('completed');
 }
 
+function ShowStockTypes($StockType) {
+	$SQL = "SELECT type, name FROM stocktypes";
+	$Result = DB_query($SQL);
+    echo '<td>
+			<select name="StockType" onChange="ReloadForm(UpdateItems)" >';
+	echo '<option value=""></option>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		if ($StockType == $MyRow['type']) {
+			echo '<option selected value="' . $MyRow['type'] . '">' . $MyRow['name'] . '</option>';
+		} else {
+			echo '<option value="' . $MyRow['type'] . '">' . $MyRow['name'] . '</option>';
+		}
+	}
+	echo '</select>
+			</td>';
+}
+
 ?>
