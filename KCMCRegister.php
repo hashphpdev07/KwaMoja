@@ -13,9 +13,9 @@ if (isset($_POST['Create'])) {
 
 	$SQL = "SELECT debtorno FROM debtorsmaster WHERE debtorno='" . $_POST['FileNumber'] . "'";
 	$Result = DB_query($SQL, $db);
-	if (DB_num_rows == 0) {
+	if (DB_num_rows($result) != 0) {
 		$InputError = 1;
-		$msg[] = _('That file number has already been used for another patient.');
+		$msg[] = _('That file number has already been used for another patient. Please select another file number.');
 	}
 
 	if ($_SESSION['AutoDebtorNo'] == 0 and mb_strlen($_POST['FileNumber']) == 0) {
@@ -45,7 +45,7 @@ if (isset($_POST['Create'])) {
 
 	if ($InputError == 1) {
 		foreach ($msg as $message) {
-			prnMsg($message, 'info');
+			prnMsg($message, 'error');
 		}
 	} else {
 
