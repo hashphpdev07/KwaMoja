@@ -11,6 +11,13 @@ if (isset($_POST['Create'])) {
 
 	$InputError = 0;
 
+	$SQL = "SELECT debtorno FROM debtorsmaster WHERE debtorno='" . $_POST['FileNumber'] . "'";
+	$Result = DB_query($SQL, $db);
+	if (DB_num_rows == 0) {
+		$InputError = 1;
+		$msg[] = _('That file number has already been used for another patient.');
+	}
+
 	if ($_SESSION['AutoDebtorNo'] == 0 and mb_strlen($_POST['FileNumber']) == 0) {
 		$InputError = 1;
 		$msg[] = _('You must input a file number');
