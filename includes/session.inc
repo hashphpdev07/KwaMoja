@@ -44,14 +44,9 @@ if (!ini_get('safe_mode')) {
 	set_time_limit($MaximumExecutionTime);
 	ini_set('max_execution_time', $MaximumExecutionTime);
 } //!ini_get('safe_mode')
+
 session_write_close(); //in case a previous session is not closed
 session_start();
-
-if (isset($_SESSION['LastActivity']) and (time() - $_SESSION['LastActivity']) > $SessionLifeTime) {
-	unset($_SESSION);
-} else {
-	$_SESSION['LastActivity'] = time();
-}
 
 include($PathPrefix . 'includes/ConnectDB.inc');
 include($PathPrefix . 'includes/DateFunctions.inc');
@@ -148,6 +143,14 @@ if (!isset($AllowAnyone) or !isset($_SESSION['CompanyDefaultsLoaded'])) {
 	} //$rc
 } else if (basename($_SERVER['SCRIPT_NAME']) == 'Logout.php') {
 	header('Location: index.php');
+}
+
+if (isset($_SESSION['LastActivity']) and (time() - $_SESSION['LastActivity']) > $SessionLifeTime) {
+	if (basename($_SERVER['SCRIPT_NAME']) != 'Logout.php') {
+		header('Location: Logout.php');
+	}
+} else {
+	$_SESSION['LastActivity'] = time();
 }
 
 if (!isset($_SESSION['CompanyDefaultsLoaded'])) {
