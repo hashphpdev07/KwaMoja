@@ -78,18 +78,25 @@ if (isset($Patient)) {
 	}
 
 	/* Secondly get the patient notes */
-		$SQL = "SELECT note,
-						date,
-						priority
-					FROM custnotes
-					WHERE debtorno='" . $Patient[0] . "'
-					ORDER BY date DESC";
-		$Result = DB_query($SQL);
+	$SQL = "SELECT noteid,
+					debtorno,
+					note,
+					date,
+					priority,
+					realname
+				FROM custnotes
+				INNER JOIN www_users
+					ON custnotes.userid=www_users.userid
+				WHERE debtorno='" . $Patient[0] . "'
+				ORDER BY date DESC";
+	$Result = DB_query($SQL);
+
 	while ($MyRow = DB_fetch_array($Result)) {
 		$PatientHistory[$i][0] = 'Z';
 		$PatientHistory[$i][1] = $MyRow['date'];
-		$PatientHistory[$i][2] = $MyRow['note'];
-		$PatientHistory[$i][3] = $MyRow['priority'];
+		$PatientHistory[$i][2] = $MyRow['realname'];
+		$PatientHistory[$i][3] = $MyRow['note'];
+		$PatientHistory[$i][4] = $MyRow['priority'];
 		++$i;
 	}
 
@@ -127,7 +134,8 @@ if (isset($Patient)) {
 		} else {
 			echo '<tr style="' . $Style . '">
 					<td>' . ConvertSQLDate($Record[1]) . '</td>
-					<td colspan="3">' . $Record[2] . '</td>
+					<td>' . $Record[2] . '</td>
+					<td colspan="2">' . $Record[3] . '</td>
 				</tr>';
 		}
 	}

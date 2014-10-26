@@ -83,13 +83,16 @@ if (isset($Patient)) {
 		} elseif ($InputError != 1) {
 
 			$SQL = "INSERT INTO custnotes (debtorno,
-										note,
-										date,
-										priority)
-				VALUES ('" . $_POST['DebtorNo'] . "',
-						'" . $_POST['Note'] . "',
-						'" . FormatDateForSQL($_POST['NoteDate']) . "',
-						'" . $_POST['Priority'] . "')";
+											userid,
+											note,
+											date,
+											priority)
+										VALUES (
+											'" . $_POST['DebtorNo'] . "',
+											'" . $_SESSION['UserID'] . "',
+											'" . $_POST['Note'] . "',
+											'" . FormatDateForSQL($_POST['NoteDate']) . "',
+											'" . $_POST['Priority'] . "')";
 			$Msg = _('The contact notes record has been added');
 		}
 
@@ -126,18 +129,22 @@ if (isset($Patient)) {
 		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . _('Notes for Patient') . ': <b>' . $MyRow['name'] . '</b></p>';
 
 		$SQL = "SELECT noteid,
-					debtorno,
-					note,
-					date,
-					priority
-				FROM custnotes
-				WHERE debtorno='" . $Patient[0] . "'
-				ORDER BY date DESC";
+						debtorno,
+						note,
+						date,
+						priority,
+						realname
+					FROM custnotes
+					INNER JOIN www_users
+						ON custnotes.userid=www_users.userid
+					WHERE debtorno='" . $Patient[0] . "'
+					ORDER BY date DESC";
 		$Result = DB_query($SQL);
 
 		echo '<table class="selection">
 		<tr>
 			<th>' . _('Date') . '</th>
+			<th>' . _('Doctor') . '</th>
 			<th>' . _('Note') . '</th>
 			<th>' . _('Priority') . '</th>
 		</tr>';
@@ -153,10 +160,11 @@ if (isset($Patient)) {
 				$k = 1;
 			}
 			printf('<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td><a href="%sId=%s&DebtorNo=%s">' . _('Edit') . ' </td>
-				<td><a href="%sId=%s&DebtorNo=%s&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</td></tr>', ConvertSQLDate($MyRow['date']), $MyRow['note'], $MyRow['priority'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['noteid'], urlencode($MyRow['debtorno']), htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['noteid'], urlencode($MyRow['debtorno']));
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%sId=%s&DebtorNo=%s">' . _('Edit') . ' </td>
+					<td><a href="%sId=%s&DebtorNo=%s&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</td></tr>', ConvertSQLDate($MyRow['date']), $MyRow['realname'], $MyRow['note'], $MyRow['priority'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['noteid'], urlencode($MyRow['debtorno']), htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['noteid'], urlencode($MyRow['debtorno']));
 
 		}
 		//END WHILE LIST LOOP

@@ -59,6 +59,10 @@ NewConfigValue('Care2xDatabase', 'None');
 NewConfigValue('DefaultArea', '');
 NewConfigValue('DefaultSalesPerson', '');
 
+AddColumn('userid', 'custnotes', 'VARCHAR(10)', 'NOT NULL', '', 'noteid');
+AddConstraint('custnotes', 'idfk1_custnotes', array('userid'), 'www_users', array('userid'));
+AddConstraint('custnotes', 'idfk2_custnotes', array('debtorno'), 'debtorsmaster', array('debtorno'));
+
 UpdateDBNo(basename(__FILE__, '.php'));
 
 ?>
