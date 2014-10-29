@@ -1,0 +1,260 @@
+<?php
+
+include('includes/session.inc');
+$Title = _('Insurance Company Types');
+include('includes/header.inc');
+
+if (isset($_POST['SelectedType'])) {
+	$SelectedType = mb_strtoupper($_POST['SelectedType']);
+} elseif (isset($_GET['SelectedType'])) {
+	$SelectedType = mb_strtoupper($_GET['SelectedType']);
+}
+
+if (isset($Errors)) {
+	unset($Errors);
+}
+
+echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Customer Types') . '" alt="" />' . $Title . '</p>';
+echo '<div class="page_help_text noPrint">' . _('Add/edit/delete Insurance Types') . '</div>';
+
+if (isset($_POST['submit'])) {
+
+	//initialise no input errors assumed initially before we test
+	$InputError = 0;
+
+	/* actions to take once the user has clicked the submit button
+	ie the page has called itself with some user input */
+
+	//first off validate inputs sensible
+	$i = 1;
+	if (mb_strlen($_POST['TypeName']) > 100) {
+		$InputError = 1;
+		prnMsg(_('The insurance company type name description must be 100 characters or less long'), 'error');
+		$i++;
+	}
+
+	if (mb_strlen($_POST['TypeName']) == 0) {
+		$InputError = 1;
+		echo '<br />';
+		prnMsg(_('The insurance company type name description must contain at least one character'), 'error');
+		$i++;
+	}
+
+	$checksql = "SELECT count(*)
+			 FROM debtortype
+			 WHERE typename = 'Insurance - " . $_POST['TypeName'] . "'";
+	$checkresult = DB_query($checksql);
+	$checkrow = DB_fetch_row($checkresult);
+	if ($checkrow[0] > 0 and !isset($SelectedType)) {
+		$InputError = 1;
+		echo '<br />';
+		prnMsg(_('You already have an insurance company type called') . ' Insurance - ' . $_POST['TypeName'], 'error');
+		$i++;
+	}
+
+	if (isset($SelectedType) and $InputError != 1) {
+
+		$SQL = "UPDATE debtortype
+			SET typename = 'Insurance - " . $_POST['TypeName'] . "'
+			WHERE typeid = '" . $SelectedType . "'";
+
+		$msg = _('The insurance company type') . ' ' . $SelectedType . ' ' . _('has been updated');
+	} elseif ($InputError != 1) {
+
+		// First check the type is not being duplicated
+
+		$checkSql = "SELECT count(*)
+				 FROM debtortype
+				 WHERE typename = 'Insurance - " . $_POST['TypeName'] . "'";
+
+		$checkresult = DB_query($checkSql);
+		$checkrow = DB_fetch_row($checkresult);
+
+		if ($checkrow[0] > 0) {
+			$InputError = 1;
+			prnMsg(_('The insurance company type') . ' ' . $_POST['typeid'] . ' ' . _('already exists'), 'error');
+		} else {
+
+			// Add new record on submit
+
+			$SQL = "INSERT INTO debtortype
+						(typename)
+					VALUES ('Insurance - " . $_POST['TypeName'] . "')";
+
+
+			$msg = _('Insurance company type') . ' Insurance - ' . $_POST["TypeName"] . ' ' . _('has been created');
+			$checkSql = "SELECT count(typeid) FROM debtortype";
+			$Result = DB_query($checkSql);
+			$row = DB_fetch_row($Result);
+
+		}
+	}
+
+	if ($InputError != 1) {
+		//run the SQL from either of the above possibilites
+		$Result = DB_query($SQL);
+
+
+		// Fetch the default price list.
+		$DefaultCustomerType = $_SESSION['DefaultCustomerType'];
+
+		// Does it exist
+		$checkSql = "SELECT count(*)
+				 FROM debtortype
+				 WHERE typeid = '" . $DefaultCustomerType . "'";
+		$checkresult = DB_query($checkSql);
+		$checkrow = DB_fetch_row($checkresult);
+
+		// If it doesnt then update config with newly created one.
+		if ($checkrow[0] == 0) {
+			$SQL = "UPDATE config
+					SET confvalue='" . $_POST['typeid'] . "'
+					WHERE confname='DefaultCustomerType'";
+			$Result = DB_query($SQL);
+			$_SESSION['DefaultCustomerType'] = $_POST['typeid'];
+		}
+		echo '<br />';
+		prnMsg($msg, 'success');
+
+		unset($SelectedType);
+		unset($_POST['typeid']);
+		unset($_POST['TypeName']);
+	}
+
+} elseif (isset($_GET['delete'])) {
+
+	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
+	// Prevent delete if saletype exist in customer transactions
+
+	$SQL = "SELECT COUNT(*)
+		   FROM debtortrans
+		   WHERE debtortrans.type='" . $SelectedType . "'";
+
+	$ErrMsg = _('The number of transactions using this customer type could not be retrieved');
+	$Result = DB_query($SQL, $ErrMsg);
+
+	$MyRow = DB_fetch_row($Result);
+	if ($MyRow[0] > 0) {
+		prnMsg(_('Cannot delete this type because customer transactions have been created using this type') . '<br />' . _('There are') . ' ' . $MyRow[0] . ' ' . _('transactions using this type'), 'error');
+
+	} else {
+
+		$SQL = "SELECT COUNT(*) FROM debtorsmaster WHERE typeid='" . $SelectedType . "'";
+
+		$ErrMsg = _('The number of transactions using this Type record could not be retrieved because');
+		$Result = DB_query($SQL, $ErrMsg);
+		$MyRow = DB_fetch_row($Result);
+		if ($MyRow[0] > 0) {
+			prnMsg(_('Cannot delete this type because customers are currently set up to use this type') . '<br />' . _('There are') . ' ' . $MyRow[0] . ' ' . _('customers with this type code'));
+		} else {
+			$Result = DB_query("SELECT TypeName FROM debtortype WHERE typeid='" . $SelectedType . "'");
+			if (DB_Num_Rows($Result) > 0) {
+				$TypeRow = DB_fetch_array($Result);
+				$TypeName = $TypeRow['TypeName'];
+
+				$SQL = "DELETE FROM debtortype WHERE typeid='" . $SelectedType . "'";
+				$ErrMsg = _('The Type record could not be deleted because');
+				$Result = DB_query($SQL, $ErrMsg);
+				echo '<br />';
+				prnMsg(_('Customer type') . ' ' . $TypeName . ' ' . _('has been deleted'), 'success');
+			}
+			unset($SelectedType);
+			unset($_GET['delete']);
+
+		}
+	} //end if sales type used in debtor transactions or in customers set up
+}
+
+if (!isset($SelectedType)) {
+
+	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedType will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
+	then none of the above are true and the list of sales types will be displayed with
+	links to delete or edit each. These will call the same page again and allow update/input
+	or deletion of the records*/
+
+	$SQL = "SELECT typeid,
+					typename
+				FROM debtortype
+				WHERE typename " . LIKE . " '%insurance%'";
+	$Result = DB_query($SQL);
+
+	echo '<table class="selection">';
+	echo '<tr>
+			<th class="SortableColumn">' . _('Type ID') . '</th>
+			<th class="SortableColumn">' . _('Type Name') . '</th>
+		</tr>';
+
+	$k = 0; //row colour counter
+
+	while ($MyRow = DB_fetch_row($Result)) {
+		if ($k == 1) {
+			echo '<tr class="EvenTableRows">';
+			$k = 0;
+		} else {
+			echo '<tr class="OddTableRows">';
+			$k = 1;
+		}
+
+		printf('<td>%s</td>
+				<td>%s</td>
+				<td><a href="%sSelectedType=%s">' . _('Edit') . '</a></td>
+				<td><a href="%sSelectedType=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Customer Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>', $MyRow[0], $MyRow[1], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0]);
+	}
+	//END WHILE LIST LOOP
+	echo '</table>';
+}
+
+if (!isset($_GET['delete'])) {
+
+	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+
+	// The user wish to EDIT an existing type
+	if (isset($SelectedType) and $SelectedType != '') {
+
+		$SQL = "SELECT typeid,
+				   typename
+				FROM debtortype
+				WHERE typeid='" . $SelectedType . "'";
+
+		$Result = DB_query($SQL);
+		$MyRow = DB_fetch_array($Result);
+
+		$_POST['typeid'] = $MyRow['typeid'];
+		$_POST['TypeName'] = substr($MyRow['typename'], 12);
+
+		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
+		echo '<input type="hidden" name="typeid" value="' . $_POST['typeid'] . '" />';
+		echo '<table class="selection">';
+
+		// We dont allow the user to change an existing type code
+
+		echo '<tr>
+				<td>' . _('Type ID') . ': ' . $_POST['typeid'] . '</td>
+			</tr>';
+
+	} else {
+		// This is a new type so the user may volunteer a type code
+		echo '<table class="selection">';
+	}
+
+	if (!isset($_POST['TypeName'])) {
+		$_POST['TypeName'] = '';
+	}
+	echo '<tr>
+			<td>' . _('Type Name') . ':</td>
+			<td><b>' . _('Insurance') . ' - </b><input type="text" name="TypeName" required="required" minlength="1" maxlength="88" value="' . $_POST['TypeName'] . '" /></td>
+		</tr>';
+
+	echo '</table>'; // close main table
+
+	echo '<div class="centre">
+			<input type="submit" name="submit" value="' . _('Accept') . '" />
+		</div>';
+	echo '</form>';
+
+} // end if user wish to delete
+
+include('includes/footer.inc');
+?>

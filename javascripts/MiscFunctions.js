@@ -36,6 +36,16 @@ function hideConfirm(e) {
 	return true
 }
 
+function FilterArray(dd,s,a){
+	while ( dd.options.length ) dd.options[0] = null;
+	for (var i = 0; i < a.options.length; i++) {
+		if(stristr(a.options[i].text, s)) {
+			option = new Option( a.options[i].text, a.options[i].value );
+			dd.options[dd.options.length] = option;
+		}
+	}
+}
+
 function expandTable(e) {
 	parent=e.cells[0].innerHTML;
 	table=e.parentNode;
