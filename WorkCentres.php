@@ -97,6 +97,7 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The selected work centre record has been deleted'), 'succes');
 		} // end of Contract BOM test
 	} // end of BOM test
+	unset($SelectedWC);
 }
 
 if (!isset($SelectedWC)) {
@@ -113,10 +114,13 @@ if (!isset($SelectedWC)) {
 					workcentres.description,
 					locations.locationname,
 					workcentres.overheadrecoveryact,
+					chartmaster.accountname,
 					workcentres.overheadperhour
 				FROM workcentres
 				INNER JOIN locations
 					ON workcentres.location = locations.loccode
+				INNER JOIN chartmaster
+					ON workcentres.overheadrecoveryact=chartmaster.accountcode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
 					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
@@ -141,7 +145,7 @@ if (!isset($SelectedWC)) {
 					<td class="number">%s</td>
 					<td><a href="%s&amp;SelectedWC=%s">' . _('Edit') . '</a></td>
 					<td><a href="%s&amp;SelectedWC=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this work centre?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>', $MyRow['code'], $MyRow['description'], $MyRow['locationname'], $MyRow['overheadrecoveryact'], $MyRow['overheadperhour'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code']);
+				</tr>', $MyRow['code'], $MyRow['description'], $MyRow['locationname'], $MyRow['overheadrecoveryact'] . ' - ' . $MyRow['accountname'], $MyRow['overheadperhour'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code']);
 	}
 
 	//END WHILE LIST LOOP
@@ -155,8 +159,7 @@ if (isset($SelectedWC)) {
 	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all Work Centres') . '</a></div>';
 }
 
-echo '<br />
-	<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedWC)) {
@@ -198,7 +201,7 @@ if (isset($SelectedWC)) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Work Centre Code') . ':</td>
-				<td><input type="text" name="Code" size="6" autofocus="autofocus" required="required" minlength="1" maxlength="5" value="' . $_POST['Code'] . '" /></td>
+				<td><input type="text" class="AlphaNumeric" name="Code" size="6" autofocus="autofocus" required="required" minlength="1" maxlength="5" value="' . $_POST['Code'] . '" /></td>
 			</tr>';
 }
 
@@ -216,7 +219,7 @@ if (!isset($_POST['Description'])) {
 }
 echo '<tr>
 		<td>' . _('Work Centre Description') . ':</td>
-		<td><input type="text" name="Description" size="21" required="required" minlength="1" maxlength="20" value="' . $_POST['Description'] . '" /></td>
+		<td><input type="text" name="Description" size="21" required="required" minlength="3" maxlength="20" value="' . $_POST['Description'] . '" /></td>
 	</tr>
 	<tr><td>' . _('Location') . ':</td>
 		<td><select required="required" minlength="1" name="Location">';
@@ -252,12 +255,10 @@ $Result = DB_query($SQL);
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['OverheadRecoveryAct']) and $MyRow['accountcode'] == $_POST['OverheadRecoveryAct']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="' . $MyRow['accountcode'] . '">' . htmlspecialchars($MyRow['accountcode'] . ' - ' . $MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="' . $MyRow['accountcode'] . '">' . htmlspecialchars($MyRow['accountcode'] . ' - ' . $MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
 	}
-	echo $MyRow['accountcode'] . '">' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
-
 } //end while loop
 DB_free_result($Result);
 
@@ -274,8 +275,7 @@ echo '</td>
 	</tr>
 	</table>';
 
-echo '<br />
-	<div class="centre">
+echo '<div class="centre">
 		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>';
 
