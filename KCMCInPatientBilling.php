@@ -364,7 +364,7 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 		for ($i = 0; $i < $_SESSION['Items']['Lines']; $i++) {
-			if (isset($_SESSION['Items'][$i]['StockID'])) {
+			if (isset($_SESSION['Items'][$i]['StockID']) and $_SESSION['DispenseOnBill'] == 1) {
 				$SQL = "INSERT INTO stockmoves (
 						stockid,
 						type,
