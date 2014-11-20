@@ -28,15 +28,15 @@ if (!isset($_POST['Show'])) {
 				description,
 				total_dosage,
 				decimalplaces
-			FROM " . $_SESSION['Care2xDatabase'] . ".care_encounter_prescription
-			INNER JOIN " . $_SESSION['Care2xDatabase'] . ".care_encounter
-			ON " . $_SESSION['Care2xDatabase'] . ".care_encounter_prescription.encounter_nr=" . $_SESSION['Care2xDatabase'] . ".care_encounter.encounter_nr
+			FROM care_encounter_prescription
+			INNER JOIN care_encounter
+			ON care_encounter_prescription.encounter_nr=care_encounter.encounter_nr
 			INNER JOIN debtorsmaster
-			ON " . $_SESSION['Care2xDatabase'] . ".care_encounter.pid=debtorno
-			INNER JOIN " . $_SESSION['Care2xDatabase'] . ".care_tz_drugsandservices
-			ON " . $_SESSION['Care2xDatabase'] . ".care_encounter_prescription.article_item_number=" . $_SESSION['Care2xDatabase'] . ".care_tz_drugsandservices.item_id
+			ON care_encounter.pid=debtorno
+			INNER JOIN care_tz_drugsandservices
+			ON care_encounter_prescription.article_item_number=care_tz_drugsandservices.item_id
 			INNER JOIN stockmaster
-			ON stockmaster.stockid=" . $_SESSION['Care2xDatabase'] . ".care_tz_drugsandservices.partcode
+			ON stockmaster.stockid=care_tz_drugsandservices.partcode
 			WHERE bill_number=''
 			AND prescribe_date between '" . FormatDateForSQL($_POST['FromTransDate']) . "' AND '" . FormatDateForSQL($_POST['ToTransDate']) . "'";
 

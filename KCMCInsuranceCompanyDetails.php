@@ -171,18 +171,16 @@ if (isset($_POST['submit'])) {
 			$Result = DB_query($SQL, $ErrMsg);
 			prnMsg(_('Customer updated'), 'success');
 			echo '<br />';
-			if (isset($_SESSION['Care2xDatabase']) and $_SESSION['Care2xDatabase'] != 'None') {
-				$SQL = "UPDATE " . $_SESSION['Care2xDatabase'] . ".care_insurance_firm SET name='" . $_POST['CustName'] . "',
-																							iso_country_id='" . $_POST['Address6'] . "',
-																							type_nr='" . $InsuranceTypeID . "',
-																							addr='" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
-																							addr_mail='" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
-																							addr_billing='" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
-																							modify_id='KwaMoja'
-																						WHERE firm_id='" . $_POST['DebtorNo'] . "'";
-				$ErrMsg = _('This company could not be updated to the care2x database because');
-				$Result = DB_query($SQL, $ErrMsg);
-			}
+			$SQL = "UPDATE care_insurance_firm SET name='" . $_POST['CustName'] . "',
+													iso_country_id='" . $_POST['Address6'] . "',
+													type_nr='" . $InsuranceTypeID . "',
+													addr='" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
+													addr_mail='" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
+													addr_billing='" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
+													modify_id='KwaMoja'
+												WHERE firm_id='" . $_POST['DebtorNo'] . "'";
+			$ErrMsg = _('This company could not be updated to the care2x database because');
+			$Result = DB_query($SQL, $ErrMsg);
 		} else { //it is a new customer
 			/* set the DebtorNo if $AutoDebtorNo in config.php has been set to
 			something greater 0 */
@@ -257,28 +255,26 @@ if (isset($_POST['submit'])) {
 			$ErrMsg = _('This company could not be added because');
 			$Result = DB_query($SQL, $ErrMsg);
 
-			if (isset($_SESSION['Care2xDatabase']) and $_SESSION['Care2xDatabase'] != 'None') {
-				$SQL = "INSERT INTO " . $_SESSION['Care2xDatabase'] . ".care_insurance_firm (firm_id,
-																							name,
-																							iso_country_id,
-																							type_nr,
-																							addr,
-																							addr_mail,
-																							addr_billing,
-																							create_id
-																						) VALUES (
-																							'" . $_POST['DebtorNo'] . "',
-																							'" . $_POST['CustName'] . "',
-																							'" . $_POST['Address6'] . "',
-																							'" . $InsuranceTypeID . "',
-																							'" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
-																							'" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
-																							'" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
-																							'KwaMoja'
-																						)";
-				$ErrMsg = _('This company could not be added to the care2x database because');
-				$Result = DB_query($SQL, $ErrMsg);
-			}
+			$SQL = "INSERT INTO care_insurance_firm (firm_id,
+													name,
+													iso_country_id,
+													type_nr,
+													addr,
+													addr_mail,
+													addr_billing,
+													create_id
+												) VALUES (
+													'" . $_POST['DebtorNo'] . "',
+													'" . $_POST['CustName'] . "',
+													'" . $_POST['Address6'] . "',
+													'" . $InsuranceTypeID . "',
+													'" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
+													'" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
+													'" . $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . "',
+													'KwaMoja'
+												)";
+			$ErrMsg = _('This company could not be added to the care2x database because');
+			$Result = DB_query($SQL, $ErrMsg);
 
 			prnMsg(_('The Insurance Company has been successfully created'), 'success');
 

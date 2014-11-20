@@ -8,7 +8,7 @@ echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/
 
 if (isset($_POST['UpdateLink'])) {
 	for ($i = 0; $i < $_POST['TotalItems']; $i++) {
-		$SQL = "UPDATE " . $_SESSION['Care2xDatabase'] . ".care_tz_drugsandservices
+		$SQL = "UPDATE care_tz_drugsandservices
 				SET partcode='" . $_POST['StockID' . $i] . "'
 				WHERE item_id='" . $_POST['Care2xItem' . $i] . "'";
 		$Result = DB_query($SQL);
@@ -61,7 +61,7 @@ if (!isset($_POST['CategoryID'])) {
 	$Care2xSQL = "SELECT item_id,
 						partcode,
 						item_full_description
-					FROM " . $_SESSION['Care2xDatabase'] . ".care_tz_drugsandservices
+					FROM care_tz_drugsandservices
 					ORDER BY UCASE(item_full_description)";
 	$Care2xResult = DB_query($Care2xSQL);
 	$Care2xItems = array();

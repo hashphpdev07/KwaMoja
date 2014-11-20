@@ -29,9 +29,6 @@ if (isset($_POST['submit'])) {
 		if ($_SESSION['CanAmendBill'] != $_POST['X_CanAmendBill']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_CanAmendBill'] . "' WHERE confname = 'CanAmendBill'";
 		}
-		if ($_SESSION['Care2xDatabase'] != $_POST['X_Care2xDatabase']){
-			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_Care2xDatabase'] . "' WHERE confname='Care2xDatabase'";
-		}
 		if ($_SESSION['DefaultArea'] != $_POST['X_DefaultArea']){
 			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_DefaultArea'] . "' WHERE confname='DefaultArea'";
 		}
@@ -98,23 +95,6 @@ if ($_SESSION['CanAmendBill'] == '0') {
 }
 echo '</select></td>
 		<td>' . _('Can the cashiers delete and insert lines in patients bills?') . '</td>
-	</tr>';
-
-//Care2x Database
-echo '<tr>
-		<td>' . _('Care2x database to use') . ':</td>
-		<td><select name="X_Care2xDatabase">';
-echo '<option value="None">'._('None').'</option>';
-$sql="SELECT TABLE_SCHEMA FROM information_schema.TABLES WHERE TABLE_NAME='care_users'";
-$result=DB_query($sql, $db);
-
-while( $row = DB_fetch_array($result) ) {
-	echo '<option '.($_SESSION['Care2xDatabase'] == $row['TABLE_SCHEMA']?'selected ':'').'value="'.$row['TABLE_SCHEMA'].'">'.$row['TABLE_SCHEMA'] . '</option>';
-}
-
-echo '</select>
-		</td>
-		<td>' . _('Name of the care2x database to use for this hospital') . '</td>
 	</tr>';
 
 $SQL = "SELECT salesmancode, salesmanname FROM salesman";
