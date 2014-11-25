@@ -57,12 +57,7 @@ if (isset($_POST['Create'])) {
 		$SalesManResult = DB_query($SalesManSQL);
 		$SalesManRow = DB_fetch_array($SalesManResult);
 
-		if ($_SESSION['AutoDebtorNo'] > 0) {
-			/* system assigned, sequential, numeric */
-			if ($_SESSION['AutoDebtorNo'] == 1) {
-				$_POST['FileNumber'] = GetNextTransNo(500);
-			}
-		}
+		$_POST['FileNumber'] = GetNextTransNo(500);
 
 		$SQL = "INSERT INTO debtorsmaster (debtorno,
 										name,
@@ -153,73 +148,84 @@ if (isset($_POST['Create'])) {
 	}
 }
 
-echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="post">';
+echo '<form name="RegisterForm" action="' . $_SERVER['PHP_SELF'] . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table colspan="4">';
+echo '<table style="width:98%">
+		<tr>
+			<td style="width:50%;vertical-align:top">';
+echo '<table style="width:98%">';
 
-echo '<tr><th colspan="2">' . _('New Patient Details') . '</th></tr>';
+echo '<tr>
+		<th colspan="2">' . _('New Patient Details') . '</th>
+	</tr>';
 
-if ($_SESSION['AutoDebtorNo'] == 0) {
-	echo '<tr><td>' . _('File Number') . ':</td>';
-	if (isset($_POST['FileNumber'])) {
-		echo '<td><input type="text" size="10" name="FileNumber" value="' . $_POST['FileNumber'] . '" /></td></tr>';
-	} else {
-		echo '<td><input type="text" size="10" name="FileNumber" value="" /></td></tr>';
-	}
+echo '<tr>
+		<td>' . _('First Name') . ':</td>';
+if (isset($_POST['FirstName'])) {
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="FirstName" id="FirstName" value="' . $_POST['FirstName'] . '" /></td></tr>';
+} else {
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="FirstName" id="FirstName" value="" /></td></tr>';
 }
 
-echo '<tr><td>' . _('Name') . ':</td>';
-if (isset($_POST['Name'])) {
-	echo '<td><input type="text" size="20" name="Name" value="' . $_POST['Name'] . '" /></td></tr>';
+echo '<tr><td>' . _('Last Name') . ':</td>';
+if (isset($_POST['LastName'])) {
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="LastName" id="LastName" value="' . $_POST['LastName'] . '" /></td></tr>';
 } else {
-	echo '<td><input type="text" size="20" name="Name" value="" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="LastName" id="LastName" value="" /></td></tr>';
+}
+
+echo '<tr><td>' . _('Other Name') . ':</td>';
+if (isset($_POST['Name'])) {
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="OtherName" id="OtherName" value="' . $_POST['OtherName'] . '" /></td></tr>';
+} else {
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="OtherName" id="OtherName" value="" /></td></tr>';
 }
 
 echo '<tr><td>' . _('Address') . ':</td>';
 if (isset($_POST['Address1'])) {
-	echo '<td><input type="text" size="20" name="Address1" value="' . $_POST['Address1'] . '" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address1" value="' . $_POST['Address1'] . '" /></td></tr>';
 } else {
-	echo '<td><input type="text" size="20" name="Address1" value="" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address1" value="" /></td></tr>';
 }
 if (isset($_POST['Address2'])) {
-	echo '<td></td><td><input type="text" size="20" name="Address2" value="' . $_POST['Address2'] . '" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address2" value="' . $_POST['Address2'] . '" /></td></tr>';
 } else {
-	echo '<td></td><td><input type="text" size="20" name="Address2" value="" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address2" value="" /></td></tr>';
 }
 if (isset($_POST['Address3'])) {
-	echo '<td></td><td><input type="text" size="20" name="Address3" value="' . $_POST['Address3'] . '" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address3" value="' . $_POST['Address3'] . '" /></td></tr>';
 } else {
-	echo '<td></td><td><input type="text" size="20" name="Address3" value="" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address3" value="" /></td></tr>';
 }
 if (isset($_POST['Address4'])) {
-	echo '<td></td><td><input type="text" size="20" name="Address4" value="' . $_POST['Address4'] . '" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address4" value="' . $_POST['Address4'] . '" /></td></tr>';
 } else {
-	echo '<td></td><td><input type="text" size="20" name="Address4" value="" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address4" value="" /></td></tr>';
 }
 if (isset($_POST['Address5'])) {
-	echo '<td></td><td><input type="text" size="20" name="Address5" value="' . $_POST['Address5'] . '" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address5" value="' . $_POST['Address5'] . '" /></td></tr>';
 } else {
-	echo '<td></td><td><input type="text" size="20" name="Address5" value="" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address5" value="" /></td></tr>';
 }
 if (isset($_POST['Address6'])) {
-	echo '<td></td><td><input type="text" size="20" name="Address6" value="' . $_POST['Address6'] . '" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address6" value="' . $_POST['Address6'] . '" /></td></tr>';
 } else {
-	echo '<td></td><td><input type="text" size="20" name="Address6" value="" /></td></tr>';
+	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address6" value="" /></td></tr>';
 }
 
 echo '<tr><td>' . _('Telephone Number') . ':</td>';
 if (isset($_POST['Telephone'])) {
-	echo '<td><input type="text" size="12" name="Telephone" value="' . $_POST['Telephone'] . '" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="12" name="Telephone" id="Telephone" value="' . $_POST['Telephone'] . '" /></td></tr>';
 } else {
-	echo '<td><input type="text" size="12" name="Telephone" value="" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="12" name="Telephone" id="Telephone" value="" /></td></tr>';
 }
 
 echo '<tr><td>' . _('Date Of Birth') . ':</td>';
 if (isset($_POST['DateOfBirth'])) {
-	echo '<td><input type="text" placeholder="' . $_SESSION['DefaultDateFormat'] . '" name="DateOfBirth" maxlength="10" size="10" value="' . $_POST['DateOfBirth'] . '" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" placeholder="' . $_SESSION['DefaultDateFormat'] . '" name="DateOfBirth" id="DateOfBirth" maxlength="10" size="10" value="' . $_POST['DateOfBirth'] . '" /></td></tr>';
 } else {
-	echo '<td><input type="text" placeholder="' . $_SESSION['DefaultDateFormat'] . '" name="DateOfBirth" maxlength="10" size="10" value="" /></td></tr>';
+	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" placeholder="' . $_SESSION['DefaultDateFormat'] . '" name="DateOfBirth" id="DateOfBirth" maxlength="10" size="10" value="" /></td></tr>';
 }
 
 $Result = DB_query("SELECT typeabbrev, sales_type FROM salestypes");
@@ -250,7 +256,7 @@ $Gender['m'] = _('Male');
 $Gender['f'] = _('Female');
 echo '<tr>
 		<td>' . _('Sex') . ':</td>
-		<td><select name="Sex">';
+		<td><select name="Sex" id="Gender">';
 echo '<option value=""></option>';
 foreach ($Gender as $Code=>$Name) {
 	if (isset($_POST['Sex']) and $_POST['Sex'] == $Code) {
@@ -306,9 +312,29 @@ if (isset($_POST['Insurance']) and $_POST['Insurance'] != '') {
 			</tr>';
 }
 
+echo '</table>
+			</td>';
+
+echo '<td style="width:50%;vertical-align:top">
+		<table style="width:98%">
+			<tr>
+				<th colspan="6">' . _('Search Results') . '</th>
+			</tr>
+			<tr>
+				<th style="width:5%;">' . _('Select') . '</th>
+				<th style="width:10%;">' . _('PID') . '</th>
+				<th style="width:50%;">' . _('Name') . '</th>
+				<th style="width:10%;">' . _('Telephone') . '</th>
+				<th style="width:10%;">' . _('Gender') . '</th>
+				<th style="width:15%;">' . _('Date of Birth') . '</th>
+			</tr>';
+echo '<tbody id="SearchResults"></tbody>';
+echo '</table>
+			</td>
+		</tr>';
 echo '</table>';
 echo '<div class="centre">
-		<input type="submit" name="Create" value="' . ('Register the patient') . '" />
+		<input type="submit" name="Enter" value="' . ('Enter Information') . '" />
 	</div>';
 echo '</form>';
 
