@@ -17,7 +17,7 @@ $XPos = 0;
 $pdf->addJpegFromFile($_SESSION['LogoFile'], $XPos, $YPos - 30, 0, 60);
 
 $SQL = "SELECT locationname, deladd1 FROM locations WHERE loccode='" . $_SESSION['UserStockLocation'] . "'";
-$Result = DB_query($SQL, $db);
+$Result = DB_query($SQL);
 $mylocationrow = DB_fetch_array($Result);
 
 $LeftOvers = $pdf->addTextWrap(0, $YPos - ($line_height * 1), 300, $FontSize, $mylocationrow['deladd1']);
@@ -32,7 +32,7 @@ $LeftOvers = $pdf->addTextWrap(0, $YPos - ($line_height * 9), 300, $FontSize, _(
 $LeftOvers = $pdf->addTextWrap(0, $YPos - ($line_height * 10), 140, $FontSize, _('Cashier') . ': ' . $_SESSION['UsersRealName']);
 $NameYPos = $YPos - ($line_height * 12);
 $SQL = "SELECT MIN(id) as start FROM debtortrans WHERE type=10 AND transno='" . $_GET['FromTransNo'] . "'";
-$Result = DB_query($SQL, $db);
+$Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 $StartReceiptNumber = $MyRow['start'];
 
