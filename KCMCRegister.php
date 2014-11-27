@@ -12,7 +12,7 @@ if (isset($_POST['Create'])) {
 	$InputError = 0;
 
 	$SQL = "SELECT debtorno FROM debtorsmaster WHERE debtorno='" . $_POST['FileNumber'] . "'";
-	$Result = DB_query($SQL, $db);
+	$Result = DB_query($SQL);
 	if (DB_num_rows($result) != 0) {
 		$InputError = 1;
 		$msg[] = _('That file number has already been used for another patient. Please select another file number.');
