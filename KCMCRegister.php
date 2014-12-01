@@ -5,7 +5,7 @@ include('includes/SQL_CommonFunctions.inc');
 $Title = _('Register a Patient');
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/PatientData.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/PatientData.png" title="' . _('Patient Registration') . '" alt="" />' . $Title . '</p>';
 
 if (isset($_POST['Create'])) {
 
@@ -161,58 +161,106 @@ echo '<tr>
 	</tr>';
 
 echo '<tr>
-		<td>' . _('First Name') . ':</td>';
-if (isset($_POST['FirstName'])) {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="FirstName" id="FirstName" value="' . $_POST['FirstName'] . '" /></td></tr>';
-} else {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="FirstName" id="FirstName" value="" /></td></tr>';
-}
+		<td>' . _('File Number') . ':</td>
+		<td id="PID">' . _('Not yet allocated') . '</td>
+	</tr>';
+echo '<input type="hidden" name="FileNumber" id="FileNumber" value="" />';
 
-echo '<tr><td>' . _('Last Name') . ':</td>';
-if (isset($_POST['LastName'])) {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="LastName" id="LastName" value="' . $_POST['LastName'] . '" /></td></tr>';
-} else {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="LastName" id="LastName" value="" /></td></tr>';
+if (!isset($_POST['FirstName'])) {
+	$_POST['FirstName'] = '';
 }
+echo '<tr>
+		<td>' . _('First Name') . ':</td>
+		<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="FirstName" id="FirstName" value="' . $_POST['FirstName'] . '" /></td>
+	</tr>';
 
-echo '<tr><td>' . _('Other Name') . ':</td>';
-if (isset($_POST['Name'])) {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="OtherName" id="OtherName" value="' . $_POST['OtherName'] . '" /></td></tr>';
-} else {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="OtherName" id="OtherName" value="" /></td></tr>';
+if (!isset($_POST['LastName'])) {
+	$_POST['LastName'] = '';
 }
+echo '<tr>
+		<td>' . _('Last Name') . ':</td>
+		<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="LastName" id="LastName" value="' . $_POST['LastName'] . '" /></td>
+	</tr>';
 
-echo '<tr><td>' . _('Address') . ':</td>';
-if (isset($_POST['Address1'])) {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address1" value="' . $_POST['Address1'] . '" /></td></tr>';
-} else {
-	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address1" value="" /></td></tr>';
+if (!isset($_POST['OtherName'])) {
+	$_POST['OtherName'] = '';
 }
-if (isset($_POST['Address2'])) {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address2" value="' . $_POST['Address2'] . '" /></td></tr>';
-} else {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address2" value="" /></td></tr>';
+echo '<tr>
+		<td>' . _('Other Name') . ':</td>
+		<td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="OtherName" id="OtherName" value="' . $_POST['OtherName'] . '" /></td>
+	</tr>';
+
+$SQL = "SELECT SQL_CACHE address_code,
+				address_name,
+				form_label
+			FROM care_address1
+			WHERE country='" . $_SESSION['CountryOfOperation'] . "'
+			ORDER BY address_name";
+$Result = DB_query($SQL);
+$FormLabelRow = DB_fetch_array($Result);
+echo '<tr>
+		<td>' . _($FormLabelRow['form_label']) . ':</td>
+		<td><select name="Address1" onchange="UpdateAddress(2)">';
+DB_data_seek($Result, 0);
+echo '<option></option>';
+while ($MyRow = DB_fetch_array($Result)) {
+	echo '<option value="' . $MyRow['address_code'] . '">' . $MyRow['address_name'] . '</option>';
 }
-if (isset($_POST['Address3'])) {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address3" value="' . $_POST['Address3'] . '" /></td></tr>';
-} else {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address3" value="" /></td></tr>';
-}
-if (isset($_POST['Address4'])) {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address4" value="' . $_POST['Address4'] . '" /></td></tr>';
-} else {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address4" value="" /></td></tr>';
-}
-if (isset($_POST['Address5'])) {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address5" value="' . $_POST['Address5'] . '" /></td></tr>';
-} else {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address5" value="" /></td></tr>';
-}
-if (isset($_POST['Address6'])) {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address6" value="' . $_POST['Address6'] . '" /></td></tr>';
-} else {
-	echo '<td></td><td><input type="text" onkeyup="SearchPatients(RegisterForm)" size="20" name="Address6" value="" /></td></tr>';
-}
+echo '</select>
+			</td>
+		</tr>';
+
+$SQL = "SELECT form_label
+			FROM care_address2
+			WHERE country='" . $_SESSION['CountryOfOperation'] . "'";
+$Result = DB_query($SQL);
+$FormLabelRow = DB_fetch_array($Result);
+echo '<tr>
+		<td>' . _($FormLabelRow['form_label']) . ':</td>
+		<td><select id="Address2" name="Address2">';
+echo '<option></option>';
+echo '</select>
+			</td>
+		</tr>';
+
+$SQL = "SELECT form_label
+			FROM care_address3
+			WHERE country='" . $_SESSION['CountryOfOperation'] . "'";
+$Result = DB_query($SQL);
+$FormLabelRow = DB_fetch_array($Result);
+echo '<tr>
+		<td>' . _($FormLabelRow['form_label']) . ':</td>
+		<td><select name="Address3">';
+echo '<option></option>';
+echo '</select>
+			</td>
+		</tr>';
+
+$SQL = "SELECT form_label
+			FROM care_address4
+			WHERE country='" . $_SESSION['CountryOfOperation'] . "'";
+$Result = DB_query($SQL);
+$FormLabelRow = DB_fetch_array($Result);
+echo '<tr>
+		<td>' . _($FormLabelRow['form_label']) . ':</td>
+		<td><select name="Address4">';
+echo '<option></option>';
+echo '</select>
+			</td>
+		</tr>';
+
+$SQL = "SELECT form_label
+			FROM care_address5
+			WHERE country='" . $_SESSION['CountryOfOperation'] . "'";
+$Result = DB_query($SQL);
+$FormLabelRow = DB_fetch_array($Result);
+echo '<tr>
+		<td>' . _($FormLabelRow['form_label']) . ':</td>
+		<td><select name="Address5">';
+echo '<option></option>';
+echo '</select>
+			</td>
+		</tr>';
 
 echo '<tr><td>' . _('Telephone Number') . ':</td>';
 if (isset($_POST['Telephone'])) {
@@ -227,6 +275,22 @@ if (isset($_POST['DateOfBirth'])) {
 } else {
 	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" placeholder="' . $_SESSION['DefaultDateFormat'] . '" name="DateOfBirth" id="DateOfBirth" maxlength="10" size="10" value="" /></td></tr>';
 }
+
+$Result = DB_query("SELECT tribe_id, tribe_name FROM care_tz_tribes");
+echo '<tr>
+		<td>' . _('Tribe') . ':</td>
+		<td><select tabindex=9 name="EthnicOrigin">';
+echo '<option value=""></option>';
+while ($MyRow = DB_fetch_array($Result)) {
+	if (isset($_POST['EthnicOrigin']) and $_POST['EthnicOrigin'] == $MyRow['tribe_id']) {
+		echo '<option selected="selected" value="' . $MyRow['tribe_id'] . '">' . $MyRow['tribe_name'] . '</option>';
+	} else {
+		echo '<option value="' . $MyRow['tribe_id'] . '">' . $MyRow['tribe_name'] . '</option>';
+	}
+} //end while loopre
+echo '</select>
+			</td>
+		</tr>';
 
 $Result = DB_query("SELECT typeabbrev, sales_type FROM salestypes");
 if (DB_num_rows($Result) == 0) {
@@ -311,7 +375,12 @@ if (isset($_POST['Insurance']) and $_POST['Insurance'] != '') {
 				</td>
 			</tr>';
 }
-
+echo '<tr>
+		<td colspan="2" class="centre">
+			<button type="submit" value="Submit" name="insert" id="submit">Register patient</button>
+			<button type="reset" value="Reset" onclick="CancelRegistration()">Cancel</button>
+		</td>
+	</tr>';
 echo '</table>
 			</td>';
 
@@ -333,9 +402,7 @@ echo '</table>
 			</td>
 		</tr>';
 echo '</table>';
-echo '<div class="centre">
-		<input type="submit" name="Enter" value="' . ('Enter Information') . '" />
-	</div>';
+
 echo '</form>';
 
 include('includes/footer.inc');

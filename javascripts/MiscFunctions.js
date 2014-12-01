@@ -485,12 +485,20 @@ function Redirect(e) {
 }
 
 function FillForm(e) {
+	document.getElementById('submit').innerHTML="Update Patient Details";
+	document.getElementById('submit').name="update";
+	document.getElementById('PID').innerHTML=e.value;
+	document.getElementById('FileNumber').value=e.value;
 	document.getElementById('Telephone').value=document.getElementById('Tel'+e.value).innerHTML;
 	document.getElementById('DateOfBirth').value=document.getElementById('Dob'+e.value).innerHTML;
 	document.getElementById('Gender').value=document.getElementById('Sex'+e.value).innerHTML.charAt(0).toLowerCase();
 	document.getElementById('FirstName').value=document.getElementById('fst'+e.value).value;
 	document.getElementById('LastName').value=document.getElementById('lst'+e.value).value;
 	document.getElementById('OtherName').value=document.getElementById('mid'+e.value).value;
+}
+function CancelRegistration() {
+	document.getElementById('submit').innerHTML="Register Patient";
+	document.getElementById('SearchResults').innerHTML="";
 }
 
 function initial() {
