@@ -292,6 +292,7 @@ if (isset($_GET['ReceivePO']) and $_GET['ReceivePO'] != '') {
 														transno,
 														loccode,
 														trandate,
+														userid,
 														price,
 														prd,
 														reference,
@@ -304,6 +305,7 @@ if (isset($_GET['ReceivePO']) and $_GET['ReceivePO'] != '') {
 												'" . $GRN . "',
 												'" . $_SESSION['PO' . $Identifier]->Location . "',
 												'" . FormatDateForSQL($DeliveryDate) . "',
+												'" . $_SESSION['UserID'] . "',
 												'" . $LocalCurrencyPrice . "',
 												'" . $PeriodNo . "',
 												'" . $_SESSION['PO' . $Identifier]->SupplierID . " (" . DB_escape_string($_SESSION['PO' . $Identifier]->SupplierName) . ") - " . $_SESSION['PO' . $Identifier]->OrderNo . "',
@@ -618,7 +620,7 @@ if (!isset($_POST['PostInvoice'])) {
 	echo '<td>' . _('Invoice Date') . ' (' . _('in format') . ' ' . $_SESSION['DefaultDateFormat'] . ') :</td>
 		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" minlength="1" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
 		<td>' . _('Exchange Rate') . ':</td>
-		<td><input type="text" class="number" size="11" required="required" minlength="1" maxlength="10" name="ExRate" value="' . locale_number_format($_SESSION['SuppTrans']->ExRate, 'Variable') . '" /></td>
+		<td><input type="text" class="number" size="14" required="required" minlength="1" maxlength="12" name="ExRate" value="' . locale_number_format($_SESSION['SuppTrans']->ExRate, 'Variable') . '" /></td>
 	</tr>
 	</table>';
 

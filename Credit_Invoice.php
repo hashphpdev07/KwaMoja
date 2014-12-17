@@ -284,12 +284,13 @@ if (!isset($_POST['ProcessCredit'])) {
 			<th>' . _('Units') . '</th>
 			<th>' . _('Credit') . '<br />' . _('Quantity') . '</th>
 			<th>' . _('Price') . '</th>
-			<th>' . _('Discount') . ' %' . '</th>
+			<th>' . _('Discount Rate') . '</th>
 			<th>' . _('Total') . '<br />' . _('Excl Tax') . '</th>
 			<th>' . _('Tax Authority') . '</th>
-			<th>' . _('Tax') . ' %' . '</th>
-			<th>' . _('Tax') . '<br />' . _('Amount') . '</th>
+			<th>' . _('Tax Rate') . '</th>
+			<th>' . _('Tax Amount') . '</th>
 			<th>' . _('Total') . '<br />' . _('Incl Tax') . '</th>
+			<th>&nbsp;</th>
 		</tr>';
 
 }
@@ -314,15 +315,15 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 
 	if (!isset($_POST['ProcessCredit'])) {
 		if ($k == 1) {
-			$RowStarter = 'class="EvenTableRows"';
+			echo '<tr class="EvenTableRows">';
 			$k = 0;
 		} else {
-			$RowStarter = 'class="OddTableRows"';
+			echo '<tr class="OddTableRows">';
 			$k = 1;
 		}
 		++$j;
 
-		echo '<tr ' . $RowStarter . '><td>' . $LnItm->StockID . '</td>
+		echo '<td>' . $LnItm->StockID . '</td>
 			<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
 			<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
 			<td>' . $LnItm->Units . '</td>';
@@ -341,7 +342,7 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 
 		++$j;
 		echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Price_' . $LnItm->LineNumber . '" required="required" minlength="1" maxlength="12" size="6" value="' . locale_number_format($LnItm->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
-		<td><input tabindex="' . $j . '" type="text" class="number" name="Discount_' . $LnItm->LineNumber . '" required="required" minlength="1" maxlength="3" size="3" value="' . locale_number_format(($LnItm->DiscountPercent * 100), 2) . '" /></td>
+		<td><input tabindex="' . $j . '" type="text" class="number" name="Discount_' . $LnItm->LineNumber . '" required="required" minlength="1" maxlength="3" size="3" value="' . locale_number_format(($LnItm->DiscountPercent * 100), 2) . '" />%</td>
 		<td class="number">' . $DisplayLineTotal . '</td>';
 
 		/*Need to list the taxes applicable to this line */
@@ -368,7 +369,7 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 				echo '<br />';
 			}
 			if (!isset($_POST['ProcessCredit'])) {
-				echo '<input type="text" class="number" name="' . $LnItm->LineNumber . $Tax->TaxCalculationOrder . '_TaxRate" maxlength="4" size="4" value="' . locale_number_format($Tax->TaxRate * 100, 2) . '" />';
+				echo '<input type="text" class="number" name="' . $LnItm->LineNumber . $Tax->TaxCalculationOrder . '_TaxRate" maxlength="4" size="4" value="' . locale_number_format($Tax->TaxRate * 100, 2) . '" />%';
 			}
 			++$i;
 			if ($Tax->TaxOnTax == 1) {
@@ -779,6 +780,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 															transno,
 															loccode,
 															trandate,
+															userid,
 															debtorno,
 															branchcode,
 															prd,
@@ -792,6 +794,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 														'" . $CreditNo . "',
 														'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 														'" . $DefaultDispatchDate . "',
+														'" . $_SESSION['UserID'] . "',
 														'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 														'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 														'" . $PeriodNo . "',
@@ -808,6 +811,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 															transno,
 															loccode,
 															trandate,
+															userid,
 															debtorno,
 															branchcode,
 															prd,
@@ -820,6 +824,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 														'" . $CreditNo . "',
 														'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 														'" . $DefaultDispatchDate . "',
+														'" . $_SESSION['UserID'] . "',
 														'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 														'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 														'" . $PeriodNo . "',
@@ -858,6 +863,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 													transno,
 													loccode,
 													trandate,
+													userid,
 													debtorno,
 													branchcode,
 													price,
@@ -873,6 +879,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 													'" . $CreditNo . "',
 													'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 													'" . $DefaultDispatchDate . "',
+													'" . $_SESSION['UserID'] . "',
 													'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 													'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 													'" . $LocalCurrencyPrice . "',
@@ -890,6 +897,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 													transno,
 													loccode,
 													trandate,
+													userid,
 													debtorno,
 													branchcode,
 													price,
@@ -904,6 +912,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 													'" . $CreditNo . "',
 													'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 													'" . $DefaultDispatchDate . "',
+													'" . $_SESSION['UserID'] . "',
 													'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 													'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 													'" . $LocalCurrencyPrice . "',
@@ -991,6 +1000,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 												transno,
 												loccode,
 												trandate,
+												userid,
 												debtorno,
 												branchcode,
 												price,
@@ -1006,6 +1016,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 											'" . $CreditNo . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 											'" . $DefaultDispatchDate . "',
+											'" . $_SESSION['UserID'] . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 											'" . $LocalCurrencyPrice . "',
@@ -1026,6 +1037,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 												transno,
 												loccode,
 												trandate,
+												userid,
 												debtorno,
 												branchcode,
 												price,
@@ -1043,6 +1055,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 											'" . $CreditNo . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 											'" . $DefaultDispatchDate . "',
+											'" . $_SESSION['UserID'] . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 											'" . $LocalCurrencyPrice . "',
@@ -1066,6 +1079,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 												transno,
 												loccode,
 												trandate,
+												userid,
 												debtorno,
 												branchcode,
 												price,
@@ -1082,6 +1096,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 											'" . $CreditNo . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->Location . "',
 											'" . $DefaultDispatchDate . "',
+											'" . $_SESSION['UserID'] . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->DebtorNo . "',
 											'" . $_SESSION['CreditItems' . $Identifier]->Branch . "',
 											'" . $LocalCurrencyPrice . "',
