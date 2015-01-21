@@ -6,12 +6,14 @@
  */
 
 include('includes/session.inc');
-$Title = _('UTILITY PAGE Change A Stock Code');// _('Change An Inventory Item Code')
-$ViewTopic = 'SpecialUtilities';
-$BookMark = 'Z_ChangeStockCode';// Anchor's id in the manual's html document.
+$Title = _('UTILITY PAGE Change A Stock Code');// Screen identificator.
+$ViewTopic = 'SpecialUtilities'; // Filename in ManualContents.php's TOC.
+$BookMark = 'Z_ChangeStockCode'; // Anchor's id in the manual's html document.
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Change An Inventory Item Code') . '" />' . ' ' . _('Change An Inventory Item Code') . '</p>';
+echo '<p class="page_title_text">
+		<img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Change An Inventory Item Code') . '" />' . ' ' . _('Change An Inventory Item Code') . '
+	</p>';
 
 include('includes/SQL_CommonFunctions.inc');
 
@@ -187,6 +189,8 @@ if (isset($_POST['ProcessStockChange'])) {
 		ChangeFieldInTable("stockserialmoves", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("offers", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("tenderitems", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
+		ChangeFieldInTable("prodspecs", "keyval", $_POST['OldStockID'], $_POST['NewStockID']);
+		ChangeFieldInTable("qasamples", "prodspeckey", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("stockdescriptiontranslations", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);// Updates the translated item titles (StockTitles)
 		ChangeFieldInTable("custitem", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("pricematrix", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
