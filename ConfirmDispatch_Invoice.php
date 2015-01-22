@@ -178,7 +178,7 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 							FROM salesorderdetails
 							INNER JOIN stockmaster
 							 	ON salesorderdetails.stkcode = stockmaster.stockid
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON stockcosts.stockid=stockmaster.stockid
 								AND succeeded=0
 							WHERE salesorderdetails.orderno ='" . $_GET['OrderNumber'] . "'
@@ -1063,7 +1063,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 								bom.quantity,
 								stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS standard
 							FROM bom
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON bom.component=stockcosts.stockid
 								AND stockcosts.succeeeded=0
 							WHERE bom.parent='" . $OrderLine->StockID . "'
