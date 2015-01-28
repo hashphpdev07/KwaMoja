@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 //####_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT####
 function submit($RootPath, $Location) {
 
-	$WhereLocation = " AND workorders.loccode >= '" . $Location . "' ";
+	$WhereLocation = " AND workorders.loccode = '" . $Location . "' ";
 
 	$SQL = "SELECT woitems.wo,
 				woitems.stockid,
@@ -89,8 +89,8 @@ function submit($RootPath, $Location) {
 						AND bom.component = locstock.stockid
 						AND locstock.loccode = '" . $Location . "'
 						AND bom.parent = '" . $myItem['stockid'] . "'
-						AND bom.effectiveafter < '" . Date('Y-m-d') . "'
-						AND (bom.effectiveto > '" . Date('Y-m-d') . "'
+						AND bom.effectiveafter <= CURRENT_DATE
+						AND (bom.effectiveto > CURRENT_DATE
 						 OR bom.effectiveto='0000-00-00')";
 
 			$ErrMsg = _('The bill of material could not be retrieved because');
