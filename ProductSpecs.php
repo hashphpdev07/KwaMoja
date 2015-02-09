@@ -3,7 +3,8 @@
 include('includes/session.inc');
 $Title = _('Product Specifications Maintenance');
 $ViewTopic = 'QualityAssurance'; // Filename in ManualContents.php's TOC.
-$BookMark = 'QA'; // Anchor's id in the manual's html document.
+$BookMark = 'QA_ProdSpecs';// Anchor's id in the manual's html document.
+
 include('includes/header.inc');
 
 if (isset($_GET['SelectedQATest'])) {
@@ -256,7 +257,6 @@ if (isset($_POST['AddTests'])) {
 								showontestplan,
 								active
 						FROM qatests WHERE testid='" . $_POST['AddTestID' . $i] . "'";
-			echo $SQL;
 			$Msg = _('A Product Specification record has been added for Test ID') . ' ' . $_POST['AddTestID' . $i] . ' for ' . ' ' . $KeyValue;
 			$ErrMsg = _('The insert of the Product Specification failed because');
 			$DbgMsg = _('The SQL that was used and failed was');
