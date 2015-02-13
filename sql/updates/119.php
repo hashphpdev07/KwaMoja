@@ -58,6 +58,16 @@ CreateTable('care_address5',
   CONSTRAINT `careaddr5_ibfk_1` FOREIGN KEY (`address4`) REFERENCES `care_address4` (`address_code`)
 )");
 
+CreateTable('care_tribes',
+"CREATE TABLE `care_tribes` (
+  `tribe_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `tribe_code` varchar(10) NOT NULL DEFAULT '',
+  `tribe_name` varchar(20) NOT NULL DEFAULT '',
+  `is_additional` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`tribe_id`),
+  KEY `tribe_id` (`tribe_id`)
+)");
+
 executeSQL("TRUNCATE care_address1");
 executeSQL("INSERT INTO care_address1 SELECT 'UG', id, district_name, '" . _('District') . "' FROM care_ug_districts");
 

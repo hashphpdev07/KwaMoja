@@ -73,7 +73,37 @@ if ($TotalRows == 0) {
 					sex,
 					date_birth
 				FROM care_person
-				WHERE CONCAT(name_first,' ',name_last) SOUNDS LIKE '" . $_POST['FirstName'] . ' ' . $_POST['LastName'] . "'";
+				WHERE name_first SOUNDS LIKE '" . $_POST['FirstName'] . "'
+				LIMIT 15";
+	$Result = DB_query($SQL);
+	while ($MyRow = DB_fetch_array($Result)) {
+		$SearchAnswers[$i]['PID'] = $MyRow['pid'];
+		$SearchAnswers[$i]['FirstName'] = $MyRow['name_first'];
+		$SearchAnswers[$i]['MiddleName'] = $MyRow['name_middle'];
+		$SearchAnswers[$i]['LastName'] = $MyRow['name_last'];
+		$SearchAnswers[$i]['Telephone'] = $MyRow['phone_1_nr'];
+		if ($MyRow['sex'] == 'm' ) {
+			$SearchAnswers[$i]['Gender'] = _('Male');
+		} else {
+			$SearchAnswers[$i]['Gender'] = _('Female');
+		}
+		$SearchAnswers[$i]['DOB'] = $MyRow['date_birth'];
+		++$i;
+	}
+}
+
+/* If no exact match then check for a nearest sounding match */
+if ($TotalRows == 0) {
+	$SQL = "SELECT pid,
+					name_first,
+					name_middle,
+					name_last,
+					phone_1_nr,
+					sex,
+					date_birth
+				FROM care_person
+				WHERE name_last SOUNDS LIKE '" . $_POST['LastName'] . "'
+				LIMIT 15";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
 		$SearchAnswers[$i]['PID'] = $MyRow['pid'];

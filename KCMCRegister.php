@@ -276,7 +276,7 @@ if (isset($_POST['DateOfBirth'])) {
 	echo '<td><input type="text" onkeyup="SearchPatients(RegisterForm)" placeholder="' . $_SESSION['DefaultDateFormat'] . '" name="DateOfBirth" id="DateOfBirth" maxlength="10" size="10" value="" /></td></tr>';
 }
 
-$Result = DB_query("SELECT tribe_id, tribe_name FROM care_tz_tribes");
+$Result = DB_query("SELECT tribe_id, tribe_name FROM care_tribes");
 echo '<tr>
 		<td>' . _('Tribe') . ':</td>
 		<td><select tabindex=9 name="EthnicOrigin">';
