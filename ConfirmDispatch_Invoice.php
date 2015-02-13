@@ -178,7 +178,7 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 							FROM salesorderdetails
 							INNER JOIN stockmaster
 							 	ON salesorderdetails.stkcode = stockmaster.stockid
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON stockcosts.stockid=stockmaster.stockid
 								AND succeeded=0
 							WHERE salesorderdetails.orderno ='" . $_GET['OrderNumber'] . "'
@@ -655,8 +655,8 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 						ON stockmaster.stockid=bom.component
 						WHERE bom.parent='" . $OrderLine->StockID . "'
 						AND locstock.loccode='" . $_SESSION['Items' . $Identifier]->Location . "'
-						AND effectiveafter <CURRENT_DATE
-						AND effectiveto >=CURRENT_DATE";
+						AND effectiveafter <= CURRENT_DATE
+						AND effectiveto > CURRENT_DATE";
 
 				$ErrMsg = _('Could not retrieve the component quantity left at the location once the assembly item on this order is invoiced (for the purposes of checking that stock will not go negative because)');
 				$Result = DB_query($SQL, $ErrMsg);
@@ -1063,12 +1063,12 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 								bom.quantity,
 								stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS standard
 							FROM bom
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON bom.component=stockcosts.stockid
 								AND stockcosts.succeeeded=0
 							WHERE bom.parent='" . $OrderLine->StockID . "'
-								AND bom.effectiveto >= CURRENT_DATE
-								AND bom.effectiveafter < CURRENT_DATE";
+								AND bom.effectiveto > CURRENT_DATE
+								AND bom.effectiveafter <= CURRENT_DATE";
 
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('Could not retrieve assembly components from the database for') . ' ' . $OrderLine->StockID . _('because') . ' ';
 				$DbgMsg = _('The SQL that failed was');

@@ -161,17 +161,15 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 					</div>
 				</td>
 			</tr>
-			</table>
-			<br />
-			<br />';
+			</table>';
 
 		if (isset($StockItemsResult)) {
 			echo '<table class="selection">';
 			$TableHeader = '<tr>
-								<th class="ascending">' . _('Code') . '</th>
-								<th class="ascending">' . _('Description') . '</th>
-								<th class="ascending">' . _('On Hand') . '</th>
-								<th class="ascending">' . _('Units') . '</th>
+								<th class="SortableColumn">' . _('Code') . '</th>
+								<th class="SortableColumn">' . _('Description') . '</th>
+								<th class="SortableColumn">' . _('On Hand') . '</th>
+								<th class="SortableColumn">' . _('Units') . '</th>
 							</tr>';
 			echo $TableHeader;
 			$j = 1;
@@ -269,16 +267,16 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 
 				echo '<table cellpadding="2" width="90%" class="selection">';
 				$TableHeader = '<tr>
-									<th class="ascending">' . _('Copy Results') . '</th>
-									<th class="ascending">' . _('Enter Results') . '</th>
-									<th class="ascending">' . _('Specification') . '</th>
-									<th class="ascending">' . _('Description') . '</th>
-									<th class="ascending">' . _('Lot / Serial') . '</th>
-									<th class="ascending">' . _('Identifier') . '</th>
-									<th class="ascending">' . _('Created By') . '</th>
-									<th class="ascending">' . _('Sample Date') . '</th>
-									<th class="ascending">' . _('Comments') . '</th>
-									<th class="ascending">' . _('Cert Allowed') . '</th>
+									<th class="SortableColumn">' . _('Copy Results') . '</th>
+									<th class="SortableColumn">' . _('Enter Results') . '</th>
+									<th class="SortableColumn">' . _('Specification') . '</th>
+									<th class="SortableColumn">' . _('Description') . '</th>
+									<th class="SortableColumn">' . _('Lot / Serial') . '</th>
+									<th class="SortableColumn">' . _('Identifier') . '</th>
+									<th class="SortableColumn">' . _('Created By') . '</th>
+									<th class="SortableColumn">' . _('Sample Date') . '</th>
+									<th class="SortableColumn">' . _('Comments') . '</th>
+									<th class="SortableColumn">' . _('Cert Allowed') . '</th>
 								</tr>';
 				echo $TableHeader;
 				$j = 1;
@@ -367,12 +365,24 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			$MyRow2 = DB_fetch_array($Result2);
 			$IsInSpec = 1;
 			$CompareVal = 'yes';
+			$CompareRange = 'no';
 			if ($MyRow['targetvalue'] == '') {
 				$CompareVal = 'no';
 			}
 			if ($MyRow['type'] == 4) {
-				$RangeDisplay = $MyRow['rangemin'] . '-' . $MyRow['rangemax'] . ' ' . $MyRow['units'];
-				$CompareRange = 'yes';
+				//$RangeDisplay=$MyRow['rangemin'] . '-'  . $MyRow['rangemax'] . ' ' . $MyRow['units'];
+				$RangeDisplay = '';
+				if ($MyRow['rangemin'] > '' or $MyRow['rangemax'] > '') {
+					if ($MyRow['rangemin'] > '' and $MyRow['rangemax'] == '') {
+						$RangeDisplay = '> ' . $MyRow['rangemin'] . ' ' . $MyRow['units'];
+					} elseif ($MyRow['rangemin'] == '' and $MyRow['rangemax'] > '') {
+						$RangeDisplay = '< ' . $MyRow['rangemax'] . ' ' . $MyRow['units'];
+					} else {
+						$RangeDisplay = $MyRow['rangemin'] . ' - ' . $MyRow['rangemax'] . ' ' . $MyRow['units'];
+					}
+					$CompareRange = 'yes';
+				}
+
 			} else {
 				$RangeDisplay = '&nbsp;';
 				$CompareRange = 'no';
@@ -382,8 +392,18 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			}
 			if ($CompareVal == 'yes') {
 				if ($CompareRange == 'yes') {
-					if (($MyRow['testvalue'] <> $MyRow2['targetvalue']) and ($MyRow['testvalue'] < $MyRow2['rangemin'] or $MyRow['testvalue'] > $MyRow2['rangemax'])) {
-						$IsInSpec = 0;
+					if ($MyRow2['rangemin'] > '' and $MyRow2['rangemax'] > '') {
+						if (($MyRow['testvalue'] <> $MyRow2['targetvalue']) and ($MyRow['testvalue'] < $MyRow2['rangemin'] or $MyRow['testvalue'] > $MyRow2['rangemax'])) {
+							$IsInSpec = 0;
+						}
+					} elseif ($MyRow2['rangemin'] > '' and $MyRow2['rangemax'] == '') {
+						if (($MyRow['testvalue'] <> $MyRow2['targetvalue']) and ($MyRow['testvalue'] <= $MyRow2['rangemin'])) {
+							$IsInSpec = 0;
+						}
+					} elseif ($MyRow2['rangemin'] == '' and $MyRow2['rangemax'] > '') {
+						if (($MyRow['testvalue'] <> $MyRow2['targetvalue']) and ($MyRow['testvalue'] >= $MyRow2['rangemax'])) {
+							$IsInSpec = 0;
+						}
 					}
 				} else {
 					if (($MyRow['testvalue'] <> $MyRow2['targetvalue'])) {
@@ -440,7 +460,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 								'" . $ManuallyAdded . "',
 								'" . $MyRow['testedby'] . "',
 								'" . $MyRow['testdate'] . "',
-								'" . $MyRow['isinspec'] . "'
+								'" . $IsInSpec . "'
 								)";
 				$Msg = _('Test Results have been copied to') . ' ' . $_POST['CopyToSampleID'] . _(' from ') . ' ' . $SelectedSampleID . _(' for ') . $MyRow['testid'];
 				$ErrMsg = _('The insert of the test results failed because');
@@ -520,7 +540,7 @@ if (isset($_GET['ListTests'])) {
 				$Class = "date";
 				break;
 			case 4; //range
-				$TypeDisp = 'Numeric Range';
+				$TypeDisp = 'Range';
 				$RangeMin = '<input  class="' . $Class . '" type="text" name="AddRangeMin' . $i . '" />';
 				$RangeMax = '<input  class="' . $Class . '" type="text" name="AddRangeMax' . $i . '" />';
 				//$Class="number";
@@ -550,6 +570,16 @@ if (isset($_GET['ListTests'])) {
 if (isset($_POST['AddTests'])) {
 	for ($i = 0; $i <= $_POST['AddTestsCounter']; $i++) {
 		if ($_POST['AddRow' . $i] == 'on') {
+			if ($_POST['AddRangeMin' . $i] == '') {
+				$AddRangeMin = "NULL";
+			} else {
+				$AddRangeMin = "'" . $_POST['AddRangeMin' . $i] . "'";
+			}
+			if ($_POST['AddRangeMax' . $i] == '') {
+				$AddRangeMax = "NULL";
+			} else {
+				$AddRangeMax = "'" . $_POST['AddRangeMax' . $i] . "'";
+			}
 			$SQL = "INSERT INTO sampleresults
 							(sampleid,
 							testid,
@@ -564,8 +594,8 @@ if (isset($_POST['AddTests'])) {
 								testid,
 								defaultvalue,
 								'" . $_POST['AddTargetValue' . $i] . "',
-								'" . $_POST['AddRangeMin' . $i] . "',
-								'" . $_POST['AddRangeMax' . $i] . "',
+								"  . $AddRangeMin . ",
+								"  . $AddRangeMax . ",
 								showoncert,
 								'1',
 								'1'
@@ -588,8 +618,18 @@ if (isset($_POST['submit'])) {
 		$IsInSpec = 1;
 		if ($_POST['CompareVal' . $i] == 'yes') {
 			if ($_POST['CompareRange' . $i] == 'yes') {
-				if (($_POST['TestValue' . $i] <> $_POST['ExpectedValue' . $i]) and ($_POST['TestValue' . $i] < $_POST['MinVal' . $i] or $_POST['TestValue' . $i] > $_POST['MaxVal' . $i])) {
-					$IsInSpec = 0;
+				if ($_POST['MinVal' . $i] > '' and $_POST['MaxVal' .$i] > '') {
+					if (($_POST['TestValue' . $i] <> $_POST['ExpectedValue' . $i]) and ($_POST['TestValue' . $i] < $_POST['MinVal' . $i] or $_POST['TestValue' .$i] > $_POST['MaxVal' . $i])) {
+						$IsInSpec = 0;
+					}
+				} elseif ($_POST['MinVal' . $i] > '' and $_POST['MaxVal' . $i] == '') {
+					if (($_POST['TestValue' . $i] <> $_POST['ExpectedValue' . $i]) and ($_POST['TestValue' . $i] <= $_POST['MinVal' . $i])) {
+						$IsInSpec = 0;
+					}
+				} elseif ($_POST['MinVal' . $i] == '' and $_POST['MaxVal' . $i] > '') {
+					if (($_POST['TestValue' . $i] <> $_POST['ExpectedValue' . $i]) and ($_POST['TestValue' . $i] >= $_POST['MaxVal' . $i])) {
+						$IsInSpec = 0;
+					}
 				}
 			} else {
 				if (($_POST['TestValue' . $i] <> $_POST['ExpectedValue' . $i])) {
@@ -769,12 +809,23 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 	++$i;
 	$CompareVal = 'yes';
+	$CompareRange = 'no';
 	if ($MyRow['targetvalue'] == '') {
 		$CompareVal = 'no';
 	}
 	if ($MyRow['type'] == 4) {
-		$RangeDisplay = $MyRow['rangemin'] . '-' . $MyRow['rangemax'] . ' ' . $MyRow['units'];
-		$CompareRange = 'yes';
+		$RangeDisplay = '';
+		if ($MyRow['rangemin'] > '' or $MyRow['rangemax'] > '') {
+			if ($MyRow['rangemin'] > '' and $MyRow['rangemax'] == '') {
+				$RangeDisplay = '> ' . $MyRow['rangemin'] . ' ' . $MyRow['units'];
+			} elseif ($MyRow['rangemin'] == '' and $MyRow['rangemax'] > '') {
+				$RangeDisplay = '< ' . $MyRow['rangemax'] . ' ' . $MyRow['units'];
+			} else {
+				$RangeDisplay = $MyRow['rangemin'] . ' - ' . $MyRow['rangemax'] . ' ' . $MyRow['units'];
+			}
+			$CompareRange = 'yes';
+		}
+		$CompareVal='yes';
 	} else {
 		$RangeDisplay = '&nbsp;';
 		$CompareRange = 'no';
@@ -833,14 +884,14 @@ while ($MyRow = DB_fetch_array($Result)) {
 			$TestResult = '<input type="text" size="10" maxlength="20" class="' . $Class . '" name="TestValue' . $i . '" value="' . $MyRow['testvalue'] . '"' . $BGColor . '/>';
 			break;
 		case 4; //range
-			$TypeDisp = 'Numeric Range';
+			$TypeDisp = 'Range';
 			//$Class="number";
 			$TestResult = '<input type="text" size="10" maxlength="20" class="' . $Class . '" name="TestValue' . $i . '" value="' . $MyRow['testvalue'] . '"' . $BGColor . '/>';
 			break;
 	} //end switch
 	if ($MyRow['manuallyadded'] == 1) {
 		$Delete = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;SelectedSampleID=' . $MyRow['sampleid'] . '&amp;ResultID=' . $MyRow['resultid'] . '" onclick="return confirm(\'' . _('Are you sure you wish to delete this Test from this Sample ?') . '\');">' . _('Delete') . '</a>';
-		echo $MyRow['showoncert'];
+		//echo $MyRow['showoncert'];
 		$ShowOnCert = '<select name="ShowOnCert' . $i . '">';
 		if ($MyRow['showoncert'] == 1) {
 			$ShowOnCert .= '<option value="1" selected="selected">' . _('Yes') . '</option>';
@@ -853,6 +904,9 @@ while ($MyRow = DB_fetch_array($Result)) {
 	} else {
 		$Delete = '';
 		$ShowOnCert = '<input type="hidden" name="ShowOnCert' . $i . '" value="' . $MyRow['showoncert'] . '" />' . $ShowOnCertText;
+	}
+	if ($MyRow['testedby'] == '') {
+		$MyRow['testedby'] = $_SESSION['UserID'];
 	}
 	echo '<td><input type="hidden" name="ResultID' . $i . '" value="' . $MyRow['resultid'] . '" /> ' . $MyRow['name'] . '
 			<input type="hidden" name="ExpectedValue' . $i . '" value="' . $MyRow['targetvalue'] . '" />

@@ -435,7 +435,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 								stockmaster.discountcategory,
 								stockmaster.taxcatid
 							FROM stockmaster
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON stockcosts.stockid=stockmaster.stockid
 								AND stockcosts.succeeded=0
 							WHERE  stockmaster.stockid = '" . $_POST['NewItem'] . "'";
@@ -574,7 +574,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 								(stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost) AS standardcost,
 								stockmaster.taxcatid
 							FROM stockmaster
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON stockcosts.stockid=stockmaster.stockid
 								AND stockcosts.succeeded=0
 							WHERE stockmaster.stockid = '" . $_POST['NewItem'] . "'";
@@ -1374,12 +1374,12 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 									bom.quantity,
 									stockcosts.materialcost+stockcosts.labourcoststockcosts.overheadcost AS standard
 							FROM bom
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON stockcosts.stockid=bom.component
 								AND stockcosts.succeeded=0
 							WHERE bom.parent='" . $CreditLine->StockID . "'
 								AND bom.effectiveto > CURRENT_DATE
-								AND bom.effectiveafter < CURRENT_DATE";
+								AND bom.effectiveafter <= CURRENT_DATE";
 
 					$ErrMsg = _('Could not retrieve assembly components from the database for') . ' ' . $CreditLine->StockID . ' ' . _('because');
 					$DbgMsg = _('The SQL that failed was');

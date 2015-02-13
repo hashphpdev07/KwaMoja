@@ -3,6 +3,8 @@
 
 include('includes/session.inc');
 $Title = _('Select QA Samples');
+$ViewTopic = 'QualityAssurance';// Filename in ManualContents.php's TOC.
+$BookMark = 'QA_Samples';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 include('includes/SQL_CommonFunctions.inc');
 
@@ -79,6 +81,7 @@ if (isset($_POST['submit'])) {
 			prnMsg($Msg, 'warning');
 		}
 		$SQL = "UPDATE qasamples SET identifier='" . $_POST['Identifier'] . "',
+									sampledate='" . FormatDateForSQL($_POST['SampleDate']) . "',
 									comments='" . $_POST['Comments'] . "',
 									cert='" . $_POST['Cert'] . "'
 				WHERE sampleid = '" . $SelectedSampleID . "'";
@@ -235,7 +238,14 @@ if (!isset($SelectedSampleID)) {
 		$StockItemsResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 	}
 
-	if (true or !isset($LotNumber) or $LotNumber == "") { //revisit later, right now always show all inputs
+	if (true or !isset($LotNumber) or $LotNumber == '') { //revisit later, right now always show all inputs
+		echo '<table class="selection"><tr><td>';
+		if (!isset($LotNumber)) {
+			$LotNumber = '';
+		}
+		if (!isset($SampleID)) {
+			$SampleID = '';
+		}
 		echo '<table class="selection">
 				<tr>
 					<td>';
@@ -466,7 +476,8 @@ if (!isset($_GET['delete'])) {
 						lotkey,
 						identifier,
 						comments,
-						cert
+						cert,
+						sampledate
 				FROM qasamples
 				WHERE sampleid='" . $SelectedSampleID . "'";
 
@@ -477,6 +488,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['LotKey'] = $MyRow['lotkey'];
 		$_POST['Identifier'] = $MyRow['identifier'];
 		$_POST['Comments'] = $MyRow['comments'];
+		$_POST['SampleDate'] = ConvertSQLDate($MyRow['sampledate']);
 		$_POST['Cert'] = $MyRow['cert'];
 
 		echo '<input type="hidden" name="SelectedSampleID" value="' . $SelectedSampleID . '" />';
@@ -502,7 +514,10 @@ if (!isset($_GET['delete'])) {
 				<td>' . _('Comments') . ':</td>
 				<td><input type="text" name="Comments" size="30" maxlength="255" value="' . $_POST['Comments'] . '" /></td>
 			</tr>';
-
+		echo '<tr>
+				<td>' . _('Sample Date') . ':</td>
+				<td><input class="date" type="text" name="SampleDate" size="10" maxlength="10" value="' . $_POST['SampleDate']. '" /></td>
+			</tr>';
 		echo '<tr>
 				<td>' . _('Use for Cert?') . ':</td>
 				<td><select name="Cert">';

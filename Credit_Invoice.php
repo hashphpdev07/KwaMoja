@@ -137,7 +137,7 @@ if (!isset($_GET['InvoiceNumber']) and !$_SESSION['ProcessingCredit']) {
 							FROM stockmoves
 							INNER JOIN stockmaster
 								ON stockmoves.stockid = stockmaster.stockid
-							INNER JOIN stockcosts
+							LEFT JOIN stockcosts
 								ON stockcosts.stockid=stockmaster.stockid
 								AND stockcosts.succeeded=0
 							WHERE stockmoves.transno ='" . $_GET['InvoiceNumber'] . "'
@@ -478,8 +478,7 @@ if (isset($_POST['CreditType']) and ($_POST['CreditType'] == 'WriteOff' or $_POS
 	foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $CreditLine) {
 		$SQL = "SELECT count(orderno) FROM salesorderdetails WHERE orderno = '" . $_SESSION['CreditItems' . $Identifier]->OrderNo . "'
 									AND stkcode = '" . $CreditLine->StockID . "'
-									AND quantity >=" . $CreditLine->QtyDispatched . "
-									AND qtyinvoiced >=" . $CreditLine->QtyDispatched;
+									AND qtyinvoiced >='" . $CreditLine->QtyDispatched . "'";
 		$ErrMsg = _('Failed to retrieve salesoderdetails to compare if the order has been invoiced and that it is possible that the credit note may not already have been done');
 		$DuplicateCreditResult = DB_query($SQL, $ErrMsg);
 		$MyRow1 = DB_fetch_row($DuplicateCreditResult);
@@ -732,12 +731,12 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 									bom.quantity,
 									stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost AS standard
 								FROM bom
-								INNER JOIN stockcosts
+								LEFT JOIN stockcosts
 									ON stockcosts.stockid=bom.component
 									AND stockcosts.succeeded=0
 								WHERE bom.parent='" . $CreditLine->StockID . "'
 									AND bom.effectiveto > CURRENT_DATE
-									AND bom.effectiveafter < CURRENT_DATE";
+									AND bom.effectiveafter <= CURRENT_DATE";
 
 					$ErrMsg = _('Could not retrieve assembly components from the database for') . ' ' . $CreditLine->StockID . ' ' . _('because');
 					$DbgMsg = _('The SQL that failed was');

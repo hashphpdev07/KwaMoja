@@ -219,8 +219,8 @@ function BomMaterialCost($Parent) {
 				ON bom.component = stockcosts.stockid
 				AND stockcosts.succeeded=0
 			WHERE bom.parent='" . $Parent . "'
-				AND bom.effectiveafter<=CURRENT_DATE
-				AND bom.effectiveto>=CURRENT_DATE";
+				AND bom.effectiveafter <= CURRENT_DATE
+				AND bom.effectiveto > CURRENT_DATE";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	$MaterialCost = $MyRow[0];
@@ -279,13 +279,13 @@ function WoRealRequirements($WO, $LocCode, $StockId, $Qty = 1, $ParentID = '') {
 			FROM bom
 			INNER JOIN stockmaster
 				ON bom.component=stockmaster.stockid
-			INNER JOIN stockcosts
+			LEFT JOIN stockcosts
 				ON stockcosts.stockid=stockmaster.stockid
 				AND stockcosts.succeeded=0
 			WHERE bom.parent='" . $StockId . "'
 				AND bom.loccode ='" . $LocCode . "'
-				AND bom.effectiveafter<=CURRENT_DATE
-				AND bom.effectiveto>=CURRENT_DATE
+				AND bom.effectiveafter <= CURRENT_DATE
+				AND bom.effectiveto > CURRENT_DATE
 				AND stockmaster.mbflag<>'G'
 				AND bom.component NOT IN (
 					SELECT stockid
@@ -311,13 +311,13 @@ function WoRealRequirements($WO, $LocCode, $StockId, $Qty = 1, $ParentID = '') {
 						FROM bom
 						INNER JOIN stockmaster
 							ON bom.component=stockmaster.stockid
-						INNER JOIN stockcosts
+						LEFT JOIN stockcosts
 							ON stockcosts.stockid=stockmaster.stockid
 							AND stockcosts.succeeded=0
 						WHERE bom.parent='" . $StockId . "'
 							AND bom.loccode ='" . $LocCode . "'
-							AND bom.effectiveafter<=CURRENT_DATE
-							AND bom.effectiveto>=CURRENT_DATE
+							AND bom.effectiveafter <= CURRENT_DATE
+							AND bom.effectiveto > CURRENT_DATE
 							AND stockmaster.mbflag<>'G'
 							AND bom.component IN (
 								SELECT stockid
@@ -340,6 +340,8 @@ function WoRealRequirements($WO, $LocCode, $StockId, $Qty = 1, $ParentID = '') {
 			ON bom.component=stockmaster.stockid
 			WHERE parent='" . $StockId . "'
 			AND loccode ='" . $LocCode . "'
+			AND bom.effectiveafter <= CURRENT_DATE
+			AND bom.effectiveto > CURRENT_DATE
 			AND stockmaster.mbflag='G'";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -450,6 +452,66 @@ function GetQuantityOnOrderDueToWorkOrders($StockId, $Location = '') {
 		$QOO = $QOORow[0];
 	}
 	return $QOO;
+}
+
+/*Creates sample and testresults */
+function CreateQASample ($ProdSpecKey, $LotKey, $Identifier, $Comments, $Cert, $DuplicateOK) {
+	$Result = DB_query("SELECT COUNT(testid) FROM prodspecs
+							WHERE keyval='" . $ProdSpecKey . "'
+							AND active='1'");
+	$MyRow = DB_fetch_row($Result);
+	if ($MyRow[0] > 0) {
+		if ($DuplicateOK == 0) {
+			$Result = DB_query("SELECT COUNT(sampleid) FROM qasamples
+								WHERE prodspeckey='" . $ProdSpecKey . "'
+								AND lotkey='" . $LotKey ."'");
+			$MyRow2 = DB_fetch_row($Result);
+		} else {
+			$MyRow2[0] = 0;
+		}
+		if ($MyRow2[0] == 0 or $DuplicateOK == 1) {
+			$SQL = "INSERT INTO qasamples (prodspeckey,
+											lotkey,
+											identifier,
+											comments,
+											cert,
+											createdby,
+											sampledate)
+								VALUES('" . $ProdSpecKey . "',
+										'" . $LotKey  . "',
+										'" . $Identifier  . "',
+										'" . $Comments  . "',
+										'" . $Cert  . "',
+										'" . $_SESSION['UserID'] . "',
+										CURRENT_DATE)";
+			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The create of the qasamples record failed');
+			$DbgMsg = _('The following SQL to create the qasamples was used');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+			$SampleID=DB_Last_Insert_ID('qasamples', 'sampleid');
+			$SQL = "INSERT INTO sampleresults (sampleid,
+											testid,
+											defaultvalue,
+											targetvalue,
+											rangemin,
+											rangemax,
+											showoncert,
+											showontestplan)
+								SELECT '" . $SampleID . "',
+											testid,
+											defaultvalue,
+											targetvalue,
+											rangemin,
+											rangemax,
+											showoncert,
+											showontestplan
+											FROM prodspecs WHERE keyval='" .$ProdSpecKey. "'
+											AND prodspecs.active='1'";
+			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The create of the sampleresults record failed');
+			$DbgMsg = _('The following SQL to create the sampleresults was used');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+		} //$MyRow2[0]=0
+	} //$MyRow[0]>0
 }
 
 ?>

@@ -72,7 +72,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 						FROM stockmaster
 						INNER JOIN stockcategory
 							ON stockmaster.categoryid=stockcategory.categoryid
-						INNER JOIN stockcosts
+						LEFT JOIN stockcosts
 							ON stockmaster.stockid=stockcosts.stockid
 							AND stockcosts.succeeded=0
 						WHERE stockcosts.stockid='" . $StockId . "'");
@@ -163,12 +163,12 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 		if ($MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'A') {
 			$CostResult = DB_query("SELECT SUM(bom.quantity * (stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost)) AS cost
 									FROM bom
-									INNER JOIN stockcosts
+									LEFT JOIN stockcosts
 										ON bom.component=stockcosts.stockid
 										AND stockcosts.succeeded=0
 									WHERE bom.parent='" . $StockId . "'
 										AND bom.effectiveto > CURRENT_DATE
-										AND bom.effectiveafter < CURRENT_DATE");
+										AND bom.effectiveafter <= CURRENT_DATE");
 			$CostRow = DB_fetch_row($CostResult);
 			$Cost = $CostRow[0];
 		} else {
@@ -199,12 +199,12 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 		if ($MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'A') {
 			$CostResult = DB_query("SELECT SUM(bom.quantity * (stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost)) AS cost
 									FROM bom
-									INNER JOIN stockcosts
+									LEFT JOIN stockcosts
 										ON bom.component=stockcosts.stockid
 										AND stockcosts.succeeded=0
 									WHERE bom.parent='" . $StockId . "'
 										AND bom.effectiveto > CURRENT_DATE
-										AND bom.effectiveafter < CURRENT_DATE");
+										AND bom.effectiveafter <= CURRENT_DATE");
 			$CostRow = DB_fetch_row($CostResult);
 			$Cost = $CostRow[0];
 		} else {

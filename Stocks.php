@@ -259,11 +259,13 @@ if (isset($_POST['submit'])) {
 							serialised,
 							stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS itemcost,
 							stockcategory.stockact,
-							stockcategory.wipact
+							stockcategory.wipact,
+							description,
+							longdescription
 					FROM stockmaster
 					INNER JOIN stockcategory
 						ON stockmaster.categoryid=stockcategory.categoryid
-					INNER JOIN stockcosts
+					LEFT JOIN stockcosts
 						ON stockmaster.stockid=stockcosts.stockid
 							AND succeeded=0
 					WHERE stockmaster.stockid = '" . $StockId . "'";
@@ -275,6 +277,8 @@ if (isset($_POST['submit'])) {
 			$UnitCost = $MyRow[3];
 			$OldStockAccount = $MyRow[4];
 			$OldWIPAccount = $MyRow[5];
+			$OldDescription = $MyRow[6];
+			$OldLongDescription = $MyRow[7];
 
 
 			$SQL = "SELECT SUM(locstock.quantity)
@@ -432,9 +436,9 @@ if (isset($_POST['submit'])) {
 					foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 						if ($LanguageId != '') {
 							$Result = DB_query("DELETE FROM stockdescriptiontranslations WHERE stockid='" . $StockId . "' AND language_id='" . $LanguageId . "'", $ErrMsg, $DbgMsg, true);
-							$Result = DB_query("INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "')", $ErrMsg, $DbgMsg, true);
+							$Result = DB_query("INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "', '0')", $ErrMsg, $DbgMsg, true);
 							$Result = DB_query("DELETE FROM stocklongdescriptiontranslations WHERE stockid='" . $StockId . "' AND language_id='" . $LanguageId . "'", $ErrMsg, $DbgMsg, true);
-							$Result = DB_query("INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "')", $ErrMsg, $DbgMsg, true);
+							$Result = DB_query("INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "', '0')", $ErrMsg, $DbgMsg, true);
 						}
 					}
 					/*
@@ -448,6 +452,23 @@ if (isset($_POST['submit'])) {
 					}
 					*/
 
+				}
+
+				/* Activate the needs revision flag for translations for modified descriptions */
+				if ($OldDescription != $_POST['Description'] or $OldLongDescription != $_POST['LongDescription']) {
+					$SQL = "UPDATE stockdescriptiontranslations
+						SET needsrevision = '0'
+						WHERE stockid='" . $StockID . "'";
+					$ErrMsg = _('The stock description translations could not be updated because');
+					$DbgMsg = _('The SQL that was used to set the flag for translation revision failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					$SQL = "UPDATE stocklongdescriptiontranslations
+						SET needsrevision = '0'
+						WHERE stockid='" . $StockID . "'";
+					$ErrMsg = _('The stock description translations could not be updated because');
+					$DbgMsg = _('The SQL that was used to set the flag for translation revision failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				}
 
 				//delete any properties for the item no longer relevant with the change of category
@@ -638,7 +659,7 @@ if (isset($_POST['submit'])) {
 					$DbgMsg = _('The SQL that was used to update the language description and failed was');
 					if (count($ItemDescriptionLanguages) > 0) {
 						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-							if ($LanguageId != ''){
+							if ($LanguageId != '' and $_POST['Description_' . str_replace('.', '_', $LanguageId)] != '') {
 								$SQL = "INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "')";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 								$SQL = "INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "')";
@@ -868,7 +889,6 @@ if (isset($_POST['submit'])) {
 
 
 echo '<form onSubmit="return VerifyForm(this);" id="ItemForm" enctype="multipart/form-data" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<input type="hidden" name="New" value="' . $New . '" />
 	<table class="selection">';
@@ -1428,7 +1448,6 @@ if ($New == 1) {
 }
 
 echo '</div>
-	</div>
 	</form>';
 include('includes/footer.inc');
 ?>
