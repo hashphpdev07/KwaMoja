@@ -45,6 +45,7 @@ if ($Debug == 1) {
 }
 
 echo '<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
+echo '<script type="text/javascript" src = "', $RootPath, '/javascripts/AjaxFunctions.js"></script>';
 echo '<style media="screen">
 			.noPrint{ display: block; }
 			.yesPrint{ display: block !important; }
