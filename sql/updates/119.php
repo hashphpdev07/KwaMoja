@@ -60,6 +60,7 @@ CreateTable('care_address5',
 
 CreateTable('care_tribes',
 "CREATE TABLE `care_tribes` (
+  `country` CHAR(2) NOT NULL DEFAULT '',
   `tribe_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `tribe_code` varchar(10) NOT NULL DEFAULT '',
   `tribe_name` varchar(20) NOT NULL DEFAULT '',
