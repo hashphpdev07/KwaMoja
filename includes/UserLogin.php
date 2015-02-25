@@ -23,7 +23,7 @@ define('UL_MAINTENANCE', 5);
 function userLogin($Name, $Password, $SysAdminEmail = '') {
 
 	global $Debug;
-	setcookie('Login', $_SESSION['DatabaseName'], time()+3600*24*30);
+	setcookie('Login', $_SESSION['DatabaseName'], time() + 3600 * 24 * 30);
 	if (isset($_COOKIE['Module'])) {
 		$_GET['Application'] = $_COOKIE['Module'];
 	}
@@ -46,7 +46,6 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 				FROM www_users
 				WHERE www_users.userid='" . $Name . "'";
 		$ErrMsg = _('Could not retrieve user details on login because');
-		$Debug = 1;
 		$PasswordVerified = false;
 		$AuthResult = DB_query($SQL, $ErrMsg);
 
@@ -114,14 +113,26 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 			$_SESSION['CanCreateTender'] = $MyRow['cancreatetender'];
 			$_SESSION['AllowedDepartment'] = $MyRow['department'];
 			if (isset($MyRow['fontsize'])) {
-				$_SESSION['ScreenFontSize'] = $MyRow['fontsize'];
+				switch ($MyRow['fontsize']) {
+					case 0:
+						$_SESSION['ScreenFontSize'] = '8pt';
+						break;
+					case 1:
+						$_SESSION['ScreenFontSize'] = '10pt';
+						break;
+					case 2:
+						$_SESSION['ScreenFontSize'] = '12pt';
+						break;
+					default:
+						$_SESSION['ScreenFontSize'] = '10pt';
+				}
 			} else {
 				$_SESSION['ScreenFontSize'] = 0;
 			}
 			if (isset($MyRow['defaulttag'])) {
 				$_SESSION['DefaultTag'] = $MyRow['defaulttag'];
 			} else {
-				$_SESSION['DefaultTag'] = 1;
+				$_SESSION['DefaultTag'] = '8pt';
 			}
 
 			if (isset($MyRow['pdflanguage'])) {
