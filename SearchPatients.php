@@ -73,7 +73,7 @@ if ($TotalRows == 0) {
 					sex,
 					date_birth
 				FROM care_person
-				WHERE name_first SOUNDS LIKE '" . $_POST['FirstName'] . "'
+				ORDER BY LEVENSHTEIN(name_first, '" . $MyRow['name_first'] . "') ASC
 				LIMIT 15";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {

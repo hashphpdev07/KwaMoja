@@ -690,6 +690,21 @@ function RenameTable($OldName, $NewName) {
 	}
 }
 
+function CreateFunction($FunctionName, $FunctionCode) {
+	$TestSQL = "SHOW FUNCTION STATUS WHERE Name='" . $FunctionName . "'";
+	$TestResult = DB_query($TestSQL);
+	if (DB_num_rows($TestResult) == 0) {
+		$Response = executeSQL($FunctionCode, False);
+		if ($Response == 0) {
+			OutputResult(_('The function') . ' ' . $FunctionName . ' ' . _('has been created'), 'success');
+		} else {
+			OutputResult(_('The function') . ' ' . $FunctionName . ' ' . _('could not be created'), 'error');
+		}
+	} else {
+		OutputResult(_('The function') . ' ' . $FunctionName . ' ' . _('already exists'), 'info');
+	}
+}
+
 function OutputResult($Msg, $Status) {
 	if ($Status == 'error') {
 		$_SESSION['Updates']['Errors']++;

@@ -319,7 +319,7 @@ if (DB_num_rows($Result) == 0) {
 $Gender['m'] = _('Male');
 $Gender['f'] = _('Female');
 echo '<tr>
-		<td>' . _('Sex') . ':</td>
+		<td>' . _('Gender') . ':</td>
 		<td><select name="Sex" id="Gender">';
 echo '<option value=""></option>';
 foreach ($Gender as $Code=>$Name) {
