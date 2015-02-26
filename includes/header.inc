@@ -28,7 +28,8 @@ echo '<html>
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
 			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
-			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
+			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>
+			<script type="text/javascript" src = "', $RootPath, '/javascripts/AjaxFunctions.js"></script>';
 
 if ($Debug === 0) {
 	echo '</head>';
