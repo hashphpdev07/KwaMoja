@@ -4,39 +4,10 @@ require_once('includes/session.inc');
 
 $SearchAnswers = array();
 $i = 0;
-/* First check for an exact match */
-$SQL = "SELECT pid,
-				name_first,
-				name_middle,
-				name_last,
-				phone_1_nr,
-				sex,
-				date_birth
-			FROM care_person
-			WHERE name_first='" . $_POST['FirstName'] . "'
-				AND name_middle='" . $_POST['OtherName'] . "'
-				AND name_last='" . $_POST['LastName'] . "'
-				AND phone_1_nr='" . $_POST['Telephone'] . "'
-				AND sex='" . $_POST['Sex'] . "'";
-$Result = DB_query($SQL);
-$TotalRows = DB_num_rows($Result);
-while ($MyRow = DB_fetch_array($Result)) {
-	$SearchAnswers[$i]['PID'] = $MyRow['pid'];
-	$SearchAnswers[$i]['FirstName'] = $MyRow['name_first'];
-	$SearchAnswers[$i]['MiddleName'] = $MyRow['name_middle'];
-	$SearchAnswers[$i]['LastName'] = $MyRow['name_last'];
-	$SearchAnswers[$i]['Telephone'] = $MyRow['phone_1_nr'];
-	if ($MyRow['sex'] == 'm' ) {
-		$SearchAnswers[$i]['Gender'] = _('Male');
-	} else {
-		$SearchAnswers[$i]['Gender'] = _('Female');
-	}
-	$SearchAnswers[$i]['DOB'] = $MyRow['date_birth'];
-	++$i;
-}
+$TotalRows = 0;
 
 /* If no exact match then check for a matching telephone number */
-if ($TotalRows == 0 and $_POST['Telephone'] != '') {
+if ($_POST['Telephone'] != '') {
 	$SQL = "SELECT pid,
 					name_first,
 					name_middle,
@@ -45,7 +16,7 @@ if ($TotalRows == 0 and $_POST['Telephone'] != '') {
 					sex,
 					date_birth
 				FROM care_person
-				WHERE REPLACE(phone_1_nr, ' ', '')='" . str_replace(' ', '', $_POST['Telephone']) . "'";
+				WHERE REPLACE(phone_1_nr, ' ', '')='" . $_POST['Telephone'] . "'";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
 		$SearchAnswers[$i]['PID'] = $MyRow['pid'];
@@ -61,49 +32,36 @@ if ($TotalRows == 0 and $_POST['Telephone'] != '') {
 		$SearchAnswers[$i]['DOB'] = $MyRow['date_birth'];
 		++$i;
 	}
+	$TotalRows = $i;
 }
 
 /* If no exact match then check for a nearest sounding match */
-if ($TotalRows == 0) {
-	$SQL = "SELECT pid,
-					name_first,
-					name_middle,
-					name_last,
-					phone_1_nr,
-					sex,
-					date_birth
-				FROM care_person
-				ORDER BY LEVENSHTEIN(name_first, '" . $MyRow['name_first'] . "') ASC
-				LIMIT 15";
-	$Result = DB_query($SQL);
-	while ($MyRow = DB_fetch_array($Result)) {
-		$SearchAnswers[$i]['PID'] = $MyRow['pid'];
-		$SearchAnswers[$i]['FirstName'] = $MyRow['name_first'];
-		$SearchAnswers[$i]['MiddleName'] = $MyRow['name_middle'];
-		$SearchAnswers[$i]['LastName'] = $MyRow['name_last'];
-		$SearchAnswers[$i]['Telephone'] = $MyRow['phone_1_nr'];
-		if ($MyRow['sex'] == 'm' ) {
-			$SearchAnswers[$i]['Gender'] = _('Male');
-		} else {
-			$SearchAnswers[$i]['Gender'] = _('Female');
-		}
-		$SearchAnswers[$i]['DOB'] = $MyRow['date_birth'];
-		++$i;
+if ($TotalRows == 0 and strlen($_POST['FirstName']) > 2) {
+	if (strlen($_POST['LastName']) > 2) {
+		$SQL = "SELECT pid,
+						name_first,
+						name_middle,
+						name_last,
+						phone_1_nr,
+						sex,
+						date_birth
+					FROM care_person
+					WHERE SOUNDEX(CONCAT(name_first, ' ', name_last))=SOUNDEX('" . $_POST['FirstName'] . ' ' . $_POST['LastName'] . "')
+					ORDER BY LEVENSHTEIN(CONCAT(name_first, ' ', name_last), '" . $_POST['FirstName'] . ' ' . $_POST['LastName'] . "')
+					LIMIT 15";
+	} else {
+		$SQL = "SELECT pid,
+						name_first,
+						name_middle,
+						name_last,
+						phone_1_nr,
+						sex,
+						date_birth
+					FROM care_person
+					WHERE SOUNDEX(name_first)=SOUNDEX('" . $_POST['FirstName'] . "')
+					ORDER BY LEVENSHTEIN(name_first, '" . $_POST['FirstName'] . "')
+					LIMIT 15";
 	}
-}
-
-/* If no exact match then check for a nearest sounding match */
-if ($TotalRows == 0) {
-	$SQL = "SELECT pid,
-					name_first,
-					name_middle,
-					name_last,
-					phone_1_nr,
-					sex,
-					date_birth
-				FROM care_person
-				WHERE name_last SOUNDS LIKE '" . $_POST['LastName'] . "'
-				LIMIT 15";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
 		$SearchAnswers[$i]['PID'] = $MyRow['pid'];

@@ -499,6 +499,7 @@ function FillForm(e) {
 function CancelRegistration() {
 	document.getElementById('submit').innerHTML="Register Patient";
 	document.getElementById('SearchResults').innerHTML="";
+	document.getElementById('PID').innerHTML="Not yet allocated";
 }
 
 function initial() {

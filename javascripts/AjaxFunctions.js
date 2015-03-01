@@ -27,6 +27,7 @@ function SubmitForm(FormName, Element) {
 
 
 function SearchPatients(FormName) {
+	document.body.style.cursor = 'wait';
 	Target='SearchPatients.php';
 	var PostData='';
 	for(var i=0,fLen=FormName.length;i<fLen;i++){
@@ -43,6 +44,7 @@ function SearchPatients(FormName) {
 	xmlhttp.onreadystatechange=function() {
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 			document.getElementById('SearchResults').innerHTML=xmlhttp.responseText;
+			document.body.style.cursor = 'auto';
 		}
 	}
 	xmlhttp.open("POST",Target,true);

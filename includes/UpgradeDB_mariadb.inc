@@ -694,7 +694,9 @@ function CreateFunction($FunctionName, $FunctionCode) {
 	$TestSQL = "SHOW FUNCTION STATUS WHERE Name='" . $FunctionName . "'";
 	$TestResult = DB_query($TestSQL);
 	if (DB_num_rows($TestResult) == 0) {
+		$Result = executeSQL("DELIMITER //", False);
 		$Response = executeSQL($FunctionCode, False);
+		$Result = executeSQL("DELIMITER ;", False);
 		if ($Response == 0) {
 			OutputResult(_('The function') . ' ' . $FunctionName . ' ' . _('has been created'), 'success');
 		} else {
