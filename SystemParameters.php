@@ -402,13 +402,13 @@ echo '<tr style="outline: 1px solid">
 echo '<tr style="outline: 1px solid">
 		<td>' . _('Default Theme') . ':</td>
 		<td><select name="X_DefaultTheme">';
-$_SESSION['Theme']s = glob('css/*', GLOB_ONLYDIR);
-foreach ($_SESSION['Theme']s as $_SESSION['Theme']Name) {
-	$_SESSION['Theme']Name = basename($_SESSION['Theme']Name);
-	if ($_SESSION['DefaultTheme'] == $_SESSION['Theme']Name) {
-		echo '<option selected="selected" value="', $_SESSION['Theme']Name, '">', $_SESSION['Theme']Name, '</option>';
+$Themes = glob('css/*', GLOB_ONLYDIR);
+foreach ($Themes as $ThemeName) {
+	$ThemeName = basename($ThemeName);
+	if ($_SESSION['DefaultTheme'] == $ThemeName) {
+		echo '<option selected="selected" value="', $ThemeName, '">', $ThemeName, '</option>';
 	} else {
-		echo '<option value="', $_SESSION['Theme']Name, '">', $_SESSION['Theme']Name, '</option>';
+		echo '<option value="', $ThemeName, '">', $ThemeName, '</option>';
 	}
 }
 echo '</select>
@@ -564,7 +564,7 @@ echo '<tr style="outline: 1px solid"><td>' . _('Invoice Orientation') . ':</td>
 echo '<tr style="outline: 1px solid">
 		<td>' . _('Invoice Quantity Default') . ':</td>
 		<td>
-			<select name="X_InvoiceQuantityFormat">
+			<select name="X_InvoiceQuantityDefault">
 				<option '.($_SESSION['InvoiceQuantityDefault']=='0'?'selected="selected" ':'').'value="0">' . _('0') . '</option>
 				<option '.($_SESSION['InvoiceQuantityDefault']=='1'?'selected="selected" ':'').'value="1">' . _('Outstanding') . '</option>
 			</select>
