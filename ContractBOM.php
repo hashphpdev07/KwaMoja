@@ -218,11 +218,11 @@ if (isset($_POST['NewItem'])) {
 
 /* This is where the order as selected should be displayed  reflecting any deletions or insertions*/
 
-echo '<form onSubmit="return VerifyForm(this);" id="ContractBOMForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+echo '<form onSubmit="return VerifyForm(this);" id="ContractBOMForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
-	echo '<p class="page_title_text noPrint" >
+	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contract Bill of Material') . '" alt="" />  ' . $_SESSION['Contract' . $Identifier]->CustomerName . '
 		</p>';
 
@@ -294,7 +294,7 @@ if (!isset($_GET['Edit'])) {
 	$ErrMsg = _('The supplier category details could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve the category details but failed was');
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<p class="page_title_text noPrint" >
+	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Search For Stock Items') . '</p>';
 	echo '<table class="selection">
 			<tr></tr>

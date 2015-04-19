@@ -200,8 +200,8 @@ if (isset($_POST['preview']) or isset($_POST['save'])) {
 /* If no form has been selected to edit, then offer a
  * drop down list of possible forms */
 if (empty($_POST['FormName'])) {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" id="ChooseForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
+	echo '<form onSubmit="return VerifyForm(this);" method="post" id="ChooseForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table><tr>';
 	echo '<td>' . _('Select the form to edit') . '</td><td><select minlength="0" name="FormName">';
@@ -227,7 +227,7 @@ if (empty($_POST['FormName'])) {
 if (empty($_POST['preview'])) {
 	$FormDesign = simplexml_load_file($PathPrefix . 'companies/' . $_SESSION['DatabaseName'] . '/FormDesigns/' . $_POST['FormName']);
 }
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Form Design') . '" alt="" />' . ' ' . _('Form Design') . '<br />' . $FormDesign['name'] . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Form Design') . '" alt="" />' . ' ' . _('Form Design') . '<br />' . $FormDesign['name'] . '</p>';
 echo '<div class="page_help_text">' .
 		_('Enter the changes that you want in the form layout below.')  . '<br /> '.
 		_('All measurements are in PostScript points (72 points = 25,4 mm).')  . '<br /> '.
@@ -247,7 +247,7 @@ $Papers = array(
 	'Legal_Portrait',
 	'Legal_Landscape'
 ); // Possible paper sizes/orientations
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" id="Form" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form onSubmit="return VerifyForm(this);" method="post" id="Form" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input name="FormName" type="hidden" value="' . $_POST['FormName'] . '" />';

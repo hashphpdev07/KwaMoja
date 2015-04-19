@@ -81,10 +81,10 @@ if (isset($_POST['Narrative'])) {
 	$_SESSION['PaymentDetail' . $Identifier]->Narrative = $_POST['Narrative'];
 }
 
-echo '<p class="page_title_text noPrint" >
+echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Bank Account Payments Entry') . '" alt="" />' . ' ' . _('Bank Account Payments Entry') . '
 	</p>';
-echo '<div class="page_help_text noPrint">' . _('Use this screen to enter payments FROM your bank account.  <br />Note: To enter a payment FROM a supplier, first select the Supplier, click Enter a Payment to, or Receipt from the Supplier, and use a negative Payment amount on this form.') . '</div>
+echo '<div class="page_help_text">' . _('Use this screen to enter payments FROM your bank account.  <br />Note: To enter a payment FROM a supplier, first select the Supplier, click Enter a Payment to, or Receipt from the Supplier, and use a negative Payment amount on this form.') . '</div>
 	<br />';
 
 if (isset($_GET['SupplierID'])) {
@@ -330,7 +330,7 @@ if (isset($_POST['CommitBatch'])) {
 
 		echo '<a href="' . $RootPath . '/PrintCheque.php?ChequeNum=' . urlencode($_SESSION['PaymentDetail' . $Identifier]->ChequeNumber) . '&amp;identifier=' . urlencode($Identifier) . '">' . _('Print Cheque using pre-printed stationery') . '</a>';
 
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '">';
+		echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo _('Has the cheque been printed') . '?
 			<br />
@@ -851,7 +851,7 @@ if (isset($_POST['BankAccount']) and $_POST['BankAccount'] != '') {
 	} //DB_num_rows($Result) == 0
 } //isset($_POST['BankAccount']) and $_POST['BankAccount'] != ''
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '" method="post" class="noPrint">';
+echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<br /><table class="selection">';

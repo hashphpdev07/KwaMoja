@@ -90,7 +90,7 @@ if (!isset($Id)) {
 	$SQLname = "SELECT typename from debtortype where typeid='" . $DebtorType . "'";
 	$Result = DB_query($SQLname);
 	$MyRow = DB_fetch_array($Result);
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . _('Notes for Customer Type') . ': <b>' . $MyRow['typename'] . '</b></p>
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . _('Notes for Customer Type') . ': <b>' . $MyRow['typename'] . '</b></p>
 		<br />';
 
 	$SQL = "SELECT noteid,
@@ -142,7 +142,7 @@ if (isset($Id)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorType=' . $DebtorType . '">';
+	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorType=' . $DebtorType . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($Id)) {

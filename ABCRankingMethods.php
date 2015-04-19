@@ -6,7 +6,7 @@ $Title = _('Maintain ABC ranking methods');
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
+echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '
 	</p>';
 
@@ -56,7 +56,7 @@ if (isset($_POST['Submit'])) {
 			<tr>
 				<th colspan="10">
 					<h3>' . _('List of ABC Ranking Methods') . '
-						<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+						<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 					</h3>
 				</th>
 			</tr>
@@ -75,7 +75,7 @@ if (isset($_POST['Submit'])) {
 	}
 	echo '</table>';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint" id="ABCMethods">';
+	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="ABCMethods">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($_GET['SelectedMethodID'])) {

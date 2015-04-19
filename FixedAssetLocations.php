@@ -5,7 +5,7 @@ $Title = _('Fixed Asset Locations');
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetLocations';
 include('includes/header.inc');
-echo '<p class="page_title_text noPrint" >
+echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
@@ -109,7 +109,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 echo '</table>
 	<br />';
-echo '<form onSubmit="return VerifyForm(this);" id="LocationForm" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form onSubmit="return VerifyForm(this);" id="LocationForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 	  <div>
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<table class="selection">

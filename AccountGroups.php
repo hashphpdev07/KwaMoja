@@ -47,7 +47,7 @@ if (isset($_POST['MoveGroup'])) {
 			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">', _('Review Account Groups'), '</a>
 		</div>';
 	prnMsg(_('All accounts in the account group') . ': ' . $_POST['OriginalAccountGroup'] . ' ' . _('have been changed to the account group') . ': ' . $_POST['DestinyAccountGroup'], 'success');
-	echo '<p class="page_title_text noPrint" >
+	echo '<p class="page_title_text" >
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 } //isset($_POST['MoveGroup'])
@@ -187,7 +187,7 @@ if (isset($_POST['submit'])) {
 	if ($MyRow['groups'] > 0) {
 		prnMsg(_('Cannot delete this account group because general ledger accounts have been created using this group'), 'warn');
 		echo '<br />' . _('There are') . ' ' . $MyRow['groups'] . ' ' . _('general ledger accounts that refer to this account group');
-		echo '<form onSubmit="VerifyForm(this)" method="post" class="noPrint" id="AccountGroups" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form onSubmit="VerifyForm(this)" method="post" id="AccountGroups" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" name="OriginalAccountGroup" value="' . $_GET['SelectedAccountGroup'] . '" />';
@@ -255,7 +255,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 	$DbgMsg = _('The sql that was used to retrieve the account group information was ');
 	$ErrMsg = _('Could not get account groups because');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<p class="page_title_text noPrint" >
+	echo '<p class="page_title_text" >
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 
@@ -312,7 +312,7 @@ if (isset($_POST['SelectedAccountGroup']) or isset($_GET['SelectedAccountGroup']
 } //isset($_POST['SelectedAccountGroup']) or isset($_GET['SelectedAccountGroup'])
 
 if (!isset($_GET['delete'])) {
-	echo '<form onSubmit="return VerifyForm(this)" method="post" class="noPrint" id="AccountGroups" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form onSubmit="return VerifyForm(this)" method="post" id="AccountGroups" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($_GET['SelectedAccountGroup'])) {
@@ -342,7 +342,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['PandL'] = $MyRow['pandl'];
 		$_POST['ParentGroupName'] = $MyRow['parentgroupname'];
 
-		echo '<p class="page_title_text noPrint"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
 
 		echo '<input type="hidden" name="SelectedAccountGroup" value="', stripslashes($_GET['SelectedAccountGroup']), '" /></td>
 				<input type="hidden" name="OldGroupName" value="', $_POST['GroupName'], '" />';

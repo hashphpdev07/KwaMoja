@@ -303,7 +303,7 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
 	prnMsg($_SESSION['Items' . $Identifier]->SpecialInstructions, 'warn');
 }
-echo '<p class="page_title_text noPrint "><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
+echo '<p class="page_title_text "><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
 echo '<table class="selection">
 			<tr>
 				<th><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Code') . ' :<b> ' . $_SESSION['Items' . $Identifier]->DebtorNo . '</b></th>
@@ -314,7 +314,7 @@ echo '<table class="selection">
 			</tr>
 		</table>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /***************************************************************

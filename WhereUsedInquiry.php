@@ -11,7 +11,7 @@ if (isset($_GET['StockID'])) {
 }
 
 echo '<div class="toplink"><a href="' . $RootPath . '/SelectProduct.php">' . _('Back to Items') . '</a></div>
-	<p class="page_title_text noPrint" >
+	<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 if (isset($StockId)) {
@@ -30,7 +30,7 @@ if (isset($StockId)) {
 		<div class="centre"><h3>' . $StockId . ' - ' . $MyRow[0] . '  (' . _('in units of') . ' ' . $MyRow[1] . ')</h3></div>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">
+echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 	<div class="centre">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 

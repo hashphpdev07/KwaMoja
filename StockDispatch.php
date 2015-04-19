@@ -313,14 +313,14 @@ if (isset($_POST['PrintPDF'])) {
 
 	$Title = _('Stock Dispatch Report');
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Stock Dispatch Report') . '</p>';
-	echo '<div class="page_help_text noPrint">' . _('Create a transfer batch of overstock from one location to another location that is below reorder level.') . '<br/>' . _('Quantity to ship is based on reorder level minus the quantity on hand at the To Location; if there is a') . '<br/>' . _('dispatch percentage entered, that needed quantity is inflated by the percentage entered.') . '<br/>' . _('You need access to both locations to do the transfer.') . '<br/>' . _('Use Bulk Inventory Transfer - Receive to process the batch') . '</div>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Stock Dispatch Report') . '</p>';
+	echo '<div class="page_help_text">' . _('Create a transfer batch of overstock from one location to another location that is below reorder level.') . '<br/>' . _('Quantity to ship is based on reorder level minus the quantity on hand at the To Location; if there is a') . '<br/>' . _('dispatch percentage entered, that needed quantity is inflated by the percentage entered.') . '<br/>' . _('You need access to both locations to do the transfer.') . '<br/>' . _('Use Bulk Inventory Transfer - Receive to process the batch') . '</div>';
 
 	$SQL = "SELECT defaultlocation FROM www_users WHERE userid='" . $_SESSION['UserID'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$DefaultLocation = $MyRow['defaultlocation'];
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>
 		  <br />';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';

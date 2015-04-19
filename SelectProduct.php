@@ -17,7 +17,7 @@ if (isset($_GET['StockID'])) {
 	$_GET['StockID'] = trim(mb_strtoupper($_GET['StockID']));
 	$_POST['Select'] = trim(mb_strtoupper($_GET['StockID']));
 }
-echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory Items'), '" alt="" />', ' ', _('Inventory Items'), '</p>';
+echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory Items'), '" alt="" />', ' ', _('Inventory Items'), '</p>';
 if (isset($_GET['NewSearch']) or isset($_POST['Next']) or isset($_POST['Previous']) or isset($_POST['Go'])) {
 	unset($StockId);
 	unset($_SESSION['SelectedStockItem']);
@@ -533,10 +533,10 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	</table>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" class="noPrint">';
+echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
+echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
 
 echo '<table class="selection">
 		<tr>
@@ -637,7 +637,7 @@ if (isset($_POST['Search']) or isset($_POST['Go']) or isset($_POST['Next']) or i
 /* end query for list of records */
 /* display list if there is more than one record */
 if (isset($SearchResult) and !isset($_POST['Select'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" class="noPrint">';
+	echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	$ListCount = DB_num_rows($SearchResult);
 	if ($ListCount > 0) {

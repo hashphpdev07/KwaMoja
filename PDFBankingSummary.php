@@ -14,7 +14,7 @@ if (!isset($_POST['BatchNo'])) {
 	$BookMark = 'BankingSummary';
 	include('includes/header.inc');
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
 
 	$SQL = "SELECT DISTINCT
 			transno,
@@ -24,7 +24,7 @@ if (!isset($_POST['BatchNo'])) {
 		ORDER BY transno DESC";
 	$Result = DB_query($SQL);
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<table class="selection" summary="' . _('Details of the batch to be re-printed') . '">
 					<tr>

@@ -399,7 +399,7 @@ if (!isset($SelectedLocation)) {
 					ON locations.taxprovinceid=taxprovinces.taxprovinceid";
 	$Result = DB_query($SQL);
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 
 	if (DB_num_rows($Result) == 0) {
 		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a location.') .
@@ -454,12 +454,12 @@ if (isset($SelectedLocation)) {
 if (!isset($_GET['delete'])) {
 
 	include('includes/CountriesArray.php');
-	echo '<form onSubmit="return VerifyForm(this);" id="Locations" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form onSubmit="return VerifyForm(this);" id="Locations" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedLocation)) {
 		//editing an existing Location
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 
 		$SQL = "SELECT loccode,
 					locationname,

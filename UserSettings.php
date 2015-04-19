@@ -4,7 +4,7 @@ include('includes/session.inc');
 $Title = _('User Settings');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '</p>';
+echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '</p>';
 
 $PDFLanguages = array(
 	_('Latin Western Languages - Times'),
@@ -101,7 +101,7 @@ if (isset($_POST['Modify'])) {
 	}
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_POST['DisplayRecordsMax']) or $_POST['DisplayRecordsMax'] == '') {

@@ -39,7 +39,7 @@ if ($Serialised == 1) {
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
+echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="" alt="" />' . ' ' . _('For Work Order Number') . ' ' . $WO . ' ' . _('and output item') . ' ' . $StockId . ' - ' . $Description . '
 	</p>';
 
@@ -226,7 +226,7 @@ if (isset($_POST['UpdateItems'])) {
 }
 
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<input type="hidden" name="StockID" value="' . $StockId . '" />';

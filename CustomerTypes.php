@@ -16,8 +16,8 @@ if (isset($Errors)) {
 
 $Errors = array();
 
-echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '</p>';
-echo '<div class="page_help_text noPrint">', _('Add/edit/delete Customer Types'), '</div>';
+echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '</p>';
+echo '<div class="page_help_text">', _('Add/edit/delete Customer Types'), '</div>';
 
 if (isset($_POST['submit'])) {
 
@@ -207,7 +207,7 @@ if (!isset($SelectedType)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type

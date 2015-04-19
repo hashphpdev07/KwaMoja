@@ -29,7 +29,7 @@ if (!isset($Item) or !isset($_SESSION['CustomerID']) or $_SESSION['CustomerID'] 
 	exit;
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . _('Special Customer Prices') . '</p><br />';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . _('Special Customer Prices') . '</p><br />';
 echo '<b>' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8') . ' ' . _('in') . ' ' . $MyRow['currcode'] . '<br />' . ' ' . _('for') . ' ';
 
 $CurrCode = $MyRow['currcode'];
@@ -289,7 +289,7 @@ if (DB_num_rows($Result) == 0) {
 
 echo '</table></td></tr></table><br />';
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="Item" value="' . $Item . '" />';

@@ -22,7 +22,7 @@ if (!isset($_POST['JobCPrint'])) {
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$CustomerName = $MyRow['name'];
-	echo '<p class="page_title_text noPrint" >';
+	echo '<p class="page_title_text" >';
 	echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Job Cards for Customer') . '" alt="" />' . ' ' . _('Job Cards for Customer') . ' : ' . $_SESSION['CustomerID'] . ' - ' . $CustomerName;
 	echo '</p>';
 	$printbk = 'background:white;';
@@ -34,7 +34,7 @@ else {
 
 if (!isset($_POST['SaveUpdateJob'])) {
 	if ((!isset($_GET['AddJob'])) and (!isset($_POST['UpdateJob']))) {
-		echo '<div class="page_help_text noPrint">' . _('To view or update a Job Card, click on the Job Card #.') . '</div><br />';
+		echo '<div class="page_help_text">' . _('To view or update a Job Card, click on the Job Card #.') . '</div><br />';
 
 		echo '<table border="0"  width=81% style="BORDER: #a52a2a 1px solid;">
 				<tr>
@@ -47,7 +47,7 @@ if (!isset($_POST['SaveUpdateJob'])) {
 				</tr>';
 		echo GetJobCards($RootPath);
 		echo '</table>';
-		echo '<form onSubmit="return VerifyForm(this);" action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1" method="post" class="noPrint">';
+		echo '<form onSubmit="return VerifyForm(this);" action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<div class="centre">';
 		echo '<br><input type=submit name="AddJob" value="' . _('Add Job Card') . '">';
@@ -79,7 +79,7 @@ if (!isset($_POST['SaveUpdateJob'])) {
 											)";
 			$Result = DB_query($query, $ErrMsg);
 
-			echo '<div class="page_help_text noPrint">' . _('Record has been added.') . '<br />' . _('Please wait the browser will redirect you automatically ...') . '.</div><br />';
+			echo '<div class="page_help_text">' . _('Record has been added.') . '<br />' . _('Please wait the browser will redirect you automatically ...') . '.</div><br />';
 
 			// Show Message Box
 			echo "<script type='text/javascript'>";
@@ -88,10 +88,10 @@ if (!isset($_POST['SaveUpdateJob'])) {
 		} //(isset($_POST["SaveJob"])) and (!isset($_POST['UpdateJob']))
 		else {
 			if (isset($_POST['UpdateJob'])) {
-				echo '<form onSubmit="return VerifyForm(this);" action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&JobCardNo=' . $_POST['JobCardNo'] . '&SaveUpdateJob=1" method="post" class="noPrint">';
+				echo '<form onSubmit="return VerifyForm(this);" action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&JobCardNo=' . $_POST['JobCardNo'] . '&SaveUpdateJob=1" method="post">';
 			} //isset($_POST['UpdateJob'])
 			else {
-				echo '<form onSubmit="return VerifyForm(this);" action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1&SaveJob=1" method="post" class="noPrint">';
+				echo '<form onSubmit="return VerifyForm(this);" action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1&SaveJob=1" method="post">';
 			}
 			echo '<table cellpadding=4 width=99% style ="outline-style:solid;outline-width:1px;' . $printbk . '">';
 			echo '<tr>';
@@ -274,7 +274,7 @@ if (!isset($_POST['SaveUpdateJob'])) {
 	$query = "Update jobcards SET " . $DBValues . " where id=" . $_POST['JobCardNo'];
 	$Result = DB_query($query, $ErrMsg);
 
-	echo '<div class="page_help_text noPrint">' . _('Record has been updated.') . '<br />' . _('Please wait the browser will redirect you automatically ...') . '.</div><br />';
+	echo '<div class="page_help_text">' . _('Record has been updated.') . '<br />' . _('Please wait the browser will redirect you automatically ...') . '.</div><br />';
 
 	// Show Message Box
 	echo "<script type='text/javascript'>";

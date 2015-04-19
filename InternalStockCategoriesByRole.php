@@ -101,11 +101,11 @@ if (isset($_POST['submit'])) {
 
 if (!isset($SelectedRole)) {
 
-	echo '<p class="page_title_text noPrint">
+	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('Select a user role'), '" alt="" />', ' ', _('Select a user role') . '
 		</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table class="selection">'; //Main table
 
@@ -147,13 +147,13 @@ if (!isset($SelectedRole)) {
 if (isset($_POST['process']) or isset($SelectedRole)) {
 
 	echo '<div class="toplink"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another role'), '</a></div>';
-	echo '<p class="page_title_text noPrint">
+	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Select a stock category'), '" alt="" />', _('Select a stock category'), '
 		</p>';
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table class="selection">'; //Main table
 

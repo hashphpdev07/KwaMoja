@@ -58,10 +58,10 @@ if (isset($_GET['Delete'])) {
 /*Show all the selected ContractRefs so far from the SESSION['SuppInv']->Contracts array */
 if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 	echo '<div class="centre">
-				<p class="page_title_text noPrint" >' . _('Contract charges on Invoice') . ' ';
+				<p class="page_title_text" >' . _('Contract charges on Invoice') . ' ';
 } else {
 	echo '<div class="centre">
-				<p class="page_title_text noPrint" >' . _('Contract credits on Credit Note') . ' ';
+				<p class="page_title_text" >' . _('Contract credits on Credit Note') . ' ';
 }
 
 echo $_SESSION['SuppTrans']->SuppReference . ' ' . _('From') . ' ' . $_SESSION['SuppTrans']->SupplierName;
@@ -116,7 +116,7 @@ if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 }
 
 /*Set up a form to allow input of new Contract charges */
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 

@@ -9,7 +9,7 @@ include('includes/SQL_CommonFunctions.inc');
 
 echo '<div class="toplink"><a href="' . $RootPath . '/SelectAsset.php">' . _('Back to Select') . '</a></div>' . "\n";
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Fixed Asset Items') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Fixed Asset Items') . '" alt="" />' . ' ' . $Title . '</p>';
 
 /* If this form is called with the AssetID then it is assumed that the asset is to be modified  */
 if (isset($_GET['AssetID'])) {
@@ -385,7 +385,7 @@ if (isset($_POST['submit'])) {
 /* end if delete asset */
 $Result = DB_Txn_Commit();
 
-echo '<form onSubmit="return VerifyForm(this);" id="AssetForm" enctype="multipart/form-data" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form onSubmit="return VerifyForm(this);" id="AssetForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 	  <div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">';

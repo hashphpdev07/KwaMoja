@@ -523,9 +523,9 @@ if (isset($SelectedCustomer)) {
 } //!$_SESSION['Items' . $Identifier]->DefaultSalesType or $_SESSION['Items' . $Identifier]->DefaultSalesType == ''
 
 if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Identifier]->DebtorNo) or $_SESSION['Items' . $Identifier]->DebtorNo == '') {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Enter an Order or Quotation') . ' : ' . _('Search for the Customer Branch.') . '</p>';
-	echo '<div class="page_help_text noPrint">' . _('Orders/Quotations are placed against the Customer Branch. A Customer may have several Branches.') . '</div>';
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Enter an Order or Quotation') . ' : ' . _('Search for the Customer Branch.') . '</p>';
+	echo '<div class="page_help_text">' . _('Orders/Quotations are placed against the Customer Branch. A Customer may have several Branches.') . '</div>';
+	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">
 			 <input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			 <table cellpadding="3" class="selection">
 				<tr>
@@ -644,7 +644,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 	} else {
 		/*Not cancelling the order */
 
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Order') . '" alt="" />' . ' ';
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Order') . '" alt="" />' . ' ';
 
 		if ($_SESSION['Items' . $Identifier]->Quotation == 1) {
 			echo _('Quotation for customer') . ' ';
@@ -654,7 +654,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		}
 
 		echo ':<b> ' . stripslashes($_SESSION['Items' . $Identifier]->DebtorNo) . ' ' . _('Customer Name') . ': ' . htmlspecialchars($_SESSION['Items' . $Identifier]->CustomerName, ENT_QUOTES, 'UTF-8', false);
-		echo '</b></p><div class="page_help_text noPrint">' . '<b>' . _('Default Options (can be modified during order)') . ':</b><br />' . _('Deliver To') . ':<b> ' . htmlspecialchars($_SESSION['Items' . $Identifier]->DeliverTo, ENT_QUOTES, 'UTF-8', false);
+		echo '</b></p><div class="page_help_text">' . '<b>' . _('Default Options (can be modified during order)') . ':</b><br />' . _('Deliver To') . ':<b> ' . htmlspecialchars($_SESSION['Items' . $Identifier]->DeliverTo, ENT_QUOTES, 'UTF-8', false);
 		echo '</b>&nbsp;' . _('From Location') . ':<b> ' . $_SESSION['Items' . $Identifier]->LocationName;
 		echo '</b><br />' . _('Sales Type') . '/' . _('Price List') . ':<b> ' . $_SESSION['Items' . $Identifier]->SalesTypeName;
 		echo '</b><br />' . _('Terms') . ':<b> ' . $_SESSION['Items' . $Identifier]->PaymentTerms;
@@ -732,7 +732,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 	//Always do the stuff below if not looking for a customerid
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" id="SelectParts" method="post" class="noPrint">';
+	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" id="SelectParts" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	//Get The exchange rate used for GPPercent calculations on adding or amending items
@@ -1275,7 +1275,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			$ShowDiscountGP = 0;// Do NOT show 'Discount' and 'GP %'.
 		}
 
-		echo '<div class="page_help_text noPrint">' . _('Quantity (required) - Enter the number of units ordered.  Price (required) - Enter the unit price.  Discount (optional) - Enter a percentage discount.  GP% (optional) - Enter a percentage Gross Profit (GP) to add to the unit cost.  Due Date (optional) - Enter a date for delivery.') . '</div><br />';
+		echo '<div class="page_help_text">' . _('Quantity (required) - Enter the number of units ordered.  Price (required) - Enter the unit price.  Discount (optional) - Enter a percentage discount.  GP% (optional) - Enter a percentage Gross Profit (GP) to add to the unit cost.  Due Date (optional) - Enter a date for delivery.') . '</div><br />';
 		echo '<table width="90%" cellpadding="2">
 				<tr style="background-color:#800000">';
 		if($ShowPOLine) {
@@ -1439,9 +1439,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 					LIMIT " . $_SESSION['FrequentlyOrderedItems'];
 
 			$Result2 = DB_query($SQL);
-			echo '<p class="page_title_text noPrint" >
+			echo '<p class="page_title_text" >
 					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Frequently Ordered Items') . '</p>
-					<div class="page_help_text noPrint">' . _('Frequently Ordered Items') . _(', shows the most frequently ordered items in the last 6 months.  You can choose from this list, or search further for other items') . '.</div>
+					<div class="page_help_text">' . _('Frequently Ordered Items') . _(', shows the most frequently ordered items in the last 6 months.  You can choose from this list, or search further for other items') . '.</div>
 					<table class="table1">
 						<tr>
 							<th class="SortableColumn">' . _('Code') . '</th>
@@ -1526,9 +1526,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			echo '</table>';
 		} //end of if Frequently Ordered Items > 0
 		echo '<div class="centre">' . $Msg;
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ';
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ';
 		echo _('Search for Order Items') . '</p></div>';
-		echo '<div class="page_help_text noPrint">' . _('Search for Order Items') . _(', Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code') . '.</div><br />';
+		echo '<div class="page_help_text">' . _('Search for Order Items') . _(', Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code') . '.</div><br />';
 		echo '<table class="selection">
 				<tr>
 					<td><b>' . _('Select a Stock Category') . ': </b><select minlength="0" tabindex="1" name="StockCat">';
@@ -1580,7 +1580,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			</div>';
 
 		if (isset($SearchResult)) {
-			echo '<div class="page_help_text noPrint">' . _('Select an item by entering the quantity required.  Click Order when ready.') . '</div>';
+			echo '<div class="page_help_text">' . _('Select an item by entering the quantity required.  Click Order when ready.') . '</div>';
 			$j = 1;
 			echo '<table class="table1">';
 			echo '<tr><td colspan="1"><input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" /><input tabindex="' . strval($j + 8) . '" type="submit" name="Previous" value="' . _('Previous') . '" /></td>';
@@ -1680,7 +1680,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 	elseif (isset($_POST['QuickEntry'])) {
 		/* show the quick entry form variable */
 		/*FORM VARIABLES TO POST TO THE ORDER  WITH PART CODE AND QUANTITY */
-		echo '<div class="page_help_text noPrint"><b>' . _('Use this screen for the ') . _('Quick Entry') . _(' of products to be ordered') . '</b></div><br />
+		echo '<div class="page_help_text"><b>' . _('Use this screen for the ') . _('Quick Entry') . _(' of products to be ordered') . '</b></div><br />
 		 			<table border="1">
 					<tr>';
 		/*do not display colum unless customer requires po line number by sales order line*/
@@ -1711,7 +1711,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		echo '</form>';
 	} //isset($_POST['QuickEntry'])
 	elseif (isset($_POST['SelectAsset'])) {
-		echo '<div class="page_help_text noPrint"><b>' . _('Use this screen to select an asset to dispose of to this customer') . '</b></div>
+		echo '<div class="page_help_text"><b>' . _('Use this screen to select an asset to dispose of to this customer') . '</b></div>
 		 			<table border="1">';
 		/*do not display colum unless customer requires po line number by sales order line*/
 		if ($_SESSION['Items' . $Identifier]->DefaultPOLine == 1) {
@@ -1740,7 +1740,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 	} //end of if it is a Quick Entry screen/part search or asset selection form to display
 
 	if ($_SESSION['Items' . $Identifier]->ItemsOrdered >= 1) {
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint" name="deleteform">';
+		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" name="deleteform">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<div class="centre">
 				<input type="submit" name="CancelOrder" value="' . _('Cancel Whole Order') . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to cancel this entire order?') . '\');" />

@@ -67,9 +67,9 @@ if (isset($_GET['Delete'])) {
 
 /*Show all the selected ShiptRefs so far from the SESSION['SuppInv']->Shipts array */
 if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
-	echo '<p class="page_title_text noPrint" >' . _('Shipment charges on Invoice') . ' ';
+	echo '<p class="page_title_text" >' . _('Shipment charges on Invoice') . ' ';
 } else {
-	echo '<p class="page_title_text noPrint" >' . _('Shipment credits on Credit Note') . ' ';
+	echo '<p class="page_title_text" >' . _('Shipment credits on Credit Note') . ' ';
 }
 echo $_SESSION['SuppTrans']->SuppReference . ' ' . _('From') . ' ' . $_SESSION['SuppTrans']->SupplierName;
 echo '</p>';
@@ -100,7 +100,7 @@ echo '<tr>
 </table><br />';
 
 /*Set up a form to allow input of new Shipment charges */
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['ShiptRef'])) {

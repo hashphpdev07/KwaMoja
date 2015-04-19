@@ -27,7 +27,7 @@ if ($_SESSION['Language'] == 'en_GB.utf8') {
 }
 $PathToNewLanguage = './locale/' . $_SESSION['Language'] . '/LC_MESSAGES/messages.po.new';
 
-echo '<div class="page_help_text noPrint">' .
+echo '<div class="page_help_text">' .
 		_('Utility to edit a language file module') . _('Current language is') . ' ' . $_SESSION['Language'] .
 		_('When finished modifying you must click on Modify at the bottom in order to save changes') .
 	'</div>';
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
 	// save the modifications
 
 	echo '<table><tr><td>';
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	/* write the new language file */
@@ -108,7 +108,7 @@ if (isset($_POST['submit'])) {
 
 	/* stick it on the screen */
 	prnMsg(_('Your existing translation file (messages.po) will be saved as messages.po.old') . '<br />', 'info', _('PLEASE NOTE'));
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>

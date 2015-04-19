@@ -8,7 +8,7 @@ $BookMark = 'RegularPayments';
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
+echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
@@ -31,7 +31,7 @@ if (isset($_POST['Add'])){
 	var_dump($AddedPayments);
 }
 
-echo '<form onSubmit="return VerifyForm(this)" method="post" class="noPrint" id="RegularPaymentsProcess" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form onSubmit="return VerifyForm(this)" method="post" id="RegularPaymentsProcess" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT regularpayments.id,

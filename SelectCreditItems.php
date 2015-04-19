@@ -188,10 +188,10 @@ if (isset($SelectedCustomer) and isset($_POST['JustSelectedACustomer'])) {
 /* if the change customer button hit or the customer has not already been selected */
 if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems' . $Identifier]->DebtorNo) OR $_SESSION['CreditItems' . $Identifier]->DebtorNo == '') {
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Customer For Credit Note') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Customer For Credit Note') . '</p>';
 
 	echo '<table cellpadding="3" class="selection">';
 	echo '<tr>
@@ -261,7 +261,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 	/* everything below here only do if a customer is selected
 	first add a header to show who we are making a credit note for */
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $_SESSION['CreditItems' . $Identifier]->CustomerName . ' - ' . $_SESSION['CreditItems' . $Identifier]->DeliverTo . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $_SESSION['CreditItems' . $Identifier]->CustomerName . ' - ' . $_SESSION['CreditItems' . $Identifier]->DeliverTo . '</p>';
 
 	if (isset($_POST['SalesPerson'])) {
 		$_SESSION['CreditItems' . $Identifier]->SalesPerson = $_POST['SalesPerson'];
@@ -380,7 +380,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 	/*Always do the stuff below if not looking for a customerid
 	Set up the form for the credit note display and  entry*/
 
-	echo '<form onSubmit="return VerifyForm(this);" id="MainForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+	echo '<form onSubmit="return VerifyForm(this);" id="MainForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
