@@ -105,7 +105,7 @@ if (isset($_POST['UnInstall'])) {
 	$ForceConfigReload = True;
 	prnMsg(_('The plugin has been successfully removed.'), 'success');
 } else {
-	echo '<form onSubmit="return VerifyForm(this);" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="submit" name="reload" value="Reload" hidden="hidden" />';
 	echo '<div>';
@@ -114,7 +114,7 @@ if (isset($_POST['UnInstall'])) {
 		echo '<div class="page_help_text">' . _('Select the plugin that you wish to remove from the list below.') . '</div>';
 		echo '<br /><div class="centre">
 				<div class="box_header">' . _('Installed plugins') . '</div>
-				<select required="required" minlength="1" multiple="multiple" name="Available" onclick="ReloadForm(reload);">';
+				<select required="required" multiple="multiple" name="Available" onclick="ReloadForm(reload);">';
 
 		$Plugins = scandir('plugins/');
 

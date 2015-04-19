@@ -68,7 +68,7 @@ if ($_SESSION['PO' . $Identifier]->Status != 'Printed') {
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Receive') . '" alt="" />' . ' ' . _('Receive Purchase Order') . ' : ' . $_SESSION['PO' . $Identifier]->OrderNo . ' ' . _('from') . ' ' . $_SESSION['PO' . $Identifier]->SupplierName . '</p>';
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['ProcessGoodsReceived'])) {
@@ -80,7 +80,7 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Date Goods/Service Received') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" minlength="0" maxlength="10" size="10" onchange="return isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" name="DefaultReceivedDate" value="' . $_POST['DefaultReceivedDate'] . '" /></td>
+				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" maxlength="10" size="10" onchange="return isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" name="DefaultReceivedDate" value="' . $_POST['DefaultReceivedDate'] . '" /></td>
 			</tr>
 		</table>';
 
@@ -173,9 +173,9 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 
 		} else {
 			if ($LnItm->LineNo == 1) {
-				echo '<input type="text" class="number" name="RecvQty_' . $LnItm->LineNo . '" autofocus="autofocus" required="required" minlength="1" maxlength="10" size="10" value="' . locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces) . '" /></td>';
+				echo '<input type="text" class="number" name="RecvQty_' . $LnItm->LineNo . '" autofocus="autofocus" required="required" maxlength="10" size="10" value="' . locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces) . '" /></td>';
 			} else {
-				echo '<input type="text" class="number" name="RecvQty_' . $LnItm->LineNo . '" required="required" minlength="1" maxlength="10" size="10" value="' . locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces) . '" /></td>';
+				echo '<input type="text" class="number" name="RecvQty_' . $LnItm->LineNo . '" required="required" maxlength="10" size="10" value="' . locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces) . '" /></td>';
 			}
 		}
 		echo '<td><input type="checkbox" name="Complete_' . $LnItm->LineNo . '"';
@@ -198,7 +198,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 			}
 		}
 		echo '<td>
-				<input type="text" name="Reference_' . $LnItm->LineNo . '" minlength="0" maxlength="50" size="25" value="' . $LnItm->GRNReference . '" />
+				<input type="text" name="Reference_' . $LnItm->LineNo . '" maxlength="50" size="25" value="' . $LnItm->GRNReference . '" />
 			</td>';
 		echo '</tr>';
 	} //foreach(LineItem)

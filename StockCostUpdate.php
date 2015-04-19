@@ -130,7 +130,7 @@ $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 $MyRow = DB_fetch_array($Result);
 $ItemDescription = $MyRow['description'];
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table widthe="98%">
 		<tr>
@@ -139,7 +139,7 @@ echo '<table widthe="98%">
 echo '<table cellpadding="2" class="selection">
 		<tr>
 			<th colspan="2">' . _('Item Code') . ':
-				<input type="text" name="StockID" value="' . $StockId . '"  required="required" minlength="1" maxlength="20" />
+				<input type="text" name="StockID" value="' . $StockId . '"  required="required" maxlength="20" />
 				<input type="submit" name="Show" value="' . _('Show Cost Details') . '" />
 			</th>
 		</tr>

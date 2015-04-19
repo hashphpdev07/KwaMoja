@@ -28,16 +28,16 @@ if ((!isset($_GET['TransNo']) or $_GET['TransNo'] == '') and !isset($_POST['Tran
 					AND locationusers.canview=1";
 	$Result = DB_query($SQL);
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" name="form">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" name="form">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">
 		<tr>
 			<td>' . _('Create picking lists for all deliveries to be made on') . ' : ' . '</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="TransDate" autofocus="autofocus" required="required" minlength="1" maxlength="10" size="11" value="' . date($_SESSION['DefaultDateFormat'], mktime(date('m'), date('Y'), date('d') + 1)) . '" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="TransDate" autofocus="autofocus" required="required" maxlength="10" size="11" value="' . date($_SESSION['DefaultDateFormat'], mktime(date('m'), date('Y'), date('d') + 1)) . '" /></td>
 		</tr>';
 	echo '<tr><td>' . _('From Warehouse') . ' : ' . '</td>
-			<td><select required="required" minlength="1" name="loccode">';
+			<td><select required="required" name="loccode">';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 	}

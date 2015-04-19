@@ -192,7 +192,7 @@ if (isset($SelectedDepartmentID)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedDepartmentID)) {
@@ -226,11 +226,11 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Department Name') . ':' . '</td>
-			<td><input type="text" name="DepartmentName" size="50" required="required" minlength="1" maxlength="100" value="' . $_POST['DepartmentName'] . '" /></td>
+			<td><input type="text" name="DepartmentName" size="50" required="required" maxlength="100" value="' . $_POST['DepartmentName'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Authoriser') . '</td>
-			<td><select minlength="0" name="Authoriser">';
+			<td><select name="Authoriser">';
 	$UserSQL = "SELECT userid FROM www_users";
 	$UserResult = DB_query($UserSQL);
 	while ($MyRow = DB_fetch_array($UserResult)) {

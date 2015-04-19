@@ -34,7 +34,7 @@ $MyRow = DB_fetch_row($Result);
 
 $DecimalPlaces = $MyRow[3];
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">';
 
@@ -54,9 +54,9 @@ if ($MyRow[2] == 'K' OR $MyRow[2] == 'A' OR $MyRow[2] == 'D') {
 }
 
 echo '<tr>
-		<td>' . _('Stock Code') . ':<input type="text" name="StockID" size="21" required="required" minlength="1" maxlength="20" value="' . $StockId . '" />';
+		<td>' . _('Stock Code') . ':<input type="text" name="StockID" size="21" required="required" maxlength="20" value="' . $StockId . '" />';
 
-echo _('From Stock Location') . ':<select required="required" minlength="1" name="StockLocation">';
+echo _('From Stock Location') . ':<select required="required" name="StockLocation">';
 
 $SQL = "SELECT locationname,
 				locations.loccode

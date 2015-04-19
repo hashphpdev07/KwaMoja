@@ -26,7 +26,7 @@ echo '<div class="toplink">
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($SelectedWO) or !isset($StockId)) {
@@ -856,7 +856,7 @@ echo '<table class="selection">
 		}
 
 		echo '<td>' . _('Received Into') . ':</td>
-			<td><select minlength="0" name="IntoLocation">';
+			<td><select name="IntoLocation">';
 
 
 if (!isset($_POST['IntoLocation'])) {
@@ -979,8 +979,8 @@ if ($WORow['controlled'] == 1) { //controlled
 					if (($i / 5 - intval($i / 5)) == 0) {
 						echo '</tr><tr>';
 					}
-					echo '<td><input type="text" required="required" minlength="1" maxlength="10" name="BatchRef' . $i . '" value="' . $WOSNRow[0] . '" /></td>
-						  <td><input type="text" required="required" minlength="1" maxlength="10" class="number" name="Qty' . $i . '" />
+					echo '<td><input type="text" required="required" maxlength="10" name="BatchRef' . $i . '" value="' . $WOSNRow[0] . '" /></td>
+						  <td><input type="text" required="required" maxlength="10" class="number" name="Qty' . $i . '" />
 						  		<input type="hidden" name="QualityText' . $i . '" value="' . $WOSNRow[2] . '" />
 						  		<input type="hidden" name="QtyReqd' . $i . '" value="' . locale_number_format($WOSNRow[1], 'Variable') . '" /></td>
 						  	</tr>';
@@ -1012,7 +1012,7 @@ if ($WORow['controlled'] == 1) { //controlled
 	echo '<tr>
 			<td><input type="hidden" name="CountOfInputs" value="1" /></td>
 			<td>' . _('Quantity Received') . ':</td>
-			<td><input type="text" required="required" minlength="1" maxlength="10" class="number" name="Qty" /></td>
+			<td><input type="text" required="required" maxlength="10" class="number" name="Qty" /></td>
 		</tr>
 		</table>';
 	echo '<div class="centre">

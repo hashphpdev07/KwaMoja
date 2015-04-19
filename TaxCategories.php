@@ -203,7 +203,7 @@ if ($SelectedTaxCategory != '') {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if ($SelectedTaxCategory != '') {
@@ -233,7 +233,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Tax Category Name') . ':' . '</td>
-			<td><input type="text" name="TaxCategoryName" size="30" required="required" minlength="1" maxlength="30" value="' . $SelectedTaxCategory . '" /></td>
+			<td><input type="text" name="TaxCategoryName" size="30" required="required" maxlength="30" value="' . $SelectedTaxCategory . '" /></td>
 		</tr>
 	</table>';
 

@@ -28,7 +28,7 @@ if (!isset($_POST['SecurityRole'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="centre">
 			<select name="SecurityRole" required="required">
@@ -50,7 +50,7 @@ if (!isset($_POST['SecurityRole'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="SecurityRole" value="' . $_POST['SecurityRole'] . '" />';
 
@@ -73,8 +73,8 @@ if (!isset($_POST['SecurityRole'])) {
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr>
 				<td>' . $MyRow['modulename'] . '</td>
-				<td><input type="text" required="required" minlength="1" maxlength="50" size="25" name="Name' . $MyRow['reportlink'] . '" value="' . $MyRow['modulename'] . '" /></td>
-				<td><input type="text" required="required" minlength="1" maxlength="5" size="5" class="number" name="Sequence' . $MyRow['reportlink'] . '" value="' . $MyRow['sequence'] . '" /></td>
+				<td><input type="text" required="required" maxlength="50" size="25" name="Name' . $MyRow['reportlink'] . '" value="' . $MyRow['modulename'] . '" /></td>
+				<td><input type="text" required="required" maxlength="5" size="5" class="number" name="Sequence' . $MyRow['reportlink'] . '" value="' . $MyRow['sequence'] . '" /></td>
 			</tr>';
 	}
 

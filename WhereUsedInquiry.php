@@ -30,14 +30,14 @@ if (isset($StockId)) {
 		<div class="centre"><h3>' . $StockId . ' - ' . $MyRow[0] . '  (' . _('in units of') . ' ' . $MyRow[1] . ')</h3></div>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 	<div class="centre">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($StockId)) {
-	echo _('Enter an Item Code') . ': <input type="text" name="StockID" size="21" autofocus="autofocus" required="required" minlength="1" maxlength="20" value="' . $StockId . '" />';
+	echo _('Enter an Item Code') . ': <input type="text" name="StockID" size="21" autofocus="autofocus" required="required" maxlength="20" value="' . $StockId . '" />';
 } else {
-	echo _('Enter an Item Code') . ': <input type="text" name="StockID" size="21" autofocus="autofocus" required="required" minlength="1" maxlength="20" />';
+	echo _('Enter an Item Code') . ': <input type="text" name="StockID" size="21" autofocus="autofocus" required="required" maxlength="20" />';
 }
 
 echo '<input type="submit" name="ShowWhereUsed" value="' . _('Show Where Used') . '" />';

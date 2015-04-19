@@ -283,7 +283,7 @@ if ($_FILES['SelectedAssetFile']['name']) { //start file processing
 		<br />
 		<br />
 	';
-	echo '<form onSubmit="return VerifyForm(this);" enctype="multipart/form-data" action="Z_ImportFixedAssets.php" method="post">';
+	echo '<form enctype="multipart/form-data" action="Z_ImportFixedAssets.php" method="post">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -291,7 +291,7 @@ if ($_FILES['SelectedAssetFile']['name']) { //start file processing
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Select Date to Upload B/Fwd Assets To') . ':</td>
-				<td><select minlength="0" name="DateToEnter">';
+				<td><select name="DateToEnter">';
 	$PeriodsResult = DB_query("SELECT lastdate_in_period FROM periods ORDER BY periodno");
 	while ($PeriodRow = DB_fetch_row($PeriodsResult)) {
 		echo '<option value="' . $PeriodRow[0] . '">' . ConvertSQLDate($PeriodRow[0]) . '</option>';

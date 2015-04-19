@@ -11,7 +11,7 @@ if (isset($_GET['StockID'])) {
 }
 
 if (!isset($_POST['StockID'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<br />
 		<div class="page_help_text">
 			' . _('Select a manufactured part') . ' (' . _('or Assembly or Kit part') . ') ' . _('to view the costed bill of materials') . '
@@ -21,10 +21,10 @@ if (!isset($_POST['StockID'])) {
 		<table class="selection">
 		<tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-			<td><input tabindex="1" type="text" autofocus="autofocus" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+			<td><input tabindex="1" type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-			<td><input tabindex="2" type="text" name="StockCode" size="15" minlength="0" maxlength="20" /></td>
+			<td><input tabindex="2" type="text" name="StockCode" size="15" maxlength="20" /></td>
 		</tr>
 		</table>
 		<br />

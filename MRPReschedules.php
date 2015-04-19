@@ -123,20 +123,20 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<br />
 		<br />
-		<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+		<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<div>
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<table class="selection">
 		<tr>
 			<td>' . _('Print Option') . ':</td>
-			<td><select minlength="0" name="Fill">
+			<td><select name="Fill">
 				<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
 				<option value="no">' . _('Plain Print') . '</option>
 				</select></td>
 		</tr>
 		<tr>
 			<td>' . _('Selection') . ':</td>
-			<td><select minlength="0" name="Selection">
+			<td><select name="Selection">
 				<option selected="selected" value="All">' . _('All') . '</option>
 				<option value="WO">' . _('Work Orders Only') . '</option>
 				<option value="PO">' . _('Purchase Orders Only') . '</option>

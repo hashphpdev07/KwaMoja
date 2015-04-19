@@ -116,7 +116,7 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 					AND w2.userid='" . $_SESSION['UserID'] . "'";
 	$Result = DB_query($SQL);
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
 
@@ -302,7 +302,7 @@ if (isset($_POST['Submit'])) {
 }
 
 if (isset($_GET['Edit'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
 	echo '<tr>
@@ -338,7 +338,7 @@ if (isset($_GET['Edit'])) {
 	exit;
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table class="selection">';
@@ -362,7 +362,7 @@ if ($_SESSION['AllowedDepartment'] == 0) {
 			ORDER BY description";
 }
 $Result = DB_query($SQL);
-echo '<td><select required="required" minlength="1" name="Department">
+echo '<td><select required="required" name="Department">
 		<option value="">' . _('Select a Department') . '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_SESSION['Request']->Department) and $_SESSION['Request']->Department == $MyRow['departmentid']) {
@@ -386,7 +386,7 @@ $SQL = "SELECT locationname,
 			WHERE internalrequest = 1
 			ORDER BY locationname";
 $Result = DB_query($SQL);
-echo '<td><select required="required" minlength="1" name="Location">
+echo '<td><select required="required" name="Location">
 		<option value="">' . _('Select a Location') . '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_SESSION['Request']->Location) and $_SESSION['Request']->Location == $MyRow['loccode']) {
@@ -399,7 +399,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Date when required') . ':</td>';
-echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DispatchDate" minlength="0" maxlength="10" size="11" value="' . $_SESSION['Request']->DispatchDate . '" /></td>
+echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DispatchDate" maxlength="10" size="11" value="' . $_SESSION['Request']->DispatchDate . '" /></td>
 	  </tr>';
 
 echo '<tr>
@@ -420,7 +420,7 @@ if (!isset($_SESSION['Request']->Location)) {
 
 //****************MUESTRO LA TABLA CON LOS REGISTROS DE LA TRANSFERENCIA*************************************
 $i = 0; //Line Item Array pointer
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<br />
 	<table class="selection">
@@ -463,7 +463,7 @@ echo '</table>
 	</div>
 	</form>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory Items') . '" alt="" />' . ' ' . _('Inventory Items') . '</p>';
@@ -484,7 +484,7 @@ if (DB_num_rows($Result1) == 0) {
 }
 echo '<table class="selection">
 	<tr>
-		<td>' . _('In Stock Category') . ':<select minlength="0" name="StockCat">';
+		<td>' . _('In Stock Category') . ':<select name="StockCat">';
 
 if (!isset($_POST['StockCat'])) {
 	$_POST['StockCat'] = '';
@@ -504,9 +504,9 @@ while ($MyRow1 = DB_fetch_array($Result1)) {
 echo '</select></td>
 	<td>' . _('Enter partial') . '<b> ' . _('Description') . '</b>:</td>';
 if (isset($_POST['Keywords'])) {
-	echo '<td><input type="text" name="Keywords" value="' . $_POST['Keywords'] . '" size="20" minlength="0" maxlength="25" /></td>';
+	echo '<td><input type="text" name="Keywords" value="' . $_POST['Keywords'] . '" size="20" maxlength="25" /></td>';
 } else {
-	echo '<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>';
+	echo '<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>';
 }
 echo '</tr>
 		<tr>
@@ -514,9 +514,9 @@ echo '</tr>
 			<td><h3>' . _('OR') . ' ' . '</h3>' . _('Enter partial') . ' <b>' . _('Stock Code') . '</b>:</td>';
 
 if (isset($_POST['StockCode'])) {
-	echo '<td><input type="text" autofocus="autofocus" name="StockCode" value="' . $_POST['StockCode'] . '" size="15" minlength="0" maxlength="18" /></td>';
+	echo '<td><input type="text" autofocus="autofocus" name="StockCode" value="' . $_POST['StockCode'] . '" size="15" maxlength="18" /></td>';
 } else {
-	echo '<td><input type="text" autofocus="autofocus" name="StockCode" size="15" minlength="0" maxlength="18" /></td>';
+	echo '<td><input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" /></td>';
 }
 echo '</tr>
 	</table>
@@ -670,7 +670,7 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Prev'])) {
 /* display list if there is more than one record */
 if (isset($searchresult) and !isset($_POST['Select'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$ListCount = DB_num_rows($searchresult);
 	if ($ListCount > 0) {
@@ -691,7 +691,7 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 		}
 		if ($ListPageMax > 1) {
 			echo '<div class="centre"><br />&nbsp;&nbsp;' . $_POST['PageOffset'] . ' ' . _('of') . ' ' . $ListPageMax . ' ' . _('pages') . '. ' . _('Go to Page') . ': ';
-			echo '<select minlength="0" name="PageOffset">';
+			echo '<select name="PageOffset">';
 			$ListPage = 1;
 			while ($ListPage <= $ListPageMax) {
 				if ($ListPage == $_POST['PageOffset']) {
@@ -760,7 +760,7 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 
 if (isset($SearchResult)) {
 	echo '<div class="page_help_text">' . _('Select an item by entering the quantity required.  Click Order when ready.') . '</div>';
-	echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="orderform">';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="orderform">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table class="table1">
 			<tr>

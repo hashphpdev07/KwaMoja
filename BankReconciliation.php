@@ -7,7 +7,7 @@ $ViewTopic= 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
 $BookMark = 'BankAccounts';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -108,7 +108,7 @@ $AccountsResults = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 echo '<tr>
 		<td>' . _('Bank Account') . ':</td>
-		<td><select minlength="0" tabindex="1" name="BankAccount">';
+		<td><select tabindex="1" name="BankAccount">';
 
 if (DB_num_rows($AccountsResults) == 0) {
 	echo '</select></td>
@@ -343,7 +343,7 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 		}
 		echo '<tr>
 				<td colspan="6">' . _('Enter the actual bank statement balance') . ' (' . $CurrencyRow['currcode'] . ')</b></td>
-				<td class="number"><input type="text" name="BankStatementBalance" autofocus="autofocus" required="required" minlength="1" maxlength="15" size="15" value="' . locale_number_format($_POST['BankStatementBalance'], $CurrencyRow['currdecimalplaces']) . '" /><td>
+				<td class="number"><input type="text" name="BankStatementBalance" autofocus="autofocus" required="required" maxlength="15" size="15" value="' . locale_number_format($_POST['BankStatementBalance'], $CurrencyRow['currdecimalplaces']) . '" /><td>
 			</tr>
 			<tr>
 				<td colspan="7" align="center"><input type="submit" name="PostExchangeDifference" value="' . _('Calculate and Post Exchange Difference') . '" onclick="return MakeConfirm(\'' . _('This will create a general ledger journal to write off the exchange difference in the current balance of the account. It is important that the exchange rate above reflects the current value of the bank account currency') . ' - ' . _('Are You Sure?') . '\');" /></td>

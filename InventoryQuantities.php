@@ -159,12 +159,12 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 	echo '<div class="page_help_text">' . _('Use this report to display the quantity of Inventory items in different categories.') . '</div><br />';
 
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<table class="selection">
 		<tr>
 			<td>' . _('Selection') . ':</td>
-			<td><select minlength="0" name="Selection">
+			<td><select name="Selection">
 				<option selected="selected" value="All">' . _('All') . '</option>
 				<option value="Multiple">' . _('Only Parts With Multiple Locations') . '</option>
 				</select></td>
@@ -186,7 +186,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 
 	echo '<tr>
 			<td>' . _('In Stock Category') . ':</td>
-			<td><select minlength="0" name="StockCat">';
+			<td><select name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
 		$_POST['StockCat'] = 'All';
 	}

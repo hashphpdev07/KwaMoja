@@ -23,7 +23,7 @@ $SQL = "SELECT script,
 
 $Result = DB_query($SQL);
 
-echo '<br /><form onSubmit="return VerifyForm(this);" method="post" id="PageSecurity" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<br /><form method="post" id="PageSecurity" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -38,7 +38,7 @@ $TokenResult = DB_query($TokenSql);
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr>
 			<td>' . $MyRow['script'] . '</td>
-			<td><select minlength="0" name="' . $MyRow['script'] . '">';
+			<td><select name="' . $MyRow['script'] . '">';
 	while ($myTokenRow = DB_fetch_array($TokenResult)) {
 		if ($myTokenRow['tokenid'] == $MyRow['pagesecurity']) {
 			echo '<option selected="selected" value="' . $myTokenRow['tokenid'] . '">' . $myTokenRow['tokenname'] . '</option>';

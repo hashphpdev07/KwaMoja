@@ -344,7 +344,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	/*end of Process Goods Received Reversal entry */
 
 } else {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -355,7 +355,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	echo '<input type="hidden" name="SuppName" value="' . $_POST['SuppName'] . '" />';
 	echo '<table class="selection"><tr>';
 	echo '<td>' . _('Show all goods received after') . ': </td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="RecdAfterDate" value="' . $_POST['RecdAfterDate'] . '" required="required" minlength="1" maxlength="10" size="10" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="RecdAfterDate" value="' . $_POST['RecdAfterDate'] . '" required="required" maxlength="10" size="10" /></td>
 		</tr>
 		</table>
 		<br />

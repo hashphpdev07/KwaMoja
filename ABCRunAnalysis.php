@@ -120,7 +120,7 @@ if (isset($_POST['Submit'])) {
 	prnMsg(_('The ABC analysis has been successfully run'), 'success');
 } else {
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="ABCAnalysis">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="ABCAnalysis">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>
@@ -131,7 +131,7 @@ if (isset($_POST['Submit'])) {
 			</tr>
 			<tr class="EvenTableRows">
 				<td>' . _('Ranking group') . '</td>
-				<td><select required="required" minlength="1" name="GroupID">';
+				<td><select required="required" name="GroupID">';
 
 	$SQL = "SELECT groupid,
 					groupname

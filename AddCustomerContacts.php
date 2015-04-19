@@ -156,7 +156,7 @@ if (isset($Id)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . $DebtorNo . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . $DebtorNo . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($Id)) {
@@ -198,37 +198,37 @@ if (!isset($_GET['delete'])) {
 	echo '<tr>
 			<td>' . _('Contact Name') . '</td>';
 	if (isset($_POST['ContactName'])) {
-		echo '<td><input type="text" name="ContactName" value="' . $_POST['ContactName'] . '" size="35" required="required" minlength="1" maxlength="40" /></td>
+		echo '<td><input type="text" name="ContactName" value="' . $_POST['ContactName'] . '" size="35" required="required" maxlength="40" /></td>
 			</tr>';
 	} else {
-		echo '<td><input type="text" name="ContactName" size="35" required="required" minlength="1" maxlength="40" /></td>
+		echo '<td><input type="text" name="ContactName" size="35" required="required" maxlength="40" /></td>
 			</tr>';
 	}
 	echo '<tr>
 			<td>' . _('Role') . '</td>';
 	if (isset($_POST['ContactRole'])) {
-		echo '<td><input type="text" name="ContactRole" value="' . $_POST['ContactRole'] . '" size="35" minlength="0" maxlength="40" /></td>
+		echo '<td><input type="text" name="ContactRole" value="' . $_POST['ContactRole'] . '" size="35" maxlength="40" /></td>
 			</tr>';
 	} else {
-		echo '<td><input type="text" name="ContactRole" size="35" minlength="0" maxlength="40" /></td>
+		echo '<td><input type="text" name="ContactRole" size="35" maxlength="40" /></td>
 			</tr>';
 	}
 	echo '<tr>
 			<td>' . _('Phone') . '</td>';
 	if (isset($_POST['ContactPhone'])) {
-		echo '<td><input type="text" name="ContactPhone" value="' . $_POST['ContactPhone'] . '" size="35" minlength="0" maxlength="40" /></td>
+		echo '<td><input type="text" name="ContactPhone" value="' . $_POST['ContactPhone'] . '" size="35" maxlength="40" /></td>
 			</tr>';
 	} else {
-		echo '<td><input type="text" name="ContactPhone" size="35" minlength="0" maxlength="40" /></td>
+		echo '<td><input type="text" name="ContactPhone" size="35" maxlength="40" /></td>
 			</tr>';
 	}
 	echo '<tr>
 			<td>' . _('Email') . '</td>';
 	if (isset($_POST['ContactEmail'])) {
-		echo '<td><input type="email" name="ContactEmail" value="' . $_POST['ContactEmail'] . '" size="55" minlength="0" maxlength="55" /></td>
+		echo '<td><input type="email" name="ContactEmail" value="' . $_POST['ContactEmail'] . '" size="55" maxlength="55" /></td>
 			</tr>';
 	} else {
-		echo '<td><input type="email" name="ContactEmail" size="55" minlength="0" maxlength="55" /></td>
+		echo '<td><input type="email" name="ContactEmail" size="55" maxlength="55" /></td>
 			</tr>';
 	}
 	echo '<tr>

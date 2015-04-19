@@ -30,16 +30,16 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Orders Invoiced Report') . '</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Enter the date from which orders are to be listed') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" autofocus="autofocus" required="required" minlength="1" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y'))) . '" /></td>
+				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" autofocus="autofocus" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y'))) . '" /></td>
 			</tr>';
 	echo '<tr>
 			<td>' . _('Enter the date to which orders are to be listed') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" minlength="1" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td></tr>';
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td></tr>';
 	echo '<tr>
 			<td>' . _('Inventory Category') . '</td>
 			<td>';
@@ -48,7 +48,7 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 	$Result = DB_query($SQL);
 
 
-	echo '<select required="required" minlength="1" name="CategoryID">
+	echo '<select required="required" name="CategoryID">
 			<option selected="selected" value="All">' . _('Over All Categories') . '</option>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -58,7 +58,7 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 
 	echo '<tr>
 			<td>' . _('Inventory Location') . ':</td>
-			<td><select required+"required" minlength="1" name="Location">';
+			<td><select required+"required" name="Location">';
 	$SQL = "SELECT locations.loccode,
 					locationname
 				FROM locations

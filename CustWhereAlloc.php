@@ -7,7 +7,7 @@ $ViewTopic = 'ARInquiries';
 $BookMark = 'WhereAllocated';
 include('includes/header.inc');
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" >
@@ -16,7 +16,7 @@ echo '<p class="page_title_text" >
 	<table class="selection" summary="' . _('Select criteria for the where used inquiry') . '">
 	<tr>
 		<td>' . _('Type') . ':</td>
-		<td><select minlength="0" tabindex="1" name="TransType"> ';
+		<td><select tabindex="1" name="TransType"> ';
 
 if (!isset($_POST['TransType'])) {
 	$_POST['TransType'] = '10';
@@ -36,7 +36,7 @@ if (!isset($_POST['TransNo'])) {
 	$_POST['TransNo'] = '';
 }
 echo '<td>' . _('Transaction Number') . ':</td>
-		<td><input class="number" tabindex="2" type="text" name="TransNo" required="required" minlength="1" maxlength="10" size="10" value="' . $_POST['TransNo'] . '" /></td>
+		<td><input class="number" tabindex="2" type="text" name="TransNo" required="required" maxlength="10" size="10" value="' . $_POST['TransNo'] . '" /></td>
 	</tr>
 	</table>
 	<br />

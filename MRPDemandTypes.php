@@ -130,7 +130,7 @@ if (isset($SelectedDT) and !isset($_GET['delete'])) {
 	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all Demand Types') . '</a></div>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedDT) and !isset($_GET['delete'])) {
@@ -162,7 +162,7 @@ if (isset($SelectedDT) and !isset($_GET['delete'])) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Demand Type') . ':</td>
-				<td><input type="text" name="MRPDemandType" size="6" required="required" minlength="1" maxlength="5" value="' . $_POST['MRPDemandType'] . '" /></td>
+				<td><input type="text" name="MRPDemandType" size="6" required="required" maxlength="5" value="' . $_POST['MRPDemandType'] . '" /></td>
 			</tr>';
 }
 
@@ -172,7 +172,7 @@ if (!isset($_POST['Description'])) {
 
 echo '<tr>
 		<td>' . _('Demand Type Description') . ':</td>
-		<td><input type="text" name="Description" size="31" required="required" minlength="1" maxlength="30" value="' . $_POST['Description'] . '" /></td>
+		<td><input type="text" name="Description" size="31" required="required" maxlength="30" value="' . $_POST['Description'] . '" /></td>
 	</tr>
 	</table>
 	<div class="centre">

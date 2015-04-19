@@ -227,7 +227,7 @@ if (isset($_POST['ProcessCustomerChange'])) {
 
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -235,11 +235,11 @@ echo '<br />
 	<table>
 	<tr>
 		<td>' . _('Existing Debtor Code') . ':</td>
-		<td><input type="text" name="OldDebtorNo" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="OldDebtorNo" size="20" maxlength="20" /></td>
 	</tr>
 	<tr>
 		<td> ' . _('New Debtor Code') . ':</td>
-		<td><input type="text" name="NewDebtorNo" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="NewDebtorNo" size="20" maxlength="20" /></td>
 	</tr>
 	</table>
 

@@ -111,7 +111,7 @@ if (isset($_POST['Install'])) {
 	$ForceConfigReload = True;
 	prnMsg(_('The plugin has been successfully installed. You can now use it from the main menu'), 'success');
 } else {
-	echo '<form onSubmit="return VerifyForm(this);" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="submit" name="reload" value="Reload" hidden="hidden" />';
 	if (!isset($_POST['reload'])) {
@@ -119,7 +119,7 @@ if (isset($_POST['Install'])) {
 		echo '<div class="page_help_text">' . _('Select the plugin that you wish to install from the list below.') . '</div>';
 		echo '<br /><div class="centre">
 				<div class="box_header">' . _('Available plugins') . '</div>
-				<select minlength="0" multiple="multiple" name="Available" onclick="ReloadForm(reload);">';
+				<select multiple="multiple" name="Available" onclick="ReloadForm(reload);">';
 
 		$Plugins = scandir('plugins/');
 

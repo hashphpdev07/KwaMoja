@@ -73,7 +73,7 @@ if (isset($_POST['EnterNewRequirement'])) {
 
 /* This is where the other requirement as entered/modified should be displayed reflecting any deletions or insertions*/
 
-echo '<form onSubmit="return VerifyForm(this);" name="ContractReqtsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form name="ContractReqtsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contract Other Requirements') . '" alt="" />  ' . _('Contract Other Requirements') . ' - ' . $_SESSION['Contract' . $Identifier]->CustomerName . '</p>';
@@ -112,8 +112,8 @@ if (count($_SESSION['Contract' . $Identifier]->ContractReqts) > 0) {
 		}
 
 		echo '<td><textarea name="Requirement' . $ContractReqtID . '" required="required" autofocus="autofocus" cols="30" rows="3">' . $ContractComponent->Requirement . '</textarea></td>
-			  <td><input type="text" class="number" maxlength="11" required="required" minlength="1" name="Qty' . $ContractReqtID . '" size="11" value="' . locale_number_format($ContractComponent->Quantity, 'Variable') . '" /></td>
-			  <td><input type="text" class="number" maxlength="11" required="required" minlength="1" name="CostPerUnit' . $ContractReqtID . '" size="11" value="' . locale_number_format($ContractComponent->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>
+			  <td><input type="text" class="number" maxlength="11" required="required" name="Qty' . $ContractReqtID . '" size="11" value="' . locale_number_format($ContractComponent->Quantity, 'Variable') . '" /></td>
+			  <td><input type="text" class="number" maxlength="11" required="required" name="CostPerUnit' . $ContractReqtID . '" size="11" value="' . locale_number_format($ContractComponent->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>
 			  <td class="number">' . $DisplayLineTotal . '</td>
 			  <td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this contract requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			  </tr>';
@@ -152,11 +152,11 @@ echo '<table class="selection">
 		</tr>
 		<tr>
 			<td>' . _('Quantity Required') . ':</td>
-			<td><input type="text" class="number" name="Quantity" size="10" required="required" minlength="1" maxlength="10" value="' . $_POST['Quantity'] . '" /></td>
+			<td><input type="text" class="number" name="Quantity" size="10" required="required" maxlength="10" value="' . $_POST['Quantity'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Cost Per Unit') . ':</td>
-			<td><input type="text" class="number" name="CostPerUnit" size="10" required="required" minlength="1" maxlength="10" value="' . $_POST['CostPerUnit'] . '" /></td>
+			<td><input type="text" class="number" name="CostPerUnit" size="10" required="required" maxlength="10" value="' . $_POST['CostPerUnit'] . '" /></td>
 		</tr>
 
 		</table>

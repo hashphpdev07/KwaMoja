@@ -75,7 +75,7 @@ if (isset($_POST['Submit'])) {
 	}
 	echo '</table>';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="ABCMethods">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="ABCMethods">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($_GET['SelectedMethodID'])) {
@@ -90,7 +90,7 @@ if (isset($_POST['Submit'])) {
 		$Description = $MyRow['methodname'];
 	} else {
 		echo '<input type="hidden" name="Mode" value="New" />';
-		$IDInput = '<input type="text" required="required" minlength="1" size="3" class="number" name="MethodID" />';
+		$IDInput = '<input type="text" required="required" size="3" class="number" name="MethodID" />';
 		$Description = '';
 	}
 
@@ -106,7 +106,7 @@ if (isset($_POST['Submit'])) {
 			</tr>
 			<tr class="OddTableRows">
 				<td>' . _('Method Description') . '</td>
-				<td><input type="text" size="30" required="required" minlength="1" maxlength="40" name="MethodName" value="' . $Description . '" /></td>
+				<td><input type="text" size="30" required="required" maxlength="40" name="MethodName" value="' . $Description . '" /></td>
 			</tr>
 		</table>';
 

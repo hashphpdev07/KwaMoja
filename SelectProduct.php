@@ -533,7 +533,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	</table>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
@@ -541,7 +541,7 @@ echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Th
 echo '<table class="selection">
 		<tr>
 			<td>', _('In Stock Category'), ':
-				<select minlength="0" name="StockCat">';
+				<select name="StockCat">';
 if (!isset($_POST['StockCat'])) {
 	$_POST['StockCat'] = '';
 }
@@ -562,18 +562,18 @@ echo '</select>
 
 echo '<td>', _('Enter partial'), '<b> ', _('Description'), '</b>:</td>';
 if (isset($_POST['Keywords'])) {
-	echo '<td><input type="search" name="Keywords" value="', $_POST['Keywords'], '" size="20" minlength="0" maxlength="25" /></td>';
+	echo '<td><input type="search" name="Keywords" value="', $_POST['Keywords'], '" size="20" maxlength="25" /></td>';
 } else {
-	echo '<td><input type="search" name="Keywords" size="20" minlength="0" maxlength="25" /></td>';
+	echo '<td><input type="search" name="Keywords" size="20" maxlength="25" /></td>';
 }
 echo '</tr>';
 
 echo '<tr>
 		<td colspan="2" class="number"><b>', _('OR'), ' ', '</b>', _('Enter partial'), ' <b>', _('Stock Code'), '</b>:</td>';
 if (isset($_POST['StockCode'])) {
-	echo '<td><input type="search" name="StockCode" autofocus="autofocus" value="', $_POST['StockCode'], '" size="15" minlength="0" maxlength="18" /></td>';
+	echo '<td><input type="search" name="StockCode" autofocus="autofocus" value="', $_POST['StockCode'], '" size="15" maxlength="18" /></td>';
 } else {
-	echo '<td><input type="search" name="StockCode" autofocus="autofocus" size="15" minlength="0" maxlength="18" /></td>';
+	echo '<td><input type="search" name="StockCode" autofocus="autofocus" size="15" maxlength="18" /></td>';
 }
 echo '</tr>
 	</table>';
@@ -637,7 +637,7 @@ if (isset($_POST['Search']) or isset($_POST['Go']) or isset($_POST['Next']) or i
 /* end query for list of records */
 /* display list if there is more than one record */
 if (isset($SearchResult) and !isset($_POST['Select'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	$ListCount = DB_num_rows($SearchResult);
 	if ($ListCount > 0) {
@@ -658,7 +658,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 		}
 		if ($ListPageMax > 1) {
 			echo '<div class="centre">&nbsp;&nbsp;', $_POST['PageOffset'], ' ', _('of'), ' ', $ListPageMax, ' ', _('pages'), '. ', _('Go to Page'), ': ';
-			echo '<select minlength="0" name="PageOffset">';
+			echo '<select name="PageOffset">';
 			$ListPage = 1;
 			while ($ListPage <= $ListPageMax) {
 				if ($ListPage == $_POST['PageOffset']) {

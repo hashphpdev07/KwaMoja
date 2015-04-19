@@ -14,7 +14,7 @@ echo '<a href="' . $RootPath . '/index.php?Application=AR">' . _('Back to Custom
 echo '<div class="centre"><h3>' . $Title . '</h3></div>';
 
 // Page Border
-echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -34,10 +34,10 @@ if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
 
 echo '<tr>
 			<td>' . _('Start Period') . ':</td>
-			<td><select minlength="0" name="FromPeriod">';
+			<td><select name="FromPeriod">';
 
 $ToSelect = '<tr><td>' . _('End Period') . ':</td>
-					<td><select minlength="0" name="ToPeriod">';
+					<td><select name="ToPeriod">';
 
 $SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno";
 $perResult = DB_query($SQL);

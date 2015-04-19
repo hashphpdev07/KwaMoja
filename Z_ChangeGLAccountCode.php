@@ -128,7 +128,7 @@ if (isset($_POST['ProcessGLAccountCode'])) {
 
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -136,11 +136,11 @@ echo '<br />
 	<table>
 	<tr>
 		<td>' . _('Existing GL Account Code') . ':</td>
-		<td><input type="text" name="OldAccountCode" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="OldAccountCode" size="20" maxlength="20" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New GL Account Code') . ':</td>
-		<td><input type="text" name="NewAccountCode" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="NewAccountCode" size="20" maxlength="20" /></td>
 	</tr>
 	</table>
 

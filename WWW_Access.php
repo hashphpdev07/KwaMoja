@@ -157,7 +157,7 @@ if (isset($SelectedRole)) {
 	}
 }
 echo '<br />';
-echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_POST['SelectedRole'])) {
@@ -169,7 +169,7 @@ if (!isset($_POST['SecRoleName'])) {
 }
 echo '<tr>
 		<td>' . _('Role') . ':</td>
-		<td><input type="text" name="SecRoleName" size="40" required="required" minlength="4" maxlength="40" value="' . $_POST['SecRoleName'] . '" /></td>
+		<td><input type="text" name="SecRoleName" size="40" required="required" maxlength="40" value="' . $_POST['SecRoleName'] . '" /></td>
 	</tr>';
 echo '</table>
 	<br />

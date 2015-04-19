@@ -588,7 +588,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		/*if FromTransNo is not set then show a form to allow input of either a single invoice number or a range of invoices to be printed. Also get the last invoice number created to show the user where the current range is up to */
 
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<div>';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -597,7 +597,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		echo '<table class="selection">
 				<tr>
 					<td>' . _('Print Invoices or Credit Notes') . '</td>
-					<td><select minlength="0" name="InvOrCredit">';
+					<td><select name="InvOrCredit">';
 
 		if (!isset($InvOrCredit) or $InvOrCredit == 'Invoice') {
 
@@ -612,7 +612,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		echo '<tr>
 				<td>' . _('Print EDI Transactions') . '</td>
-				<td><select minlength="0" name="PrintEDI">';
+				<td><select name="PrintEDI">';
 
 		if (!isset($InvOrCredit) or $InvOrCredit == 'Invoice') {
 
@@ -630,7 +630,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			</tr>';
 		echo '<tr>
 				<td>' . _('Despatch Location') . ': </td>
-				<td><select minlength="0" tabindex="2" name="LocCode">';
+				<td><select tabindex="2" name="LocCode">';
 
 		if ($_SESSION['RestrictLocations'] == 0) {
 			$SQL = "SELECT locationname,
@@ -662,11 +662,11 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			</tr>';
 		echo '<tr>
 				<td>' . _('Start invoice/credit note number to print') . '</td>
-				<td><input class="number" type="text" required="required" minlength="1" maxlength="6" size="7" name="FromTransNo" /></td>
+				<td><input class="number" type="text" required="required" maxlength="6" size="7" name="FromTransNo" /></td>
 			</tr>';
 		echo '<tr>
 				<td>' . _('End invoice/credit note number to print') . '</td>
-				<td><input class="number" type="text" required="required" minlength="1" maxlength="6" size="7" name="ToTransNo" /></td>
+				<td><input class="number" type="text" required="required" maxlength="6" size="7" name="ToTransNo" /></td>
 			</tr>
 			</table>';
 		echo '<div class="centre">

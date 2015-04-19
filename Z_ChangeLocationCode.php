@@ -243,7 +243,7 @@ if (isset($_POST['ProcessLocationChange'])) {
 	} //only do the stuff above if  $InputError==0
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -251,15 +251,15 @@ echo '<br />
 	<table>
 	<tr>
 		<td>' . _('Existing Location Code') . ':</td>
-		<td><input type="text" name="OldLocationID" size="5" minlength="0" maxlength="5" /></td>
+		<td><input type="text" name="OldLocationID" size="5" maxlength="5" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New Location Code') . ':</td>
-		<td><input type="text" name="NewLocationID" size="5" minlength="0" maxlength="5" /></td>
+		<td><input type="text" name="NewLocationID" size="5" maxlength="5" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New Location Name') . ':</td>
-		<td><input type="text" name="NewLocationName" size="50" minlength="0" maxlength="50" /></td>
+		<td><input type="text" name="NewLocationName" size="50" maxlength="50" /></td>
 	</tr>
 	</table>
 

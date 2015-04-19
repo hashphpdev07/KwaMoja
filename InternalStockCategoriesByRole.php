@@ -105,7 +105,7 @@ if (!isset($SelectedRole)) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('Select a user role'), '" alt="" />', ' ', _('Select a user role') . '
 		</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table class="selection">'; //Main table
 
@@ -116,7 +116,7 @@ if (!isset($SelectedRole)) {
 
 	echo '<tr>
 			<td>', _('Select User Role'), ':</td>
-			<td><select required="required" minlength="1" name="SelectedRole">';
+			<td><select required="required" name="SelectedRole">';
 	echo '<option value="">', _('Not Yet Selected'), '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($SelectedRole) and $MyRow['secroleid'] == $SelectedRole) {
@@ -153,13 +153,13 @@ if (isset($_POST['process']) or isset($SelectedRole)) {
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table class="selection">'; //Main table
 
 		echo '<tr>
 				<td>', _('Select Stock Category Code'), ':</td>
-				<td><select minlength="0" name="SelectedCategory">';
+				<td><select name="SelectedCategory">';
 
 		$SQL = "SELECT categoryid,
 						categorydescription

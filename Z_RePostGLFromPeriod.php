@@ -5,7 +5,7 @@ include('includes/session.inc');
 $Title = _('Recalculation of GL Balances in Chart Details Table');
 include('includes/header.inc');
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -15,7 +15,7 @@ if (!isset($_POST['FromPeriod'])) {
 	echo '<table>
 			 <tr>
 				 <td>' . _('Select Period From') . ':</td>
-				 <td><select minlength="0" name="FromPeriod">';
+				 <td><select name="FromPeriod">';
 
 	$SQL = "SELECT periodno,
 				   lastdate_in_period

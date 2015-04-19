@@ -156,7 +156,7 @@ if (isset($SelectedShipper)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -188,7 +188,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr><td>' . _('Shipper Name') . ':</td>
 			<td>
-				<input type="text" name="ShipperName" value="' . $_POST['ShipperName'] . '" size="35" required="required" minlength="1" maxlength="40" />
+				<input type="text" name="ShipperName" value="' . $_POST['ShipperName'] . '" size="35" required="required" maxlength="40" />
 			</td>
 		</tr>
 

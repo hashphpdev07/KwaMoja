@@ -270,7 +270,7 @@ if (isset($_POST['CommitDepreciation']) and $InputError == false) {
 	/*And post the journal too */
 	include('includes/GLPostings.inc');
 } else {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<br />
@@ -278,7 +278,7 @@ if (isset($_POST['CommitDepreciation']) and $InputError == false) {
 		<tr>';
 	if ($AllowUserEnteredProcessDate) {
 		echo '<td>' . _('Date to Process Depreciation') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ProcessDate" required="required" minlength="1" maxlength="10" size="11" value="' . $_POST['ProcessDate'] . '" /></td>';
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ProcessDate" required="required" maxlength="10" size="11" value="' . $_POST['ProcessDate'] . '" /></td>';
 	} else {
 		echo '<td>' . _('Date to Process Depreciation') . ':</td>
 			<td>' . $_POST['ProcessDate'] . '</td>';

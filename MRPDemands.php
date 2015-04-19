@@ -82,7 +82,7 @@ function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEA
 
 	// If the SELECT found records, display them
 	if (DB_num_rows($Result) > 0) {
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<div>';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table cellpadding="2" class="selection">
@@ -262,7 +262,7 @@ function listall($part, $DemandType) { //####LISTALL_LISTALL_LISTALL_LISTALL_LIS
 	// Lists some in hit List Selection submit button, and uses part number if it is entered or
 	// demandtype
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$where = " ";
@@ -325,16 +325,16 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 	// Display Seach fields at top and Entry form below that. This function is called the first time
 	// the page is called, and is also invoked at the end of all of the other functions.
 	// echo "<br/>DISPLAY - DemandID = $DemandID<br/>";
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($StockId)) {
 		echo '<table cellpadding="3" class="selection"><tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-			<td><input tabindex="1" type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+			<td><input tabindex="1" type="text" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-			<td><input tabindex="2" type="text" name="StockCode" size="15" minlength="0" maxlength="20" /></td>
+			<td><input tabindex="2" type="text" name="StockCode" size="15" maxlength="20" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?listall=yes">' . _('List All Demands') . '</a></td></tr>
 			<tr><td colspan="7"><div class="centre"><input tabindex="3" type="submit" name="Search" value="' . _('Search Now') . '" /></div></td></tr></table>';
@@ -375,7 +375,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 			echo '<table class="selection">
 					<tr>
 						<td>' . _('Part Number') . ':</td>
-						<td><input type="text" name="StockID" size="21" required="required" minlength="1" maxlength="20" value="' . $_POST['StockID'] . '" /></td>
+						<td><input type="text" name="StockID" size="21" required="required" maxlength="20" value="' . $_POST['StockID'] . '" /></td>
 					</tr>';
 		}
 
@@ -389,16 +389,16 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 		}
 
 		echo '<tr><td>' . _('Quantity') . ':</td>
-				<td><input type="text" name="Quantity" class="number" size="6" required="required" minlength="1" maxlength="6" value="' . $_POST['Quantity'] . '" /></td>
+				<td><input type="text" name="Quantity" class="number" size="6" required="required" maxlength="6" value="' . $_POST['Quantity'] . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Due Date') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="Duedate" size="12" required="required" minlength="1" maxlength="12" value="' . $_POST['Duedate'] . '" /></td>
+				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="Duedate" size="12" required="required" maxlength="12" value="' . $_POST['Duedate'] . '" /></td>
 			</tr>';
 		// Generate selections for Demand Type
 		echo '<tr>
 				<td>' . _('Demand Type') . '</td>
-				<td><select minlength="0" name="MRPDemandtype">';
+				<td><select name="MRPDemandtype">';
 
 		$SQL = "SELECT mrpdemandtype,
 						description

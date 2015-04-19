@@ -66,7 +66,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 	echo '<p class="page_title_text" ><strong>' . _('Location : ') . '' . $Location['locationname'] . ' </strong></p>';
 	echo '<p class="page_title_text" ><strong>' . _('Number Of Days Sales : ') . '' . locale_number_format($_POST['NumberOfDays'], 0) . '' . _(' Days ') . ' </strong></p>';
 	$k = 0; //row colour counter
-	echo '<form onSubmit="return VerifyForm(this);" action="ReorderLevelLocation.php" method="post" id="Update">';
+	echo '<form action="ReorderLevelLocation.php" method="post" id="Update">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	echo '<tr>
@@ -153,7 +153,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 
 	echo '<div class="page_help_text">' . _('Use this report to display the reorder levels for Inventory items in different categories.') . '</div>';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$SQL = "SELECT locationname,
 					locations.loccode
@@ -166,7 +166,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Location') . ':</td>
-				<td><select minlength="0" name="StockLocation"> ';
+				<td><select name="StockLocation"> ';
 
 	while ($MyRow = DB_fetch_array($ResultStkLocs)) {
 		echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
@@ -181,7 +181,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 	$Result1 = DB_query($SQL);
 
 	echo '<tr><td>' . _('Category') . ':</td>
-				<td><select required="required" minlength="1" name="StockCat">';
+				<td><select required="required" name="StockCat">';
 
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
@@ -190,11 +190,11 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 	echo '</select></td></tr>';
 	echo '<tr>
 			<td>' . _('Number Of Days Sales') . ':</td>
-			<td><input type="text" class="number" name="NumberOfDays" required="required" minlength="1" maxlength="3" size="4" value="0" /></td>
+			<td><input type="text" class="number" name="NumberOfDays" required="required" maxlength="3" size="4" value="0" /></td>
 		  </tr>';
 	echo '<tr>
 			<td>' . _('Order By') . ':</td>
-			<td><select minlength="0" name="Sequence">
+			<td><select name="Sequence">
 				<option value="1">' . _('Total Invoiced') . '</option>
 				<option value="2">' . _('Item Code') . '</option>
 				</select></td>

@@ -759,19 +759,19 @@ if (isset($_POST['SelectedCustomer'])) {
 if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract' . $Identifier]->DebtorNo == '') {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contract') . '" alt="" />' . ' ' . _('Contract: Select Customer') . '</p>';
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="CustomerSelection" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="CustomerSelection" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table cellpadding="3" class="selection">
 			<tr>
 			<td><h5>' . _('Part of the Customer Branch Name') . ':</h5></td>
-			<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" minlength="0" maxlength="25" /></td>
+			<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Customer Branch Code') . ':</h5></td>
-			<td><input tabindex="2" type="text" name="CustCode" size="15" minlength="0" maxlength="18" /></td>
+			<td><input tabindex="2" type="text" name="CustCode" size="15" maxlength="18" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Branch Phone Number') . ':</h5></td>
-			<td><input tabindex="3" type="text" name="CustPhone" size="15" minlength="0" maxlength="18" /></td>
+			<td><input tabindex="3" type="text" name="CustPhone" size="15" maxlength="18" /></td>
 		</tr>
 		</table>
 		<br /><div class="centre"><input tabindex="4" type="submit" name="SearchCustomers" value="' . _('Search Now') . '" />
@@ -825,7 +825,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 } else {
 	/*A customer is already selected so get into the contract setup proper */
 
-	echo '<form onSubmit="return VerifyForm(this);" name="ContractEntry" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+	echo '<form name="ContractEntry" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<p class="page_title_text" >
@@ -847,7 +847,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 				<td>';
 	if ($_SESSION['Contract' . $Identifier]->Status == 0) {
 		/*Then the contract has not become an order yet and we can allow changes to the ContractRef */
-		echo '<input type="text" name="ContractRef" size="21" autofocus="autofocus" required="required" minlength="5" maxlength="20" value="' . $_SESSION['Contract' . $Identifier]->ContractRef . '" />';
+		echo '<input type="text" name="ContractRef" size="21" autofocus="autofocus" required="required" maxlength="20" value="' . $_SESSION['Contract' . $Identifier]->ContractRef . '" />';
 	} else {
 		/*Just show the contract Ref - dont allow modification */
 		echo '<input type="hidden" name="ContractRef" value="' . $_SESSION['Contract' . $Identifier]->ContractRef . '" />' . $_SESSION['Contract' . $Identifier]->ContractRef;
@@ -855,7 +855,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	echo '</td></tr>';
 	echo '<tr>
 			<td>' . _('Category') . ':</td>
-			<td><select minlength="0" name="CategoryID" >';
+			<td><select name="CategoryID" >';
 
 	$SQL = "SELECT categoryid, categorydescription FROM stockcategory";
 	$ErrMsg = _('The stock categories could not be retrieved because');
@@ -885,7 +885,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 
 	echo '<tr>
 			<td>' . _('Location') . ':</td>
-			<td><select minlength="0" name="LocCode" >';
+			<td><select name="LocCode" >';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (!isset($_SESSION['Contract' . $Identifier]->LocCode) or $MyRow['loccode'] == $_SESSION['Contract' . $Identifier]->LocCode) {
 			echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
@@ -914,7 +914,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	}
 	echo '<tr><td>' . _('Default Work Centre') . ': </td><td>';
 
-	echo '<select minlength="0" name="DefaultWorkCentre">';
+	echo '<select name="DefaultWorkCentre">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['DefaultWorkCentre']) and $MyRow['code'] == $_POST['DefaultWorkCentre']) {
@@ -947,20 +947,20 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 
 	echo '<tr>
 			<td>' . _('Customer Reference') . ':</td>
-			<td><input type="text" name="CustomerRef" size="21" minlength="0" maxlength="20" value="' . $_SESSION['Contract' . $Identifier]->CustomerRef . '" /></td>
+			<td><input type="text" name="CustomerRef" size="21" maxlength="20" value="' . $_SESSION['Contract' . $Identifier]->CustomerRef . '" /></td>
 		</tr>';
 	if (!isset($_SESSION['Contract' . $Identifier]->Margin)) {
 		$_SESSION['Contract' . $Identifier]->Margin = 50;
 	}
 	echo '<tr>
 			<td>' . _('Gross Profit') . ' %:</td>
-			<td><input class="number" type="text" name="Margin" size="6" required="required" minlength="1" maxlength="6" value="' . locale_number_format($_SESSION['Contract' . $Identifier]->Margin, 2) . '" /></td>
+			<td><input class="number" type="text" name="Margin" size="6" required="required" maxlength="6" value="' . locale_number_format($_SESSION['Contract' . $Identifier]->Margin, 2) . '" /></td>
 		</tr>';
 
 	if ($_SESSION['CompanyRecord']['currencydefault'] != $_SESSION['Contract' . $Identifier]->CurrCode) {
 		echo '<tr>
 				<td>' . $_SESSION['Contract' . $Identifier]->CurrCode . ' ' . _('Exchange Rate') . ':</td>
-				<td><input class="number" type="text" name="ExRate" size="10" required="required" minlength="1" maxlength="10" value="' . locale_number_format($_SESSION['Contract' . $Identifier]->ExRate, 'Variable') . '" /></td>
+				<td><input class="number" type="text" name="ExRate" size="10" required="required" maxlength="10" value="' . locale_number_format($_SESSION['Contract' . $Identifier]->ExRate, 'Variable') . '" /></td>
 			</tr>';
 	} else {
 		echo '<input type="hidden" name="ExRate" value="' . locale_number_format($_SESSION['Contract' . $Identifier]->ExRate, 'Variable') . '" />';

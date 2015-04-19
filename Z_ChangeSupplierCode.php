@@ -15,17 +15,17 @@ if (isset($_POST['ProcessSupplierChange'])) {
 	ProcessSupplier($_POST['OldSupplierNo'], $_POST['NewSupplierNo']);
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
 		<tr>
 			<td>' . _('Existing Supplier Code') . ':</td>
-			<td><input type="text" name="OldSupplierNo" size="20" minlength="0" maxlength="20" /></td>
+			<td><input type="text" name="OldSupplierNo" size="20" maxlength="20" /></td>
 		</tr>
 		<tr>
 			<td> ' . _('New Supplier Code') . ':</td>
-			<td><input type="text" name="NewSupplierNo" size="20" minlength="0" maxlength="20" /></td>
+			<td><input type="text" name="NewSupplierNo" size="20" maxlength="20" /></td>
 		</tr>
 	</table>
 	<div class="centre">

@@ -62,7 +62,7 @@ if (isset($_POST['module'])) {
 	if (isset($_POST['submit'])) {
 		// save the modifications
 
-		echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		/* write the new language file */
@@ -126,7 +126,7 @@ if (isset($_POST['module'])) {
 
 		echo '<br />&nbsp;' . _('When finished modifying you must click on Modify at the bottom in order to save changes');
 		prnMsg(_('Your existing translation file (messages.po) will be saved as messages.po.old') . '<br />', 'info', _('PLEASE NOTE'));
-		echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table>
 				<tr>
@@ -216,13 +216,13 @@ if (isset($_POST['module'])) {
 	if (!is_writable('./locale/' . $_SESSION['Language'])) {
 		prnMsg(_('You do not have write access to the required files please contact your system administrator'), 'error');
 	} else {
-		echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table>';
 
 		echo '<tr><td>' . _('Select the module to edit') . '</td>';
-		echo '<td><select minlength="0" name="module">';
+		echo '<td><select name="module">';
 		for ($i = 0; $i < $NumberOfModules; $i++) {
 			echo '<option>' . $AvailableModules[$i] . '</option>';
 		}

@@ -315,7 +315,7 @@ echo '<p class="page_title_text" >
 
 if (isset($_POST['AllocTrans'])) {
 	// Page called with trans number
-	echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<input type="hidden" name="AllocTrans" value="', $_POST['AllocTrans'], '" />';
 
@@ -379,7 +379,7 @@ if (isset($_POST['AllocTrans'])) {
 			}
 			$Balance += $YetToAlloc - $AllocnItem->AllocAmt;
 			++$j;
-			echo '<input type="text" class="number" name="Amt', $Counter, '" required="required" minlength="1" maxlength="12" size="13" value="', locale_number_format(round($AllocnItem->AllocAmt, $_SESSION['Alloc']->CurrDecimalPlaces), $_SESSION['Alloc']->CurrDecimalPlaces), '" />
+			echo '<input type="text" class="number" name="Amt', $Counter, '" required="required" maxlength="12" size="13" value="', locale_number_format(round($AllocnItem->AllocAmt, $_SESSION['Alloc']->CurrDecimalPlaces), $_SESSION['Alloc']->CurrDecimalPlaces), '" />
 					<input type="hidden" name="AllocID', $Counter, '" value="', $AllocnItem->ID, '" /></td>
 					<td class="number">', locale_number_format($Balance, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
 				</tr>';

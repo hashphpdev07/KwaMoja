@@ -32,13 +32,13 @@ if (isset($_GET['AssetID'])) {
 } else {
 	$SQL = "SELECT categoryid, categorydescription FROM fixedassetcategories";
 	$Result = DB_query($SQL);
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table class="selection"><tr>';
 	echo '<td>' . _('In Asset Category') . ': </td>';
-	echo '<td><select minlength="0" name="AssetCat">';
+	echo '<td><select name="AssetCat">';
 
 	if (!isset($_POST['AssetCat'])) {
 		$_POST['AssetCat'] = '';
@@ -57,16 +57,16 @@ if (isset($_GET['AssetID'])) {
 
 
 	if (isset($_POST['Keywords'])) {
-		echo '<input type="text" autofocus="autofocus" name="Keywords" value="' . trim($_POST['Keywords'], '%') . '" size="20" minlength="0" maxlength="25" />';
+		echo '<input type="text" autofocus="autofocus" name="Keywords" value="' . trim($_POST['Keywords'], '%') . '" size="20" maxlength="25" />';
 	} else {
-		echo '<input type="text" autofocus="autofocus" name="Keywords" size="20" minlength="0" maxlength="25" />';
+		echo '<input type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" />';
 	}
 
 	echo '</td>
 		</tr>
 		<tr>
 			<td>' . _('Asset Location') . ':</td>
-			<td><select minlength="0" name="AssetLocation">';
+			<td><select name="AssetLocation">';
 	if (!isset($_POST['AssetLocation'])) {
 		$_POST['AssetLocation'] = 'ALL';
 	}
@@ -91,9 +91,9 @@ if (isset($_GET['AssetID'])) {
 	echo '<td>';
 
 	if (isset($_POST['AssetID'])) {
-		echo '<input type="text" name="AssetID" value="' . trim($_POST['AssetID'], '%') . '" size="15" minlength="0" maxlength="40" />';
+		echo '<input type="text" name="AssetID" value="' . trim($_POST['AssetID'], '%') . '" size="15" maxlength="40" />';
 	} else {
-		echo '<input type="text" name="AssetID" size="15" minlength="0" maxlength="40" />';
+		echo '<input type="text" name="AssetID" size="15" maxlength="40" />';
 	}
 
 	echo '</td></tr></table><br />';
@@ -147,7 +147,7 @@ if (isset($_POST['Search'])) {
 
 	$Result = DB_query($SQL);
 	echo '<br />';
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		  <div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
@@ -173,7 +173,7 @@ if (isset($_POST['Search'])) {
 				<td class="number">' . locale_number_format($MyRow['cost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($MyRow['accumdepn'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td>' . $MyRow['ItemAssetLocation'] . '</td>';
-		echo '<td><select minlength="0" name="Location' . $MyRow['assetid'] . '" onchange="ReloadForm(Move' . $MyRow['assetid'] . ')">';
+		echo '<td><select name="Location' . $MyRow['assetid'] . '" onchange="ReloadForm(Move' . $MyRow['assetid'] . ')">';
 		$ThisDropDownName = 'Location' . $MyRow['assetid'];
 		while ($LocationRow = DB_fetch_array($LocationResult)) {
 

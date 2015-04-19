@@ -217,18 +217,18 @@ if (isset($_POST['ProcessStockChange'])) {
 	} //only do the stuff above if  $InputError==0
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 echo '<table>
 	<tr>
 		<td>' . _('Existing Inventory Code') . ':</td>
-		<td><input type="text" name="OldStockID" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="OldStockID" size="20" maxlength="20" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New Inventory Code') . ':</td>
-		<td><input type="text" name="NewStockID" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="NewStockID" size="20" maxlength="20" /></td>
 	</tr>
 	</table>
 

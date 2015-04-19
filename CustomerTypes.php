@@ -207,7 +207,7 @@ if (!isset($SelectedType)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type
@@ -243,7 +243,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>', _('Type Name'), ':</td>
-			<td><input type="text" name="TypeName" required="required" minlength="1" maxlength="100" value="', $_POST['TypeName'], '" /></td>
+			<td><input type="text" name="TypeName" required="required" maxlength="100" value="', $_POST['TypeName'], '" /></td>
 		</tr>';
 
 	echo '</table>'; // close main table

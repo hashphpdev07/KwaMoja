@@ -391,12 +391,12 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
 
 	echo '<tr><td>' . _('For Inventory in Location') . ':</td>
-			<td><select minlength="0" name="Location">';
+			<td><select name="Location">';
 	$SQL = "SELECT locations.loccode,
 					locationname
 				FROM locations
@@ -414,7 +414,7 @@ if (isset($_POST['PrintPDF'])) {
 	echo '</select></td></tr>';
 
 	echo '<tr><td>' . _('Months Buffer Stock to Hold') . ':</td>
-			<td><select minlength="0" name="NumberMonthsHolding">';
+			<td><select name="NumberMonthsHolding">';
 
 	if (!isset($_POST['NumberMonthsHolding'])) {
 		$_POST['NumberMonthsHolding'] = 1;

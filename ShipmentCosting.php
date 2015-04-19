@@ -686,13 +686,13 @@ if (isset($_GET['Close'])) {
 
 	// if the page was called with Close=Yes then show options to confirm OK to c
 	echo '<div class="centre">
-			<form onSubmit="return VerifyForm(this);" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedShipment=', $_GET['SelectedShipment'], '">';
+			<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedShipment=', $_GET['SelectedShipment'], '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if ($_SESSION['WeightedAverageCosting'] == 0) {
 		/* We are standard costing - so show the option to update costs - under W. Avg cost updates are implicit */
 		echo _('Update Standard Costs'), ':';
-		echo '<select required="required" minlength="1" name="UpdateCost">
+		echo '<select required="required" name="UpdateCost">
 				<option selected="selected" value="Yes">', _('Yes'), '</option>
 				<option value="No">', _('No'), '</option>
 			</select>';

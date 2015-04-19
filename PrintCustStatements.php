@@ -461,18 +461,18 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<div>';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table class="selection">';
 		echo '<tr>
 				<td>' . _('Starting Customer statement to print (Customer code)') . ' </td>
-				<td><input type="text" required="required" minlength="1" maxlength="10" size="7" name="FromCust" value="' . $MyRow['fromcriteria'] . '" /></td>
+				<td><input type="text" required="required" maxlength="10" size="7" name="FromCust" value="' . $MyRow['fromcriteria'] . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Ending Customer statement to print (Customer code)') . '</td>
-				<td><input type="text" required="required" minlength="1" maxlength="10" size="7" name="ToCust" value="' . $MyRow['tocriteria'] . '" /></td>
+				<td><input type="text" required="required" maxlength="10" size="7" name="ToCust" value="' . $MyRow['tocriteria'] . '" /></td>
 			</tr>
 		</table>';
 		echo '<br /><div class="centre">

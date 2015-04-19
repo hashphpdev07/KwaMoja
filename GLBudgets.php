@@ -29,12 +29,12 @@ if (isset($_POST['update'])) {
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Budgets') . '" alt="' . _('Budgets') . '" />' . ' ' . $Title . '
 	</p>';
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="selectaccount">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="selectaccount">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table summary="' . _('General ledger account election') . '">
 		<tr>
 			<td>' . _('Select GL Account') . ':</td>
-			<td><select required="required" minlength="0" name="SelectedAccount" onchange="ReloadForm(selectaccount.Select)">';
+			<td><select required="required" name="SelectedAccount" onchange="ReloadForm(selectaccount.Select)">';
 
 $SQL = "SELECT accountcode,
 				accountname
@@ -176,7 +176,7 @@ if (isset($SelectedAccount) and $SelectedAccount != '') {
 
 	// Table Headers
 
-	echo '<form onSubmit="return VerifyForm(this);" id="form" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form id="form" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection" width="90%" summary="' . _('Budget Entry') . '">
 			<tr>
@@ -206,13 +206,13 @@ if (isset($SelectedAccount) and $SelectedAccount != '') {
 		echo '<td><input type="text" readonly="true" class="number" size="12" name="' . $i . 'last" value="' . locale_number_format($Budget[$CurrentYearEndPeriod - (24 - $i)], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
 		echo '<th>' . $PeriodEnd[$CurrentYearEndPeriod - (12 - $i)] . '</th>';
 		echo '<td class="number">' . locale_number_format($Actual[$CurrentYearEndPeriod - (12 - $i)], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
-		echo '<td><input type="text" class="number" required="required" minlength="1" maxlength="12" size="12" name="' . $i . 'this" value="' . locale_number_format($Budget[$CurrentYearEndPeriod - (12 - $i)], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
+		echo '<td><input type="text" class="number" required="required" maxlength="12" size="12" name="' . $i . 'this" value="' . locale_number_format($Budget[$CurrentYearEndPeriod - (12 - $i)], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
 		echo '<th>' . $PeriodEnd[$CurrentYearEndPeriod + ($i)] . '</th>';
 		echo '<td class="number">' . locale_number_format($Actual[$CurrentYearEndPeriod + $i], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
 		if ($i == 1) {
-			echo '<td><input type="text" class="number" autofocus="autofocus" required="required" minlength="1" maxlength="12" size="12" name="' . $i . 'next" value="' . locale_number_format($Budget[$CurrentYearEndPeriod + $i], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
+			echo '<td><input type="text" class="number" autofocus="autofocus" required="required" maxlength="12" size="12" name="' . $i . 'next" value="' . locale_number_format($Budget[$CurrentYearEndPeriod + $i], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
 		} else {
-			echo '<td><input type="text" class="number" required="required" minlength="1" maxlength="12" size="12" name="' . $i . 'next" value="' . locale_number_format($Budget[$CurrentYearEndPeriod + $i], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
+			echo '<td><input type="text" class="number" required="required" maxlength="12" size="12" name="' . $i . 'next" value="' . locale_number_format($Budget[$CurrentYearEndPeriod + $i], $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>';
 		}
 		echo '</tr>';
 		$LastYearActual = $LastYearActual + $Actual[$CurrentYearEndPeriod - (24 - $i)];
