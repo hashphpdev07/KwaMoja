@@ -1,10 +1,9 @@
 <?php
 
 include ('includes/session.inc');
-$Title = _('Customer Branches');
-/* Manual links before header.inc */
-$ViewTopic = 'AccountsReceivable';
-$BookMark = 'NewCustomerBranch';
+$Title = _('Customer Branches');// Screen identification.
+$ViewTopic = 'AccountsReceivable';// Filename's id in ManualContents.php's TOC.
+$BookMark = 'NewCustomerBranch';// Anchor's id in the manual's html document.
 include ('includes/header.inc');
 include ('includes/CountriesArray.php');
 
@@ -809,13 +808,15 @@ if (!isset($_GET['delete'])) {
 
 	}
 
+// BEGIN: **********************************************************************
 	$SQL = "SELECT locations.loccode,
 					locationname
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
 					AND locationusers.userid='" . $_SESSION['UserID'] . "'
-					AND locationusers.canupd=1";
+					AND locationusers.canupd=1
+				WHERE locations.allowinvoicing='1'";
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) == 0) {
@@ -839,6 +840,7 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 
 	} //end while loop
+// END: ************************************************************************
 
 	echo '</select></td>
 		</tr>';
