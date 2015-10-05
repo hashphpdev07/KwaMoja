@@ -126,18 +126,22 @@ if (isset($_GET['Edit'])) {
 				WHERE closed=0
 					AND requiredbydate >= CURRENT_DATE";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">' . _('Tender ID') . '</th>
-			<th class="SortableColumn">' . _('Location') . '</th>
-			<th>' . _('Address 1') . '</th>
-			<th>' . _('Address 2') . '</th>
-			<th>' . _('Address 3') . '</th>
-			<th>' . _('Address 4') . '</th>
-			<th>' . _('Address 5') . '</th>
-			<th>' . _('Address 6') . '</th>
-			<th>' . _('Telephone') . '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Tender ID') . '</th>
+					<th class="SortedColumn">' . _('Location') . '</th>
+					<th>' . _('Address 1') . '</th>
+					<th>' . _('Address 2') . '</th>
+					<th>' . _('Address 3') . '</th>
+					<th>' . _('Address 4') . '</th>
+					<th>' . _('Address 5') . '</th>
+					<th>' . _('Address 6') . '</th>
+					<th>' . _('Telephone') . '</th>
+				</tr>
+			</thead>';
+
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr>
 				<td>' . $MyRow['tenderid'] . '</td>
@@ -152,6 +156,7 @@ if (isset($_GET['Edit'])) {
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;ID=' . $MyRow['tenderid'] . '">' . _('Edit') . '</a></td>
 			</tr>';
 	}
+	echo '</tbody>';
 	echo '</table>';
 	include('includes/footer.inc');
 	exit;
@@ -523,17 +528,7 @@ if (isset($_POST['SearchSupplier']) or isset($_POST['Go']) or isset($_POST['Next
 				LIMIT " . ($_SESSION['DisplayRecordsMax'] * $_POST['PageOffset']) . ", " . ($_SESSION['DisplayRecordsMax']);
 
 	$Result = DB_query($SQL);
-	if (DB_num_rows($Result) == 1) {
-		$MyRow = DB_fetch_array($Result);
-		$SingleSupplierReturned = $MyRow['supplierid'];
-	}
 } //end of if search
-if (isset($SingleSupplierReturned)) {
-	/*there was only one supplier returned */
-	$_SESSION['SupplierID'] = $SingleSupplierReturned;
-	unset($_POST['Keywords']);
-	unset($_POST['SupplierCode']);
-}
 
 if (isset($_POST['SearchSupplier'])) {
 	$ListCount = DB_num_rows($Result);
@@ -560,20 +555,22 @@ if (isset($_POST['SearchSupplier'])) {
 	}
 
 	echo '<input type="hidden" name="SearchSupplier" value="' . _('Search Now') . '" />';
-	echo '<table cellpadding="2">';
-	echo '<tr>
-	  		<th class="SortableColumn">' . _('Code') . '</th>
-			<th class="SortableColumn">' . _('Supplier Name') . '</th>
-			<th>' . _('Currency') . '</th>
-			<th>' . _('Address 1') . '</th>
-			<th>' . _('Address 2') . '</th>
-			<th>' . _('Address 3') . '</th>
-			<th>' . _('Address 4') . '</th>
-		</tr>';
+	echo '<table cellpadding="2">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Supplier Name') . '</th>
+					<th>' . _('Currency') . '</th>
+					<th>' . _('Address 1') . '</th>
+					<th>' . _('Address 2') . '</th>
+					<th>' . _('Address 3') . '</th>
+					<th>' . _('Address 4') . '</th>
+				</tr>
+			</thead>';
 	$j = 1;
 	$k = 0; //row counter to determine background colour
 	$RowIndex = 0;
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -594,6 +591,7 @@ if (isset($_POST['SearchSupplier'])) {
 		//end of page full new headings if
 	}
 	//end of while loop
+	echo '</tbody>';
 	echo '</table>';
 	echo '</form>';
 }
@@ -701,18 +699,21 @@ if (isset($_POST['Search'])) {
 
 	if (isset($SearchResult)) {
 
-		echo '<table cellpadding="1">';
-		echo '<tr>
-				<th class="SortableColumn">' . _('Code') . '</th>
-				<th class="SortableColumn">' . _('Description') . '</th>
-				<th>' . _('Units') . '</th>
-				<th>' . _('Image') . '</th>
-				<th>' . _('Quantity') . '</th>
-			</tr>';
+		echo '<table cellpadding="1">
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Code') . '</th>
+						<th class="SortedColumn">' . _('Description') . '</th>
+						<th>' . _('Units') . '</th>
+						<th>' . _('Image') . '</th>
+						<th>' . _('Quantity') . '</th>
+					</tr>
+				</thead>';
 
 		$i = 0;
 		$k = 0; //row colour counter
 		$PartsDisplayed = 0;
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
 
 			if ($k == 1) {
@@ -745,6 +746,7 @@ if (isset($_POST['Search'])) {
 			#end of page full new headings if
 		}
 		#end of while loop
+		echo '</tbody>';
 		echo '</table>';
 
 		echo '<a name="end"></a>
