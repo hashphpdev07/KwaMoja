@@ -31,14 +31,14 @@ if (!isset($_FILES['ImportFile']) and !isset($_SESSION['Statement'])) {
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	if (DB_num_rows($Result) ==0){
 		prnMsg(_('There are no bank accounts defined that are set up to allow importation of bank statement transactions. First define the file format used by your bank for statement exports.'),'error');
-		echo '<br /><a href="BankAccounts.php>' . _('Setup Import Format for Bank Accounts') . '</a>';
+		echo '<br /><a href="BankAccounts.php">' . _('Setup Import Format for Bank Accounts') . '</a>';
 		include('includes/footer.inc');
 		exit;
 	}
 	echo '<form name="ImportForm" enctype="multipart/form-data" method="post" action="' . $_SERVER['PHP_SELF'] . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/upload.png" title="' . _('Receive') . '" alt="" />' . $Title  . '</p>';
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/upload.png" title="' . _('Receive') . '" alt="" />' . $Title  . '</p>';
 	echo '<table>
 			<tr>
 				 <td>' .  _('Bank Account to Import Transaction For') . '</td>

@@ -209,54 +209,82 @@ $CustomerResult = DB_query($SQL, $ErrMsg);
 
 $CustomerRecord = DB_fetch_array($CustomerResult);
 
-echo '<div class="toplink">
+echo '<div class="noPrint toplink">
 		<a href="', $RootPath, '/SelectCustomer.php">', _('Back to Customer Screen'), '</a>
 	</div>';
 
 echo '<table width="100%">
 		<tr>
-			<th colspan="2">' . _('Customer Statement For'), ': ', stripslashes($CustomerID), ' - ', $CustomerRecord['name'], '</th>
+			<th colspan="2">', _('Customer Statement For'), ': ', stripslashes($CustomerID), ' - ', $CustomerRecord['name'], '</th>
 		</tr>
-		<tr><td colspan="2">' . $CustomerRecord['address1'] . '</td></tr>
-		<tr><td colspan="2">' . $CustomerRecord['address2'] . '</td></tr>
-		<tr><td colspan="2">' . $CustomerRecord['address3'] . ' ' . $CustomerRecord['address4'] . ' ' . $CustomerRecord['address5'] . ' ' . $CustomerRecord['address6'] . '</td></tr>
-		<tr><th>' . _('All amounts stated in'), ':</th><td>', $CustomerRecord['currency'] . '</td></tr>
-		<tr><th>' . _('Terms'), ':</th><td>', $CustomerRecord['terms'] . '</th></tr>
-		<tr><th>' . _('Credit Limit'), ':</th><td>', locale_number_format($CustomerRecord['creditlimit'], 0) . '</td></tr>
-		<tr><th>' . _('Credit Status'), ':</th><td>', $CustomerRecord['reasondescription'] . '</td></tr>
-		</table>';
+		<tr>
+			<td colspan="2">', $CustomerRecord['address1'], '</td>
+		</tr>';
+if($CustomerRecord['address2']!='') {// If not empty, output this line.
+	echo '<tr>
+			<td colspan="2">', $CustomerRecord['address2'], '</td>
+		</tr>';
+}
+if($CustomerRecord['address3']!='') {// If not empty, output this line.
+	echo '<tr>
+			<td colspan="2">', $CustomerRecord['address3'], '</td>
+		</tr>';
+}
+echo '<tr>
+		<td colspan="2">', $CustomerRecord['address4'], '</td>
+	</tr>
+	<tr>
+		<td colspan="2">', $CustomerRecord['address5'], ' ', $CustomerRecord['address6'], '</td>
+	</tr>
+	<tr>
+		<th>', _('All amounts stated in'), ':</th>
+		<td>', $CustomerRecord['currency'], '</td>
+	</tr>
+	<tr>
+		<th>', _('Terms'), ':</th>
+		<td>', $CustomerRecord['terms'], '</th>
+	</tr>
+	<tr>
+		<th>', _('Credit Limit'), ':</th>
+		<td>', locale_number_format($CustomerRecord['creditlimit'], 0), '</td>
+	</tr>
+	<tr>
+		<th>', _('Credit Status'), ':</th>
+		<td>', $CustomerRecord['reasondescription'], '</td>
+	</tr>
+</table>';
 
 if ($CustomerRecord['dissallowinvoices'] != 0) {
-	echo '<br /><font color="red" size="4"><b>', _('ACCOUNT ON HOLD'), '</font></b><br />';
+	echo '<br /><b><font color="red" size="4">', _('ACCOUNT ON HOLD'), '</font></b><br />';
 }
-echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" class="noPrint">
-		<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-echo _('Show all transactions after'), ':<input tabindex="1" type="text" required="required" class="date" alt="', $_SESSION['DefaultDateFormat'], '" id="datepicker" name="TransAfterDate" value="', $_POST['TransAfterDate'], '" minlength="0" maxlength="10" size="12" />';
 
-echo '<input tabindex="3" type="submit" name="Refresh Inquiry" value="', _('Refresh Inquiry'), '" />
+echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" class="centre noPrint">
+		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />',
+		_('Show all transactions after'), ':<input alt="', $_SESSION['DefaultDateFormat'], '" class="date" id="datepicker" maxlength="10" minlength="0" name="TransAfterDate" required="required" size="12" tabindex="1" type="text" value="', $_POST['TransAfterDate'], '" />',
+		'<input name="Refresh Inquiry" tabindex="3" type="submit" value="', _('Refresh Inquiry'), '" />
 	</form>';
 
 /* Show a table of the invoices returned by the SQL. */
 
 echo '<table class="selection">
-		<tr>
-			<th class="SortableColumn">', _('Type'), '</th>
-			<th class="SortableColumn">', _('Number'), '</th>
-			<th class="SortableColumn">', _('Date'), '</th>
-			<th>', _('Branch'), '</th>
-			<th class="SortableColumn">', _('Reference'), '</th>
-			<th>', _('Comments'), '</th>
-			<th>', _('Order'), '</th>
-			<th>', _('Charges'), '</th>
-			<th>', _('Credits'), '</th>
-			<th>', _('Allocated'), '</th>
-			<th>', _('Balance'), '</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>';
+		<thead>
+			<tr>
+				<th class="SortedColumn">', _('Type'), '</th>
+				<th class="SortedColumn">', _('Number'), '</th>
+				<th class="SortedColumn">', _('Date'), '</th>
+				<th>', _('Branch'), '</th>
+				<th class="SortedColumn">', _('Reference'), '</th>
+				<th>', _('Comments'), '</th>
+				<th>', _('Order'), '</th>
+				<th>', _('Charges'), '</th>
+				<th>', _('Credits'), '</th>
+				<th>', _('Allocated'), '</th>
+				<th>', _('Balance'), '</th>
+				<th class="noPrint" colspan="4">&nbsp;</th>
+			</tr>
+		</thead>';
 
+echo '<tbody>';
 $k = 0; //row colour counter
 $OutstandingOrSettled = '';
 if ($_SESSION['InvoicePortraitFormat'] == 1) { //Invoice/credits in portrait
@@ -266,11 +294,17 @@ if ($_SESSION['InvoicePortraitFormat'] == 1) { //Invoice/credits in portrait
 }
 foreach ($Transactions as $MyRow) {
 
-	if ($MyRow['settled'] == 1 AND $OutstandingOrSettled == '') {
-		echo '<tr><th colspan="10">' . _('TRANSACTIONS SETTLED SINCE') . ' ' . $_POST['TransAfterDate'] . '</th></tr>';
+	if ($MyRow['settled'] == 1 and $OutstandingOrSettled == '') {
+		echo '<tr>
+				<th colspan="11">', _('TRANSACTIONS SETTLED SINCE'), ' ', $_POST['TransAfterDate'], '</th>
+				<th class="noPrint" colspan="4">&nbsp;</th>
+			</tr>';
 		$OutstandingOrSettled = 'Settled';
-	} elseif (($OutstandingOrSettled == 'Settled' OR $OutstandingOrSettled == '') AND $MyRow['settled'] == 0) {
-		echo '<tr><th colspan="10">' . _('OUTSTANDING TRANSACTIONS') . ' ' . $_POST['TransAfterDate'] . '</th></tr>';
+	} elseif (($OutstandingOrSettled == 'Settled' or $OutstandingOrSettled == '') and $MyRow['settled'] == 0) {
+		echo '<tr>
+				<th colspan="11">', _('OUTSTANDING TRANSACTIONS'), ' ', $_POST['TransAfterDate'], '</th>
+				<th class="noPrint" colspan="4">&nbsp;</th>
+			</tr>';
 		$OutstandingOrSettled = 'Outstanding';
 	}
 
@@ -288,29 +322,29 @@ foreach ($Transactions as $MyRow) {
 
 	if ($MyRow['type'] == 10) { //its an invoice
 		echo '<td>', _($MyRow['typename']), '</td>
-			<td>', $MyRow['transno'], '</td>
+			<td class="number">', $MyRow['transno'], '</td>
 			<td>', ConvertSQLDate($MyRow['trandate']), '</td>
 			<td>', $MyRow['branchcode'], '</td>
 			<td>', $MyRow['reference'], '</td>
 			<td style="width:200px">', $MyRow['invtext'], '</td>
-			<td>', $MyRow['order_'], '</td>
+			<td class="number">', $MyRow['order_'], '</td>
 			<td class="number">', locale_number_format($MyRow['totalamount'], $CustomerRecord['decimalplaces']), '</td>
-			<td></td>
+			<td>&nbsp;</td>
 			<td class="number">', locale_number_format($MyRow['alloc'], $CustomerRecord['decimalplaces']), '</td>
 			<td class="number">', locale_number_format($MyRow['balance'], $CustomerRecord['decimalplaces']), '</td>
-			<td>
-				<a href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', $MyRow['transno'], '&amp;InvOrCredit=Invoice">', _('HTML '), '
-					<img src="', $RootPath, '/css/', $Theme, '/images/preview.png" title="', _('Click to preview the invoice'), '" alt="" />
+			<td class="noPrint">
+				<a href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice">', _('HTML '), '
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/preview.png" title="', _('Click to preview the invoice'), '" alt="" />
 				</a>
 			</td>
-			<td>
-				<a href="', $RootPath, '/', $PrintCustomerTransactionScript, '?FromTransNo=', $MyRow['transno'], '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('PDF ') . '
-					<img src="', $RootPath, '/css/', $Theme, '/images/pdf.png" title="', _('Click for PDF'), '" alt="" />
+			<td class="noPrint">
+				<a href="', $RootPath, '/', $PrintCustomerTransactionScript, '?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('PDF ') . '
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" />
 				</a>
 			</td>
-			<td>
-				<a href="', $RootPath, '/EmailCustTrans.php?FromTransNo=', $MyRow['transno'], '&amp;InvOrCredit=Invoice">', _('Email ') . '
-					<img src="', $RootPath, '/css/', $Theme, '/images/email.png" title="', _('Click to email the invoice'), '" alt="" />
+			<td class="noPrint">
+				<a href="', $RootPath, '/EmailCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice">', _('Email ') . '
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/email.png" title="', _('Click to email the invoice'), '" alt="" />
 				</a>
 			</td>
 			<td></td>
@@ -328,24 +362,24 @@ foreach ($Transactions as $MyRow) {
 				<td class="number">', locale_number_format($MyRow['totalamount'], $CustomerRecord['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['alloc'], $CustomerRecord['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['balance'], $CustomerRecord['decimalplaces']), '</td>
-				<td>
-					<a href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', $MyRow['transno'], '&amp;InvOrCredit=Credit">', _('HTML '), '
-						<img src="', $RootPath, '/css/', $Theme, '/images/preview.png" title="', _('Click to preview the credit note'), '" />
+				<td class="noPrint">
+					<a href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Credit">', _('HTML '), '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/preview.png" title="', _('Click to preview the credit note'), '" />
 					</a>
 				</td>
-				<td>
-					<a href="', $RootPath, '/', $PrintCustomerTransactionScript, '?FromTransNo=', $MyRow['transno'], '&amp;InvOrCredit=Credit&amp;PrintPDF=True">', _('PDF '), '
-						<img src="', $RootPath, '/css/', $Theme, '/images/pdf.png" title="', _('Click for PDF'), '" alt="" />
+				<td class="noPrint">
+					<a href="', $RootPath, '/', $PrintCustomerTransactionScript, '?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Credit&amp;PrintPDF=True">', _('PDF '), '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" />
 					</a>
 				</td>
-				<td>
-					<a href="', $RootPath, '/EmailCustTrans.php?FromTransNo=', $MyRow['transno'], '&amp;InvOrCredit=Credit">', _('Email'), '
-						<img src="', $RootPath, '/css/', $Theme, '/images/email.png" title="', _('Click to email the credit note'), '" alt="" />
+				<td class="noPrint">
+					<a href="', $RootPath, '/EmailCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Credit">', _('Email'), '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/email.png" title="', _('Click to email the credit note'), '" alt="" />
 					</a>
 				</td>
 				<td>
 					<a href="', $RootPath, '/CustomerAllocations.php?AllocTrans=', $MyRow['id'], '">', _('Allocation'), '
-						<img src="', $RootPath, '/css/', $Theme, '/images/allocation.png" title="', _('Click to allocate funds'), '" alt="" />
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/allocation.png" title="', _('Click to allocate funds'), '" alt="" />
 					</a>
 				</td>
 			</tr>';
@@ -365,9 +399,9 @@ foreach ($Transactions as $MyRow) {
 				<td class="number">', locale_number_format($MyRow['totalamount'], $CustomerRecord['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['alloc'], $CustomerRecord['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['balance'], $CustomerRecord['decimalplaces']), '</td>
-				<td>
-					<a href="', $RootPath, '/CustomerAllocations.php?AllocTrans=', $MyRow['id'], '">', _('Allocation'), '
-						<img src="', $RootPath, '/css/', $Theme, '/images/allocation.png" title="', _('Click to allocate funds'), '" alt="" />
+				<td class="noPrint">
+					<a href="', $RootPath, '/CustomerAllocations.php?AllocTrans=', urlencode($MyRow['id']), '">', _('Allocation'), '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/allocation.png" title="', _('Click to allocate funds'), '" alt="" />
 					</a>
 				</td>
 				<td></td>
@@ -400,6 +434,7 @@ foreach ($Transactions as $MyRow) {
 }
 //end of while loop
 
+echo '</tbody>';
 echo '</table>';
 
 echo '<table class="selection" width="70%">

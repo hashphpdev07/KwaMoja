@@ -16,10 +16,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TagReports';
 	include('includes/header.inc');
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '
 		</p>';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
@@ -36,7 +36,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	echo '<table class="selection" summary="' . _('Input Criteria for Report') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
-				<td><select minlength="0" name="FromPeriod">';
+				<td><select name="FromPeriod">';
 
 	$SQL = "SELECT periodno,
 					lastdate_in_period
@@ -76,7 +76,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	echo '<tr>
 			<td>' . _('Select Period To') . ':</td>
-			<td><select minlength="0" name="ToPeriod">';
+			<td><select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
@@ -92,7 +92,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	//Select the tag
 	echo '<tr>
 			<td>' . _('Select tag') . '</td>
-			<td><select minlength="0" name="tag">';
+			<td><select name="tag">';
 
 	$SQL = "SELECT tagref,
 				tagdescription
@@ -113,7 +113,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	echo '<tr>
 			<td>' . _('Detail Or Summary') . ':</td>
-			<td><select minlength="0" name="Detail">
+			<td><select name="Detail">
 				<option selected="selected" value="Summary">' . _('Summary') . '</option>
 				<option selected="selected" value="Detailed">' . _('All Accounts') . '</option>
 				</select>
@@ -482,7 +482,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TagReports';
 	include('includes/header.inc');
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<input type="hidden" name="FromPeriod" value="' . $_POST['FromPeriod'] . '" />
 		<input type="hidden" name="ToPeriod" value="' . $_POST['ToPeriod'] . '" />';
@@ -534,15 +534,15 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	/*show a table of the accounts info returned by the SQL
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" title="' . _('Print') . '" alt="' . _('Print') . '" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="' . _('Print') . '" />' . ' ' . $Title . '</p>';
 
 	echo '<table cellpadding="2" class="selection" summary="' . _('Income and Expenditure by Tag') . '">';
 	echo '<tr>
 			<th colspan="9">
 				<div class="centre">
 					<h2>
-					<b>' . _('Statement of Income and Expenditure for Tag') . ' ' . $MyRow[0] . _('during the') . ' ' . $NumberOfMonths . ' ' . _('months to') . ' ' . $PeriodToDate . '</b>
-					<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<b>' . _('Statement of Income and Expenditure for Tag') . ' ' . $MyRow[0] . ' ' . _('during the') . ' ' . $NumberOfMonths . ' ' . _('months to') . ' ' . $PeriodToDate . '</b>
+					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 					</h2>
 				</div>
 			</th>
@@ -570,10 +570,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$SectionPrdBudget = 0;
 
 	$PeriodProfitLoss = 0;
-	$PeriodProfitLoss = 0;
 	$PeriodLYProfitLoss = 0;
 	$PeriodBudgetProfitLoss = 0;
-
 
 	$ActGrp = '';
 	$ParentGroups = array();
@@ -703,10 +701,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 								<td colspan="2"><h2>' . _('Gross Profit') . '</h2></td>
 								<td></td>
 								<td class="number">%s</td>
-							</tr>', locale_number_format($TotalIncome - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']));
+							</tr>', locale_number_format($TotalIncome + $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']));
 
 					if ($TotalIncome != 0) {
-						$PrdGPPercent = 100 * ($TotalIncome - $SectionPrdActual) / $TotalIncome;
+						$PrdGPPercent = 100 * ($TotalIncome + $SectionPrdActual) / $TotalIncome;
 					} else {
 						$PrdGPPercent = 0;
 					}
@@ -945,7 +943,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<td colspan="4"><hr /></td>
 		</tr>
 		</table>
-		<div class="centre noPrint">
+		<div class="centre">
 			<input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" />
 		</div>';
 }

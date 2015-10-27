@@ -172,7 +172,7 @@ if (!isset($SelectedType)) {
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
 
-	echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '</p>';
+	echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '</p>';
 
 	$SQL = "SELECT typeabbrev,
 					sales_type
@@ -185,14 +185,16 @@ if (!isset($SelectedType)) {
 		$_SESSION['RestrictLocations'] = 0;
 	}
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">', _('Type Code'), '</th>
-			<th class="SortableColumn">', _('Type Name'), '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Type Code'), '</th>
+					<th class="SortedColumn">', _('Type Name'), '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -209,6 +211,7 @@ if (!isset($SelectedType)) {
 			</tr>';
 	}
 	//END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 }
 
@@ -217,11 +220,11 @@ if (isset($SelectedType)) {
 	echo '<div class="toplink">
 			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">', _('Show All Sales Types Defined'), '</a>
 		</div>';
-	echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '</p>';
+	echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '</p>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" name="SalesTypesForm" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" >';
+	echo '<form name="SalesTypesForm" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" >';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type
@@ -265,7 +268,7 @@ if (!isset($_GET['delete'])) {
 				</tr>
 				<tr>
 					<td>' . _('Type Code') . ':</td>
-					<td><input type="text" class="AlphaNumeric" size="3" required="required" minlength="1" maxlength="2" name="TypeAbbrev" /></td>
+					<td><input type="text" class="AlphaNumeric" size="3" required="required" maxlength="2" name="TypeAbbrev" /></td>
 				</tr>';
 	}
 
@@ -274,7 +277,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>', _('Sales Type Name'), ':</td>
-			<td><input type="text" required="required" minlength="1" maxlength="40" name="Sales_Type" value="', $_POST['Sales_Type'], '" /></td></tr>';
+			<td><input type="text" required="required" maxlength="40" name="Sales_Type" value="', $_POST['Sales_Type'], '" /></td></tr>';
 
 	echo '</table>'; // close main table
 

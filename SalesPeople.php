@@ -24,7 +24,7 @@ if (isset($Errors)) {
 
 $Errors = array();
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['submit'])) {
 
@@ -230,19 +230,21 @@ if (!isset($SelectedSalesPerson)) {
 			FROM salesman";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">' . _('Code') . '</th>
-			<th class="SortableColumn">' . _('Name') . '</th>
-			<th class="SortableColumn">' . _('SalesArea') . '</th>
-			<th class="SortableColumn">' . _('Manager') . '</th>
-			<th>' . _('Telephone') . '</th>
-			<th>' . _('Facsimile') . '</th>
-			<th>' . _('Comm Rate 1') . '</th>
-			<th>' . _('Break') . '</th>
-			<th>' . _('Comm Rate 2') . '</th>
-			<th class="SortableColumn">' . _('Current') . '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Name') . '</th>
+					<th class="SortedColumn">' . _('SalesArea') . '</th>
+					<th class="SortedColumn">' . _('Manager') . '</th>
+					<th>' . _('Telephone') . '</th>
+					<th>' . _('Facsimile') . '</th>
+					<th>' . _('Comm Rate 1') . '</th>
+					<th>' . _('Break') . '</th>
+					<th>' . _('Comm Rate 2') . '</th>
+					<th class="SortedColumn">' . _('Current') . '</th>
+				</tr>
+			</thead>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
 
@@ -292,7 +294,7 @@ if (isset($SelectedSalesPerson)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedSalesPerson)) {
@@ -339,7 +341,7 @@ if (!isset($_GET['delete'])) {
 		echo '<table class="selection">
 				<tr>
 					<td>' . _('Salesperson code') . ':</td>
-					<td><input type="text" name="SalesmanCode" size="3" autofocus="autofocus" required="required" minlength="1" maxlength="3" /></td>
+					<td><input type="text" name="SalesmanCode" size="3" autofocus="autofocus" required="required" maxlength="3" /></td>
 				</tr>';
 	}
 	if (!isset($_POST['SalesmanName'])) {
@@ -372,11 +374,11 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr>
 			<td>' . _('Salesperson Name') . ':</td>
-			<td><input type="text" name="SalesmanName"  size="30" required="required" minlength="1" maxlength="30" value="' . $_POST['SalesmanName'] . '" /></td>
+			<td><input type="text" name="SalesmanName"  size="30" required="required" maxlength="30" value="' . $_POST['SalesmanName'] . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Sales Area') . ':' . '</td>
-			<td><select required="required" minlength="1" tabindex="2" name="SalesArea">';
+			<td><select required="required" tabindex="2" name="SalesArea">';
 	$SQL = "SELECT areacode, areadescription FROM areas ORDER BY areadescription";
 	$ErrMsg = _('An error occurred in retrieving the areas from the database');
 	$DbgMsg = _('The SQL that was used to retrieve the area information and that failed in the process was');
@@ -394,28 +396,28 @@ if (!isset($_GET['delete'])) {
 	echo '</td></tr>';
 	echo '<tr>
 			<td>' . _('Telephone No') . ':</td>
-			<td><input type="tel" name="SManTel" size="20" minlength="0" maxlength="20" value="' . $_POST['SManTel'] . '" /></td>
+			<td><input type="tel" name="SManTel" size="20" maxlength="20" value="' . $_POST['SManTel'] . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Facsimile No') . ':</td>
-			<td><input type="tel" name="SManFax" size="20" minlength="0" maxlength="20" value="' . $_POST['SManFax'] . '" /></td>
+			<td><input type="tel" name="SManFax" size="20" maxlength="20" value="' . $_POST['SManFax'] . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Commission Rate 1') . ':</td>
-			<td><input type="text" class="number" name="CommissionRate1" size="5" required="required" minlength="1" maxlength="5" value="' . $_POST['CommissionRate1'] . '" /></td>
+			<td><input type="text" class="number" name="CommissionRate1" size="5" required="required" maxlength="5" value="' . $_POST['CommissionRate1'] . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Breakpoint') . ':</td>
-			<td><input type="text" class="number" name="Breakpoint" size="6" minlength="0" maxlength="6" value="' . $_POST['Breakpoint'] . '" /></td>
+			<td><input type="text" class="number" name="Breakpoint" size="6" maxlength="6" value="' . $_POST['Breakpoint'] . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Commission Rate 2') . ':</td>
-			<td><input type="text" class="number" name="CommissionRate2" size="5" required="required" minlength="1" maxlength="5" value="' . $_POST['CommissionRate2'] . '" /></td>
+			<td><input type="text" class="number" name="CommissionRate2" size="5" required="required" maxlength="5" value="' . $_POST['CommissionRate2'] . '" /></td>
 		</tr>';
 
 	echo '<tr>
 			<td>' . _('Area Manager?') . ':</td>
-			<td><select required="required" minlength="1" name="Manager">';
+			<td><select required="required" name="Manager">';
 	if ($_POST['Manager'] == 1) {
 		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
 	} else {
@@ -431,7 +433,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr>
 			<td>' . _('Current?') . ':</td>
-			<td><select required="required" minlength="1" name="Current">';
+			<td><select required="required" name="Current">';
 	if ($_POST['Current'] == 1) {
 		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
 	} else {

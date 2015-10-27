@@ -151,14 +151,18 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 
 	$ErrMsg = _('Could not get account group sections because');
 	$Result = DB_query($SQL, $ErrMsg);
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
 
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">' . _('Section Number') . '</th>
-				<th class="SortableColumn">' . _('Section Description') . '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Section Number') . '</th>
+					<th class="SortedColumn">' . _('Section Description') . '</th>
+					<th class="noPrint" colspan="2">&nbsp;</th>
+				</tr>
+			</thead>';
 
+	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
@@ -171,14 +175,15 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 		}
 
 		echo '<td class="number">' . $MyRow['sectionid'] . '</td><td>' . $MyRow['sectionname'] . '</td>';
-		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedSectionID=' . urlencode($MyRow['sectionid']), ENT_QUOTES, 'UTF-8') . '">' . _('Edit') . '</a></td>';
+		echo '<td class="noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedSectionID=' . urlencode($MyRow['sectionid']), ENT_QUOTES, 'UTF-8') . '">' . _('Edit') . '</a></td>';
 		if ($MyRow['sectionid'] == '1' or $MyRow['sectionid'] == '2') {
-			echo '<td><b>' . _('Restricted') . '</b></td>';
+			echo '<td class="noPrint"><b>' . _('Restricted') . '</b></td>';
 		} else {
-			echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedSectionID=' . urlencode($MyRow['sectionid']) . '&delete=1', ENT_QUOTES, 'UTF-8') . '">' . _('Delete') . '</a></td>';
+			echo '<td class="noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedSectionID=' . urlencode($MyRow['sectionid']) . '&delete=1', ENT_QUOTES, 'UTF-8') . '">' . _('Delete') . '</a></td>';
 		}
 		echo '</tr>';
 	} //END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 } //end of ifs and buts!
 
@@ -189,12 +194,12 @@ if (isset($_POST['SelectedSectionID']) or isset($_GET['SelectedSectionID'])) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" id="AccountSections" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" class="noPrint" id="AccountSections" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($_GET['SelectedSectionID'])) {
 		//editing an existing section
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
 
 		$SQL = "SELECT sectionid,
 				sectionname
@@ -233,12 +238,12 @@ if (!isset($_GET['delete'])) {
 		echo '<table class="selection">
 			<tr>
 				<td>' . _('Section Number') . ':' . '</td>
-				<td><input tabindex="1" type="text" name="SectionID" class="number" size="4" autofocus="autofocus" required="required" minlength="1" maxlength="4" value="' . $_POST['SectionID'] . '" /></td>
+				<td><input tabindex="1" type="text" name="SectionID" class="number" size="4" autofocus="autofocus" required="required" maxlength="4" value="' . $_POST['SectionID'] . '" /></td>
 			</tr>';
 	}
 	echo '<tr>
 			<td>' . _('Section Description') . ':' . '</td>
-			<td><input tabindex="2" type="text" name="SectionName" autofocus="autofocus" required="required" size="30" minlength="3" maxlength="30" value="' . $_POST['SectionName'] . '" /></td>
+			<td><input tabindex="2" type="text" name="SectionName" autofocus="autofocus" required="required" size="30" maxlength="30" value="' . $_POST['SectionName'] . '" /></td>
 		</tr>';
 
 	echo '<tr>

@@ -181,7 +181,7 @@ if (!isset($SelectedManufacturer)) {
 			FROM manufacturers";
 	$Result = DB_query($SQL);
 
-	echo '<p class="page_Title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" Title="' . _('Manufacturers') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_Title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" Title="' . _('Manufacturers') . '" alt="" />' . ' ' . $Title . '</p>';
 
 	if (DB_num_rows($Result) != 0) {
 
@@ -237,12 +237,12 @@ if (isset($SelectedManufacturer)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedManufacturer)) {
 		//editing an existing Brand
-		echo '<p class="page_Title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" Title="' . _('Brand') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_Title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" Title="' . _('Brand') . '" alt="" />' . ' ' . $Title . '</p>';
 
 		$SQL = "SELECT manufacturers_id,
 					manufacturers_name,
@@ -283,11 +283,11 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr>
 			<td>' . _('Brand Name') . ':' . '</td>
-			<td><input type="text" name="ManufacturersName" value="' . $_POST['ManufacturersName'] . '" size="32" autofocus="autofocus" required="required" minlength="1" maxlength="32" /></td>
+			<td><input type="text" name="ManufacturersName" value="' . $_POST['ManufacturersName'] . '" size="32" autofocus="autofocus" required="required" maxlength="32" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Brand URL') . ':' . '</td>
-			<td><input type="text" name="ManufacturersURL" value="' . $_POST['ManufacturersURL'] . '" size="50" required="required" minlength="1" maxlength="50" /></td>
+			<td><input type="text" name="ManufacturersURL" value="' . $_POST['ManufacturersURL'] . '" size="50" required="required" maxlength="50" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Brand Image File (.jpg)') . ':</td>

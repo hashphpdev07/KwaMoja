@@ -24,10 +24,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TrialBalance';
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Trial Balance') . '" />' . ' ' . $Title . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Trial Balance') . '" />' . ' ' . $Title . '
 		</p>';
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
@@ -45,7 +45,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	echo '<table class="selection" summary="' . _('Input criteria for inquiry') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
-				<td><select minlength="0" name="FromPeriod">';
+				<td><select name="FromPeriod">';
 	$NextYear = date('Y-m-d', strtotime('+1 Year'));
 	$SQL = "SELECT periodno,
 					lastdate_in_period
@@ -81,7 +81,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	echo '<tr>
 			<td>' . _('Select Period To') . ':</td>
-			<td><select minlength="0" name="ToPeriod">';
+			<td><select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
@@ -140,9 +140,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.actual ELSE 0 END) AS monthactual,
 			Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.budget ELSE 0 END) AS monthbudget,
 			Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
-		FROM chartmaster INNER JOIN accountgroups ON chartmaster.group_ = accountgroups.groupname
+		FROM chartmaster INNER JOIN accountgroups ON chartmaster.groupcode = accountgroups.groupcode
 			INNER JOIN chartdetails ON chartmaster.accountcode= chartdetails.accountcode
-		GROUP BY accountgroups.groupname,
+		GROUP BY accountgroups.groupcode,
 				accountgroups.parentgroupname,
 				accountgroups.pandl,
 				accountgroups.sequenceintb,
@@ -150,7 +150,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				chartmaster.accountname
 		ORDER BY accountgroups.pandl desc,
 			accountgroups.sequenceintb,
-			accountgroups.groupname,
+			accountgroups.groupcode,
 			chartdetails.accountcode";
 
 	$AccountsResult = DB_query($SQL);
@@ -398,14 +398,14 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	exit;
 } elseif (isset($_POST['ExportCSV'])) {
 	include('includes/header.inc');
-	echo '<div class="centre noPrint"><a href="GLTrialBalance.php">' . _('Select A Different Period') . '</a></div>';
+	echo '<div class="centre"><a href="GLTrialBalance.php">' . _('Select A Different Period') . '</a></div>';
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/GLTrialBalance_csv.php?FromPeriod=' . $_POST['FromPeriod'] . '&ToPeriod=' . $_POST['ToPeriod'] . '">';
 } else {
 
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TrialBalance';
 	include('includes/header.inc');
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="FromPeriod" value="' . $_POST['FromPeriod'] . '" />
 			<input type="hidden" name="ToPeriod" value="' . $_POST['ToPeriod'] . '" />';
@@ -432,9 +432,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.actual ELSE 0 END) AS monthactual,
 			Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.budget ELSE 0 END) AS monthbudget,
 			Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
-		FROM chartmaster INNER JOIN accountgroups ON chartmaster.group_ = accountgroups.groupname
+		FROM chartmaster INNER JOIN accountgroups ON chartmaster.groupcode = accountgroups.groupcode
 			INNER JOIN chartdetails ON chartmaster.accountcode= chartdetails.accountcode
-		GROUP BY accountgroups.groupname,
+		GROUP BY accountgroups.groupcode,
 				accountgroups.pandl,
 				accountgroups.sequenceintb,
 				accountgroups.parentgroupname,
@@ -442,13 +442,13 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				chartmaster.accountname
 		ORDER BY accountgroups.pandl desc,
 			accountgroups.sequenceintb,
-			accountgroups.groupname,
+			accountgroups.groupcode,
 			chartdetails.accountcode";
 
 
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was') . ': ');
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Print') . '" />' . ' ' . _('Trial Balance Report') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Print') . '" />' . ' ' . _('Trial Balance Report') . '</p>';
 
 	/*show a table of the accounts info returned by the SQL
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
@@ -458,7 +458,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<tr>
 				<th colspan="6">
 					<b>' . _('Trial Balance for the month of ') . $PeriodToDate . _(' and for the ') . $NumberOfMonths . _(' months to ') . $PeriodToDate . '</b>
-					<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 				</th>
 			</tr>
 			<tr>
@@ -500,6 +500,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$CheckPeriodBudget = 0;
 
 	$j = 0;
+	echo '<tbody>';
 
 	while ($MyRow = DB_fetch_array($AccountsResult)) {
 
@@ -709,9 +710,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				<td class="number">%s</td>
 				<td class="number">%s</td>
 			</tr>', locale_number_format($CheckMonth, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($CheckBudgetMonth, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($CheckPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($CheckPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']));
-
-	echo '</table><br />';
-	echo '<div class="centre noPrint"><input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" /></div>';
+	echo '</tbody>';
+	echo '</table>';
+	echo '<div class="centre"><input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" /></div>';
 }
 echo '</form>';
 include('includes/footer.inc');

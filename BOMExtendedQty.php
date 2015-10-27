@@ -266,23 +266,23 @@ if (isset($_POST['PrintPDF'])) {
 
 	$Title = _('Quantity Extended BOM Listing');
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<table class="selection">
 		<tr>
 			<td>' . _('Part') . ':</td>
-			<td><input type ="text" name="Part" autofocus="autofocus" required="required" minlength="1" maxlength="20" size="20" /></td>
+			<td><input type ="text" name="Part" autofocus="autofocus" required="required" maxlength="20" size="20" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Quantity') . ':</td>
-			<td><input type="text" class="number" name="Quantity" required="required" minlength="1" maxlength="11" size="4" /></td>
+			<td><input type="text" class="number" name="Quantity" required="required" maxlength="11" size="4" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Selection Option') . ':</td>
 			<td>
-				<select minlength="0" name="Select">
+				<select name="Select">
 					<option selected="selected" value="All">' . _('Show All Parts') . '</option>
 					<option value="Shortages">' . _('Only Show Shortages') . '</option>
 				</select>
@@ -291,7 +291,7 @@ if (isset($_POST['PrintPDF'])) {
 		<tr>
 			<td>' . _('Print Option') . ':</td>
 			<td>
-				<select minlength="0" name="Fill">
+				<select name="Fill">
 					<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
 					<option value="no">' . _('Plain Print') . '</option>
 				</select>

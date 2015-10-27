@@ -9,7 +9,7 @@ include('includes/SQL_CommonFunctions.inc');
 
 echo '<div class="toplink"><a href="' . $RootPath . '/SelectAsset.php">' . _('Back to Select') . '</a></div>' . "\n";
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . _('Fixed Asset Items') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Fixed Asset Items') . '" alt="" />' . ' ' . $Title . '</p>';
 
 /* If this form is called with the AssetID then it is assumed that the asset is to be modified  */
 if (isset($_GET['AssetID'])) {
@@ -385,7 +385,7 @@ if (isset($_POST['submit'])) {
 /* end if delete asset */
 $Result = DB_Txn_Commit();
 
-echo '<form onSubmit="return VerifyForm(this);" id="AssetForm" enctype="multipart/form-data" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form id="AssetForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 	  <div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">';
@@ -466,7 +466,7 @@ if (isset($_POST['Description'])) {
 
 echo '<tr>
 		<td>' . _('Asset Description') . ' (' . _('short') . '):</td>
-		<td><input type="text" name="Description" size="52" required="required" minlength="1" maxlength="50" value="' . $Description . '" /></td>
+		<td><input type="text" name="Description" size="52" required="required" maxlength="50" value="' . $Description . '" /></td>
 	</tr>';
 
 if (isset($_POST['LongDescription'])) {
@@ -485,7 +485,7 @@ if (!isset($New)) { //ie not new at all!
 			<td>' . _('Image File (.jpg)') . ':</td>
 			<td><input type="file" id="ItemPicture" name="ItemPicture" /></td>';
 
-	if (function_exists('imagecreatefromjpg')) {
+	if (function_exists('imagecreatefromjpeg')) {
 		$AssetImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC' . '&AssetID=' . urlencode($AssetID) . '&text=' . '&width=64' . '&height=64' . '" />';
 	} else {
 		if (isset($AssetID) and file_exists($_SESSION['part_pics_dir'] . '/ASSET_' . $AssetID . '.jpg')) {
@@ -506,7 +506,7 @@ if (!isset($New)) { //ie not new at all!
 
 echo '<tr>
 		<td>' . _('Asset Category') . ':</td>
-		<td><select minlength="0" name="AssetCategoryID">';
+		<td><select name="AssetCategoryID">';
 
 $SQL = "SELECT categoryid, categorydescription FROM fixedassetcategories";
 $ErrMsg = _('The asset categories could not be retrieved because');
@@ -540,7 +540,7 @@ $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 echo '<tr>
 		<td>' . _('Asset Location') . ':</td>
-		<td><select minlength="0" name="AssetLocation">';
+		<td><select name="AssetLocation">';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($_POST['AssetLocation'] == $MyRow['locationid']) {
@@ -554,15 +554,15 @@ echo '</select>
 	</tr>
 	<tr>
 		<td>' . _('Bar Code') . ':</td>
-		<td><input type="text" name="BarCode" size="22" minlength="0" maxlength="20" value="' . $_POST['BarCode'] . '" /></td>
+		<td><input type="text" name="BarCode" size="22" maxlength="20" value="' . $_POST['BarCode'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Serial Number') . ':</td>
-		<td><input type="text" name="SerialNo" size="32" minlength="0" maxlength="30" value="' . $_POST['SerialNo'] . '" /></td>
+		<td><input type="text" name="SerialNo" size="32" maxlength="30" value="' . $_POST['SerialNo'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Depreciation Type') . ':</td>
-		<td><select minlength="0" name="DepnType">';
+		<td><select name="DepnType">';
 
 if (!isset($_POST['DepnType'])) {
 	$_POST['DepnType'] = 0; //0 = Straight line - 1 = Diminishing Value
@@ -579,7 +579,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Depreciation Rate') . ':</td>
-		<td><input type="text" class="integer" name="DepnRate" size="4" required="required" minlength="1" maxlength="4" value="' . $_POST['DepnRate'] . '" />%</td>
+		<td><input type="text" class="integer" name="DepnRate" size="4" required="required" maxlength="4" value="' . $_POST['DepnRate'] . '" />%</td>
 	</tr>
 	</table>';
 

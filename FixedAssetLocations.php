@@ -5,8 +5,8 @@ $Title = _('Fixed Asset Locations');
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetLocations';
 include('includes/header.inc');
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
 if (isset($_POST['submit']) and !isset($_POST['delete'])) {
@@ -90,12 +90,15 @@ $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
 	echo '<table class="selection">
-		<tr>
-			<th class="SortableColumn">' . _('Location ID') . '</th>
-			<th class="SortableColumn">' . _('Location Description') . '</th>
-			<th>' . _('Parent Location') . '</th>
-		</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Location ID') . '</th>
+					<th class="SortedColumn">' . _('Location Description') . '</th>
+					<th>' . _('Parent Location') . '</th>
+				</tr>
+			</thead>';
 }
+echo '<tbody>';
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr>
 			<td>' . $MyRow['locationid'] . '</td>
@@ -107,10 +110,9 @@ while ($MyRow = DB_fetch_array($Result)) {
 		<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedLocation=' . $MyRow['locationid'] . '">' . _('Edit') . '</a></td></tr>';
 }
 
-echo '</table>
-	<br />';
-echo '<form onSubmit="return VerifyForm(this);" id="LocationForm" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
-	  <div>
+echo '</tbody>';
+echo '</table>';
+echo '<form id="LocationForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<table class="selection">
 	<tr>
@@ -119,17 +121,17 @@ if (isset($_GET['SelectedLocation'])) {
 	echo '<input type="hidden" name="LocationID" value="' . $LocationID . '" />';
 	echo '<td>' . $LocationID . '</td>';
 } else {
-	echo '<td><input type="text" name="LocationID" required="required" minlength="1" maxlength="6" size="6" value="' . $LocationID . '" /></td>
+	echo '<td><input type="text" name="LocationID" required="required" maxlength="6" size="6" value="' . $LocationID . '" /></td>
 		</tr>';
 }
 
 echo '<tr>
 		<th style="text-align:left">' . _('Location Description') . '</th>
-		<td><input type="text" name="LocationDescription" required="required" minlength="1" maxlength="20" size="20" value="' . $LocationDescription . '" /></td>
+		<td><input type="text" name="LocationDescription" required="required" maxlength="20" size="20" value="' . $LocationDescription . '" /></td>
 	</tr>
 	<tr>
 		<th style="text-align:left">' . _('Parent Location') . '</th>
-		<td><select minlength="0" name="ParentLocationID">';
+		<td><select name="ParentLocationID">';
 
 $SQL = "SELECT locationid, locationdescription FROM fixedassetlocations";
 $Result = DB_query($SQL);
@@ -144,8 +146,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 }
 echo '</select></td>
 	</tr>
-	</table>
-	<br />';
+	</table>';
 
 echo '<div class="centre">';
 if (isset($_GET['SelectedLocation'])) {
@@ -157,7 +158,6 @@ if (isset($_GET['SelectedLocation'])) {
 	echo '<input type="submit" name="submit" value="' . _('Enter Information') . '" />';
 }
 echo '</div>
-	  </div>
 	</form>';
 
 include('includes/footer.inc');

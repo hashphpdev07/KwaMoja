@@ -16,14 +16,14 @@ echo '<div class="toplink">
 		<a href="' . $RootPath . '/SelectProduct.php">' . _('Back to Items') . '</a>
 	</div>';
 
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . $Title . '</b>
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . $Title . '</b>
 	</p>';
 
 $Result = DB_query("SELECT description, units FROM stockmaster WHERE stockid='" . $StockId . "'");
 $MyRow = DB_fetch_row($Result);
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT locstock.loccode,
@@ -50,22 +50,23 @@ $DbgMsg = _('The SQL that failed was');
 
 $LocStockResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table class="selection">';
-echo '<tr>
-		<th colspan="3">' . _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" minlength="1" maxlength="20" /><input type="submit" name="Show" value="' . _('Show Re-Order Levels') . '" /></th>
-	</tr>';
-echo '<tr>
-		<th colspan="3"><h3><b>' . $StockId . ' - ' . $MyRow[0] . '</b>  (' . _('In Units of') . ' ' . $MyRow[1] . ')</h3></th>
-	</tr>
-<tbody>
-	<tr>
-		<th class="SortableColumn">' . _('Location') . '</th>
-		<th>' . _('Quantity On Hand') . '</th>
-		<th>' . _('Re-Order Level') . '</th>
-	</tr>';
+echo '<table class="selection">
+		<thead>
+			<tr>
+				<th colspan="3">' . _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" maxlength="20" /><input type="submit" name="Show" value="' . _('Show Re-Order Levels') . '" /></th>
+			</tr>
+			<tr>
+				<th colspan="3"><h3><b>' . $StockId . ' - ' . $MyRow[0] . '</b>  (' . _('In Units of') . ' ' . $MyRow[1] . ')</h3></th>
+			</tr>
+			<tr>
+				<th class="SortedColumn">' . _('Location') . '</th>
+				<th>' . _('Quantity On Hand') . '</th>
+				<th>' . _('Re-Order Level') . '</th>
+			</tr>
+		</thead>';
 
 $k = 0; //row colour counter
-
+echo '<tbody>';
 while ($MyRow = DB_fetch_array($LocStockResult)) {
 
 	if ($k == 1) {

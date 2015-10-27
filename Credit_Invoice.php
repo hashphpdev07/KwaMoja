@@ -260,14 +260,12 @@ if ($_SESSION['CreditItems' . $Identifier]->ItemsOrdered > 0 or isset($_POST['Ne
 
 /* Always display credit quantities
 NB QtyDispatched in the LineItems array is used for the quantity to credit */
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/credit.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/credit.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
+
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['ProcessCredit'])) {
-
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
-	echo '<div>';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 	echo '<table cellpadding="2" class="selection">';
 	echo '<tr>
@@ -334,15 +332,15 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 
 		} else {
 
-			echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Quantity_' . $LnItm->LineNumber . '" required="required" minlength="1" maxlength="6" size="6" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
+			echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Quantity_' . $LnItm->LineNumber . '" required="required" maxlength="6" size="6" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
 
 		}
 
 		$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
 		++$j;
-		echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Price_' . $LnItm->LineNumber . '" required="required" minlength="1" maxlength="12" size="6" value="' . locale_number_format($LnItm->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
-		<td><input tabindex="' . $j . '" type="text" class="number" name="Discount_' . $LnItm->LineNumber . '" required="required" minlength="1" maxlength="3" size="3" value="' . locale_number_format(($LnItm->DiscountPercent * 100), 2) . '" />%</td>
+		echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Price_' . $LnItm->LineNumber . '" required="required" maxlength="12" size="6" value="' . locale_number_format($LnItm->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
+		<td><input tabindex="' . $j . '" type="text" class="number" name="Discount_' . $LnItm->LineNumber . '" required="required" maxlength="3" size="3" value="' . locale_number_format(($LnItm->DiscountPercent * 100), 2) . '" />%</td>
 		<td class="number">' . $DisplayLineTotal . '</td>';
 
 		/*Need to list the taxes applicable to this line */
@@ -395,9 +393,8 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $LnItm->LineNumber . '"  onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the credit?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
-		echo '<tr ' . $RowStarter . '>
+		echo '<tr>
 				<td colspan="12"><textarea tabindex="' . $j . '"  name="Narrative_' . $LnItm->LineNumber . '" cols="100%" rows="1">' . $LnItm->Narrative . '</textarea>
-				<br />
 				<hr /></td>
 			</tr>';
 		++$j;
@@ -554,8 +551,9 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 		if ($MyRow[0] > ($_SESSION['CreditItems' . $Identifier]->total + $_SESSION['CreditItems' . $Identifier]->FreightCost + $TaxTotal)) {
 
 			$Allocate_amount = $_SESSION['CreditItems' . $Identifier]->total + $_SESSION['CreditItems' . $Identifier]->FreightCost + $TaxTotal;
+			$SettledInvoice = 0;
 			$Settled = 1;
-		} else if ($MyRow[0] > ($_SESSION['CreditItems' . $Identifier]->total + $_SESSION['CreditItems' . $Identifier]->FreightCost + $TaxTotal)) {
+		} else if ($MyRow[0] < ($_SESSION['CreditItems' . $Identifier]->total + $_SESSION['CreditItems' . $Identifier]->FreightCost + $TaxTotal)) {
 			/*the balance left to allocate is less than the credit note value */
 			$Allocate_amount = $MyRow[0];
 			$SettledInvoice = 1;
@@ -1514,7 +1512,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	echo '<br /><table class="selection">';
 
 	echo '<tr><td>' . _('Credit Note Type') . '</td>
-			<td><select minlength="0" tabindex="' . $j . '" name="CreditType">';
+			<td><select tabindex="' . $j . '" name="CreditType" onchange="ReloadForm(Update)">';
 
 	if (!isset($_POST['CreditType']) or $_POST['CreditType'] == 'Return') {
 		echo '<option selected="selected" value="Return">' . _('Goods returned to store') . '</option>';
@@ -1536,7 +1534,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 		/*if the credit note is a return of goods then need to know which location to receive them into */
 
-		echo '<tr><td>' . _('Goods returned to location') . '</td><td><select minlength="0" tabindex="' . $j . '" name="Location">';
+		echo '<tr><td>' . _('Goods returned to location') . '</td><td><select tabindex="' . $j . '" name="Location">';
 
 		$SQL = "SELECT locations.loccode,
 						locationname
@@ -1566,7 +1564,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 		echo '<tr>
 				<td>' . _('Write off the cost of the goods to') . '</td>
-				<td><select minlength="0" tabindex="' . $j . '" name="WriteOffGLCode">';
+				<td><select tabindex="' . $j . '" name="WriteOffGLCode">';
 
 		$SQL = "SELECT accountcode,
 					accountname
@@ -1579,7 +1577,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			if ($_POST['WriteOffGLCode'] == $MyRow['accountcode']) {
+			if (isset($_POST['WriteOffGLCode']) and $_POST['WriteOffGLCode'] == $MyRow['accountcode']) {
 				echo '<option selected="selected" value="' . $MyRow['accountcode'] . '">' . $MyRow['accountname'] . '</option>';
 			} else {
 				echo '<option value="' . $MyRow['accountcode'] . '">' . $MyRow['accountname'] . '</option>';
@@ -1626,7 +1624,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	echo '<input type="submit" tabindex="' . $j++ . '" name="ProcessCredit" value="' . _('Process Credit') . '" />
 		</div>';
 }
-echo '</div>';
 echo '</form>';
 include('includes/footer.inc');
 ?>

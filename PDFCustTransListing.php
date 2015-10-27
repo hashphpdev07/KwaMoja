@@ -19,24 +19,24 @@ if (!isset($_POST['Date'])) {
 	include('includes/header.inc');
 
 	echo '<div class="centre">
-			<p class="page_title_text noPrint" >
-				<img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . _('Customer Transaction Listing') . '</p>';
+			<p class="page_title_text" >
+				<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . _('Customer Transaction Listing') . '</p>';
 
 	if ($InputError == 1) {
 		prnMsg($Msg, 'error');
 	}
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<div><input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" /></div>';
 	echo '<table class="selection" summary="' . _('Input criteria for report') . '">
 	 		<tr>
 				<td>' . _('Enter the date for which the transactions are to be listed') . ':</td>
-				<td><input type="text" name="Date" required="required" minlength="1" maxlength="10" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" name="Date" required="required" maxlength="10" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 			</tr>';
 
 	echo '<tr>
 			<td>' . _('Transaction type') . '</td>
-			<td><select required="required" minlength="1" name="TransType">
+			<td><select required="required" name="TransType">
 				<option value="10">' . _('Invoices') . '</option>
 				<option value="11">' . _('Credit Notes') . '</option>
 				<option value="12">' . _('Receipts') . '</option>';

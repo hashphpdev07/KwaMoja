@@ -67,9 +67,9 @@ if (isset($_GET['Delete'])) {
 
 /*Show all the selected ShiptRefs so far from the SESSION['SuppInv']->Shipts array */
 if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
-	echo '<p class="page_title_text noPrint" >' . _('Shipment charges on Invoice') . ' ';
+	echo '<p class="page_title_text" >' . _('Shipment charges on Invoice') . ' ';
 } else {
-	echo '<p class="page_title_text noPrint" >' . _('Shipment credits on Credit Note') . ' ';
+	echo '<p class="page_title_text" >' . _('Shipment credits on Credit Note') . ' ';
 }
 echo $_SESSION['SuppTrans']->SuppReference . ' ' . _('From') . ' ' . $_SESSION['SuppTrans']->SupplierName;
 echo '</p>';
@@ -100,7 +100,7 @@ echo '<tr>
 </table><br />';
 
 /*Set up a form to allow input of new Shipment charges */
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['ShiptRef'])) {
@@ -109,13 +109,13 @@ if (!isset($_POST['ShiptRef'])) {
 echo '<table class="selection">';
 echo '<tr>
 		<td>' . _('Shipment Reference') . ':</td>
-		<td><input type="text" name="ShiptRef" size="12" required="required" minlength="1" maxlength="11" value="' . $_POST['ShiptRef'] . '" /></td>
+		<td><input type="text" name="ShiptRef" size="12" required="required" maxlength="11" value="' . $_POST['ShiptRef'] . '" /></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Shipment Selection') . ':
 			<br /> ' . _('If you know the code enter it above') . '
 			<br />' . _('otherwise select the shipment from the list') . '</td>
-		<td><select required="required" minlength="1" name="ShiptSelection">';
+		<td><select required="required" name="ShiptSelection">';
 
 $SQL = "SELECT shiptref,
 				vessel,
@@ -144,7 +144,7 @@ if (!isset($_POST['Amount'])) {
 }
 echo '<tr>
 		<td>' . _('Amount') . ':</td>
-		<td><input type="number" class="number" name="Amount" size="12" required="required" minlength="1" maxlength="11" value="' . locale_number_format($_POST['Amount'], $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
+		<td><input type="number" class="number" name="Amount" size="12" required="required" maxlength="11" value="' . locale_number_format($_POST['Amount'], $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
 	</tr>
 	</table>';
 

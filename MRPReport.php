@@ -201,13 +201,17 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	$YPos -= (2 * $line_height);
 
 	// Calculate fields for prjected available weekly buckets
+	$plannedaccum = array();
 	$pastdueavail = ($qoh + $PastDueSup + $pastdueplan) - $PastDueReq;
 	$weeklyavail = array();
 	$weeklyavail[0] = ($pastdueavail + $WeeklySup[0] + $weeklyplan[0]) - $WeeklyReq[0];
+	$plannedaccum[0] = $pastdueplan + $weeklyplan[0];
 	for ($i = 1; $i < 28; $i++) {
 		$weeklyavail[$i] = ($weeklyavail[$i - 1] + $WeeklySup[$i] + $weeklyplan[$i]) - $WeeklyReq[$i];
+		$plannedaccum[$i] = $plannedaccum[$i-1] + $weeklyplan[$i];
 	}
 	$futureavail = ($weeklyavail[27] + $FutureSup + $futureplan) - $FutureReq;
+	$futureplannedaccum = $plannedaccum[27] + $futureplan;
 
 	// Headers for Weekly Buckets
 	$FontSize = 7;
@@ -272,6 +276,14 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	$PDF->addTextWrap(400, $YPos, 45, $FontSize, locale_number_format($weeklyavail[6], 0), 'right');
 	$PDF->addTextWrap(445, $YPos, 45, $FontSize, locale_number_format($weeklyavail[7], 0), 'right');
 	$PDF->addTextWrap(490, $YPos, 45, $FontSize, locale_number_format($weeklyavail[8], 0), 'right');
+	$YPos -=$line_height;
+	$PDF->addTextWrap($Left_Margin, $YPos, 40, $FontSize, _('Planned Acc'));
+	$PDF->addTextWrap($Left_Margin + 40, $YPos, 45, $FontSize, locale_number_format($pastdueplan, 0), 'right');
+	$InitialPoint = 130;
+	for($c = 0; $c < 9; $c++){
+		$PDF->addTextWrap($InitialPoint, $YPos, 45, $FontSize, locale_number_format($plannedaccum[$c], 0), 'right');
+		$InitialPoint += 45;
+	}
 	$YPos -= 2 * $line_height;
 
 	// Second Group of Weeks
@@ -334,6 +346,14 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	$PDF->addTextWrap(400, $YPos, 45, $FontSize, locale_number_format($weeklyavail[16], 0), 'right');
 	$PDF->addTextWrap(445, $YPos, 45, $FontSize, locale_number_format($weeklyavail[17], 0), 'right');
 	$PDF->addTextWrap(490, $YPos, 45, $FontSize, locale_number_format($weeklyavail[18], 0), 'right');
+	$YPos -= $line_height;
+	$PDF->addTextWrap($Left_Margin, $YPos, 40, $FontSize, _('Planned Acc'));
+	$PDF->addTextWrap($Left_Margin + 40, $YPos, 45, $FontSize, locale_number_format($plannedaccum[9], 0), right);
+	$InitialPoint = 130;
+	for($c = 10; $c < 19; $c++){
+		$PDF->addTextWrap($InitialPoint, $YPos, 45, $FontSize, locale_number_format($plannedaccum[$c], 0), 'right');
+		$InitialPoint += 45;
+	}
 	$YPos -= 2 * $line_height;
 
 	// Third Group of Weeks
@@ -397,6 +417,14 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	$PDF->addTextWrap(445, $YPos, 45, $FontSize, locale_number_format($weeklyavail[27], 0), 'right');
 	$PDF->addTextWrap(490, $YPos, 45, $FontSize, locale_number_format($futureavail, 0), 'right');
 	$YPos -= $line_height;
+	$PDF->addTextWrap($Left_Margin, $YPos, 40, $FontSize, _('Planned Acc'));
+	$PDF->addTextWrap($Left_Margin + 40, $YPos, 45, $FontSize, locale_number_format($plannedaccum[19], 0), 'right');
+	$InitialPoint = 130;
+	for($c = 20; $c < 28; $c++){
+		$PDF->addTextWrap($InitialPoint, $YPos, 45, $FontSize, locale_number_format($plannedaccum[$c], 0), 'right');
+		$InitialPoint += 45;
+	}
+	$PDF->addTextWrap(490, $YPos, 45, $FontSize, locale_number_format($futureplannedaccum, 0), 'right');
 
 	// Headers for Demand/Supply Sections
 	$YPos -= (2 * $line_height);
@@ -505,12 +533,12 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 		exit;
 	}
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Inventory Items') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Inventory Items') . '</p>';
 	echo '<table class="selection"><tr>';
 	echo '<td>' . _('In Stock Category') . ':';
-	echo '<select minlength="0" name="StockCat">';
+	echo '<select name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
 		$_POST['StockCat'] = '';
 	}
@@ -537,9 +565,9 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	echo '<td><h3><b>' . _('OR') . ' ' . '</b></h3>' . _('Enter partial') . ' <b>' . _('Stock Code') . '</b>:</td>';
 	echo '<td>';
 	if (isset($_POST['StockCode'])) {
-		echo '<input type="text" autofocus="autofocus" name="StockCode" value="' . $_POST['StockCode'] . '" size="15" minlength="0" maxlength="18" />';
+		echo '<input type="text" autofocus="autofocus" name="StockCode" value="' . $_POST['StockCode'] . '" size="15" maxlength="18" />';
 	} else {
-		echo '<input type="text" autofocus="autofocus" name="StockCode" size="15" minlength="0" maxlength="18" />';
+		echo '<input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" />';
 	}
 	echo '</td>
 		</tr>
@@ -694,7 +722,7 @@ if (isset($_POST['Search']) or isset($_POST['Go']) or isset($_POST['Next']) or i
 /* end query for list of records */
 /* display list if there is more than one record */
 if (isset($searchresult) and !isset($_POST['Select'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$ListCount = DB_num_rows($searchresult);
@@ -717,7 +745,7 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 		if ($ListPageMax > 1) {
 			echo '<div class="centre">
 					<p>&nbsp;&nbsp;' . $_POST['PageOffset'] . ' ' . _('of') . ' ' . $ListPageMax . ' ' . _('pages') . '. ' . _('Go to Page') . ': ';
-			echo '<select minlength="0" name="PageOffset">';
+			echo '<select name="PageOffset">';
 			$ListPage = 1;
 			while ($ListPage <= $ListPageMax) {
 				if ($ListPage == $_POST['PageOffset']) {

@@ -5,8 +5,8 @@ include('includes/session.inc');
 $Title = _('Serial Item Research');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . $Title . '</b>
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . $Title . '</b>
 	  </p>';
 
 //validate the submission
@@ -18,10 +18,10 @@ if (isset($_POST['serialno'])) {
 	$SerialNo = '';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" id="SerialNoResearch" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form id="SerialNoResearch" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo _('Serial Number') . ': <input id="serialno" type="text" name="serialno" size="21" required="required" minlength="1" maxlength="20" value="' . $SerialNo . '" /> &nbsp;<input type="submit" name="submit" value="' . _('Search') . '" />
+echo _('Serial Number') . ': <input id="serialno" type="text" name="serialno" size="21" required="required" maxlength="20" value="' . $SerialNo . '" /> &nbsp;<input type="submit" name="submit" value="' . _('Search') . '" />
 </form>';
 
 echo '<script  type="text/javascript">

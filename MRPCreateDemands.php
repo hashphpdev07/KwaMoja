@@ -45,10 +45,6 @@ if (isset($_POST['submit'])) {
 		prnMsg($Msg, 'error');
 	}
 
-	$WhereCategory = " ";
-	if ($_POST['CategoryID'] != 'All') {
-		$WhereCategory = " AND stockmaster.categoryid ='" . $_POST['CategoryID'] . "' ";
-	}
 	$WhereLocation = " ";
 	if ($_POST['Location'] != 'All') {
 		$WhereLocation = " AND salesorders.fromstkloc ='" . $_POST['Location'] . "' ";
@@ -70,7 +66,7 @@ if (isset($_POST['submit'])) {
 			WHERE orddate >='" . FormatDateForSQL($_POST['FromDate']) . "'
 				AND orddate <='" . FormatDateForSQL($_POST['ToDate']) . "'
 				" . $WhereLocation . "
-				" . $WhereCategory . "
+				AND stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 				AND stockmaster.discontinued=0
 				AND salesorders.quotation=0
 			GROUP BY salesorderdetails.stkcode";
@@ -196,14 +192,13 @@ if (isset($_POST['submit'])) {
 
 } // end if submit has been pressed
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
-echo '<div>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">
-	<tr>
-		<td>' . _('Demand Type') . ':</td>
-		<td><select minlength="0" name="MRPDemandtype">';
+		<tr>
+			<td>' . _('Demand Type') . ':</td>
+			<td><select name="MRPDemandtype">';
 $SQL = "SELECT mrpdemandtype,
 				description
 		FROM mrpdemandtypes";
@@ -211,21 +206,31 @@ $Result = DB_query($SQL);
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<option value="' . $MyRow['mrpdemandtype'] . '">' . $MyRow['mrpdemandtype'] . ' - ' . $MyRow['description'] . '</option>';
 } //end while loop
-echo '</select></td></tr>';
-echo '<tr><td>' . _('Inventory Category') . ':</td>
-		<td><select minlength="0" name="CategoryID">';
-echo '<option selected="selected" value="All">' . _('All Stock Categories') . '</option>';
-$SQL = "SELECT categoryid,
-			   categorydescription
-		FROM stockcategory";
-$Result = DB_query($SQL);
-while ($MyRow = DB_fetch_array($Result)) {
-	echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categoryid'] . ' - ' . $MyRow['categorydescription'] . '</option>';
-} //end while loop
-echo '</select></td>
+echo '</select>
+		</td>
+	</tr>';
+
+echo '<tr>
+		<td>' . _('Inventory Categories') . ':</td>
+		<td><select autofocus="autofocus" required="required" minlength="1" size="12" name="Categories[]"multiple="multiple">';
+	$SQL = 'SELECT categoryid, categorydescription
+			FROM stockcategory
+			ORDER BY categorydescription';
+	$CatResult = DB_query($SQL);
+	while ($MyRow = DB_fetch_array($CatResult)) {
+		if (isset($_POST['Categories']) and in_array($MyRow['categoryid'], $_POST['Categories'])) {
+			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] .'</option>';
+		} else {
+			echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
+		}
+	}
+	echo '</select>
+			</td>
 		</tr>';
-echo '<tr><td>' . _('Inventory Location') . ':</td>
-		<td><select minlength="0" name="Location">';
+
+echo '<tr>
+		<td>' . _('Inventory Location') . ':</td>
+		<td><select name="Location">';
 
 $SQL = "SELECT locationname,
 				locations.loccode
@@ -239,7 +244,9 @@ $Result = DB_query($SQL);
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 }
-echo '</select></td></tr>';
+echo '</select>
+		</td>
+	</tr>';
 if (!isset($_POST['FromDate'])) {
 	$_POST['FromDate'] = date($_SESSION['DefaultDateFormat']);
 }
@@ -259,7 +266,7 @@ echo '<tr>
 	</tr>
 	<tr>
 		<td>' . _('Distribution Period') . ':</td>
-		<td><select minlength="0" name="Period">
+		<td><select name="Period">
 			<option selected="selected" value="weekly">' . _('Weekly') . '</option>
 			<option value="monthly">' . _('Monthly') . '</option>
 			</select></td>
@@ -278,18 +285,16 @@ echo '<tr>
 	</tr>
 	<tr>
 		<td>' . _('Multiplier') . ':</td>
-		<td><input type="text" class="integer" name="Multiplier" required="required" minlength="1" maxlength="2" size="2" value="1" /></td>
+		<td><input type="text" class="integer" name="Multiplier" required="required" maxlength="2" size="2" value="1" /></td>
 	</tr>
 	<tr>
 		<td></td>
 	</tr>
 	</table>
-	<br />
 	<div class="centre">
 		<input type="submit" name="submit" value="' . _('Submit') . '" />
 	</div>';
-echo '</div>
-	  </form>';
+echo '</form>';
 
 include('includes/footer.inc');
 ?>

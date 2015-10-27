@@ -4,16 +4,16 @@ include('includes/session.inc');
 $Title = _('Apply Current Cost to Sales Analysis');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT MonthName(lastdate_in_period) AS mnth,
 				YEAR(lastdate_in_period) AS yr,
 				periodno
 			FROM periods";
-echo '<div class="centre">' . _('Select the Period to update the costs for') . ':<select minlength="0" name="PeriodNo">';
+echo '<div class="centre">' . _('Select the Period to update the costs for') . ':<select name="PeriodNo">';
 $Result = DB_query($SQL);
 
 echo '<option selected="selected" value="0">' . _('No Period Selected') . '</option>';

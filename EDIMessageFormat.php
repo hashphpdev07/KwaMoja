@@ -95,12 +95,12 @@ if (isset($Msg)) {
 	prnMsg($Msg, 'success');
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<br />
-	<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (!isset($SelectedMessageLine)) {
 
@@ -202,7 +202,7 @@ if ($MyRow['messagetype'] != '') {
 echo '<tr>
 		<td>' . _('Section') . ':</td>
 		<td>';
-echo '<select minlength="0" tabindex="2" name="Section">';
+echo '<select tabindex="2" name="Section">';
 
 if ($_POST['Section'] == 'Heading') {
 	echo '<option selected="selected" value="Heading">' . _('Heading') . '</option>';
@@ -234,11 +234,11 @@ if (!isset($_POST['LineText'])) {
 echo '</td></tr>';
 
 echo '<tr><td>Sequence Number:</td>';
-echo '<td><input tabindex="3" type="text" name="SequenceNo" size="3" minlength="0" maxlength="3" value="' . $_POST['SequenceNo'] . '" />';
+echo '<td><input tabindex="3" type="text" name="SequenceNo" size="3" maxlength="3" value="' . $_POST['SequenceNo'] . '" />';
 echo '</td></tr>';
 echo '<tr><td>' . _('Line Text') . ':' . '</td>';
 echo '<td>';
-echo '<input tabindex="4" type="text" name="LineText" size="50" minlength="0" maxlength="50" value="' . $_POST['LineText'] . '" />';
+echo '<input tabindex="4" type="text" name="LineText" size="50" maxlength="50" value="' . $_POST['LineText'] . '" />';
 echo '</td></tr>';
 echo '</table><br />';
 if (isset($_GET['SelectedMessageLine'])) {

@@ -46,18 +46,18 @@ if (isset($_POST['update'])) {
 		WHERE tagref='" . $_POST['reference'] . "'";
 	$Result = DB_query($SQL);
 }
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Print') . '" alt="' . $Title . '" />' . ' ' . $Title . '
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Print') . '" alt="' . $Title . '" />' . ' ' . $Title . '
 	</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<br />
 	<table class="selection" summary="' . _('Description of tag') . '">
 	<tr>
 		<td>' . _('Description') . '</td>
-		<td><input type="text" size="30" autofocus="autofocus" required="required" minlength="1" maxlength="30" name="Description" value="' . $Description . '" /></td>
+		<td><input type="text" size="30" autofocus="autofocus" required="required" maxlength="30" name="Description" value="' . $Description . '" /></td>
 		<td><input type="hidden" name="reference" value="' . $_GET['SelectedTag'] . '" />';
 
 if (isset($_GET['Action']) and $_GET['Action'] == 'edit') {

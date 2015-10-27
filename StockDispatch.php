@@ -313,14 +313,14 @@ if (isset($_POST['PrintPDF'])) {
 
 	$Title = _('Stock Dispatch Report');
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Stock Dispatch Report') . '</p>';
-	echo '<div class="page_help_text noPrint">' . _('Create a transfer batch of overstock from one location to another location that is below reorder level.') . '<br/>' . _('Quantity to ship is based on reorder level minus the quantity on hand at the To Location; if there is a') . '<br/>' . _('dispatch percentage entered, that needed quantity is inflated by the percentage entered.') . '<br/>' . _('You need access to both locations to do the transfer.') . '<br/>' . _('Use Bulk Inventory Transfer - Receive to process the batch') . '</div>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Stock Dispatch Report') . '</p>';
+	echo '<div class="page_help_text">' . _('Create a transfer batch of overstock from one location to another location that is below reorder level.') . '<br/>' . _('Quantity to ship is based on reorder level minus the quantity on hand at the To Location; if there is a') . '<br/>' . _('dispatch percentage entered, that needed quantity is inflated by the percentage entered.') . '<br/>' . _('You need access to both locations to do the transfer.') . '<br/>' . _('Use Bulk Inventory Transfer - Receive to process the batch') . '</div>';
 
 	$SQL = "SELECT defaultlocation FROM www_users WHERE userid='" . $_SESSION['UserID'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$DefaultLocation = $MyRow['defaultlocation'];
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>
 		  <br />';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
@@ -338,11 +338,11 @@ if (isset($_POST['PrintPDF'])) {
 	echo '<table class="selection">
 		 <tr>
 			 <td>' . _('Dispatch Percent') . ':</td>
-			 <td><input type ="text" name="Percent" class="number" required="required" minlength="1" maxlength="8" size="8" value="0" /></td>
+			 <td><input type ="text" name="Percent" class="number" required="required" maxlength="8" size="8" value="0" /></td>
 		 </tr>';
 	echo '<tr>
 			  <td>' . _('From Stock Location') . ':</td>
-			  <td><select required="required" minlength="1" name="FromLocation"> ';
+			  <td><select required="required" name="FromLocation"> ';
 	while ($MyRow = DB_fetch_array($ResultStkLocs)) {
 		if ($MyRow['loccode'] == $_POST['FromLocation']) {
 			echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
@@ -359,7 +359,7 @@ if (isset($_POST['PrintPDF'])) {
 	}
 	echo '<tr>
 			<td>' . _('To Stock Location') . ':</td>
-			<td><select required="required" minlength="1" name="ToLocation"> ';
+			<td><select required="required" name="ToLocation"> ';
 	while ($MyRow = DB_fetch_array($ResultStkLocs)) {
 		if ($MyRow['loccode'] == $_POST['ToLocation']) {
 			echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
@@ -384,7 +384,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<tr>
 			<td>' . _('In Stock Category') . ':</td>
-			<td><select required="required" minlength="1" name="StockCat">';
+			<td><select required="required" name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
 		$_POST['StockCat'] = 'All';
 	}
@@ -406,7 +406,7 @@ if (isset($_POST['PrintPDF'])) {
 	echo '<tr>
 			<td>' . _('Dispatch Strategy') . ':</td>
 			<td>
-				<select required="required" minlength="1" name="Strategy">
+				<select required="required" name="Strategy">
 					<option selected="selected" value="All">' . _('Items needed at TO location with overstock at FROM location') . '</option>
 					<option value="OverFrom">' . _('Items with overstock at FROM location') . '</option>
 				</select>
@@ -417,7 +417,7 @@ if (isset($_POST['PrintPDF'])) {
 	echo '<tr>
 			<td>' . _('Report Type') . ':</td>
 			<td>
-				<select required="required" minlength="1" name="ReportType">';
+				<select required="required" name="ReportType">';
 	if ($_SESSION['RestrictLocations'] == 0) {
 		echo '<option selected="selected" value="Batch">' . _('Create Batch') . '</option>';
 	}
@@ -431,7 +431,7 @@ if (isset($_POST['PrintPDF'])) {
 	echo '<tr>
 			<td>' . _('Template') . ':</td>
 			<td>
-				<select required="required" minlength="1" name="template">
+				<select required="required" name="template">
 					<option selected="selected" value="fullprices">' . _('Full with Prices') . '</option>
 					<option value="full">' . _('Full') . '</option>
 					<option value="standard">' . _('Standard') . '</option>

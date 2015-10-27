@@ -7,8 +7,8 @@ $ViewTopic= 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
 $BookMark = 'BankAccounts';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . _('Bank') . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<div class="page_help_text noPrint">' . _('Update Bank Account details.  Account Code is for SWIFT or BSB type Bank Codes.  Set Default for Invoices to Currency Default  or Fallback Default to print Account details on Invoices (only one account should be set to Fall Back Default).') . '.</div><br />';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Bank') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<div class="page_help_text">' . _('Update Bank Account details.  Account Code is for SWIFT or BSB type Bank Codes.  Set Default for Invoices to Currency Default  or Fallback Default to print Account details on Invoices (only one account should be set to Fall Back Default).') . '.</div><br />';
 
 if (isset($_GET['SelectedBankAccount'])) {
 	$SelectedBankAccount = $_GET['SelectedBankAccount'];
@@ -261,7 +261,7 @@ if (isset($SelectedBankAccount)) {
 	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Bank Accounts Defined') . '</a></div>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedBankAccount) and !isset($_GET['delete'])) {
@@ -274,7 +274,8 @@ if (isset($SelectedBankAccount) and !isset($_GET['delete'])) {
 					bankaddress,
 					currcode,
 					invoice,
-					pettycash
+					pettycash,
+					importformat
 			FROM bankaccounts
 			WHERE bankaccounts.accountcode='" . $SelectedBankAccount . "'";
 
@@ -289,6 +290,7 @@ if (isset($SelectedBankAccount) and !isset($_GET['delete'])) {
 	$_POST['CurrCode'] = $MyRow['currcode'];
 	$_POST['DefAccount'] = $MyRow['invoice'];
 	$_POST['PettyCash'] = $MyRow['pettycash'];
+	$_POST['ImportFormat'] = $MyRow['importformat'];
 
 	echo '<input type="hidden" name="SelectedBankAccount" value="' . $SelectedBankAccount . '" />';
 	echo '<input type="hidden" name="AccountCode" value="' . $_POST['AccountCode'] . '" />';
@@ -301,7 +303,7 @@ if (isset($SelectedBankAccount) and !isset($_GET['delete'])) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Bank Account GL Code') . ':</td>
-				<td><select required="required" minlength="1" tabindex="1" name="AccountCode">';
+				<td><select required="required" tabindex="1" name="AccountCode">';
 
 	$SQL = "SELECT accountcode,
 					accountname
@@ -341,19 +343,19 @@ if (!isset($_POST['ImportFormat'])) {
 }
 echo '<tr>
 		<td>' . _('Bank Account Name') . ': </td>
-		<td><input tabindex="2" type="text" name="BankAccountName" value="' . $_POST['BankAccountName'] . '" size="40" required="required" minlength="1" maxlength="50" /></td>
+		<td><input tabindex="2" type="text" name="BankAccountName" value="' . $_POST['BankAccountName'] . '" size="40" required="required" maxlength="50" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Bank Account Code') . ': </td>
-		<td><input tabindex="3" type="text" name="BankAccountCode" value="' . $_POST['BankAccountCode'] . '" size="40" minlength="0" maxlength="50" /></td>
+		<td><input tabindex="3" type="text" name="BankAccountCode" value="' . $_POST['BankAccountCode'] . '" size="40" maxlength="50" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Bank Account Number') . ': </td>
-		<td><input tabindex="3" type="text" name="BankAccountNumber" value="' . $_POST['BankAccountNumber'] . '" size="40" minlength="0" maxlength="50" /></td>
+		<td><input tabindex="3" type="text" name="BankAccountNumber" value="' . $_POST['BankAccountNumber'] . '" size="40" maxlength="50" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Bank Address') . ': </td>
-		<td><input tabindex="4" type="text" name="BankAddress" value="' . $_POST['BankAddress'] . '" size="40" minlength="0" maxlength="50" /></td>
+		<td><input tabindex="4" type="text" name="BankAddress" value="' . $_POST['BankAddress'] . '" size="40" maxlength="50" /></td>
 	</tr>
  	<tr>
 		<td>' . _('Transaction Import File Format') . ': </td>
@@ -368,7 +370,7 @@ echo '<tr>
 	</tr>
 	<tr>
 		<td>' . _('Currency Of Account') . ': </td>
-		<td><select minlength="0" tabindex="6" name="CurrCode">';
+		<td><select tabindex="6" name="CurrCode">';
 
 if (!isset($_POST['CurrCode']) or $_POST['CurrCode'] == '') {
 	$_POST['CurrCode'] = $_SESSION['CompanyRecord']['currencydefault'];
@@ -390,7 +392,7 @@ echo '</tr>';
 
 echo '<tr>
 		<td>' . _('Default for Invoices') . ': </td>
-		<td><select minlength="0" tabindex="6" name="DefAccount">';
+		<td><select tabindex="6" name="DefAccount">';
 
 if (!isset($_POST['DefAccount']) or $_POST['DefAccount'] == '') {
 	$_POST['DefAccount'] = $_SESSION['CompanyRecord']['currencydefault'];

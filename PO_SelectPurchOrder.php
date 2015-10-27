@@ -20,7 +20,7 @@ if (isset($_GET['SelectedSupplier'])) {
 	$SelectedSupplier = stripslashes($_POST['SelectedSupplier']);
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title;
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title;
 if (isset($SelectedSupplier)) {
 	echo ' ' . _('for Supplier') . ': ' . $SelectedSupplier;
 	echo '<input type="hidden" name="SelectedSupplier" value="' . $SelectedSupplier . '" />';
@@ -34,7 +34,7 @@ if (isset($SelectedStockItem)) {
 } //isset($SelectedStockItem)
 echo '</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
@@ -87,7 +87,7 @@ if (isset($_POST['SearchParts'])) {
  */
 if (!isset($OrderNumber) or $OrderNumber == "") {
 	echo '<table class="selection"><tr><td>';
-	echo _('Order Number') . ': <input type="text" class="integer" name="OrderNumber" autofocus="autofocus" minlength="0" maxlength="8" size="9" /> ' . _('Into Stock Location') . ':<select minlength="0" name="StockLocation"> ';
+	echo _('Order Number') . ': <input type="text" class="integer" name="OrderNumber" autofocus="autofocus" maxlength="8" size="9" /> ' . _('Into Stock Location') . ':<select name="StockLocation"> ';
 	$SQL = "SELECT locations.loccode,
 					locationname
 				FROM locations
@@ -109,7 +109,7 @@ if (!isset($OrderNumber) or $OrderNumber == "") {
 			echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 		}
 	}
-	echo '</select> ' . _('Order Status') . ':<select minlength="0" name="Status">';
+	echo '</select> ' . _('Order Status') . ':<select name="Status">';
 	if (!isset($_POST['Status'])) {
 		$_POST['Status'] = 'Pending';
 	}
@@ -118,27 +118,27 @@ if (!isset($OrderNumber) or $OrderNumber == "") {
 	} else {
 		echo '<option value="Pending_Authorised_Completed">' . _('Pending/Authorised/Completed') . '</option>';
 	}
-	if ($_POST['Status'] == 'Pending') {
+	if (isset($_POST['Status']) and $_POST['Status'] == 'Pending') {
 		echo '<option selected="selected" value="Pending">' . _('Pending') . '</option>';
 	} else {
 		echo '<option value="Pending">' . _('Pending') . '</option>';
 	}
-	if ($_POST['Status'] == 'Authorised') {
+	if (isset($_POST['Status']) and $_POST['Status'] == 'Authorised') {
 		echo '<option selected="selected" value="Authorised">' . _('Authorised') . '</option>';
 	} else {
 		echo '<option value="Authorised">' . _('Authorised') . '</option>';
 	}
-	if ($_POST['Status'] == 'Completed') {
+	if (isset($_POST['Status']) and $_POST['Status'] == 'Completed') {
 		echo '<option selected="selected" value="Completed">' . _('Completed') . '</option>';
 	} else {
 		echo '<option value="Completed">' . _('Completed') . '</option>';
 	}
-	if ($_POST['Status'] == 'Cancelled') {
+	if (isset($_POST['Status']) and $_POST['Status'] == 'Cancelled') {
 		echo '<option selected="selected" value="Cancelled">' . _('Cancelled') . '</option>';
 	} else {
 		echo '<option value="Cancelled">' . _('Cancelled') . '</option>';
 	}
-	if ($_POST['Status'] == 'Rejected') {
+	if (isset($_POST['Status']) and $_POST['Status'] == 'Rejected') {
 		echo '<option selected="selected" value="Rejected">' . _('Rejected') . '</option>';
 	} else {
 		echo '<option value="Rejected">' . _('Rejected') . '</option>';
@@ -153,12 +153,12 @@ $SQL = "SELECT categoryid,
 		ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
 
-echo '<div class="page_help_text noPrint">' . _('To search for purchase orders for a specific part use the part selection facilities below') . '</div>';
+echo '<div class="page_help_text">' . _('To search for purchase orders for a specific part use the part selection facilities below') . '</div>';
 
 echo '<table class="selection">
 		<tr>
 			<td><tr>
-		<td>' . _('Select a stock category') . ':<select minlength="0" name="StockCat">';
+		<td>' . _('Select a stock category') . ':<select name="StockCat">';
 while ($MyRow1 = DB_fetch_array($Result1)) {
 	if (isset($_POST['StockCat']) and $MyRow1['categoryid'] == $_POST['StockCat']) {
 		echo '<option selected="selected" value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
@@ -168,12 +168,12 @@ while ($MyRow1 = DB_fetch_array($Result1)) {
 }
 echo '</select></td>
 		<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-		<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+		<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td><b>' . _('OR') . ' </b>' . _('Enter extract of the') . '<b> ' . _('Stock Code') . '</b>:</td>
-		<td><input type="text" name="StockCode" size="15" minlength="0" maxlength="18" /></td>
+		<td><input type="text" name="StockCode" size="15" maxlength="18" /></td>
 	</tr>
 	<tr>
 		<td colspan="3">
@@ -187,14 +187,17 @@ echo '</select></td>
 
 if (isset($StockItemsResult)) {
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">' . _('Code') . '</th>
-				<th class="SortableColumn">' . _('Description') . '</th>
-				<th>' . _('On Hand') . '</th>
-				<th>' . _('Orders') . '<br />' . _('Outstanding') . '</th>
-				<th>' . _('Units') . '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Description') . '</th>
+					<th>' . _('On Hand') . '</th>
+					<th>' . _('Orders') . '<br />' . _('Outstanding') . '</th>
+					<th>' . _('Units') . '</th>
+				</tr>
+			</thead>';
 	$k = 0; //row colour counter
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -211,6 +214,7 @@ if (isset($StockItemsResult)) {
 			</tr>';
 	}
 	//end of while loop
+	echo '</tbody>';
 	echo '</table>';
 } else {
 	//figure out the SQL required from the inputs available
@@ -294,18 +298,21 @@ if (isset($StockItemsResult)) {
 	if (DB_num_rows($PurchOrdersResult) > 0) {
 		/*show a table of the orders returned by the SQL */
 		echo '<table cellpadding="2" width="90%" class="selection">
-				<tr>
-					<th class="SortableColumn">' . _('View') . '</th>
-					<th class="SortableColumn">' . _('Supplier') . '</th>
-					<th>' . _('Currency') . '</th>
-					<th class="SortableColumn">' . _('Requisition') . '</th>
-					<th class="SortableColumn">' . _('Order Date') . '</th>
-					<th class="SortableColumn">' . _('Delivery Date') . '</th>
-					<th class="SortableColumn">' . _('Initiator') . '</th>
-					<th>' . _('Order Total') . '</th>
-					<th>' . _('Status') . '</th>
-				</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('View') . '</th>
+						<th class="SortedColumn">' . _('Supplier') . '</th>
+						<th>' . _('Currency') . '</th>
+						<th class="SortedColumn">' . _('Requisition') . '</th>
+						<th class="SortedColumn">' . _('Order Date') . '</th>
+						<th class="SortedColumn">' . _('Delivery Date') . '</th>
+						<th class="SortedColumn">' . _('Initiator') . '</th>
+						<th>' . _('Order Total') . '</th>
+						<th>' . _('Status') . '</th>
+					</tr>
+				</thead>';
 		$k = 0; //row colour counter
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PurchOrdersResult)) {
 			if ($k == 1) {
 				/*alternate bgcolour of row for highlighting */
@@ -334,6 +341,7 @@ if (isset($StockItemsResult)) {
 
 		}
 		//end of while loop
+		echo '</tbody>';
 		echo '</table>';
 	} // end if purchase orders to show
 }

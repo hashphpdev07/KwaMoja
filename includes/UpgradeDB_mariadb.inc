@@ -53,6 +53,23 @@ function NewSecurityToken($TokenId, $TokenName) {
 	}
 }
 
+function NewSysType($TypeID, $TypeDescription) {
+	/* Does type already exist */
+	$SQL = "SELECT typeid FROM systypes WHERE typeid='" . $TypeID . "'";
+	$Result = DB_query($SQL);
+	if (DB_num_rows($Result) == 0) {
+		$SQL = "INSERT INTO `systypes` (`typeid`, `typename`) VALUES ('" . $TypeID . "', '" . $TypeDescription . "')";
+		$Response = executeSQL($SQL, False);
+		if ($Response == 0) {
+			OutputResult(_('The type') . ' ' . $TypeDescription . ' ' . _('has been inserted'), 'success');
+		} else {
+			OutputResult(_('The type') . ' ' . $TypeDescription . ' ' . _('could not be inserted') . '<br />' . $SQL, 'error');
+		}
+	} else {
+		OutputResult(_('The script') . ' ' . $TypeDescription . ' ' . _('already exists'), 'info');
+	}
+}
+
 function NewScript($ScriptName, $PageSecurity) {
 	/*Is page already in table */
 	$SQL = "SELECT script FROM scripts WHERE script='" . $ScriptName . "'";
@@ -218,7 +235,7 @@ function AddIndex($Columns, $Table, $Name) {
 		$SQL = "SHOW INDEX FROM " . $Table . " WHERE Key_name='" . $Name . "'";
 		$Result = DB_query($SQL);
 		if (DB_num_rows($Result) == 0) {
-			$SQL = "ALTER TABLE `" . $Table . "` ADD INDEX " . $Name . " (`" . $Columns[0] . "`";
+			$SQL = "ALTER TABLE `" . $Table . "` ADD INDEX `" . $Name . "` (`" . $Columns[0] . "`";
 			$SizeOfColumns = sizeOf($Columns);
 			for ($i = 1; $i < $SizeOfColumns; $i++) {
 				$SQL .= "," . $Columns[$i];
@@ -515,7 +532,7 @@ function AddConstraint($Table, $Constraint, $Field, $ReferenceTable, $ReferenceF
 			$List = implode(',', $ReferenceField);
 			$ReferenceField = $List;
 		}
-		$SQL = "ALTER TABLE " . $Table . " ADD CONSTRAINT " . $Constraint . " FOREIGN KEY (" . $Field . ") REFERENCES " . $ReferenceTable . " (" . $ReferenceField . ")";
+		$SQL = "ALTER TABLE `" . $Table . "` ADD CONSTRAINT `" . $Constraint . "` FOREIGN KEY (" . $Field . ") REFERENCES `" . $ReferenceTable . "` (" . $ReferenceField . ")";
 		$Response = executeSQL($SQL, False);
 		if ($Response == 0) {
 			OutputResult(_('The constraint') . ' ' . $Constraint . ' ' . _('has been added'), 'success');
@@ -639,7 +656,7 @@ function DropPrimaryKey($Table, $OldKey) {
 		$Fields[] = $MyRow['COLUMN_NAME'];
 	}
 	if ($Total == sizeOf($OldKey) and $Fields == $OldKey) {
-		$SQL = "ALTER TABLE " . $Table . " DROP PRIMARY KEY";
+		$SQL = "ALTER TABLE `" . $Table . "` DROP PRIMARY KEY";
 		$Response = executeSQL($SQL);
 		if ($Response == 0) {
 			OutputResult(_('The primary key in') . ' ' . $Table . ' ' . _('has been removed'), 'success');
@@ -657,7 +674,7 @@ function AddPrimaryKey($Table, $Fields) {
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) != sizeOf($Fields)) {
 		$KeyString = implode(",", $Fields);
-		$Response = executeSQL("ALTER TABLE " . $Table . " ADD PRIMARY KEY ( " . $KeyString . " )");
+		$Response = executeSQL("ALTER TABLE `" . $Table . "` ADD PRIMARY KEY ( " . $KeyString . " )");
 		if ($Response == 0) {
 			OutputResult(_('The primary key in') . ' ' . $Table . ' ' . _('has been added'), 'success');
 		} else {

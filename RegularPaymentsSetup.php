@@ -8,8 +8,8 @@ $BookMark = 'RegularPayments';
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
 if (isset($_GET['Complete'])) {
@@ -156,7 +156,7 @@ if (isset($_POST['Add']) or isset($_POST['Update'])) {
 	}
 }
 
-echo '<form onSubmit="return VerifyForm(this)" method="post" class="noPrint" id="RegularPaymentsSetup" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form onSubmit="return VerifyForm(this)" method="post" id="RegularPaymentsSetup" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table class="selection">';
@@ -212,11 +212,11 @@ echo '</select>
 	</tr>
 	<tr>
 		<td>' . _('Date of first payment') . '</td>
-		<td><input type="date" name="FirstPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" minlength="1" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['FirstPaymentDate'] . '" /></td>
+		<td><input type="date" name="FirstPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['FirstPaymentDate'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Date of Last payment') . '</td>
-		<td><input type="date" name="LastPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" minlength="1" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['LastPaymentDate'] . '" /></td>
+		<td><input type="date" name="LastPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['LastPaymentDate'] . '" /></td>
 	</tr>';
 
 $SQL = "SELECT bankaccountname,
@@ -262,7 +262,7 @@ if (DB_num_rows($AccountsResults) == 0) {
 
 echo '<tr>
 		<td>' . _('Currency of Payment') . ':</td>
-		<td><select required="required" minlength="1" name="Currency">';
+		<td><select required="required" name="Currency">';
 $SQL = "SELECT currency, currabrev, rate FROM currencies";
 $Result = DB_query($SQL);
 
@@ -289,7 +289,7 @@ $SQL = "SELECT tagref,
 $Result = DB_query($SQL);
 echo '<tr>
 		<td>' . _('Select Tag') . ':</td>
-		<td><select minlength="0" name="Tag">
+		<td><select name="Tag">
 			<option value="0">' . _('None') . '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['Tag']) and $_POST['Tag'] == $MyRow['tagref']) {
@@ -305,13 +305,13 @@ echo '</select>
 
 echo '<tr>
 		<td>' . _('Enter GL Account Manually') . ':</td>
-		<td><input type="text" name="GLManualCode" minlength="0" maxlength="12" size="12" onchange="return inArray(this, GLCode.options,' . "'" . 'The account code ' . "'" . '+ this.value+ ' . "'" . ' doesnt exist' . "'" . ')"' . ' value="' . $_POST['GLManualCode'] . '"   /></td>
+		<td><input type="text" name="GLManualCode" maxlength="12" size="12" onchange="return inArray(this, GLCode.options,' . "'" . 'The account code ' . "'" . '+ this.value+ ' . "'" . ' doesnt exist' . "'" . ')"' . ' value="' . $_POST['GLManualCode'] . '"   /></td>
 	</tr>';
 
 
 echo '<tr>
 		<td>' . _('Select GL Group') . ':</td>
-		<td><select minlength="0" name="GLGroup" onchange="return ReloadForm(UpdateCodes)">';
+		<td><select name="GLGroup" onchange="return ReloadForm(UpdateCodes)">';
 
 $SQL = "SELECT groupname
 			FROM accountgroups
@@ -351,7 +351,7 @@ if (isset($_POST['GLGroup']) and $_POST['GLGroup'] != '') {
 
 echo '<tr>
 		<td>' . _('Select GL Account') . ':</td>
-		<td><select minlength="0" name="GLCode" onchange="return assignComboToInput(this,' . 'GLManualCode' . ')">';
+		<td><select name="GLCode" onchange="return assignComboToInput(this,' . 'GLManualCode' . ')">';
 
 $Result = DB_query($SQL);
 if (DB_num_rows($Result) == 0) {
@@ -372,23 +372,23 @@ if (DB_num_rows($Result) == 0) {
 if (isset($_POST['GLNarrative'])) { // General Ledger Payment (Different than Bank Account) info to be inserted on gltrans.narrative, varchar(200).
 	echo '<tr>
 			<td>' . _('GL Narrative') . ':</td>
-			<td><input type="text" name="GLNarrative" minlength="0" maxlength="50" size="52" value="' . stripslashes($_POST['GLNarrative']) . '" /></td>
+			<td><input type="text" name="GLNarrative" maxlength="50" size="52" value="' . stripslashes($_POST['GLNarrative']) . '" /></td>
 		</tr>';
 } else {
 	echo '<tr>
 			<td>' . _('GL Narrative') . ':</td>
-			<td><input type="text" name="GLNarrative" minlength="0" maxlength="50" size="52" /></td>
+			<td><input type="text" name="GLNarrative" maxlength="50" size="52" /></td>
 		</tr>';
 }
 
 if (isset($_POST['GLAmount'])) {
 	echo '<tr>
 			<td>' . _('Amount') . '</td>
-			<td><input type="text" name="GLAmount" minlength="0" maxlength="12" size="12" class="number" value="' . $_POST['GLAmount'] . '" /></td>
+			<td><input type="text" name="GLAmount" maxlength="12" size="12" class="number" value="' . $_POST['GLAmount'] . '" /></td>
 		</tr>';
 } else {
 	echo '<tr><td>' . _('Amount') . '</td>
-			<td><input type="text" name="GLAmount" minlength="0" maxlength="12" size="12" class="number" /></td>
+			<td><input type="text" name="GLAmount" maxlength="12" size="12" class="number" /></td>
 		</tr>';
 }
 

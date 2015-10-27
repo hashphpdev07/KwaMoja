@@ -33,7 +33,7 @@ class SuppTrans {
 	var $OvAmount;
 	var $OvGST;
 	var $GLCodesCounter = 0;
-	var $ShiptsCounter = 0;
+	var $ShiptCounter = 0;
 	var $ContractsCounter = 0;
 	var $AssetCounter = 0;
 	var $TaxGroup;

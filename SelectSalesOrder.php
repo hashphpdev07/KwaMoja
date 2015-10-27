@@ -55,28 +55,29 @@ if (isset($_POST['PlacePO'])) {
 						stockmaster.volume,
 						stockcategory.stockact,
 						SUM(salesorderdetails.quantity-salesorderdetails.qtyinvoiced) AS orderqty
-				FROM purchdata INNER JOIN salesorderdetails ON
-				purchdata.stockid = salesorderdetails.stkcode
-				INNER JOIN stockmaster  ON
-				purchdata.stockid = stockmaster.stockid
-				INNER JOIN stockcategory ON
-				stockmaster.categoryid = stockcategory.categoryid
+				FROM purchdata
+				INNER JOIN salesorderdetails
+					ON purchdata.stockid = salesorderdetails.stkcode
+				INNER JOIN stockmaster
+					ON purchdata.stockid = stockmaster.stockid
+				INNER JOIN stockcategory
+					ON stockmaster.categoryid = stockcategory.categoryid
 				WHERE purchdata.preferred=1
-				AND purchdata.effectivefrom <=CURRENT_DATE
-				AND (" . $OrdersToPlacePOFor . ")
+					AND purchdata.effectivefrom <=CURRENT_DATE
+					AND (" . $OrdersToPlacePOFor . ")
 				GROUP BY purchdata.supplierno,
-					purchdata.stockid,
-					purchdata.price,
-					purchdata.suppliers_partno,
-					purchdata.supplierdescription,
-					purchdata.conversionfactor,
-					purchdata.leadtime,
-					purchdata.suppliersuom,
-					stockmaster.grossweight,
-					stockmaster.volume,
-					stockcategory.stockact
+						purchdata.stockid,
+						purchdata.price,
+						purchdata.suppliers_partno,
+						purchdata.supplierdescription,
+						purchdata.conversionfactor,
+						purchdata.leadtime,
+						purchdata.suppliersuom,
+						stockmaster.grossweight,
+						stockmaster.volume,
+						stockcategory.stockact
 				ORDER BY purchdata.supplierno,
-					 purchdata.stockid";
+						purchdata.stockid";
 
 		$ErrMsg = _('Unable to retrieve the items on the selected orders for creating purchase orders for');
 		$ItemResult = DB_query($SQL, $ErrMsg);
@@ -100,36 +101,37 @@ if (isset($_POST['PlacePO'])) {
 						stockmaster.volume,
 						stockcategory.stockact,
 						SUM(bom.quantity *(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)) AS orderqty
-				FROM purchdata INNER JOIN bom
-				ON purchdata.stockid=bom.component
-				INNER JOIN salesorderdetails ON
-				bom.parent=salesorderdetails.stkcode
-				INNER JOIN stockmaster ON
-				purchdata.stockid = stockmaster.stockid
+				FROM purchdata
+				INNER JOIN bom
+					ON purchdata.stockid=bom.component
+				INNER JOIN salesorderdetails
+					ON bom.parent=salesorderdetails.stkcode
+				INNER JOIN stockmaster
+					ON purchdata.stockid = stockmaster.stockid
 				INNER JOIN stockmaster AS stockmaster2
-				ON stockmaster2.stockid=salesorderdetails.stkcode
-				INNER JOIN stockcategory ON
-				stockmaster.categoryid = stockcategory.categoryid
+					ON stockmaster2.stockid=salesorderdetails.stkcode
+				INNER JOIN stockcategory
+					ON stockmaster.categoryid = stockcategory.categoryid
 				WHERE purchdata.preferred=1
-				AND stockmaster2.mbflag='A'
-				AND bom.loccode ='" . $_SESSION['UserStockLocation'] . "'
-				AND purchdata.effectivefrom <=CURRENT_DATE
-				AND bom.effectiveafter <=CURRENT_DATE
-				AND bom.effectiveto > CURRENT_DATE
-				AND (" . $OrdersToPlacePOFor . ")
+					AND stockmaster2.mbflag='A'
+					AND bom.loccode ='" . $_SESSION['UserStockLocation'] . "'
+					AND purchdata.effectivefrom <=CURRENT_DATE
+					AND bom.effectiveafter <=CURRENT_DATE
+					AND bom.effectiveto > CURRENT_DATE
+					AND (" . $OrdersToPlacePOFor . ")
 				GROUP BY purchdata.supplierno,
-					purchdata.stockid,
-					purchdata.price,
-					purchdata.suppliers_partno,
-					purchdata.supplierdescription,
-					purchdata.conversionfactor,
-					purchdata.leadtime,
-					purchdata.suppliersuom,
-					stockmaster.grossweight,
-					stockmaster.volume,
-					stockcategory.stockact
+						purchdata.stockid,
+						purchdata.price,
+						purchdata.suppliers_partno,
+						purchdata.supplierdescription,
+						purchdata.conversionfactor,
+						purchdata.leadtime,
+						purchdata.suppliersuom,
+						stockmaster.grossweight,
+						stockmaster.volume,
+						stockcategory.stockact
 				ORDER BY purchdata.supplierno,
-					 purchdata.stockid";
+						purchdata.stockid";
 		$ErrMsg = _('Unable to retrieve the items on the selected orders for creating purchase orders for');
 		$ItemResult = DB_query($SQL, $ErrMsg);
 
@@ -403,10 +405,12 @@ if (isset($_POST['PlacePO'])) {
 
 /*To the sales order selection form */
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/sales.png" title="' . _('Sales') . '" alt="" />' . ' ' . _('Outstanding Sales Orders') . '</p> ';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/sales.png" title="', _('Sales'), '" alt="" />', '&nbsp;', _('Outstanding Sales Orders'), '
+	</p> ';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
@@ -428,15 +432,15 @@ if (isset($OrderNumber) and $OrderNumber != '') {
 		include('includes/footer.inc');
 		exit;
 	} else {
-		echo _('Order Number') . ' - ' . $OrderNumber;
+		echo _('Order Number'), '&nbsp;-&nbsp;', $OrderNumber;
 	}
 } else {
 	if (isset($SelectedCustomer)) {
-		echo _('For customer') . ': ' . $SelectedCustomer . ' ' . _('and') . ' ';
-		echo '<input type="hidden" name="SelectedCustomer" value="' . $SelectedCustomer . '" />';
+		echo _('For customer'), ':&nbsp;', $SelectedCustomer, '&nbsp;', _('and'), '&nbsp;';
+		echo '<input type="hidden" name="SelectedCustomer" value="', $SelectedCustomer, '" />';
 	}
 	if (isset($SelectedStockItem)) {
-		echo _('for the part') . ': ' . $SelectedStockItem . ' ' . _('and') . ' <input type="hidden" name="SelectedStockItem" value="' . $SelectedStockItem . '" />';
+		echo _('for the part'), ':&nbsp;', $SelectedStockItem, '&nbsp;', _('and'), '&nbsp;<input type="hidden" name="SelectedStockItem" value="', $SelectedStockItem, '" />';
 	}
 }
 
@@ -487,11 +491,12 @@ if (!isset($StockId)) {
 	if (!isset($OrderNumber) or $OrderNumber == '') {
 
 		echo '<table class="selection">
-			<tr>
-				<td>' . _('Order number') . ': </td>
-				<td><input type="text" class="integer" name="OrderNumber" minlength="0" maxlength="8" size="9" /></td>
-				<td>' . _('From Stock Location') . ':</td>
-				<td><select minlength="0" name="StockLocation"> ';
+				<tr>
+					<td>', _('Order number'), ': </td>
+					<td><input type="text" class="integer" name="OrderNumber" maxlength="8" size="9" /></td>
+					<td>', _('From Stock Location'), ':</td>
+					<td>
+						<select name="StockLocation"> ';
 
 		$SQL = "SELECT locationname,
 						locations.loccode
@@ -505,37 +510,39 @@ if (!isset($StockId)) {
 		while ($MyRow = DB_fetch_array($ResultStkLocs)) {
 			if (isset($_POST['StockLocation'])) {
 				if ($MyRow['loccode'] == $_POST['StockLocation']) {
-					echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+					echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 				} else {
-					echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+					echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 				}
 			} elseif ($MyRow['loccode'] == $_SESSION['UserStockLocation']) {
-				echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+				echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 			} else {
-				echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+				echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 			}
 		}
 
-		echo '</select></td>
-			<td><select minlength="0" name="Quotations">';
+		echo '</select>
+				</td>
+				<td>
+					<select name="Quotations">';
 
 		if (isset($_GET['Quotations']) and $_GET['Quotations'] == 'Quotes_Only') {
 			$_POST['Quotations'] = 'Quotes_Only';
 		}
 
 		if (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Quotes_Only') {
-			echo '<option selected="selected" value="Quotes_Only">' . _('Quotations Only') . '</option>';
-			echo '<option value="Orders_Only">' . _('Orders Only') . '</option>';
+			echo '<option selected="selected" value="Quotes_Only">', _('Quotations Only'), '</option>';
+			echo '<option value="Orders_Only">', _('Orders Only'), '</option>';
 		} else {
-			echo '<option selected="selected" value="Orders_Only">' . _('Orders Only') . '</option>';
-			echo '<option value="Quotes_Only">' . _('Quotations Only') . '</option>';
+			echo '<option selected="selected" value="Orders_Only">', _('Orders Only'), '</option>';
+			echo '<option value="Quotes_Only">', _('Quotations Only'), '</option>';
 		}
 
 		echo '</select> </td>
-				<td><input type="submit" name="SearchOrders" value="' . _('Search') . '" /></td>
-				<td><a href="' . $RootPath . '/SelectOrderItems.php?NewOrder=Yes">' . _('Add Sales Order') . '</a></td>
+				<td><input type="submit" name="SearchOrders" value="', _('Search'), '" /></td>
+				<td><a href="', $RootPath, '/SelectOrderItems.php?NewOrder=Yes">', _('Add Sales Order'), '</a></td>
 			</tr>
-			</table>';
+		</table>';
 	}
 
 	$SQL = "SELECT categoryid,
@@ -553,48 +560,49 @@ if (!isset($StockId)) {
 	}
 
 	echo '<table class="selection">
-		<tr>
-			<th colspan="6"><h3>' . _('To search for sales orders for a specific part use the part selection facilities below') . '</h3></th>
-		</tr>
-		<tr>
-			<td>' . _('Select a stock category') . ':
-					<select minlength="0" name="StockCat">';
+			<tr>
+				<th colspan="6"><h3>', _('To search for sales orders for a specific part use the part selection facilities below'), '</h3></th>
+			</tr>
+			<tr>
+				<td>', _('Select a stock category'), ':
+						<select name="StockCat">';
 
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		if (isset($_POST['StockCat']) and $_POST['StockCat'] == $MyRow1['categoryid']) {
-			echo '<option selected="selected" value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+			echo '<option selected="selected" value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 		} else {
-			echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+			echo '<option value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 		}
 	}
 
 	echo '</select></td>
-			<td>' . _('Enter text extract(s) in the description') . ':</td>
-			<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" value="' . $_POST['Keywords'] . '" /></td>
+			<td>', _('Enter text extract(s) in the description'), ':</td>
+			<td><input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" /></td>
 		</tr>
       	<tr>
-			<td></td>
-      		<td><b>' . _('OR') . ' </b>' . _('Enter extract of the Stock Code') . ':</td>
-      		<td><input type="text" name="StockCode" size="15" minlength="0" maxlength="18" value="' . $_POST['StockCode'] . '" /></td>
+      		<td colspan="2" class="number"><b>', _('OR'), ' </b>', _('Enter extract of the Stock Code'), ':</td>
+      		<td><input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" /></td>
       	</tr>
       </table>';
 	echo '<div class="centre">
-			<input type="submit" name="SearchParts" value="' . _('Search Parts Now') . '" />
-			<input type="submit" name="ResetPart" value="' . _('Show All') . '" />
+			<input type="submit" name="SearchParts" value="', _('Search Parts Now'), '" />
+			<input type="submit" name="ResetPart" value="', _('Show All'), '" />
 		</div>';
 
 	if (isset($StockItemsResult) and DB_num_rows($StockItemsResult) > 0) {
 
 		echo '<table cellpadding="2" class="selection">
-		<tr>
-			<th class="SortableColumn" >' . _('Code') . '</th>
-			<th class="SortableColumn" >' . _('Description') . '</th>
-			<th>' . _('On Hand') . '</th>
-			<th>' . _('Units') . '</th>
-		</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn" >', _('Code'), '</th>
+						<th class="SortedColumn" >', _('Description'), '</th>
+						<th>', _('On Hand'), '</th>
+						<th>', _('Units'), '</th>
+					</tr>
+				</thead>';
 
 		$k = 0; //row colour counter
-
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
 			if ($k == 1) {
@@ -605,15 +613,16 @@ if (!isset($StockId)) {
 				++$k;
 			}
 
-			printf('<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td>%s</td>
-				</tr>', $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), $MyRow['units']);
+			echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" /></td>
+				<td>', $MyRow['description'], '</td>
+				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['units'], '</td>
+			</tr>';
 			//end of page full new headings if
 		}
 		//end of while loop
 
+		echo '</tbody>';
 		echo '</table>';
 
 	}
@@ -648,7 +657,7 @@ if (!isset($StockId)) {
 					salesorders.deliverto,
 					salesorders.printedpackingslip,
 					salesorders.poplaced,
-					SUM(salesorderdetails.unitprice*salesorderdetails.quantity*(1-salesorderdetails.discountpercent)/currencies.rate) AS ordervalue,
+					SUM(salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate) AS ordervalue,
 					pickreq.prid
 				FROM salesorders
 				INNER JOIN salesorderdetails
@@ -726,25 +735,24 @@ if (!isset($StockId)) {
 			$AuthRow = DB_fetch_array($AuthResult);
 
 			echo '<table cellpadding="2" width="95%" class="selection">';
-			echo '<tbody>';
 			if (is_null($AuthRow['cancreate']) or !isset($AuthRow)) {
 				$AuthRow['cancreate'] = 1;
 			}
-
+			echo '<thead>';
 			$PrintPickLabel = '';
 			if ($_SESSION['RequirePickingNote'] == 1) {
 				$PrintPickLabel = '<th>' . _('Pick Lists') . '</th>';
 			}
 			if (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Orders_Only') {
 				echo '<tr>
-						<th class="SortableColumn">', _('Modify'), '</th>
+						<th class="SortedColumn">', _('Modify'), '</th>
 						<th>', _('Acknowledge'), '</th>
 						', $PrintPickLabel, '
 						<th>', _('Invoice'), '</th>
 						<th>', _('Dispatch Note'), '</th>
 						<th>', _('Labels'), '</th>
-						<th class="SortableColumn">', _('Customer'), '</th>
-						<th class="SortableColumn">', _('Branch'), '</th>
+						<th class="SortedColumn">', _('Customer'), '</th>
+						<th class="SortedColumn">', _('Branch'), '</th>
 						<th>', _('Cust Order'), ' #</th>
 						<th>', _('Order Date'), '</th>
 						<th>', _('Req Del Date'), '</th>
@@ -759,10 +767,10 @@ if (!isset($StockId)) {
 			} else {
 				/* displaying only quotations */
 				echo '<tr>
-						<th class="SortableColumn">', _('Modify'), '</th>
+						<th class="SortedColumn">', _('Modify'), '</th>
 						<th>', _('Print Quote'), '</th>
-						<th class="SortableColumn">', _('Customer'), '</th>
-						<th class="SortableColumn">', _('Branch'), '</th>
+						<th class="SortedColumn">', _('Customer'), '</th>
+						<th class="SortedColumn">', _('Branch'), '</th>
 						<th>', _('Cust Ref'), ' #</th>
 						<th>', _('Quote Date'), '</th>
 						<th>', _('Req Del Date'), '</th>
@@ -770,10 +778,11 @@ if (!isset($StockId)) {
 						<th>', _('Quote Total'), '<br />' . $_SESSION['CompanyRecord']['currencydefault'] . '</th>
 					</tr>';
 			}
-
+			echo '</thead>';
 			$i = 0;
 			$k = 0; //row colour counter
 			$OrdersTotal = 0;
+			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
 
@@ -835,7 +844,7 @@ if (!isset($StockId)) {
 						<td><a href="%s" target="_blank">' . _('Acknowledge') . '</a>' . $PrintDummyFlag . '</td>
 						' . $PrintPickLabel . '
 						<td><a href="%s">' . _('Invoice') . '</a></td>
-        				<td><a target="_blank" href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $Theme . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
+        				<td><a target="_blank" href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
 						<td><a href="%s">' . _('Labels') . '</a></td>
         				<td>%s</td>
         				<td>%s</td>
@@ -853,7 +862,7 @@ if (!isset($StockId)) {
 							<td>' . $PrintDummyFlag . '</td>
 							' . $PrintPickLabel . '
 							<td><a href="%s">' . _('Invoice') . '</a></td>
-							<td><a target="_blank" href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $Theme . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
+							<td><a target="_blank" href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
 							<td><a href="%s">' . _('Labels') . '</a></td>
 							<td>%s</td>
 							<td>%s</td>
@@ -879,7 +888,6 @@ if (!isset($StockId)) {
 						</tr>', $ModifyPage, $MyRow['orderno'], $PrintQuotation, $PrintQuotationPortrait, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
 				}
 				++$i;
-				$OrdersTotal += $MyRow['ordervalue'];
 				//end of page full new headings if
 			} //end while loop through orders to display
 			echo '</tbody>';

@@ -10,7 +10,7 @@ if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_GET['SelectedType']);
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['submit'])) {
 
@@ -188,7 +188,7 @@ if (isset($SelectedType)) {
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	// The user wish to EDIT an existing type
@@ -228,7 +228,7 @@ if (!isset($_GET['delete'])) {
 				</tr>
 				<tr>
 					<td>' . _('Type Code') . ':</td>
-					<td><input type="text" size="3" required="required" minlength="1" maxlength="2" name="TypeAbbrev" /></td>
+					<td><input type="text" size="3" required="required" maxlength="2" name="TypeAbbrev" /></td>
 				</tr>';
 	}
 
@@ -242,7 +242,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Stock Type Name') . ':</td>
-			<td><input type="text" required="required" minlength="1" maxlength="40" name="StockType" value="' . $_POST['StockType'] . '" /></td>
+			<td><input type="text" required="required" maxlength="40" name="StockType" value="' . $_POST['StockType'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Physical Items') . '</td>

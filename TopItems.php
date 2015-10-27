@@ -9,17 +9,17 @@ include('includes/header.inc');
 //check if input already
 if (!(isset($_POST['Search']))) {
 
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Top Sales Order Search') . '" alt="" />' . ' ' . _('Top Sales Order Search') . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Top Sales Order Search') . '" alt="" />' . ' ' . _('Top Sales Order Search') . '
 		</p>';
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
 	//to view store location
 	echo '<tr>
 			<td style="width:150px">' . _('Select Location') . '  </td>
 			<td>:</td>
-			<td><select minlength="0" name="Location">';
+			<td><select name="Location">';
 	$SQL = "SELECT locationname,
 					locations.loccode
 				FROM locations
@@ -39,7 +39,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td style="width:150px">' . _('Select Customer Type') . '</td>
 			<td>:</td>
-			<td><select required="required" minlength="1" name="Customers">';
+			<td><select required="required" name="Customers">';
 
 	$SQL = "SELECT typename,
 					typeid
@@ -63,7 +63,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td style="width:150px">' . _('In Stock Category') . ' </td>
 			<td>:</td>
-			<td><select minlength="0" name="StockCat">';
+			<td><select name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
 		$_POST['StockCat'] = 'All';
 	}
@@ -86,7 +86,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td style="width:150px">' . _('Select Order By ') . ' </td>
 			<td>:</td>
-			<td><select required="required" minlength="1" name="Sequence">
+			<td><select required="required" name="Sequence">
 				<option value="totalinvoiced">' . _('Total Pieces') . '</option>
 				<option value="valuesales">' . _('Value of Sales') . '</option>
 				</select></td>
@@ -95,18 +95,18 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td>' . _('Number Of Days') . ' </td>
 			<td>:</td>
-			<td><input class="integer" tabindex="3" type="text" name="NumberOfDays" size="8" required="required" minlength="1" maxlength="8" value="30" /></td>
+			<td><input class="integer" tabindex="3" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
 		 </tr>';
 	//Stock in days less than
 	echo '<tr>
 			<td>' . _('With less than') . ' </td><td>:</td>
-			<td><input class="integer" tabindex="4" type="text" name="MaxDaysOfStock" size="8" required="required" minlength="1" maxlength="8" value="999" /></td>
+			<td><input class="integer" tabindex="4" type="text" name="MaxDaysOfStock" size="8" required="required" maxlength="8" value="999" /></td>
 			<td>' . ' ' . _('Days of Stock (QOH + QOO) Available') . ' </td>
 		 </tr>';
 	//view number of NumberOfTopItems items
 	echo '<tr>
 			<td>' . _('Number Of Top Items') . ' </td><td>:</td>
-			<td><input class="integer" tabindex="4" type="text" name="NumberOfTopItems" size="8" required="required" minlength="1" maxlength="8" value="100" /></td>
+			<td><input class="integer" tabindex="4" type="text" name="NumberOfTopItems" size="8" required="required" maxlength="8" value="100" /></td>
 		 </tr>
 		 <tr>
 			<td></td>
@@ -164,22 +164,23 @@ if (!(isset($_POST['Search']))) {
 
 	$Result = DB_query($SQL);
 
-	echo '<p class="page_title_text noPrint"  align="center"><strong>' . _('Top Sales Items List') . '</strong></p>';
-	echo '<form onSubmit="return VerifyForm(this);" action="PDFTopItems.php"  method="GET">';
-	echo '<div>';
+	echo '<p class="page_title_text"  align="center"><strong>' . _('Top Sales Items List') . '</strong></p>';
+	echo '<form action="PDFTopItems.php"  method="GET">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">' . _('#') . '</th>
-			<th class="SortableColumn">' . _('Code') . '</th>
-			<th class="SortableColumn">' . _('Description') . '</th>
-			<th class="SortableColumn">' . _('Total Invoiced') . '</th>
-			<th>' . _('Units') . '</th>
-			<th class="SortableColumn">' . _('Value Sales') . '</th>
-			<th>' . _('On Hand') . '</th>
-			<th>' . _('On Order') . '</th>
-			<th>' . _('Stock (Days)') . '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('#') . '</th>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Description') . '</th>
+					<th class="SortedColumn">' . _('Total Invoiced') . '</th>
+					<th>' . _('Units') . '</th>
+					<th class="SortedColumn">' . _('Value Sales') . '</th>
+					<th>' . _('On Hand') . '</th>
+					<th>' . _('On Order') . '</th>
+					<th>' . _('Stock (Days)') . '</th>
+				</tr>
+			</thead>';
 	echo '<input type="hidden" value="' . $_POST['Location'] . '" name="Location" />
 			<input type="hidden" value="' . $_POST['Sequence'] . '" name="Sequence" />
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfDays']) . '" name="NumberOfDays" />
@@ -187,6 +188,7 @@ if (!(isset($_POST['Search']))) {
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfTopItems']) . '" name="NumberOfTopItems" />';
 	$k = 0; //row colour counter
 	$i = 1;
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		$QOH = 0;
 		$QOO = 0;
@@ -259,12 +261,11 @@ if (!(isset($_POST['Search']))) {
 		}
 		++$i;
 	}
+	echo '</tbody>';
 	echo '</table>';
-	echo '<br />
-			<div class="centre">
+	echo '<div class="centre">
 				<input type="submit" name="PrintPDF" value="' . _('Print To PDF') . '" />
 			</div>
-		</div>
 		</form>';
 }
 include('includes/footer.inc');

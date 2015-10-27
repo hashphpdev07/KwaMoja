@@ -117,23 +117,23 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/reports.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 	if (!isset($_POST['FromCriteria']) or !isset($_POST['ToCriteria'])) {
 
 		/*if $FromCriteria is not set then show a form to allow input	*/
 
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			  <input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			  <table class="selection">';
 
 		echo '<tr>
 				<td>' . _('From Inventory Part Code') . ':' . '</td>
-				<td><input tabindex="1" type="text" name="FromCriteria" size="20" autofocus="autofocus" required="required" minlength="1" maxlength="20" value="' . $MyRow['fromcriteria'] . '" /></td>
+				<td><input tabindex="1" type="text" name="FromCriteria" size="20" autofocus="autofocus" required="required" maxlength="20" value="' . $MyRow['fromcriteria'] . '" /></td>
 			</tr>';
 
 		echo '<tr>
 				<td>' . _('To Inventory Part Code') . ':' . '</td>
-				<td><input tabindex="2" type="text" name="ToCriteria" size="20" required="required" minlength="1" maxlength="20" value="' . $MyRow['tocriteria'] . '" /></td>
+				<td><input tabindex="2" type="text" name="ToCriteria" size="20" required="required" maxlength="20" value="' . $MyRow['tocriteria'] . '" /></td>
 			</tr>';
 
 

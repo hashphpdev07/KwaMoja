@@ -48,7 +48,7 @@ if (isset($_POST['StockID']) and !empty($_POST['StockID']) and !isset($_POST['Up
 
 echo '<div class="toplink"><a href="' . $RootPath . '/SelectProduct.php">' . _('Back to Items') . '</a></div>
 	<p class="page_title_text">
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 echo '<div class="page_help_text">' . _('Cloning will create a new item with the same properties, image, cost, purchasing and pricing data as the selected item. Item image and general item details can be changed below prior to cloning.') . '</div>';
 if (!empty($_POST['OldStockID'])) { //only show this if there is a valid call to this script
@@ -701,7 +701,7 @@ if (empty($_POST['StockID']) or ($_POST['StockID'] == $_POST['OldStockID'])) {
 	$tempid = $_POST['StockID'];
 }
 
-if (function_exists('imagecreatefromjpg') and isset($tempfile)) {
+if (function_exists('imagecreatefromjpeg') and isset($tempfile)) {
 	$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . urlencode($tempid) . '&amp;text=' . '&amp;width=100' . '&amp;height=100' . '" alt="" />';
 } else {
 	if (!empty($tempid) and file_exists($_SESSION['part_pics_dir'] . '/' . $tempid . '.jpg')) {

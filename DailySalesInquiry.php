@@ -4,11 +4,11 @@ include('includes/session.inc');
 $Title = _('Daily Sales Inquiry');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('Daily Sales') . '" alt="" />' . ' ' . _('Daily Sales') . '</p>';
-echo '<div class="page_help_text noPrint">' . _('Select the month to show daily sales for') . '</div>
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Daily Sales') . '" alt="" />' . ' ' . _('Daily Sales') . '</p>';
+echo '<div class="page_help_text">' . _('Select the month to show daily sales for') . '</div>
 	<br />';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['MonthToShow'])) {
@@ -18,10 +18,10 @@ if (!isset($_POST['MonthToShow'])) {
 	$EndDateSQL = $MyRow['lastdate_in_period'];
 }
 
-echo '<div class="centre"><table class="selection">
+echo '<table class="selection">
 		<tr>
 			<td>' . _('Month to Show') . ':</td>
-			<td><select minlength="0" tabindex="1" name="MonthToShow">';
+			<td><select tabindex="1" name="MonthToShow">';
 
 $PeriodsResult = DB_query("SELECT periodno, lastdate_in_period FROM periods");
 
@@ -106,7 +106,7 @@ echo '<table class="selection">
 		<tr>
 			<th colspan="9">
 				<h3>' . _('Daily Sales For') . ' ' . $MonthName . ' ' . $Date_Array[0] . '
-					<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="" onclick="window.print();" />
+					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="" onclick="window.print();" />
 				</h3>
 			</th>
 		</tr>

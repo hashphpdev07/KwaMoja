@@ -4,7 +4,7 @@ include('includes/session.inc');
 $Title = _('Mailing Group Maintenance');
 include('includes/header.inc');
 
-echo '<p class= "page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/group_add.png" alt="" />' . $Title . '</p>';
+echo '<p class= "page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" alt="" />' . $Title . '</p>';
 
 //show the mail group existed only when user request this page first
 if (!isset($_POST['Clean']) and !isset($_GET['Delete']) and !isset($_GET['Edit']) and !isset($_GET['Add']) and !isset($_GET['Remove'])) {
@@ -135,10 +135,10 @@ if (isset($_GET['Remove'])) {
 }
 
 if (!isset($_GET['Edit'])) { //display the input form
-	echo '<form onSubmit="return VerifyForm(this);" id="MailGroups" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form id="MailGroups" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<label for="MailGroup">' .  _('Mail Group') . '</label>
-			<input type="text" autofocus="autofocus" name="MailGroup" required="required" minlength="1" maxlength="100" size="20" />
+			<input type="text" autofocus="autofocus" name="MailGroup" required="required" maxlength="100" size="20" />
 			<input type="hidden" name="Clean" value="1" />
 			<input type="submit" name="Enter" value="' . _('Submit') . '" />
 		</form>';

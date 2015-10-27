@@ -130,7 +130,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('Supplier Allocations') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Supplier Allocations') . '" alt="" />' . ' ' . $Title . '</p>';
 	if (!isset($_POST['FromCriteria'])) {
 		$_POST['FromCriteria'] = $MyRow['fromcriteria'];
 	}
@@ -139,22 +139,22 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	}
 	/*if $FromCriteria is not set then show a form to allow input	*/
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table class="selection">';
 	echo '<tr>
 			<td>' . _('From Supplier Code') . ':</td>
-			<td><input type="text" required="required" minlength="1" maxlength="6" size="7" name="FromCriteria" value="' . $_POST['FromCriteria'] . '" /></td>
+			<td><input type="text" required="required" maxlength="6" size="7" name="FromCriteria" value="' . $_POST['FromCriteria'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('To Supplier Code') . ':</td>
-			<td><input type="text" required="required" minlength="1" maxlength="6" size="7" name="ToCriteria" value="' . $_POST['ToCriteria'] . '" /></td>
+			<td><input type="text" required="required" maxlength="6" size="7" name="ToCriteria" value="' . $_POST['ToCriteria'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Balances As At') . ':</td>
-			<td><select required="required" minlength="1" name="PeriodEnd">';
+			<td><select required="required" name="PeriodEnd">';
 
 	$SQL = "SELECT periodno,
 					lastdate_in_period

@@ -22,8 +22,8 @@ if (isset($_GET['Location'])) {
 	 */
 	$Title = _('Select Warehouse to Define');
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	$SQL = "SELECT loccode,
@@ -166,7 +166,7 @@ $LocationRow = DB_fetch_array($Result);
 $Title = _('Define Warehouse at') . ' ' . $LocationRow['locationname'];
 
 include('includes/header.inc');
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 if (!isset($_GET['Edit'])) {
 function display_children($parent, $level, $LocationCode) {
     // retrieve all children of $parent
@@ -336,7 +336,7 @@ if (DB_num_rows($Result) != 0) {
 	$_POST['Quarantine'] = 0;
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="Location" value="' . $LocationCode . '" />';
 echo '<table class="selection">';

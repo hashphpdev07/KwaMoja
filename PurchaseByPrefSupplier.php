@@ -303,7 +303,7 @@ if (isset($_POST['CreatePO']) and isset($_POST['Supplier'])) {
 }
 
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>
 	<form id="SupplierPurchasing" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<table class="selection">
@@ -374,23 +374,25 @@ if (isset($_POST['Supplier']) and isset($_POST['ShowItems']) and $_POST['Supplie
 	} else {
 		//head up a new table
 		echo '<table>
-				<tr>
-					<th class="SortableColumn">' . _('Item Code') . '</th>
-					<th class="SortableColumn">' . _('Item Description') . '</th>
-					<th class="SortableColumn">' . _('Bin') . '</th>
-					<th>' . _('On Hand') . '</th>
-					<th>' . _('Demand') . '</th>
-					<th>' . _('Supp Ords') . '</th>
-					<th>' . _('Previous') . '<br />' . _('Month') . '</th>
-					<th>' . _('Last') . '<br />' . _('Month') . '</th>
-					<th>' . _('Week') . '<br />' . _('3') . '</th>
-					<th>' . _('Week') . '<br />' . _('2') . '</th>
-					<th>' . _('Last') . '<br />' . _('Week') . '</th>
-					<th>' . _('Order Qty') . '</th>
-				</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Item Code') . '</th>
+						<th class="SortedColumn">' . _('Item Description') . '</th>
+						<th class="SortedColumn">' . _('Bin') . '</th>
+						<th>' . _('On Hand') . '</th>
+						<th>' . _('Demand') . '</th>
+						<th>' . _('Supp Ords') . '</th>
+						<th>' . _('Previous') . '<br />' . _('Month') . '</th>
+						<th>' . _('Last') . '<br />' . _('Month') . '</th>
+						<th>' . _('Week') . '<br />' . _('3') . '</th>
+						<th>' . _('Week') . '<br />' . _('2') . '</th>
+						<th>' . _('Last') . '<br />' . _('Week') . '</th>
+						<th>' . _('Order Qty') . '</th>
+					</tr>
+				</thead>';
 
 		$i = 0;
-
+		echo '<tbody>';
 		while ($ItemRow = DB_fetch_array($ItemsResult)) {
 
 
@@ -513,6 +515,7 @@ if (isset($_POST['Supplier']) and isset($_POST['ShowItems']) and $_POST['Supplie
 				</tr>';
 			++$i;
 		}
+		echo '</tbody>';
 		echo '<input type="hidden" name="Supplier" value="' . stripslashes($_POST['Supplier']) . '" />';
 		/*end preferred supplier items while loop */
 		echo '<tr>

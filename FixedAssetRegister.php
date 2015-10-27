@@ -12,7 +12,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 		include('includes/PDFStarter.php');
 	} else if (empty($_POST['csv'])) {
 		include('includes/header.inc');
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 	}
 	$DateFrom = FormatDateForSQL($_POST['FromDate']);
 	$DateTo = FormatDateForSQL($_POST['ToDate']);
@@ -75,7 +75,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 	} elseif (isset($_POST['csv'])) {
 		$csv_output = "'Asset ID','Description','Serial Number','Location','Date Acquired','Cost B/Fwd','Period Additions','Depn B/Fwd','Period Depreciation','Cost C/Fwd', 'Accum Depn C/Fwd','NBV','Disposal Value'\n";
 	} else {
-		echo '<form onSubmit="return VerifyForm(this);" id="RegisterForm" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+		echo '<form id="RegisterForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 			  <div>';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<div class="centre">' . _('From') . ':' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate'] . '</div>';
@@ -232,16 +232,16 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 	}
 } else {
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 	$Result = DB_query('SELECT categoryid,categorydescription FROM fixedassetcategories');
-	echo '<form onSubmit="return VerifyForm(this);" id="RegisterForm" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form id="RegisterForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
 	echo '<tr>
 			<th>' . _('Asset Category') . '</th>
-			<td><select minlength="0" name="AssetCategory">
+			<td><select name="AssetCategory">
 				<option value="%">' . _('ALL') . '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['AssetCategory']) and $MyRow['categoryid'] == $_POST['AssetCategory']) {
@@ -256,7 +256,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 	$Result = DB_query($SQL);
 	echo '<tr>
 			<th>' . _('Asset Location') . '</th>
-			<td><select minlength="0" name="AssetLocation">
+			<td><select name="AssetLocation">
 				<option value="%">' . _('ALL') . '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['AssetLocation']) and $MyRow['locationid'] == $_POST['AssetLocation']) {
@@ -271,7 +271,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 	$Result = DB_query($SQL);
 	echo '<tr>
 			<th>' . _('Asset') . '</th>
-			<td><select minlength="0" name="AssetID">
+			<td><select name="AssetID">
 				<option value="%">' . _('ALL') . '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['AssetID']) and $MyRow['assetid'] == $_POST['AssetID']) {
@@ -291,11 +291,11 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 
 	echo '<tr>
 			<th>' . _(' From Date') . '</th>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" required="required" minlength="1" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
 		</tr>
 		<tr>
 			<th>' . _('To Date ') . '</th>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" minlength="1" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
 		</tr>
 	</table>
 	<br />

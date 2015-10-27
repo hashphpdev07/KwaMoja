@@ -17,9 +17,9 @@ if (isset($_GET['StockID'])) {
 
 $Result = DB_query("SELECT description, units FROM stockmaster WHERE stockid='" . $StockId . "'");
 $MyRow = DB_fetch_row($Result);
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . ' ' . $StockId . ' - ' . $MyRow['0'] . ' : ' . _('in units of') . ' : ' . $MyRow[1] . '</b></p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . ' ' . $StockId . ' - ' . $MyRow['0'] . ' : ' . _('in units of') . ' : ' . $MyRow[1] . '</b></p>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['BeforeDate']) or !is_date($_POST['BeforeDate'])) {
@@ -30,9 +30,9 @@ if (!isset($_POST['AfterDate']) or !is_date($_POST['AfterDate'])) {
 }
 echo '<table class="selection">
 			<tr>
-				<th colspan="10">' . _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" minlength="1" maxlength="20" />';
+				<th colspan="10">' . _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" maxlength="20" />';
 
-echo '  ' . _('From Stock Location') . ':<select required="required" minlength="1" name="StockLocation"> ';
+echo '  ' . _('From Stock Location') . ':<select required="required" name="StockLocation"> ';
 
 $SQL = "SELECT locations.loccode,
 				locationname
@@ -40,7 +40,8 @@ $SQL = "SELECT locations.loccode,
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
 				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
-				AND locationusers.canview=1";
+				AND locationusers.canview=1
+			ORDER BY locationname";
 
 $ResultStkLocs = DB_query($SQL);
 
@@ -63,8 +64,8 @@ echo '</select></th>
 	</tr>';
 echo '<tr>
 		<th colspan="10">' . _('Show Movements between') . ':
-			<input type="text" name="AfterDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="12" required="required" minlength="1" maxlength="12" value="' . $_POST['AfterDate'] . '" /> ' . _('and') . ':
-			<input type="text" name="BeforeDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="12" required="required" minlength="1" maxlength="12" value="' . $_POST['BeforeDate'] . '" />
+			<input type="text" name="AfterDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="12" required="required" maxlength="12" value="' . $_POST['AfterDate'] . '" /> ' . _('and') . ':
+			<input type="text" name="BeforeDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="12" required="required" maxlength="12" value="' . $_POST['BeforeDate'] . '" />
 			<input type="submit" name="ShowMoves" value="' . _('Show Stock Movements') . '" />
 		</th>
 	</tr>';

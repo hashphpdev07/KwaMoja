@@ -20,8 +20,8 @@ if (isset($_POST['ShowGraphUsage'])) {
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . $Title . '
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
 $Result = DB_query("SELECT description,
@@ -34,7 +34,7 @@ $MyRow = DB_fetch_row($Result);
 
 $DecimalPlaces = $MyRow[3];
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">';
 
@@ -54,9 +54,9 @@ if ($MyRow[2] == 'K' OR $MyRow[2] == 'A' OR $MyRow[2] == 'D') {
 }
 
 echo '<tr>
-		<td>' . _('Stock Code') . ':<input type="text" name="StockID" size="21" required="required" minlength="1" maxlength="20" value="' . $StockId . '" />';
+		<td>' . _('Stock Code') . ':<input type="text" name="StockID" size="21" required="required" maxlength="20" value="' . $StockId . '" />';
 
-echo _('From Stock Location') . ':<select required="required" minlength="1" name="StockLocation">';
+echo _('From Stock Location') . ':<select required="required" name="StockLocation">';
 
 $SQL = "SELECT locationname,
 				locations.loccode
@@ -137,17 +137,18 @@ if (isset($_POST['ShowUsage'])) {
 	}
 
 	echo '<table class="selection">
-			<tbody>
+			<thead>
 				<tr>
-					<th class="SortableColumn">' . _('Month') . '</th>
+					<th class="SortedColumn">' . _('Month') . '</th>
 					<th>' . _('Usage') . '</th>
-				</tr>';
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
 
 	$TotalUsage = 0;
 	$PeriodsCounter = 0;
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
 		if ($k == 1) {

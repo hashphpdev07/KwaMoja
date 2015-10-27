@@ -24,7 +24,7 @@ $BookMark = 'SupplierAllocations';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 include('includes/SQL_CommonFunctions.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('Supplier Allocations') . '" alt="" />' . ' ' . _('Supplier Allocations') . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Supplier Allocations') . '" alt="" />' . ' ' . _('Supplier Allocations') . '</p>';
 
 if (isset($_POST['UpdateDatabase']) or isset($_POST['RefreshAllocTotal'])) {
 
@@ -260,7 +260,7 @@ if with a supplier code show just that supplier's payments and credits for alloc
 if with a specific payment or credit show the invoices and credits available
 for allocating to  */
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($_POST['SupplierID'])) {
@@ -455,7 +455,7 @@ if (isset($_POST['AllocTrans'])) {
 		} else {
 			echo '<td class="number"><input type="checkbox" name="All' . $Counter . '" />';
 		}
-		echo '<input type="text" class="number" name="Amt' . $Counter . '" required="required" minlength="1" maxlength="12" size="13" value="' . locale_number_format($AllocnItem->AllocAmt, $_SESSION['Alloc']->CurrDecimalPlaces) . '" /><input type="hidden" name="AllocID' . $Counter . '" value="' . $AllocnItem->ID . '" /></td></tr>';
+		echo '<input type="text" class="number" name="Amt' . $Counter . '" required="required" maxlength="12" size="13" value="' . locale_number_format($AllocnItem->AllocAmt, $_SESSION['Alloc']->CurrDecimalPlaces) . '" /><input type="hidden" name="AllocID' . $Counter . '" value="' . $AllocnItem->ID . '" /></td></tr>';
 
 		$TotalAllocated = $TotalAllocated + $AllocnItem->AllocAmt;
 		$Counter++;

@@ -74,6 +74,7 @@ class Cart {
 		$this->FreightCost = 0;
 		$this->FreightTaxes = array();
 		$this->CurrDecimalPlaces = 2; //default
+		$this->Location = $_SESSION['UserStockLocation'];
 	}
 
 	function add_to_cart($StockId, $Qty, $Descr, $LongDescr, $Price, $Disc = 0, $UOM, $Volume, $Weight, $QOHatLoc = 0, $MBflag = 'B', $ActDispatchDate = NULL, $QtyInvoiced = 0, $DiscCat = '', $Controlled = 0, $Serialised = 0, $DecimalPlaces = 0, $Narrative = '', $UpdateDB = 'No', $LineNumber = -1, $TaxCategory = 0, $vtigerProductID = '', $ItemDue = '', $POLine = '', $StandardCost = 0, $EOQ = 1, $NextSerialNo = 0, $ExRate = 1, $Identifier = 0) {
@@ -109,14 +110,16 @@ class Cart {
 														discountpercent,
 														itemdue,
 														poline)
-													VALUES(" . $LineNumber . ",
-														" . $_SESSION['ExistingOrder' . $Identifier] . ",
+													VALUES(
+														'" . $LineNumber . "',
+														'" . $_SESSION['ExistingOrder' . $Identifier] . "',
 														'" . trim(mb_strtoupper($StockId)) . "',
-														" . $Qty . ",
-														" . $Price . ",
-														" . $Disc . ",'
-														" . FormatDateForSQL($ItemDue) . "',
-														" . $POLine . ")";
+														'" . $Qty . "',
+														'" . $Price . "',
+														'" . $Disc . "',
+														'" . FormatDateForSQL($ItemDue) . "',
+														'" . $POLine . "'
+													)";
 				$Result = DB_query($SQL, _('The order line for') . ' ' . mb_strtoupper($StockId) . ' ' . _('could not be inserted'));
 			}
 
@@ -138,9 +141,9 @@ class Cart {
 		$this->LineItems[$UpdateLineNumber]->POLine = $POLine;
 		$this->LineItems[$UpdateLineNumber]->GPPercent = $GPPercent;
 		if ($UpdateDB == 'Yes') {
-			$Result = DB_query("UPDATE salesorderdetails SET quantity=" . $Qty . ",
-															unitprice=" . $Price . ",
-															discountpercent=" . $Disc . ",
+			$Result = DB_query("UPDATE salesorderdetails SET quantity='" . $Qty . "',
+															unitprice='" . $Price . "',
+															discountpercent='" . $Disc . "',
 															narrative ='" . $Narrative . "',
 															itemdue = '" . FormatDateForSQL($ItemDue) . "',
 															poline = '" . $POLine . "'
@@ -276,10 +279,10 @@ class Cart {
 		if (DB_num_rows($GetTaxRatesResult) == 0) {
 			prnMsg(_('It appears that taxes are not defined correctly for this customer tax group'), 'error');
 		} else {
-
+			$i = 1;
 			while ($MyRow = DB_fetch_array($GetTaxRatesResult)) {
-
-				$this->LineItems[$LineNumber]->Taxes[$MyRow['calculationorder']] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+				$this->LineItems[$LineNumber]->Taxes[$i] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+				++$i;
 			} //end loop around different taxes
 		} //end if there are some taxes defined
 	} //end method GetTaxes
@@ -316,10 +319,10 @@ class Cart {
 
 		$ErrMsg = _('The taxes and rates for this item could not be retrieved because');
 		$GetTaxRatesResult = DB_query($SQL, $ErrMsg);
-
+		$i = 1;
 		while ($MyRow = DB_fetch_array($GetTaxRatesResult)) {
-
-			$this->FreightTaxes[$MyRow['calculationorder']] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+			$this->LineItems[$LineNumber]->Taxes[$i] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+			++$i;
 		}
 	} //end method GetFreightTaxes()
 

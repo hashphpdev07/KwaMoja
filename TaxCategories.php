@@ -8,7 +8,7 @@ $BookMark = 'TaxCategories';// Anchor's id in the manual's html document.
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '</p>';
 
 if (isset($_GET['SelectedTaxCategory'])) {
 	$SelectedTaxCategory = $_GET['SelectedTaxCategory'];
@@ -162,12 +162,15 @@ if (!isset($SelectedTaxCategory) or $SelectedTaxCategory == '') {
 	$Result = DB_query($SQL, $ErrMsg);
 
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">', _('Tax Categories'), '</th>
-				<th colspan="2">', _('Maintenance'), '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Tax Categories'), '</th>
+					<th colspan="2">', _('Maintenance'), '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($k == 1) {
@@ -191,6 +194,7 @@ if (!isset($SelectedTaxCategory) or $SelectedTaxCategory == '') {
 		}
 
 	} //END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 } //end of ifs and buts!
 
@@ -203,7 +207,7 @@ if ($SelectedTaxCategory != '') {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if ($SelectedTaxCategory != '') {
@@ -233,7 +237,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Tax Category Name') . ':' . '</td>
-			<td><input type="text" name="TaxCategoryName" size="30" required="required" minlength="1" maxlength="30" value="' . $SelectedTaxCategory . '" /></td>
+			<td><input type="text" name="TaxCategoryName" size="30" required="required" maxlength="30" value="' . $SelectedTaxCategory . '" /></td>
 		</tr>
 	</table>';
 

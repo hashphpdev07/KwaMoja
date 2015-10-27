@@ -250,13 +250,13 @@ if (isset($_POST['PrintPDF'])) {
 	$Title = _('MRP Shortages - Excess Reporting');
 	include('includes/header.inc');
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
-	echo '<tr><td>' . _('Inventory Category') . ':</td><td><select minlength="0" name="CategoryID">';
+	echo '<tr><td>' . _('Inventory Category') . ':</td><td><select name="CategoryID">';
 	echo '<option selected="selected" value="All">' . _('All Stock Categories') . '</option>';
 	$SQL = "SELECT categoryid,
 			categorydescription
@@ -267,7 +267,7 @@ if (isset($_POST['PrintPDF'])) {
 	} //end while loop
 	echo '</select></td></tr>';
 	echo '<tr><td>' . _('Sort') . ':</td>
-			<td><select minlength="0" name="Sort">
+			<td><select name="Sort">
 				<option selected="selected" value="extcost">' . _('Extended Shortage Dollars') . '</option>
 				<option value="stockid">' . _('Part Number') . '</option>
 				</select>
@@ -275,7 +275,7 @@ if (isset($_POST['PrintPDF'])) {
 		</tr>';
 
 	echo '<tr><td>' . _('Shortage-Excess Option') . ':</td>
-			<td><select minlength="0" name="ReportType">
+			<td><select name="ReportType">
 				<option selected="selected" value="Shortage">' . _('Report MRP Shortages') . '</option>
 				<option value="Excess">' . _('Report MRP Excesses') . '</option>
 				</select>
@@ -283,7 +283,7 @@ if (isset($_POST['PrintPDF'])) {
 		</tr>';
 
 	echo '<tr><td>' . _('Print Option') . ':</td>
-			<td><select minlength="0" name="Fill">
+			<td><select name="Fill">
 				<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
 				<option value="no">' . _('Plain Print') . '</option>
 				</select>

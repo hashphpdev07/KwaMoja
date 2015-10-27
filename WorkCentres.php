@@ -106,8 +106,8 @@ if (!isset($SelectedWC)) {
 	then none of the above are true and the list of work centres will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 		</p>';
 
 	$SQL = "SELECT workcentres.code,
@@ -127,14 +127,16 @@ if (!isset($SelectedWC)) {
 					AND locationusers.canview=1";
 	$Result = DB_query($SQL);
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">' . _('WC Code') . '</th>
-				<th class="SortableColumn">' . _('Description') . '</th>
-				<th class="SortableColumn">' . _('Location') . '</th>
-				<th>' . _('Overhead GL Account') . '</th>
-				<th>' . _('Overhead Per Hour') . '</th>
-			</tr>';
-
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('WC Code') . '</th>
+					<th class="SortedColumn">' . _('Description') . '</th>
+					<th class="SortedColumn">' . _('Location') . '</th>
+					<th>' . _('Overhead GL Account') . '</th>
+					<th>' . _('Overhead Per Hour') . '</th>
+				</tr>
+			</thead>';
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		printf('<tr>
@@ -147,7 +149,7 @@ if (!isset($SelectedWC)) {
 					<td><a href="%s&amp;SelectedWC=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this work centre?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>', $MyRow['code'], $MyRow['description'], $MyRow['locationname'], $MyRow['overheadrecoveryact'] . ' - ' . $MyRow['accountname'], $MyRow['overheadperhour'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code']);
 	}
-
+	echo '</tbody>';
 	//END WHILE LIST LOOP
 	echo '</table>';
 }
@@ -155,11 +157,11 @@ if (!isset($SelectedWC)) {
 //end of ifs and buts!
 
 if (isset($SelectedWC)) {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all Work Centres') . '</a></div>';
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedWC)) {
@@ -201,7 +203,7 @@ if (isset($SelectedWC)) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Work Centre Code') . ':</td>
-				<td><input type="text" class="AlphaNumeric" name="Code" size="6" autofocus="autofocus" required="required" minlength="2" maxlength="5" value="' . $_POST['Code'] . '" /></td>
+				<td><input type="text" class="AlphaNumeric" name="Code" size="6" autofocus="autofocus" required="required" maxlength="5" value="' . $_POST['Code'] . '" /></td>
 			</tr>';
 }
 
@@ -219,10 +221,10 @@ if (!isset($_POST['Description'])) {
 }
 echo '<tr>
 		<td>' . _('Work Centre Description') . ':</td>
-		<td><input type="text" name="Description" size="21" required="required" minlength="3" maxlength="20" value="' . $_POST['Description'] . '" /></td>
+		<td><input type="text" name="Description" size="21" required="required" maxlength="20" value="' . $_POST['Description'] . '" /></td>
 	</tr>
 	<tr><td>' . _('Location') . ':</td>
-		<td><select required="required" minlength="1" name="Location">';
+		<td><select required="required" name="Location">';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['Location']) and $MyRow['loccode'] == $_POST['Location']) {
@@ -241,7 +243,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Overhead Recovery GL Account') . ':</td>
-		<td><select required="required" minlength="1" name="OverheadRecoveryAct">';
+		<td><select required="required" name="OverheadRecoveryAct">';
 
 //SQL to poulate account selection boxes
 $SQL = "SELECT accountcode,
@@ -269,7 +271,7 @@ if (!isset($_POST['OverheadPerHour'])) {
 echo '</select></td></tr>';
 echo '<tr>
 		<td>' . _('Overhead Per Hour') . ':</td>
-		<td><input type="text" class="number" name="OverheadPerHour" size="6" required="required" minlength="1" maxlength="6" value="' . $_POST['OverheadPerHour'] . '" />';
+		<td><input type="text" class="number" name="OverheadPerHour" size="6" required="required" maxlength="6" value="' . $_POST['OverheadPerHour'] . '" />';
 
 echo '</td>
 	</tr>

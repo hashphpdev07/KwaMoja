@@ -9,7 +9,7 @@ $BookMark = 'AssetMaintenance';
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
 
 if (isset($_POST['Submit'])) {
@@ -121,7 +121,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 echo '</table><br /><br />';
 
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">';
@@ -168,7 +168,7 @@ if (!isset($_POST['AssetID'])) {
 
 echo '<tr>
 		<td>' . _('Asset to Maintain') . ':</td>
-		<td><select required="required" minlength="1" name="AssetID">';
+		<td><select required="required" name="AssetID">';
 $AssetSQL = "SELECT assetid, description FROM fixedassets";
 $AssetResult = DB_query($AssetSQL);
 while ($MyRow = DB_fetch_array($AssetResult)) {
@@ -188,12 +188,12 @@ echo '<tr>
 
 echo '<tr>
 		<td>' . _('Days Before Task Due') . ':</td>
-		<td><input type="text" class="integer" name="FrequencyDays" size="5" required="required" minlength="1" maxlength="5" value="' . $_POST['FrequencyDays'] . '" /></td>
+		<td><input type="text" class="integer" name="FrequencyDays" size="5" required="required" maxlength="5" value="' . $_POST['FrequencyDays'] . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Responsible') . ':</td>
-		<td><select required="required" minlength="1" name="UserResponsible">';
+		<td><select required="required" name="UserResponsible">';
 $UserSQL = "SELECT userid FROM www_users";
 $UserResult = DB_query($UserSQL);
 while ($MyRow = DB_fetch_array($UserResult)) {
@@ -208,7 +208,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Manager') . ':</td>
-		<td><select required="required" minlength="1" name="Manager">';
+		<td><select required="required" name="Manager">';
 if ($_POST['Manager'] == '') {
 	echo '<option selected="selected" value="">' . _('No Manager') . '</option>';
 } else {

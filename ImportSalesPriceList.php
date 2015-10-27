@@ -4,7 +4,7 @@ include('includes/session.inc');
 $Title = _('Import Sales Price List');
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Import Price List from CSV file') . '" />' . ' ' . _('Import Price List from CSV file') . '</p>';
+echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Import Price List from CSV file') . '" />' . ' ' . _('Import Price List from CSV file') . '</p>';
 
 $FieldHeadings = array(
 	'StockID', //  0 'STOCKID',
@@ -144,7 +144,7 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 
 } else { //show file upload form
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint" enctype="multipart/form-data">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="page_help_text">' . _('This function loads a new sales price list from a comma separated variable (csv) file.') . '<br />' . _('The file must contain four columns, and the first row should be the following headers') . ':<br />StockID, SalesType, CurrencyCode, Price<br />' . _('followed by rows containing these four fields for each price to be uploaded.') . '<br />' . _('The StockID, SalesType, and CurrencyCode fields must have a corresponding entry in the stockmaster, salestypes, and currencies tables.') . '</div>';

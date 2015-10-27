@@ -9,7 +9,7 @@ $BookMark = 'FulfilRequest';
 include('includes/header.inc');
 include('includes/SQL_CommonFunctions.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Contract') . '" alt="" />' . _('Fulfil Stock Requests') . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Contract') . '" alt="" />' . _('Fulfil Stock Requests') . '</p>';
 
 if (isset($_POST['UpdateAll'])) {
 	foreach ($_POST as $Key => $Value) {
@@ -220,12 +220,12 @@ if (isset($_POST['UpdateAll'])) {
 }
 
 if (!isset($_POST['Location'])) {
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Choose a location to issue requests from') . '</td>
-				<td><select required="required" minlength="1" name="Location">
+				<td><select required="required" name="Location">
 					<option value="">' . _('Select a Location') . '</option>';
 	$SQL = "SELECT locationname,
 					locations.loccode
@@ -273,9 +273,9 @@ if (isset($_POST['Location'])) {
 			ON stockrequest.loccode=locations.loccode
 		LEFT JOIN www_users
 			ON www_users.userid=departments.authoriser
-	WHERE stockrequest.authorised=1
-		AND stockrequest.closed=0
-		AND stockrequest.loccode='" . $_POST['Location'] . "'";
+		WHERE stockrequest.authorised=1
+			AND stockrequest.closed=0
+			AND stockrequest.loccode='" . $_POST['Location'] . "'";
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) == 0) {
@@ -286,8 +286,7 @@ if (isset($_POST['Location'])) {
 		exit;
 	}
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<div>';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">
 			<tr>
@@ -342,7 +341,7 @@ if (isset($_POST['Location'])) {
 					<td class="number"><input type="text" class="number" name="' . $LineRow['dispatchid'] . 'Qty' . $LineRow['dispatchitemsid'] . '" value="' . locale_number_format($LineRow['quantity'] - $LineRow['qtydelivered'], $LineRow['decimalplaces']) . '" /></td>
 					<td>' . $LineRow['uom'] . '</td>
 					<td><input type="checkbox" name="' . $LineRow['dispatchid'] . 'Completed' . $LineRow['dispatchitemsid'] . '" /></td>
-					<td><select minlength="0" name="' . $LineRow['dispatchid'] . 'Tag' . $LineRow['dispatchitemsid'] . '">';
+					<td><select name="' . $LineRow['dispatchid'] . 'Tag' . $LineRow['dispatchitemsid'] . '">';
 
 			$SQL = "SELECT tagref,
 							tagdescription
@@ -369,8 +368,7 @@ if (isset($_POST['Location'])) {
 		echo '</table></td></tr>';
 	} //end while header loop
 	echo '</table>';
-	echo '<br /><div class="centre"><input type="submit" name="UpdateAll" value="' . _('Update') . '" /></div>
-		  </div>
+	echo '<div class="centre"><input type="submit" name="UpdateAll" value="' . _('Update') . '" /></div>
 		  </form>';
 }
 

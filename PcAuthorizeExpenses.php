@@ -41,13 +41,13 @@ if (isset($_POST['Go'])) {
 }
 
 if (isset($SelectedTabs)) {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Petty Cash') . '" alt="" />' . _('Authorisation Of Petty Cash Expenses') . ' ' . $SelectedTabs . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Petty Cash') . '" alt="" />' . _('Authorisation Of Petty Cash Expenses') . ' ' . $SelectedTabs . '</p>';
 } else {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Petty Cash') . '" alt="" />' . _('Authorisation Of Petty Cash Expenses') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Petty Cash') . '" alt="" />' . _('Authorisation Of Petty Cash Expenses') . '</p>';
 }
 if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) or isset($_POST['GO'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (!isset($Days)) {
@@ -57,7 +57,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 	echo '<br /><table class="selection">';
 	echo '<tr>
 			<th colspan="7">' . _('Detail Of Movement For Last ') . ': ';
-	echo '<input type="text" class="number" name="Days" value="' . $Days . '" minlength="0" maxlength="3" size="4" />' . _('Days');
+	echo '<input type="text" class="number" name="Days" value="' . $Days . '" maxlength="3" size="4" />' . _('Days');
 	echo '<input type="submit" name="Go" value="' . _('Go') . '" /></th></tr>';
 
 	$SQL = "SELECT pcashdetails.counterindex,
@@ -293,7 +293,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 	/*The option to submit was not hit so display form */
 
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<br /><table class="selection">'; //Main table
 
@@ -305,7 +305,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 	echo '<tr>
 			<td>' . _('Authorise expenses to Petty Cash Tab') . ':</td>
-			<td><select required="required" minlength="1" name="SelectedTabs">';
+			<td><select required="required" name="SelectedTabs">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['SelectTabs']) and $MyRow['tabcode'] == $_POST['SelectTabs']) {

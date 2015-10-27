@@ -4,10 +4,10 @@ include('includes/session.inc');
 $Title = _('Monthly Bank Transactions Inquiry');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" > <img src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" > <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (!isset($_POST['Show'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table class="selection">';
@@ -28,7 +28,7 @@ if (!isset($_POST['Show'])) {
 
 	echo '<tr>
 			<td>' . _('Bank Account') . ':</td>
-			<td><select minlength="0" name="BankAccount">';
+			<td><select name="BankAccount">';
 
 	if (DB_num_rows($AccountsResults) == 0) {
 		echo '</select></td>
@@ -60,7 +60,7 @@ if (!isset($_POST['Show'])) {
 
 	echo '<tr>
 				<td>' . _('Select Period') . ':</td>
-				<td><select minlength="0" name="FromPeriod">';
+				<td><select name="FromPeriod">';
 	while ($MyRow = DB_fetch_array($Periods)) {
 		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] == $MyRow['periodno']) {
 			echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
@@ -137,7 +137,7 @@ if (!isset($_POST['Show'])) {
 				<tr>
 					<th colspan="9">
 						<h3>' . _('Account Transactions For') . ' ' . $BankDetailRow['bankaccountname'] . ' ' . _('and Month Ending') . ' ' . $EndDate . '
-							<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="" onclick="window.print();" />
+							<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="" onclick="window.print();" />
 						</h3>
 					</th>
 				</tr>
@@ -205,7 +205,7 @@ if (!isset($_POST['Show'])) {
 		echo '</table>';
 	} //end if no bank trans in the range to show
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<br /><div class="centre"><input type="submit" name="Return" value="' . _('Select Another Date') . '" /></div>';

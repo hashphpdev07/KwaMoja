@@ -38,7 +38,7 @@ include('includes/header.inc');
 unset($_SESSION['DebtorNo']);
 unset($_SESSION['BranchNo']);
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for a Customer') . '<br /></p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for a Customer') . '<br /></p>';
 
 /* Container box to hold three separate boxes horizontally */
 echo '<div class="container">';
@@ -69,7 +69,7 @@ echo '<form method="post" name="BranchDetails" onSubmit="return SubmitForm(this,
 		<div class="box">
 			<input type="submit" name="SubmitBranchDetails" style="display: none;" />
 			<div class="box_header">' . _('Select a Customer') . '</div>
-			<select minlength="0" size="15" class="box bloc" id="customers" name="DebtorNo" onChange="ReloadForm(SubmitBranchDetails)">';
+			<select size="15" class="box bloc" id="customers" name="DebtorNo" onChange="ReloadForm(SubmitBranchDetails)">';
 CustomerBox();
 echo '</select>
 		</div>
@@ -82,7 +82,7 @@ echo '<form method="post" name="Details" onSubmit="return SubmitForm(this, \'opt
 		<div class="box">
 			<input type="submit" name="SubmitAllDetails" style="display: none;" />
 			<div class="box_header">' . _('Select a Branch') . '</div>
-			<select minlength="0" size="15" class="box bloc" id="branches" name="BranchNo" onChange="ReloadForm(SubmitAllDetails)">';
+			<select size="15" class="box bloc" id="branches" name="BranchNo" onChange="ReloadForm(SubmitAllDetails)">';
 BranchBox();
 echo '</select>
 		</div>

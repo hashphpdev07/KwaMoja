@@ -3,7 +3,7 @@
 include('includes/session.inc');
 $Title = _('Search Shipments');
 include('includes/header.inc');
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_GET['SelectedStockItem'])) {
 	$SelectedStockItem = $_GET['SelectedStockItem'];
@@ -23,7 +23,7 @@ if (isset($_GET['SelectedSupplier'])) {
 	$SelectedSupplier = $_POST['SelectedSupplier'];
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 
@@ -101,7 +101,7 @@ if (isset($_POST['SearchParts'])) {
 
 if (!isset($ShiptRef) or $ShiptRef == "") {
 	echo '<table class="selection"><tr><td>';
-	echo _('Shipment Number') . ': <input type="text" name="ShiptRef" minlength="0" maxlength="10" size="10" /> ' . _('Into Stock Location') . ' :<select minlength="0" name="StockLocation"> ';
+	echo _('Shipment Number') . ': <input type="text" name="ShiptRef" maxlength="10" size="10" /> ' . _('Into Stock Location') . ' :<select name="StockLocation"> ';
 	if ($_SESSION['RestrictLocations'] == 0) {
 		$SQL = "SELECT locationname,
 						loccode
@@ -131,7 +131,7 @@ if (!isset($ShiptRef) or $ShiptRef == "") {
 	}
 
 	echo '</select>';
-	echo ' <select minlength="0" name="OpenOrClosed">';
+	echo ' <select name="OpenOrClosed">';
 	if (isset($_POST['OpenOrClosed']) and $_POST['OpenOrClosed'] == 1) {
 		echo '<option selected="selected" value="1">' . _('Closed Shipments Only') . '</option>';
 		echo '<option value="0">' . _('Open Shipments Only') . '</option>';
@@ -160,7 +160,7 @@ echo '<tr>
 	</tr>
 	<tr>
 		<td>' . _('Select a stock category') . ':
-			<select minlength="0" name="StockCat">';
+			<select name="StockCat">';
 
 while ($MyRow1 = DB_fetch_array($Result1)) {
 	if (isset($_POST['StockCat']) and $MyRow1['categoryid'] == $_POST['StockCat']) {
@@ -171,12 +171,12 @@ while ($MyRow1 = DB_fetch_array($Result1)) {
 }
 echo '</select></td>
 		<td>' . _('Enter text extracts in the') . '<b> ' . _('description') . '</b>:</td>
-		<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+		<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td><b>' . _('OR') . ' </b> ' . _('Enter extract of the') . ' <b> ' . _('Stock Code') . '</b>:</td>
-		<td><input type="text" name="StockCode" size="15" minlength="0" maxlength="18" /></td>
+		<td><input type="text" name="StockCode" size="15" maxlength="18" /></td>
 	</tr>
 	</table>';
 
@@ -188,16 +188,18 @@ echo '<div class="centre">
 if (isset($StockItemsResult)) {
 
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">' . _('Code') . '</th>
-				<th class="SortableColumn">' . _('Description') . '</th>
-				<th>' . _('On Hand') . '</th>
-				<th>' . _('Orders') . '<br />' . _('Outstanding') . '</th>
-				<th>' . _('Units') . '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Description') . '</th>
+					<th>' . _('On Hand') . '</th>
+					<th>' . _('Orders') . '<br />' . _('Outstanding') . '</th>
+					<th>' . _('Units') . '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
 		if ($k == 1) {
@@ -218,6 +220,7 @@ if (isset($StockItemsResult)) {
 	}
 	//end of while loop
 
+	echo '</tbody>';
 	echo '</table>';
 
 }
@@ -278,14 +281,16 @@ else {
 		/*show a table of the shipments returned by the SQL */
 
 		echo '<table width="95%" class="selection">
-				<tr>
-					<th class="SortableColumn">' . _('Shipment') . '</th>
-					<th class="SortableColumn">' . _('Supplier') . '</th>
-					<th class="SortableColumn">' . _('Vessel') . '</th>
-					<th class="SortableColumn">' . _('Voyage') . '</th>
-					<th class="SortableColumn">' . _('Expected Arrival') . '</th>
-				</tr>';
-
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Shipment') . '</th>
+						<th class="SortedColumn">' . _('Supplier') . '</th>
+						<th class="SortedColumn">' . _('Vessel') . '</th>
+						<th class="SortedColumn">' . _('Voyage') . '</th>
+						<th class="SortedColumn">' . _('Expected Arrival') . '</th>
+					</tr>
+				</thead>';
+		echo '<tbody>';
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($ShipmentsResult)) {
 
@@ -331,6 +336,7 @@ else {
 		}
 		//end of while loop
 
+		echo '</tbody>';
 		echo '</table>';
 	} // end if shipments to show
 }

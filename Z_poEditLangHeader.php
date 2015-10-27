@@ -11,11 +11,11 @@ include('includes/header.inc');
 
 echo '<div class ="toplink"><a href="' . $RootPath . '/Z_poAdmin.php">' . _('Back to the translation menu') . '</a></div>';
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Edit a Language File Header') . '" />' . ' ' . _('Edit a Language File Header') . '</p>';
+echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Edit a Language File Header') . '" />' . ' ' . _('Edit a Language File Header') . '</p>';
 
 /* Your webserver user MUST have read/write access to here, otherwise you'll be wasting your time */
 
-echo '<div class="page_help_text noPrint">' . _('Utility to edit a language file header') . ' - ' . _('Current language is') . ' ' . $_SESSION['Language'] . '</div>';
+echo '<div class="page_help_text">' . _('Utility to edit a language file header') . ' - ' . _('Current language is') . ' ' . $_SESSION['Language'] . '</div>';
 
 if ($_SESSION['Language'] == 'en_GB.utf8') {
 	$PathToLanguage = './locale/' . $_SESSION['Language'] . '/LC_MESSAGES/messages.pot';
@@ -34,7 +34,7 @@ for ($i = 1; $i <= 17; $i++) {
 if (isset($_POST['submit'])) {
 
 	echo '<br /><table><tr><td>';
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	/* write the new header then the rest of the language file to a new file */
@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
 		echo '<br />';
 		prnMsg(_('Your existing translation file (messages.po) will be backed up as messages.po.old') . '<br /><br />' . _('Make sure you know what you are doing BEFORE you edit the header'), 'info', _('PLEASE NOTE'));
 		echo '<br /></div>';
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table>

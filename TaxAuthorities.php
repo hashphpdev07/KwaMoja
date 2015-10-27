@@ -6,8 +6,8 @@ $ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
 $BookMark = 'TaxAuthorities';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" title="', $Title, '" alt="" />', $Title, '
+echo '<p class="page_title_text" >
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="" />', $Title, '
 	</p>';
 
 if (isset($_POST['SelectedTaxAuthID'])) {
@@ -148,18 +148,21 @@ if (!isset($SelectedTaxAuthID)) {
 	}
 
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">', _('ID'), '</th>
-				<th class="SortableColumn">', _('Tax Authority'), '</th>
-				<th>', _('Input Tax'), '<br />', _('GL Account'), '</th>
-				<th>', _('Output Tax'), '<br />', _('GL Account'), '</th>
-				<th>', _('Bank'), '</th>
-				<th>', _('Bank Account'), '</th>
-				<th>', _('Bank Act Type'), '</th>
-				<th>', _('Bank Swift'), '</th>
-				<th colspan="4">', _('Maintenance'), '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('ID'), '</th>
+					<th class="SortedColumn">', _('Tax Authority'), '</th>
+					<th>', _('Input Tax'), '<br />', _('GL Account'), '</th>
+					<th>', _('Output Tax'), '<br />', _('GL Account'), '</th>
+					<th>', _('Bank'), '</th>
+					<th>', _('Bank Account'), '</th>
+					<th>', _('Bank Act Type'), '</th>
+					<th>', _('Bank Swift'), '</th>
+					<th colspan="4">', _('Maintenance'), '</th>
+				</tr>
+			</thead>';
 	$k = 0;
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
@@ -170,7 +173,7 @@ if (!isset($SelectedTaxAuthID)) {
 			++$k;
 		}
 
-		echo '<td>', $MyRow[0], '</td>
+		echo '<td class="number">', $MyRow[0], '</td>
 				<td>', $MyRow[1]. '</td>
 				<td>', $MyRow[3], '</td>
 				<td>', $MyRow[2], '</td>
@@ -188,6 +191,7 @@ if (!isset($SelectedTaxAuthID)) {
 
 	//end of ifs and buts!
 
+	echo '</tbody>';
 	echo '</table>';
 }
 
@@ -198,7 +202,7 @@ if (isset($SelectedTaxAuthID)) {
 }
 
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($SelectedTaxAuthID)) {
@@ -248,11 +252,11 @@ if (!isset($_POST['Description'])) {
 echo '<table class="selection">
 		<tr>
 			<td>', _('Tax Type Description'), ':</td>
-			<td><input type="text" name="Description" size="21" required="required" minlength="1" maxlength="40" value="', $_POST['Description'], '" /></td>
+			<td><input type="text" name="Description" size="21" required="required" maxlength="40" value="', $_POST['Description'], '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Input tax GL Account') . ':</td>
-			<td><select required="required" minlength="1" name="PurchTaxGLCode">';
+			<td><select required="required" name="PurchTaxGLCode">';
 
 foreach ($GLAccounts as $Code => $Name) {
 	if (isset($_POST['PurchTaxGLCode']) and $Code == $_POST['PurchTaxGLCode']) {
@@ -268,7 +272,7 @@ echo '</select>
 
 echo '<tr>
 		<td>', _('Output tax GL Account'), ':</td>
-		<td><select required="required" minlength="1" name="TaxGLCode">';
+		<td><select required="required" name="TaxGLCode">';
 
 foreach ($GLAccounts as $Code => $Name) {
 	if (isset($_POST['TaxGLCode']) and $Code == $_POST['TaxGLCode']) {
@@ -295,19 +299,19 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>', _('Bank Name'), ':</td>
-		<td><input type="text" name="Bank" size="41" minlength="0" maxlength="40" value="', $_POST['Bank'], '" /></td>
+		<td><input type="text" name="Bank" size="41" maxlength="40" value="', $_POST['Bank'], '" /></td>
 	</tr>
 	<tr>
 		<td>', _('Bank Account Type'), ':</td>
-		<td><input type="text" name="BankAccType" size="15" minlength="0" maxlength="20" value="', $_POST['BankAccType'], '" /></td>
+		<td><input type="text" name="BankAccType" size="15" maxlength="20" value="', $_POST['BankAccType'], '" /></td>
 	</tr>
 	<tr>
 		<td>', _('Bank Account'), ':</td>
-		<td><input type="text" name="BankAcc" size="21" minlength="0" maxlength="20" value="', $_POST['BankAcc'], '" /></td>
+		<td><input type="text" name="BankAcc" size="21" maxlength="20" value="', $_POST['BankAcc'], '" /></td>
 	</tr>
 	<tr>
 		<td>', _('Bank Swift No'), ':</td>
-		<td><input type="text" name="BankSwift" size="15" minlength="0" maxlength="14" value="', $_POST['BankSwift'], '" /></td>
+		<td><input type="text" name="BankSwift" size="15" maxlength="14" value="', $_POST['BankSwift'], '" /></td>
 	</tr>
 </table>';
 

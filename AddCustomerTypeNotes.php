@@ -90,7 +90,7 @@ if (!isset($Id)) {
 	$SQLname = "SELECT typename from debtortype where typeid='" . $DebtorType . "'";
 	$Result = DB_query($SQLname);
 	$MyRow = DB_fetch_array($Result);
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/customer.png" title="' . _('Search') . '" alt="" />' . _('Notes for Customer Type') . ': <b>' . $MyRow['typename'] . '</b></p>
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . _('Notes for Customer Type') . ': <b>' . $MyRow['typename'] . '</b></p>
 		<br />';
 
 	$SQL = "SELECT noteid,
@@ -142,7 +142,7 @@ if (isset($Id)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorType=' . $DebtorType . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorType=' . $DebtorType . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($Id)) {
@@ -193,15 +193,15 @@ if (!isset($_GET['delete'])) {
 		</tr>
 		<tr>
 			<td>' . _('Web site') . ':</td>
-			<td><input type="text" name="Href" value="' . $_POST['Href'] . '" size="35" minlength="0" maxlength="100" /></td>
+			<td><input type="text" name="Href" value="' . $_POST['Href'] . '" size="35" maxlength="100" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Date') . ':</td>
-			<td><input type="text" name="NoteDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . $_POST['NoteDate'] . '" size="10" minlength="0" maxlength="10" /></td>
+			<td><input type="text" name="NoteDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . $_POST['NoteDate'] . '" size="10" maxlength="10" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Priority') . ':</td>
-			<td><input type="text" name="Priority" value="' . $_POST['Priority'] . '" size="1" minlength="0" maxlength="3" /></td>
+			<td><input type="text" name="Priority" value="' . $_POST['Priority'] . '" size="1" maxlength="3" /></td>
 		</tr>
 		</table>
 		<br />

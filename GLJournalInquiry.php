@@ -6,10 +6,10 @@ $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLJournalInquiry';
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
 
 if (!isset($_POST['Show'])) {
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table class="selection" summary="' . _('Selection Criteria') . '">
@@ -24,8 +24,8 @@ if (!isset($_POST['Show'])) {
 
 	echo '<tr>
 			<td>' . _('Journal Number Range') . ' (' . _('Between') . ' 1 ' . _('and') . ' ' . $MaxJournalNumberUsed . ')</td>
-			<td>' . _('From') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberFrom" size="10" required="required" minlength="1" maxlength="11" value="1" />' . '</td>
-			<td>' . _('To') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberTo" size="10" required="required" minlength="1" maxlength="11" value="' . $MaxJournalNumberUsed . '" />' . '</td>
+			<td>' . _('From') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberFrom" size="10" required="required" maxlength="11" value="1" />' . '</td>
+			<td>' . _('To') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberTo" size="10" required="required" maxlength="11" value="' . $MaxJournalNumberUsed . '" />' . '</td>
 		</tr>';
 
 	$SQL = "SELECT MIN(trandate) AS fromdate,
@@ -42,8 +42,8 @@ if (!isset($_POST['Show'])) {
 
 	echo '<tr>
 			<td>' . _('Journals Dated Between') . ':</td>
-			<td>' . _('From') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" name="FromTransDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" minlength="0" maxlength="10" size="11" value="' . ConvertSQLDate($FromDate) . '" /></td>
-			<td>' . _('To') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" name="ToTransDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" minlength="0" maxlength="10" size="11" value="' . ConvertSQLDate($ToDate) . '" /></td>
+			<td>' . _('From') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" name="FromTransDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" maxlength="10" size="11" value="' . ConvertSQLDate($FromDate) . '" /></td>
+			<td>' . _('To') . ':' . '&nbsp;&nbsp;&nbsp;<input type="text" name="ToTransDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" maxlength="10" size="11" value="' . ConvertSQLDate($ToDate) . '" /></td>
 		</tr>';
 
 	echo '</table>';
@@ -80,7 +80,7 @@ if (!isset($_POST['Show'])) {
 			<tr>
 				<th colspan="9">
 					<b>' . _('General Ledger Jornals') . '</b>
-					<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 				</th>
 			</tr>
 			<tr>
@@ -128,7 +128,7 @@ if (!isset($_POST['Show'])) {
 		echo '</table>';
 	} //end if no bank trans in the range to show
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<br /><div class="centre"><input type="submit" name="Return" value="' . _('Select Another Date') . '" /></div>';
 	echo '</form>';

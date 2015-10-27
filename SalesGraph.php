@@ -28,15 +28,15 @@ if (isset($_POST['FromPeriod']) and isset($_POST['ToPeriod'])) {
 
 if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADifferentPeriod == _('Select A Different Period')) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/sales.png" title="' . _('Select criteria') . '" alt="' . _('Select criteria') . '" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Select criteria') . '" alt="' . _('Select criteria') . '" />' . ' ' . $Title . '</p>';
 
 	echo '<table class="selection" summary="' . _('Criteria for the sales graph') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
-				<td><select minlength="0" name="FromPeriod">';
+				<td><select name="FromPeriod">';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
 		/*Dates in SQL format */
@@ -72,7 +72,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	echo '<tr>
 			<td>' . _('Select Period To') . ':</td>
-			<td><select minlength="0" name="ToPeriod">';
+			<td><select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
@@ -95,7 +95,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	}
 	echo '<tr>
 			<td>' . _('For Sales Area/Region') . ':</td>
-			<td><select minlength="0" name="SalesArea">';
+			<td><select name="SalesArea">';
 	if ($_POST['SalesArea'] == 'All') {
 		echo '<option selected="selected" value="All">' . _('All') . '</option>';
 	} else {
@@ -119,7 +119,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	}
 	echo '<tr>
 			<td>' . _('For Stock Category') . ':</td>
-			<td><select minlength="0" name="CategoryID">';
+			<td><select name="CategoryID">';
 	if ($_POST['CategoryID'] == 'All') {
 		echo '<option selected="selected" value="All">' . _('All') . '</option>';
 	} else {
@@ -138,7 +138,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	echo '<tr>
 			<td>' . _('For Sales Person') . ':</td>
-			<td><select minlength="0" name="SalesmanCode">';
+			<td><select name="SalesmanCode">';
 
 	$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 	if ($_SESSION['SalesmanLogin'] != '') {
@@ -165,7 +165,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	echo '<tr>
 			<td>' . _('Graph Type') . '</td>
 			<td>
-				<select minlength="0" name="GraphType">
+				<select name="GraphType">
 					<option value="bars">' . _('Bar Graph') . '</option>
 					<option value="stackedbars">' . _('Stacked Bar Graph') . '</option>
 					<option value="lines">' . _('Line Graph') . '</option>
@@ -347,7 +347,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	echo '<table class="selection" summary="' . _('Sales Report Graph') . '">
 			<tr>
 				<th>' . _('Sales Report Graph') . '
-					<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 				</th>
 			</tr>
 			<tr>

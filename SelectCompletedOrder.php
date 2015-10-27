@@ -6,11 +6,11 @@ $Title = _('Search All Sales Orders');
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="', $RootPath, '/css/', $Theme, '/images/magnifier.png" title="', _('Search'), '" alt="" /> ', ' ', _('Search Sales Orders'), '
+echo '<p class="page_title_text" >
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" /> ', ' ', _('Search Sales Orders'), '
 	</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" class="noPrint">';
+echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($_POST['completed'])) {
@@ -62,8 +62,8 @@ if (isset($_POST['ResetPart'])) {
 }
 
 if (isset($OrderNumber)) {
-	echo '<p class="page_title_text noPrint">
-			<img src="', $RootPath, '/css/', $Theme, '/images/sales.png" title="', _('Sales Order'), '" alt="" /> ', _('Order Number'), ' - ', $OrderNumber, '
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/sales.png" title="', _('Sales Order'), '" alt="" /> ', _('Order Number'), ' - ', $OrderNumber, '
 		</p>';
 	if (mb_strlen($_SESSION['UserBranch']) > 1) {
 		echo _('For customer'), ': ', stripslashes($SelectedCustomer);
@@ -343,14 +343,14 @@ if (!isset($_POST['OrderNumber'])) {
 	$_POST['OrderNumber'] = '';
 }
 echo '<td>', _('Order Number'), ':</td>
-		<td><input type="text" name="OrderNumber" minlength="0" maxlength="8" size="9" value="', $_POST['OrderNumber'], '" /></td>
+		<td><input type="text" name="OrderNumber" maxlength="8" size="9" value="', $_POST['OrderNumber'], '" /></td>
 		<td>', _('for all orders placed after'), ': </td>
 		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '"  name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" /></td>
 		<td><input type="submit" name="SearchOrders" value="', _('Search Orders'), '" /></td>
 	</tr>';
 echo '<tr>
 		<td></td>
-		<td>', _('Customer Ref'), ':</td><td><input type="text" name="CustomerRef" minlength="0" maxlength="8" size="9" /></td>
+		<td>', _('Customer Ref'), ':</td><td><input type="text" name="CustomerRef" maxlength="8" size="9" /></td>
 		<td></td>
 		<td colspan="2"><input type="checkbox" ', $ShowChecked, ' name="completed" />', _('Show Completed orders only'), '</td>
 	</tr>';
@@ -363,11 +363,11 @@ if (!isset($SelectedStockItem)) {
 						FROM stockcategory
 						ORDER BY categorydescription");
 
-	echo '<div class="page_help_text noPrint">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
+	echo '<div class="page_help_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
 	echo '<table class="selection">';
 	echo '<tr>
 			<td>', _('Select a stock category'), ':';
-	echo '<select minlength="0" name="StockCat">';
+	echo '<select name="StockCat">';
 
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		if (isset($_POST['StockCat']) and $MyRow1['categoryid'] == $_POST['StockCat']) {
@@ -380,12 +380,12 @@ if (!isset($SelectedStockItem)) {
 	echo '</select>
 			</td>';
 	echo '<td>', _('Enter text extracts in the description'), ':</td>
-		<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+		<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td><b> ', _('OR'), ' </b>', _('Enter extract of the Stock Code'), ':</td>
-		<td><input type="text" name="StockCode" size="15" minlength="0" maxlength="18" /></td>
+		<td><input type="text" name="StockCode" size="15" maxlength="18" /></td>
 	</tr>
 	<tr>
 		<td colspan="4">
@@ -405,15 +405,17 @@ if (!isset($SelectedStockItem)) {
 if (isset($StockItemsResult)) {
 
 	echo '<table cellpadding="2" class="selection">
-			<tr>
-				<th class="SortableColumn">', _('Code'), '</th>
-				<th class="SortableColumn">', _('Description'), '</th>
-				<th>', _('On Hand'), '</th>
-				<th>', _('Units'), '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Code'), '</th>
+					<th class="SortedColumn">', _('Description'), '</th>
+					<th>', _('On Hand'), '</th>
+					<th>', _('Units'), '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
 		if ($k == 1) {
@@ -436,6 +438,7 @@ if (isset($StockItemsResult)) {
 	}
 	//end of while loop
 
+	echo '</tbody>';
 	echo '</table>';
 
 }
@@ -446,26 +449,28 @@ if (isset($SalesOrdersResult)) {
 	/*show a table of the orders returned by the SQL */
 
 	echo '<table cellpadding="2" width="90%" class="selection">
-			<tr>
-				<th colspan="9">
-					<h3>', _('Sales Orders'), '
-						<img src="', $RootPath, '/css/', $Theme, '/images/printer.png" class="PrintIcon noPrint" title="', _('Print'), '" alt="" onclick="window.print();" />
-					</h3>
-				</th>
-			</tr>
-		<tbody>
-			<tr>
-				<th class="SortableColumn">', _('Order'), ' #</th>
-				<th class="SortableColumn">', _('Customer'), '</th>
-				<th class="SortableColumn">', _('Branch'), '</th>
-				<th>', _('Cust Order'), ' #</th>
-				<th class="SortableColumn">', _('Order Date'), '</th>
-				<th class="SortableColumn">', _('Req Del Date'), '</th>
-				<th>', _('Delivery To'), '</th>
-				<th class="SortableColumn">', _('Order Total'), '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th colspan="9">
+						<h3>', _('Sales Orders'), '
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="" onclick="window.print();" />
+						</h3>
+					</th>
+				</tr>
+				<tr>
+					<th class="SortedColumn">', _('Order'), ' #</th>
+					<th class="SortedColumn">', _('Customer'), '</th>
+					<th class="SortedColumn">', _('Branch'), '</th>
+					<th>', _('Cust Order'), ' #</th>
+					<th class="SortedColumn">', _('Order Date'), '</th>
+					<th class="SortedColumn">', _('Req Del Date'), '</th>
+					<th>', _('Delivery To'), '</th>
+					<th class="SortedColumn">', _('Order Total'), '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
 		if ($k == 1) {

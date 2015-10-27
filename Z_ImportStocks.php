@@ -4,11 +4,12 @@ include('includes/session.inc');
 $Title = _('Import Items');
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Import Stock Items from .csv') . '" />' . ' ' . _('Import Stock Items from .csv') . '</p>';
+echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Import Stock Items from .csv') . '" />' . ' ' . _('Import Stock Items from .csv') . '</p>';
 
 // If this script is called with a file object, then the file contents are imported
 // If this script is called with the gettemplate flag, then a template file is served
 // Otherwise, a file upload form is displayed
+// The CSV file must be saved in a format like the template in the import module I.E. "RECVALUE","RECVALUE2". The CSV file needs ANSI encoding for the import to work properly.
 
 $FieldHeadings = array(
 	'StockID', //  0 'STOCKID',
@@ -67,7 +68,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	$FileHandle = fopen($TempName, 'r');
 
 	//get the header row
-	$HeadRow = fgetcsv($FileHandle, 10000, ",");
+	$HeadRow = fgetcsv($FileHandle, 10000, ",",'"');  // Modified to handle " "" " enclosed csv - useful if you need to include commas in your text descriptions
 
 	//check for correct number of fields
 	if (count($HeadRow) != count($FieldHeadings)) {
@@ -308,7 +309,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		<a href="Z_ImportStocks.php?gettemplate=1">Get Import Template</a>
 		<br />
 		<br />';
-	echo '<form onSubmit="return VerifyForm(this);" action="Z_ImportStocks.php" method="post" class="noPrint" enctype="multipart/form-data">';
+	echo '<form action="Z_ImportStocks.php" method="post" enctype="multipart/form-data">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 

@@ -36,7 +36,7 @@ else {
 	$SupplierName = $_SESSION['SuppTrans']->SupplierName;
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('Supplier Invoice') . '" alt="" />' . ' ' . _('Enter Supplier Invoice') . ': ' . $SupplierName . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Supplier Invoice') . '" alt="" />' . ' ' . _('Enter Supplier Invoice') . ': ' . $SupplierName . '</p>';
 if (isset($_GET['SupplierID']) and $_GET['SupplierID'] != '') {
 	/*It must be a new invoice entry - clear any existing invoice details from the SuppTrans object and initiate a newy*/
 	if (isset($_SESSION['SuppTrans'])) {
@@ -604,7 +604,7 @@ if (!isset($_POST['PostInvoice'])) {
 		</tr>
 		</table>';
 
-	echo '<br /><form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint" id="form1">';
+	echo '<br /><form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -612,15 +612,15 @@ if (!isset($_POST['PostInvoice'])) {
 
 	echo '<tr>
 			<td>' . _('Supplier Invoice Reference') . ':</td>
-			<td><input type="text" size="20" required="required" minlength="1" maxlength="20" name="SuppReference" value="' . $_SESSION['SuppTrans']->SuppReference . '" /></td>';
+			<td><input type="text" size="20" required="required" maxlength="20" name="SuppReference" value="' . $_SESSION['SuppTrans']->SuppReference . '" /></td>';
 
 	if (!isset($_SESSION['SuppTrans']->TranDate)) {
 		$_SESSION['SuppTrans']->TranDate = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y')));
 	} //!isset($_SESSION['SuppTrans']->TranDate)
 	echo '<td>' . _('Invoice Date') . ' (' . _('in format') . ' ' . $_SESSION['DefaultDateFormat'] . ') :</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" minlength="1" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
+		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
 		<td>' . _('Exchange Rate') . ':</td>
-		<td><input type="text" class="number" size="14" required="required" minlength="1" maxlength="12" name="ExRate" value="' . locale_number_format($_SESSION['SuppTrans']->ExRate, 'Variable') . '" /></td>
+		<td><input type="text" class="number" size="14" required="required" maxlength="12" name="ExRate" value="' . locale_number_format($_SESSION['SuppTrans']->ExRate, 'Variable') . '" /></td>
 	</tr>
 	</table>';
 
@@ -828,13 +828,13 @@ if (!isset($_POST['PostInvoice'])) {
 				<table class="selection">
 				<tr>
 					<td>' . _('Amount in supplier currency') . ':</td>
-					<td colspan="2" class="number"><input type="text" class="number" size="12" minlength="0" maxlength="10" name="OvAmount" value="' . locale_number_format($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
+					<td colspan="2" class="number"><input type="text" class="number" size="12" maxlength="10" name="OvAmount" value="' . locale_number_format($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
 				</tr>';
 	}
 
 	echo '<tr>
 			<td colspan="2"><input type="submit" name="ToggleTaxMethod" value="' . _('Update Tax Calculation') . '" /></td>
-			<td><select required="required" minlength="1" name="OverRideTax" onchange="ReloadForm(form1.ToggleTaxMethod)">';
+			<td><select required="required" name="OverRideTax" onchange="ReloadForm(form1.ToggleTaxMethod)">';
 
 	if (isset($_POST['OverRideTax']) and $_POST['OverRideTax'] == 'Man') {
 		echo '<option value="Auto">' . _('Automatic') . '</option>
@@ -862,7 +862,7 @@ if (!isset($_POST['PostInvoice'])) {
 		/*If a tax rate is entered that is not the same as it was previously then recalculate automatically the tax amounts */
 
 		if (!isset($_POST['OverRideTax']) or $_POST['OverRideTax'] == 'Auto') {
-			echo ' <input type="text" class="number" name="TaxRate' . $Tax->TaxCalculationOrder . '" minlength="0" maxlength="4" size="4" value="' . locale_number_format($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate * 100, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />%';
+			echo ' <input type="text" class="number" name="TaxRate' . $Tax->TaxCalculationOrder . '" maxlength="5" size="4" value="' . locale_number_format($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate * 100, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />%';
 
 			/*Now recaluclate the tax depending on the method */
 			if ($Tax->TaxOnTax == 1) {
@@ -891,7 +891,7 @@ if (!isset($_POST['PostInvoice'])) {
 			echo ' <input type="hidden" name="TaxRate' . $Tax->TaxCalculationOrder . '" value="' . locale_number_format($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate * 100, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />';
 
 			echo '</td>
-				<td><input type="text" class="number" size="12" required="required" minlength="1" maxlength="12" name="TaxAmount' . $Tax->TaxCalculationOrder . '"  value="' . locale_number_format(round($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces), $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />';
+				<td><input type="text" class="number" size="12" required="required" maxlength="12" name="TaxAmount' . $Tax->TaxCalculationOrder . '"  value="' . locale_number_format(round($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces), $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />';
 		}
 
 		$TaxTotal += $_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount;
@@ -1502,6 +1502,12 @@ else { // $_POST['PostInvoice'] is set so do the postings -and dont show the but
 
 			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The quantity invoiced off the goods received record could not be updated because');
 			$DbgMsg = _('The following SQL to update the GRN quantity invoiced was used');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
+
+			$SQL = "INSERT INTO suppinvstogrn VALUES ('" . $InvoiceNo . "',
+													'" . $EnteredGRN->GRNNo . "')";
+			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The invoice could not be mapped to the goods received record because');
+			$DbgMsg = _('The following SQL to map the invoice to the GRN was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 
 			if (mb_strlen($EnteredGRN->ShiptRef) > 0 and $EnteredGRN->ShiptRef != '0') {

@@ -4,7 +4,7 @@ include('includes/session.inc');
 $Title = _('User Settings');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $Theme, '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '</p>';
+echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '</p>';
 
 $PDFLanguages = array(
 	_('Latin Western Languages - Times'),
@@ -93,7 +93,7 @@ if (isset($_POST['Modify'])) {
 		$_SESSION['DisplayRecordsMax'] = $_POST['DisplayRecordsMax'];
 		$_SESSION['Theme'] = trim($_POST['Theme']);
 		/*already set by session.inc but for completeness */
-		$Theme = $_SESSION['Theme'];
+		$_SESSION['Theme'] = $_SESSION['Theme'];
 		$_SESSION['Language'] = trim($_POST['Language']);
 		$_SESSION['PDFLanguage'] = $_POST['PDFLanguage'];
 		include('includes/LanguageSetup.php');
@@ -101,7 +101,7 @@ if (isset($_POST['Modify'])) {
 	}
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_POST['DisplayRecordsMax']) or $_POST['DisplayRecordsMax'] == '') {
@@ -124,13 +124,13 @@ echo '<tr>
 
 echo '<tr>
 		<td>', _('Maximum Number of Records to Display'), ':</td>
-		<td><input type="text" class="number" name="DisplayRecordsMax" size="3" required="required" minlength="1" maxlength="3" value="', $_POST['DisplayRecordsMax'], '"  /></td>
+		<td><input type="text" class="number" name="DisplayRecordsMax" size="3" required="required" maxlength="3" value="', $_POST['DisplayRecordsMax'], '"  /></td>
 	</tr>';
 
 
 echo '<tr>
 		<td>', _('Language'), ':</td>
-		<td><select minlength="0" name="Language">';
+		<td><select name="Language">';
 
 if (!isset($_POST['Language'])) {
 	$_POST['Language'] = $_SESSION['Language'];
@@ -151,15 +151,17 @@ echo '</select>
 
 echo '<tr>
 		<td>', _('Theme'), ':</td>
-		<td><select minlength="0" name="Theme">';
+		<td><select name="Theme">';
 
 $Themes = glob('css/*', GLOB_ONLYDIR);
 foreach ($Themes as $ThemeName) {
 	$ThemeName = basename($ThemeName);
-	if ($_SESSION['Theme'] == $ThemeName) {
-		echo '<option selected="selected" value="', $ThemeName, '">', $ThemeName, '</option>';
-	} else {
-		echo '<option value="', $ThemeName, '">', $ThemeName, '</option>';
+	if ($ThemeName != 'mobile') {
+		if ($_SESSION['Theme'] == $ThemeName) {
+			echo '<option selected="selected" value="', $ThemeName, '">', $ThemeName, '</option>';
+		} else {
+			echo '<option value="', $ThemeName, '">', $ThemeName, '</option>';
+		}
 	}
 }
 
@@ -196,12 +198,12 @@ if (!isset($_POST['PDFLanguage'])) {
 
 echo '<tr>
 		<td>', _('Screen Font Size'), ':</td>
-		<td><select minlength="0" name="FontSize">';
-if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == 0) {
+		<td><select name="FontSize">';
+if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '8pt') {
 	echo '<option selected="selected" value="0">', _('Small'), '</option>';
 	echo '<option value="1">', _('Medium'), '</option>';
 	echo '<option value="2">', _('Large'), '</option>';
-} else if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == 1) {
+} else if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '10pt') {
 	echo '<option value="0">', _('Small'), '</option>';
 	echo '<option selected="selected" value="1">', _('Medium'), '</option>';
 	echo '<option value="2">', _('Large'), '</option>';
@@ -216,7 +218,7 @@ echo '</select>
 
 echo '<tr>
 		<td>', _('PDF Language Support'), ': </td>
-		<td><select minlength="0" name="PDFLanguage">';
+		<td><select name="PDFLanguage">';
 
 for ($i = 0; $i < count($PDFLanguages); $i++) {
 	if ($_POST['PDFLanguage'] == $i) {

@@ -12,7 +12,7 @@ $BookMark = 'Z_ChangeStockCode'; // Anchor's id in the manual's html document.
 include('includes/header.inc');
 
 echo '<p class="page_title_text">
-		<img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Change An Inventory Item Code') . '" />' . ' ' . _('Change An Inventory Item Code') . '
+		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Change An Inventory Item Code') . '" />' . ' ' . _('Change An Inventory Item Code') . '
 	</p>';
 
 include('includes/SQL_CommonFunctions.inc');
@@ -65,6 +65,7 @@ if (isset($_POST['ProcessStockChange'])) {
 										lowestlevel,
 										discontinued,
 										controlled,
+										serialised,
 										eoq,
 										volume,
 										grossweight,
@@ -88,6 +89,7 @@ if (isset($_POST['ProcessStockChange'])) {
 					lowestlevel,
 					discontinued,
 					controlled,
+					serialised,
 					eoq,
 					volume,
 					grossweight,
@@ -192,9 +194,9 @@ if (isset($_POST['ProcessStockChange'])) {
 		ChangeFieldInTable("prodspecs", "keyval", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("qasamples", "prodspeckey", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("stockdescriptiontranslations", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);// Updates the translated item titles (StockTitles)
+		ChangeFieldInTable("stocklongdescriptiontranslations", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("custitem", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("pricematrix", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
-/*		 ChangeFieldInTable("Stockdescriptions", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);// Updates the translated item descriptions (StockDescriptions)*/
 
 		DB_ReinstateForeignKeys();
 
@@ -217,18 +219,18 @@ if (isset($_POST['ProcessStockChange'])) {
 	} //only do the stuff above if  $InputError==0
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 echo '<table>
 	<tr>
 		<td>' . _('Existing Inventory Code') . ':</td>
-		<td><input type="text" name="OldStockID" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="OldStockID" size="20" maxlength="20" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New Inventory Code') . ':</td>
-		<td><input type="text" name="NewStockID" size="20" minlength="0" maxlength="20" /></td>
+		<td><input type="text" name="NewStockID" size="20" maxlength="20" /></td>
 	</tr>
 	</table>
 

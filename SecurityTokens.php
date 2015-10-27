@@ -83,9 +83,9 @@ if (isset($_POST['Update']) and $InputError == 0) {
 	$_POST['TokenDescription'] = '';
 	$_POST['TokenID'] = '';
 }
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Print') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Print') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<br />
@@ -94,16 +94,16 @@ echo '<br />
 
 if (isset($_GET['Action']) and $_GET['Action'] == 'edit') {
 	echo '<td>' . _('Description') . '</td>
-		<td><input type="text" size="50" autofocus="autofocus" required="required" minlength="1" maxlength="50" name="TokenDescription" value="' . _($_POST['TokenDescription']) . '" /></td>
+		<td><input type="text" size="50" autofocus="autofocus" required="required" maxlength="50" name="TokenDescription" value="' . _($_POST['TokenDescription']) . '" /></td>
 		<td><input type="hidden" name="TokenID" value="' . $_GET['SelectedToken'] . '" />
 			<input type="submit" name="Update" value="' . _('Update') . '" />';
 } else {
 	echo '<td>' . _('Token ID') . '</td>
-			<td><input class="number" size="6" required="required" minlength="1" maxlength="4" type="text" name="TokenID" value="' . $_POST['TokenID'] . '" /></td>
+			<td><input class="number" size="6" required="required" maxlength="4" type="text" name="TokenID" value="' . $_POST['TokenID'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Description') . '</td>
-			<td><input type="text" size="50" required="required" minlength="1" maxlength="50" name="TokenDescription" value="' . _($_POST['TokenDescription']) . '" /></td>
+			<td><input type="text" size="50" required="required" maxlength="50" name="TokenDescription" value="' . _($_POST['TokenDescription']) . '" /></td>
 			<td><input type="submit" name="Submit" value="' . _('Insert') . '" />';
 }
 

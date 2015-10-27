@@ -6,7 +6,7 @@ $Title = _('Sales Category Maintenance');
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_GET['SelectedCategory'])) {
 	$SelectedCategory = mb_strtoupper($_GET['SelectedCategory']);
@@ -232,14 +232,16 @@ echo '<br />';
 if (DB_num_rows($Result) == 0) {
 	prnMsg(_('There are no categories defined at this level.'));
 } else {
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">' . _('Sub Category') . '</th>
-			<th>' . _('Active?') . '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Sub Category') . '</th>
+					<th>' . _('Active?') . '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -269,6 +271,7 @@ if (DB_num_rows($Result) == 0) {
 				</tr>', $MyRow['salescatname'], $Active, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, $CatImgLink);
 	}
 	//END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 }
 
@@ -280,8 +283,7 @@ if (DB_num_rows($Result) == 0) {
 // ----------------------------------------------------------------------------------------
 // Show New or Edit Category
 
-echo '<br /><form onSubmit="return VerifyForm(this);" enctype="multipart/form-data" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-echo '<div>';
+echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 // This array will contain the stockids in use for this category
@@ -323,7 +325,7 @@ echo '<table class="selection">
 		</tr>
 		<tr>
 			<td>' . _('Category Name') . ':</td>
-			<td><input type="text" name="SalesCatName" size="20" required="required" minlength="1" maxlength="50" value="' . $_POST['SalesCatName'] . '" /></td>
+			<td><input type="text" name="SalesCatName" size="20" required="required" maxlength="50" value="' . $_POST['SalesCatName'] . '" /></td>
 		</tr>';
 
 echo '<tr>
@@ -348,12 +350,10 @@ if (isset($SelectedCategory)) {
 }
 
 echo '</table>
-		<br />
 		<div class="centre">
 			<input type="submit" name="submit" value="' . _('Submit Information') . '" />
 		</div>
-		</div>
-		</form>';
+	</form>';
 
 // END Show New or Edit Category
 // ----------------------------------------------------------------------------------------
@@ -400,9 +400,7 @@ $SQL = "SELECT stockid,
 $Result = DB_query($SQL);
 if ($Result and DB_num_rows($Result)) {
 	// continue id stock id in the stockid array
-	echo '<br />
-			<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
-			<div>
+	echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (isset($SelectedCategory)) { // if we selected a category we need to keep it selected
 		echo '<input type="hidden" name="SelectedCategory" value="' . $SelectedCategory . '" />';
@@ -416,7 +414,7 @@ if ($Result and DB_num_rows($Result)) {
 			</tr>
 			<tr>
 				<td>' . _('Select Inv. Item') . ':</td>
-				<td><select required="required" minlength="1" name="AddStockID">';
+				<td><select required="required" name="AddStockID">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (!array_keys($StockIds, $MyRow['stockid'])) {
@@ -428,19 +426,19 @@ if ($Result and DB_num_rows($Result)) {
 			</tr>
 			<tr>
 			<td>' . _('Select Manufacturer/Brand') . ':</td>
-			<td><select minlength="0" name="Brand">
-			 <option value="">' . _('Select Brand') . '</option>';
+			<td><select name="Brand">
+			<option value="">' . _('Select Brand') . '</option>';
 	$BrandResult = DB_query("SELECT manufacturers_id, manufacturers_name FROM manufacturers");
 	while ($MyRow = DB_fetch_array($BrandResult)) {
 		echo '<option value="' . $MyRow['manufacturers_id'] . '">' . $MyRow['manufacturers_name'] . '</option>';
 	}
 
-	echo '</select></td>
-			</tr></table>
-		<br />
+	echo '</select>
+			</td>
+		</tr>
+		</table>
 		<div class="centre">
 			<input type="submit" name="submit" value="' . _('Add Item To Sales Category') . '" />
-		</div>
 		</div>
 		</form>';
 } else {
@@ -478,19 +476,21 @@ $SQL = "SELECT salescatprod.stockid,
 $Result = DB_query($SQL);
 if ($Result) {
 	if (DB_num_rows($Result)) {
-		echo '<table class="selection">';
-		echo '<tr>
-				<th colspan="4">' . _('Inventory items for') . ' ' . $CategoryPath . '</th>
-			</tr>
-			<tr>
-				<th class="SortableColumn">' . _('Item') . '</th>
-				<th class="SortableColumn">' . _('Description') . '</th>
-				<th class="SortableColumn">' . _('Brand') . '</th>
-				<th>' . _('Featured') . '</th>
-			</tr>';
+		echo '<table class="selection">
+				<thead>
+					<tr>
+						<th colspan="4">' . _('Inventory items for') . ' ' . $CategoryPath . '</th>
+					</tr>
+					<tr>
+						<th class="SortedColumn">' . _('Item') . '</th>
+						<th class="SortedColumn">' . _('Description') . '</th>
+						<th class="SortedColumn">' . _('Brand') . '</th>
+						<th>' . _('Featured') . '</th>
+					</tr>
+				</thead>';
 
 		$k = 0; //row colour counter
-
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($k == 1) {
 				echo '<tr class="EvenTableRows">';
@@ -505,7 +505,7 @@ if ($Result) {
 				<td>' . $MyRow['manufacturers_name'] . '</td>
 				<td>';
 			if ($MyRow['featured'] == 1) {
-				echo '<img src="css/' . $Theme . '/images/tick.png"></td>
+				echo '<img src="css/' . $_SESSION['Theme'] . '/images/tick.png"></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?RemoveFeature=Yes&amp;ParentCategory=' . $ParentCategory . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Cancel Feature') . '</a></td>';
 			} else {
 				echo '</td>
@@ -514,6 +514,7 @@ if ($Result) {
 			echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ParentCategory=' . $ParentCategory . '&amp;DelStockID=' . $MyRow['stockid'] . '">' . _('Remove') . '</a></td>
 			</tr>';
 		}
+		echo '</tbody>';
 		echo '</table>';
 	} else {
 		prnMsg(_('No Inventory items in this category'));

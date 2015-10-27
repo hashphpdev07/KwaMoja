@@ -19,7 +19,7 @@ if (isset($SelectedPaymentID)) {
 	echo '<div class="toplink"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Payment Methods') . '</a></div>';
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('Payments') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Payments') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($Errors)) {
 	unset($Errors);
@@ -180,14 +180,17 @@ if (!isset($SelectedPaymentID)) {
 	$Result = DB_query($SQL, $ErrMsg);
 
 	echo '<table class="selection">
-		<tr>
-			<th class="SortableColumn">' . _('Payment Method') . '</th>
-			<th class="SortableColumn">' . _('Use For Payments') . '</th>
-			<th class="SortableColumn">' . _('Use For Receipts') . '</th>
-			<th class="SortableColumn">' . _('Use Pre-printed Stationery') . '</th>
-			<th>' . _('Open POS Cash Drawer for Sale') . '</th>
-		</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Payment Method') . '</th>
+					<th class="SortedColumn">' . _('Use For Payments') . '</th>
+					<th class="SortedColumn">' . _('Use For Receipts') . '</th>
+					<th class="SortedColumn">' . _('Use Pre-printed Stationery') . '</th>
+					<th>' . _('Open POS Cash Drawer for Sale') . '</th>
+				</tr>
+			</thead>';
 
+	echo'<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
@@ -209,12 +212,13 @@ if (!isset($SelectedPaymentID)) {
 			</tr>';
 
 	} //END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 } //end of ifs and buts!
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedPaymentID)) {
@@ -257,32 +261,32 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Payment Method') . ':' . '</td>
-			<td><input type="text" name="MethodName" size="15" autofocus="autofocus" required="required" minlength="1" maxlength="15" value="' . $_POST['MethodName'] . '" /></td>
+			<td><input type="text" name="MethodName" size="15" autofocus="autofocus" required="required" maxlength="15" value="' . $_POST['MethodName'] . '" /></td>
 		</tr>';
 	echo '<tr>
 		<td>' . _('Use For Payments') . ':' . '</td>
-		<td><select minlength="0" name="ForPayment">
+		<td><select name="ForPayment">
 			<option' . ($_POST['ForPayment'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
 			<option' . ($_POST['ForPayment'] ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
 			</select></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Use For Receipts') . ':' . '</td>
-			<td><select minlength="0" name="ForReceipt">
+			<td><select name="ForReceipt">
 				<option' . ($_POST['ForReceipt'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
 				<option' . ($_POST['ForReceipt'] ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
 			</select></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Use Pre-printed Stationery') . ':' . '</td>
-			<td><select minlength="0" name="UsePrePrintedStationery">
+			<td><select name="UsePrePrintedStationery">
 				<option' . ($_POST['UsePrePrintedStationery'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
 				<option' . ($_POST['UsePrePrintedStationery'] == 1 ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
 				</select></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Open POS Cash Drawer for Sale') . ':' . '</td>
-			<td><select minlength="0" name="OpenCashDrawer">
+			<td><select name="OpenCashDrawer">
 				<option' . ($_POST['OpenCashDrawer'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
 				<option' . ($_POST['OpenCashDrawer'] ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
 			</select></td>

@@ -17,9 +17,9 @@ echo '<div class="toplink">
 		<a href="' . $RootPath . '/WorkOrderCosting.php?WO=' . urlencode($_POST['WO']) . '">' . _('Back to Costing') . '</a>
 	</div>';
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 
@@ -528,7 +528,7 @@ if (!isset($_POST['IssueItem'])) {
 				WHERE locations.usedforwo = 1";
 	$LocResult = DB_query($SQL);
 
-	echo '<select minlength="0" name="FromLocation">';
+	echo '<select name="FromLocation">';
 
 	if (!isset($_POST['FromLocation'])) {
 		$_POST['FromLocation'] = $WOHeaderRow['loccode'];
@@ -642,12 +642,12 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 	$SQL = "SELECT categoryid,
 			categorydescription
 			FROM stockcategory
-			WHERE stocktype='F' OR stocktype='D'
+			WHERE stocktype='F' OR stocktype='D' OR stocktype='L'
 			ORDER BY categorydescription";
 	$Result1 = DB_query($SQL);
 
 	echo '<table class="selection">
-			<tr><td>' . _('Select a stock category') . ':<select minlength="0" name="StockCat">';
+			<tr><td>' . _('Select a stock category') . ':<select name="StockCat">';
 
 	if (!isset($_POST['StockCat'])) {
 		echo '<option selected="selected" value="All">' . _('All') . '</option>';
@@ -667,13 +667,13 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 
 	echo '</select></td>
 		<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-		<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" value="';
+		<td><input type="text" name="Keywords" size="20" maxlength="25" value="';
 	if (isset($_POST['Keywords']))
 		echo $_POST['Keywords'];
 	echo '" /></td></tr>
 		<tr><td></td>
 		<td><b>' . _('OR') . ' </b>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-		<td><input type="text" name="StockCode" size="15" minlength="0" maxlength="18" value="';
+		<td><input type="text" name="StockCode" size="15" maxlength="18" value="';
 	if (isset($_POST['StockCode']))
 		echo $_POST['StockCode'];
 	echo '" /></td>
@@ -782,7 +782,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 					</tr>';
 			} else {
 				echo '<tr>
-						<td><select minlength="0" name="SerialNos[]" multiple="multiple">';
+						<td><select name="SerialNos[]" multiple="multiple">';
 				while ($SerialNoRow = DB_fetch_array($SerialNoResult)) {
 					if (in_array($SerialNoRow['serialno'], $_POST['SerialNos'])) {
 						echo '<option selected="selected" value="' . $SerialNoRow['serialno'] . '">' . $SerialNoRow['serialno'] . '</option>';
@@ -815,7 +815,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 		echo '<input type="hidden" name="IssueItem" value="' . $_POST['IssueItem'] . '" />';
 		echo '<tr>
 				<td>' . _('Quantity Issued') . ':</td>
-				<td><input class="number" required="required" minlength="1" maxlength="10" type="text" name="Qty" />
+				<td><input class="number" required="required" maxlength="10" type="text" name="Qty" />
 			</tr>';
 		echo '<tr>
 				<td colspan="2"><input type="submit" name="Process" value="' . _('Process Items Issued') . '" /></div></td>

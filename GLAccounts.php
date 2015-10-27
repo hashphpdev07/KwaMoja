@@ -14,10 +14,13 @@ if (isset($_POST['SelectedAccount'])) {
 	$SelectedAccount = $_GET['SelectedAccount'];
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('General Ledger Accounts') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Accounts') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['submit'])) {
 
+	$GroupSQL = "SELECT groupname FROM accountgroups WHERE groupcode='" . $_POST['Group'] . "'";
+	$GroupResult = DB_query($GroupSQL);
+	$GroupRow = DB_fetch_array($GroupResult);
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
@@ -26,15 +29,16 @@ if (isset($_POST['submit'])) {
 
 	//first off validate inputs sensible
 
-	if (mb_strlen($_POST['AccountName']) > 20) {
+	if (mb_strlen($_POST['AccountName']) > 150) {
 		$InputError = 1;
-		prnMsg(_('The account name must be twenty characters or less long'), 'warn');
+		prnMsg(_('The account name must be one hundred and fifty characters or less long'), 'warn');
 	}
 
 	if (isset($SelectedAccount) and $InputError != 1) {
 
-		$SQL = "UPDATE chartmaster SET accountname='" . $_POST['AccountName'] . "',
-						group_='" . htmlspecialchars($_POST['Group']) . "'
+		$SQL = "UPDATE chartmaster SET accountname='" . htmlspecialchars($_POST['AccountName']) . "',
+						group_='" . htmlspecialchars($GroupRow['groupname']) . "',
+						groupcode='" . $_POST['Group'] . "'
 				WHERE accountcode ='" . $SelectedAccount . "'";
 
 		$ErrMsg = _('Could not update the account because');
@@ -47,10 +51,13 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('Could not add the new account code');
 		$SQL = "INSERT INTO chartmaster (accountcode,
 						accountname,
-						group_)
+						group_,
+						groupcode)
 					VALUES ('" . $_POST['AccountCode'] . "',
 							'" . $_POST['AccountName'] . "',
-							'" . htmlspecialchars($_POST['Group']) . "')";
+							'" . htmlspecialchars($GroupRow['groupname']) . "',
+							'" . $_POST['Group'] . "'
+						)";
 		$Result = DB_query($SQL, $ErrMsg);
 
 		prnMsg(_('The new general ledger account has been added'), 'success');
@@ -201,7 +208,7 @@ if (isset($_POST['submit'])) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" id="GLAccounts" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" id="GLAccounts" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedAccount)) {
@@ -229,7 +236,7 @@ if (!isset($_GET['delete'])) {
 				</tr>';
 		echo '<tr>
 				<td>', _('Account Name'), ':</td>
-				<td><input type="text" size="51" autofocus="autofocus" required="required" minlength="1" maxlength="50" name="AccountName" value="', $_POST['AccountName'], '" /></td>
+				<td><input type="text" size="51" autofocus="autofocus" required="required" maxlength="50" name="AccountName" value="', $_POST['AccountName'], '" /></td>
 			</tr>';
 	} else {
 		if (!isset($_POST['AccountName'])) {
@@ -238,11 +245,11 @@ if (!isset($_GET['delete'])) {
 		echo '<table class="selection">';
 		echo '<tr>
 				<td>', _('Account Code'), ':</td>
-				<td><input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" minlength="1" maxlength="20" /></td>
+				<td><input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" maxlength="20" /></td>
 			</tr>';
 		echo '<tr>
 				<td>' . _('Account Name') . ':</td>
-				<td><input type="text" size="51" required="required" minlength="1" maxlength="50" name="AccountName" value="', $_POST['AccountName'], '" /></td>
+				<td><input type="text" size="51" required="required" maxlength="150" name="AccountName" value="', $_POST['AccountName'], '" /></td>
 			</tr>';
 	}
 
@@ -250,18 +257,18 @@ if (!isset($_GET['delete'])) {
 		$_POST['AccountName'] = '';
 	}
 
-	$SQL = "SELECT groupname FROM accountgroups ORDER BY sequenceintb";
+	$SQL = "SELECT groupcode, groupname FROM accountgroups ORDER BY sequenceintb";
 	$Result = DB_query($SQL);
 
 	echo '<tr>
 			<td>', _('Account Group'), ':</td>
-			<td><select required="required" minlength="1" name="Group">';
+			<td><select required="required" name="Group">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if (isset($_POST['Group']) and $MyRow['groupname'] == $_POST['Group']) {
-			echo '<option selected="selected" value="', $MyRow['groupname'], '">', $MyRow['groupname'], '</option>';
+		if (isset($_POST['Group']) and $MyRow['groupcode'] == $_POST['Group']) {
+			echo '<option selected="selected" value="', $MyRow['groupcode'], '">', $MyRow['groupcode'] . ' - ' . $MyRow['groupname'], '</option>';
 		} else {
-			echo '<option value="', $MyRow['groupname'], '">', $MyRow['groupname'], '</option>';
+			echo '<option value="', $MyRow['groupcode'], '">', $MyRow['groupcode'] . ' - ' . $MyRow['groupname'], '</option>';
 		}
 	}
 	echo '</select>
@@ -286,30 +293,34 @@ if (!isset($SelectedAccount)) {
 	$SQL = "SELECT accountcode,
 					accountname,
 					group_,
+					chartmaster.groupcode,
 					CASE WHEN pandl=0
 						THEN '" . _('Balance Sheet') . "'
 						ELSE '" . _('Profit/Loss') . "'
 					END AS acttype
 				FROM chartmaster
 				INNER JOIN accountgroups
-					ON chartmaster.group_=accountgroups.groupname
+					ON chartmaster.groupcode=accountgroups.groupcode
 				ORDER BY chartmaster.accountcode";
 
 	$ErrMsg = _('The chart accounts could not be retrieved because');
 
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">', _('Account Code'), '</th>
-			<th class="SortableColumn">', _('Account Name'), '</th>
-			<th class="SortableColumn">', _('Account Group'), '</th>
-			<th class="SortableColumn">', _('P/L or B/S'), '</th>
-			<th colspan="2"></th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Account Code'), '</th>
+					<th class="SortedColumn">', _('Account Name'), '</th>
+					<th class="SortedColumn">', _('Account Group Code'), '</th>
+					<th class="SortedColumn">', _('Account Group Name'), '</th>
+					<th class="SortedColumn">', _('P/L or B/S'), '</th>
+					<th colspan="2"></th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -322,6 +333,7 @@ if (!isset($SelectedAccount)) {
 
 		echo '<td>', $MyRow['accountcode'],'</td>
 			<td>', $MyRow['accountname'], '</td>
+			<td>', $MyRow['groupcode'], '</td>
 			<td>', $MyRow['group_'], '</td>
 			<td>', $MyRow['acttype'], '</td>
 			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
@@ -330,6 +342,7 @@ if (!isset($SelectedAccount)) {
 
 	}
 	//END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 } //END IF selected ACCOUNT
 

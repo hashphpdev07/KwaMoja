@@ -236,7 +236,7 @@ if (isset($_GET['Delete'])) {
 }
 
 if (!isset($_GET['Edit'])) {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . '</p><br />';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . '</p><br />';
 	$SQL = "SELECT purchdata.supplierno,
 					suppliers.suppname,
 					purchdata.price,
@@ -265,20 +265,23 @@ if (!isset($_GET['Edit'])) {
 		$NoPurchasingData = 1;
 	} else if ($StockId != '') {
 		echo '<table cellpadding="2" class="selection">
-				<tr>
-					<th class="SortableColumn">' . _('Supplier') . '</th>
-					<th>' . _('Price') . '</th>
-					<th>' . _('Supplier Unit') . '</th>
-					<th>' . _('Conversion Factor') . '</th>
-					<th>' . _('Cost Per Our Unit') . '</th>
-					<th>' . _('Currency') . '</th>
-					<th class="SortableColumn">' . _('Effective From') . '</th>
-					<th>' . _('Min Order Qty') . '</th>
-					<th>' . _('Lead Time') . '</th>
-					<th class="SortableColumn">' . _('Preferred') . '</th>
-				</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Supplier') . '</th>
+						<th>' . _('Price') . '</th>
+						<th>' . _('Supplier Unit') . '</th>
+						<th>' . _('Conversion Factor') . '</th>
+						<th>' . _('Cost Per Our Unit') . '</th>
+						<th>' . _('Currency') . '</th>
+						<th class="SortedColumn">' . _('Effective From') . '</th>
+						<th>' . _('Min Order Qty') . '</th>
+						<th>' . _('Lead Time') . '</th>
+						<th class="SortedColumn">' . _('Preferred') . '</th>
+					</tr>
+				</thead>';
 		$CountPreferreds = 0;
 		$k = 0; //row colour counter
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PurchDataResult)) {
 			if ($MyRow['preferred'] == 1) {
 				echo '<tr class="EvenTableRows">';
@@ -312,14 +315,14 @@ if (!isset($_GET['Edit'])) {
 					<td><a href="%s?StockID=%s&SupplierID=%s&Delete=1&EffectiveFrom=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this suppliers price?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					</tr>', $MyRow['suppname'], locale_number_format($MyRow['price'], $UPriceDecimalPlaces), $MyRow['suppliersuom'], locale_number_format($MyRow['conversionfactor'], 'Variable'), locale_number_format($MyRow['price'] / $MyRow['conversionfactor'], $UPriceDecimalPlaces), $MyRow['currcode'], ConvertSQLDate($MyRow['effectivefrom']), locale_number_format($MyRow['minorderqty'], 'Variable'), locale_number_format($MyRow['leadtime'], 'Variable'), $DisplayPreferred, htmlspecialchars($_SERVER['PHP_SELF']), $StockId, $MyRow['supplierno'], $MyRow['effectivefrom'], htmlspecialchars($_SERVER['PHP_SELF']), $StockId, $MyRow['supplierno'], $MyRow['effectivefrom'], htmlspecialchars($_SERVER['PHP_SELF']), $StockId, $MyRow['supplierno'], $MyRow['effectivefrom']);
 		} //end of while loop
-		echo '</table><br/>';
+		echo '</tbody>';
+		echo '</table>';
 		if ($CountPreferreds > 1) {
 			prnMsg(_('There are now') . ' ' . $CountPreferreds . ' ' . _('preferred suppliers set up for') . ' ' . $StockId . ' ' . _('you should edit the supplier purchasing data to make only one supplier the preferred supplier'), 'warn');
 		} elseif ($CountPreferreds == 0) {
 			prnMsg(_('There are NO preferred suppliers set up for') . ' ' . $StockId . ' ' . _('you should make one supplier only the preferred supplier'), 'warn');
 		}
 	} // end of there are purchsing data rows to show
-	echo '<br/>';
 }
 /* Only show the existing purchasing data records if one is not being edited */
 
@@ -347,19 +350,19 @@ if (isset($SupplierID) and $SupplierID != '' and !isset($_POST['SearchSupplier']
 	}
 } else {
 	if ($NoPurchasingData == 0) {
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . '</p><br />';
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . '</p><br />';
 	}
 	if (!isset($_POST['SearchSupplier'])) {
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post" class="noPrint">
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
 				<table cellpadding="3" colspan="4" class="selection">
 				<tr>
 					<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 					<input type="hidden" name="StockID" value="' . $StockId . '" />
 					<td>' . _('Text in the Supplier') . ' <b>' . _('NAME') . '</b>:</td>
-					<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+					<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 					<td><b>' . _('OR') . '</b></td>
 					<td>' . _('Text in Supplier') . ' <b>' . _('CODE') . '</b>:</td>
-					<td><input type="text" name="SupplierCode" size="20" minlength="0" maxlength="50" /></td>
+					<td><input type="text" name="SupplierCode" size="20" maxlength="50" /></td>
 				</tr>
 				</table>
 				<div class="centre">
@@ -374,7 +377,7 @@ if (isset($SupplierID) and $SupplierID != '' and !isset($_POST['SearchSupplier']
 if ($Edit == true) {
 	$ItemResult = DB_query("SELECT description FROM stockmaster WHERE stockid='" . $StockId . "'");
 	$DescriptionRow = DB_fetch_array($ItemResult);
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . ' - ' . $DescriptionRow['description'] . '</p><br />';
+	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . ' - ' . $DescriptionRow['description'] . '</p><br />';
 }
 if (isset($_POST['SearchSupplier'])) {
 	if (isset($_POST['Keywords']) and isset($_POST['SupplierCode'])) {
@@ -437,18 +440,22 @@ if (isset($SuppliersResult)) {
 		$StockId = '';
 		$StockUOM = 'each';
 	}
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post" class="noPrint">
-			<table cellpadding="2" colspan="7" class="selection">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<tr>
-				<th class="SortableColumn">' . _('Code') . '</th>
-				<th class="SortableColumn">' . _('Supplier Name') . '</th>
-				<th class="SortableColumn">' . _('Currency') . '</th>
-				<th>' . _('Address 1') . '</th>
-				<th>' . _('Address 2') . '</th>
-				<th>' . _('Address 3') . '</th>
-			</tr>';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
+			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+
+	echo '<table cellpadding="2" colspan="7" class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Supplier Name') . '</th>
+					<th class="SortedColumn">' . _('Currency') . '</th>
+					<th>' . _('Address 1') . '</th>
+					<th>' . _('Address 2') . '</th>
+					<th>' . _('Address 3') . '</th>
+				</tr>
+			</thead>';
 	$k = 0;
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SuppliersResult)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -470,9 +477,9 @@ if (isset($SuppliersResult)) {
 
 	}
 	//end of while loop
-	echo '</table>
-			<br/>
-			</form>';
+	echo '</tbody>
+		</table>
+	</form>';
 }
 //end if results to show
 
@@ -529,7 +536,7 @@ if (!isset($SuppliersResult)) {
 		$_POST['SupplierCode'] = $MyRow['suppliers_partno'];
 		$StockUOM = $MyRow['units'];
 	}
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post" class="noPrint">
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
 		<table class="selection">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($SupplierID)) {
@@ -543,7 +550,7 @@ if (!isset($SuppliersResult)) {
 	} else {
 		echo '<tr>
 				<td>' . _('Supplier Name') . ':</td>
-				<input type="hidden" name="SupplierID" minlength="0" maxlength="10" size="11" value="' . $SupplierID . '" />';
+				<input type="hidden" name="SupplierID" maxlength="10" size="11" value="' . $SupplierID . '" />';
 
 		if ($SupplierID != '') {
 			echo '<td>' . $SuppName;
@@ -555,7 +562,7 @@ if (!isset($SuppliersResult)) {
 		}
 		echo '</td></tr>';
 	}
-	echo '<td><input type="hidden" name="StockID" minlength="0" maxlength="10" size="11" value="' . $StockId . '" />';
+	echo '<td><input type="hidden" name="StockID" maxlength="10" size="11" value="' . $StockId . '" />';
 	if (!isset($CurrCode)) {
 		$CurrCode = '';
 	}
@@ -583,11 +590,11 @@ if (!isset($SuppliersResult)) {
 		</tr>
 		<tr>
 			<td>' . _('Price') . ' (' . _('in Supplier Currency') . '):</td>
-			<td><input type="text" class="number" name="Price" required="required" minlength="1" maxlength="12" size="12" value="' . $_POST['Price'] . '" /></td>
+			<td><input type="text" class="number" name="Price" required="required" maxlength="12" size="12" value="' . $_POST['Price'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Price Effective From') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveFrom" required="required" minlength="1" maxlength="10" size="11" value="' . $_POST['EffectiveFrom'] . '" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveFrom" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveFrom'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Our Unit of Measure') . ':</td>';
@@ -596,7 +603,7 @@ if (!isset($SuppliersResult)) {
 	}
 	echo '<tr>
 			<td>' . _('Suppliers Unit of Measure') . ':</td>
-			<td><input type="text" name="SuppliersUOM" size="20" minlength="0" maxlength="20" value ="' . $_POST['SuppliersUOM'] . '"/></td>
+			<td><input type="text" name="SuppliersUOM" size="20" maxlength="20" value ="' . $_POST['SuppliersUOM'] . '"/></td>
 		</tr>';
 
 	if (!isset($_POST['ConversionFactor']) or $_POST['ConversionFactor'] == '') {
@@ -604,19 +611,19 @@ if (!isset($SuppliersResult)) {
 	}
 	echo '<tr>
 			<td>' . _('Conversion Factor (to our UOM)') . ':</td>
-			<td><input type="text" class="number" name="ConversionFactor" required="required" minlength="1" maxlength="12" size="12" value="' . $_POST['ConversionFactor'] . '" /></td>
+			<td><input type="text" class="number" name="ConversionFactor" required="required" maxlength="12" size="12" value="' . $_POST['ConversionFactor'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Supplier Stock Code') . ':</td>
-			<td><input type="text" name="SupplierCode" minlength="0" maxlength="50" size="20" value="' . $_POST['SupplierCode'] . '" /></td>
+			<td><input type="text" name="SupplierCode" maxlength="50" size="20" value="' . $_POST['SupplierCode'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('MinOrderQty') . ':</td>
-			<td><input type="text" class="number" name="MinOrderQty" required="required" minlength="1" maxlength="15" size="15" value="' . $_POST['MinOrderQty'] . '" /></td>
+			<td><input type="text" class="number" name="MinOrderQty" required="required" maxlength="15" size="15" value="' . $_POST['MinOrderQty'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Supplier Stock Description') . ':</td>
-			<td><input type="text" name="SupplierDescription" minlength="0" maxlength="50" size="51" value="' . $_POST['SupplierDescription'] . '" /></td>
+			<td><input type="text" name="SupplierDescription" maxlength="50" size="51" value="' . $_POST['SupplierDescription'] . '" /></td>
 		</tr>';
 
 	if (!isset($_POST['LeadTime']) or $_POST['LeadTime'] == "") {
@@ -624,11 +631,11 @@ if (!isset($SuppliersResult)) {
 	}
 	echo '<tr>
 			<td>' . _('Lead Time') . ' (' . _('in days from date of order') . '):</td>
-			<td><input type="text" class="integer" name="LeadTime" required="required" minlength="1" maxlength="4" size="5" value="' . $_POST['LeadTime'] . '" /></td>
+			<td><input type="text" class="integer" name="LeadTime" required="required" maxlength="4" size="5" value="' . $_POST['LeadTime'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Preferred Supplier') . ':</td>
-			<td><select required="required" minlength="1" name="Preferred">';
+			<td><select required="required" name="Preferred">';
 
 	if (isset($_POST['Preferred']) and $_POST['Preferred'] == 1) {
 		echo '<option selected="selected" value="1">' . _('Yes') . '</option>
@@ -661,15 +668,18 @@ if (!isset($SuppliersResult)) {
 		$DiscountsResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 		echo '<table cellpadding="2" colspan="7" class="selection">
-				<tr>
-					<th class="SortableColumn">' . _('Discount Name') . '</th>
-					<th>' . _('Discount') . '<br />' . _('Value') . '</th>
-					<th>' . _('Discount') . '<br />' . _('Percent') . '</th>
-					<th class="SortableColumn">' . _('Effective From') . '</th>
-					<th>' . _('Effective To') . '</th>
-				</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Discount Name') . '</th>
+						<th>' . _('Discount') . '<br />' . _('Value') . '</th>
+						<th>' . _('Discount') . '<br />' . _('Percent') . '</th>
+						<th class="SortedColumn">' . _('Effective From') . '</th>
+						<th>' . _('Effective To') . '</th>
+					</tr>
+				</thead>';
 		$k = 0;
 		$i = 0; //DiscountCounter
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($DiscountsResult)) {
 			if ($k == 1) {
 				echo '<tr class="EvenTableRows">';
@@ -679,27 +689,27 @@ if (!isset($SuppliersResult)) {
 				++$k;
 			}
 			printf('<input type="hidden" name="DiscountID%s" value="%s" />
-					<td><input type="text" name="DiscountNarrative%s" value="%s" minlength="0" maxlength="20" size="20" /></td>
-					<td><input type="text" class="number" name="DiscountAmount%s" value="%s" minlength="0" maxlength="10" size="11" /></td>
-					<td><input type="text" class="number" name="DiscountPercent%s" value="%s" minlength="0" maxlength="5" size="6" /></td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveFrom%s" minlength="0" maxlength="10" size="11" value="%s" /></td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveTo%s" minlength="0" maxlength="10" size="11" value="%s" /></td>
+					<td><input type="text" name="DiscountNarrative%s" value="%s" maxlength="20" size="20" /></td>
+					<td><input type="text" class="number" name="DiscountAmount%s" value="%s" maxlength="10" size="11" /></td>
+					<td><input type="text" class="number" name="DiscountPercent%s" value="%s" maxlength="5" size="6" /></td>
+					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveFrom%s" maxlength="10" size="11" value="%s" /></td>
+					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveTo%s" maxlength="10" size="11" value="%s" /></td>
 					<td><a href="%s?DeleteDiscountID=%s&amp;StockID=%s&amp;EffectiveFrom=%s&amp;SupplierID=%s&amp;Edit=1">' . _('Delete') . '</a></td>
 					</tr>', $i, $MyRow['id'], $i, $MyRow['discountnarrative'], $i, locale_number_format($MyRow['discountamount'], $CurrDecimalPlaces), $i, locale_number_format($MyRow['discountpercent'] * 100, 2), $i, ConvertSQLDate($MyRow['effectivefrom']), $i, ConvertSQLDate($MyRow['effectiveto']), htmlspecialchars($_SERVER['PHP_SELF']), $MyRow['id'], $StockId, $EffectiveFrom, $SupplierID);
 
 			++$i;
 		} //end of while loop
-
+		echo '</tbody>';
 		echo '<input type="hidden" name="NumberOfDiscounts" value="' . $i . '" />';
 
 		$DefaultEndDate = Date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, Date('m') + 1, 0, Date('y')));
 
 		echo '<tr>
-				<td><input type="text" name="DiscountNarrative" value="" minlength="0" maxlength="20" size="20" /></td>
-				<td><input type="text" class="number" name="DiscountAmount" value="0" minlength="0" maxlength="10" size="11" /></td>
-				<td><input type="text" class="number" name="DiscountPercent" value="0" minlength="0" maxlength="5" size="6" /></td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveFrom" minlength="0" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveTo" minlength="0" maxlength="10" size="11" value="' . $DefaultEndDate . '" /></td>
+				<td><input type="text" name="DiscountNarrative" value="" maxlength="20" size="20" /></td>
+				<td><input type="text" class="number" name="DiscountAmount" value="0" maxlength="10" size="11" /></td>
+				<td><input type="text" class="number" name="DiscountPercent" value="0" maxlength="5" size="6" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveFrom" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveTo" maxlength="10" size="11" value="' . $DefaultEndDate . '" /></td>
 			</tr>
 			</table>';
 

@@ -9,7 +9,7 @@ $BookMark = 'Z_ChangeGLAccountCode'; // Anchor's id in the manual's html documen
 include('includes/header.inc');
 include('includes/SQL_CommonFunctions.inc');
 echo '<p class="page_title_text">
-		<img alt="" src="' . $RootPath.'/css/' . $Theme . '/images/gl.png" title="' . _('Change A GL Account Code') . '" />' . _('Change A GL Account Code') . '
+		<img alt="" src="' . $RootPath.'/css/' . $_SESSION['Theme'] . '/images/gl.png" title="' . _('Change A GL Account Code') . '" />' . _('Change A GL Account Code') . '
 	</p>';// Page title.
 if (isset($_POST['ProcessGLAccountCode'])) {
 
@@ -63,6 +63,8 @@ if (isset($_POST['ProcessGLAccountCode'])) {
 
 		ChangeFieldInTable("bankaccounts", "accountcode", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
 
+		ChangeFieldInTable("bankaccountusers", "accountcode", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
+
 		ChangeFieldInTable("banktrans", "bankact", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
 
 		ChangeFieldInTable("chartdetails", "accountcode", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
@@ -88,6 +90,9 @@ if (isset($_POST['ProcessGLAccountCode'])) {
 
 		ChangeFieldInTable("lastcostrollup", "stockact", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
 		ChangeFieldInTable("lastcostrollup", "adjglact", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
+// BEGIN: **********************************************************************
+		ChangeFieldInTable("locations", "glaccountcode", $_POST['OldAccountCode'], $_POST['NewAccountCode']);// Location's ledger account.
+// END: ************************************************************************
 
 		ChangeFieldInTable("pcexpenses", "glaccount", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
 
@@ -128,25 +133,23 @@ if (isset($_POST['ProcessGLAccountCode'])) {
 
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<div class="centre">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<br />
-	<table>
-	<tr>
-		<td>' . _('Existing GL Account Code') . ':</td>
-		<td><input type="text" name="OldAccountCode" size="20" minlength="0" maxlength="20" /></td>
-	</tr>
-	<tr>
-		<td>' . _('New GL Account Code') . ':</td>
-		<td><input type="text" name="NewAccountCode" size="20" minlength="0" maxlength="20" /></td>
-	</tr>
+echo '<table>
+		<tr>
+			<td>' . _('Existing GL Account Code') . ':</td>
+			<td><input type="text" name="OldAccountCode" size="20" maxlength="20" /></td>
+		</tr>
+		<tr>
+			<td>' . _('New GL Account Code') . ':</td>
+			<td><input type="text" name="NewAccountCode" size="20" maxlength="20" /></td>
+		</tr>
 	</table>
-
+	<div class="centre"></div>
 		<input type="submit" name="ProcessGLAccountCode" value="' . _('Process') . '" />
 	</div>
-	</form>';
+</form>';
 
 include('includes/footer.inc');
 

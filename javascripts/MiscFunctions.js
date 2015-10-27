@@ -296,63 +296,15 @@ function changeDate() {
 	isDate(this.value, this.alt)
 }
 
-function VerifyForm(e) {
-	Clean = true;
-	Alert = "";
-	for (var t = 0, n = e.length; t < n; t++) {
-		if (e.elements[t].type == "text") {
-			var r = document.getElementsByName(e.elements[t].name);
-			Class = r[0].getAttribute("class");
-			if (r[0].getAttribute("minlength") > e.elements[t].value.length) {
-				if (e.elements[t].value.length == 0) {
-					Alert = Alert + "You must input a value in the field " + r[0].getAttribute("name") + "<br />"
-				} else {
-					Alert = Alert + r[0].getAttribute("name") + " field must be at least " + r[0].getAttribute("minlength") + " characters long" + "<br />"
-				}
-				r[0].className = Class + " inputerror";
-				Clean = false
-			} else {
-				r[0].className = Class
-			}
-		}
-		if (e.elements[t].type == "select-one") {
-			Class = e.elements[t].getAttribute("class");
-			if (e.elements[t].getAttribute("minlength") > 0 && e.elements[t].value.length == 0) {
-				Alert = Alert + "You must make a selection in the field " + e.elements[t].getAttribute("name") + "<br />";
-				e.elements[t].className = Class + " inputerror";
-				Clean = false
-			}
-		}
-		if (e.elements[t].type == "password") {
-			Class = e.elements[t].getAttribute("class");
-			if (e.elements[t].getAttribute("minlength") > 0 && e.elements[t].value.length == 0) {
-				Alert = Alert + "You must make a selection in the field " + e.elements[t].getAttribute("name") + "<br />";
-				e.elements[t].className = Class + " inputerror";
-				Clean = false
-			}
-		}
-		if (e.elements[t].type == "email") {
-			Class = e.elements[t].getAttribute("class");
-			if (e.elements[t].value.length > 0 && !validateEmail(e.elements[t].value)) {
-				Alert = Alert + "You have not entered a valid email address <br />";
-				e.elements[t].className = Class + " inputerror";
-				Clean = false
-			}
-		}
-	}
-	if (Alert != "") {
-		makeAlert(Alert, "Input Error")
-	}
-	return Clean
-}
-
 function SortSelect() {
 	selElem = this;
 	var e = new Array;
 	th = document.getElementById("Theme").value;
 	columnText = selElem.innerHTML;
-	table = selElem.parentNode.parentNode;
-	i = table.rows[0];
+	TableHeader = selElem.parentNode;
+	TableBodyElements = TableHeader.parentNode.parentNode.getElementsByTagName('tbody');
+	table = TableBodyElements[0];
+	i = TableHeader;
 	for (var t = 0, n; n = i.cells[t]; t++) {
 		if (i.cells[t].innerHTML == columnText) {
 			columnNumber = t;
@@ -374,7 +326,7 @@ function SortSelect() {
 			}
 		}
 	}
-	for (var r = 1, i; i = table.rows[r]; r++) {
+	for (var r = 0, i; i = table.rows[r]; r++) {
 		var o = new Array;
 		for (var t = 0, n; n = i.cells[t]; t++) {
 			if (i.cells[t].tagName == "TD") {
@@ -407,7 +359,7 @@ function SortSelect() {
 			}
 		}
 	});
-	for (var r = 0, i; i = table.rows[r + 1]; r++) {
+	for (var r = 0, i; i = table.rows[r]; r++) {
 		var o = new Array;
 		o = e[r];
 		for (var t = 0, n; n = i.cells[t]; t++) {
@@ -459,9 +411,9 @@ function UpdateFavourites(e, t) {
 
 function AddAmount(t,Target) {
 	if (t.checked) {
-		document.getElementById(Target).value=parseInt(document.getElementById(Target).value)+parseInt(t.value);
+		document.getElementById(Target).value=parseFloat(document.getElementById(Target).value)+parseFloat(t.value);
 	} else {
-		document.getElementById(Target).value=parseInt(document.getElementById(Target).value)-parseInt(t.value);
+		document.getElementById(Target).value=parseFloat(document.getElementById(Target).value)-parseFloat(t.value);
 	}
 }
 
@@ -525,7 +477,7 @@ function initial() {
 	}
 	var n = document.getElementsByTagName("th");
 	for (i = 0; i < n.length; i++) {
-		if (n[i].className == "SortableColumn") {
+		if (n[i].className == "SortedColumn") {
 			n[i].onclick = SortSelect
 		}
 	}

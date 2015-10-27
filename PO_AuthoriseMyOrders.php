@@ -6,7 +6,7 @@ $Title = _('Authorise Purchase Orders');
 
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
 $EmailSQL = "SELECT email FROM www_users WHERE userid='" . $_SESSION['UserID'] . "'";
 $EmailResult = DB_query($EmailSQL);
@@ -46,20 +46,21 @@ $SQL = "SELECT purchorders.*,
 	WHERE status='Pending'";
 $Result = DB_query($SQL);
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table class="selection">
+		<thead>
+			<tr>
+				<th class="SortedColumn">' . _('Order Number') . '</th>
+				<th class="SortedColumn">' . _('Supplier') . '</th>
+				<th class="SortedColumn">' . _('Date Ordered') . '</th>
+				<th class="SortedColumn">' . _('Initiator') . '</th>
+				<th>' . _('Delivery Date') . '</th>
+				<th>' . _('Status') . '</th>
+			</tr>
+		</thead>';
 
-/* Create the table for the purchase order header */
-echo '<tr>
-		<th class="SortableColumn">' . _('Order Number') . '</th>
-		<th class="SortableColumn">' . _('Supplier') . '</th>
-		<th class="SortableColumn">' . _('Date Ordered') . '</th>
-		<th class="SortableColumn">' . _('Initiator') . '</th>
-		<th>' . _('Delivery Date') . '</th>
-		<th>' . _('Status') . '</th>
-	</tr>';
-
+echo '<tbody>';
 while ($MyRow = DB_fetch_array($Result)) {
 
 	$AuthSQL = "SELECT authlevel FROM purchorderauth
@@ -86,7 +87,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 				<td><a href="mailto:' . $MyRow['email'] . '">' . $MyRow['realname'] . '</td>
 				<td>' . ConvertSQLDate($MyRow['deliverydate']) . '</td>
 				<td>
-					<select required="required" minlength="1" name="Status' . $MyRow['orderno'] . '">
+					<select required="required" name="Status' . $MyRow['orderno'] . '">
 						<option selected="selected" value="Pending">' . _('Pending') . '</option>
 						<option value="Authorised">' . _('Authorised') . '</option>
 						<option value="Rejected">' . _('Rejected') . '</option>
@@ -108,14 +109,17 @@ while ($MyRow = DB_fetch_array($Result)) {
 				<td></td>
 				<td colspan="5" align="left">
 					<table class="selection" align="left">
-					<tr>
-						<th class="SortableColumn">' . _('Product') . '</th>
-						<th>' . _('Quantity Ordered') . '</th>
-						<th>' . _('Currency') . '</th>
-						<th>' . _('Price') . '</th>
-						<th>' . _('Line Total') . '</th>
-					</tr>';
+						<thead>
+							<tr>
+								<th class="SortedColumn">' . _('Product') . '</th>
+								<th>' . _('Quantity Ordered') . '</th>
+								<th>' . _('Currency') . '</th>
+								<th>' . _('Price') . '</th>
+								<th>' . _('Line Total') . '</th>
+							</tr>
+						</thead>';
 
+		echo '<tbody>';
 		while ($LineRow = DB_fetch_array($LineResult)) {
 			if ($LineRow['decimalplaces'] != NULL) {
 				$DecimalPlaces = $LineRow['decimalplaces'];
@@ -130,16 +134,17 @@ while ($MyRow = DB_fetch_array($Result)) {
 					<td class="number">' . locale_number_format($LineRow['unitprice'] * $LineRow['quantityord'], $MyRow['currdecimalplaces']) . '</td>
 				</tr>';
 		} // end while order line detail
-		echo '</table>
-			</td>
-			</tr>';
+		echo '</tbody>
+			</table>
+		</td>
+	</tr>';
 	}
 } //end while header loop
+echo '</tbody>';
 echo '</table>';
-echo '<br />
-		<div class="centre">
-			<input type="submit" name="UpdateAll" value="' . _('Update') . '" />
-		</div>
-		</form>';
+echo '<div class="centre">
+		<input type="submit" name="UpdateAll" value="' . _('Update') . '" />
+	</div>
+	</form>';
 include('includes/footer.inc');
 ?>

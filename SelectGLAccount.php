@@ -34,17 +34,17 @@ if (isset($_POST['Search'])) {
 
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="' . _('Search for General Ledger Accounts') . '" />' . ' ' . _('Search for General Ledger Accounts') . '</p>';
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="' . _('Search for General Ledger Accounts') . '" />' . ' ' . _('Search for General Ledger Accounts') . '</p>';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table class="selection" summary="' . _('Criteria for inquiry') . '">
 		<tr>
 			<td>' . _('Enter extract of text in the Account name') . ':</td>
-			<td><input type="text" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+			<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td>' . _('Enter Account No. to search from') . ':</td>
-			<td><input type="text" name="GLCode" size="15" minlength="0" maxlength="18" class="number" /></td>
+			<td><input type="text" name="GLCode" size="15" maxlength="18" class="number" /></td>
 		</tr>';
 
 $GroupSQL = "SELECT groupname FROM accountgroups ORDER BY sequenceintb";
@@ -52,7 +52,7 @@ $GroupResult = DB_query($GroupSQL);
 
 echo '<tr>
 		<td>' . _('Search In Account Group') . ':</td>
-		<td><select minlength="0" name="Group">';
+		<td><select name="Group">';
 
 echo '<option value="%%">' . _('All Account Groups') . '</option>';
 while ($GroupRow = DB_fetch_array($GroupResult)) {
@@ -74,17 +74,19 @@ echo '<div class="centre">
 
 if (isset($Result) and DB_num_rows($Result) > 0) {
 
-	echo '<form onSubmit="return VerifyForm(this);" action="GLAccountInquiry.php" method="post" class="noPrint">';
+	echo '<form action="GLAccountInquiry.php" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection" summary="' . _('List of GL Accounts') . '">';
+	echo '<table class="selection" summary="' . _('List of GL Accounts') . '">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Code') . '</th>
+					<th class="SortedColumn">' . _('Account Name') . '</th>
+					<th class="SortedColumn">' . _('Group') . '</th>
+					<th class="SortedColumn">' . _('Account Type') . '</th>
+				</tr>
+			</thead>';
 
-	echo '<tr>
-			<th class="SortableColumn">' . _('Code') . '</th>
-			<th class="SortableColumn">' . _('Account Name') . '</th>
-			<th class="SortableColumn">' . _('Group') . '</th>
-			<th class="SortableColumn">' . _('Account Type') . '</th>
-		</tr>';
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr>
 				<td>' . htmlspecialchars($MyRow['accountcode'],ENT_QUOTES,'UTF-8',false) . '</td>
@@ -93,17 +95,18 @@ if (isset($Result) and DB_num_rows($Result) > 0) {
 				<td>' . $MyRow['pl'] . '</td>
 				<td>
 					<a href="' . $RootPath . '/GLAccountInquiry.php?Account=' . urlencode($MyRow['accountcode']) . '&amp;Show=Yes">
-						<img width="24px" src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Inquiry') . '" alt="' . _('Inquiry') . '" />
+						<img width="24px" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Inquiry') . '" alt="' . _('Inquiry') . '" />
 					</a>
 				</td>
 				<td>
 					<a href="' . $RootPath . '/GLAccounts.php?SelectedAccount=' . urlencode($MyRow['accountcode']) . '">
-						<img width="24px" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Edit') . '" alt="' . _('Edit') . '" />
+						<img width="24px" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Edit') . '" alt="' . _('Edit') . '" />
 					</a>
 			</tr>';
 	}
 	//end of while loop
 
+	echo '</tbody>';
 	echo '</table>';
 
 }

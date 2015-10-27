@@ -5,7 +5,7 @@ include('includes/session.inc');
 $Title = _('Purchase Order Authorisation Maintenance');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 
 /*Note: If CanCreate==0 then this means the user can create orders
@@ -160,7 +160,7 @@ if (!isset($_GET['Edit'])) {
 	$AuthLevel = 0;
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint" id="form1">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table class="selection">';
 
@@ -170,7 +170,7 @@ if (isset($_GET['Edit'])) {
 } else {
 	echo '<tr>
 			<td>' . _('User ID') . '</td>
-			<td><select required="required" minlength="1" name="UserID">';
+			<td><select required="required" name="UserID">';
 	$usersql = "SELECT userid FROM www_users";
 	$userresult = DB_query($usersql);
 	while ($MyRow = DB_fetch_array($userresult)) {
@@ -211,7 +211,7 @@ if (isset($_GET['Edit'])) {
 } else {
 	echo '<tr>
 			<td>' . _('Currency') . '</td>
-			<td><select required="required" minlength="1" name="CurrCode">';
+			<td><select required="required" name="CurrCode">';
 	$currencysql = "SELECT currabrev,
 							currency,
 							decimalplaces
@@ -252,7 +252,7 @@ if ($OffHold == 1) {
 
 echo '<tr>
 		<td>' . _('User can authorise orders up to') . ':</td>';
-echo '<td><input type="text" name="AuthLevel" required="required" minlength="1" maxlength="11" size="11" class="integer" value="' . locale_number_format($AuthLevel, $CurrDecimalPlaces) . '" /></td>
+echo '<td><input type="text" name="AuthLevel" required="required" maxlength="11" size="11" class="integer" value="' . locale_number_format($AuthLevel, $CurrDecimalPlaces) . '" /></td>
 	</tr>
 	</table>';
 

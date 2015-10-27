@@ -9,7 +9,7 @@ $BookMark = 'Z_ChangeStockCategory'; // Anchor's id in the manual's html documen
 include ('includes/header.inc');
 
 echo '<p class="page_title_text">
-		<img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Change A Stock Category Code') . '" /> ' . _('Change A Stock Category Code') . '
+		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Change A Stock Category Code') . '" /> ' . _('Change A Stock Category Code') . '
 	</p>';// Page title.
 
 include ('includes/SQL_CommonFunctions.inc');
@@ -108,7 +108,7 @@ if (isset($_POST['ProcessStockChange'])) {
 	echo '<p>' . _('Stock Category') . ': ' . $_POST['OldStockCategory'] . ' ' . _('was successfully changed to') . ' : ' . $_POST['NewStockCategory'];
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>
 		<tr>

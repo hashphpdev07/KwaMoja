@@ -204,11 +204,11 @@ if (isset($_POST['PrintPDF'])) {
 
 	$Title = _('Supplier Price List');
 	include('includes/header.inc');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
-	echo '<div class="page_help_text noPrint">' . _('View the Price List from supplier') . '</div><br />';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
+	echo '<div class="page_help_text">' . _('View the Price List from supplier') . '</div><br />';
 
 	echo '<br/>
-		<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+		<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -217,7 +217,7 @@ if (isset($_POST['PrintPDF'])) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Supplier') . ':</td>
-				<td><select required="required" minlength="1" name="supplier"> ';
+				<td><select required="required" name="supplier"> ';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['supplierid']) and ($MyRow['supplierid'] == $_POST['supplierid'])) {
 			echo '<option selected="selected" value="' . $MyRow['supplierid'] . '">' . $MyRow['supplierid'] . ' - ' . $MyRow['suppname'] . '</option>';
@@ -232,7 +232,7 @@ if (isset($_POST['PrintPDF'])) {
 	$Result = DB_query($SQL);
 	echo '<tr>
 			<td>' . _('Category') . ':</td>
-			<td><select required="required" minlength="1" name="category"> ';
+			<td><select required="required" name="category"> ';
 	echo '<option value="all">' . _('ALL') . '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['categoryid']) and ($MyRow['categoryid'] == $_POST['categoryid'])) {
@@ -246,7 +246,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<tr>
 			<td>' . _('Price List') . ':</td>
-			<td><select required="required" minlength="1" name="price">
+			<td><select required="required" name="price">
 				<option value="all">' . _('All Prices') . '</option>
 				<option value="current">' . _('Only Current Price') . '</option>
 				</select>

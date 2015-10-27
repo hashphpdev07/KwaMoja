@@ -20,13 +20,15 @@ if (isset($_GET['StockID'])) {
 	unset($StockId);
 }
 echo '<div class="toplink">
-		<a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Back to Work Orders') . '</a>
-		<a href="' . $RootPath . '/WorkOrderCosting.php?WO=' . urlencode($SelectedWO) . '">' . _('Back to Costing') . '</a>
-	</div>';
+		<a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Back to Work Orders') . '</a>';
+if (isset($SelectedWO)) {
+	echo '<a href="' . $RootPath . '/WorkOrderCosting.php?WO=' . urlencode($SelectedWO) . '">' . _('Back to Costing') . '</a>';
+}
+echo '</div>';
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($SelectedWO) or !isset($StockId)) {
@@ -105,8 +107,12 @@ if (isset($_POST['Process'])) { //user hit the process the work order receipts e
 				}
 			}
 		} else { //controlled but not serialised - just lot/batch control
-			for ($i = 0; $i < 15; $i++) {
-				if (mb_strlen($_POST['BatchRef' . $i]) > 0) {
+			for ($i = 0; $i < $_POST['CountOfInputs']; $i++) {
+				if(isset($_POST['Qty' . $i]) and trim($_POST['Qty' . $i]) != '' and !is_numeric($_POST['Qty' . $i])) {
+					$InputError = true;
+					prnMsg(_('The quantity entered is not numeric - a number is expected'), 'error');
+				}
+				if (mb_strlen($_POST['BatchRef' . $i]) > 0 and (is_numeric($_POST['Qty' . $i]) and ABS($_POST['Qty' . $i]) > 0)) {
 					$QuantityReceived += filter_number_format($_POST['Qty' . $i]);
 				}
 			}
@@ -587,7 +593,7 @@ if (isset($_POST['Process'])) { //user hit the process the work order receipts e
 					/*  We need to add the StockSerialItem record and
 					The StockSerialMoves as well */
 					//need to test if the batch/lot exists first already
-					if (trim($_POST['BatchRef' . $i]) != "") {
+					if (trim($_POST['BatchRef' . $i]) != '' and (is_numeric($_POST['Qty' . $i]) and ABS($_POST['Qty' . $i] > 0))) {
 						$LastRef = trim($_POST['BatchRef' . $i]);
 						$SQL = "SELECT COUNT(*) FROM stockserialitems
 								WHERE stockid='" . $_POST['StockID'] . "'
@@ -608,7 +614,7 @@ if (isset($_POST['Process'])) { //user hit the process the work order receipts e
 										WHERE stockid='" . $_POST['StockID'] . "'
 										AND loccode = '" . $_POST['IntoLocation'] . "'
 										AND serialno = '" . $_POST['BatchRef' . $i] . "'";
-						} else {
+						} else if ($_POST['Qty' . $i] > 0) {//only the positive quantity can be insert into database;
 							if (empty($_POST['ExpiryDate'])) {
 								$SQL = "INSERT INTO stockserialitems (stockid,
 																	loccode,
@@ -637,6 +643,10 @@ if (isset($_POST['Process'])) { //user hit the process the work order receipts e
 																	'" . $_POST['QualityText'] . "',
 																	'" . FormatDateForSQL($_POST['ExpiryDate']) . "')";
 							}
+						} else {
+							prnMsg(_('The input quantity should not be negative since there are no this lot no existed'), 'error');
+							include('includes/footer.inc');
+							exit;
 						}
 						$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The serial stock item record could not be inserted because');
 						$DbgMsg = _('The following SQL to insert the serial stock item records was used');
@@ -667,16 +677,6 @@ if (isset($_POST['Process'])) { //user hit the process the work order receipts e
 
 							$BatchTotQtyResult = DB_query($SQL);
 							$BatchTotQtyRow = DB_fetch_row($BatchTotQtyResult);
-							if ($BatchTotQtyRow[0] >= $_POST['QtyReqd' . $i]) {
-								//need to delete the item from woserialnos
-								$SQL = "DELETE FROM	woserialnos
-										WHERE wo='" . $_POST['WO'] . "'
-										AND stockid='" . $_POST['StockID'] . "'
-										AND serialno='" . $_POST['BatchRef' . $i] . "'";
-								$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The predefined batch/lot/bundle record could not be deleted because');
-								$DbgMsg = _('The following SQL to delete the predefined work order batch/bundle/lot record was used');
-								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-							}
 						}
 						if ($_SESSION['QualityLogSamples'] == 1) {
 							CreateQASample($_POST['StockID'], $_POST['BatchRef' . $i], '', 'Created from Work Order', 0 , 0);
@@ -856,7 +856,7 @@ echo '<table class="selection">
 		}
 
 		echo '<td>' . _('Received Into') . ':</td>
-			<td><select minlength="0" name="IntoLocation">';
+			<td><select name="IntoLocation">';
 
 
 if (!isset($_POST['IntoLocation'])) {
@@ -933,11 +933,16 @@ if ($WORow['controlled'] == 1) { //controlled
 					echo '</tr>
 						<tr>';
 				}
-				echo '<td><input type="textbox" name="SerialNo' . $i . '" ';
+				echo '<td><input type="textbox" name="SerialNo' . $i . '" /></td>';
 				if ($i == 0) {
-					echo 'value="' . $StringBitOfLotSNRef . ($LotSNRefNumeric + 1) . '"';
+					if (!isset($StringBitOfLotSNRef)) {
+						$StringBitOfLotSNRef = '';
+					}
+					if (!isset($LotSNRefNumeric)) {
+						$LotSNRefNumeric = '';
+					}
+					echo 'value="' . $StringBitOfLotSNRef . ($LotSNRefNumeric + 1) . '" /></td>';
 				}
-				echo '" /></td>';
 
 			}
 		}
@@ -974,8 +979,8 @@ if ($WORow['controlled'] == 1) { //controlled
 					if (($i / 5 - intval($i / 5)) == 0) {
 						echo '</tr><tr>';
 					}
-					echo '<td><input type="text" required="required" minlength="1" maxlength="10" name="BatchRef' . $i . '" value="' . $WOSNRow[0] . '" /></td>
-						  <td><input type="text" required="required" minlength="1" maxlength="10" class="number" name="Qty' . $i . '" />
+					echo '<td><input type="text" required="required" maxlength="10" name="BatchRef' . $i . '" value="' . $WOSNRow[0] . '" /></td>
+						  <td><input type="text" required="required" maxlength="10" class="number" name="Qty' . $i . '" />
 						  		<input type="hidden" name="QualityText' . $i . '" value="' . $WOSNRow[2] . '" />
 						  		<input type="hidden" name="QtyReqd' . $i . '" value="' . locale_number_format($WOSNRow[1], 'Variable') . '" /></td>
 						  	</tr>';
@@ -1007,7 +1012,7 @@ if ($WORow['controlled'] == 1) { //controlled
 	echo '<tr>
 			<td><input type="hidden" name="CountOfInputs" value="1" /></td>
 			<td>' . _('Quantity Received') . ':</td>
-			<td><input type="text" required="required" minlength="1" maxlength="10" class="number" name="Qty" /></td>
+			<td><input type="text" required="required" maxlength="10" class="number" name="Qty" /></td>
 		</tr>
 		</table>';
 	echo '<div class="centre">

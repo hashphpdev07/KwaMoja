@@ -261,10 +261,12 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 	if (isset($_POST['InternalComments'])) {
 		$_SESSION['Items' . $Identifier]->InternalComments = $_POST['InternalComments'];
 	}
+	$i = 1;
 	foreach ($_SESSION['Items' . $Identifier]->FreightTaxes as $FreightTaxLine) {
-		if (isset($_POST['FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder])) {
-			$_SESSION['Items' . $Identifier]->FreightTaxes[$FreightTaxLine->TaxCalculationOrder]->TaxRate = filter_number_format($_POST['FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder]) / 100;
+		if (isset($_POST['FreightTaxRate'  . $i])) {
+			$_SESSION['Items' . $identifier]->FreightTaxes[$i]->TaxRate = filter_number_format($_POST['FreightTaxRate'  . $i]) / 100;
 		}
+		++$i;
 	}
 
 	foreach ($_SESSION['Items' . $Identifier]->LineItems as $Itm) {
@@ -285,10 +287,12 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 				$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched = round(filter_number_format($_POST[$Itm->LineNumber . '_QtyDispatched']), $Itm->DecimalPlaces);
 			}
 		}
+		$i = 1;
 		foreach ($Itm->Taxes as $TaxLine) {
-			if (isset($_POST[$Itm->LineNumber . $TaxLine->TaxCalculationOrder . '_TaxRate'])) {
-				$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Taxes[$TaxLine->TaxCalculationOrder]->TaxRate = filter_number_format($_POST[$Itm->LineNumber . $TaxLine->TaxCalculationOrder . '_TaxRate']) / 100;
-			}
+			if (isset($_POST[$Itm->LineNumber  . $i . '_TaxRate'])) {
+				$_SESSION['Items' . $identifier]->LineItems[$Itm->LineNumber]->Taxes[$i]->TaxRate = filter_number_format($_POST[$Itm->LineNumber  . $i . '_TaxRate']) / 100;
+ 			}
+			++$i;
 		}
 	} //end foreach lineitem
 
@@ -299,10 +303,10 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
 	prnMsg($_SESSION['Items' . $Identifier]->SpecialInstructions, 'warn');
 }
-echo '<p class="page_title_text noPrint "><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
+echo '<p class="page_title_text "><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
 echo '<table class="selection">
 			<tr>
-				<th><img src="' . $RootPath . '/css/' . $Theme . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Code') . ' :<b> ' . $_SESSION['Items' . $Identifier]->DebtorNo . '</b></th>
+				<th><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Code') . ' :<b> ' . $_SESSION['Items' . $Identifier]->DebtorNo . '</b></th>
 				<th>' . _('Customer Name') . ' :<b> ' . $_SESSION['Items' . $Identifier]->CustomerName . '</b></th>
 			</tr>
 			<tr>
@@ -310,7 +314,7 @@ echo '<table class="selection">
 			</tr>
 		</table>';
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /***************************************************************
@@ -384,13 +388,13 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 		if (isset($_POST['ProcessInvoice'])) {
 			echo '<td class="number">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</td>';
 		} else {
-			echo '<td class="number"><input type="hidden" name="' . $LnItm->LineNumber . '_QtyDispatched" required="required" minlength="1" maxlength="11"  value="' . $LnItm->QtyDispatched . '" /><a href="' . $RootPath . '/ConfirmDispatchControlled_Invoice.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNumber) . '">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</a></td>';
+			echo '<td class="number"><input type="hidden" name="' . $LnItm->LineNumber . '_QtyDispatched" required="required" maxlength="11"  value="' . $LnItm->QtyDispatched . '" /><a href="' . $RootPath . '/ConfirmDispatchControlled_Invoice.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNumber) . '">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</a></td>';
 		}
 	} else {
 		if (isset($_POST['ProcessInvoice'])) {
 			echo '<td class="number">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</td>';
 		} else {
-			echo '<td class="number"><input tabindex="' . $j . '" type="text" class="number" name="' . $LnItm->LineNumber . '_QtyDispatched" required="required" minlength="1" maxlength="12" size="12" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
+			echo '<td class="number"><input tabindex="' . $j . '" type="text" class="number" name="' . $LnItm->LineNumber . '_QtyDispatched" required="required" maxlength="12" size="12" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
 		}
 	}
 	$DisplayDiscountPercent = locale_number_format($LnItm->DiscountPercent * 100, 2) . '%';
@@ -413,7 +417,7 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	echo '</td>';
 	echo '<td class="number">';
 
-	$i = 0; // initialise the number of taxes iterated through
+	$i = 1; // initialise the number of taxes iterated through
 	$TaxLineTotal = 0; //initialise tax total for the line
 
 
@@ -421,13 +425,13 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 		if (empty($TaxTotals[$Tax->TaxAuthID])) {
 			$TaxTotals[$Tax->TaxAuthID] = 0;
 		}
-		if ($i > 0) {
+		if ($i > 1) {
 			echo '<br />';
 		}
 		if (isset($_POST['ProcessInvoice'])) {
 			echo $Tax->TaxRate * 100;
 		} else {
-			echo '<input type="text" class="number" name="' . $LnItm->LineNumber . $Tax->TaxCalculationOrder . '_TaxRate" required="required" minlength="1" maxlength="4" size="4" value="' . $Tax->TaxRate * 100 . '" />';
+			echo '<input type="text" class="number" required="required" title="' . _('Enter the tax rate applicable as a number') . '" name="' . $LnItm->LineNumber . $i . '_TaxRate" maxlength="4" size="4" value="' . $Tax->TaxRate * 100 . '" />';
 		}
 		++$i;
 		if ($Tax->TaxOnTax == 1) {
@@ -526,14 +530,14 @@ if (!isset($_POST['ChargeFreightCost'])) {
 if ($_SESSION['Items' . $Identifier]->Any_Already_Delivered() == 1 and (!isset($_SESSION['Items' . $Identifier]->FreightCost) or $_POST['ChargeFreightCost'] == 0)) {
 
 	echo '<td colspan="2" class="number">' . _('Charge Freight Cost ex Tax') . '</td>
-		<td><input tabindex="' . $j . '" type="text" class="number" size="10" required="required" minlength="1" maxlength="12" name="ChargeFreightCost" value="0" /></td>';
+		<td><input tabindex="' . $j . '" type="text" class="number" size="10" required="required" maxlength="12" name="ChargeFreightCost" value="0" /></td>';
 	$_SESSION['Items' . $Identifier]->FreightCost = 0;
 } else {
 	echo '<td colspan="2" class="number">' . _('Charge Freight Cost ex Tax') . '</td>';
 	if (isset($_POST['ProcessInvoice'])) {
 		echo '<td class="number">' . locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</td>';
 	} else {
-		echo '<td class="number"><input tabindex="' . $j . '" type="text" class="number" size="10" required="required" minlength="1" maxlength="12" name="ChargeFreightCost" value="' . locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '" /></td>';
+		echo '<td class="number"><input tabindex="' . $j . '" type="text" class="number" size="10" required="required" maxlength="12" name="ChargeFreightCost" value="' . locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '" /></td>';
 	}
 	$_POST['ChargeFreightCost'] = locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 }
@@ -562,7 +566,7 @@ foreach ($_SESSION['Items' . $Identifier]->FreightTaxes as $FreightTaxLine) {
 	if (isset($_POST['ProcessInvoice'])) {
 		echo $FreightTaxLine->TaxRate * 100;
 	} else {
-		echo '<input type="text" class="number" name="FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder . '" required="required" minlength="1" maxlength="4" size="4" value="' . locale_number_format($FreightTaxLine->TaxRate * 100, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '" />';
+		echo '<input type="text" class="number" name="FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder . '" required="required" maxlength="4" size="4" value="' . locale_number_format($FreightTaxLine->TaxRate * 100, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '" />';
 	}
 
 	if ($FreightTaxLine->TaxOnTax == 1) {
@@ -1745,9 +1749,9 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	echo '<div class="centre">';
 
 	if ($_SESSION['InvoicePortraitFormat'] == 0) {
-		echo '<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintCustTrans.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('Print this invoice') . ' (' . _('Landscape') . ')</a><br />';
+		echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintCustTrans.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('Print this invoice') . ' (' . _('Landscape') . ')</a><br />';
 	} else {
-		echo '<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintCustTransPortrait.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('Print this invoice') . ' (' . _('Portrait') . ')</a><br />';
+		echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintCustTransPortrait.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('Print this invoice') . ' (' . _('Portrait') . ')</a><br />';
 	}
 	echo '<a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Select another order for invoicing') . '</a><br />';
 	echo '<a href="' . $RootPath . '/SelectOrderItems.php?NewOrder=Yes">' . _('Sales Order Entry') . '</a></div>';
@@ -1778,24 +1782,24 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	echo '<table class="selection">
 		<tr>
 			<td>' . _('Date On Invoice') . ':</td>
-			<td><input tabindex="' . $j . '" type="text" required="required" minlength="1" maxlength="10" size="15" name="DispatchDate" value="' . $DefaultDispatchDate . '" id="datepicker" alt="' . $_SESSION['DefaultDateFormat'] . '" class="date" /></td>
+			<td><input tabindex="' . $j . '" type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="' . $DefaultDispatchDate . '" id="datepicker" alt="' . $_SESSION['DefaultDateFormat'] . '" class="date" /></td>
 		</tr>';
 	++$j;
 	echo '<tr>
 			<td>' . _('Consignment Note Ref') . ':</td>
-			<td><input tabindex="' . $j . '" type="text" minlength="0" maxlength="20" size="20" name="Consignment" value="' . $_POST['Consignment'] . '" /></td>
+			<td><input tabindex="' . $j . '" type="text" maxlength="20" size="20" name="Consignment" value="' . $_POST['Consignment'] . '" /></td>
 		</tr>';
 	++$j;
 	echo '<tr>
 			<td>' . _('No Of Packages in Delivery') . ':</td>
-			<td><input tabindex="' . $j . '" type="text" minlength="0" maxlength="6" size="6" class="number" name="Packages" value="' . $_POST['Packages'] . '" /></td>
+			<td><input tabindex="' . $j . '" type="text" maxlength="6" size="6" class="number" name="Packages" value="' . $_POST['Packages'] . '" /></td>
 		</tr>';
 
 	++$j;
 	echo '<tr>
 			<td>' . _('Action For Balance') . ':</td>
 			 <td>
-				<select required="required" minlength="1" tabindex="' . $j . '" name="BOPolicy">
+				<select required="required" tabindex="' . $j . '" name="BOPolicy">
 					<option selected="selected" value="BO">' . _('Automatically put balance on back order') . '</option>
 					<option value="CAN">' . _('Cancel any quantities not delivered') . '</option>
 				</select>

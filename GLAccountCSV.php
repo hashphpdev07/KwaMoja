@@ -13,11 +13,11 @@ if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_GET['Period'];
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('General Ledger Account Inquiry') . '" alt="' . _('General Ledger Account Inquiry') . '" />' . ' ' . _('General Ledger Account Report') . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Account Inquiry') . '" alt="' . _('General Ledger Account Inquiry') . '" />' . ' ' . _('General Ledger Account Report') . '</p>';
 
-echo '<div class="page_help_text noPrint">' . _('Use the keyboard Shift key to select multiple accounts and periods') . '</div><br />';
+echo '<div class="page_help_text">' . _('Use the keyboard Shift key to select multiple accounts and periods') . '</div><br />';
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /*Dates in SQL format for the last day of last month*/
@@ -27,7 +27,7 @@ $DefaultPeriodDate = Date('Y-m-d', Mktime(0, 0, 0, Date('m'), 0, Date('Y')));
 echo '<table class="selection" summary="' . _('Criteria for report') . '">
 			<tr>
 			 <td>' . _('Selected Accounts') . ':</td>
-			 <td><select minlength="0" name="Account[]" size="12" multiple="multiple">';
+			 <td><select name="Account[]" size="12" multiple="multiple">';
 $SQL = "SELECT accountcode, accountname FROM chartmaster ORDER BY accountcode";
 $AccountsResult = DB_query($SQL);
 $i = 0;
@@ -42,7 +42,7 @@ while ($MyRow = DB_fetch_array($AccountsResult)) {
 echo '</select></td>';
 
 echo '<td>' . _('For Period range') . ':</td>
-		<td><select minlength="0" name="Period[]" size="12" multiple="multiple">';
+		<td><select name="Period[]" size="12" multiple="multiple">';
 $SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno DESC";
 $Periods = DB_query($SQL);
 $id = 0;
@@ -58,7 +58,7 @@ while ($MyRow = DB_fetch_array($Periods)) {
 echo '</select></td></tr>';
 
 //Select the tag
-echo '<tr><td>' . _('Select Tag') . ':</td><td><select minlength="0" name="tag">';
+echo '<tr><td>' . _('Select Tag') . ':</td><td><select name="tag">';
 
 $SQL = "SELECT tagref,
 		   tagdescription

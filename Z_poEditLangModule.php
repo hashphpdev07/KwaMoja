@@ -18,9 +18,9 @@ echo '<div class="toplink">
 		<a href="' . $RootPath . '/Z_poAdmin.php">' . _('Back to the translation menu') . '</a>
 	</div>';
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Edit a Language File Module') . '" />' . ' ' . _('Edit a Language File Module') . '</p>';
+echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Edit a Language File Module') . '" />' . ' ' . _('Edit a Language File Module') . '</p>';
 
-echo '<div class="page_help_text noPrint">' . _('Utility to edit a language file module') . '. '. _('Current language is') . ' ' . $_SESSION['Language'] . '. ' . _('To change language click on the user name at the top left, change to language desired and click Modify') . '. ' . _('Make sure you have selected the correct language to translate!') . '. ' . '</div>';
+echo '<div class="page_help_text">' . _('Utility to edit a language file module') . '. '. _('Current language is') . ' ' . $_SESSION['Language'] . '. ' . _('To change language click on the user name at the top left, change to language desired and click Modify') . '. ' . _('Make sure you have selected the correct language to translate!') . '. ' . '</div>';
 
 if ($_SESSION['Language'] == 'en_GB.utf8') {
 	$PathToLanguage = './locale/' . $_SESSION['Language'] . '/LC_MESSAGES/messages.pot';
@@ -62,7 +62,7 @@ if (isset($_POST['module'])) {
 	if (isset($_POST['submit'])) {
 		// save the modifications
 
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		/* write the new language file */
@@ -126,7 +126,7 @@ if (isset($_POST['module'])) {
 
 		echo '<br />&nbsp;' . _('When finished modifying you must click on Modify at the bottom in order to save changes');
 		prnMsg(_('Your existing translation file (messages.po) will be saved as messages.po.old') . '<br />', 'info', _('PLEASE NOTE'));
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table>
 				<tr>
@@ -216,13 +216,13 @@ if (isset($_POST['module'])) {
 	if (!is_writable('./locale/' . $_SESSION['Language'])) {
 		prnMsg(_('You do not have write access to the required files please contact your system administrator'), 'error');
 	} else {
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
+		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table>';
 
 		echo '<tr><td>' . _('Select the module to edit') . '</td>';
-		echo '<td><select minlength="0" name="module">';
+		echo '<td><select name="module">';
 		for ($i = 0; $i < $NumberOfModules; $i++) {
 			echo '<option>' . $AvailableModules[$i] . '</option>';
 		}

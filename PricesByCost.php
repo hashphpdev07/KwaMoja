@@ -4,7 +4,7 @@ include('includes/session.inc');
 $Title = _('Update of Prices By A Multiple Of Cost');
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Update Price By Cost') . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Update Price By Cost') . '</p>';
 
 if (isset($_POST['submit']) or isset($_POST['update'])) {
 	if ($_POST['Margin'] == '') {
@@ -150,25 +150,26 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	}
 	/*end of else Category */
 
-	echo '<div class="page_help_text noPrint">' . _('Items in') . ' ' . $CategoryText . ' ' . _('With Prices') . ' ' . $Comparator . '' . $_POST['Margin'] . ' ' . _('times') . ' ' . _('Cost in Price List') . ' ' . $SalesTypeRow['sales_type'] . '</div><br /><br />';
+	echo '<div class="page_help_text">' . _('Items in') . ' ' . $CategoryText . ' ' . _('With Prices') . ' ' . $Comparator . '' . $_POST['Margin'] . ' ' . _('times') . ' ' . _('Cost in Price List') . ' ' . $SalesTypeRow['sales_type'] . '</div><br /><br />';
 
 	if ($numrow > 0) { //the number of prices returned from the main prices query is
-		echo '<table class="selection">';
-		echo '<tr>
-				<th class="SortableColumn">' . _('Code') . '</th>
-				<th class="SortableColumn">' . _('Description') . '</th>
-				<th class="SortableColumn">' . _('Customer') . '</th>
-				<th class="SortableColumn">' . _('Branch') . '</th>
-				<th class="SortableColumn">' . _('Start Date') . '</th>
-				<th>' . _('End Date') . '</th>
-				<th>' . _('Cost') . '</th>
-				<th>' . _('GP %') . '</th>
-				<th>' . _('Price Proposed') . '</th>
-				<th>' . _('List Price') . '</th>
-			<tr>';
+		echo '<table class="selection">
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Code') . '</th>
+						<th class="SortedColumn">' . _('Description') . '</th>
+						<th class="SortedColumn">' . _('Customer') . '</th>
+						<th class="SortedColumn">' . _('Branch') . '</th>
+						<th class="SortedColumn">' . _('Start Date') . '</th>
+						<th>' . _('End Date') . '</th>
+						<th>' . _('Cost') . '</th>
+						<th>' . _('GP %') . '</th>
+						<th>' . _('Price Proposed') . '</th>
+						<th>' . _('List Price') . '</th>
+					<tr>
+				</thead>';
 		$k = 0; //row colour counter
-		echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint" id="update">';
-		echo '<div>';
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="update">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" value="' . $_POST['StockCat'] . '" name="StockCat" />
 			<input type="hidden" value="' . $_POST['Margin'] . '" name="Margin" />
@@ -177,6 +178,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 			<input type="hidden" value="' . $_POST['SalesType'] . '" name="SalesType" />';
 
 		$PriceCounter = 0;
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			if ($k == 1) {
@@ -222,26 +224,29 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 					<td class="number">' . locale_number_format($Cost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format($CurrentGP, 1) . '%</td>
 					<td class="number">' . locale_number_format($ProposedPrice, $MyRow['decimalplaces']) . '</td>
-					<td><input type="text" class="number" name="Price_' . $PriceCounter . '" required="required" minlength="1" maxlength="14" size="10" value="' . locale_number_format($MyRow['price'], $MyRow['decimalplaces']) . '" /></td>
+					<td><input type="text" class="number" name="Price_' . $PriceCounter . '" required="required" maxlength="14" size="10" value="' . locale_number_format($MyRow['price'], $MyRow['decimalplaces']) . '" /></td>
 				</tr> ';
 			$PriceCounter++;
 		} //end of looping
-		echo '<tr>
-			<td style="text-align:right" colspan="4"><input type="submit" name="submit" value="' . _('Update') . '" onclick="return MakeConfirm(\'' . _('If the prices above do not have a commencement date as today, this will create new prices with commencement date of today at the entered figures and update the existing prices with historical start dates to have an end date of yesterday. Are You Sure?') . '\');" /></td>
-			<td style="text-align:left" colspan="3"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '"><input type="submit" value="' . _('Back') . '" /></a></td>
-			 </tr>
-			 </div>
-			 </form>';
+		echo '</tbody>
+				<tr>
+					<td style="text-align:right" colspan="4">
+						<input type="submit" name="submit" value="' . _('Update') . '" onclick="return MakeConfirm(\'' . _('If the prices above do not have a commencement date as today, this will create new prices with commencement date of today at the entered figures and update the existing prices with historical start dates to have an end date of yesterday. Are You Sure?') . '\');" />
+					</td>
+					<td style="text-align:left" colspan="3">
+						<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '"><input type="submit" value="' . _('Back') . '" /></a>
+					</td>
+				</tr>
+			</table>
+		</form>';
 	} else {
 		prnMsg(_('There were no prices meeting the criteria specified to review'), 'info');
 		echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '<a/></div>';
 	}
 } else {
 	/*The option to submit was not hit so display form */
-	echo '<div class="page_help_text noPrint">' . _('Prices can be displayed based on their relation to cost') . '</div><br />';
-	echo '<br />
-		  <form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
-	echo '<div>';
+	echo '<div class="page_help_text">' . _('Prices can be displayed based on their relation to cost') . '</div><br />';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">';
 
@@ -251,7 +256,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	$Result1 = DB_query($SQL);
 	echo '<tr>
 			<td>' . _('Category') . ':</td>
-			<td><select required="required" minlength="1" name="StockCat">';
+			<td><select required="required" name="StockCat">';
 	echo '<option value="all">' . _('All Categories') . '</option>';
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
@@ -259,7 +264,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	echo '</select></td></tr>';
 	echo '<tr>
 			<td>' . _('Price') . '
-				<select required="required" minlength="1" name="Comparator">
+				<select required="required" name="Comparator">
 					<option value="1">' . _('Less than or equal to') . '</option>
 					<option value="2">' . _('Greater than or equal to') . '</option>';
 	if ($_SESSION['WeightedAverageCosting'] == 1) {
@@ -270,11 +275,11 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	if (!isset($_POST['Margin'])) {
 		$_POST['Margin'] = 1;
 	}
-	echo '<td><input type="text" class="number" name="Margin" required="required" minlength="1" maxlength="8" size="8" value="' . $_POST['Margin'] . '" /></td></tr>';
+	echo '<td><input type="text" class="number" name="Margin" required="required" maxlength="8" size="8" value="' . $_POST['Margin'] . '" /></td></tr>';
 	$Result = DB_query("SELECT typeabbrev, sales_type FROM salestypes");
 	echo '<tr>
 			<td>' . _('Sales Type') . '/' . _('Price List') . ':</td>
-			<td><select required="required" minlength="1" name="SalesType">';
+			<td><select required="required" name="SalesType">';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($_POST['SalesType'] == $MyRow['typeabbrev']) {
 			echo '<option selected="selected" value="' . $MyRow['typeabbrev'] . '">' . $MyRow['sales_type'] . '</option>';
@@ -288,7 +293,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 			</td></tr>';
 	echo '<tr>
 			<td>' . _('Currency') . ':</td>
-			<td><select required="required" minlength="1" name="CurrCode">';
+			<td><select required="required" name="CurrCode">';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['CurrCode']) and $_POST['CurrCode'] == $MyRow['currabrev']) {
 			echo '<option selected="selected" value="' . $MyRow['currabrev'] . '">' . $MyRow['currency'] . '</option>';
@@ -299,9 +304,10 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	DB_data_seek($Result, 0);
 	echo '</select></td></tr>';
 	echo '</table>
-		<br /><div class="centre"><input type="submit" name="submit" value="' . _('Submit') . '" /></div>';
-	echo '</div>
-		  </form>';
+		<div class="centre">
+			<input type="submit" name="submit" value="' . _('Submit') . '" />
+		</div>';
+	echo '</form>';
 }
 /*end of else not submit */
 include('includes/footer.inc');

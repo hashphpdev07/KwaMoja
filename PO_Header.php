@@ -537,8 +537,8 @@ else {
 
 // part of step 1
 if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Identifier]->SupplierID) or $_SESSION['PO' . $Identifier]->SupplierID == '') {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Purchase Order') . '" alt="" />' . ' ' . _('Purchase Order: Select Supplier') . '</p>';
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint" id="choosesupplier">';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order') . '" alt="" />' . ' ' . _('Purchase Order: Select Supplier') . '</p>';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" id="choosesupplier">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SuppliersReturned)) {
@@ -548,10 +548,10 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 	echo '<table cellpadding="3" class="selection">
 			<tr>
 				<td>' . _('Enter text in the supplier name') . ':</td>
-				<td><input type="text" autofocus="autofocus" name="Keywords" size="20" minlength="0" maxlength="25" /></td>
+				<td><input type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" /></td>
 				<td><h3><b>' . _('OR') . '</b></h3></td>
 				<td>' . _('Enter text extract in the supplier code') . ':</td>
-				<td><input type="text" name="SuppCode" size="15" minlength="0" maxlength="18" /></td>
+				<td><input type="text" name="SuppCode" size="15" maxlength="18" /></td>
 			</tr>
 		</table>
 		<div class="centre">
@@ -561,16 +561,18 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 
 	if (isset($Result_SuppSelect)) {
 		echo '<table cellpadding="3" class="selection">
-						<tr>
-							<th class="SortableColumn">' . _('Code') . '</th>
-							<th class="SortableColumn">' . _('Supplier Name') . '</th>
-							<th>' . _('Address') . '</th>
-							<th>' . _('Currency') . '</th>
-						</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Code') . '</th>
+						<th class="SortedColumn">' . _('Supplier Name') . '</th>
+						<th>' . _('Address') . '</th>
+						<th>' . _('Currency') . '</th>
+					</tr>
+				</thead>';
 
 		$k = 0;
 		/*row counter to determine background colour */
-
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_SuppSelect)) {
 			if ($k == 1) {
 				echo '<tr class="EvenTableRows">';
@@ -596,6 +598,7 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 			//end of page full new headings if
 		} //end of while loop
 
+		echo '</tbody>';
 		echo '</table>';
 
 	} //isset($Result_SuppSelect)
@@ -606,11 +609,11 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 else {
 	/* everything below here only do if a supplier is selected */
 
-	echo '<form onSubmit="return VerifyForm(this);" id="form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+	echo '<form id="form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Purchase Order') . '" alt="" />
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order') . '" alt="" />
 			' . $_SESSION['PO' . $Identifier]->SupplierName . ' - ' . _('All amounts stated in') . '
 			' . $_SESSION['PO' . $Identifier]->CurrCode . '</p>';
 
@@ -745,15 +748,15 @@ else {
 
 	echo '<tr>
 			<td>' . _('Version') . ' #' . ':</td>
-			<td><input type="hidden" name="Version" size="16" minlength="0" maxlength="15" value="' . $_POST['Version'] . '" />' . $_POST['Version'] . '</td>
+			<td><input type="hidden" name="Version" size="16" maxlength="15" value="' . $_POST['Version'] . '" />' . $_POST['Version'] . '</td>
 		</tr>
 		<tr>
 			<td>' . _('Revised') . ':</td>
-			<td><input type="hidden" name="Revised" size="11" minlength="0" maxlength="15" value="' . date($_SESSION['DefaultDateFormat']) . '" />' . date($_SESSION['DefaultDateFormat']) . '</td>
+			<td><input type="hidden" name="Revised" size="11" maxlength="15" value="' . date($_SESSION['DefaultDateFormat']) . '" />' . date($_SESSION['DefaultDateFormat']) . '</td>
 		</tr>
 		<tr>
 			<td>' . _('Delivery Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DeliveryDate" required="required" minlength="1" maxlength="10" size="11" value="' . $_POST['DeliveryDate'] . '" /></td>
+			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DeliveryDate" required="required" maxlength="10" size="11" value="' . $_POST['DeliveryDate'] . '" /></td>
 		</tr>';
 
 	if (!isset($_POST['Initiator'])) {
@@ -768,11 +771,11 @@ else {
 
 	echo '<tr>
 			<td>' . _('Initiated By') . ':</td>
-			<td><input type="hidden" name="Initiator" size="11" minlength="0" maxlength="10" value="' . $_POST['Initiator'] . '" />' . $_POST['InitiatorName'] . '</td>
+			<td><input type="hidden" name="Initiator" size="11" maxlength="10" value="' . $_POST['Initiator'] . '" />' . $_POST['InitiatorName'] . '</td>
 		</tr>
 		<tr>
 			<td>' . _('Requisition Ref') . ':</td>
-			<td><input type="text" name="Requisition" size="16" minlength="0" maxlength="15" value="' . $_POST['Requisition'] . '" /></td>
+			<td><input type="text" name="Requisition" size="16" maxlength="15" value="' . $_POST['Requisition'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Date Printed') . ':</td>';
@@ -795,7 +798,7 @@ else {
 		echo '<tr>
 				<td>' . _('Allow Reprint') . ':</td>
 				<td>
-					<select required="required" minlength="1" name="RePrint" onchange="ReloadForm(form1.AllowRePrint)">
+					<select required="required" name="RePrint" onchange="ReloadForm(form1.AllowRePrint)">
 						<option selected="selected" value="0">' . _('No') . '</option>
 						<option value="1">' . _('Yes') . '</option>
 					</select>
@@ -826,7 +829,7 @@ else {
 	else {
 		echo '<tr>
 				<td>' . _('Status') . ' :  </td>
-				<td><select required="required" minlength="1" name="Status" onchange="ReloadForm(form1.UpdateStatus)">';
+				<td><select required="required" name="Status" onchange="ReloadForm(form1.UpdateStatus)">';
 
 		switch ($_SESSION['PO' . $Identifier]->Status) {
 			case 'Pending':
@@ -862,7 +865,7 @@ else {
 
 		echo '<tr>
 				<td>' . _('Status Comment') . ':</td>
-				<td><input type="text" minlength="0" maxlength="50" name="StatusComments" size="50" /></td>
+				<td><input type="text" maxlength="50" name="StatusComments" size="50" /></td>
 			</tr>
 			<tr>
 				<td colspan="2">' . html_entity_decode($_SESSION['PO' . $Identifier]->StatusComments, ENT_QUOTES, 'UTF-8') . '</td>
@@ -886,7 +889,7 @@ else {
 	echo '<table class="selection" width="100%">
 			<tr>
 				<td>' . _('Warehouse') . ':</td>
-				<td><select required="required" minlength="1" name="StkLocation" onchange="ReloadForm(form1.LookupDeliveryAddress)">';
+				<td><select required="required" name="StkLocation" onchange="ReloadForm(form1.LookupDeliveryAddress)">';
 
 	$SQL = "SELECT locationname,
 					locations.loccode
@@ -996,38 +999,38 @@ else {
 
 	echo '<tr>
 			<td>' . _('Delivery Contact') . ':</td>
-			<td><input type="text" name="Contact" size="41" minlength="0" maxlength="40"  value="' . $_SESSION['PO' . $Identifier]->Contact . '" /></td>
+			<td><input type="text" name="Contact" size="41" maxlength="40"  value="' . $_SESSION['PO' . $Identifier]->Contact . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 1 :</td>
-			<td><input type="text" name="DelAdd1" size="41" minlength="0" maxlength="40" value="' . $_POST['DelAdd1'] . '" /></td>
+			<td><input type="text" name="DelAdd1" size="41" maxlength="40" value="' . $_POST['DelAdd1'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 2 :</td>
-			<td><input type="text" name="DelAdd2" size="41" minlength="0" maxlength="40" value="' . $_POST['DelAdd2'] . '" /></td>
+			<td><input type="text" name="DelAdd2" size="41" maxlength="40" value="' . $_POST['DelAdd2'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 3 :</td>
-			<td><input type="text" name="DelAdd3" size="41" minlength="0" maxlength="40" value="' . $_POST['DelAdd3'] . '" /></td>
+			<td><input type="text" name="DelAdd3" size="41" maxlength="40" value="' . $_POST['DelAdd3'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 4 :</td>
-			<td><input type="text" name="DelAdd4" size="41" minlength="0" maxlength="40" value="' . $_POST['DelAdd4'] . '" /></td>
+			<td><input type="text" name="DelAdd4" size="41" maxlength="40" value="' . $_POST['DelAdd4'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 5 :</td>
-			<td><input type="text" name="DelAdd5" size="21" minlength="0" maxlength="20" value="' . $_POST['DelAdd5'] . '" /></td>
+			<td><input type="text" name="DelAdd5" size="21" maxlength="20" value="' . $_POST['DelAdd5'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 6 :</td>
-			<td><input type="text" name="DelAdd6" size="16" minlength="0" maxlength="15" value="' . $_POST['DelAdd6'] . '" /></td>
+			<td><input type="text" name="DelAdd6" size="16" maxlength="15" value="' . $_POST['DelAdd6'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Phone') . ':</td>
-			<td><input type="tel" name="Tel" size="31" minlength="0" maxlength="30" value="' . $_SESSION['PO' . $Identifier]->Tel . '" /></td>
+			<td><input type="tel" name="Tel" size="31" maxlength="30" value="' . $_SESSION['PO' . $Identifier]->Tel . '" /></td>
 		</tr>
 		<tr>
-			<td>' . _('Delivery By') . ':</td><td><select minlength="0" name="DeliveryBy">';
+			<td>' . _('Delivery By') . ':</td><td><select name="DeliveryBy">';
 
 	$ShipperResult = DB_query("SELECT shipper_id, shippername FROM shippers");
 
@@ -1050,7 +1053,7 @@ else {
 	echo '<table class="selection" width="100%">
 			<tr>
 				<td>' . _('Supplier Selection') . ':</td>
-				<td><select required="required" minlength="1" name="Keywords" onchange="ReloadForm(form1.SearchSuppliers)">';
+				<td><select required="required" name="Keywords" onchange="ReloadForm(form1.SearchSuppliers)">';
 
 	$SuppCoResult = DB_query("SELECT supplierid, suppname FROM suppliers ORDER BY suppname");
 
@@ -1067,12 +1070,14 @@ else {
 	echo '<input type="submit" name="SearchSuppliers" value="' . _('Select Now') . '" /></td>
 		</tr>';
 
-	echo '<tr>
-				<td>' . _('Supplier Contact') . ':</td>
-				<td><select minlength="0" name="SupplierContact">';
-
 	$SQL = "SELECT contact FROM suppliercontacts WHERE supplierid='" . $_POST['Select'] . "'";
 	$SuppCoResult = DB_query($SQL);
+
+	echo '<tr>
+				<td>' . _('Supplier Contact') . ':</td>
+				<td>
+					<select name="SupplierContact">
+						<option value=""></option>';
 
 	while ($SuppCoRow = DB_fetch_array($SuppCoResult)) {
 		if ($_POST['SupplierContact'] == $SuppCoRow['contact'] or ($_POST['SupplierContact'] == '' and $SuppCoRow['contact'] == $_SESSION['PO' . $Identifier]->SupplierContact)) {
@@ -1087,38 +1092,38 @@ else {
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 1 :</td>
-			<td><input type="text" name="SuppDelAdd1" size="41" minlength="0" maxlength="40" value="' . $_POST['SuppDelAdd1'] . '" /></td>
+			<td><input type="text" name="SuppDelAdd1" size="41" maxlength="40" value="' . $_POST['SuppDelAdd1'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 2 :</td>
-			<td><input type="text" name="SuppDelAdd2" size="41" minlength="0" maxlength="40" value="' . $_POST['SuppDelAdd2'] . '" /></td>
+			<td><input type="text" name="SuppDelAdd2" size="41" maxlength="40" value="' . $_POST['SuppDelAdd2'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 3 :</td>
-			<td><input type="text" name="SuppDelAdd3" size="41" minlength="0" maxlength="40" value="' . $_POST['SuppDelAdd3'] . '" /></td>
+			<td><input type="text" name="SuppDelAdd3" size="41" maxlength="40" value="' . $_POST['SuppDelAdd3'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 4 :</td>
-			<td><input type="text" name="SuppDelAdd4" size="21" minlength="0" maxlength="20" value="' . $_POST['SuppDelAdd4'] . '" /></td>
+			<td><input type="text" name="SuppDelAdd4" size="21" maxlength="20" value="' . $_POST['SuppDelAdd4'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 5 :</td>
-			<td><input type="text" name="SuppDelAdd5" size="21" minlength="0" maxlength="20" value="' . $_POST['SuppDelAdd5'] . '" /></td>
+			<td><input type="text" name="SuppDelAdd5" size="21" maxlength="20" value="' . $_POST['SuppDelAdd5'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address') . ' 6 :</td>
-			<td><input type="text" name="SuppDelAdd6" size="16" minlength="0" maxlength="15" value="' . $_POST['SuppDelAdd6'] . '" /></td>
+			<td><input type="text" name="SuppDelAdd6" size="16" maxlength="15" value="' . $_POST['SuppDelAdd6'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Phone') . ':</td>
-			<td><input type="tel" name="SuppTel" size="31" minlength="0" maxlength="30" value="' . $_SESSION['PO' . $Identifier]->SuppTel . '" /></td>
+			<td><input type="tel" name="SuppTel" size="31" maxlength="30" value="' . $_SESSION['PO' . $Identifier]->SuppTel . '" /></td>
 		</tr>';
 
 	$Result = DB_query("SELECT terms, termsindicator FROM paymentterms");
 
 	echo '<tr>
 			<td>' . _('Payment Terms') . ':</td>
-			<td><select minlength="0" name="PaymentTerms">';
+			<td><select name="PaymentTerms">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['termsindicator'] == $_SESSION['PO' . $Identifier]->PaymentTerms) {

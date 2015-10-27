@@ -10,7 +10,7 @@ $BookMark = 'SelectSupplier';
 include('includes/header.inc');
 include('includes/SQL_CommonFunctions.inc');
 if (!isset($_SESSION['SupplierID'])) {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Suppliers') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Suppliers') . '</p>';
 }
 if (isset($_GET['SupplierID'])) {
 	$_SESSION['SupplierID'] = $_GET['SupplierID'];
@@ -122,7 +122,7 @@ if (isset($_SESSION['SupplierID'])) {
 		$MyRow = DB_fetch_row($SupplierNameResult);
 		$SupplierName = $MyRow[0];
 	}
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Supplier') . '" alt="" />' . ' ' . _('Supplier') . ' : <b>' . stripslashes($_SESSION['SupplierID']) . ' - ' . $SupplierName . '</b> ' . _('has been selected') . '.</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Supplier') . '" alt="" />' . ' ' . _('Supplier') . ' : <b>' . stripslashes($_SESSION['SupplierID']) . ' - ' . $SupplierName . '</b> ' . _('has been selected') . '.</p>';
 	// Extended Info only if selected in Configuration
 	if ($_SESSION['Extended_SupplierInfo'] == 1) {
 		if ($_SESSION['SupplierID'] != '') {
@@ -141,7 +141,7 @@ if (isset($_SESSION['SupplierID'])) {
 			$DataResult = DB_query($SQL, $ErrMsg);
 			$MyRow = DB_fetch_array($DataResult);
 			// Select some more data about the supplier
-			$SQL = "SELECT SUM(-ovamount) AS total FROM supptrans WHERE supplierno = '" . $_SESSION['SupplierID'] . "' and type != '20'";
+			$SQL = "SELECT SUM(ovamount) AS total FROM supptrans WHERE supplierno = '" . $_SESSION['SupplierID'] . "' AND (type = '20' OR type='21')";
 			$Total1Result = DB_query($SQL);
 			$Row = DB_fetch_array($Total1Result);
 			echo '<table style="width:75%" cellpadding="4">';
@@ -197,7 +197,7 @@ if (isset($_SESSION['SupplierID'])) {
 			echo '</table>';
 		}
 	}
-	echo '<div class="page_help_text noPrint">' . _('Select a menu option to operate using this supplier.') . '</div>';
+	echo '<div class="page_help_text">' . _('Select a menu option to operate using this supplier.') . '</div>';
 	echo '<table width="90%" cellpadding="4">
 			<tr>
 				<th style="width:33%">' . _('Supplier Inquiries') . '</th>
@@ -235,26 +235,26 @@ if (isset($_SESSION['SupplierID'])) {
 		</table>';
 
 }
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
 	<table cellpadding="3" class="selection">
 	<tr>
 		<td>' . _('Enter a partial Name') . ':</td>
 		<td>';
 if (isset($_POST['Keywords'])) {
-	echo '<input type="text" name="Keywords" autofocus="autofocus" value="' . $_POST['Keywords'] . '" size="20" minlength="0" maxlength="25" />';
+	echo '<input type="text" name="Keywords" autofocus="autofocus" value="' . $_POST['Keywords'] . '" size="20" maxlength="25" />';
 } else {
-	echo '<input type="text" name="Keywords" autofocus="autofocus" size="20" minlength="0" maxlength="25" />';
+	echo '<input type="text" name="Keywords" autofocus="autofocus" size="20" maxlength="25" />';
 }
 echo '</td>
 		<td><b>' . _('OR') . '</b></td>
 		<td>' . _('Enter a partial Code') . ':</td>
 		<td>';
 if (isset($_POST['SupplierCode'])) {
-	echo '<input type="text" name="SupplierCode" value="' . $_POST['SupplierCode'] . '" size="15" minlength="0" maxlength="18" />';
+	echo '<input type="text" name="SupplierCode" value="' . $_POST['SupplierCode'] . '" size="15" maxlength="18" />';
 } else {
-	echo '<input type="text" name="SupplierCode" size="15" minlength="0" maxlength="18" />';
+	echo '<input type="text" name="SupplierCode" size="15" maxlength="18" />';
 }
 echo '</td></tr>
 		</table>
@@ -275,7 +275,7 @@ if (isset($_POST['Search'])) {
 	}
 	if ($ListPageMax > 1) {
 		echo '<p>&nbsp;&nbsp;' . $_POST['PageOffset'] . ' ' . _('of') . ' ' . $ListPageMax . ' ' . _('pages') . '. ' . _('Go to Page') . ': </p>';
-		echo '<select minlength="0" name="PageOffset">';
+		echo '<select name="PageOffset">';
 		$ListPage = 1;
 		while ($ListPage <= $ListPageMax) {
 			if ($ListPage == $_POST['PageOffset']) {
@@ -297,18 +297,22 @@ if (isset($_POST['Search'])) {
 	if (DB_num_rows($Result) <> 0) {
 		DB_data_seek($Result, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		echo '<table cellpadding="2">
-				<tr>
-					<th class="SortableColumn">' . _('Code') . '</th>
-					<th class="SortableColumn">' . _('Supplier Name') . '</th>
-					<th>' . _('Currency') . '</th>
-					<th>' . _('Address 1') . '</th>
-					<th>' . _('Address 2') . '</th>
-					<th>' . _('Address 3') . '</th>
-					<th>' . _('Address 4') . '</th>
-					<th>' . _('Telephone') . '</th>
-					<th>' . _('Email') . '</th>
-					<th>' . _('URL') . '</th>
-				</tr>';
+				<thead>
+					<tr>
+						<th class="SortedColumn">' . _('Code') . '</th>
+						<th class="SortedColumn">' . _('Supplier Name') . '</th>
+						<th>' . _('Currency') . '</th>
+						<th>' . _('Address 1') . '</th>
+						<th>' . _('Address 2') . '</th>
+						<th>' . _('Address 3') . '</th>
+						<th>' . _('Address 4') . '</th>
+						<th>' . _('Telephone') . '</th>
+						<th>' . _('Email') . '</th>
+						<th>' . _('URL') . '</th>
+					</tr>
+				</thead>';
+
+		echo '<tbody>';
 		while (($MyRow = DB_fetch_array($Result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
 			if ($k == 1) {
 				echo '<tr class="EvenTableRows">';
@@ -332,6 +336,7 @@ if (isset($_POST['Search'])) {
 			//end of page full new headings if
 		}
 		//end of while loop
+		echo '</tbody>';
 		echo '</table>';
 	} else {
 		prnMsg( _('There are no suppliers returned for this criteria. Please enter new criteria'), 'info');
@@ -340,7 +345,7 @@ if (isset($_POST['Search'])) {
 //end if results to show
 if (isset($ListPageMax) and $ListPageMax > 1) {
 	echo '<p>&nbsp;&nbsp;' . $_POST['PageOffset'] . ' ' . _('of') . ' ' . $ListPageMax . ' ' . _('pages') . '. ' . _('Go to Page') . ': </p>';
-	echo '<select minlength="0" name="PageOffset">';
+	echo '<select name="PageOffset">';
 	$ListPage = 1;
 	while ($ListPage <= $ListPageMax) {
 		if ($ListPage == $_POST['PageOffset']) {

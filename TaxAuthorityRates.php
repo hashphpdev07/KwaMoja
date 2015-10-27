@@ -13,8 +13,8 @@ $ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
 $BookMark = 'TaxAuthorityRates';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . $Title . '" alt="" />' . $Title . '
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="" />' . $Title . '
 	</p>';
 
 if (!isset($TaxAuthority)) {
@@ -52,7 +52,7 @@ $TaxAuthDetail = DB_query("SELECT description
 							FROM taxauthorities WHERE taxid='" . $TaxAuthority . "'");
 $MyRow = DB_fetch_row($TaxAuthDetail);
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<input type="hidden" name="TaxAuthority" value="' . $TaxAuthority . '" />';
@@ -80,18 +80,20 @@ if (isset($_SESSION['FirstStart'])) {
 
 if (DB_num_rows($TaxRatesResult) > 0) {
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th colspan="3"><h3>' . _('Update') . ' ' . $MyRow[0] . ' ' . _('Rates') . '</h3></th>
-		</tr>
-		<tr>
-			<th class="SortableColumn">' . _('Deliveries From') . '<br />' . _('Tax Province') . '</th>
-			<th class="SortableColumn">' . _('Tax Category') . '</th>
-			<th>' . _('Tax Rate') . ' %</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th colspan="3"><h3>' . _('Update') . ' ' . $MyRow[0] . ' ' . _('Rates') . '</h3></th>
+				</tr>
+				<tr>
+					<th class="SortedColumn">' . _('Deliveries From') . '<br />' . _('Tax Province') . '</th>
+					<th class="SortedColumn">' . _('Tax Category') . '</th>
+					<th>' . _('Tax Rate') . ' %</th>
+				</tr>
+			</thead>';
 	$k = 0; //row counter to determine background colour
 	$OldProvince = '';
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($TaxRatesResult)) {
 
 		if ($OldProvince != $MyRow['dispatchtaxprovince'] and $OldProvince != '') {
@@ -108,13 +110,14 @@ if (DB_num_rows($TaxRatesResult) > 0) {
 
 		printf('<td>%s</td>
 				<td>%s</td>
-				<td><input type="text" class="number" name="%s" required="required" minlength="1" maxlength="5" size="5" value="%s" /></td>
+				<td><input type="text" class="number" name="%s" required="required" maxlength="5" size="5" value="%s" /></td>
 				</tr>', $MyRow['taxprovincename'], _($MyRow['taxcatname']), $MyRow['dispatchtaxprovince'] . '_' . $MyRow['taxcatid'], locale_number_format($MyRow['taxrate'] * 100, 2));
 
 		$OldProvince = $MyRow['dispatchtaxprovince'];
 
 	}
 	//end of while loop
+	echo '</tbody>';
 	echo '</table>';
 	echo '<div class="centre">
 			<input type="submit" name="UpdateRates" value="' . _('Update Rates') . '" />

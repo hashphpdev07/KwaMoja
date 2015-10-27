@@ -16,8 +16,8 @@ if (isset($Errors)) {
 
 $Errors = array();
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . _('Supplier Type Setup') . '</p>';
-echo '<div class="page_help_text noPrint">' . _('Add/edit/delete Supplier Types') . '</div>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . _('Supplier Type Setup') . '</p>';
+echo '<div class="page_help_text">' . _('Add/edit/delete Supplier Types') . '</div>';
 
 if (isset($_POST['insert']) or isset($_POST['update'])) {
 
@@ -54,7 +54,8 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 	if (isset($_POST['update']) and $InputError != 1) {
 
 		$SQL = "UPDATE suppliertype
-			SET typename = '" . $_POST['TypeName'] . "'
+			SET typename = '" . $_POST['TypeName'] . "',
+				nextsupplierno = '" . $_POST['NextNumber'] . "'
 			WHERE typeid = '" . $SelectedType . "'";
 
 		$Msg = _('The supplier type') . ' ' . $SelectedType . ' ' . _('has been updated');
@@ -63,8 +64,10 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		// Add new record on submit
 
 		$SQL = "INSERT INTO suppliertype
-					(typename)
-				VALUES ('" . $_POST['TypeName'] . "')";
+					(typename,
+					 nextsupplierno)
+				VALUES ('" . $_POST['TypeName'] . "',
+						'" . $_POST['NextNumber'] . "')";
 
 		$Msg = _('Supplier type') . ' ' . stripslashes($_POST['TypeName']) . ' ' . _('has been created');
 
@@ -92,6 +95,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		unset($SelectedType);
 		unset($_POST['TypeID']);
 		unset($_POST['TypeName']);
+		unset($_POST['NextNumber']);
 	}
 
 } elseif (isset($_GET['delete'])) {
@@ -124,17 +128,20 @@ if (!isset($SelectedType)) {
 	 * the same page again and allow update/input or deletion of the records
 	 */
 
-	$SQL = "SELECT typeid, typename FROM suppliertype";
+	$SQL = "SELECT typeid, typename, nextsupplierno FROM suppliertype";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">' . _('Type ID') . '</th>
-			<th class="SortableColumn">' . _('Type Name') . '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Type ID') . '</th>
+					<th class="SortedColumn">' . _('Type Name') . '</th>
+					<th class="SortedColumn">' . _('Last Supplier No') . '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_row($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -146,11 +153,13 @@ if (!isset($SelectedType)) {
 
 		echo '<td>' . $MyRow[0] . '</td>
 				<td>' . $MyRow[1] . '</td>
+				<td>' . $MyRow[2] . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&Edit=Yes">' . _('Edit') . '</a></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Supplier Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 }
 
@@ -163,7 +172,7 @@ if (isset($SelectedType)) {
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection">'; //Main table
 
@@ -171,7 +180,8 @@ if (!isset($_GET['delete'])) {
 	if (isset($SelectedType) and $SelectedType != '') {
 
 		$SQL = "SELECT typeid,
-				   typename
+				   typename,
+				   nextsupplierno
 				FROM suppliertype
 				WHERE typeid='" . $SelectedType . "'";
 
@@ -180,6 +190,7 @@ if (!isset($_GET['delete'])) {
 
 		$_POST['TypeID'] = $MyRow['typeid'];
 		$_POST['TypeName'] = $MyRow['typename'];
+		$_POST['NextNumber'] = $MyRow['nextsupplierno'];
 
 		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
 
@@ -194,9 +205,16 @@ if (!isset($_GET['delete'])) {
 	if (!isset($_POST['TypeName'])) {
 		$_POST['TypeName'] = '';
 	}
+	if (!isset($_POST['NextNumber'])) {
+		$_POST['NextNumber'] = '';
+	}
 	echo '<tr>
 			<td>' . _('Type Name') . ':</td>
-			<td><input type="text" autofocus="autofocus" required="required" minlength="1" maxlength="100" name="TypeName" value="' . $_POST['TypeName'] . '" /></td>
+			<td><input type="text" autofocus="autofocus" required="required" maxlength="100" name="TypeName" value="' . $_POST['TypeName'] . '" /></td>
+		</tr>
+		<tr>
+			<td>' . _('Last Supplier Number') . ':</td>
+			<td><input type="text" autofocus="autofocus" maxlength="100" name="NextNumber" value="' . $_POST['NextNumber'] . '" /></td>
 		</tr>
 	</table>';
 

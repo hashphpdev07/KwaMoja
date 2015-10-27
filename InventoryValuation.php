@@ -222,16 +222,16 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 	$Title = _('Inventory Valuation Reporting');
 	include('includes/header.inc');
 
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '
 		</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table class="selection">
 			<tr>
 				<td>' . _('Select Inventory Categories') . ':</td>
-				<td><select autofocus="autofocus" required="required" minlength="1" size="12" name="Categories[]"multiple="multiple">';
+				<td><select autofocus="autofocus" required="required" size="12" name="Categories[]"multiple="multiple">';
 	$SQL = 'SELECT categoryid,
 					categorydescription
 				FROM stockcategory
@@ -257,7 +257,8 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "' AND locationusers.canview=1";
+					AND locationusers.userid='" .  $_SESSION['UserID'] . "' AND locationusers.canview=1
+				ORDER BY locationname";
 
 	$LocnResult=DB_query($SQL);
 

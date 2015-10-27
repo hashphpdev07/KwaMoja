@@ -17,11 +17,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	include('includes/header.inc');
 
 	echo '<p class="page_title_text">
-			<img alt="" class="noprint" src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" title="' . _('Print') . '" />' . _('Print Profit and Loss Report') . '
+			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" />' . _('Print Profit and Loss Report') . '
 		</p>';// Page title.
-	echo '<div class="page_help_text noPrint">' . _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the "bottom line").') . '<br />' . _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.') . '<br />' . _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
+	echo '<div class="page_help_text">' . _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the "bottom line").') . '<br />' . _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.') . '<br />' . _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
@@ -38,7 +38,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	echo '<table class="selection" summary="' . _('Criteria for report') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
-				<td><select minlength="0" name="FromPeriod">';
+				<td><select name="FromPeriod">';
 
 	$SQL = "SELECT periodno,
 					lastdate_in_period
@@ -78,7 +78,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	echo '<tr>
 			<td>' . _('Select Period To') . ':</td>
-			<td><select minlength="0" name="ToPeriod">';
+			<td><select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
@@ -94,10 +94,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	echo '<tr>
 			<td>' . _('Detail Or Summary') . ':</td>
-			<td><select minlength="0" name="Detail">
-					<option selected="selected" value="Summary">' . _('Summary') . '</option>
+			<td>
+				<select name="Detail">
+					<option value="Summary">' . _('Summary') . '</option>
 					<option selected="selected" value="Detailed">' . _('All Accounts') . '</option>
-					</select>
+				</select>
 			</td>
 		</tr>
 		<tr>
@@ -155,18 +156,18 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					Sum(CASE WHEN chartdetails.period='" . ($_POST['ToPeriod'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lylastprdcfwd,
 					Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
 				FROM chartmaster INNER JOIN accountgroups
-				ON chartmaster.group_ = accountgroups.groupname INNER JOIN chartdetails
+				ON chartmaster.groupcode = accountgroups.groupcode INNER JOIN chartdetails
 				ON chartmaster.accountcode= chartdetails.accountcode
 				WHERE accountgroups.pandl=1
 				GROUP BY accountgroups.sectioninaccounts,
-					accountgroups.groupname,
+					accountgroups.groupcode,
 					accountgroups.parentgroupname,
 					chartdetails.accountcode,
 					chartmaster.accountname,
 					accountgroups.sequenceintb
 				ORDER BY accountgroups.sectioninaccounts,
 					accountgroups.sequenceintb,
-					accountgroups.groupname,
+					accountgroups.groupcode,
 					chartdetails.accountcode";
 
 	$AccountsResult = DB_query($SQL);
@@ -593,7 +594,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'ProfitAndLoss';
 	include('includes/header.inc');
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="FromPeriod" value="' . $_POST['FromPeriod'] . '" />
 			<input type="hidden" name="ToPeriod" value="' . $_POST['ToPeriod'] . '" />';
@@ -624,7 +625,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					SUM(CASE WHEN chartdetails.period='" . ($_POST['ToPeriod'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lylastprdcfwd,
 					SUM(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
 			FROM chartmaster INNER JOIN accountgroups
-			ON chartmaster.group_ = accountgroups.groupname INNER JOIN chartdetails
+			ON chartmaster.groupcode = accountgroups.groupcode INNER JOIN chartdetails
 			ON chartmaster.accountcode= chartdetails.accountcode
 			WHERE accountgroups.pandl=1
 			GROUP BY accountgroups.sectioninaccounts,
@@ -640,7 +641,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was'));
 
 	echo '<p class="page_title_text">
-			<img alt="" class="noprint" src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('General Ledger Profit Loss Inquiry') . '" />
+			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Profit Loss Inquiry') . '" />
 			' . _('Statement of Profit and Loss for the') . ' ' . $NumberOfMonths . ' ' . _('months to') . ' and including ' . $PeriodToDate . '
 		</p>';// Page title.
 
@@ -651,7 +652,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<tr>
 				<th colspan="10">
 					<b>' . _('General Ledger Profit Loss Inquiry') . '</b>
-					<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 				</th>
 			</tr>';
 
@@ -1323,7 +1324,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<td colspan="8"><hr /></td>
 		</tr>';
 	echo '</table>';
-	echo '<br /><div class="centre noPrint"><input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" /></div>';
+	echo '<br /><div class="centre"><input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" /></div>';
 }
 echo '</form>';
 include('includes/footer.inc');

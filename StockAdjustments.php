@@ -122,11 +122,11 @@ if (isset($_GET['OldIdentifier'])) {
 	$_SESSION['Adjustment' . $Identifier]->StockLocation = $_SESSION['Adjustment' . $_GET['OldIdentifier']]->StockLocation;
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Inventory Adjustment') . '" alt="" />' . ' ' . _('Inventory Adjustment') . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory Adjustment') . '" alt="" />' . ' ' . _('Inventory Adjustment') . '</p>';
 
 if (isset($_POST['CheckCode'])) {
 
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . _('Select Item to Adjust') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . _('Select Item to Adjust') . '</p>';
 
 	if (mb_strlen($_POST['StockText']) > 0) {
 		$SQL = "SELECT stockid,
@@ -143,10 +143,14 @@ if (isset($_POST['CheckCode'])) {
 	$DbgMsg = _('The SQL to get the stock description was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">' . _('Stock Code') . '</th>
-				<th class="SortableColumn">' . _('Stock Description') . '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('Stock Code') . '</th>
+					<th class="SortedColumn">' . _('Stock Description') . '</th>
+				</tr>
+			</thead>';
+
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr>
 				<td>' . $MyRow['stockid'] . '</td>
@@ -154,6 +158,7 @@ if (isset($_POST['CheckCode'])) {
 				<td><a href="StockAdjustments.php?StockID=' . urlencode($MyRow[0]) . '&amp;Description=' . urlencode($MyRow[1]) . '&amp;OldIdentifier=' . urlencode($Identifier) . '">' . _('Adjust') . '</a>
 			</tr>';
 	}
+	echo '</tbody>';
 	echo '</table>';
 	include('includes/footer.inc');
 	exit;
@@ -380,7 +385,12 @@ if (isset($_POST['EnterAdjustment']) and $_POST['EnterAdjustment'] != '') {
 
 		$Result = DB_Txn_Commit();
 
-		$ConfirmationText = _('A stock adjustment for') . ' ' . $_SESSION['Adjustment' . $Identifier]->StockID . ' -  ' . $_SESSION['Adjustment' . $Identifier]->ItemDescription . ' ' . _('has been created from location') . ' ' . $_SESSION['Adjustment' . $Identifier]->StockLocation . ' ' . _('for a quantity of') . ' ' . locale_number_format($_SESSION['Adjustment' . $Identifier]->Quantity, $_SESSION['Adjustment' . $Identifier]->DecimalPlaces);
+		if (mb_strlen($_SESSION['Adjustment' . $Identifier]->Narrative) > 0) {
+			$AdjustReason =  _('Narrative') . ' ' . $_SESSION['Adjustment' . $Identifier]->Narrative . ':';
+		} else {
+			$AdjustReason = '';
+		}
+		$ConfirmationText = _('A stock adjustment for') . ' ' . $_SESSION['Adjustment' . $Identifier]->StockID . ' -  ' . $_SESSION['Adjustment' . $Identifier]->ItemDescription . ' ' . _('has been created from location') . ' ' . $_SESSION['Adjustment' . $Identifier]->StockLocation . ' ' . _('for a quantity of') . ' ' . locale_number_format($_SESSION['Adjustment' . $Identifier]->Quantity, $_SESSION['Adjustment' . $Identifier]->DecimalPlaces) . ' ' . $AdjustReason;
 		prnMsg($ConfirmationText, 'success');
 
 		if ($_SESSION['InventoryManagerEmail'] != '') {
@@ -408,7 +418,7 @@ if (isset($_POST['EnterAdjustment']) and $_POST['EnterAdjustment'] != '') {
 /* end if the user hit enter the adjustment */
 
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_SESSION['Adjustment' . $Identifier])) {
@@ -447,18 +457,18 @@ echo '<tr>
 		<td>' . _('Stock Code') . ':</td>
 		<td>';
 if (isset($StockId)) {
-	echo '<input type="text" name="StockID" size="21" value="' . $StockId . '" minlength="0" maxlength="20" /></td></tr>';
+	echo '<input type="text" name="StockID" size="21" value="' . $StockId . '" maxlength="20" /></td></tr>';
 } else {
-	echo '<input type="text" name="StockID" size="21" value="" minlength="0" maxlength="20" /></td></tr>';
+	echo '<input type="text" name="StockID" size="21" value="" maxlength="20" /></td></tr>';
 }
 echo '<tr>
 		<td>' . _('Partial Description') . ':</td>
 		<td><input type="text" name="StockText" size="21" value="' . stripslashes($_GET['Description']) . '" />&nbsp; &nbsp;' . _('Partial Stock Code') . ':</td>
 		<td>';
 if (isset($StockId)) {
-	echo '<input type="text" name="StockCode" size="21" value="' . $StockId . '" minlength="0" maxlength="20" />';
+	echo '<input type="text" name="StockCode" size="21" value="' . $StockId . '" maxlength="20" />';
 } else {
-	echo '<input type="text" name="StockCode" size="21" value="" minlength="0" maxlength="20" />';
+	echo '<input type="text" name="StockCode" size="21" value="" maxlength="20" />';
 }
 echo '</td>
 		<td><input type="submit" name="CheckCode" value="' . _('Check Part') . '" /></td>
@@ -490,7 +500,7 @@ if (isset($_SESSION['Adjustment' . $Identifier]) and !isset($_SESSION['Adjustmen
 
 echo '<tr>
 		<td>' . _('Comments On Why') . ':</td>
-		<td><input type="text" name="Narrative" size="32" minlength="0" maxlength="30" value="' . $Narrative . '" /></td>
+		<td><input type="text" name="Narrative" size="32" maxlength="30" value="' . $Narrative . '" /></td>
 	</tr>';
 
 echo '<tr>
@@ -507,13 +517,13 @@ if ($Controlled == 1) {
 				[<a class="FontSize" href="' . $RootPath . '/StockAdjustmentsControlled.php?AdjType=REMOVE&identifier=' . urlencode($Identifier) . '">' . _('Remove') . '</a>]
 				[<a class="FontSize" href="' . $RootPath . '/StockAdjustmentsControlled.php?AdjType=ADD&identifier=' . urlencode($Identifier) . '">' . _('Add') . '</a>]';
 } else {
-	echo '<input type="text" class="number" name="Quantity" size="12" required="required" minlength="1" maxlength="12" value="' . locale_number_format($Quantity, $DecimalPlaces) . '" />';
+	echo '<input type="text" class="number" name="Quantity" size="12" required="required" maxlength="12" value="' . locale_number_format($Quantity, $DecimalPlaces) . '" />';
 }
 echo '</td></tr>';
 //Select the tag
 echo '<tr>
 		<td>' . _('Select Tag') . '</td>
-		<td><select minlength="0" name="tag">';
+		<td><select name="tag">';
 
 $SQL = "SELECT tagref,
 				tagdescription

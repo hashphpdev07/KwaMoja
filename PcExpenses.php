@@ -7,7 +7,7 @@ $ViewTopic = 'PettyCash';
 $BookMark = 'PCExpenses';
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . _('Payment Entry') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Payment Entry') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['SelectedExpense'])) {
 	$SelectedExpense = mb_strtoupper($_POST['SelectedExpense']);
@@ -235,7 +235,7 @@ if (isset($SelectedExpense)) {
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<br />'; //Main table
@@ -274,7 +274,7 @@ if (!isset($_GET['delete'])) {
 		echo '<table class="selection">
 				<tr>
 					<td>' . _('Code Of Expense') . ':</td>
-					<td><input type="text" name="CodeExpense" autofocus="autofocus" required="required" minlength="1" maxlength="20" /></td>
+					<td><input type="text" name="CodeExpense" autofocus="autofocus" required="required" maxlength="20" /></td>
 				</tr>';
 
 	}
@@ -284,12 +284,12 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Description') . ':</td>
-			<td><input type="text" name="Description" size="50" required="required" minlength="1" maxlength="50" value="' . $_POST['Description'] . '" /></td>
+			<td><input type="text" name="Description" size="50" required="required" maxlength="50" value="' . $_POST['Description'] . '" /></td>
 		</tr>';
 
 	echo '<tr>
 			<td>' . _('Account Code') . ':</td>
-			<td><select required="required" minlength="1" name="GLAccount">';
+			<td><select required="required" name="GLAccount">';
 
 	DB_free_result($Result);
 	$SQL = "SELECT accountcode,
@@ -313,7 +313,7 @@ if (!isset($_GET['delete'])) {
 	//Select the tag
 	echo '<tr>
 			<td>' . _('Tag') . ':</td>
-			<td><select minlength="0" name="Tag">';
+			<td><select name="Tag">';
 
 	$SQL = "SELECT tagref,
 					tagdescription

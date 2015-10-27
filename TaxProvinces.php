@@ -8,8 +8,8 @@ $ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
 $BookMark = 'TaxProvinces';// Anchor's id in the manual's html document.
 include('includes/header.inc');
 
-echo '<p class="page_title_text noPrint" >
-		<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
+echo '<p class="page_title_text" >
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
 if (isset($_GET['SelectedTaxProvince']))
@@ -164,11 +164,14 @@ if (!isset($SelectedTaxProvince)) {
 	}
 
 	echo '<table class="selection">
-			<tr>
-				<th class="SortableColumn">', _('Tax Provinces'), '</th>
-				<th colspan="2">', _('Maintenance'), '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Tax Provinces'), '</th>
+					<th colspan="2">', _('Maintenance'), '</th>
+				</tr>
+			</thead>';
 
+	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
@@ -186,6 +189,7 @@ if (!isset($SelectedTaxProvince)) {
 			</tr>';
 
 	} //END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 } //end of ifs and buts!
 
@@ -198,7 +202,7 @@ if (isset($SelectedTaxProvince)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedTaxProvince)) {
@@ -228,7 +232,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Tax Province Name') . ':' . '</td>
-			<td><input type="text" name="TaxProvinceName" size="30" required="required" minlength="1" maxlength="30" value="' . $_POST['TaxProvinceName'] . '" /></td>
+			<td><input type="text" name="TaxProvinceName" size="30" required="required" maxlength="30" value="' . $_POST['TaxProvinceName'] . '" /></td>
 		</tr>
 		</table>';
 

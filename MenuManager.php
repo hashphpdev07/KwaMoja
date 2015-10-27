@@ -12,14 +12,14 @@ if (!isset($_POST['SecurityRole'])) {
 				FROM securityroles";
 	$RoleResult = DB_query($RoleSQL);
 
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Select a Security Role to work with') . '" alt="' . _('Select a Security Role to work with') . '" />' . ' ' . _('Select a Security Role to work with') . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Select a Security Role to work with') . '" alt="' . _('Select a Security Role to work with') . '" />' . ' ' . _('Select a Security Role to work with') . '
 		</p>';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="centre">
-			<select name="SecurityRole" autofocus="autofocus" required="required" minlength="1" onChange="ReloadForm(SelectSecRole)">
+			<select name="SecurityRole" autofocus="autofocus" required="required" onChange="ReloadForm(SelectSecRole)">
 				<option value=""></option>';
 
 	while ($RoleRow = DB_fetch_array($RoleResult)) {
@@ -37,8 +37,8 @@ if (!isset($_POST['SecurityRole'])) {
 	$RoleResult = DB_query($RoleSQL);
 	$RoleRow = DB_fetch_array($RoleResult);
 
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Maintian Menus for Role') . ' - ' . $RoleRow['secrolename'] . '" alt="' . _('Maintian Menus for Role') . ' - ' . $RoleRow['secrolename'] . '" />' . ' ' . _('Maintian Menus for Role') . ' - ' . $RoleRow['secrolename'] . '
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Maintian Menus for Role') . ' - ' . $RoleRow['secrolename'] . '" alt="' . _('Maintian Menus for Role') . ' - ' . $RoleRow['secrolename'] . '" />' . ' ' . _('Maintian Menus for Role') . ' - ' . $RoleRow['secrolename'] . '
 		</p>';
 
 	$ModuleSQL = "SELECT modulelink,
@@ -48,7 +48,7 @@ if (!isset($_POST['SecurityRole'])) {
 					WHERE secroleid='" . $_POST['SecurityRole'] . "'
 					ORDER BY sequence";
 	$ModuleResult = DB_query($ModuleSQL);
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="SecurityRole" value="' . $_POST['SecurityRole'] . '" />';
 	echo '<div class="centre">

@@ -15,7 +15,7 @@ echo '<div class="toplink">
 		<a href="' . $RootPath . '/SelectProduct.php">' . _('Back to Items') . '</a>
 	</div>';
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . _('Search') . '" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" />' . ' ' . $Title . '</p>';
 
 //initialise no input errors assumed initially before we test
 $InputError = 0;
@@ -206,28 +206,30 @@ $SQL = "SELECT currencies.currency,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th colspan="7">
+						<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />' . _('Pricing for part') . ':
+						<input type="text" autofocus="autofocus" name="Item" size="22" value="' . $Item . '" maxlength="20" />
+						<input type="submit" name="NewPart" value="' . _('Review Prices') . '" />
+					</th>
+			</tr>
 			<tr>
-				<th colspan="7">
-				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />' . _('Pricing for part') . ':
-				<input type="text" autofocus="autofocus" name="Item" size="22" value="' . $Item . '" minlength="0" maxlength="20" />
-				<input type="submit" name="NewPart" value="' . _('Review Prices') . '" /></th>
-			</tr>';
-
-	echo '<tr>
-			<th class="SortableColumn">' . _('Currency') . '</th>
-			<th class="SortableColumn">' . _('Sales Type') . '</th>
-			<th>' . _('Price') . '</th>
-			<th class="SortableColumn">' . _('Start Date') . ' </th>
-			<th>' . _('End Date') . '</th>';
+				<th class="SortedColumn">' . _('Currency') . '</th>
+				<th class="SortedColumn">' . _('Sales Type') . '</th>
+				<th>' . _('Price') . '</th>
+				<th class="SortedColumn">' . _('Start Date') . ' </th>
+				<th>' . _('End Date') . '</th>';
 	if (in_array(1000, $_SESSION['AllowedPageSecurityTokens'])) { // If is allow to modify prices.
 		echo '<th colspan="2">' . _('Maintenance') . '</th>';
 	}
-	echo '</tr>';
+	echo '</tr>
+		</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -255,13 +257,14 @@ if (DB_num_rows($Result) > 0) {
 		echo '</tr>';
 	}
 	//END WHILE LIST LOOP
-	echo '</table>
-		</form>';
+	echo '</tbody>
+		</table>
+	</form>';
 } else {
 	prnMsg(_('There are no prices set up for this part'), 'warn');
 }
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_GET['Edit'])) {
 	echo '<input type="hidden" name="OldTypeAbbrev" value="' . $_GET['TypeAbbrev'] . '" />';
@@ -291,7 +294,7 @@ echo '<table class="selection">
 		</tr>';
 echo '<tr>
 		<td>' . _('Currency') . ':</td>
-		<td><select required="required" minlength="1" name="CurrAbrev">';
+		<td><select required="required" name="CurrAbrev">';
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($MyRow['currabrev'] == $_POST['CurrAbrev']) {
 		echo '<option selected="selected" value="';
@@ -308,7 +311,7 @@ echo '</select>
 		</tr>
 		<tr>
 			<td>' . _('Sales Type Price List') . ':</td>
-			<td><select required="required" minlength="1" name="TypeAbbrev">';
+			<td><select required="required" name="TypeAbbrev">';
 
 $SQL = "SELECT typeabbrev, sales_type FROM salestypes";
 $Result = DB_query($SQL);
@@ -334,11 +337,11 @@ if (!isset($_POST['EndDate'])) {
 }
 echo '<tr>
 		<td>' . _('Price Effective From Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StartDate" size="10" required="required" minlength="1" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
+		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StartDate" size="10" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Price Effective To Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EndDate" size="10" minlength="0" maxlength="10" value="' . $_POST['EndDate'] . '" /></td>
+		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EndDate" size="10" maxlength="10" value="' . $_POST['EndDate'] . '" /></td>
 	</tr>';
 echo '<input type="hidden" name="Item" value="' . $Item . '" />';
 if (!isset($_POST['Price'])) {
@@ -347,7 +350,7 @@ if (!isset($_POST['Price'])) {
 echo '<tr>
 		<td>' . _('Price') . ':</td>
 		<td>
-			<input type="text" class="number" name="Price" size="12" required="required" minlength="1" maxlength="11" value="' . $_POST['Price'] . '" />
+			<input type="text" class="number" name="Price" size="12" required="required" maxlength="11" value="' . $_POST['Price'] . '" />
 		</td>
 	</tr>
 </table>

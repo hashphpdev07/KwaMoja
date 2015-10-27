@@ -116,8 +116,8 @@ if (!isset($SelectedShipper)) {
 	then none of the above are true and the list of Shippers will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 	$SQL = "SELECT * FROM shippers ORDER BY shipper_id";
 	$Result = DB_query($SQL);
@@ -149,14 +149,14 @@ if (!isset($SelectedShipper)) {
 
 
 if (isset($SelectedShipper)) {
-	echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $Theme . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text" >
+			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('REVIEW RECORDS') . '</a></div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -188,7 +188,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr><td>' . _('Shipper Name') . ':</td>
 			<td>
-				<input type="text" name="ShipperName" value="' . $_POST['ShipperName'] . '" size="35" required="required" minlength="1" maxlength="40" />
+				<input type="text" name="ShipperName" value="' . $_POST['ShipperName'] . '" size="35" required="required" maxlength="40" />
 			</td>
 		</tr>
 

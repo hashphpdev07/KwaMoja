@@ -200,11 +200,11 @@ if (isset($_POST['preview']) or isset($_POST['save'])) {
 /* If no form has been selected to edit, then offer a
  * drop down list of possible forms */
 if (empty($_POST['FormName'])) {
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" id="ChooseForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
+	echo '<form method="post" id="ChooseForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table><tr>';
-	echo '<td>' . _('Select the form to edit') . '</td><td><select minlength="0" name="FormName">';
+	echo '<td>' . _('Select the form to edit') . '</td><td><select name="FormName">';
 	/* Iterate throght the appropriate companies FormDesigns/ directory
 	 * and extract the form name from each of the xml files found */
 	if ($handle = opendir($PathPrefix . 'companies/' . $_SESSION['DatabaseName'] . '/FormDesigns/')) {
@@ -227,7 +227,7 @@ if (empty($_POST['FormName'])) {
 if (empty($_POST['preview'])) {
 	$FormDesign = simplexml_load_file($PathPrefix . 'companies/' . $_SESSION['DatabaseName'] . '/FormDesigns/' . $_POST['FormName']);
 }
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/reports.png" title="' . _('Form Design') . '" alt="" />' . ' ' . _('Form Design') . '<br />' . $FormDesign['name'] . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Form Design') . '" alt="" />' . ' ' . _('Form Design') . '<br />' . $FormDesign['name'] . '</p>';
 echo '<div class="page_help_text">' .
 		_('Enter the changes that you want in the form layout below.')  . '<br /> '.
 		_('All measurements are in PostScript points (72 points = 25,4 mm).')  . '<br /> '.
@@ -247,7 +247,7 @@ $Papers = array(
 	'Legal_Portrait',
 	'Legal_Landscape'
 ); // Possible paper sizes/orientations
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" id="Form" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" id="Form" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input name="FormName" type="hidden" value="' . $_POST['FormName'] . '" />';
@@ -255,7 +255,7 @@ echo '<table width="95%" border="1">'; //Start of outer table
 echo '<tr>
 		<th style="width:33%">' . _('Form Name') . '<input type="text" name="formname" value="' . $FormDesign['name'] . '" /></th>';
 /* Select the paper size/orientation */
-echo '<th style="width:33%">' . _('Paper Size') . '<select minlength="0" name="PaperSize">';
+echo '<th style="width:33%">' . _('Paper Size') . '<select name="PaperSize">';
 foreach ($Papers as $Paper) {
 	if (mb_substr($Paper, -8) == 'Portrait') {
 		$PaperValue = mb_substr($Paper, 0, mb_strlen($Paper) - 9);
@@ -270,7 +270,7 @@ foreach ($Papers as $Paper) {
 }
 echo '</select></th>';
 /* and the standard line height for the form */
-echo '<th style="width:33%">' . _('Line Height') . '<input type="text" class="number" name="LineHeight" size="3" minlength="0" maxlength="3" value="' . $FormDesign->LineHeight . '" /></th></tr><tr>';
+echo '<th style="width:33%">' . _('Line Height') . '<input type="text" class="number" name="LineHeight" size="3" maxlength="3" value="' . $FormDesign->LineHeight . '" /></th></tr><tr>';
 $counter = 1; // Count how many sub tables are in the row
 foreach ($FormDesign as $Key) {
 	switch ($Key['type']) {
@@ -347,7 +347,7 @@ foreach ($FormDesign as $Key) {
 						InputWidth($subkey['id'], $subkey->Length);
 						SelectFontSize($subkey['id'], $subkey->FontSize);
 					} elseif ($subkey['type'] == 'StartLine') {
-						echo '<td colspan="3">' . _($subkey['name']) . ' = ' . '</td><td><input type="text" class="number" name="StartLine" size="4" minlength="0" maxlength="4" value="' . $Key->y . '" /></td>';
+						echo '<td colspan="3">' . _($subkey['name']) . ' = ' . '</td><td><input type="text" class="number" name="StartLine" size="4" maxlength="4" value="' . $Key->y . '" /></td>';
 					}
 				}
 				echo '</tr>';
@@ -410,15 +410,15 @@ foreach ($FormDesign as $Key) {
 						</tr>
 						<tr>
 							<td class="number">' . _('Start x co-ordinate') . ' = ' . '</td>
-							<td><input type="text" class="number" name="' . $Key['id'] . 'startx" size="4" minlength="0" maxlength="4" value="' . $Key->startx . '" /></td>
+							<td><input type="text" class="number" name="' . $Key['id'] . 'startx" size="4" maxlength="4" value="' . $Key->startx . '" /></td>
 							<td class="number">' . _('Start y co-ordinate') . ' = ' . '</td>
-							<td><input type="text" class="number" name="' . $Key['id'] . 'starty" size="4" minlength="0" maxlength="4" value="' . $Key->starty . '" /></td>
+							<td><input type="text" class="number" name="' . $Key['id'] . 'starty" size="4" maxlength="4" value="' . $Key->starty . '" /></td>
 						</tr>
 						<tr>
 							<td class="number">' . _('End x co-ordinate') . ' = ' . '</td>
-							<td><input type="text" class="number" name="' . $Key['id'] . 'endx" size="4" minlength="0" maxlength="4" value="' . $Key->endx . '" /></td>
+							<td><input type="text" class="number" name="' . $Key['id'] . 'endx" size="4" maxlength="4" value="' . $Key->endx . '" /></td>
 							<td class="number">' . _('End y co-ordinate') . ' = ' . '</td>
-							<td><input type="text" class="number" name="' . $Key['id'] . 'endy" size="4" minlength="0" maxlength="4" value="' . $Key->endy . '" /></td>
+							<td><input type="text" class="number" name="' . $Key['id'] . 'endy" size="4" maxlength="4" value="' . $Key->endy . '" /></td>
 						</tr>
 					</table>
 				</td>';

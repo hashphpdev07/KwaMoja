@@ -16,8 +16,8 @@ if (isset($Errors)) {
 
 $Errors = array();
 
-echo '<p class="page_title_text noPrint" ><img src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '</p>';
-echo '<div class="page_help_text noPrint">', _('Add/edit/delete Customer Types'), '</div>';
+echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '</p>';
+echo '<div class="page_help_text">', _('Add/edit/delete Customer Types'), '</div>';
 
 if (isset($_POST['submit'])) {
 
@@ -178,14 +178,16 @@ if (!isset($SelectedType)) {
 				FROM debtortype";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th class="SortableColumn">', _('Type ID'), '</th>
-			<th class="SortableColumn">', _('Type Name'), '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Type ID'), '</th>
+					<th class="SortedColumn">', _('Type Name'), '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -202,12 +204,13 @@ if (!isset($SelectedType)) {
 			</tr>';
 	}
 	//END WHILE LIST LOOP
+	echo '</tbody>';
 	echo '</table>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type
@@ -243,7 +246,7 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>', _('Type Name'), ':</td>
-			<td><input type="text" name="TypeName" required="required" minlength="1" maxlength="100" value="', $_POST['TypeName'], '" /></td>
+			<td><input type="text" name="TypeName" required="required" maxlength="100" value="', $_POST['TypeName'], '" /></td>
 		</tr>';
 
 	echo '</table>'; // close main table

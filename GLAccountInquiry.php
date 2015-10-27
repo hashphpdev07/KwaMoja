@@ -32,7 +32,7 @@ if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('General Ledger Account Inquiry') . '" alt="' . _('General Ledger Account Inquiry') . '" />' . ' ' . _('General Ledger Account Inquiry') . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Account Inquiry') . '" alt="' . _('General Ledger Account Inquiry') . '" />' . ' ' . _('General Ledger Account Inquiry') . '</p>';
 
 if (isset($SelectedAccount) and $_SESSION['CompanyRecord']['retainedearnings'] == $SelectedAccount) {
 	prnMsg(_('The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details'), 'info');
@@ -41,9 +41,9 @@ if (isset($SelectedAccount) and $_SESSION['CompanyRecord']['retainedearnings'] =
 	exit;
 }
 
-echo '<div class="page_help_text noPrint">' . _('Use the keyboard Shift key to select multiple periods') . '</div>';
+echo '<div class="page_help_text">' . _('Use the keyboard Shift key to select multiple periods') . '</div>';
 
-echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /* Get the start and periods, depending on how this script was called*/
@@ -65,7 +65,7 @@ $DefaultPeriodDate = Date('Y-m-d', Mktime(0, 0, 0, Date('m'), 0, Date('Y')));
 echo '<table class="selection" summary="', _('Inquiry Selection Criteria'), '">
 		<tr>
 			<td>', _('Account'), ':</td>
-			<td><select minlength="0" name="Account">';
+			<td><select name="Account">';
 $SQL = "SELECT accountcode,
 				accountname
 			FROM chartmaster
@@ -86,7 +86,7 @@ echo '</select>
 //Select the tag
 echo '<tr>
 		<td>', _('Select Tag'), ':</td>
-		<td><select minlength="0" name="tag">';
+		<td><select name="tag">';
 
 $SQL = "SELECT tagref,
 			tagdescription
@@ -107,7 +107,7 @@ echo '</select>
 		</tr>
 		<tr>
 			<td>', _('For Period range'), ':</td>
-			<td><select minlength="0" name="Period[]" size="12" multiple="multiple">';
+			<td><select name="Period[]" size="12" multiple="multiple">';
 $SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno DESC";
 $Periods = DB_query($SQL);
 $id = 0;
@@ -187,7 +187,7 @@ if (isset($_POST['Show'])) {
 			<tr>
 				<th colspan="8">
 					<b>', _('Transactions for account'), ' ', $SelectedAccount, ' - ', $SelectedAccountName, '</b>
-					<img src="', $RootPath, '/css/', $Theme, '/images/printer.png" class="PrintIcon noPrint" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
 				</th>
 			</tr>
 			<tr>
@@ -264,8 +264,11 @@ if (isset($_POST['Show'])) {
 				$ChartDetailRow = DB_fetch_array($ChartDetailsResult);
 
 				if ($PeriodNo != -9999) {
+					$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
+					$PeriodResult = DB_query($PeriodSQL);
+					$PeriodRow = DB_fetch_array($PeriodResult);
 					echo '<tr>
-							<td colspan="4"><b>' . _('Total for period') . ' ' . $PeriodNo . '</b></td>';
+							<td colspan="4"><b>' . _('Total for period ending') . ' ' . ConvertSQLDate($PeriodRow['lastdate_in_period']) . '</b></td>';
 					if ($PeriodTotal < 0) { //its a credit balance b/fwd
 						if ($PandLAccount == True) {
 							//							$RunningTotal = 0;
@@ -334,8 +337,11 @@ if (isset($_POST['Show'])) {
 
 	}
 	if ($PeriodNo != -9999) {
+		$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
+		$PeriodResult = DB_query($PeriodSQL);
+		$PeriodRow = DB_fetch_array($PeriodResult);
 		echo '<tr>
-				<td colspan="3"><b>' . _('Total for period') . ' ' . $PeriodNo . '</b></td>';
+				<td colspan="3"><b>' . _('Total for period ending') . ' ' . ConvertSQLDate($PeriodRow['lastdate_in_period']) . '</b></td>';
 		if ($PeriodTotal < 0) { //its a credit balance b/fwd
 			echo '<td></td>
 					<td class="number"><b>' . locale_number_format(-$PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>

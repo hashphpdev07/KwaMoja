@@ -12,7 +12,7 @@ if (isset($_GET['NewShipment']) and $_GET['NewShipment'] == 'Yes') {
 	unset($_SESSION['Shipment']);
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (!isset($_SESSION['SupplierID']) and !isset($_SESSION['Shipment']) and !isset($_GET['SelectedShipment'])) {
 	prnMsg(_('To set up a shipment') . ', ' . _('the supplier must first be selected from the Select Supplier page'), 'error');
@@ -32,8 +32,6 @@ if (isset($_GET['SelectedShipment'])) {
 	}
 
 	$_SESSION['Shipment'] = new Shipment;
-
-	$_SESSION['Shipment']->GLLink = $_SESSION['CompanyRecord']['gllink_stock'];
 
 	/*read in all the guff from the selected shipment into the Shipment Class variable - the class code is included in the main script before this script is included  */
 
@@ -283,7 +281,7 @@ if (isset($_GET['Delete']) and $_SESSION['Shipment']->Closed == 0) { //shipment 
 	$_SESSION['Shipment']->Remove_From_Shipment($_GET['Delete']);
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table class="selection">
@@ -297,11 +295,11 @@ echo '<table class="selection">
 
 echo '<tr>
 		<td>' . _('Vessel Name /Transport Agent') . ': </td>
-		<td><input type="text" name="Vessel" required="required" minlength="1" maxlength="50" size="50" value="' . $_SESSION['Shipment']->Vessel . '" /></td>
+		<td><input type="text" name="Vessel" required="required" maxlength="50" size="50" value="' . $_SESSION['Shipment']->Vessel . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Voyage Ref / Consignment Note') . ': </td>
-		<td><input type="text" name="VoyageRef" required="required" minlength="1" maxlength="20" size="20" value="' . $_SESSION['Shipment']->VoyageRef . '" /></td>
+		<td><input type="text" name="VoyageRef" required="required" maxlength="20" size="20" value="' . $_SESSION['Shipment']->VoyageRef . '" /></td>
 	</tr>';
 
 if (isset($_SESSION['Shipment']->ShipmentDate)) {
@@ -319,13 +317,13 @@ if (isset($_SESSION['Shipment']->ETA)) {
 echo '<tr>
 		<td>' . _('Shipment Date') . ': </td>
 		<td>
-			<input type="text" name="ShipmentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" minlength="1" maxlength="10" size="10" value="' . $ShipmentDate . '" />
+			<input type="text" name="ShipmentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="10" value="' . $ShipmentDate . '" />
 		</td>
 	</tr>
 	<tr>
 		<td>' . _('Expected Arrival Date (ETA)') . ': </td>
 		<td>
-			<input type="text" name="ETA" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" minlength="1" maxlength="10" size="10" value="' . $ETA . '" />
+			<input type="text" name="ETA" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="10" value="' . $ETA . '" />
 		</td>
 	</tr>';
 
@@ -357,7 +355,7 @@ if (!isset($_SESSION['Shipment']->StockLocation)) {
 
 	echo _('Stock Location') . ': </td>
 			<td>
-				<select required="required" minlength="1" name="StockLocation">';
+				<select required="required" name="StockLocation">';
 
 	if ($_SESSION['RestrictLocations'] == 0) {
 		$SQL = "SELECT locationname,

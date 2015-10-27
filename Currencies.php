@@ -23,8 +23,7 @@ if (isset($Errors)) {
 
 $Errors = array();
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>
-	<br />';
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
 $SQL = "SELECT count(currabrev)
 		FROM currencies";
@@ -264,10 +263,19 @@ if (isset($_POST['submit'])) {
 			} elseif ($FunctionalCurrency == $SelectedCurrency) {
 				prnMsg(_('Cannot delete this currency because it is the functional currency of the company'), 'warn');
 			} else {
-				//only delete if used in neither customer or supplier, comp prefs, bank trans accounts
-				$SQL = "DELETE FROM currencies WHERE currabrev='" . $SelectedCurrency . "'";
+				$SQL = "SELECT COUNT(*) FROM bankaccounts
+						WHERE currcode = '" . $SelectedCurrency . "'";
 				$Result = DB_query($SQL);
-				prnMsg(_('The currency definition record has been deleted'), 'success');
+				$MyRow = DB_fetch_row($Result);
+				if ($MyRow[0] > 0){
+					prnMsg(_('Cannot delete this currency because there are bank accounts that use this currency') .
+					'<br />' . ' ' . _('There are') . ' ' . $MyRow[0] . ' ' . _('bank accounts that refer to this currency'),'warn');
+				} else {
+					//only delete if used in neither customer or supplier, comp prefs, bank trans accounts
+					$SQL = "DELETE FROM currencies WHERE currabrev='" . $SelectedCurrency . "'";
+					$Result = DB_query($SQL);
+					prnMsg(_('The currency definition record has been deleted'),'success');
+				}
 			}
 		}
 	}
@@ -376,7 +384,7 @@ if (isset($SelectedCurrency)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedCurrency) and $SelectedCurrency != '') {
@@ -421,7 +429,7 @@ if (!isset($_GET['delete'])) {
 		echo '<table class="selection">
 			<tr>
 				<td>' . _('Currency') . ':</td>
-				<td><select minlength="0" name="Abbreviation">';
+				<td><select name="Abbreviation">';
 		foreach ($CurrencyName as $CurrencyAbbreviation => $Currency) {
 			echo '<option value="' . $CurrencyAbbreviation . '">' . $CurrencyAbbreviation . '-' . $Currency . '</option>';
 		}
@@ -436,7 +444,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['Country'] = '';
 	}
 	if ($_POST['Abbreviation'] != $FunctionalCurrency) {
-		echo '<td><input type="text" name="Country" size="30" required="required" minlength="1" maxlength="50" value="' . $_POST['Country'] . '" /></td>';
+		echo '<td><input type="text" name="Country" size="30" required="required" maxlength="50" value="' . $_POST['Country'] . '" /></td>';
 	} else {
 		echo '<td>' . $_POST['Country'] . '</td>';
 		echo '<input type="hidden" name="Country" value="' . $_POST['Country'] . '" />';
@@ -448,7 +456,7 @@ if (!isset($_GET['delete'])) {
 	if (!isset($_POST['HundredsName'])) {
 		$_POST['HundredsName'] = '';
 	}
-	echo '<input type="text" name="HundredsName" size="10" required="required" minlength="1" maxlength="15" value="' . $_POST['HundredsName'] . '" /></td>
+	echo '<input type="text" name="HundredsName" size="10" required="required" maxlength="15" value="' . $_POST['HundredsName'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Decimal Places to Display') . ':</td>
@@ -456,7 +464,7 @@ if (!isset($_GET['delete'])) {
 	if (!isset($_POST['DecimalPlaces'])) {
 		$_POST['DecimalPlaces'] = 2;
 	}
-	echo '<input class="integer" type="text" name="DecimalPlaces" size="2" required="required" minlength="1" maxlength="2" value="' . $_POST['DecimalPlaces'] . '" /></td>
+	echo '<input class="integer" type="text" name="DecimalPlaces" size="2" required="required" maxlength="2" value="' . $_POST['DecimalPlaces'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Exchange Rate') . ':</td>';
@@ -464,7 +472,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['ExchangeRate'] = 1;
 	}
 	if ($_POST['Abbreviation'] != $FunctionalCurrency) {
-		echo '<td><input type="text" class="number" name="ExchangeRate" size="10" required="required" minlength="1" maxlength="10" value="' . $_POST['ExchangeRate'] . '" /></td>';
+		echo '<td><input type="text" class="number" name="ExchangeRate" size="10" required="required" maxlength="10" value="' . $_POST['ExchangeRate'] . '" /></td>';
 	} else {
 		echo '<td>' . $_POST['ExchangeRate'] . '</td>';
 		echo '<input type="hidden" class="number" name="ExchangeRate" value="' . $_POST['ExchangeRate'] . '" />';
@@ -476,7 +484,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr>
 			<td>' . _('Show in webSHOP') . ':</td>
-			<td><select minlength="0" name="webcart">';
+			<td><select name="webcart">';
 
 	if ($_POST['webcart'] == 1) {
 		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
@@ -489,7 +497,10 @@ if (!isset($_GET['delete'])) {
 		echo '<option value="0">' . _('No') . '</option>';
 	}
 
-	echo '</table>';
+	echo '</select>
+				</td>
+			</tr>
+		</table>';
 
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="' . _('Enter Information') . '" />

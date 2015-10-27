@@ -20,18 +20,18 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	include('includes/header.inc');
 
 	echo '<p class="page_title_text">
-			<img alt="" class="noprint" src="' . $RootPath.'/css/' . $Theme . '/images/printer.png" title="' . _('Print Statement of Financial Position') . '" />
+			<img alt="" src="' . $RootPath.'/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print Statement of Financial Position') . '" />
 			' . _('Balance Sheet') . '
 		</p>';// Page title.
 
-	echo '<div class="page_help_text noPrint">' . _('Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time.') . '<br />' . _('The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
+	echo '<div class="page_help_text">' . _('Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time.') . '<br />' . _('The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
 
-	echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table class="selection" summary="' . _('Criteria for report') . '">
 			<tr>
 				<td>' . _('Select the balance date') . ':</td>
-				<td><select minlength="0" name="BalancePeriodEnd">';
+				<td><select name="BalancePeriodEnd">';
 
 	$periodno = GetPeriod(Date($_SESSION['DefaultDateFormat']));
 	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $periodno . "'";
@@ -54,7 +54,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 
 	echo '<tr>
 			<td>' . _('Detail Or Summary') . ':</td>
-			<td><select minlength="0" name="Detail">
+			<td><select name="Detail">
 				<option value="Summary">' . _('Summary') . '</option>
 				<option selected="selected" value="Detailed">' . _('All Accounts') . '</option>
 			</select></td>
@@ -98,7 +98,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
 			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lyaccumprofitbfwd
 		FROM chartmaster INNER JOIN accountgroups
-		ON chartmaster.group_ = accountgroups.groupname INNER JOIN chartdetails
+		ON chartmaster.groupcode = accountgroups.groupcode INNER JOIN chartdetails
 		ON chartmaster.accountcode= chartdetails.accountcode
 		WHERE accountgroups.pandl=1";
 
@@ -127,10 +127,10 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
 			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lybalancecfwd
 		FROM chartmaster INNER JOIN accountgroups
-		ON chartmaster.group_ = accountgroups.groupname INNER JOIN chartdetails
+		ON chartmaster.groupcode = accountgroups.groupcode INNER JOIN chartdetails
 		ON chartmaster.accountcode= chartdetails.accountcode
 		WHERE accountgroups.pandl=0
-		GROUP BY accountgroups.groupname,
+		GROUP BY accountgroups.groupcode,
 			chartdetails.accountcode,
 			chartmaster.accountname,
 			accountgroups.parentgroupname,
@@ -138,7 +138,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			accountgroups.sectioninaccounts
 		ORDER BY accountgroups.sectioninaccounts,
 			accountgroups.sequenceintb,
-			accountgroups.groupname,
+			accountgroups.groupcode,
 			chartdetails.accountcode";
 
 	$AccountsResult = DB_query($SQL);
@@ -337,7 +337,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'BalanceSheet';
 	include('includes/header.inc');
-	echo '<form onSubmit="return VerifyForm(this);" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="BalancePeriodEnd" value="' . $_POST['BalancePeriodEnd'] . '" />';
 
@@ -353,7 +353,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
 			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lyaccumprofitbfwd
 		FROM chartmaster INNER JOIN accountgroups
-		ON chartmaster.group_ = accountgroups.groupname INNER JOIN chartdetails
+		ON chartmaster.groupcode = accountgroups.groupcode INNER JOIN chartdetails
 		ON chartmaster.accountcode= chartdetails.accountcode
 		WHERE accountgroups.pandl=1";
 
@@ -370,10 +370,10 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
 			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lybalancecfwd
 		FROM chartmaster INNER JOIN accountgroups
-		ON chartmaster.group_ = accountgroups.groupname INNER JOIN chartdetails
+		ON chartmaster.groupcode = accountgroups.groupcode INNER JOIN chartdetails
 		ON chartmaster.accountcode= chartdetails.accountcode
 		WHERE accountgroups.pandl=0
-		GROUP BY accountgroups.groupname,
+		GROUP BY accountgroups.groupcode,
 			chartdetails.accountcode,
 			chartmaster.accountname,
 			accountgroups.parentgroupname,
@@ -381,18 +381,18 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			accountgroups.sectioninaccounts
 		ORDER BY accountgroups.sectioninaccounts,
 			accountgroups.sequenceintb,
-			accountgroups.groupname,
+			accountgroups.groupcode,
 			chartdetails.accountcode";
 
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'));
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/preview.png" title="' . _('HTML View') . '" alt="' . _('HTML View') . '" /> ' . _('HTML View') . '</p>';
+	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/preview.png" title="' . _('HTML View') . '" alt="' . _('HTML View') . '" /> ' . _('HTML View') . '</p>';
 
 	echo '<table class="selection" summary="' . _('HTML View') . '">
 			<thead>
 				<tr>
 					<th colspan="6">
 						<h2>' . _('Balance Sheet as at') . ' ' . $BalanceDate . '
-						<img src="' . $RootPath . '/css/' . $Theme . '/images/printer.png" class="PrintIcon noPrint" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+						<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 						</h2>
 					</th>
 				</tr>';
@@ -681,7 +681,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		</tr>';
 
 	echo '</table>';
-	echo '<div class="centre noPrint">
+	echo '<div class="centre">
 			<input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Balance Date') . '" />
 		</div>';
 	echo '</form>';

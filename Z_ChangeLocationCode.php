@@ -7,7 +7,7 @@ $BookMark = 'Z_ChangeLocationCode'; // Anchor's id in the manual's html document
 include('includes/header.inc');
 
 echo '<p class="page_title_text">
-		<img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Change A Location Code') . '" /> ' . _('Change A Location Code') . '
+		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Change A Location Code') . '" /> ' . _('Change A Location Code') . '
 	</p>';// Page title.
 
 include('includes/SQL_CommonFunctions.inc');
@@ -72,7 +72,12 @@ if (isset($_POST['ProcessLocationChange'])) {
 										taxprovinceid,
 										managed,
 										cashsalecustomer,
-										cashsalebranch)
+										cashsalebranch,
+										internalrequest,
+										usedforwo,
+										glaccountcode,
+										allowinvoicing
+										)
 				SELECT '" . $_POST['NewLocationID'] . "',
 						'" . $_POST['NewLocationName'] . "',
 						deladd1,
@@ -88,7 +93,11 @@ if (isset($_POST['ProcessLocationChange'])) {
 						taxprovinceid,
 						managed,
 						cashsalecustomer,
-						cashsalebranch
+						cashsalebranch,
+						internalrequest,
+						usedforwo,
+						glaccountcode,
+						allowinvoicing
 				FROM locations
 				WHERE loccode='" . $_POST['OldLocationID'] . "'";
 
@@ -243,7 +252,7 @@ if (isset($_POST['ProcessLocationChange'])) {
 	} //only do the stuff above if  $InputError==0
 }
 
-echo '<form onSubmit="return VerifyForm(this);" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -251,15 +260,15 @@ echo '<br />
 	<table>
 	<tr>
 		<td>' . _('Existing Location Code') . ':</td>
-		<td><input type="text" name="OldLocationID" size="5" minlength="0" maxlength="5" /></td>
+		<td><input type="text" name="OldLocationID" size="5" maxlength="5" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New Location Code') . ':</td>
-		<td><input type="text" name="NewLocationID" size="5" minlength="0" maxlength="5" /></td>
+		<td><input type="text" name="NewLocationID" size="5" maxlength="5" /></td>
 	</tr>
 	<tr>
 		<td>' . _('New Location Name') . ':</td>
-		<td><input type="text" name="NewLocationName" size="50" minlength="0" maxlength="50" /></td>
+		<td><input type="text" name="NewLocationName" size="50" maxlength="50" /></td>
 	</tr>
 	</table>
 
