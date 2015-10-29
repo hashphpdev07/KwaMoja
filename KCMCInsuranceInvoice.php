@@ -278,7 +278,7 @@ if (!isset($_POST['Submit'])) {
 	echo '<form action="' . $_SERVER['PHP_SELF'] . '" method=post>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Insurance Company') . '</p>';
+	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Insurance Company') . '</p>';
 
 	echo '<table class="selection">';
 	$SQL = "SELECT typeid FROM debtortype WHERE typename like '%Insurance%'";
@@ -383,7 +383,7 @@ if (!isset($_POST['Submit'])) {
 	echo '<form action="' . $_SERVER['PHP_SELF'] . '" method=post>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/transactions.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Invoices for transfer to') . ' ' . $_POST['Company'] . '</p>';
+	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Invoices for transfer to') . ' ' . $_POST['Company'] . '</p>';
 
 	echo '<table class="selection">';
 	echo '<tr><th>' . _('Patient ID') . '</th>';

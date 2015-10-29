@@ -34,7 +34,7 @@ if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previ
 }
 
 if (!isset($Patient)) {
-	ShowCustomerSearchFields($RootPath, $Theme);
+	ShowCustomerSearchFields($RootPath, $_SESSION['Theme']);
 }
 
 if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or isset($_POST['Next']) or isset($_POST['Previous'])) {

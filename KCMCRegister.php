@@ -5,7 +5,7 @@ include('includes/SQL_CommonFunctions.inc');
 $Title = _('Register a Patient');
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/PatientData.png" title="' . _('Patient Registration') . '" alt="" />' . $Title . '</p>';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/PatientData.png" title="' . _('Patient Registration') . '" alt="" />' . $Title . '</p>';
 
 if (isset($_POST['Create'])) {
 

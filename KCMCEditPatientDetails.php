@@ -28,7 +28,7 @@ if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previ
 } //end of if search
 
 if (!isset($Patient)) {
-	ShowCustomerSearchFields($RootPath, $Theme);
+	ShowCustomerSearchFields($RootPath, $_SESSION['Theme']);
 }
 
 if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
@@ -46,7 +46,7 @@ if (isset($PatientResult)) {
 
 if (isset($_POST['Update'])) {
 
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/customer.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
+	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
 
 	$SalesAreaSQL = "SELECT areacode FROM areas";
 	$SalesAreaResult = DB_query($SalesAreaSQL);
@@ -120,7 +120,7 @@ if (isset($_POST['Update'])) {
 
 if (isset($Patient)) {
 
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/PatientFile.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
+	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/PatientFile.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
 
 	$SQL = "SELECT name,
 				address1,

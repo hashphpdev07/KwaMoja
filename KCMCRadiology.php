@@ -475,7 +475,7 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 }
 
 if (!isset($Patient)) {
-	ShowCustomerSearchFields($RootPath, $Theme);
+	ShowCustomerSearchFields($RootPath, $_SESSION['Theme']);
 }
 
 if (isset($_POST['Search']) OR isset($_POST['Go1']) OR isset($_POST['Go2']) OR isset($_POST['Next']) OR isset($_POST['Previous'])) {
@@ -543,7 +543,7 @@ if (isset($Patient)) {
 		$_SESSION['Items']['Lines']++;
 		$i++;
 	}
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/XRay.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
+	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/XRay.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
 
 	echo '<form action="' . $_SERVER['PHP_SELF'] . '" method=post>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
@@ -554,7 +554,7 @@ if (isset($Patient)) {
 	echo '<tr>
 			<th colspan="3" class="header">' . $mydebtorrow['name'] . ' - ' . $mydebtorrow['phoneno'] . '</th>
 			<th style="text-align: right"><a href="KCMCEditPatientDetails.php?PatientNumber=' . $Patient[0] . '&BranchCode=' . $Patient[1] . '" target="_blank">
-					<img width="15px" src="' . $RootPath . '/css/' . $Theme . '/images/user.png" alt="Patient Details" /></a>
+					<img width="15px" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/user.png" alt="Patient Details" /></a>
 			</th>
 		</tr>';
 	echo '<tr><td>' . _('Date of Test') . ':</td>

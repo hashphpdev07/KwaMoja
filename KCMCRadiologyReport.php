@@ -13,7 +13,7 @@ if (!isset($_POST['ReportDate'])) {
 echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/reports.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 echo '<table width="98%" class="selection">';
 

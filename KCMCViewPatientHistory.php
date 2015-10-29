@@ -29,7 +29,7 @@ if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previ
 }
 
 if (!isset($Patient)) {
-	ShowCustomerSearchFields($RootPath, $Theme);
+	ShowCustomerSearchFields($RootPath, $_SESSION['Theme']);
 }
 
 if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
@@ -50,7 +50,7 @@ if (isset($Patient)) {
 			WHERE debtorno='" . $Patient[0] . "'";
 	$Result = DB_query($NameSql);
 	$MyRow = DB_fetch_array($Result);
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/PatientData.png" title="' . _('Search') . '" alt="" />' . _('View History Of Patient') . ': <b>' . $Patient[0] . ' - ' . $MyRow['name'] . '</b></p>';
+	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/PatientData.png" title="' . _('Search') . '" alt="" />' . _('View History Of Patient') . ': <b>' . $Patient[0] . ' - ' . $MyRow['name'] . '</b></p>';
 
 	$PatientHistory = array();
 	$i = 0;

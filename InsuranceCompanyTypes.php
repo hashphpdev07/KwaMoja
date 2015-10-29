@@ -14,7 +14,7 @@ if (isset($Errors)) {
 	unset($Errors);
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $Theme . '/images/maintenance.png" title="' . _('Customer Types') . '" alt="" />' . $Title . '</p>';
+echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Customer Types') . '" alt="" />' . $Title . '</p>';
 echo '<div class="page_help_text noPrint">' . _('Add/edit/delete Insurance Types') . '</div>';
 
 if (isset($_POST['submit'])) {

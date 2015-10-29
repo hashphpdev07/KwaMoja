@@ -4,7 +4,7 @@ include('includes/session.inc');
 $Title = _('Synchronise with Care2x Item Table');
 include('includes/header.inc');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $Theme . '/images/Vial-Pills.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/Vial-Pills.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['UpdateLink'])) {
 	for ($i = 0; $i < $_POST['TotalItems']; $i++) {
