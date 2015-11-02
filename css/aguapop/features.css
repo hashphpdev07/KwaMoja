@@ -1,0 +1,50 @@
+#feature_list {
+position:absolute;
+left: 15%;
+}
+
+#feature_thumbnail {
+width:100%;
+margin-bottom:5px;
+position: relative;
+display:inline;
+}
+
+ul.enlarge{
+list-style-type:none; /*remove the bullet point*/
+position: relative;
+}
+ul.enlarge li {
+width: 10%;
+}
+ul.enlarge li:hover{
+z-index: 50; /*places the popups infront of the thumbnails, which we gave a z-index of 0 in step 1*/
+cursor:pointer; /*changes the cursor to a hand*/
+}
+
+ul.enlarge li:hover span{ /*positions the <span> when the <li> (which contains the thumbnail) is hovered*/
+display:inline; /*distance from the left of the thumbnail to the left of the popup image*/
+}
+
+ul.enlarge li span{ /*positions the <span> when the <li> (which contains the thumbnail) is hovered*/
+display:none; /*distance from the left of the thumbnail to the left of the popup image*/
+}
+ul.enlarge span img{
+padding: 2px; /*size of the frame*/
+background: #ccc; /*colour of the frame*/
+}
+ul.enlarge span{
+/**Style the frame**/
+padding: 10px; /*size of the frame*/
+background:#eae9d4; /*colour of the frame*/
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius:18px;
+/**Style the caption**/
+font-family: 'Droid Sans', sans-serif; /*Droid Sans is available from Google fonts*/
+font-size:.9em;
+text-align: center;
+color: #495a62;
+margin-left:10px;
+position:absolute; /*see support section for more info on positioning*/
+}
