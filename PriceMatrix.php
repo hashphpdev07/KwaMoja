@@ -71,9 +71,9 @@ if (isset($_POST['submit'])) {
 			WHERE stockid='" . $StockId . "'
 				AND startdate='" . $SQLStartDate . "'
 				AND enddate='" . $SQLEndDate . "'
-				AND salestype='" . $_POST['TypeAbbrev'] . "'
-				AND currabrev='" . $_POST['currabrev'] . "'
-			AND quantitybreak='" . $_POST['quantitybreak'] . "'";
+				AND salestype='" . $_POST['SalesType'] . "'
+				AND currabrev='" . $_POST['CurrAbrev'] . "'
+			AND quantitybreak='" . $_POST['QuantityBreak'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	if ($MyRow[0] != 0 and !isset($_POST['OldTypeAbbrev']) and !isset($_POST['OldCurrAbrev'])) {
@@ -265,7 +265,7 @@ $SQL = "SELECT sales_type,
 				price,
 				currencies.currabrev,
 				currencies.currency,
-				currencies.decimalplaces AS currdecimalplace
+				currencies.decimalplaces AS currdecimalplaces
 			FROM pricematrix
 			INNER JOIN salestypes
 				ON pricematrix.salestype=salestypes.typeabbrev
