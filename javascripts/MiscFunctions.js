@@ -432,9 +432,6 @@ function Scheduler() {
 	xmlhttp.send();
 	return false;
 }
-function Redirect(e) {
-	alert(e.getAttribute("href"));
-}
 
 function FillForm(e) {
 	document.getElementById('submit').innerHTML="Update Patient Details";
@@ -455,15 +452,8 @@ function CancelRegistration() {
 }
 
 function initial() {
+	alert(window.innerHeight);
 	Scheduler();
-	if (document.getElementsByTagName) {
-		var e = document.getElementsByTagName("a");
-		for (i = 0; i < e.length; i++) {
-			var t = e[i];
-			if (t.getAttribute("href") && t.getAttribute("rel") == "external") t.target = "_blank"
-//			e[i].onclick = function () {Redirect(this); return false};
-		}
-	}
 	var n = document.getElementsByTagName("input");
 	for (i = 0; i < n.length; i++) {
 		if (n[i].className == "date") {

@@ -39,7 +39,7 @@
 #footer li ul{ /* Programs button is a list */
         list-style:none;
         padding:0px;
-        margin-bottom:12px;
+        margin-bottom:1px;
 }
 .clear { /* Use this class between rows of content when you use columns */
         clear: both; /*no floating elements allowed on the left or the right side*/
@@ -110,7 +110,7 @@ a.notificationIcons:hover span {
         list-style: none;
         float: left;
         font-size:12px;
-        padding: 12px 14px 14px 14px;
+        padding: 2px 12px 2px 12px;
         /* cool glass look */
         border-right:1px solid rgba(0,0,0,0.4);
         background: rgba(0,0,0,0.5);
@@ -189,7 +189,7 @@ a.notificationIcons:hover span {
 }
 /* List Links */
 #footer_menu li:hover a.listLinks {
-        font-size:14px;
+        font-size:10px;
         color: #999999;
         margin-left:10px;
        margin-top:3px;
@@ -249,6 +249,8 @@ margin-right:4px;
         position: relative;
         margin-left: 5px;
         margin-right: 5px;
+        overflow: auto;
+        max-height: 580px;
 }
 #footer .col_1 {width:290px;}
 #footer .col_2 {width:270px;}

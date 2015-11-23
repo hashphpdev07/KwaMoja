@@ -159,180 +159,80 @@ if ($_SESSION['Theme'] == 'mobile') {
 			</table>';
 	}
 } else {
-	include('includes/header.inc');
 
-	if (!isset($_SESSION['MenuItems'])) {
-		include('includes/MainMenuLinksArray.php');
-	}
+	$Title = _('KwaMoja Main Menu');
+	include('includes/header_main.inc');
+	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 
-	if (isset($SupplierLogin) and $SupplierLogin == 1) {
-		echo '<br /><table class="table_index">
-			<tr>
-			<td class="menu_group_item">
-				<p><a href="' . $RootPath . '/SupplierTenders.php?TenderType=1">&bull; ' . _('View or Amend outstanding offers') . '</a></p>
-			</td>
-			</tr>
-			<tr>
-			<td class="menu_group_item">
-				<p><a href="' . $RootPath . '/SupplierTenders.php?TenderType=2">&bull; ' . _('Create a new offer') . '</a></p>
-			</td>
-			</tr>
-			<tr>
-			<td class="menu_group_item">
-				<p><a href="' . $RootPath . '/SupplierTenders.php?TenderType=3">&bull; ' . _('View any open tenders without an offer') . '</a></p>
-			</td>
-			</tr>
-		</table><br />';
-		include('includes/footer.inc');
-		exit;
-	} elseif (isset($SupplierLogin) and $SupplierLogin == 0) {
-		echo '<br /><table class="table_index">
-			<tr>
-			<td class="menu_group_item">
-				<p><a href="' . $RootPath . '/CustomerInquiry.php?CustomerID=' . urlencode($_SESSION['CustomerID']) . '">&bull; ' . _('Account Status') . '</a></p>
-			</td>
-			</tr>
-			<tr>
-			<td class="menu_group_item">
-				<p><a href="' . $RootPath . '/SelectOrderItems.php?NewOrder=Yes">&bull; ' . _('Place An Order') . '</a></p>
-			</td>
-			</tr>
-			<tr>
-			<td class="menu_group_item">
-				<p><a href="' . $RootPath . '/SelectCompletedOrder.php?SelectedCustomer=' . urlencode($_SESSION['CustomerID']) . '">&bull; ' . _('Order Status') . '</a></p>
-			</td>
-			</tr>
-		</table><br />';
+	echo '<html xmlns="http://www.w3.org/1999/xhtml">
+			<head>
+				<title>The Official KwaMoja web site</title>';
 
-		include('includes/footer.inc');
-		exit;
-	}
+	echo '<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />';
 
-	if (isset($_GET['Application']) and ($_GET['Application'] != '')) {
-		/*This is sent by this page (to itself) when the user clicks on a tab */
-		$_SESSION['Module'] = $_GET['Application'];
-		setcookie('Module', $_GET['Application'], time() + 3600 * 24 * 30);
-	}
+	echo '<script type="text/javascript" src="javascripts/ModalWindow.js"></script>';
 
-	//=== MainMenuDiv =======================================================================
-	echo '<div id="MainMenuDiv"><ul>'; //===HJ===
-	$i = 0;
-	while ($i < count($_SESSION['ModuleLink'])) {
-		// This determines if the user has display access to the module see config.php and header.inc
-		// for the authorisation and security code
-		if ($_SESSION['ModulesEnabled'][$i] == 1) {
-			// If this is the first time the application is loaded then it is possible that
-			// SESSION['Module'] is not set if so set it to the first module that is enabled for the user
-			if (!isset($_SESSION['Module']) or $_SESSION['Module'] == '') {
-				$_SESSION['Module'] = $_SESSION['ModuleLink'][$i];
-			}
-			if ($_SESSION['ModuleLink'][$i] == $_SESSION['Module']) {
-				echo '<li class="main_menu_selected">';
-			} else {
-				echo '<li class="main_menu_unselected">';
+	echo '<link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">';
+	echo '<link href="http://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">';
 
-			}
-			echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Application=', urlencode($_SESSION['ModuleLink'][$i]), '">', $_SESSION['ModuleList'][$i], '</a></li>';
-		}
-		++$i;
-	}
-	echo '</ul></div>'; // MainMenuDiv ===HJ===
+	echo '</head>';
 
+	echo '<body>';
 
-	//=== SubMenuDiv (wrapper) ==============================================================================
-	echo '<div id="SubMenuDiv">'; //===HJ===
+	echo '<div id="site_title">KwaMoja<br />Medical</div>';
 
+	$SQL = "SELECT modulename,
+					modulelink
+				FROM modules
+				INNER JOIN www_users
+					ON modules.secroleid=www_users.fullaccess
+				WHERE userid='" . $_SESSION['UserID'] . "'
+				ORDER BY sequence";
 
-	echo '<div id="TransactionsDiv"><ul>'; //=== TransactionsDiv ===
+	$DbgMsg = _('The SQL that was used to retrieve the information was');
+	$ErrMsg = _('Could not retrieve the modules associated with this account');
 
-	echo '<li class="menu_group_headers">'; //=== SubMenuHeader ===
-	if ($_SESSION['Module'] == 'system') {
-		echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" title="', _('General Setup Options'), '" alt="', _('General Setup Options'), '" /><b>', _('General Setup Options'), '</b>';
-	} else {
-		echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Transactions'), '" alt="', _('Transactions'), '" /><b>', _('Transactions'), '</b>';
-	}
+	$ModuleResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	echo '</li>'; // SubMenuHeader
+	echo '<div id="footer">';
+	echo '<ul id="footer_menu">';
 
-	//=== SubMenu Items ===
-	$i = 0;
-	foreach ($_SESSION['MenuItems'][$_SESSION['Module']]['Transactions']['Caption'] as $Caption) {
-		/* Transactions Menu Item */
-		$ScriptNameArray = explode('?', substr($_SESSION['MenuItems'][$_SESSION['Module']]['Transactions']['URL'][$i], 1));
-		if (isset($_SESSION['PageSecurityArray'][$ScriptNameArray[0]])) {
-			$PageSecurity = $_SESSION['PageSecurityArray'][$ScriptNameArray[0]];
-		}
-		if ((in_array($PageSecurity, $_SESSION['AllowedPageSecurityTokens']) and $PageSecurity != '')) {
-			echo '<li class="menu_group_item">
-				<p><a href="', $RootPath, $_SESSION['MenuItems'][$_SESSION['Module']]['Transactions']['URL'][$i], '">&bull; ', $Caption, '</a></p>
-			  </li>';
-		}
-		++$i;
-	}
-	echo '</ul></div>'; //=== TransactionsDiv ===
-
-
-	echo '<div id="InquiriesDiv"><ul>'; //=== InquiriesDiv ===
-
-	echo '<li class="menu_group_headers">';
-	if ($_SESSION['Module'] == 'system') {
-		$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" title="' . _('Receivables/Payables Setup') . '" alt="' . _('Receivables/Payables Setup') . '" /><b>' . _('Receivables/Payables Setup') . '</b>';
-	} else {
-		$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Inquiries and Reports') . '" alt="' . _('Inquiries and Reports') . '" /><b>' . _('Inquiries and Reports') . '</b>';
-	}
-	echo $Header;
-	echo '</li>';
-
-
-	$i = 0;
-	if (isset($_SESSION['MenuItems'][$_SESSION['Module']]['Reports'])) {
-		foreach ($_SESSION['MenuItems'][$_SESSION['Module']]['Reports']['Caption'] as $Caption) {
-			/* Transactions Menu Item */
-			$ScriptNameArray = explode('?', substr($_SESSION['MenuItems'][$_SESSION['Module']]['Reports']['URL'][$i], 1));
-			$PageSecurity = $_SESSION['PageSecurityArray'][$ScriptNameArray[0]];
-			if ((in_array($PageSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PageSecurity))) {
-				echo '<li class="menu_group_item">
-					<p><a href="' . $RootPath . $_SESSION['MenuItems'][$_SESSION['Module']]['Reports']['URL'][$i] . '">&bull; ' . $Caption . '</a></p>
+	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
+		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
+		$SectionResult = DB_query($SQL);
+		while ($SectionRow = DB_fetch_array($SectionResult)) {
+			echo '<li>
+					<a href="#">
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
+					</a>';
+			$SQL = "SELECT menuitems.url,
+							caption
+						FROM menuitems
+						WHERE modulelink='" . $ModuleRow['modulelink'] . "'
+							AND menusection='" . $SectionRow['menusection'] . "'";
+			$DbgMsg = _('The SQL that was used to retrieve the information was');
+			$ErrMsg = _('Could not retrieve the scripts associated with this account');
+			$ScriptResult = DB_query($SQL, $ErrMsg, $DbgMsg);
+			if (DB_num_rows($ScriptResult) > 0) {
+				echo '<div class="one_column_layout">
+					<div class="col_1">';
+				while ($MenuOptions = DB_fetch_array($ScriptResult)) {
+					echo '<a href="#" class="listLinks" onclick="Show(1,\'' . substr($MenuOptions['url'], 1) . '\',\'' . $MenuOptions['caption'] . '\'); return false;">' . $MenuOptions['caption'] . '</a>';
+				}
+				echo '</div>
+					</div>
 				</li>';
 			}
-			++$i;
 		}
 	}
+	echo '</ul>';
 
-	echo GetRptLinks($_SESSION['Module']); //=== GetRptLinks() must be modified!!! ===
-	echo '</ul></div>'; //=== InquiriesDiv ===
+	echo'</div>';
 
-	echo '<div id="MaintenanceDiv"><ul>'; //=== MaintenanceDive ===
+	echo '</body>
+	</html>';
 
-	echo '<li class="menu_group_headers">';
-	if ($_SESSION['Module'] == 'system') {
-		$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory Setup') . '" alt="' . _('Inventory Setup') . '" /><b>' . _('Inventory Setup') . '</b>';
-	} else {
-		$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Maintenance') . '" alt="' . _('Maintenance') . '" /><b>' . _('Maintenance') . '</b>';
-	}
-	echo $Header;
-	echo '</li>';
-
-	$i = 0;
-	if (isset($_SESSION['MenuItems'][$_SESSION['Module']]['Maintenance'])) {
-		foreach ($_SESSION['MenuItems'][$_SESSION['Module']]['Maintenance']['Caption'] as $Caption) {
-			/* Transactions Menu Item */
-			$ScriptNameArray = explode('?', substr($_SESSION['MenuItems'][$_SESSION['Module']]['Maintenance']['URL'][$i], 1));
-			if (isset($_SESSION['PageSecurityArray'][$ScriptNameArray[0]])) {
-				$PageSecurity = $_SESSION['PageSecurityArray'][$ScriptNameArray[0]];
-				if ((in_array($PageSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PageSecurity))) {
-					echo '<li class="menu_group_item">
-						<p><a href="' . $RootPath . $_SESSION['MenuItems'][$_SESSION['Module']]['Maintenance']['URL'][$i] . '">&bull; ' . $Caption . '</a></p>
-					</li>';
-				}
-			}
-			++$i;
-		}
-	}
-	echo '</ul></div>'; // MaintenanceDive ===HJ===
-	echo '</div>'; // SubMenuDiv ===HJ===
-
-	include('includes/footer.inc');
 }
 
 

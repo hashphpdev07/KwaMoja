@@ -45,6 +45,7 @@ if (isset($Messages) and count($Messages) > 0) {
 }
 
 echo '</div>'; // BodyWrapDiv
+echo '</div>'; // BodyWrapDiv
 
 echo '</div>'; // BodyDiv
 
