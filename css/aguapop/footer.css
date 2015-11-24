@@ -189,7 +189,7 @@ a.notificationIcons:hover span {
 }
 /* List Links */
 #footer_menu li:hover a.listLinks {
-        font-size:10px;
+        font-size:12px;
         color: #999999;
         margin-left:10px;
        margin-top:3px;
@@ -223,7 +223,7 @@ margin-right:4px;
 }
 
 /* Layout Sizes */
-#footer .one_column_layout {width: 300px;}
+#footer .one_column_layout {width: 200px;}
 #footer .two_column_layout {width: 280px;}
 #footer .three_column_layout {width: 420px;}
 
@@ -252,6 +252,6 @@ margin-right:4px;
         overflow: auto;
         max-height: 580px;
 }
-#footer .col_1 {width:290px;}
+#footer .col_1 {width:200px;}
 #footer .col_2 {width:270px;}
 #footer .col_3 {width:410px;}

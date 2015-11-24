@@ -201,11 +201,13 @@ if ($_SESSION['Theme'] == 'mobile') {
 	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
 		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
 		$SectionResult = DB_query($SQL);
+		echo '<li>
+				<a href="#">
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
+				</a>';
+		echo '<div class="one_column_layout">
+			<div class="col_1">';
 		while ($SectionRow = DB_fetch_array($SectionResult)) {
-			echo '<li>
-					<a href="#">
-						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
-					</a>';
 			$SQL = "SELECT menuitems.url,
 							caption
 						FROM menuitems
@@ -214,17 +216,14 @@ if ($_SESSION['Theme'] == 'mobile') {
 			$DbgMsg = _('The SQL that was used to retrieve the information was');
 			$ErrMsg = _('Could not retrieve the scripts associated with this account');
 			$ScriptResult = DB_query($SQL, $ErrMsg, $DbgMsg);
-			if (DB_num_rows($ScriptResult) > 0) {
-				echo '<div class="one_column_layout">
-					<div class="col_1">';
-				while ($MenuOptions = DB_fetch_array($ScriptResult)) {
-					echo '<a href="#" class="listLinks" onclick="Show(1,\'' . substr($MenuOptions['url'], 1) . '\',\'' . $MenuOptions['caption'] . '\'); return false;">' . $MenuOptions['caption'] . '</a>';
-				}
-				echo '</div>
-					</div>
-				</li>';
-			}
+			echo '<a href="#" class="listLinks" >
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . strtolower($SectionRow['menusection']) . '.png" />
+					' . $SectionRow['menusection'] . '
+				</a>';
 		}
+		echo '</div>
+			</div>';
+		echo '</li>';
 	}
 	echo '</ul>';
 
