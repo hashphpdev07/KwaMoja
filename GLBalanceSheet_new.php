@@ -91,7 +91,10 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 				INNER JOIN accountgroups
 					ON chartmaster.groupcode=accountgroups.groupcode
 				WHERE periodno<='" . ($_POST['BalancePeriodEnd']-12) . "'
-				GROUP BY chartmaster.groupcode";
+				GROUP BY chartmaster.groupcode
+						ORDER BY sequenceintb,
+								accountgroups.groupcode,
+								chartmaster.accountcode";
 
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -121,7 +124,10 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 				INNER JOIN accountgroups
 					ON chartmaster.groupcode=accountgroups.groupcode
 				WHERE periodno<='" . $_POST['BalancePeriodEnd'] . "'
-				GROUP BY chartmaster.groupcode";
+				GROUP BY chartmaster.groupcode
+						ORDER BY sequenceintb,
+								accountgroups.groupcode,
+								chartmaster.accountcode";
 
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -171,16 +177,20 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 							accountgroups.parentgroupcode,
 							SUM(gltrans.amount) AS balance
 						FROM chartmaster
-						LEFT JOIN accountgroups
+						INNER JOIN accountgroups
 							ON chartmaster.groupcode=accountgroups.groupcode
 						LEFT JOIN gltrans
 							ON gltrans.account=chartmaster.accountcode
-						WHERE gltrans.periodno<='" . $_POST['BalancePeriodEnd'] . "'
-							AND pandl=0
+							AND gltrans.periodno<='" . $_POST['BalancePeriodEnd'] . "'
+						WHERE pandl=0
 						GROUP BY sectioninaccounts,
-								accountcode";
+								accountcode
+						ORDER BY sequenceintb,
+								sectioninaccounts,
+								accountgroups.groupcode,
+								chartmaster.accountcode";
 	$MainListResult = DB_query($MainListSQL);
-echo $MainListSQL;
+
 	$LYMainListSQL = "SELECT chartmaster.accountcode,
 							chartmaster.accountname,
 							accountgroups.groupcode,
@@ -191,12 +201,16 @@ echo $MainListSQL;
 						FROM chartmaster
 						INNER JOIN accountgroups
 							ON chartmaster.groupcode=accountgroups.groupcode
-						INNER JOIN gltrans
+						LEFT JOIN gltrans
 							ON gltrans.account=chartmaster.accountcode
-						WHERE gltrans.periodno<='" . ($_POST['BalancePeriodEnd'] - 12) . "'
-							AND pandl=0
+							AND gltrans.periodno<='" . $_POST['BalancePeriodEnd'] . "'
+						WHERE pandl=0
 						GROUP BY sectioninaccounts,
-								accountcode";
+								accountcode
+						ORDER BY sequenceintb,
+								sectioninaccounts,
+								accountgroups.groupcode,
+								chartmaster.accountcode";
 	$LYMainListResult = DB_query($LYMainListSQL);
 
 	$LastYearTotal = 0;
@@ -231,6 +245,12 @@ echo $MainListSQL;
 			$LYParentGroupCodeTotal[$MainAccountListRow['parentgroupcode']] = $LYParentGroupCodeTotal[$MainAccountListRow['parentgroupcode']] + $RetainedEarningsRow['retainedearnings'];
 			$LYSectionTotal[$LastSection] = $LYSectionTotal[$LastSection] + $RetainedEarningsRow['retainedearnings'];
 
+			if (!isset($LowestLevelGroupBalances[$MainAccountListRow['groupcode']])) {
+				$LowestLevelGroupBalances[$MainAccountListRow['groupcode']] = 0;
+			}
+			if (!isset($SectionTotal[$LastSection])) {
+				$SectionTotal[$LastSection] = 0;
+			}
 			/*Get this years retainedearnings figure */
 			$RetainedEarningsSQL = "SELECT SUM(amount) AS retainedearnings,
 											accountgroups.groupcode,
@@ -255,6 +275,9 @@ echo $MainListSQL;
 		if ($MainAccountListRow['groupcode'] != $LastGroup and $LastGroup != '') {
 			if (!isset($LYLowestLevelGroupBalances[$LastGroup])) {
 				$LYLowestLevelGroupBalances[$LastGroup] = 0;
+			}
+			if (!isset($LowestLevelGroupBalances[$LastGroup])) {
+				$LowestLevelGroupBalances[$LastGroup] = 0;
 			}
 			echo '<tr>
 					<td></td>
@@ -319,6 +342,9 @@ echo $MainListSQL;
 		if ($MainAccountListRow['sectioninaccounts'] != $LastSection and $LastSection != '') {
 			if (!isset($LYSectionTotal[$LastSection])) {
 				$LYSectionTotal[$LastSection] = 0;
+			}
+			if (!isset($SectionTotal[$LastSection])) {
+				$SectionTotal[$LastSection] = 0;
 			}
 			$SectionNameSQL = "SELECT sectionname FROM accountsection WHERE sectionid='" . $LastSection . "'";
 			$SectionNameResult = DB_query($SectionNameSQL);
