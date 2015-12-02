@@ -15,152 +15,10 @@ if (!isset($_SESSION['FirstRun'])) {
 $Title = _('Main Menu');
 
 if ($_SESSION['Theme'] == 'mobile') {
-	include('includes/header.inc');
-	if (!isset($_GET['Application']) or $_GET['Application'] == '') {
-		echo '<table id="MainMenuTable">
-				<tr>
-					<td id="MainMenuCell">
-						<a href="' . $RootPath . '/index.php?Application=orders">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" /><br />' .
-							_('Sales') . '
-						</a>
-					</td>
-					<td id="MainMenuCell">
-						<a href="' . $RootPath . '/index.php?Application=purchases">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/purchases.png" /><br />' .
-							_('Purchases') . '
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td id="MainMenuCell">
-						<a href="' . $RootPath . '/index.php?Application=stock">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" /><br />' .
-							_('Manage Stock') . '
-						</a>
-					</td>
-					<td id="MainMenuCell">
-						<a href="' . $RootPath . '/index.php?Application=reports">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" /><br />' .
-							_('Reports') . '
-						</a>
-					</td>
-				</tr>
-			</table>';
-	}
-	if (isset($_GET['Application']) and $_GET['Application'] == 'orders') {
-		echo '<table id="SubMenuTable">
-				<tr>
-					<td id="SubMenuCell">
-						<a id="SubMenuLink" href="' . $RootPath . '/Customers.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' .
-							_('New Client') . '
-						</a>
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' .
-						_('Cash Sale') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" />' .
-						_('Invoice Client') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" />' .
-						_('Receive Money') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return') . '
-						</a>
-					</td>
-				</tr>
-			</table>';
-	}
-	if (isset($_GET['Application']) and $_GET['Application'] == 'purchases') {
-		echo '<table id="SubMenuTable">
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' .
-						_('New Supplier') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' .
-						_('Order Goods') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" />' .
-						_('Post Invoice') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" />' .
-						_('Pay A Supplier') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return to Menu') . '
-						</a>
-					</td>
-				</tr>
-			</table>';
-	}
-	if (isset($_GET['Application']) and $_GET['Application'] == 'stock') {
-		echo '<table id="SubMenuTable">
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' .
-						_('Create New item') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' .
-						_('Receive Goods') . '
-					</td>
-				</tr>
-				<tr>
-					<td id="SubMenuCell">
-						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return to Menu') . '
-						</a>
-					</td>
-				</tr>
-			</table>';
-	}
-	if (isset($_GET['Application']) and $_GET['Application'] == 'reports') {
-		echo '<table id="SubMenuTable">
-				<tr>
-					<td id="SubMenuCell">
-						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return to Menu') . '
-						</a>
-					</td>
-				</tr>
-			</table>';
-	}
+
 } else {
 
-	$Title = _('KwaMoja Main Menu');
+	$Title = _('KwaMoja Medical');
 	include('includes/header_main.inc');
 	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
@@ -180,10 +38,9 @@ if ($_SESSION['Theme'] == 'mobile') {
 
 	echo '<body>';
 
-	echo '<div id="site_title">KwaMoja<br />Medical</div>';
-
 	$SQL = "SELECT modulename,
-					modulelink
+					modulelink,
+					secroleid
 				FROM modules
 				INNER JOIN www_users
 					ON modules.secroleid=www_users.fullaccess
@@ -195,30 +52,64 @@ if ($_SESSION['Theme'] == 'mobile') {
 
 	$ModuleResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
+	echo '<nav id="menu-wrap">
+	<ul id="menu">';
+
+	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
+		echo '<li>
+				<a href="">
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
+				</a>
+				<ul>';
+		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
+		$SectionResult = DB_query($SQL);
+		echo '<li id="menu_title">' . $ModuleRow['modulename'] . '</li>';
+		while ($SectionRow = DB_fetch_array($SectionResult)) {
+			echo '<li>
+						<a href="">
+							<img title="' . $ModuleRow['modulename'] . '" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . strtolower($SectionRow['menusection']) . '.png" />
+							' . $SectionRow['menusection'] . '
+						</a>
+						<ul class="sub_menu">';
+			$SQL = "SELECT menuitems.url,
+							caption
+						FROM menuitems
+						WHERE modulelink='" . $ModuleRow['modulelink'] . "'
+							AND menusection='" . $SectionRow['menusection'] . "'
+							AND secroleid='" . $ModuleRow['secroleid'] . "'
+						ORDER BY sequence";
+			$DbgMsg = _('The SQL that was used to retrieve the information was');
+			$ErrMsg = _('Could not retrieve the scripts associated with this account');
+			$ScriptResult = DB_query($SQL, $ErrMsg, $DbgMsg);
+
+			while ($ScriptRow = DB_fetch_array($ScriptResult)) {
+				echo '<li class="auto-width">
+					<a href="#" onclick="Show(1, \'' . substr($ScriptRow['url'], 1) . '\', \'' . $ScriptRow['caption'] . '\'); return false;">' . $ScriptRow['caption'] . '</a>
+				</li>';
+			}
+			echo '</ul>
+					</li>';
+		}
+		echo '</ul>
+			</li>';
+	}
+
+	echo '</ul>
+		</nav>';
+	echo '<div id="site_title">' . _('KwaMoja') . '<br />' . _('Medical') . '</div>';
+/*
+
 	echo '<div id="footer">';
 	echo '<ul id="footer_menu">';
 
 	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
-		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
-		$SectionResult = DB_query($SQL);
 		echo '<li>
 				<a href="#">
 					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
 				</a>';
 		echo '<div class="one_column_layout">
 			<div class="col_1">';
-		while ($SectionRow = DB_fetch_array($SectionResult)) {
-			$SQL = "SELECT menuitems.url,
-							caption
-						FROM menuitems
-						WHERE modulelink='" . $ModuleRow['modulelink'] . "'
-							AND menusection='" . $SectionRow['menusection'] . "'";
-			$DbgMsg = _('The SQL that was used to retrieve the information was');
-			$ErrMsg = _('Could not retrieve the scripts associated with this account');
-			$ScriptResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 			echo '<a href="#" class="listLinks" >
-					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . strtolower($SectionRow['menusection']) . '.png" />
-					' . $SectionRow['menusection'] . '
 				</a>';
 		}
 		echo '</div>
@@ -227,7 +118,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 	}
 	echo '</ul>';
 
-	echo'</div>';
+	echo'</div>';*/
 
 	echo '</body>
 	</html>';

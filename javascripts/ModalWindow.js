@@ -67,7 +67,7 @@ function GetContent(id, section) {
 			OverRideClicks();
 		}
 	}
-	xmlhttp.open("GET",section,true);
+	xmlhttp.open("GET",section,false);
 	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	xmlhttp.setRequestHeader("Cache-Control","no-store, no-cache, must-revalidate");
 	xmlhttp.setRequestHeader("Pragma","no-cache");

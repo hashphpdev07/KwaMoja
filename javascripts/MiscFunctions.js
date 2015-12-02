@@ -452,7 +452,6 @@ function CancelRegistration() {
 }
 
 function initial() {
-	alert(window.innerHeight);
 	Scheduler();
 	var n = document.getElementsByTagName("input");
 	for (i = 0; i < n.length; i++) {
