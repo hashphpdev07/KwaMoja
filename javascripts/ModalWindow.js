@@ -26,8 +26,29 @@ function CreateModal(id, section, caption) {
 	modalHeaderHelp.innerHTML ="?";
 	modalHeaderHelp.onclick = Help;
 	modalHeader.appendChild(modalHeaderHelp);
+	modalFooter = document.createElement("div");
+	modalFooter.className = "modal_footer";
+	modalFooter.innerHTML="KwaMoja version "+version;
+	modalFooterClock = document.createElement("div");
+	modalFooterClock.className="modal_clock";
+	refreshClock();
+	modalFooter.appendChild(modalFooterClock);
+	divModal.appendChild(modalFooter);
 	ExpandWindow(51, 51, 51, 51, 1, 1, 1, 1);
 };
+
+function refreshClock() {
+	var mydate=new Date();
+	var year=mydate.getYear();
+	if (year < 1000)
+		year+=1900;
+	var day=mydate.getDay();
+	var month=mydate.getMonth();
+	var daym=mydate.getDate();
+	if (daym<10)
+		daym="0"+daym;
+	modalFooterClock.innerHTML=longdays[day]+", "+longmonths[month]+" "+daym+", "+year;
+}
 
 function Redirect(e) {
 	GetContent(1, e.getAttribute("href").replace(/^.*[\\\/]/, ''));
@@ -49,6 +70,12 @@ function OverRideClicks() {
 			if (t.getAttribute("type")=='submit') {
 				t.onclick = function () {SubmitThisForm(t.form,modalContents); return false};
 			}
+		}
+	}
+	var n = divModal.getElementsByTagName("table");
+	for (i = 0; i < n.length; i++) {
+		if (n[i].parentNode.tagName == "FORM") {
+			n[i].className = "input_form";
 		}
 	}
 }
@@ -90,8 +117,12 @@ function Help() {
 function ExpandWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 	function Expand() {
 		StartL--;
+		StartL--;
+		StartR--;
 		StartR--;
 		StartT--;
+		StartT--;
+		StartB--;
 		StartB--;
 		divModal.style.left = StartL + '%'; // pseudo-property code: Move right by 10px
 		divModal.style.right = StartR + '%'; // pseudo-property code: Move right by 10px
@@ -102,6 +133,7 @@ function ExpandWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 		} else {
 			modalHeader.style.display = 'block';
 			modalContents.style.display = 'block';
+			modalFooter.style.display = 'block';
 		}
 	}
 	Expand();
@@ -110,10 +142,15 @@ function ExpandWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 function CollapseWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 	modalHeader.style.display = 'none';
 	modalContents.style.display = 'none';
+	modalFooter.style.display = 'none';
 	function Collapse() {
 		StartL++;
+		StartL++;
+		StartR++;
 		StartR++;
 		StartT++;
+		StartT++;
+		StartB++;
 		StartB++;
 		divModal.style.left = StartL + '%'; // pseudo-property code: Move right by 10px
 		divModal.style.right = StartR + '%'; // pseudo-property code: Move right by 10px

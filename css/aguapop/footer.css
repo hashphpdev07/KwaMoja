@@ -44,6 +44,7 @@
 		font-size:16px;
 		font-weight:bold;
 		font-style:italic;
+		text-decoration: underline;
 		color:white;
 		padding:5px;
 	}

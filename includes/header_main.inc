@@ -69,4 +69,8 @@ echo '<style>
 				}
 			</style>';
 
+echo '<div id="FooterVersionDiv" style="display:none;">
+			', $_SESSION['VersionNumber'], '.', $_SESSION['DBUpdateNumber'],
+	'</div>';
+
 ?>

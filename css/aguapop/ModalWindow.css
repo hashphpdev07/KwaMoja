@@ -59,7 +59,33 @@ position: absolute;
 display: none;
 top: 9%;
 right: 1%;
-bottom: 3%;
+bottom: 8%;
 left: 1%;
 overflow:auto;
+}
+
+div.modal_footer {
+position: absolute;
+bottom:1px;
+width: 97%;
+font-weight: bold;
+background: transparent;
+border: solid #ffffff 2px;
+border-radius: 7px;
+margin: 1%;
+padding: 3px;
+font-size: 150%;
+color: #ffffff;
+text-align: left;
+vertical-align: bottom;
+display: none;
+}
+
+div.modal_clock {
+border: 0px solid #ffffff;
+float: right;
+padding-top:0px;
+padding-right:10px;
+height: 100%;
+color: #ffffff;
 }

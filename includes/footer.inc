@@ -44,30 +44,6 @@ if (isset($Messages) and count($Messages) > 0) {
 	}
 }
 
-echo '</div>'; // BodyWrapDiv
-echo '</div>'; // BodyWrapDiv
-
-echo '</div>'; // BodyDiv
-
-echo '<div id="FooterDiv" class="noPrint">';
-echo '<div id="FooterWrapDiv">';
-
-echo '<div id="FooterLogoDiv">
-		<a href="http://www.kwamoja.com" target="_blank"><img src="', $RootPath, '/', $_SESSION['LogoFile'], '" width="120" alt="KwaMoja" title="KwaMoja" /></a>
-	</div>';
-
-echo '<div id="FooterVersionDiv">
-		KwaMoja ', _('version'), ' ', $_SESSION['VersionNumber'], '.', $_SESSION['DBUpdateNumber'],
-	'</div>';
-
-echo '<div id="FooterTimeDiv">';
-echo DisplayDateTime();
-echo '</div>';
-
-echo '</div>'; // FooterWrapDiv
-echo '</div>'; // FooterDiv
-echo '</div>'; // Canvas
-
 echo '</body>';
 echo '</html>';
 

@@ -58,7 +58,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
 		echo '<li>
 				<a href="">
-					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
+					<img style="width:32px;" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
 				</a>
 				<ul>';
 		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
@@ -93,6 +93,9 @@ if ($_SESSION['Theme'] == 'mobile') {
 		echo '</ul>
 			</li>';
 	}
+	echo '<li style="float:right;">
+			<a href="'.$RootPath.'/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/quit.png" /></a></li>';
 
 	echo '</ul>
 		</nav>';
@@ -119,6 +122,8 @@ if ($_SESSION['Theme'] == 'mobile') {
 	echo '</ul>';
 
 	echo'</div>';*/
+	echo '<div id="dialog" name="dialog"></div>';
+	echo '<input type="hidden" name="Theme" id="Theme" value="', $_SESSION['Theme'], '" />';
 
 	echo '</body>
 	</html>';

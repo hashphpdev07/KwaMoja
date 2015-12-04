@@ -18,11 +18,12 @@ function hideAlert() {
 function MakeConfirm(e, t, n) {
 	url = n.href;
 	th = document.getElementById("Theme").value;
-	document.getElementById("mask").style["display"] = "inline";
+//	document.getElementById("mask").style["display"] = "inline";
 	h = '<div id="dialog_header"><img src="css/' + th + '/images/help.png" />' + t + '</div><div id="dialog_main">' + e;
 	h = h + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="Cancel" onClick="hideConfirm(\'\')" />';
 	h = h + '<a class="ButtonLink" href="' + url + '" ><input type="submit" class="okButton" value="OK" onClick="hideConfirm(\'OK\')" /></a></div></div>';
 	document.getElementById("dialog").innerHTML = h;
+	document.getElementById("dialog").style["display"] = "block";
 	document.getElementById("dialog").style.marginTop = -document.getElementById("dialog").offsetHeight + "px";
 	document.getElementById("dialog").style.marginLeft = -(document.getElementById("dialog").offsetWidth / 2) + "px";
 	return false
@@ -31,7 +32,8 @@ function MakeConfirm(e, t, n) {
 function hideConfirm(e) {
 	if (e == "") {
 		document.getElementById("dialog").innerHTML = "";
-		document.getElementById("mask").style["display"] = "none"
+		document.getElementById("dialog").style["display"] = "none"
+//		document.getElementById("mask").style["display"] = "none"
 	}
 	return true
 }
@@ -470,8 +472,11 @@ function initial() {
 			n[i].onclick = SortSelect
 		}
 	}
+	version=document.getElementById("FooterVersionDiv").innerHTML;
 }
 days = new Array("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa");
+longdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
 months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
+longmonths = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 dateDivID = "calendar";
 window.onload = initial
