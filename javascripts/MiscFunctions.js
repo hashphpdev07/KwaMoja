@@ -18,7 +18,7 @@ function hideAlert() {
 function MakeConfirm(e, t, n) {
 	url = n.href;
 	th = document.getElementById("Theme").value;
-//	document.getElementById("mask").style["display"] = "inline";
+	document.getElementById("mask").style["display"] = "inline";
 	h = '<div id="dialog_header"><img src="css/' + th + '/images/help.png" />' + t + '</div><div id="dialog_main">' + e;
 	h = h + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="Cancel" onClick="hideConfirm(\'\')" />';
 	h = h + '<a class="ButtonLink" href="' + url + '" ><input type="submit" class="okButton" value="OK" onClick="hideConfirm(\'OK\')" /></a></div></div>';
@@ -32,10 +32,47 @@ function MakeConfirm(e, t, n) {
 function hideConfirm(e) {
 	if (e == "") {
 		document.getElementById("dialog").innerHTML = "";
-		document.getElementById("dialog").style["display"] = "none"
-//		document.getElementById("mask").style["display"] = "none"
+		document.getElementById("dialog").style["display"] = "none";
+		document.getElementById("mask").style["display"] = "none";
 	}
 	return true
+}
+
+function ShowMessages() {
+	var divMessage = new Array();
+	n=document.getElementsByName('success');
+	for (i = 0; i < n.length; i++) {
+		divMessage[i] = document.createElement("div");
+		divMessage[i].className = "success";
+		divMessage[i].style.top = (50+140*i)+"px";
+		divMessage[i].innerHTML=n[i].innerHTML;
+		divModal.appendChild(divMessage[i]);
+		setTimeout(FadeOut, 2000, divMessage[i]);
+	}
+	w=i;
+	n=document.getElementsByName('info');
+	for (i = w; i < (n+w).length; i++) {
+		divMessage[i] = document.createElement("div");
+		divMessage[i].className = "info";
+		divMessage[i].style.top = (50+140*i)+"px";
+		divMessage[i].innerHTML=n[i].innerHTML;
+		divModal.appendChild(divMessage[i]);
+		setTimeout(FadeOut, 2000, divMessage[i]);
+	}
+	w=i;
+	n=document.getElementsByName('warn');
+	for (i = w; i < (n+w).length; i++) {
+		divMessage[i] = document.createElement("div");
+		divMessage[i].className = "warn";
+		divMessage[i].style.top = (50+140*i)+"px";
+		divMessage[i].innerHTML=n[i].innerHTML;
+		divModal.appendChild(divMessage[i]);
+		setTimeout(FadeOut, 2000, divMessage[i]);
+	}
+}
+
+function FadeOut(divMessage) {
+	divMessage.style.opacity=0;
 }
 
 function FilterArray(dd,s,a){

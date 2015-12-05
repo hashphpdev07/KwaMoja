@@ -58,7 +58,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
 		echo '<li>
 				<a href="">
-					<img style="width:32px;" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
+					<img title="' . $ModuleRow['modulename'] . '" style="width:32px;" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
 				</a>
 				<ul>';
 		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
@@ -67,7 +67,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 		while ($SectionRow = DB_fetch_array($SectionResult)) {
 			echo '<li>
 						<a href="">
-							<img title="' . $ModuleRow['modulename'] . '" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . strtolower($SectionRow['menusection']) . '.png" />
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . strtolower($SectionRow['menusection']) . '.png" />
 							' . $SectionRow['menusection'] . '
 						</a>
 						<ul class="sub_menu">';
@@ -94,7 +94,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 			</li>';
 	}
 	echo '<li style="float:right;">
-			<a href="'.$RootPath.'/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);">
+			<a title="Log out of KwaMoja" id="exit" href="'.$RootPath.'/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);">
 				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/quit.png" /></a></li>';
 
 	echo '</ul>
@@ -122,6 +122,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 	echo '</ul>';
 
 	echo'</div>';*/
+	echo '<div id="mask" name="mask"></div>';
 	echo '<div id="dialog" name="dialog"></div>';
 	echo '<input type="hidden" name="Theme" id="Theme" value="', $_SESSION['Theme'], '" />';
 

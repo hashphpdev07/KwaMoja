@@ -59,7 +59,7 @@ function OverRideClicks() {
 		var e = document.getElementsByTagName("a");
 		for (i = 0; i < e.length; i++) {
 			var t = e[i];
-			if (t.getAttribute("href")!="#") {
+			if (t.getAttribute("href")!="#" && t.id!="exit") {
 				t.target = "_blank"
 				t.onclick = function () {Redirect(this); return false};
 			}
@@ -78,6 +78,7 @@ function OverRideClicks() {
 			n[i].className = "input_form";
 		}
 	}
+	ShowMessages();
 }
 
 function GetContent(id, section) {

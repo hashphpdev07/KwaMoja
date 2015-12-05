@@ -333,33 +333,6 @@ border:1px solid red;
 margin:5px auto;
 }
 
-div.warn {
-margin-top: 5px;
-background-color:#FFC0CB;
-width:98%;
-color:maroon;
-border:1px solid maroon;
-margin:5px auto;
-}
-
-div.success {
-margin-top: 5px;
-background-color:#7FFFD4;
-width:98%;
-color:green;
-border:1px solid green;
-margin:5px auto;
-}
-
-div.info {
-margin-top: 5px;
-background-color:#87CEFA;
-width:98%;
-color:navy;
-border:1px solid navy;
-margin:5px auto;
-}
-
 DIV.page_help_text {
 background:#D3D3D3 url(images/help.png) top left no-repeat;
 border:maroon 1px solid;

@@ -1,7 +1,4 @@
 <?php
-echo '<div id="mask">
-				<div id="dialog" name="dialog"></div>
-			</div>';
 
 if (isset($Messages) and count($Messages) > 0) {
 	echo '<br />';
@@ -14,7 +11,7 @@ if (isset($Messages) and count($Messages) > 0) {
 				if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 3) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
-				echo '<div class="' . $Class . ' noPrint"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
+				echo '<div name="error" class="' . $Class . ' noPrint"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
 				break;
 			case 'warn':
 				$Class = 'warn';
@@ -22,7 +19,7 @@ if (isset($Messages) and count($Messages) > 0) {
 				if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 3) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
-				echo '<br /><div class="' . $Class . ' noPrint"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
+				echo '<br /><div name="warn" style="display:none;"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
 				break;
 			case 'success':
 				$Class = 'success';
@@ -30,7 +27,7 @@ if (isset($Messages) and count($Messages) > 0) {
 				if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 3) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
-				echo '<div class="' . $Class . ' noPrint"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
+				echo '<div name="success" style="display:none;"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
 				break;
 			case 'info':
 			default:
@@ -39,7 +36,7 @@ if (isset($Messages) and count($Messages) > 0) {
 				if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 2) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
-				echo '<div class="' . $Class . ' noPrint"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
+				echo '<div name="info" style="display:none;"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
 		}
 	}
 }
