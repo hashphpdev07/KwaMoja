@@ -43,29 +43,5 @@ if ($Debug === 0) {
 	echo '<body class="holmes-debug" onload="initial()">';
 }
 
-if (isset($_GET['FontSize'])) {
-	$SQL = "UPDATE www_users
-				SET fontsize='" . $_GET['FontSize'] . "'
-				WHERE userid = '" . $_SESSION['UserID'] . "'";
-	$Result = DB_query($SQL);
-	switch ($_GET['FontSize']) {
-		case 0:
-			$_SESSION['ScreenFontSize'] = '8pt';
-			break;
-		case 1:
-			$_SESSION['ScreenFontSize'] = '10pt';
-			break;
-		case 2:
-			$_SESSION['ScreenFontSize'] = '12pt';
-			break;
-		default:
-			$_SESSION['ScreenFontSize'] = '10pt';
-	}
-}
-echo '<style>
-			body {
-					font-size: ', $_SESSION['ScreenFontSize'], ';
-				}
-			</style>';
 
 ?>
