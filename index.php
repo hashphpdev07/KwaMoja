@@ -20,23 +20,6 @@ if ($_SESSION['Theme'] == 'mobile') {
 
 	$Title = _('KwaMoja Medical');
 	include('includes/header_main.inc');
-	echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-
-	echo '<html xmlns="http://www.w3.org/1999/xhtml">
-			<head>
-				<title>The Official KwaMoja web site</title>';
-
-	echo '<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />';
-
-	echo '<script type="text/javascript" src="javascripts/ModalWindow.js"></script>';
-
-	echo '<link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">';
-	echo '<link href="http://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">';
-
-	echo '</head>';
-
-	echo '<body>';
 
 	$SQL = "SELECT modulename,
 					modulelink,
