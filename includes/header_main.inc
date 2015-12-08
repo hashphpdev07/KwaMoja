@@ -31,7 +31,8 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/footer.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/ModalWindow.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
-			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" /
+			<link href="http://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">
 			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>
 			<script type="text/javascript" src = "', $RootPath, '/javascripts/ModalWindow.js"></script>';
 
