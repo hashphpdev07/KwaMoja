@@ -34,6 +34,7 @@ function CreateModal(id, section, caption) {
 	refreshClock();
 	modalFooter.appendChild(modalFooterClock);
 	divModal.appendChild(modalFooter);
+	divModal.display="inline";
 	ExpandWindow(51, 51, 51, 51, 1, 1, 1, 1);
 };
 
