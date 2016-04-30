@@ -142,6 +142,7 @@ function ExpandWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 };
 
 function CollapseWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
+	document.body.removeChild(divMask);
 	modalHeader.style.display = 'none';
 	modalContents.style.display = 'none';
 	modalFooter.style.display = 'none';
@@ -162,7 +163,6 @@ function CollapseWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) 
 			setTimeout(Collapse, 1); // call doMove() in 20 msec
 		} else {
 			document.body.removeChild(divModal);
-			document.body.removeChild(divMask);
 		}
 	}
 	Collapse();
