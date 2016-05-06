@@ -45,11 +45,11 @@ function ShowCustomerSearchFields($rootpath, $theme) {
 			// If OK show select box with option selected
 			echo '<select name="CustType">';
 			echo '<option value="ALL">' . _('Any') . '</option>';
-			while ($myrow = DB_fetch_array($result2)) {
-				if ($_POST['CustType'] == $myrow['typename']) {
-					echo '<option selected="True" value="' . $myrow['typename'] . '">' . $myrow['typename'] . '</option>';
+			while ($MyRow = DB_fetch_array($result2)) {
+				if ($_POST['CustType'] == $MyRow['typename']) {
+					echo '<option selected="True" value="' . $MyRow['typename'] . '">' . $MyRow['typename'] . '</option>';
 				} else {
-					echo '<option value="' . $myrow['typename'] . '">' . $myrow['typename'] . '</option>';
+					echo '<option value="' . $MyRow['typename'] . '">' . $MyRow['typename'] . '</option>';
 				}
 			} //end while loop
 			DB_data_seek($result2, 0);
@@ -67,8 +67,8 @@ function ShowCustomerSearchFields($rootpath, $theme) {
 			// if OK show select box with available options to choose
 			echo '<select name="CustType">';
 			echo '<option value="ALL">' . _('Any') . '</option>';
-			while ($myrow = DB_fetch_array($result2)) {
-				echo '<option value="' . $myrow['typename'] . '">' . $myrow['typename'] . '</option>';
+			while ($MyRow = DB_fetch_array($result2)) {
+				echo '<option value="' . $MyRow['typename'] . '">' . $MyRow['typename'] . '</option>';
 			} //end while loop
 			DB_data_seek($result2, 0);
 			echo '</select></td>';
@@ -87,11 +87,11 @@ function ShowCustomerSearchFields($rootpath, $theme) {
 		// if OK show select box with available options to choose
 		echo '<select name="Area">';
 		echo '<option value="ALL">' . _('Any') . '</option>';
-		while ($myrow = DB_fetch_array($result2)) {
-			if (isset($_POST['Area']) and $_POST['Area'] == $myrow['areacode']) {
-				echo '<option selected="True" value="' . $myrow['areacode'] . '">' . $myrow['areadescription'] . '</option>';
+		while ($MyRow = DB_fetch_array($result2)) {
+			if (isset($_POST['Area']) and $_POST['Area'] == $MyRow['areacode']) {
+				echo '<option selected="True" value="' . $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
 			} else {
-				echo '<option value="' . $myrow['areacode'] . '">' . $myrow['areadescription'] . '</option>';
+				echo '<option value="' . $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
 			}
 		} //end while loop
 		DB_data_seek($result2, 0);
@@ -262,7 +262,7 @@ function ShowReturnedCustomers($result) {
 	$RowIndex = 0;
 	if (DB_num_rows($result) <> 0) {
 		$i = 0; //counter for input controls
-		while (($myrow = DB_fetch_array($result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
+		while (($MyRow = DB_fetch_array($result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
 			if ($k == 1) {
 				echo '<tr class="EvenTableRows">';
 				$k = 0;
@@ -271,16 +271,14 @@ function ShowReturnedCustomers($result) {
 				$k = 1;
 			}
 			echo '<td>
-					<input type="submit" name="SubmitCustomerSelection' . $i . '" value="' . htmlentities($myrow['debtorno'] . ' ' . $myrow['branchcode'], ENT_QUOTES, 'UTF-8') . '" />
+					<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Debtor=' . $MyRow['debtorno'] . '&Branch=' . $MyRow['branchcode'] . '">' . $MyRow['name'] . '</a>
 				</td>
-				<input type="hidden" name="SelectedCustomer' . $i . '" value="' . $myrow['debtorno'] . '" />
-				<input type="hidden" name="SelectedBranch' . $i . '" value="' . $myrow['branchcode'] . '" />
-				<td><font size="1">' . $myrow['name'] . '</font></td>
-				<td><font size="1">' . $myrow['brname'] . '</font></td>
-				<td><font size="1">' . $myrow['contactname'] . '</font></td>
-				<td><font size="1">' . $myrow['typename'] . '</font></td>
-				<td><font size="1">' . $myrow['phoneno'] . '</font></td>
-				<td><font size="1">' . $myrow['faxno'] . '</font></td></tr>';
+				<td><font size="1">' . $MyRow['name'] . '</font></td>
+				<td><font size="1">' . $MyRow['brname'] . '</font></td>
+				<td><font size="1">' . $MyRow['contactname'] . '</font></td>
+				<td><font size="1">' . $MyRow['typename'] . '</font></td>
+				<td><font size="1">' . $MyRow['phoneno'] . '</font></td>
+				<td><font size="1">' . $MyRow['faxno'] . '</font></td></tr>';
 			$i++;
 			$j++; //row counter
 			//end of page full new headings if
