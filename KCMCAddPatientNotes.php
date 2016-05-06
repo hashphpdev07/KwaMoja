@@ -1,36 +1,15 @@
 <?php
 
 include('includes/session.inc');
-$Title = _('Patient Notes');
+$Title = _('Patient Records');
 include('includes/header.inc');
 include('includes/SQL_CommonFunctions.inc');
 include('includes/CustomerSearch.php');
 
-if (isset($_GET['Id'])) {
-	$Id = (int) $_GET['Id'];
-} else if (isset($_POST['Id'])) {
-	$Id = (int) $_POST['Id'];
-}
 if (isset($_POST['DebtorNo'])) {
 	$Patient[0] = $_POST['DebtorNo'];
-} elseif (isset($_GET['DebtorNo'])) {
-	$Patient[0] = stripslashes($_GET['DebtorNo']);
-}
-
-if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previous']) and !isset($_POST['Go1']) and !isset($_POST['Go2']) and isset($_POST['JustSelectedACustomer']) and empty($_POST['Patient'])) {
-	/*Need to figure out the number of the form variable that the user clicked on */
-	for ($i = 0; $i < count($_POST); $i++) { //loop through the returned customers
-		if (isset($_POST['SubmitCustomerSelection' . $i])) {
-			break;
-		}
-	}
-	if ($i == count($_POST)) {
-		prnMsg(_('Unable to identify the selected customer'), 'error');
-	} else {
-		$Patient[0] = $_POST['SelectedCustomer' . $i];
-		$Patient[1] = $_POST['SelectedBranch' . $i];
-		unset($_POST['Search']);
-	}
+} elseif (isset($_GET['Debtor'])) {
+	$Patient[0] = stripslashes($_GET['Debtor']);
 }
 
 if (!isset($Patient)) {
@@ -121,140 +100,119 @@ if (isset($Patient)) {
 		unset($_GET['delete']);
 	}
 
-	if (!isset($Id)) {
-		$NameSql = "SELECT * FROM debtorsmaster
-				WHERE debtorno='" . $Patient[0] . "'";
-		$Result = DB_query($NameSql);
-		$MyRow = DB_fetch_array($Result);
-		echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . _('Notes for Patient') . ': <b>' . $MyRow['name'] . '</b></p>';
-
-		$SQL = "SELECT noteid,
-						debtorno,
-						note,
-						date,
-						priority,
-						realname
-					FROM custnotes
+	if (!isset($PageNumber) and !isset($_GET['New'])) {
+		// There is no page selected yet and not creating a new one
+		$SQL = "SELECT patientrecord.id,
+						www_users.realname,
+						patientrecord.doctor,
+						patientrecord.creationdate,
+						patientrecord.record
+					FROM patientrecord
 					INNER JOIN www_users
-						ON custnotes.userid=www_users.userid
-					WHERE debtorno='" . $Patient[0] . "'
-					ORDER BY date DESC";
+					ON patientrecord.createdby=www_users.userid
+					WHERE patientrecord.debtorno='" . $Patient[0] . "'";
 		$Result = DB_query($SQL);
 
-		echo '<table class="selection">
-		<tr>
-			<th>' . _('Date') . '</th>
-			<th>' . _('Doctor') . '</th>
-			<th>' . _('Note') . '</th>
-			<th>' . _('Priority') . '</th>
-		</tr>';
+		if (DB_num_rows($Result) > 0) {
+			echo '<table>
+					<tr>
+						<th>' . _('Record Id') . '</th>
+						<th>' . _('Created By') . '</th>
+						<th>' . _('Created On') . '</th>
+						<th>' . _('Doctor') . '</th>
+					</tr>';
 
-		$k = 0; //row colour counter
-
-		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
+			while ($MyRow = DB_fetch_array($Result)) {
+				echo '<tr title="' . $MyRow['record'] . '">
+						<td>' . $MyRow['id'] . '</td>
+						<td>' . $MyRow['realname'] . '</td>
+						<td>' . ConvertSQLDate($MyRow['creationdate']) . '</td>
+						<td>' . $MyRow['doctor'] . '</td>
+						<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Edit=Yes&Id=' . $MyRow['id'] . '">' . _('Edit') . '</a></td>
+						<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=Yes&Id=' . $MyRow['id'] . '">' . _('Delete') . '</a></td>
+					</tr>';
 			}
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td><a href="%sId=%s&DebtorNo=%s">' . _('Edit') . ' </td>
-					<td><a href="%sId=%s&DebtorNo=%s&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</td></tr>', ConvertSQLDate($MyRow['date']), $MyRow['realname'], $MyRow['note'], $MyRow['priority'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['noteid'], urlencode($MyRow['debtorno']), htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['noteid'], urlencode($MyRow['debtorno']));
-
+			echo '</table>';
+		} else {
+			echo '<div class="centre">' .
+					_('There are no records setup for this patient.') .
+				'</div>';
 		}
-		//END WHILE LIST LOOP
-		echo '</table>';
-	}
-	if (isset($Id)) {
-		echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . urlencode($Patient[0]) . '">' . _('Review all notes for this Customer') . '</a>
-		</div>';
-	}
-
-	if (!isset($_GET['delete'])) {
-
-		echo '<form onSubmit="return VerifyForm(this);" method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . $Patient[0] . '">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
-		if (isset($Id)) {
-			//editing an existing
-
-			$SQL = "SELECT noteid,
-						debtorno,
-						href,
-						note,
-						date,
-						priority
-					FROM custnotes
-					WHERE noteid='" . $Id . "'
-						AND debtorno='" . $Patient[0] . "'";
-
+		echo '<div class="centre">' .
+				_('Click') . '&nbsp;' . '<a class="ButtonLink" href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?New=Yes&Debtor=' . $Patient[0] . '">' . _('here') . '</a>' . ' ' . _('to create a new record') .
+			'</div>';
+	} else {
+		echo '<table style="width:95%;">
+				<tr>';
+		if (!isset($_GET['New'])) {
+			//We are editing an old record
+			$SQL = "SELECT patientrecord.debtorno,
+							debtorsmaster.name,
+							www_users.realname,
+							patientrecord.createdby,
+							patientrecord.doctor,
+							patientrecord.creationdate,
+							patientrecord.record
+						FROM patientrecord
+						INNER JOIN www_users
+							ON patientrecord.createdby=www_users.userid
+						INNER JOIN debtorsmaster
+							ON patientrecord.debtorno=debtorsmaster.debtorno
+						WHERE patientrecord.id='" . $PageNumber . "'";
 			$Result = DB_query($SQL);
-
 			$MyRow = DB_fetch_array($Result);
 
-			$_POST['Noteid'] = $MyRow['noteid'];
-			$_POST['Note'] = $MyRow['note'];
-			$_POST['Href'] = $MyRow['href'];
-			$_POST['NoteDate'] = $MyRow['date'];
-			$_POST['Priority'] = $MyRow['priority'];
-			$_POST['debtorno'] = $MyRow['debtorno'];
-			echo '<input type="hidden" name="Id" value="' . $Id . '" />';
-			echo '<input type="hidden" name="Con_ID" value="' . $_POST['Noteid'] . '" />';
-			echo '<input type="hidden" name="DebtorNo" value="' . $_POST['debtorno'] . '" />';
-			echo '<table class="selection">
-			<tr>
-				<td>' . _('Note ID') . ':</td>
-				<td>' . $_POST['Noteid'] . '</td>
-			</tr>';
+			$_POST['PatientNumber'] = $MyRow['debtorno'];
+			$_POST['Name'] = $MyRow['realname'];
+			$_POST['CreatedBy'] = $MyRow['createdby'];
+			$_POST['Doctor'] = $MyRow['doctor'];
+			$_POST['CreationDate'] = ConvertSQLDate($MyRow['creationdate']);
+			$_POST['PatientRecord'] = $MyRow['record'];
 		} else {
-			echo '<table class="selection">';
+			// It's a new record
+			$SQL = "SELECT name FROM debtorsmaster WHERE debtorno='" . $Patient[0] . "'";
+			$Result = DB_query($SQL);
+			$MyRow = DB_fetch_array($Result);
+			$_POST['PatientNumber'] = '';
+			$_POST['Name'] = stripslashes($_SESSION['UsersRealName']);
+			$_POST['CreatedBy'] = $_SESSION['UserID'];
+			$_POST['Doctor'] = '';
+			$_POST['CreationDate'] = date($_SESSION['DefaultDateFormat']);
+			$_POST['PatientRecord'] = '';
+			$NotesSQL = "SELECT id, title FROM standardnotes";
+			$NotesResult = DB_query($NotesSQL);
+			echo '<td style="width:30%;vertical-align:top;padding:20px;">
+					<table>
+						<tr>
+							<td style="width:50%">' . _('Patients Name') . ': </td>
+							<td style="width:50%">' . $MyRow['name'] . '</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td style="width:50%">' . _('Created') . ': </td>
+							<td style="width:50%">' . $_POST['CreationDate'] . '</td>
+							<td></td>
+						</tr>';
+			echo '<tr>
+					<td>' . _('Select a Note') . '</td>
+					<td>
+						<select name="Notes">';
+			while ($MyNotesRow = DB_fetch_array($NotesResult)) {
+				echo '<option name="' . $MyNotesRow['id'] . '">' . $MyNotesRow['title'] . '</option>';
+			}
+			echo '</select>
+						</td>
+						<td><input type="submit" name="AddNote" value="Add to report" /></td>
+					</tr>';
+			echo '</table>
+				</td>';
 		}
-
-		echo '<input type="hidden" name="DebtorNo" value="' . stripslashes(stripslashes($Patient[0])) . '" />';
-		echo '<tr>
-			<td>' . _('Note') . '</td>';
-		if (isset($_POST['Note'])) {
-			echo '<td><textarea name="Note" rows="3" required="required" minlength="1" cols="32">' . $_POST['Note'] . '</textarea></td>
-			</tr>';
-		} else {
-			echo '<td><textarea name="Note" rows="3" cols="32"></textarea></td>
-			</tr>';
-		}
-		echo '<tr>
-			<td>' . _('Date') . '</td>';
-		if (isset($_POST['date'])) {
-			echo '<td><input type="text" name="NoteDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" id="datepicker" value="' . ConvertSQLDate($_POST['date']) . '" size="10" minlength="0" maxlength="10" /></td>
-			</tr>';
-		} else {
-			echo '<td><input type="text" name="NoteDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" id="datepicker" value="' . date($_SESSION['DefaultDateFormat']) . '" size="10" minlength="0" maxlength="10" /></td>
-			</tr>';
-		}
-		echo '<tr>
-			<td>' . _('Priority') . '</td>';
-		if (isset($_POST['Priority'])) {
-			echo '<td><input type="text" class=integer" name="Priority" value="' . $_POST['Priority'] . '" size="1" minlength="0" maxlength="3" /></td>
-			</tr>';
-		} else {
-			echo '<td><input type="text" class="integer" name="Priority" size="1" minlength="0" maxlength="3" /></td>
-			</tr>';
-		}
-		echo '<tr>
-			<td colspan="2">
-			<div class="centre">
-				<input type="submit" name="submit" value="' . _('Enter Information') . '" />
-			</div>
-			</td>
-		</tr>
-		</table>
-		</form>';
-
-	} //end if record deleted no point displaying form to add record
+		echo '<td style="width:65%;padding:20px;">
+				<textarea name="Note" rows="25" cols="110" style="width:100%;">' . $_POST['Note'] . '</textarea>
+			</td>';
+		echo '</tr>
+		</table>';
+	}
 }
 include('includes/footer.inc');
 ?>
