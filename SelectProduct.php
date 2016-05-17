@@ -1,6 +1,7 @@
 <?php
 
 $PricesSecurity = 1000; //don't show pricing info unless security token 1000 available to user
+$CostSecurity = 1002; //don't show cost info unless security token 1002 available to user
 $SuppliersSecurity = 9; //don't show supplier purchasing info unless security token 9 available to user
 
 include('includes/session.inc');
@@ -40,8 +41,8 @@ $SQL = "SELECT SQL_CACHE categoryid,
 		ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
 if (DB_num_rows($Result1) == 0) {
-	echo '<p class="bad">', _('Problem Report'), ':<br />', _('There are no stock categories currently defined please use the link below to set them up'), '</p>';
-	echo '<br /><a href="', $RootPath, '/StockCategories.php">', _('Define Stock Categories'), '</a>';
+	prnMsg( _('There are no stock categories currently defined please use the link below to set them up') . '<br /><a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>', 'warn');
+	include('includes/footer.inc');
 	exit;
 }
 // end of showing search facilities
@@ -54,28 +55,35 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	} else {
 		$StockId = $_SESSION['SelectedStockItem'];
 	}
-	$Result = DB_query("SELECT stockmaster.description,
-								stockmaster.longdescription,
-								stockmaster.mbflag,
-								stockcategory.stocktype,
-								stockmaster.units,
-								stockmaster.decimalplaces,
-								stockmaster.controlled,
-								stockmaster.serialised,
-								stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS cost,
-								stockmaster.discontinued,
-								stockmaster.eoq,
-								stockmaster.volume,
-								stockmaster.grossweight,
-								stockcategory.categorydescription,
-								stockmaster.categoryid
-						FROM stockmaster
-						INNER JOIN stockcategory
-							ON stockmaster.categoryid=stockcategory.categoryid
-						LEFT JOIN stockcosts
-							ON stockmaster.stockid=stockcosts.stockid
-							AND stockcosts.succeeded=0
-						WHERE stockcosts.stockid='" . $StockId . "'");
+	$SQL = "SELECT stockdescriptiontranslations.descriptiontranslation AS description,
+					stocklongdescriptiontranslations.longdescriptiontranslation AS longdescription,
+					stockmaster.mbflag,
+					stockcategory.stocktype,
+					stockmaster.units,
+					stockmaster.decimalplaces,
+					stockmaster.controlled,
+					stockmaster.serialised,
+					stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS cost,
+					stockmaster.discontinued,
+					stockmaster.eoq,
+					stockmaster.volume,
+					stockmaster.grossweight,
+					stockcategory.categorydescription,
+					stockmaster.categoryid
+				FROM stockmaster
+				INNER JOIN stockdescriptiontranslations
+					ON stockdescriptiontranslations.stockid=stockmaster.stockid
+				INNER JOIN stocklongdescriptiontranslations
+					ON stocklongdescriptiontranslations.stockid=stockmaster.stockid
+				INNER JOIN stockcategory
+					ON stockmaster.categoryid=stockcategory.categoryid
+				LEFT JOIN stockcosts
+					ON stockmaster.stockid=stockcosts.stockid
+					AND stockcosts.succeeded=0
+				WHERE stockcosts.stockid='" . $StockId . "'
+					AND stockdescriptiontranslations.language_id='" . $_SESSION['InventoryLanguage'] . "'
+					AND stocklongdescriptiontranslations.language_id='" . $_SESSION['InventoryLanguage'] . "'";
+	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$Its_A_Kitset_Assembly_Or_Dummy = false;
 	$Its_A_Dummy = false;
@@ -187,7 +195,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 		if (DB_num_rows($PriceResult) == 0) {
 			echo '<tr>
 					<th class="number">', _('Sell Price'), ':</th>
-					<td class="select">', _('No Default Price Set in Home Currency'), '</td>
+					<td class="select">', _('No Default Price Set'), '</td>
 				</tr>';
 			$Price = 0;
 		} else {
@@ -207,6 +215,8 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 					</tr>';
 			}
 		}
+	} //end of if PricesSecuirty allows viewing of prices
+	if (in_array($CostSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
 		if ($MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'A') {
 			$CostResult = DB_query("SELECT SUM(bom.quantity * (stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost)) AS cost
 									FROM bom
@@ -225,7 +235,8 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 				<th class="number">', _('Cost'), ':</th>
 				<td class="select">', locale_number_format($Cost, $_SESSION['StandardCostDecimalPlaces']), '</td>
 			</tr>';
-	} //end of if PricesSecuirty allows viewing of prices
+	}
+
 	echo '</table>'; //end of first nested table
 	// Item Category Property mod: display the item properties
 	echo '<table>';
@@ -277,6 +288,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	echo '<td style="width:15%; vertical-align:top">
 			<table>'; //nested table to show QOH/orders
 	$QOH = 0;
+	$QOO = 0;
 	switch ($MyRow['mbflag']) {
 		case 'A':
 		case 'D':
@@ -442,7 +454,10 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	if ($Its_A_Kitset_Assembly_Or_Dummy == false) {
 		echo '<a href="', $RootPath, '/PO_SelectOSPurchOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Outstanding Purchase Orders'), '</a>';
 		echo '<a href="', $RootPath, '/PO_SelectPurchOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search All Purchase Orders'), '</a>';
-		echo '<a href="', $RootPath, '/', $_SESSION['part_pics_dir'], '/', $StockId, '.jpg">', _('Show Part Picture (if available)'), '</a>';
+
+		$SupportedImgExt = array('png', 'jpg', 'jpeg');
+		$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $StockID . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
+		echo '<a href="' . $RootPath . '/' . $ImageFile . '" target="_blank">' . _('Show Part Picture (if available)') . '</a>';
 	}
 	if ($Its_A_Dummy == false) {
 		echo '<a href="', $RootPath, '/BOMInquiry.php?StockID=', $UrlEncodedStockId . '">', _('View Costed Bill Of Material'), '</a>';
@@ -458,9 +473,11 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 		echo '<a href="', $RootPath, '/StockAdjustments.php?StockID=', $UrlEncodedStockId, '">', _('Quantity Adjustments'), '</a>';
 		echo '<a href="', $RootPath, '/StockTransfers.php?StockID=', $UrlEncodedStockId, '&amp;NewTransfer=true">', _('Location Transfers'), '</a>';
 		//show the item image if it has been uploaded
-		if (function_exists('imagecreatefromjpeg')) {
+		if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 			if ($_SESSION['ShowStockidOnImages'] == '0') {
 				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . $UrlEncodedStockId . '&amp;text=' . '&amp;width=100' . '&amp;height=100' . '" alt="" />';
+			} else if (file_exists($ImageFile)) {
+				$StockImgLink = '<img src="' . $ImageFile . '" height="100" width="100" />';
 			} else {
 				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . $UrlEncodedStockId . '&amp;text=' . $UrlEncodedStockId . '&amp;width=100' . '&amp;height=100' . '" alt="" />';
 			}
@@ -575,6 +592,15 @@ if (isset($_POST['StockCode'])) {
 } else {
 	echo '<td><input type="search" name="StockCode" autofocus="autofocus" size="15" maxlength="18" /></td>';
 }
+echo '</tr>';
+
+echo '<tr>
+		<td colspan="2" class="number"><b>', _('OR'), ' ', '</b>', _('Enter partial'), ' <b>', _('Supplier Stock Code'), '</b>:</td>';
+if (isset($_POST['SupplierStockCode'])) {
+	echo '<td><input type="search" name="SupplierStockCode" autofocus="autofocus" value="', $_POST['SupplierStockCode'], '" size="15" maxlength="18" /></td>';
+} else {
+	echo '<td><input type="search" name="SupplierStockCode" autofocus="autofocus" size="15" maxlength="18" /></td>';
+}
 echo '</tr>
 	</table>';
 
@@ -602,22 +628,40 @@ if (isset($_POST['Search']) or isset($_POST['Go']) or isset($_POST['Next']) or i
 	if ($_POST['StockCat'] == 'All') {
 		$_POST['StockCat'] = '%';
 	}
+	if ($_POST['SupplierStockCode'] != '') {
+		$SupplierCodeSQL = " AND purchdata.suppliers_partno " . LIKE . " '%" . $_POST['SupplierStockCode'] . "%' ";
+	} else {
+		$SupplierCodeSQL = " ";
+	}
 	$SQL = "SELECT stockmaster.stockid,
-					stockmaster.description,
-					stockmaster.longdescription,
+					purchdata.suppliers_partno,
+					stockdescriptiontranslations.descriptiontranslation AS description,
+					stocklongdescriptiontranslations.longdescriptiontranslation AS longdescription,
 					SUM(locstock.quantity) AS qoh,
 					stockmaster.units,
 					stockmaster.mbflag,
 					stockmaster.discontinued,
-					stockmaster.decimalplaces
+					stockmaster.decimalplaces,
+					suppliers.suppname
 				FROM stockmaster
 				LEFT JOIN stockcategory
 					ON stockmaster.categoryid=stockcategory.categoryid
 				LEFT JOIN locstock
 					ON stockmaster.stockid=locstock.stockid
-				WHERE stockmaster.description " . LIKE . " '" . $SearchString . "'
+				LEFT JOIN purchdata
+					ON stockmaster.stockid=purchdata.stockid
+				LEFT JOIN suppliers
+					ON purchdata.supplierno=suppliers.supplierid
+				LEFT JOIN stockdescriptiontranslations
+					ON stockmaster.stockid=stockdescriptiontranslations.stockid
+				LEFT JOIN stocklongdescriptiontranslations
+					ON stockmaster.stockid=stocklongdescriptiontranslations.stockid
+				WHERE stockdescriptiontranslations.descriptiontranslation " . LIKE . " '" . $SearchString . "'
+					AND stockdescriptiontranslations.language_id='" . $_SESSION['InventoryLanguage'] . "'
+					AND stocklongdescriptiontranslations.language_id='" . $_SESSION['InventoryLanguage'] . "'
 					AND stockmaster.categoryid " . LIKE . " '" . $_POST['StockCat'] . "'
-					AND stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'
+					AND stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'" .
+					$SupplierCodeSQL . "
 				GROUP BY stockmaster.stockid,
 					stockmaster.description,
 					stockmaster.longdescription,
@@ -683,6 +727,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 						<th>', _('Stock Status'), '</th>
 						<th class="SortedColumn">', _('Code'), '</th>
 						<th class="SortedColumn">', _('Description'), '</th>
+						<th class="SortedColumn">', _('Suppliers Stock Code'), '</th>
 						<th>', _('Total Qty On Hand'), '</th>
 						<th>', _('Units'), '</th>
 					</tr>
@@ -715,6 +760,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			echo '<td>', $ItemStatus, '</td>
 				<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
 				<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
+				<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
 				<td class="number">', $QOH, '</td>
 				<td>', $MyRow['units'], '</td>
 				<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>

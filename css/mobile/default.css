@@ -2,7 +2,7 @@
 font-family: 'Ubuntu';
 font-style: normal;
 font-weight: 400;
-src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+src: local('Ubuntu'), url(https://fonts.googleapis.com/css?family=Ubuntu);
 }
 
 body {
@@ -117,6 +117,16 @@ td.select {
 }
 
 .centre {
+}
+
+.number {
+ 	text-align:right;
+ 	/* Class selector to horizontal align a number (right) in an element. */
+}
+
+.text {
+ 	text-align:left;
+ 	/* Class selector to horizontal align text (left) in an element. */
 }
 
 input.image {

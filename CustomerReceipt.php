@@ -271,7 +271,10 @@ if (isset($_POST['CommitBatch'])) {
 			$k = 1;
 		}
 
-		$SQL = "SELECT accountname FROM chartmaster WHERE accountcode='" . $ReceiptItem->GLCode . "'";
+		$SQL = "SELECT accountname
+					FROM chartmaster
+					WHERE accountcode='" . $ReceiptItem->GLCode . "'
+						AND language='" . $_SESSION['ChartLanguage'] . "'";
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
@@ -772,6 +775,7 @@ $SQL = "SELECT bankaccountname,
 		INNER JOIN bankaccountusers
 			ON bankaccounts.accountcode=bankaccountusers.accountcode
 		WHERE bankaccountusers.userid = '" . $_SESSION['UserID'] . "'
+			AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 		ORDER BY bankaccountname";
 
 $ErrMsg = _('The bank accounts could not be retrieved because');
@@ -884,14 +888,14 @@ if ($_SESSION['ReceiptBatch']->AccountCurrency != $_SESSION['CompanyRecord']['cu
 		$_SESSION['ReceiptBatch']->FunctionalExRate = $SuggestedFunctionalExRate;
 	}
 	if (isset($SuggestedFunctionalExRate)) {
-		$SuggestedFunctionalExRateText = '<b>' . _('Suggested rate:') . ' 1 ' . $_SESSION['CompanyRecord']['currencydefault'] . ' = ' . locale_number_format($SuggestedFunctionalExRate,8) . ' ' . $_SESSION['ReceiptBatch']->AccountCurrency . '</b>';
+		$SuggestedFunctionalExRateText = '<b>' . _('Suggested rate:') . ' 1 ' . $_SESSION['CompanyRecord']['currencydefault'] . ' = ' . $SuggestedFunctionalExRate . ' ' . $_SESSION['ReceiptBatch']->AccountCurrency . '</b>';
 	} else {
 		$SuggestedFunctionalExRateText = '<b>1 ' . $_SESSION['CompanyRecord']['currencydefault'] . ' = ? ' . $_SESSION['ReceiptBatch']->AccountCurrency . '</b>';
 	}
 	echo '<tr>
 			<td>', _('Functional Exchange Rate'), ':</td>
 			<td>
-				<input class="number" maxlength="12" name="FunctionalExRate" required="required" size="14" tabindex="5" type="text" value="', locale_number_format($_SESSION['ReceiptBatch']->FunctionalExRate,8), '" /> ',
+				<input class="number" maxlength="12" name="FunctionalExRate" required="required" size="14" tabindex="5" type="text" value="', $_SESSION['ReceiptBatch']->FunctionalExRate, '" /> ',
 				$SuggestedFunctionalExRateText, '
 				<i>', _('The exchange rate between the currency of the business (the functional currency) and the currency of the bank account'),  '.</i>
 			</td>
@@ -974,7 +978,10 @@ if (isset($_SESSION['ReceiptBatch'])) {
 		$TagResult = DB_query($TagSql);
 		$TagRow = DB_fetch_array($TagResult);
 
-		$SQL = "SELECT accountname FROM chartmaster WHERE accountcode='" . $ReceiptItem->GLCode . "'";
+		$SQL = "SELECT accountname
+					FROM chartmaster
+					WHERE accountcode='" . $ReceiptItem->GLCode . "'
+						AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
@@ -1092,9 +1099,13 @@ if (isset($_POST['GLEntry']) and isset($_SESSION['ReceiptBatch'])) {
 
 	$SQL = "SELECT chartmaster.accountcode,
 					chartmaster.accountname
-			FROM chartmaster
-				INNER JOIN glaccountusers ON glaccountusers.accountcode=chartmaster.accountcode AND glaccountusers.userid='" .  $_SESSION['UserID'] . "' AND glaccountusers.canupd=1
-			ORDER BY chartmaster.accountcode";
+				FROM chartmaster
+				INNER JOIN glaccountusers
+					ON glaccountusers.accountcode=chartmaster.accountcode
+					AND glaccountusers.userid='" .  $_SESSION['UserID'] . "'
+					AND glaccountusers.canupd=1
+				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+				ORDER BY chartmaster.accountcode";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) == 0) {
 		echo '</select>', _('No General ledger accounts have been set up yet'), ' - ', _('receipts cannot be entered against GL accounts until the GL accounts are set up'), '</td>

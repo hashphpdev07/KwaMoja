@@ -1,7 +1,11 @@
 <?php
 
+/* Defines the various centres of work within a manufacturing company. Also the overhead and labour rates applicable to the work centre and its standard capacity */
+
 include('includes/session.inc');
 $Title = _('Work Centres');
+$ViewTopic = 'Manufacturing';
+$BookMark = 'WorkCentres';
 include('includes/header.inc');
 
 if (isset($_POST['SelectedWC'])) {
@@ -124,16 +128,17 @@ if (!isset($SelectedWC)) {
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
 					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
-					AND locationusers.canview=1";
+					AND locationusers.canview=1
+				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 	$Result = DB_query($SQL);
 	echo '<table class="selection">
 			<thead>
 				<tr>
-					<th class="SortedColumn">' . _('WC Code') . '</th>
-					<th class="SortedColumn">' . _('Description') . '</th>
-					<th class="SortedColumn">' . _('Location') . '</th>
-					<th>' . _('Overhead GL Account') . '</th>
-					<th>' . _('Overhead Per Hour') . '</th>
+					<th class="SortedColumn">', _('WC Code'), '</th>
+					<th class="SortedColumn">', _('Description'), '</th>
+					<th class="SortedColumn">', _('Location'), '</th>
+					<th>', _('Overhead GL Account'), '</th>
+					<th>', _('Overhead Per Hour'), '</th>
 				</tr>
 			</thead>';
 	echo '<tbody>';
@@ -248,9 +253,12 @@ echo '</select></td>
 //SQL to poulate account selection boxes
 $SQL = "SELECT accountcode,
 				accountname
-		FROM chartmaster INNER JOIN accountgroups
-			ON chartmaster.group_=accountgroups.groupname
-		WHERE accountgroups.pandl!=0
+		FROM chartmaster
+		INNER JOIN accountgroups
+			ON chartmaster.groupcode=accountgroups.groupcode
+			AND chartmaster.language=accountgroups.language
+		WHERE accountgroups.pandl=1
+			AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 		ORDER BY accountcode";
 
 $Result = DB_query($SQL);

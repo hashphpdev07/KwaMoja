@@ -946,7 +946,7 @@ if (isset($_POST['PostCreditNote'])) {
 								/* Get the old cost information */
 								$SQL = "SELECT stockcosts.materialcost,
 												stockcosts.labourcost,
-												stockcosts.overheadcosts
+												stockcosts.overheadcost
 											FROM stockcosts
 											WHERE stockid='" . $EnteredGRN->ItemCode . "'
 												AND succeeded=0";
@@ -958,7 +958,7 @@ if (isset($_POST['PostCreditNote'])) {
 
 								if ($TotalQuantityOnHand > 0) {
 
-									$CostIncrement = ($PurchPriceVar - $WriteOffToVariances) / $TotalQuantityOnHand;
+									$CostIncrement = ($PurchPriceVar - $WriteOffToVariances) / $TotalQuantityOnHand * (-1);
 
 									$SQL = "UPDATE stockcosts SET succeeded=1
 																WHERE stockid='" . $EnteredGRN->ItemCode . "'

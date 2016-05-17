@@ -460,7 +460,8 @@ if (isset($_POST['EnterLine'])) {
 	if ($_SESSION['PO'.$Identifier]->GLLink == 1 or $_SESSION['CompanyRecord']['gllink_creditors'] == 1) {
 		$SQL = "SELECT accountname
 					FROM chartmaster
-					WHERE accountcode ='" . $_POST['GLCode'] . "'";
+					WHERE accountcode ='" . $_POST['GLCode'] . "'
+						AND language='" . $_SESSION['ChartLanguage'] . "'";
 		$ErrMsg = _('The account details for') . ' ' . $_POST['GLCode'] . ' ' . _('could not be retrieved because');
 		$DbgMsg = _('The SQL used to retrieve the details of the account, but failed was');
 		$GLValidResult = DB_query($SQL, $ErrMsg, $DbgMsg, false, false);
@@ -568,11 +569,13 @@ if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and
 							decimalplaces,
 							stockact,
 							accountname
-						FROM stockmaster INNER JOIN stockcategory
-						ON stockcategory.categoryid = stockmaster.categoryid
+						FROM stockmaster
+						INNER JOIN stockcategory
+							ON stockcategory.categoryid = stockmaster.categoryid
 						INNER JOIN chartmaster
-						ON chartmaster.accountcode = stockcategory.stockact
-						WHERE  stockmaster.stockid = '" . $ItemCode . "'";
+							ON chartmaster.accountcode = stockcategory.stockact
+						WHERE  stockmaster.stockid = '" . $ItemCode . "'
+							AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 
 				$ErrMsg = _('The item details for') . ' ' . $ItemCode . ' ' . _('could not be retrieved because');
 				$DbgMsg = _('The SQL used to retrieve the item details but failed was');
@@ -792,6 +795,7 @@ if (isset($_POST['NonStockOrder'])) {
 	$SQL = "SELECT accountcode,
 				  accountname
 				FROM chartmaster
+				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] ."'
 				ORDER BY accountcode ASC";
 	$Result = DB_query($SQL);
 	echo '<tr>
@@ -1149,7 +1153,7 @@ if (!isset($_GET['Edit'])) {
 			<a class="FontSize" target="_blank" href="', $RootPath, '/Stocks.php">', _('Insert New Item'), '</a></td>
 		</tr>
 		<tr>
-			<td colspan="2" class="number">', _('Only items defined as from this Supplier'), '&nbsp;';
+			<td>' . _('Only items defined as from this Supplier');
 	if (isset($_POST['SupplierItemsOnly']) and $_POST['SupplierItemsOnly'] == 'on') {
 		echo '<input type="checkbox" name="SupplierItemsOnly" checked="checked"  />';
 	} else {
@@ -1195,11 +1199,14 @@ if (isset($SearchResult)) {
 			$k = 1;
 		}
 
-		$FileName = $MyRow['stockid'] . '.jpg';
-		if (file_exists($_SESSION['part_pics_dir'] . '/' . $FileName)) {
-			$ImageSource = '<img src="' . $RootPath . '/' . $_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.jpg" width="50" height="50" />';
+		$SupportedImgExt = array('png', 'jpg', 'jpeg');
+		$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
+		if (extension_loaded('gd') and function_exists('gd_info') and file_exists ($ImageFile)) {
+			$ImageSource = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
+		} else if (file_exists ($ImageFile)) {
+			$ImageSource = '<img src="' . $ImageFile . '" height="100" width="100" />';
 		} else {
-			$ImageSource = '<i>' . _('No Image') . '</i>';
+			$ImageSource = _('No Image');
 		}
 
 		/*Get conversion factor and supplier units if any */

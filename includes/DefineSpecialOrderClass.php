@@ -28,8 +28,9 @@ class SpecialOrder {
 	var $PurchOrderNo;
 	var $Status;
 	var $AllowPrintPO;
+	var $SalesPerson;
 
-	function SpecialOrder() {
+	function __construct() {
 		/*Constructor function initialises a new special order object */
 		$this->LineItems = array();
 		$this->total = 0;
@@ -73,7 +74,7 @@ class LineDetails {
 	var $ReqDelDate;
 	var $PartCode;
 
-	function LineDetails($LineNo, $Qty, $ItemDescr, $Price, $Cost, $StkCat, $ReqDelDate) {
+	function __construct($LineNo, $Qty, $ItemDescr, $Price, $Cost, $StkCat, $ReqDelDate) {
 
 		/* Constructor function to add a new LineDetail object with passed params */
 		$this->LineNo = $LineNo;

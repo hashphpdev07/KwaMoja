@@ -63,15 +63,18 @@ echo '<div class="toplink">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
+$SupportedImgExt = array('png', 'jpg', 'jpeg');
+
 if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 
+	$ImgExt = pathinfo($_FILES['ItemPicture']['name'], PATHINFO_EXTENSION);
 	$Result = $_FILES['ItemPicture']['error'];
 	$UploadTheFile = 'Yes'; //Assume all is well to start off with
-	$FileName = $_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg';
+	$FileName = $_SESSION['part_pics_dir'] . '/' . $StockID . '.' . $ImgExt;
 
 	//But check for the worst
-	if (mb_strtoupper(mb_substr(trim($_FILES['ItemPicture']['name']), mb_strlen($_FILES['ItemPicture']['name']) - 3)) != 'JPG') {
-		prnMsg(_('Only jpg files are supported - a file extension of .jpg is expected'), 'warn');
+	if (!in_array ($ImgExt, $SupportedImgExt)) {
+		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'),'warn');
 		$UploadTheFile = 'No';
 	} elseif ($_FILES['ItemPicture']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
 		prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
@@ -82,12 +85,15 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	} elseif ($_FILES['ItemPicture']['error'] == 6 ) {  //upload temp directory check
 		prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
 		$UploadTheFile ='No';
-	} elseif (file_exists($FileName)) {
-		prnMsg(_('Attempting to overwrite an existing item image'), 'warn');
-		$Result = unlink($FileName);
-		if (!$Result) {
-			prnMsg(_('The existing image could not be removed'), 'error');
-			$UploadTheFile = 'No';
+	}
+	foreach ($SupportedImgExt as $ext) {
+		$File = $_SESSION['part_pics_dir'] . '/' . $StockID . '.' . $ext;
+		if (file_exists ($File) ) {
+			$Result = unlink($File);
+			if (!$Result){
+				prnMsg(_('The existing image could not be removed'), 'error');
+				$UploadTheFile ='No';
+			}
 		}
 	}
 
@@ -429,6 +435,34 @@ if (isset($_POST['submit'])) {
 				$DbgMsg = _('The SQL that was used to update the stock item and failed was');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
+				if (in_array($_SESSION['PageSecurityArray']['StockCostUpdate.php'], $_SESSION['AllowedPageSecurityTokens'])) {
+					/*We need to update the costs for the item */
+					$NewCost = $_POST['MaterialCost'] + $_POST['LabourCost'] + $_POST['OverheadCost'];
+					ItemCostUpdateGL($StockId, $NewCost);
+
+					$ErrMsg = _('The old cost details for the stock item could not be updated because');
+					$DbgMsg = _('The SQL that failed was');
+					$SQL = "UPDATE stockcosts SET succeeded=1 WHERE stockid='" . $StockId . "'";
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					$SQL = "INSERT INTO stockcosts VALUES('" . $StockId . "',
+														'" . filter_number_format($_POST['MaterialCost']) . "',
+														'" . filter_number_format($_POST['LabourCost']) . "',
+														'" . filter_number_format($_POST['OverheadCost']) . "',
+														CURRENT_TIMESTAMP,
+														0)";
+					$ErrMsg = _('The new cost details for the stock item could not be inserted because');
+					$DbgMsg = _('The SQL that failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					$SQL = "UPDATE stockmaster SET lastcostupdate=CURRENT_DATE WHERE stockid='" . $StockId . "'";
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					UpdateCost($StockId); //Update any affected BOMs
+
+					/* End of cost updates */
+				}
+
 				$ErrMsg = _('Could not update the language description because');
 				$DbgMsg = _('The SQL that was used to update the language description and failed was');
 
@@ -469,6 +503,21 @@ if (isset($_POST['submit'])) {
 					$ErrMsg = _('The stock description translations could not be updated because');
 					$DbgMsg = _('The SQL that was used to set the flag for translation revision failed was');
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					$SQL = "UPDATE stockdescriptiontranslations SET descriptiontranslation='" . $_POST['Description'] . "'
+									WHERE stockid='" . $StockID . "'
+										AND language_id='" . $_SESSION['DefaultLanguage'] . "'";
+					$ErrMsg = _('The stock description translations could not be updated because');
+					$DbgMsg = _('The SQL that was used to set the flag for translation revision failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					$SQL = "UPDATE stocklongdescriptiontranslations SET longdescriptiontranslation='" . $_POST['LongDescription'] . "'
+									WHERE stockid='" . $StockID . "'
+										AND language_id='" . $_SESSION['DefaultLanguage'] . "'";
+					$ErrMsg = _('The stock description translations could not be updated because');
+					$DbgMsg = _('The SQL that was used to set the flag for translation revision failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
 				}
 
 				//delete any properties for the item no longer relevant with the change of category
@@ -653,20 +702,56 @@ if (isset($_POST['submit'])) {
 				$ErrMsg = _('The item could not be added because');
 				$DbgMsg = _('The SQL that was used to add the item failed was');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+				if (in_array($_SESSION['PageSecurityArray']['StockCostUpdate.php'], $_SESSION['AllowedPageSecurityTokens'])) {
+
+					$SQL = "INSERT INTO stockcosts VALUES('" . $StockId . "',
+														'" . filter_number_format($_POST['MaterialCost']) . "',
+														'" . filter_number_format($_POST['LabourCost']) . "',
+														'" . filter_number_format($_POST['OverheadCost']) . "',
+														CURRENT_TIMESTAMP,
+														0)";
+					$ErrMsg = _('The new cost details for the stock item could not be inserted because');
+					$DbgMsg = _('The SQL that failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					/* End of cost updates */
+				} else {
+
+					$SQL = "INSERT INTO stockcosts VALUES('" . $StockId . "',
+														0,
+														0,
+														0,
+														CURRENT_TIMESTAMP,
+														0)";
+					$ErrMsg = _('The new cost details for the stock item could not be inserted because');
+					$DbgMsg = _('The SQL that failed was');
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+
+					/* End of cost updates */
+				}
 				if (DB_error_no() == 0) {
 					//now insert the language descriptions
 					$ErrMsg = _('Could not update the language description because');
 					$DbgMsg = _('The SQL that was used to update the language description and failed was');
-					if (count($ItemDescriptionLanguages) > 0) {
+					if (count($ItemDescriptionLanguagesArray) > 0) {
 						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 							if ($LanguageId != '' and $_POST['Description_' . str_replace('.', '_', $LanguageId)] != '') {
-								$SQL = "INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "')";
+								$SQL = "INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "', 0)";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-								$SQL = "INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "')";
+								$SQL = "INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "', 0)";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 							}
 						}
 					}
+
+					/* Insert the default language descriptions into the translations table */
+					$SQL = "INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $_SESSION['DefaultLanguage'] . "', '" . $_POST['Description'] . "', 0)";
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+					$SQL = "INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $_SESSION['DefaultLanguage'] . "', '" . $_POST['LongDescription'] . "', 0)";
+					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+					/* End default language descriptions */
+
 					//now insert any item properties
 					for ($i = 0; $i < $_POST['PropertyCounter']; $i++) {
 
@@ -925,7 +1010,7 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 
 } elseif (!isset($_POST['UpdateCategories']) and $InputError != 1) { // Must be modifying an existing item and no changes made yet
 
-	$SQL = "SELECT stockid,
+	$SQL = "SELECT stockmaster.stockid,
 					description,
 					longdescription,
 					categoryid,
@@ -945,9 +1030,15 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 					decimalplaces,
 					nextserialno,
 					pansize,
-					shrinkfactor
+					shrinkfactor,
+					stockcosts.materialcost,
+					stockcosts.labourcost,
+					stockcosts.overheadcost
 			FROM stockmaster
-			WHERE stockid = '" . $StockId . "'";
+			LEFT JOIN stockcosts
+				ON stockmaster.stockid = stockcosts.stockid
+				AND stockcosts.succeeded=0
+			WHERE stockmaster.stockid = '" . $StockId . "'";
 
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
@@ -972,6 +1063,9 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 	$_POST['NextSerialNo'] = $MyRow['nextserialno'];
 	$_POST['Pansize'] = $MyRow['pansize'];
 	$_POST['ShrinkFactor'] = $MyRow['shrinkfactor'];
+	$_POST['MaterialCost'] = $MyRow['materialcost'];
+	$_POST['LabourCost'] = $MyRow['labourcost'];
+	$_POST['OverheadCost'] = $MyRow['overheadcost'];
 	$SQL = "SELECT descriptiontranslation, language_id FROM stockdescriptiontranslations WHERE stockid='" . $StockId . "' AND (";
 
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
@@ -1045,32 +1139,37 @@ foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 	}
 }
 echo '<tr>
-		<td>' . _('Image File (.jpg)') . ':</td>
+		<td>' .  _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
 		<td><input type="file" id="ItemPicture" name="ItemPicture" />
 		<br /><input type="checkbox" name="ClearImage" id="ClearImage" value="1" > '._('Clear Image').'
 		</td>';
 
-if (function_exists('imagecreatefromjpeg') and isset($StockId) and !empty($StockId)) {
-	$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . urlencode($StockId) . '&amp;text=' . '&amp;width=100' . '&amp;height=100' . '" alt="" />';
+$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $StockID . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
+if (extension_loaded('gd') and function_exists('gd_info') and isset($StockID) and !empty($StockID)) {
+	$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . urlencode($StockId) . '&amp;text=' . '&amp;width=64' . '&amp;height=64' . '" alt="" />';
+} else if (file_exists ($ImageFile)) {
+	$StockImgLink = '<img src="' . $ImageFile . '" height="64" width="64" />';
 } else {
-	if(isset($StockId) and  !empty($StockId) and file_exists($_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg')) {
-		$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC&amp;StockID=' . $StockId . '&amp;text=&amp;width=120&amp;height=120" alt="" />';
-		if (isset($_POST['ClearImage']) ) {
-			//workaround for many variations of permission issues that could cause unlink fail
-			@unlink($_SESSION['part_pics_dir'] . '/' .$StockId.'.jpg');
-			if(is_file($_SESSION['part_pics_dir'] . '/' .$StockId.'.jpg')) {
-				prnMsg(_('You do not have access to delete this item image file.'),'error');
-			} else {
-				$StockImgLink = _('No Image');
-			}
-		}
-	} else {
-		$StockImgLink = _('No Image');
-	}
+	$StockImgLink = _('No Image');
 }
 
 if ($StockImgLink != _('No Image')) {
 	echo '<td>' . _('Image') . '<br />' . $StockImgLink . '</td>';
+}
+
+if (isset($_POST['ClearImage'])) {
+	foreach ($SupportedImgExt as $ext) {
+		$File = $_SESSION['part_pics_dir'] . '/' . $StockID . '.' . $ext;
+		if (file_exists($File) ) {
+			//workaround for many variations of permission issues that could cause unlink fail
+			@unlink($File);
+			if (is_file($ImageFile)) {
+				prnMsg(_('You do not have access to delete this item image file.'), 'error');
+			} else {
+				$StockImgLink = _('No Image');
+			}
+		}
+	}
 }
 echo '</tr>';
 
@@ -1132,6 +1231,15 @@ if (!isset($_POST['ShrinkFactor'])) {
 }
 if (!isset($_POST['NextSerialNo'])) {
 	$_POST['NextSerialNo'] = 0;
+}
+if (!isset($_POST['MaterialCost'])) {
+	$_POST['MaterialCost'] = 0;
+}
+if (!isset($_POST['LabourCost'])) {
+	$_POST['LabourCost'] = 0;
+}
+if (!isset($_POST['OverheadCost'])) {
+	$_POST['OverheadCost'] = 0;
 }
 
 
@@ -1337,6 +1445,37 @@ echo '<tr>
 		<td>' . _('Shrinkage Factor') . ':</td>
 		<td><input type="text" class="number" name="ShrinkFactor" size="6" maxlength="6" value="' . locale_number_format($_POST['ShrinkFactor'], 0) . '" /></td>
 	</tr>';
+
+if (in_array($_SESSION['PageSecurityArray']['StockCostUpdate.php'], $_SESSION['AllowedPageSecurityTokens'])) {
+	echo '<tr>
+			<td>' . _('Material Cost') . ':</td>
+			<td><input type="text" class="number" name="MaterialCost" size="6" maxlength="12" value="' . locale_number_format($_POST['MaterialCost'], $_SESSION['StandardCostDecimalPlaces']) . '" /></td>
+		</tr>
+		<tr>
+			<td>' . _('Labour Cost') . ':</td>
+			<td><input type="text" class="number" name="LabourCost" size="6" maxlength="12" value="' . locale_number_format($_POST['LabourCost'], $_SESSION['StandardCostDecimalPlaces']) . '" /></td>
+		</tr>
+		<tr>
+			<td>' . _('Overhead Cost') . ':</td>
+			<td><input type="text" class="number" name="OverheadCost" size="6" maxlength="12" value="' . locale_number_format($_POST['OverheadCost'], $_SESSION['StandardCostDecimalPlaces']) . '" /></td>
+		</tr>';
+} else {
+	echo '<tr>
+			<td>' . _('Material Cost') . ':</td>
+			<td>' . locale_number_format($_POST['MaterialCost'], $_SESSION['StandardCostDecimalPlaces']) . '</td>
+			<input type="hidden" name="MaterialCost" value="' . $_POST['MaterialCost'] . '" />
+		</tr>
+		<tr>
+			<td>' . _('Labour Cost') . ':</td>
+			<td>' . locale_number_format($_POST['LabourCost'], $_SESSION['StandardCostDecimalPlaces']) . '</td>
+			<input type="hidden" name="LabourCost" value="' . $_POST['LabourCost'] . '" />
+		</tr>
+		<tr>
+			<td>' . _('Overhead Cost') . ':</td>
+			<td>' . locale_number_format($_POST['OverheadCost'], $_SESSION['StandardCostDecimalPlaces']) . '</td>
+			<input type="hidden" name="OverheadCost" value="' . $_POST['OverheadCost'] . '" />
+		</tr>';
+}
 
 echo '</table>
 	<div class="centre">';

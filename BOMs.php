@@ -66,6 +66,7 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 
 	global $ParentMBflag;
 	$SQL = "SELECT bom.component,
+					stockcategory.categorydescription,
 					stockmaster.description as itemdescription,
 					stockmaster.units,
 					locations.locationname,
@@ -78,12 +79,15 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 					bom.sequence,
 					stockmaster.mbflag,
 					bom.autoissue,
+					bom.comment,
 					stockmaster.controlled,
 					locstock.quantity AS qoh,
 					stockmaster.decimalplaces
 				FROM bom
 				INNER JOIN stockmaster
 					ON bom.component=stockmaster.stockid
+				INNER JOIN stockcategory
+					ON stockcategory.categoryid = stockmaster.categoryid
 				INNER JOIN locations
 					ON bom.loccode = locations.loccode
 				INNER JOIN workcentres
@@ -93,7 +97,7 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 					AND bom.component = locstock.stockid
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 				WHERE bom.component='" . $Component . "'
 					AND bom.parent = '" . $Parent . "'
@@ -138,7 +142,27 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 			$QuantityOnHand = locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']);
 		}
 
-		printf('<td>%s</td>
+		$TextIndent = $Level . 'em';
+		if (!empty($MyRow['comment'])) {
+			$MyRow['comment'] = ' **' . ' ' . $MyRow['comment'];
+		}
+		$StockID = $MyRow['component'];
+		if (function_exists('imagecreatefromjpeg')) {
+			if ($_SESSION['ShowStockidOnImages'] == '0') {
+				$StockImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($StockID) . '&text=&width=100&eight=100" alt="" />';
+			} else {
+				$StockImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($StockID) . '&text=' . urlencode($StockID) . '&width=100&height=100" alt="" />';
+			}
+		} else {
+			if( isset($StockID) and file_exists($_SESSION['part_pics_dir'] . '/' . $StockID . '.jpg')) {
+				$StockImgLink = '<img src="' . $_SESSION['part_pics_dir'] . '/' . $StockID . '.jpg" height="100" width="100" />';
+			} else {
+				$StockImgLink = _('No Image');
+			}
+		}
+
+		printf('<td class="number" style="text-align:left;text-indent:' . $Textindent . ';" >%s</td>
+				<td class="number">%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
@@ -146,14 +170,16 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 				<td>%s</td>
 				<td class="number">%s</td>
 				<td>%s</td>
+				<td class="noPrint">%s</td>
+				<td class="noPrint">%s</td>
+				<td class="noPrint">%s</td>
+				<td class="number noPrint">%s</td>
+				<td class="noPrint"><a href="%s&amp;Select=%s&amp;SelectedComponent=%s">' . _('Edit') . '</a></td>
+				<td class="noPrint">' . $DrillText . '</td>
+				<td class="noPrint"><a href="%s&amp;Select=%s&amp;SelectedComponent=%s&amp;delete=1&amp;ReSelect=%s&amp;Location=%s&amp;WorkCentre=%s" onclick="return confirm(\'' . _('Are you sure you wish to delete this component from the bill of material?') . '\');">' . _('Delete') . '</a></td>
+				</tr><tr><td colspan="11" style="text-indent:' . $TextIndent . ';">%s</td>
 				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td><a href="%s&amp;Select=%s&amp;SelectedComponent=%s">' . _('Edit') . '</a></td>
-				<td>' . $DrillText . '</td>
-				<td><a href="%s&amp;Select=%s&amp;SelectedComponent=%s&amp;delete=1&amp;ReSelect=%s&amp;Location=%s&amp;WorkCentre=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this component from the bill of material?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			 </tr>', $Level1, $MyRow['sequence'], $MyRow['component'], $MyRow['itemdescription'], $MyRow['locationname'], $MyRow['workcentrename'], locale_number_format($MyRow['quantity'], 'Variable'), $MyRow['units'], ConvertSQLDate($MyRow['effectiveafter']), ConvertSQLDate($MyRow['effectiveto']), $AutoIssue, $QuantityOnHand, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $Parent, $MyRow['component'], $DrillLink, $DrillID, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $Parent, $MyRow['component'], $UltimateParent, $MyRow['loccode'], $MyRow['workcentrecode']);
+			 </tr>', $Level1, $MyRow['sequence'], $MyRow['categorydescription'], $MyRow['component'], $MyRow['itemdescription'], $MyRow['locationname'], $MyRow['workcentrename'], locale_number_format($MyRow['quantity'], 'Variable'), $MyRow['units'], ConvertSQLDate($MyRow['effectiveafter']), ConvertSQLDate($MyRow['effectiveto']), $AutoIssue, $QuantityOnHand, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $Parent, $MyRow['component'], $DrillLink, $DrillID, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $Parent, $MyRow['component'], $UltimateParent, $MyRow['loccode'], $MyRow['workcentrecode'], $MyRow['comment'], $StockImgLink);
 
 	} //END WHILE LIST LOOP
 } //end of function DisplayBOMItems
@@ -201,8 +227,8 @@ $InputError = 0;
 if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Component
 	$SelectedParent = $Select;
 	unset($Select); // = NULL;
-	echo '<div class="toplink"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select a Different BOM') . '</a></div>';
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<div class="toplink noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select a Different BOM') . '</a></div>';
+	echo '<p class="page_title_text noPrint"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 	if (isset($SelectedParent) and isset($_POST['Submit'])) {
 
@@ -220,10 +246,12 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 			$InputError = 1;
 			prnMsg(_('The quantity entered must be numeric'), 'error');
 		}
+		/* Comment this out to make substittute material can be recorded in the BOM
 		if (filter_number_format($_POST['Quantity']) == 0) {
 			$InputError = 1;
 			prnMsg(_('The quantity entered cannot be zero'), 'error');
 		}
++		 */
 		if (!Date1GreaterThanDate2($_POST['EffectiveTo'], $_POST['EffectiveAfter'])) {
 			$InputError = 1;
 			prnMsg(_('The effective to date must be a date after the effective after date') . '<br />' . _('The effective to date is') . ' ' . DateDiff($_POST['EffectiveTo'], $_POST['EffectiveAfter'], 'd') . ' ' . _('days before the effective after date') . '! ' . _('No updates have been performed') . '.<br />' . _('Effective after was') . ': ' . $_POST['EffectiveAfter'] . ' ' . _('and effective to was') . ': ' . $_POST['EffectiveTo'], 'error');
@@ -250,7 +278,8 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 						effectiveto='" . $EffectiveToSQL . "',
 						sequence='" . $_POST['Sequence'] . "',
 						quantity= '" . filter_number_format($_POST['Quantity']) . "',
-						autoissue='" . $_POST['AutoIssue'] . "'
+						autoissue='" . $_POST['AutoIssue'] . "',
+						comment='" . $_POST['Comment'] . "'
 					WHERE bom.parent='" . $SelectedParent . "'
 					AND bom.component='" . $SelectedComponent . "'";
 
@@ -292,7 +321,8 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 											sequence,
 											effectiveafter,
 											effectiveto,
-											autoissue)
+											autoissue,
+											comment)
 							VALUES ('" . $SelectedParent . "',
 								'" . $_POST['Component'] . "',
 								'" . $_POST['WorkCentreAdded'] . "',
@@ -301,7 +331,9 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 								" . $_POST['Sequence'] . ",
 								'" . $EffectiveAfterSQL . "',
 								'" . $EffectiveToSQL . "',
-								" . $_POST['AutoIssue'] . ")";
+								" . $_POST['AutoIssue'] . ",
+								'" . $_POST['Comment'] . "'
+								)";
 
 					$ErrMsg = _('Could not insert the BOM component because');
 					$DbgMsg = _('The SQL used to insert the component was');
@@ -410,7 +442,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	$i = 0;
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">';
+		echo '<table class="selection noPrint">';
 		echo '<tr><td><div class="centre">' . _('Manufactured parent items') . ' : ';
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo (($i) ? ', ' : '') . '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Select=' . $MyRow['parent'] . '">' . $MyRow['description'] . '&nbsp;(' . $MyRow['parent'] . ')</a>';
@@ -451,7 +483,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 					ON bom.parent=stockmaster.stockid
 				INNER JOIN locationusers
 					ON locationusers.loccode=bom.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 			WHERE bom.component='" . $SelectedParent . "'
 			AND stockmaster.mbflag='K'";
@@ -480,7 +512,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 					ON bom.parent=stockmaster.stockid
 				INNER JOIN locationusers
 					ON locationusers.loccode=bom.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 				WHERE bom.component='" . $SelectedParent . "'
 					AND stockmaster.mbflag='G'";
@@ -500,9 +532,25 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 		echo '</div></td></tr>';
 		echo '</table>';
 	}
+
+	$StockID = $SelectedParent;
+	if (function_exists('imagecreatefromjpeg')) {
+		if ($_SESSION['ShowStockidOnImages'] == '0') {
+			$StockImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($StockID) . '&text&width=100&eight=100" alt="" />';
+		} else {
+			$StockImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($StockID) . '&text='. urlencode($StockID) . '&width=100&height=100" alt="" />';
+		}
+	} else {
+		if( isset($StockID) and file_exists($_SESSION['part_pics_dir'] . '/' . $StockID . '.jpg')) {
+			$StockImgLink = '<img src="' . $_SESSION['part_pics_dir'] . '/' . $StockID . '.jpg" height="100" width="100" />';
+		} else {
+			$StockImgLink = _('No Image');
+		}
+	}
+
 	echo '<table class="selection">';
 	echo '<tr>
-			<th colspan="14"><div class="centre"><b>' . $SelectedParent . ' - ' . $MyRow[0] . ' (' . $MBdesc . ') </b></div></th>
+			<th colspan="15"><div class="centre"><b>' . $SelectedParent . ' - ' . $MyRow[0] . ' (' . $MBdesc . ') </b>' . $StockImgLink . '</div></th>
 		</tr>';
 
 	$BOMTree = array();
@@ -514,16 +562,17 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 	echo '<tr>
 			<th>' . _('Level') . '</th>
 			<th>' . _('Sequence') . '</th>
+			<th>' . _('Category Description') . '</th>
 			<th>' . _('Code') . '</th>
 			<th>' . _('Description') . '</th>
 			<th>' . _('Location') . '</th>
 			<th>' . _('Work Centre') . '</th>
 			<th>' . _('Quantity') . '</th>
 			<th>' . _('UOM') . '</th>
-			<th>' . _('Effective After') . '</th>
-			<th>' . _('Effective To') . '</th>
-			<th>' . _('Auto Issue') . '</th>
-			<th>' . _('Qty On Hand') . '</th>
+			<th class="noPrint">' . _('Effective After') . '</th>
+			<th class="noPrint">' . _('Effective To') . '</th>
+			<th class="noPrint">' . _('Auto Issue') . '</th>
+			<th class="noPrint">' . _('Qty On Hand') . '</th>
 		</tr>';
 	if (count($BOMTree) == 0) {
 		echo '<tr class="OddTableRows">
@@ -563,11 +612,12 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 						sequence,
 						workcentreadded,
 						quantity,
-						autoissue
+						autoissue,
+						comment
 					FROM bom
 					INNER JOIN locationusers
 						ON locationusers.loccode=bom.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canupd=1
 					WHERE parent='" . $SelectedParent . "'
 					AND component='" . $SelectedComponent . "'";
@@ -582,12 +632,12 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 		$_POST['WorkCentreAdded'] = $MyRow['workcentreadded'];
 		$_POST['Quantity'] = locale_number_format($MyRow['quantity'], 'Variable');
 		$_POST['AutoIssue'] = $MyRow['autoissue'];
+		$_POST['Comment'] = $MyRow['comment'];
 
 		prnMsg(_('Edit the details of the selected component in the fields below') . '. <br />' . _('Click on the Enter Information button to update the component details'), 'info');
-		echo '<br />
-					<input type="hidden" name="SelectedParent" value="' . $SelectedParent . '" />';
+		echo '<input type="hidden" name="SelectedParent" value="' . $SelectedParent . '" />';
 		echo '<input type="hidden" name="SelectedComponent" value="' . $SelectedComponent . '" />';
-		echo '<table class="selection">';
+		echo '<table class="selection noPrint">';
 		echo '<tr>
 					<th colspan="13"><div class="centre"><b>' . ('Edit Component Details') . '</b></div></th>
 				</tr>';
@@ -609,7 +659,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 		echo '<input type="hidden" name="SelectedParent" value="' . $SelectedParent . '" />';
 		/* echo "Enter the details of a new component in the fields below. <br />Click on 'Enter Information' to add the new component, once all fields are completed.";
 		 */
-		echo '<table class="selection">';
+		echo '<table class="selection noPrint">';
 		echo '<tr>
 					<th colspan="13"><div class="centre"><b>' . _('New Component Details') . '</b></div></th>
 				</tr>';
@@ -674,7 +724,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 				WHERE locations.usedforwo = 1";
 	$Result = DB_query($SQL);
@@ -701,7 +751,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 				FROM workcentres
 				INNER JOIN locationusers
 					ON locationusers.loccode=workcentres.location
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1";
 
 	$Result = DB_query($SQL);
@@ -780,6 +830,15 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 	} else {
 		echo '<input type="hidden" name="AutoIssue" value="0" />';
 	}
+
+	if (!isset($_POST['Comment'])) {
+		$_POST['Comment'] = '';
+	}
+
+	echo '<tr>
+			<td>' . _('Comment') . '</td>
+			<td><textarea  rows="3" col="20" name="Comment" >' . $_POST['Comment'] . '</textarea></td>
+		</tr>';
 
 	echo '</table>
 			<div class="centre">

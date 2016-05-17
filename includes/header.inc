@@ -43,5 +43,4 @@ if ($Debug === 0) {
 	echo '<body class="holmes-debug" onload="initial()">';
 }
 
-
 ?>

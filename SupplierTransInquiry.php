@@ -44,10 +44,15 @@ if (!isset($_POST['FromDate'])) {
 if (!isset($_POST['ToDate'])) {
 	$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
 }
+if (!isset($_POST['SupplierNo'])) {
+	$_POST['SupplierNo'] = '';
+}
 echo '<td>' . _('From') . ':</td>
 		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
 		<td>' . _('To') . ':</td>
 		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
+		<td>' . _('Supplier No') . ':</td>
+		<td><input type="text" name="SupplierNo" size="11" maxlength="10" value="' . $_POST['SupplierNo'] . '" /></td>
 	</tr>
 	</table>
 	<div class="centre">
@@ -132,10 +137,12 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 										accountname,
 										narrative,
 										amount
-									FROM gltrans INNER JOIN chartmaster
+									FROM gltrans
+									INNER JOIN chartmaster
 									ON gltrans.account=chartmaster.accountcode
 									WHERE type='" . $MyRow['type'] . "'
-									AND typeno='" . $MyRow['transno'] . "'", _('Could not retrieve the GL transactions for this AP transaction'));
+										AND typeno='" . $MyRow['transno'] . "'
+										AND language='" . $_SESSION['ChartLanguage'] . "'", _('Could not retrieve the GL transactions for this AP transaction'));
 
 		if (DB_num_rows($GLTransResult) == 0) {
 			echo '<tr>

@@ -19,6 +19,11 @@ $LanguagesArray['de_DE.utf8']['WindowsLocale'] = 'german';
 $LanguagesArray['de_DE.utf8']['DecimalPoint'] = ',';
 $LanguagesArray['de_DE.utf8']['ThousandsSeparator'] = '.';
 
+$LanguagesArray['de_LU.utf8']['LanguageName'] = 'Deutsch Luxembourg';
+$LanguagesArray['de_LU.utf8']['WindowsLocale'] = 'german-luxembourg';
+$LanguagesArray['de_LU.utf8']['DecimalPoint'] = ',';
+$LanguagesArray['de_LU.utf8']['ThousandsSeparator'] = ' ';
+
 $LanguagesArray['el_GR.utf8']['LanguageName'] = 'Ελληνικά';
 $LanguagesArray['el_GR.utf8']['WindowsLocale'] = 'greek';
 $LanguagesArray['el_GR.utf8']['DecimalPoint'] = ',';
@@ -63,6 +68,16 @@ $LanguagesArray['fr_FR.utf8']['LanguageName'] = 'Français';
 $LanguagesArray['fr_FR.utf8']['WindowsLocale'] = 'french';
 $LanguagesArray['fr_FR.utf8']['DecimalPoint'] = ',';
 $LanguagesArray['fr_FR.utf8']['ThousandsSeparator'] = ' ';
+
+$LanguagesArray['fr_LU.utf8']['LanguageName'] = 'Français Luxembourg';
+$LanguagesArray['fr_LU.utf8']['WindowsLocale'] = 'french-luxembourg';
+$LanguagesArray['fr_LU.utf8']['DecimalPoint'] = ',';
+$LanguagesArray['fr_LU.utf8']['ThousandsSeparator'] = ' ';
+
+$LanguagesArray['he_IL.utf8']['LanguageName'] = 'עברית';
+$LanguagesArray['he_IL.utf8']['WindowsLocale'] = 'hebrew';
+$LanguagesArray['he_IL.utf8']['DecimalPoint'] = '.';
+$LanguagesArray['he.IL.utf8']['ThousandsSeparator'] = ',';
 
 $LanguagesArray['hi_IN.utf8']['LanguageName'] = 'हिन्दी, हिंदी';
 $LanguagesArray['hi_IN.utf8']['WindowsLocale'] = 'hindi';

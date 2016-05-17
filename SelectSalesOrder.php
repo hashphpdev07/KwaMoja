@@ -3,6 +3,22 @@
 $PricesSecurity = 1000;
 include('includes/session.inc');
 $Title = _('Search Outstanding Sales Orders');
+
+if (isset($_GET['download'])) {
+	$SQL = "SELECT type,
+					size,
+					content
+				FROM salesorderattachments
+				WHERE orderno='" . $_GET['order'] . "'
+					AND name='" . $_GET['name'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+    header('Content-type: ' . $MyRow['type'] . "\n");
+    header('Content-Disposition: attachment; filename=' . $_GET['name'] . "\n");
+    header('Content-Length: ' . $MyRow['size'] . "\n");
+	echo $MyRow['content'];
+	exit;
+}
 /* Manual links before header.inc */
 $ViewTopic = 'SalesOrders';
 $BookMark = 'SelectSalesOrder';
@@ -760,9 +776,13 @@ if (!isset($StockId)) {
 						<th>', _('Order Total'), '<br />', $_SESSION['CompanyRecord']['currencydefault'], '</th>';
 
 				if ($AuthRow['cancreate'] == 0) { //if cancreate==0 then this means the user can create orders hmmm!!
-					echo '<th>' . _('Place PO') . '</th></tr>';
+					echo '<th>' . _('Place PO') . '</th>
+						<th>', _('Attachment'), '</th>
+						</tr>';
 				} else {
-					echo '</tr>';
+					echo '
+						<th>', _('Attachment'), '</th>
+						</tr>';
 				}
 			} else {
 				/* displaying only quotations */
@@ -836,15 +856,27 @@ if (!isset($StockId)) {
 
 				$PrintLabels = $RootPath . '/PDFShipLabel.php?Type=Sales&ORD=' . $MyRow['orderno'];
 
+				$AttachmentSQL = "SELECT name
+									FROM salesorderattachments
+									WHERE orderno='" . $MyRow['orderno'] . "'";
+				$AttachmentResult = DB_query($AttachmentSQL);
+
+				if (DB_num_rows($AttachmentResult) > 0) {
+					$AttachmentRow = DB_fetch_array($AttachmentResult);
+					$AttachmentText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&order=' . urlencode($MyRow['orderno']) . '&name=' . urlencode($AttachmentRow['name']) . '">' . _('View attachment') . '</a>';
+				} else {
+					$AttachmentText = _('No attachment');
+				}
+
 				if ($_POST['Quotations'] == 'Orders_Only') {
 
 					/*Check authority to create POs if user has authority then show the check boxes to select sales orders to place POs for otherwise don't provide this option */
 					if ($AuthRow['cancreate'] == 0 and $MyRow['poplaced'] == 0) { //cancreate==0 if the user can create POs and not already placed
 						printf('<td><a href="%s">%s</a></td>
-						<td><a href="%s" target="_blank">' . _('Acknowledge') . '</a>' . $PrintDummyFlag . '</td>
+						<td><a href="%s">' . _('Acknowledge') . '</a>' . $PrintDummyFlag . '</td>
 						' . $PrintPickLabel . '
 						<td><a href="%s">' . _('Invoice') . '</a></td>
-        				<td><a target="_blank" href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
+        				<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
 						<td><a href="%s">' . _('Labels') . '</a></td>
         				<td>%s</td>
         				<td>%s</td>
@@ -854,6 +886,7 @@ if (!isset($StockId)) {
         				<td>%s</td>
         				<td class="number">%s</td>
         				<td><input type="checkbox" name="PlacePO_%s" /><input type="hidden" name="OrderNo_PO_%s" value="%s" /></td>
+        				<td>' . $AttachmentText . '</td>
         				</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $PrintPickList, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue, $i, $i, $MyRow['orderno']);
 					} else {
 						/*User is not authorised to create POs so don't even show the option */
@@ -862,7 +895,7 @@ if (!isset($StockId)) {
 							<td>' . $PrintDummyFlag . '</td>
 							' . $PrintPickLabel . '
 							<td><a href="%s">' . _('Invoice') . '</a></td>
-							<td><a target="_blank" href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
+							<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
 							<td><a href="%s">' . _('Labels') . '</a></td>
 							<td>%s</td>
 							<td>%s</td>
@@ -871,13 +904,14 @@ if (!isset($StockId)) {
 							<td>%s</td>
 							<td>%s</td>
 							<td class="number">%s</td>
+							<td>' . $AttachmentText . '</td>
 							</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $PrintPickList, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
 					}
 
 				} else {
 					/*must be quotes only */
 					printf('<td><a href="%s">%s</a></td>
-						<td><a target="_blank" href="%s">' . _('Landscape') . '</a>&nbsp;&nbsp;<a target="_blank" href="%s">' . _('Portrait') . '</a></td>
+						<td><a href="%s">' . _('Landscape') . '</a>&nbsp;&nbsp;<a href="%s">' . _('Portrait') . '</a></td>
 						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>

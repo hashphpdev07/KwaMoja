@@ -255,6 +255,8 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The user alterations could not be processed because');
 		$DbgMsg = _('The SQL that was used to update the user and failed was');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+		$_SESSION['ChartLanguage'] = GetChartLanguage();
+		$_SESSION['InventoryLanguage'] = GetInventoryLanguage();
 
 		unset($_POST['UserID']);
 		unset($_POST['RealName']);
@@ -724,7 +726,7 @@ echo '<tr>
 foreach ($LanguagesArray as $LanguageEntry => $LanguageName) {
 	if (isset($_POST['UserLanguage']) and $_POST['UserLanguage'] == $LanguageEntry) {
 		echo '<option selected="selected" value="' . $LanguageEntry . '">' . $LanguageName['LanguageName'] . '</option>';
-	} elseif (!isset($_POST['UserLanguage']) and $LanguageEntry == $DefaultLanguage) {
+	} elseif (!isset($_POST['UserLanguage']) and $LanguageEntry == $_SESSION['DefaultLanguage']) {
 		echo '<option selected="selected" value="' . $LanguageEntry . '">' . $LanguageName['LanguageName'] . '</option>';
 	} else {
 		echo '<option value="' . $LanguageEntry . '">' . $LanguageName['LanguageName'] . '</option>';

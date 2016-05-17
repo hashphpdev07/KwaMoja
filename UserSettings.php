@@ -1,7 +1,10 @@
 <?php
+/* Allows the user to change system wide defaults for the theme - appearance, the number of records to show in searches and the language to display messages in */
 
 include('includes/session.inc');
 $Title = _('User Settings');
+$ViewTopic = 'GettingStarted';
+$BookMark = 'UserSettings';
 include('includes/header.inc');
 
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '</p>';
@@ -96,9 +99,12 @@ if (isset($_POST['Modify'])) {
 		$_SESSION['Theme'] = $_SESSION['Theme'];
 		$_SESSION['Language'] = trim($_POST['Language']);
 		$_SESSION['PDFLanguage'] = $_POST['PDFLanguage'];
+		include('includes/MainMenuLinksArray.php');
 		include('includes/LanguageSetup.php');
 
 	}
+	$_SESSION['ChartLanguage'] = GetChartLanguage();
+	$_SESSION['InventoryLanguage'] = GetInventoryLanguage();
 }
 
 echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
@@ -139,7 +145,7 @@ if (!isset($_POST['Language'])) {
 foreach ($LanguagesArray as $LanguageEntry => $LanguageName) {
 	if (isset($_POST['Language']) and $_POST['Language'] == $LanguageEntry) {
 		echo '<option selected="selected" value="' . $LanguageEntry . '">' . $LanguageName['LanguageName'] . '</option>';
-	} elseif (!isset($_POST['Language']) and $LanguageEntry == $DefaultLanguage) {
+	} elseif (!isset($_POST['Language']) and $LanguageEntry == $_SESSION['DefaultLanguage']) {
 		echo '<option selected="selected" value="' . $LanguageEntry . '">' . $LanguageName['LanguageName'] . '</option>';
 	} else {
 		echo '<option value="' . $LanguageEntry . '">' . $LanguageName['LanguageName'] . '</option>';

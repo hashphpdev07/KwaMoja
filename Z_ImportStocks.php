@@ -11,6 +11,8 @@ echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SE
 // Otherwise, a file upload form is displayed
 // The CSV file must be saved in a format like the template in the import module I.E. "RECVALUE","RECVALUE2". The CSV file needs ANSI encoding for the import to work properly.
 
+$ItemDescriptionLanguagesArray = explode(',',$_SESSION['ItemDescriptionLanguages']);//WARNING: if the last character is a ",", there are n+1 languages.
+
 $FieldHeadings = array(
 	'StockID', //  0 'STOCKID',
 	'Description', //  1 'DESCRIPTION',
@@ -31,6 +33,15 @@ $FieldHeadings = array(
 	'DecimalPlaces', // 16 'DECIMALPLACES',
 	'ItemPDF' // 17 'ITEMPDF'
 );
+
+if (count($ItemDescriptionLanguagesArray) > 1) {
+	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
+		if ($LanguageId != '') {
+			$FieldHeadings[] = 'Description-' . $LanguageId;
+			$FieldHeadings[] = 'LongDescription-' . $LanguageId;
+		}
+	}
+}
 
 $Defaults = array(
 	'', //  0 'STOCKID',
@@ -53,10 +64,19 @@ $Defaults = array(
 	'none' // 17 'ITEMPDF'
 );
 
+if (count($ItemDescriptionLanguagesArray) > 1) {
+	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
+		if ($LanguageId != '') {
+			$Defaults[] = '';
+			$Defaults[] = '';
+		}
+	}
+}
+
 if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file processing
 
 	//initialize
-	$FieldTarget = 18;
+	$FieldTarget = 16 + (count($ItemDescriptionLanguagesArray) * 2);
 	$InputError = 0;
 
 	//check file info
@@ -253,6 +273,18 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			$ErrMsg = _('The item could not be added because');
 			$DbgMsg = _('The SQL that was used to add the item failed was');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+			$Result = DB_query("INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $_SESSION['DefaultLanguage'] . "', '" . $MyRow[1] . "', '0')", $ErrMsg, $DbgMsg);
+			$Result = DB_query("INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $_SESSION['DefaultLanguage'] . "', '" . $MyRow[2] . "', '0')", $ErrMsg, $DbgMsg);
+
+			$i = 0;
+			foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
+				if ($LanguageId != '') {
+					$Result = DB_query("INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $MyRow[18 + $i] . "', '0')", $ErrMsg, $DbgMsg);
+					++$i;
+					$Result = DB_query("INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $MyRow[18 + $i] . "', '0')", $ErrMsg, $DbgMsg);
+					++$i;
+				}
+			}
 
 			if (DB_error_no() == 0) { //the insert of the new code worked so bang in the stock location records too
 

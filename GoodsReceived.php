@@ -112,6 +112,7 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 			</tr>
 			<tr>
 				<th>' . _('Item Code') . '</th>
+				<th>' . _('Supplier') . '<br />'. _('Item') . '</th>
 				<th>' . _('Description') . '</th>
 				<th>' . _('Quantity') . '<br />' . _('Ordered') . '</th>
 				<th>' . _('Units') . '</th>
@@ -176,7 +177,16 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 
 		//Now Display LineItem
 
-		echo '<td><a href="' . $RootPath . '/' . $_SESSION['part_pics_dir'] . '/' . $LnItm->StockID . '.jpg" target="_blank">' . $LnItm->StockID . '</a></td>
+		$SupportedImgExt = array('png', 'jpg', 'jpeg');
+		$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $LnItm->StockID . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
+		if ($ImageFile) {
+			$ImageLink = '<a href="' . $ImageFile . '" target="_blank">' .  $LnItm->StockID . '</a>';
+		} else {
+			$ImageLink = $LnItm->StockID;
+		}
+
+		echo '<td>' . $ImageLink . '</td>
+			<td>' . $LnItm->Suppliers_PartNo . '</td>
 			<td>' . $LnItm->ItemDescription . '</td>
 			<td class="number">' . $DisplaySupplierQtyOrd . '</td>
 			<td>' . $LnItm->SuppliersUnit . '</td>

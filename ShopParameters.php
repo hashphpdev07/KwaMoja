@@ -180,7 +180,6 @@ if (isset($_POST['submit'])) {
 /* end of if submit */
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
-	<div>
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<table cellpadding="2" class="selection" width="98%">
 		<tr>
@@ -439,12 +438,15 @@ echo '</select></td>
 echo '<tr>
 		<td>' . _('Pay Pal Commission Account') . ':</td>
 		<td><select name="X_ShopPayPalCommissionAccount">';
+
 $AccountsResult = DB_query("SELECT accountcode,
 									accountname
 								FROM chartmaster
 								INNER JOIN accountgroups
-									ON chartmaster.group_=accountgroups.groupname
+									ON chartmaster.groupcode=accountgroups.groupcode
+									AND chartmaster.language=accountgroups.language
 								WHERE accountgroups.pandl=1
+									AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 								ORDER BY chartmaster.accountcode");
 while ($AccountRow = DB_fetch_array($AccountsResult)) {
 	if ($_SESSION['ShopPayPalCommissionAccount'] == $AccountRow['accountcode']) {
@@ -607,8 +609,7 @@ if ($AllowDemoMode) {
 		</tr>';
 } //end of blocked inputs in demo mode
 echo '</table>
-		<br /><div class="centre"><input type="submit" name="submit" value="' . _('Update') . '" /></div>
-	</div>
+		<div class="centre"><input type="submit" name="submit" value="' . _('Update') . '" /></div>
 	</form>';
 
 include('includes/footer.inc');
