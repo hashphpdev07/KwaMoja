@@ -624,7 +624,7 @@ function InsertRecord($Table, $CheckFields, $CheckValues, $Fields, $Values) {
 		$SizeOfCheckFields = sizeOf($CheckFields);
 		for($i = 0; $i < $SizeOfCheckFields; $i++) {
 			$SQL = $SQL . $CheckFields[$i] . "='" .
-					 mysqli_real_escape_string($db, $CheckValues[$i]) . "' AND ";
+					 DB_escape_string($CheckValues[$i]) . "' AND ";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 5);
 		$Result = DB_query($SQL);
@@ -638,7 +638,7 @@ function InsertRecord($Table, $CheckFields, $CheckValues, $Fields, $Values) {
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1) . ") VALUES (";
 		$SizeOfValues = sizeOf($Values);
 		for($i = 0; $i < $SizeOfValues; $i++) {
-			$SQL = $SQL . "'" . mysqli_real_escape_string($db, $Values[$i]) . "',";
+			$SQL = $SQL . "'" . DB_escape_string($Values[$i]) . "',";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1) . ")";
 		$Response = executeSQL($SQL);

@@ -544,5 +544,4 @@ function GetInventoryLanguage() {
 	}
 	return $Language;
 }
->>>>>>> develop
 ?>
