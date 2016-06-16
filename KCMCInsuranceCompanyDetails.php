@@ -16,108 +16,64 @@ if (isset($Errors)) {
 	unset($Errors);
 }
 
-if (isset($_GET['Debtor'])) {
-	$_POST['DebtorNo'] = $_GET['Debtor'];
+if (isset($_GET['ID'])) {
+	$_POST['ID'] = $_GET['ID'];
 }
 
 $Errors = array();
 
 if (isset($_POST['submit'])) {
 
-	//initialise no input errors assumed initially before we test
-	$InputError = 0;
-	$i = 1;
-
 	/* actions to take once the user has clicked the submit button
 	ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 
-	$_POST['DebtorNo'] = strtoupper($_POST['DebtorNo']);
-
-	$SQL = "SELECT COUNT(debtorno) FROM debtorsmaster WHERE debtorno='" . $_POST['DebtorNo'] . "'";
+	$SQL = "SELECT COUNT(id) FROM insuranceco WHERE id='" . $_POST['ID'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	if ($MyRow[0] > 0 and isset($_POST['New'])) {
 		$InputError = 1;
-		prnMsg(_('The company number already exists in the database'), 'error');
-		$Errors[$i] = 'DebtorNo';
-		$i++;
-	} elseif (strlen($_POST['CustName']) > 40 OR strlen($_POST['CustName']) == 0) {
+		prnMsg(_('The company already exists in the database'), 'error');
+	} elseif (strlen($_POST['Name']) > 40 OR strlen($_POST['CustName']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The company name must be entered and be forty characters or less long'), 'error');
-		$Errors[$i] = 'CustName';
-		$i++;
-	} elseif (strlen($_POST['DebtorNo']) == 0) {
+	} elseif (strlen($_POST['ID']) == 0) {
 		$InputError = 1;
-		prnMsg(_('The debtor code cannot be empty'), 'error');
-		$Errors[$i] = 'DebtorNo';
-		$i++;
-	} elseif ((ContainsIllegalCharacters($_POST['DebtorNo']) OR strpos($_POST['DebtorNo'], ' '))) {
-		$InputError = 1;
-		prnMsg(_('The customer code cannot contain any of the illefal characters'), 'error');
-		$Errors[$i] = 'DebtorNo';
-		$i++;
+		prnMsg(_('The company ID cannot be empty'), 'error');
 	} elseif (strlen($_POST['Address1']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 1 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'Address1';
-		$i++;
 	} elseif (strlen($_POST['Address2']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 2 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'Address2';
-		$i++;
 	} elseif (strlen($_POST['Address3']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 3 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'Address3';
-		$i++;
 	} elseif (strlen($_POST['Address4']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The Line 4 of the address must be fifty characters or less long'), 'error');
-		$Errors[$i] = 'Address4';
-		$i++;
 	} elseif (strlen($_POST['Address5']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The Line 5 of the address must be twenty characters or less long'), 'error');
-		$Errors[$i] = 'Address5';
-		$i++;
 	} elseif (strlen($_POST['Address6']) > 15) {
 		$InputError = 1;
 		prnMsg(_('The Line 6 of the address must be fifteen characters or less long'), 'error');
-		$Errors[$i] = 'Address6';
-		$i++;
 	} elseif (strlen($_POST['Phone']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The telephone number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Telephone';
-		$i++;
 	} elseif (strlen($_POST['Fax']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The fax number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Fax';
-		$i++;
 	} elseif (strlen($_POST['Email']) > 55) {
 		$InputError = 1;
 		prnMsg(_('The email address must be 55 characters or less long'), 'error');
-		$Errors[$i] = 'Email';
-		$i++;
 	} elseif (strlen($_POST['Email']) > 0 and !IsEmailAddress($_POST['Email'])) {
 		$InputError = 1;
 		prnMsg(_('The email address is not correctly formed'), 'error');
-		$Errors[$i] = 'Email';
-		$i++;
 	}
 
 	if ($InputError != 1) {
-
-		$SQL = "SELECT typeabbrev FROM salestypes";
-		$Result = DB_query($SQL);
-		$MyRow = DB_fetch_array($Result);
-		$SalesType = $MyRow['typeabbrev'];
-
-		$InsuranceTypeID = $_POST['InsuranceType'];
 
 		if (!isset($_POST['New'])) {
 
@@ -827,35 +783,37 @@ if (!isset($_GET['Edit'])) {
 			WHERE debtortype.typename like '%Insurance%'";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
-			<tr>
-				<th>' . _('Company No') . '</th>
-				<th>' . _('Name') . '</th>
-				<th>' . _('Address1') . '</th>
-				<th>' . _('Address2') . '</th>
-				<th>' . _('Address3') . '</th>
-				<th>' . _('Address4') . '</th>
-				<th>' . _('Address5') . '</th>
-				<th>' . _('Address6') . '</th>
-				<th>' . _('Currency') . '</th>
-			</tr>';
+	if (DB_num_rows($Result) > 0) {
+		echo '<table class="selection">
+				<tr>
+					<th>' . _('Company No') . '</th>
+					<th>' . _('Name') . '</th>
+					<th>' . _('Address1') . '</th>
+					<th>' . _('Address2') . '</th>
+					<th>' . _('Address3') . '</th>
+					<th>' . _('Address4') . '</th>
+					<th>' . _('Address5') . '</th>
+					<th>' . _('Address6') . '</th>
+					<th>' . _('Currency') . '</th>
+				</tr>';
 
-	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr>
-				<td>' . $MyRow['debtorno'] . '</td>
-				<td>' . $MyRow['name'] . '</td>
-				<td>' . $MyRow['address1'] . '</td>
-				<td>' . $MyRow['address2'] . '</td>
-				<td>' . $MyRow['address3'] . '</td>
-				<td>' . $MyRow['address4'] . '</td>
-				<td>' . $MyRow['address5'] . '</td>
-				<td>' . $MyRow['address6'] . '</td>
-				<td>' . $MyRow['currency'] . '</td>
-				<td><a href="' . $_SERVER['PHP_SELF'] . '?Debtor=' . urlencode($MyRow['debtorno']) . '&Edit=True">' . _('Edit') . '</a></td>
-				<td><a href="' . $_SERVER['PHP_SELF'] . '?Debtor=' . urlencode($MyRow['debtorno']) . '&Delete=True">' . _('Delete') . '</a></td>
-			</tr>';
+		while ($MyRow = DB_fetch_array($Result)) {
+			echo '<tr>
+					<td>' . $MyRow['debtorno'] . '</td>
+					<td>' . $MyRow['name'] . '</td>
+					<td>' . $MyRow['address1'] . '</td>
+					<td>' . $MyRow['address2'] . '</td>
+					<td>' . $MyRow['address3'] . '</td>
+					<td>' . $MyRow['address4'] . '</td>
+					<td>' . $MyRow['address5'] . '</td>
+					<td>' . $MyRow['address6'] . '</td>
+					<td>' . $MyRow['currency'] . '</td>
+					<td><a href="' . $_SERVER['PHP_SELF'] . '?Debtor=' . urlencode($MyRow['debtorno']) . '&Edit=True">' . _('Edit') . '</a></td>
+					<td><a href="' . $_SERVER['PHP_SELF'] . '?Debtor=' . urlencode($MyRow['debtorno']) . '&Delete=True">' . _('Delete') . '</a></td>
+				</tr>';
+		}
+		echo '</table>';
 	}
-	echo '</table>';
 }
 
 include('includes/footer.inc');
