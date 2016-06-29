@@ -35,6 +35,7 @@ function CreateModal(id, section, caption) {
 	modalFooter.appendChild(modalFooterClock);
 	divModal.appendChild(modalFooter);
 	divModal.style.display="inline";
+	document.title = 'KwaMoja Medical - '+caption;
 	ExpandWindow(51, 51, 51, 51, 1, 1, 1, 1);
 };
 
@@ -143,6 +144,7 @@ function ExpandWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 
 function CollapseWindow(StartL, StartR, StartT, StartB, EndL, EndR, EndT, EndB) {
 	document.body.removeChild(divMask);
+	document.title = 'KwaMoja Medical';
 	modalHeader.style.display = 'none';
 	modalContents.style.display = 'none';
 	modalFooter.style.display = 'none';
