@@ -202,7 +202,7 @@ function drawCalendar(e, t, n, r, s) {
 	xTR = "</tr>";
 	TD = "<td class='dpTD' onMouseOut='this.className=\"dpTD\";' onMouseOver='this.className=\"dpTDHover\";'";
 	xTD = "</td>";
-	html = "<table class='dpTbl'>" + TR + '<th colspan="3">' + months[o.getMonth()] + " " + o.getFullYear() + "</th>" + '<td colspan="2">' + getButtonCode(e, o, -1, "<", s) + xTD + '<td colspan="2">' + getButtonCode(e, o, 1, ">", s) + xTD + xTR + TR;
+	html = '<table class="dpTbl">' + TR + '<th colspan="3">' + months[o.getMonth()] + " " + o.getFullYear() + "</th>" + '<td colspan="2">' + getButtonCode(e, o, -1, "<", s) + xTD + '<td colspan="2">' + getButtonCode(e, o, 1, ">", s) + xTD + xTR + TR;
 	for (i = 0; i < days.length; i++) html += "<th>" + days[i] + "</th>";
 	html += xTR + TR;
 	for (i = 0; i < o.getDay(); i++) html += TD + " " + xTD;
@@ -211,7 +211,7 @@ function drawCalendar(e, t, n, r, s) {
 		TD_onclick = " onclick=\"postDate('" + e + "','" + formatDate(o, s) + "');\">";
 		if (dN == r) html += "<td" + TD_onclick + "<div class='dpDayHighlight'>" + dN + "</div>" + xTD;
 		else html += TD + TD_onclick + dN + xTD; if (o.getDay() == 6) html += xTR + TR;
-		o.setDate(o.getDate() + 1)
+		o.setDate(o.getDate() + 1);
 	} while (o.getDate() > 1);
 	if (o.getDay() > 0)
 		for (i = 6; i > o.getDay(); i--) html += TD + " " + xTD;
@@ -249,33 +249,47 @@ function formatDate(e, t) {
 	}
 }
 
-function convertDate(e, t) {
-	var n, r, i;
-	if (t == "d.m.Y") dA = e.split(".");
-	else dA = e.split("/");
-	switch (t) {
-	case "d/m/Y":
-		n = parseInt(dA[0], 10);
-		r = parseInt(dA[1], 10) - 1;
-		i = parseInt(dA[2], 10);
-		break;
-	case "d.m.Y":
-		n = parseInt(dA[0], 10);
-		r = parseInt(dA[1], 10) - 1;
-		i = parseInt(dA[2], 10);
-		break;
-	case "Y/m/d":
-		n = parseInt(dA[2], 10);
-		r = parseInt(dA[1], 10) - 1;
-		i = parseInt(dA[0], 10);
-		break;
-	default:
-		n = parseInt(dA[1], 10);
-		r = parseInt(dA[0], 10) - 1;
-		i = parseInt(dA[2], 10);
-		break
+function convertDate(dS, dF) {
+	// Converts a date in DefaultDateFormat into a javascript date-object.
+	// dS: Date to convert.
+	// dF: Date format. Formats: "d/m/Y", "d.m.Y", "m/d/Y", "Y-m-d", "Y/m/d".
+	var y, m, d;
+	switch(dF) {
+		case "d/m/Y":
+			dA = dS.split("/");
+			d = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			y = parseInt(dA[2], 10);
+			break;
+		case "d.m.Y":
+			dA = dS.split(".");
+			d = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			y = parseInt(dA[2], 10);
+			break;
+		case "m/d/Y":
+			dA = dS.split("/");
+			m = parseInt(dA[0], 10);
+			d = parseInt(dA[1], 10)-1;
+			y = parseInt(dA[2], 10);
+			break;
+		case "Y-m-d":
+			dA = dS.split("-");
+			y = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			d = parseInt(dA[2], 10);
+			break;
+		case "Y/m/d":
+			dA = dS.split("/");
+			y = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			d = parseInt(dA[2], 10);
+			break;
+		default:
+			alert("Unknown date format " + dF);
+			return false;
 	}
-	return new Date(i, r, n)
+return new Date(y, m, d);
 }
 
 function postDate(e, t) {
