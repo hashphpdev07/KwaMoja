@@ -2,6 +2,8 @@
 
 include('includes/session.php');
 $Title = _('Maintain Security Tokens');
+$ViewTopic = 'SecuritySchema';
+$BookMark = 'SecurityTokens';// Pending ?
 
 include('includes/header.php');
 
@@ -83,53 +85,59 @@ if (isset($_POST['Update']) and $InputError == 0) {
 	$_POST['TokenDescription'] = '';
 	$_POST['TokenID'] = '';
 }
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Print') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Print'), '" alt="" />', ' ', $Title, '
+	</p>';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" id="form">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 echo '<table>
 		<tr>';
 
 if (isset($_GET['Action']) and $_GET['Action'] == 'edit') {
-	echo '<td>' . _('Description') . '</td>
-		<td><input type="text" size="50" autofocus="autofocus" required="required" maxlength="50" name="TokenDescription" value="' . _($_POST['TokenDescription']) . '" /></td>
-		<td><input type="hidden" name="TokenID" value="' . $_GET['SelectedToken'] . '" />
-			<input type="submit" name="Update" value="' . _('Update') . '" />';
+	echo '<td>', _('Description'), '</td>
+		<td><input type="text" size="50" autofocus="autofocus" required="required" maxlength="50" name="TokenDescription" value="', _($_POST['TokenDescription']), '" /></td>
+		<td><input type="hidden" name="TokenID" value="', $_GET['SelectedToken'], '" />
+			<input type="submit" name="Update" value="', _('Update'), '" />';
 } else {
-	echo '<td>' . _('Token ID') . '</td>
-			<td><input class="number" size="6" required="required" maxlength="4" type="text" name="TokenID" value="' . $_POST['TokenID'] . '" /></td>
+	echo '<td>', _('Token ID'), '</td>
+			<td><input class="number" size="6" required="required" maxlength="4" type="text" name="TokenID" value="', $_POST['TokenID'], '" /></td>
 		</tr>
 		<tr>
-			<td>' . _('Description') . '</td>
-			<td><input type="text" size="50" required="required" maxlength="50" name="TokenDescription" value="' . _($_POST['TokenDescription']) . '" /></td>
-			<td><input type="submit" name="Submit" value="' . _('Insert') . '" />';
+			<td>', _('Description'), '</td>
+			<td><input type="text" size="50" required="required" maxlength="50" name="TokenDescription" value="', _($_POST['TokenDescription']), '" /></td>
+			<td><input type="submit" name="Submit" value="', _('Insert'), '" />';
 }
 
 echo '</td>
 	</tr>
-	</table>';
+</table>';
 
 echo '</form>';
 
 echo '<table class="selection">';
-echo '<tr>
-		<th>' . _('Token ID') . '</th>
-		<th>' . _('Description') . '</th>
-	</tr>';
+echo '<thead>
+		<tr>
+			<th>', _('Token ID'), '</th>
+			<th>', _('Description'), '</th>
+			<th class="noPrint" colspan="2">&nbsp;</th>
+		</tr>
+	</thead>';
 
 $SQL = "SELECT tokenid, tokenname FROM securitytokens WHERE tokenid<1000 ORDER BY tokenid";
 $Result = DB_query($SQL);
-
+echo '<tbody>';
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr>
-			<td>' . $MyRow['tokenid'] . '</td>
-			<td>' . htmlspecialchars($MyRow['tokenname'], ENT_QUOTES, 'UTF-8') . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedToken=' . $MyRow['tokenid'] . '&amp;Action=edit">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedToken=' . $MyRow['tokenid'] . '&amp;Action=delete" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this security token?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			<td>', $MyRow['tokenid'], '</td>
+			<td>', htmlspecialchars($MyRow['tokenname'], ENT_QUOTES, 'UTF-8'), '</td>
+			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedToken=', urlencode($MyRow['tokenid']), '&amp;Action=edit">', _('Edit'), '</a></td>
+			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedToken=', urlencode($MyRow['tokenid']), '&amp;Action=delete" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this security token?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 		</tr>';
 }
 
-echo '</table><br />';
+echo '</tbody>
+	</table>';
 
 include('includes/footer.php');
 ?>
