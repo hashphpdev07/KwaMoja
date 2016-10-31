@@ -1514,13 +1514,13 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 					$DisposalResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 					$DisposalRow = DB_fetch_array($DisposalResult);
 
-					/*Need to :
-					 *  1.) debit accum depn  account with whole amount of accum depn
-					 *  2.) credit cost account with the whole amount of the cost
-					 *  3.) debit the disposal account with the NBV
-					 *  4.) credit the disposal account with the sale proceeds net of discounts */
+					/* Need to :
+					 * 1.) Debit the accumulated depreciation account with whole amount of accumulated depreciation
+					 * 2.) Credit the cost account with the whole amount of the cost
+					 * 3.) Debit the disposal account with the NBV
+					 * 4.) Credit the disposal account with the sale proceeds net of discounts */
 
-					/* 1 debit accum depn */
+					// 1.) Debit the accumulated depreciation account:
 					if ($DisposalRow['accumdpen'] != 0) {
 						$SQL = "INSERT INTO gltrans (type,
 													typeno,
@@ -1540,53 +1540,52 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 
 						$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The reversal of accumulated depreciation GL posting on disposal could not be inserted because');
 						$DbgMsg = _('The following SQL to insert the GLTrans record was used');
-						$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+						$Result = DB_query($SQL,$ErrMsg,$DbgMsg,true);
 					}
-					/* 2 credit cost  */
-					if ($DisposalRow['cost'] != 0) {
-						$SQL = "INSERT INTO gltrans (type,
-												typeno,
-												trandate,
-												periodno,
-												account,
-												narrative,
-												amount)
-										VALUES (
-											10,
-											'" . $InvoiceNo . "',
-											'" . $DefaultDispatchDate . "',
-											'" . $PeriodNo . "',
-											'" . $DisposalRow['costact'] . "',
-											'" . $_SESSION['Items' . $Identifier]->DebtorNo . " - " . $OrderLine->StockID . ' ' . _('cost disposal') . "',
-											'" . -$DisposalRow['cost'] . "')";
-
+					// 2.) Credit the cost account:
+					if($DisposalRow['cost']!=0) {
+						$SQL = "INSERT INTO gltrans (
+									type,
+									typeno,
+									trandate,
+									periodno,
+									account,
+									narrative,
+									amount
+								) VALUES (
+									10,'" .
+									$InvoiceNo . "','" .
+									$DefaultDispatchDate . "','" .
+									$PeriodNo . "','" .
+									$DisposalRow['costact'] . "','" .
+									$_SESSION['Items'.$identifier]->DebtorNo . " - " . $OrderLine->StockID . ' ' . _('cost disposal') . "','" .
+									-$DisposalRow['cost'] . "')";
 						$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The reversal of asset cost on disposal GL posting could not be inserted because');
 						$DbgMsg = _('The following SQL to insert the GLTrans record was used');
-						$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+						$Result = DB_query($SQL,$ErrMsg,$DbgMsg,true);
 					}
-					//3. Debit disposal account with NBV
-					if ($DisposalRow['cost'] - $DisposalRow['accumdepn'] != 0) {
+					// 3.) Debit the disposal account with the NBV:
+					if($DisposalRow['cost']-$DisposalRow['accumdepn']!=0) {
 						$SQL = "INSERT INTO gltrans (type,
-												typeno,
-												trandate,
-												periodno,
-												account,
-												narrative,
-												amount )
-										VALUES (
-											10,
-											'" . $InvoiceNo . "',
-											'" . $DefaultDispatchDate . "',
-											'" . $PeriodNo . "',
-											'" . $DisposalRow['disposalact'] . "',
-											'" . $_SESSION['Items' . $Identifier]->DebtorNo . " - " . $OrderLine->StockID . ' ' . _('net book value disposal') . "',
-											'" . ($DisposalRow['cost'] - $DisposalRow['accumdepn']) . "')";
+													typeno,
+													trandate,
+													periodno,
+													account,
+													narrative,
+													amount )
+											VALUES (
+												10,
+												'" . $InvoiceNo . "',
+												'" . $DefaultDispatchDate . "',
+												'" . $PeriodNo . "',
+												'" . $DisposalRow['disposalact'] . "',
+												'" . $_SESSION['Items'.$identifier]->DebtorNo . " - " . $OrderLine->StockID . ' ' . _('net book value disposal') . "',
+												'" . ($DisposalRow['cost']-$DisposalRow['accumdepn']) . "')";
 
 						$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The disposal net book value GL posting could not be inserted because');
-						$DbgMsg = '<br />' . _('The following SQL to insert the GLTrans record was used');
-						$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+						$DbgMsg = '<br />' ._('The following SQL to insert the GLTrans record was used');
+						$Result = DB_query($SQL,$ErrMsg,$DbgMsg,true);
 					}
-
 					//4. Credit the disposal account with the proceeds
 					$SQL = "INSERT INTO gltrans (type,
 											typeno,
