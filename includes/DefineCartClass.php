@@ -1,5 +1,7 @@
 <?php
 
+/* $Id: DefineCartClass.php 7444 2016-01-13 07:32:36Z daintree $*/
+
 /* Definition of the cart class
 this class can hold all the information for:
 
@@ -56,7 +58,6 @@ class Cart {
 	var $CreditAvailable; //in customer currency
 	var $TaxGroup;
 	var $DispatchTaxProvince;
-	var $vtigerProductID;
 	var $DefaultPOLine;
 	var $DeliveryDays;
 	var $TaxTotals;
@@ -74,7 +75,6 @@ class Cart {
 		$this->FreightCost = 0;
 		$this->FreightTaxes = array();
 		$this->CurrDecimalPlaces = 2; //default
-		$this->Location = $_SESSION['UserStockLocation'];
 	}
 
 	function add_to_cart($StockId, $Qty, $Descr, $LongDescr, $Price, $Disc = 0, $UOM, $Volume, $Weight, $QOHatLoc = 0, $MBflag = 'B', $ActDispatchDate = NULL, $QtyInvoiced = 0, $DiscCat = '', $Controlled = 0, $Serialised = 0, $DecimalPlaces = 0, $Narrative = '', $UpdateDB = 'No', $LineNumber = -1, $TaxCategory = 0, $vtigerProductID = '', $ItemDue = '', $POLine = '', $StandardCost = 0, $EOQ = 1, $NextSerialNo = 0, $ExRate = 1, $Identifier = 0) {
@@ -170,7 +170,7 @@ class Cart {
 				/* something has been delivered. Clear the remaining Qty and Mark Completed */
 				$Result = DB_query("UPDATE salesorderdetails SET quantity=qtyinvoiced,
 																completed=1
-									WHERE orderno='" . $_SESSION['ExistingOrder'] . "'
+									WHERE orderno='" . $_SESSION['ExistingOrder' . $Identifier] . "'
 									AND orderlineno='" . $LineNumber . "'", _('The order line could not be updated as completed because'));
 				prnMsg(_('Removed Remaining Quantity and set Line Number ') . ' ' . $LineNumber . ' ' . _('as Completed for existing Order Number') . ' ' . $_SESSION['ExistingOrder'], 'success');
 			}
@@ -245,10 +245,11 @@ class Cart {
 
 		$ErrMsg = _('The taxes and rates for this item could not be retrieved because');
 		$GetTaxRatesResult = DB_query($SQL, $ErrMsg);
-
+		$i = 1;
 		while ($MyRow = DB_fetch_array($GetTaxRatesResult)) {
 
-			$this->LineItems[$LineNumber]->Taxes[$MyRow['taxcalculationorder']] = new Tax($MyRow['taxcalculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+			$this->LineItems[$LineNumber]->Taxes[$i] = new Tax($MyRow['taxcalculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+			$i++;
 		}
 	} //end method GetExistingTaxes
 
@@ -282,7 +283,7 @@ class Cart {
 			$i = 1;
 			while ($MyRow = DB_fetch_array($GetTaxRatesResult)) {
 				$this->LineItems[$LineNumber]->Taxes[$i] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
-				++$i;
+				$i++;
 			} //end loop around different taxes
 		} //end if there are some taxes defined
 	} //end method GetTaxes
@@ -292,7 +293,7 @@ class Cart {
 		/*Gets the Taxes and rates applicable to the freight based on the tax group of the branch combined with the tax category for this particular freight
 		and SESSION['FreightTaxCategory'] the taxprovince of the dispatch location */
 
-		$SQL = "SELECT taxcatid FROM taxcategories WHERE taxcatname='Freight'";
+		$SQL = "SELECT taxcatid FROM taxcategories WHERE taxcatname='Freight'"; // This tax category is hardcoded inside the database.
 		$TaxCatQuery = DB_query($SQL);
 
 		if ($TaxCatRow = DB_fetch_array($TaxCatQuery)) {
@@ -303,26 +304,28 @@ class Cart {
 		}
 
 		$SQL = "SELECT taxgrouptaxes.calculationorder,
-					taxauthorities.description,
-					taxgrouptaxes.taxauthid,
-					taxauthorities.taxglcode,
-					taxgrouptaxes.taxontax,
-					taxauthrates.taxrate
-				FROM taxauthrates INNER JOIN taxgrouptaxes ON
-					taxauthrates.taxauthority=taxgrouptaxes.taxauthid
-					INNER JOIN taxauthorities ON
-					taxauthrates.taxauthority=taxauthorities.taxid
-				WHERE taxgrouptaxes.taxgroupid='" . $this->TaxGroup . "'
-				AND taxauthrates.dispatchtaxprovince='" . $this->DispatchTaxProvince . "'
-				AND taxauthrates.taxcatid = '" . $TaxCatID . "'
-				ORDER BY taxgrouptaxes.calculationorder";
+						taxauthorities.description,
+						taxgrouptaxes.taxauthid,
+						taxauthorities.taxglcode,
+						taxgrouptaxes.taxontax,
+						taxauthrates.taxrate
+					FROM taxauthrates
+					INNER JOIN taxgrouptaxes
+						ON taxauthrates.taxauthority=taxgrouptaxes.taxauthid
+					INNER JOIN taxauthorities
+						ON taxauthrates.taxauthority=taxauthorities.taxid
+					WHERE taxgrouptaxes.taxgroupid='" . $this->TaxGroup . "'
+						AND taxauthrates.dispatchtaxprovince='" . $this->DispatchTaxProvince . "'
+						AND taxauthrates.taxcatid = '" . $TaxCatID . "'
+					ORDER BY taxgrouptaxes.calculationorder";
 
 		$ErrMsg = _('The taxes and rates for this item could not be retrieved because');
 		$GetTaxRatesResult = DB_query($SQL, $ErrMsg);
 		$i = 1;
 		while ($MyRow = DB_fetch_array($GetTaxRatesResult)) {
-			$this->LineItems[$LineNumber]->Taxes[$i] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
-			++$i;
+
+			$this->FreightTaxes[$i] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
+			$i++;
 		}
 	} //end method GetFreightTaxes()
 
@@ -381,7 +384,6 @@ class LineDetails {
 		if ($Controlled == 1) {
 			$this->QtyDispatched = 0;
 		} else {
-			$this->QtyDispatched = $Qty - $QtyInvoiced;
 			if ($_SESSION['InvoiceQuantityDefault'] == 1) {
 				$this->QtyDispatched = $Qty - $QtyInvoiced;
 			} else {

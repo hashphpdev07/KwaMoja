@@ -4,6 +4,8 @@ include('includes/session.php');
 
 $Title = _('Supplier Purchasing Data');
 
+$ViewTopic = 'PurchaseOrdering';
+$BookMark = 'SupplierPriceList';
 include('includes/header.php');
 if (isset($_POST['SupplierID'])) {
 	$_POST['SupplierID'] = stripslashes($_POST['SupplierID']);
@@ -530,7 +532,8 @@ if (isset($_POST['SupplierID'])) {
 				<th>' . _('Effective From') . '</th>
 				<th>' . _('Suppliers Item Code') . '</th>
 				<th>' . _('Min Order Qty') . '</th>
-			</tr>';
+				<th>', _('Save'), '</th>
+ 			</tr>';
 
 	if (isset($_POST['Select'])) {
 		$StockSQL = "SELECT description, units FROM stockmaster WHERE stockid='" . $_POST['Select'] . "'";

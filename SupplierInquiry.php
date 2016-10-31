@@ -271,17 +271,17 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 		if ($_SESSION['CompanyRecord']['gllink_creditors'] == True) {
 			if ($MyRow['totalamount'] - $MyRow['allocated'] == 0) {
 				/*The trans is settled so don't show option to hold */
-				printf($BaseTD8 . $PaymentTD1 . $GLEntriesTD1 . '</tr>',
+				echo $BaseTD8 . $PaymentTD1 . $GLEntriesTD1 . '</tr>',
 					// $PaymentTD1 parameters:
 					$MyRow['supplierno'],
 					$MyRow['suppreference'],
 					// $GLEntriesTD1 parameters:
 					$MyRow['type'],
-					$MyRow['transno']);
+					$MyRow['transno'];
 
 			} else {
 
-				printf($BaseTD8);
+				echo $BaseTD8;
  				if ($AuthRow[0] == 0) {
 					echo '<td class="noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?HoldType=' . $MyRow['type'] . '&amp;HoldTrans=' . $MyRow['transno'] . '&amp;HoldStatus=' . $HoldValue . '&amp;FromDate=' . $_POST['TransAfterDate'] . '">' . $HoldValue . '</a></td>';
 				} else {
@@ -325,9 +325,9 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 
 		} else {
 			/*Not linked to GL */
-			printf($BaseTD8 . $AllocationTD1 . '<td class="noPrint">&nbsp;</td></tr>',
+			echo $BaseTD8 . $AllocationTD1 . '<td class="noPrint">&nbsp;</td></tr>',
 				// $AllocationTD1 parameters:
-				$MyRow['id']);
+				$MyRow['id'];
 
 		}
 	} //end of page full new headings if
