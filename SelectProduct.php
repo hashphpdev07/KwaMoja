@@ -430,6 +430,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 			} else {
 				echo '<td class="select">', _('No'), '</td>';
 			}
+			echo '<td class="select"><a href="' . $RootPath . '/PurchData.php?StockID=', urlencode($StockId), '&SupplierID=', urlencode($SuppRow['supplierid']), '&Edit=1&EffectiveFrom=', urlencode($SuppRow['effectivefrom']), '">' . _('Edit') . ' </a></td>';
 			echo '<td class="select"><a href="', $RootPath, '/PO_Header.php?NewOrder=Yes&amp;SelectedSupplier=', urlencode($SuppRow['supplierid']), '&amp;StockID=', urlencode($StockId), '&amp;Quantity=', urlencode($SuppRow['minorderqty']), '&amp;LeadTime=', urlencode($SuppRow['leadtime']), '">', _('Order'), ' </a></td>';
 			echo '</tr>';
 		}
