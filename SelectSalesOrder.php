@@ -427,6 +427,9 @@ if (isset($_POST['PlacePO'])) {
 /* ******************************************************************************************* */
 
 /*To the sales order selection form */
+echo '<div class="toplink">
+		<a href="', $RootPath, '/SelectOrderItems.php?NewOrder=Yes">', _('Add Sales Order'), '</a>
+	</div>';
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/sales.png" title="', _('Sales'), '" alt="" />', '&nbsp;', _('Outstanding Sales Orders'), '
@@ -590,21 +593,28 @@ if (!isset($StockId)) {
 				</td>
 			</tr>
 			<tr>
+				<td>', _('Customer Ref'), '</td>
+				<td><input type="text" name="CustomerRef" value="', $_POST['CustomerRef'], '" size="12" /></td>
+			</tr>
+			<tr>
 				<td>' . _('Due Date From') . '</td>
 				<td><input type="text" class="date" name="DueDateFrom" value="', $_POST['DueDateFrom'], '" alt="', $_SESSION['DefaultDateFormat'], '" size="10" /></td>
 				<td>', _('Due Date To'), '</td>
 				<td><input type="text" class="date" name="DueDateTo" value="', $_POST['DueDateTo'], '" alt="', $_SESSION['DefaultDateFormat'], '" size="10" /></td>
-				<td><input type="submit" name="SearchOrders" value="', _('Search'), '" /></td>
-				<td><input type="submit" name="Reset" value="', _('Reset'), '" /></td>
-				<td><a href="', $RootPath, '/SelectOrderItems.php?NewOrder=Yes">', _('Add Sales Order'), '</a></td>
 			</tr>
 			<tr>
-				<td>', _('Customer Ref'), '</td>
-				<td><input type="text" name="CustomerRef" value="', $_POST['CustomerRef'], '" size="12" /></td>
 				<td>', _('Order Date From'), '</td>
 				<td><input type="text" name="OrderDateFrom" value="', $_POST['OrderDateFrom'], '" size="10" class="date" alt="', $_SESSION['DefaultDateFormat'], '" /></td>
 				<td>', _('Order Date To'), '</td>
 				<td><input type="text" name="OrderDateTo" value="', $_POST['OrderDateTo'], '" size="10" class="date" alt="', $_SESSION['DefaultDateFormat'], '" /></td>
+			</tr>
+			<tr>
+				<td colspan="6">
+					<div class="centre">
+						<input type="submit" name="SearchOrders" value="', _('Search'), '" />
+						<input type="submit" name="Reset" value="', _('Reset'), '" />
+					</div>
+				</td>
 			</tr>
 		</table>';
 	}
