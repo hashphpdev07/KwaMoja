@@ -56,7 +56,7 @@ switch ($_POST['Action']) {
 			while ($ScriptRow = DB_fetch_array($Result)) {
 				$List .= ' ' . $ScriptRow['script'];
 			}
-			prnMsg(_('This secuirty token is currently used by the following scripts and cannot be deleted') . ':' . $List, 'error');
+			prnMsg(_('This security token is currently used by the following scripts and cannot be deleted') . ':' . $List, 'error');
 		} else {
 			$Result = DB_query("DELETE FROM securitytokens WHERE tokenid='" . $_POST['TokenID'] . "'");
 			if ($Result) {

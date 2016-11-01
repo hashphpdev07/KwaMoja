@@ -215,7 +215,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 					</tr>';
 			}
 		}
-	} //end of if PricesSecuirty allows viewing of prices
+	} //end of if PricesSecurity allows viewing of prices
 	if (in_array($CostSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
 		if ($MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'A') {
 			$CostResult = DB_query("SELECT SUM(bom.quantity * (stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost)) AS cost
