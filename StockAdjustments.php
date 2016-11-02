@@ -457,6 +457,38 @@ if (!isset($_SESSION['Adjustment' . $Identifier])) {
 	$_SESSION['Adjustment' . $Identifier]->StandardCost = $MyRow['materialcost'] + $MyRow['labourcost'] + $MyRow['overheadcost'];
 	$DecimalPlaces = $MyRow['decimalplaces'];
 }
+
+if (isset($_SESSION['Adjustment' . $Identifier]->StockID) and $_SESSION['Adjustment' . $Identifier]->StockID != '') {
+	$SQL = "SELECT locations.locationname,
+					locstock.stockid,
+					locstock.quantity
+				FROM locstock
+				INNER JOIN locations
+					ON locstock.loccode=locations.loccode
+				INNER JOIN locationusers
+					ON locationusers.loccode=locations.loccode
+					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.canupd=1
+				WHERE locstock.stockid='" . $_SESSION['Adjustment' . $Identifier]->StockID . "'";
+	$Result = DB_query($SQL);
+	echo '<table class="selection">
+			<tr>
+				<th colspan="2"><h3>' . _('Current Stock Balances') . '</h3></th>
+			</tr>
+			<tr>
+				<th><h4>' . _('Location') . '</h4></th>
+				<th><h4>' . _('Quantity') . '</h4></th>
+			</tr>';
+
+	while ($MyRow = DB_fetch_array($Result)) {
+		echo '<tr>
+				<td>' . $MyRow['locationname'] . '</td>
+				<td class="number">' . $MyRow['quantity'] . '</td>
+			</tr>';
+	}
+	echo '</table>';
+}
+
 echo '<table class="selection">
 		<tr>
 			<th colspan="4"><h3>' . _('Adjustment Details') . '</h3></th>
