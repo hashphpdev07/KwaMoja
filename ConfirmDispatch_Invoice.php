@@ -1749,11 +1749,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 
 	echo '<div class="centre">';
 
-	if ($_SESSION['InvoicePortraitFormat'] == 0) {
-		echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintInvoice.php?FromTransNo=' . $InvoiceNo . '">' . _('Print this invoice') . ' (' . _('Landscape') . ')</a><br />';
-	} else {
-		echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintInvoice.php?FromTransNo=' . $InvoiceNo . '">' . _('Print this invoice') . ' (' . _('Portrait') . ')</a><br />';
-	}
+	echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintInvoice.php?FromTransNo=' . $InvoiceNo . '">' . _('Print this invoice') . ')</a><br />';
 	echo '<a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Select another order for invoicing') . '</a><br />';
 	echo '<a href="' . $RootPath . '/SelectOrderItems.php?NewOrder=Yes">' . _('Sales Order Entry') . '</a></div>';
 	/*end of process invoice */

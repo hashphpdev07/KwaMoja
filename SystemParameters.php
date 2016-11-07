@@ -257,9 +257,6 @@ if (isset($_POST['submit'])) {
 		if ($_SESSION['InvoiceQuantityDefault'] != $_POST['X_InvoiceQuantityDefault']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_InvoiceQuantityDefault'] . "' WHERE confname = 'InvoiceQuantityDefault'";
 		}
-		if ($_SESSION['InvoicePortraitFormat'] != $_POST['X_InvoicePortraitFormat']) {
-			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_InvoicePortraitFormat'] . "' WHERE confname = 'InvoicePortraitFormat'";
-		}
 		if ($_SESSION['AllowOrderLineItemNarrative'] != $_POST['X_AllowOrderLineItemNarrative']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_AllowOrderLineItemNarrative'] . "' WHERE confname = 'AllowOrderLineItemNarrative'";
 		}
@@ -555,15 +552,6 @@ echo '<tr style="outline: 1px solid"><td>' . _('Format of Packing Slips') . ':</
 	<option ' . ($_SESSION['PackNoteFormat'] === '2' ? 'selected="selected" ' : '') . 'value="2">' . _('Special Stationery') . '</option>
 	</select></td>
 	<td>' . _('Choose the format that packing notes should be printed by default') . '</td>
-	</tr>';
-
-//Default Invoice Format
-echo '<tr style="outline: 1px solid"><td>' . _('Invoice Orientation') . ':</td>
-	<td><select required="required" name="X_InvoicePortraitFormat">
-	<option ' . ($_SESSION['InvoicePortraitFormat'] === '0' ? 'selected="selected" ' : '') . 'value="0">' . _('Landscape') . '</option>
-	<option ' . ($_SESSION['InvoicePortraitFormat'] === '1' ? 'selected="selected" ' : '') . 'value="1">' . _('Portrait') . '</option>
-	</select></td>
-	<td>' . _('Select the invoice layout') . '</td>
 	</tr>';
 
 //Default Invoice Quantity

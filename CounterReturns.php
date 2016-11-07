@@ -1678,11 +1678,7 @@ if (isset($_POST['ProcessReturn']) and $_POST['ProcessReturn'] != '') {
 
 		echo '<div class="centre">';
 
-		if ($_SESSION['InvoicePortraitFormat'] == 0) {
-			echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', urlencode($CreditNoteNo), '&InvOrCredit=Credit&PrintPDF=True">', _('Print this credit note'), ' (', _('Landscape'), ')</a>';
-		} else {
-			echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintCustTransPortrait.php?FromTransNo=', urlencode($CreditNoteNo), '&InvOrCredit=Credit&PrintPDF=True" onClick="return window.location=\'index.php\'">', _('Print this credit note'), ' (', _('Portrait'), ')</a>';
-		}
+		echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintCustTransPortrait.php?FromTransNo=', urlencode($CreditNoteNo), '&InvOrCredit=Credit&PrintPDF=True" onClick="return window.location=\'index.php\'">', _('Print this credit note'), ')</a>';
 		echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Start a new Counter Return'), '</a></div>';
 
 	}
