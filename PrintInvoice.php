@@ -4,6 +4,8 @@ $PageSecurity=1;
 include('includes/session.php');
 include('includes/SQL_CommonFunctions.php');
 
+$AutoPrintPage = 1;
+
 if (isset($_GET['FromTransNo'])) {
 	$FromTransNo = trim($_GET['FromTransNo']);
 } elseif (isset($_POST['FromTransNo'])) {
