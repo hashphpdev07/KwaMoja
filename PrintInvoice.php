@@ -22,12 +22,12 @@ if (!isset($_POST['ToTransNo']) or trim($_POST['ToTransNo']) == '' or filter_num
 	$_POST['ToTransNo'] = $FromTransNo;
 }
 
-$Title = _('Tax Invoice') . ' - ' . $FromTransNo;
+$Title = _('Print Tax Invoices') . ' - ' . _('From') . ' ' . $FromTransNo . ' ' . _('to') . ' ' . $_POST['ToTransNo'];
 
-include('includes/header.php');
 echo '<link href="', $RootPath, '/companies/' . $_SESSION['DatabaseName'] . '/FormDesigns/invoice.css" rel="stylesheet" type="text/css" />';
 
-echo '<img class="printer_icon" title="', _('Print these invoices'), '" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/print.png" onclick="return window.print()" />';
+include('includes/header.php');
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
 while ($FromTransNo <= filter_number_format($_POST['ToTransNo'])) {
 
@@ -262,7 +262,7 @@ while ($FromTransNo <= filter_number_format($_POST['ToTransNo'])) {
 							<tr>
 								<td class="SummaryBlankColumn"></td>
 								<td class="SummaryLabelColumn">', _('Total'). '</td>
-								<td class="SummaryValueColumn number"">', locale_number_format($MyRow['ovfreight'] + $MyRow['ovgst'] + $MyRow['ovamount'], $MyRow['decimalplaces']), '</td>
+								<td class="SummaryValueColumn number">', locale_number_format($MyRow['ovfreight'] + $MyRow['ovgst'] + $MyRow['ovamount'], $MyRow['decimalplaces']), '</td>
 							</tr>
 						</table>
 					</td>
@@ -272,4 +272,11 @@ while ($FromTransNo <= filter_number_format($_POST['ToTransNo'])) {
 	$FromTransNo++;
 	echo '</table>';
 }
+
+echo '<div class="centre links">
+		<a href="">', _('Re-print this invoice run'), '</a>
+	</div>';
+
+include('includes/footer.php');
+
 ?>
