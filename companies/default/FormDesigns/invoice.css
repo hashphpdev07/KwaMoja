@@ -9,10 +9,6 @@ margin-bottom:15px;
 size: portrait;
 }
 
-.printer_icon {
-display:none;
-}
-
 .header {
 width:98%;
 }
@@ -87,7 +83,7 @@ left:10px;
 border-collapse:collapse;
 border:1px solid black;
 font-size:12px;
-width:98%;
+width:100%;
 }
 
 .ItemCodeColumn {
@@ -147,143 +143,104 @@ width:10%;
 page-break-after: always;
 }
 
+.links {
+display:none;
+}
+
+.page_title_text {
+display:none;
+}
+
 }
 
 @media screen {
 
-.printer_icon {
-width:64px;
-float:left;
-margin:1%;
-cursor:pointer;
-}
-
 .header {
-width:98%;
+display:none;
 }
 
 .left_side {
-width:50%;
-text-align:top;
+display:none;
 }
 
 .right_side {
-width:50%;
-text-align:top;
+display:none;
 }
 
 .DeliveryAddress {
-margin:20px;
-text-align:left;
-width: 45%;
-border: 1px solid black;
-border-radius:17px;
-font-size:14px;
-padding:10px;
+display:none;
 }
 
 .InvoiceAddress {
-margin:20px;
-text-align:left;
-width: 45%;
-border: 1px solid black;
-border-radius:17px;
-font-size:14px;
-padding:10px;
+display:none;
 }
 
 .CompanyAddress {
-text-align:right;
-width: 90%;
-font-size:12px;
+display:none;
 }
 
 .logo {
-width:20%;
+display:none;
 }
 
 .TransType {
-width:97%;
-text-align:center;
-border: 1px solid black;
-border-radius:9px;
-font-size:16px;
-padding:10px;
-margin-top:3px;
+display:none;
 }
 
 .InvoiceDetails {
-width:97%;
-text-align:center;
-border: 1px solid black;
-border-radius:9px;
-font-size:10px;
-padding:10px;
-margin-top:3px;
+display:none;
 }
 
 .barcode {
-float: left;
+display:none;
 }
 
 .HeaderTable {
-font-size:12px;
-width:98%;
-border-collapse:collapse;
-border:1px solid black;
+display:none;
 }
 
 .ItemCodeColumn {
-width:10%;
-border-left:1px solid black;
+display:none;
 }
 
 .ItemDescriptionColumn {
-width:40%;
-border-left:1px solid black;
+display:none;
 }
 
 .ItemPriceColumn {
-width:10%;
-border-left:1px solid black;
+display:none;
 }
 
 .ItemQuantityColumn {
-width:10%;
-border-left:1px solid black;
+display:none;
 }
 
 .ItemUOMColumn {
-width:10%;
-border-left:1px solid black;
+display:none;
 }
 
 .ItemDiscountColumn {
-width:10%;
-border-left:1px solid black;
+display:none;
 }
 
 .ItemValueColumn {
-width:10%;
-border-left:1px solid black;
-border-right:1px solid black;
+display:none;
 }
 
 .SummaryTable {
-font-size:12px;
-width:100%;
+display:none;
 }
 
 .SummaryBlankColumn {
-width:80%;
+display:none;
 }
 
 .SummaryLabelColumn {
-width:10%;
+display:none;
 }
 
 .SummaryValueColumn {
-width:10%;
+display:none;
 }
 
 }
