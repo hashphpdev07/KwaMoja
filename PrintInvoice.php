@@ -1,5 +1,4 @@
 <?php
-$PageSecurity=1;
 
 include('includes/session.php');
 include('includes/SQL_CommonFunctions.php');
