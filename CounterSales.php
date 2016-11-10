@@ -2113,11 +2113,8 @@ if (isset($_POST['ProcessSale']) and $_POST['ProcessSale'] != '') {
 
 		echo '<div class="centre">';
 
-		if ($_SESSION['InvoicePortraitFormat'] == 0) {
-			echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', urlencode($InvoiceNo), '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">', _('Print this invoice'), ' (', _('Landscape'), ')</a>';
-		} else {
-			echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintCustTransPortrait.php?FromTransNo=', urlencode($InvoiceNo), '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">', _('Print this invoice'), ' (', _('Portrait'), ')</a>';
-		}
+		echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintInvoice.php?FromTransNo=', urlencode($InvoiceNo), '">', _('Print this invoice'), ')</a>';
+
 		echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Start a new Counter Sale'), '</a></div>';
 
 	}

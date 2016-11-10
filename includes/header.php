@@ -19,7 +19,6 @@ if (isset($Title) and $Title == _('Copy a BOM to New Item Code')) { //solve the 
 }
 
 echo '<!DOCTYPE html>';
-echo '';
 
 echo '<html moznomarginboxes mozdisallowselectionprint>
 		<head>
@@ -33,7 +32,11 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 
 if ($Debug === 0) {
 	echo '</head>';
-	echo '<body onload="initial()">';
+	if (isset($AutoPrintPage)) {
+		echo '<body onload="window.print()">';
+	} else {
+		echo '<body onload="initial()">';
+	}
 } else {
 	echo '<link href="', $RootPath, '/css/holmes.css" rel="stylesheet" type="text/css" />';
 	echo '</head>';

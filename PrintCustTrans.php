@@ -75,7 +75,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 		notice that salesorder record must be present to print the invoice purging of sales orders will
 		nobble the invoice reprints */
 
-		if ($_POST['LocCode'] == 'All') {
+		if (isset($_POST['LocCode']) and $_POST['LocCode'] == 'All') {
 			$_POST['LocCode'] = '%';
 		}
 

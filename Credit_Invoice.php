@@ -213,7 +213,7 @@ if (isset($_POST['Location'])) {
 	}
 }
 
-if (isset($_POST['ChargeFreightCost'])) {
+if (isset($_POST['ChargeFreightCost']) and $_POST['ChargeFreightCost'] !== 0) {
 	$_SESSION['CreditItems' . $Identifier]->FreightCost = filter_number_format($_POST['ChargeFreightCost']);
 	if (($TotalQtyCredited + abs($_POST['ChargeFreightCost'])) <= 0) {
 		prnMsg(_('There are no item quantity or freight charge input'), 'error');
@@ -488,7 +488,7 @@ if (isset($_POST['CreditType']) and ($_POST['CreditType'] == 'WriteOff' or $_POS
 		$ErrMsg = _('Failed to retrieve salesoderdetails to compare if the order has been invoiced and that it is possible that the credit note may not already have been done');
 		$DuplicateCreditResult = DB_query($SQL, $ErrMsg);
 		$MyRow1 = DB_fetch_row($DuplicateCreditResult);
-		if ($MyRow1[0] == 0) {
+		if ($MyRow1[0] === 0) {
 			prnMsg(_('The credit quantity for the line for') . ' ' . $CreditLine->StockID . ' ' . ('is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated.'), 'error');
 			$OKToProcess = false;
 			include('includes/footer.php');
@@ -602,6 +602,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 									ovfreight,
 									rate,
 									invtext,
+									shipvia,
 									alloc,
 									settled,
 									salesperson)
@@ -620,6 +621,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 							'" . -$_SESSION['CreditItems' . $Identifier]->FreightCost . "',
 							'" . $_SESSION['CurrencyRate'] . "',
 							'" . $_POST['CreditText'] . "',
+							'" . $_SESSION['CreditItems' . $Identifier]->ShipVia . "',
 							'" . -$Allocate_amount . "',
 							'" . $Settled . "',
 							'" . $_SESSION['CreditItems' . $Identifier]->SalesPerson . "')";
@@ -1506,11 +1508,8 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	unset($_SESSION['ProcessingCredit']);
 
 	echo '<div class="centre">' . _('Credit Note number') . ' ' . $CreditNo . ' ' . _('has been processed');
-	if ($_SESSION['InvoicePortraitFormat'] == 0) {
-		echo '<br /><a href="' . $RootPath . '/PrintCustTrans.php?FromTransNo=' . urlencode($CreditNo) . '&InvOrCredit=Credit&PrintPDF=True">' . _('Print this credit note') . '</a>';
-	} else {
-		echo '<br /><a href="' . $RootPath . '/PrintCustTransPortrait.php?FromTransNo=' . urlencode($CreditNo) . '&InvOrCredit=Credit&PrintPDF=True">' . _('Print this credit note') . '</a>';
-	}
+	echo '<br /><a href="' . $RootPath . '/PrintCredit.php?FromTransNo=' . urlencode($CreditNo) . '">' . _('Print this credit note') . '</a>';
+
 	echo '</div>';
 	/*end of process credit note */
 

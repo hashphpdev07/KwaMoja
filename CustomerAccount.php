@@ -287,11 +287,8 @@ echo '<table class="selection">
 echo '<tbody>';
 $k = 0; //row colour counter
 $OutstandingOrSettled = '';
-if ($_SESSION['InvoicePortraitFormat'] == 1) { //Invoice/credits in portrait
-	$PrintCustomerTransactionScript = 'PrintCustTransPortrait.php';
-} else { //produce pdfs in landscape
-	$PrintCustomerTransactionScript = 'PrintCustTrans.php';
-}
+$PrintCustomerTransactionScript = 'PrintInvoice.php';
+
 foreach ($Transactions as $MyRow) {
 
 	if ($MyRow['settled'] == 1 and $OutstandingOrSettled == '') {

@@ -280,11 +280,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 
 	$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
 
-	if ($_SESSION['InvoicePortraitFormat'] == 1) { //Invoice/credits in portrait
-		$PrintCustomerTransactionScript = 'PrintCustTransPortrait.php';
-	} else { //produce pdfs in landscape
-		$PrintCustomerTransactionScript = 'PrintCustTrans.php';
-	}
+	$PrintCustomerTransactionScript = 'PrintInvoice.php';
 
 	/* assumed allowed page security token 3 allows the user to create credits for invoices */
 	if (in_array($_SESSION['PageSecurityArray']['Credit_Invoice.php'], $_SESSION['AllowedPageSecurityTokens']) and $MyRow['type'] == 10) {
