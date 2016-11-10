@@ -1749,7 +1749,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 
 	echo '<div class="centre">';
 
-	echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintInvoice.php?FromTransNo=' . $InvoiceNo . '">' . _('Print this invoice') . ')</a><br />';
+	echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintInvoice.php?FromTransNo=' . $InvoiceNo . '">' . _('Print this invoice') . '</a><br />';
 	echo '<a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Select another order for invoicing') . '</a><br />';
 	echo '<a href="' . $RootPath . '/SelectOrderItems.php?NewOrder=Yes">' . _('Sales Order Entry') . '</a></div>';
 	/*end of process invoice */
