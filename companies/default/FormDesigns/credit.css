@@ -1,0 +1,247 @@
+/* $Id: print.css 7158 2015-02-19 23:25:13Z vvs2012 $*/
+/* Print style sheet. */
+
+@media print {
+
+@page {
+margin-top:15px;
+margin-bottom:15px;
+size: portrait;
+}
+
+.header {
+width:98%;
+}
+
+.left_side {
+width:50%;
+text-align:top;
+}
+
+.right_side {
+width:50%;
+text-align:top;
+}
+
+.DeliveryAddress {
+margin:20px;
+text-align:left;
+width: 45%;
+border: 1px solid black;
+border-radius:17px;
+font-size:14px;
+padding:10px;
+}
+
+.InvoiceAddress {
+margin:20px;
+text-align:left;
+width: 45%;
+border: 1px solid black;
+border-radius:17px;
+font-size:14px;
+padding:10px;
+}
+
+.CompanyAddress {
+text-align:right;
+width: 90%;
+font-size:12px;
+}
+
+.logo {
+width:20%;
+}
+
+.TransType {
+width:97%;
+text-align:center;
+border: 1px solid black;
+border-radius:9px;
+font-size:16px;
+padding:10px;
+margin-top:3px;
+color:red;
+}
+
+.InvoiceDetails {
+width:97%;
+text-align:center;
+border: 1px solid black;
+border-radius:9px;
+font-size:10px;
+padding:10px;
+margin-top:3px;
+}
+
+.barcode {
+position:absolute;
+float: left;
+left:10px;
+}
+
+.HeaderTable {
+border-collapse:collapse;
+border:1px solid black;
+font-size:12px;
+width:100%;
+}
+
+.ItemCodeColumn {
+width:10%;
+border-left:1px solid black;
+}
+
+.ItemDescriptionColumn {
+width:40%;
+border-left:1px solid black;
+}
+
+.ItemPriceColumn {
+width:10%;
+border-left:1px solid black;
+}
+
+.ItemQuantityColumn {
+width:10%;
+border-left:1px solid black;
+}
+
+.ItemUOMColumn {
+width:10%;
+border-left:1px solid black;
+}
+
+.ItemDiscountColumn {
+width:10%;
+border-left:1px solid black;
+}
+
+.ItemValueColumn {
+width:10%;
+border-left:1px solid black;
+border-right:1px solid black;
+}
+
+.SummaryTable {
+font-size:12px;
+width:100%;
+}
+
+.SummaryBlankColumn {
+width:80%;
+}
+
+.SummaryLabelColumn {
+width:10%;
+}
+
+.SummaryValueColumn {
+width:10%;
+}
+
+.Main {
+page-break-after: always;
+}
+
+.links {
+display:none;
+}
+
+.page_title_text {
+display:none;
+}
+
+}
+
+@media screen {
+
+.header {
+display:none;
+}
+
+.left_side {
+display:none;
+}
+
+.right_side {
+display:none;
+}
+
+.DeliveryAddress {
+display:none;
+}
+
+.InvoiceAddress {
+display:none;
+}
+
+.CompanyAddress {
+display:none;
+}
+
+.logo {
+display:none;
+}
+
+.TransType {
+display:none;
+}
+
+.InvoiceDetails {
+display:none;
+}
+
+.barcode {
+display:none;
+}
+
+.HeaderTable {
+display:none;
+}
+
+.ItemCodeColumn {
+display:none;
+}
+
+.ItemDescriptionColumn {
+display:none;
+}
+
+.ItemPriceColumn {
+display:none;
+}
+
+.ItemQuantityColumn {
+display:none;
+}
+
+.ItemUOMColumn {
+display:none;
+}
+
+.ItemDiscountColumn {
+display:none;
+}
+
+.ItemValueColumn {
+display:none;
+}
+
+.SummaryTable {
+display:none;
+}
+
+.SummaryBlankColumn {
+display:none;
+}
+
+.SummaryLabelColumn {
+display:none;
+}
+
+.SummaryValueColumn {
+display:none;
+}
+
+}
