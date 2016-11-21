@@ -1,5 +1,7 @@
 <?php
 
+/* Selects a supplier. A supplier is required to be selected before any AP transactions and before any maintenance or inquiry of the supplier */
+
 include('includes/session.php');
 $Title = _('Search Suppliers');
 
