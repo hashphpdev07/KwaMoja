@@ -1052,7 +1052,7 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 		echo '<td><select name="Salesman">';
 		$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 		$SalesmanResult = DB_query($SQL);
-		echo '<option selected="selected" value="All">' . _('All Salesmen') . '</option>';
+		echo '<option selected="selected" value="All">' . _('All Salespeople') . '</option>';
 		while ($MyRow = DB_fetch_array($SalesmanResult)) {
 			echo '<option value="' . $MyRow['salesmancode'] . '">' . $MyRow['salesmanname'] . '</option>';
 		}
