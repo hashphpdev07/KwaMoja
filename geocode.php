@@ -51,7 +51,7 @@ while ($row = DB_fetch_array($Result)) {
 		$debtorno = $row["debtorno"];
 		$request_url = $base_url . $address . ',&sensor=true';
 
-		echo '<br \>' . _('Customer Code: ') . $id;
+		echo '<br \>' . _('Customer Code') . ': ' . $id;
 
 
 		$xml = simplexml_load_string(utf8_encode(file_get_contents($request_url))) or die("url not loading");
@@ -73,13 +73,13 @@ while ($row = DB_fetch_array($Result)) {
 			$update_result = DB_query($query);
 
 			if ($update_result == 1) {
-				echo '<br />' . 'Address: ' . $address . ' updated to geocode.';
+				echo '<br />' . 'Address' . ': ' . $address . ' updated to geocode.';
 				echo '<br />' . 'Received status ' . $status . '<br />';
 			}
 		} else {
 			// failure to geocode
 			$geocode_pending = false;
-			echo '<br />' . 'Address: ' . $address . _('failed to geocode.');
+			echo '<br />' . 'Address' . ': ' . $address . _('failed to geocode.');
 			echo 'Received status ' . $status . '<br />';
 		}
 		usleep($delay);
@@ -96,7 +96,7 @@ while ($row2 = DB_fetch_array($Result2)) {
 		$id = $row2["supplierid"];
 		$request_url = $base_url . $address . ',&sensor=true';
 
-		echo '<p>' . _('Supplier Code: ') . $id;
+		echo '<p>' . _('Supplier Code') . ': ' . $id;
 
 		$xml = simplexml_load_string(utf8_encode(file_get_contents($request_url))) or die("url not loading");
 		//    $xml = simplexml_load_file($request_url) or die("url not loading");
@@ -118,13 +118,13 @@ while ($row2 = DB_fetch_array($Result2)) {
 			$update_result = DB_query($query);
 
 			if ($update_result == 1) {
-				echo '<br />' . 'Address: ' . $address . ' updated to geocode.';
+				echo '<br />' . 'Address' . ': ' . $address . ' updated to geocode.';
 				echo '<br />' . 'Received status ' . $status . '<br />';
 			}
 		} else {
 			// failure to geocode
 			$geocode_pending = false;
-			echo '<br />' . 'Address: ' . $address . ' failed to geocode.';
+			echo '<br />' . 'Address' . ': ' . $address . ' failed to geocode.';
 			echo '<br />' . 'Received status ' . $status . '<br />';
 		}
 		usleep($delay);

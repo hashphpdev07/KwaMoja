@@ -166,11 +166,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 			// Print information on part break
 			if ($PartCounter > 0 and $HoldPart != $MyRow['part']) {
 				$PDF->addTextWrap(50, $YPos, 130, $FontSize, $HoldDescription, '', 0, $fill);
-				$PDF->addTextWrap(180, $YPos, 40, $FontSize, _('Unit Cost: '), 'center', 0, $fill);
+				$PDF->addTextWrap(180, $YPos, 40, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 				$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($HoldCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 				$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($TotalPartQty, $HoldDecimalPlaces), 'right', 0, $fill);
 				$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($TotalPartCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
-				$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B: '), 'right', 0, $fill);
+				$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
 				$PDF->addTextWrap(400, $YPos, 15, $FontSize, $HoldMBFlag, 'right', 0, $fill);
 				$TotalPartCost = 0;
 				$TotalPartQty = 0;
@@ -216,11 +216,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		// Print summary information for last part
 		$YPos -= $line_height;
 		$PDF->addTextWrap(40, $YPos, 130, $FontSize, $HoldDescription, '', 0, $fill);
-		$PDF->addTextWrap(170, $YPos, 50, $FontSize, _('Unit Cost: '), 'center', 0, $fill);
+		$PDF->addTextWrap(170, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 		$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($HoldCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 		$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($TotalPartQty, $HoldDecimalPlaces), 'right', 0, $fill);
 		$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($TotalPartCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
-		$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B: '), 'right', 0, $fill);
+		$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
 		$PDF->addTextWrap(400, $YPos, 15, $FontSize, $HoldMBFlag, 'right', 0, $fill);
 		$FontSize = 8;
 		$YPos -= (2 * $line_height);
