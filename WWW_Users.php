@@ -345,25 +345,27 @@ if (!isset($SelectedUser)) {
 	$Result = DB_query($SQL);
 
 	echo '<table class="selection">
-			<tr>
-				<th>' . _('User Login') . '</th>
-				<th>' . _('Full Name') . '</th>
-				<th>' . _('Telephone') . '</th>
-				<th>' . _('Email') . '</th>
-				<th>' . _('Customer Code') . '</th>
-				<th>' . _('Branch Code') . '</th>
-				<th>' . _('Supplier Code') . '</th>
-				<th>' . _('Salesperson') . '</th>
-				<th>' . _('Last Visit') . '</th>
-				<th>' . _('Security Role') . '</th>
-				<th>' . _('Report Size') . '</th>
-				<th>' . _('Theme') . '</th>
-				<th>' . _('Language') . '</th>
-				<th>' . _('Screen Font Size') . '</th>
-			</tr>';
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('User Login') . '</th>
+					<th class="SortedColumn">' . _('Full Name') . '</th>
+					<th class="SortedColumn">' . _('Telephone') . '</th>
+					<th class="SortedColumn">' . _('Email') . '</th>
+					<th class="SortedColumn">' . _('Customer Code') . '</th>
+					<th class="SortedColumn">' . _('Branch Code') . '</th>
+					<th class="SortedColumn">' . _('Supplier Code') . '</th>
+					<th class="SortedColumn">' . _('Salesperson') . '</th>
+					<th class="SortedColumn">' . _('Last Visit') . '</th>
+					<th class="SortedColumn">' . _('Security Role') . '</th>
+					<th class="SortedColumn">' . _('Report Size') . '</th>
+					<th class="SortedColumn">' . _('Theme') . '</th>
+					<th class="SortedColumn">' . _('Language') . '</th>
+					<th>' . _('Screen Font Size') . '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -396,26 +398,27 @@ if (!isset($SelectedUser)) {
 				$FontSize = _('Medium');
 		}
 
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td><a href="%s&amp;SelectedUser=%s">' . _('Edit') . '</a></td>
-				<td><a href="%s&amp;SelectedUser=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this user?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['userid'], $MyRow['realname'], $MyRow['phone'], $MyRow['email'], $MyRow['customerid'], $MyRow['branchcode'], $MyRow['supplierid'], $MyRow['salesman'], $LastVisitDate, $SecurityRoles[($MyRow['fullaccess'])], $MyRow['pagesize'], $MyRow['theme'], $LanguagesArray[$MyRow['language']]['LanguageName'], $FontSize, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['userid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['userid']);
+		echo '<td>', $MyRow['userid'], '</td>
+				<td>', $MyRow['realname'], '</td>
+				<td>', $MyRow['phone'], '</td>
+				<td>', $MyRow['email'], '</td>
+				<td>', $MyRow['customerid'], '</td>
+				<td>', $MyRow['branchcode'], '</td>
+				<td>', $MyRow['supplierid'], '</td>
+				<td>', $MyRow['salesman'], '</td>
+				<td>', $LastVisitDate, '</td>
+				<td>', $SecurityRoles[($MyRow['fullaccess'])], '</td>
+				<td>', $MyRow['pagesize'], '</td>
+				<td>', $MyRow['theme'], '</td>
+				<td>', $LanguagesArray[$MyRow['language']]['LanguageName'], '</td>
+				<td>', $FontSize, '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this user?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
-	echo '</table><br />';
+	echo '</tbody>
+		</table>';
 } //end of ifs and buts!
 
 
