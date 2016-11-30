@@ -163,11 +163,11 @@ if (isset($_POST['PrintPDF'])) {
 		// Print information on part break
 		if ($Partctr > 0 & $holdpart != $MyRow['part']) {
 			$PDF->addTextWrap(50, $YPos, 130, $FontSize, $holddescription, '', 0, $fill);
-			$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost: '), 'center', 0, $fill);
+			$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 			$PDF->addTextWrap(230, $YPos, 40, $FontSize, locale_number_format($holdcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 			$PDF->addTextWrap(270, $YPos, 50, $FontSize, locale_number_format($totalpartqty, $holddecimalplaces), 'right', 0, $fill);
 			$PDF->addTextWrap(320, $YPos, 60, $FontSize, locale_number_format($totalpartcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
-			$PDF->addTextWrap(380, $YPos, 30, $FontSize, _('M/B: '), 'right', 0, $fill);
+			$PDF->addTextWrap(380, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
 			$PDF->addTextWrap(410, $YPos, 15, $FontSize, $holdmbflag, 'right', 0, $fill);
 			// Get and print supplier info for part
 			list($lastdate, $lastsupplier, $preferredsupplier) = GetPartInfo($holdpart);
@@ -176,11 +176,11 @@ if (isset($_POST['PrintPDF'])) {
 				$displaydate = ' ';
 			}
 			$YPos -= $line_height;
-			$PDF->addTextWrap(50, $YPos, 80, $FontSize, _('Last Purchase Date: '), 'left', 0, $fill);
+			$PDF->addTextWrap(50, $YPos, 80, $FontSize, _('Last Purchase Date') . ': ', 'left', 0, $fill);
 			$PDF->addTextWrap(130, $YPos, 60, $FontSize, $displaydate, 'left', 0, $fill);
-			$PDF->addTextWrap(190, $YPos, 60, $FontSize, _('Supplier: '), 'left', 0, $fill);
+			$PDF->addTextWrap(190, $YPos, 60, $FontSize, _('Supplier') . ': ', 'left', 0, $fill);
 			$PDF->addTextWrap(250, $YPos, 60, $FontSize, $lastsupplier, 'left', 0, $fill);
-			$PDF->addTextWrap(310, $YPos, 120, $FontSize, _('Preferred Supplier: '), 'left', 0, $fill);
+			$PDF->addTextWrap(310, $YPos, 120, $FontSize, _('Preferred Supplier') . ': ', 'left', 0, $fill);
 			$PDF->addTextWrap(430, $YPos, 60, $FontSize, $preferredsupplier, 'left', 0, $fill);
 			$totalpartcost = 0;
 			$totalpartqty = 0;
@@ -225,11 +225,11 @@ if (isset($_POST['PrintPDF'])) {
 	// Print summary information for last part
 	$YPos -= $line_height;
 	$PDF->addTextWrap(40, $YPos, 130, $FontSize, $holddescription, '', 0, $fill);
-	$PDF->addTextWrap(170, $YPos, 50, $FontSize, _('Unit Cost: '), 'center', 0, $fill);
+	$PDF->addTextWrap(170, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 	$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($holdcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 	$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($totalpartqty, $holddecimalplaces), 'right', 0, $fill);
 	$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($totalpartcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
-	$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B: '), 'right', 0, $fill);
+	$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
 	$PDF->addTextWrap(400, $YPos, 15, $FontSize, $holdmbflag, 'right', 0, $fill);
 	// Get and print supplier info for part
 	list($lastdate, $lastsupplier, $preferredsupplier) = GetPartInfo($holdpart);
@@ -238,11 +238,11 @@ if (isset($_POST['PrintPDF'])) {
 		$displaydate = ' ';
 	}
 	$YPos -= $line_height;
-	$PDF->addTextWrap(50, $YPos, 80, $FontSize, _('Last Purchase Date: '), 'left', 0, $fill);
+	$PDF->addTextWrap(50, $YPos, 80, $FontSize, _('Last Purchase Date') . ': ', 'left', 0, $fill);
 	$PDF->addTextWrap(130, $YPos, 60, $FontSize, $displaydate, 'left', 0, $fill);
-	$PDF->addTextWrap(190, $YPos, 60, $FontSize, _('Supplier: '), 'left', 0, $fill);
+	$PDF->addTextWrap(190, $YPos, 60, $FontSize, _('Supplier') . ': ', 'left', 0, $fill);
 	$PDF->addTextWrap(250, $YPos, 60, $FontSize, $lastsupplier, 'left', 0, $fill);
-	$PDF->addTextWrap(310, $YPos, 120, $FontSize, _('Preferred Supplier: '), 'left', 0, $fill);
+	$PDF->addTextWrap(310, $YPos, 120, $FontSize, _('Preferred Supplier') . ': ', 'left', 0, $fill);
 	$PDF->addTextWrap(430, $YPos, 60, $FontSize, $preferredsupplier, 'left', 0, $fill);
 	$FontSize = 8;
 	$YPos -= (2 * $line_height);

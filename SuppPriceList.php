@@ -286,15 +286,15 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
 	$YPos -= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Supplier') . '   ');
-	$PDF->addTextWrap(95, $YPos, 150, $FontSize, _(': ') . $SupplierName);
+	$PDF->addTextWrap(95, $YPos, 150, $FontSize, ': ' . $SupplierName);
 
 	$YPos -= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Category') . ' ');
 
-	$PDF->addTextWrap(95, $YPos, 150, $FontSize, _(': ') . $Categoryname);
+	$PDF->addTextWrap(95, $YPos, 150, $FontSize, ': ' . $Categoryname);
 	$YPos -= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Currency') . '  ');
-	$PDF->addTextWrap(95, $YPos, 50, $FontSize, _(': ') . $CurrCode);
+	$PDF->addTextWrap(95, $YPos, 50, $FontSize, ': ' . $CurrCode);
 	$YPos -= (2 * $line_height);
 	/*set up the headings */
 

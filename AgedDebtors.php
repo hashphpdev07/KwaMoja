@@ -510,7 +510,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 			$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 
 			$Result = DB_query($SQL);
-			echo '<option value="">' . _('All Sales people') . '</option>';
+			echo '<option value="">' . _('All Salespeople') . '</option>';
 			while ($MyRow = DB_fetch_array($Result)){
 					echo '<option value="' . $MyRow['salesmancode'] . '">' . $MyRow['salesmanname'] . '</option>';
 			}

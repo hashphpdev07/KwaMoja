@@ -285,7 +285,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 			$YPos -= $line_height;
 			$FontSize = 8;
 			if (mb_strlen($CheckItemRow['bin']) > 0){
-				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'] . ' - ' . _('Bin:') . $CheckItemRow['bin'], 'left');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'] . ' - ' . _('Bin') . ':' . $CheckItemRow['bin'], 'left');
 			} else {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'], 'left');
 			}

@@ -31,6 +31,7 @@ border: 1px solid black;
 border-radius:17px;
 font-size:14px;
 padding:10px;
+color:red;
 }
 
 .InvoiceAddress {
@@ -41,12 +42,14 @@ border: 1px solid black;
 border-radius:17px;
 font-size:14px;
 padding:10px;
+color:red;
 }
 
 .CompanyAddress {
 text-align:right;
 width: 90%;
 font-size:12px;
+color:red;
 }
 
 .logo {
@@ -72,6 +75,7 @@ border-radius:9px;
 font-size:10px;
 padding:10px;
 margin-top:3px;
+color:red;
 }
 
 .barcode {
@@ -85,6 +89,7 @@ border-collapse:collapse;
 border:1px solid black;
 font-size:12px;
 width:100%;
+color:red;
 }
 
 .ItemCodeColumn {
@@ -126,6 +131,7 @@ border-right:1px solid black;
 .SummaryTable {
 font-size:12px;
 width:100%;
+color:red;
 }
 
 .SummaryBlankColumn {

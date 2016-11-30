@@ -187,7 +187,7 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	$PDF->addTextWrap(360, $YPos, 50, $FontSize, _('On Order') . ': ', 'right');
 	$PDF->addTextWrap(410, $YPos, 50, $FontSize, locale_number_format($OpenOrd, $MyRow['decimalplaces']), 'right');
 	$YPos -= $line_height;
-	$PDF->addTextWrap($Left_Margin, $YPos, 30, $FontSize, 'M/B:', '');
+	$PDF->addTextWrap($Left_Margin, $YPos, 30, $FontSize, 'M/B' . ': ', '');
 	$PDF->addTextWrap(70, $YPos, 150, $FontSize, $MyRow['mbflag'], '');
 	$PDF->addTextWrap(225, $YPos, 60, $FontSize, _('Shrinkage') . ': ', 'right');
 	$PDF->addTextWrap(300, $YPos, 30, $FontSize, locale_number_format($MyRow['shrinkfactor'], $MyRow['decimalplaces']), 'right');

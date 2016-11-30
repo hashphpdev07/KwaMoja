@@ -391,14 +391,14 @@ if (isset($_POST['PrintPDF'])) {
 	}
 	echo '</select></td></tr>';
 
-	echo '<tr><td>' . _('For Sales folk') . ':</td>
+	echo '<tr><td>' . _('For Salespeople') . ':</td>
 			<td><select required="required" name="SalesPeople[]" multiple="multiple">';
 
 	$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 	if ($_SESSION['SalesmanLogin'] != '') {
 		$SQL .= " WHERE salesmancode='" . $_SESSION['SalesmanLogin'] . "'";
 	} else {
-		echo '<option selected="selected" value="All">' . _('All sales folk') . '</option>';
+		echo '<option selected="selected" value="All">' . _('All salespeople') . '</option>';
 	}
 	$SalesFolkResult = DB_query($SQL);
 

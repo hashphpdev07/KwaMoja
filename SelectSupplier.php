@@ -1,5 +1,7 @@
 <?php
 
+/* Selects a supplier. A supplier is required to be selected before any AP transactions and before any maintenance or inquiry of the supplier */
+
 include('includes/session.php');
 $Title = _('Search Suppliers');
 
@@ -367,22 +369,25 @@ echo '</form>';
 if (isset($_SESSION['SupplierID']) and $_SESSION['SupplierID'] != '') {
 	if ($_SESSION['geocode_integration'] == 1) {
 		if ($Latitude == 0) {
-			echo '<br />';
 			echo '<div class="centre">' . _('Mapping is enabled, but no Mapping data to display for this Supplier.') . '</div>';
 		} else {
-			echo '<div class="centre"><br />';
-			echo '<tr>
-					<td colspan="2">';
-			echo '<table width="45%" class="selection">
-					<tr>
-						<th style="width:33%">' . _('Supplier Mapping') . '</th>
-					</tr>';
-			echo '</td>
-					<td valign="top">';
-			/* Mapping */
-			echo '<div class="centre">' . _('Mapping is enabled, Map will display below.') . '</div>';
-			echo '<div class="centre" id="map" style="width: ' . $MapWidth . 'px; height: ' . $MapHeight . 'px"></div></div><br />';
-			echo '</td></tr></table>';
+			echo '<table class="selection">
+					<thead>
+						<tr>
+							<th>', _('Supplier Mapping'), '</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="centre">', _('Mapping is enabled, Map will display below.'), '</td>
+						</tr>
+						<tr>
+							<td class="centre">', // Mapping:
+								'<div class="centre" id="map" style="width: ', $map_width, 'px; height: ', $map_height, 'px"></div>
+							</td>
+						</tr>
+					<tbody>
+				</table>';
 		}
 	}
 }
