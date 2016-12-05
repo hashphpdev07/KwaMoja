@@ -20,6 +20,10 @@ if (isset($_GET['identifier'])) {
 	$_SESSION['WorkOrder' . $Identifier] = new WorkOrder();
 }
 
+if (isset($_GET['WO'])) {
+	$_POST['WO'] = $_GET['WO'];
+}
+
 if (isset($_POST['RequiredBy'])) {
 	$_SESSION['WorkOrder' . $Identifier]->RequiredBy = $_POST['RequiredBy'];
 } else {
@@ -38,6 +42,14 @@ if (isset($_POST['StockLocation'])) {
 
 if (isset($_GET['WO'])) {
 	$_SESSION['WorkOrder' . $Identifier]->Load($_GET['WO']);
+}
+
+if (isset($_POST['Reference'])) {
+	$_SESSION['WorkOrder' . $Identifier]->Reference = $_POST['Reference'];
+}
+
+if (isset($_POST['Remark'])) {
+	$_SESSION['WorkOrder' . $Identifier]->Remark = $_POST['Remark'];
 }
 
 if (isset($_POST['AddToOrder'])) {
@@ -125,17 +137,23 @@ if (isset($_POST['Save'])) {
 			$SQL = "INSERT INTO workorders (wo,
 											loccode,
 											requiredby,
-											startdate)
+											startdate,
+											reference,
+											remark)
 										VALUES (
 											'" . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . "',
 											'" . $_SESSION['WorkOrder' . $Identifier]->LocationCode . "',
 											'" . FormatDateForSQL($_SESSION['WorkOrder' . $Identifier]->RequiredBy) . "',
-											'" . FormatDateForSQL($_SESSION['WorkOrder' . $Identifier]->StartDate) . "')";
+											'" . FormatDateForSQL($_SESSION['WorkOrder' . $Identifier]->StartDate) . "',
+											'" . $_SESSION['WorkOrder' . $Identifier]->Reference . "',
+											'" . $_SESSION['WorkOrder' . $Identifier]->Remark . "')";
 			$InsWOResult = DB_query($SQL);
 		} else {
 			$SQL = "UPDATE workorders SET loccode='" . $_SESSION['WorkOrder' . $Identifier]->LocationCode . "',
 											requiredby='" . FormatDateForSQL($_SESSION['WorkOrder' . $Identifier]->RequiredBy) . "',
-											startdate='" . FormatDateForSQL($_SESSION['WorkOrder' . $Identifier]->StartDate) . "'
+											startdate='" . FormatDateForSQL($_SESSION['WorkOrder' . $Identifier]->StartDate) . "',
+											reference='" . $_SESSION['WorkOrder' . $Identifier]->Reference . "',
+											remark='" . $_SESSION['WorkOrder' . $Identifier]->Remark . "'
 										WHERE wo='" . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . "'";
 			$UpdWOResult = DB_query($SQL);
 		}
@@ -261,7 +279,9 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 					requiredby,
 					startdate,
 					costissued,
-					closed
+					closed,
+					reference,
+					remark
 				FROM workorders
 				INNER JOIN locations
 					ON workorders.loccode=locations.loccode
@@ -279,6 +299,8 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 		$_POST['CostIssued'] = $MyRow['costissued'];
 		$_POST['Closed'] = $MyRow['closed'];
 		$_SESSION['WorkOrder' . $Identifier]->RequiredBy = ConvertSQLDate($MyRow['requiredby']);
+		$_SESSION['WorkOrder' . $Identifier]->Reference = $MyRow['reference'];
+		$_SESSION['WorkOrder' . $Identifier]->Remark = $MyRow['remark'];
 		$_POST['StockLocation'] = $MyRow['loccode'];
 		$ErrMsg = _('Could not get the work order items');
 		$WOItemsSQL = "SELECT woitems.stockid,
@@ -297,7 +319,6 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 							ON woitems.stockid=stockmaster.stockid
 						WHERE wo='" . $_POST['WO'] . "'";
 		$WOItemsResult = DB_query($WOItemsSQL, $ErrMsg);
-
 		$NumberOfOutputs = DB_num_rows($WOItemsResult);
 		$i = 1;
 		while ($WOItem = DB_fetch_array($WOItemsResult)) {
@@ -332,10 +353,19 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 	}
 }
 echo '<input type="hidden" name="WO" value="' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '" />';
-echo '<tr>
-		<td class="label">' . _('Work Order Reference') . ':</td>
-		<td>' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '</td>
-	</tr>';
+
+if ($_SESSION['WorkOrder' . $Identifier]->OrderNumber === 0) {
+	echo '<tr>
+			<td class="label">' . _('Work Order Reference') . ':</td>
+			<td>' . _('Not Yet Allocated') . '</td>
+		</tr>';
+} else {
+	echo '<tr>
+			<td class="label">' . _('Work Order Reference') . ':</td>
+			<td>' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '</td>
+		</tr>';
+}
+
 echo '<tr>
 		<td class="label">' . _('Factory Location') . ':</td>
 		<td><select name="StockLocation" onChange="ReloadForm(form1.submit)">';
@@ -363,6 +393,16 @@ echo '<tr>
 		<td class="label">' . _('Required By') . ':</td>
 		<td><input type="text" name="RequiredBy" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->RequiredBy . '" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" /></td>
 	</tr>';
+
+echo '<tr>
+		<td class="label">' . _('Reference') . ':</td>
+		<td><input type="text" name="Reference"  value="' . $_SESSION['WorkOrder' . $Identifier]->Reference . '" size="12" maxlength="40" /><td>
+	</tr>';
+
+echo '<tr>
+		<td class="label">' . _('Remark') . ':</td>
+		<td><textarea name="Remark" >' . $_SESSION['WorkOrder' . $Identifier]->Remark . '</textarea></td>
+		</tr>';
 
 if (isset($WOResult)) {
 	echo '<tr><td class="label">' . _('Accumulated Costs') . ':</td>
@@ -424,7 +464,7 @@ if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems)) {
 		}
 		echo '<td>';
 		if ($_SESSION['WikiApp'] != 0) {
-			wikiLink('WorkOrder', $_POST['WO'] . $WorkOrderItem->StockID);
+			wikiLink('WorkOrder', $_POST['WO'] . $WorkOrderItem->StockId);
 		}
 		echo '</td>
 		</tr>';

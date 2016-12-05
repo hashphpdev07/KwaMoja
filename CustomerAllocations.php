@@ -39,17 +39,13 @@ if (isset($_POST['UpdateDatabase']) or isset($_POST['RefreshAllocTotal'])) {
 			if (!is_numeric(filter_number_format($_POST['Amt' . $AllocCounter]))) {
 				$_POST['Amt' . $AllocCounter] = 0;
 			}
-			if (filter_number_format($_POST['Amt' . $AllocCounter]) < 0) {
-				prnMsg(_('Amount entered was negative') . '. ' . _('Only positive amounts are allowed') . '.', 'warn');
-				$_POST['Amt' . $AllocCounter] = 0;
-			}
 			if (isset($_POST['All' . $AllocCounter]) and $_POST['All' . $AllocCounter] == True) {
 				$_POST['Amt' . $AllocCounter] = $_POST['YetToAlloc' . $AllocCounter];
 			}
-			if (filter_number_format($_POST['Amt' . $AllocCounter]) > $_POST['YetToAlloc' . $AllocCounter]) {
-				$_POST['Amt' . $AllocCounter] = locale_number_format($_POST['YetToAlloc' . $AllocCounter], $_SESSION['Alloc']->CurrDecimalPlaces);
-				// Amount entered must be smaller than unallocated amount
-			}
+//			if (filter_number_format($_POST['Amt' . $AllocCounter]) > $_POST['YetToAlloc' . $AllocCounter]) {
+//				$_POST['Amt' . $AllocCounter] = locale_number_format($_POST['YetToAlloc' . $AllocCounter], $_SESSION['Alloc']->CurrDecimalPlaces);
+//				// Amount entered must be smaller than unallocated amount
+//			}
 
 			$_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->AllocAmt = filter_number_format($_POST['Amt' . $AllocCounter]);
 			// recalcuate the new difference on exchange (a +positive amount is a gain -ve a loss)
@@ -364,14 +360,14 @@ if (isset($_POST['AllocTrans'])) {
 			<td class="number">', locale_number_format($AllocnItem->TransAmount, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
 			<td class="number">', locale_number_format($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>';
 
-		if ($AllocnItem->TransAmount < 0) {
+		if ($AllocnItem->ID == $_POST['AllocTrans']) {
 			$Balance += $YetToAlloc;
 			echo '<td>', $CurTrans, '</td>
 					<td class="number">', locale_number_format($Balance, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
 				</tr>';
+			++$j;
 		} else {
 			echo '<td class="number"><input type="hidden" name="YetToAlloc', $Counter, '" value="', round($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '" />';
-
 			if (ABS($AllocnItem->AllocAmt - $YetToAlloc) < 0.01) {
 				echo '<input type="checkbox" name="All', $Counter, '" checked="checked" />';
 			} else {
@@ -510,8 +506,7 @@ if (isset($_POST['AllocTrans'])) {
 			INNER JOIN currencies
 				ON debtorsmaster.currcode=currencies.currabrev
 			WHERE (debtortrans.type=12 OR debtortrans.type=11)
-				AND debtortrans.settled=0
-				AND debtortrans.ovamount<0";
+				AND debtortrans.settled=0";
 
 	if ($_SESSION['SalesmanLogin'] != '') {
 		$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";

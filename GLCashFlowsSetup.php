@@ -36,7 +36,7 @@ switch ($_POST['Action']) {
 			}
 		}
 		if (isset($_POST['RetainedEarningsAccount']) and $_SESSION['RetainedEarningsAccount'] != $_POST['RetainedEarningsAccount']) {
-			$SQL = "UPDATE companies SET retainedearnings = '" . $_POST['RetainedEarnings'] . "' WHERE coycode = 1";
+			$SQL = "UPDATE companies SET retainedearnings = '" . $_POST['RetainedEarningsAccount'] . "' WHERE coycode = 1";
 			$ErrMsg = _('Can not update chartmaster.cashflowsactivity because');
 			$Result = DB_query($SQL, $ErrMsg);
 			if ($Result) {
@@ -151,24 +151,18 @@ if (!isset($page_help) OR $page_help) {
 	echo '<div class="page_help_text">', _('The statement of cash flows, using direct and indirect methods, is partitioned into three sections: operating activities, investing activities and financing activities.'), '<br />', _('You must classify all accounts in any of those three sections of the cash flow statement, or as no effect on cash flow, or as cash or cash equivalent.'), '</div>';
 }
 // Show a form to allow input of the action for the script to do:
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">', '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />', // Form's head.
+echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />'; // Form's head.
 
 // Input table:
-	'<table class="selection">',
-// Content of the header and footer of the output table:
-	'<thead>
+echo '<table class="selection">
+		<thead>
 			<tr>
 				<th colspan="2">', _('Action to do'), '</th>
 			</tr>
-		</thead><tfoot>
-			<tr>
-				<td colspan="2">', '<div class="centre">', '<input name="Action" type="submit" value="', _('Update'), '" />', // "Update" button.
-	'<input name="Action" type="submit" value="', _('Reset'), '" />', // "Reset values" button.
-	'<input name="Action" type="submit" value="', _('Automatic'), '" />', // "Automatic setup" button.
-	'<input name="Action" type="submit" value="', _('Manual'), '" />', // "Manual setup" button.
-	'</div>', '</td>
-			</tr>
-		</tfoot><tbody>';
+		</thead>';
+
+echo '<tbody>';
 $SQL = "SELECT accountcode,
 				accountname
 			FROM chartmaster
@@ -183,15 +177,20 @@ $GLAccounts = DB_query($SQL);
 echo '<tr>
 		<td><label for="PeriodProfitAccount">', _('Net profit for the period GL account'), ':</label></td>
 		<td><select id="PeriodProfitAccount" name="PeriodProfitAccount" required="required">';
-if (!isset($_SESSION['PeriodProfitAccount'])) {
-	$_SESSION['PeriodProfitAccount'] = '';
+
+if(!isset($_SESSION['PeriodProfitAccount']) or $_SESSION['PeriodProfitAccount']=='') {
 	$SQL = "SELECT confvalue FROM `config` WHERE confname ='PeriodProfitAccount'";
 	$Result = DB_query($SQL);
-	$MyRow = DB_fetch_array($Result);
-	if ($MyRow) {
+	if(DB_num_rows($Result) == 0) {// If $Result is NULL (false, 0, or the empty; because we use "==", instead of "==="), the parameter NOT exists so creates it.
+		echo '<option value="">', _('Select...'), '</option>';
+		// Creates a configuration parameter for the net profit for the period GL account:
+		$SQL = "INSERT INTO `config` (confname, confvalue) VALUES ('PeriodProfitAccount', '" . $Result['accountcode'] . "')";
+		$ErrMsg = _('Could not add the new account code');
+		$Result = DB_query($SQL, $ErrMsg);
+		$_SESSION['PeriodProfitAccount'] = '';
+	} else {// If $Result is NOT NULL, the parameter exists so gets it.
+		$MyRow = DB_fetch_array($Result);
 		$_SESSION['PeriodProfitAccount'] = $MyRow['confvalue'];
-	} else {
-		// RChacon: Search account with _('period') in accountname.
 	}
 }
 foreach ($GLAccounts as $MyRow) {
@@ -204,15 +203,15 @@ echo '</select>', (!isset($field_help) || $field_help ? _('GL account to post th
 echo '<tr>
 		<td><label for="RetainedEarningsAccount">', _('Retained earnings GL account'), ':</label></td>
 		<td><select id="RetainedEarningsAccount" name="RetainedEarningsAccount" required="required">';
-if (!isset($_SESSION['RetainedEarningsAccount'])) {
-	$_SESSION['RetainedEarningsAccount'] = '';
-	$SQL = "SELECT retainedearnings FROM companies WHERE coycode = 1";
+if(!isset($_SESSION['RetainedEarningsAccount']) or $_SESSION['RetainedEarningsAccount']=='') {
+	$SQL = "SELECT retainedearnings FROM `companies` WHERE `coycode`=1";
 	$Result = DB_query($SQL);
-	$MyRow = DB_fetch_array($Result);
-	if ($MyRow) {
-		$_SESSION['RetainedEarningsAccount'] = $MyRow['confvalue'];
-	} else {
-		// RChacon: Search account with _('earnings') in accountname.
+	if(DB_num_rows($Result) == 0) {// If $Result is NULL (false, 0, or the empty; because we use "==", instead of "==="), the parameter NOT exists.
+		echo '<option value="">', _('Select...'), '</option>';
+		$_SESSION['RetainedEarningsAccount'] = '';
+	} else {// If $Result is NOT NULL, the parameter exists so gets it.
+		$MyRow = DB_fetch_array($Result);
+		$_SESSION['RetainedEarningsAccount'] = $MyRow['retainedearnings'];
 	}
 }
 foreach ($GLAccounts as $MyRow) {
@@ -222,8 +221,14 @@ echo '</select>', (!isset($field_help) || $field_help ? _('GL account to post th
 	'</td>
 			</tr>
 		</tbody>
-		</table>
-	</form>';
+		</table>';
+echo '<div class="centre">
+		<input name="Action" type="submit" value="', _('Update'), '" />', // "Update" button.
+		'<input name="Action" type="submit" value="', _('Reset'), '" />', // "Reset values" button.
+		'<input name="Action" type="submit" value="', _('Automatic'), '" />', // "Automatic setup" button.
+		'<input name="Action" type="submit" value="', _('Manual'), '" />', // "Manual setup" button.
+	'</div>
+</form>';
 
 include('includes/footer.php');
 // END: Procedure division -----------------------------------------------------

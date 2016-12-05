@@ -264,10 +264,15 @@ if (!isset($StockId)) {
 								woitems.qtyreqd,
 								woitems.qtyrecd,
 								workorders.requiredby,
-								workorders.startdate
+								workorders.startdate,
+								workorders.reference,
+								workorders.loccode,
+								locations.locationname
 						FROM workorders
 						INNER JOIN woitems
 							ON workorders.wo=woitems.wo
+						INNER JOIN locations
+							ON workorders.loccode=locations.loccode
 						INNER JOIN stockmaster
 							ON woitems.stockid=stockmaster.stockid
 						INNER JOIN locationusers
@@ -289,10 +294,15 @@ if (!isset($StockId)) {
 									woitems.qtyreqd,
 									woitems.qtyrecd,
 									workorders.requiredby,
-									workorders.startdate
+									workorders.startdate,
+									workorders.reference,
+									workorders.loccode,
+									locations.locationname
 							FROM workorders
 							INNER JOIN woitems
 								ON workorders.wo=woitems.wo
+							INNER JOIN locations
+								ON workorders.loccode=locations.loccode
 							INNER JOIN stockmaster
 								ON woitems.stockid=stockmaster.stockid
 							INNER JOIN locationusers
@@ -312,10 +322,15 @@ if (!isset($StockId)) {
 									woitems.qtyreqd,
 									woitems.qtyrecd,
 									workorders.requiredby,
-									workorders.startdate
+									workorders.startdate,
+									workorders.reference,
+									workorders.loccode,
+									locations.locationname
 							FROM workorders
 							INNER JOIN woitems
 								ON workorders.wo=woitems.wo
+							INNER JOIN locations
+								ON workorders.loccode=locations.loccode
 							INNER JOIN stockmaster
 								ON woitems.stockid=stockmaster.stockid
 							INNER JOIN locationusers
@@ -334,23 +349,26 @@ if (!isset($StockId)) {
 
 		/*show a table of the orders returned by the SQL */
 		if (DB_num_rows($WorkOrdersResult) > 0) {
-			echo '<br />
-				<table cellpadding="2" width="95%" class="selection">
-					<tr>
-						<th>' . _('Modify') . '</th>
-						<th>' . _('Status') . '</th>
-						<th>' . _('Issue To') . '</th>
-						<th>' . _('Receive') . '</th>
-						<th>' . _('Costing') . '</th>
-						<th>' . _('Paperwork') . '</th>
-						<th>' . _('Item') . '</th>
-						<th>' . _('Quantity Required') . '</th>
-						<th>' . _('Quantity Received') . '</th>
-						<th>' . _('Quantity Outstanding') . '</th>
-						<th>' . _('Start Date') . '</th>
-						<th>' . _('Required Date') . '</th>
-					</tr>';
+			echo '<table cellpadding="2" width="95%" class="selection">
+					<thead>
+						<tr>
+							<th>', _('Modify'), '</th>
+							<th>', _('Status'), '</th>
+							<th>', _('Issue To'), '</th>
+							<th>', _('Receive'), '</th>
+							<th>', _('Costing'), '</th>
+							<th>', _('Paperwork'), '</th>
+							<th class="SortedColumn">', _('Location'), '</th>
+							<th class="SortedColumn">', _('Item'), '</th>
+							<th>', _('Quantity Required'), '</th>
+							<th>', _('Quantity Received'), '</th>
+							<th>', _('Quantity Outstanding'), '</th>
+							<th class="SortedColumn">', _('Start Date'), '</th>
+							<th class="SortedColumn">', _('Required Date'), '</th>
+						</tr>
+					</thead>';
 
+			echo '<tbody>';
 			$k = 0; //row colour counter
 			while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
 
@@ -373,24 +391,26 @@ if (!isset($StockId)) {
 				$FormatedStartDate = ConvertSQLDate($MyRow['startdate']);
 
 
-				printf('<td><a href="%s">%s</a></td>
-					<td><a href="%s">' . _('Status') . '</a></td>
-					<td><a href="%s">' . _('Issue To') . '</a></td>
-					<td><a href="%s">' . _('Receive') . '</a></td>
-					<td><a href="%s">' . _('Costing') . '</a></td>
-					<td><a href="%s">' . _('Print W/O') . '</a></td>
-					<td>%s - %s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					</tr>', $ModifyPage, $MyRow['wo'], $Status_WO, $Issue_WO, $Receive_WO, $Costing_WO, $Printing_WO, $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), $FormatedStartDate, $FormatedRequiredByDate);
+				echo '<td><a href="', $ModifyPage, '">', $MyRow['wo'], ' - ', $MyRow['reference'], '</a></td>
+					<td><a href="', $Status_WO, '">' . _('Status') . '</a></td>
+					<td><a href="', $Issue_WO, '">' . _('Issue To') . '</a></td>
+					<td><a href="',$Receive_WO, '">' . _('Receive') . '</a></td>
+					<td><a href="', $Costing_WO, '">' . _('Costing') . '</a></td>
+					<td><a href="', $Printing_WO, '">' . _('Print W/O') . '</a></td>
+					<td>', $MyRow['loccode'], ' - ', $MyRow['locationname'], '</td>
+					<td>', $MyRow['stockid'], ' - ', $MyRow['description'], '</td>
+					<td class="number">', locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), '</td>
+					<td>', $FormatedStartDate, '</td>
+					<td>', $FormatedRequiredByDate, '</td>
+				</tr>';
 
 			}
 			//end of while loop
 
-			echo '</table>';
+			echo '</tbody>
+			</table>';
 		}
 	}
 	echo '</form>';
