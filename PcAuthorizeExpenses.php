@@ -2,6 +2,23 @@
 
 include('includes/session.php');
 $Title = _('Authorisation of Petty Cash Expenses');
+
+if (isset($_GET['download'])) {
+	$SQL = "SELECT type,
+					size,
+					content
+				FROM pcreceipts
+				WHERE pccashdetail='" . $_GET['receipt'] . "'
+					AND name='" . $_GET['name'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	header('Content-type: ' . $MyRow['type'] . "\n");
+	header('Content-Disposition: attachment; filename=' . $_GET['name'] . "\n");
+	header('Content-Length: ' . $MyRow['size'] . "\n");
+	echo $MyRow['content'];
+	exit;
+}
+
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'AuthorizeExpense';
@@ -338,12 +355,24 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			$TaxesTaxAmount .= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
 		}
 
+		$AttachmentSQL = "SELECT name
+							FROM pcreceipts
+							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
+		$AttachmentResult = DB_query($AttachmentSQL);
+
+		if (DB_num_rows($AttachmentResult) > 0) {
+			$AttachmentRow = DB_fetch_array($AttachmentResult);
+			$AttachmentText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($AttachmentRow['name']) . '">' . _('View receipt') . '</a>';
+		} else {
+			$AttachmentText = _('No receipt');
+		}
+
 		echo '<td>', $TaxesDescription, '</td>
 			<td>', $TaxesTaxAmount, '</td>
 			<td>', $TagDescription, '</td>
 			<td>', $Posted, '</td>
 			<td>', $MyRow['notes'], '</td>
-			<td>', $MyRow['receipt'], '</td>';
+			<td>', $AttachmentText, '</td>';
 
 		if (isset($_POST[$MyRow['counterindex']])) {
 			echo '<td>' . ConvertSQLDate(Date('Y-m-d'));
