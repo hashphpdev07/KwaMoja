@@ -417,16 +417,16 @@ if (!isset($SelectedTabs)) {
 				$TagRow['tagdescription'] = _('None');
 			}
 
-			$AttachmentSQL = "SELECT name
+			$ReceiptSQL = "SELECT name
 								FROM pcreceipts
 								WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
-			$AttachmentResult = DB_query($AttachmentSQL);
+			$ReceiptResult = DB_query($ReceiptSQL);
 
-			if (DB_num_rows($AttachmentResult) > 0) {
-				$AttachmentRow = DB_fetch_array($AttachmentResult);
-				$AttachmentText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($AttachmentRow['name']) . '">' . _('View receipt') . '</a>';
+			if (DB_num_rows($ReceiptResult) > 0) {
+				$ReceiptRow = DB_fetch_array($ReceiptResult);
+				$ReceiptText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($ReceiptRow['name']) . '">' . _('View receipt') . '</a>';
 			} else {
-				$AttachmentText = _('No receipt');
+				$ReceiptText = _('No receipt');
 			}
 
 			if (($MyRow['authorized'] == '0000-00-00') and ($Description['0'] != 'ASSIGNCASH')) {
@@ -437,7 +437,7 @@ if (!isset($SelectedTabs)) {
 						<td>', $AuthorisedDate, '</td>
 						<td>', $MyRow['tag'], ' - ', $TagRow['tagdescription'], '</td>
 						<td>', $MyRow['notes'], '</td>
-						<td>', $AttachmentText, '</td>
+						<td>', $ReceiptText, '</td>
 						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;edit=yes">' . _('Edit') . '</a></td>
 						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
 					</tr>';
@@ -448,7 +448,7 @@ if (!isset($SelectedTabs)) {
 						<td>', $AuthorisedDate, '</td>
 						<td>', $MyRow['tag'], ' - ', $TagRow['tagdescription'], '</td>
 						<td>', $MyRow['notes'], '</td>
-						<td>', $MyRow['receipt'], '</td>
+						<td>', $ReceiptText, '</td>
 					</tr>';
 
 			}

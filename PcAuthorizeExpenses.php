@@ -75,13 +75,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 		$Days = 30;
 	}
 	echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
-	echo '<table class="selection">
-			<tr>
-				<th colspan="7">', _('Detail Of Movement For Last '), ':
-					<input type="text" class="number" name="Days" value="', $Days, '" maxlength="3" size="4" />', _('Days'), '
-					<input type="submit" name="Go" value="', _('Go'), '" />
-				</th>
-			</tr>';
 
 	$SQL = "SELECT pcashdetails.counterindex,
 				pcashdetails.tabcode,
@@ -106,21 +99,30 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 				AND pcashdetails.date >= DATE_SUB(CURDATE(), INTERVAL '" . $Days . "' DAY)
 				AND pcashdetails.codeexpense<>'ASSIGNCASH'
 			ORDER BY pcashdetails.date, pcashdetails.counterindex ASC";
-
 	$Result = DB_query($SQL);
 
-	echo '<tr>
-			<th>', _('Date'), '</th>
-			<th>', _('Expense Code'), '</th>
-			<th>', _('Amount Claimed'), '</th>
-			<th colspan="2">', _('Taxes'), '</th>
-			<th>', _('Tag'), '</th>
-			<th>', _('Posted'), '</th>
-			<th>', _('Notes'), '</th>
-			<th>', _('Receipt'), '</th>
-			<th>', _('Authorised'), '</th>
-		</tr>';
+	echo '<table class="selection">
+			<thead>
+				<tr>
+					<th colspan="7">', _('Detail Of Movement For Last '), ':
+						<input type="text" class="number" name="Days" value="', $Days, '" maxlength="3" size="4" />', _('Days'), '
+						<input type="submit" name="Go" value="', _('Go'), '" />
+					</th>
+				</tr>
+				<tr>
+					<th class="SortedColumn">', _('Date'), '</th>
+					<th class="SortedColumn">', _('Expense Code'), '</th>
+					<th class="SortedColumn">', _('Amount Claimed'), '</th>
+					<th colspan="2">', _('Taxes'), '</th>
+					<th class="SortedColumn">', _('Tag'), '</th>
+					<th class="SortedColumn">', _('Posted'), '</th>
+					<th class="SortedColumn">', _('Notes'), '</th>
+					<th>', _('Receipt'), '</th>
+					<th>', _('Authorised'), '</th>
+				</tr>
+			</thead>';
 
+	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];
@@ -355,16 +357,16 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			$TaxesTaxAmount .= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
 		}
 
-		$AttachmentSQL = "SELECT name
+		$ReceiptSQL = "SELECT name
 							FROM pcreceipts
 							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
-		$AttachmentResult = DB_query($AttachmentSQL);
+		$ReceiptResult = DB_query($ReceiptSQL);
 
-		if (DB_num_rows($AttachmentResult) > 0) {
-			$AttachmentRow = DB_fetch_array($AttachmentResult);
-			$AttachmentText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($AttachmentRow['name']) . '">' . _('View receipt') . '</a>';
+		if (DB_num_rows($ReceiptResult) > 0) {
+			$ReceiptRow = DB_fetch_array($ReceiptResult);
+			$ReceiptText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($ReceiptRow['name']) . '">' . _('View receipt') . '</a>';
 		} else {
-			$AttachmentText = _('No receipt');
+			$ReceiptText = _('No receipt');
 		}
 
 		echo '<td>', $TaxesDescription, '</td>
@@ -372,7 +374,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			<td>', $TagDescription, '</td>
 			<td>', $Posted, '</td>
 			<td>', $MyRow['notes'], '</td>
-			<td>', $AttachmentText, '</td>';
+			<td>', $ReceiptText, '</td>';
 
 		if (isset($_POST[$MyRow['counterindex']])) {
 			echo '<td>' . ConvertSQLDate(Date('Y-m-d'));
@@ -391,6 +393,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 
 	} //end of looping
+	echo '</tbody>';
 
 	$SQLamount = "SELECT sum(amount)
 			FROM pcashdetails
