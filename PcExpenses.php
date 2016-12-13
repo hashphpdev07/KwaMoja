@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
 						'" . $_POST['Description'] . "',
 						'" . $_POST['GLAccount'] . "',
 						'" . $_POST['Tag'] . "',
-						'" . $_POST['TaxCategory'] . "',
+						'" . $_POST['TaxCategory'] . "'
 						)";
 
 			$Msg = _('Expense ') . ' ' . $_POST['CodeExpense'] . ' ' . _('has been created');

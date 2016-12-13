@@ -2,6 +2,23 @@
 
 include('includes/session.php');
 $Title = _('Claim Petty Cash Expenses From Tab');
+
+if (isset($_GET['download'])) {
+	$SQL = "SELECT type,
+					size,
+					content
+				FROM pcreceipts
+				WHERE pccashdetail='" . $_GET['receipt'] . "'
+					AND name='" . $_GET['name'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	header('Content-type: ' . $MyRow['type'] . "\n");
+	header('Content-Disposition: attachment; filename=' . $_GET['name'] . "\n");
+	header('Content-Length: ' . $MyRow['size'] . "\n");
+	echo $MyRow['content'];
+	exit;
+}
+
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'ExpenseClaim';
@@ -79,8 +96,7 @@ if (isset($_POST['submit'])) {
 				tag = '" . $_POST['Tag'] . "',
 				codeexpense = '" . $_POST['SelectedExpense'] . "',
 				amount = '" . -filter_number_format($_POST['Amount']) . "',
-				notes = '" . $_POST['Notes'] . "',
-				receipt = '" . $_POST['Receipt'] . "'
+				notes = '" . $_POST['Notes'] . "'
 			WHERE counterindex = '" . $SelectedIndex . "'";
 
 		$Msg = _('The Expense Claim on Tab') . ' ' . $SelectedTabs . ' ' . _('has been updated');
@@ -101,6 +117,39 @@ if (isset($_POST['submit'])) {
 				$Result = DB_query($SQL);
 			}
 		}
+		if (isset($_FILES['Receipt']) and $_FILES['Receipt']['name'] != '') {
+
+			$UploadTheFile = 'Yes'; //Assume all is well to start off with
+
+			//But check for the worst
+			if ($_FILES['Receipt']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
+				prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
+				$UploadTheFile = 'No';
+			} elseif ($_FILES['Receipt']['type'] != 'image/jpeg' and $_FILES['Receipt']['type'] != 'image/png') { //File Type Check
+				prnMsg(_('Only jpg or png files can be uploaded'), 'warn');
+				$UploadTheFile = 'No';
+			} elseif ($_FILES['Receipt']['error'] == 6 ) {  //upload temp directory check
+				prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+				$UploadTheFile ='No';
+			}
+
+			if ($UploadTheFile == 'Yes') {
+				$Name = $_FILES['Receipt']['name'];
+				$Type = $_FILES['Receipt']['type'];
+				$Size = $_FILES['Receipt']['size'];
+				$fp = fopen($_FILES['Receipt']['tmp_name'], 'r');
+				$Content = fread($fp, $Size);
+				$Content = addslashes($Content);
+				fclose($fp);
+				$SQL = "UPDATE pcreceipts SET name='" . $Name . "',
+												type='" . $Type . "',
+												size=" . $Size . ",
+												content='" . $Content . "'
+											WHERE pccashdetail='" . $SelectedIndex . "'";
+				$Result = DB_query($SQL);
+
+			}
+		}
 
 		prnMsg($Msg, 'success');
 
@@ -117,8 +166,7 @@ if (isset($_POST['submit'])) {
 										amount,
 										authorized,
 										posted,
-										notes,
-										receipt)
+										notes)
 								VALUES (NULL,
 										'" . $_POST['SelectedTabs'] . "',
 										'" . $_POST['Tag'] . "',
@@ -127,13 +175,12 @@ if (isset($_POST['submit'])) {
 										'" . -filter_number_format($_POST['Amount']) . "',
 										0,
 										0,
-										'" . $_POST['Notes'] . "',
-										'" . $_POST['Receipt'] . "'
+										'" . $_POST['Notes'] . "'
 										)";
 
 		$Msg = _('The Expense Claim on Tab') . ' ' . $_POST['SelectedTabs'] . ' ' . _('has been created');
 		$Result = DB_query($SQL);
-		$PcCashDetail = DB_Last_Insert_ID('pcashdetails', 'counterindex');
+		$SelectedIndex = DB_Last_Insert_ID('pcashdetails', 'counterindex');
 
 		foreach ($_POST as $Index => $Value) {
 			if (substr($Index, 0, 5) == 'index') {
@@ -149,7 +196,7 @@ if (isset($_POST['submit'])) {
 														amount
 												) VALUES (
 														NULL,
-														'" . $PcCashDetail . "',
+														'" . $SelectedIndex . "',
 														'" . $_POST['CalculationOrder' . $Index] . "',
 														'" . $_POST['Description' . $Index] . "',
 														'" . $_POST['TaxAuthority' . $Index] . "',
@@ -159,6 +206,40 @@ if (isset($_POST['submit'])) {
 														'" . $_POST['TaxAmount' . $Index] . "'
 												)";
 				$Result = DB_query($SQL);
+			}
+		}
+		if (isset($_FILES['Receipt']) and $_FILES['Receipt']['name'] != '') {
+
+			$UploadTheFile = 'Yes'; //Assume all is well to start off with
+
+			//But check for the worst
+			if ($_FILES['Receipt']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
+				prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
+				$UploadTheFile = 'No';
+			} elseif ($_FILES['Receipt']['type'] != 'image/jpeg' and $_FILES['Receipt']['type'] != 'image/png') { //File Type Check
+				prnMsg(_('Only jpg or png files can be uploaded'), 'warn');
+				$UploadTheFile = 'No';
+			} elseif ($_FILES['Receipt']['error'] == 6 ) {  //upload temp directory check
+				prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+				$UploadTheFile ='No';
+			}
+
+			if ($UploadTheFile == 'Yes') {
+				$Name = $_FILES['Receipt']['name'];
+				$Type = $_FILES['Receipt']['type'];
+				$Size = $_FILES['Receipt']['size'];
+				$fp = fopen($_FILES['Receipt']['tmp_name'], 'r');
+				$Content = fread($fp, $Size);
+				$Content = addslashes($Content);
+				fclose($fp);
+				$SQL = "INSERT INTO pcreceipts VALUES('" . $SelectedIndex . "',
+													'" . $Name . "',
+													'" . $Type . "',
+													" . $Size . ",
+													'" . $Content . "'
+													)";
+				$Result = DB_query($SQL);
+
 			}
 		}
 		prnMsg($Msg, 'success');
@@ -195,7 +276,7 @@ if (!isset($SelectedTabs)) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table class="selection">
 			<tr>
@@ -251,7 +332,7 @@ if (!isset($SelectedTabs)) {
 		$MyRow = DB_fetch_array($Result);
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table class="selection">
 				<tr>
@@ -335,6 +416,19 @@ if (!isset($SelectedTabs)) {
 			if ($MyRow['tag'] == 0) {
 				$TagRow['tagdescription'] = _('None');
 			}
+
+			$ReceiptSQL = "SELECT name
+								FROM pcreceipts
+								WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
+			$ReceiptResult = DB_query($ReceiptSQL);
+
+			if (DB_num_rows($ReceiptResult) > 0) {
+				$ReceiptRow = DB_fetch_array($ReceiptResult);
+				$ReceiptText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($ReceiptRow['name']) . '">' . _('View receipt') . '</a>';
+			} else {
+				$ReceiptText = _('No receipt');
+			}
+
 			if (($MyRow['authorized'] == '0000-00-00') and ($Description['0'] != 'ASSIGNCASH')) {
 				// only movements NOT authorised can be modified or deleted
 				echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
@@ -343,7 +437,7 @@ if (!isset($SelectedTabs)) {
 						<td>', $AuthorisedDate, '</td>
 						<td>', $MyRow['tag'], ' - ', $TagRow['tagdescription'], '</td>
 						<td>', $MyRow['notes'], '</td>
-						<td>', $MyRow['receipt'], '</td>
+						<td>', $ReceiptText, '</td>
 						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;edit=yes">' . _('Edit') . '</a></td>
 						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
 					</tr>';
@@ -354,7 +448,7 @@ if (!isset($SelectedTabs)) {
 						<td>', $AuthorisedDate, '</td>
 						<td>', $MyRow['tag'], ' - ', $TagRow['tagdescription'], '</td>
 						<td>', $MyRow['notes'], '</td>
-						<td>', $MyRow['receipt'], '</td>
+						<td>', $ReceiptText, '</td>
 					</tr>';
 
 			}
@@ -385,7 +479,7 @@ if (!isset($SelectedTabs)) {
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		if (isset($_GET['edit'])) {
@@ -581,7 +675,7 @@ if (!isset($SelectedTabs)) {
 
 		echo '<tr>
 				<td>', _('Receipt'), ':</td>
-				<td><input type="text" name="Receipt" size="50" maxlength="49" value="', $_POST['Receipt'], '" /></td>
+				<td><input type="file" name="Receipt" id="Receipt" /></td>
 			</tr>';
 		echo '</table>'; // close main table
 
