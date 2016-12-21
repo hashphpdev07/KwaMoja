@@ -87,7 +87,7 @@ if ($_POST['PeriodTo'] - $_POST['PeriodFrom'] + 1 > 12) {
 }
 
 // Main code:
-if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and !isset($_POST['SelectADifferentPeriod'])) { // If all parameters are set and valid, generates the report:
+if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'] != 'New') {// If all parameters are set and valid, generates the report:
 	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', // Icon image.
 		$Title, '" /> ', // Icon title.
 		$Title, '<br />', // Page title, reporting statement.
