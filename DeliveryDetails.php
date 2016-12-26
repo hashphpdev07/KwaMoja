@@ -411,7 +411,7 @@ if (isset($OK_to_PROCESS) and $OK_to_PROCESS == 1 and $_SESSION['ExistingOrder' 
 								'" . $_SESSION['Items' . $Identifier]->Branch . "',
 								'" . DB_escape_string($_SESSION['Items' . $Identifier]->CustRef) . "',
 								'" . DB_escape_string($_SESSION['Items' . $Identifier]->Comments) . "',
-								'" . Date("Y-m-d H:i") . "',
+								CURRENT_DATE,
 								'" . $_SESSION['Items' . $Identifier]->DefaultSalesType . "',
 								'" . $_POST['ShipVia'] . "',
 								'" . DB_escape_string($_SESSION['Items' . $Identifier]->DeliverTo) . "',
