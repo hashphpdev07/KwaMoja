@@ -26,9 +26,9 @@ include('includes/header.php');
 
 
 if (isset($_POST['SelectedTabs'])) {
-	$SelectedTabs = mb_strtoupper($_POST['SelectedTabs']);
+	$SelectedTabs = $_POST['SelectedTabs'];
 } elseif (isset($_GET['SelectedTabs'])) {
-	$SelectedTabs = mb_strtoupper($_GET['SelectedTabs']);
+	$SelectedTabs = $_GET['SelectedTabs'];
 }
 
 if (isset($_POST['SelectedIndex'])) {
@@ -41,6 +41,10 @@ if (isset($_POST['Days'])) {
 	$Days = filter_number_format($_POST['Days']);
 } elseif (isset($_GET['Days'])) {
 	$Days = filter_number_format($_GET['Days']);
+}
+
+if (!isset($_POST['tag']) or sizeOf($_POST['tag']) === 0) {
+	$_POST['tag'][0] = 0;
 }
 
 if (isset($_POST['Cancel'])) {
@@ -93,7 +97,6 @@ if (isset($_POST['submit'])) {
 	if (isset($SelectedIndex) and $InputError != 1) {
 		$SQL = "UPDATE pcashdetails
 			SET date = '" . FormatDateForSQL($_POST['Date']) . "',
-				tag = '" . $_POST['Tag'] . "',
 				codeexpense = '" . $_POST['SelectedExpense'] . "',
 				amount = '" . -filter_number_format($_POST['Amount']) . "',
 				notes = '" . $_POST['Notes'] . "'
@@ -101,6 +104,19 @@ if (isset($_POST['submit'])) {
 
 		$Msg = _('The Expense Claim on Tab') . ' ' . $SelectedTabs . ' ' . _('has been updated');
 		$Result = DB_query($SQL);
+
+		$SQL = "DELETE FROM pctags WHERE pccashdetail='" . $SelectedIndex . "'";
+		$Result = DB_query($SQL);
+
+		foreach ($_POST['tag'] as $Tag) {
+			$SQL = "INSERT INTO pctags (pccashdetail,
+										tag)
+									VALUES (
+										'" . $SelectedIndex . "',
+										'" . $Tag . "'
+									)";
+			$Result = DB_query($SQL);
+		}
 
 		foreach ($_POST as $Index => $Value) {
 			if (substr($Index, 0, 5) == 'index') {
@@ -160,7 +176,6 @@ if (isset($_POST['submit'])) {
 
 		$SQL = "INSERT INTO pcashdetails (counterindex,
 										tabcode,
-										tag,
 										date,
 										codeexpense,
 										amount,
@@ -169,7 +184,6 @@ if (isset($_POST['submit'])) {
 										notes)
 								VALUES (NULL,
 										'" . $_POST['SelectedTabs'] . "',
-										'" . $_POST['Tag'] . "',
 										'" . FormatDateForSQL($_POST['Date']) . "',
 										'" . $_POST['SelectedExpense'] . "',
 										'" . -filter_number_format($_POST['Amount']) . "',
@@ -181,6 +195,16 @@ if (isset($_POST['submit'])) {
 		$Msg = _('The Expense Claim on Tab') . ' ' . $_POST['SelectedTabs'] . ' ' . _('has been created');
 		$Result = DB_query($SQL);
 		$SelectedIndex = DB_Last_Insert_ID('pcashdetails', 'counterindex');
+
+		foreach ($_POST['tag'] as $Tag) {
+			$SQL = "INSERT INTO pctags (pccashdetail,
+										tag)
+									VALUES (
+										'" . $SelectedIndex . "',
+										'" . $Tag . "'
+									)";
+			$Result = DB_query($SQL);
+		}
 
 		foreach ($_POST as $Index => $Value) {
 			if (substr($Index, 0, 5) == 'index') {
@@ -211,6 +235,9 @@ if (isset($_POST['submit'])) {
 		if (isset($_FILES['Receipt']) and $_FILES['Receipt']['name'] != '') {
 
 			$UploadTheFile = 'Yes'; //Assume all is well to start off with
+
+			if ($_FILES['Receipt']['error'] !== 0) {
+			}
 
 			//But check for the worst
 			if ($_FILES['Receipt']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
@@ -358,7 +385,6 @@ if (!isset($SelectedTabs)) {
 
 		$SQL = "SELECT counterindex,
 						tabcode,
-						tag,
 						date,
 						codeexpense,
 						amount,
@@ -395,6 +421,18 @@ if (!isset($SelectedTabs)) {
 				$k = 1;
 			}
 
+			$SQLTags = "SELECT pctags.tag,
+								tags.tagdescription
+							FROM pctags
+							INNER JOIN tags
+								ON tags.tagref=pctags.tag
+							WHERE pctags.pccashdetail='" . $MyRow['counterindex'] . "'";
+			$TagsResult = DB_query($SQLTags);
+			$TagString = '';
+			while ($TagRow = DB_fetch_array($TagsResult)) {
+				$TagString .= $TagRow['tag'] . ' - ' . $TagRow['tagdescription'] . '<br />';
+			}
+
 			$SQLDes = "SELECT description
 						FROM pcexpenses
 						WHERE codeexpense='" . $MyRow['codeexpense'] . "'";
@@ -409,12 +447,6 @@ if (!isset($SelectedTabs)) {
 				$AuthorisedDate = _('Unauthorised');
 			} else {
 				$AuthorisedDate = ConvertSQLDate($MyRow['authorized']);
-			}
-			$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['tag'] . "'";
-			$TagResult = DB_query($TagSQL);
-			$TagRow = DB_fetch_array($TagResult);
-			if ($MyRow['tag'] == 0) {
-				$TagRow['tagdescription'] = _('None');
 			}
 
 			$ReceiptSQL = "SELECT name
@@ -435,18 +467,18 @@ if (!isset($SelectedTabs)) {
 						<td>', $Description['0'], '</td>
 						<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
 						<td>', $AuthorisedDate, '</td>
-						<td>', $MyRow['tag'], ' - ', $TagRow['tagdescription'], '</td>
+						<td>', $TagString, '</td>
 						<td>', $MyRow['notes'], '</td>
 						<td>', $ReceiptText, '</td>
 						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;edit=yes">' . _('Edit') . '</a></td>
-						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
+						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					</tr>';
 			} else {
 				echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
 						<td>', $Description['0'], '</td>
 						<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
 						<td>', $AuthorisedDate, '</td>
-						<td>', $MyRow['tag'], ' - ', $TagRow['tagdescription'], '</td>
+						<td>', $TagString, '</td>
 						<td>', $MyRow['notes'], '</td>
 						<td>', $ReceiptText, '</td>
 					</tr>';
@@ -485,7 +517,6 @@ if (!isset($SelectedTabs)) {
 		if (isset($_GET['edit'])) {
 			$SQL = "SELECT counterindex,
 							tabcode,
-							tag,
 							date,
 							codeexpense,
 							amount,
@@ -503,8 +534,15 @@ if (!isset($SelectedTabs)) {
 			$_POST['SelectedExpense'] = $MyRow['codeexpense'];
 			$_POST['Amount'] = -$MyRow['amount'];
 			$_POST['Notes'] = $MyRow['notes'];
-			$_POST['Tag'] = $MyRow['tag'];
 			$_POST['Receipt'] = $MyRow['receipt'];
+
+			$SQL = "SELECT tag
+						FROM pctags
+						WHERE pccashdetail='" . $SelectedIndex . "'";
+			$Result = DB_query($SQL);
+			while ($MyRow = DB_fetch_array($Result)) {
+				$TagArray[] = $MyRow['tag'];
+			}
 
 			echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
 			echo '<input type="hidden" name="SelectedIndex" value="', $SelectedIndex, '" />';
@@ -557,31 +595,28 @@ if (!isset($SelectedTabs)) {
 
 		//Select the tag
 		echo '<tr>
-				<td>', _('Tag'), ':</td>
-				<td><select name="Tag">';
+				<td valign="top">', _('Tag'), '</td>
+				<td>
+					<select multiple="multiple" name="tag[]">';
 
 		$SQL = "SELECT tagref,
-					tagdescription
-			FROM tags
-			ORDER BY tagref";
+						tagdescription
+				FROM tags
+				ORDER BY tagref";
 
 		$Result = DB_query($SQL);
-		if (!isset($_POST['Tag'])) {
-			$_POST['Tag'] = $DefaultTag;
-		}
-		echo '<option value="0">0 - ', _('None'), '</option>';
+		echo '<option value="0">0 - ' . _('None') . '</option>';
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($_POST['Tag'] == $MyRow['tagref']) {
-				echo '<option selected="selected" value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
+			if (isset($_POST['tag']) and in_array($MyRow['tagref'], $TagArray)) {
+				echo '<option selected="selected" value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
 			} else {
-				echo '<option value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
+				echo '<option value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
 			}
 		}
 		echo '</select>
 				</td>
 			</tr>';
-		// End select tag
-
+		// 	End select tag
 
 		if (!isset($_POST['Amount'])) {
 			$_POST['Amount'] = 0;

@@ -78,7 +78,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 	$SQL = "SELECT pcashdetails.counterindex,
 				pcashdetails.tabcode,
-				pcashdetails.tag,
 				pcashdetails.date,
 				pcashdetails.codeexpense,
 				pcashdetails.amount,
@@ -130,13 +129,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 		$PeriodNo = GetPeriod(ConvertSQLDate($MyRow['date']));
 
-		$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['tag'] . "'";
-		$TagResult = DB_query($TagSQL);
-		$TagRow = DB_fetch_array($TagResult);
-		if ($MyRow['tag'] == 0) {
-			$TagRow['tagdescription'] = _('None');
-		}
-
 		$TaxTotalSQL = "SELECT SUM(amount) as totaltax FROM pcashdetailtaxes WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
 		$TaxTotalResult = DB_query($TaxTotalSQL);
 		$TaxTotalRow = DB_fetch_array($TaxTotalResult);
@@ -150,13 +142,12 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 		}
 
 		if ($MyRow['codeexpense'] == 'ASSIGNCASH') {
-			$type = 2;
+			$Type = 2;
 			$AccountFrom = $MyRow['glaccountassignment'];
 			$AccountTo = $MyRow['glaccountpcash'];
-			$TagTo = 0;
 			$TagDescription = '0 - ' . _('None');
 		} else {
-			$type = 1;
+			$Type = 1;
 			$GrossAmount = -$GrossAmount;
 			$NetAmount = -$NetAmount;
 			$AccountFrom = $MyRow['glaccountpcash'];
@@ -167,13 +158,17 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			$ResultAccExp = DB_query($SQLAccExp);
 			$MyRowAccExp = DB_fetch_array($ResultAccExp);
 			$AccountTo = $MyRowAccExp['glaccount'];
-			$TagTo = $MyRow['tag'];
-			$TagDescription = $TagTo . ' - ' . $TagRow['tagdescription'];
 		}
 		if (isset($_POST['Submit']) and $_POST['Submit'] == _('Update') and isset($_POST[$MyRow['counterindex']])) {
 
 			//get typeno
-			$typeno = GetNextTransNo($type);
+			$TypeNo = GetNextTransNo($Type);
+
+			$TagsSQL = "SELECT tag FROM pctags WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
+			$TagsResult = DB_query($TagsSQL);
+			while ($TagRow = DB_fetch_array($TagsResult)) {
+				$Tags[] = $TagRow['tag'];
+			}
 
 			//build narrative
 			$Narrative = _('PettyCash') . ' - ' . $MyRow['tabcode'] . ' - ' . $MyRow['codeexpense'] . ' - ' . DB_escape_string($MyRow['notes']) . ' - ' . $MyRow['receipt'];
@@ -192,8 +187,8 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 											`posted`,
 											`jobref`)
 									VALUES (NULL,
-											'" . $type . "',
-											'" . $typeno . "',
+											'" . $Type . "',
+											'" . $TypeNo . "',
 											0,
 											'" . $MyRow['date'] . "',
 											'" . $PeriodNo . "',
@@ -204,7 +199,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 											'')";
 			$ResultFrom = DB_Query($SQLFrom, '', '', true);
 			$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
-												'" . $TagTo . "')";
+												'0')";
 			$ErrMsg = _('Cannot insert a GL tag for the payment line because');
 			$DbgMsg = _('The SQL that failed to insert the GL tag record was');
 			$InsertResult = DB_query($SQL, $ErrMsg, $DbgMsg, true);
@@ -221,8 +216,8 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 										`posted`,
 										`jobref`)
 								VALUES (NULL,
-										'" . $type . "',
-										'" . $typeno . "',
+										'" . $Type . "',
+										'" . $TypeNo . "',
 										0,
 										'" . $MyRow['date'] . "',
 										'" . $PeriodNo . "',
@@ -232,11 +227,13 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 										0,
 										'')";
 			$ResultTo = DB_Query($SQLTo, '', '', true);
-			$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
-												'" . $TagTo . "')";
-			$ErrMsg = _('Cannot insert a GL tag for the payment line because');
-			$DbgMsg = _('The SQL that failed to insert the GL tag record was');
-			$InsertResult = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+			foreach ($Tags as $Tag) {
+				$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
+													'" . $Tag . "')";
+				$ErrMsg = _('Cannot insert a GL tag for the payment line because');
+				$DbgMsg = _('The SQL that failed to insert the GL tag record was');
+				$InsertResult = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+			}
 
 			$TaxSQL = "SELECT counterindex,
 								pccashdetail,
@@ -263,8 +260,8 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 												`posted`,
 												`jobref`)
 										VALUES (NULL,
-												'" . $type . "',
-												'" . $typeno . "',
+												'" . $Type . "',
+												'" . $TypeNo . "',
 												0,
 												'" . $MyRow['date'] . "',
 												'" . $PeriodNo . "',
@@ -338,6 +335,18 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			<td>', $MyRow['codeexpense'], '</td>
 			<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>';
 
+		$SQLTags = "SELECT pctags.tag,
+							tags.tagdescription
+						FROM pctags
+						INNER JOIN tags
+							ON tags.tagref=pctags.tag
+						WHERE pctags.pccashdetail='" . $MyRow['counterindex'] . "'";
+		$TagsResult = DB_query($SQLTags);
+		$TagString = '';
+		while ($TagRow = DB_fetch_array($TagsResult)) {
+			$TagString .= $TagRow['tag'] . ' - ' . $TagRow['tagdescription'] . '<br />';
+		}
+
 		$TaxesDescription = '';
 		$TaxesTaxAmount = '';
 		$TaxSQL = "SELECT counterindex,
@@ -371,7 +380,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 		echo '<td>', $TaxesDescription, '</td>
 			<td>', $TaxesTaxAmount, '</td>
-			<td>', $TagDescription, '</td>
+			<td>', $TagString, '</td>
 			<td>', $Posted, '</td>
 			<td>', $MyRow['notes'], '</td>
 			<td>', $ReceiptText, '</td>';
