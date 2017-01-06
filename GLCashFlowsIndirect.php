@@ -90,7 +90,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', // Icon image.
 		$Title, '" /> ', // Icon title.
 		$Title, '<br />', // Page title, reporting statement.
-		stripslashes($_SESSION['CompanyRecord']['coyname']); // Page title, reporting entity.
+		stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />'; // Page title, reporting entity.
 
 	$PeriodFromSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['PeriodFrom'] . "'";
 	$PeriodFromResult = DB_query($PeriodFromSQL);
@@ -106,12 +106,20 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	// Content of the header and footer of the output table:
 		'<thead>
 			<tr>
+				<th colspan="8">
+					<h2>' . _('Statement of Cash Flows') . '
+						<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					</h2>
+				</th>
+			</tr>
+			<tr>
 				<th>', _('Account'), '</th>
 				<th>', _('Account Name'), '</th>
 				<th colspan="2">', _('Period Actual'), '</th>';
 	// Initialise section accumulators:
 	$ActualSection = 0;
 	$ActualTotal = 0;
+	$BudgetTotal = 0;
 	$LastSection = 0;
 	$LastTotal = 0;
 	$k = 1; // Lines counter.
@@ -271,7 +279,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			'<tr>
 				<td class="text" colspan="2"><b>', _('Net increase in cash and cash equivalents'), '</b></td>', colDebitCredit($ActualTotal), colDebitCredit($BudgetTotal), colDebitCredit($LastTotal), '</tr>';
 		// Prints Cash and cash equivalents at beginning of period:
-		if ($_POST['ShowCash']) {
+		if (isset($_POST['ShowCash'])) {
 			// Prints a detail of Cash and cash equivalents at beginning of period (Parameters: PeriodFrom, PeriodTo, ShowBudget=on, ShowZeroBalance=on/off, ShowCash=ON):
 			echo '<tr><td colspan="8">&nbsp;</td></tr>';
 			$ActualBeginning = 0;
@@ -324,7 +332,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		echo '<tr>
 				<td class="text" colspan="2"><b>', _('Cash and cash equivalents at beginning of period'), '</b></td>', colDebitCredit($ActualBeginning), colDebitCredit($BudgetBeginning), colDebitCredit($LastBeginning), '</tr>';
 		// Prints Cash and cash equivalents at end of period:
-		if ($_POST['ShowCash']) {
+		if (isset($_POST['ShowCash'])) {
 			// Prints a detail of Cash and cash equivalents at end of period (Parameters: PeriodFrom, PeriodTo, ShowBudget=on, ShowZeroBalance=on/off, ShowCash=ON):
 			echo '<tr><td colspan="8">&nbsp;</td></tr>';
 			$SQL = "SELECT
@@ -357,7 +365,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		echo '<tr>
 				<td class="text" colspan="2"><b>', _('Cash and cash equivalents at end of period'), '</b></td>', colDebitCredit($ActualTotal + $ActualBeginning), colDebitCredit($BudgetTotal + $BudgetBeginning), colDebitCredit($LastTotal + $LastBeginning), '</tr>';
 		// Prints 'Cash or cash equivalent' section if selected (Parameters: PeriodFrom, PeriodTo, ShowBudget=on, ShowZeroBalance=on/off, ShowCash=ON):
-		if ($_POST['ShowCash']) {
+		if (isset($_POST['ShowCash'])) {
 			// Prints 'Cash or cash equivalent' section title:
 			echo '<tr><td colspan="8">&nbsp</td><tr>
 				<tr>
@@ -408,22 +416,26 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		//---------------------------------------------------------------------------->>
 		echo '<th colspan="2">', _('Last Year'), '</th>
 				</tr>
-			</thead><tfoot>
-				<tr>', '<td class="text" colspan="8">', // Prints an explanation of signs in actual and relative changes:
-			'<br /><b>', _('Notes'), ':</b><br />', _('Cash flows signs: a negative number indicates a cash flow used in activities; a positive number indicates a cash flow provided by activities.'), '<br />';
+			</thead>';
+		echo '<tfoot>
+				<tr>
+					<td class="text" colspan="8">', // Prints an explanation of signs in actual and relative changes:
+						'<br /><b>', _('Notes'), ':</b>
+						<br />', _('Cash flows signs: a negative number indicates a cash flow used in activities; a positive number indicates a cash flow provided by activities.'), '<br />';
 		if (isset($_POST['ShowCash'])) {
 			echo _('Cash and cash equivalents signs: a negative number indicates a cash outflow; a positive number indicates a cash inflow.'), '<br />';
 		}
 		echo '</td>
 				</tr>
-			</tfoot><tbody>';
+			</tfoot>';
 		// Net profit − dividends = Retained earnings:
-		echo '<tr>
-				<td class="text" colspan="8"><br /><h2>', _('Net profit and dividends'), '</h2></td>
-			</tr>
-			<tr class="OddTableRows">
-				<td>&nbsp;</td>
-				<td class="text">', _('Net profit for the period'), '</td>';
+		echo '<tbody>
+				<tr>
+					<td class="text" colspan="8"><br /><h2>', _('Net profit and dividends'), '</h2></td>
+				</tr>
+				<tr class="OddTableRows">
+					<td>&nbsp;</td>
+					<td class="text">', _('Net profit for the period'), '</td>';
 		// Net profit for the period:
 		$SQL = "SELECT
 					Sum(CASE WHEN (chartdetails.period >= '" . $_POST['PeriodFrom'] . "' AND chartdetails.period <= '" . $_POST['PeriodTo'] . "') THEN -chartdetails.actual ELSE 0 END) AS ActualProfit,
@@ -640,15 +652,25 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		//<<----------------------------------------------------------------------------
 		// END Outputs the table without budget.
 	}
-	echo '</tbody></table>', '<br />', '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">', '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />', '<input name="PeriodFrom" type="hidden" value="', $_POST['PeriodFrom'], '" />', '<input name="PeriodTo" type="hidden" value="', $_POST['PeriodTo'], '" />', '<input name="ShowDetail" type="hidden" value="', $_POST['ShowDetail'], '" />', '<input name="ShowZeroBalance" type="hidden" value="', $_POST['ShowZeroBalance'], '" />', '<input name="ShowBudget" type="hidden" value="', $_POST['ShowBudget'], '" />', '<input name="ShowCash" type="hidden" value="', $_POST['ShowCash'], '" />', // Form buttons:
-		'<div class="centre noprint">';
+	echo '</tbody>
+		</table>';
+
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
+
+	echo '<input name="PeriodFrom" type="hidden" value="', $_POST['PeriodFrom'], '" />
+		<input name="PeriodTo" type="hidden" value="', $_POST['PeriodTo'], '" />
+		<input name="ShowDetail" type="hidden" value="', $_POST['ShowDetail'], '" />
+		<input name="ShowZeroBalance" type="hidden" value="', $_POST['ShowZeroBalance'], '" />
+		<input name="ShowBudget" type="hidden" value="', $_POST['ShowBudget'], '" />
+		<input name="ShowCash" type="hidden" value="', $_POST['ShowCash'], '" />';
+
+	echo '<div class="centre noPrint">';
+	echo '<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '"><br />';
 	if ($NeedSetup) {
-		echo '<button onclick="javascript:window.location=\'GLCashFlowsSetup.php\'" type="button"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" /> ', _('Run Setup'), '</button>'; // "Run Setup" button.
+		echo '<a href="GLCashFlowsSetup.php"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" /> ', _('Run Setup'), '</a>'; // "Run Setup" button.
 	}
-	echo '<button onclick="javascript:window.print()" type="button"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/printer.png" /> ', _('Print This'), '</button>', // "Print This" button.
-		'<button name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/gl.png" /> ', _('Select A Different Period'), '</button>', // "Select A Different Period" button.
-		'<button onclick="javascript:window.location=\'index.php?Application=GL\'" type="button"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/return.svg" /> ', _('Return'), '</button>', // "Return" button.
-		'</div>';
+	echo '</div>';
 } else { // If one or more parameters are NOT set or NOT valid, shows a parameters input form:
 	echo '<p class="page_title_text">
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', $Title, '" /> ', $Title, '
