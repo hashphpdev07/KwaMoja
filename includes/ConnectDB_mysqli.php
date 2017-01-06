@@ -107,45 +107,45 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 
 }
 
-function DB_fetch_row(&$ResultIndex) {
+function DB_fetch_row($ResultIndex) {
 
 	$RowPointer = mysqli_fetch_row($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_assoc(&$ResultIndex) {
+function DB_fetch_assoc($ResultIndex) {
 
 	$RowPointer = mysqli_fetch_assoc($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_array(&$ResultIndex) {
+function DB_fetch_array($ResultIndex) {
 
 	$RowPointer = mysqli_fetch_array($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_all(&$ResultIndex) {
+function DB_fetch_all($ResultIndex) {
 
 	$ResultArray = mysqli_fetch_all($ResultIndex, MYSQLI_ASSOC);
 	return $ResultArray;
 }
 
-function DB_data_seek(&$ResultIndex, $Record) {
+function DB_data_seek($ResultIndex, $Record) {
 	mysqli_data_seek($ResultIndex, $Record);
 }
 
-function DB_free_result(&$ResultIndex) {
+function DB_free_result($ResultIndex) {
 	if (is_resource($ResultIndex)) {
 		mysqli_free_result($ResultIndex);
 	}
 }
 
-function DB_num_rows(&$ResultIndex) {
+function DB_num_rows($ResultIndex) {
 	return mysqli_num_rows($ResultIndex);
 }
 
-function DB_affected_rows(&$ResultIndex) {
+function DB_affected_rows($ResultIndex) {
 
 	global $db;
 	return mysqli_affected_rows($db);
