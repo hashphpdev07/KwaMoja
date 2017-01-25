@@ -52,6 +52,8 @@ if ((isset($_POST['BatchInput']) and $_POST['BankAccount'] == '') or (isset($_PO
 if (!isset($_GET['Delete']) and isset($_SESSION['ReceiptBatch' . $Identifier])) {
 	//always process a header update unless deleting an item
 
+	include('includes/GetPaymentMethods.php');
+
 	$_SESSION['ReceiptBatch' . $Identifier]->Account = $_POST['BankAccount'];
 	/*Get the bank account currency and set that too */
 
@@ -171,6 +173,10 @@ if (isset($_POST['Process'])) { //user hit submit a new entry to the receipt bat
 	}
 	if (!isset($_POST['CustomerName'])) {
 		$_POST['CustomerName'] = '';
+	}
+
+	if ($_POST['Discount'] == 0 and $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount'] > 0) {
+		$_POST['Discount'] = $_POST['Amount'] * $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount'];
 	}
 
 	if ($_POST['GLCode'] == '' and $_GET['Type'] == 'GL') {
@@ -395,7 +401,7 @@ if (isset($_POST['CommitBatch'])) {
 							'" . (($_SESSION['ReceiptBatch' . $Identifier]->ExRate * $_SESSION['ReceiptBatch' . $Identifier]->FunctionalExRate) / $TrfFromBankExRate) . "',
 							'" . $TrfFromBankExRate . "',
 							'" . FormatDateForSQL($_SESSION['ReceiptBatch' . $Identifier]->DateBanked) . "',
-							'" . $_SESSION['ReceiptBatch' . $Identifier]->ReceiptType . "',
+							'" . $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname'] . "',
 							'" . -$ReceiptItem->Amount . "',
 							'" . $_SESSION['ReceiptBatch' . $Identifier]->Currency . "'
 						)";
@@ -436,7 +442,7 @@ if (isset($_POST['CommitBatch'])) {
 						'" . FormatDateForSQL($_SESSION['ReceiptBatch' . $Identifier]->DateBanked) . "',
 						'" . date('Y-m-d H-i-s') . "',
 						'" . $PeriodNo . "',
-						'" . $_SESSION['ReceiptBatch' . $Identifier]->ReceiptType . ' ' . $ReceiptItem->PayeeBankDetail . "',
+						'" . $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname']  . ' ' . $ReceiptItem->PayeeBankDetail . "',
 						'',
 						'" . ($_SESSION['ReceiptBatch' . $Identifier]->FunctionalExRate * $_SESSION['ReceiptBatch' . $Identifier]->ExRate) . "',
 						'" . -$ReceiptItem->Amount . "',
@@ -485,7 +491,7 @@ if (isset($_POST['CommitBatch'])) {
 			'" . $_SESSION['ReceiptBatch' . $Identifier]->ExRate . "',
 			'" . $_SESSION['ReceiptBatch' . $Identifier]->FunctionalExRate . "',
 			'" . FormatDateForSQL($_SESSION['ReceiptBatch' . $Identifier]->DateBanked) . "',
-			'" . $_SESSION['ReceiptBatch' . $Identifier]->ReceiptType . "',
+			'" . $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname'] . "',
 			'" . ($BatchReceiptsTotal * $_SESSION['ReceiptBatch' . $Identifier]->FunctionalExRate * $_SESSION['ReceiptBatch' . $Identifier]->ExRate) . "',
 			'" . $_SESSION['ReceiptBatch' . $Identifier]->Currency . "'
 		)";
@@ -915,17 +921,16 @@ if ($_SESSION['ReceiptBatch' . $Identifier]->AccountCurrency != $_SESSION['Compa
 
 echo '<tr>
 		<td>', _('Receipt Type'), ':</td>
-		<td><select name="ReceiptType" tabindex="6">';
-
-include('includes/GetPaymentMethods.php');
+		<td>
+			<select name="ReceiptType" tabindex="6" onchange="ReloadForm(form1.BatchInput)">';
 /* The array ReceiptTypes is defined from the setup tab of the main menu under
 payment methods - the array is populated from the include file GetPaymentMethods.php */
 
 foreach ($ReceiptTypes as $RcptType) {
-	if (isset($_POST['ReceiptType']) and $_POST['ReceiptType'] == $RcptType) {
-		echo '<option selected="selected" value="', $RcptType, '">', $RcptType, '</option>';
+	if (isset($_POST['ReceiptType']) and $_POST['ReceiptType'] == $RcptType['paymentid']){
+		echo '<option selected="selected" value="', $RcptType['paymentid'], '">', $RcptType['paymentname'] , '</option>';
 	} else {
-		echo '<option value="', $RcptType, '">', $RcptType, '</option>';
+		echo '<option value="', $RcptType['paymentid'], '">', $RcptType['paymentname'], '</option>';
 	}
 }
 echo '</select>
@@ -967,7 +972,7 @@ if (isset($_SESSION['ReceiptBatch' . $Identifier])) {
 	if (!$BankAccountEmpty) {
 		echo '<p class="page_title_text">
 				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Banked'), '" alt="" />
-				', ' ', $_SESSION['ReceiptBatch' . $Identifier]->ReceiptType, ' - ', _('Banked into the'), " ", $_SESSION['ReceiptBatch' . $Identifier]->BankAccountName, ' ', _('on'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '
+				', ' ', $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname'], ' - ', _('Banked into the'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->BankAccountName, ' ', _('on'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '
 			</p>';
 	}
 
@@ -1069,7 +1074,11 @@ if (isset($_SESSION['CustomerRecord']) and isset($_POST['CustomerID']) and $_POS
 
 	echo '<table class="selection">';
 
-	$DisplayDiscountPercent = locale_number_format($_SESSION['CustomerRecord']['pymtdiscount'] * 100, 2) . '%';
+	if ($_SESSION['CustomerRecord' . $Identifier]['pymtdiscount'] > $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount']) {
+		$DisplayDiscountPercent = locale_number_format($_SESSION['CustomerRecord' . $Identifier]['pymtdiscount'] * 100, 2) . '%';
+	} else {
+		$DisplayDiscountPercent = locale_number_format($ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount'] * 100, 2) . '%';
+	}
 
 	echo '<input type="hidden" name="CustomerID" value="', $_POST['CustomerID'], '" />';
 	echo '<input type="hidden" name="CustomerName" value="', $_SESSION['CustomerRecord']['name'], '" />';
