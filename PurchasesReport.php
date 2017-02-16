@@ -250,7 +250,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 		<input name="PeriodTo" type="hidden" value="', $_POST['PeriodTo'], '" />
 		<input name="ShowDetails" type="hidden" value="', $_POST['ShowDetails'], '" />';
 
-	echo '<div class="centre noprint">
+	echo '<div class="centre noPrint">
 			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('New Report'), '</a>
 		</div>';
 
