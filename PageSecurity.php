@@ -6,7 +6,7 @@ include('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/security.png" title="' . _('Page Security Levels') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-if (isset($_POST['Update']) and $AlloDemoMode != true) {
+if (isset($_POST['Update']) and $AllowDemoMode != true) {
 	foreach ($_POST as $ScriptName => $PageSecurityValue) {
 		if ($ScriptName != 'Update' and $ScriptName != 'FormID') {
 			$ScriptName = mb_substr($ScriptName, 0, mb_strlen($ScriptName) - 4) . '.php';
