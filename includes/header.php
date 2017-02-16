@@ -152,7 +152,7 @@ if (isset($Title)) {
 }
 echo '</div>'; // HeaderWrapDiv
 echo '</div>'; // Headerdiv
-echo '<div id="HiddenOutput" style="display: none"></div>';
+//echo '<div id="HiddenOutput" style="display: none"></div>';
 echo '<div id="BodyDiv">';
 echo '<input type="hidden" name="Theme" id="Theme" value="', $_SESSION['Theme'], '" />';
 echo '<div id="BodyWrapDiv">';
