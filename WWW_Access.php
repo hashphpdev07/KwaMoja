@@ -49,7 +49,6 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 			$ResMsg = _('The Security role was created.');
 		}
 		unset($_POST['SecRoleName']);
-		unset($SelectedRole);
 	} elseif (isset($SelectedRole)) {
 		$PageTokenId = $_GET['PageToken'];
 		if (isset($_GET['add'])) { // updating Security Groups add a page token
@@ -75,6 +74,28 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 		$Result = DB_query($SQL, $ErrMsg);
 		if ($Result) {
 			prnMsg($ResMsg, 'success');
+			$SQL = "DELETE FROM modules WHERE secroleid='" . $SelectedRole . "'";
+			$Result = DB_query($SQL);
+			$SQL = "DELETE FROM menuitems WHERE secroleid='" . $SelectedRole . "'";
+			$Result = DB_query($SQL);
+			$SQL = "INSERT INTO `modules` SELECT '" . $SelectedRole . "',
+											modulelink,
+											reportlink,
+											modulename,
+											sequence
+										FROM modules
+										WHERE secroleid=8";
+			$Result = DB_query($SQL);
+			$SQL = "INSERT INTO `menuitems` SELECT '" . $SelectedRole . "',
+											modulelink,
+											menusection,
+											caption,
+											url,
+											sequence
+										FROM menuitems
+										WHERE secroleid=8";
+			$Result = DB_query($SQL);
+			unset($SelectedRole);
 		}
 	}
 } elseif (isset($_GET['delete'])) {
