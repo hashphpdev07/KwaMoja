@@ -178,8 +178,16 @@ if (isset($_POST['BankAccount']) and $_POST['BankAccount'] != '') {
 	} else {
 		$DefaultFunctionalRate = false;
 	}
+} else {
+	$SQL = "SELECT currabrev,
+					decimalplaces
+				FROM currencies
+				WHERE currabrev='" . $_SESSION['CompanyRecord']['currencydefault'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	$_SESSION['PaymentDetail' . $Identifier]->AccountCurrency = $MyRow['currabrev'];
+	$_SESSION['PaymentDetail' . $Identifier]->CurrDecimalPlaces = $MyRow['decimalplaces'];
 }
-
 if (isset($_POST['DatePaid']) and $_POST['DatePaid'] != '' and is_date($_POST['DatePaid'])) {
 	$_SESSION['PaymentDetail' . $Identifier]->DatePaid = $_POST['DatePaid'];
 } //isset($_POST['DatePaid']) and $_POST['DatePaid'] != '' and is_date($_POST['DatePaid'])
