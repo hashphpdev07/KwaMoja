@@ -177,6 +177,7 @@ $SQL = "SELECT supptrans.id,
 			supptrans.hold,
 			supptrans.settled,
 			supptrans.transtext,
+			supptrans.id,
 			supptrans.supplierno
 		FROM supptrans,
 			systypes
@@ -258,13 +259,13 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 				<td class="number">' . locale_number_format($MyRow['allocated'],$SupplierRecord['currdecimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($MyRow['totalamount']-$MyRow['allocated'],$SupplierRecord['currdecimalplaces']) . '</td>';
 
-	$PaymentTD1 = '<td class="noPrint"><a href="' . $RootPath . '/PaymentAllocations.php?SuppID=%s&amp;InvID=%s" title="' . _('Click to view payments') . '"><img width="16px" alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_delete.png" width="16"/> ' . _('Payments') . '</a></td>';
+	$PaymentTD1 = '<td class="noPrint"><a href="' . $RootPath . '/PaymentAllocations.php?SuppID=' . urlencode($SupplierID) . '&amp;InvID=' . urlencode($MyRow['suppreference']) . '" title="' . _('Click to view payments') . '"><img width="16px" alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_delete.png" width="16"/> ' . _('Payments') . '</a></td>';
 
 /* To do: $HoldValueTD1*/
 
-	$AllocationTD1 = '<td class="noPrint"><a href="' . $RootPath . '/SupplierAllocations.php?AllocTrans=%s" title="' . _('Click to allocate funds') . '"><img width="16px" alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/allocation.png" /> ' . _('Allocation') . '</a></td>';
+	$AllocationTD1 = '<td class="noPrint"><a href="' . $RootPath . '/SupplierAllocations.php?AllocTrans=' . urlencode($MyRow['id']) . '" title="' . _('Click to allocate funds') . '"><img width="16px" alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/allocation.png" /> ' . _('Allocation') . '</a></td>';
 
-	$GLEntriesTD1 = '<td class="noPrint"><a href="' . $RootPath . '/GLTransInquiry.php?TypeID=%s&amp;TransNo=%s" target="_blank" title="' . _('Click to view the GL entries') . '"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/gl.png" width="16" /> ' . _('GL Entries') . '</a></td>';
+	$GLEntriesTD1 = '<td class="noPrint"><a href="' . $RootPath . '/GLTransInquiry.php?TypeID=' . urlencode($MyRow['type']) . '&amp;TransNo=' . urlencode($MyRow['transno']) . '" target="_blank" title="' . _('Click to view the GL entries') . '"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/gl.png" width="16" /> ' . _('GL Entries') . '</a></td>';
 
 	if ($MyRow['type'] == 20) { /*Show a link to allow GL postings to be viewed but no link to allocate */
 
