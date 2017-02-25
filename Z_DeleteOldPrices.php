@@ -6,7 +6,7 @@ include('includes/header.php');
 
 if (isset($_GET['DeleteOldPrices'])) {
 	DB_Txn_Begin();
-	$Result = DB_query("DELETE FROM prices WHERE enddate<CURRENT_DATE AND enddate <>'0000-00-00'", '', '', true);
+	$Result = DB_query("DELETE FROM prices WHERE enddate<CURRENT_DATE AND enddate <>'9999-12-31'", '', '', true);
 	$Result = DB_query("SELECT stockid,
 							typeabbrev,
 							currabrev,
@@ -15,7 +15,7 @@ if (isset($_GET['DeleteOldPrices'])) {
 							MAX(startdate) as lateststart
 					FROM prices
 					WHERE startdate<=CURRENT_DATE
-					AND enddate ='0000-00-00'
+					AND enddate ='9999-12-31'
 					GROUP BY stockid,
 							typeabbrev,
 							currabrev,
@@ -28,7 +28,7 @@ if (isset($_GET['DeleteOldPrices'])) {
 													AND branchcode='" . $MyRow['branchcode'] . "'
 													AND currabrev='" . $MyRow['currabrev'] . "'
 													AND typeabbrev='" . $MyRow['typeabbrev'] . "'
-													AND enddate='0000-00-00'
+													AND enddate='9999-12-31'
 													AND startdate<'" . $MyRow['lateststart'] . "'", '', '', true);
 	}
 	prnMsg(_('All old prices have been deleted'), 'success');

@@ -768,14 +768,10 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	/* end of loop around items */
 
 	echo '<tr class="EvenTableRows">
-			<td colspan="8" class="number"><b>', _('Total'), '</b></td>
+			<td colspan="7" class="number"><b>', _('Total'), '</b></td>
 			<td class="number">', locale_number_format(($_SESSION['Items' . $Identifier]->total), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
 			<td class="number">', locale_number_format($TaxTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
 			<td class="number">', locale_number_format(($_SESSION['Items' . $Identifier]->total + $TaxTotal), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
-		</tr>
-		<tr class="EvenTableRows">
-			<td colspan="10" class="number"><b>', _('Rounded Total'), '</b></td>
-			<td class="number">', locale_number_format(round($_SESSION['Items' . $Identifier]->total + $TaxTotal, 0), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
 		</tr>
 	</table>';
 	echo '<input type="hidden" name="TaxTotal" value="', $TaxTotal, '" />';
