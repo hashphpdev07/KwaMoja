@@ -76,16 +76,16 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The date this price is to take effect from must be entered in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
 	}
 	if ($_POST['EndDate'] != '') {
-		if (FormatDateForSQL($_POST['EndDate']) != '0000-00-00') {
+		if (FormatDateForSQL($_POST['EndDate']) != '9999-12-31') {
 			if (!is_date($_POST['EndDate']) and $_POST['EndDate'] != '') {
 				$InputError = 1;
 				prnMsg(_('The date this price is be in effect to must be entered in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
 			}
-			if (Date1GreaterThanDate2($_POST['StartDate'], $_POST['EndDate']) and $_POST['EndDate'] != '' and FormatDateForSQL($_POST['EndDate']) != '0000-00-00') {
+			if (Date1GreaterThanDate2($_POST['StartDate'], $_POST['EndDate']) and $_POST['EndDate'] != '' and FormatDateForSQL($_POST['EndDate']) != '9999-12-31') {
 				$InputError = 1;
 				prnMsg(_('The end date is expected to be after the start date, enter an end date after the start date for this price'), 'error');
 			}
-			if (Date1GreaterThanDate2(Date($_SESSION['DefaultDateFormat']), $_POST['EndDate']) and $_POST['EndDate'] != '' and FormatDateForSQL($_POST['EndDate']) != '0000-00-00') {
+			if (Date1GreaterThanDate2(Date($_SESSION['DefaultDateFormat']), $_POST['EndDate']) and $_POST['EndDate'] != '' and FormatDateForSQL($_POST['EndDate']) != '9999-12-31') {
 				$InputError = 1;
 				prnMsg(_('The end date is expected to be after today. There is no point entering a new price where the effective date is before today!'), 'error');
 			}
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
 	if (is_date($_POST['EndDate'])) {
 		$SQLEndDate = FormatDateForSQL($_POST['EndDate']);
 	} else {
-		$SQLEndDate = '0000-00-00';
+		$SQLEndDate = '9999-12-31';
 	}
 
 	$SQL = "SELECT COUNT(typeabbrev)
@@ -238,7 +238,7 @@ if (DB_num_rows($Result) > 0) {
 			echo '<tr class="OddTableRows">';
 			$k = 1;
 		}
-		if ($MyRow['enddate'] == '0000-00-00') {
+		if ($MyRow['enddate'] == '9999-12-31') {
 			$EndDateDisplay = _('No End Date');
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
@@ -276,7 +276,7 @@ if (isset($_GET['Edit'])) {
 	/*the price sent with the get is sql format price so no need to filter */
 	$_POST['Price'] = $_GET['Price'];
 	$_POST['StartDate'] = ConvertSQLDate($_GET['StartDate']);
-	if ($_GET['EndDate'] == '' or $_GET['EndDate'] == '0000-00-00') {
+	if ($_GET['EndDate'] == '' or $_GET['EndDate'] == '9999-12-31') {
 		$_POST['EndDate'] = '';
 	} else {
 		$_POST['EndDate'] = ConvertSQLDate($_GET['EndDate']);
@@ -377,7 +377,7 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 				AND stockid='" . $Item . "'
 				AND currabrev='" . $CurrAbbrev . "'
 				AND typeabbrev='" . $PriceList . "'
-				AND enddate <>'0000-00-00'
+				AND enddate <>'9999-12-31'
 				ORDER BY startdate, enddate";
 	$Result = DB_query($SQL);
 
@@ -415,7 +415,7 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 					AND stockid='" . $Item . "'
 					AND currabrev='" . $CurrAbbrev . "'
 					AND typeabbrev='" . $PriceList . "'
-					AND enddate ='0000-00-00'
+					AND enddate ='9999-12-31'
 					ORDER BY startdate";
 	$Result = DB_query($SQL);
 
@@ -428,7 +428,7 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 							AND currabrev='" . $CurrAbbrev . "'
 							AND typeabbrev='" . $PriceList . "'
 							AND startdate ='" . $OldStartDate . "'
-							AND enddate = '0000-00-00'
+							AND enddate = '9999-12-31'
 							AND debtorno =''";
 			$UpdateResult = DB_query($SQL);
 		}
