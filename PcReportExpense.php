@@ -5,6 +5,22 @@ $Title = _('Petty Cash Expense Management Report');
 $ViewTopic = 'PettyCash';
 $BookMark = 'PcReportExpense';
 
+if (isset($_GET['download'])) {
+	$SQL = "SELECT type,
+					size,
+					content
+				FROM pcreceipts
+				WHERE pccashdetail='" . $_GET['receipt'] . "'
+					AND name='" . $_GET['name'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	header('Content-type: ' . $MyRow['type'] . "\n");
+	header('Content-Disposition: attachment; filename=' . $_GET['name'] . "\n");
+	header('Content-Length: ' . $MyRow['size'] . "\n");
+	echo $MyRow['content'];
+	exit;
+}
+
 include('includes/SQL_CommonFunctions.php');
 include('includes/header.php');
 
@@ -98,7 +114,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			</tr>
 		</table>';
 
-	$SQL = "SELECT pcashdetails.date,
+	$SQL = "SELECT pcashdetails.counterindex,
+					pcashdetails.date,
 					pcashdetails.tabcode,
 					pcashdetails.amount,
 					pcashdetails.notes,
@@ -141,13 +158,23 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			echo '<tr class="OddTableRows">';
 			$k = 1;
 		}
+		$ReceiptSQL = "SELECT name
+							FROM pcreceipts
+							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
+		$ReceiptResult = DB_query($ReceiptSQL);
+		if (DB_num_rows($ReceiptResult) > 0) {
+			$ReceiptRow = DB_fetch_array($ReceiptResult);
+			$ReceiptText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($ReceiptRow['name']) . '">' . _('View receipt') . '</a>';
+		} else {
+			$ReceiptText = _('No receipt');
+		}
 
 		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
 				<td>', $MyRow['tabcode'], '</td>
 				<td class="number">', locale_number_format($MyRow['amount'], $MyRow['decimalplaces']), '</td>
 				<td>', $MyRow['currency'], '</td>
 				<td>', $MyRow['notes'], '</td>
-				<td>', $MyRow['receipt'], '</td>
+				<td>', $ReceiptText, '</td>
 				<td>', ConvertSQLDate($MyRow['authorized']), '</td>
 			</tr>';
 	}
