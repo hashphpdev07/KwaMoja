@@ -675,7 +675,7 @@ if (count($_SESSION['SPL' . $Identifier]->LineItems) > 0) {
 			<td class="number">' . $DisplayLineTotal . '</td>
 			<td class="number">' . $DisplayLineCostTotalCurr . '</td>
 			<td class="number">' . $DisplayLineTotalCurr . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $SPLLine->LineNo . '">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $SPLLine->LineNo . '">' . _('Delete') . '</a></td>
 		</tr>';
 
 		$_SESSION['SPL' . $Identifier]->total += ($LineTotal / $_SESSION['SPL' . $Identifier]->CustCurrExRate);
