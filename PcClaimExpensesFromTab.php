@@ -287,6 +287,15 @@ if (isset($_POST['submit'])) {
 			WHERE counterindex='" . $SelectedIndex . "'";
 	$ErrMsg = _('Petty Cash Expense record could not be deleted because');
 	$Result = DB_query($SQL, $ErrMsg);
+
+	$SQL = "DELETE FROM pctags
+			WHERE pccashdetail='" . $SelectedIndex . "'";
+	$Result = DB_query($SQL, $ErrMsg);
+
+	$SQL = "DELETE FROM pcreceipts
+			WHERE pccashdetail='" . $SelectedIndex . "'";
+	$Result = DB_query($SQL, $ErrMsg);
+
 	prnMsg(_('Petty cash Expense record') . ' ' . $SelectedTabs . ' ' . _('has been deleted'), 'success');
 
 	unset($_GET['delete']);
