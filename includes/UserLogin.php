@@ -111,7 +111,7 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 			require_once 'MobileDetect.php';
 			$MobileDetect = new Mobile_Detect;
 			if ($MobileDetect->isMobile()) {
-				$_SESSION['Theme'] = 'mobile';
+//				$_SESSION['Theme'] = 'mobile';
 			}
 			$_SESSION['Language'] = $MyRow['language'];
 			$_SESSION['SalesmanLogin'] = $MyRow['salesman'];
