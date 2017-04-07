@@ -22,7 +22,7 @@ echo '<!DOCTYPE html>';
 
 echo '<html moznomarginboxes mozdisallowselectionprint>
 		<head>
-			<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />
+			<meta http-equiv="Content-Type" content="application/html; charset=utf-8; cache-control: no-cache, no-store, must-revalidate; Pragma: no-cache" />
 			<title>', $Title, '</title>
 			<link rel="icon" href="', $RootPath, '/favicon.ico" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
