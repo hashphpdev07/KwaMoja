@@ -193,7 +193,7 @@ if(!isset($_SESSION['PeriodProfitAccount']) or $_SESSION['PeriodProfitAccount']=
 		$_SESSION['PeriodProfitAccount'] = $MyRow['confvalue'];
 	}
 }
-foreach ($GLAccounts as $MyRow) {
+while ($MyRow = DB_fetch_array($GLAccounts)) {
 	echo '<option', ($MyRow['accountcode'] == $_SESSION['PeriodProfitAccount'] ? ' selected="selected"' : ''), ' value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', $MyRow['accountname'], '</option>';
 }
 echo '</select>', (!isset($field_help) || $field_help ? _('GL account to post the net profit for the period') : ''), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.*/
@@ -214,7 +214,8 @@ if(!isset($_SESSION['RetainedEarningsAccount']) or $_SESSION['RetainedEarningsAc
 		$_SESSION['RetainedEarningsAccount'] = $MyRow['retainedearnings'];
 	}
 }
-foreach ($GLAccounts as $MyRow) {
+DB_data_seek($GLAccounts, 0);
+while ($MyRow = DB_fetch_array($GLAccounts)) {
 	echo '<option', ($MyRow['accountcode'] == $_SESSION['RetainedEarningsAccount'] ? ' selected="selected"' : ''), ' value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', $MyRow['accountname'], '</option>';
 }
 echo '</select>', (!isset($field_help) || $field_help ? _('GL account to post the retained earnings') : ''), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.*/

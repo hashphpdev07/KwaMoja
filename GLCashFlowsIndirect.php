@@ -228,7 +228,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		$IdSection = -1;
 		// Looks for an account without setting up:
 		$NeedSetup = FALSE;
-		foreach ($Result as $MyRow) {
+		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['cashflowsactivity'] == -1) {
 				$NeedSetup = TRUE;
 				echo '<tr>
@@ -237,7 +237,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 				break;
 			}
 		}
-		foreach ($Result as $MyRow) {
+		DB_data_seek($Result, 0);
+		while ($MyRow = DB_fetch_array($Result)) {
 			if ($IdSection <> $MyRow['cashflowsactivity']) {
 				// Prints section total:
 				echo '<tr>
@@ -298,7 +299,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					GROUP BY chartdetails.accountcode
 					ORDER BY chartdetails.accountcode";
 			$Result = DB_query($SQL);
-			foreach ($Result as $MyRow) {
+			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					if ($k == 1) {
 						echo '<tr class="OddTableRows">';
@@ -348,7 +349,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					GROUP BY chartdetails.accountcode
 					ORDER BY chartdetails.accountcode";
 			$Result = DB_query($SQL);
-			foreach ($Result as $MyRow) {
+			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					if ($k == 1) {
 						echo '<tr class="OddTableRows">';
@@ -389,7 +390,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			ORDER BY
 				chartdetails.accountcode";
 			$Result = DB_query($SQL);
-			foreach ($Result as $MyRow) {
+			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					if ($k == 1) {
 						echo '<tr class="OddTableRows">';
@@ -485,14 +486,15 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		$IdSection = -1;
 		// Looks for an account without setting up:
 		$NeedSetup = False;
-		foreach ($Result as $MyRow) {
+		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['cashflowsactivity'] == -1) {
 				$NeedSetup = True;
 				echo '<tr><td colspan="8">&nbsp;</td></tr>';
 				break;
 			}
 		}
-		foreach ($Result as $MyRow) {
+		DB_data_seek($Result, 0);
+		while ($MyRow = DB_fetch_array($Result)) {
 			if ($IdSection <> $MyRow['cashflowsactivity']) {
 				// Prints section total:
 				echo '<tr>
@@ -546,7 +548,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					GROUP BY chartdetails.accountcode
 					ORDER BY chartdetails.accountcode";
 			$Result = DB_query($SQL);
-			foreach ($Result as $MyRow) {
+			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					if ($k == 1) {
 						echo '<tr class="OddTableRows">';
@@ -592,7 +594,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					GROUP BY chartdetails.accountcode
 					ORDER BY chartdetails.accountcode";
 			$Result = DB_query($SQL);
-			foreach ($Result as $MyRow) {
+			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					if ($k == 1) {
 						echo '<tr class="OddTableRows">';
@@ -631,7 +633,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			ORDER BY
 				chartdetails.accountcode";
 			$Result = DB_query($SQL);
-			foreach ($Result as $MyRow) {
+			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					if ($k == 1) {
 						echo '<tr class="OddTableRows">';
@@ -721,7 +723,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		}
 		$_POST['PeriodFrom'] = GetPeriod(date($_SESSION['DefaultDateFormat'], $BeginDate), $db);
 	}
-	foreach ($Periods as $MyRow) {
+	while ($MyRow = DB_fetch_array($Periods)) {
 		if ($MyRow['periodno'] == $_POST['PeriodFrom']) {
 			echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		} else {
@@ -741,7 +743,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	if (!isset($_POST['PeriodTo'])) {
 		$_POST['PeriodTo'] = GetPeriod(date($_SESSION['DefaultDateFormat']), $db);
 	}
-	foreach ($Periods as $MyRow) {
+	DB_data_seek($Periods, 0);
+	while ($MyRow = DB_fetch_array($Periods)) {
 		if ($MyRow['periodno'] == $_POST['PeriodTo']) {
 			echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		} else {

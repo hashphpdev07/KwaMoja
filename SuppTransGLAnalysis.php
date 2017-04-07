@@ -186,11 +186,14 @@ echo '<tr>
 if (!isset($_POST['AcctSelection']) or $_POST['AcctSelection'] == '') {
 	$_POST['AcctSelection'] = $SupplierCodeRow[0];
 }
-$SQL = "SELECT accountcode,
-				accountname
-			FROM chartmaster
-			WHERE language='" . $_SESSION['ChartLanguage'] . "'
-			ORDER BY accountcode";
+$SQL = "SELECT chartmaster.accountcode,
+			   chartmaster.accountname
+		FROM chartmaster
+		INNER JOIN glaccountusers
+			ON glaccountusers.accountcode=chartmaster.accountcode
+			AND glaccountusers.userid='" .  $_SESSION['UserID'] . "' AND glaccountusers.canupd=1
+		WHERE language='" . $_SESSION['ChartLanguage'] . "'
+		ORDER BY accountcode";
 $Result = DB_query($SQL);
 echo '<option value=""></option>';
 while ($MyRow = DB_fetch_array($Result)) {

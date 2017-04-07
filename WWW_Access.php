@@ -74,19 +74,20 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 		$Result = DB_query($SQL, $ErrMsg);
 		if ($Result) {
 			prnMsg($ResMsg, 'success');
-			$SQL = "DELETE FROM modules WHERE secroleid='" . $SelectedRole . "'";
-			$Result = DB_query($SQL);
-			$SQL = "DELETE FROM menuitems WHERE secroleid='" . $SelectedRole . "'";
-			$Result = DB_query($SQL);
-			$SQL = "INSERT INTO `modules` SELECT '" . $SelectedRole . "',
-											modulelink,
-											reportlink,
-											modulename,
-											sequence
-										FROM modules
-										WHERE secroleid=8";
-			$Result = DB_query($SQL);
-			$SQL = "INSERT INTO `menuitems` SELECT '" . $SelectedRole . "',
+			if (isset($SelectedRole)) {
+				$SQL = "DELETE FROM modules WHERE secroleid='" . $SelectedRole . "'";
+				$Result = DB_query($SQL);
+				$SQL = "DELETE FROM menuitems WHERE secroleid='" . $SelectedRole . "'";
+				$Result = DB_query($SQL);
+				$SQL = "INSERT INTO `modules` SELECT '" . $SelectedRole . "',
+												modulelink,
+												reportlink,
+												modulename,
+												sequence
+											FROM modules
+											WHERE secroleid=8";
+				$Result = DB_query($SQL);
+				$SQL = "INSERT INTO `menuitems` SELECT '" . $SelectedRole . "',
 											modulelink,
 											menusection,
 											caption,
@@ -94,8 +95,8 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 											sequence
 										FROM menuitems
 										WHERE secroleid=8";
-			$Result = DB_query($SQL);
-			unset($SelectedRole);
+				$Result = DB_query($SQL);
+			}
 		}
 	}
 } elseif (isset($_GET['delete'])) {

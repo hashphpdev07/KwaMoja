@@ -21,7 +21,8 @@ echo '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />';
 if (!$MobileDetect->isMobile()) {
 	echo '<link rel="stylesheet" href="css/login.css" type="text/css" />';
 } else {
-	echo '<link rel="stylesheet" href="css/login-mobile.css" type="text/css" />';
+//	echo '<link rel="stylesheet" href="css/login-mobile.css" type="text/css" />';
+	echo '<link rel="stylesheet" href="css/login.css" type="text/css" />';
 }
 ?>
 	<!-- Javascript required for Twitter follow me button-->
