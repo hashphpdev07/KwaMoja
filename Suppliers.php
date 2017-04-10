@@ -735,7 +735,8 @@ if (!isset($SupplierID)) {
 						taxgroupid,
 						factorcompanyid,
 						defaultshipper,
-						taxref
+						taxref,
+						defaultgl
 					FROM suppliers
 					WHERE supplierid = '" . DB_escape_string($SupplierID) . "'";
 
@@ -765,6 +766,7 @@ if (!isset($SupplierID)) {
 		$_POST['FactorID'] = $MyRow['factorcompanyid'];
 		$_POST['DefaultShipper'] = $MyRow['defaultshipper'];
 		$_POST['TaxRef'] = $MyRow['taxref'];
+		$_POST['DefaultGL'] = $MyRow['defaultgl'];
 
 		echo '<tr><td><input type="hidden" name="SupplierID" value="' . $SupplierID . '" /></td></tr>';
 
