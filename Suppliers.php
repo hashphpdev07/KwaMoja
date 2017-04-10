@@ -768,7 +768,18 @@ if (!isset($SupplierID)) {
 		$_POST['TaxRef'] = $MyRow['taxref'];
 		$_POST['DefaultGL'] = $MyRow['defaultgl'];
 
-		echo '<tr><td><input type="hidden" name="SupplierID" value="' . $SupplierID . '" /></td></tr>';
+		if (isset($_GET['Copy'])) {
+			echo '<input type="hidden" name="New" value="Yes" />';
+			if ($_SESSION['AutoSupplierNo'] == 0) {
+				// its a new supplier being added
+				echo '<tr>
+						<td>' . _('Supplier Code') . ':</td>
+						<td><input type="text" name="SupplierID" value="" size="12" maxlength="10" /></td>
+					</tr>';
+			}
+		} else {
+			echo '<tr><td><input type="hidden" name="SupplierID" value="' . $SupplierID . '" /></td></tr>';
+		}
 
 	} else {
 		/* if $AutoSupplierNo is off (i.e. 0) then provide an input box for the SupplierID to manually assigned */
