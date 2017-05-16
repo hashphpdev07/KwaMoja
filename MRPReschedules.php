@@ -6,8 +6,7 @@
 
 include('includes/session.php');
 
-$Result = DB_show_tables('mrprequirements');
-if (DB_num_rows($Result) == 0) {
+if (!DB_table_exists('mrprequirements')) {
 	$Title = 'MRP error';
 	include('includes/header.php');
 	echo '<br />';
