@@ -83,8 +83,8 @@ if (isset($_POST['Modify'])) {
 			$DbgMsg = _('The SQL that was used to update the user and failed was');
 
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+			prnMsg(_('The user settings have been updated'), 'success');
 
-			prnMsg(_('The user settings have been updated') . '. ' . _('Be sure to remember your password for the next time you login'), 'success');
 		} else {
 			$SQL = "UPDATE www_users
 				SET displayrecordsmax='" . $_POST['DisplayRecordsMax'] . "',
@@ -103,7 +103,7 @@ if (isset($_POST['Modify'])) {
 
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-			prnMsg(_('The user settings have been updated'), 'success');
+			prnMsg(_('The user settings have been updated') . '. ' . _('Be sure to remember your password for the next time you login'), 'success');
 		}
 		// update the session variables to reflect user changes on-the-fly
 		$_SESSION['DisplayRecordsMax'] = $_POST['DisplayRecordsMax'];
