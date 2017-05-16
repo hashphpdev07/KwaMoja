@@ -183,7 +183,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The default user locations could not be processed because');
 		$DbgMsg = _('The SQL that was used to create the user locations and failed was');
 		$Result = DB_query($LocationSql, $ErrMsg, $DbgMsg);
-		prnMsg( _('User has been authorized to use and update only his / her default location'), 'success' );
+		prnMsg( _('User has been authorised to use and update only his / her default location'), 'success' );
 
 		$GLAccountsSql = "INSERT INTO glaccountusers (userid,
 													accountcode,
@@ -198,7 +198,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The default user GL Accounts could not be processed because');
 		$DbgMsg = _('The SQL that was used to create the user GL Accounts and failed was');
 		$Result = DB_query($GLAccountsSql, $ErrMsg, $DbgMsg);
-		prnMsg( _('User has been authorized to use and update all GL accounts'), 'success' );
+		prnMsg( _('User has been authorised to use and update all GL accounts'), 'success' );
 
 		$SQL = "INSERT INTO www_users (userid,
 						realname,
@@ -289,7 +289,7 @@ if (isset($_POST['submit'])) {
 
 
 	if ($AllowDemoMode and $SelectedUser == 'admin') {
-		prnMsg(_('The demonstration user called demo cannot be deleted'), 'error');
+		prnMsg(_('The administration user called admin cannot be deleted'), 'error');
 	} else {
 
 		$SQL = "SELECT userid FROM audittrail where userid='" . $SelectedUser . "'";

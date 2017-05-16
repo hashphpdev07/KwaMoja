@@ -20,7 +20,7 @@ include('includes/DefineSuppAllocsClass.php');
 include('includes/session.php');
 $Title = _('Supplier Payment') . '/' . _('Credit Note Allocations');
 $ViewTopic = 'ARTransactions';// Filename in ManualContents.php's TOC./* RChacon: To do ManualAPInquiries.html from ManualARInquiries.html */
-$BookMark = 'SupplierAllocations';// Anchor's id in the manual's html document.
+$BookMark = 'SupplierAllocations';
 include('includes/header.php');
 include('includes/SQL_CommonFunctions.php');
 
@@ -206,7 +206,7 @@ if (isset($_POST['UpdateDatabase'])) {
 								'" . $_SESSION['Alloc']->TransDate . "',
 								'" . $PeriodNo . "',
 								'" . $_SESSION['CompanyRecord']['purchasesexchangediffact'] . "',
-								'" . _('Exch diff') . "',
+								'" . _('Exchange diff') . "',
 								'" . $MovtInDiffOnExch . "')";
 
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The GL entry for the difference on exchange arising out of this allocation could not be inserted because');
@@ -227,7 +227,7 @@ if (isset($_POST['UpdateDatabase'])) {
 								'" . $_SESSION['Alloc']->TransDate . "',
 								'" . $PeriodNo . "',
 								'" . $_SESSION['CompanyRecord']['creditorsact'] . "',
-								'" . _('Exch Diff') . "',
+								'" . _('Exchange Diff') . "',
 								'" . -$MovtInDiffOnExch . "')";
 
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ' : ' . _('The GL entry for the difference on exchange arising out of this allocation could not be inserted because');
