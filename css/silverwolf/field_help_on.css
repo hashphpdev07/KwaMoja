@@ -1,0 +1,39 @@
+form input:not([type=submit]):focus + span {
+background:#BDF3BD;
+color:#0E3E0E;
+padding:2px;
+border-radius:2px;
+margin-left:2px;
+visibility:visible;
+display: inline;
+width:200%;
+}
+
+form input:not([type=submit]) + span {
+padding:2px;
+border-radius:2px;
+margin-left:2px;
+display: inline;
+width:100%;
+visibility:hidden;
+}
+
+form select:focus + span {
+background:#BDF3BD;
+color:#0E3E0E;
+padding:2px;
+border-radius:2px;
+margin-left:2px;
+visibility:visible;
+display: inline;
+width:200%;
+}
+
+form select + span {
+padding:2px;
+border-radius:2px;
+margin-left:2px;
+display: inline;
+width:100%;
+visibility:hidden;
+}

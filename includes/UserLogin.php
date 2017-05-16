@@ -117,6 +117,8 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 			$_SESSION['SalesmanLogin'] = $MyRow['salesman'];
 			$_SESSION['CanCreateTender'] = $MyRow['cancreatetender'];
 			$_SESSION['AllowedDepartment'] = $MyRow['department'];
+			$_SESSION['ShowFieldHelp'] = $MyRow['showfieldhelp'];
+			$_SESSION['ShowPageHelp'] = $MyRow['showpagehelp'];
 			if (isset($MyRow['fontsize'])) {
 				switch ($MyRow['fontsize']) {
 					case 0:

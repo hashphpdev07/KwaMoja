@@ -1,0 +1,15 @@
+form input:not([type=submit]):focus + span {
+display:none;
+}
+
+form input:not([type=submit]) + span {
+display:none;
+}
+
+form select:focus + span {
+display:none;
+}
+
+form select + span {
+display:none;
+}

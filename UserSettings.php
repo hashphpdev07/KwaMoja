@@ -5,6 +5,15 @@ include('includes/session.php');
 $Title = _('User Settings');
 $ViewTopic = 'GettingStarted';
 $BookMark = 'UserSettings';
+
+if (isset($_POST['ShowPageHelp'])) {
+	$_SESSION['ShowPageHelp'] = $_POST['ShowPageHelp'];
+}
+
+if (isset($_POST['ShowFieldHelp'])) {
+	$_SESSION['ShowFieldHelp'] = $_POST['ShowFieldHelp'];
+}
+
 include('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '</p>';
@@ -65,7 +74,9 @@ if (isset($_POST['Modify'])) {
 					language='" . $_POST['Language'] . "',
 					email='" . $_POST['email'] . "',
 					pdflanguage='" . $_POST['PDFLanguage'] . "',
-					fontsize='" . $_POST['FontSize'] . "'
+					fontsize='" . $_POST['FontSize'] . "',
+					showpagehelp='" . $_POST['ShowPageHelp'] . "',
+					showfieldhelp='" . $_POST['ShowFieldHelp'] . "'
 				WHERE userid = '" . $_SESSION['UserID'] . "'";
 
 			$ErrMsg = _('The user alterations could not be processed because');
@@ -82,7 +93,9 @@ if (isset($_POST['Modify'])) {
 					email='" . $_POST['email'] . "',
 					pdflanguage='" . $_POST['PDFLanguage'] . "',
 					password='" . CryptPass($_POST['Password']) . "',
-					fontsize='" . $_POST['FontSize'] . "'
+					fontsize='" . $_POST['FontSize'] . "',
+					showpagehelp='" . $_POST['ShowPageHelp'] . "',
+					showfieldhelp='" . $_POST['ShowFieldHelp'] . "'
 				WHERE userid = '" . $_SESSION['UserID'] . "'";
 
 			$ErrMsg = _('The user alterations could not be processed because');
@@ -99,6 +112,7 @@ if (isset($_POST['Modify'])) {
 		$_SESSION['Theme'] = $_SESSION['Theme'];
 		$_SESSION['Language'] = trim($_POST['Language']);
 		$_SESSION['PDFLanguage'] = $_POST['PDFLanguage'];
+		$_SESSION['ShowFieldHelp'] = $_POST['ShowFieldHelp'];
 		include('includes/MainMenuLinksArray.php');
 		include('includes/LanguageSetup.php');
 
@@ -115,6 +129,9 @@ if (!isset($_POST['DisplayRecordsMax']) or $_POST['DisplayRecordsMax'] == '') {
 	$_POST['DisplayRecordsMax'] = $_SESSION['DefaultDisplayRecordsMax'];
 
 }
+echo '<div class="page_help_text">' . _('This page contaains the users settings than can be changed by the user themselves.') .
+		'<br />' . _('For help, click on the help icon in the top right') .
+		'<br />' . _('Once you have filled in the details, click on the button at the bottom of the screen') . '</div>';
 
 echo '<table class="selection">
 		<tr>
@@ -130,7 +147,10 @@ echo '<tr>
 
 echo '<tr>
 		<td>', _('Maximum Number of Records to Display'), ':</td>
-		<td><input type="text" class="number" name="DisplayRecordsMax" size="3" required="required" maxlength="3" value="', $_POST['DisplayRecordsMax'], '"  /></td>
+		<td>
+			<input type="text" class="number" autofocus="autofocus" name="DisplayRecordsMax" size="3" required="required" maxlength="3" value="', $_POST['DisplayRecordsMax'], '"  />
+			<span>' . _('The maximum number of records to show on inquiries.') . '</span>
+		</td>
 	</tr>';
 
 
@@ -152,8 +172,9 @@ foreach ($LanguagesArray as $LanguageEntry => $LanguageName) {
 	}
 }
 echo '</select>
-			</td>
-		</tr>';
+			<span>' . _('The language to be used for this user.') . '</span>
+		</td>
+	</tr>';
 
 echo '<tr>
 		<td>', _('Theme'), ':</td>
@@ -178,22 +199,32 @@ if (!isset($_POST['Password'])) {
 	$_POST['Password'] = '';
 }
 echo '</select>
-			</td>
-		</tr>
+			<span>' . _('The theme to be used for this user.') . '</span>
+		</td>
+	</tr>
 	<tr>
 		<td>', _('New Password'), ':</td>
-		<td><input type="password" autocomplete="OFF" name="Password" size="20" value="', $_POST['Password'], '" /></td>
+		<td>
+			<input type="password" autocomplete="OFF" name="Password" size="20" value="', $_POST['Password'], '" />
+			<span>' . _('If you are changing the password enter it here. Otherwise leave blank.') . '</span>
+		</td>
 	</tr>
 	<tr>
 		<td>', _('Confirm Password'), ':</td>
-		<td><input type="password" name="PasswordCheck" size="20"  value="', $_POST['PasswordCheck'], '" /></td>
+		<td>
+			<input type="password" name="PasswordCheck" size="20"  value="', $_POST['PasswordCheck'], '" />
+			<span>' . _('Confirm the new password if you created one.') . '</span>
+		</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><i>', _('if you leave the password boxes empty your password will not change'), '</i></td>
 	</tr>
 	<tr>
 		<td>', _('Email'), ':</td>
-		<td><input type="email" name="email" size="40" value="', $_SESSION['UserEmail'], '" /></td>
+		<td>
+			<input type="email" name="email" size="20" value="', $_SESSION['UserEmail'], '" />
+			<span>' . _('The users email address.') . '</span>
+		</td>
 	</tr>';
 
 if (!isset($_POST['PDFLanguage'])) {
@@ -219,6 +250,38 @@ if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '8pt')
 	echo '<option selected="selected" value="2">', _('Large'), '</option>';
 }
 echo '</select>
+			<span>' . _('The size of font to be displayed for this user..') . '</span>
+		</td>
+	</tr>';
+
+// Turn off/on page help:
+echo '<tr>
+		<td><label for="ShowPageHelp">', _('Display page help'), ':</label></td>
+		<td><select id="ShowPageHelp" name="ShowPageHelp">';
+if ($_SESSION['ShowPageHelp'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>',
+		 '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>',
+ 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+			<span>' . _('Show page help when available.') . '</span>
+		</td>
+	</tr>';
+// Turn off/on field help:
+echo '<tr>
+		<td><label for="ShowFieldHelp">', _('Display field help'), ':</label></td>
+		<td><select id="ShowFieldHelp" name="ShowFieldHelp">';
+if ($_SESSION['ShowFieldHelp'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>',
+		 '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>',
+ 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+			<span>' . _('Show field help when available.') . '</span>
 		</td>
 	</tr>';
 

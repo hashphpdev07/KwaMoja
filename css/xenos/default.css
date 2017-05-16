@@ -260,20 +260,6 @@ div.success {
 div.info {
 	color:navy;
 }
-div.page_help_text {
-	background:lightgrey url(images/help.png) top left no-repeat;
-	border:thin solid #C3C3C3;
-	padding:4px 10px;
-	z-index:1;
-	width:80%;
-	float:none;
-	visibility:visible;
-	margin:0 auto;
-	position:static;
-	font-weight:normal;
-	color:black;
-	text-align:center;
-}
 
 /*** Calendar picker ***/
 #calendar{

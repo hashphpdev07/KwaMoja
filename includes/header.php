@@ -30,6 +30,18 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
 			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
 
+if ($_SESSION['ShowPageHelp'] == 0) {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
+} else {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_on.css" rel="stylesheet" type="text/css" media="screen" />';
+}
+
+if ($_SESSION['ShowFieldHelp'] == 0) {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/field_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
+} else {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/field_help_on.css" rel="stylesheet" type="text/css" media="screen" />';
+}
+
 if ($Debug === 0) {
 	echo '</head>';
 	if (isset($AutoPrintPage)) {
