@@ -12,9 +12,9 @@ function RelativeChange($SelectedPeriod, $PreviousPeriod) {
 }
 
 include('includes/session.php');
-$Title = _('Horizontal Analysis of Statement of Comprehensive Income'); // Screen identification.
-$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
-$BookMark = 'AnalysisHorizontalIncome'; // Anchor's id in the manual's html document.
+$Title = _('Horizontal Analysis of Statement of Comprehensive Income');
+$ViewTopic= 'GeneralLedger';
+$BookMark = 'AnalysisHorizontalIncome';
 include('includes/SQL_CommonFunctions.php');
 include('includes/AccountSectionsDef.php'); // This loads the $Sections variable
 
