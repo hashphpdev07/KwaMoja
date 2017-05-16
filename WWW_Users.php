@@ -164,7 +164,9 @@ if (isset($_POST['submit'])) {
 						pdflanguage='" . $_POST['PDFLanguage'] . "',
 						department='" . $_POST['Department'] . "',
 						fontsize='" . $_POST['FontSize'] . "',
-						defaulttag='" . $_POST['DefaultTag'] . "'
+						defaulttag='" . $_POST['DefaultTag'] . "',
+						showpagehelp='" . $_POST['ShowPageHelp'] . "',
+						showfieldhelp='" . $_POST['ShowFieldHelp'] . "'
 					WHERE userid = '" . $SelectedUser . "'";
 
 		prnMsg(_('The selected user record has been updated'), 'success');
@@ -221,7 +223,9 @@ if (isset($_POST['submit'])) {
 						pdflanguage,
 						department,
 						fontsize,
-						defaulttag)
+						defaulttag,
+						showpagehelp,
+						showfieldhelp)
 					VALUES ('" . $_POST['UserID'] . "',
 						'" . $_POST['RealName'] . "',
 						'" . $_POST['Cust'] . "',
@@ -243,12 +247,16 @@ if (isset($_POST['submit'])) {
 						'" . $_POST['PDFLanguage'] . "',
 						'" . $_POST['Department'] . "',
 						'" . $_POST['FontSize'] . "',
-						'" . $_POST['DefaultTag'] . "'
+						'" . $_POST['DefaultTag'] . "',
+						'" . $_POST['ShowPageHelp'] . "',
+						'" . $_POST['ShowFieldHelp'] . "'
 						)";
 		prnMsg(_('A new user record has been inserted'), 'success');
 	}
 	if ($_SESSION['UserID'] == $_POST['UserID']) {
 		$_SESSION['RestrictLocations'] = $_POST['RestrictLocations'];
+		$_SESSION['ShowPageHelp'] = $_POST['ShowPageHelp'];
+		$_SESSION['ShowFieldHelp'] = $_POST['ShowFieldHelp'];
 	}
 	if ($InputError != 1) {
 		//run the SQL from either of the above possibilites
@@ -279,6 +287,8 @@ if (isset($_POST['submit'])) {
 		unset($_POST['Department']);
 		unset($_POST['FontSize']);
 		unset($_POST['DefaultTag']);
+		unset($_POST['ShowPageHelp']);
+		unset($_POST['ShowFieldHelp']);
 		unset($SelectedUser);
 	}
 
@@ -340,7 +350,9 @@ if (!isset($SelectedUser)) {
 					theme,
 					language,
 					fontsize,
-					defaulttag
+					defaulttag,
+					showpagehelp,
+					showfieldhelp
 				FROM www_users";
 	$Result = DB_query($SQL);
 
@@ -453,7 +465,9 @@ if (isset($SelectedUser)) {
 			pdflanguage,
 			department,
 			fontsize,
-			defaulttag
+			defaulttag,
+			showpagehelp,
+			showfieldhelp
 		FROM www_users
 		WHERE userid='" . $SelectedUser . "'";
 
@@ -481,6 +495,8 @@ if (isset($SelectedUser)) {
 	$_POST['Department'] = $MyRow['department'];
 	$_POST['FontSize'] = $MyRow['fontsize'];
 	$_POST['DefaultTag'] = $MyRow['defaulttag'];
+	$_POST['ShowPageHelp'] = $MyRow['showpagehelp'];
+	$_POST['ShowFieldHelp'] = $MyRow['showfieldhelp'];
 
 	echo '<input type="hidden" name="SelectedUser" value="' . $SelectedUser . '" />';
 	echo '<input type="hidden" name="UserID" value="' . $_POST['UserID'] . '" />';
@@ -815,6 +831,37 @@ if (isset($_POST['Blocked']) and $_POST['Blocked'] == 0) {
 	echo '<option value="0">' . _('Open') . '</option>';
 }
 echo '</select></td>
+	</tr>';
+
+// Turn off/on page help:
+echo '<tr>
+		<td><label for="ShowPageHelp">', _('Display page help'), ':</label></td>
+		<td><select id="ShowPageHelp" name="ShowPageHelp">';
+if ($_SESSION['ShowPageHelp'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>',
+		 '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>',
+ 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+			<fieldhelp>' . _('Show page help when available.') . '</fieldhelp>
+		</td>
+	</tr>';
+// Turn off/on field help:
+echo '<tr>
+		<td><label for="ShowFieldHelp">', _('Display field help'), ':</label></td>
+		<td><select id="ShowFieldHelp" name="ShowFieldHelp">';
+if ($_SESSION['ShowFieldHelp'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>',
+		 '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>',
+ 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+			<fieldhelp>' . _('Show field help when available.') . '</fieldhelp>
+		</td>
 	</tr>';
 
 /* Screen Font Size */

@@ -1,15 +1,15 @@
-form input:not([type=submit]):focus + span {
+form input:not([type=submit]):focus + fieldhelp {
 display:none;
 }
 
-form input:not([type=submit]) + span {
+form input:not([type=submit]) + fieldhelp {
 display:none;
 }
 
-form select:focus + span {
+form select:focus + fieldhelp {
 display:none;
 }
 
-form select + span {
+form select + fieldhelp {
 display:none;
 }

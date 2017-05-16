@@ -149,7 +149,7 @@ echo '<tr>
 		<td>', _('Maximum Number of Records to Display'), ':</td>
 		<td>
 			<input type="text" class="number" autofocus="autofocus" name="DisplayRecordsMax" size="3" required="required" maxlength="3" value="', $_POST['DisplayRecordsMax'], '"  />
-			<span>' . _('The maximum number of records to show on inquiries.') . '</span>
+			<fieldhelp>' . _('The maximum number of records to show on inquiries.') . '</fieldhelp>
 		</td>
 	</tr>';
 
@@ -172,7 +172,7 @@ foreach ($LanguagesArray as $LanguageEntry => $LanguageName) {
 	}
 }
 echo '</select>
-			<span>' . _('The language to be used for this user.') . '</span>
+			<fieldhelp>' . _('The language to be used for this user.') . '</fieldhelp>
 		</td>
 	</tr>';
 
@@ -199,31 +199,31 @@ if (!isset($_POST['Password'])) {
 	$_POST['Password'] = '';
 }
 echo '</select>
-			<span>' . _('The theme to be used for this user.') . '</span>
+			<fieldhelp>' . _('The theme to be used for this user.') . '</fieldhelp>
 		</td>
 	</tr>
 	<tr>
 		<td>', _('New Password'), ':</td>
 		<td>
 			<input type="password" autocomplete="OFF" name="Password" size="20" value="', $_POST['Password'], '" />
-			<span>' . _('If you are changing the password enter it here. Otherwise leave blank.') . '</span>
+			<fieldhelp>' . _('If you are changing the password enter it here. Otherwise leave blank.') . '</fieldhelp>
 		</td>
 	</tr>
 	<tr>
 		<td>', _('Confirm Password'), ':</td>
 		<td>
 			<input type="password" name="PasswordCheck" size="20"  value="', $_POST['PasswordCheck'], '" />
-			<span>' . _('Confirm the new password if you created one.') . '</span>
+			<fieldhelp>' . _('Confirm the new password if you created one.') . '</fieldhelp>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><i>', _('if you leave the password boxes empty your password will not change'), '</i></td>
+		<td colfieldhelp="2" align="center"><i>', _('if you leave the password boxes empty your password will not change'), '</i></td>
 	</tr>
 	<tr>
 		<td>', _('Email'), ':</td>
 		<td>
 			<input type="email" name="email" size="20" value="', $_SESSION['UserEmail'], '" />
-			<span>' . _('The users email address.') . '</span>
+			<fieldhelp>' . _('The users email address.') . '</fieldhelp>
 		</td>
 	</tr>';
 
@@ -250,7 +250,7 @@ if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '8pt')
 	echo '<option selected="selected" value="2">', _('Large'), '</option>';
 }
 echo '</select>
-			<span>' . _('The size of font to be displayed for this user..') . '</span>
+			<fieldhelp>' . _('The size of font to be displayed for this user..') . '</fieldhelp>
 		</td>
 	</tr>';
 
@@ -266,7 +266,7 @@ if ($_SESSION['ShowPageHelp'] == 0) {
  		 '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
 echo '</select>
-			<span>' . _('Show page help when available.') . '</span>
+			<fieldhelp>' . _('Show page help when available.') . '</fieldhelp>
 		</td>
 	</tr>';
 // Turn off/on field help:
@@ -281,7 +281,7 @@ if ($_SESSION['ShowFieldHelp'] == 0) {
  		 '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
 echo '</select>
-			<span>' . _('Show field help when available.') . '</span>
+			<fieldhelp>' . _('Show field help when available.') . '</fieldhelp>
 		</td>
 	</tr>';
 
