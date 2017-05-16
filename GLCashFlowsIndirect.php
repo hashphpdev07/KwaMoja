@@ -710,7 +710,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					<label for="PeriodFrom">', _('Select period from'), ':</label>
 				</td>
 		 		<td>
-					<select id="PeriodFrom" name="PeriodFrom" required="required">';
+					<select id="PeriodFrom" name="PeriodFrom" autofocus="autofocus" required="required">';
 
 	$SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno ASC";
 	$Periods = DB_query($SQL);
@@ -730,9 +730,10 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		}
 	}
-	echo '</select>', _('Select the beginning of the reporting period'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-			'</td>
-		</tr>';
+	echo '</select>
+			<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+		'</td>
+	</tr>';
 	// Select period to:
 	echo '<tr>
 			<td>
@@ -751,7 +752,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		}
 	}
-	echo '</select>', _('Select the end of the reporting period'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo '</select>
+			<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 			'</td>
 		</tr>';
 
@@ -766,7 +768,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	} else {
 		echo '<td><input id="ShowBudget" name="ShowBudget" type="checkbox">'; // "Checked" if ShowBudget is set AND it is TRUE.
 	}
-	echo  _('Check this box to show the budget for the period'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo  '<fieldhelp>', _('Check this box to show the budget for the period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 		'</td>
 	</tr>';
 	// Show accounts with zero balance:
@@ -779,7 +781,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	} else {
 		echo '<td><input id="ShowZeroBalance" name="ShowZeroBalance" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
 	}
-	echo _('Check this box to show all accounts including those with zero balance'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo '<fieldhelp>', _('Check this box to show all accounts including those with zero balance'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 		'</td>
 	</tr>';
 	// Show cash and cash equivalents accounts:
@@ -792,7 +794,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	} else {
 		echo '<td><input id="ShowCash" name="ShowCash" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
 	}
-	echo _('Check this box to show cash and cash equivalents accounts'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo '<fieldhelp>', _('Check this box to show cash and cash equivalents accounts'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 			'</td>
 		</tr>';
 	echo '</tbody>

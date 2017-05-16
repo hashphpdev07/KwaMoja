@@ -291,20 +291,20 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 			<tr>
 				<td><label for="PeriodFrom">', _('Select period from'), '</label></td>
 				<td>
-					<input alt="', $_SESSION['DefaultDateFormat'], '" class="date" id="PeriodFrom" maxlength="10" minlength="0" name="PeriodFrom" required="required" size="12" type="text" value="', $_POST['PeriodFrom'], '" />',
-					(!isset($field_help) || $field_help ? _('Select the beginning of the reporting period') : ''), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-		 		'</td>
+					<input alt="', $_SESSION['DefaultDateFormat'], '" autofocus="autofocus" class="date" id="PeriodFrom" maxlength="10" minlength="0" name="PeriodFrom" required="required" size="12" type="text" value="', $_POST['PeriodFrom'], '" />
+					<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>
+		 		</td>
 			</tr>
 			<tr>',
 				'<td><label for="PeriodTo">', _('Select period to'), '</label></td>
-				<td><input alt="', $_SESSION['DefaultDateFormat'], '" class="date" id="PeriodTo" maxlength="10" minlength="0" name="PeriodTo" required="required" size="12" type="text" value="', $_POST['PeriodTo'], '" />',
-					(!isset($field_help) || $field_help ? _('Select the end of the reporting period') : ''), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-		 		'</td>
+				<td><input alt="', $_SESSION['DefaultDateFormat'], '" class="date" id="PeriodTo" maxlength="10" minlength="0" name="PeriodTo" required="required" size="12" type="text" value="', $_POST['PeriodTo'], '" />
+					<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>
+		 		</td>
 			</tr>
 			<tr>
 				<td><label for="ShowDetails">', _('Show details'), '</label></td>
-			 	<td><input ', $Checked, ' id="ShowDetails" name="ShowDetails" type="checkbox">', // "Checked" if ShowDetails is set AND it is TRUE.
-			 		(!isset($field_help) || $field_help ? _('Check this box to show purchase invoices') : ''),'
+			 	<td><input ', $Checked, ' id="ShowDetails" name="ShowDetails" type="checkbox">
+					<fieldhelp>', _('Check this box to show purchase invoices'), '</fieldhelp>
 			 	</td>
 			</tr>',
 		 '</tbody>
