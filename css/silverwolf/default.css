@@ -315,23 +315,6 @@ text-align:center;
 margin:0 auto;
 }
 
-div.page_help_text {
-background-color:#ccc;
-border:#a52a2a 1px solid;
-border-radius:5px;
-padding-top:3px;
-padding-bottom:3px;
-padding-left:3px;
-z-index:1;
-width:50%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
-}
-
 .dpTbl {
 border:solid navy 1px;
 }

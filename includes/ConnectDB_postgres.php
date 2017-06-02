@@ -190,6 +190,17 @@ function DB_Maintenance() {
 				WHERE confname='DB_Maintenance_LastRun'");
 }
 
+function DB_table_exists($TableName) {
+	global $db;
+	$ShowSQL = "SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = '" . $_SESSION['DatabaseName'] . "' AND TABLE_NAME = '" . $TableName . "'";
+	$Result = DB_query($ShowSQL);
+	if (DB_num_rows($Result) > 0) {
+		return True;
+	} else {
+		return False;
+	}
+}
+
 function DB_select_database($DBName) {
 	global $db;
 	mysqli_select_db($db, $DBName);

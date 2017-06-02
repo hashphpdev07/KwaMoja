@@ -243,22 +243,6 @@ color:navy;
 border:1px solid navy;
 }
 
-DIV.page_help_text {
-background:#D3D3D3 url(images/help.png) top left no-repeat;
-border:#a52a2a 1px solid;
-padding-top:2px;
-padding-bottom:2px;
-padding-left:10px;
-z-index:1;
-width:80%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
-}
-
 DIV.system_check {
 border:#a52a2a 1px solid;
 padding-left:3px;

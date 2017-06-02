@@ -48,10 +48,10 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The Expense code must be twenty characters or less long'), 'error');
 	} elseif (ContainsIllegalCharacters($_POST['CodeExpense'])) {
 		$InputError = 1;
-		prnMsg(_('The Expense code cannot contain any of the following characters " \' - &amp;'), 'error');
+		prnMsg(_('The Expense code cannot contain any of the following characters ') . '" \' - &amp;', 'error');
 	} elseif (ContainsIllegalCharacters($_POST['Description'])) {
 		$InputError = 1;
-		prnMsg(_('The Expense description cannot contain any of the following characters " \' - &amp;'), 'error');
+		prnMsg(_('The Expense description cannot contain any of the following characters ') . '" \' - &amp;', 'error');
 	} elseif (mb_strlen($_POST['Description']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The tab code must be Fifty characters or less long'), 'error');

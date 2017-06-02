@@ -550,7 +550,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 } else {
 	/*The option to print PDF was not hit */
 
-	$Title = _('Select Invoices/Credit Notes To Print');
+	$Title = _('Select Invoices or Credit Notes To Print');
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'PrintInvoicesCredits';

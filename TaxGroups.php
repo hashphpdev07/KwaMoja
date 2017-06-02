@@ -187,7 +187,6 @@ if (!isset($SelectedGroup)) {
 		echo '<table class="selection">
 				<thead>
 					<tr>
-						<th class="SortedColumn">' . _('Group No') . '</th>
 						<th class="SortedColumn">' . _('Tax Group') . '</th>
 						<th colspan="2" >', _('Maintenance') . '</th>
 					</tr>
@@ -204,8 +203,7 @@ if (!isset($SelectedGroup)) {
 				$k = 1;
 			}
 
-			echo '<td>', $MyRow['taxgroupid'], '</td>
-					<td>', $MyRow['taxgroupdescription'], '</td>
+			echo '<td>', $MyRow['taxgroupdescription'], '</td>
 					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '">' . _('Edit') . '</a></td>
 					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '&amp;Delete=1&amp;GroupID=', urlencode($MyRow['taxgroupdescription']), '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax group?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
 

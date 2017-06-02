@@ -268,21 +268,6 @@ margin:0 auto 10px;
 padding:10px;
 }
 
-DIV.page_help_text {
-background:#D3D3D3 url(images/help.png) top left no-repeat;
-border:#a52a2a 1px solid;
-z-index:1;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-box-shadow:3px 3px 4px;
-width:80%;
-margin:0 auto 10px;
-padding:10px;
-}
-
 DIV.system_check {
 border:#a52a2a 1px solid;
 z-index:1;

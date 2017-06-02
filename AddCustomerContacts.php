@@ -134,7 +134,7 @@ if (!isset($Id)) {
 			<tr>
 				<th class="text">', _('Name'), '</th>
 				<th class="text">', _('Role'), '</th>
-				<th class="text">', _('Phone no'), '</th>
+				<th class="text">', _('Phone No'), '</th>
 				<th class="text">', _('Email'), '</th>
 				<th class="text">', _('Statement'), '</th>
 				<th class="text">', _('Notes'), '</th>

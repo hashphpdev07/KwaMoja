@@ -12,9 +12,9 @@ function RelativeChange($SelectedPeriod, $PreviousPeriod) {
 }
 
 include('includes/session.php');
-$Title = _('Horizontal Analysis of Statement of Comprehensive Income'); // Screen identification.
-$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
-$BookMark = 'AnalysisHorizontalIncome'; // Anchor's id in the manual's html document.
+$Title = _('Horizontal Analysis of Statement of Comprehensive Income');
+$ViewTopic= 'GeneralLedger';
+$BookMark = 'AnalysisHorizontalIncome';
 include('includes/SQL_CommonFunctions.php');
 include('includes/AccountSectionsDef.php'); // This loads the $Sections variable
 
@@ -32,7 +32,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			_('Horizontal Analysis of Statement of Comprehensive Income'), '
 		</p>'; // Page title.
 
-	echo '<div class="page_help_text">', _('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('webERP is an "accrual" based system (not a "cash based" system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>',
+	echo '<div class="page_help_text">', _('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>',
 	// Show a form to allow input of criteria for the report to show:
 		'<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />', '<br />', '<table class="selection">
 			<tr>

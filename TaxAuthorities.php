@@ -150,7 +150,6 @@ if (!isset($SelectedTaxAuthID)) {
 	echo '<table class="selection">
 			<thead>
 				<tr>
-					<th class="SortedColumn">', _('ID'), '</th>
 					<th class="SortedColumn">', _('Tax Authority'), '</th>
 					<th>', _('Input Tax'), '<br />', _('GL Account'), '</th>
 					<th>', _('Output Tax'), '<br />', _('GL Account'), '</th>
@@ -173,8 +172,7 @@ if (!isset($SelectedTaxAuthID)) {
 			++$k;
 		}
 
-		echo '<td class="number">', $MyRow[0], '</td>
-				<td>', $MyRow[1]. '</td>
+		echo '<td>', $MyRow[1]. '</td>
 				<td>', $MyRow[3], '</td>
 				<td>', $MyRow[2], '</td>
 				<td>', $MyRow[4], '</td>

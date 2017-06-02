@@ -165,7 +165,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		echo '</td>
 			</tr>
 		</tfoot>';
-		// Net profit − dividends = Retained earnings:
+		// Net profit - dividends = Retained earnings:
 		echo '<tbody>
 				<tr>
 					<td class="text" colspan="8"><br /><h2>', _('Net profit and dividends'), '</h2></td>
@@ -429,7 +429,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		echo '</td>
 				</tr>
 			</tfoot>';
-		// Net profit − dividends = Retained earnings:
+		// Net profit - dividends = Retained earnings:
 		echo '<tbody>
 				<tr>
 					<td class="text" colspan="8"><br /><h2>', _('Net profit and dividends'), '</h2></td>
@@ -678,7 +678,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', $Title, '" /> ', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">',
-			_('The statement of cash flows, also known as the successor of the old source and application of funds statement, reports how changes in balance sheet accounts and income affect cash and cash equivalents, and breaks the analysis down to operating, investing and financing activities.'), '<br />', _('The purpose of the statement of cash flows is to show where the company got their money from and how it was spent during the period being reported for a user selectable range of periods.'), '<br />', _('The statement of cash flows represents a period of time. This contrasts with the statement of financial position, which represents a single moment in time.'), '<br />', _('KwaMoja is an "accrual" based system (not a "cash based" system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
+			_('The statement of cash flows, also known as the successor of the old source and application of funds statement, reports how changes in balance sheet accounts and income affect cash and cash equivalents, and breaks the analysis down to operating, investing and financing activities.'), '<br />', _('The purpose of the statement of cash flows is to show where the company got their money from and how it was spent during the period being reported for a user selectable range of periods.'), '<br />', _('The statement of cash flows represents a period of time. This contrasts with the statement of financial position, which represents a single moment in time.'), '<br />', _('KwaMoja is an accrual based system (not a cash based system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
 		</div>';
 
 	// Shows a form to allow input of criteria for the report to generate:
@@ -710,7 +710,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					<label for="PeriodFrom">', _('Select period from'), ':</label>
 				</td>
 		 		<td>
-					<select id="PeriodFrom" name="PeriodFrom" required="required">';
+					<select id="PeriodFrom" name="PeriodFrom" autofocus="autofocus" required="required">';
 
 	$SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno ASC";
 	$Periods = DB_query($SQL);
@@ -730,9 +730,10 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		}
 	}
-	echo '</select>', _('Select the beginning of the reporting period'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-			'</td>
-		</tr>';
+	echo '</select>
+			<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+		'</td>
+	</tr>';
 	// Select period to:
 	echo '<tr>
 			<td>
@@ -751,7 +752,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		}
 	}
-	echo '</select>', _('Select the end of the reporting period'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo '</select>
+			<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 			'</td>
 		</tr>';
 
@@ -766,7 +768,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	} else {
 		echo '<td><input id="ShowBudget" name="ShowBudget" type="checkbox">'; // "Checked" if ShowBudget is set AND it is TRUE.
 	}
-	echo  _('Check this box to show the budget for the period'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo  '<fieldhelp>', _('Check this box to show the budget for the period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 		'</td>
 	</tr>';
 	// Show accounts with zero balance:
@@ -779,7 +781,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	} else {
 		echo '<td><input id="ShowZeroBalance" name="ShowZeroBalance" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
 	}
-	echo _('Check this box to show all accounts including those with zero balance'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo '<fieldhelp>', _('Check this box to show all accounts including those with zero balance'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 		'</td>
 	</tr>';
 	// Show cash and cash equivalents accounts:
@@ -792,7 +794,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	} else {
 		echo '<td><input id="ShowCash" name="ShowCash" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
 	}
-	echo _('Check this box to show cash and cash equivalents accounts'), // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	echo '<fieldhelp>', _('Check this box to show cash and cash equivalents accounts'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
 			'</td>
 		</tr>';
 	echo '</tbody>

@@ -228,6 +228,7 @@ if (isset($_SESSION['SupplierID'])) {
 	echo '</td><td valign="top" class="select">';
 	/* Supplier Maintenance */
 	echo '<a href="' . $RootPath . '/Suppliers.php">' . _('Add Supplier') . '</a>
+		<a href="' . $RootPath . '/Suppliers.php?Copy=Yes&SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Copy Supplier') . '</a>
 		<a href="' . $RootPath . '/Suppliers.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Modify Supplier') . '</a>
 		<a href="' . $RootPath . '/SupplierContacts.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Contacts') . '</a>
 		<a href="' . $RootPath . '/SellThroughSupport.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Sell Through Support') . '</a>

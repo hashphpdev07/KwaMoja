@@ -578,7 +578,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 } else {
 	/*The option to print PDF was not hit */
 
-	$Title = _('Select Invoices/Credit Notes To Print');
+	$Title = _('Select Invoices or Credit Notes To Print');
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'PrintInvoicesCredits';

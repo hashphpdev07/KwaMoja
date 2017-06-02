@@ -26,9 +26,22 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<title>', $Title, '</title>
 			<link rel="icon" href="', $RootPath, '/favicon.ico" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
 			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
 			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
+
+if ($_SESSION['ShowPageHelp'] == 0) {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
+} else {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_on.css" rel="stylesheet" type="text/css" media="screen" />';
+}
+
+if ($_SESSION['ShowFieldHelp'] == 0) {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/field_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
+} else {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/field_help_on.css" rel="stylesheet" type="text/css" media="screen" />';
+}
 
 if ($Debug === 0) {
 	echo '</head>';

@@ -22,7 +22,7 @@ if (isset($_GET['OldStockID']) or isset($_POST['OldStockID'])) { //we are clonin
 	$_POST['OldStockID'] = '';
 	$_POST['StockID'] = '';
 	$InputError = 1;
-	prnMsg(_('To use this script it must be called with the Stock ID of the item to be cloned. Please use the "Clone This Item" option in the Items Menu.'), 'error');
+	prnMsg(_('To use this script it must be called with the Stock ID of the item to be cloned.'), 'error');
 }
 
 $ItemDescriptionLanguagesArray = explode(',', $_SESSION['ItemDescriptionLanguages']);

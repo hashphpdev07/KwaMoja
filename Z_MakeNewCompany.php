@@ -161,7 +161,7 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 		$ForceConfigReload = true;
 		include('includes/GetConfig.php');
 
-		prnMsg(_('The new company database has been created for' . ' ' . $_POST['NewCompany'] . '. ' . _('The company details and parameters should now be set up for the new company. NB: Only a single user "demo" is defined with the password "') . $DefaultDatabase . _('" in the new company database. A new system administrator user should be defined for the new company and this account deleted immediately.')), 'info');
+		prnMsg(_('The new company database has been created for') . ' ' . $_POST['NewCompany'] . '. ' . _('The company details and parameters should now be set up for the new company. NB: Only a single user admin is defined with the password') . $DefaultDatabase . _(' in the new company database. A new system administrator user should be defined for the new company and this account deleted immediately.'), 'info');
 
 		echo '<p><a href="' . $RootPath . '/CompanyPreferences.php">' . _('Set Up New Company Details') . '</a>';
 		echo '<p><a href="' . $RootPath . '/SystemParameters.php">' . _('Set Up Configuration Details') . '</a>';
