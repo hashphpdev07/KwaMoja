@@ -177,7 +177,7 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 				</td>';
 		} else {
 			echo '<td class="noPrint">
-					<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Select=', $Parent, '">' . _('Drill Down') . '</a>
+					<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Select=', $MyRow['component'], '">' . _('Drill Down') . '</a>
 				</td>';
 		}
 
