@@ -117,16 +117,6 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		$Level1 = str_repeat('-&nbsp;', $Level - 1) . $Level;
-		if ($MyRow['mbflag'] == 'B' OR $MyRow['mbflag'] == 'K' OR $MyRow['mbflag'] == 'D') {
-
-			$DrillText = '%s%s';
-			$DrillLink = '<div class="centre">' . _('No lower levels') . '</div>';
-			$DrillID = '';
-		} else {
-			$DrillText = '<a href="%s&amp;Select=%s">' . _('Drill Down') . '</a>';
-			$DrillLink = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?';
-			$DrillID = $MyRow['component'];
-		}
 		if ($ParentMBflag != 'M' and $ParentMBflag != 'G') {
 			$AutoIssue = _('N/A');
 		} elseif ($MyRow['controlled'] == 0 and $MyRow['autoissue'] == 1) { //autoissue and not controlled
@@ -166,25 +156,36 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 			}
 		}
 
-		printf('<td class="number" style="text-align:left;text-indent:' . $Textindent . ';" >%s</td>
-				<td class="number">%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td>%s</td>
-				<td class="noPrint">%s</td>
-				<td class="noPrint">%s</td>
-				<td class="noPrint">%s</td>
-				<td class="number noPrint">%s</td>
-				<td class="noPrint"><a href="%s&amp;Select=%s&amp;SelectedComponent=%s">' . _('Edit') . '</a></td>
-				<td class="noPrint">' . $DrillText . '</td>
-				<td class="noPrint"><a href="%s&amp;Select=%s&amp;SelectedComponent=%s&amp;delete=1&amp;ReSelect=%s&amp;Location=%s&amp;WorkCentre=%s" onclick="return confirm(\'' . _('Are you sure you wish to delete this component from the bill of material?') . '\');">' . _('Delete') . '</a></td>
-				</tr><tr><td colspan="11" style="text-indent:' . $TextIndent . ';">%s</td>
-				<td>%s</td>
-			 </tr>', $Level1, $MyRow['sequence'], $MyRow['categorydescription'], $MyRow['component'], $MyRow['itemdescription'], $MyRow['locationname'], $MyRow['workcentrename'], locale_number_format($MyRow['quantity'], 'Variable'), $MyRow['units'], ConvertSQLDate($MyRow['effectiveafter']), ConvertSQLDate($MyRow['effectiveto']), $AutoIssue, $QuantityOnHand, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $Parent, $MyRow['component'], $DrillLink, $DrillID, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $Parent, $MyRow['component'], $UltimateParent, $MyRow['loccode'], $MyRow['workcentrecode'], $MyRow['comment'], $StockImgLink);
+		echo '<td class="number" style="text-align:left;text-indent:' . $TextIndent . ';" >', $Level1, '</td>
+				<td class="number">', $MyRow['sequence'], '</td>
+				<td>', $MyRow['categorydescription'], '</td>
+				<td>', $MyRow['component'], '</td>
+				<td>', $MyRow['itemdescription'], '</td>
+				<td>', $MyRow['locationname'], '</td>
+				<td>', $MyRow['workcentrename'], '</td>
+				<td class="number">', locale_number_format($MyRow['quantity'], 'Variable'), '</td>
+				<td>', $MyRow['units'], '</td>
+				<td class="noPrint"', ConvertSQLDate($MyRow['effectiveafter']), '</td>
+				<td class="noPrint">', ConvertSQLDate($MyRow['effectiveto']), '</td>
+				<td class="noPrint">', $AutoIssue, '</td>
+				<td class="number noPrint">', $QuantityOnHand, '</td>
+				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Select=', $Parent, '&SelectedComponent=', $MyRow['component'], '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '">' . _('Edit') . '</a></td>';
+
+		if ($MyRow['mbflag'] == 'B' OR $MyRow['mbflag'] == 'K' OR $MyRow['mbflag'] == 'D') {
+			echo '<td class="noPrint">
+					<div class="centre">', _('No lower levels'), '</div>
+				</td>';
+		} else {
+			echo '<td class="noPrint">
+					<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Select=', $Parent, '">' . _('Drill Down') . '</a>
+				</td>';
+		}
+
+		echo '<td class="noPrint">
+				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Select=', $Parent, '&SelectedComponent=', $MyRow['component'], '&delete=1&ReSelect=', $UltimateParent, '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '" onclick="return confirm(\'' . _('Are you sure you wish to delete this component from the bill of material?') . '\');">' . _('Delete') . '</a></td>
+				</tr><tr><td colspan="11" style="text-indent:' . $TextIndent . ';">', $MyRow['comment'], '</td>
+				<td>', $StockImgLink, '</td>
+			 </tr>';
 
 	} //END WHILE LIST LOOP
 } //end of function DisplayBOMItems
@@ -654,7 +655,9 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canupd=1
 					WHERE parent='" . $SelectedParent . "'
-					AND component='" . $SelectedComponent . "'";
+						AND component='" . $SelectedComponent . "'
+						AND workcentreadded='" . $WorkCentre . "'
+						AND bom.loccode='" . $Location . "'";
 
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
