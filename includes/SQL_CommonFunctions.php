@@ -266,7 +266,7 @@ function BomMaterialCost($Parent) {
 	$MaterialCost = $MyRow[0];
 	$Result = DB_Txn_Begin();
 	if (abs($MaterialCost-$OldCost) > 0) {
-		ItemCostUpdateGL($db, $Parent, $MaterialCost, $OldCost, $QOH);
+		ItemCostUpdateGL($Parent, $MaterialCost);
 	}
 	$Result = DB_Txn_Commit();
 	return $MaterialCost;
