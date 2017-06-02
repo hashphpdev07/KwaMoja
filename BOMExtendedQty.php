@@ -323,7 +323,7 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$YPos -= $line_height;
 
-	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('Extended Quantity BOM Listing For	   ') . mb_strtoupper($_POST['Part']));
+	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('Extended Quantity BOM Listing For ') . mb_strtoupper($_POST['Part']));
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 140, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
 	$YPos -= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('Build Quantity:  ') . locale_number_format($_POST['Quantity'], 'Variable'), 'left');

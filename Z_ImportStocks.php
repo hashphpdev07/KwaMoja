@@ -144,7 +144,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] != 0) {
 			$InputError = 1;
-			prnMsg(_('Stock item "' . $StockId . '" already exists'), 'error');
+			prnMsg(_('Stock item ' . $StockId . ' already exists'), 'error');
 		}
 
 		//next validate inputs are sensible

@@ -76,7 +76,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] == 0) {
 			$InputError = 1;
-			prnMsg(_('Stock item "' . $MyRow[0] . '" does not exist'), 'error');
+			prnMsg(_('Stock item ' . $MyRow[0] . ' does not exist'), 'error');
 		}
 		//Then check that the price list actually exists
 		$SQL = "SELECT COUNT(typeabbrev) FROM salestypes WHERE typeabbrev='" . $MyRow[1] . "'";
@@ -84,7 +84,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] == 0) {
 			$InputError = 1;
-			prnMsg(_('Price List "' . $MyRow[1] . '" does not exist'), 'error');
+			prnMsg(_('Price List ' . $MyRow[1] . ' does not exist'), 'error');
 		}
 
 		//Then check that the currency code actually exists
@@ -93,7 +93,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] == 0) {
 			$InputError = 1;
-			prnMsg(_('Price List "' . $MyRow[2] . '" does not exist'), 'error');
+			prnMsg(_('Price List ' . $MyRow[2] . ' does not exist'), 'error');
 		}
 
 		//Finally force the price to be a double
