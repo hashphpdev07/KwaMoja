@@ -1,39 +1,19 @@
-fieldhelp input:not([type=submit]):focus + fieldhelp {
+form select:focus + fieldhelp, input:not([type=submit]):focus + fieldhelp {
 background:#BDF3BD;
 color:#0E3E0E;
 padding:2px;
-border-radius:2px;
+padding-left:10px;
+border-top-left-radius:30px;
+border-bottom-left-radius:30px;
 margin-left:2px;
 visibility:visible;
-display: inline;
-width:200%;
 }
 
-fieldhelp input:not([type=submit]) + fieldhelp {
+form select + fieldhelp, input:not([type=submit]) + fieldhelp {
 padding:2px;
 border-radius:2px;
+padding-left:10px;
 margin-left:2px;
-display: inline;
-width:100%;
-visibility:hidden;
-}
-
-fieldhelp select:focus + fieldhelp {
-background:#BDF3BD;
-color:#0E3E0E;
-padding:2px;
-border-radius:2px;
-margin-left:2px;
-visibility:visible;
-display: inline;
-width:200%;
-}
-
-fieldhelp select + fieldhelp {
-padding:2px;
-border-radius:2px;
-margin-left:2px;
-display: inline;
 width:100%;
 visibility:hidden;
 }

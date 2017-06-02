@@ -197,30 +197,6 @@ font-weight:700;
 color:red;
 }
 
-form input[type="submit"]{
-padding-top: 2px;
-padding-bottom: 2px;
-padding-left: 6px;
-padding-right: 6px;
-margin: 1px;
-border: 1px solid #8DCDEB;
-color:#8DCDEB;
-border-radius: 15px;
-cursor: pointer;
-}
-
-form input[type="reset"]{
-padding-top: 2px;
-padding-bottom: 2px;
-padding-left: 6px;
-padding-right: 6px;
-margin: 1px;
-border: 1px solid #8DCDEB;
-color:#8DCDEB;
-border-radius: 15px;
-cursor: pointer;
-}
-
 table {
 width:auto;
 max-width:90%;
