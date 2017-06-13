@@ -293,7 +293,7 @@ class Cart {
 		/*Gets the Taxes and rates applicable to the freight based on the tax group of the branch combined with the tax category for this particular freight
 		and SESSION['FreightTaxCategory'] the taxprovince of the dispatch location */
 
-		$SQL = "SELECT taxcatid FROM taxcategories WHERE taxcatname='Freight'"; // This tax category is hardcoded inside the database.
+		$SQL = "SELECT freighttaxcatid AS taxcatid FROM taxprovinces WHERE taxprovinceid='" . $this->DispatchTaxProvince . "'"; // This tax category is hardcoded inside the database.
 		$TaxCatQuery = DB_query($SQL);
 
 		if ($TaxCatRow = DB_fetch_array($TaxCatQuery)) {

@@ -55,7 +55,8 @@ if (isset($_POST['submit'])) {
 				$MyRow = DB_fetch_row($Result);
 				$OldTaxProvinceName = $MyRow[0];
 				$SQL = "UPDATE taxprovinces
-					SET taxprovincename='" . $_POST['TaxProvinceName'] . "'
+					SET taxprovincename='" . $_POST['TaxProvinceName'] . "',
+						freighttaxcatid='" . $_POST['TaxCatFreight'] . "'
 					WHERE taxprovincename " . LIKE . " '" . DB_escape_string($OldTaxProvinceName) . "'";
 				$ErrMsg = _('Could not update tax province');
 				$Result = DB_query($SQL, $ErrMsg);
@@ -81,8 +82,12 @@ if (isset($_POST['submit'])) {
 
 		} else {
 
-			$SQL = "INSERT INTO taxprovinces (taxprovincename )
-					VALUES ('" . $_POST['TaxProvinceName'] . "')";
+			$SQL = "INSERT INTO taxprovinces (taxprovincename,
+											freighttaxcatid)
+										VALUES (
+											'" . $_POST['TaxProvinceName'] . "',
+											'" . $_POST['TaxCatFreight'] . "'
+										)";
 
 			$ErrMsg = _('Could not add tax province');
 			$Result = DB_query($SQL, $ErrMsg);
@@ -104,6 +109,7 @@ if (isset($_POST['submit'])) {
 	unset($SelectedTaxProvince);
 	unset($_POST['SelectedTaxProvince']);
 	unset($_POST['TaxProvinceName']);
+	unset($_POST['TaxCatFreight']);
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
@@ -150,9 +156,12 @@ if (!isset($SelectedTaxProvince)) {
 	or deletion of the records*/
 
 	$SQL = "SELECT taxprovinceid,
-			taxprovincename
-			FROM taxprovinces
-			ORDER BY taxprovinceid";
+					taxcatname,
+					taxprovincename
+				FROM taxprovinces
+				INNER JOIN taxcategories
+					ON taxcategories.taxcatid=taxprovinces.freighttaxcatid
+				ORDER BY taxprovinceid";
 
 	$ErrMsg = _('Could not get tax categories because');
 	$Result = DB_query($SQL, $ErrMsg);
@@ -167,13 +176,14 @@ if (!isset($SelectedTaxProvince)) {
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Tax Provinces'), '</th>
+					<th class="SortedColumn">', _('Freight Tax Category'), '</th>
 					<th colspan="2">', _('Maintenance'), '</th>
 				</tr>
 			</thead>';
 
 	echo '<tbody>';
 	$k = 0; //row colour counter
-	while ($MyRow = DB_fetch_row($Result)) {
+	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -183,9 +193,10 @@ if (!isset($SelectedTaxProvince)) {
 			++$k;
 		}
 
-		echo '<td>' . $MyRow[1] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow[0] . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow[0] . '&amp;delete=1">' . _('Delete') . '</a></td>
+		echo '<td>' . $MyRow['taxprovincename'] . '</td>
+				<td>' . $MyRow['taxcatname'] . '</td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '&amp;delete=1">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
@@ -208,8 +219,8 @@ if (!isset($_GET['delete'])) {
 	if (isset($SelectedTaxProvince)) {
 		//editing an existing section
 
-		$SQL = "SELECT taxprovinceid,
-				taxprovincename
+		$SQL = "SELECT freighttaxcatid,
+						taxprovincename
 				FROM taxprovinces
 				WHERE taxprovinceid='" . $SelectedTaxProvince . "'";
 
@@ -221,8 +232,9 @@ if (!isset($_GET['delete'])) {
 			$MyRow = DB_fetch_array($Result);
 
 			$_POST['TaxProvinceName'] = $MyRow['taxprovincename'];
+			$_POST['TaxCatFreight'] = $MyRow['freighttaxcatid'];
 
-			echo '<input type="hidden" name="SelectedTaxProvince" value="' . $MyRow['taxprovinceid'] . '" />';
+			echo '<input type="hidden" name="SelectedTaxProvince" value="' . $SelectedTaxProvince . '" />';
 			echo '<table class="selection">';
 		}
 
@@ -233,9 +245,30 @@ if (!isset($_GET['delete'])) {
 	echo '<tr>
 			<td>' . _('Tax Province Name') . ':' . '</td>
 			<td><input type="text" name="TaxProvinceName" size="30" required="required" maxlength="30" value="' . $_POST['TaxProvinceName'] . '" /></td>
-		</tr>
-		</table>';
+		</tr>';
 
+	echo '<tr>
+			<td>' . _('Tax Category for Freight') . ':</td>
+			<td><select name="TaxCatFreight">';
+	$SQL = "SELECT taxcatid, taxcatname FROM taxcategories ORDER BY taxcatname";
+	$Result = DB_query($SQL);
+
+	if (!isset($_POST['TaxCat'])) {
+		$_POST['TaxCat'] = $_SESSION['DefaultTaxCategory'];
+	}
+
+	while ($MyRow = DB_fetch_array($Result)) {
+		if ($_POST['TaxCatFreight'] == $MyRow['taxcatid']) {
+			echo '<option selected="selected" value="' . $MyRow['taxcatid'] . '">' . $MyRow['taxcatname'] . '</option>';
+		} else {
+			echo '<option value="' . $MyRow['taxcatid'] . '">' . $MyRow['taxcatname'] . '</option>';
+		}
+	} //end while loop
+
+	echo '</select>
+			</td>
+		</tr>';
+	echo '</table>';
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 		</div>';
