@@ -177,12 +177,12 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 				</td>';
 		} else {
 			echo '<td class="noPrint">
-					<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Select=', $Parent, '">' . _('Drill Down') . '</a>
+					<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Select=', $MyRow['component'], '">' . _('Drill Down') . '</a>
 				</td>';
 		}
 
 		echo '<td class="noPrint">
-				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Select=', $Parent, '&SelectedComponent=', $MyRow['component'], '&delete=1&ReSelect=', $UltimateParent, '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '" onclick="return confirm(\'' . _('Are you sure you wish to delete this component from the bill of material?') . '\');">' . _('Delete') . '</a></td>
+				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Select=', $Parent, '&SelectedComponent=', $MyRow['component'], '&delete=1&ReSelect=', $UltimateParent, '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this component from this bill of materials?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr><tr><td colspan="11" style="text-indent:' . $TextIndent . ';">', $MyRow['comment'], '</td>
 				<td>', $StockImgLink, '</td>
 			 </tr>';
@@ -257,8 +257,8 @@ $InputError = 0;
 if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Component
 	$SelectedParent = $Select;
 	unset($Select); // = NULL;
-	echo '<div class="toplink noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select a Different BOM') . '</a></div>';
-	echo '<p class="page_title_text noPrint"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<div class="toplink noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select a Different BOM'), '</a></div>';
+	echo '<p class="page_title_text noPrint"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" /> ', $Title, '</p>';
 
 	if (isset($SelectedParent) and isset($_POST['Submit'])) {
 
@@ -316,7 +316,9 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 						autoissue='" . $_POST['AutoIssue'] . "',
 						comment='" . $_POST['Comment'] . "'
 					WHERE bom.parent='" . $SelectedParent . "'
-					AND bom.component='" . $SelectedComponent . "'";
+						AND bom.component='" . $SelectedComponent . "'
+						AND workcentreadded='" . $_POST['WorkCentreAdded'] . "'
+						AND loccode='" . $_POST['LocCode'] . "'";
 
 			$ErrMsg = _('Could not update this BOM component because');
 			$DbgMsg = _('The SQL used to update the component was');

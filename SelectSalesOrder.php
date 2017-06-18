@@ -707,7 +707,7 @@ if (!isset($StockId)) {
 		//figure out the SQL required from the inputs available
 		if (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Orders_Only') {
 			$Quotations = 0;
-		} elseif (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Quotations_Only') {
+		} elseif (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Quotes_Only') {
 			$Quotations = 1;
 		} elseif (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Overdue_Only') {
 			$Quotations = "0 AND itemdue<CURRENT_DATE";

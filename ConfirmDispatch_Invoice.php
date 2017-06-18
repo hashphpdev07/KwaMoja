@@ -192,8 +192,10 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 		if (DB_num_rows($LineItemsResult) > 0) {
 
 			while ($MyRow = DB_fetch_array($LineItemsResult)) {
-
-				$_SESSION['Items' . $Identifier]->add_to_cart($MyRow['stkcode'], $MyRow['quantity'], $MyRow['description'], $MyRow['longdescription'], $MyRow['unitprice'], $MyRow['discountpercent'], $MyRow['units'], $MyRow['volume'], $MyRow['grossweight'], 0, $MyRow['mbflag'], $MyRow['actualdispatchdate'], $MyRow['qtyinvoiced'], $MyRow['discountcategory'], $MyRow['controlled'], $MyRow['serialised'], $MyRow['decimalplaces'], htmlspecialchars_decode($MyRow['narrative']), 'No', $MyRow['orderlineno'], $MyRow['taxcatid'], '', $MyRow['itemdue'], $MyRow['poline'], $MyRow['standardcost']);
+				$QOHSQL = "SELECT quantity FROM locstock WHERE stockid='" . $MyRow['stkcode'] . "' and loccode='" . $_SESSION['Items' . $Identifier]->Location . "'";
+				$QOHResult = DB_query($QOHSQL);
+				$QOHRow = DB_fetch_array($QOHResult);
+				$_SESSION['Items' . $Identifier]->add_to_cart($MyRow['stkcode'], $MyRow['quantity'], $MyRow['description'], $MyRow['longdescription'], $MyRow['unitprice'], $MyRow['discountpercent'], $MyRow['units'], $MyRow['volume'], $MyRow['grossweight'], $QOHRow['quantity'], $MyRow['mbflag'], $MyRow['actualdispatchdate'], $MyRow['qtyinvoiced'], $MyRow['discountcategory'], $MyRow['controlled'], $MyRow['serialised'], $MyRow['decimalplaces'], htmlspecialchars_decode($MyRow['narrative']), 'No', $MyRow['orderlineno'], $MyRow['taxcatid'], '', $MyRow['itemdue'], $MyRow['poline'], $MyRow['standardcost']);
 				/*NB NO Updates to DB */
 
 				/*Calculate the taxes applicable to this line item from the customer branch Tax Group and Item Tax Category */
@@ -353,11 +355,15 @@ $j = 0;
 echo '<tbody>';
 foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	++$j;
-	if ($k == 1) {
-		$RowStarter = '<tr class="EvenTableRows">';
+
+	if ($LnItm->QOHatLoc < $LnItm->Quantity and ($LnItm->MBflag == 'B' or $LnItm->MBflag == 'M')) {
+		/*There is a stock deficiency in the stock location selected */
+		$RowStarter = '<tr style="background:#FF0000;color:#FFC0CB">'; //rows show red where stock deficiency
+	} elseif ($k == 1) {
+		$RowStarter = '<tr class="OddTableRows">';
 		$k = 0;
 	} else {
-		$RowStarter = '<tr class="OddTableRows">';
+		$RowStarter = '<tr class="EvenTableRows">';
 		$k = 1;
 	}
 
