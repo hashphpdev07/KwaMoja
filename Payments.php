@@ -1371,7 +1371,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 	echo '<tr>
 			<td>',
 				_('Amount of Payment'), ' ', $_SESSION['PaymentDetail' . $Identifier]->Currency, ':</td>
-			<td><input class="number" maxlength="12" name="Amount" size="13" type="text" value="', $_SESSION['PaymentDetail' . $Identifier]->Amount, '" /></td>
+			<td><input class="number" maxlength="12" name="Amount" id="Amount" size="13" type="text" value="', $_SESSION['PaymentDetail' . $Identifier]->Amount, '" /></td>
 		</tr>';
 
 /*	if(isset($_SESSION['PaymentDetail'.$Identifier]->SupplierID)) {//included in a if with same condition.*/ /*So it is a supplier payment so show the discount entry item */

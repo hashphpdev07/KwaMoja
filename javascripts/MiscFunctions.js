@@ -482,7 +482,7 @@ months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"
 dateDivID = "calendar";
 function AddAmount(t,Target,d) {
 	if (t.checked) {
-		document.getElementById(Target).value=Number(t.value);
+		document.getElementById(Target).value=Number(t.value) + Number(document.getElementById(Target).value);
 		if(d) document.getElementById(d).required="required";
 	} else {
 		document.getElementById(Target).value=Number(document.getElementById(Target).value)-Number(t.value);
