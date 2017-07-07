@@ -1,6 +1,6 @@
 <?php
 /* $Id: Z_ImportSuppliers.php 6067 2013-07-10 02:04:22Z tehonu $*/
-$PageSecurity=1;
+
 include('includes/session.php');
 $Title = _('Import Purchase Data');
 include('includes/header.php');
@@ -45,11 +45,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	$FileSize = $_FILES['userfile']['size'];
 
 	//get file handle
-	if ($FileHandle = fopen($TempName, 'r')) {
-		echo 'True';
-	} else {
-		echo 'False';
-	}
+	$FileHandle = fopen($TempName, 'r');
 
 	//get the header row
 	$headRow = fgetcsv($FileHandle);
