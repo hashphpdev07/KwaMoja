@@ -103,13 +103,13 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 
 		if (is_numeric($_POST['CalcOrder_' . $MyRow[0]]) and $_POST['CalcOrder_' . $MyRow[0]] < 10) {
 
-			$SQL = "UPDATE taxgrouptaxes
+			$UpdateSQL = "UPDATE taxgrouptaxes
 				SET calculationorder='" . $_POST['CalcOrder_' . $MyRow[0]] . "',
 					taxontax='" . $_POST['TaxOnTax_' . $MyRow[0]] . "'
 				WHERE taxgroupid='" . $SelectedGroup . "'
 				AND taxauthid='" . $MyRow[0] . "'";
 
-			$Result = DB_query($SQL);
+			$UpdateResult = DB_query($UpdateSQL);
 		}
 	}
 

@@ -73,7 +73,7 @@ if (isset($_POST['UpdateDatabase']) or isset($_POST['RefreshAllocTotal'])) {
 		/*recalcuate the new difference on exchange
 		(a +positive amount is a gain -ve a loss)*/
 
-		$_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->DiffOnExch = ($_POST['Amt' . $AllocCounter] / $_SESSION['Alloc']->TransExRate) - ($_POST['Amt' . $AllocCounter] / $_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->ExRate);
+		$_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->DiffOnExch = round(($_POST['Amt' . $AllocCounter] * $_SESSION['Alloc']->TransExRate) - ($_POST['Amt' . $AllocCounter] / $_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->ExRate), 4);
 
 		$TotalDiffOnExch += $_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->DiffOnExch;
 		$TotalAllocated += round($_POST['Amt' . $AllocCounter], $_SESSION['Alloc']->CurrDecimalPlaces);

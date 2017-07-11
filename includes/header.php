@@ -29,6 +29,7 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
 			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
 
 if ($_SESSION['ShowPageHelp'] == 0) {

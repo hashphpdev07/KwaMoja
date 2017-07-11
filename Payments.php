@@ -1313,30 +1313,36 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 					AND supplierno='" . $_SESSION['PaymentDetail' . $Identifier]->SupplierID . "'
 					AND (supptrans.ovamount+supptrans.ovgst+supptrans.diffonexch-supptrans.alloc)<>0";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
-			<thead>
-				<tr>
-					<th class="SortedColumn">' . _('Date') . '</th>
-					<th class="SortedColumn">' . _('Transaction Type') . '</th>
-					<th class="SortedColumn">' . _('Transaction Number') . '</th>
-					<th class="SortedColumn">' . _('Reference') . '</th>
-					<th class="SortedColumn">' . _('Amount') . '</th>
-				</tr>
-			</thead>';
+	if (DB_num_rows($Result) > 0) {
+		echo '<table class="selection">
+				<thead>
+					<tr>
+						<th colspan="6">' . _('Transactions to be allocated by this payment') . '</th>
+					</tr>
+					<tr>
+						<th class="SortedColumn">' . _('Date') . '</th>
+						<th class="SortedColumn">' . _('Transaction Type') . '</th>
+						<th class="SortedColumn">' . _('Transaction Number') . '</th>
+						<th class="SortedColumn">' . _('Reference') . '</th>
+						<th class="SortedColumn">' . _('Amount') . '</th>
+					</tr>
+				</thead>';
 
-	echo '<tbody>';
-	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr>
-				<td>' . ConvertSQLDate($MyRow['trandate']) . '</td>
-				<td>' . $MyRow['typename'] . '</td>
-				<td>' . $MyRow['transno'] . '</td>
-				<td>' . $MyRow['suppreference'] . '</td>
-				<td class="number">' . locale_number_format($MyRow['amount'], $_SESSION['PaymentDetail' . $Identifier]->CurrDecimalPlaces) . '</td>
-				<td><input onclick="AddAmount(this, \'Amount\');" type="checkbox" name="paid' . $MyRow['id'] . '" value="' . $MyRow['amount'] . '" />' . _('Pay') . '</td>
-			</tr>';
+		echo '<tbody>';
+		while ($MyRow = DB_fetch_array($Result)) {
+			echo '<tr>
+					<td>' . ConvertSQLDate($MyRow['trandate']) . '</td>
+					<td>' . $MyRow['typename'] . '</td>
+					<td>' . $MyRow['transno'] . '</td>
+					<td>' . $MyRow['suppreference'] . '</td>
+					<td class="number">' . locale_number_format($MyRow['amount'], $_SESSION['PaymentDetail' . $Identifier]->CurrDecimalPlaces) . '</td>
+					<td><input onclick="AddAmount(this, \'Amount\');" type="checkbox" name="paid' . $MyRow['id'] . '" value="' . $MyRow['amount'] . '" />' . _('Pay') . '</td>
+				</tr>';
+		}
+		echo '</tbody>';
+		echo '</table>';
 	}
-	echo '</tbody>';
-	echo '</table>';
+
 	echo '<table class="selection">
 			<tr>
 				<th colspan="2"><h3>', _('Supplier Transactions Payment Entry'), '</h3></th>
@@ -1371,7 +1377,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 	echo '<tr>
 			<td>',
 				_('Amount of Payment'), ' ', $_SESSION['PaymentDetail' . $Identifier]->Currency, ':</td>
-			<td><input class="number" maxlength="12" name="Amount" size="13" type="text" value="', $_SESSION['PaymentDetail' . $Identifier]->Amount, '" /></td>
+			<td><input class="number" maxlength="12" name="Amount" id="Amount" size="13" type="text" value="', $_SESSION['PaymentDetail' . $Identifier]->Amount, '" /></td>
 		</tr>';
 
 /*	if(isset($_SESSION['PaymentDetail'.$Identifier]->SupplierID)) {//included in a if with same condition.*/ /*So it is a supplier payment so show the discount entry item */
