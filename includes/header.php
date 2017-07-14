@@ -49,7 +49,7 @@ if ($Debug === 0) {
 	if (isset($AutoPrintPage)) {
 		echo '<body onload="window.print()">';
 	} else {
-		echo '<body onload="initial()">';
+		echo '<body onload="initial(); load()" onunload="GUnload()">';
 	}
 } else {
 	echo '<link href="', $RootPath, '/css/holmes.css" rel="stylesheet" type="text/css" />';
