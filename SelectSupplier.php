@@ -18,6 +18,17 @@ if (isset($_GET['SupplierID'])) {
 	$_SESSION['SupplierID'] = $_GET['SupplierID'];
 }
 // only get geocode information if integration is on, and supplier has been selected
+if (isset($_POST['Select'])) {
+	/*User has hit the button selecting a supplier */
+	$_SESSION['SupplierID'] = $_POST['Select'];
+	unset($_POST['Select']);
+	unset($_POST['Keywords']);
+	unset($_POST['SupplierCode']);
+	unset($_POST['Search']);
+	unset($_POST['Go']);
+	unset($_POST['Next']);
+	unset($_POST['Previous']);
+}
 if ($_SESSION['geocode_integration'] == 1 and isset($_SESSION['SupplierID'])) {
 	$SQL = "SELECT * FROM geocode_param WHERE 1";
 	$ErrMsg = _('An error occurred in retrieving the information');
@@ -40,7 +51,7 @@ if ($_SESSION['geocode_integration'] == 1 and isset($_SESSION['SupplierID'])) {
 	$MapHeight = $MyRow['map_height'];
 	$MapWidth = $MyRow['map_width'];
 	$MapHost = $MyRow['map_host'];
-	echo '<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . $ApiKey . '"';
+	echo '<script src="https://maps.google.com/maps?file=api&amp;v=2&amp;key=' . $ApiKey . '"';
 	echo ' type="text/javascript"></script>';
 	echo ' <script type="text/javascript">';
 	echo 'function load() {
@@ -57,8 +68,7 @@ if ($_SESSION['geocode_integration'] == 1 and isset($_SESSION['SupplierID'])) {
 			marker.openInfoWindowHtml(WINDOW_HTML);
 			}
 			}
-			</script>
-			<body onload="load()" onunload="GUnload()" >';
+			</script>';
 }
 
 if (!isset($_POST['PageOffset'])) {
@@ -67,17 +77,6 @@ if (!isset($_POST['PageOffset'])) {
 	if ($_POST['PageOffset'] == 0) {
 		$_POST['PageOffset'] = 1;
 	}
-}
-if (isset($_POST['Select'])) {
-	/*User has hit the button selecting a supplier */
-	$_SESSION['SupplierID'] = $_POST['Select'];
-	unset($_POST['Select']);
-	unset($_POST['Keywords']);
-	unset($_POST['SupplierCode']);
-	unset($_POST['Search']);
-	unset($_POST['Go']);
-	unset($_POST['Next']);
-	unset($_POST['Previous']);
 }
 if (isset($_POST['Search']) or isset($_POST['Go']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
 
@@ -384,7 +383,7 @@ if (isset($_SESSION['SupplierID']) and $_SESSION['SupplierID'] != '') {
 						</tr>
 						<tr>
 							<td class="centre">', // Mapping:
-								'<div class="centre" id="map" style="width: ', $map_width, 'px; height: ', $map_height, 'px"></div>
+								'<div class="centre" id="map" style="width: ', $MapWidth, 'px; height: ', $MapHeight, 'px"></div>
 							</td>
 						</tr>
 					<tbody>
