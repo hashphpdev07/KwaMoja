@@ -2113,7 +2113,11 @@ if (isset($_POST['ProcessSale']) and $_POST['ProcessSale'] != '') {
 
 		echo '<div class="centre">';
 
-		echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintInvoice.php?FromTransNo=', urlencode($InvoiceNo), '">', _('Print this invoice'), ')</a>';
+		if ($_SESSION['InvoicePortraitFormat'] == 0){
+			echo '<meta http-equiv="Refresh" content="0; url=', $RootPath, '/PrintCustTrans.php?FromTransNo=', $InvoiceNo, '&amp;InvOrCredit=Invoice&amp;PrintPDF=True" />';
+		} else {
+			echo '<meta http-equiv="Refresh" content="0; url=', $RootPath, '/PrintCustTransPortrait.php?FromTransNo=', $InvoiceNo, '&amp;InvOrCredit=Invoice&amp;PrintPDF=True" />';
+		}
 
 		echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Start a new Counter Sale'), '</a></div>';
 
