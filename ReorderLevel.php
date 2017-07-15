@@ -107,17 +107,6 @@ if (isset($_POST['PrintPDF'])) {
 		if ($YPos < $Bottom_Margin + $line_height) {
 			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $CategoryDescription);
 		}
-		$OnOrderSQL = "SELECT SUM(quantityord-quantityrecd) AS quantityonorder
-								FROM purchorders
-								LEFT JOIN purchorderdetails
-								ON purchorders.orderno=purchorderdetails.orderno
-								WHERE purchorders.status != 'Cancelled'
-									AND purchorders.status != 'Rejected'
-									AND purchorders.status != 'Pending'
-									  AND purchorderdetails.itemcode='" . $MyRow['stockid'] . "'
-									  AND purchorders.intostocklocation='" . $MyRow['loccode'] . "'";
-		$OnOrderResult = DB_query($OnOrderSQL);
-		$OnOrderRow = DB_fetch_array($OnOrderResult);
 
 		// Print if stock for part in other locations
 		$SQL2 = "SELECT locstock.quantity,
