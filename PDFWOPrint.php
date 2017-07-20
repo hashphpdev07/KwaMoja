@@ -461,6 +461,15 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 	}
 	/*end if there are order details to show on the order - or its a preview*/
 	if ($FooterPrintedInPage == 0) {
+		if ($_SERVER['HTTPS']) {
+			$Http = 'https://';
+		} else {
+			$Http = 'http://';
+		}
+		$BaseURL = $Http . $_SERVER['HTTP_HOST'] . $RootPath;
+		$PDF->write2DBarcode($BaseURL . '/WorkOrderIssue.php?WO=' . $SelectedWO . '&StockID=' . $StockID, 'QRCODE,H', 60, 650, 100, 100, '', 'N');
+		$PDF->write2DBarcode($StockID, 'QRCODE,H', 260, 650, 100, 100, '', 'N');
+		$PDF->write2DBarcode($BaseURL . '/WorkOrderReceive.php?WO=' . $SelectedWO . '&StockID=' . $StockID, 'QRCODE,H', 440, 650, 100, 100, '', 'N');
 		$LeftOvers = $PDF->addText($FormDesign->SignedDate->x, $Page_Height - $FormDesign->SignedDate->y, $FormDesign->SignedDate->FontSize, _('Date') . ' : ______________');
 		$LeftOvers = $PDF->addText($FormDesign->SignedBy->x, $Page_Height - $FormDesign->SignedBy->y, $FormDesign->SignedBy->FontSize, _('Signed for') . ': ____________________________________');
 		$FooterPrintedInPage = 1;
