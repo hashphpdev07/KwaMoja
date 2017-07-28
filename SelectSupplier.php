@@ -220,7 +220,7 @@ if (isset($_SESSION['SupplierID'])) {
 	echo '</td><td valign="top" class="select">';
 	/* Supplier Transactions */
 	echo '<a href="' . $RootPath . '/PO_Header.php?NewOrder=Yes&amp;SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Purchase Order') . '</a>';
-	echo '<a href="' . $RootPath . '/SupplierInvoice.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter an Invoice') . '</a>';
+	echo '<a href="' . $RootPath . '/SupplierInvoice.php?New=True&SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter an Invoice') . '</a>';
 	echo '<a href="' . $RootPath . '/SupplierCredit.php?New=true&amp;SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Credit Note') . '</a>';
 	echo '<a href="' . $RootPath . '/Payments.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Payment/Receipt') . '</a>';
 	echo '<a href="' . $RootPath . '/ReverseGRN.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Reverse an Outstanding Goods Received Note (GRN)') . '</a>';
