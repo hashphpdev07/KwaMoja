@@ -227,12 +227,12 @@ echo '<tr>
 $SQL = "SELECT tagref,
 			tagdescription
 		FROM tags
-		ORDER BY tagref";
+		ORDER BY tagdescription";
 
 $Result = DB_query($SQL);
 echo '<option value="0">0 - ' . _('None') . '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
-	if (isset($_POST['Tag']) and $_POST['Tag'] == $MyRow['tagref']) {
+	if (isset($_POST['Tag']) and in_array($MyRow['tagref'], $_POST['Tag'])) {
 		echo '<option selected="selected" value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
 	} else {
 		echo '<option value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
