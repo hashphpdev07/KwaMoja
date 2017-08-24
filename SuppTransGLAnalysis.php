@@ -37,6 +37,10 @@ if (isset($_POST['AddGLCodeToTrans']) and $_POST['AddGLCodeToTrans'] == _('Enter
 		$InputError = True;
 	}
 
+	if (!isset($_POST['Tag'])) {
+		$_POST['Tag'][0] = 0;
+	}
+
 	$SQL = "SELECT accountcode,
 					accountname
 				FROM chartmaster
