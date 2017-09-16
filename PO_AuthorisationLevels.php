@@ -96,7 +96,7 @@ if (isset($_GET['Edit'])) {
 	$MyRow = DB_fetch_array($Result);
 	$UserID = $_GET['UserID'];
 	$Currency = $_GET['Currency'];
-	$CanCreate = $MyRow['CanCreate'];
+	$CanCreate = $MyRow['cancreate'];
 	$OffHold = $MyRow['offhold'];
 	$AuthLevel = $MyRow['authlevel'];
 }
@@ -119,12 +119,13 @@ $Result = DB_query($SQL, $ErrMsg);
 
 echo '<table class="selection">
 	 <tr>
-		<th>' . _('User ID') . '</th>
-		<th>' . _('User Name') . '</th>
-		<th>' . _('Currency') . '</th>
-		<th>' . _('Create Order') . '</th>
-		<th>' . _('Can Release') . '<br />' . _('Invoices') . '</th>
-		<th>' . _('Authority Level') . '</th>
+		<th>', _('User ID'), '</th>
+		<th>', _('User Name'), '</th>
+		<th>', _('Currency'), '</th>
+		<th>', _('Create Order'), '</th>
+		<th>', _('Can Release'), '<br />', _('Invoices'), '</th>
+		<th>', _('Authority Level'), '</th>
+		<th colspan="2">&nbsp;</th>
 	</tr>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -139,14 +140,14 @@ while ($MyRow = DB_fetch_array($Result)) {
 		$DisplayOffHold = _('No');
 	}
 	echo '<tr>
-			<td>' . $MyRow['userid'] . '</td>
-			<td>' . $MyRow['realname'] . '</td>
-			<td>' . $MyRow['currency'] . '</td>
-			<td>' . $DisplayCanCreate . '</td>
-			<td>' . $DisplayOffHold . '</td>
-			<td class="number">' . locale_number_format($MyRow['authlevel'], $MyRow['decimalplaces']) . '</td>
-			<td><a href="' . $RootPath . '/PO_AuthorisationLevels.php?Edit=Yes&amp;UserID=' . $MyRow['userid'] . '&amp;Currency=' . $MyRow['currabrev'] . '">' . _('Edit') . '</a></td>
-			<td><a href="' . $RootPath . '/PO_AuthorisationLevels.php?Delete=Yes&amp;UserID=' . $MyRow['userid'] . '&amp;Currency=' . $MyRow['currabrev'] . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this authorisation level?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			<td>', $MyRow['userid'], '</td>
+			<td>', $MyRow['realname'], '</td>
+			<td>', _($MyRow['currency']), '</td>
+			<td>', $DisplayCanCreate, '</td>
+			<td>', $DisplayOffHold, '</td>
+			<td class="number">', locale_number_format($MyRow['authlevel'], $MyRow['decimalplaces']), '</td>
+			<td><a href="', $RootPath, '/PO_AuthorisationLevels.php?Edit=Yes&amp;UserID=', $MyRow['userid'], '&amp;Currency=', $MyRow['currabrev'], '">', _('Edit'), '</a></td>
+			<td><a href="', $RootPath, '/PO_AuthorisationLevels.php?Delete=Yes&amp;UserID=', $MyRow['userid'], '&amp;Currency=', $MyRow['currabrev'], '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this authorisation level?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 		</tr>';
 }
 
