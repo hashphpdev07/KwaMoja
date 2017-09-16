@@ -993,7 +993,7 @@ if (!isset($_GET['delete'])) {
 			<td>' . _('Default freight/shipper method') . ':</td>
 			<td><select tabindex="21" name="DefaultShipVia">';
 	while ($MyRow = DB_fetch_array($ShipperResults)) {
-		if (isset($_POST['DefaultShipVia']) and $MyRow['shipper_id'] == $_POST['DefaultShipVia']) {
+		if (isset($_POST['DefaultShipVia']) and ($MyRow['shipper_id'] == $_POST['DefaultShipVia']) or ($_SESSION['Default_Shipper'] == $MyRow['shipper_id'])) {
 			echo '<option selected="selected" value="' . $MyRow['shipper_id'] . '">' . $MyRow['shippername'] . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['shipper_id'] . '">' . $MyRow['shippername'] . '</option>';
