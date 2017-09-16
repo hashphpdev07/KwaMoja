@@ -70,7 +70,8 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 	$SQL = "SELECT debtortrans.id,
 				ovamount+ovgst AS totamt,
 				currencies.decimalplaces AS currdecimalplaces,
-				debtorsmaster.currcode
+				debtorsmaster.currcode,
+				debtortrans.rate
 			FROM debtortrans
 			INNER JOIN debtorsmaster
 				ON debtortrans.debtorno=debtorsmaster.debtorno
@@ -80,111 +81,154 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 				AND transno = '" . $_POST['TransNo'] . "'";
 
 	if ($_SESSION['SalesmanLogin'] != '') {
-			$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+		$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 	}
 
 	$Result = DB_query($SQL);
 
-	if (DB_num_rows($Result) > 0) {
-		$MyRow = DB_fetch_array($Result);
-		$AllocToID = $MyRow['id'];
-		$CurrCode = $MyRow['currcode'];
-		$CurrDecimalPlaces = $MyRow['currdecimalplaces'];
+	$GrandTotal = 0;
+	$Rows = DB_num_rows($Result);
+	if($Rows >= 1) {
+		while($MyRow = DB_fetch_array($Result)) {
+			$GrandTotal += $MyRow['totamt'];
+			$Rate = $MyRow['rate'];
+			$AllocToID = $MyRow['id'];
+			$CurrCode = $MyRow['currcode'];
+			$CurrDecimalPlaces = $MyRow['currdecimalplaces'];
 
-		$SQL = "SELECT type,
-					transno,
-					trandate,
-					debtortrans.debtorno,
-					reference,
-					debtortrans.rate,
-					ovamount+ovgst+ovfreight+ovdiscount as totalamt,
-					custallocns.amt
-				FROM debtortrans
-				INNER JOIN custallocns ";
-		if ($_POST['TransType'] == 12 or $_POST['TransType'] == 11) {
+			$SQL = "SELECT type,
+							transno,
+							trandate,
+							debtortrans.debtorno,
+							reference,
+							debtortrans.rate,
+							ovamount+ovgst+ovfreight+ovdiscount as totalamt,
+							custallocns.amt
+						FROM debtortrans
+						INNER JOIN custallocns";
+			if ($_POST['TransType'] == 12 or $_POST['TransType'] == 11) {
+				if ($_POST['TransType'] == 12) {
+					$TitleInfo = _('Receipt');
+				} else {
+					$TitleInfo = _('Credit Note');
+				}
+				if($MyRow['totamt'] < 0) {
+					$SQL .= " ON debtortrans.id = custallocns.transid_allocto
+						WHERE custallocns.transid_allocfrom = '" . $AllocToID . "'";
+				} else {
+					$SQL .= " ON debtortrans.id = custallocns.transid_allocfrom
+						WHERE custallocns.transid_allocto = '" . $AllocToID . "'";
+				}
 
-			$TitleInfo = ($_POST['TransType'] == 12)?_('Receipt'):_('Credit Note');
-			$SQL .= "ON debtortrans.id = custallocns.transid_allocto
-				WHERE custallocns.transid_allocfrom = '" . $AllocToID . "'";
-		} else {
-			$TitleInfo = _('invoice');
-			$SQL .= "ON debtortrans.id = custallocns.transid_allocfrom
-				WHERE custallocns.transid_allocto = '" . $AllocToID . "'";
-		}
-		$SQL .= " ORDER BY transno ";
-
-		$ErrMsg = _('The customer transactions for the selected criteria could not be retrieved because');
-		$TransResult = DB_query($SQL, $ErrMsg);
-
-		if (DB_num_rows($TransResult) == 0) {
-			prnMsg(_('There are no allocations made against this transaction'), 'info');
-
-			if ($MyRow['totamt'] < 0 and ($_POST['TransType'] == 12 or $_POST['TransType'] == 11)) {
-				prnMsg(_('This transaction was a receipt of funds and there can be no allocations of receipts or credits to a receipt. This inquiry is meant to be used to see how a payment which is entered as a negative receipt is settled against credit notes or receipts'),'info');
 			} else {
-				prnMsg(_('There are no allocations made against this transaction'),'info');
+				$TitleInfo = _('invoice');
+				$SQL .= " ON debtortrans.id = custallocns.transid_allocfrom
+					WHERE custallocns.transid_allocto = '" . $AllocToID . "'";
 			}
-		} else {
-			$Printer = true;
-			echo '<div id="Report">';
-			echo '<table class="selection" summary="', _('Allocations made against invoice number'), ' ', $_POST['TransNo'], '">';
+			$SQL .= " ORDER BY transno ";
 
-			echo '<tr>
-					<th colspan="7">
-					<div class="centre">
-						<b>', _('Allocations made against'), ' ', $TitleInfo, ' ', _('number'), ' ', $_POST['TransNo'], '<br />', _('Transaction Total'), ': ', locale_number_format($MyRow['totamt'], $CurrDecimalPlaces), ' ', $CurrCode, '</b>
-						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
-					</div>
-					</th>
-				</tr>
-				<tr>
-					<th>', _('Date'), '</th>
-					<th>', _('Type'), '</th>
-					<th>', _('Number'), '</th>
-					<th>', _('Reference'), '</th>
-					<th>', _('Ex Rate'), '</th>
-					<th>', _('Amount'), '</th>
-					<th>', _('Alloc'), '</th>
-				</tr>';
+			$ErrMsg = _('The customer transactions for the selected criteria could not be retrieved because');
+			$TransResult = DB_query($SQL, $ErrMsg);
 
-			$k = 0; //row colour counter
-			$AllocsTotal = 0;
+			if (DB_num_rows($TransResult) == 0) {
+				prnMsg(_('There are no allocations made against this transaction'), 'info');
 
-			while ($MyRow = DB_fetch_array($TransResult)) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
+				if ($MyRow['totamt'] < 0 and ($_POST['TransType'] == 12 or $_POST['TransType'] == 11)) {
+					prnMsg(_('This transaction was a receipt of funds and there can be no allocations of receipts or credits to a receipt. This inquiry is meant to be used to see how a payment which is entered as a negative receipt is settled against credit notes or receipts'),'info');
 				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
+					prnMsg(_('There are no allocations made against this transaction'),'info');
 				}
+			} else {
+				$Printer = true;
+				echo '<div id="Report">';
+				echo '<table class="selection" summary="', _('Allocations made against invoice number'), ' ', $_POST['TransNo'], '">';
 
-				if ($MyRow['type'] == 11) {
-					$TransType = _('Credit Note');
-				} elseif ($MyRow['type'] == 10){
-					$TransType = _('Invoice');
-				} else {
-					$TransType = _('Receipt');
+				echo '<tr>
+						<th colspan="7">
+							<div class="centre">
+								<b>', _('Allocations made against'), ' ', $TitleInfo, ' ', _('number'), ' ', $_POST['TransNo'], '<br />', _('Transaction Total'), ': ', locale_number_format($MyRow['totamt'], $CurrDecimalPlaces), ' ', $CurrCode, '</b>
+								<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
+							</div>
+						</th>
+					</tr>
+					<tr>
+						<th>', _('Date'), '</th>
+						<th>', _('Type'), '</th>
+						<th>', _('Number'), '</th>
+						<th>', _('Reference'), '</th>
+						<th>', _('Ex Rate'), '</th>
+						<th>', _('Amount'), '</th>
+						<th>', _('Alloc'), '</th>
+					</tr>';
+
+				$k = 0; //row colour counter
+				$AllocsTotal = 0;
+
+				while ($MyRow = DB_fetch_array($TransResult)) {
+					if ($k == 1) {
+						echo '<tr class="EvenTableRows">';
+						$k = 0;
+					} else {
+						echo '<tr class="OddTableRows">';
+						++$k;
+					}
+
+					if ($MyRow['type'] == 11) {
+						$TransType = _('Credit Note');
+					} elseif ($MyRow['type'] == 10){
+						$TransType = _('Invoice');
+					} else {
+						$TransType = _('Receipt');
+					}
+					echo '<td>', ConvertSQLDate($MyRow['trandate']), '</td>
+						<td>', $TransType, '</td>
+						<td>', $MyRow['transno'], '</td>
+						<td>', $MyRow['reference'], '</td>
+						<td>', $MyRow['rate'], '</td>
+						<td class="number">', locale_number_format($MyRow['totalamt'], $CurrDecimalPlaces), '</td>
+						<td class="number">', locale_number_format($MyRow['amt'], $CurrDecimalPlaces), '</td>
+					</tr>';
+
+					$AllocsTotal += $MyRow['amt'];
 				}
-				echo '<td>', ConvertSQLDate($MyRow['trandate']), '</td>
-					<td>', $TransType, '</td>
-					<td>', $MyRow['transno'], '</td>
-					<td>', $MyRow['reference'], '</td>
-					<td>', $MyRow['rate'], '</td>
-					<td class="number">', locale_number_format($MyRow['totalamt'], $CurrDecimalPlaces), '</td>
-					<td class="number">', locale_number_format($MyRow['amt'], $CurrDecimalPlaces), '</td>
-				</tr>';
-
-				$AllocsTotal += $MyRow['amt'];
+				//end of while loop
+				echo '<tr>
+						<td colspan="6" class="number">', _('Total allocated'), '</td>
+						<td class="number">', locale_number_format($AllocsTotal, $CurrDecimalPlaces), '</td>
+					</tr>
+				</table>
+			</div>';
+			} // end if there are allocations against the transaction
+		} //end of while loop;
+		if ($Rows>1) {
+			echo '<div class="centre"><b>' . _('Transaction Total'). '</b> ' .locale_number_format($GrandTotal,$CurrDecimalPlaces) . '</div>';
+		}
+		if ($_POST['TransType'] == 12) {
+		//retrieve transaction to see if there are any transaction fee,
+			$SQL = "SELECT account,
+							amount
+						FROM gltrans
+						LEFT JOIN bankaccounts
+							ON account=accountcode
+						WHERE type=12 AND typeno='" . $_POST['TransNo'] . "'
+							AND account !='" . $_SESSION['CompanyRecord']['debtorsact'] . "'
+							AND accountcode IS NULL";
+			$ErrMsg = _('Failed to retrieve charge data');
+			$Result = DB_query($SQL, $ErrMsg);
+			if (DB_num_rows($Result) > 0) {
+				while ($MyRow = DB_fetch_array($Result)) {
+					echo '<div class="centre">
+							<strong>' ._('GL Account') . ' ' . $MyRow['account'] . '</strong>
+							'. _('Amount') . locale_number_format($MyRow['amount'], $CurrDecimalPlaces) . '<br/> ' .
+							_('To local currency') . ' ' . locale_number_format($MyRow['amount'] * $Rate, $CurrDecimalPlaces) . ' ' . _('at rate') . ' ' . $Rate .
+						'</div>';
+					$GrandTotal += $MyRow['amount'] * $Rate;
+				}
+				echo '<div class="centre">
+					<strong>' . _('Grand Total') . '</strong>' . ' ' . locale_number_format($GrandTotal,$CurrDecimalPlaces).'
+				</div>';
 			}
-			//end of while loop
-			echo '<tr>
-					<td colspan="6" class="number">', _('Total allocated'), '</td>
-					<td class="number">', locale_number_format($AllocsTotal, $CurrDecimalPlaces), '</td>
-				</tr>
-			</table>
-		</div>';
-		} // end if there are allocations against the transaction
+		}
 	} else {
 		prnMsg( _('This transaction does not exist as yet'), 'info');
 	}
