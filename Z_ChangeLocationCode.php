@@ -136,6 +136,12 @@ if (isset($_POST['ProcessLocationChange'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		echo ' ... ' . _('completed');
 
+		echo '<br />' . _('Changing the locationusers table records');
+		$SQL = "UPDATE locationusers SET loccode='" . $_POST['NewLocationID'] . "' WHERE loccode='" . $_POST['OldLocationID'] . "'";
+		$ErrMsg = _('The SQL to update users records failed');
+		$result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+		echo ' ... ' . _('completed');
+
 		echo '<br />' . _('Changing stock location records');
 		$SQL = "UPDATE locstock SET loccode='" . $_POST['NewLocationID'] . "' WHERE loccode='" . $_POST['OldLocationID'] . "'";
 		$ErrMsg = _('The SQL to update stock location records failed');
