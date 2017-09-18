@@ -215,7 +215,7 @@ if($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST[
 	// Customer maintenance options:
 	echo '<a href="', $RootPath, '/Customers.php">' . _('Add a New Customer') . '</a>';
 	echo '<a href="', $RootPath, '/Customers.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Modify Customer Details') . '</a>';
-	echo '<a href="', $RootPath, '/CustomerBranches.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Add/Modify/Delete Customer Branches') . '</a>';
+	echo '<a href="', $RootPath, '/CustomerBranches.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Add/Edit/Delete Customer Branches') . '</a>';
 	echo '<a href="', $RootPath, '/SelectProduct.php">' . _('Special Customer Prices') . '</a>';
 	echo '<a href="', $RootPath, '/CustEDISetup.php">' . _('Customer EDI Configuration') . '</a>';
 	echo '<a href="', $RootPath, '/CustLoginSetup.php">' . _('Customer Login Configuration') . '</a>';

@@ -2,6 +2,8 @@
 
 include('includes/session.php');
 
+$FontSize = 8;
+
 if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST['NoOfPeriods']) and isset($_POST['ToPeriod'])) {
 
 	$SQL = "SELECT lastdate_in_period
@@ -257,6 +259,7 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 
 		$FontSize = 10;
 		$YPos -= $FontSize; // Jumps additional line.
+		$YPos -= $FontSize; // Jumps additional line.
 		$PDF->addText($Left_Margin, $YPos + $FontSize, $FontSize, _('Tax On Petty cash expenses'));
 		$YPos -= $FontSize;
 
@@ -266,14 +269,14 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 			$TotalTaxSQL = "SELECT SUM(-amount) totaltax FROM pcashdetailtaxes WHERE pccashdetail='" . $PettyCashRow['transno'] . "'";
 			$TotalTaxResult = DB_query($TotalTaxSQL);
 			$TotalTaxRow = DB_fetch_array($TotalTaxResult);
-			$NetAmount = -($PettyCashRow['gross'] - $TotalTaxRow['totaltax']);
+			$NetAmount = ((-$PettyCashRow['gross']) - $TotalTaxRow['totaltax']);
 			$PDF->addText($Left_Margin, $YPos, $FontSize, ConvertSQLDate($PettyCashRow['trandate']));
 			$PDF->addText(82, $YPos, $FontSize, _('Petty Cash Expense'));
 			$PDF->addTextWrap(140, $YPos - $FontSize, 40, $FontSize, $PettyCashRow['transno'], 'right');
 			$PDF->addText(180, $YPos, $FontSize, $PettyCashRow['suppname']);
 			$PDF->addText(380, $YPos, $FontSize, $PettyCashRow['suppreference']); //****************NEW
 			$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, locale_number_format($NetAmount, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-			$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format(($PettyCashRow['taxamt']), $_SESSION['CompanyRecord']['decimalplaces']), 'right');
+			$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format(-($PettyCashRow['taxamt']), $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 			$YPos -= $FontSize; // End-of-line line-feed.
 			if ($YPos < $Bottom_Margin + $FontSize) {
 				include('includes/PDFTaxPageHeader.php');
@@ -281,7 +284,7 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 			}
 			$PettyCashCount++; // Counts purchases transactions.
 			$PettyCashNet += $NetAmount; // Accumulates purchases net.
-			$PettyCashTax += $PettyCashRow['taxamt']; // Accumulates purchases tax.
+			$PettyCashTax += (-$PettyCashRow['taxamt']); // Accumulates purchases tax.
 		}
 		/*end listing while loop */
 
@@ -304,13 +307,13 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 
 	} else {
 		while ($PettyCashRow = DB_fetch_array($PettyCashResult)) {
-			$TotalTaxSQL = "SELECT SUM(amount) totaltax FROM pcashdetailtaxes WHERE pcashdetail='" . $PettyCashRow['transno'] . "'";
+			$TotalTaxSQL = "SELECT SUM(-amount) totaltax FROM pcashdetailtaxes WHERE pccashdetail='" . $PettyCashRow['transno'] . "'";
 			$TotalTaxResult = DB_query($TotalTaxSQL);
 			$TotalTaxRow = DB_fetch_array($TotalTaxResult);
-			$NetAmount = ($PettyCashRow['gross'] - $TotalTaxRow['totaltax']);
+			$NetAmount = ((-$PettyCashRow['gross']) - $TotalTaxRow['totaltax']);
 			$PettyCashCount++; // Counts purchases transactions.
 			$PettyCashNet += $NetAmount; // Accumulates purchases net.
-			$PettyCashTax += $PettyCashRow['taxamt']; // Accumulates purchases tax.
+			$PettyCashTax += (-$PettyCashRow['taxamt']); // Accumulates purchases tax.
 		}
 		/*end listing while loop */
 	}

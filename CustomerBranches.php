@@ -100,25 +100,17 @@ if (isset($_POST['submit'])) {
 			// check that some sane values are setup already in geocode tables, if not skip the geocoding but add the record anyway.
 			echo '<div class="warn">' . _('Warning - Geocode Integration is enabled, but no hosts are setup.  Go to Geocode Setup') . '</div>';
 		} else {
-			$Address = $_POST['BrAddress1'] . ', ' . $_POST['BrAddress2'] . ', ' . $_POST['BrAddress3'] . ', ' . $_POST['BrAddress4'];
-			$BaseUrl = 'http://' . MAPS_HOST . '/maps/geo?output=xml&amp;key=' . KEY;
-			$RequestUrl = $BaseUrl . '&amp;q=' . urlencode($Address);
+			$Address = urlencode($_POST['BrAddress1'] . ', ' . $_POST['BrAddress2'] . ', ' . $_POST['BrAddress3'] . ', ' . $_POST['BrAddress4']);
+			$BaseUrl = "http://" . MAPS_HOST . "/maps/api/geocode/xml?address=";
+			$RequestUrl = $BaseUrl . $Address . ',&sensor=true';
 			$xml = simplexml_load_string(utf8_encode(file_get_contents($RequestUrl))) or die('url not loading');
-			$Coordinates = $xml->Response->Placemark->Point->Coordinates;
-			$CoordinatesSplit = explode(",", $Coordinates);
-			// Format: Longitude, Latitude, Altitude
-			$Latitude = $CoordinatesSplit[1];
-			$Longitude = $CoordinatesSplit[0];
 
-			$Status = $xml->Response->Status->code;
-			if (strcmp($Status, '200') == 0) {
+			$Status = $xml->status;
+			if (strcmp($Status, 'OK') == 0) {
 				// Successful geocode
 				$Geocode_Pending = false;
-				$Coordinates = $xml->Response->Placemark->Point->Coordinates;
-				$CoordinatesSplit = explode(",", $Coordinates);
-				// Format: Longitude, Latitude, Altitude
-				$Latitude = $CoordinatesSplit[1];
-				$Longitude = $CoordinatesSplit[0];
+				$Latitude = $xml->result->geometry->location->lat;
+				$Longitude = $xml->result->geometry->location->lng;
 			} else {
 				// failure to geocode
 				$Geocode_Pending = false;
@@ -205,6 +197,7 @@ if (isset($_POST['submit'])) {
 						brpostaddr3 = '" . $_POST['BrPostAddr3'] . "',
 						brpostaddr4 = '" . $_POST['BrPostAddr4'] . "',
 						brpostaddr5 = '" . $_POST['BrPostAddr5'] . "',
+						brpostaddr6 = '" . $_POST['BrPostAddr6'] . "',
 						disabletrans='" . $_POST['DisableTrans'] . "',
 						defaultshipvia='" . $_POST['DefaultShipVia'] . "',
 						custbranchcode='" . $_POST['CustBranchCode'] . "',
@@ -246,6 +239,7 @@ if (isset($_POST['submit'])) {
 						brpostaddr3,
 						brpostaddr4,
 						brpostaddr5,
+						brpostaddr6,
 						disabletrans,
 						defaultshipvia,
 						custbranchcode,
@@ -277,6 +271,7 @@ if (isset($_POST['submit'])) {
 					'" . $_POST['BrPostAddr3'] . "',
 					'" . $_POST['BrPostAddr4'] . "',
 					'" . $_POST['BrPostAddr5'] . "',
+					'" . $_POST['BrPostAddr6'] . "',
 					'" . $_POST['DisableTrans'] . "',
 					'" . $_POST['DefaultShipVia'] . "',
 					'" . $_POST['CustBranchCode'] . "',
@@ -998,7 +993,7 @@ if (!isset($_GET['delete'])) {
 			<td>' . _('Default freight/shipper method') . ':</td>
 			<td><select tabindex="21" name="DefaultShipVia">';
 	while ($MyRow = DB_fetch_array($ShipperResults)) {
-		if (isset($_POST['DefaultShipVia']) and $MyRow['shipper_id'] == $_POST['DefaultShipVia']) {
+		if (isset($_POST['DefaultShipVia']) and ($MyRow['shipper_id'] == $_POST['DefaultShipVia']) or ($_SESSION['Default_Shipper'] == $MyRow['shipper_id'])) {
 			echo '<option selected="selected" value="' . $MyRow['shipper_id'] . '">' . $MyRow['shippername'] . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['shipper_id'] . '">' . $MyRow['shippername'] . '</option>';
