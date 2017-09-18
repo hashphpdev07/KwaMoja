@@ -491,7 +491,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 			}
 		} else {
 			if (isset($StockId) and file_exists($_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg')) {
-				$StockImgLink = '<img src="' . $_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg" height="200" width="200" />';
+				$StockImgLink = '<img src="' . urlencode($_SESSION['part_pics_dir']) . '/' . urlencode($StockId) . '.jpg" height="200" width="200" />';
 			} else {
 				$StockImgLink = _('No Image');
 			}
