@@ -460,6 +460,7 @@ if (isset($_POST['submit'])) {
 							remittance='" . $_POST['Remittance'] . "',
 							taxgroupid='" . $_POST['TaxGroup'] . "',
 							factorcompanyid='" . $_POST['FactorID'] . "',
+							suppliergroupid='" . $_POST['GroupID'] . "',
 							lat='" . $latitude . "',
 							lng='" . $longitude . "',
 							defaultshipper='" . $_POST['DefaultShipper'] . "',
@@ -490,6 +491,7 @@ if (isset($_POST['submit'])) {
 							remittance='" . $_POST['Remittance'] . "',
 							taxgroupid='" . $_POST['TaxGroup'] . "',
 							factorcompanyid='" . $_POST['FactorID'] . "',
+							suppliergroupid='" . $_POST['GroupID'] . "',
 							lat='" . $latitude . "',
 							lng='" . $longitude . "',
 							defaultshipper='" . $_POST['DefaultShipper'] . "',
@@ -534,6 +536,7 @@ if (isset($_POST['submit'])) {
 										remittance,
 										taxgroupid,
 										factorcompanyid,
+										suppliergroupid,
 										lat,
 										lng,
 										defaultshipper,
@@ -561,6 +564,7 @@ if (isset($_POST['submit'])) {
 									'" . $_POST['Remittance'] . "',
 									'" . $_POST['TaxGroup'] . "',
 									'" . $_POST['FactorID'] . "',
+									'" . $_POST['GroupID'] . "',
 									'" . $latitude . "',
 									'" . $longitude . "',
 									'" . $_POST['DefaultShipper'] . "',
@@ -600,6 +604,7 @@ if (isset($_POST['submit'])) {
 			unset($_POST['Remittance']);
 			unset($_POST['TaxGroup']);
 			unset($_POST['FactorID']);
+			unset($_POST['GroupID']);
 			unset($_POST['DefaultShipper']);
 			unset($_POST['DefaultGL']);
 			unset($_POST['TaxRef']);
@@ -696,6 +701,7 @@ if (!isset($SupplierID)) {
 	$_POST['BankAct'] = '';
 	$_POST['TaxGroup'] = '';
 	$_POST['FactorID'] = '';
+	$_POST['GroupID'] = '';
 	$_POST['DefaultShipper'] = $_SESSION['Default_Shipper'];
 	$_POST['TaxRef'] = '';
 
@@ -726,6 +732,7 @@ if (!isset($SupplierID)) {
 						remittance,
 						taxgroupid,
 						factorcompanyid,
+						suppliergroupid,
 						defaultshipper,
 						taxref,
 						defaultgl
@@ -756,6 +763,7 @@ if (!isset($SupplierID)) {
 		$_POST['BankAct'] = $MyRow['bankact'];
 		$_POST['TaxGroup'] = $MyRow['taxgroupid'];
 		$_POST['FactorID'] = $MyRow['factorcompanyid'];
+		$_POST['GroupID'] = $MyRow['suppliergroupid'];
 		$_POST['DefaultShipper'] = $MyRow['defaultshipper'];
 		$_POST['TaxRef'] = $MyRow['taxref'];
 		$_POST['DefaultGL'] = $MyRow['defaultgl'];
@@ -901,6 +909,24 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 } //end while loop
 echo '</select></td></tr>';
+
+$Result = DB_query("SELECT id, coyname FROM suppliergroups");
+
+echo '<tr>
+			<td>' . _('Supplier Group') . ':</td>
+			<td><select name="GroupID">';
+echo '<option value="0">' . _('None') . '</option>';
+while ($MyRow = DB_fetch_array($Result)) {
+	if ($_POST['GroupID'] == $MyRow['id']) {
+		echo '<option selected="selected" value="' . $MyRow['id'] . '">' . $MyRow['coyname'] . '</option>';
+	} else {
+		echo '<option value="' . $MyRow['id'] . '">' . $MyRow['coyname'] . '</option>';
+	}
+} //end while loop
+echo '</select>
+		</td>
+	</tr>';
+
 echo '<tr>
 			<td>' . _('Tax Reference') . ':</td>
 			<td><input type="text" name="TaxRef" size="21" maxlength="20" value="' . $_POST['TaxRef'] . '" /></td></tr>';
