@@ -27,7 +27,7 @@ $Msg = '';
 if (isset($_GET['NewReceipt'])) {
 	unset($_SESSION['ReceiptBatch' . $Identifier]->Items);
 	unset($_SESSION['ReceiptBatch' . $Identifier]);
-	unset($_SESSION['CustomerRecord']);
+	unset($_SESSION['CustomerRecord' . $Identifier]);
 }
 
 if (isset($_POST['Cancel'])) {
@@ -207,7 +207,7 @@ if (isset($_POST['Process'])) { //user hit submit a new entry to the receipt bat
 }
 
 if (isset($Cancel)) {
-	unset($_SESSION['CustomerRecord']);
+	unset($_SESSION['CustomerRecord' . $Identifier]);
 	unset($_POST['CustomerID']);
 	unset($_POST['CustomerName']);
 	unset($_POST['Amount']);
@@ -670,8 +670,8 @@ if (isset($Select)) {
 	the receipt held entirely as session variables until the button clicked to process*/
 
 
-	if (isset($_SESSION['CustomerRecord'])) {
-		unset($_SESSION['CustomerRecord']);
+	if (isset($_SESSION['CustomerRecord' . $Identifier])) {
+		unset($_SESSION['CustomerRecord' . $Identifier]);
 	}
 
 	$SQL = "SELECT debtorsmaster.name,
@@ -763,16 +763,16 @@ if (isset($Select)) {
 		$NIL_BALANCE = False;
 	}
 
-	$_SESSION['CustomerRecord'] = DB_fetch_array($CustomerResult);
+	$_SESSION['CustomerRecord' . $Identifier] = DB_fetch_array($CustomerResult);
 
 	if ($NIL_BALANCE == True) {
-		$_SESSION['CustomerRecord']['balance'] = 0;
-		$_SESSION['CustomerRecord']['due'] = 0;
-		$_SESSION['CustomerRecord']['overdue1'] = 0;
-		$_SESSION['CustomerRecord']['overdue2'] = 0;
+		$_SESSION['CustomerRecord' . $Identifier]['balance'] = 0;
+		$_SESSION['CustomerRecord' . $Identifier]['due'] = 0;
+		$_SESSION['CustomerRecord' . $Identifier]['overdue1'] = 0;
+		$_SESSION['CustomerRecord' . $Identifier]['overdue2'] = 0;
 	}
 }
-/*end of if customer has just been selected  all info required read into $_SESSION['CustomerRecord']*/
+/*end of if customer has just been selected  all info required read into $_SESSION['CustomerRecord' . $Identifier]*/
 
 /*set up the form whatever */
 
@@ -1033,19 +1033,19 @@ Finally enter the amount */
 then set out the customers account summary */
 
 
-if (isset($_SESSION['CustomerRecord']) and $_SESSION['CustomerRecord']['currcode'] != $_SESSION['ReceiptBatch' . $Identifier]->Currency) {
+if (isset($_SESSION['CustomerRecord' . $Identifier]) and $_SESSION['CustomerRecord' . $Identifier]['currcode'] != $_SESSION['ReceiptBatch' . $Identifier]->Currency) {
 	prnMsg(_('The selected customer does not trade in the currency of the receipt being entered - either the currency of the receipt needs to be changed or a different customer selected'), 'warn');
-	unset($_SESSION['CustomerRecord']);
+	unset($_SESSION['CustomerRecord' . $Identifier]);
 }
 
 
-if (isset($_SESSION['CustomerRecord']) and isset($_POST['CustomerID']) and $_POST['CustomerID'] != '' and isset($_SESSION['ReceiptBatch' . $Identifier])) {
+if (isset($_SESSION['CustomerRecord' . $Identifier]) and isset($_POST['CustomerID']) and $_POST['CustomerID'] != '' and isset($_SESSION['ReceiptBatch' . $Identifier])) {
 	/*a customer is selected  */
 
 	echo '<p class="page_title_text">
-			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', _('Customer'), '" alt="" />', ' ', $_SESSION['CustomerRecord']['name'], ' - (', _('All amounts stated in'), ' ', $_SESSION['CustomerRecord']['currency'], ')', _('Terms'), ': ', $_SESSION['CustomerRecord']['terms'], '<br/>', _('Credit Limit'), ': ', locale_number_format($_SESSION['CustomerRecord']['creditlimit'], 0), '  ', _('Credit Status'), ': ', $_SESSION['CustomerRecord']['reasondescription'];
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', _('Customer'), '" alt="" />', ' ', $_SESSION['CustomerRecord' . $Identifier]['name'], ' - (', _('All amounts stated in'), ' ', $_SESSION['CustomerRecord' . $Identifier]['currency'], ')', _('Terms'), ': ', $_SESSION['CustomerRecord' . $Identifier]['terms'], '<br/>', _('Credit Limit'), ': ', locale_number_format($_SESSION['CustomerRecord' . $Identifier]['creditlimit'], 0), '  ', _('Credit Status'), ': ', $_SESSION['CustomerRecord' . $Identifier]['reasondescription'];
 
-	if ($_SESSION['CustomerRecord']['dissallowinvoices'] != 0) {
+	if ($_SESSION['CustomerRecord' . $Identifier]['dissallowinvoices'] != 0) {
 		echo '<br />
 			<font color="red" size="4"><b>', _('ACCOUNT ON HOLD'), '</font></b>
 			<br/>';
@@ -1062,11 +1062,11 @@ if (isset($_SESSION['CustomerRecord']) and isset($_POST['CustomerID']) and $_POS
 			</tr>';
 
 	echo '<tr>
-			<td class="number">', locale_number_format($_SESSION['CustomerRecord']['balance'], $_SESSION['CustomerRecord']['currdecimalplaces']), '</td>
-			<td class="number">', locale_number_format(($_SESSION['CustomerRecord']['balance'] - $_SESSION['CustomerRecord']['due']), $_SESSION['CustomerRecord']['currdecimalplaces']), '</td>
-			<td class="number">', locale_number_format(($_SESSION['CustomerRecord']['due'] - $_SESSION['CustomerRecord']['overdue1']), $_SESSION['CustomerRecord']['currdecimalplaces']), '</td>
-			<td class="number">', locale_number_format(($_SESSION['CustomerRecord']['overdue1'] - $_SESSION['CustomerRecord']['overdue2']), $_SESSION['CustomerRecord']['currdecimalplaces']), '</td>
-			<td class="number">', locale_number_format($_SESSION['CustomerRecord']['overdue2'], $_SESSION['CustomerRecord']['currdecimalplaces']), '</td>
+			<td class="number">', locale_number_format($_SESSION['CustomerRecord' . $Identifier]['balance'], $_SESSION['CustomerRecord' . $Identifier]['currdecimalplaces']), '</td>
+			<td class="number">', locale_number_format(($_SESSION['CustomerRecord' . $Identifier]['balance'] - $_SESSION['CustomerRecord' . $Identifier]['due']), $_SESSION['CustomerRecord' . $Identifier]['currdecimalplaces']), '</td>
+			<td class="number">', locale_number_format(($_SESSION['CustomerRecord' . $Identifier]['due'] - $_SESSION['CustomerRecord' . $Identifier]['overdue1']), $_SESSION['CustomerRecord' . $Identifier]['currdecimalplaces']), '</td>
+			<td class="number">', locale_number_format(($_SESSION['CustomerRecord' . $Identifier]['overdue1'] - $_SESSION['CustomerRecord' . $Identifier]['overdue2']), $_SESSION['CustomerRecord' . $Identifier]['currdecimalplaces']), '</td>
+			<td class="number">', locale_number_format($_SESSION['CustomerRecord' . $Identifier]['overdue2'], $_SESSION['CustomerRecord' . $Identifier]['currdecimalplaces']), '</td>
 			<td><a href="CustomerInquiry.php?CustomerID=', urlencode($_POST['CustomerID']), '&Status=0" target="_blank">', _('Inquiry'), '</td>
 		</tr>
 	</table>';
@@ -1080,7 +1080,7 @@ if (isset($_SESSION['CustomerRecord']) and isset($_POST['CustomerID']) and $_POS
 	}
 
 	echo '<input type="hidden" name="CustomerID" value="', $_POST['CustomerID'], '" />';
-	echo '<input type="hidden" name="CustomerName" value="', $_SESSION['CustomerRecord']['name'], '" />';
+	echo '<input type="hidden" name="CustomerName" value="', $_SESSION['CustomerRecord' . $Identifier]['name'], '" />';
 
 }
 
@@ -1127,7 +1127,7 @@ if (isset($_POST['GLEntry']) and isset($_SESSION['ReceiptBatch' . $Identifier]))
 /*if either a customer is selected or its a GL Entry then set out
 the fields for entry of receipt amt, disc, payee details, narrative */
 
-if (((isset($_SESSION['CustomerRecord']) and isset($_POST['CustomerID']) and $_POST['CustomerID'] != '') or isset($_POST['GLEntry'])) and isset($_SESSION['ReceiptBatch' . $Identifier])) {
+if (((isset($_SESSION['CustomerRecord' . $Identifier]) and isset($_POST['CustomerID']) and $_POST['CustomerID'] != '') or isset($_POST['GLEntry'])) and isset($_SESSION['ReceiptBatch' . $Identifier])) {
 
 	if (!isset($_POST['Amount'])) {
 		$_POST['Amount'] = 0;
