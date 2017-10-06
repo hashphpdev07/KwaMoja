@@ -201,9 +201,18 @@ if (isset($_SESSION['SupplierID'])) {
 	echo '<div class="page_help_text">' . _('Select a menu option to operate using this supplier.') . '</div>';
 	echo '<table width="90%" cellpadding="4">
 			<tr>
-				<th style="width:33%">' . _('Supplier Inquiries') . '</th>
-				<th style="width:33%">' . _('Supplier Transactions') . '</th>
-				<th style="width:33%">' . _('Supplier Maintenance') . '</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Supplier Inquiries'), '" />',
+					_('Supplier Inquiries'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Supplier Transactions'), '" />',
+					_('Supplier Transactions'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Supplier Maintenance'), '" />',
+					_('Supplier Maintenance'),
+				'</th>
 			</tr>';
 	echo '<tr>
 			<td valign="top" class="select">';

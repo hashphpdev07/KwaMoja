@@ -185,9 +185,18 @@ if($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST[
 		<table cellpadding="4" width="90%" class="selection">
 		<thead>
 			<tr>
-				<th style="width:33%">', _('Customer Inquiries'), '</th>
-				<th style="width:33%">', _('Customer Transactions'), '</th>
-				<th style="width:33%">', _('Customer Maintenance'), '</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Inquiries and Reports'), '" />',
+					_('Customer Inquiries'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Customer Transactions'), '" />',
+					_('Customer Transactions'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Maintenance'), '" />',
+					_('Customer Maintenance'),
+				'</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -230,9 +239,18 @@ else {
 	echo '<table cellpadding="4" width="90%" class="selection">
 		<thead>
 			<tr>
-				<th style="width:33%">', _('Customer Inquiries'), '</th>
-				<th style="width:33%">', _('Customer Transactions'), '</th>
-				<th style="width:33%">', _('Customer Maintenance'), '</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Inquiries and Reports'), '" />',
+					_('Customer Inquiries'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Customer Transactions'), '" />',
+					_('Customer Transactions'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Maintenance'), '" />',
+					_('Customer Maintenance'),
+				'</th>
 			</tr>
 		</thead>
 		<tbody>';
