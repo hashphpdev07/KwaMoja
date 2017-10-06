@@ -6,7 +6,7 @@ if (isset($_GET['SelectedSupplier'])) {
 	$_POST['supplierid'] = $_GET['SelectedSupplier'];
 }
 
-if (isset($_POST['PrintPDF'])) {
+if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
 	include('includes/PDFStarter.php');
 
@@ -154,50 +154,86 @@ if (isset($_POST['PrintPDF'])) {
 		exit;
 	}
 
-	PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
+	if (!isset($_POST['View'])) {
+		PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
 
-	$FontSize = 8;
-	$code = '';
-	while ($MyRow = DB_fetch_array($Result)) {
-		$YPos -= $line_height;
+		$FontSize = 8;
+		$code = '';
+		while ($MyRow = DB_fetch_array($Result)) {
+			$YPos -= $line_height;
 
-		$PriceDated = ConvertSQLDate($MyRow[4]);
+			$PriceDated = ConvertSQLDate($MyRow[4]);
 
-		//if item has more than 1 price, write only price, date and supplier code for the old ones
-		if ($code == $MyRow['stockid']) {
+			//if item has more than 1 price, write only price, date and supplier code for the old ones
+			if ($code == $MyRow['stockid']) {
 
-			$PDF->addTextWrap(350, $YPos, 50, $FontSize, locale_number_format($MyRow['price'], $CurrDecimalPlaces), 'right');
-			$PDF->addTextWrap(410, $YPos, 50, $FontSize, $PriceDated, 'left');
-			$PDF->addTextWrap(470, $YPos, 90, $FontSize, $MyRow['suppliers_partno'], 'left');
-			$code = $MyRow['stockid'];
-		} else {
-			$code = $MyRow['stockid'];
-			$PDF->addTextWrap(30, $YPos, 100, $FontSize, $MyRow['stockid'], 'left');
-			$PDF->addTextWrap(135, $YPos, 160, $FontSize, $MyRow['description'], 'left');
-			$PDF->addTextWrap(300, $YPos, 50, $FontSize, locale_number_format($MyRow['conversionfactor'], 'Variable'), 'right');
-			$PDF->addTextWrap(350, $YPos, 50, $FontSize, locale_number_format($MyRow['price'], $CurrDecimalPlaces), 'right');
-			$PDF->addTextWrap(410, $YPos, 50, $FontSize, $PriceDated, 'left');
-			$PDF->addTextWrap(470, $YPos, 90, $FontSize, $MyRow['suppliers_partno'], 'left');
+				$PDF->addTextWrap(350, $YPos, 50, $FontSize, locale_number_format($MyRow['price'], $CurrDecimalPlaces), 'right');
+				$PDF->addTextWrap(410, $YPos, 50, $FontSize, $PriceDated, 'left');
+				$PDF->addTextWrap(470, $YPos, 90, $FontSize, $MyRow['suppliers_partno'], 'left');
+				$code = $MyRow['stockid'];
+			} else {
+				$code = $MyRow['stockid'];
+				$PDF->addTextWrap(30, $YPos, 100, $FontSize, $MyRow['stockid'], 'left');
+				$PDF->addTextWrap(135, $YPos, 160, $FontSize, $MyRow['description'], 'left');
+				$PDF->addTextWrap(300, $YPos, 50, $FontSize, locale_number_format($MyRow['conversionfactor'], 'Variable'), 'right');
+				$PDF->addTextWrap(350, $YPos, 50, $FontSize, locale_number_format($MyRow['price'], $CurrDecimalPlaces), 'right');
+				$PDF->addTextWrap(410, $YPos, 50, $FontSize, $PriceDated, 'left');
+				$PDF->addTextWrap(470, $YPos, 90, $FontSize, $MyRow['suppliers_partno'], 'left');
+			}
+
+
+			if ($YPos < $Bottom_Margin + $line_height) {
+
+				PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
+			}
+
+
 		}
+		/*end while loop  */
 
 
 		if ($YPos < $Bottom_Margin + $line_height) {
-
 			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
 		}
 
 
+		$PDF->OutputD($_SESSION['DatabaseName'] . '_SupplierPriceList_' . Date('Y-m-d') . '.pdf');
+	} else {
+		$Title = _('View supplier price');
+		include('includes/header.php');
+		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
+		echo '<p class="page_title_text">', _('Supplier Price List for'), ' : ', $CurrentOrAllPrices, '<br/>', _('Supplier'), ' : ', $SupplierName, ' <br/>', _('Category'), ' : ', $Categoryname, '</p>';
+
+		echo '<table class="selection">
+				<tr>
+					<th class="ascending">', _('Code'), '</th>
+					<th>', _('Description'), '</th>
+					<th>', _('Conv Factor'), '</th>
+					<th>', _('Price') . '</th>
+					<th class="SortedColumn">', _('Date From'), '</th>
+					<th>', _('Supp Code'), '</th>
+				</tr>';
+		$k = 0;
+		while ($MyRow = DB_fetch_array($Result)) {
+			if ($k == 0) {
+				echo '<tr class="OddTableRows">';
+				$k = 1;
+			} else {
+				echo '<tr class="EvenTableRows">';
+				$k = 0;
+			}
+			echo '<td class="ascending">', $MyRow['stockid'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td>', $MyRow['conversionfactor'], '</td>
+				<td>', $MyRow['price'], '</td>
+				<td class="ascending">', ConvertSQLDate($MyRow['dateprice']), '</td>
+				<td>', $MyRow['suppliers_partno'], '</td>
+			</tr>';
+
+		}
+		echo '</table>';
+		include('includes/footer.php');
 	}
-	/*end while loop  */
-
-
-	if ($YPos < $Bottom_Margin + $line_height) {
-		PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
-	}
-
-
-	$PDF->OutputD($_SESSION['DatabaseName'] . '_SupplierPriceList_' . Date('Y-m-d') . '.pdf');
-
 
 } else {
 	/*The option to print PDF was not hit so display form */
@@ -256,6 +292,7 @@ if (isset($_POST['PrintPDF'])) {
 			<br/>
 			<div class="centre">
 				<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
+				<input type="submit" name="View" value="' . _('View On Screen') . '" />
 			</div>';
 
 	echo '</form>';
