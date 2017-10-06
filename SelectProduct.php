@@ -444,9 +444,18 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	$UrlEncodedStockId = urlencode($StockId);
 	echo '<table width="90%">
 			<tr>
-				<th style="width:33%">', _('Item Inquiries'), '</th>
-				<th style="width:33%">', _('Item Transactions'), '</th>
-				<th style="width:33%">', _('Item Maintenance'), '</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Item Inquiries'), '" />',
+					_('Item Inquiries'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Item Transactions'), '" />',
+					_('Item Transactions'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Item Maintenance'), '" />',
+					_('Item Maintenance'),
+				'</th>
 			</tr>';
 	echo '<tr>
 			<td valign="top" class="select">';

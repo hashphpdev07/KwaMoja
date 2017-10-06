@@ -148,6 +148,10 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	/*Need to update or delete the existing GRN item */
 	if ($QtyToReverse == $GRN['qtyrecd']) { //then ok to delete the whole thing
 		/* if this is not deleted then the purchorderdetail line cannot be deleted subsequentely */
+		//remove suppinvtogrns first;
+		$SQL = "DELETE FROM suppinvstogrn WHERE grnno='" . $_GET['GRNNo'] . "'";
+		$ErrMsg = _('Failed to delete the grn from supplier invoice record');
+		$Result = DB_query($SQL, $ErrMsg, '', true);
 
 		$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The GRN record could not be deleted because');
 		$DbgMsg = _('The following SQL to delete the GRN record was used');
