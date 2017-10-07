@@ -32,6 +32,10 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<script type="text/javascript" defer="defer" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
 
+echo '<script>
+		localStorage.setItem("DateFormat", "', $_SESSION['DefaultDateFormat'], '");
+		</script>';
+
 if ($_SESSION['ShowPageHelp'] == 0) {
 	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
 } else {
