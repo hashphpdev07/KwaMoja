@@ -206,12 +206,12 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
 		echo '<table class="selection">
 				<tr>
-					<th class="ascending">', _('Code'), '</th>
-					<th>', _('Description'), '</th>
+					<th class="SortedColumn">', _('Code'), '</th>
+					<th class="SortedColumn">', _('Description'), '</th>
 					<th>', _('Conv Factor'), '</th>
 					<th>', _('Price') . '</th>
 					<th class="SortedColumn">', _('Date From'), '</th>
-					<th>', _('Supp Code'), '</th>
+					<th class="SortedColumn">', _('Supp Code'), '</th>
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
@@ -222,11 +222,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 				echo '<tr class="EvenTableRows">';
 				$k = 0;
 			}
-			echo '<td class="ascending">', $MyRow['stockid'], '</td>
+			echo '<td>', $MyRow['stockid'], '</td>
 				<td>', $MyRow['description'], '</td>
 				<td>', $MyRow['conversionfactor'], '</td>
 				<td>', $MyRow['price'], '</td>
-				<td class="ascending">', ConvertSQLDate($MyRow['dateprice']), '</td>
+				<td class="date">', ConvertSQLDate($MyRow['dateprice']), '</td>
 				<td>', $MyRow['suppliers_partno'], '</td>
 			</tr>';
 
