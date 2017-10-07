@@ -302,11 +302,11 @@ function postDate(e, t) {
 }
 
 function clickDate() {
-	Calendar(this.name, this.alt)
+	Calendar(this.name, localStorage.DateFormat)
 }
 
 function changeDate() {
-	isDate(this.value, this.alt)
+	isDate(this.value, localStorage.DateFormat)
 }
 
 function SortSelect() {
@@ -354,8 +354,12 @@ function SortSelect() {
 			if (columnClass == "number") {
 				return parseFloat(e[columnNumber].replace(/[,.]/g, '')) - parseFloat(t[columnNumber].replace(/[,.]/g, ''))
 			} else if (columnClass == "date") {
-				da = new Date(e[columnNumber]);
-				db = new Date(t[columnNumber]);
+				if (e[columnNumber] !== undefined) {
+					da = new Date(convertDate(e[columnNumber], localStorage.DateFormat));
+				} else {
+					da = new Date(e[columnNumber]);
+				}
+				db = new Date(convertDate(t[columnNumber], localStorage.DateFormat));
 				return da > db
 			} else {
 				return e[columnNumber].localeCompare(t[columnNumber])
@@ -364,8 +368,12 @@ function SortSelect() {
 			if (columnClass == "number") {
 				return parseFloat(t[columnNumber].replace(/[,.]/g, '')) - parseFloat(e[columnNumber].replace(/[,.]/g, ''))
 			} else if (columnClass == "date") {
-				da = new Date(e[columnNumber]);
-				db = new Date(t[columnNumber]);
+				if (e[columnNumber] !== undefined) {
+					da = new Date(convertDate(e[columnNumber], localStorage.DateFormat));
+				} else {
+					da = new Date(e[columnNumber]);
+				}
+				db = new Date(convertDate(t[columnNumber], localStorage.DateFormat));
 				return da <= db
 			} else {
 				return t[columnNumber].localeCompare(e[columnNumber])
