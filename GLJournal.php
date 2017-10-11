@@ -264,9 +264,9 @@ echo '<table>
 							<td>' . _('Date to Process Journal') . ':</td>';
 
 if (!isset($_GET['NewJournal']) or $_GET['NewJournal'] == '') {
-	echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="JournalProcessDate" required="required" maxlength="10" size="11" value="' . $_SESSION['JournalDetail']->JnlDate . '" /></td>';
+	echo '<td><input type="text" class="date" name="JournalProcessDate" required="required" maxlength="10" size="11" value="' . $_SESSION['JournalDetail']->JnlDate . '" /></td>';
 } else {
-	echo '<td><input type="text" autofocus="autofocus" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="JournalProcessDate" required="required" maxlength="10" size="11" value="' . $_SESSION['JournalDetail']->JnlDate . '" /></td>';
+	echo '<td><input type="text" autofocus="autofocus" class="date" name="JournalProcessDate" required="required" maxlength="10" size="11" value="' . $_SESSION['JournalDetail']->JnlDate . '" /></td>';
 }
 
 echo '<td>' . _('Type') . ':</td>

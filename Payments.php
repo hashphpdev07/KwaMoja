@@ -965,7 +965,7 @@ if (DB_num_rows($AccountsResults) == 0) {
 
 echo '<tr>
 		<td>' . _('Date Paid') . ':</td>
-		<td><input type="text" name="DatePaid" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_SESSION['PaymentDetail' . $Identifier]->DatePaid . '" /></td>
+		<td><input type="text" name="DatePaid" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_SESSION['PaymentDetail' . $Identifier]->DatePaid . '" /></td>
 	</tr>';
 
 

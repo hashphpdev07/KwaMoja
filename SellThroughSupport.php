@@ -450,11 +450,11 @@ if (isset($SupplierID)) { //not selecting a supplier
 		</tr>
 		<tr>
 			<td>' . _('Support Start Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveFrom" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveFrom'] . '" /></td>
+			<td><input type="text" class="date" name="EffectiveFrom" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveFrom'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Support End Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveTo" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveTo'] . '" /></td>
+			<td><input type="text" class="date" name="EffectiveTo" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveTo'] . '" /></td>
 		</tr>
 		</table>
 		<br />

@@ -48,8 +48,8 @@ if (!isset($_POST['BeforeDate']) or !is_date($_POST['BeforeDate'])) {
 if (!isset($_POST['AfterDate']) or !is_date($_POST['AfterDate'])) {
 	$_POST['AfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 1, Date('d'), Date('y')));
 }
-echo ' ' . _('Show Movements before') . ': <input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="BeforeDate" size="12" required="required" maxlength="12" value="' . $_POST['BeforeDate'] . '" />';
-echo ' ' . _('But after') . ': <input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="AfterDate" size="12" required="required" maxlength="12" value="' . $_POST['AfterDate'] . '" />';
+echo ' ' . _('Show Movements before') . ': <input type="text" class="date" name="BeforeDate" size="12" required="required" maxlength="12" value="' . $_POST['BeforeDate'] . '" />';
+echo ' ' . _('But after') . ': <input type="text" class="date" name="AfterDate" size="12" required="required" maxlength="12" value="' . $_POST['AfterDate'] . '" />';
 echo '</td>
 	 </tr>
 	 </table>';

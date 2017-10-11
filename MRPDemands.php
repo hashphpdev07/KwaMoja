@@ -383,7 +383,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 		}
 
 		if (!isset($_POST['Duedate'])) {
-			$_POST['Duedate'] = ' ';
+			$_POST['Duedate'] = date($_SESSION['DefaultDateFormat']);
 		}
 
 		echo '<tr><td>' . _('Quantity') . ':</td>
@@ -391,7 +391,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 			</tr>
 			<tr>
 				<td>' . _('Due Date') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="Duedate" size="12" required="required" maxlength="12" value="' . $_POST['Duedate'] . '" /></td>
+				<td><input type="text" class="date" name="Duedate" size="12" required="required" maxlength="12" value="' . $_POST['Duedate'] . '" /></td>
 			</tr>';
 		// Generate selections for Demand Type
 		echo '<tr>

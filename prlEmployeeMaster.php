@@ -386,7 +386,7 @@ echo '</select>
 		</tr>';
 echo '<tr>
 			<td>' . _('Date of Birth') . ':</td>
-			<td><input type="text" alt="' . $_SESSION['DefaultDateFormat'] . '" class="date" name="BirthDate" value="' . $_POST['BirthDate'] . '" size="10" maxlength="10" /></td>
+			<td><input type="text" class="date" name="BirthDate" value="' . $_POST['BirthDate'] . '" size="10" maxlength="10" /></td>
 		</tr>';
 echo '<tr>
 			<td>' . _('Marital Status') . ':</td>

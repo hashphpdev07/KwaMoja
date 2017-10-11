@@ -292,7 +292,7 @@ if (isset($_POST['PrintPDF'])) {
 		</tr>
 		<tr>
 			<td>' . _('Cut Off Date') . ':</td>
-			<td><input type ="text" required="required" class="date" alt="'.$_SESSION['DefaultDateFormat'] . '" name="cutoffdate" size="10" value="'.date($_SESSION['DefaultDateFormat']).'" /></td>
+			<td><input type ="text" required="required" class="date" name="cutoffdate" size="10" value="' . date($_SESSION['DefaultDateFormat']) . '" /></td>
 		</tr>
 	</table>
 	<br />

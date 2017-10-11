@@ -567,7 +567,7 @@ if (!isset($SelectedTabs)) {
 				<tr>
 					<td>', _('Date Of Expense'), ':</td>
 					<td>
-						<input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="Date" size="10" required="required" maxlength="10" value="', $_POST['Date'], '" />
+						<input type="text" class="date" name="Date" size="10" required="required" maxlength="10" value="', $_POST['Date'], '" />
 					</td>
 				</tr>
 				<tr>

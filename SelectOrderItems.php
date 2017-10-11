@@ -1423,7 +1423,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				$_SESSION['Items' . $Identifier]->LineItems[$OrderLine->LineNumber]->ItemDue = $LineDueDate;
 			} //!is_date($OrderLine->ItemDue)
 
-			echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ItemDue_' . $OrderLine->LineNumber . '" size="10" required="required" maxlength="10" value="' . $LineDueDate . '" /></td>';
+			echo '<td><input type="text" class="date" name="ItemDue_' . $OrderLine->LineNumber . '" size="10" required="required" maxlength="10" value="' . $LineDueDate . '" /></td>';
 
 			echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $OrderLine->LineNumber . '" onclick="return MakeConfirm(\'' . _('Are You Sure?') . '\', \'Confirm Delete\', this);">' . $RemTxt . '</a></td></tr>';
 
@@ -1784,7 +1784,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			} //$_SESSION['Items' . $Identifier]->DefaultPOLine > 0
 			echo '<td><input type="text" name="part_' . $i . '" size="21" maxlength="20" /></td>
 					<td><input type="text" name="qty_' . $i . '" size="6" maxlength="6" /></td>
-					<td><input type="text" class="date" name="itemdue_' . $i . '" size="25" maxlength="25" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . $DefaultDeliveryDate . '" /></td></tr>';
+					<td><input type="text" class="date" name="itemdue_' . $i . '" size="25" maxlength="25" value="' . $DefaultDeliveryDate . '" /></td></tr>';
 		} //$i = 1; $i <= $_SESSION['QuickEntries']; $i++
 		echo '</table>';
 

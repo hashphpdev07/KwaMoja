@@ -865,7 +865,7 @@ echo '</select></td></tr>';
 
 echo '<tr>
 			<td>' . _('Supplier Since') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td>
-			<td><input size="12" required="required" maxlength="10" type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="SupplierSince" value="' . $_POST['SupplierSince'] . '" /></td>
+			<td><input size="12" required="required" maxlength="10" type="text" class="date" name="SupplierSince" value="' . $_POST['SupplierSince'] . '" /></td>
 		</tr>';
 echo '<tr>
 			<td>' . _('Bank Particulars') . ':</td>

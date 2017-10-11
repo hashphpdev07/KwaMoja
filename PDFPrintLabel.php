@@ -340,7 +340,7 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 		</tr>
 		<tr>
 			<td>' . _('Effective As At') . ':</td>
-			<td><input type="text" size="11" class="date"	alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" />';
+			<td><input type="text" size="11" class="date" name="EffectiveDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" />';
 		echo '</td></tr>';
 
 		echo '<tr><td>' . _('Number of labels per item') . ':</td>

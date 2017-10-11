@@ -79,11 +79,11 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		</tr>
 		<tr>
 			<td>', _('From Date'), ':', '</td>
-			<td><input tabindex="2" class="date" alt="', $_SESSION['DefaultDateFormat'], '" type="text" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
+			<td><input tabindex="2" class="date" type="text" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
 		</tr>
 		<tr>
 			<td>', _('To Date'), ':', '</td>
-			<td><input tabindex="3" class="date" alt="', $_SESSION['DefaultDateFormat'], '" type="text" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
+			<td><input tabindex="3" class="date" type="text" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
 		</tr>
 	</table>
 	<div class="centre">

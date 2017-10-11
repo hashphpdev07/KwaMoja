@@ -785,7 +785,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 
 	echo '<tr>
 			<td>' . _('Required Start Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="RequiredDate" size="11" value="' . $_SESSION['Project' . $Identifier]->RequiredDate . '" /></td>
+			<td><input type="text" class="date" name="RequiredDate" size="11" value="' . $_SESSION['Project' . $Identifier]->RequiredDate . '" /></td>
 		</tr>';
 
 	if (!isset($_SESSION['Project' . $Identifier]->CompletionDate)) {
@@ -794,7 +794,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 
 	echo '<tr>
 			<td>' . _('Estimated Completion Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="CompletionDate" size="11" value="' . $_SESSION['Project' . $Identifier]->CompletionDate . '" /></td>
+			<td><input type="text" class="date" name="CompletionDate" size="11" value="' . $_SESSION['Project' . $Identifier]->CompletionDate . '" /></td>
 		</tr>';
 
 	echo '<tr>

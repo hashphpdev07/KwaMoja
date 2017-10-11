@@ -838,7 +838,7 @@ if (!is_Date($_SESSION['ReceiptBatch' . $Identifier]->DateBanked)) {
 
 echo '<tr>
 		<td>', _('Date Banked'), ':</td>
-		<td><input tabindex="2" type="text" required="required" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="DateBanked" maxlength="10" size="10" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '" /></td>
+		<td><input tabindex="2" type="text" required="required" class="date" name="DateBanked" maxlength="10" size="10" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '" /></td>
 	</tr>
 	<tr>
 		<td>', _('Currency'), ':</td>

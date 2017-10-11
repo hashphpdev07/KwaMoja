@@ -839,11 +839,11 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 
 	echo '<tr>
 				<td>' . _('Effective After') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td>
-				<td><input tabindex="5" type="text" name="EffectiveAfter" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" value="' . $_POST['EffectiveAfter'] . '" /></td>
+				<td><input tabindex="5" type="text" name="EffectiveAfter" class="date" size="11" required="required" maxlength="10" value="' . $_POST['EffectiveAfter'] . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Effective To') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td>
-				<td><input tabindex="6" type="text" name="EffectiveTo" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" value="' . $_POST['EffectiveTo'] . '" /></td>
+				<td><input tabindex="6" type="text" name="EffectiveTo" class="date" size="11" required="required" maxlength="10" value="' . $_POST['EffectiveTo'] . '" /></td>
 			</tr>';
 
 	if ($ParentMBflag == 'M' or $ParentMBflag == 'G') {

@@ -97,8 +97,8 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 	echo '<table class="selection">
 			<tr>
 				<td>' . _('Date Goods/Service Received') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . "'" . ')" name="DefaultReceivedDate" value="' . $_SESSION['PO' . $Identifier]->DefaultReceivedDate . '" /></td>
-				<td>' . _("Supplier's Reference") . ':</td>
+				<td><input type="text" class="date" name="DefaultReceivedDate" value="' . $_SESSION['PO' . $Identifier]->DefaultReceivedDate . '" /></td>
+				<td>' . _('Supplier Reference') . ':</td>
 				<td><input type="text" name="SupplierReference" value="' . $_SESSION['PO' . $Identifier]->SupplierRef . '" maxlength="30" size="20"  onchange="ReloadForm(form1.Update)"/></td>
 			</tr>
 		</table>';

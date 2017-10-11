@@ -40,11 +40,11 @@ echo '<table class="selection">';
 
 echo '<tr>
 		<td>', _('From Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
-		<td><input tabindex="1" type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="FromDate" size="11" required="required" maxlength="10" value="', $_POST['FromDate'], '" /></td>
+		<td><input tabindex="1" type="text" class="date" name="FromDate" size="11" required="required" maxlength="10" value="', $_POST['FromDate'], '" /></td>
 	</tr>';
 echo '<tr>
 		<td>', _('To Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
-		<td><input tabindex="2" type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="ToDate" size="11" required="required" maxlength="10" value="', $_POST['ToDate'], '" /></td>
+		<td><input tabindex="2" type="text" class="date" name="ToDate" size="11" required="required" maxlength="10" value="', $_POST['ToDate'], '" /></td>
 	</tr>';
 
 // Show user selections

@@ -367,7 +367,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 		echo '<tr>
 				<td>' . _('Effective As At') . ':</td>
-				<td><input type="text" size="11" required="required" maxlength="10" class="date"	alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" size="11" required="required" maxlength="10" class="date" name="EffectiveDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 			</tr>';
 
 		echo '</table>';

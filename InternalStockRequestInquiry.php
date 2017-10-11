@@ -129,9 +129,9 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 		$_POST['ToDate'] = date($_SESSION['DefaultDateFormat']);
 	}
 	echo '<td>', _('Date From'), '</td>
-		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
+		<td><input type="text" class="date" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
 		<td>', _('Date To'), '</td>
-		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
+		<td><input type="text" class="date" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
 		<td><input type="submit" name="Search"  value="', _('Search'), '" /></td>
 	</tr>';
 	if (!isset($_POST['ShowDetails'])) {

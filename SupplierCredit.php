@@ -276,7 +276,7 @@ if (!isset($_SESSION['SuppTrans']->TranDate)) {
 	$_SESSION['SuppTrans']->TranDate = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y')));
 }
 echo '<td style="color:red">' . _('Credit Note Date') . ' (' . _('in format') . ' ' . $_SESSION['DefaultDateFormat'] . ') :</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
+		<td><input type="text" class="date" size="11" required="required" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
 		<td style="color:red">' . _('Exchange Rate') . ':</td>
 		<td><input type="text" class="number" size="11" required="required" maxlength="10" name="ExRate" value="' . locale_number_format($_SESSION['SuppTrans']->ExRate, 'Variable') . '" /></td>
 	</tr>

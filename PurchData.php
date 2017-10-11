@@ -626,7 +626,7 @@ if (!isset($SuppliersResult)) {
 		</tr>
 		<tr>
 			<td>' . _('Price Effective From') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveFrom" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveFrom'] . '" /></td>
+			<td><input type="text" class="date" name="EffectiveFrom" required="required" maxlength="10" size="11" value="' . $_POST['EffectiveFrom'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Our Unit of Measure') . ':</td>';
@@ -724,8 +724,8 @@ if (!isset($SuppliersResult)) {
 					<td><input type="text" name="DiscountNarrative%s" value="%s" maxlength="20" size="20" /></td>
 					<td><input type="text" class="number" name="DiscountAmount%s" value="%s" maxlength="10" size="11" /></td>
 					<td><input type="text" class="number" name="DiscountPercent%s" value="%s" maxlength="5" size="6" /></td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveFrom%s" maxlength="10" size="11" value="%s" /></td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveTo%s" maxlength="10" size="11" value="%s" /></td>
+					<td><input type="text" class="date" name="DiscountEffectiveFrom%s" maxlength="10" size="11" value="%s" /></td>
+					<td><input type="text" class="date" name="DiscountEffectiveTo%s" maxlength="10" size="11" value="%s" /></td>
 					<td><a href="%s?DeleteDiscountID=%s&amp;StockID=%s&amp;EffectiveFrom=%s&amp;SupplierID=%s&amp;Edit=1">' . _('Delete') . '</a></td>
 					</tr>', $i, $MyRow['id'], $i, $MyRow['discountnarrative'], $i, locale_number_format($MyRow['discountamount'], $CurrDecimalPlaces), $i, locale_number_format($MyRow['discountpercent'] * 100, 2), $i, ConvertSQLDate($MyRow['effectivefrom']), $i, ConvertSQLDate($MyRow['effectiveto']), htmlspecialchars($_SERVER['PHP_SELF']), $MyRow['id'], $StockId, $EffectiveFrom, $SupplierID);
 
@@ -740,8 +740,8 @@ if (!isset($SuppliersResult)) {
 				<td><input type="text" name="DiscountNarrative" value="" maxlength="20" size="20" /></td>
 				<td><input type="text" class="number" name="DiscountAmount" value="0" maxlength="10" size="11" /></td>
 				<td><input type="text" class="number" name="DiscountPercent" value="0" maxlength="5" size="6" /></td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveFrom" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DiscountEffectiveTo" maxlength="10" size="11" value="' . $DefaultEndDate . '" /></td>
+				<td><input type="text" class="date" name="DiscountEffectiveFrom" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" class="date" name="DiscountEffectiveTo" maxlength="10" size="11" value="' . $DefaultEndDate . '" /></td>
 			</tr>
 			</table>';
 

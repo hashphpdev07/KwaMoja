@@ -195,7 +195,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 			echo '<td class="number">' . locale_number_format($MyRow['quantity'], $LineItem->DecimalPlaces) . '</td>';
 		}
 		echo '<td><input type="text" class="number" name="Qty' . ($StartAddingAt + $RowNumber) . '" size="11" value="0" maxlength="10" /></td>';
-		echo '<td><input type="hidden" class="date" name="ExpiryDate' . ($StartAddingAt + $RowNumber) . '" size="11" value="' . ConvertSQLDate($MyRow['expirationdate']) . '" alt="' . $_SESSION['DefaultDateFormat'] . '"  maxlength="10" />' . ConvertSQLDate($MyRow['expirationdate']) . '</td></tr>';
+		echo '<td><input type="hidden" class="date" name="ExpiryDate' . ($StartAddingAt + $RowNumber) . '" size="11" value="' . ConvertSQLDate($MyRow['expirationdate']) . '"  maxlength="10" />' . ConvertSQLDate($MyRow['expirationdate']) . '</td></tr>';
 	} else {
 		echo '<td><input type="text" class="number" name="Qty' . ($StartAddingAt + $RowNumber) . '" size=11  value="' . locale_number_format($MyRow['quantity'], $LineItem->DecimalPlaces) . '"  maxlength="10" /></td></tr>';
 	}
