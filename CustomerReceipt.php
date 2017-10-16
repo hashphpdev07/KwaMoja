@@ -98,6 +98,11 @@ if (!isset($_GET['Delete']) and isset($_SESSION['ReceiptBatch' . $Identifier])) 
 			prnMsg(_('The functional exchange rate entered should be numeric'), 'warn');
 		}
 	}
+
+	if (!isset($_POST['ReceiptType'])) {
+		$_POST['ReceiptType'] = '';
+ 	}
+
 	$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType = $_POST['ReceiptType'];
 
 	if (!isset($_POST['Currency'])) {
@@ -176,7 +181,9 @@ if (isset($_POST['Process'])) { //user hit submit a new entry to the receipt bat
 	}
 
 	if ($_POST['Discount'] == 0 and $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount'] > 0) {
-		$_POST['Discount'] = $_POST['Amount'] * $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount'];
+		if (isset($_GET['Type']) and $_GET['Type'] == 'Customer') {
+			$_POST['Discount'] = $_POST['Amount'] * $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['percentdiscount'];
+		}
 	}
 
 	if ($_POST['GLCode'] == '' and $_GET['Type'] == 'GL') {
@@ -251,9 +258,9 @@ if (isset($_POST['CommitBatch'])) {
 		++$i;
 	}
 
-	$_SESSION['ReceiptBatch' . $Identifier]->BatchNo = GetNextTransNo(12);
 	/*Start a transaction to do the whole lot inside */
 	$Result = DB_Txn_Begin();
+	$_SESSION['ReceiptBatch' . $Identifier]->BatchNo = GetNextTransNo(12);
 
 	$BatchReceiptsTotal = 0; //in functional currency
 	$BatchDiscount = 0; //in functional currency
@@ -573,8 +580,8 @@ if (isset($_POST['CommitBatch'])) {
 			$ErrMsg = _('Cannot insert a GL transaction for the payment discount debit');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		} //end if there is some discount
-		EnsureGLEntriesBalance(12, $_SESSION['ReceiptBatch' . $Identifier]->BatchNo);
 	} //end if there is GL work to be done - ie config is to link to GL
+	EnsureGLEntriesBalance(12, $_SESSION['ReceiptBatch' . $Identifier]->BatchNo);
 
 
 	$ErrMsg = _('Cannot commit the changes');
@@ -969,9 +976,15 @@ echo '<tr>
 if (isset($_SESSION['ReceiptBatch' . $Identifier])) {
 	/* Now show the entries made so far */
 	if (!$BankAccountEmpty) {
+		if (!isset($ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname'])) {
+			$PaymentTypeString = '';
+		} else {
+			$PaymentTypeString = $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname'];
+
+		}
 		echo '<p class="page_title_text">
 				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Banked'), '" alt="" />
-				', ' ', $ReceiptTypes[$_SESSION['ReceiptBatch' . $Identifier]->ReceiptType]['paymentname'], ' - ', _('Banked into the'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->BankAccountName, ' ', _('on'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '
+				', ' ', $PaymentTypeString, ' - ', _('Banked into the'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->BankAccountName, ' ', _('on'), ' ', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '
 			</p>';
 	}
 
