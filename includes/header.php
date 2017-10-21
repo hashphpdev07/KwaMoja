@@ -34,6 +34,7 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 
 echo '<script>
 		localStorage.setItem("DateFormat", "', $_SESSION['DefaultDateFormat'], '");
+		localStorage.setItem("Theme", "', $_SESSION['Theme'], '");
 		</script>';
 
 if ($_SESSION['ShowPageHelp'] == 0) {
@@ -172,7 +173,6 @@ echo '</div>'; // HeaderWrapDiv
 echo '</div>'; // Headerdiv
 //echo '<div id="HiddenOutput" style="display: none"></div>';
 echo '<div id="BodyDiv">';
-echo '<input type="hidden" name="Theme" id="Theme" value="', $_SESSION['Theme'], '" />';
 echo '<div id="BodyWrapDiv">';
 
 ?>

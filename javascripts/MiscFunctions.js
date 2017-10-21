@@ -1,5 +1,5 @@
 function makeAlert(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	document.getElementById("mask").style["display"] = "inline";
 	html = '<div id="dialog_header"><img src="css/' + theme + '/images/help.png" />' + t + '</div><img style="float: left;vertical-align:middle" src="css/' + theme + '/images/alert.png" /><div id="dialog_main">' + e;
 	html = html + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="OK" onClick="hideAlert()" /></div>';
@@ -17,7 +17,7 @@ function hideAlert() {
 
 function MakeConfirm(e, t, n) {
 	url = n.href;
-	th = document.getElementById("Theme").value;
+	th = localStorage.Theme;
 	document.getElementById("mask").style["display"] = "inline";
 	h = '<div id="dialog_header"><img src="css/' + th + '/images/help.png" />' + t + '</div><div id="dialog_main">' + e;
 	h = h + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="Cancel" onClick="hideConfirm(\'\')" />';
@@ -312,7 +312,7 @@ function changeDate() {
 function SortSelect() {
 	selElem = this;
 	var e = new Array;
-	th = document.getElementById("Theme").value;
+	th = localStorage.Theme;
 	columnText = selElem.innerHTML;
 	TableHeader = selElem.parentNode;
 	TableBodyElements = TableHeader.parentNode.parentNode.getElementsByTagName('tbody');
@@ -403,7 +403,7 @@ function remSelOpt(e, t) {
 }
 
 function AddScript(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	document.getElementById("favourites").innerHTML = document.getElementById("favourites").innerHTML + '<option value="' + e + '">' + t + "</option>";
 	document.getElementById("PlusMinus").src = "css/" + theme + "/images/subtract.png";
 	document.getElementById("PlusMinus").setAttribute("onClick", "javascript: RemoveScript('" + e + "', '" + t + "');");
@@ -411,7 +411,7 @@ function AddScript(e, t) {
 }
 
 function RemoveScript(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	remSelOpt(e, document.getElementById("favourites"));
 	document.getElementById("PlusMinus").src = "css/" + theme + "/images/add.png";
 	document.getElementById("PlusMinus").setAttribute("onClick", "javascript: AddScript('" + e + "', '" + t + "');");
