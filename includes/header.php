@@ -109,9 +109,21 @@ if (isset($Title)) {
 	$ScriptName = basename($_SERVER['PHP_SELF']);
 	if ($ScriptName == 'index.php') {
 		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-		echo '<span style="font-size:8pt;" class="hint--bottom" data-hint="Small text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0">A</a></span>&nbsp;';
-		echo '<span style="font-size:10pt;" class="hint--bottom" data-hint="Medium text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1">A</a></span>&nbsp;';
-		echo '<span style="font-size:12pt;" class="hint--bottom" data-hint="Large text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2">A</a></span>&nbsp;';
+		if ($_SESSION['ScreenFontSize'] == '8pt') {
+			echo '<span style="font-size:8pt;" class="hint--bottom" data-hint="Small text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0"><u>A</u></a></span>&nbsp;';
+		} else {
+			echo '<span style="font-size:8pt;" class="hint--bottom" data-hint="Small text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0">A</a></span>&nbsp;';
+		}
+		if ($_SESSION['ScreenFontSize'] == '10pt') {
+			echo '<span style="font-size:10pt;" class="hint--bottom" data-hint="Medium text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1"><u>A</u></a></span>&nbsp;';
+		} else {
+			echo '<span style="font-size:10pt;" class="hint--bottom" data-hint="Medium text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1">A</a></span>&nbsp;';
+		}
+		if ($_SESSION['ScreenFontSize'] == '12pt') {
+			echo '<span style="font-size:12pt;" class="hint--bottom" data-hint="Large text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2"><u>A</u></a></span>&nbsp;';
+		} else {
+			echo '<span style="font-size:12pt;" class="hint--bottom" data-hint="Large text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2">A</a></span>&nbsp;';
+		}
 	}
 	echo '</div>';
 	echo '</div>'; // AppInfoDiv
