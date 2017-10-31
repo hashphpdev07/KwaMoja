@@ -452,7 +452,7 @@ if (isset($SalesOrdersResult)) {
 			$OrderRow = DB_fetch_array($SalesOrdersResult);
 			$OrderNumber = $OrderRow['orderno'];
 		}
-		header('location:' . $RootPath .'/OrderDetails.php?OrderNumber=' . $OrderNumber);
+		echo '<meta http-equiv="refresh" content="0; url=', $RootPath, '/OrderDetails.php?OrderNumber=', $OrderNumber, '">';
 		exit;
 	}
 
