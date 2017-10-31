@@ -537,6 +537,8 @@ echo '</select></td></tr>';
 if (isset($_SESSION['Adjustment' . $Identifier]) and !isset($_SESSION['Adjustment' . $Identifier]->Narrative)) {
 	$_SESSION['Adjustment' . $Identifier]->Narrative = '';
 	$Narrative = '';
+} elseif(isset($_SESSION['Adjustment' . $Identifier]->Narrative)) {
+	$Narrative = $_SESSION['Adjustment' . $Identifier]->Narrative;
 } else {
 	$Narrative = '';
 }
