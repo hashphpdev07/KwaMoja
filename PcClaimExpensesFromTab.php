@@ -414,7 +414,7 @@ if (!isset($SelectedTabs)) {
 				<th>', _('Expense Description'), '</th>
 				<th>', _('Amount'), '</th>
 				<th>', _('Authorised'), '</th>
-					<th colspan="2">', _('Taxes'), '</th>
+				<th colspan="2">', _('Taxes'), '</th>
 				<th>', _('Tag'), '</th>
 				<th>', _('Notes'), '</th>
 				<th>', _('Receipt'), '</th>
@@ -471,24 +471,24 @@ if (!isset($SelectedTabs)) {
 				$ReceiptText = _('No receipt');
 			}
 
-		$TaxesDescription = '';
-		$TaxesTaxAmount = '';
-		$TaxSQL = "SELECT counterindex,
-							pccashdetail,
-							calculationorder,
-							description,
-							taxauthid,
-							purchtaxglaccount,
-							taxontax,
-							taxrate,
-							amount
-						FROM pcashdetailtaxes
-						WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
-		$TaxResult = DB_query($TaxSQL);
-		while ($MyTaxRow = DB_fetch_array($TaxResult)) {
-			$TaxesDescription .= $MyTaxRow['description'] . '<br />';
-			$TaxesTaxAmount .= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
-		}
+			$TaxesDescription = '';
+			$TaxesTaxAmount = '';
+			$TaxSQL = "SELECT counterindex,
+								pccashdetail,
+								calculationorder,
+								description,
+								taxauthid,
+								purchtaxglaccount,
+								taxontax,
+								taxrate,
+								amount
+							FROM pcashdetailtaxes
+							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
+			$TaxResult = DB_query($TaxSQL);
+			while ($MyTaxRow = DB_fetch_array($TaxResult)) {
+				$TaxesDescription .= $MyTaxRow['description'] . '<br />';
+				$TaxesTaxAmount .= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
+			}
 
 			if (($MyRow['authorized'] == '0000-00-00') and ($Description['0'] != 'ASSIGNCASH')) {
 				// only movements NOT authorised can be modified or deleted
@@ -587,8 +587,17 @@ if (!isset($SelectedTabs)) {
 			$_POST['Date'] = Date($_SESSION['DefaultDateFormat']);
 		}
 
-		echo '<table class="selection">
-				<tr>
+		echo '<table class="selection">';
+		if (isset($_GET['SelectedIndex'])) {
+			echo '<tr>
+					<th colspan="2"><h3>', _('Update Expense'), '</h3></th>
+				</tr>';
+		} else {
+			echo '<tr>
+					<th colspan="2"><h3>', _('New Expense'), '</h3></th>
+				</tr>';
+		}
+		echo '<tr>
 					<td>', _('Date Of Expense'), ':</td>
 					<td>
 						<input type="text" class="date" name="Date" size="10" required="required" maxlength="10" value="', $_POST['Date'], '" />
