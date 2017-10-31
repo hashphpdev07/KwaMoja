@@ -24,19 +24,18 @@ while ($CategoryRow = DB_fetch_array($CategoryResult)) {
 	$CategoryArray[] = $CategoryRow['categorydescription'];
 }
 
-if (isset($_POST['SupplierID']) and $_POST['SupplierID'] == "0") { //no supplier selected its a stock category report
-	$ReportTitle = _('Inventory Planning for Categories') . ' ' . implode(',', $CategoryArray);
-} else { //supplier selected its just planning for products from the supplier
-	$ReportTitle = _('Inventory Planning for Products Category') . ' ' . implode(',', $CategoryArray);
+$ReportTitle = _('Inventory Planning for Product Categories');
+foreach ($_POST['Categories'] as $Category) {
+	$ReportTitle .= ' ' . $Category;
 }
 
 if ($_POST['Location'] == 'All') {
 
-	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 450, $FontSize, $ReportTitle . ' ' . _('for all stock locations'));
+	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 600, $FontSize, $ReportTitle . ' ' . _('for all stock locations'));
 
 } else {
 
-	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 450, $FontSize, $ReportTitle . ' ' . _('for stock at') . ' ' . $_POST['Location']);
+	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 600, $FontSize, $ReportTitle . ' ' . _('for stock at') . ' ' . $_POST['Location']);
 
 }
 
