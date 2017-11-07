@@ -13,6 +13,12 @@ if (isset($_SESSION['FirstLogIn']) and $_SESSION['FirstLogIn'] == '1' and isset(
 
 $Title = _('Main Menu');
 
+if (isset($_GET['Application']) and ($_GET['Application'] != '')) {
+	/*This is sent by this page (to itself) when the user clicks on a tab */
+	$_SESSION['Module'] = $_GET['Application'];
+	setcookie('Module', $_GET['Application'], time() + 3600 * 24 * 30);
+}
+
 if ($_SESSION['Theme'] == 'mobile') {
 	include('includes/header.php');
 	if (!isset($_GET['Application']) or $_GET['Application'] == '') {
@@ -205,12 +211,6 @@ if ($_SESSION['Theme'] == 'mobile') {
 
 		include('includes/footer.php');
 		exit;
-	}
-
-	if (isset($_GET['Application']) and ($_GET['Application'] != '')) {
-		/*This is sent by this page (to itself) when the user clicks on a tab */
-		$_SESSION['Module'] = $_GET['Application'];
-		setcookie('Module', $_GET['Application'], time() + 3600 * 24 * 30);
 	}
 
 	//=== MainMenuDiv =======================================================================
