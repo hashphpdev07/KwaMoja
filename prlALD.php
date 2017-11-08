@@ -307,7 +307,7 @@ if ($_POST['Status'] == 0) {
 if ($_POST['Status'] == 0) {
 	echo '<tr>
 			<td>' . _('Loan Date') . ':</td>
-			<td><input type="text" required="required" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="LoanDate" maxlength="10" size="11" value="' . $_POST['LoanDate'] . '" /></td>
+			<td><input type="text" required="required" class="date" name="LoanDate" maxlength="10" size="11" value="' . $_POST['LoanDate'] . '" /></td>
 		</tr>';
 } else {
 	echo '<tr>
@@ -373,7 +373,7 @@ if ($_POST['Status'] == 0 or $_POST['Status'] == 4) {
 
 echo '<tr>
 		<td>' . _('Next Deduction') . ':</td>
-		<td><input type="text" required="required" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StartDeduction" maxlength="10" size="11" value="' . $_POST['StartDeduction'] . '"></td>
+		<td><input type="text" required="required" class="date" name="StartDeduction" maxlength="10" size="11" value="' . $_POST['StartDeduction'] . '"></td>
 	</tr>';
 
 if ($_POST['Status'] == 0 or $_POST['Status'] == 4) {

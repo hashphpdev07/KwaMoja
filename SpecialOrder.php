@@ -752,7 +752,7 @@ $_POST['ReqDelDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date
 
 echo '<tr>
 		<td>' . _('Required Delivery Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="12" maxlength="11" name="ReqDelDate" value="' . $_POST['ReqDelDate'] . '" /></td>
+		<td><input type="text" class="date" size="12" maxlength="11" name="ReqDelDate" value="' . $_POST['ReqDelDate'] . '" /></td>
 	</tr>';
 
 echo '</table>';

@@ -1354,8 +1354,8 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 			</tr>
 			<tr>
 				<td>' . _('Date Range') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" size="10" maxlength="10" value="' . $_POST['FromDate'] . '" /> ' . _('To') . ':&nbsp;&nbsp;
-				<input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" size="10" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
+				<td><input type="text" class="date" name="FromDate" size="10" maxlength="10" value="' . $_POST['FromDate'] . '" /> ' . _('To') . ':&nbsp;&nbsp;
+				<input type="text" class="date" name="ToDate" size="10" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Part Number') . ':</td>

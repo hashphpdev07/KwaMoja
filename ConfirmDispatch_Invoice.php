@@ -1785,7 +1785,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	echo '<table class="selection">
 		<tr>
 			<td>' . _('Date On Invoice') . ':</td>
-			<td><input tabindex="' . $j . '" type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="' . $DefaultDispatchDate . '" id="datepicker" alt="' . $_SESSION['DefaultDateFormat'] . '" class="date" /></td>
+			<td><input tabindex="' . $j . '" type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="' . $DefaultDispatchDate . '" id="datepicker" class="date" /></td>
 		</tr>';
 	++$j;
 	echo '<tr>

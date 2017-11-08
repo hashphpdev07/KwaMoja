@@ -317,13 +317,13 @@ if (isset($_SESSION['Shipment']->ETA)) {
 echo '<tr>
 		<td>' . _('Shipment Date') . ': </td>
 		<td>
-			<input type="text" name="ShipmentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="10" value="' . $ShipmentDate . '" />
+			<input type="text" name="ShipmentDate" class="date" required="required" maxlength="10" size="10" value="' . $ShipmentDate . '" />
 		</td>
 	</tr>
 	<tr>
 		<td>' . _('Expected Arrival Date (ETA)') . ': </td>
 		<td>
-			<input type="text" name="ETA" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="10" value="' . $ETA . '" />
+			<input type="text" name="ETA" class="date" required="required" maxlength="10" size="10" value="' . $ETA . '" />
 		</td>
 	</tr>';
 

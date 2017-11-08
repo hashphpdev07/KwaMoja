@@ -190,8 +190,8 @@ else {
 	echo '<option value="Rejected">' . _('Rejected') . '</option>';
 }
 echo '</select>
-	' . _('Orders Between') . ':&nbsp;<input type="text" name="DateFrom" value="' . ConvertSQLDate($DateFrom) . '"  class="date" size="10" alt="' . $_SESSION['DefaultDateFormat'] . '"  />
-	' . _('and') . ':&nbsp;<input type="text" name="DateTo" value="' . ConvertSQLDate($DateTo) . '"  class="date" size="10" alt="' . $_SESSION['DefaultDateFormat'] . '"  />
+	' . _('Orders Between') . ':&nbsp;<input type="text" name="DateFrom" value="' . ConvertSQLDate($DateFrom) . '"  class="date" size="10"  />
+	' . _('and') . ':&nbsp;<input type="text" name="DateTo" value="' . ConvertSQLDate($DateTo) . '"  class="date" size="10"  />
 	<input type="submit" name="SearchOrders" value="' . _('Search Purchase Orders') . '" />
 	</td>';
 

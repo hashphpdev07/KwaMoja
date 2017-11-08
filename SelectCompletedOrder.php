@@ -346,7 +346,7 @@ if (!isset($_POST['OrderNumber'])) {
 echo '<td>', _('Order Number'), ':</td>
 		<td><input type="text" name="OrderNumber" maxlength="8" size="9" value="', $_POST['OrderNumber'], '" /></td>
 		<td>', _('for all orders placed after'), ': </td>
-		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '"  name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" /></td>
+		<td><input type="text" class="date" name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" /></td>
 		<td><input type="submit" name="SearchOrders" value="', _('Search Orders'), '" /></td>
 	</tr>';
 echo '<tr>
@@ -452,7 +452,7 @@ if (isset($SalesOrdersResult)) {
 			$OrderRow = DB_fetch_array($SalesOrdersResult);
 			$OrderNumber = $OrderRow['orderno'];
 		}
-		header('location:' . $RootPath .'/OrderDetails.php?OrderNumber=' . $OrderNumber);
+		echo '<meta http-equiv="refresh" content="0; url=', $RootPath, '/OrderDetails.php?OrderNumber=', $OrderNumber, '">';
 		exit;
 	}
 

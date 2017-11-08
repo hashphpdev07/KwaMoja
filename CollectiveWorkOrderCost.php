@@ -280,9 +280,9 @@ if (!isset($StockID)) {
 			</td>
 			</tr>
 			<tr>
-			<td colspan="2">' . _('Start Date From') . ':<input type="text" name="DateFrom" value="' . $_POST['DateFrom'] . '" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" />
+			<td colspan="2">' . _('Start Date From') . ':<input type="text" name="DateFrom" size="10" value="' . $_POST['DateFrom'] . '" class="date" />
 
-			' . _('Start Date To') . ':<input type="text" name="DateTo" value="' . $_POST['DateTo'] . '" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" />
+			' . _('Start Date To') . ':<input type="text" name="DateTo" size="10" value="' . $_POST['DateTo'] . '" class="date" />
 			</td>
 				</tr>
 				</table>';

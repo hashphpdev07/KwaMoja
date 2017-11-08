@@ -229,7 +229,6 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 
 		$SQL = "SELECT counterindex,
 						tabcode,
-						tag,
 						date,
 						codeexpense,
 						amount,
@@ -383,7 +382,7 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 				<td>', _('Cash Assignation Date'), ':</td>';
 
 		echo '<td>
-				<input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="Date" size="10" required="required" maxlength="10" value="', $_POST['Date'], '" />
+				<input type="text" class="date" name="Date" size="10" required="required" maxlength="10" value="', $_POST['Date'], '" />
 			</td>
 		</tr>';
 

@@ -337,11 +337,11 @@ if (!isset($_POST['EndDate'])) {
 }
 echo '<tr>
 		<td>' . _('Price Effective From Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StartDate" size="10" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
+		<td><input type="text" class="date" name="StartDate" size="10" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Price Effective To Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EndDate" size="10" maxlength="10" value="' . $_POST['EndDate'] . '" /></td>
+		<td><input type="text" class="date" name="EndDate" size="10" maxlength="10" value="' . $_POST['EndDate'] . '" /></td>
 	</tr>';
 echo '<input type="hidden" name="Item" value="' . $Item . '" />';
 if (!isset($_POST['Price'])) {

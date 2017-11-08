@@ -573,7 +573,7 @@ if (isset($_POST['SupplierID'])) {
 				<td><input type="text" size="20" maxlength="50" value="" name="SupplierDescription0" /></td>
 				<td><input type="text" class="number" required="required" maxlength="11" size="3" value="1" name="LeadTime0" /></td>';
 		echo '<td><input type="checkbox" name="Preferred0" /></td>';
-		echo '<td><input type="text" class="date" required="required" maxlength="10" size="6" value="', date($_SESSION['DefaultDateFormat']), '" alt="', $_SESSION['DefaultDateFormat'], '"  name="EffectiveFrom0" /></td>
+		echo '<td><input type="text" class="date" required="required" maxlength="10" size="6" value="', date($_SESSION['DefaultDateFormat']), '" name="EffectiveFrom0" /></td>
 				<td><input type="text" size="20" maxlength="50" value="" name="SupplierPartNo0" /></td>
 				<td><input type="text" class="number" required="required" maxlength="11" size="4" value="1" name="MinOrderQty0" /></td>
 				<td><button type="submit" style="width:100%;text-align:left" name="Insert"><img width="15" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/tick.png" alt="" /></button></td>
@@ -606,7 +606,7 @@ if (isset($_POST['SupplierID'])) {
 		} else {
 			echo '<td><input type="checkbox" name="Preferred', $RowCounter, '" /></td>';
 		}
-		echo '<td><input type="text" class="date" size="6" value="', ConvertSQLDate($MyRow['effectivefrom']), '" alt="', $_SESSION['DefaultDateFormat'], '"  name="EffectiveFrom', $RowCounter, '" /></td>
+		echo '<td><input type="text" class="date" size="6" value="', ConvertSQLDate($MyRow['effectivefrom']), '" name="EffectiveFrom', $RowCounter, '" /></td>
 				<td><input type="text" size="20" maxlength="50" value="', $MyRow['suppliers_partno'], '" name="SupplierPartNo', $RowCounter, '" /></td>
 				<td><input type="text" class="number" size="4" value="', $MyRow['minorderqty'], '" name="MinOrderQty', $RowCounter, '" /></td>
 				<td><button type="submit" style="width:100%;text-align:left" name="Update', $RowCounter, '"><img width="15" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/tick.png" alt="" /></button></td>

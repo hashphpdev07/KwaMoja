@@ -598,15 +598,15 @@ if (!isset($StockId)) {
 			</tr>
 			<tr>
 				<td>' . _('Due Date From') . '</td>
-				<td><input type="text" class="date" name="DueDateFrom" value="', $_POST['DueDateFrom'], '" alt="', $_SESSION['DefaultDateFormat'], '" size="10" /></td>
+				<td><input type="text" class="date" name="DueDateFrom" value="', $_POST['DueDateFrom'], '" size="10" /></td>
 				<td>', _('Due Date To'), '</td>
-				<td><input type="text" class="date" name="DueDateTo" value="', $_POST['DueDateTo'], '" alt="', $_SESSION['DefaultDateFormat'], '" size="10" /></td>
+				<td><input type="text" class="date" name="DueDateTo" value="', $_POST['DueDateTo'], '" size="10" /></td>
 			</tr>
 			<tr>
 				<td>', _('Order Date From'), '</td>
-				<td><input type="text" name="OrderDateFrom" value="', $_POST['OrderDateFrom'], '" size="10" class="date" alt="', $_SESSION['DefaultDateFormat'], '" /></td>
+				<td><input type="text" name="OrderDateFrom" value="', $_POST['OrderDateFrom'], '" size="10" class="date" /></td>
 				<td>', _('Order Date To'), '</td>
-				<td><input type="text" name="OrderDateTo" value="', $_POST['OrderDateTo'], '" size="10" class="date" alt="', $_SESSION['DefaultDateFormat'], '" /></td>
+				<td><input type="text" name="OrderDateTo" value="', $_POST['OrderDateTo'], '" size="10" class="date" /></td>
 			</tr>
 			<tr>
 				<td colspan="6">
@@ -988,9 +988,9 @@ if (!isset($StockId)) {
 				if ($_SESSION['RequirePickingNote'] == 1) {
 					$PrintPickList = $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'];
 					if (isset($MyRow['prid']) and $MyRow['prid'] > '') {
-						$PrintPickLabel = '<td><a href="%s">' . str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT) . '</a></td>';
+						$PrintPickLabel = '<td><a href="' . $RootPath . '/PDFPickingList.php?TransNo=' . $MyRow['orderno'] . '">' . str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT) . '</a></td>';
 					} else {
-						$PrintPickLabel = '<td><a href="%s">' . _('Pick') . '</a></td>';
+						$PrintPickLabel = '<td><a href="' . $RootPath . '/PDFPickingList.php?TransNo=' . $MyRow['orderno'] . '">' . _('Pick') . '</a></td>';
 					}
 					$PrintDummyFlag = '';
 				}

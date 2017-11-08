@@ -960,7 +960,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 
 	echo '<tr>
 			<td>' . _('Required Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="RequiredDate" size="11" value="' . $_SESSION['Contract' . $Identifier]->RequiredDate . '" /></td>
+			<td><input type="text" class="date" name="RequiredDate" size="11" value="' . $_SESSION['Contract' . $Identifier]->RequiredDate . '" /></td>
 		</tr>';
 
 	echo '<tr>

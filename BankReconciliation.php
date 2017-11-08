@@ -136,7 +136,7 @@ if (!isset($_POST['StatementDate'])) {
 
 echo '<tr>
 		<td>' . _('Bank Statement Date') . '</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StatementDate" value="' . $_POST['StatementDate'] . '" size="10" /></td>
+		<td><input type="text" class="date" name="StatementDate" value="' . $_POST['StatementDate'] . '" size="10" /></td>
 	</tr>';
 /*Now do the posting while the user is thinking about the bank account to select */
 

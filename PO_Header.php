@@ -767,7 +767,7 @@ else {
 		</tr>
 		<tr>
 			<td>' . _('Delivery Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DeliveryDate" required="required" maxlength="10" size="11" value="' . $_POST['DeliveryDate'] . '" /></td>
+			<td><input type="text" class="date" name="DeliveryDate" required="required" maxlength="10" size="11" value="' . $_POST['DeliveryDate'] . '" /></td>
 		</tr>';
 
 	if (!isset($_POST['Initiator'])) {

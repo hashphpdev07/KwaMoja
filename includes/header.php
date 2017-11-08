@@ -32,6 +32,11 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<script type="text/javascript" defer="defer" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
 
+echo '<script>
+		localStorage.setItem("DateFormat", "', $_SESSION['DefaultDateFormat'], '");
+		localStorage.setItem("Theme", "', $_SESSION['Theme'], '");
+		</script>';
+
 if ($_SESSION['ShowPageHelp'] == 0) {
 	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
 } else {
@@ -96,7 +101,11 @@ if (isset($Title)) {
 	echo '<img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" title="', _('Company'), '" alt="', _('Company'), '"/>', stripslashes($_SESSION['CompanyRecord']['coyname']);
 	echo '</div>';
 	echo '<div id="AppInfoUserDiv">';
-	echo '<a  class="hint--bottom" data-hint="' . _('Change the settings for') . ' ' . $_SESSION['UsersRealName'] . '" href="', $RootPath, '/UserSettings.php"><img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" alt="', stripslashes($_SESSION['UsersRealName']), '" />', stripslashes($_SESSION['UsersRealName']), '</a>';
+//	echo '<a  class="hint--bottom" data-hint="' . _('Change the settings for') . ' ' . $_SESSION['UsersRealName'] . '" href="', $RootPath, '/UserSettings.php"><img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" alt="', stripslashes($_SESSION['UsersRealName']), '" />', stripslashes($_SESSION['UsersRealName']), '</a>';
+	echo '<div class="tooltip_under">
+			<a class="FontSize" href="', $RootPath, '/UserSettings.php"><img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" alt="', stripslashes($_SESSION['UsersRealName']), '" />' . $_SESSION['UsersRealName'] . '</a>
+			<span class="tooltiptext_under">' . _('Change the settings for') . ' ' . $_SESSION['UsersRealName'] . '</span>
+		</div>';
 	echo '</div>';
 	echo '<div id="AppInfoModuleDiv">';
 	// Make the title text a class, can be set to display:none is some themes
@@ -104,9 +113,33 @@ if (isset($Title)) {
 	$ScriptName = basename($_SERVER['PHP_SELF']);
 	if ($ScriptName == 'index.php') {
 		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-		echo '<span style="font-size:8pt;" class="hint--bottom" data-hint="Small text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0">A</a></span>&nbsp;';
-		echo '<span style="font-size:10pt;" class="hint--bottom" data-hint="Medium text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1">A</a></span>&nbsp;';
-		echo '<span style="font-size:12pt;" class="hint--bottom" data-hint="Large text size"><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2">A</a></span>&nbsp;';
+		if ($_SESSION['ScreenFontSize'] == '8pt') {
+			echo '<div class="tooltip_over" style="font-size:8pt;">
+					<span class="tooltiptext_over" style="font-size:8pt;">Small text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0"><u>A</u></a>
+				</div>';
+		} else {
+			echo '<div class="tooltip_over" style="font-size:8pt;">
+					<span class="tooltiptext_over" style="font-size:8pt;">Small text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0">A</a>
+				</div>';
+		}
+		if ($_SESSION['ScreenFontSize'] == '10pt') {
+			echo '<div class="tooltip_over" style="font-size:10pt;">
+					<span class="tooltiptext_over" style="font-size:10pt;">Medium text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1"><u>A</u></a>
+				</div>';
+		} else {
+			echo '<div class="tooltip_over" style="font-size:10pt;">
+					<span class="tooltiptext_over" style="font-size:10pt;">Medium text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1">A</a>
+				</div>';
+		}
+		if ($_SESSION['ScreenFontSize'] == '12pt') {
+			echo '<div class="tooltip_over" style="font-size:12pt;">
+					<span class="tooltiptext_over" style="font-size:12pt;">Large text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2"><u>A</u></a>
+				</div>';
+		} else {
+			echo '<div class="tooltip_over" style="font-size:12pt;">
+					<span class="tooltiptext_over" style="font-size:12pt;">Large text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2">A</a>
+				</div>';
+		}
 	}
 	echo '</div>';
 	echo '</div>'; // AppInfoDiv
@@ -168,7 +201,6 @@ echo '</div>'; // HeaderWrapDiv
 echo '</div>'; // Headerdiv
 //echo '<div id="HiddenOutput" style="display: none"></div>';
 echo '<div id="BodyDiv">';
-echo '<input type="hidden" name="Theme" id="Theme" value="', $_SESSION['Theme'], '" />';
 echo '<div id="BodyWrapDiv">';
 
 ?>

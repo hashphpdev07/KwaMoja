@@ -27,28 +27,27 @@ if (!isset($_POST['Date'])) {
 	}
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<div><input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" /></div>';
+	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" /></div>';
 	echo '<table class="selection" summary="' . _('Input criteria for report') . '">
 	 		<tr>
 				<td>' . _('Enter the date for which the transactions are to be listed') . ':</td>
-				<td><input type="text" name="Date" required="required" maxlength="10" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
-			</tr>';
-
-	echo '<tr>
-			<td>' . _('Transaction type') . '</td>
-			<td><select required="required" name="TransType">
-				<option value="10">' . _('Invoices') . '</option>
-				<option value="11">' . _('Credit Notes') . '</option>
-				<option value="12">' . _('Receipts') . '</option>';
-
-	echo '</select></td></tr>
-			</table>
-			<div class="centre">
-				<br />
-				<input type="submit" name="Go" value="' . _('Create PDF') . '" />
-			</div>
-			</form>
-			</div>';
+				<td><input type="text" name="Date" required="required" maxlength="10" size="10" class="date" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+			</tr>
+			<tr>
+				<td>' . _('Transaction type') . '</td>
+				<td>
+					<select required="required" name="TransType">
+						<option value="10">' . _('Invoices') . '</option>
+						<option value="11">' . _('Credit Notes') . '</option>
+						<option value="12">' . _('Receipts') . '</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<div class="centre">
+			<input type="submit" name="Go" value="' . _('Create PDF') . '" />
+		</div>
+	</form>';
 
 	include('includes/footer.php');
 	exit;

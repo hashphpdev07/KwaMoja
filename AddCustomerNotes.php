@@ -207,10 +207,10 @@ if (!isset($_GET['delete'])) {
 	echo '<tr>
 			<td>' . _('Date') . '</td>';
 	if (isset($_POST['date'])) {
-		echo '<td><input type="text" name="NoteDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" id="datepicker" value="' . ConvertSQLDate($_POST['date']) . '" size="10" maxlength="10" /></td>
+		echo '<td><input type="text" name="NoteDate" class="date" id="datepicker" value="' . ConvertSQLDate($_POST['date']) . '" size="10" maxlength="10" /></td>
 			</tr>';
 	} else {
-		echo '<td><input type="text" name="NoteDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" id="datepicker" value="' . date($_SESSION['DefaultDateFormat']) . '" size="10" maxlength="10" /></td>
+		echo '<td><input type="text" name="NoteDate" class="date" id="datepicker" value="' . date($_SESSION['DefaultDateFormat']) . '" size="10" maxlength="10" /></td>
 			</tr>';
 	}
 	echo '<tr>

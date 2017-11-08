@@ -291,13 +291,13 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 			<tr>
 				<td><label for="PeriodFrom">', _('Select period from'), '</label></td>
 				<td>
-					<input alt="', $_SESSION['DefaultDateFormat'], '" autofocus="autofocus" class="date" id="PeriodFrom" maxlength="10" minlength="0" name="PeriodFrom" required="required" size="12" type="text" value="', $_POST['PeriodFrom'], '" />
+					<input autofocus="autofocus" class="date" id="PeriodFrom" maxlength="10" minlength="0" name="PeriodFrom" required="required" size="12" type="text" value="', $_POST['PeriodFrom'], '" />
 					<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>
 		 		</td>
 			</tr>
 			<tr>',
 				'<td><label for="PeriodTo">', _('Select period to'), '</label></td>
-				<td><input alt="', $_SESSION['DefaultDateFormat'], '" class="date" id="PeriodTo" maxlength="10" minlength="0" name="PeriodTo" required="required" size="12" type="text" value="', $_POST['PeriodTo'], '" />
+				<td><input class="date" id="PeriodTo" maxlength="10" minlength="0" name="PeriodTo" required="required" size="12" type="text" value="', $_POST['PeriodTo'], '" />
 					<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>
 		 		</td>
 			</tr>

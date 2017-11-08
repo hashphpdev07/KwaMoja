@@ -1,5 +1,5 @@
 function makeAlert(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	document.getElementById("mask").style["display"] = "inline";
 	html = '<div id="dialog_header"><img src="css/' + theme + '/images/help.png" />' + t + '</div><img style="float: left;vertical-align:middle" src="css/' + theme + '/images/alert.png" /><div id="dialog_main">' + e;
 	html = html + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="OK" onClick="hideAlert()" /></div>';
@@ -17,7 +17,7 @@ function hideAlert() {
 
 function MakeConfirm(e, t, n) {
 	url = n.href;
-	th = document.getElementById("Theme").value;
+	th = localStorage.Theme;
 	document.getElementById("mask").style["display"] = "inline";
 	h = '<div id="dialog_header"><img src="css/' + th + '/images/help.png" />' + t + '</div><div id="dialog_main">' + e;
 	h = h + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="Cancel" onClick="hideConfirm(\'\')" />';
@@ -302,17 +302,17 @@ function postDate(e, t) {
 }
 
 function clickDate() {
-	Calendar(this.name, this.alt)
+	Calendar(this.name, localStorage.DateFormat)
 }
 
 function changeDate() {
-	isDate(this.value, this.alt)
+	isDate(this.value, localStorage.DateFormat)
 }
 
 function SortSelect() {
 	selElem = this;
 	var e = new Array;
-	th = document.getElementById("Theme").value;
+	th = localStorage.Theme;
 	columnText = selElem.innerHTML;
 	TableHeader = selElem.parentNode;
 	TableBodyElements = TableHeader.parentNode.parentNode.getElementsByTagName('tbody');
@@ -354,8 +354,12 @@ function SortSelect() {
 			if (columnClass == "number") {
 				return parseFloat(e[columnNumber].replace(/[,.]/g, '')) - parseFloat(t[columnNumber].replace(/[,.]/g, ''))
 			} else if (columnClass == "date") {
-				da = new Date(e[columnNumber]);
-				db = new Date(t[columnNumber]);
+				if (e[columnNumber] !== undefined) {
+					da = new Date(convertDate(e[columnNumber], localStorage.DateFormat));
+				} else {
+					da = new Date(e[columnNumber]);
+				}
+				db = new Date(convertDate(t[columnNumber], localStorage.DateFormat));
 				return da > db
 			} else {
 				return e[columnNumber].localeCompare(t[columnNumber])
@@ -364,8 +368,12 @@ function SortSelect() {
 			if (columnClass == "number") {
 				return parseFloat(t[columnNumber].replace(/[,.]/g, '')) - parseFloat(e[columnNumber].replace(/[,.]/g, ''))
 			} else if (columnClass == "date") {
-				da = new Date(e[columnNumber]);
-				db = new Date(t[columnNumber]);
+				if (e[columnNumber] !== undefined) {
+					da = new Date(convertDate(e[columnNumber], localStorage.DateFormat));
+				} else {
+					da = new Date(e[columnNumber]);
+				}
+				db = new Date(convertDate(t[columnNumber], localStorage.DateFormat));
 				return da <= db
 			} else {
 				return t[columnNumber].localeCompare(e[columnNumber])
@@ -395,7 +403,7 @@ function remSelOpt(e, t) {
 }
 
 function AddScript(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	document.getElementById("favourites").innerHTML = document.getElementById("favourites").innerHTML + '<option value="' + e + '">' + t + "</option>";
 	document.getElementById("PlusMinus").src = "css/" + theme + "/images/subtract.png";
 	document.getElementById("PlusMinus").setAttribute("onClick", "javascript: RemoveScript('" + e + "', '" + t + "');");
@@ -403,7 +411,7 @@ function AddScript(e, t) {
 }
 
 function RemoveScript(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	remSelOpt(e, document.getElementById("favourites"));
 	document.getElementById("PlusMinus").src = "css/" + theme + "/images/add.png";
 	document.getElementById("PlusMinus").setAttribute("onClick", "javascript: AddScript('" + e + "', '" + t + "');");

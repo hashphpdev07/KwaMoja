@@ -864,7 +864,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 				echo '<td>', $SuppPrice, '</td>';
 			}
 			echo '<td class="number">', $DisplayLineTotal, '</td>
-				<td><input type="text" class="date" required="required" maxlength="10" alt="', $_SESSION['DefaultDateFormat'], '" name="ReqDelDate', $POLine->LineNo, '" size="10" value="', $POLine->ReqDelDate, '" /></td>';
+				<td><input type="text" class="date" required="required" maxlength="10" name="ReqDelDate', $POLine->LineNo, '" size="10" value="', $POLine->ReqDelDate, '" /></td>';
 			if ($POLine->QtyReceived != 0 and $POLine->Completed != 1) {
 				echo '<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '&amp;Complete=', urlencode($POLine->LineNo), '">', _('Complete'), '</a></td>';
 			} //$POLine->QtyReceived != 0 and $POLine->Completed != 1
@@ -951,7 +951,7 @@ if (isset($_POST['NonStockOrder'])) {
 		</tr>
 		<tr>
 			<td>', _('Delivery Date'), '</td>
-			<td><input type="text" class="date" required="required" maxlength="10" alt="', $_SESSION['DefaultDateFormat'], '" name="ReqDelDate" size="11" value="', $_SESSION['PO' . $Identifier]->DeliveryDate, '" /></td>
+			<td><input type="text" class="date" required="required" maxlength="10" name="ReqDelDate" size="11" value="', $_SESSION['PO' . $Identifier]->DeliveryDate, '" /></td>
 		</tr>
 		</table>
 		<div class="centre">

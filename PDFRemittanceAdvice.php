@@ -175,7 +175,7 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 
 	echo '<tr>
 			<td>', _('Date Of Payment'), ':</td>
-			<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="PaymentDate" required="required" maxlength="11" size="12" value="', $DefaultDate, '" /></td>
+			<td><input type="text" class="date" name="PaymentDate" required="required" maxlength="11" size="12" value="', $DefaultDate, '" /></td>
 		</tr>';
 	echo '</table>';
 

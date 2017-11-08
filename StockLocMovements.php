@@ -48,8 +48,8 @@ if (!isset($_POST['BeforeDate']) or !is_date($_POST['BeforeDate'])) {
 if (!isset($_POST['AfterDate']) or !is_date($_POST['AfterDate'])) {
 	$_POST['AfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 1, Date('d'), Date('y')));
 }
-echo ' ' . _('Show Movements before') . ': <input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="BeforeDate" size="12" required="required" maxlength="12" value="' . $_POST['BeforeDate'] . '" />';
-echo ' ' . _('But after') . ': <input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="AfterDate" size="12" required="required" maxlength="12" value="' . $_POST['AfterDate'] . '" />';
+echo ' ' . _('Show Movements before') . ': <input type="text" class="date" name="BeforeDate" size="12" required="required" maxlength="12" value="' . $_POST['BeforeDate'] . '" />';
+echo ' ' . _('But after') . ': <input type="text" class="date" name="AfterDate" size="12" required="required" maxlength="12" value="' . $_POST['AfterDate'] . '" />';
 echo '</td>
 	 </tr>
 	 </table>';
@@ -88,49 +88,48 @@ $SQL = "SELECT stockmoves.stockid,
 $ErrMsg = _('The stock movements for the selected criteria could not be retrieved because');
 $MovtsResult = DB_query($SQL, $ErrMsg);
 
-echo '<table cellpadding="5" cellspacing="4 "class="selection">
-		<tr>
-			<th>' . _('Item Code') . '</th>
-			<th>' . _('Type') . '</th>
-			<th>' . _('Trans No') . '</th>
-			<th>' . _('Date') . '</th>
-			<th>' . _('Customer') . '</th>
-			<th>' . _('Quantity') . '</th>
-			<th>' . _('Reference') . '</th>
-			<th>' . _('Price') . '</th>
-			<th>' . _('Discount') . '</th>
-			<th>' . _('Quantity on Hand') . '</th>
-		</tr>';
+if (DB_num_rows($MovtsResult) > 0) {
+	echo '<table cellpadding="5" cellspacing="4 "class="selection">
+			<tr>
+				<th>' . _('Item Code') . '</th>
+				<th>' . _('Type') . '</th>
+				<th>' . _('Trans No') . '</th>
+				<th>' . _('Date') . '</th>
+				<th>' . _('Customer') . '</th>
+				<th>' . _('Quantity') . '</th>
+				<th>' . _('Reference') . '</th>
+				<th>' . _('Price') . '</th>
+				<th>' . _('Discount') . '</th>
+				<th>' . _('Quantity on Hand') . '</th>
+			</tr>';
 
-$k = 0; //row colour counter
+	$k = 0; //row colour counter
 
-while ($MyRow = DB_fetch_array($MovtsResult)) {
+	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
-	if ($k == 1) {
-		echo '<tr class="OddTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="EvenTableRows">';
-		$k = 1;
+		if ($k == 1) {
+			echo '<tr class="OddTableRows">';
+			$k = 0;
+		} else {
+			echo '<tr class="EvenTableRows">';
+			$k = 1;
+		}
+
+		$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);
+		echo '<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?StockID=', mb_strtoupper($MyRow['stockid']), '">', mb_strtoupper($MyRow['stockid']), '</a></td>
+				<td>', $MyRow['typename'], '</td>
+				<td>', $MyRow['transno'], '</td>
+				<td>', $DisplayTranDate, '</td>
+				<td>', $MyRow['debtorno'], '</td>
+				<td class="number">', locale_number_format($MyRow['qty'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['reference'], '</td>
+				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '</td>
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+			</tr>';
 	}
-
-	$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);
-
-
-	printf('<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?StockID=%s">%s</a></td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				</tr>', mb_strtoupper($MyRow['stockid']), mb_strtoupper($MyRow['stockid']), $MyRow['typename'], $MyRow['transno'], $DisplayTranDate, $MyRow['debtorno'], locale_number_format($MyRow['qty'], $MyRow['decimalplaces']), $MyRow['reference'], locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['discountpercent'] * 100, 2), locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']));
+	//end of while loop
 }
-//end of while loop
-
 echo '</table>';
 echo '</form>';
 

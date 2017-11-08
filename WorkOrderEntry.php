@@ -386,12 +386,12 @@ echo '</select></td></tr>';
 
 echo '<tr>
 		<td class="label">' . _('Start Date') . ':</td>
-		<td><input type="text" name="StartDate" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->StartDate . '" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" /></td>
+		<td><input type="text" name="StartDate" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->StartDate . '" class="date" /></td>
 	</tr>';
 
 echo '<tr>
 		<td class="label">' . _('Required By') . ':</td>
-		<td><input type="text" name="RequiredBy" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->RequiredBy . '" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" /></td>
+		<td><input type="text" name="RequiredBy" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->RequiredBy . '" class="date" /></td>
 	</tr>';
 
 echo '<tr>

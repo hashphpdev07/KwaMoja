@@ -241,7 +241,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 		</tr>';
 	echo '<tr>
 			<td>' . _('Delivery Must Be Made Before') . '</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" name="RequiredByDate" size="11" value="' . ConvertSQLDate($_SESSION['tender' . $Identifier]->RequiredByDate) . '" /></td>
+			<td><input type="text" class="date" required="required" maxlength="10" name="RequiredByDate" size="11" value="' . ConvertSQLDate($_SESSION['tender' . $Identifier]->RequiredByDate) . '" /></td>
 		</tr>';
 
 	if (!isset($_POST['StkLocation']) or $_POST['StkLocation'] == '') {

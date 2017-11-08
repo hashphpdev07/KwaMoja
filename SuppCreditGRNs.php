@@ -151,7 +151,7 @@ echo '<table class="selection">
 			<tr>
 				<th colspan="10">
 					<h3>' . _('Show Goods Received Since') . ':&nbsp;</h3>
-					<input type="text" name="Show_Since" required="required" maxlength="11" size="12" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . $_POST['Show_Since'] . '" />
+					<input type="text" name="Show_Since" required="required" maxlength="11" size="12" class="date" value="' . $_POST['Show_Since'] . '" />
 					<input type="submit" name="FindGRNs" value="' . _('Display GRNs') . '" />
 					<h3> ' . _('From') . ' ' . $_SESSION['SuppTrans']->SupplierName . '</h3>
 				</th>

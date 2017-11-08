@@ -581,7 +581,7 @@ echo '</select>
 echo '<tr>
 		<td>' . _('Customer Since') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td>
 		<td>
-			<input type="text" required="required" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="ClientSince" value="', $_POST['ClientSince'], '" maxlength="10" size="12" />
+			<input type="text" required="required" class="date" name="ClientSince" value="', $_POST['ClientSince'], '" maxlength="10" size="12" />
 		</td>
 	</tr>';
 

@@ -212,11 +212,11 @@ echo '</select>
 	</tr>
 	<tr>
 		<td>' . _('Date of first payment') . '</td>
-		<td><input type="date" name="FirstPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['FirstPaymentDate'] . '" /></td>
+		<td><input type="date" name="FirstPaymentDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['FirstPaymentDate'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Date of Last payment') . '</td>
-		<td><input type="date" name="LastPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['LastPaymentDate'] . '" /></td>
+		<td><input type="date" name="LastPaymentDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['LastPaymentDate'] . '" /></td>
 	</tr>';
 
 $SQL = "SELECT bankaccountname,

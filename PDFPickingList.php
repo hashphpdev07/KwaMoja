@@ -33,7 +33,7 @@ if ((!isset($_GET['TransNo']) or $_GET['TransNo'] == '') and !isset($_POST['Tran
 	echo '<table class="selection">
 		<tr>
 			<td>' . _('Create picking lists for all deliveries to be made on') . ' : ' . '</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="TransDate" autofocus="autofocus" required="required" maxlength="10" size="11" value="' . date($_SESSION['DefaultDateFormat'], mktime(date('m'), date('Y'), date('d') + 1)) . '" /></td>
+			<td><input type="text" class="date" name="TransDate" autofocus="autofocus" required="required" maxlength="10" size="11" value="' . date($_SESSION['DefaultDateFormat'], mktime(date('m'), date('Y'), date('d') + 1)) . '" /></td>
 		</tr>';
 	echo '<tr><td>' . _('From Warehouse') . ' : ' . '</td>
 			<td><select required="required" name="loccode">';
@@ -275,7 +275,7 @@ for ($i = 0; $i < $SizeOfOrdersToPick; $i++) {
 				VALUES (
 				'" . $PickingListNo . "',
 				'" . $OrdersToPick[$i]['orderno'] . "',
-				'" . FormatDateForSQL($_POST['TransDate']) . "',
+				'" . $OrdersToPick[$i]['deliverydate'] . "',
 				'CURRENT_DATE',
 				'0000-00-00')";
 			$headerresult = DB_query($SQL);

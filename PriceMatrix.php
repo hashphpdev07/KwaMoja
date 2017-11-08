@@ -237,11 +237,11 @@ if (!isset($_POST['Price'])) {
 }
 echo '<tr>
 		<td>'. _('Price Effective From Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StartDate" required="required" size="10" maxlength="10" title="' . _('Enter the date from which this price should take effect.') . '" value="' . $_POST['StartDate'] . '" /></td>
+		<td><input type="text" class="date" name="StartDate" required="required" size="10" maxlength="10" title="' . _('Enter the date from which this price should take effect.') . '" value="' . $_POST['StartDate'] . '" /></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Price Effective To Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="EndDate" size="10" maxlength="10" title="' . _('Enter the date to which this price should be in effect to, or leave empty if the price should continue indefinitely') . '" value="' . $_POST['EndDate'] . '" /></td>
+		<td><input type="text" class="date" name="EndDate" size="10" maxlength="10" title="' . _('Enter the date to which this price should be in effect to, or leave empty if the price should continue indefinitely') . '" value="' . $_POST['EndDate'] . '" /></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Quantity Break') . '</td>

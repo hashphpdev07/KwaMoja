@@ -264,7 +264,7 @@ if (!isset($EmployerID)) {
 	echo '<tr><td>' . _('Address Line 2 (City)') . ':</td><td><input type="text" name="Address2" value="' . $_POST['Address2'] . '" size=42 maxlength=40></td></tr>';
 	echo '<tr><td>' . _('Address Line 3 (Postal Code)') . ':</td><td><input type="text" name="Address3" value="' . isset($_POST['Address 3']) . '" size=42 maxlength=40></td></tr>';
 	echo "</select></td></tr>";
-	echo '<tr><td>' . _('Date of Birth') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td><td><input ' . (in_array('dob', $Errors) ? 'class="inputerror"' : '') . '  size=12 maxlength=10 type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="dob" value=' . isset($_POST['dob']) . '></td></tr>';
+	echo '<tr><td>' . _('Date of Birth') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td><td><input ' . (in_array('dob', $Errors) ? 'class="inputerror"' : '') . '  size=12 maxlength=10 type="text" class="date" name="dob" value=' . isset($_POST['dob']) . '></td></tr>';
 	echo '<tr><td>' . _('Email Address') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="Email" value="' . $_POST['Email'] . '" size=42 maxlength=40></td></tr>';
 	echo '<tr><td>' . _('Telephone') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="telephone" value="' . $_POST['telephone'] . '" size=42 maxlength=40></td></tr>';
 	echo '<tr><td>' . _('Fax') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="Fax" value="' . isset($_POST['Fax']) . '" size=42 maxlength=40></td></tr>';

@@ -126,6 +126,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 							custbranch.brpostaddr4,
 							custbranch.brpostaddr5,
 							custbranch.brpostaddr6,
+							salesman.salesmancode,
 							salesman.salesmanname,
 							debtortrans.debtorno,
 							debtortrans.branchcode,
@@ -190,6 +191,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 							custbranch.brpostaddr4,
 							custbranch.brpostaddr5,
 							custbranch.brpostaddr6,
+							salesman.salesmancode,
 							salesman.salesmanname,
 							debtortrans.debtorno,
 							debtortrans.branchcode,
@@ -230,7 +232,22 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 			exit;
 		}
 		if (DB_num_rows($Result) == 1) {
+
 			$MyRow = DB_fetch_array($Result);
+
+			if ($_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']) {
+				prnMsg(_('Your account is set up to see only a specific salespersons orders. You are not authorised to view transaction for this order'), 'error');
+				include('includes/footer.php');
+				exit;
+			}
+
+			if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+				/* If it's a customer login and the invoice is for a different customer the do not print */
+				prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
+				include('includes/header.php');
+				exit;
+			}
+
 			$ExchRate = $MyRow['rate'];
 
 			//Change the language to the customer's language
@@ -701,6 +718,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 								custbranch.braddress4,
 								custbranch.braddress5,
 								custbranch.braddress6,
+								salesman.salesmancode,
 								salesman.salesmanname,
 								debtortrans.debtorno,
 								currencies.decimalplaces
@@ -752,6 +770,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 								custbranch.braddress4,
 								custbranch.braddress5,
 								custbranch.braddress6,
+								salesman.salesmancode,
 								salesman.salesmanname,
 								debtortrans.debtorno,
 								currencies.decimalplaces
@@ -782,6 +801,19 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 			} elseif (DB_num_rows($Result) == 1) {
 
 				$MyRow = DB_fetch_array($Result);
+
+				if ($_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']) {
+					prnMsg(_('Your account is set up to see only a specific salespersons orders. You are not authorised to view transaction for this order'), 'error');
+					include('includes/footer.php');
+					exit;
+				}
+
+				if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+					/* If it's a customer login and the invoice is for a different customer the do not print */
+					prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
+					include('includes/header.php');
+					exit;
+				}
 				/* Then there's an invoice (or credit note) to print. So print out the invoice header and GST Number from the company record */
 				if (count($_SESSION['AllowedPageSecurityTokens']) == 1 and in_array(1, $_SESSION['AllowedPageSecurityTokens']) and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
 

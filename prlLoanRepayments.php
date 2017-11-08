@@ -113,7 +113,7 @@ if (!isset($_POST['PayPeriodID'])) {
 	echo '<table>';
 	echo '<tr>
 			<td>' . _('Payroll Date') . '</td>
-			<td><input type="text" size="10" maxlength="10" required="required" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="PayrollDate" value="' . date($_SESSION['DefaultDateFormat']) . '" /></td>
+			<td><input type="text" size="10" maxlength="10" required="required" class="date" name="PayrollDate" value="' . date($_SESSION['DefaultDateFormat']) . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Pay Period') . ':</td>

@@ -35,11 +35,11 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 	echo '<table class="selection" summary="' . _('Report Criteria') . '">
 	 		<tr>
 				<td>' . _('Enter the date from which cheques are to be listed') . ':</td>
-				<td><input type="text" name="FromDate" required="required" maxlength="10" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '"  value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" name="FromDate" required="required" maxlength="10" size="10" class="date"  value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Enter the date to which cheques are to be listed') . ':</td>
-				<td><input type="text" name="ToDate" required="required" maxlength="10" size="10"  class="date" alt="' . $_SESSION['DefaultDateFormat'] . '"  value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" name="ToDate" required="required" maxlength="10" size="10"  class="date"  value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Bank Account') . '</td><td>';

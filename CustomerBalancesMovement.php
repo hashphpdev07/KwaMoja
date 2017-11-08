@@ -58,11 +58,11 @@ if (!isset($_POST['RunReport'])) {
 				</tr>
 				<tr>
 					<td>' . _('Date From') . ':</td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - $_SESSION['NumberOfMonthMustBeShown'], Date('d'), Date('Y'))) . '" /></td>
+					<td><input type="text" class="date" name="FromDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - $_SESSION['NumberOfMonthMustBeShown'], Date('d'), Date('Y'))) . '" /></td>
 				</tr>
 				<tr>
 					<td>' . _('Date To') . ':</td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+					<td><input type="text" class="date" name="ToDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 				</tr>
 				<tr>
 					<td>' . _('Create CSV') . ':</td>

@@ -411,10 +411,11 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<tr>
 			<td>' . _('Level Of Activity') . ':</td>
-			<td><select required="required" name="Activity">
-				<option selected="selected" value="All">' . _('All customers') . '</option>
-				<option value="GreaterThan">' . _('Sales Greater Than') . '</option>
-				<option value="LessThan">' . _('Sales Less Than') . '</option>
+			<td>
+				<select required="required" name="Activity">
+					<option selected="selected" value="All">' . _('All customers') . '</option>
+					<option value="GreaterThan">' . _('Sales Greater Than') . '</option>
+					<option value="LessThan">' . _('Sales Less Than') . '</option>
 				</select>
 			</td>';
 
@@ -426,7 +427,7 @@ if (isset($_POST['PrintPDF'])) {
 	$DefaultActivitySince = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 6, 0, Date('y')));
 	echo '<tr>
 			<td>' . _('Activity Since') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '"  name="ActivitySince" size="10" maxlength="10" value="' . $DefaultActivitySince . '" /></td>
+			<td><input type="text" class="date"  name="ActivitySince" size="10" maxlength="10" value="' . $DefaultActivitySince . '" /></td>
 		</tr>';
 
 	echo '</table>

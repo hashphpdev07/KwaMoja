@@ -401,7 +401,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Date when required') . ':</td>';
-echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DispatchDate" maxlength="10" size="11" value="' . $_SESSION['Request']->DispatchDate . '" /></td>
+echo '<td><input type="text" class="date" name="DispatchDate" maxlength="10" size="11" value="' . $_SESSION['Request']->DispatchDate . '" /></td>
 	  </tr>';
 
 echo '<tr>

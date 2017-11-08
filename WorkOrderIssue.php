@@ -734,7 +734,7 @@ while ($WOLineRow = DB_fetch_array($WOLineResult)) {
 
 echo '<tr>
 		<td class="label">' . _('Date Material Issued') . ':</td>
-		<td><input type="text" name="IssuedDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" class="date" size="10" alt="' . $_SESSION['DefaultDateFormat'] . '" /></td>
+		<td><input type="text" name="IssuedDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" class="date" size="10" /></td>
 		<td class="label">' . _('Issued From') . ':</td>
 		<td>';
 
