@@ -249,6 +249,13 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		if (DB_num_rows($Result) == 1) {
 			$MyRow = DB_fetch_array($Result);
 
+			if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+				/* If it's a customer login and the invoice is for a different customer the do not print */
+				prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
+				include('includes/header.php');
+				exit;
+			}
+
 			$ExchRate = $MyRow['rate'];
 			//Change the language to the customer's language
 			$_SESSION['Language'] = $MyRow['language_id'];
