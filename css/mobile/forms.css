@@ -7,6 +7,18 @@ text-align: center;
 form fieldset {
 display: inline;
 border:0px;
+width:60%;
+margin:auto;
+}
+
+.fieldsetheader {
+background-color:#CCCCCC;
+color:#330000;
+padding:3px;
+border: 0px solid #8DCDEB;
+border-radius:3px;
+width:100%;
+margin-bottom:4px;
 }
 
 form field {
