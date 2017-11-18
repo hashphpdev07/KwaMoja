@@ -47,9 +47,9 @@ if (!isset($RecvQty)) {
 	$RecvQty = 0;
 }
 if (!isset($_POST['EntryType']) or trim($_POST['EntryType']) == '') {
-	if ($RecvQty <= 500000) {
+	if ($RecvQty <= $_SESSION['MaxSerialItemsIssued']) {
 		$_POST['EntryType'] = 'KEYED';
-	} //elseif ($RecvQty <= 50) { $EntryType = "BARCODE"; }
+	} //elseif ($RecvQty <= $_SESSION['MaxSerialItemsIssued']) { $EntryType = "BARCODE"; }
 	else {
 		$_POST['EntryType'] = 'FILE';
 	}
