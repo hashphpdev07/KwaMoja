@@ -42,6 +42,7 @@ class Payment {
 	function __construct() {
 		/*Constructor function initialises a new Payment batch */
 		$this->GLItems = array();
+		$this->Amount = array();
 		$this->GLItemCounter = 0;
 		$this->SupplierID = "";
 		$this->SuppName = "";
@@ -63,7 +64,7 @@ class Payment {
 		if (isset($GLCode) and $Amount != 0) {
 			$this->GLItems[$this->GLItemCounter] = new PaymentGLAnalysis($Amount, $Narrative, $this->GLItemCounter, $GLCode, $GLActName, $Tag, $Cheque);
 			$this->GLItemCounter++;
-			$this->Amount += $Amount;
+			$this->Amount[] += $Amount;
 			return 1;
 		}
 		return 0;
