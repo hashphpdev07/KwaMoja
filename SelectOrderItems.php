@@ -1669,11 +1669,11 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 								<input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" />
 								<input tabindex="' . strval($j + 8) . '" type="submit" name="Previous" value="' . _('Previous') . '" />
 							</td>
-							<td style="text-align:center" colspan="6">
+							<td style="text-align:center" colspan="7">
 								<input type="hidden" name="SelectingOrderItems" value="1" />
 								<input tabindex="' . strval($j + 9) . '" type="submit" value="' . _('Add to Sales Order') . '" />
 							</td>
-							<td colspan="1">
+							<td style="text-align:right" colspan="1">
 								<input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" />
 								<input tabindex="' . strval($j + 10) . '" type="submit" name="Next" value="' . _('Next') . '" />
 							</td>
@@ -1759,9 +1759,23 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 			} //$MyRow = DB_fetch_array($SearchResult)
 			//end of while loop
-			echo '</tbody><tr><td><input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" /><input tabindex="' . strval($j + 7) . '" type="submit" name="Previous" value="' . _('Previous') . '" /></td>';
-			echo '<td style="text-align:center" colspan="6"><input type="hidden" name="SelectingOrderItems" value="1" /><input tabindex="' . strval($j + 8) . '" type="submit" value="' . _('Add to Sales Order') . '" /></td>';
-			echo '<td><input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" /><input tabindex="' . strval($j + 9) . '" type="submit" name="Next" value="' . _('Next') . '" /></td></tr>';
+			echo '</tbody>';
+			echo '<tfoot>
+					<tr>
+						<td>
+							<input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" />
+							<input tabindex="' . strval($j + 7) . '" type="submit" name="Previous" value="' . _('Previous') . '" />
+						</td>
+						<td style="text-align:center" colspan="7">
+							<input type="hidden" name="SelectingOrderItems" value="1" />
+							<input tabindex="' . strval($j + 8) . '" type="submit" value="' . _('Add to Sales Order') . '" />
+						</td>
+						<td style="text-align:right">
+							<input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" />
+							<input tabindex="' . strval($j + 9) . '" type="submit" name="Next" value="' . _('Next') . '" />
+						</td>
+					</tr>
+				</tfoot>';
 			echo '</table>';
 
 		} //end if SearchResults to show
