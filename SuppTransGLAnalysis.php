@@ -26,7 +26,6 @@ if (!isset($_SESSION['SuppTrans'])) {
 /*If the user hit the Add to transaction button then process this first before showing  all GL codes on the transaction otherwise it wouldnt show the latest addition*/
 
 if (isset($_POST['AddGLCodeToTrans']) and $_POST['AddGLCodeToTrans'] == _('Enter GL Line')) {
-
 	$InputError = False;
 	if ($_POST['GLCode'] == '') {
 		$_POST['GLCode'] = $_POST['AcctSelection'];
@@ -67,14 +66,21 @@ if (isset($_POST['AddGLCodeToTrans']) and $_POST['AddGLCodeToTrans'] == _('Enter
 	}
 
 	if ($InputError == False) {
-
-		$_SESSION['SuppTrans']->Add_GLCodes_To_Trans($_POST['GLCode'], $GLActName, filter_number_format($_POST['Amount']), $_POST['Narrative'], $_POST['Tag']);
+		$_SESSION['SuppTrans']->GetTaxes();
+		$TotalTax = 0;
+		foreach ($_SESSION['SuppTrans']->Taxes as $Taxes) {
+			$TotalTax += $_POST['Tax' . $Taxes->TaxCalculationOrder];
+			$GLTaxes[$Taxes->TaxCalculationOrder] = $_POST['Tax' . $Taxes->TaxCalculationOrder];
+			$GLTaxNames[$Taxes->TaxCalculationOrder] = $Taxes->TaxAuthDescription;
+		}
+		$_SESSION['SuppTrans']->Add_GLCodes_To_Trans($_POST['GLCode'], $GLActName, filter_number_format($_POST['Amount']), $GLTaxes, $GLTaxNames, $_POST['Narrative'], $_POST['Tag']);
 		unset($_POST['GLCode']);
 		unset($_POST['Amount']);
 		unset($_POST['JobRef']);
 		unset($_POST['Narrative']);
 		unset($_POST['AcctSelection']);
 		unset($_POST['Tag']);
+		unset($_POST['Tax']);
 	}
 }
 
@@ -86,10 +92,16 @@ if (isset($_GET['Edit'])) {
 	$_POST['GLCode'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->GLCode;
 	$_POST['AcctSelection'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->GLCode;
 	$_POST['Amount'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Amount;
-	$_POST['JobRef'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->JobRef;
+//	$_POST['JobRef'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->JobRef;
 	$_POST['Narrative'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Narrative;
 	$_POST['Tag'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Tag;
+	$GLTaxAmounts = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Tax;
 	$_SESSION['SuppTrans']->Remove_GLCodes_From_Trans($_GET['Edit']);
+} else {
+	$GLTaxAmounts = array();
+	foreach ($_SESSION['SuppTrans']->Taxes as $Taxes) {
+		$GLTaxAmounts[$Taxes->TaxCalculationOrder] = 0;
+	}
 }
 
 /*Show all the selected GLCodes so far from the SESSION['SuppInv']->GLCodes array */
@@ -110,12 +122,14 @@ echo '<table class="selection">
 				<th class="SortedColumn">' . _('Account') . '</th>
 				<th class="SortedColumn">' . _('Name') . '</th>
 				<th class="SortedColumn">' . _('Amount') . '<br />(' . $_SESSION['SuppTrans']->CurrCode . ')</th>
+				<th class="SortedColumn">' . _('Tax') . '<br />(' . $_SESSION['SuppTrans']->CurrCode . ')</th>
 				<th>' . _('Narrative') . '</th>
 				<th>' . _('Tag') . '</th>
 				<th colspan="2">&nbsp;</th>
 			</tr>
 		</thead>';
 $TotalGLValue = 0;
+$TotalTaxes = array();
 $i = 0;
 echo '<tbody>';
 foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
@@ -133,10 +147,20 @@ foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
 		}
 	}
 
+	$TaxDescription = '';
+	foreach ($EnteredGLCode->Tax as $ID=>$Tax) {
+		if (!isset($TotalTaxes[$ID])) {
+			$TotalTaxes[$ID] = 0;
+		}
+		$TaxDescription .= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
+		$TotalTaxes[$ID] += $Tax;
+	}
+
 	echo '<tr>
 			<td valign="top" class="text">' . $EnteredGLCode->GLCode . '</td>
 			<td valign="top" class="text">' . $EnteredGLCode->GLActName . '</td>
 			<td valign="top" class="number">' . locale_number_format($EnteredGLCode->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
+			<td valign="top" class="number">' . $TaxDescription . '</td>
 			<td valign="top" class="text">' . $EnteredGLCode->Narrative . '</td>
 			<td valign="top" class="text">' . $TagDescription . '</td>
 			<td valign="top"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Edit=' . $EnteredGLCode->Counter . '">' . _('Edit') . '</a></td>
@@ -147,9 +171,16 @@ foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
 
 }
 echo '</tbody>';
+
+$TotalTaxDescription = '';
+foreach ($TotalTaxes as $ID=>$Tax) {
+	$TotalTaxDescription .= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
+}
+
 echo '<tr>
 		<td colspan="2" class="number">' . _('Total') . ':</td>
 		<td class="number">' . locale_number_format($TotalGLValue, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
+		<td class="number">' . $TotalTaxDescription . '</td>
 		<td colspan="4">&nbsp;</td>
 	</tr>
 	</table>';
@@ -157,12 +188,12 @@ echo '<tr>
 if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 	echo '<br />
 		<div class="centre">
-			<a href="' . $RootPath . '/SupplierInvoice.php">' . _('Back to Invoice Entry') . '</a>
+			<a href="' . $RootPath . '/SupplierInvoice.php?SupplierID=', $_SESSION['SuppTrans']->SupplierID, '">' . _('Back to Invoice Entry') . '</a>
 		</div>';
 } else {
 	echo '<br />
 		<div class="centre">
-			<a href="' . $RootPath . '/SupplierCredit.php">' . _('Back to Credit Note Entry') . '</a>
+			<a href="' . $RootPath . '/SupplierCredit.php?SupplierID=', $_SESSION['SuppTrans']->SupplierID, '">' . _('Back to Credit Note Entry') . '</a>
 		</div>';
 }
 
@@ -173,7 +204,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 echo '<br />
 	<table class="selection">';
 if (!isset($_POST['GLCode'])) {
-	$_POST['GLCode'] = '';
+	$_POST['GLCode'] = $SupplierCodeRow[0];
 }
 
 echo '<tr>
@@ -212,13 +243,23 @@ while ($MyRow = DB_fetch_array($Result)) {
 echo '</select>
 	</td>
 	</tr>';
+
 if (!isset($_POST['Amount'])) {
 	$_POST['Amount'] = 0;
+	$_POST['Tax'] = 0;
 }
+
 echo '<tr>
 		<td>', _('Amount'), ' (', $_SESSION['SuppTrans']->CurrCode, '):</td>
 		<td><input type="text" class="number" name="Amount" size="12" required="required" maxlength="11" value="' . locale_number_format($_POST['Amount'], $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
 	</tr>';
+
+foreach ($_SESSION['SuppTrans']->Taxes as $Taxes) {
+	echo '<tr>
+			<td>', $Taxes->TaxAuthDescription, ' (', $_SESSION['SuppTrans']->CurrCode, '):</td>
+			<td><input type="text" class="number" name="Tax', $Taxes->TaxCalculationOrder, '" size="12" required="required" maxlength="11" value="' . locale_number_format($GLTaxAmounts[$Taxes->TaxCalculationOrder], $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
+		</tr>';
+}
 
 if (!isset($_POST['Narrative'])) {
 	$_POST['Narrative'] = '';
