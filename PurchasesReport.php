@@ -79,7 +79,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 		$SupplierOvTax = 0;
 		$SupplierGlAmount = 0;
 		$SupplierGlTax = 0;
-		$Sql = "SELECT
+		$SQL = "SELECT
 					supptrans.supplierno,
 					suppliers.suppname,
 					suppliers.currcode,
@@ -95,7 +95,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 					AND supptrans.trandate<='" . $PeriodTo . "'
 					AND supptrans.`type`=20
 				ORDER BY supptrans.supplierno, supptrans.trandate";
-		$Result = DB_query($Sql);
+		$Result = DB_query($SQL);
 		include('includes/CurrenciesArray.php'); // To get the currency name from the currency code.
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
@@ -195,7 +195,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 						'</td>
 					</tr>
 				</tfoot>';
-		$Sql = "SELECT
+		$SQL = "SELECT
 					supptrans.supplierno,
 					suppliers.suppname,
 					suppliers.currcode,
@@ -211,7 +211,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				GROUP BY
 					supptrans.supplierno
 				ORDER BY supptrans.supplierno, supptrans.trandate";
-		$Result = DB_query($Sql);
+		$Result = DB_query($SQL);
 		echo '<tbody>';
 		foreach($Result as $MyRow) {
 			if($k == 1) {
