@@ -46,8 +46,8 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 	$TotalGlAmount = 0;
 	$TotalGlTax = 0;
 	$k = 1;// Row colour counter.
-	$PeriodFrom = ConvertSQLDate($_POST['PeriodFrom']);
-	$PeriodTo = ConvertSQLDate($_POST['PeriodTo']);
+	$PeriodFrom = FormatDateForSQL($_POST['PeriodFrom']);
+	$PeriodTo = FormatDateForSQL($_POST['PeriodTo']);
 	if(isset($_POST['ShowDetails'])) {// Parameters: PeriodFrom, PeriodTo, ShowDetails=on.
 		echo '<table class="selection">
 				<thead>
