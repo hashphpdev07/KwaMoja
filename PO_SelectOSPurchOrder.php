@@ -51,22 +51,9 @@ if (isset($_POST['SearchParts'])) {
 
 	$SQL = "SELECT stockmaster.stockid,
 					stockmaster.description,
-					SUM(locstock.quantity) AS qoh,
-					stockmaster.units,
-					SUM(purchorderdetails.quantityord-purchorderdetails.quantityrecd) AS qord
+					stockmaster.units
 				FROM stockmaster
-				INNER JOIN locstock
-					ON stockmaster.stockid = locstock.stockid
-				INNER JOIN purchorderdetails
-					ON stockmaster.stockid=purchorderdetails.itemcode
-				INNER JOIN purchorders
-					ON purchorders.orderno=purchorderdetails.orderno
-				INNER JOIN locationusers
-					ON locationusers.loccode=purchorders.intostocklocation
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
-					AND locationusers.canview=1
-				WHERE purchorderdetails.completed=0
-					AND stockmaster.description " . LIKE . " '" . $SearchString . "'
+				WHERE stockmaster.description " . LIKE . " '" . $SearchString . "'
 					AND stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'
 					AND stockmaster.categoryid " . LIKE . " '%" . $_POST['StockCat'] . "%'
 				GROUP BY stockmaster.stockid,
@@ -268,21 +255,32 @@ if (isset($StockItemsResult)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} //$k == 1
-		else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
+		$QuantitySQL = "SELECT sum(quantity) AS qoh FROM locstock WHERE stockid='" . $MyRow['stockid'] . "'";
+		$QuantityResult = DB_query($QuantitySQL);
+		$QuantityRow = DB_fetch_array($QuantityResult);
+
+		$OrdersSQL = "SELECT SUM(purchorderdetails.quantityord-purchorderdetails.quantityrecd) AS qord
+						FROM purchorderdetails
+						WHERE completed=0
+							AND itemcode='" . $MyRow['stockid'] . "'";
+		$OrdersResult = DB_query($OrdersSQL);
+		$OrdersRow = DB_fetch_array($OrdersResult);
+
+		if ($OrdersRow['qord'] != '') {
+			if ($k == 1) {
+				echo '<tr class="EvenTableRows">';
+				$k = 0;
+			} else {
+				echo '<tr class="OddTableRows">';
+				$k = 1;
+			}
+			echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', $QuantityRow['qoh'], '</td>
+					<td class="number">', $OrdersRow['qord'], '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 		}
-
-		printf('<td><input type="submit" name="SelectedStockItem" value="%s"</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td>%s</td></tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['qoh'], $MyRow['qord'], $MyRow['units']);
-
 	} //end of while loop through search items
 
 	echo '</tbody>';
