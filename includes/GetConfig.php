@@ -103,7 +103,8 @@ if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION
 				username,
 				password,
 				timeout,
-				auth
+				auth,
+				security
 			FROM emailsettings";
 	$Result = DB_query($SQL, '', '', false, false);
 	if (DB_error_no() == 0) {
@@ -119,6 +120,7 @@ if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION
 		$_SESSION['SMTPSettings']['password'] = $MyRow['password'];
 		$_SESSION['SMTPSettings']['timeout'] = $MyRow['timeout'];
 		$_SESSION['SMTPSettings']['auth'] = $MyRow['auth'];
+		$_SESSION['SMTPSettings']['security'] = $MyRow['security'];
 	}
 } //end if force reload or not set already
 

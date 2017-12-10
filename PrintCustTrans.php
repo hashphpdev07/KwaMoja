@@ -513,7 +513,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 		$mail->IsSMTP();
 		$mail->CharSet = 'UTF-8';
 
-		$SQL = "SELECT realname FROM www_users WHERE userid='" . $MyRow['initiator'] . "'";
+		$SQL = "SELECT realname FROM www_users WHERE userid='" . $_SESSION['UserID'] . "'";
 		$UserResult = DB_query($SQL);
 		$MyUserRow = DB_fetch_array($UserResult);
 		$SenderName = $MyUserRow['realname'];
@@ -521,7 +521,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 		$mail->Host = $_SESSION['SMTPSettings']['host']; // SMTP server example
 		$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
 		$mail->SMTPAuth   = $_SESSION['SMTPSettings']['auth'];
-		$mail->SMTPSecure = "ssl";                 // enable SMTP authentication
+		$mail->SMTPSecure = $_SESSION['SMTPSettings']['security'];                 // enable SMTP authentication
 		$mail->Port       = $_SESSION['SMTPSettings']['port'];                    // set the SMTP port for the GMAIL server
 		$mail->Username   = html_entity_decode($_SESSION['SMTPSettings']['username']); // SMTP account username example
 		$mail->Password   = html_entity_decode($_SESSION['SMTPSettings']['password']);        // SMTP account password example
