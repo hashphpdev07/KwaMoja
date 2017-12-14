@@ -342,7 +342,7 @@ $Disclaimer = $MyRow[0];
 $LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 500, $FontSize, $Disclaimer);
 while (mb_strlen($LeftOvers) > 1) {
 	$YPos -= $LineHeight;
-	$LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 445, $FontSize, $LeftOvers, 'left');
+	$LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 500, $FontSize, $LeftOvers, 'left');
 }
 
 $PDF->OutputI($_SESSION['DatabaseName'] . '_ProductSpecification_' . date('Y-m-d') . '.pdf');
