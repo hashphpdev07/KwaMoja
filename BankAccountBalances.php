@@ -47,6 +47,7 @@ while ($MyBankRow = DB_fetch_array($Result)) {
 			<td>', $MyBankRow['bankaccountname'], '</td>
 			<td class="number">', locale_number_format($CurrBalanceRow['balance'], $DecimalPlacesRow['decimalplaces']), ' ', $MyBankRow['currcode'], '</td>
 			<td class="number">', locale_number_format($FuncBalanceRow['balance'], $_SESSION['CompanyRecord']['decimalplaces']), ' ', $_SESSION['CompanyRecord']['currencydefault'], '</td>
+			<td><a href="', $RootPath, '/DailyBankTransactions.php?BankAccount=', $MyBankRow['accountcode'], '&FromTransDate=', DateAdd(date($_SESSION['DefaultDateFormat']), 'm', -1), '&ToTransDate=', date($_SESSION['DefaultDateFormat']), '" />', _('Show Transactions'), '</a>
 		</tr>';
 }
 
