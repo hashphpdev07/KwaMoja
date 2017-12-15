@@ -48,14 +48,14 @@ if (isset($_POST['submit'])) {
 	$SQL = "SELECT COUNT(*) FROM qatests WHERE qatests.name='" . $_POST['QATestName'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
-	if ($MyRow[0] > 0) {
+	if ($MyRow[0] > 0 and $_POST['submit'] != _('Update Information')) {
 		$InputError = 1;
 		prnMsg(_('The QA Test name already exists'), 'error');
 		$Errors[$i] = 'QATestName';
 		$i++;
 	}
 
-	if (isset($SelectedQATest) and $InputError != 1) {
+	if ($_POST['submit'] == _('Update Information') and $InputError != 1) {
 
 		/*SelectedQATest could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
 
@@ -351,10 +351,16 @@ if (!isset($_GET['delete'])) {
 			</tr>
 		</table>';
 
-	echo '<div class="centre">
-			<input type="submit" name="submit" value="' . _('Enter Information') . '" />
-		</div>
-	</form>';
+	if (isset($_GET['SelectedQATest'])) {
+		echo '<div class="centre">
+				<input type="submit" name="submit" value="' . _('Update Information') . '" />
+			</div>';
+	} else {
+		echo '<div class="centre">
+				<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+			</div>';
+	}
+	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
 
