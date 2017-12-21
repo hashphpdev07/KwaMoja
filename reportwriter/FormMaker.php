@@ -18,7 +18,7 @@ require_once($PathPrefix . 'includes/DateFunctions.php');
 require('languages/' . $ReportLanguage . '/reports.php'); // include translation before defaults.php
 require('admin/defaults.php'); // load default values
 
-$usrMsg = ''; // setup array for return messages
+$usrMsg = array(); // setup array for return messages
 $GoBackURL = $RootPath . '/index.php'; // set the return path to the index.php page
 
 if (isset($_GET['id'])) { // then entered with form group requested
