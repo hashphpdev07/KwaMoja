@@ -16,6 +16,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 				bom.component,
 				stockmaster.description as compdescription,
 				stockmaster.decimalplaces,
+				stockmaster.units,
 				bom.quantity,
 				bom.loccode,
 				bom.workcentreadded,
@@ -86,10 +87,11 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 		$DisplayQuantity = locale_number_format($BOMList['quantity'], $BOMList['decimalplaces']);
 		$LeftOvers = $PDF->addTextWrap(320, $YPos, 50, $FontSize, ConvertSQLDate($BOMList['eff_frm']), 'left');
-		$LeftOvers = $PDF->addTextWrap(370, $YPos, 50, $FontSize, ConvertSQLDate($BOMList['eff_to']), 'left');
-		$LeftOvers = $PDF->addTextWrap(420, $YPos, 20, $FontSize, $BOMList['loccode'], 'left');
-		$LeftOvers = $PDF->addTextWrap(440, $YPos, 30, $FontSize, $BOMList['workcentreadded'], 'left');
+		$LeftOvers = $PDF->addTextWrap(375, $YPos, 50, $FontSize, ConvertSQLDate($BOMList['eff_to']), 'left');
+		$LeftOvers = $PDF->addTextWrap(430, $YPos, 30, $FontSize, $BOMList['loccode'], 'left');
+		$LeftOvers = $PDF->addTextWrap(465, $YPos, 30, $FontSize, $BOMList['workcentreadded'], 'left');
 		$LeftOvers = $PDF->addTextWrap(480, $YPos, 60, $FontSize, $DisplayQuantity, 'right');
+		$LeftOvers = $PDF->addTextWrap(540, $YPos, 20, $FontSize, $BOMList['units'], 'left');
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			include('includes/PDFBOMListingPageHeader.php');
