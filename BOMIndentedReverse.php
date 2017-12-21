@@ -164,7 +164,8 @@ if (isset($_POST['PrintPDF'])) {
 	$PDF->SetFillColor(224, 235, 255);
 	$SQL = "SELECT tempbom.*,
 				   stockmaster.description,
-				   stockmaster.mbflag
+				   stockmaster.mbflag,
+                   stockmaster.units
 				FROM tempbom
 				INNER JOIN stockmaster
 					ON tempbom.parent = stockmaster.stockid
@@ -194,14 +195,15 @@ if (isset($_POST['PrintPDF'])) {
 		// 1) X position 2) Y position 3) Width
 		// 4) Height 5) Text 6) Alignment 7) Border 8) Fill - True to use SetFillColor
 		// and False to set to transparent
-		$PDF->addTextWrap($Left_Margin + ($MyRow['level'] * 5), $YPos, 90, $FontSize, $MyRow['parent'], '', 0, $fill);
-		$PDF->addTextWrap(160, $YPos, 20, $FontSize, $MyRow['mbflag'], '', 0, $fill);
-		$PDF->addTextWrap(180, $YPos, 180, $FontSize, $MyRow['description'], '', 0, $fill);
-		$PDF->addTextWrap(360, $YPos, 30, $FontSize, $MyRow['loccode'], 'right', 0, $fill);
-		$PDF->addTextWrap(390, $YPos, 25, $FontSize, $MyRow['workcentreadded'], 'right', 0, $fill);
-		$PDF->addTextWrap(415, $YPos, 45, $FontSize, locale_number_format($MyRow['quantity'], 'Variable'), 'right', 0, $fill);
-		$PDF->addTextWrap(460, $YPos, 55, $FontSize, $FormatedEffectiveAfter, 'right', 0, $fill);
-		$PDF->addTextWrap(515, $YPos, 50, $FontSize, $FormatedEffectiveTo, 'right', 0, $fill);
+		$PDF->addTextWrap($Left_Margin + ($MyRow['level'] * 5), $YPos, 90, $FontSize, $MyRow['parent'], 'left', 0, $fill);
+		$PDF->addTextWrap(160, $YPos, 20, $FontSize, $MyRow['mbflag'], 'left', 0, $fill);
+		$PDF->addTextWrap(180, $YPos, 165, $FontSize, $MyRow['description'], 'left', 0, $fill);
+		$PDF->addTextWrap(345, $YPos, 30, $FontSize, $MyRow['loccode'], 'left', 0, $fill);
+		$PDF->addTextWrap(375, $YPos, 25, $FontSize, $MyRow['workcentreadded'], 'left', 0, $fill);
+		$PDF->addTextWrap(400, $YPos, 45, $FontSize, locale_number_format($MyRow['quantity'], 'Variable'), 'right', 0, $fill);
+		$PDF->addTextWrap(445, $YPos, 20, $FontSize, $MyRow['units'], 'left', 0, $fill);
+		$PDF->addTextWrap(465, $YPos, 50, $FontSize, $FormatedEffectiveAfter, 'left', 0, $fill);
+		$PDF->addTextWrap(515, $YPos, 50, $FontSize, $FormatedEffectiveTo, 'left', 0, $fill);
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $AssemblyDesc);
@@ -287,12 +289,13 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$PDF->addTextWrap($Xpos, $YPos, 90, $FontSize, _('Part Number'), 'left');
 	$PDF->addTextWrap(160, $YPos, 20, $FontSize, _('M/B'), 'left');
-	$PDF->addTextWrap(180, $YPos, 180, $FontSize, _('Description'), 'center');
-	$PDF->addTextWrap(360, $YPos, 30, $FontSize, _('Locn'), 'right');
-	$PDF->addTextWrap(390, $YPos, 25, $FontSize, _('WC'), 'right');
-	$PDF->addTextWrap(415, $YPos, 45, $FontSize, _('Quantity'), 'right');
-	$PDF->addTextWrap(460, $YPos, 55, $FontSize, _('From Date'), 'right');
-	$PDF->addTextWrap(515, $YPos, 50, $FontSize, _('To Date'), 'right');
+	$PDF->addTextWrap(180, $YPos, 165, $FontSize, _('Description'), 'center');
+	$PDF->addTextWrap(345, $YPos, 30, $FontSize, _('Locn'), 'left');
+	$PDF->addTextWrap(375, $YPos, 25, $FontSize, _('WC'), 'left');
+	$PDF->addTextWrap(400, $YPos, 45, $FontSize, _('Quantity'), 'right');
+	$PDF->addTextWrap(445, $YPos, 20, $FontSize, _('UOM'), 'left');
+	$PDF->addTextWrap(465, $YPos, 50, $FontSize, _('From Date'), 'left');
+	$PDF->addTextWrap(515, $YPos, 50, $FontSize, _('To Date'), 'left');
 	$YPos = $YPos - $line_height;
 
 	$PDF->addTextWrap($Left_Margin + 1, $YPos, 60, $FontSize, _('Component') . ': ', '', 0);
@@ -300,10 +303,6 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$PDF->addTextWrap(200, $YPos, 150, $FontSize, $AssemblyDesc, '', 0);
 	$YPos -= (2 * $line_height);
 	$Xpos = $Left_Margin + 5;
-	$FontSize = 8;
-	$PDF->addTextWrap($Xpos, $YPos, 90, $FontSize, _(' 12345678901234567890'), 'left');
-
-	$YPos = $YPos - (2 * $line_height);
 	$PageNumber++;
 
 } // End of PrintHeader function
