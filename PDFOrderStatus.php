@@ -88,7 +88,6 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 	include('includes/footer.php');
 	exit;
 } else {
-	include('includes/ConnectDB.php');
 	include('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Order Status Report'));
 	$PDF->addInfo('Subject', _('Orders from') . ' ' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate']);
