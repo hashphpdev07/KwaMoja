@@ -35,7 +35,7 @@ require_once('../languages/' . $ReportLanguage . '/reports.php');
 require_once('defaults.php');
 require('RCFunctions.php');
 
-$usrMsg = ''; // initialize array for return messages
+$usrMsg = array(); // initialize array for return messages
 // a valid report id needs to be passed as a post field to do anything, except create new report
 if (!isset($_POST['ReportID'])) { // entered for the first time or created new report
 	$ReportID = '';
