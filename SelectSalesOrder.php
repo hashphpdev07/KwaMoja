@@ -715,6 +715,7 @@ if (!isset($StockId)) {
 			$Quotations = "0 AND itemdue<CURRENT_DATE";
 		} else {
 			$Quotations = 0;
+			$_POST['Quotations'] = 'Orders_Only';
 		}
 		if (isset($_POST['DueDateFrom']) and is_date($_POST['DueDateFrom'])) {
 			$DueDateFrom = " AND itemdue>='" . FormatDateForSQL($_POST['DueDateFrom']) . "' ";
@@ -738,7 +739,7 @@ if (!isset($StockId)) {
 		}
 
 		if (!isset($_POST['StockLocation'])) {
-			$_POST['StockLocation'] = '';
+			$_POST['StockLocation'] = $_SESSION['UserStockLocation'];
 		}
 
 		if ($_SESSION['SalesmanLogin'] != '') {
