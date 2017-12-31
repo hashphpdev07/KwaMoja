@@ -234,7 +234,7 @@ function FetchReportDetails($ReportID) {
 }
 
 function RetrieveFields($ReportID, $EntryType) {
-	$FieldListings = '';
+	$FieldListings = array();
 	$SQL = "SELECT *	FROM " . DBRptFields . "
 			WHERE reportid = '" . $ReportID . "'
 			AND entrytype = '" . $EntryType . "'
