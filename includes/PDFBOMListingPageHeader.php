@@ -36,12 +36,12 @@ $PDF->line($Left_Margin, $YPos + $line_height, $Left_Margin, $YPos - 5);
 /*set up the headings */
 $Xpos = $Left_Margin + 1;
 
-$LeftOvers = $PDF->addTextWrap($Xpos, $YPos, 320 - $Left_Margin, $FontSize, _('Component Part/Description'), 'centre');
-$LeftOvers = $PDF->addTextWrap(300, $YPos, 60, $FontSize, _('Effective After'), 'centre');
-$LeftOvers = $PDF->addTextWrap(348, $YPos, 60, $FontSize, _('Effective To'), 'centre');
-$LeftOvers = $PDF->addTextWrap(403, $YPos, 40, $FontSize, _('Locn'), 'centre');
-$LeftOvers = $PDF->addTextWrap(435, $YPos, 40, $FontSize, _('Wrk Cntr'), 'centre');
-$LeftOvers = $PDF->addTextWrap(500, $YPos, 60, $FontSize, _('Quantity'), 'centre');
+$LeftOvers = $PDF->addTextWrap($Xpos, $YPos, 320 - $Left_Margin, $FontSize, _('Component Part/Description'), 'center');
+$LeftOvers = $PDF->addTextWrap(320, $YPos, 50, $FontSize, _('Effective After'), 'left');
+$LeftOvers = $PDF->addTextWrap(380, $YPos, 50, $FontSize, _('Effective To'), 'left');
+$LeftOvers = $PDF->addTextWrap(440, $YPos, 30, $FontSize, _('Locn'), 'left');
+$LeftOvers = $PDF->addTextWrap(480, $YPos, 30, $FontSize, _('Wrk Cntr'), 'left');
+$LeftOvers = $PDF->addTextWrap(500, $YPos, 60, $FontSize, _('Quantity'), 'right');
 
 $YPos = $YPos - (2 * $line_height);
 

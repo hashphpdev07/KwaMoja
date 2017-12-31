@@ -258,6 +258,8 @@ if (DB_num_rows($Result) == 0) {
 	echo '<tr>
 			<th>' . _('Special Price') . '</th>
 			<th>' . _('Branch') . '</th>
+			<th>' . _('Start Date') . '</th>
+			<th>' . _('End Date') . '</th>
 		</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -272,11 +274,9 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		echo '<tr style="background-color:#CCCCCC">
+		echo '<tr>
 				<td class="number">' . locale_number_format($MyRow['price'], $CurrDecimalPlaces) . '</td>
 				<td>' . $Branch . '</td>
-				<td>' . $MyRow['units'] . '</td>
-				<td class="number">' . $MyRow['conversionfactor'] . '</td>
 				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
 				<td>' . $EndDateDisplay . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Price=' . $MyRow['price'] . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>

@@ -233,7 +233,7 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 				AND closed='0'";
 		$CountResult = DB_query($SQL);
 		$Count = DB_fetch_row($CountResult);
-		if (!isset($Count[2]) or $COunt[2] == '') {
+		if (!isset($Count[2]) or $Count[2] == '') {
 			$Count[2]='Please pick order. Generate packing slip. Apply shipment labels and ship in system.';
 		}
 		if ($Count[0] == 0) {
@@ -447,7 +447,7 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 						AND quantity > 0
 						ORDER BY createdate, quantity";
 
-				$ErrMsg = '<br />' . _('Could not retrieve the items for') . ' ' . $StockId;
+				$ErrMsg = '<br />' . _('Could not retrieve the items for') . ' ' . $MyRow2['stkcode'];
 				$Bundles = DB_query($SQL, $ErrMsg);
 				$YPos += ($line_height);
 				while ($mybundles = DB_fetch_array($Bundles)) {

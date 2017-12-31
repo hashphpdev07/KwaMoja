@@ -95,7 +95,7 @@ if ((isset($_POST['AddRecord']) or isset($_POST['UpdateRecord'])) and isset($Sup
 							AND purchdata.supplierno='" . DB_escape_string($SupplierID) . "'
 							AND purchdata.effectivefrom='" . FormatDateForSQL($_POST['EffectiveFrom']) . "'";
 	$DuplicateResult = DB_query($DuplicateSQL);
-	if (DB_num_rows($DuplicateResult) > 0){
+	if (DB_num_rows($DuplicateResult) > 0 and isset($_POST['AddRecord'])){
 		$InputError = 1;
 		prnMsg (_('There is already purchasing data set up for this criteria'), 'error');
 	}

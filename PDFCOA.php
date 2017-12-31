@@ -88,7 +88,8 @@ if (isset($SelectedCOA)) {
 					type,
 					testvalue,
 					sampledate,
-					groupby
+					groupby,
+					prodspeckey
 				FROM qasamples
 				INNER JOIN sampleresults
 					ON sampleresults.sampleid=qasamples.sampleid
@@ -110,7 +111,8 @@ if (isset($SelectedCOA)) {
 					type,
 					testvalue,
 					sampledate,
-					groupby
+					groupby,
+					prodspeckey
 				FROM qasamples
 				INNER JOIN sampleresults
 					ON sampleresults.sampleid=qasamples.sampleid
@@ -372,7 +374,7 @@ $Disclaimer = $_SESSION['QualityCOAText'];
 $LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 500, $FontSize, $Disclaimer);
 while (mb_strlen($LeftOvers) > 1) {
 	$YPos -= $LineHeight;
-	$LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 445, $FontSize, $LeftOvers, 'left');
+	$LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 500, $FontSize, $LeftOvers, 'left');
 }
 
 $PDF->OutputI($_SESSION['DatabaseName'] . 'COA' . date('Y-m-d') . '.pdf');

@@ -7,6 +7,18 @@ text-align: center;
 form fieldset {
 display: inline;
 border:0px;
+width:60%;
+margin:auto;
+}
+
+.fieldsetheader {
+background-color:#777C59;
+color:#FFFFFF;
+padding:3px;
+border: 0px solid #8DCDEB;
+border-radius:3px;
+width:100%;
+margin-bottom:4px;
 }
 
 form field {
@@ -30,6 +42,7 @@ background-color:transparent;
 border-radius: 5px;
 border: 1px solid #8DCDEB;
 padding:2px;
+color:#1A1A1A;
 }
 
 
@@ -40,7 +53,7 @@ padding-left: 6px;
 padding-right: 6px;
 margin: 1px;
 border: 1px solid #8DCDEB;
-color:#8DCDEB;
+color:#1A1A1A;
 border-radius: 15px;
 cursor: pointer;
 }
@@ -52,7 +65,7 @@ padding-left: 6px;
 padding-right: 6px;
 margin: 1px;
 border: 1px solid #8DCDEB;
-color:#8DCDEB;
+color:#1A1A1A;
 border-radius: 15px;
 cursor: pointer;
 }

@@ -223,7 +223,7 @@ if (isset($_POST['PlacePO'])) {
 						//if the user has authority to authorise the PO then it should be created as authorised
 						$AuthSQL = "SELECT authlevel
 					 				FROM purchorderauth
-								    WHERE userid='" . $_SESSION['UserID'] . "'
+									WHERE userid='" . $_SESSION['UserID'] . "'
 									AND currabrev='" . $SuppRow['currcode'] . "'";
 
 						$AuthResult = DB_query($AuthSQL);
@@ -266,18 +266,18 @@ if (isset($_POST['PlacePO'])) {
 					$Order_Value = 0;
 					/*Now get all the required details for the supplier */
 					$SQL = "SELECT address1,
-        							address2,
-        							address3,
-        							address4,
-        							address5,
-        							address6,
-        							telephone,
-        							paymentterms,
-        							currcode,
-        							rate
-					        FROM suppliers INNER JOIN currencies
-						    ON suppliers.currcode = currencies.currabrev
-						    WHERE supplierid='" . $SupplierID . "'";
+									address2,
+									address3,
+									address4,
+									address5,
+									address6,
+									telephone,
+									paymentterms,
+									currcode,
+									rate
+							FROM suppliers INNER JOIN currencies
+							ON suppliers.currcode = currencies.currabrev
+							WHERE supplierid='" . $SupplierID . "'";
 
 					$ErrMsg = _('Could not get the supplier information for the order');
 					$SuppResult = DB_query($SQL, $ErrMsg);
@@ -286,61 +286,63 @@ if (isset($_POST['PlacePO'])) {
 					$StatusComment = date($_SESSION['DefaultDateFormat']) . ' - ' . _('Order Created by') . ' ' . $UserDetails . ' - ' . _('Auto created from sales orders') . '<br />';
 					/*Insert to purchase order header record */
 					$SQL = "INSERT INTO purchorders ( orderno,
-                									  supplierno,
-                									  orddate,
-                									  rate,
-                									  initiator,
-                									  intostocklocation,
-                									  deladd1,
-                									  deladd2,
-                									  deladd3,
-                									  deladd4,
-                									  deladd5,
-                									  deladd6,
-                									  tel,
-                									  suppdeladdress1,
-                									  suppdeladdress2,
-                									  suppdeladdress3,
-                									  suppdeladdress4,
-                									  suppdeladdress5,
-                									  suppdeladdress6,
-                									  supptel,
-                									  version,
-                									  revised,
-                									  deliveryby,
-                									  status,
-                									  stat_comment,
-                									  deliverydate,
-                									  paymentterms,
-                									  allowprint)
-                									VALUES(	'" . $PO_OrderNo . "',
-                										'" . $SupplierID . "',
-                										CURRENT_DATE,
-                										'" . $SuppRow['rate'] . "',
-                										'" . $_SESSION['UserID'] . "',
-                										'" . $_SESSION['UserStockLocation'] . "',
-                										'" . $DelAddRow['locationname'] . "',
-                										'" . $DelAddRow['deladd1'] . "',
-                										'" . $DelAddRow['deladd2'] . "',
-                										'" . $DelAddRow['deladd3'] . "',
-                										'" . $DelAddRow['deladd4'] . "',
-                										'" . $DelAddRow['deladd5'] . ' ' . $DelAddRow['deladd6'] . "',
-                										'" . $DelAddRow['tel'] . "',
-                										'" . $SuppRow['address1'] . "',
-                										'" . $SuppRow['address2'] . "',
-                										'" . $SuppRow['address3'] . "',
-                										'" . $SuppRow['address4'] . "',
-                										'" . $SuppRow['address5'] . "',
-                										'" . $SuppRow['address6'] . "',
-                										'" . $SuppRow['telephone'] . "',
-                										'1.0',
-                										CURRENT_DATE,
-                										'" . $_SESSION['Default_Shipper'] . "',
-                										'Pending',
-                										'" . $StatusComment . "',
-                										CURRENT_DATE,
-                										'" . $SuppRow['paymentterms'] . "',
-                										0)";
+													  supplierno,
+													  orddate,
+													  rate,
+													  initiator,
+													  intostocklocation,
+													  deladd1,
+													  deladd2,
+													  deladd3,
+													  deladd4,
+													  deladd5,
+													  deladd6,
+													  tel,
+													  suppdeladdress1,
+													  suppdeladdress2,
+													  suppdeladdress3,
+													  suppdeladdress4,
+													  suppdeladdress5,
+													  suppdeladdress6,
+													  supptel,
+													  contact,
+													  version,
+													  revised,
+													  deliveryby,
+													  status,
+													  stat_comment,
+													  deliverydate,
+													  paymentterms,
+													  allowprint)
+													VALUES(	'" . $PO_OrderNo . "',
+														'" . $SupplierID . "',
+														CURRENT_DATE,
+														'" . $SuppRow['rate'] . "',
+														'" . $_SESSION['UserID'] . "',
+														'" . $_SESSION['UserStockLocation'] . "',
+														'" . $DelAddRow['deladd1'] . "',
+														'" . $DelAddRow['deladd2'] . "',
+														'" . $DelAddRow['deladd3'] . "',
+														'" . $DelAddRow['deladd4'] . "',
+														'" . $DelAddRow['deladd5'] . "',
+														'" . $DelAddRow['deladd6'] . "',
+														'" . $DelAddRow['tel'] . "',
+														'" . $SuppRow['address1'] . "',
+														'" . $SuppRow['address2'] . "',
+														'" . $SuppRow['address3'] . "',
+														'" . $SuppRow['address4'] . "',
+														'" . $SuppRow['address5'] . "',
+														'" . $SuppRow['address6'] . "',
+														'" . $SuppRow['telephone'] . "',
+														'" . $SuppRow['contact'] . "',
+														'1.0',
+														CURRENT_DATE,
+														'" . $_SESSION['Default_Shipper'] . "',
+														'Pending',
+														'" . $StatusComment . "',
+														CURRENT_DATE,
+														'" . $SuppRow['paymentterms'] . "',
+														0)";
 
 					$ErrMsg = _('The purchase order header record could not be inserted into the database because');
 					$DbgMsg = _('The SQL statement used to insert the purchase order header record and failed was');
@@ -350,30 +352,30 @@ if (isset($_POST['PlacePO'])) {
 				/*reminder we are in a loop of the total of each item to place a purchase order for based on a selection of sales orders */
 				$DeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $ItemRow['leadtime']);
 				$SQL = "INSERT INTO purchorderdetails ( orderno,
-                    									itemcode,
-                    									deliverydate,
-                    									itemdescription,
-                    									glcode,
-                    									unitprice,
-                    									quantityord,
-                    									suppliersunit,
-                    									suppliers_partno,
-                    									conversionfactor )
-                                         VALUES ('" . $PO_OrderNo . "',
-                    						     '" . $ItemRow['stockid'] . "',
-                    						     '" . FormatDateForSQL($DeliveryDate) . "',
-                    						     '" . $ItemRow['suppliers_partno'] . '  ' . $ItemRow['supplierdescription'] . "',
-                    						     '" . $ItemRow['stockact'] . "',
-                    						     '" . $ItemRow['price'] . "',
-                    						     '" . $ItemRow['orderqty'] . "',
-                    						     '" . $ItemRow['suppliersuom'] . "',
-                    						     '" . $ItemRow['suppliers_partno'] . "',
-                    						     '" . $ItemRow['conversionfactor'] . "')";
+														itemcode,
+														deliverydate,
+														itemdescription,
+														glcode,
+														unitprice,
+														quantityord,
+														suppliersunit,
+														suppliers_partno,
+														conversionfactor )
+										 VALUES ('" . $PO_OrderNo . "',
+												 '" . $ItemRow['stockid'] . "',
+												 '" . FormatDateForSQL($DeliveryDate) . "',
+												 '" . $ItemRow['suppliers_partno'] . '  ' . $ItemRow['supplierdescription'] . "',
+												 '" . $ItemRow['stockact'] . "',
+												 '" . $ItemRow['price'] / $ItemRow['conversionfactor'] . "',
+				   								 '" . $ItemRow['orderqty'] . "',
+												 '" . $ItemRow['suppliersuom'] . "',
+												 '" . $ItemRow['suppliers_partno'] . "',
+												 '" . $ItemRow['conversionfactor'] . "')";
 				$ErrMsg = _('One of the purchase order detail records could not be inserted into the database because');
 				$DbgMsg = _('The SQL statement used to insert the purchase order detail record and failed was');
 
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-				$Order_Value += ($ItemRow['price'] * $ItemRow['orderqty']);
+				$Order_Value  += ($ItemRow['price'] * $ItemRow['orderqty'] / $ItemRow['conversionfactor']);
 			}
 			/* end of the loop round the items on the sales order  that we wish to place purchase orders for */
 
@@ -400,7 +402,7 @@ if (isset($_POST['PlacePO'])) {
 					$Result = DB_query("UPDATE purchorders SET allowprint=1,
 															status='Authorised',
 															stat_comment='" . $StatusComment . "'
-									                      WHERE orderno='" . $PO_OrderNo . "'", $ErrMsg, $DbgMsg, true);
+														  WHERE orderno='" . $PO_OrderNo . "'", $ErrMsg, $DbgMsg, true);
 				} else { // no authority to authorise this order
 					if (DB_num_rows($AuthResult) == 0) {
 						$AuthMessage = _('Your authority to approve purchase orders in') . ' ' . $SuppRow['currcode'] . ' ' . _('has not yet been set up') . '<br />';
@@ -654,11 +656,11 @@ if (!isset($StockId)) {
 			<td>', _('Enter text extract(s) in the description'), ':</td>
 			<td><input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" /></td>
 		</tr>
-      	<tr>
-      		<td colspan="2" class="number"><b>', _('OR'), ' </b>', _('Enter extract of the Stock Code'), ':</td>
-      		<td><input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" /></td>
-      	</tr>
-      </table>';
+	  	<tr>
+	  		<td colspan="2" class="number"><b>', _('OR'), ' </b>', _('Enter extract of the Stock Code'), ':</td>
+	  		<td><input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" /></td>
+	  	</tr>
+	  </table>';
 	echo '<div class="centre">
 			<input type="submit" name="SearchParts" value="', _('Search Parts Now'), '" />
 			<input type="submit" name="ResetPart" value="', _('Show All'), '" />
@@ -713,6 +715,7 @@ if (!isset($StockId)) {
 			$Quotations = "0 AND itemdue<CURRENT_DATE";
 		} else {
 			$Quotations = 0;
+			$_POST['Quotations'] = 'Orders_Only';
 		}
 		if (isset($_POST['DueDateFrom']) and is_date($_POST['DueDateFrom'])) {
 			$DueDateFrom = " AND itemdue>='" . FormatDateForSQL($_POST['DueDateFrom']) . "' ";
@@ -736,7 +739,7 @@ if (!isset($StockId)) {
 		}
 
 		if (!isset($_POST['StockLocation'])) {
-			$_POST['StockLocation'] = '';
+			$_POST['StockLocation'] = $_SESSION['UserStockLocation'];
 		}
 
 		if ($_SESSION['SalesmanLogin'] != '') {
@@ -788,8 +791,8 @@ if (!isset($StockId)) {
 						salesorders.printedpackingslip,
 						salesorders.poplaced,
 						SUM(CASE WHEN itemdue<CURRENT_DATE
-						     THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
-						     ELSE 0 END) as ordervalue";
+							 THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
+							 ELSE 0 END) as ordervalue";
 			} elseif (isset($DueDateFrom) and is_date($DueDateFrom) and (!isset($DueDateTo) or !is_date($DueDateTo))) {
 				$SQL = "SELECT salesorders.orderno,
 						debtorsmaster.name,
@@ -801,8 +804,8 @@ if (!isset($StockId)) {
 						salesorders.printedpackingslip,
 						salesorders.poplaced,
 						SUM(CASE WHEN itemdue>='" . FormatDateFromSQL($DueDateFrom) . "'
-						     THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
-						     ELSE 0 END) as ordervalue";
+							 THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
+							 ELSE 0 END) as ordervalue";
 			} elseif (isset($DueDateFrom) and is_date($DueDateFrom) and isset($DueDateTo) and is_date($DueDateTo)) {
 				$SQL = "SELECT salesorders.orderno,
 						debtorsmaster.name,
@@ -814,8 +817,8 @@ if (!isset($StockId)) {
 						salesorders.printedpackingslip,
 						salesorders.poplaced,
 						SUM (CASE WHEN itemdue>='" . FormatDateForSQL($DueDateFrom) . "' AND itemdue<='" . FormatDateForSQL($DueDateTo) . "'
-						     THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
-						     ELSE 0 END) as ordervalue";
+							 THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
+							 ELSE 0 END) as ordervalue";
 			} elseif ((!isset($DueDateFrom) or !is_date($DueDateFrom)) and isset($DueDateTo) and is_date($DueDateTo)) {
 				$SQL = "SELECT salesorders.orderno,
 						debtorsmaster.name,
@@ -827,8 +830,8 @@ if (!isset($StockId)) {
 						salesorders.printedpackingslip,
 						salesorders.poplaced,
 						SUM(CASE WHEN AND itemdue<='" . FormatDateForSQL($DueDateTo) . "'
-						     THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
-						     ELSE 0 END) as ordervalue";
+							 THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
+							 ELSE 0 END) as ordervalue";
 			} //end of due date inquiry
 			$SQL .= $OrderDateFrom . $OrderDateTo;
 
@@ -853,7 +856,7 @@ if (!isset($StockId)) {
 		if (isset($OrderNumber) AND $OrderNumber != '') {
 
 			$SQL .= "AND salesorders.orderno=" . $OrderNumber . "
-				    AND salesorders.quotation=" . $Quotations;
+					AND salesorders.quotation=" . $Quotations;
 
 		} elseif (isset($CustomerRef) AND $CustomerRef != '') {
 			$SQL .= "AND salesorders.customerref='" . $CustomerRef . "'
@@ -1056,13 +1059,12 @@ if (!isset($StockId)) {
 							<td>', html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), '</td>
 							<td class="number">', $FormatedOrderValue, '</td>
 							<td><input type="checkbox" name="PlacePO_[]" value="', $MyRow['orderno'], '" /></td>
-							<td>' . $AttachmentText . '</td>
-        				</tr>';
+							<td>', $AttachmentText, '</td>
+						</tr>';
 					} else {
 						/*User is not authorised to create POs so don't even show the option */
 						printf('<td><a href="%s">%s</a></td>
 							<td><a href="%s">' . _('Acknowledge') . '</a></td>
-							<td>' . $PrintDummyFlag . '</td>
 							' . $PrintPickLabel . '
 							<td><a href="%s">' . _('Invoice') . '</a></td>
 							<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
@@ -1074,8 +1076,9 @@ if (!isset($StockId)) {
 							<td>%s</td>
 							<td>%s</td>
 							<td class="number">%s</td>
+							<td></td>
 							<td>' . $AttachmentText . '</td>
-							</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $PrintPickList, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
+							</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
 					}
 
 				} else {

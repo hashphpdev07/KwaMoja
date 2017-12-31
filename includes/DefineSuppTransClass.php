@@ -110,10 +110,10 @@ class SuppTrans {
 		return 0;
 	}
 
-	function Add_GLCodes_To_Trans($GLCode, $GLActName, $Amount, $Narrative, $Tag) {
+	function Add_GLCodes_To_Trans($GLCode, $GLActName, $Amount, $Tax, $TaxDescriptions, $Narrative, $Tag) {
 
 		if ($Amount != 0 and isset($Amount)) {
-			$this->GLCodes[$this->GLCodesCounter] = new GLCodes($this->GLCodesCounter, $GLCode, $GLActName, $Amount, $Narrative, $Tag);
+			$this->GLCodes[$this->GLCodesCounter] = new GLCodes($this->GLCodesCounter, $GLCode, $GLActName, $Amount, $Tax, $TaxDescriptions, $Narrative, $Tag);
 			$this->GLCodesCounter++;
 			return 1;
 		}
@@ -286,8 +286,10 @@ class GLCodes {
 	var $Narrative;
 	var $Tag;
 	var $TagName;
+	var $Tax;
+	var $TaxDescriptions;
 
-	function __construct($Counter, $GLCode, $GLActName, $Amount, $Narrative, $Tag = 0, $TagName = '') {
+	function __construct($Counter, $GLCode, $GLActName, $Amount, $Tax, $TaxDescriptions, $Narrative, $Tag = array(0), $TagName = '') {
 
 		/* Constructor function to add a new GLCodes object with passed params */
 		$this->Counter = $Counter;
@@ -295,14 +297,18 @@ class GLCodes {
 		$this->GLActName = $GLActName;
 		$this->Amount = $Amount;
 		$this->Narrative = $Narrative;
-		$this->Tag = $Tag;
+		$this->Tax = $Tax;
+		$this->TaxDescriptions = $TaxDescriptions;
 
-		$TagResult = DB_query("SELECT tagdescription from tags where tagref='" . $Tag . "'");
-		$TagMyrow = DB_fetch_array($TagResult);
-		if ($Tag == 0) {
-			$this->TagName = _('None');
-		} else {
-			$this->TagName = $TagMyrow['tagdescription'];
+		foreach ($Tag as $TagRef) {
+			$this->Tag[] = $TagRef;
+			$TagResult = DB_query("SELECT tagdescription from tags where tagref='" . $TagRef . "'");
+			$TagMyrow = DB_fetch_array($TagResult);
+			if ($Tag == 0) {
+				$this->TagName[] = _('None');
+			} else {
+				$this->TagName[] = $TagMyrow['tagdescription'];
+			}
 		}
 	}
 }

@@ -72,7 +72,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 						 stockcosts.overheadcost,
 						 computedcost
 				ORDER BY mrpplannedorders.part,weekindex";
-	} else {
+	} else {  // This else consolidates by month
 		$SQL = "SELECT mrpplannedorders.part,
 					   SUM(mrpplannedorders.supplyquantity) as supplyquantity,
 					   EXTRACT(YEAR_MONTH from duedate) AS yearmonth,
@@ -157,15 +157,10 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		while ($MyRow = DB_fetch_array($Result)) {
 			$YPos -= $line_height;
 
-			// Use to alternate between lines with transparent and painted background
-			if ($_POST['Fill'] == 'yes') {
-				$fill = !$fill;
-			}
-
 			// Print information on part break
 			if ($PartCounter > 0 and $HoldPart != $MyRow['part']) {
 				$PDF->addTextWrap(50, $YPos, 130, $FontSize, $HoldDescription, '', 0, $fill);
-				$PDF->addTextWrap(180, $YPos, 40, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
+				$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 				$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($HoldCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 				$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($TotalPartQty, $HoldDecimalPlaces), 'right', 0, $fill);
 				$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($TotalPartCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
@@ -174,6 +169,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 				$TotalPartCost = 0;
 				$TotalPartQty = 0;
 				$YPos -= (2 * $line_height);
+
+				// Use to alternate between lines with transparent and painted background
+				if ($_POST['Fill'] == 'yes') {
+					$fill = !$fill;
+				}
 			}
 
 			// Parameters for addTextWrap are defined in /includes/class.pdf.php
@@ -214,8 +214,8 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		/*end while loop */
 		// Print summary information for last part
 		$YPos -= $line_height;
-		$PDF->addTextWrap(40, $YPos, 130, $FontSize, $HoldDescription, '', 0, $fill);
-		$PDF->addTextWrap(170, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
+		$PDF->addTextWrap(50, $YPos, 130, $FontSize, $HoldDescription, '', 0, $fill);
+		$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 		$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($HoldCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 		$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($TotalPartQty, $HoldDecimalPlaces), 'right', 0, $fill);
 		$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($TotalPartCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
@@ -232,7 +232,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		$PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, _('Number of Work Orders') . ': ', 'left');
 		$PDF->addTextWrap(150, $YPos, 30, $FontSize, $PartCounter, 'left');
 		$PDF->addTextWrap(200, $YPos, 100, $FontSize, _('Total Extended Cost') . ': ', 'right');
-		$DisplayTotalVal = locale_number_format($Total_ExtCost, 2);
+		$DisplayTotalVal = locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']);
 		$PDF->addTextWrap(310, $YPos, 60, $FontSize, $DisplayTotalVal, 'right');
 
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_MRP_Planned_Work_Orders_' . Date('Y-m-d') . '.pdf');
@@ -327,7 +327,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 	echo '<tr>
 			<td>' . _('Consolidation') . ':</td>
 			<td>
-				<select name="Consolidation">
+				<select required="required" name="Consolidation">
 					<option selected="selected" value="None">' . _('None') . '</option>
 					<option value="Weekly">' . _('Weekly') . '</option>
 					<option value="Monthly">' . _('Monthly') . '</option>

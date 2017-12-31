@@ -269,8 +269,8 @@ function convertDate(dS, dF) {
 			break;
 		case "m/d/Y":
 			dA = dS.split("/");
-			m = parseInt(dA[0], 10);
-			d = parseInt(dA[1], 10)-1;
+			m = parseInt(dA[0], 10)-1;
+			d = parseInt(dA[1], 10);
 			y = parseInt(dA[2], 10);
 			break;
 		case "Y-m-d":
@@ -477,6 +477,18 @@ function initial() {
 		if (n[i].className == "integer") n[i].onkeypress = rTI;
 		if (n[i].type == "tel") n[i].pattern = "[0-9 +s()]*";
 		if (n[i].type == "email") n[i].pattern = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$"
+	}
+	ScriptName=(location.pathname.substring(location.pathname.lastIndexOf("/") + 1)).slice(0, -4);
+	var n = document.getElementsByTagName("field");
+	for (i = 0; i < n.length; i++) {
+		n[i].className = n[i].className+" "+ScriptName;
+		SubElements=n[i].children;
+		for (j = 0; j < SubElements.length; j++) {
+			if (SubElements[j].tagName == "INPUT") {
+				ElementName = SubElements[j].name;
+				n[i].className = n[i].className+"_"+ElementName;
+			}
+		}
 	}
 	var n = document.getElementsByTagName("th");
 	for (i = 0; i < n.length; i++) {

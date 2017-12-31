@@ -154,20 +154,15 @@ if (isset($_POST['PrintPDF'])) {
 	while ($MyRow = DB_fetch_array($Result)) {
 		$YPos -= $line_height;
 
-		// Use to alternate between lines with transparent and painted background
-		if ($_POST['Fill'] == 'yes') {
-			$fill = !$fill;
-		}
-
 		// Print information on part break
-		if ($Partctr > 0 & $holdpart != $MyRow['part']) {
+		if ($Partctr > 0 and $holdpart != $MyRow['part']) {
 			$PDF->addTextWrap(50, $YPos, 130, $FontSize, $holddescription, '', 0, $fill);
 			$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
-			$PDF->addTextWrap(230, $YPos, 40, $FontSize, locale_number_format($holdcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
-			$PDF->addTextWrap(270, $YPos, 50, $FontSize, locale_number_format($totalpartqty, $holddecimalplaces), 'right', 0, $fill);
-			$PDF->addTextWrap(320, $YPos, 60, $FontSize, locale_number_format($totalpartcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
-			$PDF->addTextWrap(380, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
-			$PDF->addTextWrap(410, $YPos, 15, $FontSize, $holdmbflag, 'right', 0, $fill);
+			$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($holdcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
+			$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($totalpartqty, $holddecimalplaces), 'right', 0, $fill);
+			$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($totalpartcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
+			$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
+			$PDF->addTextWrap(400, $YPos, 15, $FontSize, $holdmbflag, 'right', 0, $fill);
 			// Get and print supplier info for part
 			list($lastdate, $lastsupplier, $preferredsupplier) = GetPartInfo($holdpart);
 			$displaydate = $lastdate;
@@ -184,6 +179,11 @@ if (isset($_POST['PrintPDF'])) {
 			$totalpartcost = 0;
 			$totalpartqty = 0;
 			$YPos -= (2 * $line_height);
+
+			// Use to alternate between lines with transparent and painted background
+			if ($_POST['Fill'] == 'yes'){
+				$fill=!$fill;
+			}
 		}
 
 		// Parameters for addTextWrap are defined in /includes/class.pdf.php
@@ -223,8 +223,8 @@ if (isset($_POST['PrintPDF'])) {
 	/*end while loop */
 	// Print summary information for last part
 	$YPos -= $line_height;
-	$PDF->addTextWrap(40, $YPos, 130, $FontSize, $holddescription, '', 0, $fill);
-	$PDF->addTextWrap(170, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
+	$PDF->addTextWrap(50, $YPos, 130, $FontSize, $holddescription, '', 0, $fill);
+	$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 	$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($holdcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
 	$PDF->addTextWrap(260, $YPos, 50, $FontSize, locale_number_format($totalpartqty, $holddecimalplaces), 'right', 0, $fill);
 	$PDF->addTextWrap(310, $YPos, 60, $FontSize, locale_number_format($totalpartcost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);

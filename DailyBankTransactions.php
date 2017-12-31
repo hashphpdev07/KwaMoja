@@ -7,6 +7,20 @@ $ViewTopic = 'GeneralLedger';
 $BookMark = 'DailyBankTransactions';
 include('includes/header.php');
 
+if (isset($_GET['BankAccount'])) {
+	$_POST['BankAccount'] = $_GET['BankAccount'];
+	$_POST['ShowType'] = 'All';
+	$_POST['Show'] = True;
+}
+
+if (isset($_GET['FromTransDate'])) {
+	$_POST['FromTransDate'] = $_GET['FromTransDate'];
+}
+
+if (isset($_GET['ToTransDate'])) {
+	$_POST['ToTransDate'] = $_GET['ToTransDate'];
+}
+
 if (!isset($_POST['Show'])) {
 
 	$SQL = "SELECT 	bankaccountname,
