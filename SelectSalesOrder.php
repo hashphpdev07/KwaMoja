@@ -1059,13 +1059,12 @@ if (!isset($StockId)) {
 							<td>', html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), '</td>
 							<td class="number">', $FormatedOrderValue, '</td>
 							<td><input type="checkbox" name="PlacePO_[]" value="', $MyRow['orderno'], '" /></td>
-							<td>' . $AttachmentText . '</td>
+							<td>', $AttachmentText, '</td>
 						</tr>';
 					} else {
 						/*User is not authorised to create POs so don't even show the option */
 						printf('<td><a href="%s">%s</a></td>
 							<td><a href="%s">' . _('Acknowledge') . '</a></td>
-							<td>' . $PrintDummyFlag . '</td>
 							' . $PrintPickLabel . '
 							<td><a href="%s">' . _('Invoice') . '</a></td>
 							<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
@@ -1077,8 +1076,9 @@ if (!isset($StockId)) {
 							<td>%s</td>
 							<td>%s</td>
 							<td class="number">%s</td>
+							<td></td>
 							<td>' . $AttachmentText . '</td>
-							</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $PrintPickList, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
+							</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
 					}
 
 				} else {
