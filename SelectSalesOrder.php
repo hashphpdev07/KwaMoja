@@ -45,6 +45,10 @@ if (isset($_GET['SelectedCustomer'])) {
 	unset($SelectedCustomer);
 }
 
+if (isset($_GET['Quotations'])){
+	$_POST['Quotations']=$_GET['Quotations'];
+}
+
 if (isset($_POST['PlacePO'])) {
 	/*user hit button to place PO for selected orders */
 
@@ -557,10 +561,6 @@ if (!isset($StockId)) {
 				</td>
 				<td>
 					<select name="Quotations">';
-
-		if (isset($_GET['Quotations']) and $_GET['Quotations'] == 'Quotes_Only') {
-			$_POST['Quotations'] = 'Quotes_Only';
-		}
 
 		if (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Quotes_Only') {
 			echo '<option selected="selected" value="Quotes_Only">', _('Quotations Only'), '</option>';
