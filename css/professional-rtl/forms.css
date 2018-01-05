@@ -9,7 +9,6 @@ direction:rtl;
 form fieldset {
 display: inline;
 border:0px;
-width:60%;
 margin:auto;
 direction:rtl;
 }
