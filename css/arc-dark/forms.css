@@ -19,6 +19,7 @@ padding:3px;
 border: 1px solid #8DCDEB;
 border-radius:3px;
 font-size:150%;
+text-align:left;
 }
 
 form field {
@@ -39,7 +40,8 @@ margin-bottom:8px;
 }
 
 form input,textarea,select {
-background-color:transparent;
+background-color:#404552;
+color:white;
 border-radius: 5px;
 border: 1px solid #8DCDEB;
 padding:2px;
