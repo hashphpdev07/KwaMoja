@@ -62,6 +62,7 @@ to limit possibility for SQL injection attacks and cross scripting attacks
 
 if (isset($_SESSION['DatabaseName'])) {
 	foreach ($_POST as $PostVariableName => $PostVariableValue) {
+		$PostVariableValue = strip_tags($PostVariableValue);
 		if (gettype($PostVariableValue) != 'array') {
 			if (get_magic_quotes_gpc()) {
 				$_POST['name'] = stripslashes($_POST['name']);
@@ -82,6 +83,7 @@ if (isset($_SESSION['DatabaseName'])) {
 	to limit possibility for SQL injection attacks and cross scripting attacks
 	*/
 	foreach ($_GET as $GetKey => $GetValue) {
+		$GetValue = strip_tags($GetValue);
 		if (gettype($GetValue) != 'array' and basename($_SERVER['SCRIPT_NAME']) != 'index.php') {
 			$_GET[$GetKey] = DB_escape_string(urldecode($GetValue));
 		} //gettype($Value) != 'array'
