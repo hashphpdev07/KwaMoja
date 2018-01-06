@@ -47,7 +47,7 @@ if (isset($_GET['SelectedCustomer'])) {
 
 if (isset($_GET['Quotations'])) {
 	$_POST['Quotations'] = $_GET['Quotations'];
-} else {
+} else if (!isset($_POST['Quotations']) ) {
 	$_POST['Quotations'] = '';
 }
 
