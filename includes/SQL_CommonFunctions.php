@@ -290,7 +290,6 @@ function UpdateCost($Item) {
 		if (DB_error_no() != 0) {
 			return 1;
 		}
-		sleep(1);
 		UpdateCost($NewParent);
 	}
 	return 0;
