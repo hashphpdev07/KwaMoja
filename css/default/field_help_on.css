@@ -1,4 +1,4 @@
-form select:focus + fieldhelp, input:not([type=submit]):focus + fieldhelp {
+form select:focus + fieldhelp, textarea:focus + fieldhelp, input:not([type=submit]):focus + fieldhelp {
 background:#BDF3BD;
 color:#0E3E0E;
 padding:2px;
@@ -13,7 +13,7 @@ word-wrap:normal;
 position:absolute;
 }
 
-form select + fieldhelp, input:not([type=submit]) + fieldhelp {
+form select + fieldhelp, textarea + fieldhelp, input:not([type=submit]) + fieldhelp {
 padding:2px;
 border-radius:2px;
 padding-left:10px;

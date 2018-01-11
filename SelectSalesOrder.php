@@ -45,8 +45,10 @@ if (isset($_GET['SelectedCustomer'])) {
 	unset($SelectedCustomer);
 }
 
-if (isset($_GET['Quotations'])){
-	$_POST['Quotations']=$_GET['Quotations'];
+if (isset($_GET['Quotations'])) {
+	$_POST['Quotations'] = $_GET['Quotations'];
+} else if (!isset($_POST['Quotations']) ) {
+	$_POST['Quotations'] = '';
 }
 
 if (isset($_POST['PlacePO'])) {
@@ -562,11 +564,11 @@ if (!isset($StockId)) {
 				<td>
 					<select name="Quotations">';
 
-		if (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Quotes_Only') {
+		if ($_POST['Quotations'] == 'Quotes_Only') {
 			echo '<option selected="selected" value="Quotes_Only">', _('Quotations Only'), '</option>';
 			echo '<option value="Orders_Only">', _('Orders Only'), '</option>';
 			echo '<option value="Overdue_Only">', _('Overdue Only'), '</option>';
-		} elseif (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Overdue_Only') {
+		} elseif ($_POST['Quotations'] == 'Overdue_Only') {
 			echo '<option selected="selected" value="Overdue_Only">', _('Overdue Only'), '</option>';
 			echo '<option value="Quotes_Only">', _('Quotations Only'), '</option>';
 			echo '<option value="Orders_Only">', _('Orders Only'), '</option>';
@@ -707,11 +709,11 @@ if (!isset($StockId)) {
 	else {
 
 		//figure out the SQL required from the inputs available
-		if (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Orders_Only') {
+		if ($_POST['Quotations'] == 'Orders_Only') {
 			$Quotations = 0;
-		} elseif (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Quotes_Only') {
+		} elseif ($_POST['Quotations'] == 'Quotes_Only') {
 			$Quotations = 1;
-		} elseif (isset($_POST['Quotations']) and $_POST['Quotations'] == 'Overdue_Only') {
+		} elseif ($_POST['Quotations'] == 'Overdue_Only') {
 			$Quotations = "0 AND itemdue<CURRENT_DATE";
 		} else {
 			$Quotations = 0;
@@ -928,7 +930,7 @@ if (!isset($StockId)) {
 			if ($_SESSION['RequirePickingNote'] == 1) {
 				$PrintPickLabel = '<th>' . _('Pick Lists') . '</th>';
 			}
-			if (isset($_POST['Quotations']) and ($_POST['Quotations'] == 'Orders_Only' or $_POST['Quotations'] == 'Overdue_Only')) {
+			if ($_POST['Quotations'] == 'Orders_Only' or $_POST['Quotations'] == 'Overdue_Only') {
 				echo '<tr>
 						<th class="SortedColumn">', _('Modify'), '</th>
 						<th>', _('Acknowledge'), '</th>

@@ -322,7 +322,7 @@ if (isset($StockItemsResult)) {
 	if (isset($_POST['StockLocation'])) {
 		$LocationSearchString = " AND purchorders.intostocklocation " . LIKE . " '%" . $_POST['StockLocation'] . "%' ";
 	} else {
-		$LocationSearchString = '';
+		$LocationSearchString = " AND purchorders.intostocklocation " . LIKE . " '%" . $_SESSION['UserStockLocation'] . "%' ";
 	}
 
 	$SQL = "SELECT purchorders.orderno,

@@ -6,19 +6,20 @@ text-align: center;
 
 form fieldset {
 display: inline;
-border:0px;
-width:60%;
+border:solid 1px;
 margin:auto;
+padding-top:7px;
+margin-bottom:4px;
+border-radius:7px;
 }
 
-.fieldsetheader {
-background-color:#CCCCE5;
-color:#000000;
+form legend {
+background-color:transparent;
 padding:3px;
-border: 0px solid #8DCDEB;
+border: 1px solid;
 border-radius:3px;
-width:100%;
-margin-bottom:4px;
+font-size:150%;
+margin-top:3px;
 }
 
 form field {

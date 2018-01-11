@@ -6,18 +6,20 @@ text-align: center;
 
 form fieldset {
 display: inline;
-border:0px;
-width:60%;
+border:solid 1px;
 margin:auto;
+padding-top:7px;
+margin-bottom:4px;
+border-radius:7px;
 }
 
-.fieldsetheader {
+form legend {
 background-color:transparent;
 padding:3px;
 border: 1px solid #8DCDEB;
 border-radius:3px;
-width:100%;
-margin-bottom:4px;
+font-size:150%;
+text-align:left;
 }
 
 form field {
@@ -38,7 +40,8 @@ margin-bottom:8px;
 }
 
 form input,textarea,select {
-background-color:transparent;
+background-color:#404552;
+color:white;
 border-radius: 5px;
 border: 1px solid #8DCDEB;
 padding:2px;

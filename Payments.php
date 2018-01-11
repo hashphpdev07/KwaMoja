@@ -89,6 +89,15 @@ if (isset($_POST['Narrative'])) {
 	$_SESSION['PaymentDetail' . $Identifier]->Narrative = $_POST['Narrative'];
 }
 
+$SQL = "SELECT pagesecurity
+		  FROM scripts
+		 WHERE scripts.script = 'BankAccountBalances.php'";
+$ErrMsg = _('The security for G/L Accounts cannot be retrieved because');
+$DbgMsg = _('The SQL that was used and failed was');
+$Security2Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+$MyUserRow = DB_fetch_array($Security2Result);
+$CashSecurity = $MyUserRow['pagesecurity'];
+
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Bank Account Payments Entry'), '" alt="" />', ' ', _('Bank Account Payments Entry'), '
 	</p>';
@@ -946,8 +955,7 @@ echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . 
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<fieldset>
-		<div class="fieldsetheader">
-			<h3>', _('Payment');
+		<legend>', _('Payment');
 
 if ($_SESSION['PaymentDetail' . $Identifier]->SupplierID != '' and $SupplierGroup == 0) {
 	echo ' ' . _('to') . ' ' . $_SESSION['PaymentDetail' . $Identifier]->SuppName;
@@ -960,9 +968,19 @@ if ($_SESSION['PaymentDetail' . $Identifier]->SupplierID != '' and $SupplierGrou
 
 if ($_SESSION['PaymentDetail' . $Identifier]->BankAccountName != '') {
 	echo ' ', _('from the'), ' ', $_SESSION['PaymentDetail' . $Identifier]->BankAccountName;
+
+	if (in_array($CashSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($CashSecurity)) {
+		$CurrBalanceSQL = "SELECT SUM(amount) AS balance FROM banktrans WHERE bankact='" . $_SESSION['PaymentDetail'.$Identifier]->Account . "'";
+		$CurrBalanceResult = DB_query($CurrBalanceSQL);
+		$CurrBalanceRow = DB_fetch_array($CurrBalanceResult);
+
+		$DecimalPlacesSQL = "SELECT decimalplaces FROM currencies WHERE currabrev='" . $_SESSION['PaymentDetail'.$Identifier]->Account . "'";
+		$DecimalPlacesResult = DB_query($DecimalPlacesSQL);
+		$DecimalPlacesRow = DB_fetch_array($DecimalPlacesResult);
+	}
 } //$_SESSION['PaymentDetail' . $Identifier]->BankAccountName != ''
 
-echo ' ', _('on'), ' ', $_SESSION['PaymentDetail' . $Identifier]->DatePaid, '</h3></div>';
+echo ' ', _('on'), ' ', $_SESSION['PaymentDetail' . $Identifier]->DatePaid, '</legend>';
 
 $SQL = "SELECT bankaccountname,
 				bankaccounts.accountcode,
@@ -1000,8 +1018,12 @@ if (DB_num_rows($AccountsResults) == 0) {
 			echo '<option value="', $MyRow['accountcode'], '">', $MyRow['bankaccountname'], ' - ', $MyRow['currcode'], '</option>';
 		}
 	} //$MyRow = DB_fetch_array($AccountsResults)
-	echo '</select>
-			<fieldhelp>', _('Select the bank account to use for this payment.'), '</fieldhelp>
+	echo '</select>';
+
+	if ((in_array($CashSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($CashSecurity)) and isset($CurrBalanceRow)) {
+		echo ' (' . locale_number_format($CurrBalanceRow['balance'], $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Balance in account currency') . ')';
+	}
+	echo '<fieldhelp>', _('Select the bank account to use for this payment.'), '</fieldhelp>
 		</field>';
 }
 
@@ -1145,9 +1167,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 	/* Set upthe form for the transaction entry for a GL Payment Analysis item */
 
 	echo '<fieldset>
-			<div class="fieldsetheader">
-				<h3>', _('General Ledger Payment Analysis Entry'), '</h3>
-			</div>';
+			<legend>', _('General Ledger Payment Analysis Entry'), '</legend>';
 
 	/*now set up a GLCode field to select from avaialble GL accounts */
 	if (isset($_POST['GLManualCode'])) {
@@ -1420,9 +1440,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 	}
 
 	echo '<fieldset>
-			<div class="fieldsetheader">
-				<h3>', _('Supplier Transactions Payment Entry'), '</h3>
-			</div>';
+			<legend>', _('Supplier Transactions Payment Entry'), '</legend>';
 
 	// If the script was called with a SupplierID, it allows to input a customised gltrans.narrative, supptrans.suppreference and supptrans.transtext:
 	// Info to be inserted on `gltrans`.`narrative` varchar(200):

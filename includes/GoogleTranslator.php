@@ -4,8 +4,7 @@
 // This webERP-style code is based on http://hayageek.com/google-translate-api-tutorial/
 
 function translate_via_google_translator($text, $target, $source=false) {
-	$url = 'https://www.googleapis.com/language/translate/v2?key=' . $_SESSION['GoogleTranslatorAPIKey'] . '&q=' . rawurlencode($text);
-	$url .= '&target=' . $target;
+	$url = 'https://www.googleapis.com/language/translate/v2?key=' . $_SESSION['GoogleTranslatorAPIKey'] . '&q=' . rawurlencode($text) . '&target=' . $target;
 	if($source) {
 		$url .= '&source=' . $source;
 	}

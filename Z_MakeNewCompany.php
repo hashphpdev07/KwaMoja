@@ -147,7 +147,7 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 		unset($_SESSION['Items']);
 		unset($_SESSION['CreditItems']);
 
-		$SQL = "UPDATE config SET confvalue='companies/" . $_POST['NewCompany'] . "/EDI__Sent' WHERE confname='EDI_MsgSent'";
+		$SQL = "UPDATE config SET confvalue='companies/" . $_POST['NewCompany'] . "/EDI_Sent' WHERE confname='EDI_MsgSent'";
 		$Result = DB_query($SQL);
 		$SQL = "UPDATE config SET confvalue='companies/" . $_POST['NewCompany'] . "/EDI_Incoming_Orders' WHERE confname='EDI_Incoming_Orders'";
 		$Result = DB_query($SQL);
