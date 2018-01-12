@@ -62,9 +62,9 @@ to limit possibility for SQL injection attacks and cross scripting attacks
 
 if (isset($_SESSION['DatabaseName'])) {
 	foreach ($_POST as $PostVariableName => $PostVariableValue) {
-		$PostVariableValue = strip_tags($PostVariableValue);
 		if (gettype($PostVariableValue) != 'array') {
 			if (get_magic_quotes_gpc()) {
+				$PostVariableValue = strip_tags($PostVariableValue);
 				$_POST['name'] = stripslashes($_POST['name']);
 			} //get_magic_quotes_gpc()
 			$_POST[$PostVariableName] = DB_escape_string($PostVariableValue);
@@ -73,6 +73,7 @@ if (isset($_SESSION['DatabaseName'])) {
 			foreach ($PostVariableValue as $PostArrayKey => $PostArrayValue) {
 				if (get_magic_quotes_gpc()) {
 					$PostVariableValue[$PostArrayKey] = stripslashes($Value[$PostArrayKey]);
+					$PostVariableValue = strip_tags($PostVariableValue);
 				}
 				$PostVariableValue[$PostArrayKey] = DB_escape_string($PostArrayValue);
 			} //$Value as $Key1 => $Value1
