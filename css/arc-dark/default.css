@@ -6,7 +6,7 @@ src: local('Ubuntu'), url(https://fonts.googleapis.com/css?family=Ubuntu);
 }
 
 body {
-font-family:"Ubuntu", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+font-family: Futura,Trebuchet MS,Arial,sans-serif; ;
 font-weight:400;
 background:#404552;
 margin:0;
