@@ -39,6 +39,7 @@ echo '<p class="page_title_text" >
 $SQLWhere = '';
 $SQL = "SELECT stockmoves.stockid,
 				stockmaster.description,
+				stockmaster.units,
 				systypes.typename,
 				transno,
 				locations.locationname,
@@ -83,9 +84,11 @@ else {
 				<th>' . _('Transaction No.') . '</th>
 				<th>' . _('From Location') . '</th>
 				<th>' . _('Branch Code') . '</th>
-				<th>' . _('Price') . '</th>
 				<th>' . _('Quantity') . '</th>
-				<th>' . _('Amount of Sale') . '</th>
+				<th>' . _('Unit') . '</th>
+				<th>' . _('Price') . '</th>
+				<th>' . _('Discount') . '</th>
+				<th>' . _('Total') . '</th>
 				<th>' . _('Reference') . '</th>
 				<th>' . _('Narrative') . '</th>
 			</tr>';
@@ -99,8 +102,10 @@ else {
 				<td class="number">' . $StockMovesRow['transno'] . '</td>
 				<td>' . $StockMovesRow['locationname'] . '</td>
 				<td>' . $StockMovesRow['branchcode'] . '</td>
+				<td class="number">' . -$StockMovesRow['qty'] . '</td>
+				<td>' . $StockMovesRow['units'] . '</td>
 				<td class="number">' . locale_number_format($StockMovesRow['price'] * (1 - $StockMovesRow['discountpercent']), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-				<td class="number">' . locale_number_format(-$StockMovesRow['qty'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+				<td class="number">' . locale_number_format(($StockMovesRow['discountpercent'] * 100), 2) . '%' . '</td>
 				<td class="number">' . locale_number_format((-$StockMovesRow['qty'] * $StockMovesRow['price'] * (1 - $StockMovesRow['discountpercent'])), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . $StockMovesRow['reference'] . '</td>
 				<td>' . $StockMovesRow['narrative'] . '</td>
