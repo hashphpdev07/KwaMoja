@@ -150,7 +150,7 @@ if (isset($_POST['TransDate']) or (isset($_GET['TransNo']) and $_GET['TransNo'] 
 		echo '<br />
 				<table class="selection">
 				<tr>
-					<td><a href="' . $RootPath . '/PDFPickingList.php">' . _('Enter Another Date') . '</a></td>
+					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Enter Another Date') . '</a></td>
 				</tr>
 				</table>
 				<br />';

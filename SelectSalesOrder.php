@@ -993,9 +993,9 @@ if (!isset($StockId)) {
 				if ($_SESSION['RequirePickingNote'] == 1) {
 					$PrintPickList = $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'];
 					if (isset($MyRow['prid']) and $MyRow['prid'] > '') {
-						$PrintPickLabel = '<td><a href="' . $RootPath . '/PDFPickingList.php?TransNo=' . $MyRow['orderno'] . '">' . str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT) . '</a></td>';
+						$PrintPickLabel = '<td><a href="' . $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'] . '">' . str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT) . '</a></td>';
 					} else {
-						$PrintPickLabel = '<td><a href="' . $RootPath . '/PDFPickingList.php?TransNo=' . $MyRow['orderno'] . '">' . _('Pick') . '</a></td>';
+						$PrintPickLabel = '<td><a href="' . $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'] . '">' . _('Pick') . '</a></td>';
 					}
 					$PrintDummyFlag = '';
 				}
