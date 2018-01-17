@@ -280,13 +280,25 @@ function UpdateCost($Item) {
 	while ($MyRow = DB_fetch_array($Result)) {
 		$NewParent = $MyRow['parent'];
 		$MaterialCost = BomMaterialCost($NewParent);
-		$SQL = "INSERT INTO stockcosts VALUES ( '" . $NewParent . "',
-												'" . $MaterialCost . "',
-												0,
-												0,
-												CURRENT_TIME,
-												0)";
-		$Result1 = DB_query($SQL);
+		$SQL = "SELECT stockid
+					FROM stockcosts
+					WHERE stockid='" . $NewParent . "'
+						AND costfrom=CURRENT_TIME";
+		$Result = DB_query($SQL);
+		if (DB_num_rows($Result) == 0) {
+			$SQL = "INSERT INTO stockcosts VALUES ( '" . $NewParent . "',
+													'" . $MaterialCost . "',
+													0,
+													0,
+													CURRENT_TIME,
+													0)";
+			$Result1 = DB_query($SQL);
+		} else {
+			$SQL = "UPDATE stockcosts SET materialcost='" . $MaterialCost . "'
+						WHERE stockid='" . $NewParent . "'
+							AND costfrom=CURRENT_TIME";
+			$Result1 = DB_query($SQL);
+		}
 		if (DB_error_no() != 0) {
 			return 1;
 		}
