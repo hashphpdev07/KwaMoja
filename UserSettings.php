@@ -129,11 +129,13 @@ if (isset($_POST['Modify'])) {
 echo '<form method="post" class="centre" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
+echo '<div class="page_help_text">', _('This page contains the users settings than can be changed by the user.'),
+		'<br />', _('For help, click on the help icon in the top right'),
+		'<br />', _('Once you have filled in the details, click on the button at the bottom of the screen'), '
+	</div>';
+
 echo '<fieldset>
-		<div class="page_help_text">', _('This page contains the users settings than can be changed by the user.'),
-			'<br />', _('For help, click on the help icon in the top right'),
-			'<br />', _('Once you have filled in the details, click on the button at the bottom of the screen'), '
-		</div>
+		<legend>', _('Edit the settings for this user'), '</legend>
 		<field>
 			<label for="UserID">', _('User ID'), ':</label>
 			<div class="fieldtext">', $_SESSION['UserID'], '</div>
@@ -274,8 +276,11 @@ foreach ($PDFLanguages as $ID=>$PDFLanguage) {
 echo '</select>
 		</field>';
 
-echo '<input class="centre" type="submit" name="Modify" value="', _('Modify'), '" />
-	</fieldset></form>';
+echo '</fieldset>';
+echo '<div  class="centre">
+		<input type="submit" name="Modify" value="', _('Modify'), '" />
+	</div>
+</form>';
 
 include('includes/footer.php');
 ?>
