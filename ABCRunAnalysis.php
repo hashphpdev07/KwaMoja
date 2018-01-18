@@ -7,14 +7,14 @@ $Title = _('Run stock ranking analysis');
 include('includes/header.php');
 
 echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/rank.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/rank.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
 	</p>';
 
 if (isset($_POST['Submit'])) {
 
 	if (!isset($_POST['GroupID']) or $_POST['GroupID']=='') {
 		prnMsg( _('You must select an analysis group to use'), 'error');
-		echo '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Return to selection criteria') . '</a>';
+		echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Return to selection criteria'), '</a>';
 		include('includes/footer.php');
 		exit;
 	}
@@ -120,18 +120,14 @@ if (isset($_POST['Submit'])) {
 	prnMsg(_('The ABC analysis has been successfully run'), 'success');
 } else {
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="ABCAnalysis">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCAnalysis">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<table>
-			<tr>
-				<th colspan="2">
-					<h3>' . _('Ranking Analysis Details') . '</h3>
-				</th>
-			</tr>
-			<tr class="EvenTableRows">
-				<td>' . _('Ranking group') . '</td>
-				<td><select required="required" name="GroupID">';
+	echo '<fieldset>
+			<legend>' . _('Ranking Analysis Details') . '</legend>
+			<field>
+				<label for="GroupID">' . _('Ranking group') . '</label>
+				<select required="required" autofocus="autofocus" name="GroupID">';
 
 	$SQL = "SELECT groupid,
 					groupname
@@ -144,11 +140,12 @@ if (isset($_POST['Submit'])) {
 	}
 
 	echo '</select>
-			</td>
-		</tr>';
+		</field>';
 
-	echo '</table>
-		<div class="centre"><input type="submit" name="Submit" value="Run" />
+	echo '</fieldset>
+		<div class="centre">
+			<input type="submit" name="Submit" value="Run" />
+		</div>
 	</form>';
 
 	prnMsg(_('Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one'), 'warn');
