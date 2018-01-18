@@ -10,6 +10,7 @@ border:solid 1px;
 margin:auto;
 padding-top:7px;
 margin-bottom:4px;
+margin-top:4px;
 border-radius:7px;
 }
 
@@ -17,7 +18,7 @@ form legend {
 background-color:transparent;
 padding:3px;
 border: 1px solid #8DCDEB;
-border-radius:3px;
+border-radius:13px;
 font-size:150%;
 text-align:left;
 }
@@ -27,6 +28,7 @@ background-image:url(images/magnifier.png);
 background-repeat: no-repeat;
 background-size:contain;
 padding-left:32px;
+padding-right:7px;
 }
 
 form field {
