@@ -38,7 +38,6 @@ $ErrMsg = _('The stock held could not be retrieved because');
 $LocStockResult = DB_query($SQL, $ErrMsg);
 $NumRows = DB_num_rows($LocStockResult);
 
-$j = 1;
 $TotalQty = 0;
 $TotalVal = 0;
 $k = 0; //row colour counter

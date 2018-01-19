@@ -186,7 +186,7 @@ if (true or !isset($OrderNumber) or $OrderNumber == "") { //revisit later, right
 			echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 		}
 	}
-	echo '</select>', _('Pick List Status:'), '<select name="Status">';
+	echo '</select>', _('Pick List Status'), ':<select name="Status">';
 
 	if ($_POST['Status'] == 'New') {
 		echo '<option selected="selected" value="New">', _('New'), '</option>';
@@ -478,7 +478,7 @@ else {
 echo '</form>';
 if ($_POST['Status'] == 'New') {
 	//office is gnerating picks.  Warehouse needs to see latest "To Do" list so refresh every 5 minutes
-	echo '<meta http-equiv="refresh" content="300" url=', $RootPath, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" />';
+	echo '<meta http-equiv="refresh" content="300" url="', $RootPath, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" />';
 }
 include('includes/footer.php');
 ?>
