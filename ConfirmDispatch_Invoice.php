@@ -859,29 +859,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 	$DebtorTransID = DB_Last_Insert_ID('debtortrans', 'id');
-	if ($_SESSION['FreightInGrossMargin'] == 1) {
-		$SQL = "INSERT INTO freighttrans (transno,
-										type,
-										partnerno,
-										reference,
-										trandate,
-										ovrecovered,
-										rate,
-										inputdate)
-							VALUES (
-									'" . $InvoiceNo . "',
-									'" . 10 . "',
-									'" . $_SESSION['Items' . $Identifier]->DebtorNo . "',
-									'" . $_SESSION['Items' . $Identifier]->CustRef . "',
-									'" . $DefaultDispatchDate . "',
-									'" . filter_number_format($_POST['ChargeFreightCost']) . "',
-									'" . $_SESSION['CurrencyRate'] . "',
-									'" . Date('Y-m-d') . "')";
 
-		$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The freight invoice transaction could not be added to the database because');
-		$DbgMsg = _('The following SQL to insert the freight invoice was used');
-		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
-	}
 	/* Insert the tax totals for each tax authority where tax was charged on the invoice */
 	foreach ($TaxTotals as $TaxAuthID => $TaxAmount) {
 
