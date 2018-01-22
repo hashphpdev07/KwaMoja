@@ -279,7 +279,7 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 			}
 			//Preventing from dispatched more than ordered. Since it's controlled items, users must select the batch/lot again.
 			if ($_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched > ($_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Quantity - $_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyInv)) {
-				prnMsg(_('Invoiceed quantity cannot not be more than the order balance') . '. ' . _('The invoiced quantity is') . ' ' . $_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched . ' ' . _('And the order balance is ') . ' ' . ($_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Quantity - $_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyInv), 'error');
+				prnMsg(_('Invoiced quantity cannot not be more than the order balance') . '. ' . _('The invoiced quantity is') . ' ' . $_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched . ' ' . _('And the order balance is ') . ' ' . ($_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Quantity - $_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyInv), 'error');
 				include('includes/footer.php');
 				exit;
 			}
@@ -1504,7 +1504,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 					 * 4.) Credit the disposal account with the sale proceeds net of discounts */
 
 					// 1.) Debit the accumulated depreciation account:
-					if ($DisposalRow['accumdpen'] != 0) {
+					if ($DisposalRow['accumdepn'] != 0) {
 						$SQL = "INSERT INTO gltrans (type,
 													typeno,
 													trandate,
