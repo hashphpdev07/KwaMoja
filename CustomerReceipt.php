@@ -1068,7 +1068,7 @@ if (count($_SESSION['ReceiptBatch' . $Identifier]->Items) > 0) {
 
 	if (isset($_SESSION['ReceiptBatch' . $Identifier]->Items) and count($_SESSION['ReceiptBatch' . $Identifier]->Items) > 0) {
 		echo '<div class="centre">
-				<input tabindex="13" type="submit" name="CommitBatch" value="', _('Accept and Process Batch'), '" />
+				<input type="submit" name="CommitBatch" value="', _('Accept and Process Batch'), '" />
 			</div>';
 	}
 }
@@ -1248,8 +1248,8 @@ if (((isset($_SESSION['CustomerRecord' . $Identifier]) and isset($_POST['Custome
 
 	echo '</fieldset>
 			<div class="centre">
-				<input tabindex="14" type="submit" name="Process" value="', _('Accept'), '" />
-				<input tabindex="15" type="submit" name="Cancel" value="', _('Cancel'), '" />
+				<input type="submit" name="Process" value="', _('Accept'), '" />
+				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 			</div>';
 
 } elseif (!isset($_POST['Search']) and isset($_SESSION['ReceiptBatch' . $Identifier]) and !isset($_POST['GLEntry'])) {
@@ -1258,18 +1258,18 @@ if (((isset($_SESSION['CustomerRecord' . $Identifier]) and isset($_POST['Custome
 			<legend class="search">', _('Select a Customer'), '</legend>
 		<field>
 			', _('Text in the Customer'), ' ', '<b>', _('name'), '</b>:
-			<input tabindex="9" type="text" name="Keywords" size="15" maxlength="25" />
+			<input type="text" name="Keywords" size="15" maxlength="25" />
 			<b>', _('OR'), '</b>
 			', _('Text extract in the Customer'), ' ', '<b>', _('code'), '</b>:
-			<input tabindex="10" type="text" name="CustCode" data-type="no-illegal-chars" title="', _('Enter an extract of the customer code to search for. Customer codes can contain any alpha-numeric character or underscore'), '" size="10" maxlength="18" />
+			<input type="text" name="CustCode" data-type="no-illegal-chars" title="', _('Enter an extract of the customer code to search for. Customer codes can contain any alpha-numeric character or underscore'), '" size="10" maxlength="18" />
 			<b>', _('OR'), '</b>
 			', _('Customer invoice number'), ':
-			<input tabindex="11" type="text" name="CustInvNo" class="integer" size="8" maxlength="8" />
+			<input type="text" name="CustInvNo" class="integer" size="8" maxlength="8" />
 		</field>
 		</fieldset>
 		<div class="centre">
-			<input tabindex="11" type="submit" name="Search" value="', _('Search Now'), '" />
-			<input tabindex="12" type="submit" name="GLEntry" value="', _('Enter A GL Receipt'), '" />
+			<input type="submit" name="Search" value="', _('Search Now'), '" />
+			<input type="submit" name="GLEntry" value="', _('Enter A GL Receipt'), '" />
 		</div>';
 }
 if (isset($CustomerSearchResult)) {
@@ -1306,7 +1306,7 @@ if (isset($CustomerSearchResult)) {
 			echo '<tr class="EvenTableRows">';
 			$k = 1;
 		}
-		echo '<td><input tabindex="', strval(12 + $j), '" type="submit" name="CustomerID" value="', $MyRow['debtorno'], '" /></td>
+		echo '<td><input type="submit" name="CustomerID" value="', $MyRow['debtorno'], '" /></td>
 				<td>', $MyRow['name'], '</td>
 				<td class="number">', locale_number_format($BalanceRow['balance'], $BalanceRow['currdecimalplaces']), '</td>
 			</tr>';
@@ -1316,7 +1316,7 @@ if (isset($CustomerSearchResult)) {
 	//end of while loop
 	echo '</table>';
 	echo '<div class="centre">
-			<input tabindex="12" type="submit" name="Cancel" value="', _('Cancel'), '" />
+			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 		</div>';
 }
 
