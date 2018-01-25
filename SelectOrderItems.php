@@ -1344,7 +1344,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 		echo '<div class="page_help_text">' . _('Quantity (required) - Enter the number of units ordered.  Price (required) - Enter the unit price.  Discount (optional) - Enter a percentage discount.  GP% (optional) - Enter a percentage Gross Profit (GP) to add to the unit cost.  Due Date (optional) - Enter a date for delivery. Items bordered in red do not have enough stock to fulfil the order.') . '</div><br />';
 		echo '<table width="90%" cellpadding="2" style="border-collapse: collapse;">
-				<tr style="background-color:#800000">';
+				<tr>';
 		if($ShowPOLine) {
 			echo '<th>' . _('PO Line') . '</th>';
 		} //$_SESSION['Items' . $Identifier]->DefaultPOLine == 1
