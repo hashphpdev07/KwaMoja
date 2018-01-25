@@ -749,7 +749,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 
 	echo '<br />
 		<table width="90%" cellpadding="2">
-		<tr style="background-color:#800000">';
+		<tr>';
 	echo '<th>' . _('Item Code') . '</th>
    		  <th>' . _('Item Description') . '</th>
 		  <th>' . _('Quantity') . '</th>
