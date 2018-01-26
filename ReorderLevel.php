@@ -86,6 +86,7 @@ if (isset($_POST['PrintPDF'])) {
 								WHERE purchorders.status !='Cancelled'
 								AND purchorders.status !='Rejected'
 								AND purchorders.status !='Pending'
+								AND purchorders.status != 'Completed'
 								AND purchorderdetails.itemcode='" . $MyRow['stockid'] . "'
 									  AND purchorders.intostocklocation='" . $MyRow['loccode'] . "'";
 		$OnOrderResult = DB_query($OnOrderSQL);
