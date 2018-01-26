@@ -1,0 +1,59 @@
+
+table {
+width:auto;
+margin:0 auto 5px;
+}
+
+th {
+background-color:#cccce5;
+color:#300;
+text-align:center;
+}
+
+th.number {
+background-color:#cccce5;
+color:#300;
+text-align:right;
+}
+
+th.SortedColumn {
+cursor:s-resize;
+}
+
+td {
+text-align:left;
+}
+
+td.select {
+background-color:#eee;
+}
+
+.EvenTableRows {
+background-color:#CCC;
+}
+
+.OddTableRows {
+background-color:#EEE;
+}
+
+.table1 {
+width:90%;
+background:#eee;
+border:1px solid #222;
+margin:0 auto;
+}
+
+.tableheader {
+background-color:#cccce5;
+color:#300;
+}
+
+tr.striped_row:nth-of-type(even) {
+background-color:#CCC;
+color:#121433;
+}
+
+tr.striped_row:nth-of-type(odd) {
+background-color:#EEE;
+color:#1A1A1A;
+}

@@ -160,36 +160,6 @@ font-weight:700;
 color:red;
 }
 
-table {
-background-color:#fff;
-width:100%;
-margin:0 auto;
-}
-
-th {
-background-color:#777C59;
-color:#FFF;
-text-align:center;
-}
-
-th.number {
-text-align:right;
-background-color:maroon;
-color:#FFF;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .centre {
 text-align:center;
 margin:0 auto;
@@ -212,14 +182,6 @@ border-width:0;
 
 input.image:hover {
 background-color:transparent;
-}
-
-.EvenTableRows {
-background-color:#72824D;
-}
-
-.OddTableRows {
-background-color:#CAF17C;
 }
 
 div.error {
@@ -272,11 +234,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.tableheader {
-background-color:#777C59;
-color:#FFF;
 }
 
 .notavailable {
@@ -517,13 +474,6 @@ clear:left;
 
 #dialog_buttons,td.number,input.number,input.integer {
 text-align:right;
-}
-
-.table1,.table2 {
-width:90%;
-background:#eee;
-border:0 0 2px 2px #222 solid;
-margin:0 auto;
 }
 
 input.inputerror,textarea.texterror,select.selecterror {

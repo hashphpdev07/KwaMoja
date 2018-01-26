@@ -203,39 +203,6 @@ margin:10px auto;
 padding:5px;
 }
 
-table {
-width:auto;
-max-width:90%;
-margin:0 auto 10px;
-}
-
-table.selection {
-border:solid 1px #B8BAC5;
-border-radius:5px;
-}
-
-th {
-background-color:#C3C3C3;
-color:#300;
-text-align:center;
-vertical-align:middle;
-}
-
-th.number {
-background-color:#cccce5;
-color:#300;
-text-align:right;
-vertical-align:middle;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
 .centre {
 text-align:center;
 margin:0 auto 10px;
@@ -273,10 +240,6 @@ background:#FFA4A4;
 
 :-moz-ui-invalid {
 background-color:#FFA4A4;
-}
-
-.EvenTableRows {
-background-color:#ccc;
 }
 
 div.error {
@@ -341,18 +304,6 @@ width:20px;
 background-color:#ccc;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-border:0 0 2px 2px #222 solid;
-background:#eee;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:#cccce5;
-color:#300;
 }
 
 .notavailable {
@@ -558,10 +509,6 @@ text-align:right;
 a:hover,#AppInfoUserDiv a:hover {
 color:#000;
 text-decoration:underline;
-}
-
-td.select,.OddTableRows {
-background-color:#eee;
 }
 
 input,textarea {

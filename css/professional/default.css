@@ -146,14 +146,6 @@ margin:0 auto;
  	/* Class selector to horizontal align text (left) in an element. */
 }
 
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .dpTbl {
 border:solid navy 1px;
 background:#FFF;
@@ -181,30 +173,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.EvenTableRows {
-background-color:#CCC;
-}
-
-.OddTableRows {
-background-color:#EEE;
-}
-
-th {
-background-color:#cccce5;
-color:#300;
-text-align:center;
-}
-
-th.number {
-background-color:#cccce5;
-color:#300;
-text-align:right;
-}
-
-th.SortedColumn {
-cursor:s-resize;
 }
 
 div.error {
@@ -277,13 +245,6 @@ background-attachment:fixed;
 border:none;
 margin:0;
 padding:0;
-}
-
-.table1 {
-width:90%;
-background:#eee;
-border:1px solid #222;
-margin:0 auto;
 }
 
 input.address3 {

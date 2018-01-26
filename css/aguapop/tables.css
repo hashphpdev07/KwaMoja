@@ -1,0 +1,84 @@
+
+table {
+width:auto;
+max-width:90%;
+padding-bottom:5px;
+margin:5px auto;
+}
+
+table.search {
+border:1px solid;
+border-radius:5px;
+width:60%;
+display:none;
+box-shadow:3px 3px 4px #86C3D7 inset, -3px -3px 4px #383878 inset, 0 0 10px navy;
+margin-top:10px;
+margin-bottom:10px;
+padding:5px;
+}
+
+table.selection {
+width:auto;
+max-width:90%;
+}
+
+tr.visible {
+display:table-row;
+}
+
+tr.invisible {
+display:none;
+}
+
+th {
+background-color:#87CEEB;
+color:#000;
+padding:3px;
+}
+
+th.number {
+text-align:right;
+background-color:#87CEEB;
+color:#FFF;
+}
+
+th.SortedColumn {
+cursor:s-resize;
+}
+
+td {
+text-align:left;
+}
+
+td.select {
+background-color:#F5F5F5;
+padding:3px;
+}
+
+.EvenTableRows {
+background-color:#DCDCDC;
+}
+
+.OddTableRows {
+background-color:#F5F5F5;
+}
+
+.table1 {
+width:90%;
+background:#F5F5F5;
+border:1px solid #2F4F4F;
+margin:0 auto;
+}
+
+.tableheader {
+background-color:#87CEEB;
+color:#FFF;
+}
+
+tr.striped_row:nth-of-type(even) {
+background-color:#DCDCDC;
+}
+
+tr.striped_row:nth-of-type(odd) {
+background-color:#F5F5F5;
+}

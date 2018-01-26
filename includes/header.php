@@ -27,6 +27,7 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<link rel="icon" href="', $RootPath, '/favicon.ico" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/tables.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
 			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
 			<meta name="viewport" content="width=device-width, initial-scale=1">
