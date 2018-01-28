@@ -29,14 +29,6 @@ font-size: 10px;
 text-align: left;
 }
 
-.EvenTableRows {
-background-color: #CCCCCC;
-}
-
-.OddTableRows {
-background-color: #EEEEEE;
-}
-
 td.select {
 background-color:#eee;
 }

@@ -57,19 +57,13 @@ if (DB_num_rows($Result) != 0) {
 			$SQL = "UPDATE stockdescriptiontranslations " . "SET descriptiontranslation='" . $TranslatedText . "', " . "needsrevision= '1' " . "WHERE stockid='" . $MyRow['stockid'] . "' AND (language_id='" . $MyRow['language_id'] . "')";
 			$Update = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			++$i;
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
 					</tr>', $i, $MyRow['stockid'], $MyRow['description'], $MyRow['language_id'], $TranslatedText);
 		}
 		if ($MyRow['longdescriptiontranslation'] == '') {
@@ -79,19 +73,13 @@ if (DB_num_rows($Result) != 0) {
 			$SQL = "UPDATE stocklongdescriptiontranslations " . "SET longdescriptiontranslation='" . $TranslatedText . "', " . "needsrevision= '1' " . "WHERE stockid='" . $MyRow['stockid'] . "' AND (language_id='" . $MyRow['language_id'] . "')";
 			$Update = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			++$i;
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
 					</tr>', $i, $MyRow['stockid'], $MyRow['longdescription'], $MyRow['language_id'], $TranslatedText);
 		}
 	}

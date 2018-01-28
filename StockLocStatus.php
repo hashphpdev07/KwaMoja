@@ -243,15 +243,8 @@ if (isset($_POST['ShowStatus'])) {
 			}
 
 			if (($_POST['BelowReorderQuantity'] == 'NotZero') and (($MyRow['quantity'] - $DemandQty) > 0)) {
-
-				if ($k == 1) {
-					echo '<tr class="OddTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="EvenTableRows">';
-					$k = 1;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?StockID=%s">%s</a></td>
 						<td>%s</td>
 						<td class="number">%s</td>
@@ -281,14 +274,8 @@ if (isset($_POST['ShowStatus'])) {
 					echo '<td><a target="_blank" href="' . $RootPath . '/StockSerialItems.php?Location=' . $MyRow['loccode'] . '&StockID=' . $StockId . '">' . _('Batches') . '</a></td></tr>';
 				}
 			} else if ($_POST['BelowReorderQuantity'] != 'NotZero') {
-				if ($k == 1) {
-					echo '<tr class="OddTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="EvenTableRows">';
-					$k = 1;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+				<td>%s</td>
 						<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?StockID=%s">%s</a></td>
 						<td>%s</td>
 						<td class="number">%s</td>

@@ -194,28 +194,23 @@ function GetUsers($GroupId, $GroupName) {
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 0) {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			}
 
 			if (in_array($MyRow['userid'], $UsersAssigned)) {
-				echo '<td>' . $MyRow['userid'] . '</td>
-					<td>' . $MyRow['realname'] . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;Remove=1&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '" onclick="return MakeConfirm(\'Are you sure you want to remove this user?\', \'Confirm Delete\', this); ">' . _('Remove') . '</a></td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>';
+				echo '<tr class="striped_row">
+						<td>' . $MyRow['userid'] . '</td>
+						<td>' . $MyRow['realname'] . '</td>
+						<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;Remove=1&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '" onclick="return MakeConfirm(\'Are you sure you want to remove this user?\', \'Confirm Delete\', this); ">' . _('Remove') . '</a></td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>';
 			} else {
-				echo '<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>' . $MyRow['userid'] . '</td>
-					<td>' . $MyRow['realname'] . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;Add=1&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '">' . _('Add') . '</a></td>';
+				echo '<tr class="striped_row">
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>' . $MyRow['userid'] . '</td>
+						<td>' . $MyRow['realname'] . '</td>
+						<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;Add=1&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '">' . _('Add') . '</a></td>';
 			}
 
 			echo '</tr>';

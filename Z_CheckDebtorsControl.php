@@ -92,15 +92,9 @@ if (isset($_POST['Show'])) {
 		$GLOpening += $dtRow['bfwd'];
 		$glMovement = $dtRow['bfwd'] + $dtRow['actual'];
 
-		if ($j == 1) {
-			echo '<tr class="OddTableRows">';
-			$j = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			++$j;
-		}
-		echo '<td>' . $CurPeriod . '</td>
-					<td class="number">' . locale_number_format($dtRow['bfwd'], 2) . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $CurPeriod . '</td>
+				<td class="number">' . locale_number_format($dtRow['bfwd'], 2) . '</td>';
 
 		$SQL = "SELECT SUM((ovamount+ovgst)/rate) AS totinvnetcrds
 					FROM debtortrans

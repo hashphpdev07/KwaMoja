@@ -94,17 +94,11 @@ echo '<tbody>
 $k = 0;
 
 while ($row = DB_fetch_array($Result)) {
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
 
 	$AccountCurrTotal += $row['amount'];
 	$LocalCurrTotal += $row['amount'] / $row['functionalexrate'] / $row['exrate'];
-	echo '<td>' . $row['currcode'] . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $row['currcode'] . '</td>
 			<td class="number">' . locale_number_format($row['amount'], $row['decimalplaces']) . '</td>
 			<td>' . $row['banktranstype'] . '</td>
 			<td>' . $row['transdate'] . '</td>

@@ -58,24 +58,17 @@ if (!isset($EmployeeID)) {
 		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
-
-			//alternateTableRowColor($k);
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k++;
-			}
-			echo '<td>' . $MyRow['employeeid'] . '</td>
-    			<td>' . $MyRow['lastname'] . '</td>
-				<td>' . $MyRow['firstname'] . '</td>
-				<td>' . $PayTypes[$MyRow['paytype']] . '</td>
-				<td>' . $MyRow['marital'] . '</td>
-				<td>' . ConvertSQLDate($MyRow['birthdate']) . '</td>
-				<td>' . $MyRow['active'] . '</td>
-				<td>' . $MyRow['payperioddesc'] . '</td>
-				<td><a href=' . $RootPath . '/prlEmployeeMaster.php?EmployeeID=' . $MyRow['employeeid'] . '>' . _('Edit') . '</td></tr>';
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['employeeid'] . '</td>
+					<td>' . $MyRow['lastname'] . '</td>
+					<td>' . $MyRow['firstname'] . '</td>
+					<td>' . $PayTypes[$MyRow['paytype']] . '</td>
+					<td>' . $MyRow['marital'] . '</td>
+					<td>' . ConvertSQLDate($MyRow['birthdate']) . '</td>
+					<td>' . $MyRow['active'] . '</td>
+					<td>' . $MyRow['payperioddesc'] . '</td>
+					<td><a href=' . $RootPath . '/prlEmployeeMaster.php?EmployeeID=' . $MyRow['employeeid'] . '>' . _('Edit') . '</td>
+				</tr>';
 		} //END WHILE LIST LOOP
 		echo '</tbody>';
 		echo '</table>';

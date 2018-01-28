@@ -185,15 +185,8 @@ if (!isset($SelectedTaxProvince)) {
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>' . $MyRow['taxprovincename'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['taxprovincename'] . '</td>
 				<td>' . $MyRow['taxcatname'] . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '">' . _('Edit') . '</a></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '&amp;delete=1">' . _('Delete') . '</a></td>

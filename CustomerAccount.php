@@ -305,50 +305,43 @@ foreach ($Transactions as $MyRow) {
 		$OutstandingOrSettled = 'Outstanding';
 	}
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-
 	$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
 
 
 	if ($MyRow['type'] == 10) { //its an invoice
-		echo '<td>', _($MyRow['typename']), '</td>
-			<td class="number">', $MyRow['transno'], '</td>
-			<td>', ConvertSQLDate($MyRow['trandate']), '</td>
-			<td>', $MyRow['branchcode'], '</td>
-			<td>', $MyRow['reference'], '</td>
-			<td style="width:200px">', $MyRow['invtext'], '</td>
-			<td class="number">', $MyRow['order_'], '</td>
-			<td class="number">', locale_number_format($MyRow['totalamount'], $CustomerRecord['decimalplaces']), '</td>
-			<td>&nbsp;</td>
-			<td class="number">', locale_number_format($MyRow['alloc'], $CustomerRecord['decimalplaces']), '</td>
-			<td class="number">', locale_number_format($MyRow['balance'], $CustomerRecord['decimalplaces']), '</td>
-			<td class="noPrint">
-				<a href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice">', _('HTML '), '
-					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/preview.png" title="', _('Click to preview the invoice'), '" alt="" />
-				</a>
-			</td>
-			<td class="noPrint">
-				<a href="', $RootPath, '/', $PrintCustomerTransactionScript, '?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('PDF ') . '
-					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" />
-				</a>
-			</td>
-			<td class="noPrint">
-				<a href="', $RootPath, '/EmailCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice">', _('Email ') . '
-					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/email.png" title="', _('Click to email the invoice'), '" alt="" />
-				</a>
-			</td>
-			<td></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
+				<td class="number">', $MyRow['transno'], '</td>
+				<td>', ConvertSQLDate($MyRow['trandate']), '</td>
+				<td>', $MyRow['branchcode'], '</td>
+				<td>', $MyRow['reference'], '</td>
+				<td style="width:200px">', $MyRow['invtext'], '</td>
+				<td class="number">', $MyRow['order_'], '</td>
+				<td class="number">', locale_number_format($MyRow['totalamount'], $CustomerRecord['decimalplaces']), '</td>
+				<td>&nbsp;</td>
+				<td class="number">', locale_number_format($MyRow['alloc'], $CustomerRecord['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($MyRow['balance'], $CustomerRecord['decimalplaces']), '</td>
+				<td class="noPrint">
+					<a href="', $RootPath, '/PrintCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice">', _('HTML '), '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/preview.png" title="', _('Click to preview the invoice'), '" alt="" />
+					</a>
+				</td>
+				<td class="noPrint">
+					<a href="', $RootPath, '/', $PrintCustomerTransactionScript, '?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">' . _('PDF ') . '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" />
+					</a>
+				</td>
+				<td class="noPrint">
+					<a href="', $RootPath, '/EmailCustTrans.php?FromTransNo=', urlencode($MyRow['transno']), '&amp;InvOrCredit=Invoice">', _('Email ') . '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/email.png" title="', _('Click to email the invoice'), '" alt="" />
+					</a>
+				</td>
+				<td></td>
+			</tr>';
 
 	} elseif ($MyRow['type'] == 11) {
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['transno'], '</td>
 				<td>', ConvertSQLDate($MyRow['trandate']), '</td>
 				<td>', $MyRow['branchcode'], '</td>
@@ -385,7 +378,8 @@ foreach ($Transactions as $MyRow) {
 		/* Show transactions where:
 		 * - Is receipt
 		 */
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['transno'], '</td>
 				<td>', ConvertSQLDate($MyRow['trandate']), '</td>
 				<td>', $MyRow['branchcode'], '</td>
@@ -411,7 +405,8 @@ foreach ($Transactions as $MyRow) {
 		 * - Is a negative receipt
 		 * - User cannot view GL transactions
 		 */
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['transno'], '</td>
 				<td>', ConvertSQLDate($MyRow['trandate']), '</td>
 				<td>', $MyRow['branchcode'], '</td>

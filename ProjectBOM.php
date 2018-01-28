@@ -167,22 +167,16 @@ if (count($_SESSION['Project' . $Identifier]->ProjectBOM) > 0) {
 
 		$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CompanyRecord']['decimalplaces']);
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $ProjectComponent->StockID . '</td>
-			  <td>' . $ProjectComponent->ItemDescription . '</td>
-			  <td><input type="text" class="number" name="Qty' . $ProjectComponent->ComponentID . '" required="required" maxlength="11" size="11" value="' . locale_number_format($ProjectComponent->Quantity, $ProjectComponent->DecimalPlaces) . '" /></td>
-			  <td>' . $ProjectComponent->UOM . '</td>
-			  <td class="number">' . locale_number_format($ProjectComponent->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-			  <td class="number">' . $DisplayLineTotal . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $ProjectComponent->StockID . '</td>
+				<td>' . $ProjectComponent->ItemDescription . '</td>
+				<td><input type="text" class="number" name="Qty' . $ProjectComponent->ComponentID . '" required="required" maxlength="11" size="11" value="' . locale_number_format($ProjectComponent->Quantity, $ProjectComponent->DecimalPlaces) . '" /></td>
+				<td>' . $ProjectComponent->UOM . '</td>
+				<td class="number">' . locale_number_format($ProjectComponent->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+				<td class="number">' . $DisplayLineTotal . '</td>
 				<td><input type="text" class="date" name="RequiredBy' . $ProjectComponent->ComponentID . '" size="11" value="' . $ProjectComponent->RequiredBy . '" />
-			  <td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>';
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 		$TotalCost += $LineTotal;
 	}
 
@@ -276,21 +270,14 @@ if (isset($SearchResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		if (file_exists($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.jpg')) {
 			$ImageSource = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC&amp;StockID=' . $MyRow['stockid'] . '&amp;text=&amp;width=50&amp;height=50" />';
 		} else {
 			$ImageSource = '<i>' . _('No Image') . '</i>';
 		}
 
-		echo '<td>' . $MyRow['stockid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['stockid'] . '</td>
 				<td>' . $MyRow['description'] . '</td>
 				<td>' . $MyRow['units'] . '</td>
 				<td>' . $ImageSource . '</td>

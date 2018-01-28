@@ -686,14 +686,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 		$LastDonor = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_DonorSelect)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
+			echo '<tr class="striped_row">';
 			if ($LastDonor != $MyRow['name']) {
 				echo '<td>' . htmlentities($MyRow['donorno'], ENT_QUOTES, 'UTF-8') . '</td>';
 			} else {

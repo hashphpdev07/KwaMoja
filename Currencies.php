@@ -322,15 +322,6 @@ if (!isset($SelectedCurrency)) {
 	}
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($MyRow['currabrev'] == $FunctionalCurrency) {
-			echo '<tr style="background-color:#FFbbbb">';
-		} elseif ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		// Lets show the country flag
 		$ImageFile = 'flags/' . mb_strtoupper($MyRow['currabrev']) . '.gif';
 
@@ -349,7 +340,8 @@ if (!isset($SelectedCurrency)) {
 		}
 
 		if ($MyRow['currabrev'] != $FunctionalCurrency) {
-			echo '<td><img src="' . $ImageFile . '" alt="" /></td>
+			echo '<tr class="striped_row">
+					<td><img src="' . $ImageFile . '" alt="" /></td>
 					<td>' . $MyRow['currabrev'] . '</td>
 					<td>' . _($MyRow['currency']) . '</td>
 					<td>' . $MyRow['country'] . '</td>
@@ -366,7 +358,8 @@ if (!isset($SelectedCurrency)) {
 					<td><a href="' . $RootPath . '/ExchangeRateTrend.php?CurrencyToShow=' . urlencode($MyRow['currabrev']) . '">' . _('Graph') . '</a></td>
 				</tr>';
 		} else {
-			echo '<td><img src="' . $ImageFile . '" alt="" /></td>
+			echo '<tr style="background-color:#90EE90;color:#0B580B">
+					<td><img src="' . $ImageFile . '" alt="" /></td>
 					<td>' . $MyRow['currabrev'] . '</td>
 					<td>' . $MyRow['currency'] . '</td>
 					<td>' . $MyRow['country'] . '</td>
@@ -379,7 +372,7 @@ if (!isset($SelectedCurrency)) {
 					<td colspan="2"><a href="CompanyPreferences.php#CurrencyDefault">' . _('Functional Currency') . '</a></td>
 					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedCurrency=' . urlencode($MyRow['currabrev']) . '">' . _('Edit') . '</a></td>
 					<td colspan="2"></td>
-					</tr>';
+				</tr>';
 		}
 
 	} //END WHILE LIST LOOP

@@ -143,14 +143,6 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 
 	foreach ($_SESSION['PO' . $Identifier]->LineItems as $LnItm) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		/*  if ($LnItm->ReceiveQty==0){   /*if no quantities yet input default the balance to be received
 		$LnItm->ReceiveQty = $LnItm->QuantityOrd - $LnItm->QtyReceived;
 		}
@@ -186,18 +178,19 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 			$ImageLink = $LnItm->StockID;
 		}
 
-		echo '<td>' . $ImageLink . '</td>
-			<td>' . $LnItm->Suppliers_PartNo . '</td>
-			<td>' . $LnItm->ItemDescription . '</td>
-			<td class="number">' . $DisplaySupplierQtyOrd . '</td>
-			<td>' . $LnItm->SuppliersUnit . '</td>
-			<td class="number">' . $DisplaySupplierQtyRec . '</td>
-			<td class="number">' . $LnItm->ConversionFactor . '</td>
-			<td class="number">' . $DisplayQtyOrd . '</td>
-			<td>' . $LnItm->Units . '</td>
-			<td class="number">' . $DisplayQtyRec . '</td>
-			<td>' . $LnItm->ReqDelDate . '</td>
-			<td class="number">';
+		echo '<tr class="striped_row">
+				<td>' . $ImageLink . '</td>
+				<td>' . $LnItm->Suppliers_PartNo . '</td>
+				<td>' . $LnItm->ItemDescription . '</td>
+				<td class="number">' . $DisplaySupplierQtyOrd . '</td>
+				<td>' . $LnItm->SuppliersUnit . '</td>
+				<td class="number">' . $DisplaySupplierQtyRec . '</td>
+				<td class="number">' . $LnItm->ConversionFactor . '</td>
+				<td class="number">' . $DisplayQtyOrd . '</td>
+				<td>' . $LnItm->Units . '</td>
+				<td class="number">' . $DisplayQtyRec . '</td>
+				<td>' . $LnItm->ReqDelDate . '</td>
+				<td class="number">';
 
 		if ($LnItm->Controlled == 1) {
 

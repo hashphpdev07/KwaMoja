@@ -112,15 +112,8 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 
 	while ($MyRow = DB_fetch_array($TransResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			++$k;
-		}
-
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>

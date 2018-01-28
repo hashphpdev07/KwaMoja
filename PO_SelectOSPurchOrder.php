@@ -267,14 +267,8 @@ if (isset($StockItemsResult)) {
 		$OrdersRow = DB_fetch_array($OrdersResult);
 
 		if ($OrdersRow['qord'] != '') {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
 					<td>', $MyRow['description'], '</td>
 					<td class="number">', $QuantityRow['qoh'], '</td>
 					<td class="number">', $OrdersRow['qord'], '</td>
@@ -412,15 +406,6 @@ if (isset($StockItemsResult)) {
 			$BalanceRow = '';
 		}
 
-		if ($k == 1) {
-			/*alternate bgcolour of row for highlighting */
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$ModifyPage = $RootPath . '/PO_Header.php?ModifyOrderNumber=' . urlencode($MyRow['orderno']);
 		if ($MyRow['status'] == 'Printed') {
 			$ReceiveOrder = '<a href="' . $RootPath . '/GoodsReceived.php?PONumber=' . urlencode($MyRow['orderno']) . '">' . _('Receive') . '</a>';
@@ -446,13 +431,14 @@ if (isset($StockItemsResult)) {
 		$MyUserRow = DB_fetch_array($UserResult);
 		$InitiatorName = $MyUserRow['realname'];
 
-		echo '<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
-			<td>', $FormatedOrderDate, '</td>
-			<td>', $FormatedDeliveryDate, '</td>
-			<td>', $InitiatorName, '</td>
-			<td>', $MyRow['suppname'], '</td>
-			' . $BalanceRow . '
-			<td>', $MyRow['currcode'], '</td>';
+		echo '<tr class="striped_row">
+				<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
+				<td>', $FormatedOrderDate, '</td>
+				<td>', $FormatedDeliveryDate, '</td>
+				<td>', $InitiatorName, '</td>
+				<td>', $MyRow['suppname'], '</td>
+				' . $BalanceRow . '
+				<td>', $MyRow['currcode'], '</td>';
 		if (in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PricesSecurity)) {
 			echo '<td class="number">', $FormatedOrderValue, '</td>';
 		} //in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PricesSecurity)

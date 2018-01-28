@@ -58,17 +58,11 @@ if (isset($_POST['Submit'])) { //users have selected the WO to calculate and sub
 			$TotalCost = 0;
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result)) {
-				if ($i == 0) {
-					echo '<tr class="EvenTableRows">';
-					$i = 1;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$i = 0;
-				}
 				$IssuedQty = -$MyRow['qty'];
 				$IssuedCost = $IssuedQty * $MyRow['standardcost'];
 				$TotalCost += $IssuedCost;
-				echo '<td>' . $MyRow['stockid'] . '</td>
+				echo '<tr class="striped_row">
+						<td>' . $MyRow['stockid'] . '</td>
 						<td>' . $MyRow['description'] . '</td>
 						<td>' . $MyRow['trandate'] . '</td>
 						<td class="number">' . locale_number_format($IssuedQty, $MyRow['decimalplaces']) . '</td>
@@ -341,18 +335,11 @@ if (!isset($StockID)) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k++;
-			}
-
-			printf('<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), $MyRow['units']);
 
 		} //end of while loop
@@ -489,14 +476,6 @@ if (!isset($StockID)) {
 			$k = 0; //row colour counter
 			while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k++;
-				}
-
 				$ModifyPage = $RootPath . '/WorkOrderEntry.php?WO=' . $MyRow['wo'];
 				$Status_WO = $RootPath . '/WorkOrderStatus.php?WO=' . $MyRow['wo'] . '&amp;StockID=' . $MyRow['stockid'];
 				$Receive_WO = $RootPath . '/WorkOrderReceive.php?WO=' . $MyRow['wo'] . '&amp;StockID=' . $MyRow['stockid'];
@@ -508,20 +487,21 @@ if (!isset($StockID)) {
 				$FormatedStartDate = ConvertSQLDate($MyRow['startdate']);
 
 
-				printf('<td><input type="checkbox" name="WO_%s" /></td>
-					<td><a href="%s">%s</a></td>
-					<td><a href="%s">' . _('Status') . '</a></td>
-					<td><a href="%s">' . _('Issue To') . '</a></td>
-					<td><a href="%s">' . _('Receive') . '</a></td>
-					<td><a href="%s">' . _('Costing') . '</a></td>
-					<td><a href="%s">' . _('Print W/O') . '</a></td>
-					<td>%s - %s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					</tr>', $MyRow['wo'], $ModifyPage, $MyRow['wo'], $Status_WO, $Issue_WO, $Receive_WO, $Costing_WO, $Printing_WO, $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), $FormatedStartDate, $FormatedRequiredByDate);
+				printf('<tr class="striped_row">
+							<td><input type="checkbox" name="WO_%s" /></td>
+							<td><a href="%s">%s</a></td>
+							<td><a href="%s">' . _('Status') . '</a></td>
+							<td><a href="%s">' . _('Issue To') . '</a></td>
+							<td><a href="%s">' . _('Receive') . '</a></td>
+							<td><a href="%s">' . _('Costing') . '</a></td>
+							<td><a href="%s">' . _('Print W/O') . '</a></td>
+							<td>%s - %s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td>%s</td>
+							<td>%s</td>
+						</tr>', $MyRow['wo'], $ModifyPage, $MyRow['wo'], $Status_WO, $Issue_WO, $Receive_WO, $Costing_WO, $Printing_WO, $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), $FormatedStartDate, $FormatedRequiredByDate);
 				//end of page full new headings if
 			}
 			//end of while loop

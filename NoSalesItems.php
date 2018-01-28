@@ -221,13 +221,6 @@ if (!(isset($_POST['Search']))) {
 			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$QOHResult = DB_query("SELECT sum(quantity)
 				FROM locstock
 				INNER JOIN locationusers
@@ -241,25 +234,27 @@ if (!(isset($_POST['Search']))) {
 
 		$CodeLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['stockid']) . '">' . $MyRow['stockid'] . '</a>';
 		if ($_POST['Location'][0] == 'All') {
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $i, 'All', $CodeLink, $MyRow['description'], $QOH, //on hand on ALL locations
 				$QOH, // total on hand
 				$MyRow['units'] //unit
 				);
 		} else {
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $i, $MyRow['locationname'], $CodeLink, $MyRow['description'], $MyRow['quantity'], //on hand on location selected only
 				$QOH, // total on hand
 				$MyRow['units'] //unit

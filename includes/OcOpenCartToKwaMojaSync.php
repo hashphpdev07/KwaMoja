@@ -115,7 +115,7 @@ function SyncOrderInformation($ShowMessages, $LastTimeRun, $oc_tableprefix, $Ema
 			if ($ShowMessages) {
 				echo '<table class="selection">';
 				echo $TableHeader;
-				echo '<tr class="EvenTableRows">';
+				echo '<tr class="striped_row">';
 			}
 			/* FIELD MATCHING */
 			if (defined('KWAMOJA_ONLINE_CUSTOMER_CODE_PREFIX')) {
@@ -239,7 +239,7 @@ function SyncOrderInformation($ShowMessages, $LastTimeRun, $oc_tableprefix, $Ema
 				if ($ShowMessages) {
 					echo '<table class="selection">';
 					echo $TableHeaderForItems;
-					echo '<tr class="OddTableRows">';
+					echo '<tr class="striped_row">';
 				}
 				while ($myitems = DB_fetch_array($ResultItemsOrder)) {
 					$ItemsOrder++;
@@ -467,13 +467,6 @@ function SyncPaypalPaymentInformation($ShowMessages, $LastTimeRun, $oc_tablepref
 
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
 			/* FIELD MATCHING */
 			if (defined('KWAMOJA_ONLINE_CUSTOMER_CODE_PREFIX')) {
@@ -515,7 +508,8 @@ function SyncPaypalPaymentInformation($ShowMessages, $LastTimeRun, $oc_tablepref
 			}
 
 			if ($ShowMessages) {
-				printf('<td class="number">%s</td>
+				printf('<tr class="striped_row">
+						<td class="number">%s</td>
 						<td>%s</td>
 						<td>%s</td>
 						<td class="number">%s</td>

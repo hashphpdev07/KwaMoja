@@ -424,20 +424,14 @@ $j = 0;
 if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems)) {
 	$i = 0;
 	foreach ($_SESSION['WorkOrder' . $Identifier]->Items as $WorkOrderItem) {
-		if ($j == 1) {
-			echo '<tr class="OddTableRows">';
-			$j = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			$j++;
-		}
 		$DescriptionSQL = "SELECT descriptiontranslation AS description
 							FROM stockdescriptiontranslations
 							WHERE stockid='" . $WorkOrderItem->StockId . "'
 								AND language_id='" . $_SESSION['InventoryLanguage'] . "'";
 		$DescriptionResult = DB_query($DescriptionSQL);
 		$DescriptionRow = DB_fetch_array($DescriptionResult);
-		echo '<td>' . $WorkOrderItem->StockId . ' - ' . $DescriptionRow['description'] . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $WorkOrderItem->StockId . ' - ' . $DescriptionRow['description'] . '</td>';
 		echo '<input type="hidden" name="OutputStockId' . $i . '" value="' .  $WorkOrderItem->StockId . '" />';
 		echo '<td><textarea style="width:100%" rows="2" cols="50" name="WOComments' . $i . '" >' . $WorkOrderItem->Comments . '</textarea></td>';
 		if ($WorkOrderItem->Controlled == 1 and $_SESSION['DefineControlledOnWOEntry'] == 1) {
@@ -639,15 +633,8 @@ if (isset($SearchResult)) {
 					$ImageSource = _('No Image');
 				}
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-
-				echo '<td>', $MyRow['stockid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['stockid'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td>', $ImageSource, '</td>

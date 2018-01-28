@@ -279,18 +279,12 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
 		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 
-			echo '<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
-				<td>', $MyRow['description'], '</td>
-				<td>', $MyRow['units'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
+					<td>', $MyRow['description'], '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 			++$RowIndex;
 			//end of page full new headings if
 		}
@@ -471,14 +465,8 @@ if (isset($SuppliersResult)) {
 	$k = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SuppliersResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		echo '<td><input type="submit" name="SupplierID" value="', $MyRow['supplierid'], '" /></td>
+		echo '<tr class="striped_row">
+				<td><input type="submit" name="SupplierID" value="', $MyRow['supplierid'], '" /></td>
 				<td>', $MyRow['suppname'], '</td>
 				<td>', $MyRow['currcode'], '</td>
 				<td>', $MyRow['address1'], '</td>

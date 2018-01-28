@@ -67,14 +67,9 @@ echo '<table cellpadding="2" width="80%" class="selection">
 $k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
 
-	echo '<td>' . $MyRow['supplierno'] . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $MyRow['supplierno'] . '</td>
 			<td>' . $MyRow['suppreference'] . '</td>
 			<td>' . ConvertSQLDate($MyRow['trandate']) . '</td>
 			<td class="number">' . locale_number_format($MyRow['alloc'], $MyRow['currdecimalplaces']) . '</td>

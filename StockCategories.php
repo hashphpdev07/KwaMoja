@@ -339,14 +339,8 @@ if (!isset($SelectedCategory)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td>' . $MyRow['categoryid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['categoryid'] . '</td>
 				<td>' . $MyRow['categorydescription'] . '</td>
 				<td>' . $StockTypeName[$MyRow['stocktype']] . '</td>
 				<td>' . $TaxCategoryName[$MyRow['defaulttaxcatid']] . '</td>

@@ -565,16 +565,10 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 	echo '<tbody>';
 	$k = 0;
 	foreach ($_SESSION['Transfer' . $Identifier]->TransferItem as $TrfLine) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 
-		echo '<td>' . $TrfLine->StockID . '</td>
-			<td>' . $TrfLine->ItemDescription . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $TrfLine->StockID . '</td>
+				<td>' . $TrfLine->ItemDescription . '</td>';
 
 		echo '<td class="number">' . locale_number_format($TrfLine->ShipQty, $TrfLine->DecimalPlaces) . '</td>';
 		if (isset($_POST['Qty' . $i]) and is_numeric(filter_number_format($_POST['Qty' . $i]))) {
@@ -695,18 +689,12 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 		$k = 0;
 		while ($MyRow = DB_fetch_array($TrfResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-			echo '<td class="number">' . $MyRow['reference'] . '</td>
+			echo '<tr class="striped_row">
+					<td class="number">' . $MyRow['reference'] . '</td>
 					<td>' . $MyRow['trffromloc'] . '</td>
 					<td>' . ConvertSQLDateTime($MyRow['shipdate']) . '</td>
 					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Trf_ID=' . $MyRow['reference'] . '">' . _('Receive') . '</a></td>
-					</tr>';
+				</tr>';
 		}
 		echo '</table>';
 	} else if (!isset($_POST['ProcessTransfer'])) {

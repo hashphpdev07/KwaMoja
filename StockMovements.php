@@ -120,20 +120,13 @@ $k = 0; //row colour counter
 
 while ($MyRow = DB_fetch_array($MovtsResult)) {
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
 	$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);
 
 	if ($MyRow['type'] == 10) {
 		/*its a sales invoice allow link to show invoice it was sold on*/
 
-		printf('<td><a target="_blank" href="%s/PrintCustTrans.php?FromTransNo=%s&amp;InvOrCredit=Invoice">%s</a></td>
+		printf('<tr class="striped_row">
+				<td><a target="_blank" href="%s/PrintCustTrans.php?FromTransNo=%s&amp;InvOrCredit=Invoice">%s</a></td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
@@ -148,7 +141,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 
 	} elseif ($MyRow['type'] == 11) {
 
-		printf('<td><a target="_blank" href="%s/PrintCustTrans.php?FromTransNo=%s&amp;InvOrCredit=Credit">%s</a></td>
+		printf('<tr class="striped_row">
+				<td><a target="_blank" href="%s/PrintCustTrans.php?FromTransNo=%s&amp;InvOrCredit=Credit">%s</a></td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
@@ -162,7 +156,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				</tr>', $RootPath, $MyRow['transno'], $MyRow['typename'], $MyRow['transno'], $DisplayTranDate, $MyRow['userid'], $MyRow['debtorno'], $MyRow['branchcode'], locale_number_format($MyRow['qty'], $MyRow['decimalplaces']), $MyRow['reference'], locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['discountpercent'] * 100, 2), locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']));
 	} else {
 
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>

@@ -408,13 +408,6 @@ if (!isset($SelectedQATest)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k++;
-		}
 		if ($MyRow['active'] == 1) {
 			$ActiveText = _('Yes');
 		} else {
@@ -457,21 +450,22 @@ if (!isset($SelectedQATest)) {
 				$TypeDisp = 'Range';
 				break;
 		} //end switch
-		echo '<td class="number">', $MyRow['testid'], '</td>
-			<td>', $MyRow['name'], '</td>
-			<td>', $MyRow['method'], '</td>
-			<td>', $MyRow['groupby'], '</td>
-			<td>', $MyRow['units'], '</td>
-			<td>', $TypeDisp, '</td>
-			<td>', $MyRow['defaultvalue'], '</td>
-			<td>', $IsNumeric, '</td>
-			<td>', $ShowOnCertText, '</td>
-			<td>', $ShowOnSpecText, '</td>
-			<td>', $ShowOnTestPlanText, '</td>
-			<td>', $ActiveText, '</td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '">' . _('Edit') . '</a></td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '&amp;delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this QA Test ?') . '\');">' . _('Delete') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td class="number">', $MyRow['testid'], '</td>
+				<td>', $MyRow['name'], '</td>
+				<td>', $MyRow['method'], '</td>
+				<td>', $MyRow['groupby'], '</td>
+				<td>', $MyRow['units'], '</td>
+				<td>', $TypeDisp, '</td>
+				<td>', $MyRow['defaultvalue'], '</td>
+				<td>', $IsNumeric, '</td>
+				<td>', $ShowOnCertText, '</td>
+				<td>', $ShowOnSpecText, '</td>
+				<td>', $ShowOnTestPlanText, '</td>
+				<td>', $ActiveText, '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '&amp;delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this QA Test ?') . '\');">' . _('Delete') . '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</tbody>';

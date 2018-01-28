@@ -802,18 +802,12 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 		$LastCustomer = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_CustSelect)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			if ($LastCustomer != $MyRow['name']) {
-				echo '<td>' . htmlentities($MyRow['name'], ENT_QUOTES, 'UTF-8') . '</td>';
+				echo '<tr class="striped_row">
+						<td>' . htmlentities($MyRow['name'], ENT_QUOTES, 'UTF-8') . '</td>';
 			} else {
-				echo '<td></td>';
+				echo '<tr class="striped_row">
+						<td></td>';
 			}
 			echo '<td><input type="submit" name="Submit' . $j . '" value="' . htmlentities($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '" /></td>
 					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />

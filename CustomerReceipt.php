@@ -311,14 +311,6 @@ if (isset($_POST['CommitBatch'])) {
 
 	foreach ($_SESSION['ReceiptBatch' . $Identifier]->Items as $ReceiptItem) {
 
-		if ($k == 1) {
-			echo '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-
 		$SQL = "SELECT accountname
 					FROM chartmaster
 					WHERE accountcode='" . $ReceiptItem->GLCode . "'
@@ -326,7 +318,8 @@ if (isset($_POST['CommitBatch'])) {
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
-		echo '<td>', $_SESSION['ReceiptBatch' . $Identifier]->BatchNo, '</td>
+		echo '<tr class="striped_row">
+				<td>', $_SESSION['ReceiptBatch' . $Identifier]->BatchNo, '</td>
 				<td>', $_SESSION['ReceiptBatch' . $Identifier]->DateBanked, '</td>
 				<td>', $ReceiptItem->CustomerName, '</td>
 				<td>', $ReceiptItem->GLCode, ' - ', $MyRow['accountname'], '</td>
@@ -1299,14 +1292,8 @@ if (isset($CustomerSearchResult)) {
 		$Result = DB_query($SQL);
 		$BalanceRow = DB_fetch_array($Result);
 
-		if ($k == 1) {
-			echo '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-		echo '<td><input type="submit" name="CustomerID" value="', $MyRow['debtorno'], '" /></td>
+		echo '<tr class="striped_row">
+				<td><input type="submit" name="CustomerID" value="', $MyRow['debtorno'], '" /></td>
 				<td>', $MyRow['name'], '</td>
 				<td class="number">', locale_number_format($BalanceRow['balance'], $BalanceRow['currdecimalplaces']), '</td>
 			</tr>';

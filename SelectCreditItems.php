@@ -227,25 +227,18 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_CustSelect)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			if ($LastCustomer != $MyRow['name']) {
 				echo '<td>' . $MyRow['name'] . '</td>';
 			} else {
 				echo '<td></td>';
 			}
-			echo '<td><input tabindex="' . ($j + 5) . '" type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '" />
-				<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
-				<input type="hidden" name="SelectedBranch' . $j . '" value="' . $MyRow['branchcode'] . '" /></td>
-				<td>' . $MyRow['contactname'] . '</td>
-				<td>' . $MyRow['phoneno'] . '</td>
-				<td>' . $MyRow['faxno'] . '</td>
+			echo '<tr class="striped_row">
+					<td><input tabindex="' . ($j + 5) . '" type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '" />
+					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
+					<input type="hidden" name="SelectedBranch' . $j . '" value="' . $MyRow['branchcode'] . '" /></td>
+					<td>' . $MyRow['contactname'] . '</td>
+					<td>' . $MyRow['phoneno'] . '</td>
+					<td>' . $MyRow['faxno'] . '</td>
 				</tr>';
 			$LastCustomer = $MyRow['name'];
 			++$j;
@@ -631,16 +624,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			$LineTotal = round($LineItem->Quantity * $LineItem->Price * (1 - $LineItem->DiscountPercent), $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 			$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
-			if ($k == 1) {
-				$RowStarter = '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				$RowStarter = '<tr class="OddTableRows">';
-				++$k;
-			}
-
-			echo $RowStarter . '<td>' . $LineItem->StockID . '</td>
-									<td title="' . $LineItem->LongDescription . '">' . $LineItem->ItemDescription . '</td>';
+			echo '<tr class="striped_row">
+					<td>' . $LineItem->StockID . '</td>
+					<td title="' . $LineItem->LongDescription . '">' . $LineItem->ItemDescription . '</td>';
 
 			if ($LineItem->Controlled == 0) {
 				echo '<td><input type="text" class="number" name="Quantity_' . $LineItem->LineNumber . '" required="required" maxlength="11" size="6" value="' . locale_number_format(round($LineItem->Quantity, $LineItem->DecimalPlaces), $LineItem->DecimalPlaces) . '" /></td>';
@@ -956,28 +942,24 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			$k = 0; //row colour counter
 
 			while ($MyRow = DB_fetch_array($SearchResult)) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
 
 				$SupportedImgExt = array('png', 'jpg', 'jpeg');
 				$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
 				if (extension_loaded('gd') && function_exists('gd_info') && file_exists ($ImageFile) ) {
 					$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
-					printf('<td><input type="submit" name="NewItem" value="%s" /></td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>' . $ImageSource . '</td>
-						</tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units'], $MyRow['stockid']);
+					printf('<tr class="striped_row">
+								<td><input type="submit" name="NewItem" value="%s" /></td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>' . $ImageSource . '</td>
+							</tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units'], $MyRow['stockid']);
 				} else { //don't try to show the image
-					printf('<td><input type="submit" name="NewItem" value="%s" /></td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>' . _('No Image') . '</td></tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units']);
+					printf('<tr class="striped_row">
+								<td><input type="submit" name="NewItem" value="%s" /></td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>' . _('No Image') . '</td>
+							</tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units']);
 				}
 				//end of page full new headings if
 			}
@@ -1001,7 +983,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 
 		for ($i = 1; $i <= $_SESSION['QuickEntries']; $i++) {
 
-			echo '<tr class="OddTableRows">
+			echo '<tr class="striped_row">
 					<td><input type="text" name="part_' . $i . '" size="21" maxlength="20" /></td>
 					<td><input type="text" class="number" name="qty_' . $i . '" size="6" maxlength="6" /></td>
 				</tr>';

@@ -151,13 +151,6 @@ if (!isset($SelectedType)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['physicalitem'] == 0) {
 			$PhysicalItem = _('No');
@@ -165,7 +158,8 @@ if (!isset($SelectedType)) {
 			$PhysicalItem = _('Yes');
 		}
 
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td><a href="%sSelectedType=%s">' . _('Edit') . '</a></td>

@@ -180,17 +180,12 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		echo '<td>', $MyRow['codeexpense'], '</td>
-			<td>', $MyRow['description'], '</td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['codeexpense'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';

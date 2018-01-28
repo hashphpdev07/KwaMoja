@@ -199,14 +199,8 @@ if (isset($StockItemsResult)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td><input type="submit" name="SelectedStockItem" value="' . $MyRow['stockid'] . '"</td>
+		echo '<tr class="striped_row">
+				<td><input type="submit" name="SelectedStockItem" value="' . $MyRow['stockid'] . '"</td>
 				<td>' . $MyRow['description'] . '</td>
 				<td class="number">' . locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($MyRow['qord'], $MyRow['decimalplaces']) . '</td>
@@ -314,20 +308,13 @@ if (isset($StockItemsResult)) {
 		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PurchOrdersResult)) {
-			if ($k == 1) {
-				/*alternate bgcolour of row for highlighting */
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			$ViewPurchOrder = $RootPath . '/PO_OrderDetails.php?OrderNo=' . $MyRow['orderno'];
 			$FormatedOrderDate = ConvertSQLDate($MyRow['orddate']);
 			$FormatedDeliveryDate = ConvertSQLDate($MyRow['deliverydate']);
 			$FormatedOrderValue = locale_number_format($MyRow['ordervalue'], $MyRow['currdecimalplaces']);
 
-			echo '<td><a href="' . $ViewPurchOrder . '">' . $MyRow['orderno'] . '</a></td>
+			echo '<tr class="striped_row">
+					<td><a href="' . $ViewPurchOrder . '">' . $MyRow['orderno'] . '</a></td>
 					<td>' . $MyRow['suppname'] . '</td>
 					<td>' . $MyRow['currcode'] . '</td>
 					<td>' . $MyRow['requisitionno'] . '</td>

@@ -986,16 +986,6 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 
 					while ($MyRow2 = DB_fetch_array($Result)) {
 
-						if ($k == 1) {
-							$RowStarter = '<tr class="EvenTableRows">';
-							$k = 0;
-						} else {
-							$RowStarter = '<tr class="OddTableRows">';
-							$k = 1;
-						}
-
-						echo $RowStarter;
-
 						$DisplayPrice = locale_number_format($MyRow2['fxprice'], $MyRow['decimalplaces']);
 						$DisplayQty = locale_number_format($MyRow2['quantity'], $MyRow2['decimalplaces']);
 						$DisplayNet = locale_number_format($MyRow2['fxnet'], $MyRow['decimalplaces']);
@@ -1006,7 +996,8 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 							$DisplayDiscount = locale_number_format($MyRow2['discountpercent'] * 100, 2) . '%';
 						}
 
-						echo '<td>', $MyRow2['stockid'], '</td>
+						echo '<tr class="striped_row">
+								<td>', $MyRow2['stockid'], '</td>
 								<td>', $MyRow2['description'], '</td>
 								<td class="number">', $DisplayQty, '</td>
 								<td class="number">', $MyRow2['units'], '</td>

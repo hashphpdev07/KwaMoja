@@ -121,20 +121,14 @@ if (!isset($Id)) {
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
-			echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
-				<td>', $MyRow['note'], '</td>
-				<td><a href="', $MyRow['href'], '">', $MyRow['href'], '</a></td>
-				<td>', $MyRow['priority'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">', _('Edit'), ' </td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>', ConvertSQLDate($MyRow['date']), '</td>
+					<td>', $MyRow['note'], '</td>
+					<td><a href="', $MyRow['href'], '">', $MyRow['href'], '</a></td>
+					<td>', $MyRow['priority'], '</td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">', _('Edit'), ' </td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</td>
+				</tr>';
 		}
 			//END WHILE LIST LOOP
 		echo '</table>';

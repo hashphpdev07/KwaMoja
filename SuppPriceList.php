@@ -215,20 +215,14 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 0) {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			}
-			echo '<td>', $MyRow['stockid'], '</td>
-				<td>', $MyRow['description'], '</td>
-				<td>', $MyRow['conversionfactor'], '</td>
-				<td>', $MyRow['price'], '</td>
-				<td class="date">', ConvertSQLDate($MyRow['dateprice']), '</td>
-				<td>', $MyRow['suppliers_partno'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>', $MyRow['stockid'], '</td>
+					<td>', $MyRow['description'], '</td>
+					<td>', $MyRow['conversionfactor'], '</td>
+					<td>', $MyRow['price'], '</td>
+					<td class="date">', ConvertSQLDate($MyRow['dateprice']), '</td>
+					<td>', $MyRow['suppliers_partno'], '</td>
+				</tr>';
 
 		}
 		echo '</table>';

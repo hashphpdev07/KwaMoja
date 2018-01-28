@@ -161,15 +161,8 @@ if (isset($_POST['ShowSales'])) {
 			$CategoryID = $SalesRow['categoryid'];
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $SalesRow['stockid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $SalesRow['stockid'] . '</td>
 				<td>' . $SalesRow['description'] . '</td>
 				<td class="number">' . locale_number_format($SalesRow['quantitysold'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($SalesRow['salesvalue'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>

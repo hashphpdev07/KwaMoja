@@ -423,13 +423,6 @@ if (!isset($SelectedTabs)) {
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
 			$SQLTags = "SELECT pctags.tag,
 								tags.tagdescription
@@ -492,7 +485,8 @@ if (!isset($SelectedTabs)) {
 
 			if (($MyRow['authorized'] == '0000-00-00') and ($Description['0'] != 'ASSIGNCASH')) {
 				// only movements NOT authorised can be modified or deleted
-				echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+				echo '<tr class="striped_row">
+						<td>', ConvertSQLDate($MyRow['date']), '</td>
 						<td>', $Description['0'], '</td>
 						<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
 						<td>', $AuthorisedDate, '</td>
@@ -505,7 +499,8 @@ if (!isset($SelectedTabs)) {
 						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					</tr>';
 			} else {
-				echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+				echo '<tr class="striped_row">
+						<td>', ConvertSQLDate($MyRow['date']), '</td>
 						<td>', $Description['0'], '</td>
 						<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
 						<td>', $AuthorisedDate, '</td>
@@ -515,7 +510,6 @@ if (!isset($SelectedTabs)) {
 						<td>', $MyRow['notes'], '</td>
 						<td>', $ReceiptText, '</td>
 					</tr>';
-
 			}
 
 		}

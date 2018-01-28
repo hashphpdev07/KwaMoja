@@ -160,14 +160,6 @@ if (DB_num_rows($LineItemsResult) > 0) {
 
 	while ($MyRow = DB_fetch_array($LineItemsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		$SQL = "SELECT SUM(shipmentcharges.value) AS invoicedcharges
 						 FROM shipmentcharges
 						 WHERE shipmentcharges.stockid ='" . $MyRow['itemcode'] . "'
@@ -500,16 +492,17 @@ if (DB_num_rows($LineItemsResult) > 0) {
 
 		/*  Item / Qty Inv/  FX price/ Local Val/ Portion of chgs/ Shipt Cost/ Std Cost/ Variance/ Var % */
 
-		echo '<td>', $MyRow['itemcode'], ' - ', stripslashes($MyRow['itemdescription']), '</td>
-			<td class="number">', locale_number_format($MyRow['totqtyinvoiced'], 'Variable'), '</td>
-			<td class="number">', locale_number_format($MyRow['totqtyrecd'], 'Variable'), '</td>
-			<td class="number">', locale_number_format($ItemCharges, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			<td class="number">', locale_number_format($PortionOfCharges, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			<td class="number">', locale_number_format($ItemShipmentCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			<td class="number">', locale_number_format($StdCostUnit, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			<td class="number">', locale_number_format($Variance, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			<td class="number">', $VariancePercentage, '%</td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['itemcode'], ' - ', stripslashes($MyRow['itemdescription']), '</td>
+				<td class="number">', locale_number_format($MyRow['totqtyinvoiced'], 'Variable'), '</td>
+				<td class="number">', locale_number_format($MyRow['totqtyrecd'], 'Variable'), '</td>
+				<td class="number">', locale_number_format($ItemCharges, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($PortionOfCharges, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($ItemShipmentCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($StdCostUnit, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($Variance, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', $VariancePercentage, '%</td>
+			</tr>';
 	}
 }
 echo '<tr>
@@ -576,23 +569,14 @@ $RowCounter = 0;
 $TotalItemShipmentChgs = 0;
 
 while ($MyRow = DB_fetch_array($ChargesResult)) {
-
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>', $MyRow['suppname'], '</td>
-		<td>', $MyRow['typename'], '</td>
-		<td>', $MyRow['suppreference'], '</td>
-		<td>', ConvertSQLDate($MyRow['trandate']), '</td>
-		<td>', $MyRow['stockid'], '</td>
-		<td class="number">', locale_number_format($MyRow['value'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-	</tr>';
+	echo '<tr class="striped_row">
+			<td>', $MyRow['suppname'], '</td>
+			<td>', $MyRow['typename'], '</td>
+			<td>', $MyRow['suppreference'], '</td>
+			<td>', ConvertSQLDate($MyRow['trandate']), '</td>
+			<td>', $MyRow['stockid'], '</td>
+			<td class="number">', locale_number_format($MyRow['value'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+		</tr>';
 
 	$TotalItemShipmentChgs += $MyRow['value'];
 }
@@ -651,20 +635,13 @@ $TotalGeneralShipmentChgs = 0;
 
 while ($MyRow = DB_fetch_array($ChargesResult)) {
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>', $MyRow['suppname'], '</td>
-		<td>', $MyRow['typename'], '</td>
-		<td>', $MyRow['suppreference'], '</td>
-		<td>', ConvertSQLDate($MyRow['trandate']), '</td>
-		<td class="number">', locale_number_format($MyRow['value'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-	</tr>';
+	echo '<tr class="striped_row">
+			<td>', $MyRow['suppname'], '</td>
+			<td>', $MyRow['typename'], '</td>
+			<td>', $MyRow['suppreference'], '</td>
+			<td>', ConvertSQLDate($MyRow['trandate']), '</td>
+			<td class="number">', locale_number_format($MyRow['value'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+		</tr>';
 
 	$TotalGeneralShipmentChgs += $MyRow['value'];
 

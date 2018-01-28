@@ -113,27 +113,21 @@ if (!isset($_POST['submit']) and isset($_POST['supplierid'])) {
 	$k = 0;
 	echo 'The result has rows ' . DB_num_rows($Result) . '<br/>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		echo '<td>' . $MyRow['offerid'] . '</td>
-			<td>' . $MyRow['suppname'] . '</td>
-			<td>' . $MyRow['description'] . '</td>
-			<td class="number">' . locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']) . '</td>
-			<td>' . $MyRow['uom'] . '</td>
-			<td class="number">' . locale_number_format($MyRow['price'], $MyRow['currdecimalplaces']) . '</td>
-			<td class="number">' . locale_number_format($MyRow['price'] * $MyRow['quantity'], $MyRow['currdecimalplaces']) . '</td>
-			<td>' . $MyRow['currcode'] . '</td>
-			<td>' . $MyRow['expirydate'] . '</td>
-			<td><input type="radio" name="action' . $MyRow['offerid'] . '" value="1" /></td>
-			<td><input type="radio" name="action' . $MyRow['offerid'] . '" value="2" /></td>
-			<td><input type="radio" checked name="action' . $MyRow['offerid'] . '" value="3" /></td>
-			<td><input type="hidden" name="supplierid" value="' . $MyRow['supplierid'] . '" /></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['offerid'] . '</td>
+				<td>' . $MyRow['suppname'] . '</td>
+				<td>' . $MyRow['description'] . '</td>
+				<td class="number">' . locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']) . '</td>
+				<td>' . $MyRow['uom'] . '</td>
+				<td class="number">' . locale_number_format($MyRow['price'], $MyRow['currdecimalplaces']) . '</td>
+				<td class="number">' . locale_number_format($MyRow['price'] * $MyRow['quantity'], $MyRow['currdecimalplaces']) . '</td>
+				<td>' . $MyRow['currcode'] . '</td>
+				<td>' . $MyRow['expirydate'] . '</td>
+				<td><input type="radio" name="action' . $MyRow['offerid'] . '" value="1" /></td>
+				<td><input type="radio" name="action' . $MyRow['offerid'] . '" value="2" /></td>
+				<td><input type="radio" checked name="action' . $MyRow['offerid'] . '" value="3" /></td>
+				<td><input type="hidden" name="supplierid" value="' . $MyRow['supplierid'] . '" /></td>
+			</tr>';
 	}
 	echo '<tr>
 			<td colspan="12">

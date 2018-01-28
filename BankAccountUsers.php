@@ -157,23 +157,18 @@ if (isset($_POST['process']) OR isset($SelectedBankAccount)) {
 	echo '<tr>
 			<th>' . _('User Code') . '</th>
 			<th>' . _('User Name') . '</th>
+			<th></th>
 		</tr>';
 
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		printf('<td>%s</td>
-			<td>%s</td>
-			<td><a href="%s?SelectedUser=%s&amp;delete=yes&amp;SelectedBankAccount=' . $SelectedBankAccount . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorize this user?') . '\');">' . _('Un-authorize') . '</a></td>
-			</tr>', $MyRow['userid'], $MyRow['realname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['userid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['userid']);
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%s?SelectedUser=%s&amp;delete=yes&amp;SelectedBankAccount=' . $SelectedBankAccount . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorize this user?') . '\');">' . _('Un-authorize') . '</a></td>
+				</tr>', $MyRow['userid'], $MyRow['realname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['userid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['userid']);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';

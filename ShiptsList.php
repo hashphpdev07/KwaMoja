@@ -40,15 +40,8 @@ echo '<table cellpadding="2" class="selection">
 $k = 0; //row colour counter
 
 while ($MyRow = DB_fetch_array($ShiptsResult)) {
-	if ($k == 1) {
-		echo '<tr class="OddTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="EvenTableRows">';
-		$k = 1;
-	}
-
-	echo '<td><a href="' . $RootPath . '/Shipments.php?SelectedShipment=' . urlencode($MyRow['shiptref']) . '">' . $MyRow['shiptref'] . '</a></td>
+	echo '<tr class="striped_row">
+			<td><a href="' . $RootPath . '/Shipments.php?SelectedShipment=' . urlencode($MyRow['shiptref']) . '">' . $MyRow['shiptref'] . '</a></td>
 			<td>' . $MyRow['vessel'] . '</td>
 			<td>' . ConvertSQLDate($MyRow['shipmentdate']) . '</td>
 			<td>' . ConvertSQLDate($MyRow['eta']) . '</td>

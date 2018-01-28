@@ -130,7 +130,7 @@ if (!isset($Id)) {
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<thead>
 				<tr>
 					<th class="SortedColumn">', _('Name'), '</th>
@@ -143,17 +143,10 @@ if (!isset($Id)) {
 				</tr>
 			</thead>';
 
-		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
-			echo '<td class="text">', $MyRow['contactname'], '</td>
+			echo '<tr class="striped_row">
+					<td class="text">', $MyRow['contactname'], '</td>
 					<td class="text">', $MyRow['role'], '</td>
 					<td class="text">', $MyRow['phoneno'], '</td>
 					<td class="text"><a href="mailto:', $MyRow['email'], '">', $MyRow['email'], '</a></td>
@@ -162,8 +155,8 @@ if (!isset($Id)) {
 					<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['contid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">' . _('Edit') . '</a></td>
 					<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['contid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this contact?') . '\');">' . _('Delete'). '</a></td>
 				</tr>';
+			//END WHILE LIST LOOP
 		}
-		//END WHILE LIST LOOP
 		echo '</tbody>
 		</table>';
 	}

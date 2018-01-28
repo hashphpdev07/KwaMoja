@@ -303,7 +303,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Group Code'), '</th>
@@ -320,13 +320,6 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 
 		switch ($MyRow['pandl']) {
 			case -1:
@@ -340,16 +333,17 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 				break;
 		} //end of switch statement
 
-		echo '<td>', $MyRow['groupcode'], '</td>
-			<td>', $MyRow['groupname'], '</td>
-			<td>', $MyRow['sectionname'], '</td>
-			<td class="number">', $MyRow['sequenceintb'], '</td>
-			<td>', $PandLText, '</td>
-			<td>', $MyRow['parentgroupcode'], '</td>
-			<td>', $MyRow['parentgroupname'], '</td>
-			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '">', _('Edit'), '</a></td>
-			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['groupcode'], '</td>
+				<td>', $MyRow['groupname'], '</td>
+				<td>', $MyRow['sectionname'], '</td>
+				<td class="number">', $MyRow['sequenceintb'], '</td>
+				<td>', $PandLText, '</td>
+				<td>', $MyRow['parentgroupcode'], '</td>
+				<td>', $MyRow['parentgroupname'], '</td>
+				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '">', _('Edit'), '</a></td>
+				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</tbody>';

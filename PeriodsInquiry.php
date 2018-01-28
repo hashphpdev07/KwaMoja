@@ -32,15 +32,9 @@ for ($i = 0; $i < 3; $i++) {
 			</tr>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($PeriodsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		echo '<td>' . $MyRow['periodno'] . '</td>
-			  <td>' . ConvertSQLDate($MyRow['lastdate_in_period']) . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['periodno'] . '</td>
+				<td>' . ConvertSQLDate($MyRow['lastdate_in_period']) . '</td>
 			</tr>';
 		++$j;
 		if (($j == $PeriodsInTable) or ($j == $PeriodsInTable * 2)) {

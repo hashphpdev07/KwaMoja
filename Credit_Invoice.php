@@ -321,19 +321,13 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 	$_SESSION['CreditItems' . $Identifier]->totalWeight += ($LnItm->QtyDispatched * $LnItm->Weight);
 
 	if (!isset($_POST['ProcessCredit'])) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		++$j;
 
-		echo '<td>' . $LnItm->StockID . '</td>
-			<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
-			<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
-			<td>' . $LnItm->Units . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $LnItm->StockID . '</td>
+				<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
+				<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
+				<td>' . $LnItm->Units . '</td>';
 
 		if ($LnItm->Controlled == 1) {
 

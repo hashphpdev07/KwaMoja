@@ -390,14 +390,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$PeriodTotalLY += $AccountTotalLY;
 
 		if ($_POST['Detail'] == 'Detailed') {
-			if (isset($_POST['ShowZeroBalances']) OR (!isset($_POST['ShowZeroBalances']) AND ($AccountTotal <> 0 OR $AccountTotalLY <> 0))) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
+			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and ($AccountTotal <> 0 or $AccountTotalLY <> 0))) {
+				echo '<tr class="striped_row">';
 				echo '<td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?Period=', $_POST['ToPeriod'], '&amp;Account=', $MyRow['accountcode'], '&amp;Show=Yes">', $MyRow['accountcode'], '</a></td>';
 				// --->
 				if ($Section == 1) {
@@ -421,8 +415,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	} // End of loop.
 
 	if ($MyRow['groupname'] != $ActGrp) {
-		if ($MyRow['parentgroupname'] != $ActGrp AND $ActGrp != '') {
-			while ($MyRow['groupname'] != $ParentGroups[$Level] AND $Level > 0) {
+		if ($MyRow['parentgroupname'] != $ActGrp and $ActGrp != '') {
+			while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
 				if ($_POST['Detail'] == 'Detailed') {
 					echo $DrawTotalLine;
 					$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');

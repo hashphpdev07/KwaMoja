@@ -779,19 +779,8 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		$QtyOrdered = $OrderLine->Quantity;
 		$QtyRemain = $QtyOrdered - $OrderLine->QtyInv;
 
-		if ($OrderLine->QOHatLoc < $OrderLine->Quantity and ($OrderLine->MBflag == 'B' or $OrderLine->MBflag == 'M')) {
-			/*There is a stock deficiency in the stock location selected */
-			$RowStarter = '<tr style="background-color:#EEAABB">';
-		} elseif ($k == 1) {
-			$RowStarter = '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			$RowStarter = '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-
-		echo $RowStarter;
-		echo '<td><input type="hidden" name="POLine_' . $OrderLine->LineNumber . '" value="" />';
+		echo '<tr class="striped_row">
+				<td><input type="hidden" name="POLine_' . $OrderLine->LineNumber . '" value="" />';
 		echo '<input type="hidden" name="ItemDue_' . $OrderLine->LineNumber . '" value="' . $OrderLine->ItemDue . '" />';
 
 		echo '<a target="_blank" href="' . $RootPath . '/StockStatus.php?identifier=' . $Identifier . '&amp;StockID=' . $OrderLine->StockID . '&amp;DebtorNo=' . $_SESSION['Items' . $Identifier]->DebtorNo . '">' . $OrderLine->StockID . '</a></td>
@@ -857,7 +846,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	}
 	/* end of loop around items */
 
-	echo '<tr class="EvenTableRows">';
+	echo '<tr class="striped_row">';
 	if (in_array(1000, $_SESSION['AllowedPageSecurityTokens'])) {
 		echo '<td colspan="8" class="number"><b>' . _('Total') . '</b></td>';
 	} else {
@@ -2223,17 +2212,10 @@ if (!isset($_POST['ProcessSale'])) {
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$QOO += GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-
 				$Available = $QOH - $DemandQty + $QOO;
 
-				echo '<td>', $MyRow['stockid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['stockid'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td class="number">', $QOH, '</td>
@@ -2391,17 +2373,10 @@ if (!isset($_POST['ProcessSale'])) {
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$QOO += GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-
 				$Available = $QOH - $DemandQty + $QOO;
 
-				echo '<td>', $MyRow['stockid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['stockid'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td class="number">', locale_number_format($QOH, $MyRow['decimalplaces']), '</td>

@@ -557,16 +557,10 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 				$linectr = 0;
 				$k = 0;
 				while ($MyRow = DB_fetch_array($Result)) {
-					if ($k == 1) {
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						++$k;
-					}
 					$linectr++;
 					// Detail for both DateType of Order
-					echo '<td><a href="' . $RootPath . '/PO_OrderDetails.php?OrderNo=' . urlencode($MyRow['orderno']) . '">' . $MyRow['orderno'] . '</a></td>
+					echo '<tr class="striped_row">
+							<td><a href="' . $RootPath . '/PO_OrderDetails.php?OrderNo=' . urlencode($MyRow['orderno']) . '">' . $MyRow['orderno'] . '</a></td>
 							<td>' . $MyRow['itemcode'] . '</td>
 							<td>' . ConvertSQLDate($MyRow['orddate']) . '</td>
 							<td>' . $MyRow['supplierno'] . '</td>
@@ -621,29 +615,23 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 				$linectr = 0;
 				$k = 0;
 				while ($MyRow = DB_fetch_array($Result)) {
-					if ($k == 1) {
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						++$k;
-					}
 					$linectr++;
 					// Detail for both DateType of Ship
 					// In sql, had to alias grns.qtyrecd as quantityord so could use same name here
-					printf('<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
+					printf('<tr class="striped_row">
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
 							</tr>', $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], locale_number_format($MyRow['quantityrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['quantityord'], $MyRow['decimalplaces']), locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), locale_number_format($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
 
 					$LastDecimalPlaces = $MyRow['decimalplaces'];
@@ -727,19 +715,14 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 				if ($summarytype == 'orderno') {
 					$suppname = $MyRow['suppname'];
 				}
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
 						</tr>', $MyRow[$summarytype], $MyRow[$description], $MyRow['quantityord'], locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), $MyRow['qtyinvoiced'], $suppname);
 				$TotalQty += $MyRow['quantityord'];
 				$TotalExtCost += $MyRow['extcost'];

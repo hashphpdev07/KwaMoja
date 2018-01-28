@@ -213,24 +213,17 @@ echo '<table class="selection">
 
 $k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($Result)) {
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k++;
-	}
-	echo '<td>' . $MyRow['bracket'] . '</td>
-		<td>' . $MyRow['rangefrom'] . '</td>
-		<td>' . $MyRow['rangeto'] . '</td>
-		<td>' . $MyRow['salarycredit'] . '</td>
-		<td>' . $MyRow['employerbasicpay'] . '</td>
-		<td>' . $MyRow['employeebasicpay'] . '</td>
-		<td>' . $MyRow['total'] . '</td>
-		<td><a href="' . $_SERVER['PHP_SELF'] . '?Bracket=' . $MyRow['bracket'] . '">' . _('Edit') . '</a></td>
-		<td><a href="' . $_SERVER['PHP_SELF'] . '?Bracket=' . $MyRow['bracket'] . '&delete=1">' . _('Delete') . '</a></td>
-	</tr>';
+	echo '<tr class="striped_row">
+			<td>' . $MyRow['bracket'] . '</td>
+			<td>' . $MyRow['rangefrom'] . '</td>
+			<td>' . $MyRow['rangeto'] . '</td>
+			<td>' . $MyRow['salarycredit'] . '</td>
+			<td>' . $MyRow['employerbasicpay'] . '</td>
+			<td>' . $MyRow['employeebasicpay'] . '</td>
+			<td>' . $MyRow['total'] . '</td>
+			<td><a href="' . $_SERVER['PHP_SELF'] . '?Bracket=' . $MyRow['bracket'] . '">' . _('Edit') . '</a></td>
+			<td><a href="' . $_SERVER['PHP_SELF'] . '?Bracket=' . $MyRow['bracket'] . '&delete=1">' . _('Delete') . '</a></td>
+		</tr>';
 } //END WHILE LIST LOOP
 echo '</table>';
 

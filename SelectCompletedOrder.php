@@ -419,21 +419,14 @@ if (isset($StockItemsResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>
-				<input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" />
-			</td>
-			<td>', $MyRow['description'], '</td>
-			<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
-			<td>', $MyRow['units'], '</td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>
+					<input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" />
+				</td>
+				<td>', $MyRow['description'], '</td>
+				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['units'], '</td>
+			</tr>';
 
 		//end of page full new headings if
 	}
@@ -483,15 +476,8 @@ if (isset($SalesOrdersResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td><a href="', $RootPath . '/OrderDetails.php?OrderNumber=' . $MyRow['orderno'], '">', $MyRow['orderno'], '</a></td>
+		echo '<tr class="striped_row">
+				<td><a href="', $RootPath . '/OrderDetails.php?OrderNumber=' . $MyRow['orderno'], '">', $MyRow['orderno'], '</a></td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['brname'], '</td>
 				<td>', $MyRow['customerref'], '</td>

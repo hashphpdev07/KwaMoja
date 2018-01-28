@@ -102,20 +102,13 @@ if (count($_SESSION['Project' . $Identifier]->ProjectReqts) > 0) {
 		$LineTotal = $ProjectComponent->Quantity * $ProjectComponent->CostPerUnit;
 		$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CompanyRecord']['decimalplaces']);
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td><textarea name="Requirement' . $ProjectReqtID . '" required="required" autofocus="autofocus" cols="30" rows="3">' . $ProjectComponent->Requirement . '</textarea></td>
-			  <td><input type="text" class="number" maxlength="11" required="required" name="Qty' . $ProjectReqtID . '" size="11" value="' . locale_number_format($ProjectComponent->Quantity, 'Variable') . '" /></td>
-			  <td><input type="text" class="number" maxlength="11" required="required" name="CostPerUnit' . $ProjectReqtID . '" size="11" value="' . locale_number_format($ProjectComponent->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>
-			  <td class="number">' . $DisplayLineTotal . '</td>
-			  <td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this project requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			  </tr>';
+		echo '<tr class="striped_row">
+				<td><textarea name="Requirement' . $ProjectReqtID . '" required="required" autofocus="autofocus" cols="30" rows="3">' . $ProjectComponent->Requirement . '</textarea></td>
+				<td><input type="text" class="number" maxlength="11" required="required" name="Qty' . $ProjectReqtID . '" size="11" value="' . locale_number_format($ProjectComponent->Quantity, 'Variable') . '" /></td>
+				<td><input type="text" class="number" maxlength="11" required="required" name="CostPerUnit' . $ProjectReqtID . '" size="11" value="' . locale_number_format($ProjectComponent->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>
+				<td class="number">' . $DisplayLineTotal . '</td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this project requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 		$TotalCost += $LineTotal;
 	}
 

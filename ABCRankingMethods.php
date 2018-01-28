@@ -67,7 +67,7 @@ if (isset($_POST['Submit'])) {
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr class="OddTableRows">
+		echo '<tr class="striped_row">
 				<td>', $MyRow['methodid'], '</td>
 				<td>', $MyRow['methodname'], '</td>
 				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedMethodID=', $MyRow['methodid'], '">', _('Edit'), '</a></td>

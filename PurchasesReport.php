@@ -125,16 +125,10 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				$SupplierGlAmount = 0;
 				$SupplierGlTax = 0;
 			}
-			if($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
 			$GlAmount = $MyRow['ovamount']/$MyRow['rate'];
 			$GlTax = $MyRow['ovgst']/$MyRow['rate'];
-			echo	'<td class="centre">', $MyRow['trandate'], '</td>',
+			echo '<tr class="striped_row">
+					<td class="centre">', $MyRow['trandate'], '</td>',
 					'<td class="number">', $MyRow['transno'], '</td>',
 					'<td class="text">', $MyRow['suppreference'], '</td>',
 					'<td class="number">', locale_number_format($MyRow['ovamount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
@@ -214,22 +208,16 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 		$Result = DB_query($SQL);
 		echo '<tbody>';
 		foreach($Result as $MyRow) {
-			if($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
-			echo	'<td class="text"><a href="', $RootPath, '/SupplierInquiry.php?SupplierID=', $MyRow['supplierno'], '">', $MyRow['supplierno'], '</a></td>',
+			echo '<tr class="striped_row">
+					<td class="text"><a href="', $RootPath, '/SupplierInquiry.php?SupplierID=', $MyRow['supplierno'], '">', $MyRow['supplierno'], '</a></td>',
 					'<td class="text">', $MyRow['suppname'], '</td>',
 					'<td class="text">', $MyRow['currcode'], '</td>',
 					'<td class="number">', locale_number_format($MyRow['SupplierOvAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
 					'<td class="number">', locale_number_format($MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierOvAmount']+$MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
+					'<td class="number">', locale_number_format($MyRow['SupplierOvAmount'] + $MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
 					'<td class="number">', locale_number_format($MyRow['SupplierGlAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
 					'<td class="number">', locale_number_format($MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierGlAmount']+$MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
+					'<td class="number">', locale_number_format($MyRow['SupplierGlAmount'] + $MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
 				'</tr>';
 			$TotalGlAmount += $MyRow['SupplierGlAmount'];
 			$TotalGlTax += $MyRow['SupplierGlTax'];

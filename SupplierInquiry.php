@@ -236,28 +236,20 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 	} else {
 		$HoldValue = _('Release');
 	}
-	if ($MyRow['hold'] == 1) {
-		echo '<tr bgcolor="#DD99BB">';
-	} elseif ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
 
 	$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
 
 	// All table-row (tag tr) must have 10 table-datacells (tag td).
 
-	$BaseTD8 = '<td>' . ConvertSQLDate($MyRow['trandate']) . '</td>
-				<td>' . _($MyRow['typename']) . '</td>
-				<td class="number"><a href="' . $RootPath . '/SuppWhereAlloc.php?TransType=' . urlencode($MyRow['type']) . '&TransNo=' . urlencode($MyRow['transno']) . '">' . $MyRow['transno'] . '</a></td>
-				<td>' . $MyRow['suppreference'] . '</td>
-				<td>' . $MyRow['transtext'] . '</td>
-				<td class="number">' . locale_number_format($MyRow['totalamount'],$SupplierRecord['currdecimalplaces']) . '</td>
-				<td class="number">' . locale_number_format($MyRow['allocated'],$SupplierRecord['currdecimalplaces']) . '</td>
-				<td class="number">' . locale_number_format($MyRow['totalamount']-$MyRow['allocated'],$SupplierRecord['currdecimalplaces']) . '</td>';
+	$BaseTD8 = '<tr class="striped_row">
+					<td>' . ConvertSQLDate($MyRow['trandate']) . '</td>
+					<td>' . _($MyRow['typename']) . '</td>
+					<td class="number"><a href="' . $RootPath . '/SuppWhereAlloc.php?TransType=' . urlencode($MyRow['type']) . '&TransNo=' . urlencode($MyRow['transno']) . '">' . $MyRow['transno'] . '</a></td>
+					<td>' . $MyRow['suppreference'] . '</td>
+					<td>' . $MyRow['transtext'] . '</td>
+					<td class="number">' . locale_number_format($MyRow['totalamount'],$SupplierRecord['currdecimalplaces']) . '</td>
+					<td class="number">' . locale_number_format($MyRow['allocated'],$SupplierRecord['currdecimalplaces']) . '</td>
+					<td class="number">' . locale_number_format($MyRow['totalamount']-$MyRow['allocated'],$SupplierRecord['currdecimalplaces']) . '</td>';
 
 	$PaymentTD1 = '<td class="noPrint"><a href="' . $RootPath . '/PaymentAllocations.php?SuppID=' . urlencode($SupplierID) . '&amp;InvID=' . urlencode($MyRow['suppreference']) . '" title="' . _('Click to view payments') . '"><img width="16px" alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_delete.png" width="16"/> ' . _('Payments') . '</a></td>';
 

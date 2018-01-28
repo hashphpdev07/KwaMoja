@@ -314,13 +314,6 @@ $k = 0; //row colour counter
 $j = 0;
 foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	++$j;
-	if ($k == 1) {
-		$RowStarter = '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		$RowStarter = '<tr class="OddTableRows">';
-		$k = 1;
-	}
 	if (sizeOf($LnItm->SerialItems) > 0) {
 		$_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyDispatched = 0; //initialise QtyDispatched
 		foreach ($LnItm->SerialItems as $SerialItem) { //calculate QtyDispatched from bundle quantities
@@ -333,11 +326,12 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 		}
 	}
 	echo $RowStarter;
-	echo '<td>' . $LnItm->StockID . '</td>
-		<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
-		<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
-		<td>' . $LnItm->Units . '</td>
-		<td class="number">' . locale_number_format($LnItm->QtyInv, $LnItm->DecimalPlaces) . '</td>';
+	echo '<tr class="striped_row">
+			<td>' . $LnItm->StockID . '</td>
+			<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
+			<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
+			<td>' . $LnItm->Units . '</td>
+			<td class="number">' . locale_number_format($LnItm->QtyInv, $LnItm->DecimalPlaces) . '</td>';
 
 	if ($LnItm->Controlled == 1) {
 

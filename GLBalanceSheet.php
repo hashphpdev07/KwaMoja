@@ -589,22 +589,15 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		if ($_POST['Detail'] == 'Detailed') {
 
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and ($AccountBalance <> 0 or $LYAccountBalance <> 0))){
-				if ($k==1){
-					echo '<tr class="OddTableRows">';
-					$k=0;
-				} else {
-					echo '<tr class="EvenTableRows">';
-					++$k;
-				}
-
 				$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?Period=' . urlencode($_POST['BalancePeriodEnd']) . '&amp;Account=' . urlencode($MyRow['accountcode']) . '">' . $MyRow['accountcode'] . '</a>';
 
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td></td>
+							<td class="number">%s</td>
+							<td></td>
 						</tr>',
 						$ActEnquiryURL,
 						htmlspecialchars($MyRow['accountname'],ENT_QUOTES,'UTF-8',false),

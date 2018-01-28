@@ -143,15 +143,8 @@ if (!isset($SelectedType)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_row($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $MyRow[0] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow[0] . '</td>
 				<td>' . $MyRow[1] . '</td>
 				<td>' . $MyRow[2] . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&Edit=Yes">' . _('Edit') . '</a></td>

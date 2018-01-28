@@ -231,20 +231,14 @@ if (DB_num_rows($Result) > 0) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		if ($MyRow['enddate'] == '9999-12-31') {
 			$EndDateDisplay = _('No End Date');
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
 
-		echo   '<td>' . $MyRow['currency'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['currency'] . '</td>
 				<td>' . $MyRow['sales_type'] . '</td>
 				<td class="number">' . locale_number_format($MyRow['price'], $MyRow['currdecimalplaces'] + 2) . '</td>
 				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>

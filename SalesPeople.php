@@ -247,14 +247,6 @@ if (!isset($SelectedSalesPerson)) {
 			</thead>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		if ($MyRow['current'] == 1) {
 			$ActiveText = _('Yes');
 		} else {
@@ -270,7 +262,8 @@ if (!isset($SelectedSalesPerson)) {
 		$AreaResult = DB_query($SQL);
 		$AreaRow = DB_fetch_array($AreaResult);
 
-		echo '<td>' . $MyRow['salesmancode'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['salesmancode'] . '</td>
 				<td>' . $MyRow['salesmanname'] . '</td>
 				<td>' . $AreaRow['areadescription'] . '</td>
 				<td>' . $ManagerText . '</td>
@@ -282,7 +275,7 @@ if (!isset($SelectedSalesPerson)) {
 				<td>' . $ActiveText . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '">' . _('Edit') . '</a></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales person?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>';
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><br />';

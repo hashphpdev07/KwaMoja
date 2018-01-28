@@ -145,13 +145,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			$AllocsTotal = 0;
 
 			while ($MyRow = DB_fetch_array($TransResult)) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k++;
-				}
 
 				if ($MyRow['type'] == 21) {
 					$TransType = _('Debit Note');
@@ -160,14 +153,15 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 				} else {
 					$TransType = _('Payment');
 				}
-				echo '<td>', ConvertSQLDate($MyRow['trandate']), '</td>
-					<td>', $TransType, '</td>
-					<td>', $MyRow['transno'], '</td>
-					<td>', $MyRow['suppreference'], '</td>
-					<td>', $MyRow['rate'], '</td>
-					<td class="number">', locale_number_format($MyRow['totalamt'], $CurrDecimalPlaces), '</td>
-					<td class="number">', locale_number_format($MyRow['amt'], $CurrDecimalPlaces), '</td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td>', ConvertSQLDate($MyRow['trandate']), '</td>
+						<td>', $TransType, '</td>
+						<td>', $MyRow['transno'], '</td>
+						<td>', $MyRow['suppreference'], '</td>
+						<td>', $MyRow['rate'], '</td>
+						<td class="number">', locale_number_format($MyRow['totalamt'], $CurrDecimalPlaces), '</td>
+						<td class="number">', locale_number_format($MyRow['amt'], $CurrDecimalPlaces), '</td>
+					</tr>';
 
 				//end of page full new headings if
 				$AllocsTotal += $MyRow['amt'];

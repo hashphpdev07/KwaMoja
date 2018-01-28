@@ -302,26 +302,20 @@ if (empty($FactorID) and !isset($_POST['Create']) and !isset($_POST['Amend'])) {
 	$Result = DB_query($SQL);
 	$j = 1;
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($j == 1) {
-			echo '<tr class="OddTableRows">';
-			$j = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			++$j;
-		}
-		echo '<td>' . $MyRow['id'] . '</td>
-			<td>' . $MyRow['coyname'] . '</td>
-			<td>' . $MyRow['address1'] . '</td>
-			<td>' . $MyRow['address2'] . '</td>
-			<td>' . $MyRow['address3'] . '</td>
-			<td>' . $MyRow['address4'] . '</td>
-			<td>' . $MyRow['address5'] . '</td>
-			<td>' . $MyRow['address6'] . '</td>
-			<td>' . $MyRow['contact'] . '</td>
-			<td>' . $MyRow['telephone'] . '</td>
-			<td>' . $MyRow['fax'] . '</td>
-			<td>' . $MyRow['email'] . '</td>
-			<td><a href="' . $RootPath . '/Factors.php?FactorID=' . urlencode($MyRow['id']) . '">' . _('Edit') . '</a></td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['id'] . '</td>
+				<td>' . $MyRow['coyname'] . '</td>
+				<td>' . $MyRow['address1'] . '</td>
+				<td>' . $MyRow['address2'] . '</td>
+				<td>' . $MyRow['address3'] . '</td>
+				<td>' . $MyRow['address4'] . '</td>
+				<td>' . $MyRow['address5'] . '</td>
+				<td>' . $MyRow['address6'] . '</td>
+				<td>' . $MyRow['contact'] . '</td>
+				<td>' . $MyRow['telephone'] . '</td>
+				<td>' . $MyRow['fax'] . '</td>
+				<td>' . $MyRow['email'] . '</td>
+				<td><a href="' . $RootPath . '/Factors.php?FactorID=' . urlencode($MyRow['id']) . '">' . _('Edit') . '</a></td>
 			</tr>';
 	} //end while loop
 	echo '</table>

@@ -345,20 +345,17 @@ if (isset($_POST['AllocTrans'])) {
 		$YetToAlloc = ($AllocnItem->TransAmount - $AllocnItem->PrevAlloc);
 
 		if ($AllocnItem->ID == $_POST['AllocTrans']) {
-			echo '<tr class="OddTableRows">';
 			$CurTrans = _('Being allocated');
 		} else if ($AllocnItem->AllocAmt > 0) {
-			echo '<tr class="OddTableRows">';
 		} else {
-			echo '<tr class="EvenTableRows">';
 			$CurTrans = "&nbsp;";
 		}
 
-		echo '<td>', _($AllocnItem->TransType), '</td>
-			<td class="number">', $AllocnItem->TypeNo, '</td>
-			<td>', $AllocnItem->TransDate, '</td>
-			<td class="number">', locale_number_format($AllocnItem->TransAmount, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
-			<td class="number">', locale_number_format($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>';
+		echo '<tr class="striped_row"><td>', _($AllocnItem->TransType), '</td>
+				<td class="number">', $AllocnItem->TypeNo, '</td>
+				<td>', $AllocnItem->TransDate, '</td>
+				<td class="number">', locale_number_format($AllocnItem->TransAmount, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
+				<td class="number">', locale_number_format($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>';
 
 		if ($AllocnItem->ID == $_POST['AllocTrans']) {
 			$Balance += $YetToAlloc;
@@ -461,14 +458,8 @@ if (isset($_POST['AllocTrans'])) {
 				</tr>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['debtorno'], '</td>
 				<td>', $MyRow['transno'], '</td>
@@ -538,7 +529,7 @@ if (isset($_POST['AllocTrans'])) {
 
 		if ($CurrentDebtor != $MyRow['debtorno']) {
 			if ($CurrentTransaction > 1) {
-				echo '<tr class="OddTableRows">
+				echo '<tr class="striped_row">
 						<td colspan="7" class="number"><b>', locale_number_format($Balance, $CurrDecimalPlaces), '</b></td>
 						<td><b>', $CurrCode, '</b></td>
 						<td><b>', _('Balance'), '</b></td>
@@ -563,15 +554,8 @@ if (isset($_POST['AllocTrans'])) {
 			$AllocateLink = '&nbsp;';
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['debtorno'], '</td>
 				<td>', $MyRow['transno'], '</td>
@@ -590,7 +574,7 @@ if (isset($_POST['AllocTrans'])) {
 	if ($NoOfUnallocatedTrans == 0) {
 		prnMsg(_('There are no allocations to be done'), 'info');
 	} else {
-		echo '<tr class="OddTableRows">
+		echo '<tr class="striped_row">
 				<td colspan="7" class="number"><b>', locale_number_format($Balance, $CurrDecimalPlaces), '</b></td>
 				<td><b>', $CurrCode, '</b></td>
 				<td><b>', _('Balance'), '</b></td>

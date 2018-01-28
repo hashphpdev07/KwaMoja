@@ -53,14 +53,6 @@ td table {
 background: red;
 }
 
-.EvenTableRows {
-background-color:white;
-}
-
-.OddTableRows {
-background-color:#CCCCCC;
-}
-
 /* Table type is used for UI tables type 1 */
 .table1 {
 width:90%;

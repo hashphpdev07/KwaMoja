@@ -101,28 +101,20 @@ SUM(recurrsalesorderdetails.unitprice*recurrsalesorderdetails.quantity*(1-recurr
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$ModifyPage = $RootPath . '/RecurringSalesOrders.php?ModifyRecurringSalesOrder=' . $MyRow['recurrorderno'];
 		$FormatedLastRecurrence = ConvertSQLDate($MyRow['lastrecurrence']);
 		$FormatedStopDate = ConvertSQLDate($MyRow['stopdate']);
 		$FormatedOrderValue = locale_number_format($MyRow['ordervalue'], $MyRow['currdecimalplaces']);
 
-		printf('<td><a href="%s">%s</a></td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
+		printf('<tr class="striped_row">
+					<td><a href="%s">%s</a></td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td class="number">%s</td>
 				</tr>', $ModifyPage, $MyRow['recurrorderno'], $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedLastRecurrence, $FormatedStopDate, $MyRow['frequency'], $FormatedOrderValue);
 
 		//end of page full new headings if

@@ -162,14 +162,10 @@ $RequiredItems = array();
 
 while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 	$RequiredItems[] = $RequirementsRow['stockid'];
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-	} else {
-		echo '<tr class="OddTableRows">';
-	}
 
-	echo '<td>' . $RequirementsRow['stockid'] . '</td>
-		<td>' . $RequirementsRow['description'] . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $RequirementsRow['stockid'] . '</td>
+			<td>' . $RequirementsRow['description'] . '</td>
 		</tr>';
 
 	$IssuesResult = DB_query("SELECT stockmoves.trandate,
@@ -187,30 +183,17 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 
 	if (DB_num_rows($IssuesResult) > 0) {
 		while ($IssuesRow = DB_fetch_array($IssuesResult)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-			} else {
-				echo '<tr class="OddTableRows">';
-			}
-			echo '<td colspan="4"></td><td>' . ConvertSQLDate($IssuesRow['trandate']) . '</td>
-				<td class="number">' . locale_number_format(-$IssuesRow['qty'], $RequirementsRow['decimalplaces']) . '</td>
-				<td class="number">' . locale_number_format(-($IssuesRow['qty'] * $IssuesRow['standardcost']), $IssuesRow['decimalplaces']) . '</td></tr>';
+			echo '<tr class="striped_row">
+					<td colspan="4"></td><td>' . ConvertSQLDate($IssuesRow['trandate']) . '</td>
+					<td class="number">' . locale_number_format(-$IssuesRow['qty'], $RequirementsRow['decimalplaces']) . '</td>
+					<td class="number">' . locale_number_format(-($IssuesRow['qty'] * $IssuesRow['standardcost']), $IssuesRow['decimalplaces']) . '</td></tr>';
 			$IssueQty -= $IssuesRow['qty']; // because qty for the stock movement will be negative
 			$IssueCost -= ($IssuesRow['qty'] * $IssuesRow['standardcost']);
 
 		}
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-		} else {
-			echo '<tr class="OddTableRows">';
-		}
-		echo '<td colspan="9"><hr /></td>
+		echo '<tr class="striped_row">
+				<td colspan="9"><hr /></td>
 			</tr>';
-	}
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-	} else {
-		echo '<tr class="OddTableRows">';
 	}
 
 	if ($IssueQty != 0) {
@@ -221,7 +204,8 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 	/*Required quantity is the quantity required of the component based on the quantity of the finished item received */
 	$UsageVar = ($RequirementsRow['requiredqty'] - $IssueQty) * ($RequirementsRow['stdcost']);
 
-	echo '<td colspan="2"></td>
+	echo '<tr class="striped_row">
+			<td colspan="2"></td>
 			<td class="number">' . locale_number_format($RequirementsRow['requiredqty'], $RequirementsRow['decimalplaces']) . '</td>
 			<td class="number">' . locale_number_format($RequirementsRow['expectedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			<td></td>
@@ -266,15 +250,9 @@ $WOIssuesResult = DB_query($SQL, _('Could not get issues that were not required 
 
 if (DB_num_rows($WOIssuesResult) > 0) {
 	while ($WOIssuesRow = DB_fetch_array($WOIssuesResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 
-		echo '<td>' . $WOIssuesRow['stockid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $WOIssuesRow['stockid'] . '</td>
 				<td>' . $WOIssuesRow['description'] . '</td>
 				<td class="number">0</td>
 				<td class="number">0</td>

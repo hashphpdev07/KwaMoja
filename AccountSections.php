@@ -153,7 +153,7 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Section Number'), '</th>
@@ -165,20 +165,12 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td class="number">', $MyRow['sectionid'], '</td>';
-		echo '<td>', $MyRow['sectionname'], '</td>';
-		echo '<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '">', _('Edit'), '</a></td>';
-		echo '<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '&delete=1', '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account section?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>';
-		echo '</tr>';
+		echo '<tr class="striped_row">
+				<td class="number">', $MyRow['sectionid'], '</td>
+				<td>', $MyRow['sectionname'], '</td>
+				<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '">', _('Edit'), '</a></td>
+				<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '&delete=1', '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account section?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 	} //END WHILE LIST LOOP
 	echo '</tbody>';
 	echo '</table>';
@@ -222,6 +214,7 @@ if (!isset($_GET['delete'])) {
 
 			echo '<input type="hidden" name="SelectedSectionID" value="', $SectionID, '" />';
 			echo '<fieldset>
+					<legend>', _('Edit Account Section Details'), '</legend>
 					<field>
 						<label for="SectionID">', _('Section Number'), ':</label>
 						<div class="fieldtext">', $SectionID, '</div>
@@ -237,6 +230,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['SectionID'] = '';
 		}
 		echo '<fieldset>
+				<legend>', _('New Account Section Details'), '</legend>
 				<field>
 					<label for="SectionID">', _('Section Number'), ':</label>
 					<input type="text" name="SectionID" class="number" size="4" autofocus="autofocus" required="required" maxlength="4" value="', $_POST['SectionID'], '" />

@@ -95,18 +95,12 @@ if (isset($_POST['Submit'])) {
 		$k = 0;
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 0) {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			}
-			echo '<td>' . $MyRow['supplierref'] . '</td>
-				<td><a href="' . $RootPath . '/PDFGrn.php?GRNNo=' . $MyRow['grnbatch'] . '&amp;PONo=' . $MyRow['orderno'] . '">' . $MyRow['grnbatch'] . '</td>
-				<td>' . $MyRow['orderno'] . '</td>
-				<td>' . $MyRow['suppinv'] . '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['supplierref'] . '</td>
+					<td><a href="' . $RootPath . '/PDFGrn.php?GRNNo=' . $MyRow['grnbatch'] . '&amp;PONo=' . $MyRow['orderno'] . '">' . $MyRow['grnbatch'] . '</td>
+					<td>' . $MyRow['orderno'] . '</td>
+					<td>' . $MyRow['suppinv'] . '</td>
+				</tr>';
 
 		}
 		echo '</table>';

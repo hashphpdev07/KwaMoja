@@ -181,15 +181,6 @@ if (!isset($SelectedCurrency)) {
 	}
 
 	while ($MyRow = DB_fetch_row($Result)) {
-		if ($MyRow[1] == $FunctionalCurrency) {
-			echo '<tr bgcolor=#FFbbbb>';
-		} elseif ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k++;
-		}
 		// Lets show the country flag
 		$ImageFile = 'flags/' . strtoupper($MyRow[1]) . '.gif';
 
@@ -198,25 +189,27 @@ if (!isset($SelectedCurrency)) {
 		}
 
 		if ($MyRow[1] != $FunctionalCurrency) {
-			printf("<td><img src=\"%s\"></td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class=number>%s</td>
-					<td class=number>%s</td>
-					<td><a href=\"%s&SelectedCurrency=%s\">%s</a></td>
-					<td><a href=\"%s&SelectedCurrency=%s&delete=1\">%s</a></td>
-					</tr>", $ImageFile, $MyRow[1], $MyRow[0], $MyRow[2], $MyRow[3], number_format($MyRow[4], 5), number_format(GetCurrencyRate($MyRow[1], $CurrencyRatesArray), 5), $_SERVER['PHP_SELF'], $MyRow[1], _('Edit'), $_SERVER['PHP_SELF'], $MyRow[1], _('Delete'), $RootPath, '&CurrencyToShow=' . $MyRow[1]);
+			printf('<tr class="striped_row">
+						<td><img src=\"%s\"></td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class=number>%s</td>
+						<td class=number>%s</td>
+						<td><a href=\"%s&SelectedCurrency=%s\">%s</a></td>
+						<td><a href=\"%s&SelectedCurrency=%s&delete=1\">%s</a></td>
+					</tr>', $ImageFile, $MyRow[1], $MyRow[0], $MyRow[2], $MyRow[3], number_format($MyRow[4], 5), number_format(GetCurrencyRate($MyRow[1], $CurrencyRatesArray), 5), $_SERVER['PHP_SELF'], $MyRow[1], _('Edit'), $_SERVER['PHP_SELF'], $MyRow[1], _('Delete'), $RootPath, '&CurrencyToShow=' . $MyRow[1]);
 		} else {
-			printf("<td><img src=\"%s\"></td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class=number>%s</td>
-					<td colspan=4>%s</td>
-					</tr>", $ImageFile, $MyRow[1], $MyRow[0], $MyRow[2], $MyRow[3], 1, _('Functional Currency'));
+			printf('<tr class="striped_row">
+						<td><img src=\"%s\"></td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class=number>%s</td>
+						<td colspan=4>%s</td>
+					</tr>', $ImageFile, $MyRow[1], $MyRow[0], $MyRow[2], $MyRow[3], 1, _('Functional Currency'));
 		}
 
 	} //END WHILE LIST LOOP

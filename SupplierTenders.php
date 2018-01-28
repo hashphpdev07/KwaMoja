@@ -302,18 +302,10 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] != 3 and isset($_SESSIO
 	echo '<tbody>';
 	foreach ($_SESSION['offer' . $Identifier]->LineItems as $LineItems) {
 		if ($LineItems->Deleted == False) {
-			if ($LineItems->ExpiryDate < date('Y-m-d')) {
-				echo '<tr style="background-color:#F7A9A9">';
-			} elseif ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
 			echo '<input type="hidden" name="StockID' . $LineItems->LineNo . '" value="' . $LineItems->StockID . '" />';
-			echo '<td>' . $LineItems->StockID . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $LineItems->StockID . '</td>
 					<td>' . $LineItems->ItemDescription . '</td>
 					<td><input type="text" class="number" required="required" maxlebgth="11" name="Qty' . $LineItems->LineNo . '" value="' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '" /></td>
 					<td>' . $LineItems->Units . '</td>
@@ -659,14 +651,6 @@ if (isset($_POST['Search'])) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			$SupportedImgExt = array('png', 'jpg', 'jpeg');
 			$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 			$ImageFile = reset($ImageFileArray);
@@ -698,7 +682,8 @@ if (isset($_POST['Search'])) {
 			} else {
 				$UOM = $MyRow['units'];
 			}
-			echo '<td>' . $MyRow['stockid'] . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $UOM . '</td>
 					<td>' . $ImageSource . '</td>

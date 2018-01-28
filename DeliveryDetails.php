@@ -940,24 +940,15 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 		$DisplayQuantity = locale_number_format($StockItem->Quantity, $StockItem->DecimalPlaces);
 		$DisplayDiscount = locale_number_format(($StockItem->DiscountPercent * 100), 2);
 
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} //$k == 1
-		else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $StockItem->StockID . '</td>
-			<td title="' . $StockItem->LongDescription . '">' . $StockItem->ItemDescription . '</td>
-			<td class="number">' . $DisplayQuantity . '</td>
-			<td>' . $StockItem->Units . '</td>
-			<td class="number">' . $DisplayPrice . '</td>
-			<td class="number">' . $DisplayDiscount . '</td>
-			<td class="number">' . $DisplayLineTotal . '</td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $StockItem->StockID . '</td>
+				<td title="' . $StockItem->LongDescription . '">' . $StockItem->ItemDescription . '</td>
+				<td class="number">' . $DisplayQuantity . '</td>
+				<td>' . $StockItem->Units . '</td>
+				<td class="number">' . $DisplayPrice . '</td>
+				<td class="number">' . $DisplayDiscount . '</td>
+				<td class="number">' . $DisplayLineTotal . '</td>
+			</tr>';
 
 		$_SESSION['Items' . $Identifier]->total = $_SESSION['Items' . $Identifier]->total + $LineTotal;
 		$_SESSION['Items' . $Identifier]->totalVolume = $_SESSION['Items' . $Identifier]->totalVolume + ($StockItem->Quantity * $StockItem->Volume);
@@ -965,7 +956,7 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 	} //$_SESSION['Items' . $Identifier]->LineItems as $StockItem
 
 	$DisplayTotal = number_format($_SESSION['Items' . $Identifier]->total, 2);
-	echo '<tr class="EvenTableRows">
+	echo '<tr class="striped_row">
 			<td colspan="6" class="number"><b>' . _('TOTAL Excl Tax/Freight') . '</b></td>
 			<td class="number">' . $DisplayTotal . '</td>
 		</tr>
@@ -975,7 +966,7 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 	$DisplayWeight = locale_number_format($_SESSION['Items' . $Identifier]->totalWeight, 2);
 	echo '<br />
 		<table>
-		<tr class="EvenTableRows">
+		<tr class="striped_row">
 			<td>' . _('Total Weight') . ':</td>
 			<td class="number">' . $DisplayWeight . '</td>
 			<td>' . _('Total Volume') . ':</td>
@@ -1007,15 +998,8 @@ else {
 		$DisplayPrice = locale_number_format($StockItem->Price, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 		$DisplayQuantity = locale_number_format($StockItem->Quantity, $StockItem->DecimalPlaces);
 
-		if ($k == 1) {
-			echo '<tr class="OddTableRows">';
-			$k = 0;
-		} //$k == 1
-		else {
-			echo '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-		echo '<td>' . $StockItem->ItemDescription . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $StockItem->ItemDescription . '</td>
 				<td class="number">' . $DisplayQuantity . '</td>
 				<td>' . $StockItem->Units . '</td>
 				<td class="number">' . $DisplayPrice . '</td>
@@ -1032,7 +1016,7 @@ else {
 
 	$DisplayVolume = locale_number_format($_SESSION['Items' . $Identifier]->totalVolume,5);
 	$DisplayWeight = locale_number_format($_SESSION['Items' . $Identifier]->totalWeight, 2);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Total Weight') . ':</td>
 				<td>' . $DisplayWeight . '</td>

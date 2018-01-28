@@ -320,14 +320,6 @@ if (isset($_POST['Show'])) {
 			$PeriodTotal = 0;
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$RunningTotal += $MyRow['amount'];
 		$PeriodTotal += $MyRow['amount'];
 
@@ -348,7 +340,8 @@ if (isset($_POST['Show'])) {
 		if ($TagRow['tagdescription'] == '') {
 			$TagRow['tagdescription'] = _('None');
 		}
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td class="number"><a href="', $URL_to_TransDetail, '">', $MyRow['typeno'], '</a></td>
 				<td>', $MyRow['chequeno'], '</td>
 				<td>', $FormatedTranDate, '</td>

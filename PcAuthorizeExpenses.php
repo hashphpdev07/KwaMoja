@@ -318,22 +318,15 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			unset($SelectedTabs);
 			unset($_POST['SelectedTabs']);
 		}
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		if ($MyRow['posted'] == 0) {
 			$Posted = _('No');
 		} else {
 			$Posted = _('Yes');
 		}
-		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
-			<td>', $MyRow['codeexpense'], '</td>
-			<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>';
+		echo '<tr class="striped_row">
+				<td>', ConvertSQLDate($MyRow['date']), '</td>
+				<td>', $MyRow['codeexpense'], '</td>
+				<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>';
 
 		$SQLTags = "SELECT pctags.tag,
 							tags.tagdescription

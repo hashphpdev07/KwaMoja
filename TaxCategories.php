@@ -173,21 +173,15 @@ if (!isset($SelectedTaxCategory) or $SelectedTaxCategory == '') {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		if ($MyRow['taxcatname'] != 'Freight') {
-			echo '<td>' . _($MyRow['taxcatname']) . '</td>
+			echo '<tr class="striped_row">
+					<td>' . _($MyRow['taxcatname']) . '</td>
 					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxCategory=' . $MyRow['taxcatid'] . '">' . _('Edit') . '</a></td>
 					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxCategory=' . $MyRow['taxcatid'] . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax category?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 		} else {
-			echo '<td>' . _($MyRow['taxcatname']) . '</td>
+			echo '<tr class="striped_row">
+					<td>' . _($MyRow['taxcatname']) . '</td>
 					<td>' . _('Edit') . '</td>
 					<td>' . _('Delete') . '</td>
 				</tr>';

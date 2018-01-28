@@ -109,23 +109,17 @@ if (isset($_POST['Search']) and isset($Result) and !isset($SelectedParent)) {
 	$k = 0; //row colour counter
 	$j = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		if ($MyRow['mbflag'] == 'A' or $MyRow['mbflag'] == 'K') {
 			$StockOnHand = 'N/A';
 		} else {
 			$StockOnHand = locale_number_format($MyRow['totalonhand'], 2);
 		}
 		$TabIndex = $j + 4;
-		printf('<td><input tabindex="' . $TabIndex . '" type="submit" name="StockID" value="%s" /></td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td>%s</td>
+		printf('<tr class="striped_row">
+					<td><input tabindex="' . $TabIndex . '" type="submit" name="StockID" value="%s" /></td>
+					<td>%s</td>
+					<td class="number">%s</td>
+					<td>%s</td>
 				</tr>', $MyRow['stockid'], $MyRow['description'], $StockOnHand, $MyRow['units']);
 		++$j;
 		//end of page full new headings if
@@ -200,22 +194,15 @@ if (isset($StockId) and $StockId != "") {
 
 		while ($MyRow = DB_fetch_array($BOMResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
 			$ComponentLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['component']) . '">' . $MyRow['component'] . '</a>';
 
 			/* Component Code  Description  Quantity Std Cost  Total Cost */
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
 					</tr>', $ComponentLink, $MyRow['description'], locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']), locale_number_format($MyRow['standardcost'],$_SESSION['CompanyRecord']['decimalplaces'] + 2), locale_number_format($MyRow['componentcost'],$_SESSION['CompanyRecord']['decimalplaces'] + 2));
 
 			$TotalCost += $MyRow['componentcost'];

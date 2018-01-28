@@ -182,13 +182,6 @@ if (!isset($SelectedExpense)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		$SQLdesc = "SELECT accountname
 					FROM chartmaster
@@ -212,7 +205,8 @@ if (!isset($SelectedExpense)) {
 		$ResultTaxCat = DB_query($SqlTaxCat);
 		$DescriptionTaxCat = DB_fetch_array($ResultTaxCat);
 
-		echo '<td>', $MyRow['codeexpense'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['codeexpense'], '</td>
 				<td>', $MyRow['description'], '</td>
 				<td class="number">', $MyRow['glaccount'], '</td>
 				<td>', $Description['accountname'], '</td>

@@ -242,25 +242,18 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			$Resultupdate = DB_query($SQL, '', '', true);
 			DB_Txn_Commit();
 		}
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		if ($MyRow['posted'] == 0) {
 			$Posted = _('No');
 		} else {
 			$Posted = _('Yes');
 		}
-		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
-			<td>', $MyRow['codeexpense'], '</td>
-			<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
-			<td>', $Posted, '</td>
-			<td>', $MyRow['notes'], '</td>
-			<td>', $MyRow['receipt'], '</td>';
+		echo '<tr class="striped_row">
+				<td>', ConvertSQLDate($MyRow['date']), '</td>
+				<td>', $MyRow['codeexpense'], '</td>
+				<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
+				<td>', $Posted, '</td>
+				<td>', $MyRow['notes'], '</td>
+				<td>', $MyRow['receipt'], '</td>';
 
 		if (isset($_POST[$MyRow['counterindex']])) {
 			echo '<td>', ConvertSQLDate(Date('Y-m-d'));

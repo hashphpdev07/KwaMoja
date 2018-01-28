@@ -293,21 +293,15 @@ if ($InputError != 1 and isset($_POST['BankAccount']) and $_POST['BankAccount'] 
 					</tr>', $MyRow['ref'], $MyRow['banktranstype'], $DisplayTranDate, locale_number_format($MyRow['amt'], $CurrDecimalPlaces), locale_number_format($Outstanding, $CurrDecimalPlaces), _('Unclear'), $i, $i, $MyRow['banktransid']);
 
 		} else {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td><input type="checkbox" name="Clear_%s" /><input type="hidden" name="BankTrans_%s" value="%s" /></td>
-					<td colspan="2"><input type="text" maxlength="15" size="15" class="number" name="AmtClear_%s" /></td>
-				</tr>', $MyRow['ref'], $MyRow['banktranstype'], $DisplayTranDate, locale_number_format($MyRow['amt'], $CurrDecimalPlaces), locale_number_format($Outstanding, $CurrDecimalPlaces), $i, $i, $MyRow['banktransid'], $i);
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td><input type="checkbox" name="Clear_%s" /><input type="hidden" name="BankTrans_%s" value="%s" /></td>
+						<td colspan="2"><input type="text" maxlength="15" size="15" class="number" name="AmtClear_%s" /></td>
+					</tr>', $MyRow['ref'], $MyRow['banktranstype'], $DisplayTranDate, locale_number_format($MyRow['amt'], $CurrDecimalPlaces), locale_number_format($Outstanding, $CurrDecimalPlaces), $i, $i, $MyRow['banktransid'], $i);
 		}
 		++$i;
 	}

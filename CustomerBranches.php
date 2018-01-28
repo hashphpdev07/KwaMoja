@@ -469,13 +469,6 @@ if (!isset($SelectedBranch)) {
 
 		$k = 0;
 		do {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
 			if ($MyRow['disabletrans']) {
 				$MyRow['disabletrans'] = _('No');
@@ -483,7 +476,8 @@ if (!isset($SelectedBranch)) {
 				$MyRow['disabletrans'] = _('Yes');
 			}
 
-			echo '<td>', $MyRow['branchcode'], '</td>
+			echo '<tr class="striped_row">
+					<td>', $MyRow['branchcode'], '</td>
 					<td>', $MyRow['brname'], '</td>
 					<td>', $MyRow['contactname'], '</td>
 					<td>', $MyRow['salesmanname'], '</td>

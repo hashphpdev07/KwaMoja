@@ -201,21 +201,15 @@ if (isset($StockItemsResult)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		/*
 		Code	 Description	On Hand		 Orders Ostdg     Units		 Code	Description 	 On Hand     Orders Ostdg	Units	 */
-		printf('<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td>%s</td></tr>', $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), locale_number_format($MyRow['qord'], $MyRow['decimalplaces']), $MyRow['units']);
+		printf('<tr class="striped_row">
+					<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
+					<td>%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td>%s</td>
+				</tr>', $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), locale_number_format($MyRow['qord'], $MyRow['decimalplaces']), $MyRow['units']);
 
 	}
 	//end of while loop
@@ -294,16 +288,6 @@ else {
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($ShipmentsResult)) {
 
-
-			if ($k == 1) {
-				/*alternate bgcolour of row for highlighting */
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
 			$URL_Modify_Shipment = $RootPath . '/Shipments.php?SelectedShipment=' . $MyRow['shiptref'];
 			$URL_View_Shipment = $RootPath . '/ShipmentCosting.php?SelectedShipment=' . $MyRow['shiptref'];
 
@@ -314,23 +298,25 @@ else {
 
 				$URL_Close_Shipment = $URL_View_Shipment . '&amp;Close=Yes';
 
-				printf('<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td><a href="%s">' . _('Costing') . '</a></td>
-					<td><a href="%s">' . _('Modify') . '</a></td>
-					<td><a href="%s"><b>' . _('Close') . '</b></a></td>
-					</tr>', $MyRow['shiptref'], $MyRow['suppname'], $MyRow['vessel'], $MyRow['voyageref'], $FormatedETA, $URL_View_Shipment, $URL_Modify_Shipment, $URL_Close_Shipment);
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td><a href="%s">' . _('Costing') . '</a></td>
+							<td><a href="%s">' . _('Modify') . '</a></td>
+							<td><a href="%s"><b>' . _('Close') . '</b></a></td>
+						</tr>', $MyRow['shiptref'], $MyRow['suppname'], $MyRow['vessel'], $MyRow['voyageref'], $FormatedETA, $URL_View_Shipment, $URL_Modify_Shipment, $URL_Close_Shipment);
 
 			} else {
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td><a href="%s">' . _('Costing') . '</a></td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td><a href="%s">' . _('Costing') . '</a></td>
 						</tr>', $MyRow['shiptref'], $MyRow['suppname'], $MyRow['vessel'], $MyRow['voyage'], $FormatedETA, $URL_View_Shipment);
 			}
 		}

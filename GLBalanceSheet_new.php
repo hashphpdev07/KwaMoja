@@ -392,14 +392,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 					<td>---------------------</td>
 				</tr>';
 		}
-		if ($i == 0) {
-			$RowClass = 'EvenTableRows';
-			$i = 1;
-		} else {
-			$RowClass = 'OddTableRows';
-			$i = 0;
-		}
-		echo '<tr class="' . $RowClass . '">
+		echo '<tr class="striped_row">
 				<td>' . $MainAccountListRow['accountcode'] . '</td>
 				<td>' . $MainAccountListRow['accountname'] . '</td>
 				<td class="number">' . locale_number_format($MainAccountListRow['balance'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>

@@ -204,17 +204,11 @@ if (!isset($SelectedBankAccount)) {
 				<th>' . _('Currency') . '</th>
 				<th>' . _('Default for Invoices') . '</th>
 				<th>' . _('Bank or Cash Account') . '</th>
+				<th colspan="2"></th>
 			</tr>';
 
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		if ($MyRow['invoice'] == 0) {
 			$DefaultBankAccount = _('No');
 		} elseif ($MyRow['invoice'] == 1) {
@@ -238,18 +232,19 @@ if (!isset($SelectedBankAccount)) {
 				$ImportFormat = '';
 		}
 
-		printf('<td>%s<br />%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td><a href="%s?SelectedBankAccount=%s">' . _('Edit') . '</a></td>
-				<td><a href="%s?SelectedBankAccount=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this bank account?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['accountcode'], $MyRow['accountname'], $MyRow['bankaccountname'], $MyRow['bankaccountcode'], $MyRow['bankaccountnumber'], $MyRow['bankaddress'], $ImportFormat, $MyRow['currcode'], $DefaultBankAccount, $PettyCash, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['accountcode'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['accountcode']);
+		printf('<tr class="striped_row">
+					<td>%s<br />%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%s?SelectedBankAccount=%s">' . _('Edit') . '</a></td>
+					<td><a href="%s?SelectedBankAccount=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this bank account?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				</tr>', $MyRow['accountcode'], $MyRow['accountname'], $MyRow['bankaccountname'], $MyRow['bankaccountcode'], $MyRow['bankaccountnumber'], $MyRow['bankaddress'], $ImportFormat, $MyRow['currcode'], $DefaultBankAccount, $PettyCash, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['accountcode'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['accountcode']);
 
 	}
 	//END WHILE LIST LOOP

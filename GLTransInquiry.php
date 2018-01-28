@@ -142,15 +142,8 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 				if (mb_strlen($TransRow['narrative']) == 0) {
 					$TransRow['narrative'] = '&nbsp;';
 				}
-
-				if ($j == 1) {
-					echo '<tr class="OddTableRows">';
-					$j = 0;
-				} else {
-					echo '<tr class="EvenTableRows">';
-					++$j;
-				}
-				echo '<td>', MonthAndYearFromSQLDate($TransRow['lastdate_in_period']), '</td>
+				echo '<tr class="striped_row">
+						<td>', MonthAndYearFromSQLDate($TransRow['lastdate_in_period']), '</td>
 						<td>', $TranDate, '</td>';
 
 				if ($URL == ""){
@@ -188,22 +181,15 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 							$Debit = '&nbsp;';
 						}
 					}
-
-					if ($j == 1) {
-						echo '<tr class="OddTableRows">';
-						$j = 0;
-					} else {
-						echo '<tr class="EvenTableRows">';
-						++$j;
-					}
-					echo '<td>', MonthAndYearFromSQLDate($TransRow['lastdate_in_period']), '</td>
-						<td>', $TranDate, '</td>
-						<td><a href="', $URL, $DetailRow['otherpartycode'], $FromDate, '">', $TransRow['accountname'], ' - ', $DetailRow['otherparty'], '</a></td>
-						<td class="number">', $Debit, '</td>
-						<td class="number">', $Credit, '</td>
-						<td>', $TransRow['narrative'], '</td>
-						<td>', $Posted, '</td>
-					</tr>';
+					echo '<tr class="striped_row">
+							<td>', MonthAndYearFromSQLDate($TransRow['lastdate_in_period']), '</td>
+							<td>', $TranDate, '</td>
+							<td><a href="', $URL, $DetailRow['otherpartycode'], $FromDate, '">', $TransRow['accountname'], ' - ', $DetailRow['otherparty'], '</a></td>
+							<td class="number">', $Debit, '</td>
+							<td class="number">', $Credit, '</td>
+							<td>', $TransRow['narrative'], '</td>
+							<td>', $Posted, '</td>
+						</tr>';
 				}
 				DB_free_result($DetailResult);
 				$AnalysisCompleted = 'Done';

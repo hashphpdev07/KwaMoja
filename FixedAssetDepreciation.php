@@ -150,23 +150,17 @@ while ($AssetRow = DB_fetch_array($AssetsResult)) {
 		echo $Heading;
 		$RowCounter = 0;
 	}
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
-	echo '<td>' . $AssetRow['assetid'] . '</td>
-		<td>' . $AssetRow['description'] . '</td>
-		<td>' . ConvertSQLDate($AssetRow['datepurchased']) . '</td>
-		<td class="number">' . locale_number_format($AssetRow['costtotal'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-		<td class="number">' . locale_number_format($AssetRow['depnbfwd'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-		<td class="number">' . locale_number_format($AssetRow['costtotal'] - $AssetRow['depnbfwd'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-		<td align="center">' . $DepreciationType . '</td>
-		<td class="number">' . $AssetRow['depnrate'] . '</td>
-		<td class="number">' . locale_number_format($NewDepreciation, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-	</tr>';
+	echo '<tr class="striped_row">
+			<td>' . $AssetRow['assetid'] . '</td>
+			<td>' . $AssetRow['description'] . '</td>
+			<td>' . ConvertSQLDate($AssetRow['datepurchased']) . '</td>
+			<td class="number">' . locale_number_format($AssetRow['costtotal'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+			<td class="number">' . locale_number_format($AssetRow['depnbfwd'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+			<td class="number">' . locale_number_format($AssetRow['costtotal'] - $AssetRow['depnbfwd'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+			<td align="center">' . $DepreciationType . '</td>
+			<td class="number">' . $AssetRow['depnrate'] . '</td>
+			<td class="number">' . locale_number_format($NewDepreciation, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+		</tr>';
 	$TotalCategoryCost += $AssetRow['costtotal'];
 	$TotalCategoryAccumDepn += $AssetRow['depnbfwd'];
 	$TotalCategoryDepn += $NewDepreciation;

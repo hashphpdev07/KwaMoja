@@ -364,15 +364,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($TabDetail)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-
 		$SQLdes = "SELECT description
 				FROM pcexpenses
 				WHERE codeexpense='" . $MyRow['codeexpense'] . "'";
@@ -384,7 +375,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			$Description['0'] = 'ASSIGNCASH';
 		}
 		if ($MyRow['5'] != '0000-00-00') {
-			echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+			echo '<tr class="striped_row">
+					<td>', ConvertSQLDate($MyRow['date']), '</td>
 					<td>', $Description['0'], '</td>
 					<td class="number">', locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 					<td>', $MyRow['notes'], '</td>
@@ -392,7 +384,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 					<td>', ConvertSQLDate($MyRow['authorized']), '</td>
 				</tr>';
 		} else {
-			echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+			echo '<tr class="striped_row">
+					<td>', ConvertSQLDate($MyRow['date']), '</td>
 					<td>', $Description['0'], '</td>
 					<td class="number">', locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 					<td>', $MyRow['notes'], '</td>

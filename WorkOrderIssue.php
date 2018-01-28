@@ -958,16 +958,9 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 						$ImageSource = _('No Image');
 					}
 
-					if ($k == 1) {
-						echo '<tr class="OddTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="EvenTableRows">';
-						$k = 1;
-					}
-
 					$IssueLink = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?WO=' . urlencode($_POST['WO']) . '&amp;StockID=' . urlencode($_POST['StockID']) . '&amp;IssueItem=' . urlencode($MyRow['stockid']) . '&amp;FromLocation=' . urlencode($_POST['FromLocation']);
-					printf('<td>%s</td>
+					printf('<tr class="striped_row">
+							<td>%s</td>
 							<td>%s</td>
 							<td>%s</td>
 							<td>%s</td>

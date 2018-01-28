@@ -87,55 +87,55 @@ if (DB_num_rows($GetOrdHdrResult) == 1) {
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Customer Code') . ':</th>
-				<td class="OddTableRows"><a href="' . $RootPath . '/SelectCustomer.php?Select=' . urlencode($MyRow['debtorno']) . '">' . $MyRow['debtorno'] . '</a></td>
+				<td><a href="' . $RootPath . '/SelectCustomer.php?Select=' . urlencode($MyRow['debtorno']) . '">' . $MyRow['debtorno'] . '</a></td>
 				<th style="text-align: left">' . _('Customer Name') . ':</th>
 				<th>' . $MyRow['name'] . '</th>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Customer Reference') . ':</th>
-				<td class="OddTableRows">' . $MyRow['customerref'] . '</td>
+				<td>' . $MyRow['customerref'] . '</td>
 				<th style="text-align: left">' . _('Deliver To') . ':</th>
 				<th>' . $MyRow['deliverto'] . '</th>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Ordered On') . ':</th>
-				<td class="OddTableRows">' . ConvertSQLDate($MyRow['orddate']) . '</td>
+				<td>' . ConvertSQLDate($MyRow['orddate']) . '</td>
 				<th style="text-align: left">' . _('Delivery Address 1') . ':</th>
-				<td class="OddTableRows">' . $MyRow['deladd1'] . '</td>
+				<td>' . $MyRow['deladd1'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Requested Delivery') . ':</th>
-				<td class="OddTableRows">' . ConvertSQLDate($MyRow['deliverydate']) . '</td>
+				<td>' . ConvertSQLDate($MyRow['deliverydate']) . '</td>
 				<th style="text-align: left">' . _('Delivery Address 2') . ':</th>
-				<td class="OddTableRows">' . $MyRow['deladd2'] . '</td>
+				<td>' . $MyRow['deladd2'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Order Currency') . ':</th>
-				<td class="OddTableRows">' . $MyRow['currcode'] . '</td>
+				<td>' . $MyRow['currcode'] . '</td>
 				<th style="text-align: left">' . _('Delivery Address 3') . ':</th>
-				<td class="OddTableRows">' . $MyRow['deladd3'] . '</td>
+				<td">' . $MyRow['deladd3'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Deliver From Location') . ':</th>
-				<td class="OddTableRows">' . $MyRow['fromstkloc'] . '</td>
+				<td>' . $MyRow['fromstkloc'] . '</td>
 				<th style="text-align: left">' . _('Delivery Address 4') . ':</th>
-				<td class="OddTableRows">' . $MyRow['deladd4'] . '</td>
+				<td>' . $MyRow['deladd4'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Telephone') . ':</th>
-				<td class="OddTableRows">' . $MyRow['contactphone'] . '</td>
+				<td>' . $MyRow['contactphone'] . '</td>
 				<th style="text-align: left">' . _('Delivery Address 5') . ':</th>
-				<td class="OddTableRows">' . $MyRow['deladd5'] . '</td>
+				<td>' . $MyRow['deladd5'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Email') . ':</th>
-				<td class="OddTableRows"><a href="mailto:' . $MyRow['contactemail'] . '">' . $MyRow['contactemail'] . '</a></td>
+				<td><a href="mailto:' . $MyRow['contactemail'] . '">' . $MyRow['contactemail'] . '</a></td>
 				<th style="text-align: left">' . _('Delivery Address 6') . ':</th>
-				<td class="OddTableRows">' . $MyRow['deladd6'] . '</td>
+				<td>' . $MyRow['deladd6'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Freight Cost') . ':</th>
-				<td class="OddTableRows">' . $MyRow['freightcost'] . '</td>
+				<td>' . $MyRow['freightcost'] . '</td>
 			</tr>
 			<tr>
 				<th style="text-align: left">' . _('Comments') . ': </th>
@@ -183,8 +183,7 @@ if (DB_num_rows($LineItemsResult) > 0) {
 	$OrderTotalVolume = 0;
 	$OrderTotalWeight = 0;
 
-	echo '<br />
-			<table class="selection">
+	echo '<table class="selection">
 			<tr>
 				<th colspan="9"><h3>' . _('Order Line Details For Order No') . ' ' . $_GET['OrderNumber'] . '</h3></th>
 			</tr>
@@ -204,21 +203,14 @@ if (DB_num_rows($LineItemsResult) > 0) {
 	$k = 0;
 	while ($MyRow = DB_fetch_array($LineItemsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		if ($MyRow['qtyinvoiced'] > 0) {
 			$DisplayActualDeliveryDate = ConvertSQLDate($MyRow['actualdispatchdate']);
 		} else {
 	  		$DisplayActualDeliveryDate = '<span style="color:red;">' . ConvertSQLDate($MyRow['itemdue']) . '</span>';
 		}
 
-		echo '<td>' . $MyRow['poline'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['poline'] . '</td>
 				<td>' . $MyRow['stkcode'] . '</td>
 				<td>' . $MyRow['description'] . '</td>
 				<td class="number">' . $MyRow['quantity'] . '</td>

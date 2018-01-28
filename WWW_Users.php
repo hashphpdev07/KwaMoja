@@ -379,13 +379,6 @@ if (!isset($SelectedUser)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['lastvisitdate'] == '') {
 			$LastVisitDate = _('User has not logged in yet');
@@ -410,7 +403,8 @@ if (!isset($SelectedUser)) {
 				$FontSize = _('Medium');
 		}
 
-		echo '<td>', $MyRow['userid'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['userid'], '</td>
 				<td>', $MyRow['realname'], '</td>
 				<td>', $MyRow['phone'], '</td>
 				<td>', $MyRow['email'], '</td>

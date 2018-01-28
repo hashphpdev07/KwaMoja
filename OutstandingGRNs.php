@@ -86,16 +86,10 @@ if (isset($_POST['ShowReport'])) {
 	$k = 0; //row colour counter
 	$TotalHomeCurrency = 0;
 	while ($GRNs = DB_fetch_array($GRNsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$QtyPending = $GRNs['qtyrecd'] - $GRNs['quantityinv'];
 		$TotalHomeCurrency = $TotalHomeCurrency + ($QtyPending * $GRNs['stdcostunit']);
-		echo '<td>' . $GRNs['supplierid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $GRNs['supplierid'] . '</td>
 				<td>' . $GRNs['suppname'] . '</td>
 				<td class="number">' . $GRNs['orderno'] . '</td>
 				<td>' . $GRNs['itemcode'] . '</td>

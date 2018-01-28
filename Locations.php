@@ -434,13 +434,6 @@ if (!isset($SelectedLocation)) {
 		echo'<tbody>';
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			/* warehouse management not implemented ... yet
 			if($MyRow['managed'] == 1) {
 			$MyRow['managed'] = _('Yes');
@@ -448,14 +441,15 @@ if (!isset($SelectedLocation)) {
 			$MyRow['managed'] = _('No');
 			}
 			*/
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="centre">%s</td>
-					<td>%s</td>
-					<td><a href="%sSelectedLocation=%s">' . _('Edit') . '</a></td>
-					<td><a href="%sLocation=%s">' . _('Define') . '</a></td>
-					<td><a href="%sSelectedLocation=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this inventory location?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="centre">%s</td>
+						<td>%s</td>
+						<td><a href="%sSelectedLocation=%s">' . _('Edit') . '</a></td>
+						<td><a href="%sLocation=%s">' . _('Define') . '</a></td>
+						<td><a href="%sSelectedLocation=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this inventory location?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					</tr>',
 					$MyRow['loccode'],
 					$MyRow['locationname'],

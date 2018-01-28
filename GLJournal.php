@@ -409,14 +409,8 @@ $CreditTotal = 0;
 $j = 0;
 
 foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
-	if ($j == 1) {
-		echo '<tr class="OddTableRows">';
-		$j = 0;
-	} else {
-		echo '<tr class="EvenTableRows">';
-		++$j;
-	}
-	echo '<td>';
+	echo '<tr class="striped_row">
+			<td>';
 	foreach ($JournalItem->tag as $Tag) {
 		$SQL = "SELECT tagdescription
 				FROM tags
@@ -448,7 +442,7 @@ foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
 	</tr>';
 }
 
-echo '<tr class="EvenTableRows"><td></td>
+echo '<tr class="striped_row"><td></td>
 		<td class="number"><b>' . _('Total') . '</b></td>
 		<td class="number"><b>' . locale_number_format($DebitTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>
 		<td class="number"><b>' . locale_number_format($CreditTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>

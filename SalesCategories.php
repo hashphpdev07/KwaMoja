@@ -269,14 +269,6 @@ if (DB_num_rows($Result) == 0) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 
 		$SupportedImgExt = array('png', 'jpg', 'jpeg');
 		$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/SALESCAT_' . $MyRow['salescatid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
@@ -294,12 +286,13 @@ if (DB_num_rows($Result) == 0) {
 			$Active = _('No');
 		}
 
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td><a href="%sParentCategory=%s">' . _('Select') . '</td>
-				<td><a href="%sSelectedCategory=%s&amp;ParentCategory=%s">' . _('Edit') . '</td>
-				<td><a href="%sSelectedCategory=%s&amp;Delete=yes&amp;EditName=1&amp;ParentCategory=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales category?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				<td>%s</td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%sParentCategory=%s">' . _('Select') . '</td>
+					<td><a href="%sSelectedCategory=%s&amp;ParentCategory=%s">' . _('Edit') . '</td>
+					<td><a href="%sSelectedCategory=%s&amp;Delete=yes&amp;EditName=1&amp;ParentCategory=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales category?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td>%s</td>
 				</tr>', $MyRow['salescatname'], $Active, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, $CatImgLink);
 	}
 	//END WHILE LIST LOOP
@@ -526,18 +519,12 @@ if ($Result) {
 		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
-			echo '<td>' . $MyRow['stockid'] . '</td>
-				<td>' . $MyRow['description'] . '</td>
-				<td>' . $MyRow['manufacturers_name'] . '</td>
-				<td>';
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
+					<td>' . $MyRow['description'] . '</td>
+					<td>' . $MyRow['manufacturers_name'] . '</td>
+					<td>';
 			if ($MyRow['featured'] == 1) {
 				echo '<img src="css/' . $_SESSION['Theme'] . '/images/tick.png"></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?RemoveFeature=Yes&amp;ParentCategory=' . $ParentCategory . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Cancel Feature') . '</a></td>';

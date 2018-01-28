@@ -580,17 +580,10 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 		/*row counter to determine background colour */
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_SuppSelect)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 
-			echo '<td><input type="submit" style="width:100%" name="Select" value="' . $MyRow['supplierid'] . '" /></td>
-				<td>' . $MyRow['suppname'] . '</td><td>';
+			echo '<tr class="striped_row">
+					<td><input type="submit" style="width:100%" name="Select" value="' . $MyRow['supplierid'] . '" /></td>
+					<td>' . $MyRow['suppname'] . '</td><td>';
 
 			for ($i = 1; $i <= 6; $i++) {
 				if ($MyRow['address' . $i] != '') {

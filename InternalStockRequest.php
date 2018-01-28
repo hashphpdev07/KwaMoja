@@ -440,15 +440,8 @@ echo '<br />
 $k = 0;
 
 foreach ($_SESSION['Request']->LineItems as $LineItems) {
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
-	echo '<td>' . $LineItems->LineNumber . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $LineItems->LineNumber . '</td>
 			<td>' . $LineItems->StockID . '</td>
 			<td>' . $LineItems->ItemDescription . '</td>
 			<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
@@ -459,7 +452,6 @@ foreach ($_SESSION['Request']->LineItems as $LineItems) {
 }
 
 echo '</table>
-	<br />
 	<div class="centre">
 		<input type="submit" name="Submit" value="' . _('Submit') . '" />
 	</div>
@@ -726,13 +718,6 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 			DB_data_seek($searchresult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
 		while (($MyRow = DB_fetch_array($searchresult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['mbflag'] == 'D') {
 				$qoh = _('N/A');
 			} else {
@@ -744,7 +729,8 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 				$ItemStatus = '';
 			}
 
-			echo '<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
 					<td>', $MyRow['description'], '</td>
 					<td class="number">', $qoh, '</td>
 					<td>', $MyRow['units'], '</td>
@@ -869,17 +855,10 @@ if (isset($SearchResult)) {
 		} else {
 			$WoQty = 0;
 		}
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$OnOrder = $PurchQty + $WoQty;
 		$Available = $QOH - $DemandQty + $OnOrder;
-		echo '<td>', $MyRow['stockid'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['stockid'], '</td>
 				<td>', $MyRow['description'], '</td>
 				<td>', $MyRow['stockunits'], '</td>
 				<td class="number">', locale_number_format($QOH, $DecimalPlaces), '</td>

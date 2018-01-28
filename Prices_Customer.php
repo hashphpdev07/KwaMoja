@@ -217,7 +217,7 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		printf('<tr class="EvenTableRows">
+		printf('<tr class="striped_row">
 					<td class="number">%s</td>
 					<td class="date">%s</td>
 					<td class="date">%s</td>

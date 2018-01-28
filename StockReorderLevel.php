@@ -69,14 +69,6 @@ $k = 0; //row colour counter
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($LocStockResult)) {
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
 	if (isset($_POST['UpdateData']) AND $_POST['Old_' . $MyRow['loccode']] != filter_number_format($_POST[$MyRow['loccode']]) AND is_numeric(filter_number_format($_POST[$MyRow['loccode']])) AND filter_number_format($_POST[$MyRow['loccode']]) >= 0) {
 
 		$MyRow['reorderlevel'] = filter_number_format($_POST[$MyRow['loccode']]);
@@ -93,7 +85,8 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 		$UpdateCode = '<input type="hidden" name="%s">%s<input type="hidden" name="Old_%s" value="%s" />';
 	}
 
-	printf('<td>%s</td>
+	printf('<tr class="striped_row">
+			<td>%s</td>
 			<td class="number">%s</td>
 			<td class="number">' . $UpdateCode . '</td></tr>',
 			$MyRow['locationname'],

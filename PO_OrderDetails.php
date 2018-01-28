@@ -215,28 +215,17 @@ while ($MyRow = DB_fetch_array($LineItemsResult)) {
 	} else {
 		$DecimalPlaces = 2;
 	}
-	// if overdue and outstanding quantities, then highlight as so
-	if (($MyRow['quantityord'] - $MyRow['quantityrecd'] > 0) AND Date1GreaterThanDate2(Date($_SESSION['DefaultDateFormat']), $DisplayReqdDate)) {
-		echo '<tr class="OsRow">';
-	} else {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-	}
 
-	printf('<td>%s</td>
-			<td>%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td>%s</td>
-		</tr>', $MyRow['itemcode'], stripslashes($MyRow['itemdescription']), locale_number_format($MyRow['quantityord'], $DecimalPlaces), locale_number_format($MyRow['quantityrecd'], $DecimalPlaces), locale_number_format($MyRow['qtyinvoiced'], $DecimalPlaces), locale_number_format($MyRow['unitprice'], $CurrDecimalPlaces), locale_number_format($MyRow['actprice'], $CurrDecimalPlaces), $DisplayReqdDate);
+	printf('<tr class="striped_row">
+				<td>%s</td>
+				<td>%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td>%s</td>
+			</tr>', $MyRow['itemcode'], stripslashes($MyRow['itemdescription']), locale_number_format($MyRow['quantityord'], $DecimalPlaces), locale_number_format($MyRow['quantityrecd'], $DecimalPlaces), locale_number_format($MyRow['qtyinvoiced'], $DecimalPlaces), locale_number_format($MyRow['unitprice'], $CurrDecimalPlaces), locale_number_format($MyRow['actprice'], $CurrDecimalPlaces), $DisplayReqdDate);
 
 }
 

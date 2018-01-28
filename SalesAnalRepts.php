@@ -285,16 +285,9 @@ if (!isset($SelectedReport)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 
-
-		echo '<td>' . $MyRow[0] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow[0] . '</td>
 				<td>' . $MyRow[1] . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedReport=' . urlencode($MyRow[0]) . '">' . _('Design') . '</a></td>
 				<td><a href="' . $RootPath . '/SalesAnalReptCols.php?ReportID=' . urlencode($MyRow[0]) . '">' . _('Define Columns') . '</a></td>

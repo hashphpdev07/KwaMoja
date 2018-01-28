@@ -223,18 +223,11 @@ if (!isset($StockId)) {
 
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
-			printf('<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), $MyRow['units']);
 
 		}
@@ -372,14 +365,6 @@ if (!isset($StockId)) {
 			$k = 0; //row colour counter
 			while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-
 				$ModifyPage = $RootPath . '/WorkOrderEntry.php?WO=' . urlencode($MyRow['wo']);
 				$Status_WO = $RootPath . '/WorkOrderStatus.php?WO=' . urlencode($MyRow['wo']) . '&amp;StockID=' . urlencode($MyRow['stockid']);
 				$Receive_WO = $RootPath . '/WorkOrderReceive.php?WO=' . urlencode($MyRow['wo']) . '&amp;StockID=' . urlencode($MyRow['stockid']);
@@ -391,20 +376,21 @@ if (!isset($StockId)) {
 				$FormatedStartDate = ConvertSQLDate($MyRow['startdate']);
 
 
-				echo '<td><a href="', $ModifyPage, '">', $MyRow['wo'], ' - ', $MyRow['reference'], '</a></td>
-					<td><a href="', $Status_WO, '">' . _('Status') . '</a></td>
-					<td><a href="', $Issue_WO, '">' . _('Issue To') . '</a></td>
-					<td><a href="',$Receive_WO, '">' . _('Receive') . '</a></td>
-					<td><a href="', $Costing_WO, '">' . _('Costing') . '</a></td>
-					<td><a href="', $Printing_WO, '">' . _('Print W/O') . '</a></td>
-					<td>', $MyRow['loccode'], ' - ', $MyRow['locationname'], '</td>
-					<td>', $MyRow['stockid'], ' - ', $MyRow['description'], '</td>
-					<td class="number">', locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), '</td>
-					<td class="number">', locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), '</td>
-					<td class="number">', locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), '</td>
-					<td>', $FormatedStartDate, '</td>
-					<td>', $FormatedRequiredByDate, '</td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td><a href="', $ModifyPage, '">', $MyRow['wo'], ' - ', $MyRow['reference'], '</a></td>
+						<td><a href="', $Status_WO, '">' . _('Status') . '</a></td>
+						<td><a href="', $Issue_WO, '">' . _('Issue To') . '</a></td>
+						<td><a href="',$Receive_WO, '">' . _('Receive') . '</a></td>
+						<td><a href="', $Costing_WO, '">' . _('Costing') . '</a></td>
+						<td><a href="', $Printing_WO, '">' . _('Print W/O') . '</a></td>
+						<td>', $MyRow['loccode'], ' - ', $MyRow['locationname'], '</td>
+						<td>', $MyRow['stockid'], ' - ', $MyRow['description'], '</td>
+						<td class="number">', locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), '</td>
+						<td class="number">', locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), '</td>
+						<td class="number">', locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), '</td>
+						<td>', $FormatedStartDate, '</td>
+						<td>', $FormatedRequiredByDate, '</td>
+					</tr>';
 
 			}
 			//end of while loop

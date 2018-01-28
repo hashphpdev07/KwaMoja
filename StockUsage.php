@@ -151,19 +151,12 @@ if (isset($_POST['ShowUsage'])) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$DisplayDate = MonthAndYearFromSQLDate($MyRow['lastdate_in_period']);
 
 		$TotalUsage += $MyRow['qtyused'];
 		$PeriodsCounter++;
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td class="number">%s</td>
 				</tr>', $DisplayDate, locale_number_format($MyRow['qtyused'], $DecimalPlaces));
 

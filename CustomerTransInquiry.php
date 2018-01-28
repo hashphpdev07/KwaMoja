@@ -115,25 +115,18 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 
 	while ($MyRow = DB_fetch_array($TransResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		$format_base = '<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td style="width:200px">%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td>%s</td>';
+		$format_base = '<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td style="width:200px">%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td>%s</td>';
 
 		if ($_POST['TransType'] == 10) {
 			/* invoices */

@@ -268,14 +268,8 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
 		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-			echo '<td><input type="submit" name="Select" value="' . $MyRow['assetid'] . '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="' . $MyRow['assetid'] . '" /></td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $MyRow['locationdescription'] . '</td>
 					<td>' . ConvertSQLDate($MyRow['datepurchased']) . '</td>

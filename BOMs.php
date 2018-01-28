@@ -142,7 +142,8 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 			$MyRow['comment'] = ' **' . ' ' . $MyRow['comment'];
 		}
 
-		echo '<td class="number" style="text-align:left;text-indent:', $TextIndent, ';" >', $Level1, '</td>
+		echo '<tr class="striped_row">
+				<td class="number" style="text-align:left;text-indent:', $TextIndent, ';" >', $Level1, '</td>
 				<td class="number">', $MyRow['sequence'], '</td>
 				<td>', $MyRow['categorydescription'], '</td>
 				<td>', $MyRow['component'], '</td>
@@ -902,7 +903,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 			<th colspan="3"></th>
 		</tr>';
 	if (count($BOMTree) == 0) {
-		echo '<tr class="OddTableRows">
+		echo '<tr>
 				<td colspan="8">', _('No materials found.'), '</td>
 			</tr>';
 	} else {
@@ -914,13 +915,6 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 			$Level = $BOMItem['Level'];
 			$Parent = $BOMItem['Parent'];
 			$Component = $BOMItem['Component'];
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;;
-			}
 			DisplayBOMItems($UltimateParent, $Parent, $Component, $Level);
 		}
 	}
@@ -1089,19 +1083,13 @@ if (!isset($SelectedParent)) {
 		$k = 0; //row colour counter
 		$j = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['mbflag'] == 'A' or $MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'G') {
 				$StockOnHand = _('N/A');
 			} else {
 				$StockOnHand = locale_number_format($MyRow['totalonhand'], $MyRow['decimalplaces']);
 			}
-			echo '<td><input type="submit" name="SelectedParent" value="', $MyRow['stockid'], '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="SelectedParent" value="', $MyRow['stockid'], '" /></td>
 					<td>', $MyRow['description'], '</td>
 					<td class="number">', $StockOnHand, '</td>
 					<td>', $MyRow['units'], '</td>

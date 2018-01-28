@@ -195,15 +195,9 @@ if (!isset($SelectedGroup)) {
 		echo '<tbody>';
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
-			echo '<td>', $MyRow['taxgroupdescription'], '</td>
+			echo '<tr class="striped_row">
+					<td>', $MyRow['taxgroupdescription'], '</td>
 					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '">' . _('Edit') . '</a></td>
 					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '&amp;Delete=1&amp;GroupID=', urlencode($MyRow['taxgroupdescription']), '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax group?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
 
@@ -304,21 +298,15 @@ if (isset($SelectedGroup)) {
 		$k = 0; //row colour counter
 		echo '<tbody>';
 		for ($i = 1; $i < count($TaxAuthRow) + 1; $i++) {
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
 
 			if ($TaxAuthRow[$i]['calculationorder'] == 0) {
 				$TaxAuthRow[$i]['calculationorder'] = $i;
 			}
 
-			echo '<td>' . $TaxAuthRow[$i]['taxname'] . '</td>
-				<td><input type="text" class="integer" name="CalcOrder_' . $TaxAuthRow[$i]['taxauthid'] . '" value="' . $TaxAuthRow[$i]['calculationorder'] . '" size="2" required="required" maxlength="2" style="width: 100%" /></td>
-				<td><select required="required" name="TaxOnTax_' . $TaxAuthRow[$i]['taxauthid'] . '" style="width: 100%">';
+			echo '<tr class="striped_row">
+					<td>' . $TaxAuthRow[$i]['taxname'] . '</td>
+					<td><input type="text" class="integer" name="CalcOrder_' . $TaxAuthRow[$i]['taxauthid'] . '" value="' . $TaxAuthRow[$i]['calculationorder'] . '" size="2" required="required" maxlength="2" style="width: 100%" /></td>
+					<td><select required="required" name="TaxOnTax_' . $TaxAuthRow[$i]['taxauthid'] . '" style="width: 100%">';
 			if ($TaxAuthRow[$i]['taxontax'] == 1) {
 				echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
 				echo '<option value="0">' . _('No') . '</option>';
@@ -376,14 +364,6 @@ if (isset($SelectedGroup)) {
 	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($AvailRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$TaxAuthUsedPointer = array_search($AvailRow['taxid'], $TaxAuthsUsed);
 
 		if ($TaxAuthUsedPointer) {
@@ -394,7 +374,8 @@ if (isset($SelectedGroup)) {
 				$TaxOnTax = _('No');
 			}
 
-			printf('<td>%s</td>
+			printf('<tr class="striped_row">
+					<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
@@ -403,7 +384,8 @@ if (isset($SelectedGroup)) {
 				<td>&nbsp;</td>', $AvailRow['taxid'], $AvailRow['taxname'], $TaxAuthRow[$TaxAuthUsedPointer]['calculationorder'], $TaxOnTax, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $SelectedGroup, $AvailRow['taxid']);
 
 		} else {
-			printf('<td>&nbsp;</td>
+			printf('<tr class="striped_row">
+					<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>

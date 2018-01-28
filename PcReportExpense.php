@@ -151,13 +151,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($TabDetail)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$ReceiptSQL = "SELECT name
 							FROM pcreceipts
 							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
@@ -169,7 +162,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			$ReceiptText = _('No receipt');
 		}
 
-		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+		echo '<tr class="striped_row">
+				<td>', ConvertSQLDate($MyRow['date']), '</td>
 				<td>', $MyRow['tabcode'], '</td>
 				<td class="number">', locale_number_format($MyRow['amount'], $MyRow['decimalplaces']), '</td>
 				<td>', $MyRow['currency'], '</td>

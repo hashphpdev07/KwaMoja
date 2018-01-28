@@ -356,17 +356,6 @@ echo '<tbody>';
 foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	++$j;
 
-	if ($LnItm->QOHatLoc < $LnItm->Quantity and ($LnItm->MBflag == 'B' or $LnItm->MBflag == 'M')) {
-		/*There is a stock deficiency in the stock location selected */
-		$RowStarter = '<tr style="background:#FF0000;color:#FFC0CB">'; //rows show red where stock deficiency
-	} elseif ($k == 1) {
-		$RowStarter = '<tr class="OddTableRows">';
-		$k = 0;
-	} else {
-		$RowStarter = '<tr class="EvenTableRows">';
-		$k = 1;
-	}
-
 	if (sizeOf($LnItm->SerialItems) > 0) {
 		$_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyDispatched = 0; //initialise QtyDispatched
 		foreach ($LnItm->SerialItems as $SerialItem) { //calculate QtyDispatched from bundle quantities
@@ -385,12 +374,12 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	$_SESSION['Items' . $Identifier]->totalVolume += ($LnItm->QtyDispatched * $LnItm->Volume);
 	$_SESSION['Items' . $Identifier]->totalWeight += ($LnItm->QtyDispatched * $LnItm->Weight);
 
-	echo $RowStarter;
-	echo '<td>' . $LnItm->StockID . '</td>
-		<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
-		<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
-		<td>' . $LnItm->Units . '</td>
-		<td class="number">' . locale_number_format($LnItm->QtyInv, $LnItm->DecimalPlaces) . '</td>';
+	echo '<tr class="striped_row">
+			<td>' . $LnItm->StockID . '</td>
+			<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
+			<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
+			<td>' . $LnItm->Units . '</td>
+			<td class="number">' . locale_number_format($LnItm->QtyInv, $LnItm->DecimalPlaces) . '</td>';
 
 	if ($LnItm->Controlled == 1) {
 

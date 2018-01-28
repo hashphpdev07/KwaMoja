@@ -122,7 +122,7 @@ if (!isset($SelectedShipper)) {
 	$SQL = "SELECT * FROM shippers ORDER BY shipper_id";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Shipper ID') . '</th>
 				<th>' . _('Shipper Name') . '</th>
@@ -131,17 +131,12 @@ if (!isset($SelectedShipper)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td><a href="%sSelectedShipper=%s">' . _('Edit') . '</a></td>
-				<td><a href="%sSelectedShipper=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this shipper?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>', $MyRow[0], $MyRow[1], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0]);
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%sSelectedShipper=%s">' . _('Edit') . '</a></td>
+					<td><a href="%sSelectedShipper=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this shipper?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				</tr>', $MyRow[0], $MyRow[1], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0]);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';

@@ -329,16 +329,8 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $StockItem) {
 	$DisplayQuantity = locale_number_format($StockItem->Quantity, $StockItem->DecimalPlaces);
 	$DisplayDiscount = locale_number_format(($StockItem->DiscountPercent * 100), 2);
 
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>' . $StockItem->StockID . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $StockItem->StockID . '</td>
 			<td title="' . $StockItem->LongDescription . '">' . $StockItem->ItemDescription . '</td>
 			<td class="number">' . $DisplayQuantity . '</td>
 			<td>' . $StockItem->Units . '</td>

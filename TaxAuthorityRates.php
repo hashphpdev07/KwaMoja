@@ -100,17 +100,10 @@ if (DB_num_rows($TaxRatesResult) > 0) {
 			echo '<tr style="background-color:#555555"><td colspan="3"></td></tr>';
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td><input type="text" class="number" name="%s" required="required" maxlength="5" size="5" value="%s" /></td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td><input type="text" class="number" name="%s" required="required" maxlength="5" size="5" value="%s" /></td>
 				</tr>', $MyRow['taxprovincename'], _($MyRow['taxcatname']), $MyRow['dispatchtaxprovince'] . '_' . $MyRow['taxcatid'], locale_number_format($MyRow['taxrate']*100,3));
 
 		$OldProvince = $MyRow['dispatchtaxprovince'];

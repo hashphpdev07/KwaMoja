@@ -600,19 +600,13 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		$LastCustomer = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_CustSelect)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			if ($LastCustomer != $MyRow['name']) {
-				echo '<td>' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false) . '</td>';
+				echo '<tr class="striped_row">
+						<td>' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false) . '</td>';
 			} //$LastCustomer != $MyRow['name']
 			else {
-				echo '<td></td>';
+				echo '<tr class="striped_row">
+						<td></td>';
 			}
 			echo '<td><input tabindex="' . strval($j + 5) . '" type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false) . '" />
 					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
@@ -1380,17 +1374,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				$RowStarter = '<tr style="border:solid 2px #FF0000">'; //rows show red where stock deficiency
 
 			} //$OrderLine->QOHatLoc < $OrderLine->Quantity and ($OrderLine->MBflag == 'B' or $OrderLine->MBflag == 'M')
-			elseif ($k == 1) {
-				$RowStarter = '<tr class="OddTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				$RowStarter = '<tr class="EvenTableRows">';
-				$k = 1;
-			}
 
-			echo $RowStarter;
-			echo '<td>';
+			echo '<tr class="striped_row">
+					<td>';
 			if($ShowPOLine) {// Show the input field only if required.
 				echo '<input maxlength="20" name="POLine_' . $OrderLine->LineNumber . '" size="20" type="text" value="' . $OrderLine->POLine . '" /></td><td>';
 			} else {
@@ -1458,7 +1444,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		else {
 			$ColSpanNumber = 1;
 		}
-		echo '<tr class="EvenTableRows">
+		echo '<tr class="striped_row">
 				<td class="number" colspan="6"><b>' . _('TOTAL Excl Tax/Freight') . '</b></td>
 				<td colspan="' . $ColSpanNumber . '" class="number">' . $DisplayTotal . '</td>
 			</tr>
@@ -1467,7 +1453,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		$DisplayVolume = locale_number_format($_SESSION['Items' . $Identifier]->totalVolume, 2);
 		$DisplayWeight = locale_number_format($_SESSION['Items' . $Identifier]->totalWeight, 2);
 		echo '<table>
-				<tr class="EvenTableRows">
+				<tr class="striped_row">
 					<td>' . _('Total Weight') . ':</td>
 					<td>' . $DisplayWeight . '</td>
 					<td>' . _('Total Volume') . ':</td>
@@ -1565,28 +1551,21 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$WoQty = GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} //$k == 1
-				else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
 				$OnOrder = $PurchQty + $WoQty;
 
 				$Available = $QOH - $DemandQty + $OnOrder;
 
-				printf('<td>%s</td>
-						<td title="%s">%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" required="required" maxlength="10" size="6" name="OrderQty' . $i . '" value="0" />
-						<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
-						</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td title="%s">%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" required="required" maxlength="10" size="6" name="OrderQty' . $i . '" value="0" />
+								<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
+							</td>
 						</tr>', $MyRow['stockid'], $MyRow['longdescription'], $MyRow['description'], $MyRow['units'], locale_number_format($QOH, $QOHRow['decimalplaces']), locale_number_format($DemandQty, $QOHRow['decimalplaces']), locale_number_format($OnOrder, $QOHRow['decimalplaces']), locale_number_format($Available, $QOHRow['decimalplaces']));
 				++$i;
 				//end of page full new headings if
@@ -1731,28 +1710,21 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$WoQty = GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} //$k == 1
-				else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
 				$OnOrder = $PurchQty + $WoQty;
 				$Available = $QOH - $DemandQty + $OnOrder;
 
-				printf('<td>%s</td>
-						<td title="%s">%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" size="6" required="required" maxlength="10" name="OrderQty' . $i . '" value="0" />
-						<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
-						</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td title="%s">%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" size="6" required="required" maxlength="10" name="OrderQty' . $i . '" value="0" />
+							<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
+							</td>
 						</tr>', $MyRow['stockid'], $MyRow['longdescription'], $MyRow['description'], $MyRow['cust_part'] . '-' . $MyRow['cust_description'], $MyRow['units'], locale_number_format($QOH, $QOHRow['decimalplaces']), locale_number_format($DemandQty, $QOHRow['decimalplaces']), locale_number_format($OnOrder, $QOHRow['decimalplaces']), locale_number_format($Available, $QOHRow['decimalplaces']));
 				++$i;
 				//end of page full new headings if

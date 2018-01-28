@@ -90,23 +90,17 @@ if (isset($_POST['Show'])) {
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td>' . $MyRow['suppname'] . '</td>
-			<td class="number">' . $MyRow['podetailitem'] . '</td>
-			<td class="number">' . $MyRow['grnbatch'] . '</td>
-			<td>' . $MyRow['itemcode'] . '</td>
-			<td>' . $MyRow['itemdescription'] . '</td>
-			<td>' . $MyRow['deliverydate'] . '</td>
-			<td class="number">' . locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']) . '</td>
-			<td><a href="PDFGrn.php?GRNNo=' . urlencode($MyRow['grnbatch']) . '&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint GRN ') . '</a></td>
-			<td><a href="PDFQALabel.php?GRNNo=' . urlencode($MyRow['grnbatch']) .'&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint QA Label') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['suppname'] . '</td>
+				<td class="number">' . $MyRow['podetailitem'] . '</td>
+				<td class="number">' . $MyRow['grnbatch'] . '</td>
+				<td>' . $MyRow['itemcode'] . '</td>
+				<td>' . $MyRow['itemdescription'] . '</td>
+				<td>' . $MyRow['deliverydate'] . '</td>
+				<td class="number">' . locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']) . '</td>
+				<td><a href="PDFGrn.php?GRNNo=' . urlencode($MyRow['grnbatch']) . '&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint GRN ') . '</a></td>
+				<td><a href="PDFQALabel.php?GRNNo=' . urlencode($MyRow['grnbatch']) .'&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint QA Label') . '</a></td>
+			</tr>';
 	}
 	echo '</table>';
 }

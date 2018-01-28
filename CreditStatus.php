@@ -160,19 +160,13 @@ if (!isset($SelectedReason)) {
 		} else {
 			$DissallowText = '<b>' . _('NO INVOICING') . '</b>';
 		}
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		echo '<td>' . $MyRow['reasoncode'] . '</td>
-			<td>' . $MyRow['reasondescription'] . '</td>
-			<td>' . $DissallowText . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this credit status record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['reasoncode'] . '</td>
+				<td>' . $MyRow['reasondescription'] . '</td>
+				<td>' . $DissallowText . '</td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this credit status record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP

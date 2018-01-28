@@ -436,18 +436,12 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	$k = 0;
 	foreach ($_SESSION['tender' . $Identifier]->LineItems as $LineItems) {
 		if ($LineItems->Deleted == False) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td>' . $LineItems->StockID . '</td>
-				<td>' . $LineItems->ItemDescription . '</td>
-				<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
-				<td>' . $LineItems->Units . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteItem=' . $LineItems->LineNo . '">' . _('Delete') . '</a></td>
+			echo '<tr class="striped_row">
+					<td>' . $LineItems->StockID . '</td>
+					<td>' . $LineItems->ItemDescription . '</td>
+					<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
+					<td>' . $LineItems->Units . '</td>
+					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteItem=' . $LineItems->LineNo . '">' . _('Delete') . '</a></td>
 				</tr>';
 		}
 	}
@@ -572,20 +566,14 @@ if (isset($_POST['SearchSupplier'])) {
 	$RowIndex = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td><input type="submit" name="SelectedSupplier" value="' . $MyRow['supplierid'] . '" /></td>
-			<td>' . $MyRow['suppname'] . '</td>
-			<td>' . $MyRow['currcode'] . '</td>
-			<td>' . $MyRow['address1'] . '</td>
-			<td>' . $MyRow['address2'] . '</td>
-			<td>' . $MyRow['address3'] . '</td>
-			<td>' . $MyRow['address4'] . '</td>
+		echo '<tr class="striped_row">
+				<td><input type="submit" name="SelectedSupplier" value="' . $MyRow['supplierid'] . '" /></td>
+				<td>' . $MyRow['suppname'] . '</td>
+				<td>' . $MyRow['currcode'] . '</td>
+				<td>' . $MyRow['address1'] . '</td>
+				<td>' . $MyRow['address2'] . '</td>
+				<td>' . $MyRow['address3'] . '</td>
+				<td>' . $MyRow['address4'] . '</td>
 			</tr>';
 		$RowIndex = $RowIndex + 1;
 		//end of page full new headings if
@@ -716,14 +704,6 @@ if (isset($_POST['Search'])) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			$SupportedImgExt = array('png', 'jpg', 'jpeg');
 			$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 			$ImageFile = reset($ImageFileArray);
@@ -735,7 +715,8 @@ if (isset($_POST['Search'])) {
 				$ImageSource = _('No Image');
  			}
 
-			echo '<td>' . $MyRow['stockid'] . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $MyRow['units'] . '</td>
 					<td>' . $ImageSource . '</td>

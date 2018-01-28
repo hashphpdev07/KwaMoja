@@ -261,13 +261,6 @@ if (DB_num_rows($Result) != 0) {
 	$k = 0; //row colour counter
 
 	do {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		if ($MyRow[11] == 1) {
 			$BudOrAct = _('Actual');
 		} else {
@@ -280,18 +273,20 @@ if (DB_num_rows($Result) != 0) {
 			$BudOrAct = _('N/A');
 		}
 
-		printf('<td><a href=\'%sReportID=%s&amp;SelectedCol=%s\'>%s</a></td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td>%s</td>
-		  	<td><a href="%sReportID=%s&amp;SelectedCol=%s&amp;delete=1">' . _('Delete') . '</a></td></tr>', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1], $MyRow[1], $MyRow[2], $MyRow[3], $Calc, $MyRow[5], $MyRow[6], $MyRow[7], $MyRow[8], $MyRow[9], $MyRow[10], $BudOrAct, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1]);
+		printf('<tr class="striped_row">
+					<td><a href=\'%sReportID=%s&amp;SelectedCol=%s\'>%s</a></td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%sReportID=%s&amp;SelectedCol=%s&amp;delete=1">' . _('Delete') . '</a></td>
+				</tr>', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1], $MyRow[1], $MyRow[2], $MyRow[3], $Calc, $MyRow[5], $MyRow[6], $MyRow[7], $MyRow[8], $MyRow[9], $MyRow[10], $BudOrAct, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1]);
 
 	} while ($MyRow = DB_fetch_array($Result));
 	//END WHILE LIST LOOP

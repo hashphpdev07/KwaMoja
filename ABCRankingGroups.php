@@ -134,7 +134,7 @@ if (isset($_POST['Submit'])) {
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr class="OddTableRows">
+		echo '<tr class="striped_row">
 				<td>', $MyRow['groupid'], '</td>
 				<td>', $MyRow['groupname'], '</td>
 				<td>', $MyRow['methodname'], '</td>

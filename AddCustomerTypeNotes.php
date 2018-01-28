@@ -117,14 +117,8 @@ if (!isset($Id)) {
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
-		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+		echo '<tr class="striped_row">
+				<td>', ConvertSQLDate($MyRow['date']), '</td>
 				<td>', $MyRow['note'], '</td>
 				<td>', $MyRow['href'], '</td>
 				<td>', $MyRow['priority'], '</td>

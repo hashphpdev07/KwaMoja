@@ -77,15 +77,8 @@ foreach ($LineItem->SerialItems as $Bundle) {
 		$RowCounter++;
 	}
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>' . $Bundle->BundleRef . '</td>';
+	echo '<tr class="striped_row">
+			<td>' . $Bundle->BundleRef . '</td>';
 
 	if ($LineItem->Serialised == 0 and $Perishable == 0) {
 		echo '<td class="number">' . locale_number_format($Bundle->BundleQty, $LineItem->DecimalPlaces) . '</td>';

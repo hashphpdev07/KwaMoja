@@ -180,14 +180,6 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 		$PriceCounter = 0;
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			//get cost
 			if ($MyRow['cost'] == '') {
 				$Cost = 0;
@@ -215,7 +207,8 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 			} else {
 				$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 			}
-			echo '  <td>' . $MyRow['stockid'] . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $MyRow['customer'] . '</td>
 					<td>' . $MyRow['branch'] . '</td>
