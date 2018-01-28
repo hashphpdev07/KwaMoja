@@ -93,7 +93,7 @@ $Result = DB_query($SQL);
 
 echo '<tr><td>' . _('Customer Price List') . ' (' . _('Sales Type') . '):</td><td>';
 
-echo '<select tabindex="1" name="SalesType">';
+echo '<select name="SalesType">';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['SalesType']) and $MyRow['typeabbrev'] == $_POST['SalesType']) {
@@ -127,15 +127,15 @@ if (DB_num_rows($Result) > 0) {
 
 echo '<tr>
 		<td>' . _('Quantity Break') . '</td>
-		<td><input class="number" tabindex="3" type="text" name="QuantityBreak" size="10" required="required" maxlength="10" /></td>
+		<td><input class="number" type="text" name="QuantityBreak" size="10" required="required" maxlength="10" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Discount Rate') . ' (%):</td>
-		<td><input class="number" tabindex="4" type="text" name="DiscountRate" size="5" required="required" maxlength="5" /></td>
+		<td><input class="number" type="text" name="DiscountRate" size="5" required="required" maxlength="5" /></td>
 	</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="5" type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>';
 
 $SQL = "SELECT sales_type,

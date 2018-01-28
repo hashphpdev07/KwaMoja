@@ -772,17 +772,17 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	echo '<table cellpadding="3">
 			<tr>
 			<td><h5>' . _('Part of the Customer Branch Name') . ':</h5></td>
-			<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
+			<td><input type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Customer Branch Code') . ':</h5></td>
-			<td><input tabindex="2" type="text" name="CustCode" size="15" maxlength="18" /></td>
+			<td><input type="text" name="CustCode" size="15" maxlength="18" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Branch Phone Number') . ':</h5></td>
-			<td><input tabindex="3" type="text" name="CustPhone" size="15" maxlength="18" /></td>
+			<td><input type="text" name="CustPhone" size="15" maxlength="18" /></td>
 		</tr>
 		</table>
-		<br /><div class="centre"><input tabindex="4" type="submit" name="SearchCustomers" value="' . _('Search Now') . '" />
-		<input tabindex="5" type="submit" name="reset" value="' . _('Reset') . '" /></div>';
+		<br /><div class="centre"><input type="submit" name="SearchCustomers" value="' . _('Search Now') . '" />
+		<input type="submit" name="reset" value="' . _('Reset') . '" /></div>';
 
 	if (isset($Result_CustSelect)) {
 

@@ -199,7 +199,7 @@ echo '<tr>
 		<td>' . _('Customer Price List') . ' (' . _('Sales Type') . '):</td>
 		<td>';
 
-echo '<select tabindex="1" name="SalesType">';
+echo '<select name="SalesType">';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['SalesType']) and $MyRow['typeabbrev'] == $_POST['SalesType']) {
@@ -245,15 +245,15 @@ echo '<tr>
 	</tr>';
 echo '<tr>
 		<td>' . _('Quantity Break') . '</td>
-		<td><input class="integer" tabindex="3" required="required" type="number" name="QuantityBreak" size="10" maxlength="10" value="' . $_POST['QuantityBreak'] . '" /></td>
+		<td><input class="integer" required="required" type="number" name="QuantityBreak" size="10" maxlength="10" value="' . $_POST['QuantityBreak'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Price') . ' :</td>
-		<td><input class="number" tabindex="4" type="number" required="required" name="Price" title="' . _('The price to apply to orders where the quantity exceeds the specified quantity') . '" size="5" maxlength="5" value="' . $_POST['Price'] . '" /></td>
+		<td><input class="number" type="number" required="required" name="Price" title="' . _('The price to apply to orders where the quantity exceeds the specified quantity') . '" size="5" maxlength="5" value="' . $_POST['Price'] . '" /></td>
 	</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="5" type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>';
 
 $SQL = "SELECT sales_type,

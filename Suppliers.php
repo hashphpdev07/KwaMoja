@@ -992,7 +992,7 @@ $Result = DB_query("SELECT accountcode,
 					ORDER BY chartmaster.accountcode");
 echo '<tr>
 		<td>' . _('Default GL Account') . ':</td>
-		<td><select tabindex="19" name="DefaultGL">';
+		<td><select name="DefaultGL">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['DefaultGL'] == $MyRow[0]) {

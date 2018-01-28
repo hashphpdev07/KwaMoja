@@ -108,7 +108,7 @@ $AccountsResults = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 echo '<tr>
 		<td>' . _('Bank Account') . ':</td>
-		<td><select tabindex="1" name="BankAccount">';
+		<td><select name="BankAccount">';
 
 if (DB_num_rows($AccountsResults) == 0) {
 	echo '</select></td>
@@ -144,7 +144,7 @@ include('includes/GLPostings.php');
 
 echo '</table>
 	<div class="centre">
-		<input type="submit" tabindex="2" name="ShowRec" value="' . _('Show bank reconciliation statement') . '" />
+		<input type="submit" name="ShowRec" value="' . _('Show bank reconciliation statement') . '" />
 	</div>';
 
 
@@ -355,13 +355,13 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 
 if (isset($_POST['BankAccount'])) {
 	echo '<div class="centre">
-			<a tabindex="4" href="' . $RootPath . '/BankMatching.php?Type=Payments&amp;Account=' . $_POST['BankAccount'] . '">' . _('Match off cleared payments') . '</a>
-			<a tabindex="5" href="' . $RootPath . '/BankMatching.php?Type=Receipts&amp;Account=' . $_POST['BankAccount'] . '">' . _('Match off cleared deposits') . '</a>
+			<a href="' . $RootPath . '/BankMatching.php?Type=Payments&amp;Account=' . $_POST['BankAccount'] . '">' . _('Match off cleared payments') . '</a>
+			<a href="' . $RootPath . '/BankMatching.php?Type=Receipts&amp;Account=' . $_POST['BankAccount'] . '">' . _('Match off cleared deposits') . '</a>
 		</div>';
 } else {
 	echo '<div class="centre">
-			<a tabindex="4" href="' . $RootPath . '/BankMatching.php?Type=Payments">' . _('Match off cleared payments') . '</a>
-			<a tabindex="5" href="' . $RootPath . '/BankMatching.php?Type=Receipts">' . _('Match off cleared deposits') . '</a>
+			<a href="' . $RootPath . '/BankMatching.php?Type=Payments">' . _('Match off cleared payments') . '</a>
+			<a href="' . $RootPath . '/BankMatching.php?Type=Receipts">' . _('Match off cleared deposits') . '</a>
 		</div>';
 }
 echo '</form>';

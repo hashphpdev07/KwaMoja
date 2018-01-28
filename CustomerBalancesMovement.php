@@ -71,7 +71,7 @@ if (!isset($_POST['RunReport'])) {
 
 			</table>
 			<div class="centre">
-				<input tabindex="4" type="submit" name="RunReport" value="' . _('Show Customer Balance Movements') . '" />
+				<input type="submit" name="RunReport" value="' . _('Show Customer Balance Movements') . '" />
 			</div>
 	</form>';
 	include('includes/footer.php');

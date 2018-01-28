@@ -27,7 +27,7 @@ if (!isset($_POST['TransType'])) {
 echo '<table class="selection noPrint">
 		<tr>
 			<td>', _('Type'), ':</td>
-			<td><select tabindex="1" name="TransType"> ';
+			<td><select name="TransType"> ';
 if ($_POST['TransType'] == 20) {
 	echo '<option selected="selected" value="20">', _('Purchase Invoice'), '</option>
 			<option value="22">', _('Payment'), '</option>
@@ -49,11 +49,11 @@ if (!isset($_POST['TransNo'])) {
 	$_POST['TransNo'] = '';
 }
 echo '<td>', _('Transaction Number'), ':</td>
-		<td><input tabindex="2" type="text" class="number" name="TransNo"  required="required" maxlength="20" size="20" value="', $_POST['TransNo'], '" /></td>
+		<td><input type="text" class="number" name="TransNo"  required="required" maxlength="20" size="20" value="', $_POST['TransNo'], '" /></td>
 	</tr>
 	</table>
 	<div class="centre noPrint">
-		<input tabindex="3" type="submit" name="ShowResults" value="', _('Show How Allocated'), '" />
+		<input type="submit" name="ShowResults" value="', _('Show How Allocated'), '" />
 	</div>';
 
 if (isset($_POST['ShowResults']) and $_POST['TransNo'] == '') {

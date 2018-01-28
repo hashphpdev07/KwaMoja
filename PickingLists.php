@@ -344,7 +344,7 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 		if (isset($_POST['ProcessPickList'])) {
 			echo '<td class="number">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</td>';
 		} else {
-			echo '<td class="number"><input tabindex="' . $j . '" type="text" ' . ($j == 1 ? 'autofocus="autofocus" ' : '') . ' class="number" required="required" title="' . _('Enter the quantity to charge the customer for, that has been dispatched') . '" name="' . $LnItm->LineNumber . '_QtyDispatched" maxlength="12" size="12" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
+			echo '<td class="number"><input type="text" ' . ($j == 1 ? 'autofocus="autofocus" ' : '') . ' class="number" required="required" title="' . _('Enter the quantity to charge the customer for, that has been dispatched') . '" name="' . $LnItm->LineNumber . '_QtyDispatched" maxlength="12" size="12" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
 		}
 	}
 	echo '<td class="number">' . locale_number_format($_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyShipped, $LnItm->DecimalPlaces) . '</td>';
@@ -687,24 +687,24 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 	echo '</select></td></tr>';
 	echo '<tr>
 			<td>' . _('Consignment Note Ref') . ':</td>
-			<td><input tabindex="' . $j . '" type="text" data-type="no-illegal-chars" title="' . _('Enter the consignment note reference to enable tracking of the delivery in the event of customer proof of delivery issues') . '" maxlength="15" size="15" name="Consignment" value="' . $_POST['Consignment'] . '" /></td>
+			<td><input type="text" data-type="no-illegal-chars" title="' . _('Enter the consignment note reference to enable tracking of the delivery in the event of customer proof of delivery issues') . '" maxlength="15" size="15" name="Consignment" value="' . $_POST['Consignment'] . '" /></td>
 		</tr>';
 	++$j;
 	echo '<tr>
 			<td>' . _('No Of Packages in Delivery') . ':</td>
-			<td><input tabindex="' . $j . '" type="number" maxlength="6" size="6" class="integer" name="Packages" value="' . $_POST['Packages'] . '" /></td>
+			<td><input type="number" maxlength="6" size="6" class="integer" name="Packages" value="' . $_POST['Packages'] . '" /></td>
 		</tr>';
 
 	++$j;
 	echo '<tr>
 			<td>' . _('Pick List Comments') . ':</td>
-			<td><textarea tabindex="' . $j . '" name="Comments" pattern=".{0,20}" cols="31" rows="5">' . reverse_escape($_SESSION['Items' . $Identifier]->Comments) . '</textarea></td>
+			<td><textarea name="Comments" pattern=".{0,20}" cols="31" rows="5">' . reverse_escape($_SESSION['Items' . $Identifier]->Comments) . '</textarea></td>
 		</tr>';
 
 	++$j;
 	echo '<tr>
 			<td>' . _('Order Internal Comments') . ':</td>
-			<td><textarea tabindex="' . $j . '" name="InternalComments" pattern=".{0,20}" cols="31" rows="5">' . reverse_escape($_SESSION['Items' . $Identifier]->InternalComments) . '</textarea></td>
+			<td><textarea name="InternalComments" pattern=".{0,20}" cols="31" rows="5">' . reverse_escape($_SESSION['Items' . $Identifier]->InternalComments) . '</textarea></td>
 		</tr>';
 
 	++$j;
@@ -712,11 +712,11 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 	if (($_SESSION['Items' . $Identifier]->Status != 'Shipped') or (in_array($ARSecurity, $_SESSION['AllowedPageSecurityTokens']))) {
 		//only allow A/R to change status on an already shipped Pick, we expect to invoice, we need A/R intervention to prevent ship, cancel, no invoice, lost money
 		echo '<div class="centre">
-				<input type="submit" tabindex="' . $j . '" name="Update" value="' . _('Update') . '" />
+				<input type="submit" name="Update" value="' . _('Update') . '" />
 				<br />';
 		++$j;
 		echo '<br />
-				<input type="submit" tabindex="' . $j . '" name="ProcessPickList" value="' . _('Process Pick List') . '" />
+				<input type="submit" name="ProcessPickList" value="' . _('Process Pick List') . '" />
 			</div>
 			<input type="hidden" name="ShipVia" value="' . $_SESSION['Items' . $Identifier]->ShipVia . '" />';
 	}

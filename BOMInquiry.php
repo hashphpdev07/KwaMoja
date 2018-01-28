@@ -17,21 +17,18 @@ if (!isset($_POST['StockID'])) {
 			' . _('Select a manufactured part') . ' (' . _('or Assembly or Kit part') . ') ' . _('to view the costed bill of materials') . '
 			<br />' . _('Parts must be defined in the stock item entry') . '/' . _('modification screen as manufactured') . ', ' . _('kits or assemblies to be available for construction of a bill of material') . '
 		</div>
-		<br />
 		<table>
 		<tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-			<td><input tabindex="1" type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" /></td>
+			<td><input type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-			<td><input tabindex="2" type="text" name="StockCode" size="15" maxlength="20" /></td>
+			<td><input type="text" name="StockCode" size="15" maxlength="20" /></td>
 		</tr>
 		</table>
-		<br />
 		<div class="centre">
-			<input tabindex="3" type="submit" name="Search" value="' . _('Search Now') . '" />
+			<input type="submit" name="Search" value="' . _('Search Now') . '" />
 		</div>
-		<br />
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 }
 
@@ -114,9 +111,8 @@ if (isset($_POST['Search']) and isset($Result) and !isset($SelectedParent)) {
 		} else {
 			$StockOnHand = locale_number_format($MyRow['totalonhand'], 2);
 		}
-		$TabIndex = $j + 4;
 		printf('<tr class="striped_row">
-					<td><input tabindex="' . $TabIndex . '" type="submit" name="StockID" value="%s" /></td>
+					<td><input type="submit" name="StockID" value="%s" /></td>
 					<td>%s</td>
 					<td class="number">%s</td>
 					<td>%s</td>

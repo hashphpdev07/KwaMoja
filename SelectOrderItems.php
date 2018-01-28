@@ -566,18 +566,18 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			 <table cellpadding="3">
 				<tr>
 				<td>' . _('Part of the Customer Branch Name') . ':</td>
-				<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
+				<td><input type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 				<td><b>' . _('OR') . '</b></td>
 				<td>' . _('Part of the Customer Branch Code') . ':</td>
-				<td><input tabindex="2" type="text" name="CustCode" size="15" maxlength="18" /></td>
+				<td><input type="text" name="CustCode" size="15" maxlength="18" /></td>
 				<td><b>' . _('OR') . '</b></td>
 				<td>' . _('Part of the Branch Phone Number') . ':</td>
-				<td><input tabindex="3" type="text" name="CustPhone" size="15" maxlength="18" /></td>
+				<td><input type="text" name="CustPhone" size="15" maxlength="18" /></td>
 				</tr>
 			</table>
 			<div class="centre">
-				<input tabindex="4" type="submit" name="SearchCust" value="' . _('Search Now') . '" />
-				<input tabindex="5" type="submit" name="reset" value="' . _('Reset') . '" />
+				<input type="submit" name="SearchCust" value="' . _('Search Now') . '" />
+				<input type="submit" name="reset" value="' . _('Reset') . '" />
 			</div>';
 
 	if (isset($Result_CustSelect)) {
@@ -608,7 +608,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				echo '<tr class="striped_row">
 						<td></td>';
 			}
-			echo '<td><input tabindex="' . strval($j + 5) . '" type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false) . '" />
+			echo '<td><input type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false) . '" />
 					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
 					<input type="hidden" name="SelectedBranch' . $j . '" value="' . $MyRow['branchcode'] . '" /></td>
 					<td>' . $MyRow['contactname'] . '</td>
@@ -1386,7 +1386,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			echo '<a href="' . $RootPath . '/StockStatus.php?identifier=' . urlencode($Identifier) . '&amp;StockID=' . urlencode($OrderLine->StockID) . '&amp;DebtorNo=' . urlencode($_SESSION['Items' . $Identifier]->DebtorNo) . '" target="_blank">' . $OrderLine->StockID . '</a></td>
 				<td title="' . $OrderLine->LongDescription . '">' . $OrderLine->ItemDescription . '</td>';
 
-			echo '<td><input class="number" tabindex="2" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="11" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
+			echo '<td><input class="number" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="11" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
 			if ($QtyRemain != $QtyOrdered) {
 				echo '<br />' . locale_number_format($OrderLine->QtyInv, $OrderLine->DecimalPlaces) . ' ' . _('of') . ' ' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . ' ' . _('invoiced');
 			} //$QtyRemain != $QtyOrdered
@@ -1563,7 +1563,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 							<td class="number">%s</td>
 							<td class="number">%s</td>
 							<td class="number">%s</td>
-							<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" required="required" maxlength="10" size="6" name="OrderQty' . $i . '" value="0" />
+							<td><input class="number" type="text" required="required" maxlength="10" size="6" name="OrderQty' . $i . '" value="0" />
 								<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
 							</td>
 						</tr>', $MyRow['stockid'], $MyRow['longdescription'], $MyRow['description'], $MyRow['units'], locale_number_format($QOH, $QOHRow['decimalplaces']), locale_number_format($DemandQty, $QOHRow['decimalplaces']), locale_number_format($OnOrder, $QOHRow['decimalplaces']), locale_number_format($Available, $QOHRow['decimalplaces']));
@@ -1575,7 +1575,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			echo '</tbody>';
 			echo '<td style="text-align:center" colspan="8">
 					<input type="hidden" name="SelectingOrderItems" value="1" />
-					<input tabindex="' . strval($j + 8) . '" type="submit" value="' . _('Add to Sales Order') . '" />
+					<input type="submit" value="' . _('Add to Sales Order') . '" />
 				</td>
 			</tr>';
 			echo '</table>';
@@ -1586,7 +1586,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		echo '<div class="page_help_text">' . _('Search for Order Items') . _(', Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code') . '.</div><br />';
 		echo '<table>
 				<tr>
-					<td><b>' . _('Select a Stock Category') . ': </b><select tabindex="1" name="StockCat">';
+					<td><b>' . _('Select a Stock Category') . ': </b><select name="StockCat">';
 
 		if (!isset($_POST['StockCat']) or $_POST['StockCat'] == 'All') {
 			echo '<option selected="selected" value="All">' . _('All') . '</option>';
@@ -1613,14 +1613,14 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 		echo '</select></td>
 
-			<td><b>' . _('Enter partial Description') . ':</b><input tabindex="2" type="text" name="Keywords" size="20" maxlength="25" value="';
+			<td><b>' . _('Enter partial Description') . ':</b><input type="text" name="Keywords" size="20" maxlength="25" value="';
 
 		if (isset($_POST['Keywords'])) {
 			echo $_POST['Keywords'];
 		} //isset($_POST['Keywords'])
 		echo '" /></td>';
 
-		echo '<td align="right"><b>' . _('OR') . ' ' . _('Enter extract of the Stock Code') . ':</b><input tabindex="3" type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="';
+		echo '<td align="right"><b>' . _('OR') . ' ' . _('Enter extract of the Stock Code') . ':</b><input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="';
 		if (isset($_POST['StockCode'])) {
 			echo $_POST['StockCode'];
 		} //isset($_POST['StockCode'])
@@ -1630,11 +1630,11 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		</table>';
 
 		echo '<div class="centre">
-				<input tabindex="4" type="submit" name="Search" value="' . _('Search Now') . '" />
-				<input tabindex="5" type="submit" name="QuickEntry" value="' . _('Use Quick Entry') . '" />
+				<input type="submit" name="Search" value="' . _('Search Now') . '" />
+				<input type="submit" name="QuickEntry" value="' . _('Use Quick Entry') . '" />
 				<h2>' . _('Or') . '</h2>
-				' . _('Upload items from csv file') . '<input tabindex="5" type="file" name="CSVFile" />
-				<input tabindex="5" type="submit" name="UploadFile" value="' . _('Upload File') . '" />
+				' . _('Upload items from csv file') . '<input type="file" name="CSVFile" />
+				<input type="submit" name="UploadFile" value="' . _('Upload File') . '" />
 			</div>';
 		echo '<div class="page_help_text">' . _('The csv file should have exactly 2 columns, part code and quantity.') . '</div>';
 
@@ -1646,15 +1646,15 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 						<tr>
 							<td colspan="1">
 								<input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" />
-								<input tabindex="' . strval($j + 8) . '" type="submit" name="Previous" value="' . _('Previous') . '" />
+								<input type="submit" name="Previous" value="' . _('Previous') . '" />
 							</td>
 							<td style="text-align:center" colspan="7">
 								<input type="hidden" name="SelectingOrderItems" value="1" />
-								<input tabindex="' . strval($j + 9) . '" type="submit" value="' . _('Add to Sales Order') . '" />
+								<input type="submit" value="' . _('Add to Sales Order') . '" />
 							</td>
 							<td style="text-align:right" colspan="1">
 								<input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" />
-								<input tabindex="' . strval($j + 10) . '" type="submit" name="Next" value="' . _('Next') . '" />
+								<input type="submit" name="Next" value="' . _('Next') . '" />
 							</td>
 						</tr>
 						<tr>
@@ -1722,7 +1722,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 							<td class="number">%s</td>
 							<td class="number">%s</td>
 							<td class="number">%s</td>
-							<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" size="6" required="required" maxlength="10" name="OrderQty' . $i . '" value="0" />
+							<td><input class="number" type="text" size="6" required="required" maxlength="10" name="OrderQty' . $i . '" value="0" />
 							<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
 							</td>
 						</tr>', $MyRow['stockid'], $MyRow['longdescription'], $MyRow['description'], $MyRow['cust_part'] . '-' . $MyRow['cust_description'], $MyRow['units'], locale_number_format($QOH, $QOHRow['decimalplaces']), locale_number_format($DemandQty, $QOHRow['decimalplaces']), locale_number_format($OnOrder, $QOHRow['decimalplaces']), locale_number_format($Available, $QOHRow['decimalplaces']));
@@ -1736,15 +1736,15 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 					<tr>
 						<td>
 							<input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" />
-							<input tabindex="' . strval($j + 7) . '" type="submit" name="Previous" value="' . _('Previous') . '" />
+							<input type="submit" name="Previous" value="' . _('Previous') . '" />
 						</td>
 						<td style="text-align:center" colspan="7">
 							<input type="hidden" name="SelectingOrderItems" value="1" />
-							<input tabindex="' . strval($j + 8) . '" type="submit" value="' . _('Add to Sales Order') . '" />
+							<input type="submit" value="' . _('Add to Sales Order') . '" />
 						</td>
 						<td style="text-align:right">
 							<input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" />
-							<input tabindex="' . strval($j + 9) . '" type="submit" name="Next" value="' . _('Next') . '" />
+							<input type="submit" name="Next" value="' . _('Next') . '" />
 						</td>
 					</tr>
 				</tfoot>';

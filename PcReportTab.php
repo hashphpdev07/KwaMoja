@@ -58,13 +58,13 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	echo '<tr>
 			<td>', _('From Date'), ':</td>
 			<td>
-				<input tabindex="2" class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="', $_POST['FromDate'], '" />
+				<input class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="', $_POST['FromDate'], '" />
 			</td>
 		</tr>
 		<tr>
 			<td>', _('To Date'), ':</td>
 			<td>
-				<input tabindex="3" class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="', $_POST['ToDate'], '" />
+				<input class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="', $_POST['ToDate'], '" />
 			</td>
 		</tr>
 	</table>';

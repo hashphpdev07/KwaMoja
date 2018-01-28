@@ -108,7 +108,7 @@ echo ' /></td>
 
 
 echo '<div class="centre">
-		<input tabindex="4" type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
+		<input type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
 	</div>';
 echo '</form>';
 

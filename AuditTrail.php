@@ -40,17 +40,17 @@ echo '<table>';
 
 echo '<tr>
 		<td>', _('From Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
-		<td><input tabindex="1" type="text" class="date" name="FromDate" size="11" required="required" maxlength="10" value="', $_POST['FromDate'], '" /></td>
+		<td><input type="text" class="date" name="FromDate" size="11" required="required" maxlength="10" value="', $_POST['FromDate'], '" /></td>
 	</tr>';
 echo '<tr>
 		<td>', _('To Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
-		<td><input tabindex="2" type="text" class="date" name="ToDate" size="11" required="required" maxlength="10" value="', $_POST['ToDate'], '" /></td>
+		<td><input type="text" class="date" name="ToDate" size="11" required="required" maxlength="10" value="', $_POST['ToDate'], '" /></td>
 	</tr>';
 
 // Show user selections
 echo '<tr>
 		<td>', _('User ID'), '</td>
-		<td><select tabindex="3" name="SelectedUser">';
+		<td><select name="SelectedUser">';
 echo '<option value="ALL">', _('All'), '</option>';
 while ($Users = DB_fetch_row($UserResult)) {
 	if (isset($_POST['SelectedUser']) and $Users[0] == $_POST['SelectedUser']) {
@@ -66,7 +66,7 @@ echo '</select>
 // Show table selections
 echo '<tr>
 		<td>', _('Table '), '</td>
-		<td><select tabindex="4" name="SelectedTable">';
+		<td><select name="SelectedTable">';
 echo '<option value="ALL">', _('All'), '</option>';
 while ($Tables = DB_fetch_row($TableResult)) {
 	if (isset($_POST['SelectedTable']) and $Tables[0] == $_POST['SelectedTable']) {
@@ -91,7 +91,7 @@ echo '<tr>
 
 echo '</table>';
 echo '<div class="centre">
-		<input tabindex="5" type="submit" name="View" value="', _('View'), '" />
+		<input type="submit" name="View" value="', _('View'), '" />
 	</div>';
 echo '</form>';
 

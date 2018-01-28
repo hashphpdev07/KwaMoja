@@ -145,7 +145,7 @@ if (!isset($SelectedMessageLine)) {
 	echo '</table>';
 	if (DB_num_rows($Result) == 0) {
 		echo '<div class="centre">
-				<input tabindex="1" type="submit" name="NewEDIInvMsg" value="' . _('Create New EDI Invoice Message From Default Template') . '" />
+				<input type="submit" name="NewEDIInvMsg" value="' . _('Create New EDI Invoice Message From Default Template') . '" />
 			</div>';
 	}
 } //end of ifs SelectedLine is not set
@@ -192,7 +192,7 @@ if ($MyRow['messagetype'] != '') {
 echo '<tr>
 		<td>' . _('Section') . ':</td>
 		<td>';
-echo '<select tabindex="2" name="Section">';
+echo '<select name="Section">';
 
 if ($_POST['Section'] == 'Heading') {
 	echo '<option selected="selected" value="Heading">' . _('Heading') . '</option>';
@@ -224,17 +224,17 @@ if (!isset($_POST['LineText'])) {
 echo '</td></tr>';
 
 echo '<tr><td>Sequence Number:</td>';
-echo '<td><input tabindex="3" type="text" name="SequenceNo" size="3" maxlength="3" value="' . $_POST['SequenceNo'] . '" />';
+echo '<td><input  type="text" name="SequenceNo" size="3" maxlength="3" value="' . $_POST['SequenceNo'] . '" />';
 echo '</td></tr>';
 echo '<tr><td>' . _('Line Text') . ':' . '</td>';
 echo '<td>';
-echo '<input tabindex="4" type="text" name="LineText" size="50" maxlength="50" value="' . $_POST['LineText'] . '" />';
+echo '<input type="text" name="LineText" size="50" maxlength="50" value="' . $_POST['LineText'] . '" />';
 echo '</td></tr>';
 echo '</table>';
 if (isset($_GET['SelectedMessageLine'])) {
-	echo '<div class="centre"><input tabindex="5" type="submit" name="update" value="' . _('Update Information') . '" /></div>';
+	echo '<div class="centre"><input type="submit" name="update" value="' . _('Update Information') . '" /></div>';
 } else {
-	echo '<div class="centre"><input tabindex="5" type="submit" name="submit" value="' . _('Enter Information') . '" /></div>';
+	echo '<div class="centre"><input type="submit" name="submit" value="' . _('Enter Information') . '" /></div>';
 }
 echo '</form>';
 

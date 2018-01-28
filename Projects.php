@@ -660,15 +660,15 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	echo '<table cellpadding="3">
 			<tr>
 			<td><h5>' . _('Part of the Donor Name') . ':</h5></td>
-			<td><input tabindex="1" type="text" name="DonorKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
+			<td><input type="text" name="DonorKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Donor Code') . ':</h5></td>
-			<td><input tabindex="2" type="text" name="DonorCode" size="15" maxlength="18" /></td>
+			<td><input type="text" name="DonorCode" size="15" maxlength="18" /></td>
 		</tr>
 		</table>
 		<div class="centre">
-			<input tabindex="4" type="submit" name="SearchDonors" value="' . _('Search Now') . '" />
-			<input tabindex="5" type="submit" name="reset" value="' . _('Reset') . '" />
+			<input type="submit" name="SearchDonors" value="' . _('Search Now') . '" />
+			<input type="submit" name="reset" value="' . _('Reset') . '" />
 		</div>';
 
 	if (isset($Result_DonorSelect)) {

@@ -299,7 +299,7 @@ if (isset($SelectedBankAccount) and !isset($_GET['delete'])) {
 	echo '<table>
 			<tr>
 				<td>' . _('Bank Account GL Code') . ':</td>
-				<td><select required="required" tabindex="1" name="AccountCode">';
+				<td><select required="required" name="AccountCode">';
 
 	$SQL = "SELECT accountcode,
 					accountname
@@ -342,24 +342,24 @@ if (!isset($_POST['ImportFormat'])) {
 }
 echo '<tr>
 		<td>' . _('Bank Account Name') . ': </td>
-		<td><input tabindex="2" type="text" name="BankAccountName" value="' . $_POST['BankAccountName'] . '" size="40" required="required" maxlength="50" /></td>
+		<td><input type="text" name="BankAccountName" value="' . $_POST['BankAccountName'] . '" size="40" required="required" maxlength="50" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Bank Account Code') . ': </td>
-		<td><input tabindex="3" type="text" name="BankAccountCode" value="' . $_POST['BankAccountCode'] . '" size="40" maxlength="50" /></td>
+		<td><input type="text" name="BankAccountCode" value="' . $_POST['BankAccountCode'] . '" size="40" maxlength="50" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Bank Account Number') . ': </td>
-		<td><input tabindex="3" type="text" name="BankAccountNumber" value="' . $_POST['BankAccountNumber'] . '" size="40" maxlength="50" /></td>
+		<td><input type="text" name="BankAccountNumber" value="' . $_POST['BankAccountNumber'] . '" size="40" maxlength="50" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Bank Address') . ': </td>
-		<td><input tabindex="4" type="text" name="BankAddress" value="' . $_POST['BankAddress'] . '" size="40" maxlength="50" /></td>
+		<td><input type="text" name="BankAddress" value="' . $_POST['BankAddress'] . '" size="40" maxlength="50" /></td>
 	</tr>
  	<tr>
 		<td>' . _('Transaction Import File Format') . ': </td>
 		<td>
-			<select tabindex="5" name="ImportFormat">
+			<select name="ImportFormat">
 				<option ' . ($_POST['ImportFormat'] == '' ? 'selected="selected"' : '') . ' value="">' . _('N/A') . '</option>
 				<option ' . ($_POST['ImportFormat'] == 'MT940-SCB' ? 'selected="selected"' : '') . ' value="MT940-SCB">' . _('MT940 - Siam Comercial Bank Thailand') . '</option>
 				<option ' . ($_POST['ImportFormat'] == 'MT940-ING' ? 'selected="selected"' : '') . ' value="MT940-ING">' . _('MT940 - ING Bank Netherlands') . '</option>
@@ -369,7 +369,7 @@ echo '<tr>
 	</tr>
 	<tr>
 		<td>' . _('Currency Of Account') . ': </td>
-		<td><select tabindex="6" name="CurrCode">';
+		<td><select name="CurrCode">';
 
 if (!isset($_POST['CurrCode']) or $_POST['CurrCode'] == '') {
 	$_POST['CurrCode'] = $_SESSION['CompanyRecord']['currencydefault'];
@@ -391,7 +391,7 @@ echo '</tr>';
 
 echo '<tr>
 		<td>' . _('Default for Invoices') . ': </td>
-		<td><select tabindex="6" name="DefAccount">';
+		<td><select name="DefAccount">';
 
 if (!isset($_POST['DefAccount']) or $_POST['DefAccount'] == '') {
 	$_POST['DefAccount'] = $_SESSION['CompanyRecord']['currencydefault'];
@@ -447,7 +447,7 @@ echo '</select>
 </table>';
 
 echo '<div class="centre">
-		<input tabindex="7" type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>';
 echo '</form>';
 include('includes/footer.php');

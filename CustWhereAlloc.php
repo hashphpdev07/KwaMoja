@@ -23,7 +23,7 @@ echo '<table class="selection noPrint" summary="', _('Select criteria for the wh
 		<tr>
 			<td>', _('Type'), ':</td>
 			<td>
-				<select tabindex="1" name="TransType"> ';
+				<select name="TransType"> ';
 
 if (!isset($_POST['TransType'])) {
 	$_POST['TransType'] = '10';
@@ -50,11 +50,11 @@ if (!isset($_POST['TransNo'])) {
 	$_POST['TransNo'] = '';
 }
 echo '<td>', _('Transaction Number'), ':</td>
-		<td><input class="number" tabindex="2" type="text" name="TransNo" required="required" maxlength="10" size="10" value="', $_POST['TransNo'], '" /></td>
+		<td><input class="number" type="text" name="TransNo" required="required" maxlength="10" size="10" value="', $_POST['TransNo'], '" /></td>
 	</tr>
 </table>';
 echo '<div class="centre noPrint">
-		<input tabindex="3" type="submit" name="ShowResults" value="', _('Show How Allocated'), '" />
+		<input type="submit" name="ShowResults" value="', _('Show How Allocated'), '" />
 	</div>
 </form>';
 

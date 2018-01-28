@@ -109,7 +109,7 @@ echo ' /></td>
 	</table>';
 
 
-echo '<div class="centre"><input tabindex="4" type="submit" name="ShowSales" value="' . _('Show Sales') . '" />';
+echo '<div class="centre"><input type="submit" name="ShowSales" value="' . _('Show Sales') . '" />';
 echo '</form>';
 
 if (isset($_POST['ShowSales'])) {

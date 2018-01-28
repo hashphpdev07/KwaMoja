@@ -85,12 +85,12 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td>' . _('Number Of Days') . ' </td>
 			<td>:</td>
-			<td><input class="number" tabindex="3" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
+			<td><input class="number" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
 		 </tr>
 	</table>
 	<br />
 	<div class="centre">
-		<input tabindex="5" type="submit" name="Search" value="' . _('Search') . '" />
+		<input type="submit" name="Search" value="' . _('Search') . '" />
 	</div>
 	</form>';
 } else {

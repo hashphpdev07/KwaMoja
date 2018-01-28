@@ -786,7 +786,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		echo '<a target="_blank" href="' . $RootPath . '/StockStatus.php?identifier=' . $Identifier . '&amp;StockID=' . $OrderLine->StockID . '&amp;DebtorNo=' . $_SESSION['Items' . $Identifier]->DebtorNo . '">' . $OrderLine->StockID . '</a></td>
 			<td title="' . $OrderLine->LongDescription . '">' . $OrderLine->ItemDescription . '</td>';
 
-		echo '<td><input class="number" tabindex="2" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
+		echo '<td><input class="number" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
 
 		echo '</td>
 			<td class="number">' . locale_number_format($OrderLine->QOHatLoc, $OrderLine->DecimalPlaces) . '</td>
@@ -2259,7 +2259,7 @@ if (!isset($_POST['ProcessSale'])) {
 		echo '<tr>
 				<td>
 					<b>', _('Select a Stock Category'), ': </b>
-					<select tabindex="1" name="StockCat">';
+					<select name="StockCat">';
 
 		if (!isset($_POST['StockCat']) or $_POST['StockCat'] == 'All') {
 			echo '<option selected="selected" value="All">', _('All'), '</option>';
@@ -2282,7 +2282,7 @@ if (!isset($_POST['ProcessSale'])) {
 		}
 		echo '<td>
 				<b>' . _('Enter partial Description') . ':</b>
-				<input tabindex="2" type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
+				<input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
 			</td>';
 
 		if (!isset($_POST['StockCode'])) {
@@ -2290,7 +2290,7 @@ if (!isset($_POST['ProcessSale'])) {
 		}
 		echo '<td align="right">
 				<b> ', _('OR'), ' ', _('Enter extract of the Stock Code'), ':</b>
-				<input tabindex="3" type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+				<input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
 			</td>';
 		echo '</tr>
 		</table>';

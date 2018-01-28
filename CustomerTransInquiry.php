@@ -19,7 +19,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 echo '<table>
 		<tr>
 			<td>' . _('Type') . ':</td>
-			<td><select tabindex="1" name="TransType"> ';
+			<td><select name="TransType"> ';
 
 $SQL = "SELECT typeid,
 				typename
@@ -51,13 +51,13 @@ if (!isset($_POST['ToDate'])) {
 	$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
 }
 echo '<td>' . _('From') . ':</td>
-	<td><input tabindex="2" class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
+	<td><input class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
 	<td>' . _('To') . ':</td>
-	<td><input tabindex="3" class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
+	<td><input class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
 	</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="4" type="submit" name="ShowResults" value="' . _('Show Transactions') . '" />
+		<input type="submit" name="ShowResults" value="' . _('Show Transactions') . '" />
 	</div>
 	</form>';
 

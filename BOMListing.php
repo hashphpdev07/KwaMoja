@@ -130,17 +130,17 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 		echo '<tr>
 				<td>' . _('From Inventory Part Code') . ':' . '</td>
-				<td><input tabindex="1" type="text" name="FromCriteria" size="20" autofocus="autofocus" required="required" maxlength="20" value="' . $MyRow['fromcriteria'] . '" /></td>
+				<td><input type="text" name="FromCriteria" size="20" autofocus="autofocus" required="required" maxlength="20" value="' . $MyRow['fromcriteria'] . '" /></td>
 			</tr>';
 
 		echo '<tr>
 				<td>' . _('To Inventory Part Code') . ':' . '</td>
-				<td><input tabindex="2" type="text" name="ToCriteria" size="20" required="required" maxlength="20" value="' . $MyRow['tocriteria'] . '" /></td>
+				<td><input type="text" name="ToCriteria" size="20" required="required" maxlength="20" value="' . $MyRow['tocriteria'] . '" /></td>
 			</tr>';
 
 
 		echo '</table>
-				<div class="centre"><input tabindex="3" type="submit" name="PrintPDF" value="' . _('Print PDF') . '" /></div>
+				<div class="centre"><input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" /></div>
 			 </form>';
 
 	}

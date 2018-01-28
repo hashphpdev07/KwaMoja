@@ -97,7 +97,7 @@ echo '<tr>
 	</tr>';
 echo '<tr>
 		<td>' . _('Enable Sending of EDI Invoices') . ':</td>
-		<td><select tabindex="1" name="EDIInvoices">';
+		<td><select name="EDIInvoices">';
 
 if ($MyRow['ediinvoices'] == 0) {
 
@@ -113,7 +113,7 @@ echo '</select><a href="' . $RootPath . '/EDIMessageFormat.php?MessageType=INVOI
 
 echo '<tr>
 		<td>' . _('Enable Receiving of EDI Orders') . ':</td>
-		<td><select tabindex="2" name="EDIOrders">';
+		<td><select name="EDIOrders">';
 
 if ($MyRow['ediorders'] == 0) {
 
@@ -129,12 +129,12 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Customer EDI Reference') . ':</td>
-		<td><input tabindex="3" type="text" name="EDIReference" size="20" required="required" maxlength="20" value="' . $MyRow['edireference'] . '" /></td>
+		<td><input type="text" name="EDIReference" size="20" required="required" maxlength="20" value="' . $MyRow['edireference'] . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('EDI Communication Method') . ':</td>
-		<td><select tabindex="4" name="EDITransport" >';
+		<td><select name="EDITransport" >';
 
 if ($MyRow['editransport'] == 'email') {
 	echo '<option selected="selected" value="email">' . _('Email Attachments') . '</option>';
@@ -148,20 +148,20 @@ echo '</select></td></tr>';
 
 echo '<tr>
 		<td>' . _('FTP Server or Email Address') . ':</td>
-		<td><input tabindex="5" type="text" name="EDIAddress" size="42" required="required" maxlength="40" value="' . $MyRow['ediaddress'] . '" /></td>
+		<td><input type="text" name="EDIAddress" size="42" required="required" maxlength="40" value="' . $MyRow['ediaddress'] . '" /></td>
 	</tr>';
 
 if ($MyRow['editransport'] == 'ftp') {
 
 	echo '<tr><td>' . _('FTP Server User Name') . ':</td>
-			<td><input tabindex="6" type="text" name="EDIServerUser" size="20" required="required" maxlength="20" value="' . $MyRow['ediserveruser'] . '" /></td></tr>';
+			<td><input type="text" name="EDIServerUser" size="20" required="required" maxlength="20" value="' . $MyRow['ediserveruser'] . '" /></td></tr>';
 	echo '<tr><td>' . _('FTP Server Password') . ':</td>
-			<td><input tabindex="7" type="text" name="EDIServerPwd" size="20" required="required" maxlength="20" value="' . $MyRow['ediserverpwd'] . '" /></td></tr>';
+			<td><input type="text" name="EDIServerPwd" size="20" required="required" maxlength="20" value="' . $MyRow['ediserverpwd'] . '" /></td></tr>';
 }
 
 echo '</table>
 		<div class="centre">
-			<input tabindex="8" type="submit" name="submit" value="' . _('Update EDI Configuration') . '" />
+			<input type="submit" name="submit" value="' . _('Update EDI Configuration') . '" />
 		</div>
 	</form>';
 

@@ -21,7 +21,7 @@ if (!isset($_POST['MonthToShow'])) {
 echo '<table>
 		<tr>
 			<td>' . _('Month to Show') . ':</td>
-			<td><select tabindex="1" name="MonthToShow">';
+			<td><select name="MonthToShow">';
 
 $PeriodsResult = DB_query("SELECT periodno, lastdate_in_period FROM periods");
 
@@ -39,7 +39,7 @@ echo '</select></td>
 if ($_SESSION['SalesmanLogin'] != '') {
 	echo '<td>' . $_SESSION['UsersRealName'] . '</td>';
 } else {
-	echo '<td><select tabindex="2" name="Salesperson">';
+	echo '<td><select name="Salesperson">';
 
 	$SalespeopleResult = DB_query("SELECT salesmancode, salesmanname FROM salesman");
 	if (!isset($_POST['Salesperson'])) {
@@ -61,7 +61,7 @@ if ($_SESSION['SalesmanLogin'] != '') {
 echo '</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="4" type="submit" name="ShowResults" value="' . _('Show Daily Sales For The Selected Month') . '" />
+		<input type="submit" name="ShowResults" value="' . _('Show Daily Sales For The Selected Month') . '" />
 	</div>
 	</form>';
 /*Now get and display the sales data returned */

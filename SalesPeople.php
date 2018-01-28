@@ -371,7 +371,7 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 	echo '<tr>
 			<td>' . _('Sales Area') . ':' . '</td>
-			<td><select required="required" tabindex="2" name="SalesArea">';
+			<td><select required="required" name="SalesArea">';
 	$SQL = "SELECT areacode, areadescription FROM areas ORDER BY areadescription";
 	$ErrMsg = _('An error occurred in retrieving the areas from the database');
 	$DbgMsg = _('The SQL that was used to retrieve the area information and that failed in the process was');

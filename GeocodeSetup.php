@@ -220,31 +220,31 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '<tr>
 			<td>' . _('Geocode Key') . ':</td>
-			<td><input tabindex="2" type="text" name="GeoCode_Key" value="' . $_POST['GeoCode_Key'] . '" size="28" maxlength="300" /></td>
+			<td><input type="text" name="GeoCode_Key" value="' . $_POST['GeoCode_Key'] . '" size="28" maxlength="300" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Geocode Center Long') . '</td>
-			<td><input tabindex="3" type="text" name="Center_Long" value="' . $_POST['Center_Long'] . '" size="28" maxlength="300" /></td>
+			<td><input type="text" name="Center_Long" value="' . $_POST['Center_Long'] . '" size="28" maxlength="300" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Geocode Center Lat') . '</td>
-			<td><input tabindex="4" type="text" name="Center_Lat" value="' . $_POST['Center_Lat'] . '" size="28" maxlength="300" /></td>
+			<td><input type="text" name="Center_Lat" value="' . $_POST['Center_Lat'] . '" size="28" maxlength="300" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Geocode Map Height') . '</td>
-			<td><input tabindex="5" type="text" name="Map_Height" value="' . $_POST['Map_Height'] . '" size="28" maxlength="300" /></td>
+			<td><input type="text" name="Map_Height" value="' . $_POST['Map_Height'] . '" size="28" maxlength="300" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Geocode Map Width') . '</td>
-			<td><input tabindex="6" type="text" name="Map_Width" value="' . $_POST['Map_Width'] . '" size="28" maxlength="300" /></td>
+			<td><input type="text" name="Map_Width" value="' . $_POST['Map_Width'] . '" size="28" maxlength="300" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Geocode Host') . '</td>
-			<td><input tabindex="7" type="text" name="Map_Host" value="' . $_POST['Map_Host'] . '" size="20" maxlength="300" /></td>
+			<td><input type="text" name="Map_Host" value="' . $_POST['Map_Host'] . '" size="20" maxlength="300" /></td>
 		</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="4" type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>
 	</form>';
 	echo '<div class="page_help_text">' . _('When ready, click on the link below to run the GeoCode process. This will Geocode all Branches and Suppliers. This may take some time. Errors will be returned to the screen.') . '<br />';

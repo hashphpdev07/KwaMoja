@@ -90,15 +90,11 @@ function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEA
 					<th>' . _('Description') . '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
-		$j = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			$TabIndex = $j + 4;
 			echo '<tr class="striped_row">
-					<td><input tabindex="' . $TabIndex . '" type="submit" name="StockID" value="' . $MyRow['stockid'] . '" /></td>
+					<td><input type="submit" name="StockID" value="' . $MyRow['stockid'] . '" /></td>
 					<td>' . $MyRow['description'] . '</td>
 				</tr>';
-			++$j;
 		} //end of while loop
 
 		echo '</table>';
@@ -323,13 +319,13 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 	if (!isset($StockId)) {
 		echo '<table cellpadding="3"><tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-			<td><input tabindex="1" type="text" name="Keywords" size="20" maxlength="25" /></td>
+			<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-			<td><input tabindex="2" type="text" name="StockCode" size="15" maxlength="20" /></td>
+			<td><input type="text" name="StockCode" size="15" maxlength="20" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?listall=yes">' . _('List All Demands') . '</a></td></tr>
-			<tr><td colspan="7"><div class="centre"><input tabindex="3" type="submit" name="Search" value="' . _('Search Now') . '" /></div></td></tr></table>';
+			<tr><td colspan="7"><div class="centre"><input type="submit" name="Search" value="' . _('Search Now') . '" /></div></td></tr></table>';
 	} else {
 		if (isset($DemandID)) {
 			//editing an existing MRP demand

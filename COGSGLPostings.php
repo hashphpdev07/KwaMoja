@@ -188,7 +188,7 @@ $Result = DB_query($SQL);
 
 echo '<table>
 		<tr><td>' . _('Area') . ':</td>
-			<td><select tabindex="1" name="Area">
+			<td><select name="Area">
 				<option value="AN">' . _('Any Other') . '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -209,7 +209,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Stock Category') . ':</td>
-		<td><select tabindex="2" name="StkCat">
+		<td><select name="StkCat">
 			<option value="ANY">' . _('Any Other') . '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -231,7 +231,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Sales Type') . ' / ' . _('Price List') . ':</td>
-		<td><select tabindex="3" name="SalesType">
+		<td><select name="SalesType">
 			<option value="AN">' . _('Any Other') . '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -248,7 +248,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Post to GL account') . ':</td>
-		<td><select required="required" tabindex="4" name="GLCode">';
+		<td><select required="required" name="GLCode">';
 
 DB_free_result($Result);
 $SQL = "SELECT chartmaster.accountcode,
@@ -282,7 +282,7 @@ echo '</select>
 		</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="5" type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>
 </form>';
 

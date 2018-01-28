@@ -203,46 +203,46 @@ if (isset($_POST['Amend']) or isset($_POST['Create'])) {
 		<table>
 		<tr>
 			<td>' . _('Supplier Group Name') . ':</td>
-			<td><input tabindex="1" type="text" name="GroupName" size="42" required="required" maxlength="40" value="' . $_POST['GroupName'] . '" /></td>
+			<td><input type="text" name="GroupName" size="42" required="required" maxlength="40" value="' . $_POST['GroupName'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address Line 1') . ':</td>
-			<td><input tabindex="2" type="text" name="Address1" size="42" maxlength="40" value="' . $_POST['Address1'] . '" /></td>
+			<td><input type="text" name="Address1" size="42" maxlength="40" value="' . $_POST['Address1'] . '" /></td>
 		</tr>
 		<tr><td>' . _('Address Line 2') . ':</td>
-			<td><input tabindex="3" type="text" name="Address2" size="42" maxlength="40" value="' . $_POST['Address2'] . '" /></td>
+			<td><input type="text" name="Address2" size="42" maxlength="40" value="' . $_POST['Address2'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address Line 3') . ':</td>
-			<td><input tabindex="4" type="text" name="Address3" size="42" maxlength="40" value="' . $_POST['Address3'] . '" /></td>
+			<td><input type="text" name="Address3" size="42" maxlength="40" value="' . $_POST['Address3'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address Line 4') . ':</td>
-			<td><input tabindex="5" type="text" name="Address4" size="42" maxlength="40" value="' . $_POST['Address4'] . '" /></td>
+			<td><input type="text" name="Address4" size="42" maxlength="40" value="' . $_POST['Address4'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address Line 5') . ':</td>
-			<td><input tabindex="6" type="text" name="Address5" size="42" maxlength="40" value="' . $_POST['Address5'] . '" /></td>
+			<td><input type="text" name="Address5" size="42" maxlength="40" value="' . $_POST['Address5'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Address Line 6') . ':</td>
-			<td><input tabindex="7" type="text" name="Address6" size="42" maxlength="40" value="' . $_POST['Address6'] . '" /></td>
+			<td><input type="text" name="Address6" size="42" maxlength="40" value="' . $_POST['Address6'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Contact Name') . ':</td>
-			<td><input tabindex="8" type="text" name="ContactName" size="20" maxlength="25" value="' . $_POST['ContactName'] . '" /></td>
+			<td><input type="text" name="ContactName" size="20" maxlength="25" value="' . $_POST['ContactName'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Telephone') . ':</td>
-			<td><input tabindex="9" type="tel" name="Telephone" size="20" maxlength="25" value="' . $_POST['Telephone'] . '" /></td>
+			<td><input type="tel" name="Telephone" size="20" maxlength="25" value="' . $_POST['Telephone'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Fax') . ':</td>
-			<td><input tabindex="10" type="tel" name="Fax" size="20" maxlength="25" value="' . $_POST['Fax'] . '" /></td>
+			<td><input type="tel" name="Fax" size="20" maxlength="25" value="' . $_POST['Fax'] . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Email') . ':</td>
-			<td><input tabindex="11" type="email" name="Email" size="55" maxlength="55" value="' . $_POST['Email'] . '" /></td>
+			<td><input type="email" name="Email" size="55" maxlength="55" value="' . $_POST['Email'] . '" /></td>
 		</tr>
 		</table>';
 }
@@ -251,15 +251,15 @@ if (isset($_POST['Amend']) or isset($_POST['Create'])) {
 if (isset($_POST['Create'])) {
 	echo '<br />
 		<div class="centre">
-			<input tabindex="12" type="submit" name="Submit" value="' . _('Insert New Group') . '" />
+			<input type="submit" name="Submit" value="' . _('Insert New Group') . '" />
 		</div>
 		</form>';
 } else if (isset($_POST['Amend'])) {
 	echo '<br />
 		<div class="centre">
-			<input tabindex="13" type="submit" name="Update" value="' . _('Update Group') . '" />';
+			<input type="submit" name="Update" value="' . _('Update Group') . '" />';
 	prnMsg(_('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure there are no suppliers are using this group before the deletion is processed'), 'warn');
-	echo '<input tabindex="14" type="submit" name="Delete" value="' . _('Delete Group') . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this supplier group?') . '\');" />
+	echo '<input type="submit" name="Delete" value="' . _('Delete Group') . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this supplier group?') . '\');" />
 		</div>
 		</form>';
 }
@@ -322,7 +322,7 @@ if (empty($GroupID) and !isset($_POST['Create']) and !isset($_POST['Amend'])) {
 	} //end while loop
 	echo '</table>
 		<div class="centre">
-			<input tabindex="3" type="submit" name="Create" value="' . _('Create New Group') . '" />
+			<input type="submit" name="Create" value="' . _('Create New Group') . '" />
 		</div>
 		</form>';
 }

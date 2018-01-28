@@ -202,13 +202,13 @@ if (!isset($_GET['delete'])) {
 		echo '<table>
 			<tr>
 				<td>' . _('Area Code') . ':</td>
-				<td><input tabindex="1" type="text" name="AreaCode" value="' . $_POST['AreaCode'] . '" size="3" autofocus="autofocus" required="required" maxlength="3" /></td>
+				<td><input type="text" name="AreaCode" value="' . $_POST['AreaCode'] . '" size="3" autofocus="autofocus" required="required" maxlength="3" /></td>
 			</tr>';
 	}
 
 	echo '<tr>
 			<td>' . _('Parent Area') . ':' . '</td>
-			<td><select tabindex="2" name="ParentArea">';
+			<td><select name="ParentArea">';
 
 	$SQL = "SELECT areacode, areadescription FROM areas ORDER BY areadescription";
 	$ErrMsg = _('An error occurred in retrieving the areas from the database');
@@ -228,13 +228,13 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr>
 			<td>' . _('Area Name') . ':</td>
-			<td><input tabindex="3" type="text" name="AreaDescription" value="' . $_POST['AreaDescription'] . '" size="26" required="required" maxlength="25" /></td>
+			<td><input type="text" name="AreaDescription" value="' . $_POST['AreaDescription'] . '" size="26" required="required" maxlength="25" /></td>
 		</tr>';
 
 	echo '<tr>
 			<td colspan="2">
 				<div class="centre">
-					<input tabindex="4" type="submit" name="submit" value="' . _('Enter Information') . '" />
+					<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 				</div>
 			</td>
 		</tr>

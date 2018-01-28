@@ -613,7 +613,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 
 		echo '<tr>
 				<td>', _('Despatch Location'), ': </td>
-				<td><select tabindex="2" name="LocCode">';
+				<td><select name="LocCode">';
 
 		if ($_SESSION['RestrictLocations'] == 0) {
 			$SQL = "SELECT locationname,

@@ -702,7 +702,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 				<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?identifier=' . $Identifier . '&StockID=' . $ReturnItemLine->StockID . '&DebtorNo=' . $_SESSION['Items' . $Identifier]->DebtorNo . '">' . $ReturnItemLine->StockID . '</a></td>
 				<td title="' . $ReturnItemLine->LongDescription . '">' . $ReturnItemLine->ItemDescription . '</td>';
 
-		echo '<td><input class="number" tabindex="2" type="text" name="Quantity_' . $ReturnItemLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($ReturnItemLine->Quantity, $ReturnItemLine->DecimalPlaces) . '" />';
+		echo '<td><input class="number" type="text" name="Quantity_' . $ReturnItemLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($ReturnItemLine->Quantity, $ReturnItemLine->DecimalPlaces) . '" />';
 
 		echo '</td>
 				<td>' . $ReturnItemLine->Units . '</td>
@@ -1702,7 +1702,7 @@ if (!isset($_POST['ProcessReturn'])) {
 		$Result1 = DB_query($SQL);
 		echo '<tr>
 				<td><b>', _('Select a Stock Category'), ': </b>
-					<select tabindex="1" name="StockCat">';
+					<select name="StockCat">';
 		if (!isset($_POST['StockCat'])) {
 			echo '<option selected="selected" value="All">', _('All'), '</option>';
 			$_POST['StockCat'] = 'All';
@@ -1732,7 +1732,7 @@ if (!isset($_POST['ProcessReturn'])) {
 		}
 		echo '<td align="right">
 				<b>', _('OR'), ' ', _('Enter extract of the Stock Code'), ':</b>
-				<input tabindex="3" type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+				<input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
 			</td>
 		</tr>
 	</table>';
