@@ -175,25 +175,17 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$_POST['CustBranchCode'] = $FileRow[30];
 		$_POST['DeliverBlind'] = $FileRow[22];
 
-		$i = 0;
-
 		if (ContainsIllegalCharacters($_POST['BranchCode']) or mb_strstr($_POST['BranchCode'], ' ')) {
 			$InputError = 1;
 			prnMsg(_('The Branch code cannot contain any of the following characters') . " -  &amp; \' &lt; &gt;", 'error');
-			$Errors[$i] = 'BranchCode';
-			++$i;
 		}
 		if (ContainsIllegalCharacters($_POST['DebtorNo'])) {
 			$InputError = 1;
 			prnMsg(_('The Debtor No cannot contain any of the following characters') . " - &amp; \' &lt; &gt;", 'error');
-			$Errors[$i] = 'Debtor No';
-			++$i;
 		}
 		if (mb_strlen($_POST['BranchCode']) == 0 or mb_strlen($_POST['BranchCode']) > 10) {
 			$InputError = 1;
 			prnMsg(_('The Branch code must be at least one character long and cannot be more than 10 characters'), 'error');
-			$Errors[$i] = 'BranchCode';
-			++$i;
 		}
 		for ($c = 1; $c < 7; $c++) { //Branch address validataion
 			$Length = 40;
@@ -206,118 +198,80 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			if (isset($_POST['BrAddress' . $c]) and mb_strlen($_POST['BrAddress' . $c]) > $Length) {
 				$InputError = 1;
 				prnMsg(_('The Branch address1 must be no more than') . ' ' . $Length . ' ' . _('characters'), 'error');
-				$Errors[$i] = 'BrAddress' . $c;
-				++$i;
 			}
 		}
 		if ($Latitude !== null and !is_numeric($Latitude)) {
 			$InputError = 1;
 			prnMsg(_('The latitude is expected to be a numeric'), 'error');
-			$Errors[$i] = 'Latitude';
-			++$i;
 		}
 		if ($Longitude !== null and !is_numeric($Longitude)) {
 			$InputError = 1;
 			prnMsg(_('The longitude is expected to be a numeric'), 'error');
-			$Errors[$i] = 'Longitued';
-			++$i;
 		}
 		if (!is_numeric($_POST['FwdDate'])) {
 			$InputError = 1;
 			prnMsg(_('The date after which invoices are charged to the following month is expected to be a number and a recognised number has not been entered'), 'error');
-			$Errors[$i] = 'FwdDate';
-			++$i;
 		}
 		if ($_POST['FwdDate'] > 30) {
 			$InputError = 1;
 			prnMsg(_('The date (in the month) after which invoices are charged to the following month should be a number less than 31'), 'error');
-			$Errors[$i] = 'FwdDate';
-			++$i;
 		}
 		if (!is_numeric(filter_number_format($_POST['EstDeliveryDays']))) {
 			$InputError = 1;
 			prnMsg(_('The estimated delivery days is expected to be a number and a recognised number has not been entered'), 'error');
-			$Errors[$i] = 'EstDeliveryDays';
-			++$i;
 		}
 		if (filter_number_format($_POST['EstDeliveryDays']) > 60) {
 			$InputError = 1;
 			prnMsg(_('The estimated delivery days should be a number of days less than 60') . '. ' . _('A package can be delivered by seafreight anywhere in the world normally in less than 60 days'), 'error');
-			$Errors[$i] = 'EstDeliveryDays';
-			++$i;
 		}
 		if (empty($_POST['Salesman']) or !in_array($_POST['Salesman'], $Salesmen, true)) {
 			$InputError = 1;
 			prnMsg(_('The salesman not empty and must exist.'), 'error');
-			$Errors[$i] = 'Salesman';
-			++$i;
 		}
 		if ($_POST['PhoneNo'] !== null and preg_match('/[^\d+()\s-]/', $_POST['PhoneNo'])) {
 			$InputError = 1;
 			prnMsg(_('The phone no should not contains characters other than digital,parenthese,space,minus and plus sign'), 'error');
-			$Errors[$i] = 'Phone No';
-			++$i;
 		}
 		if ($_POST['FaxNo'] !== null and preg_match('/[^\d+()\s-]/', $_POST['FaxNo'])) {
 			$InputError = 1;
 			prnMsg(_('The fax no should not contains characters other than digital,parenthese,space,minus and plus sign'), 'error');
-			$Errors[$i] = 'FaxNo';
-			++$i;
 		}
 		if ($_POST['ContactName'] !== null and mb_strlen($_POST['ContactName']) > 30) {
 			$InputError = 1;
 			prnMsg(_('The contact name must not be over 30 characters'), 'error');
-			$Errors[$i] = 'ContactName';
-			++$i;
 		}
 		if ($_POST['Email'] !== null and !filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) {
 			$InputError = 1;
 			prnMsg(_('The email address is not valid'), 'error');
-			$Errors[$i] = 'Email';
-			++$i;
 		}
 
 		if (ContainsIllegalCharacters($_POST['BrName']) or mb_strlen($_POST['BrName']) > 40) {
 			$InputError = 1;
 			prnMsg(_('The Branch code cannot contain any of the following characters') . " -  &amp; \' &lt; &gt;" . ' ' . _('Or length is over 40'), 'error');
-			$Errors[$i] = 'BrName';
-			++$i;
 		}
 		if (empty($_POST['Area']) or !in_array($_POST['Area'], $Areas, true)) {
 			$InputError = 1;
 			prnMsg(_('The sales area not empty and must exist.'), 'error');
-			$Errors[$i] = 'Area';
-			++$i;
 		}
 		if (empty($_POST['DefaultLocation']) or !in_array($_POST['DefaultLocation'], $Locations, true)) {
 			$InputError = 1;
 			prnMsg(_('The default location not empty and must exist.'), 'error');
-			$Errors[$i] = 'DefaultLocation';
-			++$i;
 		}
 		if (empty($_POST['DefaultShipVia']) or !in_array($_POST['DefaultShipVia'], $Shippers, true)) {
 			$InputError = 1;
 			prnMsg(_('The default shipper not empty and must exist.'), 'error');
-			$Errors[$i] = 'DefaultShipVia';
-			++$i;
 		}
 		if (empty($_POST['TaxGroup']) or !in_array($_POST['TaxGroup'], $Taxgroups, true)) {
 			$InputError = 1;
 			prnMsg(_('The taxgroup not empty and must exist.'), 'error');
-			$Errors[$i] = 'TaxGroup';
-			++$i;
 		}
 		if (!isset($_POST['DeliverBlind']) or ($_POST['DeliverBlind'] != 1 and $_POST['DeliverBlind'] != 2)) {
 			$InputError = 1;
 			prnMsg(_('The Deliver Blind must be set as 2 or 1'), 'error');
-			$Errors[$i] = 'DeliverBlind';
-			++$i;
 		}
 		if (!isset($_POST['DisableTrans']) or ($_POST['DisableTrans'] != 0 and $_POST['DisableTrans'] != 1)) {
 			$InputError = 1;
 			prnMsg(_('The Disable Trans status should be 0 or 1'), 'error');
-			$Errors[$i] = 'DisableTrans';
-			++$i;
 		}
 		for ($c = 1; $c < 6; $c++) {
 			$Length = 40;
@@ -330,16 +284,12 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			if (isset($_POST['BrPostAddr' . $c]) and mb_strlen($_POST['BrPostAddr' . $c]) > $Length) {
 				$InputError = 1;
 				prnMsg(_('The Branch Post Address') . ' ' . $c . ' ' . _('must be no more than') . ' ' . $Length . ' ' . _('characters'), 'error');
-				$Errors[$i] = 'BrPostAddr' . $c;
-				++$i;
 			}
 
 		}
 		if (isset($_POST['CustBranchCode']) and mb_strlen($_POST['CustBranchCode']) > 30) {
 			$InputError = 1;
 			prnMsg(_('The Cust branch code for EDI must be less than 30 characters'), 'error');
-			$Errors[$i] = 'CustBranchCode';
-			++$i;
 		}
 
 		if ($InputError != 1) {

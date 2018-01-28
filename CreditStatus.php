@@ -10,10 +10,6 @@ if (isset($_GET['SelectedReason'])) {
 	$SelectedReason = $_POST['SelectedReason'];
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-$Errors = array();
 $InputError = 0;
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
@@ -37,14 +33,10 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] != 0 and !isset($SelectedReason)) {
 		$InputError = 1;
 		prnMsg(_('The credit status code already exists in the database'), 'error');
-		$Errors[$i] = 'ReasonCode';
-		++$i;
 	}
 	if (!is_numeric($_POST['ReasonCode'])) {
 		$InputError = 1;
 		prnMsg(_('The status code name must be an integer'), 'error');
-		$Errors[$i] = 'ReasonCode';
-		++$i;
 	}
 	if (mb_strlen($_POST['ReasonDescription']) > 30) {
 		$InputError = 1;
@@ -53,8 +45,6 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['ReasonDescription']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The credit status description must be entered'), 'error');
-		$Errors[$i] = 'ReasonDescription';
-		++$i;
 	}
 
 	$Msg = '';

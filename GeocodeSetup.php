@@ -10,10 +10,6 @@ if (isset($_GET['SelectedParam'])) {
 	$SelectedParam = $_POST['SelectedParam'];
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-$Errors = array();
 $InputError = 0;
 
 if (isset($_POST['submit'])) {
@@ -34,8 +30,6 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] != 0 and !isset($SelectedParam)) {
 		$InputError = 1;
 		prnMsg(_('That geocode ID already exists in the database'), 'error');
-		$Errors[$i] = 'GeoCodeID';
-		++$i;
 	}
 
 	$Msg = '';

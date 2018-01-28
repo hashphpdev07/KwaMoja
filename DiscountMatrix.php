@@ -4,13 +4,6 @@ include('includes/session.php');
 $Title = _('Discount Matrix Maintenance');
 include('includes/header.php');
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-$i = 1;
-
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
 if (isset($_POST['submit'])) {
@@ -21,27 +14,19 @@ if (isset($_POST['submit'])) {
 	if (!is_numeric(filter_number_format($_POST['QuantityBreak']))) {
 		prnMsg(_('The quantity break must be entered as a positive number'), 'error');
 		$InputError = 1;
-		$Errors[$i] = 'QuantityBreak';
-		++$i;
 	}
 
 	if (filter_number_format($_POST['QuantityBreak']) <= 0) {
 		prnMsg(_('The quantity of all items on an order in the discount category') . ' ' . $_POST['DiscountCategory'] . ' ' . _('at which the discount will apply is 0 or less than 0') . '. ' . _('Positive numbers are expected for this entry'), 'warn');
 		$InputError = 1;
-		$Errors[$i] = 'QuantityBreak';
-		++$i;
 	}
 	if (!is_numeric(filter_number_format($_POST['DiscountRate']))) {
 		prnMsg(_('The discount rate must be entered as a positive number'), 'warn');
 		$InputError = 1;
-		$Errors[$i] = 'DiscountRate';
-		++$i;
 	}
 	if (filter_number_format($_POST['DiscountRate']) <= 0 OR filter_number_format($_POST['DiscountRate']) > 100) {
 		prnMsg(_('The discount rate applicable for this record is either less than 0% or greater than 100%') . '. ' . _('Numbers between 1 and 100 are expected'), 'warn');
 		$InputError = 1;
-		$Errors[$i] = 'DiscountRate';
-		++$i;
 	}
 
 	/* actions to take once the user has clicked the submit button
@@ -59,9 +44,7 @@ if (isset($_POST['submit'])) {
 						'" . (filter_number_format($_POST['DiscountRate']) / 100) . "')";
 
 		$Result = DB_query($SQL);
-		prnMsg(_('The discount matrix record has been added'), 'success');
-		echo '<br />';
-		unset($_POST['DiscountCategory']);
+		prnMsg(_('The discount matrix record has been added'), 'success');		unset($_POST['DiscountCategory']);
 		unset($_POST['SalesType']);
 		unset($_POST['QuantityBreak']);
 		unset($_POST['DiscountRate']);

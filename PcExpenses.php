@@ -25,11 +25,6 @@ if (isset($_POST['Cancel'])) {
 	unset($_POST['Tag']);
 }
 
-
-if (isset($Errors)) {
-	unset($Errors);
-}
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test

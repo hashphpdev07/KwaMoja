@@ -32,11 +32,6 @@ if (!is_Date($_POST['ToDate'])) {
 }
 $FromDate = FormatDateForSQL($_POST['FromDate']);
 $ToDate = FormatDateForSQL($_POST['ToDate']);
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
 
 echo '<p class="page_title_text">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '

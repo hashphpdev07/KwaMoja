@@ -20,12 +20,6 @@ $ForceConfigReload = true;
 include('includes/GetConfig.php');
 
 $FunctionalCurrency = $_SESSION['CompanyRecord']['currencydefault'];
-
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
 ?>
 <a href="prlUserSettings.php">Back to User Settings
     </a>
@@ -50,38 +44,26 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] != 0 and !isset($SelectedCurrency)) {
 		$InputError = 1;
 		prnMsg(_('The currency already exists in the database'), 'error');
-		$Errors[$i] = 'Abbreviation';
-		$i++;
 	}
 	if (strlen($_POST['Abbreviation']) > 3) {
 		$InputError = 1;
 		prnMsg(_('The currency abbreviation must be 3 characters or less long and for automated currency updates to work correctly be one of the ISO4217 currency codes'), 'error');
-		$Errors[$i] = 'Abbreviation';
-		$i++;
 	}
 	if (!is_numeric($_POST['ExchangeRate'])) {
 		$InputError = 1;
 		prnMsg(_('The exchange rate must be numeric'), 'error');
-		$Errors[$i] = 'ExchangeRate';
-		$i++;
 	}
 	if (strlen($_POST['CurrencyName']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The currency name must be 20 characters or less long'), 'error');
-		$Errors[$i] = 'CurrencyName';
-		$i++;
 	}
 	if (strlen($_POST['Country']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The currency country must be 50 characters or less long'), 'error');
-		$Errors[$i] = 'Country';
-		$i++;
 	}
 	if (strlen($_POST['HundredsName']) > 15) {
 		$InputError = 1;
 		prnMsg(_('The hundredths name must be 15 characters or less long'), 'error');
-		$Errors[$i] = 'HundredsName';
-		$i++;
 	}
 	if (($FunctionalCurrency != '') and (isset($SelectedCurrency) and $SelectedCurrency == $FunctionalCurrency)) {
 		$InputError = 1;
@@ -90,8 +72,6 @@ if (isset($_POST['submit'])) {
 	if (strstr($_POST['Abbreviation'], "'") OR strstr($_POST['Abbreviation'], '+') OR strstr($_POST['Abbreviation'], "\"") OR strstr($_POST['Abbreviation'], '&') OR strstr($_POST['Abbreviation'], ' ') OR strstr($_POST['Abbreviation'], "\\") OR strstr($_POST['Abbreviation'], '.') OR strstr($_POST['Abbreviation'], '"')) {
 		$InputError = 1;
 		prnMsg(_('The currency code cannot contain any of the following characters') . " . - ' & + \" " . _('or a space'), 'error');
-		$Errors[$i] = 'Abbreviation';
-		$i++;
 	}
 
 	if (isset($SelectedCurrency) AND $InputError != 1) {
@@ -264,7 +244,7 @@ if (!isset($_GET['delete'])) {
 		}
 		echo '<table class=selection><tr>
 			<td>' . _('Currency Abbreviation') . ':</td>
-			<td><input ' . (in_array('Abbreviation', $Errors) ? 'class="inputerror"' : '') . ' type="Text" name="Abbreviation" value="' . $_POST['Abbreviation'] . '" size=4 maxlength=3></td></tr>';
+			<td><input type="Text" name="Abbreviation" value="' . $_POST['Abbreviation'] . '" size=4 maxlength=3></td></tr>';
 	}
 
 	echo '<tr><td>' . _('Currency Name') . ':</td>';
@@ -272,28 +252,28 @@ if (!isset($_GET['delete'])) {
 	if (!isset($_POST['CurrencyName'])) {
 		$_POST['CurrencyName'] = '';
 	}
-	echo '<input ' . (in_array('CurrencyName', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="CurrencyName" size=20 maxlength=20 value="' . $_POST['CurrencyName'] . '">';
+	echo '<input type="text" name="CurrencyName" size=20 maxlength=20 value="' . $_POST['CurrencyName'] . '">';
 	echo '</td></tr>';
 	echo '<tr><td>' . _('Country') . ':</td>';
 	echo '<td>';
 	if (!isset($_POST['Country'])) {
 		$_POST['Country'] = '';
 	}
-	echo '<input ' . (in_array('Country', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="Country" size=30 maxlength=50 value="' . $_POST['Country'] . '">';
+	echo '<input type="text" name="Country" size=30 maxlength=50 value="' . $_POST['Country'] . '">';
 	echo '</td></tr>';
 	echo '<tr><td>' . _('Hundredths Name') . ':</td>';
 	echo '<td>';
 	if (!isset($_POST['HundredsName'])) {
 		$_POST['HundredsName'] = '';
 	}
-	echo '<input ' . (in_array('HundredsName', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="HundredsName" size=10 maxlength=15 value="' . $_POST['HundredsName'] . '">';
+	echo '<input type="text" name="HundredsName" size=10 maxlength=15 value="' . $_POST['HundredsName'] . '">';
 	echo '</td></tr>';
 	echo '<tr><td>' . _('Exchange Rate') . ':</td>';
 	echo '<td>';
 	if (!isset($_POST['ExchangeRate'])) {
 		$_POST['ExchangeRate'] = '';
 	}
-	echo '<input ' . (in_array('ExchangeRate', $Errors) ? 'class="inputerror"' : '') . ' type="text" class=number name="ExchangeRate" size=10 maxlength=9 value=' . $_POST['ExchangeRate'] . '>';
+	echo '<input type="text" class=number name="ExchangeRate" size=10 maxlength=9 value=' . $_POST['ExchangeRate'] . '>';
 	echo '</td></tr>';
 	echo '</table>';
 

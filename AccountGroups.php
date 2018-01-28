@@ -32,11 +32,6 @@ function CheckForRecursiveGroup($ParentGroupCode, $GroupCode) {
 	return false;
 } //end of function CheckForRecursiveGroupName
 
-// If $Errors is set, then unset it.
-if (isset($Errors)) {
-	unset($Errors);
-} //isset($Errors)
-
 if (isset($_POST['MoveGroup'])) {
 	$SQL = "UPDATE chartmaster SET group_='" . $_POST['DestinyAccountGroup'] . "' WHERE group_='" . $_POST['OriginalAccountGroup'] . "'";
 	$ErrMsg = _('An error occurred in moving the account group');

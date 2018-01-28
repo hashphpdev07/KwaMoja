@@ -18,11 +18,6 @@ if (isset($_GET['EmployerID'])) {
 }
 
 $InputError = 0;
-
-if (isset($Errors)) {
-	unset($Errors);
-}
-$Errors = Array();
 ?>
 <a href="prlUserSettings.php">Back to User Settings
     </a>
@@ -42,50 +37,34 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] > 0 and isset($_POST["New"])) {
 		$InputError = 1;
 		prnMsg(_('The employer number already exists in the database'), 'error');
-		$Errors[$i] = 'ID';
-		$i++;
 	}
 	if (strlen($_POST['employername']) > 40 or strlen($_POST['employername']) == 0 or $_POST['employername'] == '') {
 		$InputError = 1;
 		prnMsg(_('The employer name must be entered and be forty characters or less long'), 'error');
-		$Errors[$i] = 'Name';
-		$i++;
 	}
 	if (strlen($EmployerID) == 0) {
 		$InputError = 1;
 		prnMsg(_('The employer Code cannot be empty'), 'error');
-		$Errors[$i] = 'ID';
-		$i++;
 	}
 	if (ContainsIllegalCharacters($EmployerID)) {
 		$InputError = 1;
 		prnMsg(_('The employer code cannot contain any of the following characters') . " - . ' & + \" \\" . ' ' . _('or a space'), 'error');
-		$Errors[$i] = 'ID';
-		$i++;
 	}
 	if (strlen($_POST['telephone']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The telephone number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Telephone';
-		$i++;
 	}
 	if (strlen(isset($_POST['Fax'])) > 25) {
 		$InputError = 1;
 		prnMsg(_('The fax number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Fax';
-		$i++;
 	}
 	if (strlen($_POST['Email']) > 55) {
 		$InputError = 1;
 		prnMsg(_('The email address must be 55 characters or less long'), 'error');
-		$Errors[$i] = 'Email';
-		$i++;
 	}
 	if (strlen($_POST['Email']) > 0 and !IsEmailAddress($_POST['Email'])) {
 		$InputError = 1;
 		prnMsg(_('The email address is not correctly formed'), 'error');
-		$Errors[$i] = 'Email';
-		$i++;
 	}
 
 	if ($InputError != 1) {
@@ -256,23 +235,23 @@ if (!isset($EmployerID)) {
 	} else {
 		// its a new employer being added
 		echo '<input type=hidden name="New" value="Yes">';
-		echo '<tr><td>' . _('Employer ID') . ':</td><td><input ' . (in_array('ID', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="EmployerID" value="' . $EmployerID . '" size=12 maxlength=10></td></tr>';
+		echo '<tr><td>' . _('Employer ID') . ':</td><td><input type="text" name="EmployerID" value="' . $EmployerID . '" size=12 maxlength=10></td></tr>';
 	}
 
-	echo '<tr><td>' . _('Employer Name') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="employername" value="' . $_POST['employername'] . '" size=42 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Employer Name') . ':</td><td><input type="text" name="employername" value="' . $_POST['employername'] . '" size=42 maxlength=40></td></tr>';
 	echo '<tr><td>' . _('Address Line 1 (Home)') . ':</td><td><input type="text" name="Address1" value="' . $_POST['Address1'] . '" size=42 maxlength=40></td></tr>';
 	echo '<tr><td>' . _('Address Line 2 (City)') . ':</td><td><input type="text" name="Address2" value="' . $_POST['Address2'] . '" size=42 maxlength=40></td></tr>';
 	echo '<tr><td>' . _('Address Line 3 (Postal Code)') . ':</td><td><input type="text" name="Address3" value="' . isset($_POST['Address 3']) . '" size=42 maxlength=40></td></tr>';
 	echo "</select></td></tr>";
-	echo '<tr><td>' . _('Date of Birth') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td><td><input ' . (in_array('dob', $Errors) ? 'class="inputerror"' : '') . '  size=12 maxlength=10 type="text" class="date" name="dob" value=' . isset($_POST['dob']) . '></td></tr>';
-	echo '<tr><td>' . _('Email Address') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="Email" value="' . $_POST['Email'] . '" size=42 maxlength=40></td></tr>';
-	echo '<tr><td>' . _('Telephone') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="telephone" value="' . $_POST['telephone'] . '" size=42 maxlength=40></td></tr>';
-	echo '<tr><td>' . _('Fax') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="Fax" value="' . isset($_POST['Fax']) . '" size=42 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Date of Birth') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td><td><input size=12 maxlength=10 type="text" class="date" name="dob" value=' . isset($_POST['dob']) . '></td></tr>';
+	echo '<tr><td>' . _('Email Address') . ':</td><td><input type="text" name="Email" value="' . $_POST['Email'] . '" size=42 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Telephone') . ':</td><td><input type="text" name="telephone" value="' . $_POST['telephone'] . '" size=42 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Fax') . ':</td><td><input type="text" name="Fax" value="' . isset($_POST['Fax']) . '" size=42 maxlength=40></td></tr>';
 
 	echo '<tr><td>' . _('Bank Particulars') . ":</td><td><input type='text' name='bankparticulars' size=13 maxlength=12 value='" . $_POST['bankparticulars'] . "'></td></tr>";
 	echo '<tr><td>' . _('Bank Account No') . ":</td><td><input type='text' name='bankacct' size=31 maxlength=30 value='" . $_POST['bankacct'] . "'></td></tr>";
 
-	echo '<tr><td>' . _('Country') . ':</td><td><input ' . (in_array('Name', $Errors) ? 'class="inputerror"' : '') . ' type="text" name="country" value="' . $_POST['country'] . '" size=42 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Country') . ':</td><td><input type="text" name="country" value="' . $_POST['country'] . '" size=42 maxlength=40></td></tr>';
 
 
 	echo '</select></td></tr></table>';

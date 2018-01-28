@@ -6,12 +6,6 @@ include('includes/header.php');
 
 echo '<a href="' . $RootPath . '/SelectCustomer.php">' . _('Back to Customers') . '</a><br />';
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-$i = 0;
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 if (isset($_POST['submit'])) {
 
@@ -30,14 +24,10 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['EDIReference']) < 4 and ($_POST['EDIInvoices'] == 1 or $_POST['EDIOrders'] == 1)) {
 		$InputError = 1;
 		prnMsg(_('The customers EDI reference code must be set when EDI Invoices or EDI orders are activated'), 'warn');
-		$Errors[$i] = 'EDIReference';
-		++$i;
 	}
 	if (mb_strlen($_POST['EDIAddress']) < 4 and $_POST['EDIInvoices'] == 1) {
 		$InputError = 1;
 		prnMsg(_('The customers EDI email address or FTP server address must be entered if EDI Invoices are to be sent'), 'warn');
-		$Errors[$i] = 'EDIAddress';
-		++$i;
 	}
 
 

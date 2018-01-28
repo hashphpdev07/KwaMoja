@@ -10,12 +10,6 @@ if (isset($_GET['SelectedShipper'])) {
 	$SelectedShipper = $_POST['SelectedShipper'];
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -30,13 +24,9 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['ShipperName']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The shipper\'s name must be forty characters or less long'), 'error');
-		$Errors[$i] = 'ShipperName';
-		++$i;
 	} elseif (trim($_POST['ShipperName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The shipper\'s name may not be empty'), 'error');
-		$Errors[$i] = 'ShipperName';
-		++$i;
 	}
 
 	if (isset($SelectedShipper) and $InputError != 1) {

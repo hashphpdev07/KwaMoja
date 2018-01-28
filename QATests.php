@@ -13,12 +13,6 @@ if (isset($_GET['SelectedQATest'])) {
 	$SelectedQATest = mb_strtoupper($_POST['SelectedQATest']);
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 echo '<p class="page_title_text"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '</p>';
 
 if (isset($_POST['submit'])) {
@@ -35,15 +29,11 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['QATestName']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The QA Test name must be fifty characters or less long'), 'error');
-		$Errors[$i] = 'QATestName';
-		$i++;
 	}
 
 	if (mb_strlen($_POST['Type']) == '') {
 		$InputError = 1;
 		prnMsg(_('The Type must not be blank'), 'error');
-		$Errors[$i] = 'Type';
-		$i++;
 	}
 	$SQL = "SELECT COUNT(*) FROM qatests WHERE qatests.name='" . $_POST['QATestName'] . "'";
 	$Result = DB_query($SQL);
@@ -51,8 +41,6 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] > 0 and $_POST['submit'] != _('Update Information')) {
 		$InputError = 1;
 		prnMsg(_('The QA Test name already exists'), 'error');
-		$Errors[$i] = 'QATestName';
-		$i++;
 	}
 
 	if ($_POST['submit'] == _('Update Information') and $InputError != 1) {
@@ -219,7 +207,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<tr>
 			<td>' . _('QA Test Name') . ':</td>
-			<td><input type="text" ' . (in_array('QATestName', $Errors) ? 'class="inputerror"' : '') . ' name="QATestName"  size="30" maxlength="50" value="' . $_POST['QATestName'] . '" /></td>
+			<td><input type="text" name="QATestName" size="30" maxlength="50" value="' . $_POST['QATestName'] . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Method') . ':</td>

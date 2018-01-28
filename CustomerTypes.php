@@ -10,12 +10,6 @@ if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_GET['SelectedType']);
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '</p>';
 echo '<div class="page_help_text">', _('Add/edit/delete Customer Types'), '</div>';
 

@@ -18,12 +18,6 @@ if (isset($_GET['SelectedSalesPerson'])) {
 	$SelectedSalesPerson = mb_strtoupper($_POST['SelectedSalesPerson']);
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['submit'])) {
@@ -40,23 +34,15 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen(stripslashes($_POST['SalesmanCode'])) > 3) {
 		$InputError = 1;
 		prnMsg(_('The salesperson code must be three characters or less long'), 'error');
-		$Errors[$i] = 'SalesmanCode';
-		++$i;
 	} elseif (mb_strlen($_POST['SalesmanCode']) == 0 or $_POST['SalesmanCode'] == '') {
 		$InputError = 1;
 		prnMsg(_('The salesperson code cannot be empty'), 'error');
-		$Errors[$i] = 'SalesmanCode';
-		++$i;
 	} elseif (mb_strlen($_POST['SalesmanName']) > 30) {
 		$InputError = 1;
 		prnMsg(_('The salesperson name must be thirty characters or less long'), 'error');
-		$Errors[$i] = 'SalesmanName';
-		++$i;
 	} elseif (mb_strlen($_POST['SalesArea']) == 0) {
 		$InputError = 1;
 		prnMsg(_('You must select an area for this salesman'), 'error');
-		$Errors[$i] = 'SalesmanName';
-		++$i;
 	} elseif (mb_strlen($_POST['SManTel']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The salesperson telephone number must be twenty characters or less long'), 'error');

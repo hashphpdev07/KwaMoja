@@ -16,12 +16,6 @@ if (isset($_GET['SelectedBankAccount'])) {
 	$SelectedBankAccount = $_POST['SelectedBankAccount'];
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -41,32 +35,22 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] != 0 and !isset($SelectedBankAccount)) {
 		$InputError = 1;
 		prnMsg(_('The bank account code already exists in the database'), 'error');
-		$Errors[$i] = 'AccountCode';
-		++$i;
 	}
 	if (mb_strlen($_POST['BankAccountName']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The bank account name must be fifty characters or less long'), 'error');
-		$Errors[$i] = 'AccountName';
-		++$i;
 	}
 	if (trim($_POST['BankAccountName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The bank account name may not be empty.'), 'error');
-		$Errors[$i] = 'AccountName';
-		++$i;
 	}
 	if (mb_strlen($_POST['BankAccountNumber']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The bank account number must be fifty characters or less long'), 'error');
-		$Errors[$i] = 'AccountNumber';
-		++$i;
 	}
 	if (mb_strlen($_POST['BankAddress']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The bank address must be fifty characters or less long'), 'error');
-		$Errors[$i] = 'BankAddress';
-		++$i;
 	}
 
 	if (isset($SelectedBankAccount) and $InputError != 1) {

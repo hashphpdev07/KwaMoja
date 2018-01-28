@@ -337,8 +337,6 @@ if (isset($_POST['submit'])) {
 	//	if (ContainsIllegalCharacters($SupplierID)) {
 	//		$InputError = 1;
 	//		prnMsg(_('The supplier code cannot contain any of the illegal characters') ,'error');
-	//		$Errors[$i]='ID';
-	//		++$i;
 	//	}
 	if (mb_strlen($_POST['Phone']) > 25) {
 		$InputError = 1;

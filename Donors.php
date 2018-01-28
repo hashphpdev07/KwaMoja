@@ -19,11 +19,6 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Donors') . '" alt="" />' . ' ' . _('Donor Maintenance') . '
 	</p>';
 
-if (isset($Errors)) {
-	unset($Errors);
-} //isset($Errors)
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;

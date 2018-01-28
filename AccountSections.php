@@ -8,10 +8,6 @@ $ViewTopic = 'GeneralLedger';
 $BookMark = 'AccountSections';
 include('includes/header.php');
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
 if (isset($_POST['submit'])) {
 
 	foreach ($_POST as $Key=>$Value) {
