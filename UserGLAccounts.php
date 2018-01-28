@@ -38,7 +38,7 @@ if (!isset($SelectedUser)) { // If is NOT set a user for GL accounts.
 	}
 	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
 		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />
-		<table class="selection">
+		<table>
 			<tr>
 				<td>', _('Select User'), ':</td>
 				<td>
@@ -136,7 +136,7 @@ if (!isset($SelectedUser)) { // If is NOT set a user for GL accounts.
 	}
 	// END: Needs $SelectedUser, $SelectedGLAccount.
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>

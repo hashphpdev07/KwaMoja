@@ -38,7 +38,7 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 						AND locations.internalrequest=1";
 	$LocationResult = DB_query($SQL);
 	$LocationTotal = DB_num_rows($LocationResult);
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<td>', _('Request Number'), ':</td>
 					<td>
@@ -168,7 +168,7 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 
 	if (DB_num_rows($Result) > 0) {
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="6"><h3>', _('To search for internal request for a specific part use the part selection facilities below'), '</h3></th>
 				</tr>';
@@ -233,7 +233,7 @@ if (isset($StockItemsResult)) {
 
 	if (DB_num_rows($StockItemsResult) > 1) {
 		echo '<a href="', $RootPath, '/InternalStockRequestInquiry.php">', _('Return to Main Inquiry Screen'), '</a>';
-		echo '<table cellpadding="2" class="selection">';
+		echo '<table cellpadding="2">';
 		echo '<thead>
 				<tr>
 					<th class="SortedColumn" >', _('Code'), '</th>

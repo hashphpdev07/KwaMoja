@@ -161,7 +161,7 @@ if (!isset($DonorNo)) {
 	$_POST['CurrCode'] = $_SESSION['CompanyRecord']['currencydefault'];
 	$_POST['LanguageID'] = '';
 	//Sub table
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 } else {
 	$SQL = "SELECT donorno,
 					name,
@@ -190,7 +190,7 @@ if (!isset($DonorNo)) {
 	$_POST['CurrCode'] = $MyRow['currcode'];
 	$_POST['LanguageID'] = $MyRow['language_id'];
 	echo '<input type="hidden" name="DonorNo" value="' . $DonorNo . '" />';
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	echo '<tr>
 			<td>' . _('Donor Code') . ':</td>
 			<td>' . stripslashes($DonorNo) . '</td>

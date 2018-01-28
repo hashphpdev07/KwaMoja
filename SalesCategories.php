@@ -258,7 +258,7 @@ echo '<br />';
 if (DB_num_rows($Result) == 0) {
 	prnMsg(_('There are no categories defined at this level.'));
 } else {
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Sub Category') . '</th>
@@ -344,7 +344,7 @@ if (isset($SelectedCategory)) {
 }
 echo '<input type="hidden" name="EditName" value="1" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="2">' . $FormCaps . '</th>
 		</tr>
@@ -435,7 +435,7 @@ if ($Result and DB_num_rows($Result)) {
 	echo '<input type="hidden" name="ParentCategory" value="' . (isset($_POST['ParentCategory']) ? ($_POST['ParentCategory']) : ('0')) . '" /> ';
 
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="2">' . _('Add Inventory to this category.') . '</th>
 			</tr>
@@ -503,7 +503,7 @@ $SQL = "SELECT salescatprod.stockid,
 $Result = DB_query($SQL);
 if ($Result) {
 	if (DB_num_rows($Result)) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="4">' . _('Inventory items for') . ' ' . $CategoryPath . '</th>

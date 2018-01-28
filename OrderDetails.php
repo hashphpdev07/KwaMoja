@@ -81,7 +81,7 @@ if (DB_num_rows($GetOrdHdrResult) == 1) {
 		}
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="4"><h3>' . _('Order Header Details For Order No') . ' ' . $_GET['OrderNumber'] . '</h3></th>
 			</tr>
@@ -183,7 +183,7 @@ if (DB_num_rows($LineItemsResult) > 0) {
 	$OrderTotalVolume = 0;
 	$OrderTotalWeight = 0;
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="9"><h3>' . _('Order Line Details For Order No') . ' ' . $_GET['OrderNumber'] . '</h3></th>
 			</tr>
@@ -239,7 +239,7 @@ if (DB_num_rows($LineItemsResult) > 0) {
 			</table>';
 
 	echo '<br />
-			<table class="selection">
+			<table>
 			<tr>
 				<td>' . _('Total Weight') . ':</td>
 				<td>' . $DisplayWeight . '</td>

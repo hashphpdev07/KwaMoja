@@ -126,7 +126,7 @@ if (isset($_GET['Edit'])) {
 				WHERE closed=0
 					AND requiredbydate >= CURRENT_DATE";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Tender ID') . '</th>
@@ -235,7 +235,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	}
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="4"><h3>' . _('Tender header details') . '</h3></th>
 		</tr>';
@@ -403,7 +403,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	 */
 	echo '<tr>
 			<td valign="top">
-			<table class="selection">';
+			<table>';
 	echo '<tr>
 			<th colspan="4"><h3>' . _('Suppliers To Send Tender') . '</h3></th>
 		</tr>';
@@ -423,7 +423,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	echo '</table></td>';
 	/* Item Details
 	 */
-	echo '<td valign="top"><table class="selection">';
+	echo '<td valign="top"><table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Items in Tender') . '</h3></th>
 		</tr>
@@ -469,7 +469,7 @@ if (isset($_POST['Suppliers'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
-		<table cellpadding="3" class="selection">
+		<table cellpadding="3">
 			<tr>
 				<td>' . _('Enter a partial Name') . ':</td>
 				<td>';
@@ -600,7 +600,7 @@ if (isset($_POST['Items'])) {
 		echo '<br /><a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>';
 		exit;
 	}
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td>' . _('In Stock Category') . ':<select required="required" name="StockCat">';
 	if (!isset($_POST['StockCat'])) {

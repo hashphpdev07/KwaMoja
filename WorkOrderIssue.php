@@ -687,7 +687,7 @@ if (!isset($_POST['IssuedDate'])) {
 }
 $WOHeaderRow = DB_fetch_array($WOHeaderResult);
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td class="label">' . _('Issue to work order') . ':</td>
 			<td>' . $_POST['WO'] . '</td>
@@ -780,7 +780,7 @@ if (!isset($_POST['IssueItem'])) {
 echo '</td>
 	</tr>
 	</table>
-	<table class="selection">';
+	<table>';
 
 
 if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
@@ -885,7 +885,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 			ORDER BY categorydescription";
 	$Result1 = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr><td>' . _('Select a stock category') . ':<select name="StockCat">';
 
 	if (!isset($_POST['StockCat'])) {
@@ -931,7 +931,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 
 		if (DB_num_rows($SearchResult) > 1) {
 
-			echo '<table cellpadding="2" class="selection">
+			echo '<table cellpadding="2">
 					<tr>
 						<th>' . _('Code') . '</th>
 						<th>' . _('Description') . '</th>
@@ -986,7 +986,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 	$IssueItemResult = DB_query($SQL, $ErrMsg);
 	$IssueItemRow = DB_fetch_array($IssueItemResult);
 
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td class="label">' . _('Issuing') . ':</td>
 			<td>' . $_POST['IssueItem'] . ' - ' . $IssueItemRow['description'] . '</td>
@@ -995,7 +995,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 		</tr>
 		</table>';
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	//Now Setup the form for entering quantities of the item to be issued to the WO
 	if ($IssueItemRow['controlled'] == 1) { //controlled

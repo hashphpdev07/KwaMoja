@@ -107,7 +107,7 @@ if (!isset($SelectedRole)) {
 
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">'; //Main table
+	echo '<table>'; //Main table
 
 	$SQL = "SELECT secroleid,
 					secrolename
@@ -153,7 +153,7 @@ if (isset($_POST['process']) or isset($SelectedRole)) {
 
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-		echo '<table class="selection">'; //Main table
+		echo '<table>'; //Main table
 
 		echo '<tr>
 				<td>', _('Select Stock Category Code'), ':</td>
@@ -199,7 +199,7 @@ if (isset($_POST['process']) or isset($SelectedRole)) {
 
 		$Result = DB_query($SQL);
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="3"><h3>', _('Internal Stock Categories Allowed to user role'), ' ', $SelectedRole, '</h3></th>
 				</tr>

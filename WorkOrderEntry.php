@@ -410,7 +410,7 @@ if (isset($WOResult)) {
 }
 echo '</table>';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Output Item') . '</th>
 			<th>' . _('Comments') . '</th>
@@ -557,7 +557,7 @@ $SQL = "SELECT categoryid,
 		ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
 
-echo '<table class="selection"><tr><td>' . _('Select a stock category') . ':<select name="StockCat">';
+echo '<table><tr><td>' . _('Select a stock category') . ':<select name="StockCat">';
 
 if (!isset($_POST['StockCat'])) {
 	echo '<option selected="True" value="All">' . _('All') . '</option>';
@@ -601,7 +601,7 @@ if (isset($SearchResult)) {
 
 	if (DB_num_rows($SearchResult) > 0) {
 
-		echo '<table cellpadding="2" class="selection">';
+		echo '<table cellpadding="2">';
 
 		echo '<thead>
 				<tr>

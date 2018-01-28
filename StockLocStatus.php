@@ -22,7 +22,7 @@ echo '<p class="page_title_text">
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('From Stock Location') . ':</td>
 			<td><select name="StockLocation">';
@@ -157,7 +157,7 @@ if (isset($_POST['ShowStatus'])) {
 
 	echo '<br />', DisplayDateTime(), // Display current date and time.
 		'<br />';
-	echo '<table cellpadding="5" cellspacing="4" class="selection">
+	echo '<table cellpadding="5" cellspacing="4">
 		 	<tr>
 				<th>' . _('Location') . '</th>
 				<th>' . _('StockID') . '</th>

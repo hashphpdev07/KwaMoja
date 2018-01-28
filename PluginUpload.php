@@ -81,7 +81,7 @@ if (!isset($_POST['submit'])) {
 		$ApprovedString = '<font color="0E9320"><b>' . _('Yes') . '</b></font>';
 		zip_close($ZipFile);
 		echo '<br />
-				<table class="selection">
+				<table>
 					<tr>
 						<th colspan="2">' . _('Plugin attributes') . '</th>
 					</tr>

@@ -131,7 +131,7 @@ if (!isset($SelectedType)) {
 	$SQL = "SELECT typeid, typename, nextsupplierno FROM suppliertype";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Type ID') . '</th>
@@ -167,7 +167,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">'; //Main table
+	echo '<table>'; //Main table
 
 	// The user wish to EDIT an existing type
 	if (isset($SelectedType) and $SelectedType != '') {

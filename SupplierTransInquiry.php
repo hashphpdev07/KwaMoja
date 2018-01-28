@@ -11,7 +11,7 @@ echo '<p class="page_title_text" >
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Type') . ':</td>
 			<td><select name="TransType">';
@@ -94,7 +94,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 	$ErrMsg = _('The supplier transactions for the selected criteria could not be retrieved because') . ' - ' . DB_error_msg();
 	$DbgMsg = _('The SQL that failed was');
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Type') . '</th>
 				<th>' . _('Number') . '</th>
@@ -145,7 +145,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 			echo '<tr>
 					<td colspan="2"></td>
 					<td colspan="8">
-						<table class="selection" width="100%">';
+						<table width="100%">';
 			echo '<tr>
 					<th colspan="2"><b>' . _('GL Account') . '</b></th>
 					<th><b>' . _('Local Amount') . '</b></th>

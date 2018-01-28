@@ -142,7 +142,7 @@ if (isset($_POST['CheckCode'])) {
 	$ErrMsg = _('The stock information cannot be retrieved because');
 	$DbgMsg = _('The SQL to get the stock description was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Stock Code') . '</th>
@@ -471,7 +471,7 @@ if (isset($_SESSION['Adjustment' . $Identifier]->StockID) and $_SESSION['Adjustm
 					AND locationusers.canupd=1
 				WHERE locstock.stockid='" . $_SESSION['Adjustment' . $Identifier]->StockID . "'";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="2"><h3>' . _('Current Stock Balances') . '</h3></th>
 			</tr>
@@ -489,7 +489,7 @@ if (isset($_SESSION['Adjustment' . $Identifier]->StockID) and $_SESSION['Adjustm
 	echo '</table>';
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="4"><h3>' . _('Adjustment Details') . '</h3></th>
 		</tr>';

@@ -83,7 +83,7 @@ echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 
-echo '<table class="selection">';
+echo '<table>';
 
 $SQL = "SELECT typeabbrev,
 		sales_type
@@ -151,7 +151,7 @@ $SQL = "SELECT sales_type,
 
 $Result = DB_query($SQL);
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<th>' . _('Sales Type') . '</th>
 		<th>' . _('Discount Category') . '</th>

@@ -83,7 +83,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 
 echo '<input type="hidden" name="Type" value="' . $Type . '" />';
 
-echo '<table class="selection" summary="' . _('Selection Criteria for inquiry') . '">
+echo '<table summary="' . _('Selection Criteria for inquiry') . '">
 		<tr>
 			<td>' . _('Bank Account') . ':</td>
 			<td colspan="3"><select autofocus="autofocus" tabindex="1" name="BankAccount">';
@@ -257,7 +257,7 @@ if ($InputError != 1 and isset($_POST['BankAccount']) and $_POST['BankAccount'] 
 	$ErrMsg = _('The payments with the selected criteria could not be retrieved because');
 	$PaymentsResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table cellpadding="2" class="selection" summary="' . _('Payments to be matched') . '">
+	echo '<table cellpadding="2" summary="' . _('Payments to be matched') . '">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Cheque No') . '</th>

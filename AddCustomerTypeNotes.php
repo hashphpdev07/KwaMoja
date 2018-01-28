@@ -106,7 +106,7 @@ if (!isset($Id)) {
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th>', _('Date'), '</th>
 				<th>', _('Note'), '</th>

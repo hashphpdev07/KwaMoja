@@ -230,7 +230,7 @@ if (!isset($SelectedSalesPerson)) {
 			FROM salesman";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -323,7 +323,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedSalesPerson" value="' . $SelectedSalesPerson . '" />';
 		echo '<input type="hidden" name="SalesmanCode" value="' . $_POST['SalesmanCode'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Salesperson code') . ':</td>
 					<td>' . $_POST['SalesmanCode'] . '</td>
@@ -331,7 +331,7 @@ if (!isset($_GET['delete'])) {
 
 	} else { //end of if $SelectedSalesPerson only do the else when a new record is being entered
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Salesperson code') . ':</td>
 					<td><input type="text" name="SalesmanCode" size="3" autofocus="autofocus" required="required" maxlength="3" /></td>

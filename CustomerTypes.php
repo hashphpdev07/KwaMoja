@@ -178,7 +178,7 @@ if (!isset($SelectedType)) {
 				FROM debtortype";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Type ID'), '</th>
@@ -221,7 +221,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['TypeName'] = $MyRow['typename'];
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 
 		// We dont allow the user to change an existing type code
 
@@ -232,7 +232,7 @@ if (!isset($_GET['delete'])) {
 
 	} else {
 		// This is a new type so the user may volunteer a type code
-		echo '<table class="selection">';
+		echo '<table>';
 	}
 
 	if (!isset($_POST['TypeName'])) {

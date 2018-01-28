@@ -156,7 +156,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$ResultStkLocs = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Location') . ':</td>
 				<td><select name="StockLocation"> ';

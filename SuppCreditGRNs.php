@@ -60,7 +60,7 @@ if (isset($_GET['Delete'])) {
 
 /*Show all the selected GRNs so far from the SESSION['SuppTrans']->GRNs array */
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th colspan="6"><h3>' . _('Credits Against Goods Received Selected') . '</h3></th>
@@ -146,7 +146,7 @@ if (DB_num_rows($GRNResults) == 0) {
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th colspan="10">
@@ -247,7 +247,7 @@ if (DB_num_rows($GRNResults) > 0) {
 		$GRNEntryResult = DB_query($SQL);
 		$MyRow = DB_fetch_array($GRNEntryResult);
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="6"><h3>' . _('GRN Selected For Adding To A Suppliers Credit Note') . '</h3></th>
 				</tr>

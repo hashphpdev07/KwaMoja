@@ -156,7 +156,7 @@ if (isset($_POST['SearchParts'])) {
 }
 
 if (true or !isset($OrderNumber) or $OrderNumber == "") { //revisit later, right now always show all inputs
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>';
 	if (isset($SelectedStockItem) and $SelectedStockItem != '') {
@@ -223,7 +223,7 @@ $SQL = "SELECT categoryid,
 		FROM stockcategory
 		ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="6">
 				<h3>', _('To search for Pick Lists for a specific part use the part selection facilities below'), '</h3>
@@ -258,7 +258,7 @@ echo '</select></td>
 	</table>';
 
 if (isset($StockItemsResult)) {
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
@@ -399,7 +399,7 @@ else {
 
 	if (DB_num_rows($PickReqResult) > 0) {
 		/*show a table of the pick lists returned by the SQL */
-		echo '<table cellpadding="2" width="90%" class="selection">
+		echo '<table cellpadding="2" width="90%">
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Modify'), '</th>

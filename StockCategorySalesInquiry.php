@@ -21,7 +21,7 @@ $SQL = "SELECT categoryid,
 			ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
 
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<td style="width:150px">' . _('In Stock Category') . ':</td>
 			<td><select name="StockCat">';
@@ -108,7 +108,7 @@ if (isset($_POST['ShowSales'])) {
 	$ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 	$SalesResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 
 	echo '<tr>
 			<th>' . _('Item Code') . '</th>

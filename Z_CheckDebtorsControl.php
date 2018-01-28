@@ -18,7 +18,7 @@ echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 
 $DefaultFromPeriod = (!isset($_POST['FromPeriod']) or $_POST['FromPeriod'] == '') ? 1 : $_POST['FromPeriod'];
 

@@ -79,7 +79,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 
 if (count($_SESSION['Contract' . $Identifier]->ContractReqts) > 0) {
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	if (isset($_SESSION['Contract' . $Identifier]->ContractRef)) {
 		echo '<tr>
@@ -133,7 +133,7 @@ if (!isset($_POST['RequirementDescription'])) {
 	$_POST['Quantity'] = 0;
 	$_POST['CostPerUnit'] = 0;
 }
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="2">' . _('Enter New Requirements') . '</th>
 		</tr>

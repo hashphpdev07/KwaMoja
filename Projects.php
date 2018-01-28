@@ -657,7 +657,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="DonorSelection" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table cellpadding="3" class="selection">
+	echo '<table cellpadding="3">
 			<tr>
 			<td><h5>' . _('Part of the Donor Name') . ':</h5></td>
 			<td><input tabindex="1" type="text" name="DonorKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
@@ -673,7 +673,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 
 	if (isset($Result_DonorSelect)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Donor Number') . '</th>
@@ -728,7 +728,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 
 	/*Set up form for entry of project header stuff */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Project Reference') . ':</td>
 				<td>';
@@ -839,7 +839,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	echo '<table>
 			<tr>
 				<td>
-					<table class="selection">
+					<table>
 						<tr>
 							<th colspan="6">' . _('Stock Items Required') . '</th>
 						</tr>';
@@ -876,7 +876,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	}
 	echo '</table></td>'; //end of project BOM table
 	echo '<td valign="top">
-			<table class="selection">
+			<table>
 				<tr>
 					<th colspan="4">' . _('Other Requirements') . '</th>
 				</tr>';
@@ -907,7 +907,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 			</tr>';
 	}
 	echo '</table></td></tr></table>';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Total Project Cost') . '</th>
 				<th class="number">' . locale_number_format(($ProjectBOMCost + $ProjectReqtsCost), $_SESSION['CompanyRecord']['decimalplaces']) . '</th>

@@ -226,7 +226,7 @@ if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contract Bill of Material') . '" alt="" />  ' . $_SESSION['Contract' . $Identifier]->CustomerName . '
 		</p>';
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	if (isset($_SESSION['Contract' . $Identifier]->ContractRef)) {
 		echo '<tr>
@@ -290,7 +290,7 @@ if (!isset($_GET['Edit'])) {
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Search For Stock Items') . '</p>';
-	echo '<table class="selection">
+	echo '<table>
 			<tr></tr>
 			<tr>
 				<td><select name="StockCat">';

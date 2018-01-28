@@ -608,7 +608,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Invoices or Credit Notes (Portrait Mode)') . '</p>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Print Invoices or Credit Notes') . '</td>
 					<td><select name="InvOrCredit">';

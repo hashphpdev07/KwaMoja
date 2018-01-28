@@ -110,7 +110,7 @@ if (!isset($Id)) {
 				ORDER BY date DESC";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>', _('Date'), '</th>
 					<th>', _('Note'), '</th>

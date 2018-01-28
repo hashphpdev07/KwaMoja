@@ -769,7 +769,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="CustomerSelection" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table cellpadding="3" class="selection">
+	echo '<table cellpadding="3">
 			<tr>
 			<td><h5>' . _('Part of the Customer Branch Name') . ':</h5></td>
 			<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
@@ -786,7 +786,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 
 	if (isset($Result_CustSelect)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Customer') . '</th>
@@ -862,7 +862,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 
 	/*Set up form for entry of contract header stuff */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Contract Reference') . ':</td>
 				<td>';
@@ -1019,7 +1019,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	echo '<table>
 			<tr>
 				<td>
-					<table class="selection">
+					<table>
 						<tr>
 							<th colspan="6">' . _('Stock Items Required') . '</th>
 						</tr>';
@@ -1056,7 +1056,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	}
 	echo '</table></td>'; //end of contract BOM table
 	echo '<td valign="top">
-			<table class="selection">
+			<table>
 				<tr>
 					<th colspan="4">' . _('Other Requirements') . '</th>
 				</tr>';
@@ -1088,7 +1088,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	}
 	echo '</table></td></tr></table>';
 	echo '<br />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Total Contract Cost') . '</th>
 				<th class="number">' . locale_number_format(($ContractBOMCost + $ContractReqtsCost), $_SESSION['CompanyRecord']['decimalplaces']) . '</th>

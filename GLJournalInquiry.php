@@ -12,7 +12,7 @@ if (!isset($_POST['Show'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection" summary="' . _('Selection Criteria') . '">
+	echo '<table summary="' . _('Selection Criteria') . '">
 			<tr>
 				<th colspan="3">' . _('Selection Criteria') . '</th>
 			</tr>';
@@ -75,7 +75,7 @@ if (!isset($_POST['Show'])) {
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('There are no transactions for this account in the date range selected'), 'info');
 	} else {
-		echo '<table class="selection" summary="' . _('General ledger journal listing') . '">
+		echo '<table summary="' . _('General ledger journal listing') . '">
 			<tr>
 				<th colspan="9">
 					<b>' . _('General Ledger Jornals') . '</b>

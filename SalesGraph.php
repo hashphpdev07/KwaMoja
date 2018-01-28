@@ -33,7 +33,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Select criteria') . '" alt="' . _('Select criteria') . '" />' . ' ' . $Title . '</p>';
 
-	echo '<table class="selection" summary="' . _('Criteria for the sales graph') . '">
+	echo '<table summary="' . _('Criteria for the sales graph') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -352,7 +352,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	//Draw it
 	$graph->DrawGraph();
-	echo '<table class="selection" summary="' . _('Sales Report Graph') . '">
+	echo '<table summary="' . _('Sales Report Graph') . '">
 			<tr>
 				<th>' . _('Sales Report Graph') . '
 					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />

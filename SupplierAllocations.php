@@ -416,7 +416,7 @@ if (isset($_POST['AllocTrans'])) {
 
 	/*Now display the potential and existing allocations put into the array above */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Type') . '</th>
 				<th>' . _('Trans') . '<br />' . _('Number') . '</th>
@@ -510,7 +510,7 @@ if (isset($_POST['AllocTrans'])) {
 		include('includes/footer.php');
 		exit;
 	}
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Trans Type') . '</th>
 				<th>' . _('Supplier') . '</th>
@@ -571,7 +571,7 @@ if (isset($_POST['AllocTrans'])) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Trans Type') . '</th>
 				<th>' . _('Supplier') . '</th>

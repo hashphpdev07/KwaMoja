@@ -56,7 +56,7 @@ echo '<p class="page_title_text" >
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection" summary="' . _('Description of tag') . '">
+echo '<table summary="' . _('Description of tag') . '">
 		<tr>
 			<td>' . _('Description') . '</td>
 			<td><input type="text" size="30" autofocus="autofocus" required="required" maxlength="30" name="Description" value="' . $Description . '" /></td>
@@ -104,7 +104,7 @@ echo '</td>
 echo '</table>
 	</form>';
 
-echo '<table class="selection" summary="' . _('List of existing tags') . '">
+echo '<table summary="' . _('List of existing tags') . '">
 		<tr>
 			<th>' . _('Tag ID') . '</th>
 			<th>' . _('Department') . '</th>

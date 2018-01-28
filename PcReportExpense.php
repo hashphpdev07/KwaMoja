@@ -48,7 +48,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	}
 
 	/*Show a form to allow input of criteria for Expenses to show */
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Code Of Petty Cash Expense'), ':</td>
 				<td><select name="SelectedExpense">';
@@ -99,7 +99,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	echo '<input type="hidden" name="FromDate" value="', $_POST['FromDate'], '" />';
 	echo '<input type="hidden" name="ToDate" value="', $_POST['ToDate'], '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Expense Code'), ':</td>
 				<td style="width:200px">', $SelectedExpense, '</td>
@@ -137,7 +137,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 
 	$TabDetail = DB_query($SQL, _('No Petty Cash movements for this expense code were returned by the SQL because'), _('The SQL that failed was:'));
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>', _('Date'), '</th>
 				<th>', _('Tab'), '</th>

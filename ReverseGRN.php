@@ -357,7 +357,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	}
 	echo '<input type="hidden" name="SupplierID" value="' . $_POST['SupplierID'] . '" />';
 	echo '<input type="hidden" name="SuppName" value="' . $_POST['SuppName'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Show all goods received after') . ': </td>
 				<td><input type="text" class="date" name="RecdAfterDate" value="' . $_POST['RecdAfterDate'] . '" required="required" maxlength="10" size="10" /></td>
@@ -400,7 +400,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 			prnMsg(_('There are no outstanding goods received yet to be invoiced for') . ' ' . $_POST['SuppName'] . '.<br />' . _('To reverse a GRN that has been invoiced first it must be credited'), 'warn');
 		} else { //there are GRNs to show
 
-			echo '<table cellpadding="2" class="selection">
+			echo '<table cellpadding="2">
 					<tr>
 						<th>' . _('GRN') . ' #</th>
 						<th>' . _('GRN Batch') . '</th>

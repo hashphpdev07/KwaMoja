@@ -34,7 +34,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	}
 
 	/*Show a form to allow input of criteria for profit and loss to show */
-	echo '<table class="selection" summary="' . _('Criteria for report') . '">
+	echo '<table summary="' . _('Criteria for report') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -655,7 +655,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	/*show a table of the accounts info returned by the SQL
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
-	echo '<table class="selection" summary="' . _('General Ledger Profit Loss Inquiry') . '">
+	echo '<table summary="' . _('General Ledger Profit Loss Inquiry') . '">
 			<tr>
 				<th colspan="10">
 					<b>' . _('General Ledger Profit Loss Inquiry') . '</b>

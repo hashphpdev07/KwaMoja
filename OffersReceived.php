@@ -40,7 +40,7 @@ if (!isset($_POST['supplierid'])) {
 		 ' . ' ' . _('Select Supplier') . '</p>';
 		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<td>' . _('Select Supplier') . '</td>
 				<td><select name=supplierid>';
@@ -95,7 +95,7 @@ if (!isset($_POST['submit']) and isset($_POST['supplierid'])) {
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Supplier Offers') . '" alt="" />' . ' ' . _('Supplier Offers') . '
 		</p>';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Offer ID') . '</th>
 				<th>' . _('Supplier') . '</th>

@@ -42,7 +42,7 @@ if (DB_num_rows($GetShiptHdrResult) == 0) {
 }
 
 $HeaderData = DB_fetch_array($GetShiptHdrResult);
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="4"><h3>', _('Shipment Details'), '</h3></th>
 		</tr>
@@ -136,7 +136,7 @@ if (DB_num_rows($LineItemsResult) > 0) {
 		$PeriodNo = GetPeriod(Date($_SESSION['DefaultDateFormat']));
 	}
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th colspan="9"><h3>', _('Items on shipment'), '</h3></th>
 			</tr>
@@ -549,7 +549,7 @@ $SQL = "SELECT suppliers.suppname,
 
 $ChargesResult = DB_query($SQL);
 
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<th colspan="6"><h3>', _('Shipment Charges Against Products'), '</h3></th>
 		</tr>
@@ -615,7 +615,7 @@ $SQL = "SELECT suppliers.suppname,
 $ChargesResult = DB_query($SQL);
 
 echo '<td valign="top">';
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<th colspan="6"><h3>', _('General Shipment Charges'), '</h3></th>
 		</tr>

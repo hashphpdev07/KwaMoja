@@ -102,7 +102,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	echo _('From'), ' ', MonthAndYearFromSQLDate($PeriodFromName['lastdate_in_period']), ' ', _('to'), ' ', MonthAndYearFromSQLDate($PeriodToName['lastdate_in_period']), '<br />'; // Page title, reporting period.
 	include_once('includes/CurrenciesArray.php'); // Array to retrieve currency name.
 	echo _('All amounts stated in'), ': ', _($CurrencyName[$_SESSION['CompanyRecord']['currencydefault']]), '</p>'; // Page title, reporting presentation currency and level of rounding used.
-	echo '<table class="selection">',
+	echo '<table>',
 	// Content of the header and footer of the output table:
 		'<thead>
 			<tr>
@@ -631,7 +631,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '"/>'; // Form's head.
 
 	// Input table:
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="2">', _('Report parameters'), '</th>

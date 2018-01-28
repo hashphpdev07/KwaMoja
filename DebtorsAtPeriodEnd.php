@@ -151,7 +151,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 			  <div>';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-		echo '<table class="selection" summary="' . _('Input criteria for report') . '">';
+		echo '<table summary="' . _('Input criteria for report') . '">';
 		echo '<tr>
 				<td>' . _('From Customer Code') . ':</td>
 				<td><input tabindex="1" type="text" autofocus="autofocus" required="required" maxlength="10" size="7" name="FromCriteria" value="' . $MyRow['fromcriteria'] . '" /></td>

@@ -140,7 +140,7 @@ if (count($_SESSION['Project' . $Identifier]->ProjectBOM) > 0) {
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Project Bill of Material') . '" alt="" />  ' . $_SESSION['Project' . $Identifier]->DonorName . '
 		</p>';
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	if (isset($_SESSION['Project' . $Identifier]->ProjectRef)) {
 		echo '<tr>
@@ -206,7 +206,7 @@ if (!isset($_GET['Edit'])) {
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Search For Stock Items') . '</p>';
-	echo '<table class="selection">
+	echo '<table>
 			<tr></tr>
 			<tr>
 				<td><select name="StockCat">';

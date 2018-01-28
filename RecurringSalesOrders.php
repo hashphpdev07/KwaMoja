@@ -302,7 +302,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table cellpadding="2" class="selection">';
+echo '<table cellpadding="2">';
 echo '<tr>
 		<th colspan="7"><b>' . _('Order Line Details') . '</b></th>
 	</tr>
@@ -351,7 +351,7 @@ echo '<tr>
 	</tr>
 	</table>';
 
-echo '<br /><table class="selection">';
+echo '<br /><table>';
 echo '<tr>
 		<th colspan="7"><h3>' . _('Order Header Details') . '</h3></th>
 	</tr>';

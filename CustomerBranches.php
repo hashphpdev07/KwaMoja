@@ -453,7 +453,7 @@ if (!isset($SelectedBranch)) {
 	$TotalDisable = 0;
 	if ($MyRow) {
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Branches defined for') . ' ' . stripslashes($DebtorNo) . ' - ' . $MyRow[0] . '</p>';
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<th>' . _('Code') . '</th>
 				<th>' . _('Name') . '</th>
@@ -630,7 +630,7 @@ if (!isset($_GET['delete'])) {
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />
 				 ' . ' ' . _('Change Details for Branch') . ' ' . stripslashes($SelectedBranch) . '</p>';
 		echo '<br />
-			<table class="selection">
+			<table>
 			<tr>
 				<th colspan="2">
 					<div class="centre"><b>' . _('Change Branch') . '</b></div>
@@ -673,7 +673,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['DisableTrans'] = 1;
 		}
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Add a Branch') . '</p>';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Branch Code') . ':</td>
 					<td><input tabindex="1" type="text" name="BranchCode" size="12" autofocus="autofocus" required="required" maxlength="10" value="' . stripslashes($_POST['BranchCode']) . '" /></td>

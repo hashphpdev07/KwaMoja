@@ -129,7 +129,7 @@ if (isset($_POST['PrintPDF'])) {
 		$_POST['GPMin'] = 0;
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<td>' . _('Sales Made From') . ' (' . _('in the format') . ' ' . $_SESSION['DefaultDateFormat'] . '):</td>
 				<td><input type="text" class="date" name="FromDate" size="10" autofocus="autofocus" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td>

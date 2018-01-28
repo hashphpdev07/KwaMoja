@@ -16,7 +16,7 @@ echo '<div class="page_help_text">' . _('Choose which type of transaction to rep
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Type') . ':</td>
 			<td><select tabindex="1" name="TransType"> ';
@@ -96,7 +96,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 	$TransResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	echo '<br />
-		<table class="selection">
+		<table>
 			<tr>
 				<th>' . _('Type') . '</th>
 				<th>' . _('Number') . '</th>

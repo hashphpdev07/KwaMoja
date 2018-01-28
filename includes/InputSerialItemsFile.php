@@ -20,7 +20,7 @@ if (isset($_GET['LineNo'])) {
 }
 
 echo '<div class="centre">';
-echo '<table class="selection">';
+echo '<table>';
 echo $tableheader;
 
 $TotalQuantity = 0;
@@ -130,7 +130,7 @@ if ($ShowFileInfo) {
 		$TotalLines--;
 	}
 
-	echo '<br /><table class="selection" width="33%">';
+	echo '<br /><table width="33%">';
 	echo '<tr>
 			<td>' . _('Name') . ':</td>
 			<td>' . $_SESSION['CurImportFile']['name'] . '</td>
@@ -182,7 +182,7 @@ if ($invalid_imports > 0 and !$_SESSION['CurImportFile']['Processed']) {
 			<input type="hidden" name="StockID" value="' . $StockId . '" />
 			<input type="hidden" name="EntryType" value="FILE" /><br />';
 	//Otherwise we have all valid records. show the first (100)  for visual verification.
-	echo '<br /><table class="selection">
+	echo '<br /><table>
 			<tr>
 				<th class="header" colspan="2">' . _('Below are the 1st 100 records as parsed') . '</th>
 			</tr>

@@ -28,7 +28,7 @@ if (!isset($_POST['BeforeDate']) or !is_date($_POST['BeforeDate'])) {
 if (!isset($_POST['AfterDate']) or !is_date($_POST['AfterDate'])) {
 	$_POST['AfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 3, Date('d'), Date('y')));
 }
-echo '<table class="selection">
+echo '<table>
 			<tr>
 				<th colspan="10">' . _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" maxlength="20" />';
 

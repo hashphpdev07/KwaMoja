@@ -156,7 +156,7 @@ if (!isset($SelectedDepartmentID)) {
 	$ErrMsg = _('There are no departments created');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Department Name') . '</th>
 				<th>' . _('Authoriser') . '</th>
@@ -209,13 +209,13 @@ if (!isset($_GET['delete'])) {
 			$AuthoriserID = $MyRow['authoriser'];
 
 			echo '<input type="hidden" name="SelectedDepartmentID" value="' . $_POST['DepartmentID'] . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {
 		$_POST['DepartmentName'] = '';
 		$AuthoriserID = '';
-		echo '<table class="selection">';
+		echo '<table>';
 	}
 	echo '<tr>
 			<td>' . _('Department Name') . ':' . '</td>

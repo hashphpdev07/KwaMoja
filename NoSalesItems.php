@@ -9,7 +9,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<br />';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	//select location
 	echo '<tr>
@@ -205,7 +205,7 @@ if (!(isset($_POST['Search']))) {
 	$Result = DB_query($SQL);
 	echo '<p class="page_title_text"  align="center"><strong>' . _('No Sales Items') . '</strong></p>';
 	echo '<form action="PDFNoSalesItems.php"  method="GET">
-		<table class="selection">';
+		<table>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<tr>
 				<th>' . _('No') . '</th>

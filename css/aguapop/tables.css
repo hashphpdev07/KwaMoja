@@ -17,11 +17,6 @@ margin-bottom:10px;
 padding:5px;
 }
 
-table.selection {
-width:auto;
-max-width:90%;
-}
-
 tr.visible {
 display:table-row;
 }

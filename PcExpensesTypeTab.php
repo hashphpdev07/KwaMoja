@@ -109,7 +109,7 @@ if (!isset($SelectedTab)) {
 	or deletion of the records*/
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">'; //Main table
+	echo '<table>'; //Main table
 
 	echo '<tr>
 			<td>', _('Select Type of Tab'), ':</td>
@@ -165,7 +165,7 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3">
 					<h3>', _('Expense Codes for Type of Tab '), ' ', $SelectedTab, '</h3>
@@ -193,7 +193,7 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 	if (!isset($_GET['delete'])) {
 
 
-		echo '<table  class="selection">'; //Main table
+		echo '<table >'; //Main table
 
 		echo '<tr>
 				<td>', _('Select Expense Code'), ':</td>

@@ -14,9 +14,6 @@ box-shadow:         1px 1px 2px #C3C3C3;
 filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#C3C3C3')
 }
 
-table.selection {
-}
-
 th {
 font-weight:bold;
 color:#2C2C2C;

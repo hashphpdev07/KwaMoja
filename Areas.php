@@ -130,7 +130,7 @@ if (!isset($SelectedArea)) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Area Code') . '</th>
 				<th>' . _('Parent Area') . '</th>
@@ -186,7 +186,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedArea" value="' . $SelectedArea . '" />';
 		echo '<input type="hidden" name="AreaCode" value="' . $_POST['AreaCode'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Area Code') . ':</td>
 					<td>' . $_POST['AreaCode'] . '</td>
@@ -199,7 +199,7 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['AreaDescription'])) {
 			$_POST['AreaDescription'] = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<td>' . _('Area Code') . ':</td>
 				<td><input tabindex="1" type="text" name="AreaCode" value="' . $_POST['AreaCode'] . '" size="3" autofocus="autofocus" required="required" maxlength="3" /></td>

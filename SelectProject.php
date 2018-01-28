@@ -135,7 +135,7 @@ $ProjectsResult = DB_query($SQL, $ErrMsg);
 
 /*show a table of the projects returned by the SQL */
 
-echo '<table cellpadding="2" width="98%" class="selection">
+echo '<table cellpadding="2" width="98%">
 		<thead>
 			<tr>
 				<th>' . _('Modify') . '</th>

@@ -306,7 +306,7 @@ if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
 	prnMsg($_SESSION['Items' . $Identifier]->SpecialInstructions, 'warn');
 }
 echo '<p class="page_title_text "><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
-echo '<table class="selection">
+echo '<table>
 			<tr>
 				<th><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Code') . ' :<b> ' . $_SESSION['Items' . $Identifier]->DebtorNo . '</b></th>
 				<th>' . _('Customer Name') . ' :<b> ' . $_SESSION['Items' . $Identifier]->CustomerName . '</b></th>
@@ -322,7 +322,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 /***************************************************************
 Line Item Display
 ***************************************************************/
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th>', _('Item Code'), '</th>
@@ -1749,7 +1749,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 		$_POST['InvoiceText'] = '';
 	}
 	++$j;
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td>' . _('Date On Invoice') . ':</td>
 			<td><input tabindex="' . $j . '" type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="' . $DefaultDispatchDate . '" id="datepicker" class="date" /></td>

@@ -70,7 +70,7 @@ if (isset($_GET['CreditInvoice']) or isset($_POST['CreditInvoice'])) {
 	$CreditInvoice = '';
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td><input type="radio" name="EntryType" onclick="submit();" ';
 if ($_POST['EntryType'] == 'KEYED') {

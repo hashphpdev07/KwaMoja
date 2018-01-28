@@ -130,7 +130,7 @@ if (!isset($SelectedRole)) {
 		ORDER BY secrolename";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Role') . '</th>
 			</tr>';
@@ -178,7 +178,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 if (isset($_POST['SelectedRole'])) {
 	echo '<input type="hidden" name="SelectedRole" value="' . $_POST['SelectedRole'] . '" />';
 }
-echo '<table class="selection">';
+echo '<table>';
 if (!isset($_POST['SecRoleName'])) {
 	$_POST['SecRoleName'] = '';
 }
@@ -210,7 +210,7 @@ if (isset($SelectedRole)) {
 		++$i;
 	}
 
-	echo '<br /><table class="selection"><tr>';
+	echo '<br /><table><tr>';
 
 	if (DB_num_rows($Result) > 0) {
 		echo '<th colspan="3"><div class="centre">' . _('Assigned Security Tokens') . '</div></th>';

@@ -297,7 +297,7 @@ if (!isset($SelectedCurrency)) {
 				FROM currencies";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td></td>
 			<th>' . _('ISO4217 Code') . '</th>
@@ -422,7 +422,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedCurrency" value="' . $SelectedCurrency . '" />';
 		echo '<input type="hidden" name="Abbreviation" value="' . $_POST['Abbreviation'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<td>' . _('ISO 4217 Currency Code') . ':</td>
 				<td>' . $_POST['Abbreviation'] . '</td>
@@ -432,7 +432,7 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['Abbreviation'])) {
 			$_POST['Abbreviation'] = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<td>' . _('Currency') . ':</td>
 				<td><select name="Abbreviation">';

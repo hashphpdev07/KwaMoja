@@ -81,7 +81,7 @@ if (!isset($KeyValue) or $KeyValue == '') {
 	//prompt user for Key Value
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Enter Specification Name') . ':</td>
 				<td><input type="text" name="KeyValue" size="25" maxlength="25" /></td>
@@ -94,7 +94,7 @@ if (!isset($KeyValue) or $KeyValue == '') {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<div>
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table class="selection">
+				<table>
 				<tr>
 					<td>' . _('Or Select Existing Specification') . ':</td>';
 	$SQLSpecSelect = "SELECT DISTINCT(keyval),
@@ -147,7 +147,7 @@ if (isset($_GET['ListTests'])) {
 	$Result = DB_query($SQL);
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Add') . '</th>
@@ -359,7 +359,7 @@ if (!isset($SelectedQATest)) {
 			ORDER BY name";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Name') . '</th>
@@ -502,7 +502,7 @@ if (!isset($_GET['delete'])) {
 		echo '<input type="hidden" name="SelectedQATest" value="' . $SelectedQATest . '" />';
 		echo '<input type="hidden" name="KeyValue" value="' . $KeyValue . '" />';
 		echo '<input type="hidden" name="TestID" value="' . $_POST['SelectedQATest'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Test Name') . ':</td>
 					<td>' . $_POST['QATestName'] . '</td>

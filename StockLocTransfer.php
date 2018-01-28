@@ -245,7 +245,7 @@ if (isset($_POST['Submit']) and $InputError == False) {
 	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="4"><input type="hidden" name="Trf_ID" value="' . $Trf_ID . '" /><h3>' . _('Inventory Location Transfer Shipment Reference') . ' # ' . $Trf_ID . '</h3></th>
 		</tr>';
@@ -308,7 +308,7 @@ if (isset($_POST['Submit']) and $InputError == False) {
 		  </tr>
 		  </table>';
 
-	echo '<br /><table class="selection">
+	echo '<br /><table>
 					<tr>
 						<th>' . _('Item Code') . '</th>
 						<th>' . _('Quantity') . '</th>

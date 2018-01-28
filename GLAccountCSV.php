@@ -24,7 +24,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 $DefaultPeriodDate = Date('Y-m-d', Mktime(0, 0, 0, Date('m'), 0, Date('Y')));
 
 /*Show a form to allow input of criteria for the report */
-echo '<table class="selection" summary="' . _('Criteria for report') . '">
+echo '<table summary="' . _('Criteria for report') . '">
 			<tr>
 			 <td>' . _('Selected Accounts') . ':</td>
 			 <td><select name="Account[]" size="12" multiple="multiple">';

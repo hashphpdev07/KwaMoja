@@ -52,7 +52,7 @@ if (isset($_GET['DebtorNo'])) {
 		include('includes/footer.php');
 		exit;
 	}
-	echo '<table class="selection">';
+	echo '<table>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		unset($_SESSION['Alloc']->Allocs);

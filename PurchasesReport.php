@@ -49,7 +49,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 	$PeriodFrom = FormatDateForSQL($_POST['PeriodFrom']);
 	$PeriodTo = FormatDateForSQL($_POST['PeriodTo']);
 	if(isset($_POST['ShowDetails'])) {// Parameters: PeriodFrom, PeriodTo, ShowDetails=on.
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>', _('Date'), '</th>
@@ -164,7 +164,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 
 	} else {// Parameters: PeriodFrom, PeriodTo, ShowDetails=off.
 		// RChacon: Needs to update the table_sort function to use in this table.
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>', _('Supplier Code'), '</th>
@@ -253,7 +253,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 	if(!isset($_POST['PeriodTo'])) {
 		$_POST['PeriodTo'] = date($_SESSION['DefaultDateFormat']);
 	}
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="2">', _('Report Parameters'), '</th>

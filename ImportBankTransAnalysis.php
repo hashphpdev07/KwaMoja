@@ -117,7 +117,7 @@ echo '<input type="hidden" name="TransID" value=' . $TransID . ' />';
 
 echo '<div class="centre"><a href="' . $RootPath . '/ImportBankTrans.php" onclick="return confirm(\'' . _('If you have entered a GL analysis check that the sum of GL Entries agrees to the total bank transaction. If it does not then the bank transaction import will not be processed.') . '\');">' . _('Back to Main Import Screen') . '</a></div>';
 
-echo '<br /><table cellpadding="2" class="selection">';
+echo '<br /><table cellpadding="2">';
 
 $AllowGLAnalysis = true;
 
@@ -192,7 +192,7 @@ if ($AllowGLAnalysis == false) {
 	}
 } else {
 	/*Allow GL Analysis == true */
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th colspan="5">' . _('General ledger Analysis') . '</th>
@@ -244,7 +244,7 @@ if ($AllowGLAnalysis == false) {
 
 
 	echo '<br />
-		<table class="selection">';
+		<table>';
 	if (!isset($_POST['GLCode'])) {
 		$_POST['GLCode'] = '';
 	}

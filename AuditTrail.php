@@ -36,7 +36,7 @@ $UserResult = DB_query("SELECT userid FROM www_users ORDER BY userid");
 
 echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 echo '<tr>
 		<td>', _('From Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
@@ -176,7 +176,7 @@ if (isset($_POST['View'])) {
 	}
 	$Result = DB_query($SQL);
 
-	echo '<table border="0" width="98%" class="selection">
+	echo '<table border="0" width="98%">
 			<thead>
 				<tr>
 					<th>', _('Date/Time'), '</th>

@@ -331,7 +331,7 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 if (!isset($_POST['OrdersAfterDate']) or $_POST['OrdersAfterDate'] == '' or !is_date($_POST['OrdersAfterDate'])) {
 	$_POST['OrdersAfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 2, Date('d'), Date('Y')));
 }
-echo '<table class="selection">';
+echo '<table>';
 
 if (isset($PartString)) {
 	echo '<tr>
@@ -365,7 +365,7 @@ if (!isset($SelectedStockItem)) {
 						ORDER BY categorydescription");
 
 	echo '<div class="page_help_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>', _('Select a stock category'), ':';
 	echo '<select name="StockCat">';
@@ -405,7 +405,7 @@ if (!isset($SelectedStockItem)) {
 
 if (isset($StockItemsResult)) {
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
@@ -451,7 +451,7 @@ if (isset($SalesOrdersResult)) {
 
 	/*show a table of the orders returned by the SQL */
 
-	echo '<table cellpadding="2" width="90%" class="selection">
+	echo '<table cellpadding="2" width="90%">
 			<thead>
 				<tr>
 					<th colspan="9">

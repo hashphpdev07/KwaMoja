@@ -62,7 +62,7 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 	<tr>
 		<td class="label">' . _('Work order Number') . ':</td>
 		<td>' . $SelectedWO . '</td>
@@ -93,7 +93,7 @@ echo '<table cellpadding="2" class="selection">
 	<br />';
 
 //set up options for selection of the item to be issued to the WO
-echo '<table class="selection">
+echo '<table>
 			<tr>
 				<th colspan="5"><h3>' . _('Material Requirements For this Work Order') . '</h3></th>
 			</tr>';

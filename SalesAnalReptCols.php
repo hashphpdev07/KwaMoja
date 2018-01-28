@@ -244,7 +244,7 @@ if (DB_num_rows($Result) != 0) {
 	echo '<div class="centre"><b>' . $MyRow['reportheading'] . '</b>
 		<br />
 		</div>
-		<table class="selection">
+		<table>
 		<tr>
 			<th>' . _('Col') . ' #</th>
 			<th>' . _('Heading 1') . '</th>
@@ -355,10 +355,10 @@ if (!isset($_GET['delete'])) {
 		$_POST['ValFormat'] = $MyRow['valformat'];
 
 		echo '<input type="hidden" name="SelectedCol" value="' . $SelectedCol . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 
 	} else {
-		echo '<br /><table class="selection">';
+		echo '<br /><table>';
 		if (!isset($_POST['ColID'])) {
 			$_POST['ColID'] = 1;
 		}

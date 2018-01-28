@@ -486,7 +486,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 		$Detail_Array['suppliers.suppname,suppliers.supplierid,purchorderdetails.orderno'] = _('Supplier Name');
 
 		// Display Header info
-		echo '<table class="selection">';
+		echo '<table>';
 		if ($_POST['ReportType'] == 'Summary') {
 			$SortBy_Display = $Summary_Array[$SaveSummaryType];
 		} else {
@@ -536,7 +536,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 		</table>';
 
 		if ($_POST['ReportType'] == 'Detail') {
-			echo '<br /><table class="selection" width="98%">';
+			echo '<br /><table width="98%">';
 			if ($_POST['DateType'] == 'Order') {
 				echo '<tr>
 						<th>' . _('Order No') . '</th>
@@ -658,7 +658,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 			echo '</table>';
 		} else {
 			// Print summary stuff
-			echo '<br /><table class="selection" width="98%">';
+			echo '<br /><table width="98%">';
 			$summarytype = $_POST['SummaryType'];
 			// For SummaryType 'suppname' had to add supplierid to it for the GROUP BY in the sql,
 			// but have to take it away for $MyRow[$summarytype] to be valid
@@ -1314,7 +1314,7 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Report Type') . ':</td>
 				<td>

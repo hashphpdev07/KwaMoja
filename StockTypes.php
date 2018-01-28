@@ -141,7 +141,7 @@ if (!isset($SelectedType)) {
 				FROM stocktypes";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Type Code') . '</th>
 				<th>' . _('Type Name') . '</th>
@@ -203,7 +203,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
 		echo '<input type="hidden" name="TypeAbbrev" value="' . $_POST['TypeAbbrev'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
 				</tr>';
@@ -216,7 +216,7 @@ if (!isset($_GET['delete'])) {
 
 		// This is a new type so the user may volunteer a type code
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
 				</tr>

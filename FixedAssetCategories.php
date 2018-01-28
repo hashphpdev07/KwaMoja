@@ -150,7 +150,7 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 	$Result = DB_query($SQL);
 
 	echo '<br />
-			<table class="selection">';
+			<table>';
 	echo '<tr>
 			<th>' . _('Cat Code') . '</th>
 			<th>' . _('Description') . '</th>
@@ -211,7 +211,7 @@ if (isset($SelectedCategory) and !isset($_POST['submit'])) {
 
 	echo '<input type="hidden" name="SelectedCategory" value="' . $SelectedCategory . '" />';
 	echo '<input type="hidden" name="CategoryID" value="' . $_POST['CategoryID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td>' . _('Category Code') . ':</td>
 			<td>' . $_POST['CategoryID'] . '</td>
@@ -221,7 +221,7 @@ if (isset($SelectedCategory) and !isset($_POST['submit'])) {
 	if (!isset($_POST['CategoryID'])) {
 		$_POST['CategoryID'] = '';
 	}
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Category Code') . ':</td>
 				<td><input type="text" name="CategoryID" size="7" required="required" maxlength="6" value="' . $_POST['CategoryID'] . '" /></td>

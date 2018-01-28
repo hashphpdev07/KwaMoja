@@ -147,7 +147,7 @@ if (!isset($SelectedTaxAuthID)) {
 				'<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Tax Authority'), '</th>
@@ -242,7 +242,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 if (!isset($_POST['Description'])) {
 	$_POST['Description'] = '';
 }
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>', _('Tax Type Description'), ':</td>
 			<td><input type="text" name="Description" size="21" required="required" maxlength="40" value="', $_POST['Description'], '" /></td>

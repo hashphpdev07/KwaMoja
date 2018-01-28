@@ -159,7 +159,7 @@ if (isset($_POST['Add']) or isset($_POST['Update'])) {
 echo '<form method="post" id="RegularPaymentsSetup" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<th colspan="2">
 			<h3>' . _('Regular General Ledger Payment') . '</h3>
@@ -434,7 +434,7 @@ $SQL = "SELECT regularpayments.id,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0 and !isset($_GET['Edit'])) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Frequency') . '</th>
 				<th>' . _('Days into Period') . '</th>

@@ -131,7 +131,7 @@ if (!isset($SelectedWC)) {
 					AND locationusers.canview=1
 				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('WC Code'), '</th>
@@ -195,7 +195,7 @@ if (isset($SelectedWC)) {
 
 	echo '<input type="hidden" name="SelectedWC" value="' . $SelectedWC . '" />
 		<input type="hidden" name="Code" value="' . $_POST['Code'] . '" />
-		<table class="selection">
+		<table>
 			<tr>
 				<td>' . _('Work Centre Code') . ':</td>
 				<td>' . $_POST['Code'] . '</td>
@@ -205,7 +205,7 @@ if (isset($SelectedWC)) {
 	if (!isset($_POST['Code'])) {
 		$_POST['Code'] = '';
 	}
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Work Centre Code') . ':</td>
 				<td><input type="text" class="AlphaNumeric" name="Code" size="6" autofocus="autofocus" required="required" maxlength="5" value="' . $_POST['Code'] . '" /></td>

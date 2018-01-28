@@ -94,7 +94,7 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 		}
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Date Goods/Service Received') . ':</td>
 				<td><input type="text" class="date" name="DefaultReceivedDate" value="' . $_SESSION['PO' . $Identifier]->DefaultReceivedDate . '" /></td>
@@ -103,7 +103,7 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 			</tr>
 		</table>';
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th colspan="2"></th>
 				<th align="center" colspan="3"><b>' . _('Supplier Units') . '</b></th>
@@ -361,7 +361,7 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 			prnMsg(_('This order has been changed or invoiced since this delivery was started to be actioned') . '. ' . _('Processing halted') . '. ' . _('To enter a delivery against this purchase order') . ', ' . _('it must be re-selected and re-read again to update the changes made by the other user'), 'warn');
 
 			if ($Debug == 1) {
-				echo '<table class="selection">
+				echo '<table>
 					<tr>
 						<td>' . _('GL Code of the Line Item') . ':</td>
 						<td>' . $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->GLCode . '</td>

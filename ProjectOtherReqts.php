@@ -79,7 +79,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 
 if (count($_SESSION['Project' . $Identifier]->ProjectReqts) > 0) {
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	if (isset($_SESSION['Project' . $Identifier]->ProjectRef)) {
 		echo '<tr>
@@ -137,7 +137,7 @@ if (!isset($_POST['RequirementDescription'])) {
 }
 echo '<form name="ProjectReqtsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="2">' . _('Enter New Requirements') . '</th>
 		</tr>

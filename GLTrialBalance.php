@@ -42,7 +42,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$NotUsedPeriodNo = GetPeriod($FromDate);
 
 	/*Show a form to allow input of criteria for TB to show */
-	echo '<table class="selection" summary="' . _('Input criteria for inquiry') . '">
+	echo '<table summary="' . _('Input criteria for inquiry') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -459,7 +459,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	/*show a table of the accounts info returned by the SQL
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
-	echo '<table cellpadding="2" class="selection" summary="' . _('Trial Balance Report') . '">';
+	echo '<table cellpadding="2" summary="' . _('Trial Balance Report') . '">';
 	echo '<thead>
 			<tr>
 				<th colspan="6">

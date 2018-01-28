@@ -58,9 +58,9 @@ if (isset($_GET['LineNo'])) {
 
 /*Display the batches already entered with quantities if not serialised */
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
-			<td valign="top"><table class="selection">';
+			<td valign="top"><table>';
 echo $listtableheader;
 
 $TotalQuantity = 0;
@@ -111,7 +111,7 @@ then the multi select box for selection of existing bundle/serial nos for dispat
 //echo '<TABLE><TR><TD valign=TOP>';
 $TransferQuantity = $TotalQuantity;
 /*in the first column add a table for the input of newies */
-echo '<table class="selection">';
+echo '<table>';
 echo $tableheader;
 
 

@@ -352,7 +352,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr><td>' . _('Choose Option') . ':</td>
 			  <td><select required="required" name="ReportOrClose">';
 

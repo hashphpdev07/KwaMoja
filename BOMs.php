@@ -259,7 +259,7 @@ if (isset($_POST['ComponentSearch']) or isset($_POST['Next']) or isset($_POST['P
 
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3">
 					<input style="float:left" type="submit" name="Previous" value="<<', _('Previous'), '" />
@@ -802,7 +802,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	$DbgMsg = _('The SQL used to retrieve description of the parent part was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr><td><div class="centre">', _('Assembly parent items'), ' : ';
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
@@ -830,7 +830,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	$DbgMsg = _('The SQL used to retrieve description of the parent part was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr><td><div class="centre">', _('Kit sets'), ' : ';
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
@@ -859,7 +859,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	$DbgMsg = _('The SQL used to retrieve description of the parent part was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td><div class="centre">', _('Phantom'), ' : ';
 		$i = 0;
@@ -875,7 +875,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<input type="hidden" name="SelectedParent" value="', $SelectedParent, '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="16"><b>', $SelectedParent, ' - ', $MyRow[0], ' (', $MBdesc, ') </b></th>
 		</tr>';
@@ -1072,7 +1072,7 @@ if (!isset($SelectedParent)) {
 
 	if (isset($_POST['Search']) and isset($Result) and !isset($SelectedParent)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th>', _('Code'), '</th>
 					<th>', _('Description'), '</th>

@@ -52,7 +52,7 @@ if (isset($_POST['Submit'])) {
 					methodname
 				FROM abcmethods";
 	$Result = DB_query($SQL);
-	echo '<table class="selection" summary="', _('List of ABC Ranking Methods'), '">
+	echo '<table summary="', _('List of ABC Ranking Methods'), '">
 			<tr>
 				<th colspan="10">
 					<h3>', _('List of ABC Ranking Methods'), '

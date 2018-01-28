@@ -194,7 +194,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedQATest" value="' . $SelectedQATest . '" />';
 		echo '<input type="hidden" name="TestID" value="' . $_POST['SelectedQATest'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('QA Test ID') . ':</td>
 					<td>' . $_POST['SelectedQATest'] . '</td>
@@ -213,7 +213,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['ShowOnSpec'] = 1;
 		$_POST['ShowOnTestPlan'] = 1;
 
-		echo '<table class="selection">';
+		echo '<table>';
 
 	}
 
@@ -387,7 +387,7 @@ if (!isset($SelectedQATest)) {
 			ORDER BY name";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Test ID'), '</th>

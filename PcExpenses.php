@@ -169,7 +169,7 @@ if (!isset($SelectedExpense)) {
 			FROM pcexpenses";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>', _('Code Of Expense'), '</th>
 				<th>', _('Description'), '</th>
@@ -255,14 +255,14 @@ if (!isset($_GET['delete'])) {
 		echo '<input type="hidden" name="SelectedExpense" value="', $SelectedExpense, '" />';
 		echo '<input type="hidden" name="CodeExpense" value="', $_POST['CodeExpense'], '" />';
 		// We dont allow the user to change an existing type code
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Code Of Expense'), ':</td>
 					<td>', $_POST['CodeExpense'], '</td>
 				</tr>';
 	} else {
 		// This is a new type so the user may volunteer a type code
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Code Of Expense'), ':</td>
 					<td><input type="text" name="CodeExpense" autofocus="autofocus" required="required" maxlength="20" /></td>

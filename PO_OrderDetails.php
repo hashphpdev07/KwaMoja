@@ -94,7 +94,7 @@ echo '<div class="toplink">
 	</div>';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<table class="selection" cellpadding="2">
+echo '<table cellpadding="2">
 		<tr>
 			<th colspan="8"><b>' . _('Order Header Details') . '</b></th>
 		</tr>
@@ -185,7 +185,7 @@ $LineItemsSQL = "SELECT purchorderdetails.*,
 $LineItemsResult = DB_query($LineItemsSQL, $ErrMsg);
 
 
-echo '<table class="selection" cellpadding="0">';
+echo '<table cellpadding="0">';
 echo '<tr>
 		<th colspan="8"><b>' . _('Order Line Details') . '</b></th>
 	</tr>';

@@ -120,7 +120,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			}
 		} else {
 			echo '<div id="Report">
-				<table class="selection">';
+				<table>';
 
 			echo '<tr>
 					<th colspan="7">

@@ -200,7 +200,7 @@ if (isset($_POST['Amend']) or isset($_POST['Create'])) {
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="GroupID" value="' . $GroupID . '" />
 		<input type="hidden" name="New" value="Yes" />
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('Supplier Group Name') . ':</td>
 			<td><input tabindex="1" type="text" name="GroupName" size="42" required="required" maxlength="40" value="' . $_POST['GroupName'] . '" /></td>
@@ -273,7 +273,7 @@ if (empty($GroupID) and !isset($_POST['Create']) and !isset($_POST['Amend'])) {
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<input type="hidden" name="New" value="No" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('ID') . '</th>
 				<th>' . _('Company Name') . '</th>

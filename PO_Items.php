@@ -805,7 +805,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 		echo ' ' . _('Purchase Order') . ' ' . $_SESSION['PO' . $Identifier]->OrderNo;
 	} //isset($_SESSION['PO' . $Identifier]->OrderNo)
 	echo '<b>&nbsp;-&nbsp' . _(' Order Summary') . '</b></p>';
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Item Code') . '</th>
@@ -886,7 +886,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 
 
 if (isset($_POST['NonStockOrder'])) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Item Description'), '</td>
 				<td><input type="text" name="ItemDescription" size="40" /></td>
@@ -1215,7 +1215,7 @@ if (!isset($_GET['Edit'])) {
 	$DbgMsg = _('The SQL used to retrieve the category details but failed was');
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3"><h3>', _('Search For Stock Items'), ':</h3></th>
 			</tr>
@@ -1281,7 +1281,7 @@ if (isset($SearchResult)) {
 	echo '<div class="centre">
 			<input type="submit" name="NewItem" value="', _('Order some'), '" />
 		</div>';
-	echo '<table cellpadding="1" class="selection">
+	echo '<table cellpadding="1">
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>

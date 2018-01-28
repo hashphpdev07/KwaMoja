@@ -912,7 +912,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		</tr>';
 	echo '</table>'; //end the sub table in the first column of master table
 	echo '</td><th valign="bottom">'; //for the master table
-	echo '<table class="selection">'; // a new nested table in the second column of master table
+	echo '<table>'; // a new nested table in the second column of master table
 	//now the payment stuff in this column
 	$PaymentMethodsResult = DB_query("SELECT paymentid, paymentname FROM paymentmethods");
 
@@ -2248,7 +2248,7 @@ if (!isset($_POST['ProcessSale'])) {
 		echo '<div class="page_help_text">
 				', _('Search for Items'), '.&nbsp;', _('Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code'), '.
 			</div>';
-		echo '<table class="selection">';
+		echo '<table>';
 
 		$SQL = "SELECT categoryid,
 					categorydescription

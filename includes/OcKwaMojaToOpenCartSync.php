@@ -126,7 +126,7 @@ function SyncProductBasicInformation($ShowMessages, $LastTimeRun, $oc_tableprefi
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product Basic Info') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Description') . '</th>
@@ -448,7 +448,7 @@ function SyncProductSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product - Sales Categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Sales Category') . '</th>
@@ -549,7 +549,7 @@ function SyncProductPrices($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailT
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product Prices Updates') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('New Price') . '</th>
@@ -634,7 +634,7 @@ function SyncProductQOH($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product QOH Updates') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Online QOH') . '</th>
@@ -724,7 +724,7 @@ function CleanDuplicatedUrlAlias($ShowMessages, $LastTimeRun, $oc_tableprefix, $
 				if ($ShowHeader) {
 					if ($ShowMessages) {
 						echo '<p class="page_title_text" align="center"><strong>' . _('Duplicated URL Alias clean up') . '</strong></p>';
-						echo '<table class="selection">
+						echo '<table>
 								<tr>
 									<th>' . _('URL Alias ID') . '</th>
 									<th>' . _('Query') . '</th>
@@ -810,7 +810,7 @@ function SyncSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix, $Emai
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Sales categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('SalesCatID') . '</th>
 						<th>' . _('SalesCatName') . '</th>
@@ -969,7 +969,7 @@ function SyncFeaturedList($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Create featured list in OpenCart') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('OpenCartID') . '</th>
@@ -1037,7 +1037,7 @@ function ActivateCategoryDependingOnQOH($ShowMessages, $LastTimeRun, $oc_tablepr
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Activate/Inactivate Categories depending on QOH') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('Sales Category') . '</th>
 						<th>' . _('QOH') . '</th>
@@ -1117,7 +1117,7 @@ function MaintainOpenCartOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Maintain Outlet Sales Categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Action') . '</th>
@@ -1171,7 +1171,7 @@ function MaintainKwaMojaOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_t
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Maintain KwaMoja Outlet Sales Categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Action') . '</th>
@@ -1218,7 +1218,7 @@ function SyncMultipleImages($ShowMessages, $LastTimeRun, $oc_tableprefix, $Email
 
 	if ($ShowMessages) {
 		echo '<p class="page_title_text" align="center"><strong>' . _('Synchronize multiple images per item') . '</strong></p>';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>' . _('KwaMoja Code') . '</th>
 					<th>' . _('File') . '</th>
@@ -1289,7 +1289,7 @@ function SyncRelatedItems($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Related Items') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('Item KwaMoja') . '</th>
 						<th>' . _('Related KwaMoja') . '</th>

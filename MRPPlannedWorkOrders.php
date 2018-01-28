@@ -249,7 +249,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 		echo '<form action="MRPConvertWorkOrders.php" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="9"><h3>' . _('Consolidation') . ': ' . $_POST['Consolidation'] . "&nbsp;&nbsp;&nbsp;&nbsp;" . _('Cutoff Date') . ': ' . $_POST['cutoffdate'] . '</h3></th>
 			</tr>
@@ -315,7 +315,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>' . _('Consolidation') . ':</td>
 			<td>

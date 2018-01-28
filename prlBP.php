@@ -200,7 +200,7 @@ $SQL = "SELECT bracket,
 $ErrMsg = _('Could not get Basic pay because');
 $Result = DB_query($SQL, $ErrMsg);
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Salary Bracket') . '</th>
 			<th>' . _('Range From') . '</th>

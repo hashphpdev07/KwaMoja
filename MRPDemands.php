@@ -84,7 +84,7 @@ function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEA
 	if (DB_num_rows($Result) > 0) {
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Description') . '</th>
@@ -277,7 +277,7 @@ function listall($part, $DemandType) { //####LISTALL_LISTALL_LISTALL_LISTALL_LIS
 	$ErrMsg = _('The SQL to find the parts selected failed with the message');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<th>' . _('Part Number') . '</th>
 			<th>' . _('Description') . '</th>
@@ -321,7 +321,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($StockId)) {
-		echo '<table cellpadding="3" class="selection"><tr>
+		echo '<table cellpadding="3"><tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
 			<td><input tabindex="1" type="text" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
@@ -354,7 +354,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 
 			echo '<input type="hidden" name="DemandID" value="' . $_POST['DemandID'] . '" />';
 			echo '<input type="hidden" name="StockID" value="' . $_POST['StockID'] . '" />';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td>' . _('Part Number') . ':</td>
 						<td>' . $_POST['StockID'] . '</td>
@@ -364,7 +364,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 			if (!isset($_POST['StockID'])) {
 				$_POST['StockID'] = '';
 			}
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td>' . _('Part Number') . ':</td>
 						<td><input type="text" name="StockID" size="21" required="required" maxlength="20" value="' . $_POST['StockID'] . '" /></td>

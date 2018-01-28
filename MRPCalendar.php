@@ -225,7 +225,7 @@ function ShowDays() { //####LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LIST
 	$Result = DB_query($SQL, $ErrMsg);
 
 	echo '<br />
-		<table class="selection">
+		<table>
 		<tr>
 			<th>' . _('Date') . '</th>
 			<th>' . _('Manufacturing Date') . '</th>
@@ -263,7 +263,7 @@ function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DIS
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	echo '<tr>
 			<td>' . _('From Date') . ':</td>
@@ -318,7 +318,7 @@ function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DIS
 		$_POST['ChangeDate'] = date($_SESSION['DefaultDateFormat']);
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Change Date Status') . ':</td>
 				<td><input type="text" name="ChangeDate" class="date" size="10" maxlength="10" value="' . $_POST['ChangeDate'] . '" /></td>

@@ -249,7 +249,7 @@ if (isset($_POST['FixedAssets']) and $_POST['FixedAssets'] == _('Fixed Assets'))
 /* everything below here only do if a Supplier is selected
 fisrt add a header to show who we are making an credit note for */
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Supplier') . '</th>
 			<th>' . _('Currency') . '</th>
@@ -267,7 +267,7 @@ echo '<table class="selection">
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td style="color:red">' . _('Supplier Credit Note Reference') . ':</td>
 			<td><input type="text" size="20" required="required" maxlength="20" name="SuppReference" value="' . $_SESSION['SuppTrans']->SuppReference . '" /></td>';
@@ -298,7 +298,7 @@ if (count($_SESSION['SuppTrans']->GRNs) > 0) {
 	/*Show all the selected GRNs so far from the SESSION['SuppInv']->GRNs array
 	Note that the class for carrying GRNs refers to quantity invoiced read credited in this context*/
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6">' . _('Purchase Order Credits') . '</th>
 			</tr>
@@ -339,7 +339,7 @@ if (count($_SESSION['SuppTrans']->GRNs) > 0) {
 if (count($_SESSION['SuppTrans']->Shipts) > 0) {
 	/*if there are any Shipment charges on the credit note*/
 
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<th colspan="2">' . _('Shipment Credits') . '</th>
 				</tr>
@@ -372,7 +372,7 @@ if (count($_SESSION['SuppTrans']->Assets) > 0) {
 	/*if there are any fixed assets on the invoice*/
 
 	echo '<br />
-		<table class="selection">
+		<table>
 		<tr>
 			<th colspan="3">' . _('Fixed Asset Credits') . '</th>
 		</tr>
@@ -407,7 +407,7 @@ if (count($_SESSION['SuppTrans']->Assets) > 0) {
 if (count($_SESSION['SuppTrans']->Contracts) > 0) {
 	/*if there are any contract charges on the invoice*/
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3">' . _('Contract Charges') . '</th>
 			</tr>
@@ -441,7 +441,7 @@ if (count($_SESSION['SuppTrans']->Contracts) > 0) {
 if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 
 	if (count($_SESSION['SuppTrans']->GLCodes) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<th colspan="3">' . _('General Ledger Analysis') . '</th>
 			</tr>
@@ -494,13 +494,13 @@ if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 	}
 	$_SESSION['SuppTrans']->OvAmount = round($TotalGRNValue + $TotalGLValue + $TotalAssetValue + $TotalShiptValue + $TotalContractsValue, $_SESSION['SuppTrans']->CurrDecimalPlaces);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td style="color:red">' . _('Credit Amount in Supplier Currency') . ':</td>
 				<td colspan="2" class="number">' . locale_number_format($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces);
 	echo '<input type="hidden" name="OvAmount" value="' . locale_number_format($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td></tr>';
 } else {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td style="color:red">' . _('Credit Amount in Supplier Currency') . ':</td>
 				<td colspan="2" class="number">
@@ -585,7 +585,7 @@ echo '<tr>
 	</table>
 	<br />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td style="color:red">' . _('Comments') . '</td>
 			<td><textarea name="Comments" cols="40" rows="2">' . $_SESSION['SuppTrans']->Comments . '</textarea></td>

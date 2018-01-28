@@ -100,7 +100,7 @@ if (isset($_POST['SearchParts'])) {
 }
 
 if (!isset($ShiptRef) or $ShiptRef == "") {
-	echo '<table class="selection"><tr><td>';
+	echo '<table><tr><td>';
 	echo _('Shipment Number') . ': <input type="text" name="ShiptRef" maxlength="10" size="10" /> ' . _('Into Stock Location') . ' :<select name="StockLocation"> ';
 	if ($_SESSION['RestrictLocations'] == 0) {
 		$SQL = "SELECT locationname,
@@ -154,7 +154,7 @@ $SQL = "SELECT categoryid,
 	ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<th colspan="5"><h3>' . _('To search for shipments for a specific part use the part selection facilities below') . '</h3></th>
 	</tr>
@@ -187,7 +187,7 @@ echo '<div class="centre">
 
 if (isset($StockItemsResult)) {
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -274,7 +274,7 @@ else {
 	if (DB_num_rows($ShipmentsResult) > 0) {
 		/*show a table of the shipments returned by the SQL */
 
-		echo '<table width="95%" class="selection">
+		echo '<table width="95%">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Shipment') . '</th>

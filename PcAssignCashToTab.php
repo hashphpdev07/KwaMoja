@@ -169,7 +169,7 @@ if (!isset($SelectedTabs)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Petty Cash Tab To Assign Cash'), ':</td>
 				<td><select name="SelectedTabs">';
@@ -245,7 +245,7 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="8">', _('Detail Of PC Tab Movements For Last'), ':
 						<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />
@@ -362,7 +362,7 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			$_POST['Date'] = Date($_SESSION['DefaultDateFormat']);
 		}
 
-		echo '<br /><table class="selection">'; //Main table
+		echo '<br /><table>'; //Main table
 		if (isset($_GET['SelectedIndex'])) {
 			echo '<tr>
 					<th colspan="2"><h3>', _('Update Cash Assignment'), '</h3></th>

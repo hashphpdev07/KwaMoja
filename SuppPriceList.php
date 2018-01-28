@@ -204,7 +204,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
 		echo '<p class="page_title_text">', _('Supplier Price List for'), ' : ', $CurrentOrAllPrices, '<br/>', _('Supplier'), ' : ', $SupplierName, ' <br/>', _('Category'), ' : ', $Categoryname, '</p>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
 					<th class="SortedColumn">', _('Description'), '</th>
@@ -242,7 +242,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
 	$SQL = "SELECT supplierid,suppname FROM `suppliers`";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Supplier') . ':</td>
 				<td><select required="required" name="supplier"> ';

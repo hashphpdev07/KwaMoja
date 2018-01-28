@@ -50,7 +50,7 @@ if (!isset($Counter)) {
 	$ErrMsg = _('The ot could not be retrieved because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Index') . '</th>
 			<th>' . _('Pay ID') . '</th>

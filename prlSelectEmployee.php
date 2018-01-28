@@ -41,7 +41,7 @@ if (!isset($EmployeeID)) {
 	$Result = DB_query($SQL, $ErrMsg);
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Employee ID') . '</th>

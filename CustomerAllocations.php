@@ -317,7 +317,7 @@ if (isset($_POST['AllocTrans'])) {
 
 	// Show trans already allocated and potential new allocations
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="7">
 				<b>', $_SESSION['Alloc']->DebtorNo, ' - ', $_SESSION['Alloc']->CustomerName, '</b>';
@@ -444,7 +444,7 @@ if (isset($_POST['AllocTrans'])) {
 		include('includes/footer.php');
 		exit;
 	}
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<th>', _('Trans Type'), '</th>
 					<th>', _('Customer'), '</th>
@@ -509,7 +509,7 @@ if (isset($_POST['AllocTrans'])) {
 	$NoOfUnallocatedTrans = DB_num_rows($Result);
 	$CurrentTransaction = 1;
 	$CurrentDebtor = '';
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<th>', _('Trans Type'), '</th>
 					<th>', _('Customer'), '</th>

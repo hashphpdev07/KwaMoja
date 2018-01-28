@@ -126,7 +126,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			  <input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			  <table class="selection">';
+			  <table>';
 
 		echo '<tr>
 				<td>' . _('From Inventory Part Code') . ':' . '</td>

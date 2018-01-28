@@ -276,7 +276,7 @@ if (!isset($SelectedReport)) {
 
 	$Result = DB_query("SELECT reportid, reportheading FROM reportheaders ORDER BY reportid");
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Report No') . '</th>
 			<th>' . _('Report Title') . '</th>
@@ -361,12 +361,12 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedReport" value="' . $SelectedReport . '" />';
 		echo '<input type="hidden" name="ReportID" value="' . $ReportID . '" />';
-		echo '<table width="98%" class="selection">
+		echo '<table width="98%">
 				<tr>
 					<th colspan="8"><h3>' . _('Edit The Selected Report') . '</h3></th>
 				</tr>';
 	} else {
-		echo '<table width="98%" class="selection">
+		echo '<table width="98%">
 				<tr>
 					<th colspan="8"><h3>' . _('Define A New Report') . '</h3></th>
 				</tr>';

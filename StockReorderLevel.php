@@ -50,7 +50,7 @@ $DbgMsg = _('The SQL that failed was');
 
 $LocStockResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th colspan="3">' . _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" maxlength="20" /><input type="submit" name="Show" value="' . _('Show Re-Order Levels') . '" /></th>

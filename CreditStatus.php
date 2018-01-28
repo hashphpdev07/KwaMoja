@@ -145,7 +145,7 @@ if (!isset($SelectedReason)) {
 	$SQL = "SELECT reasoncode, reasondescription, dissallowinvoices FROM holdreasons";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<th>' . _('Status Code') . '</th>
 			<th>' . _('Description') . '</th>
@@ -203,7 +203,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedReason" value="' . $SelectedReason . '" />';
 		echo '<input type="hidden" name="ReasonCode" value="' . $_POST['ReasonCode'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Status Code') . ':</td>
 					<td>' . $_POST['ReasonCode'] . '</td>
@@ -213,7 +213,7 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['ReasonCode'])) {
 			$_POST['ReasonCode'] = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<td>' . _('Status Code') . ':</td>
 				<td><input tabindex="1" class="integer" type="text" name="ReasonCode" value="' . $_POST['ReasonCode'] . '" size="3" autofocus="autofocus" required="required" maxlength="2" /></td>

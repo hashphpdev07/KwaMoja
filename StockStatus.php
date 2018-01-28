@@ -80,7 +80,7 @@ $ErrMsg = _('The stock held at each location cannot be retrieved because');
 $DbgMsg = _('The SQL that was used to fetch the location details and failed was');
 $LocStockResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table class="selection">
+echo '<table>
 			<thead>';
 
 if ($Its_A_KitSet_Assembly_Or_Dummy == True) {
@@ -322,7 +322,7 @@ if ($DebtorNo) {
 		);
 	}
 	if (isset($PriceHistory)) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="4"><font color="navy" size="2">' . _('Pricing history for sales of') . ' ' . $StockId . ' ' . _('to') . ' ' . $DebtorNo . '</font></th>

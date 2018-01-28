@@ -200,7 +200,7 @@ if (!isset($SelectedTab)) {
 				ORDER BY tabcode";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>', _('Tab Code'), '</th>
 					<th>', _('User Name'), '</th>
@@ -293,14 +293,14 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />';
 		echo '<input type="hidden" name="TabCode" value="', $_POST['TabCode'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Tab Code'), ':</td>
 					<td>', $_POST['TabCode'], '</td>
 				</tr>';
 	} else {
 		// This is a new type so the user may volunteer a type code
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Tab Code'), ':</td>
 					<td><input type="text" required="required" maxlength="20" name="TabCode" /></td>

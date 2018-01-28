@@ -32,7 +32,7 @@ $Result = DB_query($SQL);
 echo '<p class="page_title_text" align="center"><strong>' . _('Raw Materials Not Used in any BOM') . '</strong></p>';
 if (DB_num_rows($Result) != 0) {
 	$TotalValue = 0;
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('#') . '</th>
 				<th>' . _('Code') . '</th>

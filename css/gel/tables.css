@@ -6,12 +6,6 @@ background:#eee;
 width:100%;
 }
 
-table.selection {
-background-color:#eee;
-outline-style:solid;
-outline-width:1px;
-}
-
 th {
 background-color:#ccc;
 color:#300;

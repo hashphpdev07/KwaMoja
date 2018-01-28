@@ -179,7 +179,7 @@ if (!isset($SelectedLabelID)) {
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection" summary="' . _('List of all currently setup Label dimensions') . '">
+		echo '<table summary="' . _('List of all currently setup Label dimensions') . '">
 				<tr>
 					<th>' . _('Description') . '</th>
 					<th>' . _('Rows x Cols') . '</th>
@@ -294,7 +294,7 @@ if (isset($SelectedLabelID)) {
 if (!isset($_POST['Description'])) {
 	$_POST['Description'] = '';
 }
-echo '<table class="selection" summary="' . _('Outside container for label diagram and info') . '">
+echo '<table summary="' . _('Outside container for label diagram and info') . '">
 		<tr>
 			<td><img src="css/paramsLabel.png" alt="Label diagram" /></td>
 			<td><table summary="' . _('Label specifications') . '">
@@ -407,7 +407,7 @@ if (isset($SelectedLabelID)) {
 	$ErrMsg = _('Could not get the label fields because');
 	$Result = DB_query($SQL, $ErrMsg);
 	$i = 0;
-	echo '<table class="selection" summary="' . _('Outside container for label diagram and info') . '">
+	echo '<table summary="' . _('Outside container for label diagram and info') . '">
 				<tr>
 				<td><img src="css/labelsDim.png" alt="Label dimensions diagram" /></td>
 				<td><table summary="' . _('Label dimensions table') . '">

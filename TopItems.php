@@ -14,7 +14,7 @@ if (!(isset($_POST['Search']))) {
 		</p>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	//to view store location
 	echo '<tr>
 			<td style="width:150px">' . _('Select Location') . '  </td>
@@ -167,7 +167,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<p class="page_title_text"  align="center"><strong>' . _('Top Sales Items List') . '</strong></p>';
 	echo '<form action="PDFTopItems.php"  method="GET">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('#') . '</th>

@@ -69,7 +69,7 @@ else {
 }
 echo $_SESSION['SuppTrans']->SuppReference . ' ' . _('From') . ' ' . $_SESSION['SuppTrans']->SupplierName;
 echo '</p></div>';
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Asset ID') . '</th>
@@ -116,7 +116,7 @@ if (!isset($_POST['AssetID'])) {
 
 prnMsg(_('If you know the code enter it in the Asset ID input box, otherwise select the asset from the list below. Only  assets with no cost will show in the list'), 'info');
 
-echo '<br /><table class="selection">';
+echo '<br /><table>';
 
 echo '<tr>
 		<td>' . _('Enter Asset ID') . ':</td>

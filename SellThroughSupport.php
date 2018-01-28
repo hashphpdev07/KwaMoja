@@ -156,7 +156,7 @@ if (isset($_POST['SearchSupplier'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table cellpadding="2" colspan="7" class="selection">
+			<table cellpadding="2" colspan="7">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -187,7 +187,7 @@ if (!isset($SupplierID) or isset($_POST['SearchSupplier'])) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table cellpadding="3" colspan="4" class="selection">
+			<table cellpadding="3" colspan="4">
 			<tr>
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<td>' . _('Text in the Supplier') . ' <b>' . _('NAME') . '</b>:</td>
@@ -250,7 +250,7 @@ if (isset($SupplierID) AND $Edit == false) {
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('There are no sell through support deals entered for this supplier'), 'info');
 	} else {
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th>' . _('Item or Category') . '</th>
 					<th>' . _('Customer') . '</th>
@@ -317,7 +317,7 @@ if (isset($SupplierID)) { //not selecting a supplier
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="SupplierID" value="' . $SupplierID . '" />
-			<table class="selection">';
+			<table>';
 
 	if ($Edit == true) {
 		$_POST['DebtorNo'] = $MyRow['debtorno'];

@@ -76,7 +76,7 @@ $SQL = "SELECT serialno,
 $ErrMsg = _('The serial numbers/batches held cannot be retrieved because');
 $LocStockResult = DB_query($SQL, $ErrMsg);
 
-echo '<table class="selection">';
+echo '<table>';
 
 if ($Serialised == 1) {
 	echo '<tr>

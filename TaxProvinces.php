@@ -172,7 +172,7 @@ if (!isset($SelectedTaxProvince)) {
 				'<br />' . _('Once you have filled in the details, click on the button at the bottom of the screen') . '</div>';
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Tax Provinces'), '</th>
@@ -228,12 +228,12 @@ if (!isset($_GET['delete'])) {
 			$_POST['TaxCatFreight'] = $MyRow['freighttaxcatid'];
 
 			echo '<input type="hidden" name="SelectedTaxProvince" value="' . $SelectedTaxProvince . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {
 		$_POST['TaxProvinceName'] = '';
-		echo '<table class="selection">';
+		echo '<table>';
 	}
 	echo '<tr>
 			<td>' . _('Tax Province Name') . ':' . '</td>

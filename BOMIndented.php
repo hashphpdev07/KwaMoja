@@ -256,7 +256,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table class="selection">';
+			<table>';
 	echo '<tr>
 			<td>' . _('Part') . ':</td>
 			<td><input type ="text" name="Part" autofocus="autofocus" required="required" maxlength="20" size="20" /></td>

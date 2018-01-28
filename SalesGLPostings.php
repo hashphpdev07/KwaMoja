@@ -123,7 +123,7 @@ if (!isset($SelectedSalesPostingID)) {
 
 		$Result = DB_query($SQL);
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 				<th>' . _('Area') . '</th>
 				<th>' . _('Stock Category') . '</th>
@@ -193,7 +193,7 @@ if (!isset($_GET['delete'])) {
 			areadescription FROM areas";
 	$Result = DB_query($SQL);
 
-	echo '<br /><table class="selection">
+	echo '<br /><table>
 		<tr>
 			<td>' . _('Area') . ':</td>
 			<td>

@@ -142,7 +142,7 @@ if ($Edit == false) {
 		$NoCustItemData = 1;
 	} else if ($StockId != '') {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Customer') . '</th>
@@ -202,7 +202,7 @@ if (isset($DebtorNo) and $DebtorNo != '' and !isset($_POST['Searchcustomer'])) {
 	}
 	if (!isset($_POST['Searchcustomer'])) {
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
-				<table cellpadding="3" colspan="4" class="selection">
+				<table cellpadding="3" colspan="4">
 				<tr>
 					<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 					<input type="hidden" name="StockID" value="' . $StockId . '" />
@@ -283,7 +283,7 @@ if (isset($debtorsmasterResult) and DB_num_rows($debtorsmasterResult) > 0) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table cellpadding="2" colspan="7" class="selection">
+	echo '<table cellpadding="2" colspan="7">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -354,7 +354,7 @@ if (!isset($debtorsmasterResult)) {
 		$StockUOM = $MyRow['units'];
 	}
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
-		<table class="selection">';
+		<table>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($DebtorNo)) {
 		$DebtorNo = '';

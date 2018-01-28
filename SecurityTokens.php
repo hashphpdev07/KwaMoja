@@ -139,7 +139,7 @@ echo '</td>
 
 echo '</form>';
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<thead>
 		<tr>
 			<th>', _('Token ID'), '</th>

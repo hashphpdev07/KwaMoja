@@ -92,7 +92,7 @@ if (isset($_POST['PostExchangeDifference']) and is_numeric(filter_number_format(
 	} //end if the bank statement balance was numeric
 }
 
-echo '<table class="selection">';
+echo '<table>';
 
 $SQL = "SELECT bankaccounts.accountcode,
 				bankaccounts.bankaccountname
@@ -176,7 +176,7 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 	$CurrencyRow = DB_fetch_array($CurrencyResult);
 
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr class="striped_row">
 				<td colspan="6"><b>' . $CurrencyRow['bankaccountname'] . ' ' . _('Balance as at') . ' ' . $_POST['StatementDate'];
 

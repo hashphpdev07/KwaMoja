@@ -153,7 +153,7 @@ if (!isset($SelectedTerms)) {
 	$SQL = "SELECT termsindicator, terms, daysbeforedue, dayinfollowingmonth FROM paymentterms";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Payment Terms.') . '</h3></th>
 		</tr>';
@@ -222,7 +222,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedTerms" value="' . $SelectedTerms . '" />';
 		echo '<input type="hidden" name="TermsIndicator" value="' . $_POST['TermsIndicator'] . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="6"><h3>' . _('Update Payment Terms.') . '</h3></th>
 			</tr>';
@@ -243,7 +243,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['Terms'] = '';
 		}
 
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="6"><h3>' . _('New Payment Terms.') . '</h3></th>
 			</tr>';

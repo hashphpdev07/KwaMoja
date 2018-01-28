@@ -57,7 +57,7 @@ echo '</select>
 // **************
 $image = 'http://www.google.com/finance/getchart?q=' . $FunctionalCurrency . $CurrencyToShow . '&amp;x=CURRENCY&amp;p=3M&amp;i=86400';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>
 				<div class="centre">

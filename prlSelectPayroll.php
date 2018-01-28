@@ -49,7 +49,7 @@ if (!isset($PayrollID)) {
 	$ErrMsg = _('The payroll record could not be retrieved because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Payroll ID') . '</th>
 				<th>' . _('Desciption') . '</th>

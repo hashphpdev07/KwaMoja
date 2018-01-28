@@ -242,7 +242,7 @@ else {
 	$DefaultPeriodDate = Date('Y-m-d', Mktime(0, 0, 0, Date('m'), 0, Date('Y')));
 
 	/*Show a form to allow input of criteria for the report */
-	echo '<table class="selection" summary="' . _('Selection Criteria fro Report') . '">
+	echo '<table summary="' . _('Selection Criteria fro Report') . '">
 				<tr>
 				 <td>' . _('Selected Accounts') . ':</td>
 				 <td><select name="Account[]" multiple="multiple">';

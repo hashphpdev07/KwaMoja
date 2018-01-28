@@ -356,7 +356,7 @@ if (!isset($SelectedUser)) {
 				FROM www_users";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('User Login') . '</th>
@@ -496,7 +496,7 @@ if (isset($SelectedUser)) {
 	echo '<input type="hidden" name="UserID" value="' . $_POST['UserID'] . '" />';
 	echo '<input type="hidden" name="ModulesAllowed" value="' . $_POST['ModulesAllowed'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('User code') . ':</td>
 				<td>' . $_POST['UserID'] . '</td>
@@ -504,7 +504,7 @@ if (isset($SelectedUser)) {
 
 } else { //end of if $SelectedUser only do the else when a new record is being entered
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('User Login') . ':</td>
 				<td><input type="text" name="UserID" size="22" required="required" maxlength="20" /></td>

@@ -314,7 +314,7 @@ if (!isset($SelectedTabs)) {
 
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Petty Cash Tabs for User '), $_SESSION['UserID'], ':</td>
 				<td><select required="required" name="SelectedTabs">';
@@ -370,7 +370,7 @@ if (!isset($SelectedTabs)) {
 
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="9">
 						<h3>', _('Petty Cash Tab'), ' ', $SelectedTabs, '</h3>
@@ -581,7 +581,7 @@ if (!isset($SelectedTabs)) {
 			$_POST['Date'] = Date($_SESSION['DefaultDateFormat']);
 		}
 
-		echo '<table class="selection">';
+		echo '<table>';
 		if (isset($_GET['SelectedIndex'])) {
 			echo '<tr>
 					<th colspan="2"><h3>', _('Update Expense'), '</h3></th>

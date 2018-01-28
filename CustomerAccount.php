@@ -266,7 +266,7 @@ echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8
 
 /* Show a table of the invoices returned by the SQL. */
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th class="SortedColumn">', _('Type'), '</th>
@@ -429,7 +429,7 @@ foreach ($Transactions as $MyRow) {
 echo '</tbody>';
 echo '</table>';
 
-echo '<table class="selection" width="70%">
+echo '<table width="70%">
 	<tr>
 		<th style="width:20%">', _('Total Balance'), '</th>
 		<th style="width:20%">', _('Current'), '</th>

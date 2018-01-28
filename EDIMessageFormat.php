@@ -120,7 +120,7 @@ if (!isset($SelectedMessageLine)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="5"><h3>' . _('Definition of') . ' ' . $MessageType . ' ' . _('for') . ' ' . $PartnerCode . '</h3></th>
 			</tr>
@@ -181,7 +181,7 @@ if (isset($SelectedMessageLine)) {
 	echo '<input type="hidden" name="PartnerCode" value="' . $PartnerCode . '" />';
 }
 
-echo '<table class="selection">';
+echo '<table>';
 
 if ($MyRow['messagetype'] != '') {
 	echo '<tr>

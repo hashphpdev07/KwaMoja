@@ -12,7 +12,7 @@ echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Inventory Items') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Select recurring order templates for delivery from') . ':</td>
 			<td>' . '<select required="required" name="StockLocation">';
@@ -86,7 +86,7 @@ SUM(recurrsalesorderdetails.unitprice*recurrsalesorderdetails.quantity*(1-recurr
 
 	/*show a table of the orders returned by the SQL */
 
-	echo '<table cellpadding="2" width="90%" class="selection">
+	echo '<table cellpadding="2" width="90%">
 			<tr>
 				<th>' . _('Modify') . '</th>
 				<th>' . _('Customer') . '</th>

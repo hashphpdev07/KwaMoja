@@ -235,7 +235,7 @@ echo '<input type="hidden" name="WO" value="' . $WO . '" />';
 echo '<input type="hidden" name="Serialised" value="' . $Serialised . '" />';
 echo '<input type="hidden" name="NextSerialNo" value="' . $NextSerialNo . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 
 if ($Serialised == 1 and $NextSerialNo > 0) {
 	echo '<tr>
@@ -283,7 +283,7 @@ $WOSerialNoResult = DB_query($SQL, $ErrMsg);
 if (DB_num_rows($WOSerialNoResult) == 0) {
 	prnMsg(_('There are no serial items or batches yet defined for this work order item. Create new items first'), 'info');
 } else {
-	echo '<table class="selection">';
+	echo '<table>';
 	if ($Serialised == 1) {
 		$Header = '<tr>
 					<th>' . _('Serial No') . '</th>

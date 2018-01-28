@@ -39,7 +39,7 @@ if (isset($_POST['Submit'])) {
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="7">' . _('Translations to revise') . '</th>
 		</tr>';

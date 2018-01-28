@@ -75,7 +75,7 @@ if (DB_num_rows($StockMovesResult) == 0) {
 	prnMsg(_('There are no items for this customer'), 'notice');
 } //DB_num_rows($StockMovesResult) == 0
 else {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Transaction Date') . '</th>
 				<th>' . _('Stock ID') . '</th>

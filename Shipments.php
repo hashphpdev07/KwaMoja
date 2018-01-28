@@ -16,7 +16,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 
 if (!isset($_SESSION['SupplierID']) and !isset($_SESSION['Shipment']) and !isset($_GET['SelectedShipment'])) {
 	prnMsg(_('To set up a shipment') . ', ' . _('the supplier must first be selected from the Select Supplier page'), 'error');
-	echo '<table class="selection">
+	echo '<table>
 				<tr><td class="menu_group_item">
 				<li><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select the Supplier') . '</a></li>
 				</td></tr></table></div>';
@@ -284,7 +284,7 @@ if (isset($_GET['Delete']) and $_SESSION['Shipment']->Closed == 0) { //shipment 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Shipment') . ': </td>
 			<td>' . $_SESSION['Shipment']->ShiptRef . '</td>
@@ -406,7 +406,7 @@ echo '</td></tr></table>';
 if (count($_SESSION['Shipment']->LineItems) > 0) {
 	/* Always display all shipment lines */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="9"><h3>' . _('Order Lines On This Shipment') . '</h3></th>
 			</tr>
@@ -474,7 +474,7 @@ $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 	echo '<tr>
 			<th colspan="7"><h3>' . _('Possible Order Lines To Add To This Shipment') . '</h3></th>
 		</tr>

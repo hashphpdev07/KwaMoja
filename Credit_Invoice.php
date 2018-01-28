@@ -276,7 +276,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 
 if (!isset($_POST['ProcessCredit'])) {
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 	echo '<tr>
 			<th colspan="13">
 				<div class="centre"><b>' . _('Credit Invoice') . ' ' . $_SESSION['ProcessingCredit'] . '</b>
@@ -1519,7 +1519,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 } else {
 	/*Process Credit NOT set so allow inputs to set up the credit note */
 
-	echo '<br /><table class="selection">';
+	echo '<br /><table>';
 
 	echo '<tr><td>' . _('Credit Note Type') . '</td>
 			<td><select tabindex="' . $j . '" name="CreditType" onchange="ReloadForm(Update)">';

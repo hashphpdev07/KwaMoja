@@ -139,7 +139,7 @@ if (!isset($SelectedTab)) {
 				FROM pctypetabs";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>', _('Type Of Tab'), '</th>
 				<th>', _('Description'), '</th>
@@ -186,7 +186,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />
 			  <input type="hidden" name="TypeTabCode" value="', $_POST['TypeTabCode'], '" />
-			  <table class="selection">
+			  <table>
 				<tr>
 					<td>', _('Code Of Type Of Tab'), ':</td>
 					<td>', $_POST['TypeTabCode'], '</td>
@@ -200,7 +200,7 @@ if (!isset($_GET['delete'])) {
 
 		// This is a new type so the user may volunteer a type code
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Code Of Type Of Tab'), ':</td>
 					<td><input type="text" minlegth="1" maxlength="20" name="TypeTabCode" /></td>

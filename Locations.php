@@ -419,7 +419,7 @@ if (!isset($SelectedLocation)) {
 
 	if (DB_num_rows($Result) != 0) {
 
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Location Code'), '</th>
@@ -531,7 +531,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedLocation" value="' . $SelectedLocation . '" />';
 		echo '<input type="hidden" name="LocCode" value="' . $_POST['LocCode'] . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="2">' . _('Amend Location details') . '</th>
 			</tr>';
@@ -543,7 +543,7 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['LocCode'])) {
 			$_POST['LocCode'] = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="2"><h3>' . _('New Location details') . '</h3></th>
 				</tr>';

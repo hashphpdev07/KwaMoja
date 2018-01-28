@@ -518,7 +518,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			prnMsg(_('Exist branches total:') . ' ' . $UpdatedNum . ' ' . _('Inserted branches total:') . $InsertNum, 'info');
 			if ($UpdatedNum) {
 				echo '	<p>' . _('Branches not updated') . '</p>
-					<table class="selection">
+					<table>
 					<tr><th>' . _('Debtor No') . '</th><th>' . _('Branch Code') . '</th></tr>';
 				foreach ($ExistedBranches as $key => $Value) {
 					echo '<tr><td>' . $Value['debtor'] . '</td><td>' . $Value['branch'] . '</td></tr>';

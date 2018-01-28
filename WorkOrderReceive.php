@@ -824,7 +824,7 @@ if ($WORow['closed'] == 1) {
 if (!isset($_POST['ReceivedDate'])) {
 	$_POST['ReceivedDate'] = Date($_SESSION['DefaultDateFormat']);
 }
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Receive work order') . ':</td>
 			<td>' . $_POST['WO'] . '</td><td>' . _('Item') . ':</td>
@@ -885,7 +885,7 @@ echo '</select></td>
 	</table>';
 
 //Now Setup the form for entering quantities received
-echo '<table class="selection">';
+echo '<table>';
 
 if ($WORow['controlled'] == 1) { //controlled
 	$LotSNRefLength = mb_strlen($WORow['nextlotsnref']);

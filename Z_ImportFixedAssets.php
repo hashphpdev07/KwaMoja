@@ -288,7 +288,7 @@ if ($_FILES['SelectedAssetFile']['name']) { //start file processing
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<input type="hidden" name="MAX_FILE_SIZE" value="1000000" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Select Date to Upload B/Fwd Assets To') . ':</td>
 				<td><select name="DateToEnter">';

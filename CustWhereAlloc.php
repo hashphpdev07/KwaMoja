@@ -141,7 +141,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			} else {
 				$Printer = true;
 				echo '<div id="Report">';
-				echo '<table class="selection" summary="', _('Allocations made against invoice number'), ' ', $_POST['TransNo'], '">';
+				echo '<table summary="', _('Allocations made against invoice number'), ' ', $_POST['TransNo'], '">';
 
 				echo '<tr>
 						<th colspan="7">

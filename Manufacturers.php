@@ -219,7 +219,7 @@ if (!isset($SelectedManufacturer)) {
 
 	if (DB_num_rows($Result) != 0) {
 
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th>' . _('Brand Code') . '</th>
 				<th>' . _('Brand Name') . '</th>
@@ -292,13 +292,13 @@ if (!isset($_GET['delete'])) {
 
 
 		echo '<input type="hidden" name="SelectedManufacturer" value="' . $SelectedManufacturer . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="2">' . _('Amend Brand Details') . '</th>
 			</tr>';
 	} else { //end of if $SelectedManufacturer only do the else when a new record is being entered
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="2"><h3>' . _('New Brand/Manufacturer Details') . '</h3></th>
 				</tr>';

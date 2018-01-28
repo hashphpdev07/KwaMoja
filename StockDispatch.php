@@ -338,7 +338,7 @@ if (isset($_POST['PrintPDF'])) {
 	if (!isset($_POST['FromLocation'])) {
 		$_POST['FromLocation'] = $DefaultLocation;
 	}
-	echo '<table class="selection">
+	echo '<table>
 		 <tr>
 			 <td>' . _('Dispatch Percent') . ':</td>
 			 <td><input type ="text" name="Percent" class="number" required="required" maxlength="8" size="8" value="0" /></td>

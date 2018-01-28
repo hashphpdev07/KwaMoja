@@ -24,7 +24,7 @@ if (!isset($_POST['RunReport'])) {
 
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 
-			<table cellpadding="2" class="selection">
+			<table cellpadding="2">
 				<tr>
 					<td>' . _('Customer') . '</td>
 					<td><select name="Customer">

@@ -185,7 +185,7 @@ if (!isset($SelectedType)) {
 		$_SESSION['RestrictLocations'] = 0;
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Type Code'), '</th>
@@ -243,7 +243,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
 		echo '<input type="hidden" name="TypeAbbrev" value="', $_POST['TypeAbbrev'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>', _('Sales Type/Price List Setup'), '</b></th>
 				</tr>';
@@ -256,7 +256,7 @@ if (!isset($_GET['delete'])) {
 
 		// This is a new type so the user may volunteer a type code
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>', _('Sales Type/Price List Setup'), '</b></th>
 				</tr>

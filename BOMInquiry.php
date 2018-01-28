@@ -18,7 +18,7 @@ if (!isset($_POST['StockID'])) {
 			<br />' . _('Parts must be defined in the stock item entry') . '/' . _('modification screen as manufactured') . ', ' . _('kits or assemblies to be available for construction of a bill of material') . '
 		</div>
 		<br />
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
 			<td><input tabindex="1" type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" /></td>
@@ -98,7 +98,7 @@ if (isset($_POST['Search'])) {
 if (isset($_POST['Search']) and isset($Result) and !isset($SelectedParent)) {
 
 	echo '<br />
-			<table class="selection">
+			<table>
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Description') . '</th>
@@ -173,7 +173,7 @@ if (isset($StockId) and $StockId != "") {
 				</p>
 				<br />';
 
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="5">
 					<div class="centre"><b>' . $MyRow[0] . ' : ' . _('per') . ' ' . $MyRow[1] . '</b>

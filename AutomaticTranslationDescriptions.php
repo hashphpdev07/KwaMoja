@@ -37,7 +37,7 @@ $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) != 0) {
 	echo '<p class="page_title_text" align="center"><strong>' . _('Description Automatic Translation for empty translations') . '</strong></p>';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('#') . '</th>
 			<th>' . _('Code') . '</th>

@@ -140,7 +140,7 @@ if (!isset($_SESSION['SPL' . $Identifier]->BranchCode)) {
 
 		echo '</div>
 			<br />
-			<table class="selection">
+			<table>
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Branch Name') . '</th>
@@ -624,7 +624,7 @@ echo '<td>' . _('Initiated By') . ': <input type="text" name="Initiator" size="1
 if (count($_SESSION['SPL' . $Identifier]->LineItems) > 0) {
 
 	echo '<div class="centre"><b>' . _('Special Order Summary') . '</b></div>';
-	echo '<table class="selection" cellpadding="2" border="1">';
+	echo '<table cellpadding="2" border="1">';
 
 	echo '<tr>
 			<th>' . _('Item Description') . '</th>

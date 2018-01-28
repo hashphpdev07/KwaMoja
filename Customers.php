@@ -401,7 +401,7 @@ if ($SetupErrors > 0) {
 $DataError = 0;
 
 //Main Table
-echo '<table class="selection" cellspacing="4" style="width: 75%">
+echo '<table cellspacing="4" style="width: 75%">
 			<tr>
 				<td valign="top">';
 
@@ -433,7 +433,7 @@ if (!isset($DebtorNo)) {
 	$_POST['typeid'] = '';
 	$_POST['LanguageID'] = '';
 	//Sub table
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	/* if $AutoDebtorNo in config.php has not been set or if it has been set to a number less than one,
 	 then provide an input box for the DebtorNo to manually assigned */
 	if ($_SESSION['AutoDebtorNo'] == 0) {
@@ -494,7 +494,7 @@ if (!isset($DebtorNo)) {
 	$_POST['typeid'] = $MyRow['typeid'];
 	$_POST['LanguageID'] = $MyRow['language_id'];
 	echo '<input type="hidden" name="DebtorNo" value="' . $DebtorNo . '" />';
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	if ($_SESSION['AutoDebtorNo'] == 0) {
 		echo '<tr>
 					<td>' . _('Customer Code') . ':</td>
@@ -589,7 +589,7 @@ echo '<tr>
 echo '</table></td>';
 
 //second sub table
-echo '<td><table class="selection">';
+echo '<td><table>';
 
 echo '<tr>
 		<td>' . _('Discount Percent') . ':</td>
@@ -735,7 +735,7 @@ $SQL = "SELECT contid,
 			ORDER BY contid";
 $Result = DB_query($SQL);
 
-echo '<table class="selection">';
+echo '<table>';
 if (isset($_GET['Modify'])) {
 	echo '<tr>
 				<th>' . _('Name') . '</th>

@@ -28,7 +28,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection" summary="' . _('Criteria for report') . '">
+	echo '<table summary="' . _('Criteria for report') . '">
 			<tr>
 				<td>' . _('Select the balance date') . ':</td>
 				<td><select name="BalancePeriodEnd">';
@@ -411,7 +411,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'));
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/preview.png" title="' . _('HTML View') . '" alt="' . _('HTML View') . '" /> ' . _('HTML View') . '</p>';
 
-	echo '<table class="selection" summary="' . _('HTML View') . '">
+	echo '<table summary="' . _('HTML View') . '">
 			<thead>
 				<tr>
 					<th colspan="6">

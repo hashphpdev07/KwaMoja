@@ -157,7 +157,7 @@ if (!isset($_POST['Show'])) {
 					$BankDetailRow['bankaccountname'], ' ',
 					_('Between'), ' ', $_POST['FromTransDate'], ' ', _('and'), ' ', $_POST['ToTransDate'], '
 			</p>';// Page title.*/
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>' . ('Date') . '</th>

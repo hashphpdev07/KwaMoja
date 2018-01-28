@@ -546,7 +546,7 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 
 	$i = 0; //Line Item Array pointer
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="7"><h3>' . _('Location Transfer Reference') . ' #' . $_SESSION['Transfer' . $Identifier]->TrfID . ' ' . _('from') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationFromName . ' ' . _('to') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationToName . '</h3></th>
@@ -644,7 +644,7 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 				ORDER BY locationname";
 	$LocResult = DB_query($SQL);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>' . _('Select Location Receiving Into') . ':</td>
 			<td>';
@@ -677,7 +677,7 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 		$LocSql = "SELECT locationname FROM locations WHERE loccode='" . $_POST['RecLocation'] . "'";
 		$LocResult = DB_query($LocSql);
 		$LocRow = DB_fetch_array($LocResult);
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="4"><h3>' . _('Pending Transfers Into') . ' ' . $LocRow['locationname'] . '</h3></th>
 			</tr>';

@@ -1324,7 +1324,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 		</div>';
 
 	if (sizeOf($_SESSION['PaymentDetail' . $Identifier]->GLItems) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<th>', _('Cheque No'), '</th>
 				<th>', _('Amount'), ' (', $_SESSION['PaymentDetail' . $Identifier]->Currency, ')</th>
@@ -1408,7 +1408,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 	}
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="6">', _('Transactions to be allocated by this payment'), '</th>

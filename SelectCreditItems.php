@@ -192,7 +192,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Customer For Credit Note') . '</p>';
 
-	echo '<table cellpadding="3" class="selection">';
+	echo '<table cellpadding="3">';
 	echo '<tr>
 			<th colspan="5"><h3> ' . _('Customer Selection') . '</h3></th>
 		</tr>
@@ -594,7 +594,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 
 		/* This is where the credit note as selected should be displayed  reflecting any deletions or insertions*/
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th>' . _('Item Code') . '</th>
 					<th>' . _('Item Description') . '</th>
@@ -755,7 +755,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		/*Now show options for the credit note */
 
 		echo '<br />
-				<table class="selection">
+				<table>
 				<tr>
 					<td>' . _('Credit Note Type') . ' :</td>
 					<td><select required="required" name="CreditType" onchange="ReloadForm(MainForm.Update)" >';
@@ -894,7 +894,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		$Result1 = DB_query($SQL);
 
 		echo '<br />
-				<table class="selection">
+				<table>
 				<tr>
 					<td>' . _('Select a stock category') . ':&nbsp;<select name="StockCat">';
 
@@ -931,7 +931,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 
 		if (isset($SearchResult)) {
 
-			echo '<table cellpadding="2" class="selection">
+			echo '<table cellpadding="2">
 					<tr>
 						<th>' . _('Code') . '</th>
 						<th>' . _('Description') . '</th>
@@ -972,7 +972,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		/*quick entry form */
 
 		/*FORM VARIABLES TO POST TO THE CREDIT NOTE 10 AT A TIME WITH PART CODE AND QUANTITY */
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="2"><h3>' . _('Quick Entry') . '</h3></th>
 				</tr>

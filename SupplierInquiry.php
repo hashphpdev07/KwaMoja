@@ -139,7 +139,7 @@ if (isset($_GET['HoldType']) and isset($_GET['HoldTrans'])) {
 
 }
 
-echo '<table width="90%" class="selection">
+echo '<table width="90%">
 		<tr>
 			<th>' . _('Total Balance') . '</th>
 			<th>' . _('Current') . '</th>
@@ -200,7 +200,7 @@ if (DB_num_rows($TransResult) == 0) {
 
 /*show a table of the transactions returned by the SQL */
 
-echo '<table width="90%" class="selection">
+echo '<table width="90%">
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Date') . '</th>

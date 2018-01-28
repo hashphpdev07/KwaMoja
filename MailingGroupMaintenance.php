@@ -151,7 +151,7 @@ function GetMailGroup() {
 	$ErrMsg = _('Failed to retrieve mail groups information');
 	$Result = DB_query($SQL, $ErrMsg);
 	if (DB_num_rows($Result) != 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>' . _('Mail Group') . '</th>
 				</tr>';
@@ -187,7 +187,7 @@ function GetUsers($GroupId, $GroupName) {
 		echo '<div class="centre">' . _('Current Mail Group') . ' : ' . stripslashes($GroupName) . '</div>
 			<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('View All Groups') . '</a></div>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="3">' . _('Assigned Users') . '</th>
 					<th colspan="3">' . _('Available Users') . '</th>

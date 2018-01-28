@@ -235,7 +235,7 @@ if (!isset($SelectedSampleID)) {
 		if (!isset($SampleID)) {
 			$SampleID = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>';
 		if (isset($SelectedStockItem)) {
@@ -255,7 +255,7 @@ if (!isset($SelectedSampleID)) {
 			FROM stockcategory
 			ORDER BY categorydescription";
 	$Result1 = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6">
 					<h3>', _('To search for Pick Lists for a specific part use the part selection facilities below'), '</h3>
@@ -285,7 +285,7 @@ if (!isset($SelectedSampleID)) {
 		</div>';
 
 	if (isset($StockItemsResult)) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Code'), '</th>
@@ -375,7 +375,7 @@ if (!isset($SelectedSampleID)) {
 		$SampleResult = DB_query($SQL, $ErrMsg);
 		if (DB_num_rows($SampleResult) > 0) {
 
-			echo '<table cellpadding="2" width="90%" class="selection">
+			echo '<table cellpadding="2" width="90%">
 					<thead>
 						<tr>
 							<th class="SortedColumn">', _('Enter Results'), '</th>
@@ -458,7 +458,7 @@ if (!isset($_GET['delete'])) {
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<input type="hidden" name="SelectedSampleID" value="', $SelectedSampleID, '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Sample ID'), ':</td>
 					<td>', str_pad($SelectedSampleID, 10, '0', STR_PAD_LEFT), '</td>
@@ -516,7 +516,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 
 		$SQLSpecSelect = "SELECT DISTINCT(keyval),
 								description

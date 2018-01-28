@@ -25,7 +25,7 @@ echo '<table><tr>';
 
 for ($i = 0; $i < 3; $i++) {
 	echo '<td valign="top">';
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th>' . _('Period Number') . '</th>
 				<th>' . _('Date of Last Day') . '</th>

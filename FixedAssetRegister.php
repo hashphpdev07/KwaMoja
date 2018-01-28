@@ -80,7 +80,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<div class="centre">' . _('From') . ':' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate'] . '</div>';
 		echo '<br />
-			<table width="80%" cellspacing="1" class="selection">
+			<table width="80%" cellspacing="1">
 			<tr>
 				<th>' . _('Asset ID') . '</th>
 				<th>' . _('Description') . '</th>
@@ -237,7 +237,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 	$Result = DB_query('SELECT categoryid,categorydescription FROM fixedassetcategories');
 	echo '<form id="RegisterForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Asset Category') . '</th>
 			<td><select name="AssetCategory">

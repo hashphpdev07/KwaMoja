@@ -118,7 +118,7 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	/* Create the table for the purchase order header */
 	echo '<tr>
@@ -157,7 +157,7 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 		echo '<tr>
 				<td></td>
 				<td colspan="5" align="left">
-					<table class="selection" align="left">
+					<table align="left">
 						<tr>
 							<th>' . _('Product') . '</th>
 							<th>' . _('Quantity Required') . '</th>
@@ -306,7 +306,7 @@ if (isset($_POST['Submit']) and (!empty($_SESSION['Request']->LineItems))) {
 if (isset($_GET['Edit'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="2"><h4>' . _('Edit the Request Line') . '</h4></th>
 		</tr>';
@@ -343,7 +343,7 @@ if (isset($_GET['Edit'])) {
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<th colspan="2"><h4>' . _('Internal Stock Request Details') . '</h4></th>
 	</tr>
@@ -425,7 +425,7 @@ $i = 0; //Line Item Array pointer
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<br />
-	<table class="selection">
+	<table>
 	<tr>
 		<th colspan="7"><h4>' . _('Details of Items Requested') . '</h4></th>
 	</tr>
@@ -476,7 +476,7 @@ if (DB_num_rows($Result1) == 0) {
 	include('includes/footer.php');
 	exit;
 }
-echo '<table class="selection">
+echo '<table>
 	<tr>
 		<td>' . _('In Stock Category') . ':<select name="StockCat">';
 

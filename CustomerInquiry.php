@@ -166,7 +166,7 @@ if ($CustomerRecord['dissallowinvoices'] != 0) {
 	echo '<br /><font color="red" size="4"><b>', _('ACCOUNT ON HOLD'), '</font></b><br />';
 }
 
-echo '<table class="selection" width="70%">
+echo '<table width="70%">
 	<tr>
 		<th style="width:20%">', _('Total Balance'), '</th>
 		<th style="width:20%">', _('Current'), '</th>
@@ -245,7 +245,7 @@ if (DB_num_rows($TransResult) == 0) {
 
 /* Show a table of the invoices returned by the SQL. */
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th class="SortedColumn">', _('Type'), '</th>

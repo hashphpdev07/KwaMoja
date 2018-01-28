@@ -77,7 +77,7 @@ $SQL = "SELECT chartmaster.accountcode,
 		ORDER BY chartmaster.accountcode";
 $Account = DB_query($SQL);
 
-echo '<table class="selection" summary="', _('Inquiry Selection Criteria'), '">
+echo '<table summary="', _('Inquiry Selection Criteria'), '">
 		<tr>
 			<td>', _('Account'), ':</td>
 			<td><select name="Account">';
@@ -203,7 +203,7 @@ if (isset($_POST['Show'])) {
 	$ErrMsg = _('The transactions for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved because');
 	$TransResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection" summary="', _('General Ledger account inquiry details'), '">
+	echo '<table summary="', _('General Ledger account inquiry details'), '">
 			<thead>
 				<tr>
 					<th colspan="9">

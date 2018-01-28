@@ -80,7 +80,7 @@ if (isset($_SESSION['FirstStart'])) {
 
 if (DB_num_rows($TaxRatesResult) > 0) {
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="3"><h3>' . _('Update') . ' ' . $MyRow[0] . ' ' . _('Rates') . '</h3></th>

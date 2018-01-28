@@ -528,7 +528,7 @@ if (!isset($StockId)) {
 
 	if (!isset($OrderNumber) or $OrderNumber == '') {
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Order number'), ': </td>
 					<td><input type="text" class="integer" name="OrderNumber" maxlength="8" size="9" /></td>
@@ -637,7 +637,7 @@ if (!isset($StockId)) {
 		$_POST['StockCode'] = '';
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6"><h3>', _('To search for sales orders for a specific part use the part selection facilities below'), '</h3></th>
 			</tr>
@@ -670,7 +670,7 @@ if (!isset($StockId)) {
 
 	if (isset($StockItemsResult) and DB_num_rows($StockItemsResult) > 1) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn" >', _('Code'), '</th>
@@ -914,7 +914,7 @@ if (!isset($StockId)) {
 			$AuthResult = DB_query($AuthSQL);
 			$AuthRow = DB_fetch_array($AuthResult);
 
-			echo '<table cellpadding="2" width="95%" class="selection">';
+			echo '<table cellpadding="2" width="95%">';
 			if (is_null($AuthRow['cancreate']) or !isset($AuthRow)) {
 				$AuthRow['cancreate'] = 1;
 			}

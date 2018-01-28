@@ -92,7 +92,7 @@ if (!isset($SelectedUser)) {
 	then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table class="selection">
+			<table>
 			<tr>
 				<td>' . _('Select User') . ':</td>
 				<td><select name="SelectedUser">';
@@ -150,7 +150,7 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Authorised bank accounts for User') . ': ' . $SelectedUserName . '</h3></th>
 		</tr>';
@@ -175,7 +175,7 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 	if (!isset($_GET['delete'])) {
 
 
-		echo '<table  class="selection">'; //Main table
+		echo '<table >'; //Main table
 
 		echo '<tr>
 				<td>' . _('Select Bank Account') . ':</td>

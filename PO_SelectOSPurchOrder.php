@@ -94,7 +94,7 @@ if (!isset($_POST['OrderNumber']) or $_POST['OrderNumber'] == '') {
 	$_POST['OrderNumber'] = '';
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Order Number') . ': <input type="text" name="OrderNumber" autofocus="autofocus" maxlength="8" size="9" value="' . $_POST['OrderNumber'] . '" />  ' . _('Into Stock Location') . ':
 			<select name="StockLocation">';
@@ -210,7 +210,7 @@ if (!isset($_POST['Keywords'])) {
 	$_POST['Keywords'] = '';
 }
 
-echo '<table class="selection">
+echo '<table>
 			<tr>
 				<td>' . _('Select a stock category') . ':
 					<select name="StockCat">
@@ -242,7 +242,7 @@ echo '</select></td>
 	</table>';
 
 if (isset($StockItemsResult)) {
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -363,7 +363,7 @@ if (isset($StockItemsResult)) {
 
 	/*show a table of the orders returned by the SQL */
 
-	echo '<table cellpadding="2" width="97%" class="selection">
+	echo '<table cellpadding="2" width="97%">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Order #') . '</th>

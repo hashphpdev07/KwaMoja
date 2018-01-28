@@ -167,14 +167,14 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedShipper" value="' . $SelectedShipper . '" />';
 		echo '<input type="hidden" name="Shipper_ID" value="' . $_POST['Shipper_ID'] . '" />';
-		echo '<br /><table class="selection">
+		echo '<br /><table>
 						<tr>
 							<td>' . _('Shipper Code') . ':</td>
 							<td>' . $_POST['Shipper_ID'] . '</td>
 						</tr>';
 	} else {
 		echo '<br />
-			<table class="selection">';
+			<table>';
 	}
 	if (!isset($_POST['ShipperName'])) {
 		$_POST['ShipperName'] = '';

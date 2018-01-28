@@ -302,7 +302,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedAccount" value="', $SelectedAccount, '" />';
 		echo '<input type="hidden" name="AccountCode" value="', $_POST['AccountCode'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Account Code'), ':</td>
 					<td>', $_POST['AccountCode'], '</td>
@@ -319,7 +319,7 @@ if (!isset($_GET['delete'])) {
 				</tr>';
 		}
 	} else {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<td>', _('Account Code'), ':</td>
 				<td><input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" maxlength="20" /></td>
@@ -403,7 +403,7 @@ if (!isset($SelectedAccount)) {
 
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Account Code'), '</th>

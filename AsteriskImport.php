@@ -167,7 +167,7 @@ if (isset($_POST['Submit'])) { //start file processing
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$FilesToImport = glob('companies/' . $_SESSION['DatabaseName'] . '/pbx-data/*.as');
 	if (sizeof($FilesToImport) > 0) {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<td>' . _('Days transactions to import') . '</td>
 				<td><select name="Day">';

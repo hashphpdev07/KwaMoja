@@ -63,7 +63,7 @@ if (!isset($_POST['SecurityRole'])) {
 				ORDER BY sequence";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Module Name') . '</th>
 				<th>' . _('New Name') . '</th>

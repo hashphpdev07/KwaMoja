@@ -563,7 +563,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 	echo '<div class="page_help_text">' . _('Orders/Quotations are placed against the Customer Branch. A Customer may have several Branches.') . '</div>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">
 			 <input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			 <table cellpadding="3" class="selection">
+			 <table cellpadding="3">
 				<tr>
 				<td>' . _('Part of the Customer Branch Name') . ':</td>
 				<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
@@ -584,7 +584,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		echo '<div>
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<input type="hidden" name="JustSelectedACustomer" value="Yes" />
-				<table class="selection">
+				<table>
 					<thead>
 						<tr>
 							<th class="SortedColumn">' . _('Customer') . '</th>
@@ -1584,7 +1584,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ';
 		echo _('Search for Order Items') . '</p></div>';
 		echo '<div class="page_help_text">' . _('Search for Order Items') . _(', Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code') . '.</div><br />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td><b>' . _('Select a Stock Category') . ': </b><select tabindex="1" name="StockCat">';
 

@@ -17,7 +17,7 @@ if (isset($_POST['StockSearch'])) {
 	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
 			<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
 			<input type="hidden" value="', $_POST['SupplierID'], '" name="SupplierID" />
-			<table class="selection">
+			<table>
 				<tr>
 					<td>', _('In Stock Category'), ':
 						<select name="StockCat">';
@@ -266,7 +266,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			echo '<input type="hidden" name=StockCode value="', $_POST['StockCode'], '" />';
 			echo '<br /></div>';
 		}
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th>', _('Code'), '</th>
 				<th>', _('Description'), '</th>
@@ -396,7 +396,7 @@ if ((isset($SupplierID) and $SupplierID != '') and !isset($_POST['SearchSupplier
 		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-		echo '<table cellpadding="3" class="selection">
+		echo '<table cellpadding="3">
 				<tr>
 					<td>', _('Text in the Supplier'), ' <b>', _('NAME'), '</b>:</td>
 					<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
@@ -451,7 +451,7 @@ if (isset($SuppliersResult)) {
 	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
@@ -515,7 +515,7 @@ if (isset($_POST['SupplierID'])) {
 					FROM unitsofmeasure";
 	$UOMResult = DB_query($UOMSQL);
 	echo '<input type="hidden" value="', stripslashes($_POST['SupplierID']), '" name="SupplierID" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="8" style="text-align: left"><h3>', _('Supplier purchasing data for'), ' ', stripslashes($_POST['SupplierID']), '</h3></th>
 				<th colspan="5" style="text-align: right">', _('Find new Item Code'), '

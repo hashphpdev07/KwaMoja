@@ -173,7 +173,7 @@ $SQL = "SELECT currabrev FROM currencies";
 $Result = DB_query($SQL);
 require_once('includes/CurrenciesArray.php');
 
-echo '<table class="selection">';
+echo '<table>';
 
 echo '<tr>
 		<td>' . _('Currency') . ':</td>
@@ -279,7 +279,7 @@ $SQL = "SELECT sales_type,
 
 $Result = DB_query($SQL);
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Currency') . '</th>
 			<th>' . _('Sales Type') . '</th>

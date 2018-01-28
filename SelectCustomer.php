@@ -182,7 +182,7 @@ if($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST[
 
 	echo '<div class="page_help_text">', _('Select a menu option to operate using this customer'), '.</div>
 		<br />
-		<table cellpadding="4" width="90%" class="selection">
+		<table cellpadding="4" width="90%">
 		<thead>
 			<tr>
 				<th style="width:33%">
@@ -236,7 +236,7 @@ if($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST[
 		</table>';
 }// $_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST['CSV'])
 else {
-	echo '<table cellpadding="4" width="90%" class="selection">
+	echo '<table cellpadding="4" width="90%">
 		<thead>
 			<tr>
 				<th style="width:33%">
@@ -278,7 +278,7 @@ echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSI
 	_('Search'), '" /> ',// Icon title.
 	_('Search for Customers'), '</p>';// Page title.
 
-echo '<table cellpadding="3" class="selection">';
+echo '<table cellpadding="3">';
 echo '<tr><td colspan="2">' . _('Enter a partial Name') . ':</td><td>';
 if(isset($_POST['Keywords'])) {
 	echo '<input type="text" name="Keywords" value="' . $_POST['Keywords'] . '" size="20" maxlength="25" />';
@@ -440,7 +440,7 @@ if(isset($Result)) {
 		$RowIndex = 0;
 	}// !isset($_POST['CSV'])
 	if(DB_num_rows($Result) <> 0) {
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>

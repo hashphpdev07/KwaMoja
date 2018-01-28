@@ -231,7 +231,7 @@ $SQL = "SELECT prlbankdetails.employeeid,
 $Result = DB_query($SQL);
 
 //This section caters for the html table
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Employee id') . '</th>
 			<th>' . _('Employee Name') . '</th>

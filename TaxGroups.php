@@ -184,7 +184,7 @@ if (!isset($SelectedGroup)) {
 		prnMsg(_('There are no tax groups configured.'), 'info');
 		echo '</div>';
 	} else {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Tax Group') . '</th>
@@ -236,7 +236,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 if (isset($_POST['SelectedGroup'])) {
 	echo '<input type="hidden" name="SelectedGroup" value="' . $_POST['SelectedGroup'] . '" />';
 }
-echo '<table class="selection">';
+echo '<table>';
 
 if (!isset($_POST['GroupName'])) {
 	$_POST['GroupName'] = '';
@@ -284,7 +284,7 @@ if (isset($SelectedGroup)) {
 		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<input type="hidden" name="SelectedGroup" value="' . $SelectedGroup . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="3"><h3>' . _('Calculation Order') . '</h3></th>
@@ -338,7 +338,7 @@ if (isset($SelectedGroup)) {
 	}
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="4">' . _('Assigned Taxes') . '</th>

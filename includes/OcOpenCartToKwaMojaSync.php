@@ -113,7 +113,7 @@ function SyncOrderInformation($ShowMessages, $LastTimeRun, $oc_tableprefix, $Ema
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($ShowMessages) {
-				echo '<table class="selection">';
+				echo '<table>';
 				echo $TableHeader;
 				echo '<tr class="striped_row">';
 			}
@@ -237,7 +237,7 @@ function SyncOrderInformation($ShowMessages, $LastTimeRun, $oc_tableprefix, $Ema
 				$ResultItemsOrder = DB_query_oc($SQLItemsOrder);
 				$ItemsOrder = 0;
 				if ($ShowMessages) {
-					echo '<table class="selection">';
+					echo '<table>';
 					echo $TableHeaderForItems;
 					echo '<tr class="striped_row">';
 				}
@@ -441,7 +441,7 @@ function SyncPaypalPaymentInformation($ShowMessages, $LastTimeRun, $oc_tablepref
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Paypal Payments from OpenCart') . '</strong></p>';
 			echo '<div>';
-			echo '<table class="selection">';
+			echo '<table>';
 			$TableHeader = '<tr>
 								<th>' . _('CustomerID') . '</th>
 								<th>' . _('email') . '</th>

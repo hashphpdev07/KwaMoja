@@ -189,7 +189,7 @@ if (!isset($SelectedPaymentID)) {
 	$ErrMsg = _('Could not get payment methods because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Payment Method'), '</th>
@@ -255,7 +255,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['DiscountPercent'] = $MyRow['percentdiscount'];
 
 			echo '<input type="hidden" name="SelectedPaymentID" value="' . $_POST['MethodID'] . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {
@@ -265,7 +265,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['UsePrePrintedStationery'] = 0; // Default is use for receipts
 		$_POST['OpenCashDrawer'] = 0; //Default is not to open cash drawer
 		$_POST['DiscountPercent']=0;
-		echo '<table class="selection">';
+		echo '<table>';
 	}
 	echo '<tr>
 			<td>' . _('Payment Method') . ':' . '</td>

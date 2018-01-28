@@ -115,7 +115,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 		}
 
 		if (true or !isset($LotNumber) or $LotNumber == "") { //revisit later, right now always show all inputs
-			echo '<table class="selection"><tr><td>';
+			echo '<table><tr><td>';
 			if (isset($SelectedStockItem)) {
 				echo _('For the part') . ':<b>' . $SelectedStockItem . '</b> ' . _('and') . ' <input type="hidden" name="SelectedStockItem" value="' . $SelectedStockItem . '" />';
 			}
@@ -131,7 +131,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 				ORDER BY categorydescription";
 		$Result1 = DB_query($SQL);
 		echo '
-				<table class="selection">
+				<table>
 				<tr>
 					<td>';
 		echo _('To search for Pick Lists for a specific part use the part selection facilities below') . '</td></tr>';
@@ -164,7 +164,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			</table>';
 
 		if (isset($StockItemsResult)) {
-			echo '<table class="selection">
+			echo '<table>
 					<thead>
 						<tr>
 							<th class="SortedColumn">' . _('Code') . '</th>
@@ -256,7 +256,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			$SampleResult = DB_query($SQL, $ErrMsg);
 			if (DB_num_rows($SampleResult) > 0) {
 
-				echo '<table cellpadding="2" width="90%" class="selection">
+				echo '<table cellpadding="2" width="90%">
 						<thead>
 							<tr>
 								<th class="SortedColumn">' . _('Copy Results') . '</th>
@@ -474,7 +474,7 @@ if (isset($_GET['ListTests'])) {
 	$Result = DB_query($SQL);
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Add') . '</th>
@@ -702,7 +702,7 @@ if ($MyRow['cert'] == 1) {
 }
 
 echo '<input type="hidden" name="SelectedSampleID" value="' . $SelectedSampleID . '" />';
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th>' . _('Sample ID') . '</th>
@@ -757,7 +757,7 @@ $SQL = "SELECT sampleid,
 
 $Result = DB_query($SQL);
 
-echo '<table cellpadding="2" width="90%" class="selection">
+echo '<table cellpadding="2" width="90%">
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Test Name') . '</th>

@@ -285,7 +285,7 @@ echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['
 echo '<div class="toplink">
 		<a href="' . $RootPath . '/SelectPickingLists.php">' . _('Back to Pick Lists') . '</a>
 	</div>';
-echo '<table class="selection">
+echo '<table>
 			<tr>
 				<th><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Code') . ' :<b> ' . $_SESSION['Items' . $Identifier]->DebtorNo . '</b></th>
 				<th>' . _('Customer Name') . ' :<b> ' . $_SESSION['Items' . $Identifier]->CustomerName . '</b></th>
@@ -298,7 +298,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 /***************************************************************
 Line Item Display
 ***************************************************************/
-echo '<table width="90%" cellpadding="2" class="selection">
+echo '<table width="90%" cellpadding="2">
 	<tr>
 		<th>' . _('Item Code') . '</th>
 		<th>' . _('Item Description') . '</th>
@@ -657,7 +657,7 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 
 	++$j;
 
-	echo '<table class="selection"
+	echo '<table
 		<tr>
 			<td>' . _('Pick List Status') . ':</td>
 			<td><select name="Status">';

@@ -86,7 +86,7 @@ $SQL = "SELECT taskid,
 $ErrMsg = _('The maintenance task details cannot be retrieved because');
 $Result = DB_query($SQL, $ErrMsg);
 
-echo '<table class="selection">
+echo '<table>
 	 <tr>
 		<th>' . _('Task ID') . '</th>
 		<th>' . _('Asset') . '</th>
@@ -122,7 +122,7 @@ echo '</table>';
 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 if (isset($_GET['Edit'])) {
 	echo '<tr>

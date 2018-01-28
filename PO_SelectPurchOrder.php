@@ -86,7 +86,7 @@ if (isset($_POST['SearchParts'])) {
  * $OrdersAfterDate = Date("d/m/Y",Mktime(0,0,0,Date("m")-2,Date("d"),Date("Y")));
  */
 if (!isset($OrderNumber) or $OrderNumber == "") {
-	echo '<table class="selection"><tr><td>';
+	echo '<table><tr><td>';
 	echo _('Order Number') . ': <input type="text" class="integer" name="OrderNumber" autofocus="autofocus" maxlength="8" size="9" /> ' . _('Into Stock Location') . ':<select name="StockLocation"> ';
 	$SQL = "SELECT locations.loccode,
 					locationname
@@ -155,7 +155,7 @@ $Result1 = DB_query($SQL);
 
 echo '<div class="page_help_text">' . _('To search for purchase orders for a specific part use the part selection facilities below') . '</div>';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td><tr>
 		<td>' . _('Select a stock category') . ':<select name="StockCat">';
@@ -186,7 +186,7 @@ echo '</select></td>
 	</table>';
 
 if (isset($StockItemsResult)) {
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -291,7 +291,7 @@ if (isset($StockItemsResult)) {
 
 	if (DB_num_rows($PurchOrdersResult) > 0) {
 		/*show a table of the orders returned by the SQL */
-		echo '<table cellpadding="2" width="90%" class="selection">
+		echo '<table cellpadding="2" width="90%">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('View') . '</th>

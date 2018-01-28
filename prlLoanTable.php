@@ -93,7 +93,7 @@ $SQL = "SELECT loantableid,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Loan Type ID') . '</th>
 				<th>' . _('Loan Type Description') . '</th>
@@ -110,7 +110,7 @@ if (DB_num_rows($Result) > 0) {
 
 echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 //if (!isset($_POST["New"])) {
 if (isset($LoanTableID)) {

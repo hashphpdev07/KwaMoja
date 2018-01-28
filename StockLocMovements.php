@@ -11,7 +11,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<table class="selection">
+echo '<table>
 	 <tr>
 		 <td>  ' . _('From Stock Location') . ':<select required="required" name="StockLocation"> ';
 

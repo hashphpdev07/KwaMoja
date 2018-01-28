@@ -80,7 +80,7 @@ if (isset($_POST['SelectChoice'])) {
 	$SQL = "SELECT DISTINCT discountcategory FROM stockmaster WHERE discountcategory <>''";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection"><tr><td>' . _('Discount Category Code') . ': </td>';
+		echo '<table><tr><td>' . _('Discount Category Code') . ': </td>';
 
 		echo '<td><select name="DiscCat" onchange="ReloadForm(update.select)">';
 
@@ -105,7 +105,7 @@ if (isset($_POST['SelectChoice'])) {
 	echo '<input type="hidden" name="SelectChoice" value="' . $_POST['SelectChoice'] . '" />';
 
 	if (isset($_POST['ChooseOption']) and $_POST['ChooseOption'] == 1) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Discount Category Code') . ':</td>
 					<td>';
@@ -167,7 +167,7 @@ if (isset($_POST['SelectChoice'])) {
 			}
 		}
 	} else {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 				<td>' . _('Assign discount category') . '</td>';
 		echo '<td><input type="text" name="DiscountCategory" required="required" maxlength="2" size="2" /></td>';
@@ -216,7 +216,7 @@ if (isset($_POST['SelectChoice'])) {
 		$Result = DB_query($SQL);
 
 		echo '<br />
-				<table class="selection">
+				<table>
 					<tr>
 						<th>' . _('Discount Category') . '</th>
 						<th>' . _('Item') . '</th>
@@ -247,7 +247,7 @@ if (isset($_POST['SelectChoice'])) {
 if (!isset($_POST['SelectChoice'])) {
 	echo '<form method="post" id="choose" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table class="selection">
+				<table>
 					<tr>
 						<td>' . _('Update discount category for') . '</td>
 						<td>

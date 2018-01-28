@@ -33,7 +33,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$Period = GetPeriod($FromDate);
 
 	/*Show a form to allow input of criteria for profit and loss to show */
-	echo '<table class="selection" summary="' . _('Input Criteria for Report') . '">
+	echo '<table summary="' . _('Input Criteria for Report') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -552,7 +552,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="' . _('Print') . '" />' . ' ' . $Title . '</p>';
 
-	echo '<table cellpadding="2" class="selection" summary="' . _('Income and Expenditure by Tag') . '">';
+	echo '<table cellpadding="2" summary="' . _('Income and Expenditure by Tag') . '">';
 	echo '<tr>
 			<th colspan="9">
 				<div class="centre">

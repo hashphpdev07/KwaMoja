@@ -979,7 +979,7 @@ if (isset($_POST['submit'])) {
 echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<input type="hidden" name="New" value="' . $New . '" />
-	<table class="selection">';
+	<table>';
 
 if (isset($StockId) and $StockId != '') {
 	echo '<table width="100%">
@@ -991,7 +991,7 @@ if (isset($StockId) and $StockId != '') {
 }
 
 echo '<input type="hidden" name="New" value="' . $New . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 
@@ -1513,7 +1513,7 @@ $PropertyWidth = array();
 
 if (DB_num_rows($PropertiesResult) > 0) {
 	echo '<br />
-	<table class="selection">';
+	<table>';
 	echo '<tr>
 			<th colspan="2">' . _('Item Category Properties') . '</th>
 		</tr>';

@@ -280,7 +280,7 @@ if (!isset($_GET['Edit'])) {
 		prnMsg(_('There is no purchasing data set up for the part selected'), 'info');
 		$NoPurchasingData = 1;
 	} else if ($StockId != '') {
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Supplier') . '</th>
@@ -364,7 +364,7 @@ if (isset($SupplierID) and $SupplierID != '' and !isset($_POST['SearchSupplier']
 	}
 	if (!isset($_POST['SearchSupplier'])) {
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
-				<table cellpadding="3" colspan="4" class="selection">
+				<table cellpadding="3" colspan="4">
 				<tr>
 					<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 					<input type="hidden" name="StockID" value="' . $StockId . '" />
@@ -453,7 +453,7 @@ if (isset($SuppliersResult)) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table cellpadding="2" colspan="7" class="selection">
+	echo '<table cellpadding="2" colspan="7">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -547,7 +547,7 @@ if (!isset($SuppliersResult)) {
 		$StockUOM = $MyRow['units'];
 	}
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
-		<table class="selection">';
+		<table>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($SupplierID)) {
 		$SupplierID = '';
@@ -685,7 +685,7 @@ if (!isset($SuppliersResult)) {
 		$DbgMsg = _('The SQL to retrieve supplier discounts for this item that failed was');
 		$DiscountsResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-		echo '<table cellpadding="2" colspan="7" class="selection">
+		echo '<table cellpadding="2" colspan="7">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Discount Name') . '</th>

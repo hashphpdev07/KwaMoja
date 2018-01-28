@@ -572,7 +572,7 @@ echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>', _('In Stock Category'), ':
 				<select name="StockCat">';
@@ -738,7 +738,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 					<input type="hidden" name="StockCode" value="', $_POST['StockCode'], '" />
 			</div>';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>', _('Stock Status'), '</th>

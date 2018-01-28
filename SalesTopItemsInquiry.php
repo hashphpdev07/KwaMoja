@@ -209,7 +209,7 @@ if (isset($_POST['ShowSales'])) {
 	$SalesResult = DB_query($SQL, $ErrMsg);
 
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 
 	echo '<tr>
 			<th>' . _('Rank') . '</th>

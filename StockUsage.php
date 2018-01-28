@@ -36,7 +36,7 @@ $DecimalPlaces = $MyRow[3];
 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 $ItsKitSetAssemblyOrDummy = False;
 if ($MyRow[2] == 'K' OR $MyRow[2] == 'A' OR $MyRow[2] == 'D') {
@@ -136,7 +136,7 @@ if (isset($_POST['ShowUsage'])) {
 		exit;
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Month') . '</th>

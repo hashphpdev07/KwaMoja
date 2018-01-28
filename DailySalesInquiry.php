@@ -18,7 +18,7 @@ if (!isset($_POST['MonthToShow'])) {
 	$EndDateSQL = $MyRow['lastdate_in_period'];
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Month to Show') . ':</td>
 			<td><select tabindex="1" name="MonthToShow">';
@@ -102,7 +102,7 @@ $SQL .= " GROUP BY stockmoves.trandate ORDER BY stockmoves.trandate";
 $ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 $SalesResult = DB_query($SQL, $ErrMsg);
 $MonthName = date("F", mktime(0, 0, 0, (int) $Date_Array[1], 10));
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="9">
 				<h3>' . _('Daily Sales For') . ' ' . $MonthName . ' ' . $Date_Array[0] . '

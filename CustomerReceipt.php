@@ -299,7 +299,7 @@ if (isset($_POST['CommitBatch'])) {
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Allocate'), '" alt="" />', ' ', _('Summary of Receipt Batch'), '
 		</p>
-		<table class="selection">
+		<table>
 			<tr>
 				<th>', _('Batch Number'), '</th>
 				<th>', _('Date Banked'), '</th>
@@ -1005,7 +1005,7 @@ if (count($_SESSION['ReceiptBatch' . $Identifier]->Items) > 0) {
 		$PaymentTypeString = '';
 	}
 
-	echo '<table width="90%" class="selection">
+	echo '<table width="90%">
 			<tr>
 				<th colspan="6">
 					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Banked'), '" alt="" />
@@ -1267,7 +1267,7 @@ if (((isset($_SESSION['CustomerRecord' . $Identifier]) and isset($_POST['Custome
 }
 if (isset($CustomerSearchResult)) {
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="3">
 				<h3>', _('Select a customer'), '</h3>

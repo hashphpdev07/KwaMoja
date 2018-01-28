@@ -58,7 +58,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 		$Days = 30;
 	}
 	echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="7">', _('Detail Of Movement For Last '), ':
 					<input type="text" class="number" name="Days" value="', $Days, '" maxlength="3" size="4" />', _('Days'), '
@@ -313,7 +313,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Authorise expenses to Petty Cash Tab'), ':</td>
 				<td><select required="required" name="SelectedTabs">';

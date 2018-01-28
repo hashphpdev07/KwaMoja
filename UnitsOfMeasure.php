@@ -159,7 +159,7 @@ if (!isset($SelectedMeasureID)) {
 	$ErrMsg = _('Could not get unit of measures because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Units of Measure') . '</th>
@@ -211,7 +211,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['MeasureName'] = $MyRow['unitname'];
 
 			echo '<input type="hidden" name="SelectedMeasureID" value="' . $_POST['MeasureID'] . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {

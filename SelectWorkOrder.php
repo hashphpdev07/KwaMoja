@@ -124,7 +124,7 @@ if (!isset($StockId)) {
 	*/
 
 	if (!isset($SelectedWO) or ($SelectedWO == '')) {
-		echo '<table class="selection"><tr><td>';
+		echo '<table><tr><td>';
 		if (isset($SelectedStockItem)) {
 			echo _('For the item') . ': ' . $SelectedStockItem . ' ' . _('and') . ' <input type="hidden" name="SelectedStockItem" value="' . $SelectedStockItem . '" />';
 		}
@@ -184,7 +184,7 @@ if (!isset($StockId)) {
 
 	$Result1 = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6"><h3>' . _('To search for work orders for a specific item use the item selection facilities below') . '</h3></th>
 			</tr>
@@ -211,7 +211,7 @@ if (!isset($StockId)) {
 	if (isset($StockItemsResult)) {
 
 		echo '<br />
-			<table cellpadding="2" class="selection">
+			<table cellpadding="2">
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Description') . '</th>
@@ -342,7 +342,7 @@ if (!isset($StockId)) {
 
 		/*show a table of the orders returned by the SQL */
 		if (DB_num_rows($WorkOrdersResult) > 0) {
-			echo '<table cellpadding="2" width="95%" class="selection">
+			echo '<table cellpadding="2" width="95%">
 					<thead>
 						<tr>
 							<th>', _('Modify'), '</th>

@@ -43,7 +43,7 @@ if (isset($_POST['Submit'])) { //users have selected the WO to calculate and sub
 		$Result = DB_query($SQL, $ErrMsg);
 
 		if (DB_num_rows($Result) > 0) {
-			echo '<table class="selection">
+			echo '<table>
 					<thead>
 						<tr>
 							<th class="SortedColumn">' . _('Item') . '</th>
@@ -203,7 +203,7 @@ if (!isset($StockID)) {
 	*/
 
 	if (!isset($SelectedWO) or ($SelectedWO == '')) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>';
 		if (isset($SelectedStockItem)) {
@@ -293,7 +293,7 @@ if (!isset($StockID)) {
 
 	$Result1 = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6"><h3>' . _('To search for work orders for a specific item use the item selection facilities below') . '</h3></th>
 			</tr>
@@ -322,7 +322,7 @@ if (!isset($StockID)) {
 
 	if (isset($StockItemsResult)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -453,7 +453,7 @@ if (!isset($StockID)) {
 		if (DB_num_rows($WorkOrdersResult) > 0) {
 			echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="wos">
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table cellpadding="2" width="95%" class="selection">
+				<table cellpadding="2" width="95%">
 				<thead>
 					<tr>
 						<th>' . _('Select') . '</th>
