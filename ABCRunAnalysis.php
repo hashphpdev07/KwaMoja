@@ -124,9 +124,9 @@ if (isset($_POST['Submit'])) {
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<fieldset>
-			<legend>' . _('Ranking Analysis Details') . '</legend>
+			<legend>', _('Ranking Analysis Details'), '</legend>
 			<field>
-				<label for="GroupID">' . _('Ranking group') . '</label>
+				<label for="GroupID">', _('Ranking group'), '</label>
 				<select required="required" autofocus="autofocus" name="GroupID">';
 
 	$SQL = "SELECT groupid,
@@ -136,7 +136,7 @@ if (isset($_POST['Submit'])) {
 
 	echo '<option value=""></option>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['groupid'] . '">' . $MyRow['groupname'] . '</option>';
+		echo '<option value="', $MyRow['groupid'], '">', $MyRow['groupname'], '</option>';
 	}
 
 	echo '</select>

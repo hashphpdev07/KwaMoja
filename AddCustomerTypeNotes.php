@@ -112,6 +112,7 @@ if (!isset($Id)) {
 				<th>', _('Note'), '</th>
 				<th>', _('href'), '</th>
 				<th>', _('Priority'), '</th>
+				<th colspan="2"></th>
 			</tr>';
 
 		$k = 0; //row colour counter
@@ -166,14 +167,14 @@ if (!isset($_GET['delete'])) {
 		$_POST['NoteDate'] = $MyRow['date'];
 		$_POST['Priority'] = $MyRow['priority'];
 		$_POST['TypeID'] = $MyRow['typeid'];
-		echo '<input type="hidden" name="Id" value="' . $Id . '" />';
-		echo '<input type="hidden" name="Con_ID" value="' . $_POST['NoteID'] . '" />';
-		echo '<input type="hidden" name="DebtorType" value="' . $_POST['TypeID'] . '" />';
+		echo '<input type="hidden" name="Id" value="', $Id, '" />';
+		echo '<input type="hidden" name="Con_ID" value="', $_POST['NoteID'], '" />';
+		echo '<input type="hidden" name="DebtorType" value="', $_POST['TypeID'], '" />';
 		echo '<fieldset>
 				<legend>', _('Edit the customer group note'), '</legend>
 				<field>
-					<td>' . _('Note ID') . ':</td>
-					<td>' . $_POST['NoteID'] . '</td>
+					<td>', _('Note ID'), ':</td>
+					<td>', $_POST['NoteID'], '</td>
 				</field>';
 	} else {
 		echo '<fieldset>

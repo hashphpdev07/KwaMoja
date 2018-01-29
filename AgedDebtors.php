@@ -277,9 +277,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		$Title = _('Aged Customer Account Analysis') . ' - ' . _('Problem Report') . '.... ';
 		include('includes/header.php');
 		prnMsg(_('The customer details could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 		if ($Debug == 1) {
-			echo '<br />' . $SQL;
+			echo '<br />', $SQL;
 		}
 		include('includes/footer.php');
 		exit;
@@ -380,9 +380,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 				$Title = _('Aged Customer Account Analysis') . ' - ' . _('Problem Report') . '....';
 				include('includes/header.php');
 				prnMsg(_('The details of outstanding transactions for customer') . ' - ' . $AgedAnalysis['debtorno'] . ' ' . _('could not be retrieved because') . ' - ' . DB_error_msg(), 'error');
-				echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+				echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 				if ($Debug == 1) {
-					echo '<br />' . _('The SQL that failed was') . '<br />' . $SQL;
+					echo '<br />', _('The SQL that failed was'), '<br />', $SQL;
 				}
 				include('includes/footer.php');
 				exit;
@@ -448,7 +448,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		$Title = _('Aged Customer Account Analysis') . ' - ' . _('Problem Report') . '....';
 		include('includes/header.php');
 		prnMsg(_('There are no customers with balances meeting the criteria specified to list'), 'info');
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 		include('includes/footer.php');
 		exit;
 	} else {
@@ -465,7 +465,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$BookMark = 'AgedDebtors';
 	include('includes/header.php');
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		</p>';
 
 	if ((!isset($_POST['FromCriteria']) or !isset($_POST['ToCriteria']))) {
 
@@ -478,73 +480,75 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
-			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table>
-			<tr>
-				<td>' . _('From Customer Code') . ':' . '</td>
-				<td><input type="text" autofocus="autofocus" required="required" maxlength="6" size="7" name="FromCriteria" value="' . $MyRow['fromcriteria'] . '" /></td>
-			</tr>
-			<tr>
-				<td>' . _('To Customer Code') . ':' . '</td>
-				<td><input type="text" required="required" maxlength="6" size="7" name="ToCriteria" value="' . $MyRow['tocriteria'] . '" /></td>
-			</tr>
-			<tr>
-				<td>' . _('All balances or overdues only') . ':' . '</td>
-				<td><select name="All_Or_Overdues">
-					<option selected="selected" value="All">' . _('All customers with balances') . '</option>
-					<option value="OverduesOnly">' . _('Overdue accounts only') . '</option>
-					<option value="HeldOnly">' . _('Held accounts only') . '</option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td>' . _('Only Show Customers Of') . ':' . '</td>';
+		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
+			<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
+			<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label for="FromCriteria">', _('From Customer Code'), ':</label>
+				<input type="text" autofocus="autofocus" required="required" maxlength="6" size="7" name="FromCriteria" value="', $MyRow['fromcriteria'], '" />
+				<fieldhelp>', _('The debtor code to start the report with.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="ToCriteria">' . _('To Customer Code') . ':</label>
+				<input type="text" required="required" maxlength="6" size="7" name="ToCriteria" value="', $MyRow['tocriteria'], '" />
+				<fieldhelp>', _('The debtor code to end the report with.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="All_Or_Overdues">', _('All balances or overdues only'), ':</label>
+				<select name="All_Or_Overdues">
+					<option selected="selected" value="All">', _('All customers with balances'), '</option>
+					<option value="OverduesOnly">', _('Overdue accounts only'), '</option>
+					<option value="HeldOnly">', _('Held accounts only'), '</option>
+				</select>
+				<fieldhelp>', _('Show all accounts with balances, or just those customers who have overdue amounts.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="Salesman">', _('Only Show Customers Of'), ':</label>';
 		if ($_SESSION['SalesmanLogin'] != '') {
-			echo '<td>';
-			echo $_SESSION['UsersRealName'];
-			echo '</td>';
+			echo '<div class="fieldtext">', $_SESSION['UsersRealName'], '</div>';
 		} else {
-			echo '<td><select name="Salesman">';
-
 			$SQL = "SELECT salesmancode, salesmanname FROM salesman";
-
 			$Result = DB_query($SQL);
-			echo '<option value="">' . _('All Salespeople') . '</option>';
+
+			echo '<select name="Salesman">
+					<option value="">' . _('All Salespeople') . '</option>';
 			while ($MyRow = DB_fetch_array($Result)){
-					echo '<option value="' . $MyRow['salesmancode'] . '">' . $MyRow['salesmanname'] . '</option>';
+					echo '<option value="', $MyRow['salesmancode'], '">', $MyRow['salesmanname'], '</option>';
 			}
-			echo '</select></td>
-			</tr>';
+			echo '</select>
+				<fieldhelp>', _('Show accounts for all sale people, or just individuals.'), '</fieldhelp>
+			</field>';
 		}
-		echo '<tr>
-				<td>' . _('Only show customers trading in') . ':' . '</td>
-				<td><select name="Currency">';
 
 		$SQL = "SELECT currency, currabrev FROM currencies";
-
 		$Result = DB_query($SQL);
+
+		echo '<field>
+				<label for="Currency">', _('Only show customers trading in'), ':</label>
+				<select name="Currency">';
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['currabrev'] == $_SESSION['CompanyRecord']['currencydefault']) {
-				echo '<option selected="selected" value="' . $MyRow['currabrev'] . '">' . $MyRow['currency'] . '</option>';
+				echo '<option selected="selected" value="', $MyRow['currabrev'], '">', $MyRow['currency'], '</option>';
 			} else {
-				echo '<option value="' . $MyRow['currabrev'] . '">' . $MyRow['currency'] . '</option>';
+				echo '<option value="', $MyRow['currabrev'], '">', $MyRow['currency'], '</option>';
 			}
 		}
-		echo '</select></td>
-			</tr>
-			<tr>
-				<td>' . _('Summary or detailed report') . ':' . '</td>
-				<td><select name="DetailedReport">
-					<option selected="selected" value="No">' . _('Summary Report') . '</option>
-					<option value="Yes">' . _('Detailed Report') . '</option>
-					</select>
-				</td>
-			</tr>
-			</table>
-			<br />
+		echo '</select>
+			<fieldhelp>', _('Show accounts for customers trading in this currency.'), '</fieldhelp>
+		</field>';
+
+		echo '<field>
+				<label for="DetailedReport">', _('Summary or detailed report'), ':</label>
+				<select name="DetailedReport">
+					<option selected="selected" value="No">', _('Summary Report'), '</option>
+					<option value="Yes">', _('Detailed Report'), '</option>
+				</select>
+				<fieldhelp>', _('Show a summary report, or include transaction details in the report.'), '</fieldhelp>
+			</field>
+			</fieldset>
 			<div class="centre">
-				<input type="submit" name="PrintPDF" value="' . _('Print PDF'), '" />
+				<input type="submit" name="PrintPDF" value="', _('Print PDF'), '" />
 			</div>
 			</form>';
 	}

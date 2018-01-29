@@ -32,12 +32,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			_('Horizontal Analysis of Statement of Comprehensive Income'), '
 		</p>'; // Page title.
 
-	echo '<div class="page_help_text">', _('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>',
+	echo '<div class="page_help_text">
+			', _('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
+		</div>';
 	// Show a form to allow input of criteria for the report to show:
-		'<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />', '<br />', '<table>
-			<tr>
-				<td>', _('Select period from'), ':</td>
-				<td><select name="FromPeriod">';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label for="FromPeriod">', _('Select period from'), ':</label>
+				<select name="FromPeriod" required="required" autofocus="autofocus">';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
 		/*Dates in SQL format */
@@ -71,11 +76,12 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	}
 
 	echo '</select>
-			</td>
-		</tr>
-		<tr>
-			<td>', _('Select period to'), ':</td>
-			<td><select required="required" name="ToPeriod">';
+		<fieldhelp>', _('Select the first period in the report'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+			<label for="ToPeriod">', _('Select period to'), ':</label>
+			<select required="required" name="ToPeriod">';
 
 	if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
 		$LastDate = date('Y-m-d', mktime(0, 0, 0, Date('m') + 1, 0, Date('Y')));
@@ -98,33 +104,28 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	}
 
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Select the last period in the report'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>', _('Detail or summary'), ':</td>
-			<td>
-				<select name="Detail" required="required" title="', _('Selecting Summary will show on the totals at the account group level'), '" >
-					<option value="Summary">', _('Summary'), '</option>
-					<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
-				</select>
-			</td>
-		</tr>';
+	echo '<field>
+			<label for="Detail">', _('Detail or summary'), ':</label>
+			<select name="Detail" required="required" title="', _('Selecting Summary will show on the totals at the account group level'), '" >
+				<option value="Summary">', _('Summary'), '</option>
+				<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
+			</select>
+			<fieldhelp>', _('Selecting Summary will show on the totals at the account group level'), '</fieldhelp>
+		</field>';
 
-		echo '<tr>
-				<td>', _('Show all accounts including zero balances'), '</td>
-				<td><input name="ShowZeroBalances" title="', _('Check this box to display all accounts including those accounts with no balance'), '" type="checkbox" /></td>
-			</tr>
-		</table>';
+	echo '<field>
+			<label for="ShowZeroBalances">', _('Show all accounts including zero balances'), '</label>
+			<input name="ShowZeroBalances" title="', _('Check this box to display all accounts including those accounts with no balance'), '" type="checkbox" />
+			<fieldhelp>', _('Check this box to display all accounts including those accounts with no balance'), '</fieldhelp>
+		</field>
+	</fieldset>';
 
-		echo '<div class="centre noPrint">
-				<button name="ShowPL" type="submit" value="', _('Show on Screen (HTML)'), '">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" /> ', _('Show on Screen (HTML)'), '
-				</button>
-				<button formaction="index.php?Application=GL" type="submit">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/previous.png" /> ', _('Return'), '
-				</button>
-			</div>';
+	echo '<div class="centre noPrint">
+			<input name="ShowPL" type="submit" value="', _('Show on Screen (HTML)'), '" />
+		</div>';
 
 	// Now do the posting while the user is thinking about the period to select:
 	include('includes/GLPostings.php');
@@ -158,6 +159,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	echo '<table class="scrollable">
 			<thead>
+				<tr class="noPrint">
+					<th colspan="6"><h3>',
+						$Title, '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
+					</h3></th>
 				<tr>';
 	if ($_POST['Detail'] == 'Detailed') { // Detailed report:
 		echo '<th class="text">', _('Account'), '</th>
@@ -526,15 +532,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<input type="hidden" name="FromPeriod" value="', $_POST['FromPeriod'], '" />
 			<input type="hidden" name="ToPeriod" value="', $_POST['ToPeriod'], '" />
 			<div class="centre noPrint">
-				<button onclick="javascript:window.print()" type="button">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" /> ', _('Print This'), '
-				</button>
-				<button name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" /> ', _('Select A Different Period'), '
-				</button>
-				<button formaction="index.php?Application=GL" type="submit">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/previous.png" /> ', _('Return'), '
-				</button>
+				<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '" />
 			</div>';
 }
 echo '</form>';

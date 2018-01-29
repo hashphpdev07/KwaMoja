@@ -116,6 +116,7 @@ if (!isset($Id)) {
 					<th>', _('Note'), '</th>
 					<th>', _('WWW'), '</th>
 					<th>', _('Priority'), '</th>
+					<th colspan="2"></th>
 				</tr>';
 
 		$k = 0; //row colour counter
@@ -144,7 +145,7 @@ if (!isset($_GET['delete'])) {
 
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<input type="hidden" name="DebtorNo" value="' . stripslashes(stripslashes($DebtorNo)) . '" />';
+	echo '<input type="hidden" name="DebtorNo" value="', stripslashes(stripslashes($DebtorNo)), '" />';
 
 	if (isset($Id)) {
 		//editing an existing

@@ -77,13 +77,14 @@ while ($LocQtyRow = DB_fetch_array($LocStockResult)) {
 
 } //while
 echo '</tbody>';
-echo '<tr class="striped_row">
-		<td colspan="3">', _('Total'), '</td>
-		<td class="number">', locale_number_format($TotalQty, 2), '</td>
-		<td class="number">', locale_number_format($TotalVal, 2), '</td>
-		<td colspan="2"></td>
-	</tr>
-</tfoot>';
+echo '<tfoot>
+		<tr class="striped_row">
+			<td colspan="3">', _('Total'), '</td>
+			<td class="number">', locale_number_format($TotalQty, 2), '</td>
+			<td class="number">', locale_number_format($TotalVal, 2), '</td>
+			<td colspan="2"></td>
+		</tr>
+	</tfoot>';
 echo '</table>';
 
 include('includes/footer.php');

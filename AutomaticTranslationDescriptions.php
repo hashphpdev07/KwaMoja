@@ -22,28 +22,27 @@ $SQL = "SELECT stockmaster.stockid,
 				description,
 				longdescription,
 				stockdescriptiontranslations.language_id,
-				descriptiontranslation,
-				longdescriptiontranslation
+				descriptiontranslation
 		FROM stockmaster
-		INNER JOIN stockdescriptiontranslations
+		LEFT JOIN stockdescriptiontranslations
 			ON stockmaster.stockid = stockdescriptiontranslations.stockid
-		INNER JOIN stocklongdescriptiontranslations
-			ON stockmaster.stockid = stocklongdescriptiontranslations.stockid
 		WHERE stockmaster.discontinued = 0
-			AND (descriptiontranslation = '' OR longdescriptiontranslation = '')
+			AND (descriptiontranslation = '')
 		ORDER BY stockmaster.stockid,
 				language_id";
 $Result = DB_query($SQL);
-
+echo $SQL;
 if (DB_num_rows($Result) != 0) {
-	echo '<p class="page_title_text" align="center"><strong>' . _('Description Automatic Translation for empty translations') . '</strong></p>';
+	echo '<p class="page_title_text" align="center">
+			<strong>', _('Description Automatic Translation for empty translations'), '</strong>
+		</p>';
 	echo '<table>';
 	echo '<tr>
-			<th>' . _('#') . '</th>
-			<th>' . _('Code') . '</th>
-			<th>' . _('Description') . '</th>
-			<th>' . _('To') . '</th>
-			<th>' . _('Translated') . '</th>
+			<th>', _('#'), '</th>
+			<th>', _('Code'), '</th>
+			<th>', _('Description'), '</th>
+			<th>', _('To'), '</th>
+			<th>', _('Translated'), '</th>
 		</tr>';
 	$k = 0; //row colour counter
 	$i = 0;
@@ -58,13 +57,13 @@ if (DB_num_rows($Result) != 0) {
 			$Update = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			++$i;
-			printf('<tr class="striped_row">
-						<td class="number">%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-					</tr>', $i, $MyRow['stockid'], $MyRow['description'], $MyRow['language_id'], $TranslatedText);
+			echo '<tr class="striped_row">
+					<td class="number">', $i, '</td>
+					<td>', $MyRow['stockid'], '</td>
+					<td>', $MyRow['description'], '</td>
+					<td>', $MyRow['language_id'], '</td>
+					<td>', $TranslatedText, '</td>
+				</tr>';
 		}
 		if ($MyRow['longdescriptiontranslation'] == '') {
 			$TargetLanguage = mb_substr($MyRow['language_id'], 0, 2);
@@ -74,20 +73,22 @@ if (DB_num_rows($Result) != 0) {
 			$Update = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			++$i;
-			printf('<tr class="striped_row">
-						<td class="number">%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-					</tr>', $i, $MyRow['stockid'], $MyRow['longdescription'], $MyRow['language_id'], $TranslatedText);
+			echo '<tr class="striped_row">
+					<td class="number">', $i, '</td>
+					<td>', $MyRow['stockid'], '</td>
+					<td>', $MyRow['longdescription'], '</td>
+					<td>', $MyRow['language_id'], '</td>
+					<td>', $TranslatedText, '</td>
+				</tr>';
 		}
 	}
 	echo '</table>';
-	prnMsg("Number of translated descriptions via Google API: " . locale_number_format($i));
+	prnMsg('Number of translated descriptions via Google API: ' . locale_number_format($i));
 } else {
 
-	echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('No item description was automatically translated') . '" />' . ' ' . _('No item description was automatically translated') . '</p>';
+	echo '<p class="page_title_text">
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('No item description was automatically translated'), '" />', ' ', _('No item description was automatically translated'), '
+		</p>';
 
 	// Add error message for "Google Translator API Key" empty.
 

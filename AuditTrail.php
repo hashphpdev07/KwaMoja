@@ -36,21 +36,24 @@ $UserResult = DB_query("SELECT userid FROM www_users ORDER BY userid");
 
 echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-echo '<table>';
+echo '<fieldset>
+		<legend>', _('Search Critetia for Audit Trail'), '</legend>';
 
-echo '<tr>
-		<td>', _('From Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
-		<td><input type="text" class="date" name="FromDate" size="11" required="required" maxlength="10" value="', $_POST['FromDate'], '" /></td>
-	</tr>';
-echo '<tr>
-		<td>', _('To Date'), ' ', $_SESSION['DefaultDateFormat'], '</td>
-		<td><input type="text" class="date" name="ToDate" size="11" required="required" maxlength="10" value="', $_POST['ToDate'], '" /></td>
-	</tr>';
+echo '<field>
+		<label for="FromDate">', _('From Date'), ' ', $_SESSION['DefaultDateFormat'], '</label>
+		<input type="text" class="date" name="FromDate" size="11" required="required" autofocus="autofocus" maxlength="10" value="', $_POST['FromDate'], '" />
+		<fieldhelp>', _('Search for entries from this date'), '</fieldhelp>
+	</field>';
+echo '<field>
+		<label for="ToDate">', _('To Date'), ' ', $_SESSION['DefaultDateFormat'], '</label>
+		<input type="text" class="date" name="ToDate" size="11" required="required" maxlength="10" value="', $_POST['ToDate'], '" />
+		<fieldhelp>', _('Search for entries up to this date'), '</fieldhelp>
+	</field>';
 
 // Show user selections
-echo '<tr>
-		<td>', _('User ID'), '</td>
-		<td><select name="SelectedUser">';
+echo '<field>
+		<label for="SelectedUser">', _('User ID'), '</label>
+		<select name="SelectedUser">';
 echo '<option value="ALL">', _('All'), '</option>';
 while ($Users = DB_fetch_row($UserResult)) {
 	if (isset($_POST['SelectedUser']) and $Users[0] == $_POST['SelectedUser']) {
@@ -60,13 +63,13 @@ while ($Users = DB_fetch_row($UserResult)) {
 	}
 }
 echo '</select>
-		</td>
-	</tr>';
+	<fieldhelp>', _('If you know the user who created the transaction select them here otherwise select All'), '</fieldhelp>
+</field>';
 
 // Show table selections
-echo '<tr>
-		<td>', _('Table '), '</td>
-		<td><select name="SelectedTable">';
+echo '<field>
+		<label for="SelectedTable">', _('Table '), '</label>
+		<select name="SelectedTable">';
 echo '<option value="ALL">', _('All'), '</option>';
 while ($Tables = DB_fetch_row($TableResult)) {
 	if (isset($_POST['SelectedTable']) and $Tables[0] == $_POST['SelectedTable']) {
@@ -76,20 +79,21 @@ while ($Tables = DB_fetch_row($TableResult)) {
 	}
 }
 echo '</select>
-		</td>
-	</tr>';
+	<fieldhelp>', _('If you know the table affected by the transaction select it here, otherwise select All'), '</fieldhelp>
+</field>';
 
 if (!isset($_POST['ContainingText'])) {
 	$_POST['ContainingText'] = '';
 }
 // Show the text
-echo '<tr>
-		<td>', _('Containing text'), ':</td>
-		<td><input type="text" name="ContainingText" size="20" maxlength="20" value="', $_POST['ContainingText'], '" /></td>
-	</tr>';
+echo '<field>
+		<label for="ContainingText">', _('Containing text'), ':</label>
+		<input type="text" name="ContainingText" size="20" maxlength="20" value="', $_POST['ContainingText'], '" />
+		<fieldhelp>', _('Any text that may be in the entry you are looking for, or leave blank to search all text.'), '</fieldhelp>
+	</field>';
 
 
-echo '</table>';
+echo '</fieldset>';
 echo '<div class="centre">
 		<input type="submit" name="View" value="', _('View'), '" />
 	</div>';
