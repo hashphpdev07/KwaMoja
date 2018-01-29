@@ -23,6 +23,7 @@ color:#FFF;
 
 th.SortedColumn {
 cursor:s-resize;
+padding-right:16px;
 }
 
 td {

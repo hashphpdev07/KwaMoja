@@ -21,6 +21,7 @@ vertical-align:middle;
 
 th.SortedColumn {
 cursor:s-resize;
+padding-right:16px;
 }
 
 td {
