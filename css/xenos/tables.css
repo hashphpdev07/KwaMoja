@@ -79,3 +79,23 @@ background-color:white;
 tr.striped_row:nth-of-type(odd) {
 background-color:#CCCCCC;
 }
+
+tr.success_row {
+color:darkgreen;
+background-color:#90EE90;
+}
+
+tr.warn_row {
+color:maroon;
+background-color:#B88D8D;
+}
+
+tr.info_row {
+color:navy;
+background-color:#1E90FF;
+}
+
+tr.error_row {
+color:red;
+background-color:#FFC0CB;
+}

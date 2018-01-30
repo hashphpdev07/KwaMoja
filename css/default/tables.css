@@ -51,3 +51,27 @@ tr.striped_row:nth-of-type(odd) {
 background-color:#EEE;
 color:#1A1A1A;
 }
+
+tr.success_row {
+background-color:#b9ecb4;
+color:#006400;
+border:1px solid #006400;
+}
+
+tr.warn_row {
+background-color:#f5dbfd;
+color:maroon;
+border:1px solid maroon;
+}
+
+tr.info_row {
+background-color:#c7ccf6;
+color:navy;
+border:1px solid navy;
+}
+
+tr.error_row {
+background-color:#fddbdb;
+color:red;
+border:1px solid red;
+}

@@ -47,3 +47,39 @@ background-color:#CCCCCC;
 tr.striped_row:nth-of-type(odd) {
 background-color:#EEEEEE;
 }
+
+tr.success_row {
+background-color:#b9ecb4;
+color:#006400;
+border:1px solid #006400;
+width:80%;
+text-align:center;
+margin:0 auto;
+}
+
+tr.warn_row {
+background-color:#f5dbfd;
+color:maroon;
+border:1px solid maroon;
+width:80%;
+text-align:center;
+margin:0 auto;
+}
+
+tr.info_row {
+background-color:#c7ccf6;
+color:navy;
+border:1px solid navy;
+width:80%;
+text-align:center;
+margin:0 auto;
+}
+
+tr.error_row {
+background-color:#fddbdb;
+color:red;
+border:1px solid red;
+width:80%;
+text-align:center;
+margin:0 auto;
+}
