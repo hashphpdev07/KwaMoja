@@ -133,7 +133,7 @@ if (isset($_POST['Save'])) {
 
 		if (DB_num_rows($CheckResult) == 0) {
 			// new
-			$_SESSION['WorkOrder' . $Identifier]->OrderNumber = GetNextTransNo(40, $db);
+			$_SESSION['WorkOrder' . $Identifier]->OrderNumber = GetNextTransNo(40);
 			$SQL = "INSERT INTO workorders (wo,
 											loccode,
 											requiredby,

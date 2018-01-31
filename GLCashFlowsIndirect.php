@@ -666,7 +666,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		} else { // It is a month in the previous year.
 			$BeginDate = mktime(0, 0, 0, $BeginMonth, 1, date('Y') - 1);
 		}
-		$_POST['PeriodFrom'] = GetPeriod(date($_SESSION['DefaultDateFormat'], $BeginDate), $db);
+		$_POST['PeriodFrom'] = GetPeriod(date($_SESSION['DefaultDateFormat'], $BeginDate));
 	}
 	while ($MyRow = DB_fetch_array($Periods)) {
 		if ($MyRow['periodno'] == $_POST['PeriodFrom']) {
@@ -687,7 +687,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		 	<td>
 				<select id="PeriodTo" name="PeriodTo" required="required">';
 	if (!isset($_POST['PeriodTo'])) {
-		$_POST['PeriodTo'] = GetPeriod(date($_SESSION['DefaultDateFormat']), $db);
+		$_POST['PeriodTo'] = GetPeriod(date($_SESSION['DefaultDateFormat']));
 	}
 	DB_data_seek($Periods, 0);
 	while ($MyRow = DB_fetch_array($Periods)) {
