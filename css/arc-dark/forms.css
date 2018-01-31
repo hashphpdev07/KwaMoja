@@ -49,8 +49,8 @@ margin-bottom:8px;
 }
 
 form input,textarea,select {
-background-color:#404552;
-color:white;
+background-color:inherit;
+color:inherit;
 border-radius: 5px;
 border: 1px solid #8DCDEB;
 padding:2px;
