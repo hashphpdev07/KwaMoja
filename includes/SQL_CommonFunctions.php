@@ -264,17 +264,15 @@ function BomMaterialCost($Parent) {
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	$MaterialCost = $MyRow[0];
-	$Result = DB_Txn_Begin();
-	if (abs($MaterialCost-$OldCost) > 0) {
+	if (abs($QOH * ($MaterialCost - $OldCost)) > 0) {
 		ItemCostUpdateGL($Parent, $MaterialCost);
 	}
-	$Result = DB_Txn_Commit();
 	return $MaterialCost;
 }
 
 /*Iterates through the levels of the bom, recalculating each bom it meets*/
 function UpdateCost($Item) {
-
+	BomMaterialCost(strtoupper($Item));
 	$SQL = "SELECT parent FROM bom WHERE component = '" . $Item . "'";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
