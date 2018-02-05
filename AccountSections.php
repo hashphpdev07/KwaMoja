@@ -1,26 +1,24 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Account Sections');
 
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'AccountSections';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['submit'])) {
 
-	foreach ($_POST as $Key=>$Value) {
+	foreach ($_POST as $Key => $Value) {
 		if (mb_substr($Key, 0, 11) == 'SectionName') {
 			$SectionNames[mb_substr($Key, -5) . '.utf8'] = $Value;
 		}
 	}
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (isset($_POST['SectionID'])) {
@@ -54,7 +52,7 @@ if (isset($_POST['submit'])) {
 	if (isset($_POST['SelectedSectionID']) and $_POST['SelectedSectionID'] != '' and $InputError != 1) {
 
 		/*SelectedSectionID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course see the delete code below*/
-		foreach ($SectionNames as $SectionLanguage=>$SectionName) {
+		foreach ($SectionNames as $SectionLanguage => $SectionName) {
 
 			$SQL = "UPDATE accountsection SET sectionname='" . $SectionName . "'
 						WHERE sectionid = '" . $_POST['SelectedSectionID'] . "'
@@ -62,16 +60,16 @@ if (isset($_POST['submit'])) {
 
 			$Result = DB_query($SQL);
 			if (DB_error_no($Result) === 0) {
-				prnMsg( _('Account Section has been updated for language') . ' ' . $SectionLanguage, 'success');
+				prnMsg(_('Account Section has been updated for language') . ' ' . $SectionLanguage, 'success');
 			} else {
-				prnMsg( _('Account Section could not be updated for language') . ' ' . $SectionLanguage, 'error');
+				prnMsg(_('Account Section could not be updated for language') . ' ' . $SectionLanguage, 'error');
 			}
 		}
 	} elseif ($InputError != 1) {
 
 		/*SelectedSectionID is null cos no item selected on first time round so must be adding a record must be submitting new entries in the new account section form */
 
-		foreach ($SectionNames as $SectionLanguage=>$SectionName) {
+		foreach ($SectionNames as $SectionLanguage => $SectionName) {
 			$SQL = "INSERT INTO accountsection (sectionid,
 												language,
 												sectionname
@@ -81,9 +79,9 @@ if (isset($_POST['submit'])) {
 												'" . $SectionName . "')";
 			$Result = DB_query($SQL);
 			if (DB_error_no($Result) === 0) {
-				prnMsg( _('Account Section has been inserted for language') . ' ' . $SectionLanguage, 'success');
+				prnMsg(_('Account Section has been inserted for language') . ' ' . $SectionLanguage, 'success');
 			} else {
-				prnMsg( _('Account Section could not be inserted for language') . ' ' . $SectionLanguage, 'error');
+				prnMsg(_('Account Section could not be inserted for language') . ' ' . $SectionLanguage, 'error');
 			}
 		}
 	}
@@ -97,7 +95,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'accountgroups'
 	$SQL = "SELECT COUNT(sectioninaccounts) AS sections FROM accountgroups WHERE sectioninaccounts='" . $_GET['SelectedSectionID'] . "'";
 	$Result = DB_query($SQL);
@@ -129,7 +126,7 @@ if (isset($_POST['submit'])) {
 
 if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) {
 
-/*	An account section could be posted when one has been edited and is being updated
+	/*	An account section could be posted when one has been edited and is being updated
 	or GOT when selected for modification
 	SelectedSectionID will exist because it was sent with the page in a GET .
 	If its the first time the page has been displayed with no parameters
@@ -180,7 +177,7 @@ if (isset($_POST['SelectedSectionID']) or isset($_GET['SelectedSectionID'])) {
 }
 
 if (!isset($_GET['delete'])) {
-	include('includes/LanguagesArray.php');
+	include ('includes/LanguagesArray.php');
 
 	echo '<form method="post" class="noPrint" id="AccountSections" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
@@ -254,6 +251,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>
