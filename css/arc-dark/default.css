@@ -152,7 +152,7 @@ background-color:#595D66;
 a {
 text-decoration:none;
 display:block;
-color:#8DCDEB;
+color:inherit;
 }
 
 a.FontSize {
@@ -167,7 +167,6 @@ display:inline;
 
 a:hover {
 text-decoration:underline;
-color:#C9E0EA;
 }
 
 img {
