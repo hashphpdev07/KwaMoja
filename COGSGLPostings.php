@@ -1,12 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Cost Of Sales GL Postings Set Up');
 $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'SalesGLPostings';
-include('includes/header.php');
-
+include ('includes/header.php');
 
 if (isset($_POST['SelectedCOGSPostingID'])) {
 	$SelectedCOGSPostingID = $_POST['SelectedCOGSPostingID'];
@@ -14,12 +12,14 @@ if (isset($_POST['SelectedCOGSPostingID'])) {
 	$SelectedCOGSPostingID = $_GET['SelectedCOGSPostingID'];
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	if (isset($SelectedCOGSPostingID)) {
 
@@ -51,14 +51,12 @@ if (isset($_POST['submit'])) {
 		$Msg = _('A new cost of sales posting code has been inserted') . '.';
 	}
 	//run the SQL from either of the above possibilites
-
 	$Result = DB_query($SQL);
 	prnMsg($Msg, 'info');
 	unset($SelectedCOGSPostingID);
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$SQL = "DELETE FROM cogsglpostings WHERE id='" . $SelectedCOGSPostingID . "'";
 	$Result = DB_query($SQL);
 	prnMsg(_('The cost of sales posting code record has been deleted'), 'info');
@@ -88,24 +86,23 @@ if (!isset($SelectedCOGSPostingID)) {
 		$ShowLivePostingRecords = false;
 		prnMsg(_('The following cost of sales posting records that do not have valid general ledger code specified - these records must be amended.'), 'error');
 		echo '<table>
-			<tr>
-				<th>' . _('Area') . '</th>
-				<th>' . _('Stock Category') . '</th>
-				<th>' . _('Sales Type') . '</th>
-				<th>' . _('COGS Account') . '</th>
-			</tr>';
+				<tr>
+					<th>', _('Area'), '</th>
+					<th>', _('Stock Category'), '</th>
+					<th>', _('Sales Type'), '</th>
+					<th>', _('COGS Account'), '</th>
+				</tr>';
 		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			printf('<tr class="striped_row">
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td><a href="%sSelectedCOGSPostingID=%s">' . _('Edit') . '</a></td>
-						<td><a href="%sSelectedCOGSPostingID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this COGS GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-					</tr>', $MyRow['area'], $MyRow['stkcat'], $MyRow['salestype'], $MyRow['accountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id']);
+			echo '<tr class="striped_row">
+					<td>', $MyRow['area'], '</td>
+					<td>', $MyRow['stkcat'], '</td>
+					<td>', $MyRow['salestype'], '</td>
+					<td>', $MyRow['accountname'], '</td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				</tr>';
 		} //end while
 		echo '</table>';
 	}
@@ -115,10 +112,11 @@ if (!isset($SelectedCOGSPostingID)) {
 					cogsglpostings.area,
 					cogsglpostings.stkcat,
 					cogsglpostings.salestype,
-					chartmaster.accountname
-				FROM cogsglpostings,
-					chartmaster
-				WHERE cogsglpostings.glcode = chartmaster.accountcode
+					chartmaster.accountname,
+					chartmaster.accountcode
+				FROM cogsglpostings
+				INNER JOIN chartmaster
+					ON cogsglpostings.glcode = chartmaster.accountcode
 					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 				ORDER BY cogsglpostings.area,
 						cogsglpostings.stkcat,
@@ -127,40 +125,64 @@ if (!isset($SelectedCOGSPostingID)) {
 		$Result = DB_query($SQL);
 
 		echo '<table>
-			<tr>
-				<th>' . _('Area') . '</th>
-				<th>' . _('Stock Category') . '</th>
-				<th>' . _('Sales Type') . '</th>
-				<th>' . _('GL Account') . '</th>
-			</tr>';
+				<tr>
+					<th>', _('Area'), '</th>
+					<th>', _('Stock Category'), '</th>
+					<th>', _('Sales Type'), '</th>
+					<th>', _('GL Account'), '</th>
+					<th colspan="2"></th>
+				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
+			if ($MyRow['area'] != 'AN') {
+				$AreaSQL = "SELECT areadescription FROM areas WHERE areacode='" . $MyRow['area'] . "'";
+				$AreaResult = DB_query($AreaSQL);
+				$AreaRow = DB_fetch_array($AreaResult);
+			} else {
+				$AreaRow['areadescription'] = _('All Other Areas');
+			}
 
-			printf('<tr class="striped_row">
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td><a href="%sSelectedCOGSPostingID=%s">' . _('Edit') . '</a></td>
-						<td><a href="%sSelectedCOGSPostingID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this COGS GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-					</tr>', $MyRow['area'], $MyRow['stkcat'], $MyRow['salestype'], $MyRow['accountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id']);
+			if ($MyRow['stkcat'] != 'ANY') {
+				$CategorySQL = "SELECT categorydescription FROM stockcategory WHERE categoryid='" . $MyRow['stkcat'] . "'";
+				$CategoryResult = DB_query($CategorySQL);
+				$CategoryRow = DB_fetch_array($CategoryResult);
+			} else {
+				$CategoryRow['categorydescription'] = _('All Other Categories');
+			}
+
+			if ($MyRow['salestype'] != 'AN') {
+				$TypeSQL = "SELECT sales_type FROM salestypes WHERE typeabbrev='" . $MyRow['salestype'] . "'";
+				$TypeResult = DB_query($TypeSQL);
+				$TypeRow = DB_fetch_array($TypeResult);
+			} else {
+				$TypeRow['sales_type'] = _('All Other Types');
+			}
+
+			echo '<tr class="striped_row">
+					<td>', $MyRow['area'], ' - ', $AreaRow['areadescription'], '</td>
+					<td>', $MyRow['stkcat'], ' - ', $CategoryRow['categorydescription'], '</td>
+					<td>', $MyRow['salestype'], ' - ', $TypeRow['sales_type'], '</td>
+					<td>', $MyRow['accountcode'], ' - ', $MyRow['accountname'], '</td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				</tr>';
 
 		} //END WHILE LIST LOOP
 		echo '</table>';
 	}
 }
 //end of ifs and buts!
-
 if (isset($SelectedCOGSPostingID)) {
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all cost of sales posting records') . '</a></div>';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show all cost of sales posting records'), '</a>
+		</div>';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($SelectedCOGSPostingID)) {
 	//editing an existing cost of sales posting record
-
 	$SQL = "SELECT stkcat,
 				glcode,
 				area,
@@ -176,7 +198,7 @@ if (isset($SelectedCOGSPostingID)) {
 	$_POST['StkCat'] = $MyRow['stkcat'];
 	$_POST['SalesType'] = $MyRow['salestype'];
 
-	echo '<input type="hidden" name="SelectedCOGSPostingID" value="' . $SelectedCOGSPostingID . '" />';
+	echo '<input type="hidden" name="SelectedCOGSPostingID" value="', $SelectedCOGSPostingID, '" />';
 
 } //end of if $SelectedCOGSPostingID only do the else when a new record is being entered
 
@@ -186,71 +208,62 @@ $SQL = "SELECT areacode,
 		FROM areas";
 $Result = DB_query($SQL);
 
-echo '<table>
-		<tr><td>' . _('Area') . ':</td>
-			<td><select name="Area">
-				<option value="AN">' . _('Any Other') . '</option>';
+echo '<fieldset>
+		<legend>', _('Select criteria for COGS posting'), '</legend>
+		<field>
+			<label for="Area">', _('Area'), ':</label>
+			<select name="Area" autofocus="autofocus">
+				<option value="AN">', _('Any Other'), '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['Area']) and $MyRow['areacode'] == $_POST['Area']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['areacode'], '">', $MyRow['areadescription'], '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['areacode'], '">', $MyRow['areadescription'], '</option>';
 	}
-	echo $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
-
 } //end while loop
-DB_free_result($Result);
+echo '</select>
+	<fieldhelp>', _('Select the area to be used in this group. To cover all areas just select Any Other'), '</fieldhelp>
+</field>';
 
 $SQL = "SELECT categoryid, categorydescription FROM stockcategory";
 $Result = DB_query($SQL);
 
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>' . _('Stock Category') . ':</td>
-		<td><select name="StkCat">
-			<option value="ANY">' . _('Any Other') . '</option>';
+echo '<field>
+		<label for="StkCat">', _('Stock Category'), ':</label>
+		<select name="StkCat">
+			<option value="ANY">', _('Any Other'), '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['StkCat']) and $MyRow['categoryid'] == $_POST['StkCat']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['categoryid'], '">', $MyRow['categorydescription'], '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['categoryid'], '">', $MyRow['categorydescription'], '</option>';
 	}
-	echo $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
-
 } //end while loop
-
-DB_free_result($Result);
+echo '</select>
+	<fieldhelp>', _('Select the stock category to be used in this group. To cover all categories just select Any Other'), '</fieldhelp>
+</field>';
 
 $SQL = "SELECT typeabbrev, sales_type FROM salestypes";
 $Result = DB_query($SQL);
 
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>' . _('Sales Type') . ' / ' . _('Price List') . ':</td>
-		<td><select name="SalesType">
-			<option value="AN">' . _('Any Other') . '</option>';
+echo '<field>
+		<label for="SalesType">', _('Sales Type'), ' / ', _('Price List'), ':</label>
+		<select name="SalesType">
+			<option value="AN">', _('Any Other'), '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['SalesType']) and $MyRow['typeabbrev'] == $_POST['SalesType']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['typeabbrev'], '">', $MyRow['sales_type'], '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['typeabbrev'], '">', $MyRow['sales_type'], '</option>';
 	}
-	echo $MyRow['typeabbrev'] . '">' . $MyRow['sales_type'] . '</option>';
-
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('Select the sales type to be used in this group. To cover all types just select Any Other'), '</fieldhelp>
+</field>';
 
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>' . _('Post to GL account') . ':</td>
-		<td><select required="required" name="GLCode">';
-
-DB_free_result($Result);
 $SQL = "SELECT chartmaster.accountcode,
 			chartmaster.accountname
 		FROM chartmaster
@@ -264,27 +277,28 @@ $SQL = "SELECT chartmaster.accountcode,
 			chartmaster.accountname";
 $Result = DB_query($SQL);
 
+echo '<field>
+		<label for="GLCode">', _('Post to GL account'), ':</label>
+		<select required="required" name="GLCode">';
+
 echo '<option value=""></option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['GLCode']) and $MyRow['accountcode'] == $_POST['GLCode']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 	}
-	echo $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' - ' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
-
 } //end while loop
-
-DB_free_result($Result);
-
 echo '</select>
-			</td>
-		</tr>
-	</table>
-	<div class="centre">
-		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+	<fieldhelp>', _('Select the general ledger code to do COGS postingst to where the above criteria have been met.'), '</fieldhelp>
+</field>';
+
+echo '</fieldset>';
+
+echo '<div class="centre">
+		<input type="submit" name="submit" value="', _('Enter Information'), '" />
 	</div>
 </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>
