@@ -19,11 +19,6 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Maintenance') . '
 	</p>';
 
-if (isset($Errors)) {
-	unset($Errors);
-} //isset($Errors)
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
@@ -38,78 +33,48 @@ if (isset($_POST['submit'])) {
 	if ($MyRow[0] > 0 and isset($_POST['New'])) {
 		$InputError = 1;
 		prnMsg(_('The customer number already exists in the database'), 'error');
-		$Errors[$i] = 'DebtorNo';
-		++$i;
 	} elseif (mb_strlen($_POST['CustName']) > 40 or mb_strlen($_POST['CustName']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The customer name must be entered and be forty characters or less long'), 'error');
-		$Errors[$i] = 'CustName';
-		++$i;
 	} elseif ($_SESSION['AutoDebtorNo'] == 0 and mb_strlen($_POST['DebtorNo']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The debtor code cannot be empty'), 'error');
-		$Errors[$i] = 'DebtorNo';
-		++$i;
 	} elseif (mb_strlen($_POST['Address1']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 1 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'Address1';
-		++$i;
 	} elseif (mb_strlen($_POST['Address2']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 2 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'Address2';
-		++$i;
 	} elseif (mb_strlen($_POST['Address3']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 3 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'Address3';
-		++$i;
 	} elseif (mb_strlen($_POST['Address4']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The Line 4 of the address must be fifty characters or less long'), 'error');
-		$Errors[$i] = 'Address4';
-		++$i;
 	} elseif (mb_strlen($_POST['Address5']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The Line 5 of the address must be twenty characters or less long'), 'error');
-		$Errors[$i] = 'Address5';
-		++$i;
 	} elseif (!is_numeric(filter_number_format($_POST['CreditLimit']))) {
 		$InputError = 1;
 		prnMsg(_('The credit limit must be numeric'), 'error');
-		$Errors[$i] = 'CreditLimit';
-		++$i;
 	} elseif (!is_numeric(filter_number_format($_POST['PymtDiscount']))) {
 		$InputError = 1;
 		prnMsg(_('The payment discount must be numeric'), 'error');
-		$Errors[$i] = 'PymtDiscount';
-		++$i;
 	} elseif (!is_date($_POST['ClientSince'])) {
 		$InputError = 1;
 		prnMsg(_('The customer since field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
-		$Errors[$i] = 'ClientSince';
-		++$i;
 	} elseif (!is_numeric(filter_number_format($_POST['Discount']))) {
 		$InputError = 1;
 		prnMsg(_('The discount percentage must be numeric'), 'error');
-		$Errors[$i] = 'Discount';
-		++$i;
 	} elseif (filter_number_format($_POST['CreditLimit']) < 0) {
 		$InputError = 1;
 		prnMsg(_('The credit limit must be a positive number'), 'error');
-		$Errors[$i] = 'CreditLimit';
-		++$i;
 	} elseif ((filter_number_format($_POST['PymtDiscount']) > 10) or (filter_number_format($_POST['PymtDiscount']) < 0)) {
 		$InputError = 1;
 		prnMsg(_('The payment discount is expected to be less than 10% and greater than or equal to 0'), 'error');
-		$Errors[$i] = 'PymtDiscount';
-		++$i;
 	} elseif ((filter_number_format($_POST['Discount']) > 100) or (filter_number_format($_POST['Discount']) < 0)) {
 		$InputError = 1;
 		prnMsg(_('The discount is expected to be less than 100% and greater than or equal to 0'), 'error');
-		$Errors[$i] = 'Discount';
-		++$i;
 	}
 	if ($InputError != 1) {
 		$SQL_ClientSince = FormatDateForSQL($_POST['ClientSince']);
@@ -401,7 +366,7 @@ if ($SetupErrors > 0) {
 $DataError = 0;
 
 //Main Table
-echo '<table class="selection" cellspacing="4" style="width: 75%">
+echo '<table cellspacing="4" style="width: 75%">
 			<tr>
 				<td valign="top">';
 
@@ -433,7 +398,7 @@ if (!isset($DebtorNo)) {
 	$_POST['typeid'] = '';
 	$_POST['LanguageID'] = '';
 	//Sub table
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	/* if $AutoDebtorNo in config.php has not been set or if it has been set to a number less than one,
 	 then provide an input box for the DebtorNo to manually assigned */
 	if ($_SESSION['AutoDebtorNo'] == 0) {
@@ -494,7 +459,7 @@ if (!isset($DebtorNo)) {
 	$_POST['typeid'] = $MyRow['typeid'];
 	$_POST['LanguageID'] = $MyRow['language_id'];
 	echo '<input type="hidden" name="DebtorNo" value="' . $DebtorNo . '" />';
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	if ($_SESSION['AutoDebtorNo'] == 0) {
 		echo '<tr>
 					<td>' . _('Customer Code') . ':</td>
@@ -589,7 +554,7 @@ echo '<tr>
 echo '</table></td>';
 
 //second sub table
-echo '<td><table class="selection">';
+echo '<td><table>';
 
 echo '<tr>
 		<td>' . _('Discount Percent') . ':</td>
@@ -735,7 +700,7 @@ $SQL = "SELECT contid,
 			ORDER BY contid";
 $Result = DB_query($SQL);
 
-echo '<table class="selection">';
+echo '<table>';
 if (isset($_GET['Modify'])) {
 	echo '<tr>
 				<th>' . _('Name') . '</th>
@@ -758,21 +723,15 @@ if (isset($_GET['Modify'])) {
 $k = 0; //row colour counter
 
 while ($MyRow = DB_fetch_array($Result)) {
-	if ($k == 1) {
-		echo '<tr class="OddTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="EvenTableRows">';
-		$k = 1;
-	}
-	echo '<td>' . $MyRow['contactname'] . '</td>
-					<td>' . $MyRow['role'] . '</td>
-					<td>' . $MyRow['phoneno'] . '</td>
-					<td><a href="mailto:' . $MyRow['email'] . '">' . $MyRow['email'] . '</a></td>
-					<td>' . $MyRow['notes'] . '</td>
-					<td><a href="AddCustomerContacts.php?Id=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '">' . _('Edit') . '</a></td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ID=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer contact?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>';
+	echo '<tr class="striped_row">
+			<td>' . $MyRow['contactname'] . '</td>
+			<td>' . $MyRow['role'] . '</td>
+			<td>' . $MyRow['phoneno'] . '</td>
+			<td><a href="mailto:' . $MyRow['email'] . '">' . $MyRow['email'] . '</a></td>
+			<td>' . $MyRow['notes'] . '</td>
+			<td><a href="AddCustomerContacts.php?Id=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '">' . _('Edit') . '</a></td>
+			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ID=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer contact?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+		</tr>';
 } //END WHILE LIST LOOP
 echo '</table>';
 

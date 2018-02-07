@@ -25,11 +25,6 @@ if (isset($_POST['Cancel'])) {
 	unset($_POST['Tag']);
 }
 
-
-if (isset($Errors)) {
-	unset($Errors);
-}
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -169,7 +164,7 @@ if (!isset($SelectedExpense)) {
 			FROM pcexpenses";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>', _('Code Of Expense'), '</th>
 				<th>', _('Description'), '</th>
@@ -182,13 +177,6 @@ if (!isset($SelectedExpense)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		$SQLdesc = "SELECT accountname
 					FROM chartmaster
@@ -212,7 +200,8 @@ if (!isset($SelectedExpense)) {
 		$ResultTaxCat = DB_query($SqlTaxCat);
 		$DescriptionTaxCat = DB_fetch_array($ResultTaxCat);
 
-		echo '<td>', $MyRow['codeexpense'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['codeexpense'], '</td>
 				<td>', $MyRow['description'], '</td>
 				<td class="number">', $MyRow['glaccount'], '</td>
 				<td>', $Description['accountname'], '</td>
@@ -261,14 +250,14 @@ if (!isset($_GET['delete'])) {
 		echo '<input type="hidden" name="SelectedExpense" value="', $SelectedExpense, '" />';
 		echo '<input type="hidden" name="CodeExpense" value="', $_POST['CodeExpense'], '" />';
 		// We dont allow the user to change an existing type code
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Code Of Expense'), ':</td>
 					<td>', $_POST['CodeExpense'], '</td>
 				</tr>';
 	} else {
 		// This is a new type so the user may volunteer a type code
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Code Of Expense'), ':</td>
 					<td><input type="text" name="CodeExpense" autofocus="autofocus" required="required" maxlength="20" /></td>

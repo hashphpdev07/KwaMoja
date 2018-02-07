@@ -7,7 +7,7 @@ $Title = _('Maintain ABC ranking methods');
 include('includes/header.php');
 
 echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
 	</p>';
 
 if (isset($_GET['Delete'])) {
@@ -18,7 +18,7 @@ if (isset($_GET['Delete'])) {
 		$Result = DB_query($SQL);
 		prnMsg(_('ABC Ranking method number') . ' ' . $_GET['SelectedMethodID'] . ' ' . _('has been deleted'), 'success');
 		echo '<div class="centre">
-				<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('View all the ranking methods') . '</a>
+				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking methods'), '</a>
 			</div>';
 		include('includes/footer.php');
 		exit;
@@ -52,7 +52,7 @@ if (isset($_POST['Submit'])) {
 					methodname
 				FROM abcmethods";
 	$Result = DB_query($SQL);
-	echo '<table class="selection" summary="', _('List of ABC Ranking Methods'), '">
+	echo '<table summary="', _('List of ABC Ranking Methods'), '">
 			<tr>
 				<th colspan="10">
 					<h3>', _('List of ABC Ranking Methods'), '
@@ -63,10 +63,11 @@ if (isset($_POST['Submit'])) {
 			<tr>
 				<th>', _('ID'), '</th>
 				<th>', _('Method name'), '</th>
+				<th colspan="2"></th>
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr class="OddTableRows">
+		echo '<tr class="striped_row">
 				<td>', $MyRow['methodid'], '</td>
 				<td>', $MyRow['methodname'], '</td>
 				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedMethodID=', $MyRow['methodid'], '">', _('Edit'), '</a></td>
@@ -90,25 +91,23 @@ if (isset($_POST['Submit'])) {
 		$Description = $MyRow['methodname'];
 	} else {
 		echo '<input type="hidden" name="Mode" value="New" />';
-		$IDInput = '<input type="text" required="required" size="3" class="number" name="MethodID" />';
+		$IDInput = '<input type="text" required="required" autofocus="autofocus" size="3" class="number" name="MethodID" />';
 		$Description = '';
 	}
 
-	echo '<table>
-			<tr>
-				<th colspan="2">
-					<h3>', _('Ranking Method Details'), '</h3>
-				</th>
-			</tr>
-			<tr class="EvenTableRows">
-				<td>', _('Method ID'), '</td>
-				<td>', $IDInput, '</td>
-			</tr>
-			<tr class="OddTableRows">
-				<td>', _('Method Description'), '</td>
-				<td><input type="text" size="30" required="required" maxlength="40" name="MethodName" value="', $Description, '" /></td>
-			</tr>
-		</table>';
+	echo '<fieldset>
+			<legend>', _('Ranking Method Details'), '</legend>
+			<field>
+				<label for="MethodID">', _('Method ID'), '</label>
+				', $IDInput, '
+				<fieldhelp>', _('The ID by which this ranking method will be known.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="MethodName">', _('Method Description'), '</label>
+				<input type="text" size="30" required="required" autofocus="autofocus" maxlength="40" name="MethodName" value="', $Description, '" />
+				<fieldhelp>', _('The name by which this ranking method will be known.'), '</fieldhelp>
+			</field>
+		</fieldset>';
 
 	echo '<div class="centre">
 			<input type="submit" name="Submit" value="Save" />

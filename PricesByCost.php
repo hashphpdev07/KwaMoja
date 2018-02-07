@@ -153,7 +153,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	echo '<div class="page_help_text">' . _('Items in') . ' ' . $CategoryText . ' ' . _('With Prices') . ' ' . $Comparator . '' . $_POST['Margin'] . ' ' . _('times') . ' ' . _('Cost in Price List') . ' ' . $SalesTypeRow['sales_type'] . '</div><br /><br />';
 
 	if ($numrow > 0) { //the number of prices returned from the main prices query is
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -180,14 +180,6 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 		$PriceCounter = 0;
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			//get cost
 			if ($MyRow['cost'] == '') {
 				$Cost = 0;
@@ -215,7 +207,8 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 			} else {
 				$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 			}
-			echo '  <td>' . $MyRow['stockid'] . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $MyRow['customer'] . '</td>
 					<td>' . $MyRow['branch'] . '</td>
@@ -248,7 +241,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	echo '<div class="page_help_text">' . _('Prices can be displayed based on their relation to cost') . '</div><br />';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	$SQL = "SELECT categoryid, categorydescription
 			  FROM stockcategory

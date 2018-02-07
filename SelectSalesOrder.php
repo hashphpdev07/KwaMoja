@@ -528,7 +528,7 @@ if (!isset($StockId)) {
 
 	if (!isset($OrderNumber) or $OrderNumber == '') {
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Order number'), ': </td>
 					<td><input type="text" class="integer" name="OrderNumber" maxlength="8" size="9" /></td>
@@ -637,7 +637,7 @@ if (!isset($StockId)) {
 		$_POST['StockCode'] = '';
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6"><h3>', _('To search for sales orders for a specific part use the part selection facilities below'), '</h3></th>
 			</tr>
@@ -670,7 +670,7 @@ if (!isset($StockId)) {
 
 	if (isset($StockItemsResult) and DB_num_rows($StockItemsResult) > 1) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn" >', _('Code'), '</th>
@@ -684,19 +684,12 @@ if (!isset($StockId)) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
-			echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" /></td>
-				<td>', $MyRow['description'], '</td>
-				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
-				<td>', $MyRow['units'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" /></td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 			//end of page full new headings if
 		}
 		//end of while loop
@@ -921,7 +914,7 @@ if (!isset($StockId)) {
 			$AuthResult = DB_query($AuthSQL);
 			$AuthRow = DB_fetch_array($AuthResult);
 
-			echo '<table cellpadding="2" width="95%" class="selection">';
+			echo '<table cellpadding="2" width="95%">';
 			if (is_null($AuthRow['cancreate']) or !isset($AuthRow)) {
 				$AuthRow['cancreate'] = 1;
 			}
@@ -976,15 +969,6 @@ if (!isset($StockId)) {
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
-
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-
 				$ModifyPage = $RootPath . '/SelectOrderItems.php?ModifyOrderNumber=' . $MyRow['orderno'];
 				$Confirm_Invoice = $RootPath . '/ConfirmDispatch_Invoice.php?OrderNumber=' . $MyRow['orderno'];
 				$PrintPickList = '';
@@ -993,9 +977,9 @@ if (!isset($StockId)) {
 				if ($_SESSION['RequirePickingNote'] == 1) {
 					$PrintPickList = $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'];
 					if (isset($MyRow['prid']) and $MyRow['prid'] > '') {
-						$PrintPickLabel = '<td><a href="' . $RootPath . '/PDFPickingList.php?TransNo=' . $MyRow['orderno'] . '">' . str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT) . '</a></td>';
+						$PrintPickLabel = '<td><a href="' . $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'] . '">' . str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT) . '</a></td>';
 					} else {
-						$PrintPickLabel = '<td><a href="' . $RootPath . '/PDFPickingList.php?TransNo=' . $MyRow['orderno'] . '">' . _('Pick') . '</a></td>';
+						$PrintPickLabel = '<td><a href="' . $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'] . '">' . _('Pick') . '</a></td>';
 					}
 					$PrintDummyFlag = '';
 				}
@@ -1047,54 +1031,57 @@ if (!isset($StockId)) {
 				if ($_POST['Quotations'] == 'Orders_Only' or $_POST['Quotations'] == 'Overdue_Only') {
 					/*Check authority to create POs if user has authority then show the check boxes to select sales orders to place POs for otherwise don't provide this option */
 					if ($AuthRow['cancreate'] == 0 and $MyRow['poplaced'] == 0) { //cancreate==0 if the user can create POs and not already placed
-						echo '<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
-							<td><a href="', $PrintAck, '">' . _('Acknowledge') . '</a>' . $PrintDummyFlag . '</td>
-							' . $PrintPickLabel . '
-							<td><a href="', $Confirm_Invoice, '">' . _('Invoice') . '</a></td>
-							<td><a href="', $PrintDispatchNote, '">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
-							<td><a href="', $PrintLabels, '">' . _('Labels') . '</a></td>
-							<td>', $MyRow['name'], '</td>
-							<td>', $MyRow['brname'], '</td>
-							<td>', $CustomerRef, '</td>
-							<td>', $FormatedOrderDate, '</td>
-							<td>', $FormatedDelDate, '</td>
-							<td>', html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), '</td>
-							<td class="number">', $FormatedOrderValue, '</td>
-							<td><input type="checkbox" name="PlacePO_[]" value="', $MyRow['orderno'], '" /></td>
-							<td>', $AttachmentText, '</td>
-						</tr>';
+						echo '<tr class="striped_row">
+								<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
+								<td><a href="', $PrintAck, '">' . _('Acknowledge') . '</a>' . $PrintDummyFlag . '</td>
+								' . $PrintPickLabel . '
+								<td><a href="', $Confirm_Invoice, '">' . _('Invoice') . '</a></td>
+								<td><a href="', $PrintDispatchNote, '">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
+								<td><a href="', $PrintLabels, '">' . _('Labels') . '</a></td>
+								<td>', $MyRow['name'], '</td>
+								<td>', $MyRow['brname'], '</td>
+								<td>', $CustomerRef, '</td>
+								<td>', $FormatedOrderDate, '</td>
+								<td>', $FormatedDelDate, '</td>
+								<td>', html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), '</td>
+								<td class="number">', $FormatedOrderValue, '</td>
+								<td><input type="checkbox" name="PlacePO_[]" value="', $MyRow['orderno'], '" /></td>
+								<td>', $AttachmentText, '</td>
+							</tr>';
 					} else {
 						/*User is not authorised to create POs so don't even show the option */
-						printf('<td><a href="%s">%s</a></td>
-							<td><a href="%s">' . _('Acknowledge') . '</a></td>
-							' . $PrintPickLabel . '
-							<td><a href="%s">' . _('Invoice') . '</a></td>
-							<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
-							<td><a href="%s">' . _('Labels') . '</a></td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td class="number">%s</td>
-							<td></td>
-							<td>' . $AttachmentText . '</td>
-							</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
+						printf('<tr class="striped_row">
+									<td><a href="%s">%s</a></td>
+									<td><a href="%s">' . _('Acknowledge') . '</a></td>
+									' . $PrintPickLabel . '
+									<td><a href="%s">' . _('Invoice') . '</a></td>
+									<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
+									<td><a href="%s">' . _('Labels') . '</a></td>
+									<td>%s</td>
+									<td>%s</td>
+									<td>%s</td>
+									<td>%s</td>
+									<td>%s</td>
+									<td>%s</td>
+									<td class="number">%s</td>
+									<td></td>
+									<td>' . $AttachmentText . '</td>
+								</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
 					}
 
 				} else {
 					/*must be quotes only */
-					printf('<td><a href="%s">%s</a></td>
-						<td><a href="%s">' . _('Landscape') . '</a>&nbsp;&nbsp;<a href="%s">' . _('Portrait') . '</a></td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						</tr>', $ModifyPage, $MyRow['orderno'], $PrintQuotation, $PrintQuotationPortrait, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
+					printf('<tr class="striped_row">
+								<td><a href="%s">%s</a></td>
+								<td><a href="%s">' . _('Landscape') . '</a>&nbsp;&nbsp;<a href="%s">' . _('Portrait') . '</a></td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td class="number">%s</td>
+							</tr>', $ModifyPage, $MyRow['orderno'], $PrintQuotation, $PrintQuotationPortrait, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
 				}
 				++$i;
 				//end of page full new headings if

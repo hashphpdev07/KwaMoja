@@ -73,7 +73,7 @@ if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 }
 echo $_SESSION['SuppTrans']->SuppReference . ' ' . _('From') . ' ' . $_SESSION['SuppTrans']->SupplierName;
 echo '</p>';
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<th>' . _('Shipment') . '</th>
 			<th>' . _('Amount') . '</th>
@@ -106,7 +106,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 if (!isset($_POST['ShiptRef'])) {
 	$_POST['ShiptRef'] = '';
 }
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<td>' . _('Shipment Reference') . ':</td>
 		<td><input type="text" name="ShiptRef" size="12" required="required" maxlength="11" value="' . $_POST['ShiptRef'] . '" /></td>

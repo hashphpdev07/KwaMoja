@@ -156,7 +156,7 @@ if (isset($_POST['SearchSupplier'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table cellpadding="2" colspan="7" class="selection">
+			<table cellpadding="2" colspan="7">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -170,19 +170,13 @@ if (isset($_POST['SearchSupplier'])) {
 	$k = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SuppliersResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		printf('<td><input type="submit" name="SupplierID" value="%s" /></td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
+		printf('<tr class="striped_row">
+					<td><input type="submit" name="SupplierID" value="%s" /></td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
 				</tr>', $MyRow['supplierid'], $MyRow['suppname'], $MyRow['currcode'], $MyRow['address1'], $MyRow['address2'], $MyRow['address3']);
 	} //end of while loop
 	echo '</tbody>
@@ -193,7 +187,7 @@ if (!isset($SupplierID) or isset($_POST['SearchSupplier'])) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table cellpadding="3" colspan="4" class="selection">
+			<table cellpadding="3" colspan="4">
 			<tr>
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<td>' . _('Text in the Supplier') . ' <b>' . _('NAME') . '</b>:</td>
@@ -256,7 +250,7 @@ if (isset($SupplierID) AND $Edit == false) {
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('There are no sell through support deals entered for this supplier'), 'info');
 	} else {
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th>' . _('Item or Category') . '</th>
 					<th>' . _('Customer') . '</th>
@@ -269,13 +263,6 @@ if (isset($SupplierID) AND $Edit == false) {
 
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['categoryid'] == '') {
 				$ItemDescription = $MyRow['stockid'] . ' - ' . $MyRow['description'];
 			} else {
@@ -287,15 +274,16 @@ if (isset($SupplierID) AND $Edit == false) {
 				$Customer = $MyRow['debtorno'] . ' - ' . $MyRow['name'];
 			}
 
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td><a href="%s?SellSupportID=%s&amp;SupplierID=%s&amp;Edit=1">' . _('Edit') . '</a></td>
-					<td><a href="%s?SellSupportID=%s&amp;Delete=1&amp;SupplierID=%s" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this sell through support record?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td><a href="%s?SellSupportID=%s&amp;SupplierID=%s&amp;Edit=1">' . _('Edit') . '</a></td>
+						<td><a href="%s?SellSupportID=%s&amp;Delete=1&amp;SupplierID=%s" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this sell through support record?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
 					</tr>', $ItemDescription, $Customer, locale_number_format($MyRow['rebateamount'], $SuppRow['decimalplaces']), locale_number_format($MyRow['rebatepercent'] * 100, 2), $MyRow['narrative'], ConvertSQLDate($MyRow['effectivefrom']), ConvertSQLDate($MyRow['effectiveto']), htmlspecialchars($_SERVER['PHP_SELF']), $MyRow['id'], $SupplierID, htmlspecialchars($_SERVER['PHP_SELF']), $MyRow['id'], $SupplierID);
 		} //end of while loop
 		echo '</table><br/>';
@@ -329,7 +317,7 @@ if (isset($SupplierID)) { //not selecting a supplier
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="SupplierID" value="' . $SupplierID . '" />
-			<table class="selection">';
+			<table>';
 
 	if ($Edit == true) {
 		$_POST['DebtorNo'] = $MyRow['debtorno'];

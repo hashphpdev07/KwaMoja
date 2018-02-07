@@ -19,11 +19,6 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Donors') . '" alt="" />' . ' ' . _('Donor Maintenance') . '
 	</p>';
 
-if (isset($Errors)) {
-	unset($Errors);
-} //isset($Errors)
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
@@ -161,7 +156,7 @@ if (!isset($DonorNo)) {
 	$_POST['CurrCode'] = $_SESSION['CompanyRecord']['currencydefault'];
 	$_POST['LanguageID'] = '';
 	//Sub table
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 } else {
 	$SQL = "SELECT donorno,
 					name,
@@ -190,7 +185,7 @@ if (!isset($DonorNo)) {
 	$_POST['CurrCode'] = $MyRow['currcode'];
 	$_POST['LanguageID'] = $MyRow['language_id'];
 	echo '<input type="hidden" name="DonorNo" value="' . $DonorNo . '" />';
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	echo '<tr>
 			<td>' . _('Donor Code') . ':</td>
 			<td>' . stripslashes($DonorNo) . '</td>

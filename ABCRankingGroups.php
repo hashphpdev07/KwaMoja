@@ -113,7 +113,7 @@ if (isset($_POST['Submit'])) {
 				INNER JOIN abcmethods
 					ON abcgroups.methodid=abcmethods.methodid";
 	$Result = DB_query($SQL);
-	echo '<table class="selection" summary="', _('List of ABC Ranking Methods'), '">
+	echo '<table summary="', _('List of ABC Ranking Methods'), '">
 			<tr>
 				<th colspan="10">
 					<h3>', _('List of ABC Ranking Groups'), '
@@ -130,10 +130,11 @@ if (isset($_POST['Submit'])) {
 				<th>', _('% in C category'), '</th>
 				<th>', _('If Zero Usage'), '</th>
 				<th>', _('Months in calculation'), '</th>
+				<th></th>
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr class="OddTableRows">
+		echo '<tr class="striped_row">
 				<td>', $MyRow['groupid'], '</td>
 				<td>', $MyRow['groupname'], '</td>
 				<td>', $MyRow['methodname'], '</td>
@@ -150,65 +151,65 @@ if (isset($_POST['Submit'])) {
 	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCMethods">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<table>
-			<tr>
-				<th colspan="2">
-					<h3>', _('Ranking Group Details'), '</h3>
-				</th>
-			</tr>
-			<tr class="EvenTableRows">
-				<td>', _('Group ID'), '</td>
-				<td><input type="text" size="3" required="required" class="number" name="GroupID" /></td>
-			</tr>
-			<tr class="OddTableRows">
-				<td>', _('Group Description'), '</td>
-				<td><input type="text" size="30" maxlength="40" name="GroupName" value="" /></td>
-			</tr>';
+	echo '<fieldset>
+			<legend>', _('Ranking Group Details'), '</legend>
+			<field>
+				<label for="GroupID">', _('Group ID'), '</label>
+				<input type="text" autofocus="autofocus" size="3" required="required" class="number" name="GroupID" />
+				<fieldhelp>', _('The ID of the group being created.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="GroupName">', _('Group Description'), '</label>
+				<input type="text" size="30" maxlength="40" name="GroupName" value="" />
+				<fieldhelp>', _('The name by which this group will be known.'), '</fieldhelp>
+			</field>';
 
 	$SQL = "SELECT methodid,
 					methodname
 				FROM abcmethods";
 	$Result = DB_query($SQL);
 
-	echo '<tr class="EvenTableRows">
-			<td>', _('Ranking method'), '</td>
-			<td>
+	echo '<field>
+			<label for="MethodID">', _('Ranking method'), '</label>
 				<select required="required" name="MethodID">
 					<option value=""></option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="', $MyRow['methodid'], '">', $MyRow['methodname'], '</option>';
 	}
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Select the method used to calculate the group this stock item belongs to.'), '</fieldhelp>
+	</field>';
 
-	echo '<tr class="OddTableRows">
-			<td>', _('Percentage in A Category'), '</td>
-			<td><input required="required" type="text" size="3" class="integer" name="APercent" value="10" /></td>
-		</tr>
-		<tr class="EvenTableRows">
-			<td>', _('Percentage in B Category'), '</td>
-			<td><input required="required" type="text" size="3" class="integer" name="BPercent" value="30" /></td>
-		</tr>
-		<tr class="OddTableRows">
-			<td>', _('Percentage in C Category'), '</td>
-			<td><input required="required" type="text" size="3" class="integer" name="CPercent" value="60" /></td>
-		</tr>
-		<tr class="EvenTableRows">
-			<td>', _('If zero movement in period put itmes in'), '</td>
-			<td>
-				<select name="ZeroUsage">
-					<option value="C">C</option>
-					<option value="D">D</option>
-				</select>
-			</td>
-		</tr>
-		<tr class="OddTableRows">
-			<td>', _('Months of Movement to include'), '</td>
-			<td><input required="required" type="text" size="3" class="number" name="Months" value="12" /></td>
-		</tr>';
+	echo '<field>
+			<label for="APercent">', _('Percentage in A Category'), '</label>
+			<input required="required" type="text" size="3" class="integer" name="APercent" value="10" />
+			<fieldhelp>', _('The percentage of items to place in the A category.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="BPercent">', _('Percentage in B Category'), '</label>
+			<input required="required" type="text" size="3" class="integer" name="BPercent" value="30" />
+			<fieldhelp>', _('The percentage of items to place in the B category.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="CPercent">', _('Percentage in C Category'), '</label>
+			<input required="required" type="text" size="3" class="integer" name="CPercent" value="60" />
+			<fieldhelp>', _('The percentage of items to place in the C category.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="ZeroUsage">', _('If zero movement in period put items in'), '</label>
+			<select name="ZeroUsage">
+				<option value="C">C</option>
+				<option value="D">D</option>
+			</select>
+			<fieldhelp>', _('Select the category to place items that have zero movement in the included period.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="Months">', _('Months of Movement to include'), '</label>
+			<input required="required" type="text" size="3" class="number" name="Months" value="12" />
+			<fieldhelp>', _('The number of months stock movement to analyse.'), '</fieldhelp>
+		</field>';
 
-	echo '</table>';
+	echo '</fieldset>';
 	echo '<div class="centre">
 			<input type="submit" name="Submit" value="Save" />
 		</div>';

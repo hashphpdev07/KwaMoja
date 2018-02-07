@@ -42,7 +42,7 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 	}
 	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
 		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Select GL Account'), ':</td>
 				<td>
@@ -138,7 +138,7 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 	}
 	// END: Needs $SelectedGLAccount, $SelectedUser.
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('User Code'), '</th>
@@ -166,16 +166,10 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 	if (DB_num_rows($Result) > 0) { // If the GL account has access permissions for one or more users:
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td class="text">', $MyRow['userid'], '</td>
-				<td class="text">', $MyRow['realname'], '</td>
-				<td class="centre">';
+			echo '<tr class="striped_row">
+					<td class="text">', $MyRow['userid'], '</td>
+					<td class="text">', $MyRow['realname'], '</td>
+					<td class="centre">';
 			if ($MyRow['canview'] == 1) {
 				echo _('Yes');
 			} else {

@@ -441,7 +441,7 @@ if (isset($_SESSION['Statement'])) {
 	}
 	/* show the statement in any event - just don't have links to process transactions if NOT $AllowImport
 	 */
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="5">' . _('Bank Statement No') . ' ' . $_SESSION['Statement']->StatementNumber . ' ' . _('for') . ' ' . $_SESSION['Statement']->BankAccountName . ' ' . _('Number') . ' ' . $_SESSION['Statement']->AccountNumber . '</th>
 			</tr>
@@ -496,7 +496,7 @@ if (isset($_SESSION['Statement'])) {
 	}
 	echo '</table>';
 	echo '<br />
-	<table class="selection">';
+	<table>';
 	if ($_SESSION['Statement']->CurrCode != $_SESSION['CompanyRecord']['currencydefault']) {
 
 		echo '<tr>

@@ -572,7 +572,7 @@ echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>', _('In Stock Category'), ':
 				<select name="StockCat">';
@@ -738,7 +738,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 					<input type="hidden" name="StockCode" value="', $_POST['StockCode'], '" />
 			</div>';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>', _('Stock Status'), '</th>
@@ -757,13 +757,6 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 		$RowIndex = 1;
 		echo '<tbody>';
 		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <= $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['mbflag'] == 'D') {
 				$QOH = _('N/A');
 			} else {
@@ -781,15 +774,16 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			} else {
 				$StockImgLink = '<p>'._('No Image').'</p>';
 			}
-			echo '<td>', $ItemStatus, '</td>
-				<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
-				<td>', $StockImgLink, '</td>
-				<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
-				<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
-				<td class="number">', $QOH, '</td>
-				<td>', $MyRow['units'], '</td>
-				<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>', $ItemStatus, '</td>
+					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
+					<td>', $StockImgLink, '</td>
+					<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
+					<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
+					<td class="number">', $QOH, '</td>
+					<td>', $MyRow['units'], '</td>
+					<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>
+				</tr>';
 			++$RowIndex;
 		}
 		//end of while loop

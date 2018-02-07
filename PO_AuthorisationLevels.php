@@ -117,7 +117,7 @@ $SQL = "SELECT purchorderauth.userid,
 $ErrMsg = _('The authentication details cannot be retrieved because');
 $Result = DB_query($SQL, $ErrMsg);
 
-echo '<table class="selection">
+echo '<table>
 	 <tr>
 		<th>', _('User ID'), '</th>
 		<th>', _('User Name'), '</th>
@@ -163,7 +163,7 @@ if (!isset($_GET['Edit'])) {
 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 if (isset($_GET['Edit'])) {
 	echo '<tr><td>' . _('User ID') . '</td><td>' . $_GET['UserID'] . '</td></tr>';

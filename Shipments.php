@@ -16,7 +16,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 
 if (!isset($_SESSION['SupplierID']) and !isset($_SESSION['Shipment']) and !isset($_GET['SelectedShipment'])) {
 	prnMsg(_('To set up a shipment') . ', ' . _('the supplier must first be selected from the Select Supplier page'), 'error');
-	echo '<table class="selection">
+	echo '<table>
 				<tr><td class="menu_group_item">
 				<li><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select the Supplier') . '</a></li>
 				</td></tr></table></div>';
@@ -284,7 +284,7 @@ if (isset($_GET['Delete']) and $_SESSION['Shipment']->Closed == 0) { //shipment 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Shipment') . ': </td>
 			<td>' . $_SESSION['Shipment']->ShiptRef . '</td>
@@ -406,7 +406,7 @@ echo '</td></tr></table>';
 if (count($_SESSION['Shipment']->LineItems) > 0) {
 	/* Always display all shipment lines */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="9"><h3>' . _('Order Lines On This Shipment') . '</h3></th>
 			</tr>
@@ -427,23 +427,15 @@ if (count($_SESSION['Shipment']->LineItems) > 0) {
 
 	foreach ($_SESSION['Shipment']->LineItems as $LnItm) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-
-		echo '<td>' . $LnItm->OrderNo . '</td>
-			<td>' . $LnItm->StockID . ' - ' . stripslashes($LnItm->ItemDescription) . '</td><td class="number">' . locale_number_format($LnItm->QuantityOrd, $LnItm->DecimalPlaces) . '</td>
-			<td>' . $LnItm->UOM . '</td>
-			<td class="number">' . locale_number_format($LnItm->QuantityRecd, $LnItm->DecimalPlaces) . '</td>
-			<td class="number">' . locale_number_format($LnItm->QtyInvoiced, $LnItm->DecimalPlaces) . '</td>
-			<td class="number">' . locale_number_format($LnItm->UnitPrice, $_SESSION['Shipment']->CurrDecimalPlaces) . '</td>
-			<td class="number">' . locale_number_format($LnItm->StdCostUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $LnItm->PODetailItem . '"  onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+		echo '<tr class="striped_row">
+				<td>' . $LnItm->OrderNo . '</td>
+				<td>' . $LnItm->StockID . ' - ' . stripslashes($LnItm->ItemDescription) . '</td><td class="number">' . locale_number_format($LnItm->QuantityOrd, $LnItm->DecimalPlaces) . '</td>
+				<td>' . $LnItm->UOM . '</td>
+				<td class="number">' . locale_number_format($LnItm->QuantityRecd, $LnItm->DecimalPlaces) . '</td>
+				<td class="number">' . locale_number_format($LnItm->QtyInvoiced, $LnItm->DecimalPlaces) . '</td>
+				<td class="number">' . locale_number_format($LnItm->UnitPrice, $_SESSION['Shipment']->CurrDecimalPlaces) . '</td>
+				<td class="number">' . locale_number_format($LnItm->StdCostUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $LnItm->PODetailItem . '"  onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	} //for each line on the shipment
 	echo '</table>';
@@ -482,7 +474,7 @@ $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 	echo '<tr>
 			<th colspan="7"><h3>' . _('Possible Order Lines To Add To This Shipment') . '</h3></th>
 		</tr>
@@ -501,15 +493,8 @@ if (DB_num_rows($Result) > 0) {
 
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $MyRow['orderno'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['orderno'] . '</td>
 				<td>' . $MyRow['itemcode'] . ' - ' . stripslashes($MyRow['itemdescription']) . '</td>
 				<td class="number">' . locale_number_format($MyRow['quantityord'], $MyRow['decimalplaces']) . '</td>
 				<td>' . $MyRow['units'] . '</td>

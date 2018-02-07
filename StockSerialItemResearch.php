@@ -72,7 +72,7 @@ if ($SerialNo != '') {
 		prnMsg(_('No History found for Serial Number') . ': <b>' . $SerialNo . '</b>', 'warn');
 	} else {
 		echo '<h4>' . _('Details for Serial Item') . ': <b>' . $SerialNo . '</b><br />' . _('Length') . '=' . mb_strlen($SerialNo) . '</h4>';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th>' . _('StockID') . '</th>
 				<th>' . _('CurInvQty') . '</th>

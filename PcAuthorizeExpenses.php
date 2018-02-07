@@ -100,7 +100,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			ORDER BY pcashdetails.date, pcashdetails.counterindex ASC";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="7">', _('Detail Of Movement For Last '), ':
@@ -318,22 +318,15 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			unset($SelectedTabs);
 			unset($_POST['SelectedTabs']);
 		}
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		if ($MyRow['posted'] == 0) {
 			$Posted = _('No');
 		} else {
 			$Posted = _('Yes');
 		}
-		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
-			<td>', $MyRow['codeexpense'], '</td>
-			<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>';
+		echo '<tr class="striped_row">
+				<td>', ConvertSQLDate($MyRow['date']), '</td>
+				<td>', $MyRow['codeexpense'], '</td>
+				<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>';
 
 		$SQLTags = "SELECT pctags.tag,
 							tags.tagdescription
@@ -438,7 +431,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">'; //Main table
+	echo '<table>'; //Main table
 
 	$SQL = "SELECT tabcode
 		FROM pctabs

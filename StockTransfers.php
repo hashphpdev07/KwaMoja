@@ -48,7 +48,7 @@ if (isset($_POST['CheckCode'])) {
 	$ErrMsg = _('The stock information cannot be retrieved because');
 	$DbgMsg = _('The SQL to get the stock description was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Stock Code') . '</th>
@@ -562,7 +562,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 if (!isset($_GET['Description'])) {
 	$_GET['Description'] = '';
 }
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Stock Code') . ':</td>
 			<td>';

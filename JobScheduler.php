@@ -66,7 +66,7 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 	}
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Script') . '</th>
 			<th>' . _('Frequency') . '</th>
@@ -127,7 +127,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 $Files = glob('*.php');
 natsort($Files);
 
-echo '<table class="selection">';
+echo '<table>';
 
 echo '<tr>
 		<td>' . _('Select Script to Schedule') . '</td>

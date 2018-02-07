@@ -657,23 +657,23 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="DonorSelection" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table cellpadding="3" class="selection">
+	echo '<table cellpadding="3">
 			<tr>
 			<td><h5>' . _('Part of the Donor Name') . ':</h5></td>
-			<td><input tabindex="1" type="text" name="DonorKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
+			<td><input type="text" name="DonorKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Donor Code') . ':</h5></td>
-			<td><input tabindex="2" type="text" name="DonorCode" size="15" maxlength="18" /></td>
+			<td><input type="text" name="DonorCode" size="15" maxlength="18" /></td>
 		</tr>
 		</table>
 		<div class="centre">
-			<input tabindex="4" type="submit" name="SearchDonors" value="' . _('Search Now') . '" />
-			<input tabindex="5" type="submit" name="reset" value="' . _('Reset') . '" />
+			<input type="submit" name="SearchDonors" value="' . _('Search Now') . '" />
+			<input type="submit" name="reset" value="' . _('Reset') . '" />
 		</div>';
 
 	if (isset($Result_DonorSelect)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Donor Number') . '</th>
@@ -686,14 +686,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 		$LastDonor = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_DonorSelect)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
+			echo '<tr class="striped_row">';
 			if ($LastDonor != $MyRow['name']) {
 				echo '<td>' . htmlentities($MyRow['donorno'], ENT_QUOTES, 'UTF-8') . '</td>';
 			} else {
@@ -735,7 +728,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 
 	/*Set up form for entry of project header stuff */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Project Reference') . ':</td>
 				<td>';
@@ -846,7 +839,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	echo '<table>
 			<tr>
 				<td>
-					<table class="selection">
+					<table>
 						<tr>
 							<th colspan="6">' . _('Stock Items Required') . '</th>
 						</tr>';
@@ -883,7 +876,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 	}
 	echo '</table></td>'; //end of project BOM table
 	echo '<td valign="top">
-			<table class="selection">
+			<table>
 				<tr>
 					<th colspan="4">' . _('Other Requirements') . '</th>
 				</tr>';
@@ -914,7 +907,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 			</tr>';
 	}
 	echo '</table></td></tr></table>';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Total Project Cost') . '</th>
 				<th class="number">' . locale_number_format(($ProjectBOMCost + $ProjectReqtsCost), $_SESSION['CompanyRecord']['decimalplaces']) . '</th>

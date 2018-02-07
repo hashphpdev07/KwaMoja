@@ -150,7 +150,7 @@ $SQL = "SELECT prlloanfile.counterindex,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Description') . '</th>
 				<th>' . _('Employee ID') . '</th>
@@ -256,7 +256,7 @@ if (!isset($SelectedID)) {
 	}
 }
 
-echo '<table class="selection">';
+echo '<table>';
 
 if (!isset($SelectedID)) {
 	echo '<tr>

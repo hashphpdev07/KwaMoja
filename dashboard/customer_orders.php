@@ -100,19 +100,12 @@ echo '<tr>
 $k = 0;
 while ($row = DB_fetch_array($SalesOrdersResult)) {
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
-
 	$FormatedOrderValue = locale_number_format($row['ordervalue'], $row['currdecimalplaces']);
 	$OrderDate = ConvertSQLDate($row['orddate']);
 	$DelDate = ConvertSQLDate($row['deliverydate']);
 	$TotalSalesOrders += $row['ordervalue'];
-	echo ' <td> ' . $row['orderno'] . ' </td>
+	echo '<tr class="striped_row">
+			<td> ' . $row['orderno'] . ' </td>
 			<td> ' . $row['name'] . ' </td>
 			<td>' . $OrderDate . '</td>
 			<td>' . $DelDate . '</td>

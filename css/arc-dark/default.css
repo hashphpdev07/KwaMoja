@@ -6,7 +6,7 @@ src: local('Ubuntu'), url(https://fonts.googleapis.com/css?family=Ubuntu);
 }
 
 body {
-font-family:"Ubuntu", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+font-family: Futura,Trebuchet MS,Arial,sans-serif; ;
 font-weight:400;
 background:#404552;
 margin:0;
@@ -152,7 +152,7 @@ background-color:#595D66;
 a {
 text-decoration:none;
 display:block;
-color:#8DCDEB;
+color:inherit;
 }
 
 a.FontSize {
@@ -167,7 +167,6 @@ display:inline;
 
 a:hover {
 text-decoration:underline;
-color:#C9E0EA;
 }
 
 img {
@@ -181,7 +180,7 @@ cursor:pointer;
 }
 
 p.page_title_text {
-font-weight:700;
+font-weight:bold;
 text-align:center;
 margin:0 auto;
 padding:5px;
@@ -195,61 +194,6 @@ color:green;
 p.bad {
 font-weight:700;
 color:red;
-}
-
-table {
-width:auto;
-max-width:90%;
-padding-bottom:5px;
-margin:5px auto;
-}
-
-table.search {
-border:1px solid;
-border-radius:5px;
-width:60%;
-display:none;
-margin-top:10px;
-margin-bottom:10px;
-padding:5px;
-}
-
-table.selection {
-width:auto;
-max-width:90%;
-}
-
-tr.visible {
-display:table-row;
-}
-
-tr.invisible {
-display:none;
-}
-
-th {
-background-color:transparent;
-padding:3px;
-border: 1px solid #8DCDEB;
-border-radius:3px;
-}
-
-th.number {
-text-align:right;
-background-color:transparent;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:transparent;
-padding:3px;
 }
 
 .centre {
@@ -290,14 +234,6 @@ background-color:transparent;
 
 select.inputerror {
 background:transparent;
-}
-
-.EvenTableRows {
-background-color:transparent;
-}
-
-.OddTableRows {
-background-color:transparent;
 }
 
 div.error {
@@ -365,17 +301,6 @@ background-color:#2F343F;
 color:white;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-background:transparent;
-border:1px solid #2F4F4F;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:transparent;
 }
 
 .notavailable {

@@ -769,24 +769,24 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="CustomerSelection" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table cellpadding="3" class="selection">
+	echo '<table cellpadding="3">
 			<tr>
 			<td><h5>' . _('Part of the Customer Branch Name') . ':</h5></td>
-			<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
+			<td><input type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Customer Branch Code') . ':</h5></td>
-			<td><input tabindex="2" type="text" name="CustCode" size="15" maxlength="18" /></td>
+			<td><input type="text" name="CustCode" size="15" maxlength="18" /></td>
 			<td><h2><b>' . _('OR') . '</b></h2></td>
 			<td><h5>' . _('Part of the Branch Phone Number') . ':</h5></td>
-			<td><input tabindex="3" type="text" name="CustPhone" size="15" maxlength="18" /></td>
+			<td><input type="text" name="CustPhone" size="15" maxlength="18" /></td>
 		</tr>
 		</table>
-		<br /><div class="centre"><input tabindex="4" type="submit" name="SearchCustomers" value="' . _('Search Now') . '" />
-		<input tabindex="5" type="submit" name="reset" value="' . _('Reset') . '" /></div>';
+		<br /><div class="centre"><input type="submit" name="SearchCustomers" value="' . _('Search Now') . '" />
+		<input type="submit" name="reset" value="' . _('Reset') . '" /></div>';
 
 	if (isset($Result_CustSelect)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Customer') . '</th>
@@ -802,18 +802,12 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 		$LastCustomer = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_CustSelect)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			if ($LastCustomer != $MyRow['name']) {
-				echo '<td>' . htmlentities($MyRow['name'], ENT_QUOTES, 'UTF-8') . '</td>';
+				echo '<tr class="striped_row">
+						<td>' . htmlentities($MyRow['name'], ENT_QUOTES, 'UTF-8') . '</td>';
 			} else {
-				echo '<td></td>';
+				echo '<tr class="striped_row">
+						<td></td>';
 			}
 			echo '<td><input type="submit" name="Submit' . $j . '" value="' . htmlentities($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '" /></td>
 					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
@@ -868,7 +862,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 
 	/*Set up form for entry of contract header stuff */
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Contract Reference') . ':</td>
 				<td>';
@@ -1025,7 +1019,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	echo '<table>
 			<tr>
 				<td>
-					<table class="selection">
+					<table>
 						<tr>
 							<th colspan="6">' . _('Stock Items Required') . '</th>
 						</tr>';
@@ -1062,7 +1056,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	}
 	echo '</table></td>'; //end of contract BOM table
 	echo '<td valign="top">
-			<table class="selection">
+			<table>
 				<tr>
 					<th colspan="4">' . _('Other Requirements') . '</th>
 				</tr>';
@@ -1094,7 +1088,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	}
 	echo '</table></td></tr></table>';
 	echo '<br />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Total Contract Cost') . '</th>
 				<th class="number">' . locale_number_format(($ContractBOMCost + $ContractReqtsCost), $_SESSION['CompanyRecord']['decimalplaces']) . '</th>

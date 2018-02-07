@@ -26,7 +26,7 @@ if (!isset($_POST['BatchNo'])) {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table class="selection" summary="' . _('Details of the batch to be re-printed') . '">
+				<table summary="' . _('Details of the batch to be re-printed') . '">
 					<tr>
 						<td>' . _('Select the batch number of receipts to be printed') . ':</td>
 						<td><select autofocus="autofocus" required="required" name="BatchNo">';

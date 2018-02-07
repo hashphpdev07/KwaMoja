@@ -1,30 +1,24 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Account Sections');
 
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'AccountSections';
-include('includes/header.php');
-
-if (isset($Errors)) {
-	unset($Errors);
-}
+include ('includes/header.php');
 
 if (isset($_POST['submit'])) {
 
-	foreach ($_POST as $Key=>$Value) {
+	foreach ($_POST as $Key => $Value) {
 		if (mb_substr($Key, 0, 11) == 'SectionName') {
 			$SectionNames[mb_substr($Key, -5) . '.utf8'] = $Value;
 		}
 	}
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (isset($_POST['SectionID'])) {
@@ -58,7 +52,7 @@ if (isset($_POST['submit'])) {
 	if (isset($_POST['SelectedSectionID']) and $_POST['SelectedSectionID'] != '' and $InputError != 1) {
 
 		/*SelectedSectionID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course see the delete code below*/
-		foreach ($SectionNames as $SectionLanguage=>$SectionName) {
+		foreach ($SectionNames as $SectionLanguage => $SectionName) {
 
 			$SQL = "UPDATE accountsection SET sectionname='" . $SectionName . "'
 						WHERE sectionid = '" . $_POST['SelectedSectionID'] . "'
@@ -66,16 +60,16 @@ if (isset($_POST['submit'])) {
 
 			$Result = DB_query($SQL);
 			if (DB_error_no($Result) === 0) {
-				prnMsg( _('Account Section has been updated for language') . ' ' . $SectionLanguage, 'success');
+				prnMsg(_('Account Section has been updated for language') . ' ' . $SectionLanguage, 'success');
 			} else {
-				prnMsg( _('Account Section could not be updated for language') . ' ' . $SectionLanguage, 'error');
+				prnMsg(_('Account Section could not be updated for language') . ' ' . $SectionLanguage, 'error');
 			}
 		}
 	} elseif ($InputError != 1) {
 
 		/*SelectedSectionID is null cos no item selected on first time round so must be adding a record must be submitting new entries in the new account section form */
 
-		foreach ($SectionNames as $SectionLanguage=>$SectionName) {
+		foreach ($SectionNames as $SectionLanguage => $SectionName) {
 			$SQL = "INSERT INTO accountsection (sectionid,
 												language,
 												sectionname
@@ -85,9 +79,9 @@ if (isset($_POST['submit'])) {
 												'" . $SectionName . "')";
 			$Result = DB_query($SQL);
 			if (DB_error_no($Result) === 0) {
-				prnMsg( _('Account Section has been inserted for language') . ' ' . $SectionLanguage, 'success');
+				prnMsg(_('Account Section has been inserted for language') . ' ' . $SectionLanguage, 'success');
 			} else {
-				prnMsg( _('Account Section could not be inserted for language') . ' ' . $SectionLanguage, 'error');
+				prnMsg(_('Account Section could not be inserted for language') . ' ' . $SectionLanguage, 'error');
 			}
 		}
 	}
@@ -101,7 +95,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'accountgroups'
 	$SQL = "SELECT COUNT(sectioninaccounts) AS sections FROM accountgroups WHERE sectioninaccounts='" . $_GET['SelectedSectionID'] . "'";
 	$Result = DB_query($SQL);
@@ -133,7 +126,7 @@ if (isset($_POST['submit'])) {
 
 if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) {
 
-/*	An account section could be posted when one has been edited and is being updated
+	/*	An account section could be posted when one has been edited and is being updated
 	or GOT when selected for modification
 	SelectedSectionID will exist because it was sent with the page in a GET .
 	If its the first time the page has been displayed with no parameters
@@ -149,13 +142,15 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 
 	$ErrMsg = _('Could not get account group sections because');
 	$Result = DB_query($SQL, $ErrMsg);
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		</p>';
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
-					<th class="SortedColumn">' . _('Section Number') . '</th>
-					<th class="SortedColumn">' . _('Section Description') . '</th>
+					<th class="SortedColumn">', _('Section Number'), '</th>
+					<th class="SortedColumn">', _('Section Description'), '</th>
 					<th class="noPrint" colspan="2">&nbsp;</th>
 				</tr>
 			</thead>';
@@ -163,19 +158,12 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td class="number">' . $MyRow['sectionid'] . '</td><td>' . $MyRow['sectionname'] . '</td>';
-		echo '<td class="noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedSectionID=' . urlencode($MyRow['sectionid']), ENT_QUOTES, 'UTF-8') . '">' . _('Edit') . '</a></td>';
-		echo '<td class="noPrint"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedSectionID=' . urlencode($MyRow['sectionid']) . '&delete=1', ENT_QUOTES, 'UTF-8') . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account section?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
-		echo '</tr>';
+		echo '<tr class="striped_row">
+				<td class="number">', $MyRow['sectionid'], '</td>
+				<td>', $MyRow['sectionname'], '</td>
+				<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '">', _('Edit'), '</a></td>
+				<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '&delete=1', '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account section?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 	} //END WHILE LIST LOOP
 	echo '</tbody>';
 	echo '</table>';
@@ -183,18 +171,22 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 
 
 if (isset($_POST['SelectedSectionID']) or isset($_GET['SelectedSectionID'])) {
-	echo '<div class="toplink"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Account Sections') . '</a></div>';
+	echo '<div class="toplink">
+			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Review Account Sections'), '</a>
+		</div>';
 }
 
 if (!isset($_GET['delete'])) {
-	include('includes/LanguagesArray.php');
+	include ('includes/LanguagesArray.php');
 
-	echo '<form method="post" class="noPrint" id="AccountSections" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" class="noPrint" id="AccountSections" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($_GET['SelectedSectionID'])) {
 		//editing an existing section
-		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+		echo '<p class="page_title_text">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+			</p>';
 
 		$SQL = "SELECT language,
 						sectionid,
@@ -213,12 +205,13 @@ if (!isset($_GET['delete'])) {
 				$SectionName[$MyRow['language']] = $MyRow['sectionname'];
 			}
 
-			echo '<input type="hidden" name="SelectedSectionID" value="' . $SectionID . '" />';
-			echo '<table class="selection">
-					<tr>
-						<td>' . _('Section Number') . ':' . '</td>
-						<td>' . $SectionID . '</td>
-					</tr>';
+			echo '<input type="hidden" name="SelectedSectionID" value="', $SectionID, '" />';
+			echo '<fieldset>
+					<legend>', _('Edit Account Section Details'), '</legend>
+					<field>
+						<label for="SectionID">', _('Section Number'), ':</label>
+						<div class="fieldtext">', $SectionID, '</div>
+					</field>';
 		}
 
 	} else {
@@ -229,11 +222,13 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['SectionID'])) {
 			$_POST['SectionID'] = '';
 		}
-		echo '<table class="selection">
-			<tr>
-				<td>' . _('Section Number') . ':' . '</td>
-				<td><input tabindex="1" type="text" name="SectionID" class="number" size="4" autofocus="autofocus" required="required" maxlength="4" value="' . $_POST['SectionID'] . '" /></td>
-			</tr>';
+		echo '<fieldset>
+				<legend>', _('New Account Section Details'), '</legend>
+				<field>
+					<label for="SectionID">', _('Section Number'), ':</label>
+					<input type="text" name="SectionID" class="number" size="4" autofocus="autofocus" required="required" maxlength="4" value="', $_POST['SectionID'], '" />
+					<fieldhelp>', _('The integer group code for this account section'), '</fieldhelp>
+				</field>';
 	}
 
 	$SQL = "SELECT DISTINCT language FROM accountsection";
@@ -242,19 +237,19 @@ if (!isset($_GET['delete'])) {
 		if (!isset($SectionName[$LanguageRow['language']])) {
 			$SectionName[$LanguageRow['language']] = '';
 		}
-		echo '<tr>
-				<td>' . _('Section Description') . ' (' . $LanguagesArray[$LanguageRow['language']]['LanguageName'] . ') :' . '</td>
-				<td><input tabindex="2" type="text" name="SectionName' . mb_substr($LanguageRow['language'], 0, 5) . '" autofocus="autofocus" required="required" size="100" maxlength="100" value="' . $SectionName[$LanguageRow['language']] . '" /></td>
-			</tr>';
+		echo '<field>
+				<label for="SectionName">', _('Section Description'), ' (', $LanguagesArray[$LanguageRow['language']]['LanguageName'], ') :</label>
+				<input type="text" name="SectionName', mb_substr($LanguageRow['language'], 0, 5), '" autofocus="autofocus" required="required" size="50" maxlength="100" value="', $SectionName[$LanguageRow['language']], '" />
+				<fieldhelp>', _('The account section description in'), ' ', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</fieldhelp>
+			</field>';
 	}
 
-	echo '<tr>
-			<td colspan="2"><div class="centre"><input tabindex="3" type="submit" name="submit" value="' . _('Enter Information') . '" /></div></td>
-		</tr>
-		</table>
+	echo '</fieldset>
+			<div class="centre">
+				<input type="submit" name="submit" value="', _('Enter Information'), '" />
+			</div>
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

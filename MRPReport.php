@@ -536,7 +536,7 @@ if (isset($_POST['PrintPDF']) and $_POST['Part'] != '') {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Inventory Items') . '</p>';
-	echo '<table class="selection"><tr>';
+	echo '<table><tr>';
 	echo '<td>' . _('In Stock Category') . ':';
 	echo '<select name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
@@ -763,7 +763,7 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 				<input type="hidden" name="StockCode" value="' . $_POST['StockCode'] . '" />
 				</div>';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Description') . '</th>
@@ -777,19 +777,13 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 			DB_data_seek($searchresult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
 		while (($MyRow = DB_fetch_array($searchresult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['mbflag'] == 'D') {
 				$qoh = 'N/A';
 			} else {
 				$qoh = locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']);
 			}
-			echo '<td><input type="submit" name="Select" value="' . $MyRow['stockid'] . '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="' . $MyRow['stockid'] . '" /></td>
 					<td>' . $MyRow['description'] . '</td>
 					<td class="number">' . $qoh . '</td>
 					<td>' . $MyRow['units'] . '</td>

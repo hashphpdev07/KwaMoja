@@ -170,7 +170,7 @@ if (isset($_POST['Submit'])) {
 				AND  mbflag IN ('M', 'A', 'K', 'G');";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('From Stock ID') . '</td>';
 	echo '<td><select name="StockID">';

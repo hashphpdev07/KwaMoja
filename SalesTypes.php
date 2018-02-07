@@ -10,12 +10,6 @@ if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_GET['SelectedType']);
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -24,34 +18,22 @@ if (isset($_POST['submit'])) {
 	/* actions to take once the user has clicked the submit button
 	ie the page has called itself with some user input */
 
-	//first off validate inputs sensible
-	$i = 1;
 
 	if (mb_strlen(stripslashes($_POST['TypeAbbrev'])) > 2) {
 		$InputError = 1;
 		prnMsg(_('The sales type (price list) code must be two characters or less long'), 'error');
-		$Errors[$i] = 'SalesType';
-		++$i;
 	} elseif ($_POST['TypeAbbrev'] == '' or $_POST['TypeAbbrev'] == ' ' or $_POST['TypeAbbrev'] == '  ') {
 		$InputError = 1;
 		prnMsg(_('The sales type (price list) code cannot be an empty string or spaces'), 'error');
-		$Errors[$i] = 'SalesType';
-		++$i;
 	} elseif (trim($_POST['Sales_Type']) == '') {
 		$InputError = 1;
 		prnMsg(_('The sales type (price list) description cannot be empty'), 'error');
-		$Errors[$i] = 'SalesType';
-		++$i;
 	} elseif (mb_strlen($_POST['Sales_Type']) > 40) {
 		$InputError = 1;
 		echo prnMsg(_('The sales type (price list) description must be forty characters or less long'), 'error');
-		$Errors[$i] = 'SalesType';
-		++$i;
 	} elseif ($_POST['TypeAbbrev'] == 'AN') {
 		$InputError = 1;
 		prnMsg(_('The sales type code cannot be AN since this is a system defined abbreviation for any sales type in general ledger interface lookups'), 'error');
-		$Errors[$i] = 'SalesType';
-		++$i;
 	}
 
 	if (isset($SelectedType) and $InputError != 1) {
@@ -185,7 +167,7 @@ if (!isset($SelectedType)) {
 		$_SESSION['RestrictLocations'] = 0;
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Type Code'), '</th>
@@ -196,15 +178,9 @@ if (!isset($SelectedType)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		echo '<td>', $MyRow['typeabbrev'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['typeabbrev'], '</td>
 				<td>', $MyRow['sales_type'], '</td>
 				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeabbrev']), '">', _('Edit'), '</a></td>
 				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeabbrev']), '&delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this price list and all the prices it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
@@ -249,7 +225,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
 		echo '<input type="hidden" name="TypeAbbrev" value="', $_POST['TypeAbbrev'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>', _('Sales Type/Price List Setup'), '</b></th>
 				</tr>';
@@ -262,7 +238,7 @@ if (!isset($_GET['delete'])) {
 
 		// This is a new type so the user may volunteer a type code
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>', _('Sales Type/Price List Setup'), '</b></th>
 				</tr>

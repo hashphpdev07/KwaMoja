@@ -302,7 +302,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedAccount" value="', $SelectedAccount, '" />';
 		echo '<input type="hidden" name="AccountCode" value="', $_POST['AccountCode'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Account Code'), ':</td>
 					<td>', $_POST['AccountCode'], '</td>
@@ -319,7 +319,7 @@ if (!isset($_GET['delete'])) {
 				</tr>';
 		}
 	} else {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<td>', _('Account Code'), ':</td>
 				<td><input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" maxlength="20" /></td>
@@ -403,7 +403,7 @@ if (!isset($SelectedAccount)) {
 
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Account Code'), '</th>
@@ -419,24 +419,17 @@ if (!isset($SelectedAccount)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-
-		echo '<td>', $MyRow['accountcode'], '</td>
-			<td>', $MyRow['accountname'], '</td>
-			<td>', $MyRow['groupcode'], '</td>
-			<td>', $MyRow['group_'], '</td>
-			<td>', $MyRow['acttype'], '</td>
-			<td class="text">', CashFlowsActivityName($MyRow['cashflowsactivity']), '</td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm("', _('Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised.'), '", \'Confirm Delete\', this);">', _('Delete'), '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['accountcode'], '</td>
+				<td>', $MyRow['accountname'], '</td>
+				<td>', $MyRow['groupcode'], '</td>
+				<td>', $MyRow['group_'], '</td>
+				<td>', $MyRow['acttype'], '</td>
+				<td class="text">', CashFlowsActivityName($MyRow['cashflowsactivity']), '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm("', _('Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised.'), '", \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
 	}
 	//END WHILE LIST LOOP

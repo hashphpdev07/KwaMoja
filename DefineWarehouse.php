@@ -30,7 +30,7 @@ if (isset($_GET['Location'])) {
 					locationname
 				FROM locations";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td><select name="Location">';
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -251,7 +251,7 @@ function display_children($parent, $level, $LocationCode) {
     }
 }
 
-echo '<table class="selection" id="Containers">
+echo '<table id="Containers">
 		<tr>
 			<th>' . _('Container') . '</th>
 			<th>' . _('Name') . '</th>
@@ -339,7 +339,7 @@ if (DB_num_rows($Result) != 0) {
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="Location" value="' . $LocationCode . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 if (isset($_GET['Edit'])) {
 	echo '<tr>

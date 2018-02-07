@@ -264,29 +264,39 @@ function BomMaterialCost($Parent) {
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	$MaterialCost = $MyRow[0];
-	$Result = DB_Txn_Begin();
-	if (abs($MaterialCost-$OldCost) > 0) {
+	if (abs($QOH * ($MaterialCost - $OldCost)) > 0) {
 		ItemCostUpdateGL($Parent, $MaterialCost);
 	}
-	$Result = DB_Txn_Commit();
 	return $MaterialCost;
 }
 
 /*Iterates through the levels of the bom, recalculating each bom it meets*/
 function UpdateCost($Item) {
-
+	BomMaterialCost(strtoupper($Item));
 	$SQL = "SELECT parent FROM bom WHERE component = '" . $Item . "'";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
 		$NewParent = $MyRow['parent'];
 		$MaterialCost = BomMaterialCost($NewParent);
-		$SQL = "INSERT INTO stockcosts VALUES ( '" . $NewParent . "',
-												'" . $MaterialCost . "',
-												0,
-												0,
-												CURRENT_TIME,
-												0)";
-		$Result1 = DB_query($SQL);
+		$SQL = "SELECT stockid
+					FROM stockcosts
+					WHERE stockid='" . $NewParent . "'
+						AND costfrom=CURRENT_TIME";
+		$Result = DB_query($SQL);
+		if (DB_num_rows($Result) == 0) {
+			$SQL = "INSERT INTO stockcosts VALUES ( '" . $NewParent . "',
+													'" . $MaterialCost . "',
+													0,
+													0,
+													CURRENT_TIME,
+													0)";
+			$Result1 = DB_query($SQL);
+		} else {
+			$SQL = "UPDATE stockcosts SET materialcost='" . $MaterialCost . "'
+						WHERE stockid='" . $NewParent . "'
+							AND costfrom=CURRENT_TIME";
+			$Result1 = DB_query($SQL);
+		}
 		if (DB_error_no() != 0) {
 			return 1;
 		}

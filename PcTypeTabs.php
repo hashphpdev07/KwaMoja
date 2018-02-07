@@ -139,7 +139,7 @@ if (!isset($SelectedTab)) {
 				FROM pctypetabs";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>', _('Type Of Tab'), '</th>
 				<th>', _('Description'), '</th>
@@ -148,15 +148,8 @@ if (!isset($SelectedTab)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>', $MyRow['typetabcode'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['typetabcode'], '</td>
 				<td>', $MyRow['typetabdescription'], '</td>
 				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTab=', $MyRow['typetabcode'], '">' . _('Edit') . '</a></td>
 				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTab=', $MyRow['typetabcode'], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and all the description it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
@@ -193,7 +186,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />
 			  <input type="hidden" name="TypeTabCode" value="', $_POST['TypeTabCode'], '" />
-			  <table class="selection">
+			  <table>
 				<tr>
 					<td>', _('Code Of Type Of Tab'), ':</td>
 					<td>', $_POST['TypeTabCode'], '</td>
@@ -207,7 +200,7 @@ if (!isset($_GET['delete'])) {
 
 		// This is a new type so the user may volunteer a type code
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Code Of Type Of Tab'), ':</td>
 					<td><input type="text" minlegth="1" maxlength="20" name="TypeTabCode" /></td>

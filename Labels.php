@@ -179,7 +179,7 @@ if (!isset($SelectedLabelID)) {
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection" summary="' . _('List of all currently setup Label dimensions') . '">
+		echo '<table summary="' . _('List of all currently setup Label dimensions') . '">
 				<tr>
 					<th>' . _('Description') . '</th>
 					<th>' . _('Rows x Cols') . '</th>
@@ -192,14 +192,6 @@ if (!isset($SelectedLabelID)) {
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['rowheight'] == 0 ) {
 				$NoOfRows = 0;
 			} else {
@@ -217,27 +209,29 @@ if (!isset($SelectedLabelID)) {
 				}
 			}
 			if (isset($Paper)) {
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td colspan="2">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td><a href="%sSelectedLabelID=%s">' . _('Edit') . '</a></td>
-						<td><a href="%sSelectedLabelID=%s&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td colspan="2">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td><a href="%sSelectedLabelID=%s">' . _('Edit') . '</a></td>
+							<td><a href="%sSelectedLabelID=%s&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 						</tr>', $MyRow['description'], $NoOfRows . ' x ' . $NoOfCols, $Paper, $MyRow['height'], $MyRow['width'], $MyRow['rowheight'], $MyRow['columnwidth'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], $RootPath . '/LabelFields.php?', $MyRow['labelid']);
 			} else {
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td><a href="%sSelectedLabelID=%s">' . _('Edit') . '</a></td>
-						<td><a href="%sSelectedLabelID=%s&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td><a href="%sSelectedLabelID=%s">' . _('Edit') . '</a></td>
+							<td><a href="%sSelectedLabelID=%s&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 						</tr>', $MyRow['description'], $NoOfRows . ' x ' . $NoOfCols, $MyRow['pagewidth'], $MyRow['pageheight'], $MyRow['height'], $MyRow['width'], $MyRow['rowheight'], $MyRow['columnwidth'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], $RootPath . '/LabelFields.php?', $MyRow['labelid']);
 			}
 		}
@@ -300,7 +294,7 @@ if (isset($SelectedLabelID)) {
 if (!isset($_POST['Description'])) {
 	$_POST['Description'] = '';
 }
-echo '<table class="selection" summary="' . _('Outside container for label diagram and info') . '">
+echo '<table summary="' . _('Outside container for label diagram and info') . '">
 		<tr>
 			<td><img src="css/paramsLabel.png" alt="Label diagram" /></td>
 			<td><table summary="' . _('Label specifications') . '">
@@ -413,7 +407,7 @@ if (isset($SelectedLabelID)) {
 	$ErrMsg = _('Could not get the label fields because');
 	$Result = DB_query($SQL, $ErrMsg);
 	$i = 0;
-	echo '<table class="selection" summary="' . _('Outside container for label diagram and info') . '">
+	echo '<table summary="' . _('Outside container for label diagram and info') . '">
 				<tr>
 				<td><img src="css/labelsDim.png" alt="Label dimensions diagram" /></td>
 				<td><table summary="' . _('Label dimensions table') . '">
@@ -428,16 +422,8 @@ if (isset($SelectedLabelID)) {
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
 			echo '<input type="hidden" name="LabelFieldID' . $i . '" value="' . $MyRow['labelfieldid'] . '" />
-			<td><select name="FieldName' . $i . '" onchange="ReloadForm(submit)">';
+			<tr class="striped_row"><td><select name="FieldName' . $i . '" onchange="ReloadForm(submit)">';
 			if ($MyRow['fieldvalue'] == 'itemcode') {
 				echo '<option selected="selected" value="itemcode">' . _('Item Code') . '</option>';
 			} else {

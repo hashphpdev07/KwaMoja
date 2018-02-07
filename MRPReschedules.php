@@ -125,7 +125,7 @@ if (isset($_POST['PrintPDF'])) {
 		<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<div>
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('Print Option') . ':</td>
 			<td><select name="Fill">

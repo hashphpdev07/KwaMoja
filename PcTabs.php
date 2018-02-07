@@ -200,7 +200,7 @@ if (!isset($SelectedTab)) {
 				ORDER BY tabcode";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>', _('Tab Code'), '</th>
 					<th>', _('User Name'), '</th>
@@ -219,18 +219,12 @@ if (!isset($SelectedTab)) {
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['defaulttag'] . "'";
 			$TagResult = DB_query($TagSQL);
 			$TagRow = DB_fetch_array($TagResult);
 
-			echo '<td>', $MyRow['tabcode'], '</td>
+			echo '<tr class="striped_row">
+					<td>', $MyRow['tabcode'], '</td>
 					<td>', $MyRow['usercode'], '</td>
 					<td>', $MyRow['typetabdescription'], '</td>
 					<td>', $MyRow['currabrev'], '</td>
@@ -299,14 +293,14 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />';
 		echo '<input type="hidden" name="TabCode" value="', $_POST['TabCode'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Tab Code'), ':</td>
 					<td>', $_POST['TabCode'], '</td>
 				</tr>';
 	} else {
 		// This is a new type so the user may volunteer a type code
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Tab Code'), ':</td>
 					<td><input type="text" required="required" maxlength="20" name="TabCode" /></td>

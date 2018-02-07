@@ -21,12 +21,6 @@ if (isset($SelectedPaymentID)) {
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Payments') . '" alt="" />' . ' ' . $Title . '</p>';
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -189,7 +183,7 @@ if (!isset($SelectedPaymentID)) {
 	$ErrMsg = _('Could not get payment methods because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Payment Method'), '</th>
@@ -205,15 +199,8 @@ if (!isset($SelectedPaymentID)) {
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>', $MyRow['paymentname'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['paymentname'], '</td>
 				<td class="centre">', ($MyRow['paymenttype'] ? _('Yes') : _('No')), '</td>
 				<td class="centre">', ($MyRow['receipttype'] ? _('Yes') : _('No')), '</td>
 				<td class="centre">', ($MyRow['usepreprintedstationery'] ? _('Yes') : _('No')), '</td>
@@ -262,7 +249,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['DiscountPercent'] = $MyRow['percentdiscount'];
 
 			echo '<input type="hidden" name="SelectedPaymentID" value="' . $_POST['MethodID'] . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {
@@ -272,7 +259,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['UsePrePrintedStationery'] = 0; // Default is use for receipts
 		$_POST['OpenCashDrawer'] = 0; //Default is not to open cash drawer
 		$_POST['DiscountPercent']=0;
-		echo '<table class="selection">';
+		echo '<table>';
 	}
 	echo '<tr>
 			<td>' . _('Payment Method') . ':' . '</td>

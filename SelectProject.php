@@ -135,7 +135,7 @@ $ProjectsResult = DB_query($SQL, $ErrMsg);
 
 /*show a table of the projects returned by the SQL */
 
-echo '<table cellpadding="2" width="98%" class="selection">
+echo '<table cellpadding="2" width="98%">
 		<thead>
 			<tr>
 				<th>' . _('Modify') . '</th>
@@ -152,13 +152,6 @@ echo '<table cellpadding="2" width="98%" class="selection">
 $k = 0; //row colour counter
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($ProjectsResult)) {
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
 
 	$ModifyPage = $RootPath . '/Projects.php?ModifyProjectRef=' . $MyRow['projectref'];
 	$IssueToWOPage = $RootPath . '/WorkOrderIssue.php?WO=' . $MyRow['wo'] . '&amp;StockID=' . $MyRow['projectref'];
@@ -166,9 +159,11 @@ while ($MyRow = DB_fetch_array($ProjectsResult)) {
 	$FormatedRequiredDate = ConvertSQLDate($MyRow['requireddate']);
 
 	if ($MyRow['status'] == 0 or $MyRow['status'] == 1) { //still setting up the project
-		echo '<td><a href="' . $ModifyPage . '">' . _('Modify') . '</a></td>';
+		echo '<tr class="striped_row">
+				<td><a href="' . $ModifyPage . '">' . _('Modify') . '</a></td>';
 	} else {
-		echo '<td>' . _('n/a') . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . _('n/a') . '</td>';
 	}
 	if ($MyRow['status'] == 1 or $MyRow['status'] == 2) { // quoted or ordered
 		echo '<td><a href="' . $OrderModifyPage . '">' . $MyRow['orderno'] . '</a></td>';

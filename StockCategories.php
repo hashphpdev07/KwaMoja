@@ -321,7 +321,7 @@ if (!isset($SelectedCategory)) {
 				FROM stockcategory";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Cat Code') . '</th>
 				<th>' . _('Description') . '</th>
@@ -339,14 +339,8 @@ if (!isset($SelectedCategory)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td>' . $MyRow['categoryid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['categoryid'] . '</td>
 				<td>' . $MyRow['categorydescription'] . '</td>
 				<td>' . $StockTypeName[$MyRow['stocktype']] . '</td>
 				<td>' . $TaxCategoryName[$MyRow['defaulttaxcatid']] . '</td>
@@ -401,7 +395,7 @@ if (isset($SelectedCategory)) {
 	}
 	echo '<input type="hidden" name="SelectedCategory" value="' . $SelectedCategory . '" />';
 	echo '<input type="hidden" name="CategoryID" value="' . $_POST['CategoryID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th class="header" colspan="2">' . _('Edit Stock Category Details') . '</th>
 			</tr>
@@ -411,7 +405,7 @@ if (isset($SelectedCategory)) {
 			</tr>';
 
 } else { //end of if $SelectedCategory only do the else when a new record is being entered
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th class="header" colspan="2">' . _('New Stock Category Details') . '</th>
 			</tr>
@@ -628,7 +622,7 @@ if (isset($SelectedCategory)) {
 	/*		echo '<br />Number of rows returned by the sql = ' . DB_num_rows($Result) .
 	'<br />The SQL was:<br />' . $SQL;
 	*/
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Property Label') . '</th>
 				<th>' . _('Control Type') . '</th>

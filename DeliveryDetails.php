@@ -641,7 +641,7 @@ if (isset($OK_to_PROCESS) and $OK_to_PROCESS == 1 and $_SESSION['ExistingOrder' 
 		if ($_POST['Quotation'] == 0) {
 			/*then its not a quotation its a real order */
 
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" /></td>
 						<td>' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintCustOrder.php?identifier=' . urlencode($Identifier) . '&amp;TransNo=' . urlencode($OrderNo) . '">' . _('Print packing slip') . ' (' . _('Preprinted stationery') . ')' . '</a></td>
@@ -660,20 +660,20 @@ if (isset($OK_to_PROCESS) and $OK_to_PROCESS == 1 and $_SESSION['ExistingOrder' 
 
 		} else {
 			/*link to print the quotation */
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Order') . '" alt=""></td>
 						<td>' . ' ' . '<a href="' . $RootPath . '/PDFQuotation.php?identifier=' . $Identifier . '&amp;QuotationNo=' . $OrderNo . '" target="_blank">' . _('Print Quotation (Landscape)') . '</a></td>
 					</tr>
 					</table>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Order') . '" alt="" /></td>
 						<td>' . ' ' . '<a href="' . $RootPath . '/PDFQuotationPortrait.php?identifier=' . $Identifier . '&amp;QuotationNo=' . $OrderNo . '" target="_blank">' . _('Print Quotation (Portrait)') . '</a></td>
 					</tr>
 					</table>';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Order') . '" alt="" /></td>
 					<td>' . ' ' . '<a href="' . $RootPath . '/SelectOrderItems.php?identifier=' . urlencode($Identifier) . '&amp;NewOrder=Yes">' . _('Add Another Sales Order') . '</a></td>
@@ -850,13 +850,13 @@ elseif (isset($OK_to_PROCESS) and ($OK_to_PROCESS == 1 and $_SESSION['ExistingOr
 		prnMsg(_('Quotation Number') . ' ' . $_SESSION['ExistingOrder' . $Identifier] . ' ' . _('has been updated'), 'success');
 
 		/*link to print the quotation */
-		echo '<br /><table class="selection">
+		echo '<br /><table>
 				<tr>
 					<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Order') . '" alt=""></td>
 					<td>' . ' ' . '<a href="' . $RootPath . '/PDFQuotation.php?identifier=' . $Identifier . '&amp;QuotationNo=' . $_SESSION['ExistingOrder' . $Identifier] . '" target="_blank">' . _('Print Quotation (Landscape)') . '</a></td>
 				</tr>
 				</table>';
-		echo '<br /><table class="selection">
+		echo '<br /><table>
 				<tr>
 					<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Order') . '" alt="" /></td>
 					<td>' . ' ' . '<a href="' . $RootPath . '/PDFQuotationPortrait.php?identifier=' . $Identifier . '&amp;QuotationNo=' . $_SESSION['ExistingOrder' . $Identifier] . '" target="_blank">' . _('Print Quotation (Portrait)') . '</a></td>
@@ -867,7 +867,7 @@ elseif (isset($OK_to_PROCESS) and ($OK_to_PROCESS == 1 and $_SESSION['ExistingOr
 		prnMsg(_('Order Number') . ' ' . $_SESSION['ExistingOrder' . $Identifier] . ' ' . _('has been updated'), 'success');
 
 		echo '<br />
-			<table class="selection">
+			<table>
 			<tr>
 			<td><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" /></td>
 			<td><a target="_blank" href="' . $RootPath . '/PrintCustOrder.php?identifier=' . urlencode($Identifier) . '&amp;TransNo=' . urlencode($_SESSION['ExistingOrder' . $Identifier]) . '">' . _('Print packing slip - pre-printed stationery') . '</a></td>
@@ -940,24 +940,15 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 		$DisplayQuantity = locale_number_format($StockItem->Quantity, $StockItem->DecimalPlaces);
 		$DisplayDiscount = locale_number_format(($StockItem->DiscountPercent * 100), 2);
 
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} //$k == 1
-		else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $StockItem->StockID . '</td>
-			<td title="' . $StockItem->LongDescription . '">' . $StockItem->ItemDescription . '</td>
-			<td class="number">' . $DisplayQuantity . '</td>
-			<td>' . $StockItem->Units . '</td>
-			<td class="number">' . $DisplayPrice . '</td>
-			<td class="number">' . $DisplayDiscount . '</td>
-			<td class="number">' . $DisplayLineTotal . '</td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $StockItem->StockID . '</td>
+				<td title="' . $StockItem->LongDescription . '">' . $StockItem->ItemDescription . '</td>
+				<td class="number">' . $DisplayQuantity . '</td>
+				<td>' . $StockItem->Units . '</td>
+				<td class="number">' . $DisplayPrice . '</td>
+				<td class="number">' . $DisplayDiscount . '</td>
+				<td class="number">' . $DisplayLineTotal . '</td>
+			</tr>';
 
 		$_SESSION['Items' . $Identifier]->total = $_SESSION['Items' . $Identifier]->total + $LineTotal;
 		$_SESSION['Items' . $Identifier]->totalVolume = $_SESSION['Items' . $Identifier]->totalVolume + ($StockItem->Quantity * $StockItem->Volume);
@@ -965,7 +956,7 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 	} //$_SESSION['Items' . $Identifier]->LineItems as $StockItem
 
 	$DisplayTotal = number_format($_SESSION['Items' . $Identifier]->total, 2);
-	echo '<tr class="EvenTableRows">
+	echo '<tr class="striped_row">
 			<td colspan="6" class="number"><b>' . _('TOTAL Excl Tax/Freight') . '</b></td>
 			<td class="number">' . $DisplayTotal . '</td>
 		</tr>
@@ -975,7 +966,7 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 	$DisplayWeight = locale_number_format($_SESSION['Items' . $Identifier]->totalWeight, 2);
 	echo '<br />
 		<table>
-		<tr class="EvenTableRows">
+		<tr class="striped_row">
 			<td>' . _('Total Weight') . ':</td>
 			<td class="number">' . $DisplayWeight . '</td>
 			<td>' . _('Total Volume') . ':</td>
@@ -988,7 +979,7 @@ else {
 	/*Display the order without discount */
 
 	echo '<div class="centre"><b>' . _('Order Summary') . '</b></div>
-	<table class="selection">
+	<table>
 	<tr>
 		<th>' . _('Item Description') . '</th>
 		<th>' . _('Quantity') . '</th>
@@ -1007,15 +998,8 @@ else {
 		$DisplayPrice = locale_number_format($StockItem->Price, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 		$DisplayQuantity = locale_number_format($StockItem->Quantity, $StockItem->DecimalPlaces);
 
-		if ($k == 1) {
-			echo '<tr class="OddTableRows">';
-			$k = 0;
-		} //$k == 1
-		else {
-			echo '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-		echo '<td>' . $StockItem->ItemDescription . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $StockItem->ItemDescription . '</td>
 				<td class="number">' . $DisplayQuantity . '</td>
 				<td>' . $StockItem->Units . '</td>
 				<td class="number">' . $DisplayPrice . '</td>
@@ -1032,7 +1016,7 @@ else {
 
 	$DisplayVolume = locale_number_format($_SESSION['Items' . $Identifier]->totalVolume,5);
 	$DisplayWeight = locale_number_format($_SESSION['Items' . $Identifier]->totalWeight, 2);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Total Weight') . ':</td>
 				<td>' . $DisplayWeight . '</td>
@@ -1043,7 +1027,7 @@ else {
 
 }
 
-echo '<table class="selection">
+echo '<table>
 	<tr>
 		<td>' . _('Deliver To') . ':</td>
 		<td><input type="text" size="42" autofocus="autofocus" required="required" maxlength="40" name="DeliverTo" value="' . stripslashes($_SESSION['Items' . $Identifier]->DeliverTo) . '" /></td>

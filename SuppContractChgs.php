@@ -68,7 +68,7 @@ echo $_SESSION['SuppTrans']->SuppReference . ' ' . _('From') . ' ' . $_SESSION['
 
 echo '</p></div>';
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Contract') . '</th>

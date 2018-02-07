@@ -96,17 +96,10 @@ $k = 0;
 
 echo '<tbody>';
 while ($row = DB_fetch_array($searchresult)) {
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
 	$qoh = locale_number_format($row['qoh'], $row['decimalplaces']);
 
-	echo '<td>' . $row['stockid'] . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $row['stockid'] . '</td>
 			<td>' . $row['description'] . '</td>
 			<td class="number">' . $qoh . '</td>
 			<td> ' . $row['units'] . '</td>

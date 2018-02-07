@@ -22,7 +22,7 @@ if ($_GET['Action'] != 'View' and $_GET['Action'] != 'Enter') {
 	$_GET['Action'] = 'Enter';
 }
 
-echo '<table class="selection"><tr>';
+echo '<table><tr>';
 if ($_GET['Action'] == 'View') {
 	echo '<td><a href="' . $RootPath . '/StockCounts.php?&amp;Action=Enter">' . _('Resuming Entering Counts') . '</a> </td><td>' . _('Viewing Entered Counts') . '</td>';
 } else {
@@ -105,7 +105,7 @@ if ($_GET['Action'] == 'Enter') {
 		prnMsg(_('The stock check sheets must be run first to create the stock check. Only once these are created can the stock counts be entered. Currently there is no stock check to enter counts for'), 'error');
 		echo '<div class="center"><a href="' . $RootPath . '/StockCheck.php">' . _('Create New Stock Check') . '</a></div>';
 	} else {
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th colspan="3">' . _('Stock Check Counts at Location') . ':<select name="Location">';
 		$SQL = "SELECT locationname,
@@ -223,7 +223,7 @@ if ($_GET['Action'] == 'Enter') {
 					AND locationusers.canview=1";
 	$Result = DB_query($SQL);
 	echo '<input type="hidden" name="Action" value="View" />';
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th>' . _('Stock Code') . '</th>
 				<th>' . _('Location') . '</th>

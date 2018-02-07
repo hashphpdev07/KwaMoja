@@ -156,7 +156,7 @@ if (!isset($SelectedDepartmentID)) {
 	$ErrMsg = _('There are no departments created');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Department Name') . '</th>
 				<th>' . _('Authoriser') . '</th>
@@ -165,15 +165,8 @@ if (!isset($SelectedDepartmentID)) {
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>' . $MyRow['description'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['description'] . '</td>
 				<td>' . $MyRow['authoriser'] . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '">' . _('Edit') . '</a></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this department?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
@@ -216,13 +209,13 @@ if (!isset($_GET['delete'])) {
 			$AuthoriserID = $MyRow['authoriser'];
 
 			echo '<input type="hidden" name="SelectedDepartmentID" value="' . $_POST['DepartmentID'] . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {
 		$_POST['DepartmentName'] = '';
 		$AuthoriserID = '';
-		echo '<table class="selection">';
+		echo '<table>';
 	}
 	echo '<tr>
 			<td>' . _('Department Name') . ':' . '</td>

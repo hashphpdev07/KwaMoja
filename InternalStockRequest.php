@@ -118,7 +118,7 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	/* Create the table for the purchase order header */
 	echo '<tr>
@@ -157,7 +157,7 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 		echo '<tr>
 				<td></td>
 				<td colspan="5" align="left">
-					<table class="selection" align="left">
+					<table align="left">
 						<tr>
 							<th>' . _('Product') . '</th>
 							<th>' . _('Quantity Required') . '</th>
@@ -306,7 +306,7 @@ if (isset($_POST['Submit']) and (!empty($_SESSION['Request']->LineItems))) {
 if (isset($_GET['Edit'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="2"><h4>' . _('Edit the Request Line') . '</h4></th>
 		</tr>';
@@ -343,7 +343,7 @@ if (isset($_GET['Edit'])) {
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<th colspan="2"><h4>' . _('Internal Stock Request Details') . '</h4></th>
 	</tr>
@@ -425,7 +425,7 @@ $i = 0; //Line Item Array pointer
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<br />
-	<table class="selection">
+	<table>
 	<tr>
 		<th colspan="7"><h4>' . _('Details of Items Requested') . '</h4></th>
 	</tr>
@@ -440,15 +440,8 @@ echo '<br />
 $k = 0;
 
 foreach ($_SESSION['Request']->LineItems as $LineItems) {
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
-	echo '<td>' . $LineItems->LineNumber . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $LineItems->LineNumber . '</td>
 			<td>' . $LineItems->StockID . '</td>
 			<td>' . $LineItems->ItemDescription . '</td>
 			<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
@@ -459,7 +452,6 @@ foreach ($_SESSION['Request']->LineItems as $LineItems) {
 }
 
 echo '</table>
-	<br />
 	<div class="centre">
 		<input type="submit" name="Submit" value="' . _('Submit') . '" />
 	</div>
@@ -484,7 +476,7 @@ if (DB_num_rows($Result1) == 0) {
 	include('includes/footer.php');
 	exit;
 }
-echo '<table class="selection">
+echo '<table>
 	<tr>
 		<td>' . _('In Stock Category') . ':<select name="StockCat">';
 
@@ -726,13 +718,6 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 			DB_data_seek($searchresult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
 		while (($MyRow = DB_fetch_array($searchresult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['mbflag'] == 'D') {
 				$qoh = _('N/A');
 			} else {
@@ -744,7 +729,8 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 				$ItemStatus = '';
 			}
 
-			echo '<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
 					<td>', $MyRow['description'], '</td>
 					<td class="number">', $qoh, '</td>
 					<td>', $MyRow['units'], '</td>
@@ -869,17 +855,10 @@ if (isset($SearchResult)) {
 		} else {
 			$WoQty = 0;
 		}
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$OnOrder = $PurchQty + $WoQty;
 		$Available = $QOH - $DemandQty + $OnOrder;
-		echo '<td>', $MyRow['stockid'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['stockid'], '</td>
 				<td>', $MyRow['description'], '</td>
 				<td>', $MyRow['stockunits'], '</td>
 				<td class="number">', locale_number_format($QOH, $DecimalPlaces), '</td>

@@ -148,40 +148,6 @@ font-weight:700;
 color:red;
 }
 
-table {
-width:auto;
-max-width:90%;
-padding-bottom:5px;
-margin:0 auto;
-}
-
-table.selection {
-padding-bottom:5px;
-}
-
-th {
-background-color:#B06161;
-color:#FFF;
-}
-
-th.number {
-text-align:right;
-background-color:#B06161;
-color:#FFF;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .centre {
 text-align:center;
 margin:0 auto;
@@ -209,14 +175,6 @@ background-color:transparent;
 
 input:required,select:required,textarea:required {
 background-color:#C0C3FF;
-}
-
-.EvenTableRows {
-background-color:#CCC;
-}
-
-.OddTableRows {
-background-color:#EEE;
 }
 
 div.error {
@@ -287,18 +245,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-background:#eee;
-border:0 0 2px 2px #222 solid;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:maroon;
-color:#FFF;
 }
 
 .notavailable {

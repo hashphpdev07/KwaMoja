@@ -48,7 +48,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	}
 
 	/*Show a form to allow input of criteria for Expenses to show */
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Code Of Petty Cash Expense'), ':</td>
 				<td><select name="SelectedExpense">';
@@ -79,11 +79,11 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		</tr>
 		<tr>
 			<td>', _('From Date'), ':', '</td>
-			<td><input tabindex="2" class="date" type="text" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
+			<td><input class="date" type="text" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
 		</tr>
 		<tr>
 			<td>', _('To Date'), ':', '</td>
-			<td><input tabindex="3" class="date" type="text" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
+			<td><input class="date" type="text" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
 		</tr>
 	</table>
 	<div class="centre">
@@ -99,7 +99,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	echo '<input type="hidden" name="FromDate" value="', $_POST['FromDate'], '" />';
 	echo '<input type="hidden" name="ToDate" value="', $_POST['ToDate'], '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Expense Code'), ':</td>
 				<td style="width:200px">', $SelectedExpense, '</td>
@@ -137,7 +137,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 
 	$TabDetail = DB_query($SQL, _('No Petty Cash movements for this expense code were returned by the SQL because'), _('The SQL that failed was:'));
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>', _('Date'), '</th>
 				<th>', _('Tab'), '</th>
@@ -151,13 +151,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($TabDetail)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$ReceiptSQL = "SELECT name
 							FROM pcreceipts
 							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
@@ -169,7 +162,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			$ReceiptText = _('No receipt');
 		}
 
-		echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+		echo '<tr class="striped_row">
+				<td>', ConvertSQLDate($MyRow['date']), '</td>
 				<td>', $MyRow['tabcode'], '</td>
 				<td class="number">', locale_number_format($MyRow['amount'], $MyRow['decimalplaces']), '</td>
 				<td>', $MyRow['currency'], '</td>

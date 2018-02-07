@@ -68,55 +68,7 @@ p.bad {
     font-weight:bold;
     color:red;
 }
-table {
-    background-color:white;
-    margin:0 auto;
-    width:100%;
-    /*border-collapse: collapse;*/
-    border:thin outset #B3B3B3;
 
-    -webkit-border-radius:  4px;
-    -moz-border-radius:     4px;
-    border-radius:          4px;
-    -moz-box-shadow:    1px 1px 2px #C3C3C3;
-	-webkit-box-shadow: 1px 1px 2px #C3C3C3;
-	box-shadow:         1px 1px 2px #C3C3C3;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#C3C3C3')";
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#C3C3C3')
-}
-table.selection {
-}
-th {
-	font-weight:bold;
-	color:#2C2C2C;
-	text-align:center;
-	border-bottom:thin solid #B3B3B3;
-}
-th.number {
-	text-align:right;
-	font-weight:normal;
-	background-color:#800000;
-	color:white;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-    padding:2px 4px;
-	text-align:left;
-	color:#575757;
-}
-td.select {
-	background-color:#eee;
-}
-td.number {
-	text-align:right;
-}
-td table {
-    background: red;
-}
 /*
 table tr:first-child th:first-child, table tr:first-child td:first-child {
     -moz-border-radius-topleft:      4px;
@@ -241,12 +193,6 @@ textarea{
     -moz-border-radius:     4px;
     border-radius:          4px;
 }
-.EvenTableRows {
-	background-color:white;
-}
-.OddTableRows {
-	background-color:#CCCCCC;
-}
 
 div.error {
 	color:red;
@@ -295,25 +241,6 @@ div.info {
 	background-color: #E1E1E1;
 	text-align:right;
 	cursor:pointer;
-}
-
-/* Table type is used for UI tables type 1 */
-.table1 {
-  width:90%;
-  background: #eee;
-  border: 0px 0px 2px 2px #222 solid;
-  margin: 0 auto;
-}
-/* Table type is used for UI tables type 2 */
-.table2 {
-  width:90%;
-  background: #eee;
-  border: 0px 0px 2px 2px #222 solid;
-  margin: 0 auto;
-}
-.tableheader {
-	font-weight: normal;
-	background-color: #777C59;
 }
 .notavailable {
 	font-weight:lighter;

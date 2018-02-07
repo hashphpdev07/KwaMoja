@@ -50,6 +50,7 @@ function getMsg($Msg, $Type = 'info', $Prefix = '') {
 			}
 			break;
 		case 'warn':
+		case 'warning':
 			$Class = 'warn';
 			$Prefix = $Prefix ? $Prefix : _('WARNING') . ' ' . _('Message Report');
 			if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 1) {
@@ -203,7 +204,11 @@ function GetECBCurrencyRates() {
 function GetCurrencyRate($CurrCode, $CurrencyRates) {
 	if ((!isset($CurrenciesArray[$CurrCode]) or !isset($CurrenciesArray[$_SESSION['CompanyRecord']['currencydefault']])) and $_SESSION['UpdateCurrencyRatesDaily'] != '0'){
 		$CurrencyRates = yahoo_currency_rate($CurrCode);
-		return $CurrencyRates[$CurrCode] / $CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']];
+		if (isset($CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']])) {
+			return $CurrencyRates[$CurrCode] / $CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']];
+		} else {
+			return 1;
+		}
 	} elseif ($CurrCode == 'EUR') {
 		if ($CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']] == 0) {
 			return 0;
@@ -253,10 +258,12 @@ function yahoo_currency_rate($CurrCode) {
 			}
 		}
 		$Currencies = array();
-		foreach ($elements[0]->children[1]->children as $CurrencyDetails) {
-			foreach ($CurrencyDetails as $CurrencyDetail) {
-				if (is_array($CurrencyDetail) and isset($CurrencyDetail[0])) {
-					$Currencies[mb_substr($CurrencyDetail[0]->content, 4)] = $CurrencyDetail[1]->content;
+		if (count($elements[0]->children[1]->children) > 0) {
+			foreach ($elements[0]->children[1]->children as $CurrencyDetails) {
+				foreach ($CurrencyDetails as $CurrencyDetail) {
+					if (is_array($CurrencyDetail) and isset($CurrencyDetail[0])) {
+						$Currencies[mb_substr($CurrencyDetail[0]->content, 4)] = $CurrencyDetail[1]->content;
+					}
 				}
 			}
 		}

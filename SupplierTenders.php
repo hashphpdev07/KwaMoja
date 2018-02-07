@@ -77,7 +77,7 @@ if (isset($_POST['Process'])) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Confirm the Response For Tender') . ' ' . $_SESSION['offer' . $Identifier]->TenderID . '</p>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<input type="hidden" name="TenderType" value="3" />';
 	$LocationSQL = "SELECT tenderid,
 						locations.locationname,
@@ -153,7 +153,7 @@ if (isset($_POST['SupplierID']) and empty($_POST['TenderType']) and empty($_POST
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Create or View Offers from') . ' ' . $Supplier . '</p>';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>' . _('Select option for tendering') . '</td>
 			<td><select required="required" name="TenderType">
@@ -302,18 +302,10 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] != 3 and isset($_SESSIO
 	echo '<tbody>';
 	foreach ($_SESSION['offer' . $Identifier]->LineItems as $LineItems) {
 		if ($LineItems->Deleted == False) {
-			if ($LineItems->ExpiryDate < date('Y-m-d')) {
-				echo '<tr style="background-color:#F7A9A9">';
-			} elseif ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
 			echo '<input type="hidden" name="StockID' . $LineItems->LineNo . '" value="' . $LineItems->StockID . '" />';
-			echo '<td>' . $LineItems->StockID . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $LineItems->StockID . '</td>
 					<td>' . $LineItems->ItemDescription . '</td>
 					<td><input type="text" class="number" required="required" maxlebgth="11" name="Qty' . $LineItems->LineNo . '" value="' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '" /></td>
 					<td>' . $LineItems->Units . '</td>
@@ -365,7 +357,7 @@ if (isset($_POST['TenderType']) AND $_POST['TenderType'] == 2 AND !isset($_POST[
 		echo '<br /><a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a></p>';
 		exit;
 	}
-	echo '<table class="selection"><tr>';
+	echo '<table><tr>';
 	echo '<td>' . _('In Stock Category') . ':';
 	echo '<select name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
@@ -429,7 +421,7 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] == 3 and !isset($_POST[
 			AND tendersuppliers.responded=0
 			ORDER BY tendersuppliers.tenderid";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="13"><font size="3" color="#616161">' . _('Outstanding Tenders Waiting For Offer') . '</font></th>
 		</tr>';
@@ -659,14 +651,6 @@ if (isset($_POST['Search'])) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			$SupportedImgExt = array('png', 'jpg', 'jpeg');
 			$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 			$ImageFile = reset($ImageFileArray);
@@ -698,7 +682,8 @@ if (isset($_POST['Search'])) {
 			} else {
 				$UOM = $MyRow['units'];
 			}
-			echo '<td>' . $MyRow['stockid'] . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $UOM . '</td>
 					<td>' . $ImageSource . '</td>

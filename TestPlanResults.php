@@ -115,7 +115,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 		}
 
 		if (true or !isset($LotNumber) or $LotNumber == "") { //revisit later, right now always show all inputs
-			echo '<table class="selection"><tr><td>';
+			echo '<table><tr><td>';
 			if (isset($SelectedStockItem)) {
 				echo _('For the part') . ':<b>' . $SelectedStockItem . '</b> ' . _('and') . ' <input type="hidden" name="SelectedStockItem" value="' . $SelectedStockItem . '" />';
 			}
@@ -131,7 +131,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 				ORDER BY categorydescription";
 		$Result1 = DB_query($SQL);
 		echo '
-				<table class="selection">
+				<table>
 				<tr>
 					<td>';
 		echo _('To search for Pick Lists for a specific part use the part selection facilities below') . '</td></tr>';
@@ -164,7 +164,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			</table>';
 
 		if (isset($StockItemsResult)) {
-			echo '<table class="selection">
+			echo '<table>
 					<thead>
 						<tr>
 							<th class="SortedColumn">' . _('Code') . '</th>
@@ -177,18 +177,12 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			echo '<tbody>';
 			$k = 0; //row colour counter
 			while ($MyRow = DB_fetch_array($StockItemsResult)) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-				echo '<td><input type="submit" name="SelectedStockItem" value="' . $MyRow['stockid'] . '"</td>
-					<td>' . $MyRow['description'] . '</td>
-					<td class="number">' . locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']) . '</td>
-					<td>' . $MyRow['units'] . '</td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td><input type="submit" name="SelectedStockItem" value="' . $MyRow['stockid'] . '"</td>
+						<td>' . $MyRow['description'] . '</td>
+						<td class="number">' . locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']) . '</td>
+						<td>' . $MyRow['units'] . '</td>
+					</tr>';
 
 			}
 			//end of while loop
@@ -262,7 +256,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 			$SampleResult = DB_query($SQL, $ErrMsg);
 			if (DB_num_rows($SampleResult) > 0) {
 
-				echo '<table cellpadding="2" width="90%" class="selection">
+				echo '<table cellpadding="2" width="90%">
 						<thead>
 							<tr>
 								<th class="SortedColumn">' . _('Copy Results') . '</th>
@@ -281,14 +275,6 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 				echo '<tbody>';
 				$k = 0; //row colour counter
 				while ($MyRow = DB_fetch_array($SampleResult)) {
-					if ($k == 1) {
-						/*alternate bgcolour of row for highlighting */
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						$k++;
-					}
 					$ModifySampleID = $RootPath . '/TestPlanResults.php?SelectedSampleID=' . $MyRow['sampleid'];
 					$Copy = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSampleID=' . $SelectedSampleID . '&CopyToSampleID=' . $MyRow['sampleid'] . '">' . _('Copy to This Sample') . '</a>';
 					$FormatedSampleDate = ConvertSQLDate($MyRow['sampledate']);
@@ -299,7 +285,8 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 						$CertAllowed = _('No');
 					}
 
-					echo '<td><input type="radio" name="CopyToSampleID" value="' . $MyRow['sampleid'] . '">
+					echo '<tr class="striped_row">
+							<td><input type="radio" name="CopyToSampleID" value="' . $MyRow['sampleid'] . '">
 							<td><a target="blank" href="' . $ModifySampleID . '">' . str_pad($MyRow['sampleid'], 10, '0', STR_PAD_LEFT) . '</a></td>
 							<td>' . $MyRow['prodspeckey'] . '</td>
 							<td>' . $MyRow['description'] . '</td>
@@ -487,7 +474,7 @@ if (isset($_GET['ListTests'])) {
 	$Result = DB_query($SQL);
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Add') . '</th>
@@ -504,14 +491,6 @@ if (isset($_GET['ListTests'])) {
 	$i = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		++$i;
 		$Class = '';
 		$RangeMin = '';
@@ -544,7 +523,8 @@ if (isset($_GET['ListTests'])) {
 				//$Class="number";
 				break;
 		} //end switch
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
 			<td>%s</td>
 			<td>%s</td>
 			<td>%s</td>
@@ -722,7 +702,7 @@ if ($MyRow['cert'] == 1) {
 }
 
 echo '<input type="hidden" name="SelectedSampleID" value="' . $SelectedSampleID . '" />';
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th>' . _('Sample ID') . '</th>
@@ -736,7 +716,7 @@ echo '<table class="selection">
 		</thead>';
 
 echo '<tbody>
-		<tr class="EvenTableRows">
+		<tr class="striped_row">
 			<td>' . str_pad($SelectedSampleID, 10, '0', STR_PAD_LEFT) . '</td>
 			<td>' . $MyRow['prodspeckey'] . ' - ' . $MyRow['description'] . '</td>
 			<td>' . $MyRow['lotkey'] . '</td>
@@ -777,7 +757,7 @@ $SQL = "SELECT sampleid,
 
 $Result = DB_query($SQL);
 
-echo '<table cellpadding="2" width="90%" class="selection">
+echo '<table cellpadding="2" width="90%">
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Test Name') . '</th>
@@ -806,14 +786,6 @@ $TechSql = "SELECT userid,
 $TechResult = DB_query($TechSql);
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($Result)) {
-	if ($k == 1) {
-		/*alternate bgcolour of row for highlighting */
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;;
-	}
 	++$i;
 	$CompareVal = 'yes';
 	$CompareRange = 'no';
@@ -915,7 +887,8 @@ while ($MyRow = DB_fetch_array($Result)) {
 	if ($MyRow['testedby'] == '') {
 		$MyRow['testedby'] = $_SESSION['UserID'];
 	}
-	echo '<td><input type="hidden" name="ResultID' . $i . '" value="' . $MyRow['resultid'] . '" /> ' . $MyRow['name'] . '
+	echo '<tr class="striped_row">
+			<td><input type="hidden" name="ResultID' . $i . '" value="' . $MyRow['resultid'] . '" /> ' . $MyRow['name'] . '
 			<input type="hidden" name="ExpectedValue' . $i . '" value="' . $MyRow['targetvalue'] . '" />
 			<input type="hidden" name="MinVal' . $i . '" value="' . $MyRow['rangemin'] . '" />
 			<input type="hidden" name="MaxVal' . $i . '" value="' . $MyRow['rangemax'] . '" />

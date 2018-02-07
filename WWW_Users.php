@@ -356,7 +356,7 @@ if (!isset($SelectedUser)) {
 				FROM www_users";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('User Login') . '</th>
@@ -379,13 +379,6 @@ if (!isset($SelectedUser)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['lastvisitdate'] == '') {
 			$LastVisitDate = _('User has not logged in yet');
@@ -410,7 +403,8 @@ if (!isset($SelectedUser)) {
 				$FontSize = _('Medium');
 		}
 
-		echo '<td>', $MyRow['userid'], '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['userid'], '</td>
 				<td>', $MyRow['realname'], '</td>
 				<td>', $MyRow['phone'], '</td>
 				<td>', $MyRow['email'], '</td>
@@ -502,7 +496,7 @@ if (isset($SelectedUser)) {
 	echo '<input type="hidden" name="UserID" value="' . $_POST['UserID'] . '" />';
 	echo '<input type="hidden" name="ModulesAllowed" value="' . $_POST['ModulesAllowed'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('User code') . ':</td>
 				<td>' . $_POST['UserID'] . '</td>
@@ -510,7 +504,7 @@ if (isset($SelectedUser)) {
 
 } else { //end of if $SelectedUser only do the else when a new record is being entered
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('User Login') . ':</td>
 				<td><input type="text" name="UserID" size="22" required="required" maxlength="20" /></td>

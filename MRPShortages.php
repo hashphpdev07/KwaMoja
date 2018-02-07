@@ -253,7 +253,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr><td>' . _('Inventory Category') . ':</td><td><select name="CategoryID">';
 	echo '<option selected="selected" value="All">' . _('All Stock Categories') . '</option>';
 	$SQL = "SELECT categoryid,

@@ -141,7 +141,7 @@ if (!isset($SelectedType)) {
 				FROM stocktypes";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Type Code') . '</th>
 				<th>' . _('Type Name') . '</th>
@@ -151,13 +151,6 @@ if (!isset($SelectedType)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['physicalitem'] == 0) {
 			$PhysicalItem = _('No');
@@ -165,7 +158,8 @@ if (!isset($SelectedType)) {
 			$PhysicalItem = _('Yes');
 		}
 
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td><a href="%sSelectedType=%s">' . _('Edit') . '</a></td>
@@ -209,7 +203,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
 		echo '<input type="hidden" name="TypeAbbrev" value="' . $_POST['TypeAbbrev'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
 				</tr>';
@@ -222,7 +216,7 @@ if (!isset($_GET['delete'])) {
 
 		// This is a new type so the user may volunteer a type code
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
 				</tr>

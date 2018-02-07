@@ -104,7 +104,7 @@ if (!isset($SelectedDT) or isset($_GET['delete'])) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Demand Type') . '</th>
 				<th>' . _('Description') . '</th>
@@ -149,7 +149,7 @@ if (isset($SelectedDT) and !isset($_GET['delete'])) {
 
 	echo '<input type="hidden" name="SelectedDT" value="' . $SelectedDT . '" />';
 	echo '<input type="hidden" name="MRPDemandType" value="' . $_POST['MRPDemandType'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Demand Type') . ':</td>
 				<td>' . $_POST['MRPDemandType'] . '</td>
@@ -159,7 +159,7 @@ if (isset($SelectedDT) and !isset($_GET['delete'])) {
 	if (!isset($_POST['MRPDemandType'])) {
 		$_POST['MRPDemandType'] = '';
 	}
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Demand Type') . ':</td>
 				<td><input type="text" name="MRPDemandType" size="6" required="required" maxlength="5" value="' . $_POST['MRPDemandType'] . '" /></td>

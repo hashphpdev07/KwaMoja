@@ -28,7 +28,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection" summary="' . _('Criteria for report') . '">
+	echo '<table summary="' . _('Criteria for report') . '">
 			<tr>
 				<td>' . _('Select the balance date') . ':</td>
 				<td><select name="BalancePeriodEnd">';
@@ -155,7 +155,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$MyRow = DB_fetch_row($PrdResult);
 	$BalanceDate = ConvertSQLDate($MyRow[0]);
 
-	echo '<table class="selection" summary="' . _('HTML View') . '">
+	echo '<table summary="' . _('HTML View') . '">
 			<thead>
 				<tr>
 					<th colspan="8">
@@ -392,14 +392,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 					<td>---------------------</td>
 				</tr>';
 		}
-		if ($i == 0) {
-			$RowClass = 'EvenTableRows';
-			$i = 1;
-		} else {
-			$RowClass = 'OddTableRows';
-			$i = 0;
-		}
-		echo '<tr class="' . $RowClass . '">
+		echo '<tr class="striped_row">
 				<td>' . $MainAccountListRow['accountcode'] . '</td>
 				<td>' . $MainAccountListRow['accountname'] . '</td>
 				<td class="number">' . locale_number_format($MainAccountListRow['balance'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>

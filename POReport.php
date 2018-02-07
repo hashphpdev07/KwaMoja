@@ -486,7 +486,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 		$Detail_Array['suppliers.suppname,suppliers.supplierid,purchorderdetails.orderno'] = _('Supplier Name');
 
 		// Display Header info
-		echo '<table class="selection">';
+		echo '<table>';
 		if ($_POST['ReportType'] == 'Summary') {
 			$SortBy_Display = $Summary_Array[$SaveSummaryType];
 		} else {
@@ -536,7 +536,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 		</table>';
 
 		if ($_POST['ReportType'] == 'Detail') {
-			echo '<br /><table class="selection" width="98%">';
+			echo '<br /><table width="98%">';
 			if ($_POST['DateType'] == 'Order') {
 				echo '<tr>
 						<th>' . _('Order No') . '</th>
@@ -557,16 +557,10 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 				$linectr = 0;
 				$k = 0;
 				while ($MyRow = DB_fetch_array($Result)) {
-					if ($k == 1) {
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						++$k;
-					}
 					$linectr++;
 					// Detail for both DateType of Order
-					echo '<td><a href="' . $RootPath . '/PO_OrderDetails.php?OrderNo=' . urlencode($MyRow['orderno']) . '">' . $MyRow['orderno'] . '</a></td>
+					echo '<tr class="striped_row">
+							<td><a href="' . $RootPath . '/PO_OrderDetails.php?OrderNo=' . urlencode($MyRow['orderno']) . '">' . $MyRow['orderno'] . '</a></td>
 							<td>' . $MyRow['itemcode'] . '</td>
 							<td>' . ConvertSQLDate($MyRow['orddate']) . '</td>
 							<td>' . $MyRow['supplierno'] . '</td>
@@ -621,29 +615,23 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 				$linectr = 0;
 				$k = 0;
 				while ($MyRow = DB_fetch_array($Result)) {
-					if ($k == 1) {
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						++$k;
-					}
 					$linectr++;
 					// Detail for both DateType of Ship
 					// In sql, had to alias grns.qtyrecd as quantityord so could use same name here
-					printf('<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td class="number">%s</td>
-							<td>%s</td>
-							<td>%s</td>
-							<td>%s</td>
+					printf('<tr class="striped_row">
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td class="number">%s</td>
+								<td>%s</td>
+								<td>%s</td>
+								<td>%s</td>
 							</tr>', $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], locale_number_format($MyRow['quantityrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['quantityord'], $MyRow['decimalplaces']), locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), locale_number_format($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
 
 					$LastDecimalPlaces = $MyRow['decimalplaces'];
@@ -670,7 +658,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 			echo '</table>';
 		} else {
 			// Print summary stuff
-			echo '<br /><table class="selection" width="98%">';
+			echo '<br /><table width="98%">';
 			$summarytype = $_POST['SummaryType'];
 			// For SummaryType 'suppname' had to add supplierid to it for the GROUP BY in the sql,
 			// but have to take it away for $MyRow[$summarytype] to be valid
@@ -727,19 +715,14 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 				if ($summarytype == 'orderno') {
 					$suppname = $MyRow['suppname'];
 				}
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
 						</tr>', $MyRow[$summarytype], $MyRow[$description], $MyRow['quantityord'], locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), $MyRow['qtyinvoiced'], $suppname);
 				$TotalQty += $MyRow['quantityord'];
 				$TotalExtCost += $MyRow['extcost'];
@@ -1331,7 +1314,7 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Report Type') . ':</td>
 				<td>

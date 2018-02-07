@@ -126,7 +126,7 @@ function SyncProductBasicInformation($ShowMessages, $LastTimeRun, $oc_tableprefi
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product Basic Info') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Description') . '</th>
@@ -141,15 +141,6 @@ function SyncProductBasicInformation($ShowMessages, $LastTimeRun, $oc_tableprefi
 
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-			}
 			/* Field Matching */
 			$Model = $MyRow['stockid'];
 			$SKU = $MyRow['stockid'];
@@ -408,7 +399,8 @@ function SyncProductBasicInformation($ShowMessages, $LastTimeRun, $oc_tableprefi
 			}
 
 			if ($ShowMessages) {
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>
 						<td class="number">%s</td>
@@ -456,7 +448,7 @@ function SyncProductSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product - Sales Categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Sales Category') . '</th>
@@ -504,14 +496,8 @@ function SyncProductSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix
 				$ResultInsert = DB_query_oc($SQLInsert, $InsertErrMsg, $DbgMsg, true);
 			}
 			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>
@@ -563,7 +549,7 @@ function SyncProductPrices($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailT
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product Prices Updates') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('New Price') . '</th>
@@ -576,15 +562,6 @@ function SyncProductPrices($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailT
 
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-			}
 
 			/* Field Matching */
 			$Model = $MyRow['stockid'];
@@ -607,7 +584,8 @@ function SyncProductPrices($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailT
 			// update discounts if needed
 			MaintainOpenCartDiscountForItem($ProductId, $Price, $DiscountCategory, $PriceList, $oc_tableprefix);
 			if ($ShowMessages) {
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td class="number">%s</td>
 						<td>%s</td>
 						<td>%s</td>
@@ -656,7 +634,7 @@ function SyncProductQOH($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Product QOH Updates') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Online QOH') . '</th>
@@ -691,16 +669,8 @@ function SyncProductQOH($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText
 						WHERE product_id = '" . $ProductId . "'";
 			$ResultUpdate = DB_query_oc($SQLUpdate, $UpdateErrMsg, $DbgMsg, true);
 			if ($ShowMessages) {
-				if ($ShowMessages) {
-					if ($k == 1) {
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						++$k;
-					}
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td class="number">%s</td>
 						<td>%s</td>
 						</tr>', $Model, locale_number_format($Quantity, 0), $Action);
@@ -754,7 +724,7 @@ function CleanDuplicatedUrlAlias($ShowMessages, $LastTimeRun, $oc_tableprefix, $
 				if ($ShowHeader) {
 					if ($ShowMessages) {
 						echo '<p class="page_title_text" align="center"><strong>' . _('Duplicated URL Alias clean up') . '</strong></p>';
-						echo '<table class="selection">
+						echo '<table>
 								<tr>
 									<th>' . _('URL Alias ID') . '</th>
 									<th>' . _('Query') . '</th>
@@ -795,14 +765,8 @@ function CleanDuplicatedUrlAlias($ShowMessages, $LastTimeRun, $oc_tableprefix, $
 				}
 
 				if ($ShowMessages) {
-					if ($k == 1) {
-						echo '<tr class="EvenTableRows">';
-						$k = 0;
-					} else {
-						echo '<tr class="OddTableRows">';
-						++$k;
-					}
-					printf('<td class="number">%s</td>
+					printf('<tr class="striped_row">
+							<td class="number">%s</td>
 							<td>%s</td>
 							<td>%s</td>
 							</tr>', locale_number_format($MyRow['url_alias_id'], 0), $MyRow['query'], $MyRow['keyword']);
@@ -846,7 +810,7 @@ function SyncSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix, $Emai
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Sales categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('SalesCatID') . '</th>
 						<th>' . _('SalesCatName') . '</th>
@@ -959,14 +923,8 @@ function SyncSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix, $Emai
 
 			}
 			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>
 						</tr>', $MyRow['salescatid'], $Name, $Action);
@@ -1011,7 +969,7 @@ function SyncFeaturedList($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Create featured list in OpenCart') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('OpenCartID') . '</th>
@@ -1034,14 +992,8 @@ function SyncFeaturedList($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 				$ListFeaturedOpenCart = $ListFeaturedOpenCart . "," . strval($ProductId);
 			}
 			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td class="number">%s</td>
 						<td>%s</td>
 						</tr>', $Model, $ProductId, $Action);
@@ -1085,7 +1037,7 @@ function ActivateCategoryDependingOnQOH($ShowMessages, $LastTimeRun, $oc_tablepr
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Activate/Inactivate Categories depending on QOH') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('Sales Category') . '</th>
 						<th>' . _('QOH') . '</th>
@@ -1116,14 +1068,8 @@ function ActivateCategoryDependingOnQOH($ShowMessages, $LastTimeRun, $oc_tablepr
 							WHERE category_id = '" . $CategoryId . "'";
 			$ResultUpdate = DB_query_oc($SQLUpdate, $UpdateErrMsg, $DbgMsg, true);
 			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td class="number">%s</td>
 						<td>%s</td>
 						</tr>', $CategoryName, locale_number_format($CategoryQOH, 0), $Action);
@@ -1171,7 +1117,7 @@ function MaintainOpenCartOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Maintain Outlet Sales Categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Action') . '</th>
@@ -1192,14 +1138,8 @@ function MaintainOpenCartOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_
 								AND category_id NOT IN (" . OPENCART_OUTLET_CATEGORIES . ")";
 			$ResultDelete = DB_query_oc($SQLDelete, $UpdateErrMsg, $DbgMsg, true);
 			if ($ShowMessages) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td>%s</td>
 						</tr>', $Model, $Action);
 			}
@@ -1231,7 +1171,7 @@ function MaintainKwaMojaOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_t
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Maintain KwaMoja Outlet Sales Categories') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('StockID') . '</th>
 						<th>' . _('Action') . '</th>
@@ -1242,13 +1182,6 @@ function MaintainKwaMojaOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_t
 
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 
 			$ProductId = $MyRow['stockid'];
 
@@ -1258,7 +1191,8 @@ function MaintainKwaMojaOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_t
 								AND salescatid NOT IN (" . KWAMOJA_OUTLET_CATEGORIES . ")";
 			$ResultDelete = DB_query($SQLDelete, $UpdateErrMsg, $DbgMsg, true);
 			if ($ShowMessages) {
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td>%s</td>
 						</tr>', $ProductId, $Action);
 			}
@@ -1284,7 +1218,7 @@ function SyncMultipleImages($ShowMessages, $LastTimeRun, $oc_tableprefix, $Email
 
 	if ($ShowMessages) {
 		echo '<p class="page_title_text" align="center"><strong>' . _('Synchronize multiple images per item') . '</strong></p>';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>' . _('KwaMoja Code') . '</th>
 					<th>' . _('File') . '</th>
@@ -1319,14 +1253,8 @@ function SyncMultipleImages($ShowMessages, $LastTimeRun, $oc_tableprefix, $Email
 									'" . $multipleimage . "')";
 					$ResultInsert = DB_query_oc($SQLInsert, $InsertErrMsg, $DbgMsg, true);
 					if ($ShowMessages) {
-						if ($k == 1) {
-							echo '<tr class="EvenTableRows">';
-							$k = 0;
-						} else {
-							echo '<tr class="OddTableRows">';
-							++$k;
-						}
-						printf('<td>%s</td>
+						printf('<tr class="striped_row">
+								<td>%s</td>
 								<td>%s</td>
 								</tr>', $StockId, $file);
 					}
@@ -1361,7 +1289,7 @@ function SyncRelatedItems($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 	if (DB_num_rows($Result) != 0) {
 		if ($ShowMessages) {
 			echo '<p class="page_title_text" align="center"><strong>' . _('Related Items') . '</strong></p>';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<th>' . _('Item KwaMoja') . '</th>
 						<th>' . _('Related KwaMoja') . '</th>
@@ -1376,13 +1304,6 @@ function SyncRelatedItems($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 
 			/* FIELD MATCHING */
 			$ProductId = GetOpenCartProductId($MyRow['stockid'], $oc_tableprefix);
@@ -1402,7 +1323,8 @@ function SyncRelatedItems($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 				$ResultInsert = DB_query_oc($SQLInsert, $InsertErrMsg, $DbgMsg, true);
 			}
 			if ($ShowMessages) {
-				printf('<td>%s</td>
+				printf('<tr class="striped_row">
+						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>
 						<td>%s</td>

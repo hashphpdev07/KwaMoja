@@ -69,7 +69,7 @@ if (!isset($_POST['continue'])) {
 			$Result = DB_query($SQL);
 		}
 	}
-	echo '<table class="selection"><tr>';
+	echo '<table><tr>';
 	echo '<th colspan="4" class="header"><b>' . _('Database Updates Have Been Run') . '</b></th></tr>';
 	echo '<tr><td style="background-color: #fddbdb;color: red;">' . $_SESSION['Updates']['Errors'] . ' ' . _('updates have errors in them') . '</td></tr>';
 	echo '<tr><td style="background-color: #b9ecb4;color: #006400;">' . $_SESSION['Updates']['Successes'] . ' ' . _('updates have succeeded') . '</td></tr>';

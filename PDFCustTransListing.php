@@ -28,7 +28,7 @@ if (!isset($_POST['Date'])) {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" /></div>';
-	echo '<table class="selection" summary="' . _('Input criteria for report') . '">
+	echo '<table summary="' . _('Input criteria for report') . '">
 	 		<tr>
 				<td>' . _('Enter the date for which the transactions are to be listed') . ':</td>
 				<td><input type="text" name="Date" required="required" maxlength="10" size="10" class="date" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>

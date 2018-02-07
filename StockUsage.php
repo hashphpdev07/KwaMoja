@@ -36,7 +36,7 @@ $DecimalPlaces = $MyRow[3];
 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 $ItsKitSetAssemblyOrDummy = False;
 if ($MyRow[2] == 'K' OR $MyRow[2] == 'A' OR $MyRow[2] == 'D') {
@@ -136,7 +136,7 @@ if (isset($_POST['ShowUsage'])) {
 		exit;
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Month') . '</th>
@@ -151,19 +151,12 @@ if (isset($_POST['ShowUsage'])) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$DisplayDate = MonthAndYearFromSQLDate($MyRow['lastdate_in_period']);
 
 		$TotalUsage += $MyRow['qtyused'];
 		$PeriodsCounter++;
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td class="number">%s</td>
 				</tr>', $DisplayDate, locale_number_format($MyRow['qtyused'], $DecimalPlaces));
 

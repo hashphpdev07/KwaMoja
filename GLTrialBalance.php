@@ -42,7 +42,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$NotUsedPeriodNo = GetPeriod($FromDate);
 
 	/*Show a form to allow input of criteria for TB to show */
-	echo '<table class="selection" summary="' . _('Input criteria for inquiry') . '">
+	echo '<table summary="' . _('Input criteria for inquiry') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -459,7 +459,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	/*show a table of the accounts info returned by the SQL
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
-	echo '<table cellpadding="2" class="selection" summary="' . _('Trial Balance Report') . '">';
+	echo '<table cellpadding="2" summary="' . _('Trial Balance Report') . '">';
 	echo '<thead>
 			<tr>
 				<th colspan="6">
@@ -580,16 +580,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					</tr>', $MyRow['groupname']);
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		/*MonthActual, MonthBudget, FirstPrdBFwd, FirstPrdBudgetBFwd, LastPrdBudgetCFwd, LastPrdCFwd */
-
-
 		if ($MyRow['pandl'] == 1) {
 
 			$AccountPeriodActual = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
@@ -636,12 +626,13 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 		$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?FromPeriod=' . $_POST['FromPeriod'] . '&amp;ToPeriod=' . $_POST['ToPeriod'] . '&amp;Account=' . $MyRow['accountcode'] . '&amp;Show=Yes">' . $MyRow['accountcode'] . '</a>';
 
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
 				</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format($MyRow['monthactual'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['monthbudget'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']));
 
 		++$j;

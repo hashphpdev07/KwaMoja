@@ -259,7 +259,7 @@ if (!is_date($_SESSION['JournalDetail']->JnlDate)) {
 
 echo '<table>
 		<tr>
-			<td colspan="5"><table class="selection">
+			<td colspan="5"><table>
 						<tr>
 							<td>' . _('Date to Process Journal') . ':</td>';
 
@@ -285,7 +285,7 @@ echo '</select></td>
 	</table>';
 /* close off the table in the first column  */
 
-echo '<table class="selection" width="70%">';
+echo '<table width="70%">';
 /* Set upthe form for the transaction entry for a GL Payment Analysis item */
 
 echo '<tr>
@@ -392,7 +392,7 @@ echo '<div class="centre">
 		<input type="submit" name="Process" value="' . _('Accept') . '" />
 	</div>';
 
-echo '<table class="selection" width="85%">
+echo '<table width="85%">
 		<tr>
 			<th colspan="6"><div class="centre"><h2>' . _('Journal Summary') . '</h2></div></th>
 		</tr>
@@ -409,14 +409,8 @@ $CreditTotal = 0;
 $j = 0;
 
 foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
-	if ($j == 1) {
-		echo '<tr class="OddTableRows">';
-		$j = 0;
-	} else {
-		echo '<tr class="EvenTableRows">';
-		++$j;
-	}
-	echo '<td>';
+	echo '<tr class="striped_row">
+			<td>';
 	foreach ($JournalItem->tag as $Tag) {
 		$SQL = "SELECT tagdescription
 				FROM tags
@@ -448,7 +442,7 @@ foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
 	</tr>';
 }
 
-echo '<tr class="EvenTableRows"><td></td>
+echo '<tr class="striped_row"><td></td>
 		<td class="number"><b>' . _('Total') . '</b></td>
 		<td class="number"><b>' . locale_number_format($DebitTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>
 		<td class="number"><b>' . locale_number_format($CreditTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>

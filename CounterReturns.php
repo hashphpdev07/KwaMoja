@@ -695,22 +695,14 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		$DisplayDiscount = locale_number_format(($ReturnItemLine->DiscountPercent * 100), 2);
 		$QtyReturned = $ReturnItemLine->Quantity;
 
-		if ($k == 1) {
-			$RowStarter = '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			$RowStarter = '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-
-		echo $RowStarter;
 		echo '<input type="hidden" name="POLine_' . $ReturnItemLine->LineNumber . '" value="" />';
 		echo '<input type="hidden" name="ItemDue_' . $ReturnItemLine->LineNumber . '" value="' . $ReturnItemLine->ItemDue . '" />';
 
-		echo '<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?identifier=' . $Identifier . '&StockID=' . $ReturnItemLine->StockID . '&DebtorNo=' . $_SESSION['Items' . $Identifier]->DebtorNo . '">' . $ReturnItemLine->StockID . '</a></td>
-			<td title="' . $ReturnItemLine->LongDescription . '">' . $ReturnItemLine->ItemDescription . '</td>';
+		echo '<tr class="striped_row">
+				<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?identifier=' . $Identifier . '&StockID=' . $ReturnItemLine->StockID . '&DebtorNo=' . $_SESSION['Items' . $Identifier]->DebtorNo . '">' . $ReturnItemLine->StockID . '</a></td>
+				<td title="' . $ReturnItemLine->LongDescription . '">' . $ReturnItemLine->ItemDescription . '</td>';
 
-		echo '<td><input class="number" tabindex="2" type="text" name="Quantity_' . $ReturnItemLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($ReturnItemLine->Quantity, $ReturnItemLine->DecimalPlaces) . '" />';
+		echo '<td><input class="number" type="text" name="Quantity_' . $ReturnItemLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($ReturnItemLine->Quantity, $ReturnItemLine->DecimalPlaces) . '" />';
 
 		echo '</td>
 				<td>' . $ReturnItemLine->Units . '</td>
@@ -767,7 +759,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	}
 	/* end of loop around items */
 
-	echo '<tr class="EvenTableRows">
+	echo '<tr class="striped_row">
 			<td colspan="7" class="number"><b>', _('Total'), '</b></td>
 			<td class="number">', locale_number_format(($_SESSION['Items' . $Identifier]->total), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
 			<td class="number">', locale_number_format($TaxTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
@@ -831,7 +823,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		</tr>';
 	echo '</table>'; //end the sub table in the first column of master table
 	echo '</td><th valign="bottom">'; //for the master table
-	echo '<table class="selection">'; // a new nested table in the second column of master table
+	echo '<table>'; // a new nested table in the second column of master table
 
 	//now the payment stuff in this column
 	$PaymentMethodsResult = DB_query("SELECT paymentid, paymentname FROM paymentmethods");
@@ -1700,7 +1692,7 @@ if (!isset($_POST['ProcessReturn'])) {
 				', _('Search for Items'), '. ', _('Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code'), '.
 			</div>';
 
-		echo '<table class="selection">';
+		echo '<table>';
 
 		$SQL = "SELECT categoryid,
 					categorydescription
@@ -1710,7 +1702,7 @@ if (!isset($_POST['ProcessReturn'])) {
 		$Result1 = DB_query($SQL);
 		echo '<tr>
 				<td><b>', _('Select a Stock Category'), ': </b>
-					<select tabindex="1" name="StockCat">';
+					<select name="StockCat">';
 		if (!isset($_POST['StockCat'])) {
 			echo '<option selected="selected" value="All">', _('All'), '</option>';
 			$_POST['StockCat'] = 'All';
@@ -1740,7 +1732,7 @@ if (!isset($_POST['ProcessReturn'])) {
 		}
 		echo '<td align="right">
 				<b>', _('OR'), ' ', _('Enter extract of the Stock Code'), ':</b>
-				<input tabindex="3" type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+				<input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
 			</td>
 		</tr>
 	</table>';
@@ -1824,17 +1816,10 @@ if (!isset($_POST['ProcessReturn'])) {
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$QOO += GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-
 				$Available = $QOH - $DemandQty + $QOO;
 
-				echo '<td>', $MyRow['stockid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['stockid'], '</td>
 						<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td class="number">', locale_number_format($QOH, $MyRow['decimalplaces']), '</td>

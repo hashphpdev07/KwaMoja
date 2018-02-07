@@ -21,7 +21,7 @@ $SQL = "SELECT categoryid,
 			ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
 
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<td style="width:150px">' . _('In Stock Category') . ':</td>
 			<td><select name="StockCat">';
@@ -62,7 +62,7 @@ echo '<tr>
 	</tr>
 </table>
 <div class="centre">
-	<input tabindex="4" type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
+	<input type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
 </div>
 </form>';
 
@@ -108,7 +108,7 @@ if (isset($_POST['ShowSales'])) {
 	$ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 	$SalesResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 
 	echo '<tr>
 			<th>' . _('Item Code') . '</th>
@@ -161,15 +161,8 @@ if (isset($_POST['ShowSales'])) {
 			$CategoryID = $SalesRow['categoryid'];
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $SalesRow['stockid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $SalesRow['stockid'] . '</td>
 				<td>' . $SalesRow['description'] . '</td>
 				<td class="number">' . locale_number_format($SalesRow['quantitysold'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($SalesRow['salesvalue'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>

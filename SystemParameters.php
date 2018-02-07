@@ -347,6 +347,36 @@ if (isset($_POST['submit'])) {
 			$ItemDescriptionLanguages = '';
 			foreach ($_POST['X_ItemDescriptionLanguages'] as $ItemLanguage) {
 				$ItemDescriptionLanguages .= $ItemLanguage . ',';
+				$AllStockItemsSQL = "SELECT stockid FROM stockmaster";
+				$AllStockItemsResult = DB_query($AllStockItemsSQL);
+				while ($AllStockRow = DB_fetch_array($AllStockItemsResult)) {
+					$LanguageCheckSQL = "SELECT needsrevision
+											FROM stockdescriptiontranslations
+											WHERE stockid='" . $AllStockRow['stockid'] . "'
+											AND language_id='" . $ItemLanguage . "'";
+					$LanguageCheckResult = DB_query($LanguageCheckSQL);
+					if (DB_num_rows($LanguageCheckResult) == 0) {
+						$InsertSQL = "INSERT INTO stockdescriptiontranslations VALUES ( '" . $AllStockRow['stockid'] . "',
+																						'" . $ItemLanguage . "',
+																						'',
+																						1
+																					)";
+						$Result = DB_query($InsertSQL);
+					}
+					$LanguageCheckSQL = "SELECT needsrevision
+											FROM stocklongdescriptiontranslations
+											WHERE stockid='" . $AllStockRow['stockid'] . "'
+											AND language_id='" . $ItemLanguage . "'";
+					$LanguageCheckResult = DB_query($LanguageCheckSQL);
+					if (DB_num_rows($LanguageCheckResult) == 0) {
+						$InsertSQL = "INSERT INTO stocklongdescriptiontranslations VALUES ( '" . $AllStockRow['stockid'] . "',
+																						'" . $ItemLanguage . "',
+																						'',
+																						1
+																					)";
+						$Result = DB_query($InsertSQL);
+					}
+				}
 			}
 
 			if ($_SESSION['ItemDescriptionLanguages'] != $ItemDescriptionLanguages) {
@@ -381,7 +411,7 @@ if (isset($_POST['submit'])) {
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table cellpadding="2" class="selection" width="98%">
+echo '<table cellpadding="2" width="98%">
 		<tr>
 			<th>' . _('System Variable Name') . '</th>
 			<th>' . _('Value') . '</th>

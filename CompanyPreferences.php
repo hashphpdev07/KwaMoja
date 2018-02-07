@@ -8,14 +8,8 @@ $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'CompanyParameters';
 include('includes/header.php');
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
 //initialise no input errors assumed initially before we test
 $InputError = 0;
-$Errors = array();
-$i = 1;
 
 if (isset($_POST['submit'])) {
 
@@ -28,68 +22,46 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['CoyName']) > 50 or mb_strlen($_POST['CoyName']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The company name must be entered and be fifty characters or less long'), 'error');
-		$Errors[$i] = 'CoyName';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice1']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 1 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice1';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice2']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 2 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice2';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice3']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 3 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice3';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice4']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 4 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice4';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice5']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The Line 5 of the address must be twenty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice5';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice6']) > 15) {
 		$InputError = 1;
 		prnMsg(_('The Line 6 of the address must be fifteen characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice6';
-		++$i;
 	}
 	if (mb_strlen($_POST['Telephone']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The telephone number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Telephone';
-		++$i;
 	}
 	if (mb_strlen($_POST['Fax']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The fax number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Fax';
-		++$i;
 	}
 	if (mb_strlen($_POST['Email']) > 55) {
 		$InputError = 1;
 		prnMsg(_('The email address must be 55 characters or less long'), 'error');
-		$Errors[$i] = 'Email';
-		++$i;
 	}
 	if (mb_strlen($_POST['Email']) > 0 and !IsEmailAddress($_POST['Email'])) {
 		$InputError = 1;
 		prnMsg(_('The email address is not correctly formed'), 'error');
-		$Errors[$i] = 'Email';
-		++$i;
 	}
 
 	if ($InputError != 1) {
@@ -218,7 +190,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 if ($InputError != 1) {
 	$SQL = "SELECT coyname,
@@ -292,62 +264,62 @@ if (DB_num_rows($Result) == 0) {
 
 echo '<tr>
 		<td>' . _('Name') . ' (' . _('to appear on reports') . '):</td>
-		<td><input tabindex="1" type="text" name="CoyName" value="' . stripslashes($_POST['CoyName']) . '" size="52" required="required" maxlength="50" /></td>
+		<td><input type="text" name="CoyName" value="' . stripslashes($_POST['CoyName']) . '" size="52" required="required" maxlength="50" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Official Company Number') . ':</td>
-		<td><input tabindex="2" type="text" name="CompanyNumber" value="' . $_POST['CompanyNumber'] . '" size="22" maxlength="20" /></td>
+		<td><input type="text" name="CompanyNumber" value="' . $_POST['CompanyNumber'] . '" size="22" maxlength="20" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Tax Authority Reference') . ':</td>
-		<td><input tabindex="3" type="text" name="GSTNo" value="' . stripslashes($_POST['GSTNo']) . '" size="22" maxlength="20" /></td>
+		<td><input type="text" name="GSTNo" value="' . stripslashes($_POST['GSTNo']) . '" size="22" maxlength="20" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Address Line 1') . ':</td>
-		<td><input tabindex="4" type="text" name="RegOffice1" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice1']) . '" /></td>
+		<td><input type="text" name="RegOffice1" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice1']) . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Address Line 2') . ':</td>
-		<td><input tabindex="5" type="text" name="RegOffice2" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice2']) . '" /></td>
+		<td><input type="text" name="RegOffice2" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice2']) . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Address Line 3') . ':</td>
-		<td><input tabindex="6" type="text" name="RegOffice3" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice3']) . '" /></td>
+		<td><input type="text" name="RegOffice3" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice3']) . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Address Line 4') . ':</td>
-		<td><input tabindex="7" type="text" name="RegOffice4" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice4']) . '" /></td>
+		<td><input type="text" name="RegOffice4" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice4']) . '" /></td>
 </tr>';
 
 echo '<tr>
 		<td>' . _('Address Line 5') . ':</td>
-		<td><input tabindex="8" type="text" name="RegOffice5" size="22" maxlength="20" value="' . stripslashes($_POST['RegOffice5']) . '" /></td>
+		<td><input type="text" name="RegOffice5" size="22" maxlength="20" value="' . stripslashes($_POST['RegOffice5']) . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Address Line 6') . ':</td>
-		<td><input tabindex="9" type="text" name="RegOffice6" size="17" maxlength="15" value="' . stripslashes($_POST['RegOffice6']) . '" /></td>
+		<td><input type="text" name="RegOffice6" size="17" maxlength="15" value="' . stripslashes($_POST['RegOffice6']) . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Telephone Number') . ':</td>
-		<td><input tabindex="10" type="tel" name="Telephone" size="26" maxlength="25" value="' . $_POST['Telephone'] . '" /></td>
+		<td><input type="tel" name="Telephone" size="26" maxlength="25" value="' . $_POST['Telephone'] . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Facsimile Number') . ':</td>
-		<td><input tabindex="11" type="tel" name="Fax" size="26" maxlength="25" value="' . $_POST['Fax'] . '" /></td>
+		<td><input type="tel" name="Fax" size="26" maxlength="25" value="' . $_POST['Fax'] . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('Email Address') . ':</td>
-		<td><input tabindex="12" type="email" name="Email" size="50" maxlength="55" value="' . $_POST['Email'] . '" /></td>
+		<td><input type="email" name="Email" size="50" maxlength="55" value="' . $_POST['Email'] . '" /></td>
 	</tr>';
 
 
@@ -355,7 +327,7 @@ $Result = DB_query("SELECT currabrev, currency FROM currencies");
 
 echo '<tr>
 		<td><label for="CurrencyDefault">', _('Home Currency'), ':</label></td>
-		<td><select id="CurrencyDefault" name="CurrencyDefault" tabindex="13" >';
+		<td><select id="CurrencyDefault" name="CurrencyDefault">';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($_POST['CurrencyDefault'] == $MyRow['currabrev']) {
@@ -372,7 +344,7 @@ echo '</select></td>
 
 	echo '<tr>
 			<td>' . _('Is the organisation an NPO?') . ':</td>
-			<td><select tabindex="25" name="IsNPO">';
+			<td><select name="IsNPO">';
 
 	if ($_POST['IsNPO'] == '0') {
 		echo '<option selected="selected" value="0">' . _('No') . '</option>';
@@ -397,7 +369,7 @@ $Result = DB_query("SELECT accountcode,
 
 echo '<tr>
 		<td>' . _('Debtors Control GL Account') . ':</td>
-		<td><select tabindex="14" name="DebtorsAct">';
+		<td><select name="DebtorsAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['DebtorsAct'] == $MyRow[0]) {
@@ -414,7 +386,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Creditors Control GL Account') . ':</td>
-		<td><select tabindex="15" name="CreditorsAct">';
+		<td><select name="CreditorsAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['CreditorsAct'] == $MyRow[0]) {
@@ -431,7 +403,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Payroll Net Pay Clearing GL Account') . ':</td>
-		<td><select tabindex="16" name="PayrollAct">';
+		<td><select name="PayrollAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['PayrollAct'] == $MyRow[0]) {
@@ -448,7 +420,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Goods Received Clearing GL Account') . ':</td>
-		<td><select tabindex="17" name="GRNAct">';
+		<td><select name="GRNAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['GRNAct'] == $MyRow[0]) {
@@ -464,7 +436,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Retained Earning Clearing GL Account') . ':</td>
-		<td><select tabindex="18" name="RetainedEarnings">';
+		<td><select name="RetainedEarnings">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['RetainedEarnings'] == $MyRow[0]) {
@@ -481,7 +453,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Freight Re-charged GL Account') . ':</td>
-		<td><select tabindex="19" name="FreightAct">';
+		<td><select name="FreightAct">';
 
 $Result = DB_query("SELECT accountcode,
 						accountname
@@ -508,7 +480,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Sales Exchange Variances GL Account') . ':</td>
-		<td><select tabindex="20" name="ExchangeDiffAct">';
+		<td><select name="ExchangeDiffAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['ExchangeDiffAct'] == $MyRow[0]) {
@@ -525,7 +497,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Purchases Exchange Variances GL Account') . ':</td>
-		<td><select tabindex="21" name="PurchasesExchangeDiffAct">';
+		<td><select name="PurchasesExchangeDiffAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['PurchasesExchangeDiffAct'] == $MyRow[0]) {
@@ -542,7 +514,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Payment Discount GL Account') . ':</td>
-		<td><select tabindex="22" name="PytDiscountAct">';
+		<td><select name="PytDiscountAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['PytDiscountAct'] == $MyRow[0]) {
@@ -559,7 +531,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Create GL entries for accounts receivable transactions') . ':</td>
-		<td><select tabindex="23" name="GLLink_Debtors">';
+		<td><select name="GLLink_Debtors">';
 
 if ($_POST['GLLink_Debtors'] == 0) {
 	echo '<option selected="selected" value="0">' . _('No') . '</option>';
@@ -574,7 +546,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Create GL entries for accounts payable transactions') . ':</td>
-		<td><select tabindex="24" name="GLLink_Creditors">';
+		<td><select name="GLLink_Creditors">';
 
 if ($_POST['GLLink_Creditors'] == 0) {
 	echo '<option selected="selected" value="0">' . _('No') . '</option>';
@@ -589,7 +561,7 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Create GL entries for stock transactions') . ':</td>
-		<td><select tabindex="25" name="GLLink_Stock">';
+		<td><select name="GLLink_Stock">';
 
 if ($_POST['GLLink_Stock'] == '0') {
 	echo '<option selected="selected" value="0">' . _('No') . '</option>';
@@ -606,7 +578,7 @@ echo '</select></td>
 echo '</table>
 	<br />
 	<div class="centre">
-		<input tabindex="26" type="submit" name="submit" value="' . _('Update') . '" />
+		<input type="submit" name="submit" value="' . _('Update') . '" />
 	</div>';
 echo '</form>';
 

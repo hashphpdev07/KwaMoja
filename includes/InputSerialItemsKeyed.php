@@ -20,9 +20,9 @@ if (isset($_GET['LineNo'])) {
 
 /*Display the batches already entered with quantities if not serialised */
 
-echo '<table class="selection">
+echo '<table>
 		<tr><td valign="top">
-			<table class="selection">';
+			<table>';
 echo $TableHeader;
 
 $TotalQuantity = 0;
@@ -39,15 +39,8 @@ foreach ($LineItem->SerialItems as $Bundle) {
 		$RowCounter++;
 	}
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>' . $Bundle->BundleRef . '</td>';
+	echo '<tr class="striped_row">
+			<td>' . $Bundle->BundleRef . '</td>';
 
 	if ($LineItem->Serialised == 0) {
 		echo '<td class="number">' . locale_number_format($Bundle->BundleQty, $LineItem->DecimalPlaces) . '</td>';
@@ -92,7 +85,7 @@ if (isset($_GET['CreditInvoice']) or isset($_POST['CreditInvoice'])) {
 then the multi select box for selection of existing bundle/serial nos for dispatch if applicable*/
 
 /*in the first column add a table for the input of newies */
-echo '<table class="selection">';
+echo '<table>';
 echo $TableHeader;
 
 if (isset($_GET['EditControlled'])) {

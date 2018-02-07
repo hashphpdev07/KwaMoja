@@ -1,0 +1,77 @@
+
+table {
+width:auto;
+max-width:90%;
+padding-bottom:5px;
+margin:0 auto;
+}
+
+th {
+background-color:#B06161;
+color:#FFF;
+}
+
+th.number {
+text-align:right;
+background-color:#B06161;
+color:#FFF;
+}
+
+th.SortedColumn {
+cursor:s-resize;
+padding-right:16px;
+}
+
+td {
+text-align:left;
+}
+
+td.select {
+background-color:#eee;
+}
+
+.table1 {
+width:90%;
+background:#eee;
+border:0 0 2px 2px #222 solid;
+margin:0 auto;
+}
+
+.tableheader {
+background-color:maroon;
+color:#FFF;
+}
+
+tr.striped_row:nth-of-type(even) {
+background-color:#CCC;
+color:#121433;
+}
+
+tr.striped_row:nth-of-type(odd) {
+background-color:#EEE;
+color:#1A1A1A;
+}
+
+tr.success_row {
+background-color:#b9ecb4;
+color:#006400;
+border:1px solid #006400;
+}
+
+tr.warn_row {
+background-color:#f5dbfd;
+color:maroon;
+border:1px solid maroon;
+}
+
+tr.info_row {
+background-color:#c7ccf6;
+color:navy;
+border:1px solid navy;
+}
+
+tr.error_row {
+background-color:#fddbdb;
+color:red;
+border:1px solid red;
+}

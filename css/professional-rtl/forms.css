@@ -26,6 +26,13 @@ margin-top:3px;
 direction:rtl;
 }
 
+legend.search {
+background-image:url(images/magnifier.png);
+background-repeat: no-repeat;
+background-size:contain;
+padding-left:32px;
+}
+
 form field {
 display:block;
 text-align:left;

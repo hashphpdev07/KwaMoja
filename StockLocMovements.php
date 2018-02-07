@@ -11,7 +11,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<table class="selection">
+echo '<table>
 	 <tr>
 		 <td>  ' . _('From Stock Location') . ':<select required="required" name="StockLocation"> ';
 
@@ -107,16 +107,9 @@ if (DB_num_rows($MovtsResult) > 0) {
 
 	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-
 		$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);
-		echo '<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?StockID=', mb_strtoupper($MyRow['stockid']), '">', mb_strtoupper($MyRow['stockid']), '</a></td>
+		echo '<tr class="striped_row">
+				<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?StockID=', mb_strtoupper($MyRow['stockid']), '">', mb_strtoupper($MyRow['stockid']), '</a></td>
 				<td>', $MyRow['typename'], '</td>
 				<td>', $MyRow['transno'], '</td>
 				<td>', $DisplayTranDate, '</td>

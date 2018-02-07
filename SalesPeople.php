@@ -18,12 +18,6 @@ if (isset($_GET['SelectedSalesPerson'])) {
 	$SelectedSalesPerson = mb_strtoupper($_POST['SelectedSalesPerson']);
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['submit'])) {
@@ -40,23 +34,15 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen(stripslashes($_POST['SalesmanCode'])) > 3) {
 		$InputError = 1;
 		prnMsg(_('The salesperson code must be three characters or less long'), 'error');
-		$Errors[$i] = 'SalesmanCode';
-		++$i;
 	} elseif (mb_strlen($_POST['SalesmanCode']) == 0 or $_POST['SalesmanCode'] == '') {
 		$InputError = 1;
 		prnMsg(_('The salesperson code cannot be empty'), 'error');
-		$Errors[$i] = 'SalesmanCode';
-		++$i;
 	} elseif (mb_strlen($_POST['SalesmanName']) > 30) {
 		$InputError = 1;
 		prnMsg(_('The salesperson name must be thirty characters or less long'), 'error');
-		$Errors[$i] = 'SalesmanName';
-		++$i;
 	} elseif (mb_strlen($_POST['SalesArea']) == 0) {
 		$InputError = 1;
 		prnMsg(_('You must select an area for this salesman'), 'error');
-		$Errors[$i] = 'SalesmanName';
-		++$i;
 	} elseif (mb_strlen($_POST['SManTel']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The salesperson telephone number must be twenty characters or less long'), 'error');
@@ -230,7 +216,7 @@ if (!isset($SelectedSalesPerson)) {
 			FROM salesman";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -247,14 +233,6 @@ if (!isset($SelectedSalesPerson)) {
 			</thead>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		if ($MyRow['current'] == 1) {
 			$ActiveText = _('Yes');
 		} else {
@@ -270,7 +248,8 @@ if (!isset($SelectedSalesPerson)) {
 		$AreaResult = DB_query($SQL);
 		$AreaRow = DB_fetch_array($AreaResult);
 
-		echo '<td>' . $MyRow['salesmancode'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['salesmancode'] . '</td>
 				<td>' . $MyRow['salesmanname'] . '</td>
 				<td>' . $AreaRow['areadescription'] . '</td>
 				<td>' . $ManagerText . '</td>
@@ -282,7 +261,7 @@ if (!isset($SelectedSalesPerson)) {
 				<td>' . $ActiveText . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '">' . _('Edit') . '</a></td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales person?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>';
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><br />';
@@ -330,7 +309,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedSalesPerson" value="' . $SelectedSalesPerson . '" />';
 		echo '<input type="hidden" name="SalesmanCode" value="' . $_POST['SalesmanCode'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Salesperson code') . ':</td>
 					<td>' . $_POST['SalesmanCode'] . '</td>
@@ -338,7 +317,7 @@ if (!isset($_GET['delete'])) {
 
 	} else { //end of if $SelectedSalesPerson only do the else when a new record is being entered
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Salesperson code') . ':</td>
 					<td><input type="text" name="SalesmanCode" size="3" autofocus="autofocus" required="required" maxlength="3" /></td>
@@ -378,7 +357,7 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 	echo '<tr>
 			<td>' . _('Sales Area') . ':' . '</td>
-			<td><select required="required" tabindex="2" name="SalesArea">';
+			<td><select required="required" name="SalesArea">';
 	$SQL = "SELECT areacode, areadescription FROM areas ORDER BY areadescription";
 	$ErrMsg = _('An error occurred in retrieving the areas from the database');
 	$DbgMsg = _('The SQL that was used to retrieve the area information and that failed in the process was');

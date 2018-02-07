@@ -376,7 +376,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection" summary="' . _('Input criteria for report') . '">';
+	echo '<table summary="' . _('Input criteria for report') . '">';
 	echo '<tr>
 			<td>' . _('For Sales Areas') . ':</td>
 			<td><select required="required" name="Areas[]" multiple="multiple">';

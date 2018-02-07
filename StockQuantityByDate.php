@@ -14,7 +14,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 $SQL = "SELECT categoryid, categorydescription FROM stockcategory";
 $ResultStkLocs = DB_query($SQL);
 
-echo '<table class="selection">
+echo '<table>
 	<tr>
 		<td>' . _('For Stock Category') . ':</td>
 		<td>
@@ -103,7 +103,7 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 
 	$SQLOnHandDate = FormatDateForSQL($_POST['OnHandDate']);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Item Code') . '</th>
 				<th>' . _('Description') . '</th>
@@ -132,14 +132,6 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 
 		while ($LocQtyRow = DB_fetch_array($LocStockResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			}
-
 			$CostSQL = "SELECT stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS cost
 							FROM stockcosts
 							WHERE stockcosts.costfrom<='" . $SQLOnHandDate . "'
@@ -159,13 +151,15 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 				$CostRow = DB_fetch_array($CostResult);
 			}
 			if ($NumRows == 0) {
-				printf('<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?%s">%s</a></td>
+				printf('<tr class="striped_row">
+						<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?%s">%s</a></td>
 						<td>%s</td>
 						<td class="number">%s</td>
 						<td class="number">%s</td>
 						<td class="number">%s</td></tr>', 'StockID=' . mb_strtoupper($MyRows['stockid']), mb_strtoupper($MyRows['stockid']), $MyRows['description'], 0, locale_number_format($CostRow['cost'], $_SESSION['CompanyRecord']['decimalplaces']), 0);
 			} else {
-				printf('<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?%s">%s</a></td>
+				printf('<tr class="striped_row">
+						<td><a target="_blank" href="' . $RootPath . '/StockStatus.php?%s">%s</a></td>
 						<td>%s</td>
 						<td class="number">%s</td>
 						<td class="number">%s</td>

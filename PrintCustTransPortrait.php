@@ -608,7 +608,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Invoices or Credit Notes (Portrait Mode)') . '</p>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Print Invoices or Credit Notes') . '</td>
 					<td><select name="InvOrCredit">';
@@ -644,7 +644,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			</tr>';
 		echo '<tr>
 				<td>' . _('Despatch Location') . ': </td>
-				<td><select tabindex="2" name="LocCode">';
+				<td><select name="LocCode">';
 
 		if ($_SESSION['RestrictLocations'] == 0) {
 			$SQL = "SELECT locationname,
@@ -1026,16 +1026,6 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 					while ($MyRow2 = DB_fetch_array($Result)) {
 
-						if ($k == 1) {
-							$RowStarter = '<tr class="EvenTableRows">';
-							$k = 0;
-						} else {
-							$RowStarter = '<tr class="OddTableRows">';
-							$k = 1;
-						}
-
-						echo $RowStarter;
-
 						$DisplayPrice = locale_number_format($MyRow2['fxprice'], $MyRow['decimalplaces']);
 						$DisplayQty = locale_number_format($MyRow2['quantity'], $MyRow2['decimalplaces']);
 						$DisplayNet = locale_number_format($MyRow2['fxnet'], $MyRow['decimalplaces']);
@@ -1046,14 +1036,15 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							$DisplayDiscount = locale_number_format($MyRow2['discountpercent'] * 100, 2) . '%';
 						}
 
-						printf('<td>%s</td>
+						printf('<tr class="striped_row">
+									<td>%s</td>
 							  		<td>%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
-									</tr>', $MyRow2['stockid'], $MyRow2['description'], $DisplayQty, $MyRow2['units'], $DisplayPrice, $DisplayDiscount, $DisplayNet);
+								</tr>', $MyRow2['stockid'], $MyRow2['description'], $DisplayQty, $MyRow2['units'], $DisplayPrice, $DisplayDiscount, $DisplayNet);
 
 						if (mb_strlen($MyRow2['narrative']) > 1) {
 							echo $RowStarter . '<td></td>

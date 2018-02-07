@@ -45,7 +45,7 @@ if ($_POST['EntryType'] == 'KEYED') {
 		ORDER BY createdate, quantity";
 	$ErrMsg = '<br />' . _('Could not retrieve the items for') . ' ' . $StockId;
 	$Bundles = DB_query($SQL, $ErrMsg);
-	echo '<table class="selection"><tr>';
+	echo '<table><tr>';
 	if (DB_num_rows($Bundles) > 0) {
 		$AllSerials = array();
 

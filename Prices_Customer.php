@@ -201,7 +201,7 @@ $DbgMsg = _('The SQL used to retrieve these records was');
 $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 echo '<table><tr><td valign="top">';
-echo '<table class="selection">';
+echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
 	prnMsg( _('There are no default prices set up for this part'), 'info');
@@ -217,7 +217,7 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		printf('<tr class="EvenTableRows">
+		printf('<tr class="striped_row">
 					<td class="number">%s</td>
 					<td class="date">%s</td>
 					<td class="date">%s</td>
@@ -249,7 +249,7 @@ $ErrMsg = _('Could not retrieve the special prices set up because');
 $DbgMsg = _('The SQL used to retrieve these records was');
 $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table class="selection">';
+echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
 	prnMsg( _('There are no special prices set up for this part'), 'info');
@@ -327,7 +327,7 @@ $SQL = "SELECT branchcode,
 		WHERE debtorno='" . $_SESSION['CustomerID'] . "'";
 $Result = DB_query($SQL);
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Branch') . ':</td>
 			<td>

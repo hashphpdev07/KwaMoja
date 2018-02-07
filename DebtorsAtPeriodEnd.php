@@ -147,22 +147,21 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 		/*if $FromCriteria is not set then show a form to allow input	*/
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
-			  <div>';
+		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-		echo '<table class="selection" summary="' . _('Input criteria for report') . '">';
+		echo '<table summary="' . _('Input criteria for report') . '">';
 		echo '<tr>
 				<td>' . _('From Customer Code') . ':</td>
-				<td><input tabindex="1" type="text" autofocus="autofocus" required="required" maxlength="10" size="7" name="FromCriteria" value="' . $MyRow['fromcriteria'] . '" /></td>
+				<td><input type="text" autofocus="autofocus" required="required" maxlength="10" size="7" name="FromCriteria" value="' . $MyRow['fromcriteria'] . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('To Customer Code') . ':</td>
-				<td><input tabindex="2" type="text" required="required" maxlength="10" size="7" name="ToCriteria" value="' . $MyRow['tocriteria'] . '" /></td>
+				<td><input type="text" required="required" maxlength="10" size="7" name="ToCriteria" value="' . $MyRow['tocriteria'] . '" /></td>
 			</tr>
 			<tr>
 				<td>' . _('Balances As At') . ':</td>
-				<td><select tabindex="3" name="PeriodEnd">';
+				<td><select name="PeriodEnd">';
 
 		$SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno DESC";
 		$Periods = DB_query($SQL, _('Could not retrieve period data because'), _('The SQL that failed to get the period data was'));
@@ -177,10 +176,8 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	echo '</select></td>
 		</tr>
 		</table>
-		<br />
 		<div class="centre">
-			<input tabindex="5" type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
-		</div>
+			<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
 		</div>
 		</form>';
 

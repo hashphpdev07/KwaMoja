@@ -204,7 +204,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
 		echo '<p class="page_title_text">', _('Supplier Price List for'), ' : ', $CurrentOrAllPrices, '<br/>', _('Supplier'), ' : ', $SupplierName, ' <br/>', _('Category'), ' : ', $Categoryname, '</p>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
 					<th class="SortedColumn">', _('Description'), '</th>
@@ -215,20 +215,14 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 0) {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			} else {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			}
-			echo '<td>', $MyRow['stockid'], '</td>
-				<td>', $MyRow['description'], '</td>
-				<td>', $MyRow['conversionfactor'], '</td>
-				<td>', $MyRow['price'], '</td>
-				<td class="date">', ConvertSQLDate($MyRow['dateprice']), '</td>
-				<td>', $MyRow['suppliers_partno'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>', $MyRow['stockid'], '</td>
+					<td>', $MyRow['description'], '</td>
+					<td>', $MyRow['conversionfactor'], '</td>
+					<td>', $MyRow['price'], '</td>
+					<td class="date">', ConvertSQLDate($MyRow['dateprice']), '</td>
+					<td>', $MyRow['suppliers_partno'], '</td>
+				</tr>';
 
 		}
 		echo '</table>';
@@ -248,7 +242,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
 	$SQL = "SELECT supplierid,suppname FROM `suppliers`";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Supplier') . ':</td>
 				<td><select required="required" name="supplier"> ';

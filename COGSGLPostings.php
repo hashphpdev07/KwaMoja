@@ -87,7 +87,7 @@ if (!isset($SelectedCOGSPostingID)) {
 	if (DB_num_rows($Result) > 0) {
 		$ShowLivePostingRecords = false;
 		prnMsg(_('The following cost of sales posting records that do not have valid general ledger code specified - these records must be amended.'), 'error');
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<th>' . _('Area') . '</th>
 				<th>' . _('Stock Category') . '</th>
@@ -97,20 +97,15 @@ if (!isset($SelectedCOGSPostingID)) {
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td><a href="%sSelectedCOGSPostingID=%s">' . _('Edit') . '</a></td>
-					<td><a href="%sSelectedCOGSPostingID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this COGS GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>', $MyRow['area'], $MyRow['stkcat'], $MyRow['salestype'], $MyRow['accountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id']);
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td><a href="%sSelectedCOGSPostingID=%s">' . _('Edit') . '</a></td>
+						<td><a href="%sSelectedCOGSPostingID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this COGS GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					</tr>', $MyRow['area'], $MyRow['stkcat'], $MyRow['salestype'], $MyRow['accountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id']);
 		} //end while
 		echo '</table>';
 	}
@@ -131,7 +126,7 @@ if (!isset($SelectedCOGSPostingID)) {
 
 		$Result = DB_query($SQL);
 
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<th>' . _('Area') . '</th>
 				<th>' . _('Stock Category') . '</th>
@@ -140,21 +135,15 @@ if (!isset($SelectedCOGSPostingID)) {
 			</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 
-			printf('<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td><a href="%sSelectedCOGSPostingID=%s">' . _('Edit') . '</a></td>
-				<td><a href="%sSelectedCOGSPostingID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this COGS GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>', $MyRow['area'], $MyRow['stkcat'], $MyRow['salestype'], $MyRow['accountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id']);
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td><a href="%sSelectedCOGSPostingID=%s">' . _('Edit') . '</a></td>
+						<td><a href="%sSelectedCOGSPostingID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this COGS GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					</tr>', $MyRow['area'], $MyRow['stkcat'], $MyRow['salestype'], $MyRow['accountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['id']);
 
 		} //END WHILE LIST LOOP
 		echo '</table>';
@@ -197,9 +186,9 @@ $SQL = "SELECT areacode,
 		FROM areas";
 $Result = DB_query($SQL);
 
-echo '<table class="selection">
+echo '<table>
 		<tr><td>' . _('Area') . ':</td>
-			<td><select tabindex="1" name="Area">
+			<td><select name="Area">
 				<option value="AN">' . _('Any Other') . '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -220,7 +209,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Stock Category') . ':</td>
-		<td><select tabindex="2" name="StkCat">
+		<td><select name="StkCat">
 			<option value="ANY">' . _('Any Other') . '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -242,7 +231,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Sales Type') . ' / ' . _('Price List') . ':</td>
-		<td><select tabindex="3" name="SalesType">
+		<td><select name="SalesType">
 			<option value="AN">' . _('Any Other') . '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -259,7 +248,7 @@ echo '</select></td>
 	</tr>
 	<tr>
 		<td>' . _('Post to GL account') . ':</td>
-		<td><select required="required" tabindex="4" name="GLCode">';
+		<td><select required="required" name="GLCode">';
 
 DB_free_result($Result);
 $SQL = "SELECT chartmaster.accountcode,
@@ -293,7 +282,7 @@ echo '</select>
 		</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="5" type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>
 </form>';
 

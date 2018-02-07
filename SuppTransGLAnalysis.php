@@ -116,7 +116,7 @@ if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 $SupplierCodeSQL = "SELECT defaultgl FROM suppliers WHERE supplierid='" . $_SESSION['SuppTrans']->SupplierID . "'";
 $SupplierCodeResult = DB_query($SupplierCodeSQL);
 $SupplierCodeRow = DB_fetch_row($SupplierCodeResult);
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Account') . '</th>
@@ -202,7 +202,7 @@ echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<br />
-	<table class="selection">';
+	<table>';
 if (!isset($_POST['GLCode'])) {
 	$_POST['GLCode'] = $SupplierCodeRow[0];
 }

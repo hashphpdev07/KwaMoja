@@ -749,7 +749,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 
 	echo '<br />
 		<table width="90%" cellpadding="2">
-		<tr style="background-color:#800000">';
+		<tr>';
 	echo '<th>' . _('Item Code') . '</th>
    		  <th>' . _('Item Description') . '</th>
 		  <th>' . _('Quantity') . '</th>
@@ -779,25 +779,14 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		$QtyOrdered = $OrderLine->Quantity;
 		$QtyRemain = $QtyOrdered - $OrderLine->QtyInv;
 
-		if ($OrderLine->QOHatLoc < $OrderLine->Quantity and ($OrderLine->MBflag == 'B' or $OrderLine->MBflag == 'M')) {
-			/*There is a stock deficiency in the stock location selected */
-			$RowStarter = '<tr style="background-color:#EEAABB">';
-		} elseif ($k == 1) {
-			$RowStarter = '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			$RowStarter = '<tr class="EvenTableRows">';
-			$k = 1;
-		}
-
-		echo $RowStarter;
-		echo '<td><input type="hidden" name="POLine_' . $OrderLine->LineNumber . '" value="" />';
+		echo '<tr class="striped_row">
+				<td><input type="hidden" name="POLine_' . $OrderLine->LineNumber . '" value="" />';
 		echo '<input type="hidden" name="ItemDue_' . $OrderLine->LineNumber . '" value="' . $OrderLine->ItemDue . '" />';
 
 		echo '<a target="_blank" href="' . $RootPath . '/StockStatus.php?identifier=' . $Identifier . '&amp;StockID=' . $OrderLine->StockID . '&amp;DebtorNo=' . $_SESSION['Items' . $Identifier]->DebtorNo . '">' . $OrderLine->StockID . '</a></td>
 			<td title="' . $OrderLine->LongDescription . '">' . $OrderLine->ItemDescription . '</td>';
 
-		echo '<td><input class="number" tabindex="2" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
+		echo '<td><input class="number" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="6" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
 
 		echo '</td>
 			<td class="number">' . locale_number_format($OrderLine->QOHatLoc, $OrderLine->DecimalPlaces) . '</td>
@@ -857,7 +846,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	}
 	/* end of loop around items */
 
-	echo '<tr class="EvenTableRows">';
+	echo '<tr class="striped_row">';
 	if (in_array(1000, $_SESSION['AllowedPageSecurityTokens'])) {
 		echo '<td colspan="8" class="number"><b>' . _('Total') . '</b></td>';
 	} else {
@@ -923,7 +912,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 		</tr>';
 	echo '</table>'; //end the sub table in the first column of master table
 	echo '</td><th valign="bottom">'; //for the master table
-	echo '<table class="selection">'; // a new nested table in the second column of master table
+	echo '<table>'; // a new nested table in the second column of master table
 	//now the payment stuff in this column
 	$PaymentMethodsResult = DB_query("SELECT paymentid, paymentname FROM paymentmethods");
 
@@ -2223,17 +2212,10 @@ if (!isset($_POST['ProcessSale'])) {
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$QOO += GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-
 				$Available = $QOH - $DemandQty + $QOO;
 
-				echo '<td>', $MyRow['stockid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['stockid'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td class="number">', $QOH, '</td>
@@ -2266,7 +2248,7 @@ if (!isset($_POST['ProcessSale'])) {
 		echo '<div class="page_help_text">
 				', _('Search for Items'), '.&nbsp;', _('Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code'), '.
 			</div>';
-		echo '<table class="selection">';
+		echo '<table>';
 
 		$SQL = "SELECT categoryid,
 					categorydescription
@@ -2277,7 +2259,7 @@ if (!isset($_POST['ProcessSale'])) {
 		echo '<tr>
 				<td>
 					<b>', _('Select a Stock Category'), ': </b>
-					<select tabindex="1" name="StockCat">';
+					<select name="StockCat">';
 
 		if (!isset($_POST['StockCat']) or $_POST['StockCat'] == 'All') {
 			echo '<option selected="selected" value="All">', _('All'), '</option>';
@@ -2300,7 +2282,7 @@ if (!isset($_POST['ProcessSale'])) {
 		}
 		echo '<td>
 				<b>' . _('Enter partial Description') . ':</b>
-				<input tabindex="2" type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
+				<input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
 			</td>';
 
 		if (!isset($_POST['StockCode'])) {
@@ -2308,7 +2290,7 @@ if (!isset($_POST['ProcessSale'])) {
 		}
 		echo '<td align="right">
 				<b> ', _('OR'), ' ', _('Enter extract of the Stock Code'), ':</b>
-				<input tabindex="3" type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+				<input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
 			</td>';
 		echo '</tr>
 		</table>';
@@ -2391,17 +2373,10 @@ if (!isset($_POST['ProcessSale'])) {
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$QOO += GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
-
 				$Available = $QOH - $DemandQty + $QOO;
 
-				echo '<td>', $MyRow['stockid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['stockid'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td class="number">', locale_number_format($QOH, $MyRow['decimalplaces']), '</td>

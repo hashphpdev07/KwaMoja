@@ -235,7 +235,7 @@ if (!isset($SelectedSampleID)) {
 		if (!isset($SampleID)) {
 			$SampleID = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>';
 		if (isset($SelectedStockItem)) {
@@ -255,7 +255,7 @@ if (!isset($SelectedSampleID)) {
 			FROM stockcategory
 			ORDER BY categorydescription";
 	$Result1 = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6">
 					<h3>', _('To search for Pick Lists for a specific part use the part selection facilities below'), '</h3>
@@ -285,7 +285,7 @@ if (!isset($SelectedSampleID)) {
 		</div>';
 
 	if (isset($StockItemsResult)) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Code'), '</th>
@@ -297,18 +297,12 @@ if (!isset($SelectedSampleID)) {
 		echo '<tbody>';
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
-				<td>', $MyRow['description'], '</td>
-				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
-				<td>', $MyRow['units'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 		}
 		//end of while loop
 		echo '</tbody>';
@@ -381,7 +375,7 @@ if (!isset($SelectedSampleID)) {
 		$SampleResult = DB_query($SQL, $ErrMsg);
 		if (DB_num_rows($SampleResult) > 0) {
 
-			echo '<table cellpadding="2" width="90%" class="selection">
+			echo '<table cellpadding="2" width="90%">
 					<thead>
 						<tr>
 							<th class="SortedColumn">', _('Enter Results'), '</th>
@@ -398,14 +392,6 @@ if (!isset($SelectedSampleID)) {
 			$k = 0; //row colour counter
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SampleResult)) {
-				if ($k == 1) {
-					/*alternate bgcolour of row for highlighting */
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					++$k;
-				}
 				$ModifySampleID = $RootPath . '/TestPlanResults.php?SelectedSampleID=' . $MyRow['sampleid'];
 				$Edit = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSampleID=' . urlencode($MyRow['sampleid']) . '">' . _('Edit') . '</a>';
 				$Delete = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?delete=yes&amp;SelectedSampleID=' . urlencode($MyRow['sampleid']) . '" onclick="return confirm(\'' . _('Are you sure you wish to delete this Sample ID ?') . '\');">' . _('Delete') . '</a>';
@@ -419,7 +405,8 @@ if (!isset($SelectedSampleID)) {
 					$CertAllowed = _('No');
 				}
 
-				echo '<td><a href="', $ModifySampleID, '">', str_pad($MyRow['sampleid'], 10, '0', STR_PAD_LEFT), '</a></td>
+				echo '<tr class="striped_row">
+						<td><a href="', $ModifySampleID, '">', str_pad($MyRow['sampleid'], 10, '0', STR_PAD_LEFT), '</a></td>
 						<td>', $MyRow['prodspeckey'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['lotkey'], '</td>
@@ -471,7 +458,7 @@ if (!isset($_GET['delete'])) {
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<input type="hidden" name="SelectedSampleID" value="', $SelectedSampleID, '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Sample ID'), ':</td>
 					<td>', str_pad($SelectedSampleID, 10, '0', STR_PAD_LEFT), '</td>
@@ -529,7 +516,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 
 		$SQLSpecSelect = "SELECT DISTINCT(keyval),
 								description

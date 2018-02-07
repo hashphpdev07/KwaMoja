@@ -393,7 +393,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	echo '<tr><td>' . _('For Inventory in Location') . ':</td>
 			<td><select name="Location">';

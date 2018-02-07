@@ -152,35 +152,6 @@ font-weight:700;
 color:red;
 }
 
-table {
-width:auto;
-margin:0 auto 5px;
-}
-
-th {
-background-color:#cccce5;
-color:#300;
-text-align:center;
-}
-
-th.number {
-background-color:#cccce5;
-color:#300;
-text-align:right;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .centre {
 text-align:center;
 margin:0 auto 5px;
@@ -215,14 +186,6 @@ background:#FFA4A4;
 
 :-moz-ui-invalid {
 background-color:#FFA4A4;
-}
-
-.EvenTableRows {
-background-color:#CCC;
-}
-
-.OddTableRows {
-background-color:#EEE;
 }
 
 div.error {
@@ -292,18 +255,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-background:#eee;
-border:1px solid #222;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:#cccce5;
-color:#300;
 }
 
 .notavailable {

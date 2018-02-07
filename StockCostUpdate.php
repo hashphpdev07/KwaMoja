@@ -136,7 +136,7 @@ echo '<table widthe="98%">
 		<tr>
 			<td style="vertical-align:top; width:50%">';
 
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<th colspan="2">' . _('Item Code') . ':
 				<input type="text" name="StockID" value="' . $StockId . '"  required="required" maxlength="20" />
@@ -178,7 +178,7 @@ $HistorySQL = "SELECT stockcosts.materialcost,
 				ORDER BY costfrom DESC
 				LIMIT 10";
 $HistoryResult = DB_query($HistorySQL);
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr>
 			<th>' . _('Cost From') . '</th>
 			<th>' . _('Material Cost') . '</th>
@@ -201,7 +201,7 @@ while ($HistoryRow = DB_fetch_array($HistoryResult)) {
 echo '</table>';
 
 if (!in_array($UpdateSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<td>' . _('Cost') . ':</td>
 				<td class="number">' . locale_number_format($MyRow['materialcost'] + $MyRow['labourcost'] + $MyRow['overheadcost'], $_SESSION['StandardCostDecimalPlaces']) . '</td>
@@ -211,7 +211,7 @@ if (!in_array($UpdateSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
 
 	if ($MyRow['mbflag'] == 'M') {
 		echo '<input type="hidden" name="MaterialCost" value="' . $MyRow['materialcost'] . '" />';
-		echo '<table cellpadding="2" class="selection">';
+		echo '<table cellpadding="2">';
 		echo '<tr>
 				<td>' . _('Standard Material Cost Per Unit') . ':</td>
 				<td class="number">' . locale_number_format($MyRow['materialcost'], $_SESSION['StandardCostDecimalPlaces']) . '</td>

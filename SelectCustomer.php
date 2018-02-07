@@ -182,7 +182,7 @@ if($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST[
 
 	echo '<div class="page_help_text">', _('Select a menu option to operate using this customer'), '.</div>
 		<br />
-		<table cellpadding="4" width="90%" class="selection">
+		<table cellpadding="4" width="90%">
 		<thead>
 			<tr>
 				<th style="width:33%">
@@ -236,7 +236,7 @@ if($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST[
 		</table>';
 }// $_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST['CSV'])
 else {
-	echo '<table cellpadding="4" width="90%" class="selection">
+	echo '<table cellpadding="4" width="90%">
 		<thead>
 			<tr>
 				<th style="width:33%">
@@ -278,7 +278,7 @@ echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSI
 	_('Search'), '" /> ',// Icon title.
 	_('Search for Customers'), '</p>';// Page title.
 
-echo '<table cellpadding="3" class="selection">';
+echo '<table cellpadding="3">';
 echo '<tr><td colspan="2">' . _('Enter a partial Name') . ':</td><td>';
 if(isset($_POST['Keywords'])) {
 	echo '<input type="text" name="Keywords" value="' . $_POST['Keywords'] . '" size="20" maxlength="25" />';
@@ -440,7 +440,7 @@ if(isset($Result)) {
 		$RowIndex = 0;
 	}// !isset($_POST['CSV'])
 	if(DB_num_rows($Result) <> 0) {
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -467,23 +467,16 @@ if(isset($Result)) {
 		$i = 0;// counter for input controls
 		echo '<tbody>';
 		while (($MyRow = DB_fetch_array($Result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			}// $k == 1
-			else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td><button type="submit" name="SubmitCustomerSelection[', htmlspecialchars($MyRow['debtorno'], ENT_QUOTES, 'UTF-8', false), ']" value="', htmlspecialchars($MyRow['branchcode'], ENT_QUOTES, 'UTF-8', false), '" >', $MyRow['debtorno'], ' ', $MyRow['branchcode'], '</button></td>
-				<td class="text">', htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false), '</td>
-				<td class="text">', htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false), '</td>
-				<td class="text">', $MyRow['contactname'], '</td>
-				<td class="text">', $MyRow['typename'], '</td>
-				<td class="text">', $MyRow['phoneno'], '</td>
-				<td class="text">', $MyRow['faxno'], '</td>
-				<td class="text">', $MyRow['email'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td><button type="submit" name="SubmitCustomerSelection[', htmlspecialchars($MyRow['debtorno'], ENT_QUOTES, 'UTF-8', false), ']" value="', htmlspecialchars($MyRow['branchcode'], ENT_QUOTES, 'UTF-8', false), '" >', $MyRow['debtorno'], ' ', $MyRow['branchcode'], '</button></td>
+					<td class="text">', htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false), '</td>
+					<td class="text">', htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false), '</td>
+					<td class="text">', $MyRow['contactname'], '</td>
+					<td class="text">', $MyRow['typename'], '</td>
+					<td class="text">', $MyRow['phoneno'], '</td>
+					<td class="text">', $MyRow['faxno'], '</td>
+					<td class="text">', $MyRow['email'], '</td>
+				</tr>';
 			++$i;
 			$RowIndex++;
 			// end of page full new headings if
@@ -782,23 +775,16 @@ function initMap() {
 			$k = 0;// row colour counter
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result)) {
-				if($k == 1) {
-					echo '<tr class="OddTableRows">';
-					$k = 0;
-				}// $k == 1
-				else {
-					echo '<tr class="EvenTableRows">';
-					$k = 1;
-				}
-				echo '<td>', $MyRow[2], '</td>
-					<td>', $MyRow[3], '</td>
-					<td>', $MyRow[4], '</td>
-					<td><a href="mailto:', $MyRow[6], '">', $MyRow[6], '</a></td>
-					<td>', ($MyRow[7]==0) ? _('No') : _('Yes'), '</td>
-					<td>', $MyRow[5], '</td>
-					<td><a href="AddCustomerContacts.php?Id=', urlencode($MyRow[0]), '&DebtorNo=', urlencode($MyRow[1]), '">', _('Edit'), '</a></td>
-					<td><a href="AddCustomerContacts.php?Id=', urlencode($MyRow[0]), '&DebtorNo=', urlencode($MyRow[1]), '&delete=1">', _('Delete'), '</a></td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td>', $MyRow[2], '</td>
+						<td>', $MyRow[3], '</td>
+						<td>', $MyRow[4], '</td>
+						<td><a href="mailto:', $MyRow[6], '">', $MyRow[6], '</a></td>
+						<td>', ($MyRow[7]==0) ? _('No') : _('Yes'), '</td>
+						<td>', $MyRow[5], '</td>
+						<td><a href="AddCustomerContacts.php?Id=', urlencode($MyRow[0]), '&DebtorNo=', urlencode($MyRow[1]), '">', _('Edit'), '</a></td>
+						<td><a href="AddCustomerContacts.php?Id=', urlencode($MyRow[0]), '&DebtorNo=', urlencode($MyRow[1]), '&delete=1">', _('Delete'), '</a></td>
+					</tr>';
 			}// END WHILE LIST LOOP
 
 			// Customer Branch Contacts if selected
@@ -815,7 +801,7 @@ function initMap() {
 				$Result2 = DB_query($SQL);
 				$BranchContact = DB_fetch_row($Result2);
 
-				echo '<tr class="EvenTableRows">
+				echo '<tr class="striped_row">
 						<td>' . $BranchContact[2] . '</td>
 						<td>' . _('Branch Contact') . ' ' . $BranchContact[0] . '</td>
 						<td>' . $BranchContact[3] . '</td>
@@ -863,20 +849,13 @@ function initMap() {
 			$k = 0;// row colour counter
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result)) {
-				if($k == 1) {
-					echo '<tr class="OddTableRows">';
-					$k = 0;
-				}// $k == 1
-				else {
-					echo '<tr class="EvenTableRows">';
-					$k = 1;
-				}
-				echo '<td>' . ConvertSQLDate($MyRow['date']) . '</td>
-					<td>' . $MyRow['note'] . '</td>
-					<td><a href="' . $MyRow['href'] . '">' . $MyRow['href'] . '</a></td>
-					<td>' . $MyRow['priority'] . '</td>
-					<td><a href="AddCustomerNotes.php?Id=' . urlencode($MyRow['noteid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '">' . _('Edit') . '</a></td>
-					<td><a href="AddCustomerNotes.php?Id=' . urlencode($MyRow['noteid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '&amp;delete=1">' . _('Delete') . '</a></td>
+				echo '<tr class="striped_row">
+						<td>' . ConvertSQLDate($MyRow['date']) . '</td>
+						<td>' . $MyRow['note'] . '</td>
+						<td><a href="' . $MyRow['href'] . '">' . $MyRow['href'] . '</a></td>
+						<td>' . $MyRow['priority'] . '</td>
+						<td><a href="AddCustomerNotes.php?Id=' . urlencode($MyRow['noteid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '">' . _('Edit') . '</a></td>
+						<td><a href="AddCustomerNotes.php?Id=' . urlencode($MyRow['noteid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '&amp;delete=1">' . _('Delete') . '</a></td>
 					</tr>';
 			}// END WHILE LIST LOOP
 			echo '</tbody>';
@@ -914,21 +893,14 @@ function initMap() {
 			$k = 0;// row colour counter
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result)) {
-				if($k == 1) {
-					echo '<tr class="OddTableRows">';
-					$k = 0;
-				}// $k == 1
-				else {
-					echo '<tr class="EvenTableRows">';
-					$k = 1;
-				}
-				echo '<td>' . $MyRow[4] . '</td>
-					<td>' . $MyRow[3] . '</td>
-					<td>' . $MyRow[2] . '</td>
-					<td>' . $MyRow[5] . '</td>
-					<td><a href="AddCustomerTypeNotes.php?Id=' . urlencode($MyRow[0]) . '&amp;DebtorType=' . urlencode($MyRow[1]) . '">' . _('Edit') . '</a></td>
-					<td><a href="AddCustomerTypeNotes.php?Id=' . urlencode($MyRow[0]) . '&amp;DebtorType=' . urlencode($MyRow[1]) . '&amp;delete=1">' . _('Delete') . '</a></td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td>' . $MyRow[4] . '</td>
+						<td>' . $MyRow[3] . '</td>
+						<td>' . $MyRow[2] . '</td>
+						<td>' . $MyRow[5] . '</td>
+						<td><a href="AddCustomerTypeNotes.php?Id=' . urlencode($MyRow[0]) . '&amp;DebtorType=' . urlencode($MyRow[1]) . '">' . _('Edit') . '</a></td>
+						<td><a href="AddCustomerTypeNotes.php?Id=' . urlencode($MyRow[0]) . '&amp;DebtorType=' . urlencode($MyRow[1]) . '&amp;delete=1">' . _('Delete') . '</a></td>
+					</tr>';
 			}// END WHILE LIST LOOP
 			echo '</tbody>';
 			echo '</table>';

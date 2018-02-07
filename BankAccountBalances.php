@@ -14,10 +14,11 @@ echo '<p class="page_title_text"><img src="', $RootPath, '/css/', $_SESSION['The
 
 echo '<table>
 		<tr>
-			<th>', _('Bank Account'), '</th>
-			<th>', _('Account Name'), '</th>
+			<th class="SortedColumn">', _('Bank Account'), '</th>
+			<th class="SortedColumn">', _('Account Name'), '</th>
 			<th>', _('Balance in account currency'), '</th>
 			<th>', _('Balance in functional currency'), '</th>
+			<th></th>
 		</tr>';
 
 $SQL = "SELECT bankaccounts.accountcode,
@@ -42,7 +43,7 @@ while ($MyBankRow = DB_fetch_array($Result)) {
 	$DecimalPlacesResult = DB_query($DecimalPlacesSQL);
 	$DecimalPlacesRow = DB_fetch_array($DecimalPlacesResult);
 
-	echo '<tr>
+	echo '<tr class="striped_row">
 			<td>', $MyBankRow['accountcode'], '</td>
 			<td>', $MyBankRow['bankaccountname'], '</td>
 			<td class="number">', locale_number_format($CurrBalanceRow['balance'], $DecimalPlacesRow['decimalplaces']), ' ', $MyBankRow['currcode'], '</td>

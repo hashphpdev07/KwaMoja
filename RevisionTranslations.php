@@ -39,7 +39,7 @@ if (isset($_POST['Submit'])) {
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="7">' . _('Translations to revise') . '</th>
 		</tr>';
@@ -73,30 +73,17 @@ $k = 0; //row colour counter
 $i = 1;
 while ($MyRow = DB_fetch_array($Result)) {
 
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
+	echo '<tr class="striped_row">
+			<td>' . $MyRow['stockid'] . '</td>
+			<td>' . $_SESSION['Language'] . '</td>
+			<td>' . $MyRow['description'] . '</td>
+			<td>' . nl2br($MyRow['longdescription']) . '</td>
+			<td>&nbsp;</td>
+		</tr>'; // nl2br: Inserts HTML line breaks before all newlines in a string.
 
-	echo '<td>' . $MyRow['stockid'] . '</td>
-		<td>' . $_SESSION['Language'] . '</td>
-		<td>' . $MyRow['description'] . '</td>
-		<td>' . nl2br($MyRow['longdescription']) . '</td>
-		<td>&nbsp;</td></tr>'; // nl2br: Inserts HTML line breaks before all newlines in a string.
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>&nbsp;</td>
-		<td>' . $MyRow['language_id'] . '</td>';
+	echo '<tr class="striped_row">
+			<td>&nbsp;</td>
+			<td>' . $MyRow['language_id'] . '</td>';
 
 	echo '<td><input class="text" maxlength="50" name="DescriptionTranslation' . $i . '" size="52" type="text" value="' . $MyRow['descriptiontranslation'] . '" /></td>
 		<td><textarea name="LongDescriptionTranslation' . $i . '" cols="70" rows="5">' . $MyRow['longdescriptiontranslation'] . '" </textarea></td>';

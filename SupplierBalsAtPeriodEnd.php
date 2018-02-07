@@ -142,7 +142,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>' . _('From Supplier Code') . ':</td>
 			<td><input type="text" required="required" maxlength="6" size="7" name="FromCriteria" value="' . $_POST['FromCriteria'] . '" /></td>

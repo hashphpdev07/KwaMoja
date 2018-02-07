@@ -249,7 +249,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 		echo '<form action="MRPConvertWorkOrders.php" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="9"><h3>' . _('Consolidation') . ': ' . $_POST['Consolidation'] . "&nbsp;&nbsp;&nbsp;&nbsp;" . _('Cutoff Date') . ': ' . $_POST['cutoffdate'] . '</h3></th>
 			</tr>
@@ -272,23 +272,15 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			// Alternate row color
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
-			echo '<td><a href="' . $RootPath . '/WorkOrderEntry.php?NewItem=' . urlencode($MyRow['part']) . '&amp;ReqQty=' . urlencode($MyRow['supplyquantity']) . '&amp;ReqDate=' . urlencode($MyRow['duedate']) . '">' . _('Convert') . '</a></td>
-				<td><a href="' . $RootPath . '/SelectProduct.php?StockID=' . $MyRow['part'] . '">' . $MyRow['part'] . '</a>' .  '<input type="hidden" name="' . $j . '_part" value="' . $MyRow['part']. '" /></td>
-				<td>' . $MyRow['description'] . '</td>
-				<td>' . ConvertSQLDate($MyRow['mrpdate']) . '</td>
-				<td>' . ConvertSQLDate($MyRow['duedate']) . '</td>
-				<td class="number">' . locale_number_format($MyRow['supplyquantity'], $MyRow['decimalplaces']) . '</td>
-				<td class="number">' . locale_number_format($MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-				<td class="number">' . locale_number_format($MyRow['supplyquantity'] * $MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
+			echo '<tr class="striped_row">
+					<td><a href="' . $RootPath . '/WorkOrderEntry.php?NewItem=' . urlencode($MyRow['part']) . '&amp;ReqQty=' . urlencode($MyRow['supplyquantity']) . '&amp;ReqDate=' . urlencode($MyRow['duedate']) . '">' . _('Convert') . '</a></td>
+					<td><a href="' . $RootPath . '/SelectProduct.php?StockID=' . $MyRow['part'] . '">' . $MyRow['part'] . '</a>' .  '<input type="hidden" name="' . $j . '_part" value="' . $MyRow['part']. '" /></td>
+					<td>' . $MyRow['description'] . '</td>
+					<td>' . ConvertSQLDate($MyRow['mrpdate']) . '</td>
+					<td>' . ConvertSQLDate($MyRow['duedate']) . '</td>
+					<td class="number">' . locale_number_format($MyRow['supplyquantity'], $MyRow['decimalplaces']) . '</td>
+					<td class="number">' . locale_number_format($MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+					<td class="number">' . locale_number_format($MyRow['supplyquantity'] * $MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
 
 			if ($_POST['Consolidation'] != 'None') {
 				echo '<td class="number">' . $MyRow['consolidatedcount'] . '</td>';
@@ -323,7 +315,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>' . _('Consolidation') . ':</td>
 			<td>

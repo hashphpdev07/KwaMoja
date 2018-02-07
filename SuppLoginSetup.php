@@ -104,7 +104,7 @@ echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('User Login') . ':</td>
 			<td><input type="text" autofocus="autofocus" name="UserID" size="22" required="required" maxlength="20" /></td>

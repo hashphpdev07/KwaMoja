@@ -32,18 +32,13 @@ function CheckForRecursiveGroup($ParentGroupCode, $GroupCode) {
 	return false;
 } //end of function CheckForRecursiveGroupName
 
-// If $Errors is set, then unset it.
-if (isset($Errors)) {
-	unset($Errors);
-} //isset($Errors)
-
 if (isset($_POST['MoveGroup'])) {
 	$SQL = "UPDATE chartmaster SET group_='" . $_POST['DestinyAccountGroup'] . "' WHERE group_='" . $_POST['OriginalAccountGroup'] . "'";
 	$ErrMsg = _('An error occurred in moving the account group');
 	$DbgMsg = _('The SQL that was used to move the account group was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	echo '<div class="toplink">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">', _('Review Account Groups'), '</a>
+			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Review Account Groups'), '</a>
 		</div>';
 	prnMsg(_('All accounts in the account group') . ': ' . $_POST['OriginalAccountGroup'] . ' ' . _('have been changed to the account group') . ': ' . $_POST['DestinyAccountGroup'], 'success');
 	echo '<p class="page_title_text" >
@@ -226,15 +221,15 @@ if (isset($_POST['submit'])) {
 	$MyRow = DB_fetch_array($Result);
 	if ($MyRow['groups'] > 0) {
 		prnMsg(_('Cannot delete this account group because general ledger accounts have been created using this group'), 'warn');
-		echo '<br />' . _('There are') . ' ' . $MyRow['groups'] . ' ' . _('general ledger accounts that refer to this account group');
-		echo '<form method="post" id="AccountGroups" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<br />', _('There are'), ' ', $MyRow['groups'], ' ', _('general ledger accounts that refer to this account group');
+		echo '<form method="post" id="AccountGroups" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<input type="hidden" name="OriginalAccountGroup" value="' . $_GET['SelectedAccountGroup'] . '" />';
-		echo '<table class="selection">';
-		echo '<tr>
-				<td>', _('Parent Group'), ':', '</td>
-				<td><select tabindex="2" name="DestinyAccountGroup">';
+		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+		echo '<input type="hidden" name="OriginalAccountGroup" value="', $_GET['SelectedAccountGroup'], '" />';
+		echo '<fiieldset>';
+		echo '<field>
+				<label for="DestinyAccountGroup">', _('Parent Group'), ':', '</label>
+				<select name="DestinyAccountGroup">';
 
 		$SQL = "SELECT groupcode, groupname FROM accountgroups";
 		$GroupResult = DB_query($SQL, $ErrMsg, $DbgMsg);
@@ -246,11 +241,10 @@ if (isset($_POST['submit'])) {
 			}
 		} //$GroupRow = DB_fetch_array($GroupResult)
 		echo '</select>
-					</td>
-				</tr>
-			</table>';
+			</field>
+		</fieldset>';
 		echo '<div class="centre">
-				<input tabindex="6" type="submit" name="MoveGroup" value="', _('Move Group'), '" />
+				<input type="submit" name="MoveGroup" value="', _('Move Group'), '" />
 			</div>';
 
 	} else {
@@ -304,7 +298,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Group Code'), '</th>
@@ -321,13 +315,6 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 
 		switch ($MyRow['pandl']) {
 			case -1:
@@ -341,16 +328,17 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 				break;
 		} //end of switch statement
 
-		echo '<td>', $MyRow['groupcode'], '</td>
-			<td>', $MyRow['groupname'], '</td>
-			<td>', $MyRow['sectionname'], '</td>
-			<td class="number">', $MyRow['sequenceintb'], '</td>
-			<td>', $PandLText, '</td>
-			<td>', $MyRow['parentgroupcode'], '</td>
-			<td>', $MyRow['parentgroupname'], '</td>
-			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '">', _('Edit'), '</a></td>
-			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['groupcode'], '</td>
+				<td>', $MyRow['groupname'], '</td>
+				<td>', $MyRow['sectionname'], '</td>
+				<td class="number">', $MyRow['sequenceintb'], '</td>
+				<td>', $PandLText, '</td>
+				<td>', $MyRow['parentgroupcode'], '</td>
+				<td>', $MyRow['parentgroupname'], '</td>
+				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '">', _('Edit'), '</a></td>
+				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</tbody>';
@@ -399,16 +387,21 @@ if (!isset($_GET['delete'])) {
 			$_POST['ParentGroup'] = $MyRow['parentgroupcode'];
 		}
 
-		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '<br /></p>';
+		echo '<p class="page_title_text">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '<br />
+			</p>';
 
 		echo '<input type="hidden" name="SelectedAccountGroup" value="', stripslashes($_GET['SelectedAccountGroup']), '" /></td>
 				<input type="hidden" name="OldGroupName" value="', $_POST['GroupName'], '" />
 				<input type="hidden" name="OldGroupCode" value="', $_POST['GroupCode'], '" />';
 
-		echo '<table class="noPrint selection">';
-		echo '<tr>
-				<th colspan="2">', _('Edit Account Group Details'), '</th>
-			</tr>';
+		echo '<fieldset>';
+		echo '<legend>', _('Edit Account Group Details'), '</legend>';
+		echo '<field>
+				<label for="GroupCode">', _('Account Group Code'), ':</label>
+				<div class="fieldtext">', $_POST['GroupCode'], '</div>
+			</field>
+			<input type="hidden" name="GroupCode" value="', $_POST['GroupCode'], '" />';
 
 	} elseif (!isset($_POST['MoveGroup'])) { //end of if $_POST['SelectedAccountGroup'] only do the else when a new record is being entered
 
@@ -432,15 +425,14 @@ if (!isset($_GET['delete'])) {
 		} //!isset($_POST['PandL'])
 
 		echo '<input type="hidden" name="SelectedAccountGroup" value="', $_POST['SelectedAccountGroup'], '" />';
-		echo '<table class="selection">';
-		echo '<tr>
-				<th colspan="2">', _('New Account Group Details'), '</th>
-			</tr>';
+		echo '<fieldset>';
+		echo '<legend>', _('New Account Group Details'), '</legend>';
+		echo '<field>
+				<label for="GroupCode">', _('Account Group Code'), ':</label>
+				<input class="integer" type="text" name="GroupCode" size="10" autofocus="autofocus" required="required" maxlength="10" value="', $_POST['GroupCode'], '" />
+				<fieldhelp>', _('The integer group code for this account group'), '</fieldhelp>
+			</field>';
 	} //!isset($_POST['MoveGroup'])
-	echo '<tr>
-			<td>', _('Account Group Code'), ':</td>
-			<td><input tabindex="1" class="integer" type="text" name="GroupCode" size="10" autofocus="autofocus" required="required" maxlength="10" value="', $_POST['GroupCode'], '" /></td>
-		</tr>';
 
 	$SQL = "SELECT DISTINCT language FROM accountgroups";
 	$LanguageResult = DB_query($SQL);
@@ -448,55 +440,56 @@ if (!isset($_GET['delete'])) {
 		if (!isset($GroupNames[$LanguageRow['language']])) {
 			$GroupNames[$LanguageRow['language']] = '';
 		}
-		echo '<tr>
-				<td>' . _('Account Group Name') . ' (' . $LanguagesArray[$LanguageRow['language']]['LanguageName'] . ') :' . '</td>
-				<td><input tabindex="2" type="text" name="GroupName' . mb_substr($LanguageRow['language'], 0, 5) . '" autofocus="autofocus" required="required" size="50" maxlength="150" value="' . $GroupNames[$LanguageRow['language']] . '" /></td>
-			</tr>';
+		echo '<field>
+				<label for="ParentGroup">', _('Account Group Name'), ' (', $LanguagesArray[$LanguageRow['language']]['LanguageName'], ') :', '</label>
+				<input type="text" autofocus="autofocus" name="GroupName', mb_substr($LanguageRow['language'], 0, 5), '" required="required" size="50" maxlength="150" value="', $GroupNames[$LanguageRow['language']], '" />
+				<fieldhelp>', _('The account group description in'), ' ', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</fieldhelp>
+			</field>';
 	}
 
 	$SQL = "SELECT groupcode, groupname FROM accountgroups WHERE language='" . $_SESSION['ChartLanguage'] . "' ORDER BY groupcode";
 	$GroupResult = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<tr>
-			<td>', _('Parent Group'), ':</td>
-			<td><select tabindex="2" name="ParentGroup">';
+	echo '<field>
+			<label for="ParentGroup">', _('Parent Group'), ':</label>
+			<select name="ParentGroup">';
 
 	if (!isset($_POST['ParentGroup'])) {
-		echo '<option selected="selected" value="">' . _('Top Level Group') . '</option>';
+		echo '<option selected="selected" value="">', _('Top Level Group'), '</option>';
 	} else {
-		echo '<option value="">' . _('Top Level Group') . '</option>';
+		echo '<option value="">', _('Top Level Group'), '</option>';
 	}
 
 	while ($GroupRow = DB_fetch_array($GroupResult)) {
 		if (isset($_POST['ParentGroup']) and $_POST['ParentGroup'] == $GroupRow['groupcode']) {
-			echo '<option selected="selected" value="', $GroupRow['groupcode'], '">', $GroupRow['groupcode'] . ' - ' . $GroupRow['groupname'], '</option>';
+			echo '<option selected="selected" value="', $GroupRow['groupcode'], '">', $GroupRow['groupcode'], ' - ', $GroupRow['groupname'], '</option>';
 		} else {
-			echo '<option value="', $GroupRow['groupcode'], '">', $GroupRow['groupcode'] . ' - ' . $GroupRow['groupname'], '</option>';
+			echo '<option value="', $GroupRow['groupcode'], '">', $GroupRow['groupcode'], ' - ', $GroupRow['groupname'], '</option>';
 		}
 	} //$GroupRow = DB_fetch_array($GroupResult)
 	echo '</select>
-				</td>
-			</tr>';
+		<fieldhelp>', _('The parent group that this group will belong to'), '</fieldhelp>
+	</field>';
 
 	$SQL = "SELECT sectionid, sectionname FROM accountsection WHERE language='" . $_SESSION['ChartLanguage'] . "' ORDER BY sectionid";
 	$SecResult = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<tr>
-			<td>', _('Section In Accounts'), ':</td>
-			<td><select required="required" tabindex="3" name="SectionInAccounts">';
+	echo '<field>
+			<label for="SectionInAccounts">', _('Section In Accounts'), ':</label>
+			<select required="required" name="SectionInAccounts">';
 	echo '<option value=""></option>';
 	while ($SecRow = DB_fetch_array($SecResult)) {
 		if ($_POST['SectionInAccounts'] == $SecRow['sectionid']) {
-			echo '<option selected="selected" value="', $SecRow['sectionid'], '">', $SecRow['sectionname'], ' (' . $SecRow['sectionid'], ')</option>';
+			echo '<option selected="selected" value="', $SecRow['sectionid'], '">', $SecRow['sectionname'], ' (', $SecRow['sectionid'], ')</option>';
 		} else {
 			echo '<option value="', $SecRow['sectionid'], '">', $SecRow['sectionname'], ' (', $SecRow['sectionid'], ')</option>';
 		}
 	} //$SecRow = DB_fetch_array($SecResult)
 	echo '</select>
-				</td>
-			</tr>';
+		<fieldhelp>', _('The section in the trial balance where this group will appear.'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>', _('Profit and Loss'), ':</td>
-			<td><select required="required" tabindex="4" name="PandL">';
+	echo '<field>
+			<label for="PandL">', _('Profit and Loss'), ':</label>
+			<select required="required" name="PandL">';
 
 	echo '<option selected="selected" value=""></option>';
 	if ($_POST['PandL'] == 1) {
@@ -511,18 +504,19 @@ if (!isset($_GET['delete'])) {
 	}
 
 	echo '</select>
-				</td>
-			</tr>';
+		<fieldhelp>', _('If the accounts in this group will be in the Profit and Loss account select Yes  here, if for the Balance Sheet then choose No.'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>', _('Sequence In TB'), ':</td>
-			<td><input tabindex="5" type="text" required="required" maxlength="4" name="SequenceInTB" class="integer" value="', $_POST['SequenceInTB'], '" /></td>
-		</tr>';
+	echo '<field>
+			<label for="SequenceInTB">', _('Sequence In TB'), ':</label>
+			<input type="text" required="required" maxlength="4" name="SequenceInTB" class="integer" value="', $_POST['SequenceInTB'], '" />
+			<fieldhelp>', _('The sequence in the trial balance where this group will appear.'), '</fieldhelp>
+		</field>';
 
-	echo '</table>';
+	echo '</fieldset>';
 
 	echo '<div class="centre noPrint">
-			<input tabindex="6" type="submit" name="submit" value="', _('Enter Information'), '" />
+			<input type="submit" name="submit" value="', _('Enter Information'), '" />
 		</div>';
 
 	echo '</form>';

@@ -167,9 +167,6 @@ if (isset($_POST['ProcessStockChange'])) {
 		ChangeFieldInTable("custitem", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("pickreqdetails", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 
-		DB_IgnoreForeignKeys();
-
-		ChangeFieldInTable("bom", "parent", $_POST['OldStockID'], $_POST['NewStockID']);
 
 		echo '<br />' . _('Changing any image files');
 		$SupportedImgExt = array('png', 'jpg', 'jpeg');
@@ -181,7 +178,6 @@ if (isset($_POST['ProcessStockChange'])) {
 				} else {
 					echo ' ... ' . _('failed');
 				}
-				echo ' ... ' . _('failed');
 			}
 		}
 

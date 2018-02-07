@@ -80,7 +80,7 @@ $ErrMsg = _('The stock held at each location cannot be retrieved because');
 $DbgMsg = _('The SQL that was used to fetch the location details and failed was');
 $LocStockResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table class="selection">
+echo '<table>
 			<thead>';
 
 if ($Its_A_KitSet_Assembly_Or_Dummy == True) {
@@ -104,14 +104,6 @@ echo '</thead>';
 $k = 0; //row colour counter
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($LocStockResult)) {
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
 
 	$SQL = "SELECT SUM(salesorderdetails.quantity-salesorderdetails.qtyinvoiced) AS dem
 			FROM salesorderdetails INNER JOIN salesorders
@@ -210,11 +202,13 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 			$Available = $MyRow['quantity'] - $DemandQty;
 		}
 		if ($MyRow['canupd']==1) {
-			echo '<td>' . $MyRow['locationname'] . '</td>
-				<td><input type="text" name="BinLocation' . $MyRow['loccode'] . '" value="' . $MyRow['bin'] . '" maxlength="10" size="11" onchange="ReloadForm(UpdateBinLocations)"/></td>';
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['locationname'] . '</td>
+					<td><input type="text" name="BinLocation' . $MyRow['loccode'] . '" value="' . $MyRow['bin'] . '" maxlength="10" size="11" onchange="ReloadForm(UpdateBinLocations)"/></td>';
 		} else {
-			echo '<td>' . $MyRow['locationname'] . '</td>
-				<td> ' . $MyRow['bin'] . '</td>';
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['locationname'] . '</td>
+					<td> ' . $MyRow['bin'] . '</td>';
 		}
 
 		printf('<td class="number">%s</td>
@@ -237,8 +231,9 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 	} else {
 		/* It must be a dummy, assembly or kitset part */
 
-		printf('<td>%s</td>
-				<td class="number">%s</td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td class="number">%s</td>
 				</tr>', $MyRow['locationname'], locale_number_format($DemandQty, $DecimalPlaces));
 	}
 	//end of page full new headings if
@@ -327,7 +322,7 @@ if ($DebtorNo) {
 		);
 	}
 	if (isset($PriceHistory)) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="4"><font color="navy" size="2">' . _('Pricing history for sales of') . ' ' . $StockId . ' ' . _('to') . ' ' . $DebtorNo . '</font></th>
@@ -343,20 +338,12 @@ if ($DebtorNo) {
 		$k = 0; //row colour counter
 		echo '<tbody>';
 		foreach ($PriceHistory as $PreviousPrice) {
-
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
-			printf('<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s%%</td>
-				</tr>', $PreviousPrice[0], locale_number_format($PreviousPrice[1], $DecimalPlaces), locale_number_format($PreviousPrice[2], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($PreviousPrice[3] * 100, 2));
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s%%</td>
+					</tr>', $PreviousPrice[0], locale_number_format($PreviousPrice[1], $DecimalPlaces), locale_number_format($PreviousPrice[2], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($PreviousPrice[3] * 100, 2));
 		}
 		echo '</tbody>
 			</table>';

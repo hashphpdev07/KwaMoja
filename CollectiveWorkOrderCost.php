@@ -43,7 +43,7 @@ if (isset($_POST['Submit'])) { //users have selected the WO to calculate and sub
 		$Result = DB_query($SQL, $ErrMsg);
 
 		if (DB_num_rows($Result) > 0) {
-			echo '<table class="selection">
+			echo '<table>
 					<thead>
 						<tr>
 							<th class="SortedColumn">' . _('Item') . '</th>
@@ -58,17 +58,11 @@ if (isset($_POST['Submit'])) { //users have selected the WO to calculate and sub
 			$TotalCost = 0;
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result)) {
-				if ($i == 0) {
-					echo '<tr class="EvenTableRows">';
-					$i = 1;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$i = 0;
-				}
 				$IssuedQty = -$MyRow['qty'];
 				$IssuedCost = $IssuedQty * $MyRow['standardcost'];
 				$TotalCost += $IssuedCost;
-				echo '<td>' . $MyRow['stockid'] . '</td>
+				echo '<tr class="striped_row">
+						<td>' . $MyRow['stockid'] . '</td>
 						<td>' . $MyRow['description'] . '</td>
 						<td>' . $MyRow['trandate'] . '</td>
 						<td class="number">' . locale_number_format($IssuedQty, $MyRow['decimalplaces']) . '</td>
@@ -209,7 +203,7 @@ if (!isset($StockID)) {
 	*/
 
 	if (!isset($SelectedWO) or ($SelectedWO == '')) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>';
 		if (isset($SelectedStockItem)) {
@@ -299,7 +293,7 @@ if (!isset($StockID)) {
 
 	$Result1 = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="6"><h3>' . _('To search for work orders for a specific item use the item selection facilities below') . '</h3></th>
 			</tr>
@@ -328,7 +322,7 @@ if (!isset($StockID)) {
 
 	if (isset($StockItemsResult)) {
 
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -341,18 +335,11 @@ if (!isset($StockID)) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k++;
-			}
-
-			printf('<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), $MyRow['units']);
 
 		} //end of while loop
@@ -466,7 +453,7 @@ if (!isset($StockID)) {
 		if (DB_num_rows($WorkOrdersResult) > 0) {
 			echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="wos">
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table cellpadding="2" width="95%" class="selection">
+				<table cellpadding="2" width="95%">
 				<thead>
 					<tr>
 						<th>' . _('Select') . '</th>
@@ -489,14 +476,6 @@ if (!isset($StockID)) {
 			$k = 0; //row colour counter
 			while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k++;
-				}
-
 				$ModifyPage = $RootPath . '/WorkOrderEntry.php?WO=' . $MyRow['wo'];
 				$Status_WO = $RootPath . '/WorkOrderStatus.php?WO=' . $MyRow['wo'] . '&amp;StockID=' . $MyRow['stockid'];
 				$Receive_WO = $RootPath . '/WorkOrderReceive.php?WO=' . $MyRow['wo'] . '&amp;StockID=' . $MyRow['stockid'];
@@ -508,20 +487,21 @@ if (!isset($StockID)) {
 				$FormatedStartDate = ConvertSQLDate($MyRow['startdate']);
 
 
-				printf('<td><input type="checkbox" name="WO_%s" /></td>
-					<td><a href="%s">%s</a></td>
-					<td><a href="%s">' . _('Status') . '</a></td>
-					<td><a href="%s">' . _('Issue To') . '</a></td>
-					<td><a href="%s">' . _('Receive') . '</a></td>
-					<td><a href="%s">' . _('Costing') . '</a></td>
-					<td><a href="%s">' . _('Print W/O') . '</a></td>
-					<td>%s - %s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					</tr>', $MyRow['wo'], $ModifyPage, $MyRow['wo'], $Status_WO, $Issue_WO, $Receive_WO, $Costing_WO, $Printing_WO, $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), $FormatedStartDate, $FormatedRequiredByDate);
+				printf('<tr class="striped_row">
+							<td><input type="checkbox" name="WO_%s" /></td>
+							<td><a href="%s">%s</a></td>
+							<td><a href="%s">' . _('Status') . '</a></td>
+							<td><a href="%s">' . _('Issue To') . '</a></td>
+							<td><a href="%s">' . _('Receive') . '</a></td>
+							<td><a href="%s">' . _('Costing') . '</a></td>
+							<td><a href="%s">' . _('Print W/O') . '</a></td>
+							<td>%s - %s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td>%s</td>
+							<td>%s</td>
+						</tr>', $MyRow['wo'], $ModifyPage, $MyRow['wo'], $Status_WO, $Issue_WO, $Receive_WO, $Costing_WO, $Printing_WO, $MyRow['stockid'], $MyRow['description'], locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']), $FormatedStartDate, $FormatedRequiredByDate);
 				//end of page full new headings if
 			}
 			//end of while loop

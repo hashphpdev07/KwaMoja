@@ -805,7 +805,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 		echo ' ' . _('Purchase Order') . ' ' . $_SESSION['PO' . $Identifier]->OrderNo;
 	} //isset($_SESSION['PO' . $Identifier]->OrderNo)
 	echo '<b>&nbsp;-&nbsp' . _(' Order Summary') . '</b></p>';
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Item Code') . '</th>
@@ -840,23 +840,15 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 				$SuppPrice = locale_number_format(round(($POLine->Price * $POLine->ConversionFactor), 4), 4);
 			}
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
-			echo '<td>', $POLine->StockID, '</td>
-				<td><input type="text" name="ItemDescription', $POLine->LineNo, '" size="30" value="', stripslashes($POLine->ItemDescription), '" /></td>
-				<td class="number">', locale_number_format($POLine->Quantity, $POLine->DecimalPlaces), '</td>
-				<td>', $POLine->Units, '</td>
-				<td class="number">', $DisplayPrice, '</td>
-				<td><input type="text" class="number" required="required" maxlength="8" name="ConversionFactor', $POLine->LineNo, '" size="8" value="', locale_number_format($POLine->ConversionFactor, 'Variable'), '" /></td>
-				<td><input type="text" class="number" required="required" maxlength="10" name="SuppQty', $POLine->LineNo, '" size="10" value="', locale_number_format(round($POLine->Quantity / $POLine->ConversionFactor, $POLine->DecimalPlaces), $POLine->DecimalPlaces), '" /></td>
-				<td>', $POLine->SuppliersUnit, '</td>';
+			echo '<tr class="striped_row">
+					<td>', $POLine->StockID, '</td>
+					<td><input type="text" name="ItemDescription', $POLine->LineNo, '" size="30" value="', stripslashes($POLine->ItemDescription), '" /></td>
+					<td class="number">', locale_number_format($POLine->Quantity, $POLine->DecimalPlaces), '</td>
+					<td>', $POLine->Units, '</td>
+					<td class="number">', $DisplayPrice, '</td>
+					<td><input type="text" class="number" required="required" maxlength="8" name="ConversionFactor', $POLine->LineNo, '" size="8" value="', locale_number_format($POLine->ConversionFactor, 'Variable'), '" /></td>
+					<td><input type="text" class="number" required="required" maxlength="10" name="SuppQty', $POLine->LineNo, '" size="10" value="', locale_number_format(round($POLine->Quantity / $POLine->ConversionFactor, $POLine->DecimalPlaces), $POLine->DecimalPlaces), '" /></td>
+					<td>', $POLine->SuppliersUnit, '</td>';
 			if (in_array(1002, $_SESSION['AllowedPageSecurityTokens'])) {
 				echo '<td><input type="text" class="number" name="SuppPrice', $POLine->LineNo, '" size="10" value="', $SuppPrice, '" /></td>';
 			} else {
@@ -894,7 +886,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 
 
 if (isset($_POST['NonStockOrder'])) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Item Description'), '</td>
 				<td><input type="text" name="ItemDescription" size="40" /></td>
@@ -1223,7 +1215,7 @@ if (!isset($_GET['Edit'])) {
 	$DbgMsg = _('The SQL used to retrieve the category details but failed was');
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3"><h3>', _('Search For Stock Items'), ':</h3></th>
 			</tr>
@@ -1289,7 +1281,7 @@ if (isset($SearchResult)) {
 	echo '<div class="centre">
 			<input type="submit" name="NewItem" value="', _('Order some'), '" />
 		</div>';
-	echo '<table cellpadding="1" class="selection">
+	echo '<table cellpadding="1">
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
@@ -1305,13 +1297,6 @@ if (isset($SearchResult)) {
 	$j = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		$SupportedImgExt = array(
 			'png',
@@ -1345,14 +1330,15 @@ if (isset($SearchResult)) {
 			$OrderUnits = $MyRow['units'];
 			$ConversionFactor = 1;
 		}
-		echo '<td>', $MyRow['stockid'], '</td>
-			<td>', $MyRow['description'], '</td>
-			<td>', $MyRow['units'], '</td>
-			<td class="number">', $ConversionFactor, '</td>
-			<td>', $OrderUnits, '</td>
-			<td>', $ImageSource, '</td>
-			<td><input class="number" type="text" size="6" required="required" maxlength="11" value="0" name="NewQty', $j, '" /></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['stockid'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td>', $MyRow['units'], '</td>
+				<td class="number">', $ConversionFactor, '</td>
+				<td>', $OrderUnits, '</td>
+				<td>', $ImageSource, '</td>
+				<td><input class="number" type="text" size="6" required="required" maxlength="11" value="0" name="NewQty', $j, '" /></td>
+			</tr>';
 		echo '<input type="hidden" name="StockID', $j, '", value="', $MyRow['stockid'], '" />';
 		++$j;
 		++$PartsDisplayed;

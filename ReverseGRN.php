@@ -357,7 +357,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	}
 	echo '<input type="hidden" name="SupplierID" value="' . $_POST['SupplierID'] . '" />';
 	echo '<input type="hidden" name="SuppName" value="' . $_POST['SuppName'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Show all goods received after') . ': </td>
 				<td><input type="text" class="date" name="RecdAfterDate" value="' . $_POST['RecdAfterDate'] . '" required="required" maxlength="10" size="10" /></td>
@@ -400,7 +400,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 			prnMsg(_('There are no outstanding goods received yet to be invoiced for') . ' ' . $_POST['SuppName'] . '.<br />' . _('To reverse a GRN that has been invoiced first it must be credited'), 'warn');
 		} else { //there are GRNs to show
 
-			echo '<table cellpadding="2" class="selection">
+			echo '<table cellpadding="2">
 					<tr>
 						<th>' . _('GRN') . ' #</th>
 						<th>' . _('GRN Batch') . '</th>
@@ -416,13 +416,6 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 			/* show the GRNs outstanding to be invoiced that could be reversed */
 			$k = 0;
 			while ($MyRow = DB_fetch_array($Result)) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
 
 				$DisplayQtyRecd = locale_number_format($MyRow['qtyrecd'], 'Variable');
 				$DisplayQtyInv = locale_number_format($MyRow['quantityinv'], 'Variable');
@@ -430,16 +423,17 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 				$DisplayDateDel = ConvertSQLDate($MyRow['deliverydate']);
 				$LinkToRevGRN = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?GRNNo=' . $MyRow['grnno'] . '">' . _('Reverse') . '</a>';
 
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td>%s</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td>%s</td>
 						</tr>', $MyRow['grnno'], $MyRow['grnbatch'], $MyRow['supplierref'], $MyRow['itemcode'], $MyRow['itemdescription'], $DisplayDateDel, $DisplayQtyRecd, $DisplayQtyInv, $DisplayQtyRev, $LinkToRevGRN);
 
 			}

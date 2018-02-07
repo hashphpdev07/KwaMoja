@@ -20,5 +20,5 @@ while ($PMrow = DB_fetch_array($PMResult)) {
 		$ReceiptTypes[$PMrow['paymentid']] = $PMrow;
 	}
 }
-DB_free_result($PMResult); // no longer needed
+
 ?>

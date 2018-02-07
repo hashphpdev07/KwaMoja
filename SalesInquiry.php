@@ -683,7 +683,7 @@ function submit($PartNumber, $PartNumberOp, $DebtorNo, $DebtorNoOp, $DebtorName,
 			echo '  ' . _('Invoice Type') . '  - ' . $itype . '<br/>';
 		} //$_POST['DateType'] != 'Order'
 		echo '</div><br />';
-		echo '<table class="selection" style="width: 99%">
+		echo '<table style="width: 99%">
 				<tr>
 					<th colspan="15">
 						<h3>' . _('Sales Inquiry') . '

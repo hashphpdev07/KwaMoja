@@ -35,7 +35,7 @@ if (isset($_GET['AssetID'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection"><tr>';
+	echo '<table><tr>';
 	echo '<td>' . _('In Asset Category') . ': </td>';
 	echo '<td><select name="AssetCat">';
 
@@ -149,7 +149,7 @@ if (isset($_POST['Search'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		  <div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Asset ID') . '</th>
 			<th>' . _('Description') . '</th>

@@ -24,7 +24,7 @@ if (!isset($_POST['RunReport'])) {
 
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 
-			<table cellpadding="2" class="selection">
+			<table cellpadding="2">
 				<tr>
 					<td>' . _('Customer') . '</td>
 					<td><select name="Customer">
@@ -71,7 +71,7 @@ if (!isset($_POST['RunReport'])) {
 
 			</table>
 			<div class="centre">
-				<input tabindex="4" type="submit" name="RunReport" value="' . _('Show Customer Balance Movements') . '" />
+				<input type="submit" name="RunReport" value="' . _('Show Customer Balance Movements') . '" />
 			</div>
 	</form>';
 	include('includes/footer.php');

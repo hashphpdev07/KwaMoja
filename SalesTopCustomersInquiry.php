@@ -15,7 +15,7 @@ if (!isset($_POST['DateRange'])) {
 echo '<form id="form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table cellpadding="2" class="selection">
+echo '<table cellpadding="2">
 		<tr><td valign="top">
 		<table>';
 
@@ -108,7 +108,7 @@ echo ' /></td>
 
 
 echo '<div class="centre">
-		<input tabindex="4" type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
+		<input type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
 	</div>';
 echo '</form>';
 
@@ -205,7 +205,7 @@ if (isset($_POST['ShowSales'])) {
 	$SalesResult = DB_query($SQL, $ErrMsg);
 
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th>' . _('Rank') . '</th>
 				<th>' . _('Customer') . '</th>
@@ -222,21 +222,15 @@ if (isset($_POST['ShowSales'])) {
 	$i = 1;
 	$k = 0;
 	while ($SalesRow = DB_fetch_array($SalesResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		echo '<td>' . $i . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $i . '</td>
 				<td>' . $SalesRow['debtorno'] . ' - ' . $SalesRow['name'] . '</td>
 				<td class="number">' . locale_number_format($SalesRow['salesvalue'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($SalesRow['netsalesvalue'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($SalesRow['salesquantity'], 'Variable') . '</td>
-				</tr>';
+			</tr>';
 		++$i;
 
 		$CumulativeTotalSales += $SalesRow['salesvalue'];
@@ -247,11 +241,11 @@ if (isset($_POST['ShowSales'])) {
 	} //loop around category sales for the period
 
 	if ($k == 1) {
-		echo '<tr class="EvenTableRows"><td colspan="8"><hr /></td></tr>';
-		echo '<tr class="OddTableRows">';
+		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
+		echo '<tr class="striped_row">';
 	} else {
-		echo '<tr class="OddTableRows"><td colspan="8"><hr /></td></tr>';
-		echo '<tr class="EvenTableRows">';
+		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
+		echo '<tr class="striped_row">';
 	}
 	echo '<td class="number" colspan="2">' . _('GRAND Total') . '</td>
 			<td class="number">' . locale_number_format($CumulativeTotalSales, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>

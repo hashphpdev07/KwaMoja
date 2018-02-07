@@ -250,7 +250,7 @@ if (isset($_SESSION['SupplierID'])) {
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
-	<table cellpadding="3" class="selection">
+	<table cellpadding="3">
 	<tr>
 		<td>' . _('Enter a partial Name') . ':</td>
 		<td>';
@@ -326,14 +326,8 @@ if (isset($_POST['Search'])) {
 
 		echo '<tbody>';
 		while (($MyRow = DB_fetch_array($Result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td><input type="submit" name="Select" value="' . $MyRow['supplierid'] . '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="' . $MyRow['supplierid'] . '" /></td>
 					<td>' . $MyRow['suppname'] . '</td>
 					<td>' . $MyRow['currcode'] . '</td>
 					<td>' . $MyRow['address1'] . '</td>
@@ -380,7 +374,7 @@ if (isset($_SESSION['SupplierID']) and $_SESSION['SupplierID'] != '') {
 		if ($Latitude == 0) {
 			echo '<div class="centre">' . _('Mapping is enabled, but no Mapping data to display for this Supplier.') . '</div>';
 		} else {
-			echo '<table class="selection">
+			echo '<table>
 					<thead>
 						<tr>
 							<th>', _('Supplier Mapping'), '</th>

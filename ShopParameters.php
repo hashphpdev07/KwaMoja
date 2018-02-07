@@ -181,7 +181,7 @@ if (isset($_POST['submit'])) {
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-	<table cellpadding="2" class="selection" width="98%">
+	<table cellpadding="2" width="98%">
 		<tr>
 			<th>' . _('Shop Configuration Parameter') . '</th>
 			<th>' . _('Value') . '</th>

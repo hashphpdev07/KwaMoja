@@ -81,14 +81,6 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 	$i = 1;
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows"><td>';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows"><td>';
-			$k = 1;
-		}
-
 		//variable for update data
 
 		echo '<input type="hidden" value="' . $_POST['Sequence'] . '" name="Sequence" />
@@ -120,12 +112,13 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 		$TotQtyResult = DB_query($SqlOH);
 		$TotQtyRow = DB_fetch_array($TotQtyResult);
 
-		echo $MyRow['stockid'] . '</td>
-			<td>' . $MyRow['description'] . '</td>
-			<td class="number">' . locale_number_format($SalesRow['qtyinvoiced'], $MyRow['decimalplaces']) . '</td>
-			<td class="number">' . locale_number_format($TotQtyRow['qty'], $MyRow['decimalplaces']) . '</td>
-			<td class="number">' . locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']) . '</td>
-			<td class="number">';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['stockid'] . '</td>
+				<td>' . $MyRow['description'] . '</td>
+				<td class="number">' . locale_number_format($SalesRow['qtyinvoiced'], $MyRow['decimalplaces']) . '</td>
+				<td class="number">' . locale_number_format($TotQtyRow['qty'], $MyRow['decimalplaces']) . '</td>
+				<td class="number">' . locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']) . '</td>
+				<td class="number">';
 		if ($MyRow['canupd'] == 1) {
 			echo '<input type="text" class="number" name="ReorderLevel' . $i .'" maxlength="10" size="10" value="' . locale_number_format($MyRow['reorderlevel'],0) . '" />
 			<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" /></td>
@@ -163,7 +156,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$ResultStkLocs = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Location') . ':</td>
 				<td><select name="StockLocation"> ';

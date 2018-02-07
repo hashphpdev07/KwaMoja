@@ -77,7 +77,7 @@ $SQL = "SELECT chartmaster.accountcode,
 		ORDER BY chartmaster.accountcode";
 $Account = DB_query($SQL);
 
-echo '<table class="selection" summary="', _('Inquiry Selection Criteria'), '">
+echo '<table summary="', _('Inquiry Selection Criteria'), '">
 		<tr>
 			<td>', _('Account'), ':</td>
 			<td><select name="Account">';
@@ -203,7 +203,7 @@ if (isset($_POST['Show'])) {
 	$ErrMsg = _('The transactions for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved because');
 	$TransResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection" summary="', _('General Ledger account inquiry details'), '">
+	echo '<table summary="', _('General Ledger account inquiry details'), '">
 			<thead>
 				<tr>
 					<th colspan="9">
@@ -320,14 +320,6 @@ if (isset($_POST['Show'])) {
 			$PeriodTotal = 0;
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$RunningTotal += $MyRow['amount'];
 		$PeriodTotal += $MyRow['amount'];
 
@@ -348,7 +340,8 @@ if (isset($_POST['Show'])) {
 		if ($TagRow['tagdescription'] == '') {
 			$TagRow['tagdescription'] = _('None');
 		}
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td class="number"><a href="', $URL_to_TransDetail, '">', $MyRow['typeno'], '</a></td>
 				<td>', $MyRow['chequeno'], '</td>
 				<td>', $FormatedTranDate, '</td>

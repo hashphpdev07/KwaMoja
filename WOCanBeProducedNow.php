@@ -35,7 +35,7 @@ function submit($RootPath, $Location) {
 	$ErrMsg = _('The SQL to find the WO items to produce ');
 	$ResultItems = DB_query($SQL, $ErrMsg);
 	if (DB_num_rows($ResultItems) != 0) {
-		echo '<table class="selection">';
+		echo '<table>';
 		$TableHeader = '<tr>
 							<th>' . _('WO') . '</th>
 							<th>' . _('Stock ID') . '</th>

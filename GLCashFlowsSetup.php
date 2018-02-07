@@ -155,7 +155,7 @@ echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8
 echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />'; // Form's head.
 
 // Input table:
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th colspan="2">', _('Action to do'), '</th>

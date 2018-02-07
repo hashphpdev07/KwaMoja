@@ -337,8 +337,6 @@ if (isset($_POST['submit'])) {
 	//	if (ContainsIllegalCharacters($SupplierID)) {
 	//		$InputError = 1;
 	//		prnMsg(_('The supplier code cannot contain any of the illegal characters') ,'error');
-	//		$Errors[$i]='ID';
-	//		++$i;
 	//	}
 	if (mb_strlen($_POST['Phone']) > 25) {
 		$InputError = 1;
@@ -667,7 +665,7 @@ if (isset($_POST['submit'])) {
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 
 if (!isset($SupplierID)) {
 
@@ -992,7 +990,7 @@ $Result = DB_query("SELECT accountcode,
 					ORDER BY chartmaster.accountcode");
 echo '<tr>
 		<td>' . _('Default GL Account') . ':</td>
-		<td><select tabindex="19" name="DefaultGL">';
+		<td><select name="DefaultGL">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['DefaultGL'] == $MyRow[0]) {

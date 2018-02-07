@@ -17,7 +17,7 @@ if (!isset($_POST['DateRange'])) {
 echo '<form id="form1" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<table cellpadding="2" class="selection">';
+echo '<table cellpadding="2">';
 
 echo '<tr>
 		<th colspan="2" class="centre">', _('Date Selection'), '</th>
@@ -86,7 +86,7 @@ echo '</table>';
 
 
 echo '<div class="centre">
-		<input tabindex="4" type="submit" name="ShowSales" value="', _('Show Sales'), '" />
+		<input type="submit" name="ShowSales" value="', _('Show Sales'), '" />
 	</div>';
 echo '</form>';
 
@@ -170,7 +170,7 @@ if (isset($_POST['ShowSales'])) {
 	$ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 	$SalesResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th colspan="9">
 					<h3>', _('Show Sales'), ' ', _('Between'), ' ', ConvertSQLDate($FromDate), ' ', _('and'), ' ', ConvertSQLDate($ToDate), '
@@ -196,15 +196,9 @@ if (isset($_POST['ShowSales'])) {
 
 	$k = 0;
 	while ($SalesRow = DB_fetch_array($SalesResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		echo '<td>' . $SalesRow['categoryid'],' - ', $SalesRow['categorydescription'], '</td>
+		echo '<tr class="striped_row">
+				<td>' . $SalesRow['categoryid'],' - ', $SalesRow['categorydescription'], '</td>
 				<td class="number">', locale_number_format($SalesRow['salesvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SalesRow['salesvalue'] + $SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
@@ -220,11 +214,11 @@ if (isset($_POST['ShowSales'])) {
 	} //loop around category sales for the period
 
 	if ($k == 1) {
-		echo '<tr class="EvenTableRows"><td colspan="8"><hr /></td></tr>';
-		echo '<tr class="OddTableRows">';
+		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
+		echo '<tr class="striped_row">';
 	} else {
-		echo '<tr class="OddTableRows"><td colspan="8"><hr /></td></tr>';
-		echo '<tr class="EvenTableRows">';
+		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
+		echo '<tr class="striped_row">';
 	}
 	echo '<td class="number">', _('GRAND Total'), '</td>
 		<td class="number">', locale_number_format($CumulativeTotalSales, $_SESSION['CompanyRecord']['decimalplaces']), '</td>

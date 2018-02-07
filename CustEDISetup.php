@@ -6,12 +6,6 @@ include('includes/header.php');
 
 echo '<a href="' . $RootPath . '/SelectCustomer.php">' . _('Back to Customers') . '</a><br />';
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-$i = 0;
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 if (isset($_POST['submit'])) {
 
@@ -30,14 +24,10 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['EDIReference']) < 4 and ($_POST['EDIInvoices'] == 1 or $_POST['EDIOrders'] == 1)) {
 		$InputError = 1;
 		prnMsg(_('The customers EDI reference code must be set when EDI Invoices or EDI orders are activated'), 'warn');
-		$Errors[$i] = 'EDIReference';
-		++$i;
 	}
 	if (mb_strlen($_POST['EDIAddress']) < 4 and $_POST['EDIInvoices'] == 1) {
 		$InputError = 1;
 		prnMsg(_('The customers EDI email address or FTP server address must be entered if EDI Invoices are to be sent'), 'warn');
-		$Errors[$i] = 'EDIAddress';
-		++$i;
 	}
 
 
@@ -68,7 +58,7 @@ if (isset($_POST['submit'])) {
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 $SQL = "SELECT debtorno,
 		name,
@@ -97,7 +87,7 @@ echo '<tr>
 	</tr>';
 echo '<tr>
 		<td>' . _('Enable Sending of EDI Invoices') . ':</td>
-		<td><select tabindex="1" name="EDIInvoices">';
+		<td><select name="EDIInvoices">';
 
 if ($MyRow['ediinvoices'] == 0) {
 
@@ -113,7 +103,7 @@ echo '</select><a href="' . $RootPath . '/EDIMessageFormat.php?MessageType=INVOI
 
 echo '<tr>
 		<td>' . _('Enable Receiving of EDI Orders') . ':</td>
-		<td><select tabindex="2" name="EDIOrders">';
+		<td><select name="EDIOrders">';
 
 if ($MyRow['ediorders'] == 0) {
 
@@ -129,12 +119,12 @@ echo '</select></td>
 
 echo '<tr>
 		<td>' . _('Customer EDI Reference') . ':</td>
-		<td><input tabindex="3" type="text" name="EDIReference" size="20" required="required" maxlength="20" value="' . $MyRow['edireference'] . '" /></td>
+		<td><input type="text" name="EDIReference" size="20" required="required" maxlength="20" value="' . $MyRow['edireference'] . '" /></td>
 	</tr>';
 
 echo '<tr>
 		<td>' . _('EDI Communication Method') . ':</td>
-		<td><select tabindex="4" name="EDITransport" >';
+		<td><select name="EDITransport" >';
 
 if ($MyRow['editransport'] == 'email') {
 	echo '<option selected="selected" value="email">' . _('Email Attachments') . '</option>';
@@ -148,20 +138,20 @@ echo '</select></td></tr>';
 
 echo '<tr>
 		<td>' . _('FTP Server or Email Address') . ':</td>
-		<td><input tabindex="5" type="text" name="EDIAddress" size="42" required="required" maxlength="40" value="' . $MyRow['ediaddress'] . '" /></td>
+		<td><input type="text" name="EDIAddress" size="42" required="required" maxlength="40" value="' . $MyRow['ediaddress'] . '" /></td>
 	</tr>';
 
 if ($MyRow['editransport'] == 'ftp') {
 
 	echo '<tr><td>' . _('FTP Server User Name') . ':</td>
-			<td><input tabindex="6" type="text" name="EDIServerUser" size="20" required="required" maxlength="20" value="' . $MyRow['ediserveruser'] . '" /></td></tr>';
+			<td><input type="text" name="EDIServerUser" size="20" required="required" maxlength="20" value="' . $MyRow['ediserveruser'] . '" /></td></tr>';
 	echo '<tr><td>' . _('FTP Server Password') . ':</td>
-			<td><input tabindex="7" type="text" name="EDIServerPwd" size="20" required="required" maxlength="20" value="' . $MyRow['ediserverpwd'] . '" /></td></tr>';
+			<td><input type="text" name="EDIServerPwd" size="20" required="required" maxlength="20" value="' . $MyRow['ediserverpwd'] . '" /></td></tr>';
 }
 
 echo '</table>
 		<div class="centre">
-			<input tabindex="8" type="submit" name="submit" value="' . _('Update EDI Configuration') . '" />
+			<input type="submit" name="submit" value="' . _('Update EDI Configuration') . '" />
 		</div>
 	</form>';
 

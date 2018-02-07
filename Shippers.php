@@ -10,12 +10,6 @@ if (isset($_GET['SelectedShipper'])) {
 	$SelectedShipper = $_POST['SelectedShipper'];
 }
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -30,13 +24,9 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['ShipperName']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The shipper\'s name must be forty characters or less long'), 'error');
-		$Errors[$i] = 'ShipperName';
-		++$i;
 	} elseif (trim($_POST['ShipperName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The shipper\'s name may not be empty'), 'error');
-		$Errors[$i] = 'ShipperName';
-		++$i;
 	}
 
 	if (isset($SelectedShipper) and $InputError != 1) {
@@ -122,7 +112,7 @@ if (!isset($SelectedShipper)) {
 	$SQL = "SELECT * FROM shippers ORDER BY shipper_id";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Shipper ID') . '</th>
 				<th>' . _('Shipper Name') . '</th>
@@ -131,17 +121,12 @@ if (!isset($SelectedShipper)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td><a href="%sSelectedShipper=%s">' . _('Edit') . '</a></td>
-				<td><a href="%sSelectedShipper=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this shipper?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>', $MyRow[0], $MyRow[1], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0]);
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%sSelectedShipper=%s">' . _('Edit') . '</a></td>
+					<td><a href="%sSelectedShipper=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this shipper?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				</tr>', $MyRow[0], $MyRow[1], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow[0]);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
@@ -172,14 +157,14 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedShipper" value="' . $SelectedShipper . '" />';
 		echo '<input type="hidden" name="Shipper_ID" value="' . $_POST['Shipper_ID'] . '" />';
-		echo '<br /><table class="selection">
+		echo '<br /><table>
 						<tr>
 							<td>' . _('Shipper Code') . ':</td>
 							<td>' . $_POST['Shipper_ID'] . '</td>
 						</tr>';
 	} else {
 		echo '<br />
-			<table class="selection">';
+			<table>';
 	}
 	if (!isset($_POST['ShipperName'])) {
 		$_POST['ShipperName'] = '';

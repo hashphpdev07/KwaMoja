@@ -84,27 +84,17 @@ function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEA
 	if (DB_num_rows($Result) > 0) {
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table cellpadding="2" class="selection">
+		echo '<table cellpadding="2">
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Description') . '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
-		$j = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-			$TabIndex = $j + 4;
-			echo '<td><input tabindex="' . $TabIndex . '" type="submit" name="StockID" value="' . $MyRow['stockid'] . '" /></td>
-				<td>' . $MyRow['description'] . '</td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="StockID" value="' . $MyRow['stockid'] . '" /></td>
+					<td>' . $MyRow['description'] . '</td>
 				</tr>';
-			++$j;
 		} //end of while loop
 
 		echo '</table>';
@@ -283,7 +273,7 @@ function listall($part, $DemandType) { //####LISTALL_LISTALL_LISTALL_LISTALL_LIS
 	$ErrMsg = _('The SQL to find the parts selected failed with the message');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<th>' . _('Part Number') . '</th>
 			<th>' . _('Description') . '</th>
@@ -327,15 +317,15 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($StockId)) {
-		echo '<table cellpadding="3" class="selection"><tr>
+		echo '<table cellpadding="3"><tr>
 			<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-			<td><input tabindex="1" type="text" name="Keywords" size="20" maxlength="25" /></td>
+			<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-			<td><input tabindex="2" type="text" name="StockCode" size="15" maxlength="20" /></td>
+			<td><input type="text" name="StockCode" size="15" maxlength="20" /></td>
 			<td><b>' . _('OR') . '</b></td>
 			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?listall=yes">' . _('List All Demands') . '</a></td></tr>
-			<tr><td colspan="7"><div class="centre"><input tabindex="3" type="submit" name="Search" value="' . _('Search Now') . '" /></div></td></tr></table>';
+			<tr><td colspan="7"><div class="centre"><input type="submit" name="Search" value="' . _('Search Now') . '" /></div></td></tr></table>';
 	} else {
 		if (isset($DemandID)) {
 			//editing an existing MRP demand
@@ -360,7 +350,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 
 			echo '<input type="hidden" name="DemandID" value="' . $_POST['DemandID'] . '" />';
 			echo '<input type="hidden" name="StockID" value="' . $_POST['StockID'] . '" />';
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td>' . _('Part Number') . ':</td>
 						<td>' . $_POST['StockID'] . '</td>
@@ -370,7 +360,7 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 			if (!isset($_POST['StockID'])) {
 				$_POST['StockID'] = '';
 			}
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
 						<td>' . _('Part Number') . ':</td>
 						<td><input type="text" name="StockID" size="21" required="required" maxlength="20" value="' . $_POST['StockID'] . '" /></td>

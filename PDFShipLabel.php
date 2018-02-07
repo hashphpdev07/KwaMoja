@@ -11,6 +11,7 @@ if (isset($_GET['ORD'])) {
 } else {
 	unset($SelectedORD);
 }
+
 if (isset($_GET['StockID'])) {
 	$StockId = $_GET['StockID'];
 } elseif (isset($_POST['StockID'])) {
@@ -27,6 +28,7 @@ if (isset($_GET['LabelItem'])) {
 } else {
 	unset($LabelItem);
 }
+
 if (isset($_GET['LabelDesc'])) {
 	$LabelDesc = $_GET['LabelDesc'];
 } elseif (isset($_POST['LabelDesc'])) {
@@ -34,6 +36,7 @@ if (isset($_GET['LabelDesc'])) {
 } else {
 	unset($LabelDesc);
 }
+
 if (isset($_GET['LabelLot'])) {
 	$LabelLot = $_GET['LabelLot'];
 } elseif (isset($_POST['LabelLot'])) {
@@ -41,6 +44,7 @@ if (isset($_GET['LabelLot'])) {
 } else {
 	unset($LabelLot);
 }
+
 if (isset($_GET['NoOfBoxes'])) {
 	$NoOfBoxes = $_GET['NoOfBoxes'];
 } elseif (isset($_POST['NoOfBoxes'])) {
@@ -48,6 +52,7 @@ if (isset($_GET['NoOfBoxes'])) {
 } else {
 	unset($NoOfBoxes);
 }
+
 if (isset($_GET['LabelsPerBox'])) {
 	$LabelsPerBox = $_GET['LabelsPerBox'];
 } elseif (isset($_POST['LabelsPerBox'])) {
@@ -55,6 +60,7 @@ if (isset($_GET['LabelsPerBox'])) {
 } else {
 	unset($LabelsPerBox);
 }
+
 if (isset($_GET['QtyPerBox'])) {
 	$QtyPerBox = $_GET['QtyPerBox'];
 } elseif (isset($_POST['QtyPerBox'])) {
@@ -62,6 +68,7 @@ if (isset($_GET['QtyPerBox'])) {
 } else {
 	unset($QtyPerBox);
 }
+
 if (isset($_GET['LeftOverQty'])) {
 	$LeftOverQty = $_GET['LeftOverQty'];
 } elseif (isset($_POST['LeftOverQty'])) {
@@ -84,10 +91,10 @@ if ($SelectedORD == 'Preview') { //ORD is set to 'Preview' when just looking at 
 	$MakePDFThenDisplayIt = True;
 } //$SelectedORD == 'Preview'
 
-if ($_POST['PrintOrEmail'] == 'Print' OR $ViewingOnly == 1) {
+if (isset($_POST['PrintOrEmail']) and $_POST['PrintOrEmail'] == 'Print') {
 	$MakePDFThenDisplayIt = True;
 	$MakePDFThenEmailIt = False;
-} elseif ($_POST['PrintOrEmail'] == 'Email' AND isset($_POST['EmailTo'])) {
+} elseif (isset($_POST['PrintOrEmail']) and $_POST['PrintOrEmail'] == 'Email' and isset($_POST['EmailTo'])) {
 	$MakePDFThenEmailIt = True;
 	$MakePDFThenDisplayIt = False;
 } else {
@@ -219,7 +226,7 @@ if ($SelectedORD == 'Preview') {
 				$MyArray[$NoOfLabels]['stockid'] = $MyRow['stockid'];
 				$MyArray[$NoOfLabels]['custitem'] = $MyRow['cust_part'] . ' ' . $MyRow['cust_description'];
 				++$i;
-				$NoOfLabels++;
+				++$NoOfLabels;
 			}
 			if ($LeftOverQty > 0) {
 				$j = 1;
@@ -245,7 +252,7 @@ if ($SelectedORD == 'Preview') {
 } //
 //echo $LeftOverQty . ' ' . $NoOfLabels ;
 if ($NoOfLabels > 0) {
-	for ($i = 1; $i <= $NoOfLabels; $i++) {
+	for ($i = 1; $i < $NoOfLabels; $i++) {
 		if ($PageNumber > 1) {
 			$PDF->newPage();
 		}
@@ -257,26 +264,26 @@ if ($NoOfLabels > 0) {
 		$PDF->setFont('', '');
 		$PDF->addText($FormDesign->CompanyAddress->CompanyName->x, $Page_Height - $FormDesign->CompanyAddress->CompanyName->y, $FormDesign->CompanyAddress->CompanyName->FontSize, $_SESSION['CompanyRecord']['coyname']);
 		$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice1']);
-		$AddressLine += 1;
+		++$AddressLine;
 		if ($_SESSION['CompanyRecord']['regoffice2'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice2']);
 			$AddressLine += 1;
 		}
 		if ($_SESSION['CompanyRecord']['regoffice3'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice3']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($_SESSION['CompanyRecord']['regoffice4'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice4']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($_SESSION['CompanyRecord']['regoffice5'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice5']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($_SESSION['CompanyRecord']['regoffice6'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice6']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		$PDF->Line($FormDesign->LabelLine->startx, $Page_Height - $FormDesign->LabelLine->starty, $FormDesign->LabelLine->endx, $Page_Height - $FormDesign->LabelLine->endy);
 		$PDF->setFont('', 'B');
@@ -285,26 +292,26 @@ if ($NoOfLabels > 0) {
 		$PDF->addText($FormDesign->DeliveryAddress->DelName->x, $Page_Height - $FormDesign->DeliveryAddress->DelName->y, $FormDesign->DeliveryAddress->DelName->FontSize, $MyArray[$i]['deliverto']);
 		$AddressLine = 0;
 		$PDF->addText($FormDesign->DeliveryAddress->DelAddress->x, $Page_Height - $FormDesign->DeliveryAddress->DelAddress->y - ($AddressLine * $FormDesign->DeliveryAddress->DelAddress->FontSize), $FormDesign->DeliveryAddress->DelAddress->FontSize, $MyArray[$i]['deladd1']);
-		$AddressLine += 1;
+		++$AddressLine;
 		if ($MyArray[$i]['deladd2'] > '') {
 			$PDF->addText($FormDesign->DeliveryAddress->DelAddress->x, $Page_Height - $FormDesign->DeliveryAddress->DelAddress->y - ($AddressLine * $FormDesign->DeliveryAddress->DelAddress->FontSize), $FormDesign->DeliveryAddress->DelAddress->FontSize, $MyArray[$i]['deladd2']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($MyArray[$i]['deladd3'] > '') {
 			$PDF->addText($FormDesign->DeliveryAddress->DelAddress->x, $Page_Height - $FormDesign->DeliveryAddress->DelAddress->y - ($AddressLine * $FormDesign->DeliveryAddress->DelAddress->FontSize), $FormDesign->DeliveryAddress->DelAddress->FontSize, $MyArray[$i]['deladd3']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($MyArray[$i]['deladd4'] > '') {
 			$PDF->addText($FormDesign->DeliveryAddress->DelAddress->x, $Page_Height - $FormDesign->DeliveryAddress->DelAddress->y - ($AddressLine * $FormDesign->DeliveryAddress->DelAddress->FontSize), $FormDesign->DeliveryAddress->DelAddress->FontSize, $MyArray[$i]['deladd4']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($MyArray[$i]['deladd5'] > '') {
 			$PDF->addText($FormDesign->DeliveryAddress->DelAddress->x, $Page_Height - $FormDesign->DeliveryAddress->DelAddress->y - ($AddressLine * $FormDesign->DeliveryAddress->DelAddress->FontSize), $FormDesign->DeliveryAddress->DelAddress->FontSize, $MyArray[$i]['deladd5']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 		if ($MyArray[$i]['deladd6'] > '') {
 			$PDF->addText($FormDesign->DeliveryAddress->DelAddress->x, $Page_Height - $FormDesign->DeliveryAddress->DelAddress->y - ($AddressLine * $FormDesign->DeliveryAddress->DelAddress->FontSize), $FormDesign->DeliveryAddress->DelAddress->FontSize, $MyArray[$i]['deladd6']);
-			$AddressLine += 1;
+			++$AddressLine;
 		}
 
 		$PDF->addText($FormDesign->PONbr->x, $Page_Height - $FormDesign->PONbr->y, $FormDesign->PONbr->FontSize, _('Order') . ': ' . $MyArray[$i]['customerref']);
@@ -340,20 +347,18 @@ if ($NoOfLabels > 0) {
 
 		} else {
 			prnMsg(_('The SMTP settings are wrong, please ask administrator for help'), 'error');
-			exit;
 			include('includes/footer.php');
+			exit;
 		}
 
 		if ($Success == 1) {
 			$Title = _('Email a Work Order');
 			include('includes/header.php');
-			echo '<div class="centre"><br /><br /><br />';
 			prnMsg(_('Work Order') . ' ' . $SelectedORD . ' ' . _('has been emailed to') . ' ' . $_POST['EmailTo'] . ' ' . _('as directed'), 'success');
 
 		} else { //email failed
 			$Title = _('Email a Work Order');
 			include('includes/header.php');
-			echo '<div class="centre"><br /><br /><br />';
 			prnMsg(_('Emailing Work order') . ' ' . $SelectedORD . ' ' . _('to') . ' ' . $_POST['EmailTo'] . ' ' . _('failed'), 'error');
 		}
 	}
@@ -363,7 +368,7 @@ if ($NoOfLabels > 0) {
 	$Title = _('Label Error');
 	include('includes/header.php');
 	prnMsg(_('There were no labels to print'), 'warn');
-	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo '<a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 	include('includes/footer.php');
 }
 ?>

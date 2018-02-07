@@ -33,7 +33,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	}
 
 	/*Show a form to allow input of criteria for Tabs to show */
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Code Of Petty Cash Tab'), ':</td>
 				<td><select autofocus="autofocus" required="required" name="SelectedTabs">';
@@ -58,13 +58,13 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	echo '<tr>
 			<td>', _('From Date'), ':</td>
 			<td>
-				<input tabindex="2" class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="', $_POST['FromDate'], '" />
+				<input class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="', $_POST['FromDate'], '" />
 			</td>
 		</tr>
 		<tr>
 			<td>', _('To Date'), ':</td>
 			<td>
-				<input tabindex="3" class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="', $_POST['ToDate'], '" />
+				<input class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="', $_POST['ToDate'], '" />
 			</td>
 		</tr>
 	</table>';
@@ -259,7 +259,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 
 	$Tabs = DB_fetch_array($TabResult);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Tab Code'), '</td>
 				<td>:</td>
@@ -350,7 +350,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 
 	$TabDetail = DB_query($SQL, _('No Petty Cash movements for this tab were returned by the SQL because'), _('The SQL that failed was') . ': ');
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>', _('Date Of Expense'), '</th>
 			<th>', _('Expense Description'), '</th>
@@ -364,15 +364,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($TabDetail)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-
 		$SQLdes = "SELECT description
 				FROM pcexpenses
 				WHERE codeexpense='" . $MyRow['codeexpense'] . "'";
@@ -384,7 +375,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			$Description['0'] = 'ASSIGNCASH';
 		}
 		if ($MyRow['5'] != '0000-00-00') {
-			echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+			echo '<tr class="striped_row">
+					<td>', ConvertSQLDate($MyRow['date']), '</td>
 					<td>', $Description['0'], '</td>
 					<td class="number">', locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 					<td>', $MyRow['notes'], '</td>
@@ -392,7 +384,8 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 					<td>', ConvertSQLDate($MyRow['authorized']), '</td>
 				</tr>';
 		} else {
-			echo '<td>', ConvertSQLDate($MyRow['date']), '</td>
+			echo '<tr class="striped_row">
+					<td>', ConvertSQLDate($MyRow['date']), '</td>
 					<td>', $Description['0'], '</td>
 					<td class="number">', locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 					<td>', $MyRow['notes'], '</td>

@@ -32,7 +32,7 @@ $Result = DB_query($SQL);
 echo '<p class="page_title_text" align="center"><strong>' . _('Raw Materials Not Used in any BOM') . '</strong></p>';
 if (DB_num_rows($Result) != 0) {
 	$TotalValue = 0;
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('#') . '</th>
 				<th>' . _('Code') . '</th>
@@ -43,30 +43,25 @@ if (DB_num_rows($Result) != 0) {
 			</tr>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$CodeLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['stockid']) . '">' . $MyRow['stockid'] . '</a>';
 		$LineValue = $MyRow['qoh'] * $MyRow['stdcost'];
 		$TotalValue = $TotalValue + $LineValue;
 
-		printf('<td class="number">%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
+		printf('<tr class="striped_row">
+					<td class="number">%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
 				</tr>', $i, $CodeLink, $MyRow['description'], locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), locale_number_format($MyRow['stdcost'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($LineValue, $_SESSION['CompanyRecord']['decimalplaces']));
 		++$i;
 	}
 
-	printf('<td colspan="4">%s</td>
-			<td>%s</td>
-			<td class="number">%s</td>
+	printf('<tr class="striped_row">
+				<td colspan="4">%s</td>
+				<td>%s</td>
+				<td class="number">%s</td>
 			</tr>', '', _('Total') . ':', locale_number_format($TotalValue, $_SESSION['CompanyRecord']['decimalplaces']));
 
 	echo '</table>';

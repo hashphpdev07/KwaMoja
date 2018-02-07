@@ -129,7 +129,6 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$latitude = $filerow[22];
 		$longitude = $filerow[23];
 		//initialise no input errors assumed initially before we test
-		$i = 1;
 		/* actions to take once the user has clicked the submit button
 		ie the page has called itself with some user input */
 
@@ -137,56 +136,38 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 			$InputError = 1;
 			prnMsg(_('The supplier name must be entered and be forty characters or less long'), 'error');
-			$Errors[$i] = 'Name';
-			++$i;
 		}
 		if (mb_strlen($SupplierID) == 0) {
 			$InputError = 1;
 			prnMsg(_('The Supplier Code cannot be empty'), 'error');
-			$Errors[$i] = 'ID';
-			++$i;
 		}
 		if (ContainsIllegalCharacters($SupplierID)) {
 			$InputError = 1;
 			prnMsg(_('The supplier code cannot contain any of the illegal characters'), 'error');
-			$Errors[$i] = 'ID';
-			++$i;
 		}
 		if (mb_strlen($_POST['Phone']) > 25) {
 			$InputError = 1;
 			prnMsg(_('The telephone number must be 25 characters or less long'), 'error');
-			$Errors[$i] = 'Telephone';
-			++$i;
 		}
 		if (mb_strlen($_POST['Fax']) > 25) {
 			$InputError = 1;
 			prnMsg(_('The fax number must be 25 characters or less long'), 'error');
-			$Errors[$i] = 'Fax';
-			++$i;
 		}
 		if (mb_strlen($_POST['Email']) > 55) {
 			$InputError = 1;
 			prnMsg(_('The email address must be 55 characters or less long'), 'error');
-			$Errors[$i] = 'Email';
-			++$i;
 		}
 		if (mb_strlen($_POST['Email']) > 0 and !IsEmailAddress($_POST['Email'])) {
 			$InputError = 1;
 			prnMsg(_('The email address is not correctly formed'), 'error');
-			$Errors[$i] = 'Email';
-			++$i;
 		}
 		if (mb_strlen($_POST['BankRef']) > 12) {
 			$InputError = 1;
 			prnMsg(_('The bank reference text must be less than 12 characters long'), 'error');
-			$Errors[$i] = 'BankRef';
-			++$i;
 		}
 		if (!is_date($_POST['SupplierSince'])) {
 			$InputError = 1;
 			prnMsg(_('The supplier since field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
-			$Errors[$i] = 'SupplierSince';
-			++$i;
 		}
 
 		if ($InputError != 1) {

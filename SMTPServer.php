@@ -94,7 +94,7 @@ if (DB_num_rows($Result) != 0) {
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="MailServerSetting" value="' . $MailServerSetting . '" />';
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<td>' . _('Server Host Name') . '</td>
 		<td><input type="text" name="Host" required="required" maxlength="50" value="' . $MyRow['host'] . '" /></td>

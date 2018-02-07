@@ -109,7 +109,7 @@ if (!isset($SelectedTab)) {
 	or deletion of the records*/
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">'; //Main table
+	echo '<table>'; //Main table
 
 	echo '<tr>
 			<td>', _('Select Type of Tab'), ':</td>
@@ -165,7 +165,7 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3">
 					<h3>', _('Expense Codes for Type of Tab '), ' ', $SelectedTab, '</h3>
@@ -180,17 +180,12 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		echo '<td>', $MyRow['codeexpense'], '</td>
-			<td>', $MyRow['description'], '</td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['codeexpense'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
@@ -198,7 +193,7 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 	if (!isset($_GET['delete'])) {
 
 
-		echo '<table  class="selection">'; //Main table
+		echo '<table >'; //Main table
 
 		echo '<tr>
 				<td>', _('Select Expense Code'), ':</td>
