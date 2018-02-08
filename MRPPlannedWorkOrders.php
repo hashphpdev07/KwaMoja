@@ -32,11 +32,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 					   stockmaster.actualcost,
 					  (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				ORDER BY mrpplannedorders.part,mrpplannedorders.duedate";
 	} elseif ($_POST['Consolidation'] == 'Weekly') {
@@ -53,11 +53,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 					   stockmaster.actualcost,
 					  (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				GROUP BY mrpplannedorders.part,
 						 weekindex,
@@ -85,11 +85,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 					   stockmaster.actualcost,
 					  (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				GROUP BY mrpplannedorders.part,
 						 yearmonth,
@@ -241,46 +241,48 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 	} else { // Review planned work orders
 		$Title = _('Review/Convert MRP Planned Work Orders');
 		include ('includes/header.php');
-		echo '<p class="page_title_text" >
-				<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_title_text">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
+			</p>';
 
 		echo '<form action="MRPConvertWorkOrders.php" method="post">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table>';
-		echo '<tr>
-				<th colspan="9"><h3>' . _('Consolidation') . ': ' . $_POST['Consolidation'] . "&nbsp;&nbsp;&nbsp;&nbsp;" . _('Cutoff Date') . ': ' . $_POST['cutoffdate'] . '</h3></th>
-			</tr>
-			<tr>
-				<th></th>
-				<th>' . _('Code') . '</th>
-				<th>' . _('Description') . '</th>
-				<th>' . _('MRP Date') . '</th>
-				<th>' . _('Due Date') . '</th>
-				<th>' . _('Quantity') . '</th>
-				<th>' . _('Unit Cost') . '</th>
-				<th>' . _('Ext. Cost') . '</th>
-				<th>' . _('Consolidations') . '</th>
-			</tr>';
+		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+		echo '<table>
+				<tr>
+					<th colspan="9">
+						<h3>', _('Consolidation'), ': ', $_POST['Consolidation'], "&nbsp;&nbsp;&nbsp;&nbsp;", _('Cutoff Date'), ': ', $_POST['cutoffdate'], '</h3>
+					</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>', _('Code'), '</th>
+					<th>', _('Description'), '</th>
+					<th>', _('MRP Date'), '</th>
+					<th>', _('Due Date'), '</th>
+					<th>', _('Quantity'), '</th>
+					<th>', _('Unit Cost'), '</th>
+					<th>', _('Ext. Cost'), '</th>
+					<th>', _('Consolidations'), '</th>
+				</tr>';
 
 		$TotalPartQty = 0;
 		$TotalPartCost = 0;
 		$Total_ExtCost = 0;
 		$j = 1; //row ID
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
-					<td><a href="' . $RootPath . '/WorkOrderEntry.php?NewItem=' . urlencode($MyRow['part']) . '&amp;ReqQty=' . urlencode($MyRow['supplyquantity']) . '&amp;ReqDate=' . urlencode($MyRow['duedate']) . '">' . _('Convert') . '</a></td>
-					<td><a href="' . $RootPath . '/SelectProduct.php?StockID=' . $MyRow['part'] . '">' . $MyRow['part'] . '</a>' . '<input type="hidden" name="' . $j . '_part" value="' . $MyRow['part'] . '" /></td>
-					<td>' . $MyRow['description'] . '</td>
-					<td>' . ConvertSQLDate($MyRow['mrpdate']) . '</td>
-					<td>' . ConvertSQLDate($MyRow['duedate']) . '</td>
-					<td class="number">' . locale_number_format($MyRow['supplyquantity'], $MyRow['decimalplaces']) . '</td>
-					<td class="number">' . locale_number_format($MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-					<td class="number">' . locale_number_format($MyRow['supplyquantity'] * $MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
+					<td><a href="', $RootPath, '/WorkOrderEntry.php?NewItem=', urlencode($MyRow['part']), '&amp;ReqQty=', urlencode($MyRow['supplyquantity']), '&amp;ReqDate=', urlencode($MyRow['duedate']), '">', _('Convert'), '</a></td>
+					<td><a href="', $RootPath, '/SelectProduct.php?StockID=', urlencode($MyRow['part']), '">', $MyRow['part'], '</a><input type="hidden" name="', $j, '_part" value="', $MyRow['part'], '" /></td>
+					<td>', $MyRow['description'], '</td>
+					<td>', ConvertSQLDate($MyRow['mrpdate']), '</td>
+					<td>', ConvertSQLDate($MyRow['duedate']), '</td>
+					<td class="number">', locale_number_format($MyRow['supplyquantity'], $MyRow['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['supplyquantity'] * $MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>';
 
 			if ($_POST['Consolidation'] != 'None') {
-				echo '<td class="number">' . $MyRow['consolidatedcount'] . '</td>';
+				echo '<td class="number">', $MyRow['consolidatedcount'], '</td>';
 			} else {
 				echo '<td></td>'; // Empty cell when Consolidation is None.
 				
@@ -293,13 +295,13 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		} // end while loop
 		// Print out the grand totals
 		echo '<tr>
-				<td colspan="3" class="number">' . _('Number of Work Orders') . ': ' . ($j - 1) . '</td>
-				<td colspan="4" class="number">' . _('Total Extended Cost') . ': ' . locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+				<td colspan="3" class="number">', _('Number of Work Orders'), ': ', ($j - 1), '</td>
+				<td colspan="4" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			</tr>
 			</table>';
 		echo '</form>';
 
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 		include ('includes/footer.php');
 
 	}
@@ -309,38 +311,39 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 	$Title = _('MRP Planned Work Orders Reporting');
 	include ('includes/header.php');
-	echo '<p class="page_title_text" >
-			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
+		</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>';
-	echo '<tr>
-			<td>' . _('Consolidation') . ':</td>
-			<td>
-				<select required="required" name="Consolidation">
-					<option selected="selected" value="None">' . _('None') . '</option>
-					<option value="Weekly">' . _('Weekly') . '</option>
-					<option value="Monthly">' . _('Monthly') . '</option>
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label for="Consolidation">', _('Consolidation'), ':</label>
+				<select required="required" autofocus="autofocus" name="Consolidation">
+					<option selected="selected" value="None">', _('None'), '</option>
+					<option value="Weekly">', _('Weekly'), '</option>
+					<option value="Monthly">', _('Monthly'), '</option>
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Print Option') . ':</td>
-			<td>
+				<fieldhelp>', _('Select the method to use for consolidating orders'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="Fill">', _('Print Option'), ':</label>
 				<select name="Fill">
-					<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
-					<option value="no">' . _('Plain Print') . '</option>
+					<option selected="selected" value="yes">', _('Print With Alternating Highlighted Lines'), '</option>
+					<option value="no">', _('Plain Print'), '</option>
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Cut Off Date') . ':</td>
-			<td><input type ="text" class="date" name="cutoffdate" required="required" autofocus="autofocus" size="10" value="' . date($_SESSION['DefaultDateFormat']) . '" /></td>
-		</tr>
-	</table>
+				<fieldhelp>', _('Use colour for alternate rows to help readability of the report.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="cutoffdate">', _('Cut Off Date'), ':</label>
+				<input type ="text" class="date" name="cutoffdate" required="required" size="10" value="', date($_SESSION['DefaultDateFormat']), '" /></label>
+			</field>
+		</fieldset>
 		<div class="centre">
-			<input type="submit" name="Review" value="' . _('Review') . '" /> <input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
+			<input type="submit" name="Review" value="', _('Review'), '" />
+			<input type="submit" name="PrintPDF" value="', _('Print PDF'), '" />
 		</div>
 	</form>';
 

@@ -40,11 +40,11 @@ if (isset($_POST['PrintPDF'])) {
 					   stockmaster.actualcost,
 					   (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				 AND stockmaster.mbflag IN ('B','P')
 				ORDER BY mrpplannedorders.part,mrpplannedorders.duedate";
@@ -62,11 +62,11 @@ if (isset($_POST['PrintPDF'])) {
 					   stockmaster.actualcost,
 					   (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				GROUP BY mrpplannedorders.part,
 						 weekindex,
@@ -94,11 +94,11 @@ if (isset($_POST['PrintPDF'])) {
 					   stockmaster.actualcost,
 					   (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				GROUP BY mrpplannedorders.part,
 						 yearmonth,
@@ -266,39 +266,41 @@ if (isset($_POST['PrintPDF'])) {
 
 	$Title = _('MRP Planned Purchase Orders Reporting');
 	include ('includes/header.php');
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
+		</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>';
-	echo '<tr>
-			<td>' . _('Consolidation') . ':</td>
-			<td>
-				<select required="required" name="Consolidation">
-					<option selected="selected" value="None">' . _('None') . '</option>
-					<option value="Weekly">' . _('Weekly') . '</option>
-					<option value="Monthly">' . _('Monthly') . '</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Print Option') . ':</td>
-			<td>
-				<select name="Fill">
-					<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
-					<option value="no">' . _('Plain Print') . '</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Cut Off Date') . ':</td>
-			<td><input type ="text" required="required" class="date" name="cutoffdate" size="10" value="' . date($_SESSION['DefaultDateFormat']) . '" /></td>
-		</tr>
-	</table>
-	<div class="centre">
-		<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
-	</div>
-</form>';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+				<field>
+					<label for="Consolidation">', _('Consolidation'), ':</label>
+					<select required="required" autofocus="autofocus" name="Consolidation">
+						<option selected="selected" value="None">', _('None'), '</option>
+						<option value="Weekly">', _('Weekly'), '</option>
+						<option value="Monthly">', _('Monthly'), '</option>
+					</select>
+					<fieldhelp>', _('Select the method to use for consolidating orders'), '</fieldhelp>
+				</field>
+				<field>
+					<label for="Fill">', _('Print Option'), ':</label>
+					<select name="Fill">
+						<option selected="selected" value="yes">', _('Print With Alternating Highlighted Lines'), '</option>
+						<option value="no">', _('Plain Print'), '</option>
+					</select>
+					<fieldhelp>', _('Use colour for alternate rows to help readability of the report.'), '</fieldhelp>
+				</field>
+				<field>
+					<label for="cutoffdate">', _('Cut Off Date'), ':</label>
+					<input type ="text" required="required" class="date" name="cutoffdate" size="10" value="', date($_SESSION['DefaultDateFormat']), '" />
+					<fieldhelp>', _('The cut off date to use for planned orders.'), '</fieldhelp>
+				</field>
+			</fieldset>
+			<div class="centre">
+				<input type="submit" name="PrintPDF" value="', _('Print PDF'), '" />
+			</div>
+		</form>';
 
 	include ('includes/footer.php');
 
