@@ -1,14 +1,13 @@
 <?php
-
 /* $Id: geo_displaymap_suppliers.php 6565 2014-02-06 08:42:57Z daintree $*/
 
 $Title = _('Geocoded Supplier Report');
 
 include ('includes/session.php');
 include ('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/SQL_CommonFunctions.php');
 
-$SQL="SELECT * FROM geocode_param WHERE 1";
+$SQL = "SELECT * FROM geocode_param WHERE 1";
 $ErrMsg = _('An error occurred in retrieving the currency information');
 $Result = DB_query($SQL, $ErrMsg);
 $MyRow = DB_fetch_array($Result);
@@ -33,10 +32,9 @@ $Map_Host = $MyRow['map_host'];
 
 <?
 echo '<script src="http://' . $Map_Host . '/maps/api/js?key=' . $Api_Key . '&sensor=false"';
-echo ' type="text/javascript"></script>';
-echo ' <script type="text/javascript">';
-echo "    //<![CDATA[ "; ?>
-?>
+echo ' type="text/javascript"></script>';?>
+<script type="text/javascript">
+//<![CDATA[
 
 var customIcons = {
     4: {
@@ -49,7 +47,7 @@ var customIcons = {
 
 function load() {
     var map = new google.maps.Map(document.getElementById("map"), {
-            <? echo 'center:new google.maps.LatLng(' . $Center_Lat . ', ' . $Center_Long . '),'; ?>
+            <?php echo 'center:new google.maps.LatLng(' . $Center_Lat . ', ' . $Center_Long . '),'; ?>
             zoom: 4,
             mapTypeId: 'roadmap'
         });
@@ -111,10 +109,10 @@ function doNothing() {}
 
 <body onload="load()" onunload="GUnload()">
     <p>
-    <? echo '<div class="centre" id="map" style="width: ' . $Map_Width . 'px; height: ' . $Map_Height . 'px"></div>'; ?>
+    <?php echo '<div class="centre" id="map" style="width: ' . $Map_Width . 'px; height: ' . $Map_Height . 'px"></div>'; ?>
     </p>
 </body>
-<?
+<?php
 echo '<div class="centre"><a href="' . $RootPath . '/GeocodeSetup.php">' . _('Go to Geocode Setup') . '</a></div></p>';
 include ('includes/footer.php');
 ?>
