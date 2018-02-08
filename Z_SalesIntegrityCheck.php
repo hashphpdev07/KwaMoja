@@ -1,12 +1,9 @@
 <?php
-
 // Script to do some Sales Integrity checks
 // No SQL updates or Inserts - so safe to run
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales Integrity');
-include('includes/header.php');
-
+include ('includes/header.php');
 
 echo '<div class="centre"><h3>' . _('Sales Integrity Check') . '</h3></div>';
 
@@ -44,7 +41,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<div style="color:red">' . _('has no GL Entry') . '</div>';
 	}
 }
-
 
 echo '<br /><br />' . _('Check for orphan GL Entries') . '<br />';
 $SQL = "SELECT DISTINCT typeno, counterindex FROM gltrans WHERE type = 10";
@@ -104,7 +100,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 }
 
-
 echo '<br /><br />' . _('Check for orphan Sales Orders') . '<br />';
 $SQL = "SELECT orderno, orddate FROM salesorders";
 $Result = DB_query($SQL);
@@ -139,7 +134,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo ', <div style="color:red">' . _('Has no Sales Order') . '</div>';
 	}
 
-	$sumsql = "SELECT SUM( qtyinvoiced * unitprice ) AS InvoiceTotal
+	$sumsql = "SELECT ROUND(SUM(qtyinvoiced * unitprice * (1 - discountpercent)), 3) AS InvoiceTotal
 				FROM salesorderdetails
 				WHERE orderno = '" . $MyRow['orderno'] . "'";
 	$sumresult = DB_query($sumsql);
@@ -167,7 +162,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 }
 
-
 echo '<br /><br />' . _('Check for orphan Stock Moves') . '<br />';
 $SQL = "SELECT stkmoveno, transno FROM stockmoves";
 $Result = DB_query($SQL);
@@ -188,7 +182,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 }
 
-
 echo '<br /><br />' . _('Check for orphan Tax Entries') . '<br />';
 $SQL = "SELECT debtortransid FROM debtortranstaxes";
 $Result = DB_query($SQL);
@@ -207,5 +200,5 @@ echo '<br /><br />' . _('Sales Integrity Check completed.') . '<br /><br />';
 
 prnMsg(_('Sales Integrity Check completed.'), 'info');
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>
