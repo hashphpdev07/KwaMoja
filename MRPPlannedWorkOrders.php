@@ -262,10 +262,12 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 						<th>', _('Due Date'), '</th>
 						<th>', _('Quantity'), '</th>
 						<th>', _('Unit Cost'), '</th>
-						<th>', _('Ext. Cost'), '</th>
-						<th>', _('Consolidations'), '</th>
-					</tr>
-				</thead>';
+						<th>', _('Ext. Cost'), '</th>';
+		if ($_POST['Consolidation'] != 'None') {
+			echo '<th>', _('Consolidations'), '</th>';
+		}
+		echo '</tr>
+			</thead>';
 
 		$TotalPartQty = 0;
 		$TotalPartCost = 0;
@@ -286,9 +288,6 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 			if ($_POST['Consolidation'] != 'None') {
 				echo '<td class="number">', $MyRow['consolidatedcount'], '</td>';
-			} else {
-				echo '<td></td>'; // Empty cell when Consolidation is None.
-				
 			}
 			echo '</tr>';
 
@@ -301,7 +300,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		echo '<tfoot>
 				<tr>
 					<td colspan="3" class="number">', _('Number of Work Orders'), ': ', ($j - 1), '</td>
-					<td colspan="4" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td colspan="5" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				</tr>
 			</tfoot>
 		</table>';

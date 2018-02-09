@@ -321,7 +321,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		// Print out the grand totals
 		echo '<tr>
 				<td colspan="3" class="number">', _('Number of Purchase Orders'), ': ', ($j - 1), '</td>
-				<td colspan="4" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td colspan="5" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			</tr>
 		</table>
 	</form>';
