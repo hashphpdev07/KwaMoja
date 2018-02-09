@@ -241,34 +241,37 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 	} else { // Review planned work orders
 		$Title = _('Review/Convert MRP Planned Work Orders');
 		include ('includes/header.php');
-		echo '<p class="page_title_text">
+		echo '<p class="page_title_text noPrint">
 				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
 			</p>';
 
 		echo '<form action="MRPConvertWorkOrders.php" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table>
-				<tr>
-					<th colspan="9">
-						<h3>', _('Consolidation'), ': ', $_POST['Consolidation'], "&nbsp;&nbsp;&nbsp;&nbsp;", _('Cutoff Date'), ': ', $_POST['cutoffdate'], '</h3>
-					</th>
-				</tr>
-				<tr>
-					<th></th>
-					<th>', _('Code'), '</th>
-					<th>', _('Description'), '</th>
-					<th>', _('MRP Date'), '</th>
-					<th>', _('Due Date'), '</th>
-					<th>', _('Quantity'), '</th>
-					<th>', _('Unit Cost'), '</th>
-					<th>', _('Ext. Cost'), '</th>
-					<th>', _('Consolidations'), '</th>
-				</tr>';
+				<thead>
+					<tr>
+						<th colspan="9">
+							<h3>', _('Consolidation'), ': ', $_POST['Consolidation'], "&nbsp;&nbsp;&nbsp;&nbsp;", _('Cutoff Date'), ': ', $_POST['cutoffdate'], '</h3>
+						</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>', _('Code'), '</th>
+						<th>', _('Description'), '</th>
+						<th>', _('MRP Date'), '</th>
+						<th>', _('Due Date'), '</th>
+						<th>', _('Quantity'), '</th>
+						<th>', _('Unit Cost'), '</th>
+						<th>', _('Ext. Cost'), '</th>
+						<th>', _('Consolidations'), '</th>
+					</tr>
+				</thead>';
 
 		$TotalPartQty = 0;
 		$TotalPartCost = 0;
 		$Total_ExtCost = 0;
 		$j = 1; //row ID
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
@@ -294,14 +297,17 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 		} // end while loop
 		// Print out the grand totals
-		echo '<tr>
-				<td colspan="3" class="number">', _('Number of Work Orders'), ': ', ($j - 1), '</td>
-				<td colspan="4" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			</tr>
-			</table>';
+		echo '</tbody>';
+		echo '<tfoot>
+				<tr>
+					<td colspan="3" class="number">', _('Number of Work Orders'), ': ', ($j - 1), '</td>
+					<td colspan="4" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>
+			</tfoot>
+		</table>';
 		echo '</form>';
 
-		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
+		echo '<br /><a class="noprint" href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select different criteria.'), '</a>';
 		include ('includes/footer.php');
 
 	}
