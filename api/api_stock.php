@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the stock code*/
 function VerifyStockCode($StockCode, $i, $Errors) {
 	$Searchsql = "SELECT count(stockid)
@@ -258,7 +257,7 @@ function VerifyDecimalPlaces($DecimalPlaces, $i, $Errors) {
 
 function GetCategoryGLCode($CategoryID, $field) {
 	$SQL = 'SELECT ' . $field . " FROM stockcategory WHERE categoryid='" . $CategoryID . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	return $MyRow[0];
 }
@@ -360,16 +359,16 @@ function InsertStockItem($StockItemDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($StockItemDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$stocksql = 'INSERT INTO stockmaster (' . mb_substr($FieldNames, 0, -2) . ') ' . 'VALUES (' . mb_substr($FieldValues, 0, -2) . ') ';
 		$locsql = "INSERT INTO locstock (loccode,stockid)
 				SELECT locations.loccode,'" . $StockItemDetails['stockid'] . "' FROM locations";
 		DB_Txn_Begin();
-		$stockresult = DB_Query($stocksql);
-		$locresult = DB_Query($locsql);
+		$stockresult = DB_query($stocksql);
+		$locresult = DB_query($locsql);
 		DB_Txn_Commit();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -478,11 +477,11 @@ function ModifyStockItem($StockItemDetails, $user, $password) {
 	}
 	$SQL = 'UPDATE stockmaster SET ';
 	foreach ($StockItemDetails as $Key => $Value) {
-		$SQL .= $Key . '="' . $Value . '", ';
+		$SQL.= $Key . '="' . $Value . '", ';
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE stockid='" . $StockItemDetails['stockid'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		echo DB_error_no();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -509,7 +508,7 @@ function GetStockItem($StockId, $user, $password) {
 		return $Errors;
 	}
 	$SQL = "SELECT * FROM stockmaster WHERE stockid='" . $StockId . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		$Errors[0] = 0;
 		$Errors[1] = DB_fetch_array($Result);
@@ -532,7 +531,7 @@ function SearchStockItems($Field, $Criteria, $user, $password) {
 	$SQL = "SELECT stockid
 			  FROM stockmaster
 			  WHERE " . $Field . " LIKE '%" . $Criteria . "%'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$i = 0;
 	$StockItemList = array();
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -590,7 +589,7 @@ function GetStockReorderLevel($StockId, $user, $password) {
 		return $Errors;
 	}
 	$SQL = "SELECT reorderlevel, loccode FROM locstock WHERE stockid='" . $StockId . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
@@ -620,7 +619,7 @@ function SetStockReorderLevel($StockId, $Location, $ReorderLevel, $user, $passwo
 	$SQL = "UPDATE locstock SET reorderlevel='" . $ReorderLevel . "'
 					 WHERE stockid='" . $StockId . "'
 					 AND loccode='" . $Location . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		return 0;
 	} else {
@@ -643,7 +642,7 @@ function GetAllocatedStock($StockId, $user, $password) {
 			 FROM salesorderdetails
 			 WHERE stkcode='" . $StockId . "'
 			 AND completed=0";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		$Errors[0] = 0;
 		$Errors[1] = DB_fetch_array($Result);
@@ -668,7 +667,7 @@ function GetOrderedStock($StockId, $user, $password) {
 			  FROM purchorderdetails
 			  WHERE itemcode='" . $StockId . "'
 			  AND completed=0";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		$Errors[0] = 0;
 		$Errors[1] = DB_fetch_array($Result);
@@ -695,7 +694,7 @@ function SetStockPrice($StockId, $Currency, $SalesType, $Price, $user, $password
 				 WHERE stockid='" . $StockId . "'
 				 and typeabbrev='" . $SalesType . "'
 				 and currabrev='" . $Currency . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	if ($MyRow[0] == 0) {
 		$SQL = "INSERT INTO prices VALUES('" . $StockId . "',
@@ -709,7 +708,7 @@ function SetStockPrice($StockId, $Currency, $SalesType, $Price, $user, $password
 					AND typeabbrev='" . $SalesType . "'
 					AND currabrev='" . $Currency . "'";
 	}
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$Errors[0] = 0;
 	return $Errors;
 }
@@ -733,7 +732,7 @@ function GetStockPrice($StockId, $Currency, $SalesType, $user, $password) {
 				 AND currabrev='" . $Currency . "'
 				 AND startdate<=CURRENT_DATE
 				 AND (enddate>CURRENT_DATE OR enddate='0000-00-00')";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	if ($MyRow[0] == 0) {
 		$Errors[0] = NoPricesSetup;
@@ -746,7 +745,7 @@ function GetStockPrice($StockId, $Currency, $SalesType, $user, $password) {
 							 AND startdate<=CURRENT_DATE
 							 AND (enddate>CURRENT_DATE OR enddate='0000-00-00')";
 	}
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	$Errors[0] = 0;
 	$Errors[1] = $MyRow;
@@ -768,7 +767,7 @@ function GetStockTaxRate($StockId, $TaxAuth, $user, $password) {
 				ON taxauthrates.taxcatid=stockmaster.taxcatid
 				WHERE stockid='" . $StockId . "'
 				AND taxauthority='" . $TaxAuth . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	$Errors[0] = 0;
 	$Errors[1] = $MyRow;
@@ -786,7 +785,7 @@ function StockAdjustment($StockId, $Location, $Quantity, $TranDate, $user, $pass
 	$balances = GetStockBalance($StockId, $user, $password);
 	$balance = 0;
 	$SizeOfBalances = sizeOf($balances);
-	for ($i = 0; $i < $SizeOfBalances; $i++) {
+	for ($i = 0;$i < $SizeOfBalances;$i++) {
 		$balance = $balance + $balances[$i]['quantity'];
 	}
 	$newqoh = $Quantity + $balance;
@@ -885,7 +884,7 @@ function GetBatches($StockId, $Location, $user, $password) {
 										WHERE stockmoves.type=25) as t
 				ON stockserialitems.stockid=t.stockid and stockserialitems.serialno=t.serialno
 			WHERE stockid='" . $StockId . "' AND loccode='" . $Location . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {

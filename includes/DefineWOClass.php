@@ -1,9 +1,8 @@
 <?php
-
 /* Definition of the Works Order class to hold all the information for a purchase order and delivery
- */
+*/
 
-Class WorkOrder {
+class WorkOrder {
 
 	var $OrderNumber;
 	var $LocationCode;
@@ -35,10 +34,11 @@ Class WorkOrder {
 	}
 
 	function UpdateItem($StockId, $Comments, $QuantityRequired, $NextLotSerialNumber = '') {
-		$this->Items[$this->ItemByStockID($StockId)]->QuantityRequired = $QuantityRequired;
-		$this->Items[$this->ItemByStockID($StockId)]->Comments = $Comments;
-		$this->Items[$this->ItemByStockID($StockId)]->NextLotSerialNumbers = $NextLotSerialNumber;
-//		$this->Items[$this->ItemByStockID($StockId)]->RefreshRequirements($this->LocationCode);
+		$this->Items[$this->ItemByStockID($StockId) ]->QuantityRequired = $QuantityRequired;
+		$this->Items[$this->ItemByStockID($StockId) ]->Comments = $Comments;
+		$this->Items[$this->ItemByStockID($StockId) ]->NextLotSerialNumbers = $NextLotSerialNumber;
+		//		$this->Items[$this->ItemByStockID($StockId)]->RefreshRequirements($this->LocationCode);
+		
 	}
 
 	function RemoveItemFromOrder($LineNumber) {
@@ -56,7 +56,7 @@ Class WorkOrder {
 	}
 
 	function ItemByStockID($StockId) {
-		for ($i = 0; $i <= $this->NumberOfItems; $i++) {
+		for ($i = 0;$i <= $this->NumberOfItems;$i++) {
 			if (isset($this->Items[$i]) and $this->Items[$i]->StockId == $StockId) {
 				return $i;
 			}
@@ -136,7 +136,7 @@ Class WorkOrder {
 
 }
 
-Class WOItem {
+class WOItem {
 
 	var $StockId;
 	var $Comments;
@@ -187,7 +187,7 @@ Class WOItem {
 		$this->Requirements = array();
 		$this->NumberOfRequirements = 0;
 
-		$BOMResult = DB_Query("SELECT   bom.component,
+		$BOMResult = DB_query("SELECT   bom.component,
 										bom.quantity,
 										bom.autoissue,
 										description,
@@ -259,7 +259,7 @@ Class WOItem {
 
 	function RefreshRequirements($LocationCode) {
 
-		$BOMResult = DB_Query("SELECT   bom.component,
+		$BOMResult = DB_query("SELECT   bom.component,
 										bom.quantity,
 										bom.autoissue,
 										description,
@@ -276,12 +276,12 @@ Class WOItem {
 									WHERE bom.parent='" . $this->StockId . "'
 										AND bom.loccode='" . $LocationCode . "'");
 		while ($BOMRow = DB_fetch_array($BOMResult)) {
-			$this->Requirements[$this->RequirementByStockID($this->StockId, $BOMRow['component'])]->Quantity = $BOMRow['quantity'];
+			$this->Requirements[$this->RequirementByStockID($this->StockId, $BOMRow['component']) ]->Quantity = $BOMRow['quantity'];
 		}
 	}
 
 	function RequirementByStockID($Parent, $StockId) {
-		for ($i = 1; $i <= $this->NumberOfRequirements; $i++) {
+		for ($i = 1;$i <= $this->NumberOfRequirements;$i++) {
 			if ($this->Requirements[$i]->StockId == $StockId and $this->Requirements[$i]->ParentStockId == $Parent) {
 				return $i;
 			}
@@ -290,7 +290,7 @@ Class WOItem {
 	}
 }
 
-Class WORequirement {
+class WORequirement {
 
 	var $ParentStockId;
 	var $StockId;

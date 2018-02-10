@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Authorisation of Petty Cash Expenses');
 
 if (isset($_GET['download'])) {
@@ -22,8 +21,8 @@ if (isset($_GET['download'])) {
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'AuthorizeExpense';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['SelectedTabs'])) {
 	$SelectedTabs = mb_strtoupper($_POST['SelectedTabs']);
@@ -126,7 +125,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 	while ($MyRow = DB_fetch_array($Result)) {
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];
 		//update database if update pressed
-
 		$PeriodNo = GetPeriod(ConvertSQLDate($MyRow['date']));
 
 		$TaxTotalSQL = "SELECT SUM(amount) as totaltax FROM pcashdetailtaxes WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
@@ -148,8 +146,8 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			$TagDescription = '0 - ' . _('None');
 		} else {
 			$Type = 1;
-			$GrossAmount = -$GrossAmount;
-			$NetAmount = -$NetAmount;
+			$GrossAmount = - $GrossAmount;
+			$NetAmount = - $NetAmount;
 			$AccountFrom = $MyRow['glaccountpcash'];
 			$SQLAccExp = "SELECT glaccount,
 								tag
@@ -197,7 +195,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 											'" . -$NetAmount . "',
 											0,
 											'')";
-			$ResultFrom = DB_Query($SQLFrom, '', '', true);
+			$ResultFrom = DB_query($SQLFrom, '', '', true);
 			$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 												'0')";
 			$ErrMsg = _('Cannot insert a GL tag for the payment line because');
@@ -226,7 +224,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 										'" . $GrossAmount . "',
 										0,
 										'')";
-			$ResultTo = DB_Query($SQLTo, '', '', true);
+			$ResultTo = DB_query($SQLTo, '', '', true);
 			foreach ($Tags as $Tag) {
 				$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 													'" . $Tag . "')";
@@ -270,9 +268,8 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 												'" . $MyTaxRow['amount'] . "',
 												0,
 												'')";
-				$ResultTax = DB_Query($SQLTo, '', '', true);
+				$ResultTax = DB_query($SQLTo, '', '', true);
 			}
-
 
 			if ($MyRow['codeexpense'] == 'ASSIGNCASH') {
 				// if it's a cash assignation we need to updated banktrans table as well.
@@ -337,7 +334,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 		$TagsResult = DB_query($SQLTags);
 		$TagString = '';
 		while ($TagRow = DB_fetch_array($TagsResult)) {
-			$TagString .= $TagRow['tag'] . ' - ' . $TagRow['tagdescription'] . '<br />';
+			$TagString.= $TagRow['tag'] . ' - ' . $TagRow['tagdescription'] . '<br />';
 		}
 
 		$TaxesDescription = '';
@@ -355,8 +352,8 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 						WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
 		$TaxResult = DB_query($TaxSQL);
 		while ($MyTaxRow = DB_fetch_array($TaxResult)) {
-			$TaxesDescription .= $MyTaxRow['description'] . '<br />';
-			$TaxesTaxAmount .= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
+			$TaxesDescription.= $MyTaxRow['description'] . '<br />';
+			$TaxesTaxAmount.= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
 		}
 
 		$ReceiptSQL = "SELECT name
@@ -393,7 +390,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			</td>
 		</tr>';
 
-
 	} //end of looping
 	echo '</tbody>';
 
@@ -416,7 +412,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 		</tr>';
 
 	// Do the postings
-	include('includes/GLPostings.php');
+	include ('includes/GLPostings.php');
 	echo '</table>';
 
 	echo '<div class="centre">
@@ -424,15 +420,12 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 		</div>
 	</form>';
 
-
 } else {
 	/*The option to submit was not hit so display form */
-
 
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>'; //Main table
-
 	$SQL = "SELECT tabcode
 		FROM pctabs
 		WHERE authorizerexpenses='" . $_SESSION['UserID'] . "'
@@ -451,7 +444,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			echo '<option value="', $MyRow['tabcode'], '">', $MyRow['tabcode'], '</option>';
 		}
 	} //end while loop get type of tab
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -465,5 +457,5 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 	echo '</form>';
 }
 /*end of else not submit */
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

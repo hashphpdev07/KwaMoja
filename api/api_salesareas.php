@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the area code is set up in the kwamoja database */
 function VerifyAreaCodeDoesntExist($AreaCode, $i, $Errors) {
 	$Searchsql = "SELECT COUNT(areacode)
@@ -15,7 +14,7 @@ function VerifyAreaCodeDoesntExist($AreaCode, $i, $Errors) {
 
 /* This function returns a list of the sales areas
  * currently setup on KwaMoja
- */
+*/
 
 function GetSalesAreasList($User, $Password) {
 	$Errors = array();
@@ -37,7 +36,7 @@ function GetSalesAreasList($User, $Password) {
 /* This function takes as a parameter a sales area code
  * and returns an array containing the details of the selected
  * areas.
- */
+*/
 
 function GetSalesAreaDetails($area, $User, $Password) {
 	$Errors = array();
@@ -60,7 +59,7 @@ function GetSalesAreaDetails($area, $User, $Password) {
 
 /* This function takes as a parameter an array of sales area details
  * to be inserted into KwaMoja.
- */
+*/
 
 function InsertSalesArea($AreaDetails, $User, $Password) {
 	$Errors = array();
@@ -72,17 +71,18 @@ function InsertSalesArea($AreaDetails, $User, $Password) {
 	$Errors = VerifyAreaCodeDoesntExist($AreaDetails['areacode'], 0, $Errors);
 	if (sizeof($Errors > 0)) {
 		//			return $Errors;
+		
 	}
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($AreaDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	$SQL = 'INSERT INTO areas (' . mb_substr($FieldNames, 0, -2) . ")
 				VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -95,7 +95,7 @@ function InsertSalesArea($AreaDetails, $User, $Password) {
 /* This function takes as a parameter a sales area description
  * and returns an array containing the details of the selected
  * areas.
- */
+*/
 
 function GetSalesAreaDetailsFromName($AreaName, $User, $Password) {
 	$Errors = array();

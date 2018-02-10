@@ -2,35 +2,33 @@
 /* $Id: RevisionTranslations.php 7040 2014-12-27 15:15:29Z tehonu $*/
 /* This script is to review the item description translations. */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Review Translated Descriptions'); // Screen identificator.
 $ViewTopic = 'Inventory'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'ReviewTranslatedDescriptions'; // Anchor's id in the manual's html document.
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . // Title icon.
-	_('Review Translated Descriptions') . '" />' . // Icon title.
-	_('Review Translated Descriptions') . '</p>'; // Page title.
-
-include('includes/SQL_CommonFunctions.php');
+_('Review Translated Descriptions') . '" />' . // Icon title.
+_('Review Translated Descriptions') . '</p>'; // Page title.
+include ('includes/SQL_CommonFunctions.php');
 
 //update database if update pressed
 if (isset($_POST['Submit'])) {
-	for ($i = 1; $i < count($_POST); $i++) { //loop through the returned translations
-
+	for ($i = 1;$i < count($_POST);$i++) { //loop through the returned translations
 		if (isset($_POST['Revised' . $i]) and ($_POST['Revised' . $i] == '1')) {
 			$SQLUpdate = "UPDATE stockdescriptiontranslations
 						SET needsrevision = '0',
 							descriptiontranslation = '" . $_POST['DescriptionTranslation' . $i] . "',
 						WHERE stockid = '" . $_POST['StockID' . $i] . "'
 							AND language_id = '" . $_POST['LanguageID' . $i] . "'";
-			$ResultUpdate = DB_Query($SQLUpdate, '', '', true);
+			$ResultUpdate = DB_query($SQLUpdate, '', '', true);
 			$SQLUpdate = "UPDATE stocklongdescriptiontranslations
 						SET needsrevision = '0',
 							longdescriptiontranslation = '" . $_POST['LongDescriptionTranslation' . $i] . "'
 						WHERE stockid = '" . $_POST['StockID' . $i] . "'
 							AND language_id = '" . $_POST['LanguageID' . $i] . "'";
-			$ResultUpdate = DB_Query($SQLUpdate, '', '', true);
+			$ResultUpdate = DB_query($SQLUpdate, '', '', true);
 			prnMsg($_POST['StockID' . $i] . ' ' . _('descriptions') . ' ' . _('in') . ' ' . $_POST['LanguageID' . $i] . ' ' . _('have been updated'), 'success');
 		}
 	}
@@ -80,7 +78,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td>' . nl2br($MyRow['longdescription']) . '</td>
 			<td>&nbsp;</td>
 		</tr>'; // nl2br: Inserts HTML line breaks before all newlines in a string.
-
 	echo '<tr class="striped_row">
 			<td>&nbsp;</td>
 			<td>' . $MyRow['language_id'] . '</td>';
@@ -97,12 +94,11 @@ while ($MyRow = DB_fetch_array($Result)) {
 	++$i;
 
 } //end of looping
-
 echo '</table>
 		<div class="centre">
 			<input type="submit" name="Submit" value="' . _('Update') . '" />
 		</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,7 +1,6 @@
 <?php
-
 /* Verify that the debtor number is valid, and doesn't already
-exist.*/
+ exist.*/
 function VerifyDebtorNo($DebtorNumber, $i, $Errors) {
 	if ((mb_strlen($DebtorNumber) < 1) or (mb_strlen($DebtorNumber) > 10)) {
 		$Errors[$i] = IncorrectDebtorNumberLength;
@@ -76,6 +75,7 @@ function VerifySalesType($SalesType, $i, $Errors) {
 function VerifyClientSince($ClientSince, $i, $Errors) {
 	if (!is_date($ClientSince)) {
 		//			$Errors[$i] = InvalidClientSinceDate;
+		
 	}
 	return $Errors;
 }
@@ -253,10 +253,10 @@ array of one to many error codes.
 function InsertCustomer($CustomerDetails, $user = '', $password = '') {
 	$Errors = array();
 	$db = db($user, $password);
-//	if (gettype($db) == 'integer') {
-//		$Errors[0] = NoAuthorisation;
-//		return $Errors;
-//	}
+	//	if (gettype($db) == 'integer') {
+	//		$Errors[0] = NoAuthorisation;
+	//		return $Errors;
+	//	}
 	foreach ($CustomerDetails as $Key => $Value) {
 		$CustomerDetails[$Key] = DB_escape_string($Value);
 	}
@@ -370,12 +370,12 @@ function InsertCustomer($CustomerDetails, $user = '', $password = '') {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($CustomerDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= "'" . $Value . "', ";
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= "'" . $Value . "', ";
 	}
 	$SQL = "INSERT INTO debtorsmaster (" . mb_substr($FieldNames, 0, -2) . ") VALUES (" . mb_substr($FieldValues, 0, -2) . ") ";
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL, $db);
+		$Result = api_DB_query($SQL, $db);
 		if ($_SESSION['db_err_msg'] != '') {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -404,7 +404,7 @@ function ModifyCustomer($CustomerDetails, $user, $password) {
 		$CustomerDetails[$Key] = DB_escape_string($Value);
 	}
 	if (!isset($CustomerDetails['debtorno'])) {
-		$Errors[sizeof($Errors)] = NoDebtorNumber;
+		$Errors[sizeof($Errors) ] = NoDebtorNumber;
 		return $Errors;
 	}
 	$Errors = VerifyDebtorExists($CustomerDetails['debtorno'], sizeof($Errors), $Errors);
@@ -513,11 +513,11 @@ function ModifyCustomer($CustomerDetails, $user, $password) {
 	}
 	$SQL = 'UPDATE debtorsmaster SET ';
 	foreach ($CustomerDetails as $Key => $Value) {
-		$SQL .= $Key . "='" . $Value . "', ";
+		$SQL.= $Key . "='" . $Value . "', ";
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE debtorno='" . $CustomerDetails['debtorno'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL, $db);
+		$Result = api_DB_query($SQL, $db);
 		if ($_SESSION['db_err_msg'] != '') {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -543,7 +543,7 @@ function GetCustomer($DebtorNumber, $user, $password) {
 		return $Errors;
 	}
 	$SQL = "SELECT * FROM debtorsmaster WHERE debtorno='" . $DebtorNumber . "'";
-	$Result = api_DB_Query($SQL);
+	$Result = api_DB_query($SQL);
 	$Errors[0] = 0; // None found.
 	$Errors[1] = DB_fetch_array($Result);
 
@@ -563,10 +563,8 @@ function SearchCustomers($Field, $Criteria, $user, $password) {
 	$SQL = 'SELECT debtorno
 			FROM debtorsmaster
 			WHERE ' . $Field . " LIKE '%" . $Criteria . "%'";
-	$Result = api_DB_Query($SQL);
-	$DebtorList = array(
-		0
-	); // First element: no errors
+	$Result = api_DB_query($SQL);
+	$DebtorList = array(0); // First element: no errors
 	while ($MyRow = DB_fetch_array($Result)) {
 		$DebtorList[] = $MyRow[0];
 	}
