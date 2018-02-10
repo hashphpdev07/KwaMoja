@@ -1,25 +1,24 @@
 <?php
-
-include('includes/session.php');
-include('includes/class.pdf.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/class.pdf.php');
+include ('includes/SQL_CommonFunctions.php');
 
 //Get Out if we have no order number to work with
 if (!isset($_GET['TransNo']) or $_GET['TransNo'] == '') {
 	$Title = _('Select Order To Print');
-	include('includes/header.php');
-	echo '<div class="centre">';
+	include ('includes/header.php');
 	prnMsg(_('Select an Order Number to Print before calling this page'), 'error');
 	echo '<table class="table_index">
-				 <tr><td class="menu_group_item">
-				 <ul>
-					<li><a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Outstanding Sales Orders') . '</a></li>
-					<li><a href="' . $RootPath . '/SelectCompletedOrder.php">' . _('Completed Sales Orders') . '</a></li>
-				 </ul>
-				 </td>
+				 <tr>
+					<td class="menu_group_item">
+						<ul>
+							<li><a href="', $RootPath, '/SelectSalesOrder.php">', _('Outstanding Sales Orders'), '</a></li>
+							<li><a href="', $RootPath, '/SelectCompletedOrder.php">', _('Completed Sales Orders'), '</a></li>
+						</ul>
+					</td>
 				 </tr>
 			</table>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -58,11 +57,11 @@ $SQL = "SELECT salesorders.debtorno,
 				ON salesorders.fromstkloc=locations.loccode
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			WHERE salesorders.orderno='" . $_GET['TransNo'] . "'";
 if ($_SESSION['SalesmanLogin'] != '') {
-       $SQL .= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+	$SQL.= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 }
 $Result = DB_query($SQL, $ErrMsg);
 
@@ -72,14 +71,17 @@ if (DB_num_rows($Result) == 0) {
 	$ListCount = 0;
 
 	$Title = _('Print Packing Slip Error');
-	include('includes/header.php');
-	echo '<div class="centre">';
+	include ('includes/header.php');
 	prnMsg(_('Unable to Locate Order Number') . ' : ' . $_GET['TransNo'] . ' ', 'error');
-	echo '<table class="table_index"><tr><td class="menu_group_item">
-				<li><a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Outstanding Sales Orders') . '</a></li>
-				<li><a href="' . $RootPath . '/SelectCompletedOrder.php">' . _('Completed Sales Orders') . '</a></li>
-				</td></tr></table></div>';
-	include('includes/footer.php');
+	echo '<table class="table_index">
+			<tr>
+				<td class="menu_group_item">
+					<li><a href="', $RootPath, '/SelectSalesOrder.php">', _('Outstanding Sales Orders'), '</a></li>
+					<li><a href="', $RootPath, '/SelectCompletedOrder.php">', _('Completed Sales Orders'), '</a></li>
+				</td>
+			</tr>
+		</table>';
+	include ('includes/footer.php');
 	exit();
 } elseif (DB_num_rows($Result) == 1) {
 	/*There is only one order header returned - thats good! */
@@ -90,28 +92,28 @@ if (DB_num_rows($Result) == 0) {
 	$MyRow = DB_fetch_array($Result);
 	if ($MyRow['printedpackingslip'] == 1 and ($_GET['Reprint'] != 'OK' or !isset($_GET['Reprint']))) {
 		$Title = _('Print Packing Slip Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('The packing slip for order number') . ' ' . $_GET['TransNo'] . ' ' . _('has previously been printed') . '. ' . _('It was printed on') . ' ' . ConvertSQLDate($MyRow['datepackingslipprinted']) . '<br />' . _('This check is there to ensure that duplicate packing slips are not produced and dispatched more than once to the customer'), 'warn');
-		echo '<a href="' . $RootPath . '/PrintCustOrder.php?TransNo=' . urlencode($_GET['TransNo']) . '&Reprint=OK">' . _('Do a Re-Print') . ' (' . _('On Pre-Printed Stationery') . ') ' . _('Even Though Previously Printed') . '</a><p>' . '<a href="' . $RootPath . '/PrintCustOrder_generic.php?TransNo=' . $_GET['TransNo'] . '&Reprint=OK">' . _('Do a Re-Print') . ' (' . _('Plain paper') . ' - ' . _('A4') . ' ' . _('landscape') . ') ' . _('Even Though Previously Printed') . '</a>';
+		echo '<a href="', $RootPath, '/PrintCustOrder.php?TransNo=', urlencode($_GET['TransNo']), '&Reprint=OK">', _('Do a Re-Print'), ' (', _('On Pre-Printed Stationery'), ') ', _('Even Though Previously Printed'), '</a><p>', '<a href="', $RootPath, '/PrintCustOrder_generic.php?TransNo=', urlencode($_GET['TransNo']), '&Reprint=OK">', _('Do a Re-Print'), ' (', _('Plain paper'), ' - ' . _('A4'), ' ', _('landscape'), ') ', _('Even Though Previously Printed'), '</a>';
 
 		echo _('Or select another Order Number to Print');
 		echo '<table class="table_index">
 					<tr>
 						<td class="menu_group_item">
-							<li><a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Outstanding Sales Orders') . '</a></li>
-							<li><a href="' . $RootPath . '/SelectCompletedOrder.php">' . _('Completed Sales Orders') . '</a></li>
+							<li><a href="', $RootPath, '/SelectSalesOrder.php">', _('Outstanding Sales Orders'), '</a></li>
+							<li><a href="', $RootPath, '/SelectCompletedOrder.php">', _('Completed Sales Orders'), '</a></li>
 						</td>
 					</tr>
 				</table>';
 
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} //packing slip has been printed.
+	
 }
 /* Then there's an order to print and it has not been printed already (or its been flagged for reprinting)
-LETS GO */
-
+ LETS GO */
 
 /* Now ... Has the order got any line items still outstanding to be invoiced */
 
@@ -122,7 +124,8 @@ $SQL = "SELECT salesorderdetails.stkcode,
 			salesorderdetails.quantity,
 			salesorderdetails.qtyinvoiced,
 			salesorderdetails.unitprice,
-			stockmaster.decimalplaces
+			stockmaster.decimalplaces,
+			stockmaster.units
 		FROM salesorderdetails INNER JOIN stockmaster
 			ON salesorderdetails.stkcode=stockmaster.stockid
 		 WHERE salesorderdetails.orderno='" . $_GET['TransNo'] . "'";
@@ -179,7 +182,7 @@ if (DB_num_rows($Result) > 0) {
 	$FontSize = 12;
 	$line_height = 16;
 
-	include('includes/PDFOrderPageHeader.php');
+	include ('includes/PDFOrderPageHeader.php');
 
 	while ($MyRow2 = DB_fetch_array($Result)) {
 
@@ -187,9 +190,10 @@ if (DB_num_rows($Result) > 0) {
 		$DisplayPrevDel = locale_number_format($MyRow2['qtyinvoiced'], $MyRow2['decimalplaces']);
 		$DisplayQtySupplied = locale_number_format($MyRow2['quantity'] - $MyRow2['qtyinvoiced'], $MyRow2['decimalplaces']);
 
-		$LeftOvers = $PDF->addTextWrap(13, $YPos, 135, $FontSize, $MyRow2['stkcode']);
-		$LeftOvers = $PDF->addTextWrap(148, $YPos, 239, $FontSize, $MyRow2['description']);
+		$LeftOvers = $PDF->addTextWrap(13, $YPos, 135, $FontSize, $MyRow2['stkcode'], 'left');
+		$LeftOvers = $PDF->addTextWrap(148, $YPos, 239, $FontSize, $MyRow2['description'], 'left');
 		$LeftOvers = $PDF->addTextWrap(387, $YPos, 90, $FontSize, $DisplayQty, 'right');
+		$LeftOvers = $PDF->addTextWrap(475, $YPos, 20, $FontSize, $MyRow2['units'], 'left');
 		$LeftOvers = $PDF->addTextWrap(505, $YPos, 90, $FontSize, $DisplayQtySupplied, 'right');
 		$LeftOvers = $PDF->addTextWrap(604, $YPos, 90, $FontSize, $DisplayPrevDel, 'right');
 
@@ -197,15 +201,13 @@ if (DB_num_rows($Result) > 0) {
 			/* We reached the end of the page so finsih off the page and start a newy */
 
 			$PageNumber++;
-			include('includes/PDFOrderPageHeader.php');
+			include ('includes/PDFOrderPageHeader.php');
 
 		} //end if need a new page headed up
-
 		/*increment a line down for the next line item */
-		$YPos -= ($line_height);
+		$YPos-= ($line_height);
 
 	} //end while there are line items to print out
-
 	$PDF->OutputD($_SESSION['DatabaseName'] . '_Customer_Order_' . $_GET['TransNo'] . '_' . Date('Y-m-d') . '.pdf');
 	$PDF->__destruct();
 
@@ -215,9 +217,9 @@ if (DB_num_rows($Result) > 0) {
 	$Result = DB_query($SQL);
 } else {
 	$Title = _('Print Packing Slip Error');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p>' . _('There were no outstanding items on the order to deliver. A dispatch note cannot be printed') . '<br /><a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Print Another Packing Slip/Order') . '</a>' . '<br />' . '<a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 /*end if there are order details to show on the order*/
