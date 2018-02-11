@@ -1,7 +1,6 @@
 <?php
-
-include('includes/DefineContractClass.php');
-include('includes/session.php');
+include ('includes/DefineContractClass.php');
+include ('includes/session.php');
 
 if (isset($_GET['ModifyContractNo'])) {
 	$Title = _('Modify Contract') . ' ' . $_GET['ModifyContractNo'];
@@ -23,8 +22,8 @@ foreach ($_POST as $Name => $Value) {
 
 $ViewTopic = 'Contracts';
 $BookMark = 'CreateContract';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /*If the page is called is called without an identifier being set then
  * it must be either a new contract, or the start of a modification of an
@@ -32,7 +31,7 @@ include('includes/SQL_CommonFunctions.php');
  *
  * The identifier only needs to be unique for this php session, so a
  * unix timestamp will be sufficient.
- */
+*/
 
 if (!isset($_GET['identifier'])) {
 	$Identifier = date('U');
@@ -48,7 +47,7 @@ if (isset($_GET['NewContract']) and isset($_SESSION['Contract' . $Identifier])) 
 if (isset($_GET['NewContract']) and isset($_GET['SelectedCustomer'])) {
 	/*
 	 * initialize a new contract
-	 */
+	*/
 	$_SESSION['ExistingContract'] = 0;
 	unset($_SESSION['Contract' . $Identifier]->ContractBOM);
 	unset($_SESSION['Contract' . $Identifier]->ContractReqts);
@@ -76,9 +75,8 @@ if (isset($_SESSION['Contract' . $Identifier]) and (isset($_POST['EnterContractB
 	$_SESSION['Contract' . $Identifier]->ExRate = filter_number_format($_POST['ExRate']);
 	$_SESSION['Contract' . $Identifier]->DefaultWorkCentre = $_POST['DefaultWorkCentre'];
 
-
 	/*User hit the button to enter line items -
-	then meta refresh to Contract_Items.php*/
+	 then meta refresh to Contract_Items.php*/
 	$InputError = false;
 	if (mb_strlen($_SESSION['Contract' . $Identifier]->ContractRef) < 5) {
 		prnMsg(_('The contract reference must be entered (and be longer than 5 characters) before the requirements of the contract can be setup'), 'warn');
@@ -89,14 +87,14 @@ if (isset($_SESSION['Contract' . $Identifier]) and (isset($_POST['EnterContractB
 		echo '<meta http-equiv="refresh" content="0; url=' . $RootPath . '/ContractBOM.php?identifier=' . $Identifier . '" />';
 		echo '<br />';
 		prnMsg(_('You should automatically be forwarded to the entry of the Contract line items page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/ContractBOM.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (isset($_POST['EnterContractRequirements']) and !$InputError) {
 		echo '<meta http-equiv="refresh" content="0; url=' . $RootPath . '/ContractOtherReqts.php?identifier=' . $Identifier . '" />';
 		echo '<br />';
 		prnMsg(_('You should automatically be forwarded to the entry of the Contract requirements page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/ContractOtherReqts.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -116,8 +114,8 @@ if (isset($_FILES['Drawing']) and $_FILES['Drawing']['name'] != '' and $_SESSION
 	$FileName = $_SESSION['part_pics_dir'] . '/' . $_SESSION['Contract' . $Identifier]->ContractRef . '.' . $ImgExt;
 
 	//But check for the worst
-	if (!in_array ($ImgExt, $SupportedImgExt)) {
-		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'),'warn');
+	if (!in_array($ImgExt, $SupportedImgExt)) {
+		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'), 'warn');
 		$UploadTheFile = 'No';
 	} elseif ($_FILES['Drawing']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
 		prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
@@ -128,11 +126,11 @@ if (isset($_FILES['Drawing']) and $_FILES['Drawing']['name'] != '' and $_SESSION
 	}
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/' . $_SESSION['Contract' . $Identifier]->ContractRef . '.' . $ext;
-		if (file_exists ($File) ) {
+		if (file_exists($File)) {
 			$Result = unlink($File);
 			if (!$Result) {
 				prnMsg(_('The existing image could not be removed'), 'error');
-				$UploadTheFile ='No';
+				$UploadTheFile = 'No';
 			}
 		}
 	}
@@ -142,7 +140,6 @@ if (isset($_FILES['Drawing']) and $_FILES['Drawing']['name'] != '' and $_SESSION
 		$Message = ($Result) ? _('File url') . '<a href="' . $FileName . '">' . $FileName . '</a>' : _('Something is wrong with uploading the file');
 	}
 }
-
 
 /*The page can be called with ModifyContractRef=x where x is a contract
  * reference. The page then looks up the details of contract x and allows
@@ -162,10 +159,9 @@ if (isset($_GET['ModifyContractRef'])) {
 
 	/*read in all the guff from the selected contract into the contract Class variable  */
 	$ContractRef = $_GET['ModifyContractRef'];
-	include('includes/Contract_Readin.php');
+	include ('includes/Contract_Readin.php');
 
 } // its an existing contract to readin
-
 if (isset($_POST['CancelContract'])) {
 	/*The cancel button on the header screen - to delete the contract */
 	$OK_to_delete = true; //assume this in the first instance
@@ -229,7 +225,6 @@ if (isset($_POST['CommitContract']) or isset($_POST['CreateQuotation'])) {
 	/*This is the bit where the contract object is commited to the database after a bit of error checking */
 
 	//First update the session['Contract'.$Identifier] variable with all inputs from the form
-
 	$InputError = False; //assume no errors on input then test for errors
 	if (mb_strlen($_POST['ContractRef']) < 2) {
 		prnMsg(_('The contract reference is expected to be more than 2 characters long. Please alter the contract reference before proceeding.'), 'error');
@@ -358,11 +353,11 @@ if (isset($_POST['CommitContract']) or isset($_POST['CreateQuotation'])) {
 			//then the quotation will need to be updated with the revised contract cost if necessary
 			$ContractBOMCost = 0;
 			foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $Component) {
-				$ContractBOMCost += ($Component->ItemCost * $Component->Quantity);
+				$ContractBOMCost+= ($Component->ItemCost * $Component->Quantity);
 			}
 			$ContractReqtsCost = 0;
 			foreach ($_SESSION['Contract' . $Identifier]->ContractReqts as $Requirement) {
-				$ContractReqtsCost += ($Requirement->CostPerUnit * $Requirement->Quantity);
+				$ContractReqtsCost+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 			}
 			$ContractCost = $ContractReqtsCost + $ContractBOMCost;
 			$ContractPrice = ($ContractBOMCost + $ContractReqtsCost) / ((100 - $_SESSION['Contract' . $Identifier]->Margin) / 100);
@@ -403,8 +398,7 @@ if (isset($_POST['CommitContract']) or isset($_POST['CreateQuotation'])) {
 			/*we are updating the status on the contract to a quotation so we need to
 			 * add a new item for the contract into the stockmaster
 			 * add a salesorder header and detail as a quotation for the item
-			 */
-
+			*/
 
 		}
 	} elseif (!$InputError) {
@@ -463,20 +457,19 @@ if (isset($_POST['CommitContract']) or isset($_POST['CreateQuotation'])) {
 		prnMsg(_('The new contract has been added to the database'), 'success');
 
 	} //end of adding a new contract
+	
 } //end of commital to database
-
 if (isset($_POST['CreateQuotation']) and !$InputError) {
 	//Create a quotation for the contract as entered
 	//First need to create the item in stockmaster
-
 	//calculate the item's contract cost
 	$ContractBOMCost = 0;
 	foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $Component) {
-		$ContractBOMCost += ($Component->ItemCost * $Component->Quantity);
+		$ContractBOMCost+= ($Component->ItemCost * $Component->Quantity);
 	}
 	$ContractReqtsCost = 0;
 	foreach ($_SESSION['Contract' . $Identifier]->ContractReqts as $Requirement) {
-		$ContractReqtsCost += ($Requirement->CostPerUnit * $Requirement->Quantity);
+		$ContractReqtsCost+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 	}
 	$ContractCost = $ContractReqtsCost + $ContractBOMCost;
 	$ContractPrice = ($ContractBOMCost + $ContractReqtsCost) / ((100 - $_SESSION['Contract' . $Identifier]->Margin) / 100);
@@ -487,7 +480,6 @@ if (isset($_POST['CreateQuotation']) and !$InputError) {
 	$DbgMsg = _('The SQL that was used to find the item failed was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	if (DB_num_rows($Result) == 0) { //then the item doesn't currently exist so add it
-
 		$SQL = "INSERT INTO stockmaster (stockid,
 										description,
 										longdescription,
@@ -525,7 +517,6 @@ if (isset($_POST['CreateQuotation']) and !$InputError) {
 		$InsLocnsResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 	}
 	//now add the quotation for the item
-
 	//first need to get some more details from the customer/branch record
 	$SQL = "SELECT debtorsmaster.salestype,
 					custbranch.defaultshipvia,
@@ -614,7 +605,6 @@ if (isset($_POST['CreateQuotation']) and !$InputError) {
 	$ErrMsg = _('Unable to add the quotation line');
 	$Ins_LineItemResult = DB_query($LineItemSQL, $ErrMsg, $DbgMsg, true);
 	//end of adding the quotation to salesorders/details
-
 	//make the status of the contract 1 - to indicate that it is now quoted
 	$SQL = "UPDATE contracts SET orderno='" . $OrderNo . "',
 								status='" . 1 . "'
@@ -628,7 +618,6 @@ if (isset($_POST['CreateQuotation']) and !$InputError) {
 	echo '<br /><a href="' . $RootPath . '/SelectSalesOrder.php?OrderNumber=' . urlencode($OrderNo) . '&amp;Quotations=Quotes_Only">' . _('Go to quotation number') . ': ' . $OrderNo . '</a>';
 
 } //end of if making a quotation
-
 if (isset($_POST['SearchCustomers'])) {
 
 	if (($_POST['CustKeywords'] != '') and (($_POST['CustCode'] != '') or ($_POST['CustPhone'] != ''))) {
@@ -755,11 +744,12 @@ if (isset($_POST['SelectedCustomer'])) {
 				prnMsg(_('The') . ' ' . $_SESSION['Contract' . $Identifier]->CustomerName . ' ' . _('account is currently at or over their credit limit'), 'warn');
 			} elseif ($_SESSION['CheckCreditLimits'] == 2 and $CreditAvailable <= 0) {
 				prnMsg(_('No more orders can be placed by') . ' ' . $MyRow[0] . ' ' . _(' their account is currently at or over their credit limit'), 'warn');
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 		}
 	} //a customer was retrieved ok
+	
 } //end if a customer has just been selected
 
 
@@ -819,15 +809,16 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 			$LastCustomer = $MyRow['name'];
 			++$j;
 			//end of page full new headings if
+			
 		}
 		//end of while loop
-
 		echo '</tbody>
-			</table>
-		</form>';
+			</table>';
 	} //end if results to show
+	echo '</form>';
 
 	//end if RequireCustomerSelection
+	
 } else {
 	/*A customer is already selected so get into the contract setup proper */
 
@@ -850,13 +841,13 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 				FROM workcentres
 				INNER JOIN locationusers
 					ON locationusers.loccode=workcentres.location
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "' AND locationusers.canupd=1";
+					AND locationusers.userid='" . $_SESSION['UserID'] . "' AND locationusers.canupd=1";
 	$WcResults = DB_query($SQL);
 
-	if (DB_num_rows($WcResults)==0){
-		prnMsg( _('There are no work centres set up yet') . '. ' . _('Please use the link below to set up work centres'), 'warn');
+	if (DB_num_rows($WcResults) == 0) {
+		prnMsg(_('There are no work centres set up yet') . '. ' . _('Please use the link below to set up work centres'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/WorkCentres.php">' . _('Work Centre Maintenance') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -892,7 +883,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 	}
 
 	echo '</select>&nbsp;&nbsp;';
-	echo '<a target="_blank" href="'. $RootPath . '/StockCategories.php">' . _('Add or Modify Contract Categories') . '</a>
+	echo '<a target="_blank" href="' . $RootPath . '/StockCategories.php">' . _('Add or Modify Contract Categories') . '</a>
 		</td>
 	</tr>';
 
@@ -901,7 +892,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1";
 	$ErrMsg = _('The stock locations could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve stock locations and failed was');
@@ -934,7 +925,6 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 			echo '<option value="' . $MyRow['code'] . '">' . $MyRow['description'] . '</option>';
 		}
 	} //end while loop
-
 	DB_free_result($Result);
 
 	echo '</select>
@@ -945,7 +935,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 			<td><textarea name="ContractDescription" required="required" style="width:100%" rows="5" cols="40">' . $_SESSION['Contract' . $Identifier]->ContractDescription . '</textarea></td>
 		</tr>
 		<tr>
-			<td>' .  _('Drawing File') . ' ' . implode(", ", $SupportedImgExt) . ' ' . _('format only') . ':</td>
+			<td>' . _('Drawing File') . ' ' . implode(", ", $SupportedImgExt) . ' ' . _('format only') . ':</td>
 			<td><input type="file" id="Drawing" name="Drawing" />
 			</td>';
 
@@ -1043,7 +1033,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 					<td class="number">' . locale_number_format($Component->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format(($Component->ItemCost * $Component->Quantity), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				</tr>';
-			$ContractBOMCost += ($Component->ItemCost * $Component->Quantity);
+			$ContractBOMCost+= ($Component->ItemCost * $Component->Quantity);
 		}
 		echo '<tr>
 				<th colspan="5"><b>' . _('Total stock cost') . '</b></th>
@@ -1075,7 +1065,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 					<td class="number">' . locale_number_format($Requirement->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format(($Requirement->CostPerUnit * $Requirement->Quantity), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				</tr>';
-			$ContractReqtsCost += ($Requirement->CostPerUnit * $Requirement->Quantity);
+			$ContractReqtsCost+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 		}
 		echo '<tr>
 				<th colspan="3"><b>' . _('Total other costs') . '</b></th>
@@ -1122,5 +1112,5 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 }
 /*end of if customer selected  and entering contract header*/
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>
