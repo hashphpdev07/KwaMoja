@@ -1,5 +1,4 @@
 <?php
-
 /* Input Serial Items - used for inputing serial numbers or batch/roll/bundle references
  * for controlled items - used in:
  * - ConfirmDispatchControlledInvoice.php
@@ -7,11 +6,10 @@
  * - StockAdjustments.php
  * - StockTransfers.php
  * - CreditItemsControlled.php
- */
+*/
 
 //we start with a batch or serial no header and need to display something for verification...
-
-include('includes/Add_SerialItemsOut.php');
+include ('includes/Add_SerialItemsOut.php');
 
 global $tableheader;
 /* Link to clear the list and start from scratch */
@@ -24,7 +22,7 @@ $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 $Perishable = $MyRow['perishable'];
 if ($LineItem->Serialised == 1) {
-	$tableheader .= '<tr>
+	$tableheader.= '<tr>
 						<th>' . _('Serial No') . '</th>
 					</tr>';
 	$listtableheader = $tableheader;
@@ -67,7 +65,6 @@ $TotalQuantity = 0;
 /*Variable to accumulate total quantity received */
 $RowCounter = 0;
 
-$k = 0;
 foreach ($LineItem->SerialItems as $Bundle) {
 
 	if ($RowCounter == 10) {
@@ -89,9 +86,8 @@ foreach ($LineItem->SerialItems as $Bundle) {
 
 	echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $Bundle->BundleRef . '&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Delete') . '</a></td></tr>';
 
-	$TotalQuantity += $Bundle->BundleQty;
+	$TotalQuantity+= $Bundle->BundleQty;
 }
-
 
 /*Display the totals and rule off before allowing new entries */
 if ($LineItem->Serialised == 1) {
@@ -107,13 +103,12 @@ if ($LineItem->Serialised == 1) {
 echo '</table></td><td valign="top">';
 
 /*Start a new table for the Serial/Batch ref input  in one column (as a sub table
-then the multi select box for selection of existing bundle/serial nos for dispatch if applicable*/
+ then the multi select box for selection of existing bundle/serial nos for dispatch if applicable*/
 //echo '<TABLE><TR><TD valign=TOP>';
 $TransferQuantity = $TotalQuantity;
 /*in the first column add a table for the input of newies */
 echo '<table>';
 echo $tableheader;
-
 
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" name="Ga6uF5Wa" method="post" class="noPrint">
 	  <input type="hidden" name="LineNo" value="' . $LineNo . '" />
@@ -131,8 +126,6 @@ $TotalQuantity = 0;
 /*Variable to accumulate total quantity received */
 $RowCounter = 0;
 
-$k = 0;
-
 $StartAddingAt = 0;
 if ($EditControlled) {
 	foreach ($LineItem->SerialItems as $Bundle) {
@@ -141,7 +134,7 @@ if ($EditControlled) {
 				<td valign="top"><input type="text" name="SerialNo' . $StartAddingAt . '" value="' . $Bundle->BundleRef . '" size="21"  maxlength="20" /></td>';
 
 		/*if the item is controlled not serialised - batch quantity required so just enter bundle refs
-		into the form for entry of quantities manually */
+		 into the form for entry of quantities manually */
 
 		if ($LineItem->Serialised == 1) {
 			echo '<input type="hidden" name="Qty' . $StartAddingAt . '" value=1></tr>';
@@ -177,7 +170,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td valign="top">' . $MyRow['serialno'] . '<input type="hidden" name="SerialNo' . ($RowNumber) . '" size="21" value="' . $MyRow['serialno'] . '" maxlength="20" /></td>';
 
 	/*if the item is controlled not serialised - batch quantity required so just enter bundle refs
-	into the form for entry of quantities manually */
+	 into the form for entry of quantities manually */
 
 	if ($LineItem->Serialised == 1) {
 		echo '<input type="hidden" name="Qty' . ($StartAddingAt + $RowNumber) . '" value="1" /></tr>';
@@ -202,7 +195,7 @@ echo '</form>
 $ShowExisting = True;
 $_POST['EntryType'] = 'Sequential';
 if ($ShowExisting) {
-	include('includes/InputSerialItemsExisting.php');
+	include ('includes/InputSerialItemsExisting.php');
 }
 echo '</td>
 	</tr>

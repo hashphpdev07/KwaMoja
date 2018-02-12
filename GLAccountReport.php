@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
@@ -12,16 +11,16 @@ if (isset($_POST['RunReport'])) {
 
 	if (!isset($SelectedPeriod)) {
 		prnMsg(_('A period or range of periods must be selected from the list box'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (!isset($_POST['Account'])) {
 		prnMsg(_('An account or range of accounts must be selected from the list box'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 
 	/*PDFStarter.php has all the variables for page size and width set up depending on the users default preferences for paper size */
 
@@ -108,7 +107,7 @@ if (isset($_POST['RunReport'])) {
 			NewPageHeader();
 		}
 
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $SelectedAccount . ' - ' . $AccountName . ' ' . ': ' . _('Listing for Period') . ' ' . $FirstPeriodSelected . ' ' . _('to') . ' ' . $LastPeriodSelected);
 
 		if ($PandLAccount == True) {
@@ -126,7 +125,7 @@ if (isset($_POST['RunReport'])) {
 			$ChartDetailRow = DB_fetch_array($ChartDetailsResult);
 
 			$RunningTotal = $ChartDetailRow['bfwd'];
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Brought Forward Balance'));
 
 			if ($RunningTotal < 0) { //its a credit balance b/fwd
@@ -136,16 +135,13 @@ if (isset($_POST['RunReport'])) {
 			}
 		}
 		$PeriodTotal = 0;
-		$PeriodNo = -9999;
-
-		$j = 1;
-		$k = 0; //row colour counter
+		$PeriodNo = - 9999;
 
 		while ($MyRow = DB_fetch_array($TransResult)) {
 
 			if ($MyRow['periodno'] != $PeriodNo) {
-				if ($PeriodNo != -9999) { //ie its not the first time around
-					$YPos -= $line_height;
+				if ($PeriodNo != - 9999) { //ie its not the first time around
+					$YPos-= $line_height;
 					$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Period Total'));
 					if ($PeriodTotal < 0) { //its a credit balance b/fwd
 						$LeftOvers = $PDF->addTextWrap(210, $YPos, 50, $FontSize, locale_number_format(-$PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
@@ -157,8 +153,8 @@ if (isset($_POST['RunReport'])) {
 				$PeriodTotal = 0;
 			}
 
-			$RunningTotal += $MyRow['amount'];
-			$PeriodTotal += $MyRow['amount'];
+			$RunningTotal+= $MyRow['amount'];
+			$PeriodTotal+= $MyRow['amount'];
 
 			if ($MyRow['amount'] >= 0) {
 				$DebitAmount = locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']);
@@ -175,7 +171,7 @@ if (isset($_POST['RunReport'])) {
 			$tagrow = DB_fetch_array($tagresult);
 
 			// to edit this block
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			$FontSize = 8;
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 30, $FontSize, $MyRow['typename']);
@@ -193,7 +189,7 @@ if (isset($_POST['RunReport'])) {
 			}
 
 		}
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		if ($PandLAccount == True) {
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, _('Total Period Movement'));
 		} else {
@@ -205,31 +201,31 @@ if (isset($_POST['RunReport'])) {
 		} else { //its a debit balance b/fwd
 			$LeftOvers = $PDF->addTextWrap(160, $YPos, 50, $FontSize, locale_number_format($RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		}
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		//draw a line under each account printed
 		$PDF->line($Left_Margin, $YPos, $Page_Width - $Right_Margin, $YPos);
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 	}
 	/*end for each SelectedAccount */
 	/*Now check that there is some output and print the report out */
 	if (count($_POST['Account']) == 0) {
 		prnMsg(_('An account or range of accounts must be selected from the list box'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 
 	} else { //print the report
-
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_GL_Accounts_' . date('Y-m-d') . '.pdf');
 		$PDF->__destruct();
 	} //end if the report has some output
+	
 }
 /* end of if PrintReport button hit */
 else {
 	$Title = _('General Ledger Account Report');
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'GLAccountReport';
-	include('includes/header.php');
-	include('includes/GLPostings.php');
+	include ('includes/header.php');
+	include ('includes/GLPostings.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Account Inquiry') . '" alt="' . _('General Ledger Account Inquiry') . '" />' . ' ' . _('General Ledger Account Report') . '</p>';
 
@@ -251,7 +247,7 @@ else {
 			FROM chartmaster
 			INNER JOIN glaccountusers
 				ON glaccountusers.accountcode=chartmaster.accountcode
-				AND glaccountusers.userid='" .  $_SESSION['UserID'] . "'
+				AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
 				AND glaccountusers.canview=1
 			WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 			ORDER BY chartmaster.accountcode";
@@ -304,7 +300,6 @@ else {
 	}
 	echo '</select></td></tr>';
 	// End select tag
-
 	echo '</table>
 		<br />
 		<div class="centre">
@@ -312,10 +307,9 @@ else {
 		</div>
 		</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
 
 function NewPageHeader() {
 	global $PageNumber, $PDF, $YPos, $Page_Height, $Page_Width, $Top_Margin, $FontSize, $Left_Margin, $Right_Margin, $line_height;
@@ -331,12 +325,12 @@ function NewPageHeader() {
 	$FontSize = 10;
 	$YPos = $Page_Height - $Top_Margin;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('GL Account Report'));
 	$FontSize = 8;
 	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 120, $YPos, 120, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber);
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	/*Draw a rectangle to put the headings in	 */
 
