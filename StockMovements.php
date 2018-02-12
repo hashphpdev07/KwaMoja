@@ -89,7 +89,8 @@ $SQL = "SELECT stockmoves.stockid,
 				stockmoves.discountpercent,
 				stockmoves.newqoh,
 				stockmaster.decimalplaces,
-				stockmaster.controlled
+				stockmaster.controlled,
+				stockmaster.serialised
 		FROM stockmoves
 		INNER JOIN systypes ON stockmoves.type=systypes.typeid
 		INNER JOIN stockmaster ON stockmoves.stockid=stockmaster.stockid
@@ -105,6 +106,7 @@ $DbgMsg = _('The SQL that failed was') . ' ';
 
 $MovtsResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 $MyRow = DB_fetch_array($MovtsResult);
+
 echo '<tr>
 		<th>', _('Type'), '</th>
 		<th>', _('Number'), '</th>
@@ -128,12 +130,16 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 
 	$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);
 
-	$SerialSQL = "SELECT serialno FROM stockserialmoves WHERE stockmoveno='" . $MyRow['stkmoveno'] . "'";
+	$SerialSQL = "SELECT serialno, moveqty FROM stockserialmoves WHERE stockmoveno='" . $MyRow['stkmoveno'] . "'";
 	$SerialResult = DB_query($SerialSQL);
 
 	$SerialText = '';
 	while ($SerialRow = DB_fetch_array($SerialResult)) {
-		$SerialText.= $SerialRow['serialno'] . '<br />';
+		if ($MyRow['serialised'] == 1) {
+			$SerialText.= $SerialRow['serialno'] . '<br />';
+		} else {
+			$SerialText.= $SerialRow['serialno'] . ' Qty- ' . $SerialRow['moveqty'] . '<br />';
+		}
 	}
 
 	if ($MyRow['type'] == 10) {
@@ -152,7 +158,7 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%%</td>
 				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
 		if ($MyRow['controlled'] == 1) {
-			echo '<td class="number">', $SerialText, '</td>';
+			echo '<td>', $SerialText, '</td>';
 		}
 		echo '</tr>';
 
@@ -171,7 +177,7 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%%</td>
 				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
 		if ($MyRow['controlled'] == 1) {
-			echo '<td class="number">', $SerialText, '</td>';
+			echo '<td>', $SerialText, '</td>';
 		}
 		echo '</tr>';
 
@@ -190,7 +196,7 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%</td>
 				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
 		if ($MyRow['controlled'] == 1) {
-			echo '<td class="number">', $SerialText, '</td>';
+			echo '<td>', $SerialText, '</td>';
 		}
 		echo '</tr>';
 

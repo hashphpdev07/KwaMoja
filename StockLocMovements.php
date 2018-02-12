@@ -78,6 +78,8 @@ $SQL = "SELECT stockmoves.stockid,
 				stockmoves.price,
 				stockmoves.discountpercent,
 				stockmoves.newqoh,
+        		stockmaster.controlled,
+        		stockmaster.serialised,
         		stockmaster.decimalplaces
 			FROM stockmoves
 			INNER JOIN systypes ON stockmoves.type=systypes.typeid
@@ -111,12 +113,16 @@ if (DB_num_rows($MovtsResult) > 0) {
 
 		$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);
 
-		$SerialSQL = "SELECT serialno FROM stockserialmoves WHERE stockmoveno='" . $MyRow['stkmoveno'] . "'";
+		$SerialSQL = "SELECT serialno, moveqty FROM stockserialmoves WHERE stockmoveno='" . $MyRow['stkmoveno'] . "'";
 		$SerialResult = DB_query($SerialSQL);
 
 		$SerialText = '';
 		while ($SerialRow = DB_fetch_array($SerialResult)) {
-			$SerialText.= $SerialRow['serialno'] . '<br />';
+			if ($MyRow['serialised'] == 1) {
+				$SerialText.= $SerialRow['serialno'] . '<br />';
+			} else {
+				$SerialText.= $SerialRow['serialno'] . ' Qty- ' . $SerialRow['moveqty'] . '<br />';
+			}
 		}
 		echo '<tr class="striped_row">
 				<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', mb_strtoupper(urlencode($MyRow['stockid'])), '">', mb_strtoupper($MyRow['stockid']), '</a></td>
@@ -129,7 +135,7 @@ if (DB_num_rows($MovtsResult) > 0) {
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%</td>
 				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
-				<td class="number">', $SerialText, '</td>
+				<td>', $SerialText, '</td>
 			</tr>';
 	}
 	//end of while loop
