@@ -7,8 +7,10 @@ $Title = _('UTILITY PAGE To Change A Salesman Code In All Tables'); // Screen id
 $ViewTopic = 'SpecialUtilities'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'Z_ChangeSalesmanCode'; // Anchor's id in the manual's html document.
 include ('includes/header.php');
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $Theme . '/images/user.png" title="' . _('Change A Salesman Code') . '" /> ' . // Icon title.
-_('Change A Salesman Code') . '</p>'; // Page title.
+
+echo '<p class="page_title_text">
+		<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('Change A Salesman Code'), '" /> ', _('Change A Salesman Code'), '
+	</p>'; // Page title.
 if (isset($_POST['ProcessSalesmanChange'])) {
 	$_POST['NewSalesmanCode'] = mb_strtoupper($_POST['NewSalesmanCode']);
 
@@ -117,22 +119,24 @@ if (isset($_POST['ProcessSalesmanChange'])) {
 
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<div class="centre">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<br />
-	<table>
-	<tr>
-		<td>' . _('Existing Salesman Code') . ':</td>
-		<td><input type="text" data-type="no-illegal-chars" name="OldSalesmanCode" size="4" maxlength="4" /></td>
-	</tr>
-	<tr>
-		<td> ' . _('New Salesman Code') . ':</td>
-		<td><input type="text" data-type="no-illegal-chars" name="NewSalesmanCode" size="4" maxlength="4" /></td>
-	</tr>
-	</table>
+echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+echo '<fieldset>
+		<legend>', _('Details of the Sales Person code change'), ' </legend>
+		<field>
+			<label for="OldSalesmanCode">', _('Existing Sales Person Code'), ':</label>
+			<input type="text" autofocus="autofocus" required="required" name="OldSalesmanCode" size="4" maxlength="4" />
+			<fieldhelp>', _('The old code that you want to change'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="NewSalesmanCode"> ' . _('New Sales Person Code') . ':</label>
+			<input type="text" required="required" name="NewSalesmanCode" size="4" maxlength="4" />
+			<fieldhelp>', _('The new code that you want it changed to'), '</fieldhelp>
+		</field>
+	</fieldset>
 
-	<input type="submit" name="ProcessSalesmanChange" value="' . _('Process') . '" />
+	<div class="centre">
+		<input type="submit" name="ProcessSalesmanChange" value="', _('Process'), '" />
 	</div>
 	</form>';
 include ('includes/footer.php');
