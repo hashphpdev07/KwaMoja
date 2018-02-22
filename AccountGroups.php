@@ -340,7 +340,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 
 if (isset($_POST['SelectedAccountGroup']) or isset($_GET['SelectedAccountGroup'])) {
 	echo '<div class="toplink">
-			<a href="', $RootPath, '/Accountroups.php">', _('Review Account Groups'), '</a>
+			<a href="', $RootPath, '/AccountGroups.php">', _('Review Account Groups'), '</a>
 		</div>';
 } //isset($_POST['SelectedAccountGroup']) or isset($_GET['SelectedAccountGroup'])
 if (!isset($_GET['delete'])) {
