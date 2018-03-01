@@ -275,8 +275,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 					sectionname,
 					sequenceintb,
 					pandl,
-					parentgroupcode,
-					parentgroupname
+					parentgroupcode
 			FROM accountgroups
 			LEFT JOIN accountsection
 				ON sectionid = sectioninaccounts
@@ -320,6 +319,13 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 				$PandLText = _('No');
 			break;
 		} //end of switch statement
+		$SQL = "SELECT groupname
+				FROM accountgroups
+				WHERE accountgroups.language='" . $_SESSION['ChartLanguage'] . "'
+					AND groupcode='" . $MyRow['parentgroupcode'] . "'";
+		$ParentResult = DB_query($SQL);
+		$ParentRow = DB_fetch_array($ParentResult);
+
 		echo '<tr class="striped_row">
 				<td class="number">', $MyRow['groupcode'], '</td>
 				<td>', $MyRow['groupname'], '</td>
@@ -327,7 +333,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 				<td class="number">', $MyRow['sequenceintb'], '</td>
 				<td>', $PandLText, '</td>
 				<td>', $MyRow['parentgroupcode'], '</td>
-				<td>', $MyRow['parentgroupname'], '</td>
+				<td>', $ParentRow['groupname'], '</td>
 				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '">', _('Edit'), '</a></td>
 				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'] . '?SelectedAccountGroup=' . urlencode($MyRow['groupcode']), ENT_QUOTES, 'UTF-8'), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
