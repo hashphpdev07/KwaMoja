@@ -177,7 +177,7 @@ if (isset($Title)) {
 			echo '<li><select name="Favourites" id="favourites" onchange="window.open (this.value,\'_self\',false)">';
 			echo '<option value=""><i><----', _('Commonly used'), '----></i></option>';
 			foreach ($_SESSION['Favourites'] as $Url => $Caption) {
-				echo '<option value="', $Url, '">', $Caption, '</option>';
+				echo '<option value="', $Url, '">', _($Caption), '</option>';
 			}
 			echo '</select></li>';
 		}
