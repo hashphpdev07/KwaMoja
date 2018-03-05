@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-28 11:47+0000\n"
+"POT-Creation-Date: 2018-03-01 03:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5987,7 +5987,7 @@ msgstr "Laden Sie die Sicherungsdatei auf Ihren lokalen Computer herunter"
 
 #: /home/tim/code/KwaMoja/BackupDatabase.php:39
 msgid "Once you have downloaded the database backup file to your local machine you should use the link below to delete it - backup files can consume a lot of space on your hosting account and will accumulate if not deleted - they also contain sensitive information which would otherwise be available for others to download!"
-msgstr "Sobald Sie die Datenbank-Backup-Datei auf Ihren lokalen Rechner heruntergeladen haben, sollten Sie den folgenden Link verwenden, um sie zu löschen - Backup-Dateien können viel Speicherplatz auf Ihrem Hosting-Konto verbrauchen und werden akkumuliert, wenn nicht gelöscht - sie enthalten auch vertrauliche Informationen, die andernfalls sein würden  für andere zum Download verfügbar!"
+msgstr "Sobald Sie die Datenbank-Backup-Datei auf Ihren lokalen Rechner heruntergeladen haben, sollten Sie den folgenden Link verwenden, um sie zu löschen - Backup-Dateien können viel Platz auf Ihrem Hosting-Konto verbrauchen und werden akkumuliert, wenn nicht gelöscht - sie enthalten auch vertrauliche Informationen, die andernfalls sein würden  für andere zum Download verfügbar!"
 
 #: /home/tim/code/KwaMoja/BackupDatabase.php:40
 msgid "Delete the backup file off the server"
@@ -21918,7 +21918,7 @@ msgstr "Kann keinen GL-Eintrag für die Lieferantenzahlung einfügen, weil"
 
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:345
 msgid "The SQL that failed to insert the supplier payment GL entry to the bank account was"
-msgstr "Die SQL-Anweisung, die den Eintrag für die Zahlung der Lieferantenzahlung auf das Bankkonto nicht eingefügt hat, war"
+msgstr "Die SQL-Anweisung, die den Eintrag für die Zahlung für die Lieferantenzahlung auf das Bankkonto nicht eingefügt hat, war"
 
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:366
 msgid "Cannot insert a GL entry for the payment gl analysis because"
@@ -27919,7 +27919,7 @@ msgstr "Die eingegebene Sendung ist entweder geschlossen oder nicht in der Daten
 
 #: /home/tim/code/KwaMoja/PO_Chk_ShiptRef_JobRef.php:22
 msgid "Please refer to the list of open shipments from the link to ensure a valid shipment reference is entered"
-msgstr "Bitte beachten Sie die Liste der offenen Sendungen über den Link, um sicherzustellen, dass eine gültige Sendungsreferenz eingegeben wurde"
+msgstr "Bitte beachten Sie die Liste der offenen Sendungen über den Link, um sicherzustellen, dass eine gültige Sendungsreferenz eingegeben wird"
 
 #: /home/tim/code/KwaMoja/PO_Header.php:8
 msgid "Modify Purchase Order"
@@ -28677,7 +28677,7 @@ msgstr "Eine Bestellung überprüfen"
 
 #: /home/tim/code/KwaMoja/PO_OrderDetails.php:21
 msgid "The search of the GRNs was unsuccessful"
-msgstr "Die Suche nach den GRNs war nicht erfolgreich"
+msgstr "Die Suche nach den GRNs war erfolglos"
 
 #: /home/tim/code/KwaMoja/PO_OrderDetails.php:21
 msgid "the SQL statement returned the error"
@@ -35593,7 +35593,7 @@ msgstr "Da das System zum ersten Mal verwendet wurde, müssen Sie zunächst eine
 #: /home/tim/code/KwaMoja/StockTypes.php:211
 #: /home/tim/code/KwaMoja/StockTypes.php:224
 msgid "Type Code"
-msgstr ""
+msgstr "Gib 'den Code ein"
 
 #: /home/tim/code/KwaMoja/SalesTypes.php:186
 #: /home/tim/code/KwaMoja/StockTypes.php:166
@@ -36848,7 +36848,7 @@ msgstr "Reorder Levels pflegen"
 #: /home/tim/code/KwaMoja/SelectProduct.php:548
 #: /home/tim/code/KwaMoja/SelectProduct.php:553
 msgid "Maintain Standard Cost"
-msgstr "Pflegen Sie die Standardkosten"
+msgstr "Pflegen Sie Standardkosten"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:549
 msgid "Maintain Purchasing Data"
@@ -43758,7 +43758,7 @@ msgstr "Kontrollierte Artikel müssen für die Gutschrift vorhanden sein"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:653
 msgid "This parameter relates to the behaviour of the controlled items code. If a serial numbered item has not previously existed then a credit note for it will not be allowed if this is set to Yes"
-msgstr "Dieser Parameter bezieht sich auf das Verhalten des Codes für kontrollierte Elemente.  Wenn ein Artikel mit Seriennummer noch nicht existiert, ist eine Gutschrift dafür nicht erlaubt, wenn diese Option auf Ja gesetzt ist"
+msgstr "Dieser Parameter bezieht sich auf das Verhalten des Codes für kontrollierte Elemente.  Wenn ein Artikel mit fortlaufender Nummer noch nicht existiert, ist eine Gutschrift dafür nicht erlaubt, wenn dies auf Ja eingestellt ist"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:657
 msgid "Could not load price lists"
@@ -44384,7 +44384,7 @@ msgstr "E-Mail-Adresse des Inventar-Managers"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:1228
 msgid "The email address for the inventory manager, where notifications of all manual stock adjustments created are sent by the system. Leave blank if no emails should be sent to the factory manager for manual stock adjustments"
-msgstr "Die E-Mail-Adresse für den Lagerverwalter, in der Benachrichtigungen über alle manuell vorgenommenen Bestandsanpassungen vom System gesendet werden.  Lassen Sie dieses Feld leer, wenn keine E-Mails an den Werksleiter gesendet werden sollen, um manuelle Bestandsanpassungen vorzunehmen"
+msgstr "Die E-Mail-Adresse für den Lagerverwalter, in der Benachrichtigungen über alle manuell vorgenommenen Bestandsanpassungen vom System gesendet werden.  Lassen Sie dieses Feld leer, wenn keine E-Mails an den Werksleiter für manuelle Bestandsanpassungen gesendet werden sollen"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:1231
 msgid "Using Smtp Mail"
@@ -46542,7 +46542,7 @@ msgstr "Der Arbeitsauftrag ist geschlossen - es können keine weiteren Materiali
 
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:96
 msgid "This issue cannot be processed because the system parameter is set to prohibit negative stock and this batch does not exist"
-msgstr "Dieses Problem kann nicht verarbeitet werden, da der Systemparameter so eingestellt ist, dass negativer Bestand gesperrt wird und dieser Stapel nicht existiert"
+msgstr "Dieses Problem kann nicht verarbeitet werden, da der Systemparameter den negativen Bestand verbietet und dieser Stapel nicht existiert"
 
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:101
 msgid "This issue cannot be processed because the system parameter is set to prohibit negative stock and this issue would result in this batch going into negative. Please correct the stock first before attempting another issue"
@@ -48983,7 +48983,7 @@ msgstr "Die Mindestbestellmenge sollte ein ganzzahliger Wert sein"
 
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:198
 msgid "The supplier record could not be added because"
-msgstr "Der Lieferantendatensatz konnte nicht hinzugefügt werden, weil"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:224
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:328
@@ -49662,7 +49662,7 @@ msgstr "Upgrade 3.06 - 3.07"
 
 #: /home/tim/code/KwaMoja/Z_Upgrade_3.05-3.06.php:8
 msgid "This script will run perform any modifications to the database since v 3.06 required to allow the additional functionality in version 3.07 scripts"
-msgstr "Dieses Skript führt alle Änderungen an der Datenbank aus, da v 3.06 erforderlich ist, um die zusätzliche Funktionalität in Skripten der Version 3.07 zu ermöglichen"
+msgstr "Dieses Skript führt alle Änderungen an der Datenbank aus, da v 3.06 erforderlich ist, um die zusätzliche Funktionalität in Skripts der Version 3.07 zu ermöglichen"
 
 #: /home/tim/code/KwaMoja/Z_Upgrade_3.07-3.08.php:4
 msgid "Upgrade 3.071 - 3.08"
@@ -49977,7 +49977,7 @@ msgstr "Standardtext"
 #: /home/tim/code/KwaMoja/Z_poEditLangModule.php:151
 #: /home/tim/code/KwaMoja/Z_poEditLangRemaining.php:126
 msgid "Translation"
-msgstr "Übersetzung"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/Z_poEditLangModule.php:152
 #: /home/tim/code/KwaMoja/Z_poEditLangRemaining.php:127
@@ -50126,7 +50126,7 @@ msgstr "Bestehende Angebote anzeigen oder ändern"
 
 #: /home/tim/code/KwaMoja/index.php:182
 msgid "Create a new offer"
-msgstr "Erstellen Sie ein neues Angebot"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/index.php:187
 msgid "View any open tenders without an offer"
@@ -50565,7 +50565,7 @@ msgstr "Abrechnungsperiode bereinigen"
 
 #: /home/tim/code/KwaMoja/prlCreatePayroll.php:55
 msgid "Not implemented at this moment..."
-msgstr "In diesem Moment nicht implementiert..."
+msgstr ""
 
 #: /home/tim/code/KwaMoja/prlCreatePayroll.php:60
 #: /home/tim/code/KwaMoja/prlCreatePayroll.php:159
@@ -52442,7 +52442,7 @@ msgstr "Der Mitarbeiterstammsatz konnte nicht abgerufen werden, weil"
 
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:48
 msgid "Last Name "
-msgstr "Familienname, Nachname"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:50
 msgid "Pay Type  "
@@ -52723,7 +52723,7 @@ msgstr "Die SQL, die zum Aktualisieren der Steuer verwendet wurde, war jedoch fe
 
 #: /home/tim/code/KwaMoja/prlTax.php:53
 msgid "The Tax master record for"
-msgstr "Der Steuerstammsatz für"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/prlTax.php:71
 msgid "The Tax"
@@ -53110,7 +53110,7 @@ msgstr "Ungültiges Kreditlimit"
 
 #: /home/tim/code/KwaMoja/api/api_errorcodes.php:190
 msgid "Invalid Inv Address Branch"
-msgstr "Ungültiger Inv-Adressenzweig"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/api/api_errorcodes.php:191
 msgid "Invalid Discount Code"
@@ -53138,7 +53138,7 @@ msgstr "Ungültige EDI-Adresse"
 
 #: /home/tim/code/KwaMoja/api/api_errorcodes.php:197
 msgid "Invalid EDI Server User"
-msgstr "Ungültiger EDI-Serverbenutzer"
+msgstr ""
 
 #: /home/tim/code/KwaMoja/api/api_errorcodes.php:198
 msgid "Invalid EDI Server Password"
@@ -58368,7 +58368,7 @@ msgstr "Die SQL zum Einfügen des Produktspezials in Opencart ist fehlgeschlagen
 
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:512
 msgid "Could not get the SettingId in OpenCart because"
-msgstr "Die SettingId konnte in OpenCart nicht abgerufen werden"
+msgstr "Die SettingId konnte nicht in OpenCart abgerufen werden"
 
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:524
 msgid "The SQL to update setting value in Opencart failed"
@@ -58438,7 +58438,7 @@ msgstr "Die SQL, die es versäumte, die Paypal Transaktionsgebühr von der Bankk
 
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:812
 msgid "The SQL that failed to insert the Paypal transaction fee for the commission account credit was"
-msgstr "Die SQL, die die Paypal-Transaktionsgebühr für das Provisionskonten-Guthaben nicht eingefügt hat, war"
+msgstr "Die SQL, die die Paypal-Transaktionsgebühr für das Provisionskonten-Guthaben nicht einfügen konnte, war"
 
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:821
 msgid "The Change of quotation flag in salesorders table"
