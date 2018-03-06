@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Sell Through Support');
 
-include('includes/header.php');
+include ('includes/header.php');
 
-if (isset($_GET['SupplierID']) AND $_GET['SupplierID'] != '') {
+if (isset($_GET['SupplierID']) and $_GET['SupplierID'] != '') {
 	$SupplierID = trim(mb_strtoupper($_GET['SupplierID']));
 } elseif (isset($_POST['SupplierID'])) {
 	$SupplierID = trim(mb_strtoupper($_POST['SupplierID']));
@@ -21,7 +20,6 @@ if (isset($_GET['Edit'])) {
 	$Edit = false;
 }
 
-
 if (!isset($SupplierID)) {
 	/* Then display all the sell through support for the supplier */
 	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
@@ -33,8 +31,7 @@ if (isset($_GET['Delete'])) {
 	prnMsg(_('Deleted the supplier sell through support record'), 'success');
 }
 
-
-if ((isset($_POST['AddRecord']) OR isset($_POST['UpdateRecord'])) AND isset($SupplierID)) {
+if ((isset($_POST['AddRecord']) or isset($_POST['UpdateRecord'])) and isset($SupplierID)) {
 	/*Validate Inputs */
 	$InputError = 0;
 	/*Start assuming the best */
@@ -43,7 +40,7 @@ if ((isset($_POST['AddRecord']) OR isset($_POST['UpdateRecord'])) AND isset($Sup
 		$InputError = 1;
 		prnMsg(_('The rebate amount entered was not numeric and a number is required.'), 'error');
 		unset($_POST['RebateAmount']);
-	} elseif (filter_number_format($_POST['RebateAmount']) == 0 AND filter_number_format($_POST['RebatePercent']) == 0) {
+	} elseif (filter_number_format($_POST['RebateAmount']) == 0 and filter_number_format($_POST['RebatePercent']) == 0) {
 		prnMsg(_('Both the rebate amount and the rebate percent is zero. One or the other must be a positive number?'), 'error');
 		$InputError = 1;
 
@@ -52,10 +49,10 @@ if ((isset($_POST['AddRecord']) OR isset($_POST['UpdateRecord'])) AND isset($Sup
 		prnMsg(_('The narrative cannot be empty.'),'error');
 		$InputError = 1;
 		*/
-	} elseif (filter_number_format($_POST['RebatePercent']) > 100 OR filter_number_format($_POST['RebatePercent']) < 0) {
+	} elseif (filter_number_format($_POST['RebatePercent']) > 100 or filter_number_format($_POST['RebatePercent']) < 0) {
 		prnMsg(_('The rebate percent must be greater than zero but less than 100 percent. No changes will be made to this record'), 'error');
 		$InputError = 1;
-	} elseif (filter_number_format($_POST['RebateAmount']) != 0 AND filter_number_format($_POST['RebatePercent']) != 0) {
+	} elseif (filter_number_format($_POST['RebateAmount']) != 0 and filter_number_format($_POST['RebatePercent']) != 0) {
 		prnMsg(_('Both the rebate percent and rebate amount are non-zero. Only one or the other can be used.'), 'error');
 		$InputError = 1;
 	} elseif (Date1GreaterThanDate2($_POST['EffectiveFrom'], $_POST['EffectiveTo'])) {
@@ -63,7 +60,7 @@ if ((isset($_POST['AddRecord']) OR isset($_POST['UpdateRecord'])) AND isset($Sup
 		$InputError = 1;
 	}
 
-	if ($InputError == 0 AND isset($_POST['AddRecord'])) {
+	if ($InputError == 0 and isset($_POST['AddRecord'])) {
 		$SQL = "INSERT INTO sellthroughsupport (supplierno,
 												debtorno,
 												categoryid,
@@ -88,7 +85,7 @@ if ((isset($_POST['AddRecord']) OR isset($_POST['UpdateRecord'])) AND isset($Sup
 		$AddResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 		prnMsg(_('This sell through support has been added to the database'), 'success');
 	}
-	if ($InputError == 0 AND isset($_POST['UpdateRecord'])) {
+	if ($InputError == 0 and isset($_POST['UpdateRecord'])) {
 		$SQL = "UPDATE sellthroughsupport SET debtorno='" . $_POST['DebtorNo'] . "',
 											categoryid='" . $_POST['CategoryID'] . "',
 											stockid='" . $_POST['StockID'] . "',
@@ -122,7 +119,7 @@ if ((isset($_POST['AddRecord']) OR isset($_POST['UpdateRecord'])) AND isset($Sup
 }
 
 if (isset($_POST['SearchSupplier'])) {
-	if ($_POST['Keywords'] == '' AND $_POST['SupplierCode'] == '') {
+	if ($_POST['Keywords'] == '' and $_POST['SupplierCode'] == '') {
 		$_POST['Keywords'] = ' ';
 	}
 	if (mb_strlen($_POST['Keywords']) > 0) {
@@ -154,7 +151,6 @@ if (isset($_POST['SearchSupplier'])) {
 	$SuppliersResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
-			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table cellpadding="2" colspan="7">
 				<thead>
@@ -189,7 +185,6 @@ if (!isset($SupplierID) or isset($_POST['SearchSupplier'])) {
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table cellpadding="3" colspan="4">
 			<tr>
-				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<td>' . _('Text in the Supplier') . ' <b>' . _('NAME') . '</b>:</td>
 				<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
 				<td><b>' . _('OR') . '</b></td>
@@ -197,16 +192,13 @@ if (!isset($SupplierID) or isset($_POST['SearchSupplier'])) {
 				<td><input type="text" name="SupplierCode" size="20" maxlength="50" /></td>
 			</tr>
 			</table>
-			<br />
 			<div class="centre">
 				<input type="submit" name="SearchSupplier" value="' . _('Find Suppliers Now') . '" />
 			</div>
 		</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
-
 
 if (isset($SupplierID)) {
 	/* Then display all the sell through support for the supplier */
@@ -223,7 +215,7 @@ if (isset($SupplierID)) {
 
 }
 
-if (isset($SupplierID) AND $Edit == false) {
+if (isset($SupplierID) and $Edit == false) {
 
 	$SQL = "SELECT	id,
 					sellthroughsupport.debtorno,
@@ -351,7 +343,6 @@ if (isset($SupplierID)) { //not selecting a supplier
 		$_POST['Narrative'] = '';
 	}
 
-
 	echo '<tr>
 			<td>' . _('Support for Customer') . ':</td>
 			<td><select name="DebtorNo">';
@@ -402,7 +393,6 @@ if (isset($SupplierID)) { //not selecting a supplier
 	} else {
 		echo '<option value="">' . _('Support An Entire Category') . '</option>';
 	}
-
 
 	$SQL = "SELECT stockmaster.stockid,
 					stockmaster.description
@@ -460,5 +450,5 @@ if (isset($SupplierID)) { //not selecting a supplier
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

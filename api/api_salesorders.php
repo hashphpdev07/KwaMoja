@@ -1,15 +1,8 @@
 <?php
-
 // InsertSalesOrderHeader and ModifySalesOrderHeader have date fields
 // which need to be converted to the appropriate format.  This is
 // a list of such fields used to detect date values and format appropriately.
-$SOH_DateFields = array(
-	'orddate',
-	'deliverydate',
-	'datepackingslipprinted',
-	'quotedate',
-	'confirmeddate'
-);
+$SOH_DateFields = array('orddate', 'deliverydate', 'datepackingslipprinted', 'quotedate', 'confirmeddate');
 
 /* Check that the custmerref field is 50 characters or less long */
 function VerifyCustomerRef($customerref, $i, $Errors) {
@@ -261,7 +254,7 @@ function VerifyItemDueDate($ItemDue, $i, $Errors) {
 
 /* Create a customer sales order header in KwaMoja. If successful
  * returns $Errors[0]=0 and $Errors[1] will contain the order number.
- */
+*/
 function InsertSalesOrderHeader($OrderHeader, $user, $password) {
 	$Errors = array();
 	$db = db($user, $password);
@@ -339,17 +332,18 @@ function InsertSalesOrderHeader($OrderHeader, $user, $password) {
 	global $SOH_DateFields;
 	$OrderHeader['orderno'] = GetNextTransNo(30);
 	foreach ($OrderHeader as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
+		$FieldNames.= $Key . ', ';
 		if (in_array($Key, $SOH_DateFields)) {
 			$Value = FormatDateforSQL($Value); // Fix dates
+			
 		}
-		$FieldValues .= "'" . $Value . "', ";
+		$FieldValues.= "'" . $Value . "', ";
 	}
 	$SQL = 'INSERT INTO salesorders (' . mb_substr($FieldNames, 0, -2) . ")
 					VALUES (" . mb_substr($FieldValues, 0, -2) . ")";
 	if (sizeof($Errors) == 0) {
 
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 
 		if (DB_error_no() != 0) {
 			//$Errors[0] = DatabaseUpdateFailed;
@@ -363,7 +357,7 @@ function InsertSalesOrderHeader($OrderHeader, $user, $password) {
 }
 
 /* Modify a customer sales order header in KwaMoja.
- */
+*/
 function ModifySalesOrderHeader($OrderHeader, $user, $password) {
 	$Errors = array();
 	$db = db($user, $password);
@@ -442,12 +436,13 @@ function ModifySalesOrderHeader($OrderHeader, $user, $password) {
 	foreach ($OrderHeader as $Key => $Value) {
 		if (in_array($Key, $SOH_DateFields)) {
 			$Value = FormatDateforSQL($Value); // Fix dates
+			
 		}
-		$SQL .= $Key . '="' . $Value . '", ';
+		$SQL.= $Key . '="' . $Value . '", ';
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE orderno='" . $OrderHeader['orderno'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		echo DB_error_no();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -460,7 +455,7 @@ function ModifySalesOrderHeader($OrderHeader, $user, $password) {
 
 /* Create a customer sales order line in KwaMoja. The order header must
  * already exist in KwaMoja.
- */
+*/
 function InsertSalesOrderLine($OrderLine, $user, $password) {
 
 	$Errors = array();
@@ -494,27 +489,27 @@ function InsertSalesOrderLine($OrderLine, $user, $password) {
 	 if (isset($OrderLine['itemdue'])){
 	 $Errors=VerifyItemDueDate($OrderLine['itemdue'], sizeof($Errors), $Errors);
 	 }
-	 */
+	*/
 	if (isset($OrderLine['poline'])) {
 		$Errors = VerifyPOLine($OrderLine['poline'], sizeof($Errors), $Errors);
 	}
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($OrderLine as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
+		$FieldNames.= $Key . ', ';
 		if ($Key == 'actualdispatchdate') {
 			$Value = FormatDateWithTimeForSQL($Value);
 		} elseif ($Key == 'itemdue') {
 			$Value = FormatDateForSQL($Value);
 		}
-		$FieldValues .= "'" . $Value . "', ";
+		$FieldValues.= "'" . $Value . "', ";
 	}
 
 	$SQL = "INSERT INTO salesorderdetails (" . mb_substr($FieldNames, 0, -2) . ")
 			VALUES (" . mb_substr($FieldValues, 0, -2) . ")";
 
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -526,7 +521,7 @@ function InsertSalesOrderLine($OrderLine, $user, $password) {
 
 /* Modify a customer sales order line in KwaMoja. The order header must
  * already exist in KwaMoja.
- */
+*/
 function ModifySalesOrderLine($OrderLine, $user, $password) {
 	$Errors = array();
 	$db = db($user, $password);
@@ -563,9 +558,8 @@ function ModifySalesOrderLine($OrderLine, $user, $password) {
 	foreach ($OrderLine as $Key => $Value) {
 		if ($Key == 'actualdispatchdate') {
 			$Value = FormatDateWithTimeForSQL($Value);
-		} elseif ($Key == 'itemdue')
-			$Value = FormatDateForSQL($Value);
-		$SQL .= $Key . '="' . $Value . '", ';
+		} elseif ($Key == 'itemdue') $Value = FormatDateForSQL($Value);
+		$SQL.= $Key . '="' . $Value . '", ';
 	}
 	//$SQL = mb_substr($SQL,0,-2).' WHERE orderno="'.$OrderLine['orderno'].'" and
 	//	" orderlineno='.$OrderLine['orderlineno'];
@@ -573,7 +567,7 @@ function ModifySalesOrderLine($OrderLine, $user, $password) {
 	//echo $SQL;
 	//exit;
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		echo DB_error_no();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -600,7 +594,7 @@ function GetSalesOrderHeader($OrderNo, $user, $password) {
 		return $Errors;
 	}
 	$SQL = "SELECT * FROM salesorders WHERE orderno='" . $OrderNo . "'";
-	$Result = api_DB_Query($SQL);
+	$Result = api_DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		return DB_fetch_array($Result);
 	} else {
@@ -625,14 +619,13 @@ function GetSalesOrderLine($OrderNo, $user, $password) {
 		return $Errors;
 	}
 	$SQL = "SELECT * FROM salesorderdetails WHERE orderno='" . $OrderNo . "'";
-	$Result = api_DB_Query($SQL);
+	$Result = api_DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		return DB_fetch_array($Result);
 	} else {
 		return $Errors;
 	}
 }
-
 
 function InvoiceSalesOrder($OrderNo, $User, $Password) {
 
@@ -741,7 +734,7 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 		$LineNetAmount = $OrderLineRow['unitprice'] * $OrderLineRow['quantity'] * (1 - floatval($OrderLineRow['discountpercent']));
 
 		/*Gets the Taxes and rates applicable to this line from the TaxGroup of the branch and TaxCategory of the item
-		and the taxprovince of the dispatch location */
+		 and the taxprovince of the dispatch location */
 
 		$SQL = "SELECT taxgrouptaxes.calculationorder,
 							taxauthorities.description,
@@ -779,24 +772,16 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 			} else {
 				$TaxAuthAmount = $LineNetAmount * $MyRow['taxrate'];
 			}
-			$TaxTotals[$MyRow['taxauthid']]['FXAmount'] += $TaxAuthAmount;
+			$TaxTotals[$MyRow['taxauthid']]['FXAmount']+= $TaxAuthAmount;
 
 			/*Make an array of the taxes and amounts including GLcodes for later posting - need debtortransid
-			so can only post once the debtor trans is posted - can only post debtor trans when all tax is calculated */
-			$LineTaxes[$LineCounter][$MyRow['calculationorder']] = array(
-				'TaxCalculationOrder' => $MyRow['calculationorder'],
-				'TaxAuthID' => $MyRow['taxauthid'],
-				'TaxAuthDescription' => $MyRow['description'],
-				'TaxRate' => $MyRow['taxrate'],
-				'TaxOnTax' => $MyRow['taxontax'],
-				'TaxAuthAmount' => $TaxAuthAmount
-			);
-			$LineTaxAmount += $TaxAuthAmount;
+			 so can only post once the debtor trans is posted - can only post debtor trans when all tax is calculated */
+			$LineTaxes[$LineCounter][$MyRow['calculationorder']] = array('TaxCalculationOrder' => $MyRow['calculationorder'], 'TaxAuthID' => $MyRow['taxauthid'], 'TaxAuthDescription' => $MyRow['description'], 'TaxRate' => $MyRow['taxrate'], 'TaxOnTax' => $MyRow['taxontax'], 'TaxAuthAmount' => $TaxAuthAmount);
+			$LineTaxAmount+= $TaxAuthAmount;
 
 		} //end loop around Taxes
-
-		$TotalFXNetInvoice += $LineNetAmount;
-		$TotalFXTax += $LineTaxAmount;
+		$TotalFXNetInvoice+= $LineNetAmount;
+		$TotalFXTax+= $LineTaxAmount;
 
 		/*Now update SalesOrderDetails for the quantity invoiced and the actual dispatch dates. */
 		$SQL = "UPDATE salesorderdetails
@@ -808,12 +793,11 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 
 		$Result = api_DB_query($SQL, $db, '', '', true);
 
-
 		if ($OrderLineRow['mbflag'] == 'B' or $OrderLineRow['mbflag'] == 'M') {
 			$Assembly = False;
 
 			/* Need to get the current location quantity
-			will need it later for the stock movement */
+			 will need it later for the stock movement */
 			$SQL = "SELECT locstock.quantity
 						FROM locstock
 						WHERE locstock.stockid='" . $OrderLineRow['stkcode'] . "'
@@ -868,7 +852,7 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 		} else if ($OrderLineRow['mbflag'] == 'A') {
 			/* its an assembly */
 			/*Need to get the BOM for this part and make
-			stock moves for the components then update the Location stock balances */
+			 stock moves for the components then update the Location stock balances */
 			$Assembly = True;
 			$StandardCost = 0;
 			/*To start with - accumulate the cost of the comoponents for use in journals later on */
@@ -886,9 +870,9 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 
 			while ($AssParts = DB_fetch_array($AssResult)) {
 
-				$StandardCost += ($AssParts['standard'] * $AssParts['quantity']);
+				$StandardCost+= ($AssParts['standard'] * $AssParts['quantity']);
 				/* Need to get the current location quantity
-				will need it later for the stock movement */
+				 will need it later for the stock movement */
 				$SQL = "SELECT locstock.quantity
 							FROM locstock
 							WHERE locstock.stockid='" . $AssParts['component'] . "'
@@ -944,7 +928,6 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 			/* end of assembly explosion and updates */
 		}
 		/* end of its an assembly */
-
 
 		if ($OrderLineRow['mbflag'] == 'A' or $OrderLineRow['mbflag'] == 'D') {
 			/*it's a Dummy/Service item or an Assembly item - still need stock movement record
@@ -1186,6 +1169,7 @@ function InvoiceSalesOrder($OrderNo, $User, $Password) {
 		/*end of if sales integrated with gl */
 
 		$LineCounter++; //needed for the array of taxes by line
+		
 	}
 	/*end of OrderLine loop */
 
@@ -1322,7 +1306,7 @@ function GetCurrentPeriod(&$db) {
 		$LastPeriodEnd = mktime(0, 0, 0, Date('m') + 2, 0, Date('Y'));
 	} else {
 		$Date_Array = explode('-', $MyRow[0]);
-		$LastPeriodEnd = mktime(0, 0, 0, $Date_Array[1] + 1, 0, (int) $Date_Array[0]);
+		$LastPeriodEnd = mktime(0, 0, 0, $Date_Array[1] + 1, 0, (int)$Date_Array[0]);
 		$LastPeriod = $MyRow[1];
 	}
 	/* Find the unix timestamp of the first period end date in periods table */
@@ -1330,7 +1314,7 @@ function GetCurrentPeriod(&$db) {
 	$Result = api_DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
 	$Date_Array = explode('-', $MyRow[0]);
-	$FirstPeriodEnd = mktime(0, 0, 0, $Date_Array[1], 0, (int) $Date_Array[0]);
+	$FirstPeriodEnd = mktime(0, 0, 0, $Date_Array[1], 0, (int)$Date_Array[0]);
 	$FirstPeriod = $MyRow[1];
 
 	/* If the period number doesn't exist */
@@ -1369,7 +1353,7 @@ function GetCurrentPeriod(&$db) {
 		$Result = api_DB_query($SQL);
 		$MyRow = DB_fetch_row($Result);
 		$Date_Array = explode('-', $MyRow[0]);
-		$LastPeriodEnd = mktime(0, 0, 0, $Date_Array[1] + 2, 0, (int) $Date_Array[0]);
+		$LastPeriodEnd = mktime(0, 0, 0, $Date_Array[1] + 2, 0, (int)$Date_Array[0]);
 		$LastPeriod = $MyRow[1];
 		CreatePeriod($LastPeriod + 1, $LastPeriodEnd);
 	}

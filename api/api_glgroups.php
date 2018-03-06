@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the account group doesn't already exist'*/
 function VerifyAccountGroup($AccountGroup, $i, $Errors) {
 	$Searchsql = "SELECT count(groupname)
@@ -74,13 +73,13 @@ function InsertGLAccountGroup($AccountGroupDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($AccountGroupDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$SQL = "INSERT INTO accountgroups ('" . mb_substr($FieldNames, 0, -2) . "')
 					VALUES ('" . mb_substr($FieldValues, 0, -2) . "' ) ";
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {

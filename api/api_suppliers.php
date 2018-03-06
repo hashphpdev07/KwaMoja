@@ -1,7 +1,6 @@
 <?php
-
 /* Verify that the supplier number is valid, and doesn't already
-exist.*/
+ exist.*/
 function VerifySupplierNo($SupplierNumber, $i, $Errors) {
 	if ((mb_strlen($SupplierNumber) < 1) or (mb_strlen($SupplierNumber) > 10)) {
 		$Errors[$i] = IncorrectDebtorNumberLength;
@@ -18,7 +17,7 @@ function VerifySupplierNo($SupplierNumber, $i, $Errors) {
 }
 
 /* Verify that the supplier number is valid, and already
-exists.*/
+ exists.*/
 function VerifySupplierNoExists($SupplierNumber, $i, $Errors) {
 	if ((mb_strlen($SupplierNumber) < 1) or (mb_strlen($SupplierNumber) > 10)) {
 		$Errors[$i] = IncorrectDebtorNumberLength;
@@ -199,12 +198,12 @@ function InsertSupplier($SupplierDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($SupplierDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	$SQL = 'INSERT INTO suppliers (' . mb_substr($FieldNames, 0, -2) . ') ' . 'VALUES (' . mb_substr($FieldValues, 0, -2) . ') ';
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -288,11 +287,11 @@ function ModifySupplier($SupplierDetails, $user, $password) {
 	}
 	$SQL = 'UPDATE suppliers SET ';
 	foreach ($SupplierDetails as $Key => $Value) {
-		$SQL .= $Key . '="' . $Value . '", ';
+		$SQL.= $Key . '="' . $Value . '", ';
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE supplierid='" . $SupplierDetails['supplierid'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		echo DB_error_no();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -319,7 +318,7 @@ function GetSupplier($SupplierID, $user, $password) {
 		return $Errors;
 	}
 	$SQL = "SELECT * FROM suppliers WHERE supplierid='" . $SupplierID . "'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	if (sizeof($Errors) == 0) {
 		return DB_fetch_array($Result);
 	} else {
@@ -340,7 +339,7 @@ function SearchSuppliers($Field, $Criteria, $user, $password) {
 	$SQL = 'SELECT supplierid
 			FROM suppliers
 			WHERE ' . $Field . " LIKE '%" . $Criteria . "%' ORDER BY supplierid";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$i = 0;
 	$SupplierList = array();
 	while ($MyRow = DB_fetch_array($Result)) {

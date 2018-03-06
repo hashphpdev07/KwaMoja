@@ -1,7 +1,6 @@
 <?php
-
 /* Verify that the Location code is valid, and doesn't already
-exist.*/
+ exist.*/
 
 function VerifyLocationCode($LocationCode, $i, $Errors) {
 	if ((mb_strlen($LocationCode) < 1) or (mb_strlen($LocationCode) > 5)) {
@@ -52,10 +51,9 @@ function VerifyTaxProvinceId($TaxProvinceId, $i, $Errors) {
 	return $Errors;
 }
 
-
 /* This function returns a list of the stock location id's
  * currently setup on KwaMoja
- */
+*/
 
 function GetLocationList($user, $password) {
 	$Errors = array();
@@ -80,7 +78,7 @@ function GetLocationList($user, $password) {
 /* This function takes as a parameter a stock location id
  * and returns an array containing the details of the selected
  * location.
- */
+*/
 
 function GetLocationDetails($location, $user, $password) {
 	$Errors = array();
@@ -98,7 +96,7 @@ function GetLocationDetails($location, $user, $password) {
 }
 
 /* Inserts a Location in KwaMoja.
- */
+*/
 
 function InsertLocation($Location, $user, $password) {
 	$Errors = array();
@@ -146,14 +144,14 @@ function InsertLocation($Location, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($Location as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$SQL = "INSERT INTO locations (" . mb_substr($FieldNames, 0, -2) . ")
 						VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
 
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -164,7 +162,7 @@ function InsertLocation($Location, $user, $password) {
 }
 
 /* Modify a Location Details in KwaMoja.
- */
+*/
 
 function ModifyLocation($Location, $user, $password) {
 	$Errors = array();
@@ -211,11 +209,11 @@ function ModifyLocation($Location, $user, $password) {
 	}
 	$SQL = "UPDATE locations SET ";
 	foreach ($Location as $Key => $Value) {
-		$SQL .= $Key . "='" . $Value . "', ";
+		$SQL.= $Key . "='" . $Value . "', ";
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE loccode='" . $Location['loccode'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {

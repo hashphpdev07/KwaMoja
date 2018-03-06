@@ -22,6 +22,10 @@ vertical-align:middle;
 th.SortedColumn {
 cursor:s-resize;
 padding-right:16px;
+background-image:url(images/ascending.png);
+background-repeat: no-repeat;
+background-position:right;
+background-size:12px;
 }
 
 td {

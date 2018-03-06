@@ -1,5 +1,4 @@
 <?php
-
 function VerifyPurchDataLineExists($SupplierID, $StockId, $i, $Errors) {
 	if (VerifyStockCodeExists($StockId, $i, $Errors) != 0 and VerifySupplierNoExists($SupplierID, $i, $Errors) != 0) {
 		$Errors[$i] = StockSupplierLineDoesntExist;
@@ -14,7 +13,7 @@ function VerifySuppliersUOM($suppliersuom, $i, $Errors) {
 }
 
 function VerifyQtyGreaterThan($qtygreaterthan, $i, $Errors) {
-	if ($qtygreaterthan<0) {
+	if ($qtygreaterthan < 0) {
 		$Errors[$i] = InvalidQtyGreaterThan;
 	}
 	return $Errors;
@@ -87,14 +86,14 @@ function InsertPurchData($PurchDataDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($PurchDataDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$SQL = "INSERT INTO purchdata (" . mb_substr($FieldNames, 0, -2) . ")
 					VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
 		DB_Txn_Begin();
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		DB_Txn_Commit();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -138,12 +137,12 @@ function ModifyPurchData($PurchDataDetails, $user, $password) {
 	}
 	$SQL = "UPDATE purchdata SET ";
 	foreach ($PurchDataDetails as $Key => $Value) {
-		$SQL .= $Key . "='" . $Value . "', ";
+		$SQL.= $Key . "='" . $Value . "', ";
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE stockid='" . $PurchDataDetails['stockid'] . "'
 								AND supplierno='" . $PurchDataDetails['supplierno'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		echo DB_error_no();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;

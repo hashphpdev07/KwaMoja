@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the account code doesn't already exist'*/
 function VerifyAccountCode($AccountCode, $i, $Errors) {
 	$Searchsql = "SELECT count(accountcode)
@@ -65,12 +64,12 @@ function InsertGLAccount($AccountDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($AccountDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$SQL = 'INSERT INTO chartmaster (' . mb_substr($FieldNames, 0, -2) . ') ' . "VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		$SQL = 'INSERT INTO chartdetails (accountcode,
 							period)
 				SELECT ' . $AccountDetails['accountcode'] . ',
@@ -88,7 +87,7 @@ function InsertGLAccount($AccountDetails, $user, $password) {
 
 /* This function returns a list of the general ledger accounts
  * currently setup on KwaMoja
- */
+*/
 
 function GetGLAccountList($user, $password) {
 	$Errors = array();
@@ -117,7 +116,7 @@ function GetGLAccountList($user, $password) {
 /* This function takes as a parameter a general ledger account code
  * and returns an array containing the details of the selected
  * general ledger code.
- */
+*/
 
 function GetGLAccountDetails($AccountCode, $user, $password) {
 	$Errors = array();

@@ -1,8 +1,7 @@
 <?php
-
 /* This function returns a list of the stock salesman codes
  * currently setup on KwaMoja
- */
+*/
 
 function GetSalesmanList($user, $password) {
 	$Errors = array();
@@ -24,7 +23,7 @@ function GetSalesmanList($user, $password) {
 /* This function takes as a parameter a salesman code
  * and returns an array containing the details of the selected
  * salesman.
- */
+*/
 
 function GetSalesmanDetails($salesman, $user, $password) {
 	$Errors = array();
@@ -47,7 +46,7 @@ function GetSalesmanDetails($salesman, $user, $password) {
 
 /* This function takes as a parameter an array of salesman details
  * to be inserted into KwaMoja.
- */
+*/
 
 function InsertSalesman($SalesmanDetails, $user, $password) {
 	$Errors = array();
@@ -60,12 +59,12 @@ function InsertSalesman($SalesmanDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($SalesmanDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	$SQL = 'INSERT INTO salesman (' . mb_substr($FieldNames, 0, -2) . ') ' . 'VALUES (' . mb_substr($FieldValues, 0, -2) . ') ';
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -78,7 +77,7 @@ function InsertSalesman($SalesmanDetails, $user, $password) {
 /* This function takes as a parameter a sales man name
  * and returns an array containing the details of the selected
  * salesman.
- */
+*/
 
 function GetSalesmanDetailsFromName($SalesmanName, $user, $password) {
 	$Errors = array();

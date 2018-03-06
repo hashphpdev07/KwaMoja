@@ -1,17 +1,16 @@
 <?php
-
 /* MRPPlannedWorkOrders.php - Report of manufactured parts that MRP has determined should have
  * work orders created for them
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 
 if (!DB_table_exists('mrprequirements')) {
 	$Title = _('MRP error');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />';
 	prnMsg(_('The MRP calculation must be run before you can run this report') . '<br />' . _('To run the MRP calculation click') . ' ' . '<a href="' . $RootPath . '/MRP.php">' . _('here') . '</a>', 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
@@ -33,11 +32,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 					   stockmaster.actualcost,
 					  (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				ORDER BY mrpplannedorders.part,mrpplannedorders.duedate";
 	} elseif ($_POST['Consolidation'] == 'Weekly') {
@@ -54,11 +53,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 					   stockmaster.actualcost,
 					  (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				GROUP BY mrpplannedorders.part,
 						 weekindex,
@@ -72,7 +71,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 						 stockcosts.overheadcost,
 						 computedcost
 				ORDER BY mrpplannedorders.part,weekindex";
-	} else {  // This else consolidates by month
+	} else { // This else consolidates by month
 		$SQL = "SELECT mrpplannedorders.part,
 					   SUM(mrpplannedorders.supplyquantity) as supplyquantity,
 					   EXTRACT(YEAR_MONTH from duedate) AS yearmonth,
@@ -86,11 +85,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 					   stockmaster.actualcost,
 					  (stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost ) as computedcost
 				FROM mrpplannedorders
+				INNER JOIN stockmaster
+					ON mrpplannedorders.part = stockmaster.stockid
 				LEFT JOIN stockcosts
 					ON stockmaster.stockid=stockcosts.stockid
 					AND stockcosts.succeeded=0
-				INNER JOIN stockmaster
-					ON mrpplannedorders.part = stockmaster.stockid
 				WHERE stockmaster.mbflag = 'M' " . $WhereDate . "
 				GROUP BY mrpplannedorders.part,
 						 yearmonth,
@@ -109,27 +108,26 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('MRP Planned Work Orders') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The MRP planned work orders could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($Result) == 0) { //then there's nothing to print
 		$Title = _('MRP Planned Work Orders');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items with demand greater than supply'), 'info');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (isset($_POST['PrintPDF'])) { // Print planned work orders
-
-		include('includes/PDFStarter.php');
+		include ('includes/PDFStarter.php');
 
 		$PDF->addInfo('Title', _('MRP Planned Work Orders Report'));
 		$PDF->addInfo('Subject', _('MRP Planned Work Orders'));
@@ -155,7 +153,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		$Total_ExtCost = 0;
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 
 			// Print information on part break
 			if ($PartCounter > 0 and $HoldPart != $MyRow['part']) {
@@ -168,7 +166,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 				$PDF->addTextWrap(400, $YPos, 15, $FontSize, $HoldMBFlag, 'right', 0, $fill);
 				$TotalPartCost = 0;
 				$TotalPartQty = 0;
-				$YPos -= (2 * $line_height);
+				$YPos-= (2 * $line_height);
 
 				// Use to alternate between lines with transparent and painted background
 				if ($_POST['Fill'] == 'yes') {
@@ -199,21 +197,22 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 			$HoldMBFlag = $MyRow['mbflag'];
 			$HoldCost = $MyRow['computedcost'];
 			$HoldDecimalPlaces = $MyRow['decimalplaces'];
-			$TotalPartCost += $ExtCost;
-			$TotalPartQty += $MyRow['supplyquantity'];
+			$TotalPartCost+= $ExtCost;
+			$TotalPartQty+= $MyRow['supplyquantity'];
 
-			$Total_ExtCost += $ExtCost;
+			$Total_ExtCost+= $ExtCost;
 			$PartCounter++;
 
 			if ($YPos < $Bottom_Margin + $line_height) {
 				PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $_POST['Consolidation'], $ReportDate);
 				// include('includes/MRPPlannedWorkOrdersPageHeader.php');
+				
 			}
 
 		}
 		/*end while loop */
 		// Print summary information for last part
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		$PDF->addTextWrap(50, $YPos, 130, $FontSize, $HoldDescription, '', 0, $fill);
 		$PDF->addTextWrap(180, $YPos, 50, $FontSize, _('Unit Cost') . ': ', 'center', 0, $fill);
 		$PDF->addTextWrap(220, $YPos, 40, $FontSize, locale_number_format($HoldCost, $_SESSION['CompanyRecord']['decimalplaces']), 'right', 0, $fill);
@@ -222,11 +221,12 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		$PDF->addTextWrap(370, $YPos, 30, $FontSize, _('M/B') . ': ', 'right', 0, $fill);
 		$PDF->addTextWrap(400, $YPos, 15, $FontSize, $HoldMBFlag, 'right', 0, $fill);
 		$FontSize = 8;
-		$YPos -= (2 * $line_height);
+		$YPos-= (2 * $line_height);
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $_POST['Consolidation'], $ReportDate);
 			// include('includes/MRPPlannedWorkOrdersPageHeader.php');
+			
 		}
 		/*Print out the grand totals */
 		$PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, _('Number of Work Orders') . ': ', 'left');
@@ -238,70 +238,76 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_MRP_Planned_Work_Orders_' . Date('Y-m-d') . '.pdf');
 		$PDF->__destruct();
 
-
-
 	} else { // Review planned work orders
-
 		$Title = _('Review/Convert MRP Planned Work Orders');
-		include('includes/header.php');
-		echo '<p class="page_title_text" >
-				<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+		include ('includes/header.php');
+		echo '<p class="page_title_text noPrint">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
+			</p>';
 
 		echo '<form action="MRPConvertWorkOrders.php" method="post">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table>';
-		echo '<tr>
-				<th colspan="9"><h3>' . _('Consolidation') . ': ' . $_POST['Consolidation'] . "&nbsp;&nbsp;&nbsp;&nbsp;" . _('Cutoff Date') . ': ' . $_POST['cutoffdate'] . '</h3></th>
-			</tr>
-			<tr>
-				<th></th>
-				<th>' . _('Code') . '</th>
-				<th>' . _('Description') . '</th>
-				<th>' . _('MRP Date') . '</th>
-				<th>' . _('Due Date') . '</th>
-				<th>' . _('Quantity') . '</th>
-				<th>' . _('Unit Cost') . '</th>
-				<th>' . _('Ext. Cost') . '</th>
-				<th>' . _('Consolidations') . '</th>
-			</tr>';
+		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+		echo '<table>
+				<thead>
+					<tr>
+						<th colspan="9">
+							<h3>', _('Consolidation'), ': ', $_POST['Consolidation'], "&nbsp;&nbsp;&nbsp;&nbsp;", _('Cutoff Date'), ': ', $_POST['cutoffdate'], '</h3>
+						</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>', _('Code'), '</th>
+						<th>', _('Description'), '</th>
+						<th>', _('MRP Date'), '</th>
+						<th>', _('Due Date'), '</th>
+						<th>', _('Quantity'), '</th>
+						<th>', _('Unit Cost'), '</th>
+						<th>', _('Ext. Cost'), '</th>';
+		if ($_POST['Consolidation'] != 'None') {
+			echo '<th>', _('Consolidations'), '</th>';
+		}
+		echo '</tr>
+			</thead>';
 
 		$TotalPartQty = 0;
 		$TotalPartCost = 0;
 		$Total_ExtCost = 0;
 		$j = 1; //row ID
-		$k = 0; //row colour counter
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
-					<td><a href="' . $RootPath . '/WorkOrderEntry.php?NewItem=' . urlencode($MyRow['part']) . '&amp;ReqQty=' . urlencode($MyRow['supplyquantity']) . '&amp;ReqDate=' . urlencode($MyRow['duedate']) . '">' . _('Convert') . '</a></td>
-					<td><a href="' . $RootPath . '/SelectProduct.php?StockID=' . $MyRow['part'] . '">' . $MyRow['part'] . '</a>' .  '<input type="hidden" name="' . $j . '_part" value="' . $MyRow['part']. '" /></td>
-					<td>' . $MyRow['description'] . '</td>
-					<td>' . ConvertSQLDate($MyRow['mrpdate']) . '</td>
-					<td>' . ConvertSQLDate($MyRow['duedate']) . '</td>
-					<td class="number">' . locale_number_format($MyRow['supplyquantity'], $MyRow['decimalplaces']) . '</td>
-					<td class="number">' . locale_number_format($MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-					<td class="number">' . locale_number_format($MyRow['supplyquantity'] * $MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
+					<td><a href="', $RootPath, '/WorkOrderEntry.php?NewItem=', urlencode($MyRow['part']), '&amp;ReqQty=', urlencode($MyRow['supplyquantity']), '&amp;ReqDate=', urlencode($MyRow['duedate']), '">', _('Convert'), '</a></td>
+					<td><a href="', $RootPath, '/SelectProduct.php?StockID=', urlencode($MyRow['part']), '">', $MyRow['part'], '</a><input type="hidden" name="', $j, '_part" value="', $MyRow['part'], '" /></td>
+					<td>', $MyRow['description'], '</td>
+					<td>', ConvertSQLDate($MyRow['mrpdate']), '</td>
+					<td>', ConvertSQLDate($MyRow['duedate']), '</td>
+					<td class="number">', locale_number_format($MyRow['supplyquantity'], $MyRow['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['supplyquantity'] * $MyRow['computedcost'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>';
 
 			if ($_POST['Consolidation'] != 'None') {
-				echo '<td class="number">' . $MyRow['consolidatedcount'] . '</td>';
+				echo '<td class="number">', $MyRow['consolidatedcount'], '</td>';
 			}
 			echo '</tr>';
 
 			++$j;
-			$Total_ExtCost += ($MyRow['supplyquantity'] * $MyRow['computedcost']);
+			$Total_ExtCost+= ($MyRow['supplyquantity'] * $MyRow['computedcost']);
 
 		} // end while loop
-
 		// Print out the grand totals
-		echo '<tr>
-				<td colspan="4" class="number">' . _('Number of Work Orders') . ': ' . ($j - 1) . '</td>
-				<td colspan="4" class="number">' . _('Total Extended Cost') . ': ' . locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-			</tr>
-			</table>';
+		echo '</tbody>';
+		echo '<tfoot>
+				<tr>
+					<td colspan="3" class="number">', _('Number of Work Orders'), ': ', ($j - 1), '</td>
+					<td colspan="5" class="number">', _('Total Extended Cost'), ': ', locale_number_format($Total_ExtCost, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>
+			</tfoot>
+		</table>';
 		echo '</form>';
 
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		echo '<br /><a class="noprint" href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select different criteria.'), '</a>';
+		include ('includes/footer.php');
 
 	}
 
@@ -309,43 +315,44 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('MRP Planned Work Orders Reporting');
-	include('includes/header.php');
-	echo '<p class="page_title_text" >
-			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+	include ('includes/header.php');
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
+		</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>';
-	echo '<tr>
-			<td>' . _('Consolidation') . ':</td>
-			<td>
-				<select required="required" name="Consolidation">
-					<option selected="selected" value="None">' . _('None') . '</option>
-					<option value="Weekly">' . _('Weekly') . '</option>
-					<option value="Monthly">' . _('Monthly') . '</option>
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label for="Consolidation">', _('Consolidation'), ':</label>
+				<select required="required" autofocus="autofocus" name="Consolidation">
+					<option selected="selected" value="None">', _('None'), '</option>
+					<option value="Weekly">', _('Weekly'), '</option>
+					<option value="Monthly">', _('Monthly'), '</option>
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Print Option') . ':</td>
-			<td>
+				<fieldhelp>', _('Select the method to use for consolidating orders'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="Fill">', _('Print Option'), ':</label>
 				<select name="Fill">
-					<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
-					<option value="no">' . _('Plain Print') . '</option>
+					<option selected="selected" value="yes">', _('Print With Alternating Highlighted Lines'), '</option>
+					<option value="no">', _('Plain Print'), '</option>
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Cut Off Date') . ':</td>
-			<td><input type ="text" class="date" name="cutoffdate" required="required" autofocus="autofocus" size="10" value="' . date($_SESSION['DefaultDateFormat']) . '" /></td>
-		</tr>
-	</table>
+				<fieldhelp>', _('Use colour for alternate rows to help readability of the report.'), '</fieldhelp>
+			</field>
+			<field>
+				<label for="cutoffdate">', _('Cut Off Date'), ':</label>
+				<input type ="text" class="date" name="cutoffdate" required="required" size="10" value="', date($_SESSION['DefaultDateFormat']), '" /></label>
+			</field>
+		</fieldset>
 		<div class="centre">
-			<input type="submit" name="Review" value="' . _('Review') . '" /> <input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
+			<input type="submit" name="Review" value="', _('Review'), '" />
+			<input type="submit" name="PrintPDF" value="', _('Print PDF'), '" />
 		</div>
 	</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
@@ -362,12 +369,12 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('MRP Planned Work Orders Report'));
 	$PDF->addTextWrap(190, $YPos, 100, $FontSize, $ReportDate);
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	if ($consolidation == 'None') {
 		$displayconsolidation = _('None');
 	} elseif ($consolidation == 'Weekly') {
@@ -378,7 +385,7 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$PDF->addTextWrap($Left_Margin, $YPos, 65, $FontSize, _('Consolidation') . ': ');
 	$PDF->addTextWrap(110, $YPos, 40, $FontSize, $displayconsolidation);
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
@@ -399,4 +406,5 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$YPos = $YPos - (2 * $line_height);
 	$PageNumber++;
 } // End of PrintHeader() function
+
 ?>
