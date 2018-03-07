@@ -1,7 +1,7 @@
 <?php
 $PageSecurity = 0;
 
-include('includes/session.inc');
+include('includes/session.php');
 
 if (isset($_SESSION['FirstLogIn']) and $_SESSION['FirstLogIn'] == '1' and isset($_SESSION['DatabaseName'])) {
 	$_SESSION['FirstRun'] = true;
