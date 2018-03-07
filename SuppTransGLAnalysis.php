@@ -6,19 +6,19 @@ an array of GLCodes objects - only used if the AP - GL link is effective */
 
 include('includes/DefineSuppTransClass.php');
 
-/* Session started in header.inc for password checking and authorisation level check */
-include('includes/session.inc');
+/* Session started in header.php for password checking and authorisation level check */
+include('includes/session.php');
 
 $Title = _('Supplier Transaction General Ledger Analysis');
 
 $ViewTopic = 'AccountsPayable';
 $BookMark = 'SuppTransGLAnalysis';
-include('includes/header.inc');
+include('includes/header.php');
 
 if (!isset($_SESSION['SuppTrans'])) {
 	prnMsg(_('To enter a supplier invoice or credit note the supplier must first be selected from the supplier selection screen') . ', ' . _('then the link to enter a supplier invoice or supplier credit note must be clicked on'), 'info');
 	echo '<br /><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select A Supplier') . '</a>';
-	include('includes/footer.inc');
+	include('includes/footer.php');
 	exit;
 	/*It all stops here if there aint no supplier selected and transaction initiated ie $_SESSION['SuppTrans'] started off*/
 }
@@ -96,8 +96,11 @@ if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger') . '" alt="" />' . ' ' . _('General Ledger Analysis of Credit Note From') . ' ' . $_SESSION['SuppTrans']->SupplierName;
 }
-echo '</p>
-	<table class="selection">
+
+$SupplierCodeSQL = "SELECT defaultgl FROM suppliers WHERE supplierid='" . $_SESSION['SuppTrans']->SupplierID . "'";
+$SupplierCodeResult = DB_query($SupplierCodeSQL);
+$SupplierCodeRow = DB_fetch_row($SupplierCodeResult);
+echo '<table class="selection">
 		<thead>
 			<tr>
 				<th class="SortedColumn">' . _('Account') . '</th>
@@ -180,12 +183,14 @@ echo '<tr>
 		<br />' . _('otherwise select the account from the list') . ')</td>
 	<td><select name="AcctSelection" onchange="return assignComboToInput(this,' . 'GLCode' . ')">';
 
+if (!isset($_POST['AcctSelection']) or $_POST['AcctSelection'] == '') {
+	$_POST['AcctSelection'] = $SupplierCodeRow[0];
+}
 $SQL = "SELECT accountcode,
 				accountname
 			FROM chartmaster
 			WHERE language='" . $_SESSION['ChartLanguage'] . "'
 			ORDER BY accountcode";
-
 $Result = DB_query($SQL);
 echo '<option value=""></option>';
 while ($MyRow = DB_fetch_array($Result)) {
@@ -246,5 +251,5 @@ echo '<div class="centre">
 	</div>';
 
 echo '</form>';
-include('includes/footer.inc');
+include('includes/footer.php');
 ?>

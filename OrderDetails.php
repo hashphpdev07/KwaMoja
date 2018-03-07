@@ -1,21 +1,21 @@
 <?php
 
-/* Session started in header.inc for password checking and authorisation level check */
-include('includes/session.inc');
+/* Session started in header.php for password checking and authorisation level check */
+include('includes/session.php');
 
 $_GET['OrderNumber'] = (int) $_GET['OrderNumber'];
 
 if (isset($_GET['OrderNumber'])) {
 	$Title = _('Reviewing Sales Order Number') . ' ' . $_GET['OrderNumber'];
 } else {
-	include('includes/header.inc');
+	include('includes/header.php');
 	echo '<br /><br /><br />';
 	prnMsg(_('This page must be called with a sales order number to review') . '.<br />' . _('i.e.') . ' http://????/OrderDetails.php?OrderNumber=<i>xyz</i><br />' . _('Click on back') . '.', 'error');
-	include('includes/footer.inc');
+	include('includes/footer.php');
 	exit;
 }
 
-include('includes/header.inc');
+include('includes/header.php');
 
 $OrderHeaderSQL = "SELECT salesorders.debtorno,
 							debtorsmaster.name,
@@ -39,10 +39,11 @@ $OrderHeaderSQL = "SELECT salesorders.debtorno,
 							debtorsmaster.currcode,
 							salesorders.fromstkloc,
 							currencies.decimalplaces
-					FROM salesorders INNER JOIN 	debtorsmaster
-					ON salesorders.debtorno = debtorsmaster.debtorno
+					FROM salesorders
+					INNER JOIN debtorsmaster
+						ON salesorders.debtorno = debtorsmaster.debtorno
 					INNER JOIN currencies
-					ON debtorsmaster.currcode=currencies.currabrev
+						ON debtorsmaster.currcode=currencies.currabrev
 					WHERE salesorders.orderno = '" . $_GET['OrderNumber'] . "'";
 
 $ErrMsg = _('The order cannot be retrieved because');
@@ -59,8 +60,20 @@ if (DB_num_rows($GetOrdHdrResult) == 1) {
 
 	if ((isset($SupplierLogin) and $SupplierLogin == 0) and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
 		prnMsg(_('Your customer login will only allow you to view your own purchase orders'), 'error');
-		include('includes/footer.inc');
+		include('includes/footer.php');
 		exit;
+	}
+
+	$InvoiceSQL = "SELECT transno
+					FROM debtortrans
+					WHERE type=10
+						AND order_='" . $_GET['OrderNumber'] . "'";
+	$InvoiceResult = DB_query($InvoiceSQL);
+	$InvoiceLink = '';
+	while ($MyInvoiceRow = DB_fetch_array($InvoiceResult)) {
+		if (is_numeric($MyInvoiceRow['transno'])) {
+			$InvoiceLink .= '<a href="' . $RootPath . '/PrintCustTrans.php?FromTransNo=' . $MyInvoiceRow['transno'] . '&InvOrCredit=Invoice">' . $MyInvoiceRow['transno'] . '</a>';
+		}
 	}
 
 	echo '<table class="selection">
@@ -123,6 +136,10 @@ if (DB_num_rows($GetOrdHdrResult) == 1) {
 				<th style="text-align: left">' . _('Comments') . ': </th>
 				<td colspan="3">' . $MyRow['comments'] . '</td>
 			</tr>
+			<tr>
+				<th style="text-align: left">' . _('Invoices') . ': </th>
+				<td colspan="3">' . $InvoiceLink . '</td>
+ 			</tr>
 			</table>';
 }
 
@@ -144,7 +161,8 @@ $LineItemsSQL = "SELECT stkcode,
 						actualdispatchdate,
 						qtyinvoiced,
 						itemdue,
-						poline
+						poline,
+						narrative
 					FROM salesorderdetails
 					INNER JOIN stockmaster
 						ON salesorderdetails.stkcode = stockmaster.stockid
@@ -176,6 +194,7 @@ if (DB_num_rows($LineItemsResult) > 0) {
 				<th>' . _('Total') . '</th>
 				<th>' . _('Qty Del') . '</th>
 				<th>' . _('Last Del') . '/' . _('Due Date') . '</th>
+				<th>' . _('Narrative') . '</th>
 			</tr>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($LineItemsResult)) {
@@ -204,6 +223,7 @@ if (DB_num_rows($LineItemsResult) > 0) {
 				<td class="number">' . locale_number_format($MyRow['quantity'] * $MyRow['unitprice'] * (1 - $MyRow['discountpercent']), $CurrDecimalPlaces) . '</td>
 				<td class="number">' . locale_number_format($MyRow['qtyinvoiced'], $MyRow['decimalplaces']) . '</td>
 				<td>' . $DisplayActualDeliveryDate . '</td>
+				<td>' . $MyRow['narrative'] . '</td>
 			</tr>';
 
 		$OrderTotal += ($MyRow['quantity'] * $MyRow['unitprice'] * (1 - $MyRow['discountpercent']));
@@ -232,5 +252,5 @@ if (DB_num_rows($LineItemsResult) > 0) {
 		</table>';
 }
 
-include('includes/footer.inc');
+include('includes/footer.php');
 ?>

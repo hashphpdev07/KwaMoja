@@ -1,11 +1,11 @@
 <?php
 
-include('includes/session.inc');
+include('includes/session.php');
 
 $Title = _('Multi-Level Bill Of Materials Maintenance');
 
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
+include('includes/header.php');
+include('includes/SQL_CommonFunctions.php');
 
 function display_children($Parent, $Level, &$BOMTree) {
 	global $i;
@@ -31,6 +31,11 @@ function display_children($Parent, $Level, &$BOMTree) {
 				// child's children
 				++$i;
 				display_children($MyRow['component'], $Level + 1, $BOMTree);
+			} else {
+				prnMsg(_('The component and the parent is the same'), 'error');
+				echo $MyRow['component'] . '<br/>';
+				include('includes/footer.inc');
+				exit;
 			}
 		}
 	}
@@ -193,6 +198,30 @@ if (isset($_GET['SelectedParent'])) {
 	$SelectedParent = $_POST['SelectedParent'];
 }
 
+if (isset($_POST['renumber'])) {
+	$SQL = "SELECT parent,
+					sequence,
+					component,
+					workcentreadded,
+					loccode
+				FROM bom
+				WHERE parent='" . $SelectedParent . "'
+				ORDER BY sequence ASC";
+	$Result = DB_query($SQL);
+	$Sequence =10;
+	while ($MyRow = DB_fetch_array($Result)) {
+		$UpdateSQL = "UPDATE bom
+						SET sequence='" . $Sequence . "'
+					WHERE parent='" . $SelectedParent . "'
+						AND sequence='" . $MyRow['sequence'] . "'
+						AND component='" . $MyRow['component'] . "'
+						AND workcentreadded='" . $MyRow['workcentreadded'] . "'
+						AND loccode='" . $MyRow['loccode'] . "'";
+		$UpdateResult = DB_query($UpdateSQL);
+		$Sequence = $Sequence + 10;
+	}
+}
+
 /* SelectedComponent could also come from a post or a get */
 if (isset($_GET['SelectedComponent'])) {
 	$SelectedComponent = $_GET['SelectedComponent'];
@@ -264,6 +293,11 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 				prnMsg(_('Only non-serialised or non-lot controlled items can be set to auto issue. These items require the lot/serial numbers of items issued to the works orders to be specified so autoissue is not an option. Auto issue has been automatically set to off for this component'), 'warn');
 				$_POST['AutoIssue'] = 0;
 			}
+		}
+
+		if ($_POST['Component'] == $SelectedParent) {
+			$InputError = 1;
+			prnMsg(_('The component selected is the same with the parent, it is not allowed'), 'error');
 		}
 
 		$EffectiveAfterSQL = FormatDateForSQL($_POST['EffectiveAfter']);
@@ -656,6 +690,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 		echo '<div class="centre">
 				<a href="' . $RootPath . '/CopyBOM.php?Item=' . urlencode($SelectedParent) . '">' . _('Copy this BOM') . '</a>
 			</div>';
+		echo '<input type="submit" name="renumber" value="Re-Sequence the BOM" />';
 		echo '<input type="hidden" name="SelectedParent" value="' . $SelectedParent . '" />';
 		/* echo "Enter the details of a new component in the fields below. <br />Click on 'Enter Information' to add the new component, once all fields are completed.";
 		 */
@@ -759,7 +794,7 @@ if (isset($Select)) { //Parent Stock Item selected so display BOM or edit Compon
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('There are no work centres set up yet') . '. ' . _('Please use the link below to set up work centres') . '.', 'warn');
 		echo '<a href="' . $RootPath . '/WorkCentres.php">' . _('Work Centre Maintenance') . '</a></td></tr></table><br />';
-		include('includes/footer.inc');
+		include('includes/footer.php');
 		exit;
 	}
 
@@ -998,5 +1033,5 @@ function arrayUnique($Array, $PreserveKeys = false) {
 	return $ArrayRewrite;
 }
 
-include('includes/footer.inc');
+include('includes/footer.php');
 ?>

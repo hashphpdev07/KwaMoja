@@ -7,17 +7,17 @@ $PageSecurity=1;
  * date meanwhile the system is posting any unposted transactions
  */
 
-include('includes/session.inc');
+include('includes/session.php');
 $Title = _('Balance Sheet');// Screen identification.
 $ViewTopic = 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
 $BookMark = 'BalanceSheet';// Anchor's id in the manual's html document.
-include('includes/SQL_CommonFunctions.inc');
-include('includes/AccountSectionsDef.inc'); // This loads the $Sections variable
+include('includes/SQL_CommonFunctions.php');
+include('includes/AccountSectionsDef.php'); // This loads the $Sections variable
 
 if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod'])) {
 
 	/*Show a form to allow input of criteria for Balance Sheet to show */
-	include('includes/header.inc');
+	include('includes/header.php');
 
 	echo '<p class="page_title_text">
 			<img alt="" src="' . $RootPath.'/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print Statement of Financial Position') . '" />
@@ -72,12 +72,12 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	echo '</form>';
 
 	/*Now do the posting while the user is thinking about the period to select */
-	include('includes/GLPostings.inc');
-	include('includes/footer.inc');
+	include('includes/GLPostings.php');
+	include('includes/footer.php');
 
 } else {
 
-	include('includes/header.inc');
+	include('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/preview.png" title="' . _('HTML View') . '" alt="' . _('HTML View') . '" /> ' . _('HTML View') . '</p>';
 
 	/* Get last years totals into arrays */
@@ -212,7 +212,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 							ON gltrans.account=chartmaster.accountcode
 							AND gltrans.periodno<='" . $_POST['BalancePeriodEnd'] . "'
 						WHERE pandl=0
-							AND language='" . $_SESSION['ChartLanguage'] . "'
+							AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 						GROUP BY sectioninaccounts,
 								accountcode
 						ORDER BY sequenceintb,
@@ -246,7 +246,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 										INNER JOIN gltrans
 											ON gltrans.account=chartmaster.accountcode
 										WHERE periodno<='" . ($_POST['BalancePeriodEnd'] - 12) . "'
-											AND language='" . $_SESSION['ChartLanguage'] . "'
+											AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 											AND pandl=1";
 			$RetainedEarningsResult = DB_query($RetainedEarningsSQL);
 			$RetainedEarningsRow = DB_fetch_array($RetainedEarningsResult);
@@ -519,6 +519,6 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	echo '<div class="centre">
 			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select A Different Balance Date') . ' </a>
 		</div>';
-	include('includes/footer.inc');
+	include('includes/footer.php');
 }
 ?>

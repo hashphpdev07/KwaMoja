@@ -1,6 +1,6 @@
 <?php
 
-include('includes/session.inc');
+include('includes/session.php');
 $Title = _('Orders Invoiced Report');
 
 $InputError = 0;
@@ -23,7 +23,7 @@ if (isset($_POST['FromDate']) and isset($_POST['ToDate']) and Date1GreaterThanDa
 }
 
 if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) {
-	include('includes/header.inc');
+	include('includes/header.php');
 	if ($InputError == 1) {
 		prnMsg($Msg, 'error');
 	}
@@ -44,7 +44,7 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 			<td>' . _('Inventory Category') . '</td>
 			<td>';
 
-	$SQL = "SELECT categorydescription, categoryid FROM stockcategory WHERE stocktype<>'D' AND stocktype<>'L'";
+	$SQL = "SELECT categorydescription, categoryid FROM stockcategory";
 	$Result = DB_query($SQL);
 
 
@@ -80,7 +80,7 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 			</div>';
 	echo '</form>';
 
-	include('includes/footer.inc');
+	include('includes/footer.php');
 	exit;
 } else {
 	include('includes/PDFStarter.php');
@@ -262,24 +262,24 @@ $SQL .= " GROUP BY salesorders.orderno,
 $Result = DB_query($SQL, '', '', false, false); //dont trap errors here
 
 if (DB_error_no() != 0) {
-	include('includes/header.inc');
+	include('includes/header.php');
 	prnMsg(_('An error occurred getting the orders details'), '', _('Database Error'));
 	if ($Debug == 1) {
 		prnMsg(_('The SQL used to get the orders that failed was') . '<br />' . $SQL, '', _('Database Error'));
 	}
-	include('includes/footer.inc');
+	include('includes/footer.php');
 	exit;
 } elseif (DB_num_rows($Result) == 0) {
-	include('includes/header.inc');
+	include('includes/header.php');
 	prnMsg(_('There were no orders found in the database within the period from') . ' ' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate'] . '. ' . _('Please try again selecting a different date range'), 'warn');
 	if ($Debug == 1) {
 		prnMsg(_('The SQL that returned no rows was') . '<br />' . $SQL, '', _('Database Error'));
 	}
-	include('includes/footer.inc');
+	include('includes/footer.php');
 	exit;
 }
 
-include('includes/PDFOrdersInvoicedPageHeader.inc');
+include('includes/PDFOrdersInvoicedPageHeader.php');
 
 $OrderNo = 0;
 /*initialise */
@@ -320,7 +320,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 		if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 			/*Then set up a new page */
 			$PageNumber++;
-			include('includes/PDFOrdersInvoicedPageHeader.inc');
+			include('includes/PDFOrdersInvoicedPageHeader.php');
 		}
 		/*end of new page header  */
 	}
@@ -369,7 +369,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 	if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 		/*Then set up a new page */
 		$PageNumber++;
-		include('includes/PDFOrdersInvoicedPageHeader.inc');
+		include('includes/PDFOrdersInvoicedPageHeader.php');
 	}
 	/*end of new page header  */
 
@@ -378,8 +378,10 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$SQL = "SELECT debtortrans.order_,
 					systypes.typename,
 					debtortrans.transno,
+					debtortrans.trandate,
 			 		stockmoves.price *(1-stockmoves.discountpercent) AS netprice,
-					-stockmoves.qty AS quantity
+					-stockmoves.qty AS quantity,
+					stockmoves.narrative
 				FROM debtortrans INNER JOIN stockmoves
 					ON debtortrans.type = stockmoves.type
 					AND debtortrans.transno=stockmoves.transno
@@ -389,28 +391,43 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 	$InvoicesResult = DB_query($SQL);
 	if (DB_num_rows($InvoicesResult) > 0) {
+		$LeftOvers = $PDF->addTextWrap($Left_Margin + 60,  $YPos, 60, $FontSize, _('Date'), 'center');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 150, $YPos, 90, $FontSize, _('Transaction Number'), 'center');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 240, $YPos, 60, $FontSize, _('Quantity'), 'center');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 300, $YPos, 60, $FontSize, _('Price'), 'center');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 380, $YPos, 60, $FontSize, _('Total'), 'centre');
+		$LeftOvers = $PDF->addTextWrap($Left_Margin + 450, $YPos, 100, $FontSize, _('Narrative'), 'centre');
 		$YPos -= ($line_height);
 	}
 
 	while ($InvRow = DB_fetch_array($InvoicesResult)) {
 
 		$ValueInvoiced = $InvRow['netprice'] * $InvRow['quantity'];
+		$LeftOvers = $PDF->addTextWrap($Left_Margin + 60, $YPos, 60, $FontSize, ConvertSQLDate($InvRow['trandate']), 'center');
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 150, $YPos, 90, $FontSize, $InvRow['typename'] . ' ' . $InvRow['transno'], 'left');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 240, $YPos, 60, $FontSize, locale_number_format($InvRow['quantity'], $MyRow['decimalplaces']), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 300, $YPos, 60, $FontSize, locale_number_format($InvRow['netprice'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 360, $YPos, 80, $FontSize, locale_number_format($ValueInvoiced, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 
+		$LeftOvers = $PDF->addTextWrap($Left_Margin + 450, $YPos, 100, $FontSize, $InvRow['narrative'], 'center');
+		if (mb_strlen($LeftOvers) > 0) {
+
+		 	$YPos -= ($line_height);
+
+		 	if ($YPos - (2 * $line_height) < $Bottom_Margin) {
+				/*Then set up a new page */
+				$PageNumber++;
+				include ('includes/PDFOrdersInvoicedPageHeader.php');
+			} /*end of new page header  */
+			$LeftOvers = $PDF->addTextWrap($Left_Margin + 450, $YPos, 100, $FontSize, $LeftOvers, 'center');
+		}
 		$YPos -= ($line_height);
 
 		if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 			/*Then set up a new page */
 			$PageNumber++;
-			include('includes/PDFOrdersInvoicedPageHeader.inc');
+			include('includes/PDFOrdersInvoicedPageHeader.php');
 		}
 		/*end of new page header  */
 		$AccumOrderTotal += $ValueInvoiced;
@@ -422,7 +439,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 	if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 		/*Then set up a new page */
 		$PageNumber++;
-		include('includes/PDFOrdersInvoicedPageHeader.inc');
+		include('includes/PDFOrdersInvoicedPageHeader.php');
 	}
 	/*end of new page header  */
 }

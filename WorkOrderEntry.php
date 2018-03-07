@@ -1,10 +1,10 @@
 <?php
 
 include('includes/DefineWOClass.php');
-include('includes/session.inc');
+include('includes/session.php');
 $Title = _('Work Order Entry');
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
+include('includes/header.php');
+include('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
@@ -54,7 +54,7 @@ if (isset($_POST['AddToOrder'])) {
 	if (is_null($LocRow['loccode']) or $LocRow['loccode'] == '') {
 		prnMsg(_('Your security settings do not allow you to create or update new Work Order at this location') . ' ' . $_SESSION['WorkOrder' . $Identifier]->LocationCode, 'error');
 		echo '<br /><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select an existing work order') . '</a>';
-		include('includes/footer.inc');
+		include('includes/footer.php');
 		exit;
 	}
 	foreach ($_POST as $Key => $Value) {
@@ -142,13 +142,15 @@ if (isset($_POST['Save'])) {
 
 		// insert parent item info
 		foreach ($_SESSION['WorkOrder' . $Identifier]->Items as $Item) {
-			$CostResult = DB_query("SELECT SUM((materialcost+labourcost+overheadcost)*bom.quantity) AS cost
+			$CostResult = DB_query("SELECT SUM((materialcost+labourcost+overheadcost)*bom.quantity) AS cost,
+											bom.loccode
 										FROM stockcosts
 										INNER JOIN bom
 											ON stockcosts.stockid=bom.component
 										WHERE bom.parent='" . $Item->StockId . "'
-											AND bom.effectiveafter<='" . Date('Y-m-d') . "'
-											AND bom.effectiveto>='" . Date('Y-m-d') . "'");
+											AND bom.loccode=(SELECT loccode FROM workorders WHERE wo='" . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . "')
+											AND bom.effectiveafter<=CURRENT_DATE
+											AND bom.effectiveto>=CURRENT_DATE");
 			$CostRow = DB_fetch_array($CostResult);
 			if (is_null($CostRow['cost']) or $CostRow['cost'] == 0) {
 				$Cost = 0;
@@ -189,6 +191,7 @@ if (isset($_POST['Save'])) {
 
 
 		$Result = DB_Txn_Commit();
+		prnMsg( _('The work order has been saved correctly'), 'success');
 
 		unset($NewItem);
 	} //end if there were no input errors
@@ -242,7 +245,7 @@ if (isset($_POST['delete'])) {
 			unset($_POST['HasWOSerialNos' . $i]);
 			unset($_POST['WOComments' . $i]);
 		}
-		include('includes/footer.inc');
+		include('includes/footer.php');
 		exit;
 	}
 }
@@ -323,15 +326,15 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 		if ($EditingExisting == true) {
 			prnMsg(_('Your location security settings do not allow you to Update this Work Order'), 'error');
 			echo '<br /><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select an existing work order') . '</a>';
-			include('includes/footer.inc');
+			include('includes/footer.php');
 			exit;
 		}
 	}
 }
-echo '<input type="hidden" name="WO" value="' . $_POST['WO'] . '" />';
+echo '<input type="hidden" name="WO" value="' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '" />';
 echo '<tr>
 		<td class="label">' . _('Work Order Reference') . ':</td>
-		<td>' . $_POST['WO'] . '</td>
+		<td>' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '</td>
 	</tr>';
 echo '<tr>
 		<td class="label">' . _('Factory Location') . ':</td>
@@ -432,7 +435,7 @@ echo '</table>';
 
 echo '<div class="centre">
 		<input type="submit" name="Save" value="' . _('Save') . '" />
-		<input type="submit" name="delete" onclick="return MakeConfirm(\'', _('Are you sure?'), '\', \'', _('Confirm'), '\', this);" value="' . _('Cancel This Work Order') . '" />
+		<input type="submit" name="delete" value="' . _('Cancel This Work Order') . '" />
 	</div>';
 
 if (isset($_POST['Search']) or isset($_POST['Prev']) or isset($_POST['Next'])) {
@@ -622,5 +625,5 @@ if (isset($SearchResult)) {
 } //end if SearchResults to show
 
 echo '</form>';
-include('includes/footer.inc');
+include('includes/footer.php');
 ?>
