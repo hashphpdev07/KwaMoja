@@ -96,7 +96,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		//Then check that the date is in a correct format
 		if (!is_date($MyRow[0])) {
 			$InputError = 1;
-			prnMsg(_('The date "' . $MyRow[0] . '" is not in the correct format'), 'error');
+			prnMsg(_('The date ' . $MyRow[0] . ' is not in the correct format'), 'error');
 		}
 
 		//Then check that the tag ref is either zero, or exists in the tags table
@@ -106,7 +106,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			$testrow = DB_fetch_row($Result);
 			if ($testrow[0] == 0) {
 				$InputError = 1;
-				prnMsg(_('Tag ref "' . $MyRow[5] . '" does not exist'), 'error');
+				prnMsg(_('Tag ref ' . $MyRow[5] . ' does not exist'), 'error');
 			}
 		}
 

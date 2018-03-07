@@ -161,7 +161,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('Selection') . ':</td>
 			<td><select name="Selection">

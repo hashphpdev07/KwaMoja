@@ -50,6 +50,7 @@ function getMsg($Msg, $Type = 'info', $Prefix = '') {
 			}
 			break;
 		case 'warn':
+		case 'warning':
 			$Class = 'warn';
 			$Prefix = $Prefix ? $Prefix : _('WARNING') . ' ' . _('Message Report');
 			if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 1) {
@@ -202,7 +203,12 @@ function GetECBCurrencyRates() {
 
 function GetCurrencyRate($CurrCode, $CurrencyRates) {
 	if ((!isset($CurrenciesArray[$CurrCode]) or !isset($CurrenciesArray[$_SESSION['CompanyRecord']['currencydefault']])) and $_SESSION['UpdateCurrencyRatesDaily'] != '0'){
-		return google_currency_rate($CurrCode);
+		$CurrencyRates = yahoo_currency_rate($CurrCode);
+		if (isset($CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']])) {
+			return $CurrencyRates[$CurrCode] / $CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']];
+		} else {
+			return 1;
+		}
 	} elseif ($CurrCode == 'EUR') {
 		if ($CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']] == 0) {
 			return 0;
@@ -215,6 +221,57 @@ function GetCurrencyRate($CurrCode, $CurrencyRates) {
 		} else {
 			return $CurrencyRates[$CurrCode] / $CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']];
 		}
+	}
+}
+
+function yahoo_currency_rate($CurrCode) {
+	if (http_file_exists('https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote')) {
+		$xml = file_get_contents('https://finance.yahoo.com/webservice/v1/symbols/allcurrencies/quote');
+		$parser = xml_parser_create();
+		xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
+		xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
+		xml_parse_into_struct($parser, $xml, $tags);
+		xml_parser_free($parser);
+
+		$elements = array(); // the currently filling [child] XmlElement array
+		$stack = array();
+		foreach ($tags as $tag) {
+			$index = count($elements);
+			if ($tag['type'] == 'complete' or $tag['type'] == 'open') {
+				$elements[$index] = new XmlElement;
+				$elements[$index]->name = $tag['tag'];
+				if (isset($tag['attributes'])) {
+					$elements[$index]->attributes = $tag['attributes'];
+				}
+				if (isset($tag['value'])) {
+					$elements[$index]->content = $tag['value'];
+				}
+				if ($tag['type'] == 'open') { // push
+					$elements[$index]->children = array();
+					$stack[count($stack)] =& $elements;
+					$elements =& $elements[$index]->children;
+				}
+			}
+			if ($tag['type'] == 'close') { // pop
+				$elements =& $stack[count($stack) - 1];
+				unset($stack[count($stack) - 1]);
+			}
+		}
+		$Currencies = array();
+		if (count($elements[0]->children[1]->children) > 0) {
+			foreach ($elements[0]->children[1]->children as $CurrencyDetails) {
+				foreach ($CurrencyDetails as $CurrencyDetail) {
+					if (is_array($CurrencyDetail) and isset($CurrencyDetail[0])) {
+						$Currencies[mb_substr($CurrencyDetail[0]->content, 4)] = $CurrencyDetail[1]->content;
+					}
+				}
+			}
+		}
+		$Currencies['USD'] = 1; //ECB delivers no rate for Euro
+		//return an array of the currencies and rates
+		return $Currencies;
+	} else {
+		return false;
 	}
 }
 
@@ -233,9 +290,8 @@ function quote_oanda_currency($CurrCode) {
 }
 
 function google_currency_rate($CurrCode) {
-
 	$Rate = 0;
-	$PageLines = file('http://www.google.com/finance/converter?a=1&from=' . $_SESSION['CompanyRecord']['currencydefault'] . '&to=' . $CurrCode);
+	$PageLines = file('https://www.google.com/finance/converter?a=1&from=' . $_SESSION['CompanyRecord']['currencydefault'] . '&to=' . $CurrCode);
 	foreach ($PageLines as $Line) {
 		if (mb_strpos($Line, 'currency_converter_result')) {
 			$Length = mb_strpos($Line, '</span>') - 58;
@@ -398,14 +454,17 @@ function indian_number_format($Number, $DecimalPlaces) {
 	if (strlen($IntegerNumber) > 3) {
 		$LastThreeNumbers = substr($IntegerNumber, strlen($IntegerNumber) - 3, strlen($IntegerNumber));
 		$RestUnits = substr($IntegerNumber, 0, strlen($IntegerNumber) - 3); // extracts the last three digits
-		$RestUnits = (strlen($RestUnits) % 2 == 1) ? '0' . $RestUnits : $RestUnits; // explodes the remaining digits in 2's formats, adds a zero in the beginning to maintain the 2's grouping.
+		$RestUnits = ((strlen($RestUnits) % 2) == 1)?'0' . $RestUnits:$RestUnits; // explodes the remaining digits in 2's formats, adds a zero in the beginning to maintain the 2's grouping.
 		$FirstPart = '';
 		$ExplodedUnits = str_split($RestUnits, 2);
 		$SizeOfExplodedUnits = sizeOf($ExplodedUnits);
 		for ($i = 0; $i < $SizeOfExplodedUnits; $i++) {
-			$FirstPart .= intval($ExplodedUnits[$i]) . ','; // creates each of the 2's group and adds a comma to the end
+			if ($i == 0) {
+				$FirstPart .= intval($ExplodedUnits[$i]) . ','; // creates each of the 2's group and adds a comma to the end
+			} else {
+				$FirstPart .= $ExplodedUnits[$i] . ',';
+			}
 		}
-
 		return $FirstPart . $LastThreeNumbers . $DecimalValue;
 	} else {
 		return $IntegerNumber . $DecimalValue;

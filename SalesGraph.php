@@ -33,7 +33,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Select criteria') . '" alt="' . _('Select criteria') . '" />' . ' ' . $Title . '</p>';
 
-	echo '<table class="selection" summary="' . _('Criteria for the sales graph') . '">
+	echo '<table summary="' . _('Criteria for the sales graph') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -88,7 +88,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 				</td>
 			</tr>';
 
-	$AreasResult = DB_query("SELECT areacode, areadescription FROM areas ORDER BY areadescriptions");
+	$AreasResult = DB_query("SELECT areacode, areadescription FROM areas ORDER BY areadescription");
 
 	if (!isset($_POST['SalesArea'])) {
 		$_POST['SalesArea'] = '';
@@ -230,7 +230,13 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 		$SelectClause = 'qty';
 	}
 
-	$GraphTitle .= ' ' . _('From Period') . ' ' . $_POST['FromPeriod'] . ' ' . _('to') . ' ' . $_POST['ToPeriod'] . "\n\r";
+	$SQL = "SELECT Year(`lastdate_in_period`) AS year, MONTH(`lastdate_in_period`) AS month FROM `periods` WHERE `periodno`='" . $_POST['FromPeriod'] . "' OR periodno='" . $_POST['ToPeriod'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	$FromPeriodDate = GetMonthText($MyRow['month']) . ' ' . $MyRow['year'];
+	$MyRow = DB_fetch_array($Result);
+	$ToPeriodDate = GetMonthText($MyRow['month']) . ' ' . $MyRow['year'];
+	$GraphTitle .= ' ' . _('From Period') . ' ' . $FromPeriodDate . ' ' . _('to') . ' ' . $ToPeriodDate . "\n\r";
 
 	if ($_POST['SalesArea'] == 'All') {
 		$GraphTitle .= ' ' . _('For All Sales Areas');
@@ -346,7 +352,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	//Draw it
 	$graph->DrawGraph();
-	echo '<table class="selection" summary="' . _('Sales Report Graph') . '">
+	echo '<table summary="' . _('Sales Report Graph') . '">
 			<tr>
 				<th>' . _('Sales Report Graph') . '
 					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />

@@ -6,12 +6,18 @@ src: local('Ubuntu'), url(https://fonts.googleapis.com/css?family=Ubuntu);
 }
 
 body {
-font-family:"Ubuntu", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+font-family: Futura,Trebuchet MS,Arial,sans-serif; ;
 font-weight:400;
 background:#404552;
 margin:0;
 padding:0;
 color:#8DCDEB;
+}
+
+button img {
+	/* Describes how button image should be displayed. */
+	height:32px;
+	width:32px;
 }
 
 div.toplink {
@@ -146,7 +152,7 @@ background-color:#595D66;
 a {
 text-decoration:none;
 display:block;
-color:#8DCDEB;
+color:inherit;
 }
 
 a.FontSize {
@@ -161,7 +167,6 @@ display:inline;
 
 a:hover {
 text-decoration:underline;
-color:#C9E0EA;
 }
 
 img {
@@ -175,7 +180,7 @@ cursor:pointer;
 }
 
 p.page_title_text {
-font-weight:700;
+font-weight:bold;
 text-align:center;
 margin:0 auto;
 padding:5px;
@@ -189,85 +194,6 @@ color:green;
 p.bad {
 font-weight:700;
 color:red;
-}
-
-form input[type="submit"]{
-padding-top: 2px;
-padding-bottom: 2px;
-padding-left: 6px;
-padding-right: 6px;
-margin: 1px;
-border: 1px solid #8DCDEB;
-color:#8DCDEB;
-border-radius: 15px;
-cursor: pointer;
-}
-
-form input[type="reset"]{
-padding-top: 2px;
-padding-bottom: 2px;
-padding-left: 6px;
-padding-right: 6px;
-margin: 1px;
-border: 1px solid #8DCDEB;
-color:#8DCDEB;
-border-radius: 15px;
-cursor: pointer;
-}
-
-table {
-width:auto;
-max-width:90%;
-padding-bottom:5px;
-margin:5px auto;
-}
-
-table.search {
-border:1px solid;
-border-radius:5px;
-width:60%;
-display:none;
-margin-top:10px;
-margin-bottom:10px;
-padding:5px;
-}
-
-table.selection {
-width:auto;
-max-width:90%;
-}
-
-tr.visible {
-display:table-row;
-}
-
-tr.invisible {
-display:none;
-}
-
-th {
-background-color:transparent;
-padding:3px;
-border: 1px solid #8DCDEB;
-border-radius:3px;
-}
-
-th.number {
-text-align:right;
-background-color:transparent;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:transparent;
-padding:3px;
 }
 
 .centre {
@@ -310,14 +236,6 @@ select.inputerror {
 background:transparent;
 }
 
-.EvenTableRows {
-background-color:transparent;
-}
-
-.OddTableRows {
-background-color:transparent;
-}
-
 div.error {
 margin-top: 5px;
 background-color:#FFE4E1;
@@ -354,24 +272,6 @@ border:1px solid navy;
 margin:5px auto;
 }
 
-DIV.page_help_text {
-background:transparent;
-border:maroon 1px solid;
-border-radius:3px;
-padding-top:2px;
-padding-bottom:2px;
-z-index:1;
-width:80%;
-float:none;
-visibility:visible;
-position:static;
-text-align:center;
-padding-left:24px;
-min-height:26px;
-margin:0 auto;
-margin-bottom:4px;
-}
-
 .dpTbl {
 border:solid #2F343F 1px;
 background:#404552;
@@ -401,17 +301,6 @@ background-color:#2F343F;
 color:white;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-background:transparent;
-border:1px solid #2F4F4F;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:transparent;
 }
 
 .notavailable {

@@ -28,15 +28,16 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		'</p>'; // Page title.
 
 	echo '<div class="page_help_text">',
-			_('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('webERP is an "accrual" based system (not a "cash based" system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'),
+			_('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'),
 		'</div>';
 	// Show a form to allow input of criteria for the report to show:
 	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<table class="selection">
-			<tr>
-				<td>', _('Select the balance date'), ':</td>
-				<td><select required="required" name="BalancePeriodEnd">';
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label for="BalancePeriodEnd">', _('Select the balance date'), ':</label>
+				<select required="required" autofocus="autofocus" name="BalancePeriodEnd">';
 
 	$PeriodNo = GetPeriod(Date($_SESSION['DefaultDateFormat']));
 	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
@@ -56,25 +57,23 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	}
 
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Choose the period on which to base the report.'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>', _('Detail or summary'), ':</td>
-			<td>
-				<select name="Detail" required="required" title="', _('Selecting Summary will show on the totals at the account group level'), '" >
-					<option value="Summary">', _('Summary'), '</option>
-					<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>', _('Show all accounts including zero balances'), '</td>
-			<td>
-				<input name="ShowZeroBalances" title="', _('Check this box to display all accounts including those accounts with no balance'), '" type="checkbox" />
-			</td>
-		</tr>
-	</table>';
+	echo '<field>
+			<label for="Detail">', _('Detail or summary'), ':</label>
+			<select name="Detail" required="required">
+				<option value="Summary">', _('Summary'), '</option>
+				<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
+			</select>
+			<fieldhelp>', _('Selecting Summary will show on the totals at the account group level'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="ShowZeroBalances">', _('Show all accounts including zero balances'), '</label>
+			<input name="ShowZeroBalances" type="checkbox" />
+			<fieldhelp>', _('Check this box to display all accounts including those accounts with no balance'), '</fieldhelp>
+		</field>
+	</fieldset>';
 
 	echo '<div class="centre noPrint">
 			<input name="ShowBalanceSheet" type="submit" value="', _('Show on Screen (HTML)'), '" />
@@ -105,6 +104,11 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			</p>'; // Page title, reporting presentation currency and level of rounding used.
 	echo '<table class="scrollable">
 			<thead>
+				<tr class="noPrint">
+					<th colspan="6"><h3>',
+						$Title, '
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
+					</h3></th>
 				<tr>';
 	if ($_POST['Detail'] == 'Detailed') { // Detailed report:
 		echo '<th class="text">', _('Account'), '</th>
@@ -295,14 +299,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 
 		if ($_POST['Detail'] == 'Detailed') {
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and (round($AccountBalance, $_SESSION['CompanyRecord']['decimalplaces']) <> 0 or round($AccountBalanceLY, $_SESSION['CompanyRecord']['decimalplaces']) <> 0))) {
-				if ($k == 1) {
-					echo '<tr class="OddTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="EvenTableRows">';
-					$k = 1;
-				}
-				echo '<td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?Period=', $_POST['BalancePeriodEnd'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>
+				echo '<tr class="striped_row">
+						<td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?Period=', $_POST['BalancePeriodEnd'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>
 						<td class="text">', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</td>
 						<td class="number">', locale_number_format($AccountBalance, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 						<td class="number">', locale_number_format($AccountBalanceLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
@@ -368,15 +366,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
 			<input type="hidden" name="BalancePeriodEnd" value="', $_POST['BalancePeriodEnd'], '" />
 			<div class="centre noPrint">
-				<button onclick="javascript:window.print()" type="button">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" /> ', _('Print This'), '
-				</button>
-				<button name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" /> ', _('Select A Different Period'), '
-				</button>
-				<button formaction="index.php?Application=GL" type="submit">
-					<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/previous.png" /> ', _('Return'), '
-				</button>
+				<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '" />
 			</div>';
 }
 echo '</form>';

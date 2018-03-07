@@ -29,14 +29,14 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Enter the date from which orders are to be listed') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y'))) . '" /></td>
+				<td><input type="text" class="date" name="FromDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y'))) . '" /></td>
 			</tr>';
 	echo '<tr>
 			<td>' . _('Enter the date to which orders are to be listed') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+			<td><input type="text" class="date" name="ToDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Inventory Category') . '</td>
@@ -88,7 +88,6 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 	include('includes/footer.php');
 	exit;
 } else {
-	include('includes/ConnectDB.php');
 	include('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Order Status Report'));
 	$PDF->addInfo('Subject', _('Orders from') . ' ' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate']);

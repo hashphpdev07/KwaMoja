@@ -337,8 +337,6 @@ if (isset($_POST['submit'])) {
 	//	if (ContainsIllegalCharacters($SupplierID)) {
 	//		$InputError = 1;
 	//		prnMsg(_('The supplier code cannot contain any of the illegal characters') ,'error');
-	//		$Errors[$i]='ID';
-	//		++$i;
 	//	}
 	if (mb_strlen($_POST['Phone']) > 25) {
 		$InputError = 1;
@@ -401,29 +399,21 @@ if (isset($_POST['submit'])) {
 			if ($map_host == "") {
 				echo '<div class="warn">' . _('Warning - Geocode Integration is enabled, but no hosts are setup.  Go to Geocode Setup') . '</div>';
 			} else {
-				$address = $_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . ', ' . $_POST['Address6'];
+				$address = urlencode($_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . ', ' . $_POST['Address6']);
 
-				$base_url = 'http://' . MAPS_HOST . '/maps/geo?output=xml' . '&key=' . KEY;
-				$request_url = $base_url . '&q=' . urlencode($address);
+				$base_url = "http://" . MAPS_HOST . "/maps/api/geocode/xml?address=";
+				$request_url = $base_url . $address . ',&sensor=true';
 
-				$xml = simplexml_load_string(utf8_encode(file_get_contents($request_url))) or prnMsg(_('Goole map url not loading'), 'warn');
+				$xml = simplexml_load_string(utf8_encode(file_get_contents($request_url))) or die("url not loading");
 				//			$xml = simplexml_load_file($request_url) or die("url not loading");
 
-				$coordinates = $xml->Response->Placemark->Point->coordinates;
-				$coordinatesSplit = explode(',', $coordinates);
-				// Format: Longitude, Latitude, Altitude
-				$latitude = $coordinatesSplit[1];
-				$longitude = $coordinatesSplit[0];
-
-				$status = $xml->Response->Status->code;
-				if (strcmp($status, '200') == 0) {
+				$status = $xml->status;
+				if (strcmp($status, 'OK') == 0) {
 					// Successful geocode
 					$geocode_pending = false;
-					$coordinates = $xml->Response->Placemark->Point->coordinates;
-					$coordinatesSplit = explode(",", $coordinates);
 					// Format: Longitude, Latitude, Altitude
-					$latitude = $coordinatesSplit[1];
-					$longitude = $coordinatesSplit[0];
+					$latitude = $xml->result->geometry->location->lat;
+					$longitude = $xml->result->geometry->location->lng;
 				} else {
 					// failure to geocode
 					$geocode_pending = false;
@@ -468,6 +458,7 @@ if (isset($_POST['submit'])) {
 							remittance='" . $_POST['Remittance'] . "',
 							taxgroupid='" . $_POST['TaxGroup'] . "',
 							factorcompanyid='" . $_POST['FactorID'] . "',
+							suppliergroupid='" . $_POST['GroupID'] . "',
 							lat='" . $latitude . "',
 							lng='" . $longitude . "',
 							defaultshipper='" . $_POST['DefaultShipper'] . "',
@@ -498,6 +489,7 @@ if (isset($_POST['submit'])) {
 							remittance='" . $_POST['Remittance'] . "',
 							taxgroupid='" . $_POST['TaxGroup'] . "',
 							factorcompanyid='" . $_POST['FactorID'] . "',
+							suppliergroupid='" . $_POST['GroupID'] . "',
 							lat='" . $latitude . "',
 							lng='" . $longitude . "',
 							defaultshipper='" . $_POST['DefaultShipper'] . "',
@@ -542,6 +534,7 @@ if (isset($_POST['submit'])) {
 										remittance,
 										taxgroupid,
 										factorcompanyid,
+										suppliergroupid,
 										lat,
 										lng,
 										defaultshipper,
@@ -569,6 +562,7 @@ if (isset($_POST['submit'])) {
 									'" . $_POST['Remittance'] . "',
 									'" . $_POST['TaxGroup'] . "',
 									'" . $_POST['FactorID'] . "',
+									'" . $_POST['GroupID'] . "',
 									'" . $latitude . "',
 									'" . $longitude . "',
 									'" . $_POST['DefaultShipper'] . "',
@@ -608,6 +602,7 @@ if (isset($_POST['submit'])) {
 			unset($_POST['Remittance']);
 			unset($_POST['TaxGroup']);
 			unset($_POST['FactorID']);
+			unset($_POST['GroupID']);
 			unset($_POST['DefaultShipper']);
 			unset($_POST['DefaultGL']);
 			unset($_POST['TaxRef']);
@@ -670,7 +665,7 @@ if (isset($_POST['submit'])) {
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 
 if (!isset($SupplierID)) {
 
@@ -704,6 +699,7 @@ if (!isset($SupplierID)) {
 	$_POST['BankAct'] = '';
 	$_POST['TaxGroup'] = '';
 	$_POST['FactorID'] = '';
+	$_POST['GroupID'] = '';
 	$_POST['DefaultShipper'] = $_SESSION['Default_Shipper'];
 	$_POST['TaxRef'] = '';
 
@@ -734,8 +730,10 @@ if (!isset($SupplierID)) {
 						remittance,
 						taxgroupid,
 						factorcompanyid,
+						suppliergroupid,
 						defaultshipper,
-						taxref
+						taxref,
+						defaultgl
 					FROM suppliers
 					WHERE supplierid = '" . DB_escape_string($SupplierID) . "'";
 
@@ -763,10 +761,23 @@ if (!isset($SupplierID)) {
 		$_POST['BankAct'] = $MyRow['bankact'];
 		$_POST['TaxGroup'] = $MyRow['taxgroupid'];
 		$_POST['FactorID'] = $MyRow['factorcompanyid'];
+		$_POST['GroupID'] = $MyRow['suppliergroupid'];
 		$_POST['DefaultShipper'] = $MyRow['defaultshipper'];
 		$_POST['TaxRef'] = $MyRow['taxref'];
+		$_POST['DefaultGL'] = $MyRow['defaultgl'];
 
-		echo '<tr><td><input type="hidden" name="SupplierID" value="' . $SupplierID . '" /></td></tr>';
+		if (isset($_GET['Copy'])) {
+			echo '<input type="hidden" name="New" value="Yes" />';
+			if ($_SESSION['AutoSupplierNo'] == 0) {
+				// its a new supplier being added
+				echo '<tr>
+						<td>' . _('Supplier Code') . ':</td>
+						<td><input type="text" name="SupplierID" value="" size="12" maxlength="10" /></td>
+					</tr>';
+			}
+		} else {
+			echo '<tr><td><input type="hidden" name="SupplierID" value="' . $SupplierID . '" /></td></tr>';
+		}
 
 	} else {
 		/* if $AutoSupplierNo is off (i.e. 0) then provide an input box for the SupplierID to manually assigned */
@@ -852,7 +863,7 @@ echo '</select></td></tr>';
 
 echo '<tr>
 			<td>' . _('Supplier Since') . ' (' . $_SESSION['DefaultDateFormat'] . '):</td>
-			<td><input size="12" required="required" maxlength="10" type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="SupplierSince" value="' . $_POST['SupplierSince'] . '" /></td>
+			<td><input size="12" required="required" maxlength="10" type="text" class="date" name="SupplierSince" value="' . $_POST['SupplierSince'] . '" /></td>
 		</tr>';
 echo '<tr>
 			<td>' . _('Bank Particulars') . ':</td>
@@ -896,6 +907,24 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 } //end while loop
 echo '</select></td></tr>';
+
+$Result = DB_query("SELECT id, coyname FROM suppliergroups");
+
+echo '<tr>
+			<td>' . _('Supplier Group') . ':</td>
+			<td><select name="GroupID">';
+echo '<option value="0">' . _('None') . '</option>';
+while ($MyRow = DB_fetch_array($Result)) {
+	if ($_POST['GroupID'] == $MyRow['id']) {
+		echo '<option selected="selected" value="' . $MyRow['id'] . '">' . $MyRow['coyname'] . '</option>';
+	} else {
+		echo '<option value="' . $MyRow['id'] . '">' . $MyRow['coyname'] . '</option>';
+	}
+} //end while loop
+echo '</select>
+		</td>
+	</tr>';
+
 echo '<tr>
 			<td>' . _('Tax Reference') . ':</td>
 			<td><input type="text" name="TaxRef" size="21" maxlength="20" value="' . $_POST['TaxRef'] . '" /></td></tr>';
@@ -961,7 +990,7 @@ $Result = DB_query("SELECT accountcode,
 					ORDER BY chartmaster.accountcode");
 echo '<tr>
 		<td>' . _('Default GL Account') . ':</td>
-		<td><select tabindex="19" name="DefaultGL">';
+		<td><select name="DefaultGL">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['DefaultGL'] == $MyRow[0]) {

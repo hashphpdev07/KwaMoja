@@ -207,7 +207,7 @@ if (empty($_POST['FormName'])) {
 		closedir($Handle);
 	}
 	echo '</select></td></tr></table>';
-	echo '<div class="centre"><input tabindex="6" type="submit" name="submit" value="' . _('Edit Form Layout') . '" /></div>';
+	echo '<div class="centre"><input type="submit" name="submit" value="' . _('Edit Form Layout') . '" /></div>';
 	echo '</form>';
 	include('includes/footer.php');
 	exit;
@@ -417,10 +417,10 @@ foreach ($FormDesign as $Key) {
 }
 echo '</tr></table>'; //End of outer table
 echo '<div class="centre">
-		<input tabindex="6" type="submit" name="preview" value="' . _('Preview the Form Layout') . '" />
-		<input tabindex="7" type="submit" name="save" value="' . _('Save the Form Layout') . '" />
+		<input type="submit" name="preview" value="' . _('Preview the Form Layout') . '" />
+		<input type="submit" name="save" value="' . _('Save the Form Layout') . '" />
 	</div>';
-/*echo '<br /><div class="centre"><input tabindex="8" type="submit" name="return" value="' . _('Return') . '" /></div>';*/
+/*echo '<br /><div class="centre"><input type="submit" name="return" value="' . _('Return') . '" /></div>';*/
 echo '</form>';
 /* END: PROCEDURE DIVISION. */
 

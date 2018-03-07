@@ -56,7 +56,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$ErrMsg = _('The customer transactions for the selected criteria could not be retrieved because');
 	$TransResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Type') . '</th>
 				<th>' . _('Number') . '</th>
@@ -70,14 +70,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 	while ($MyRow1 = DB_fetch_array($TransResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		if ($MyRow1['type'] == 11) {
 			$TransType = _('Credit Note');
 		} else {
@@ -85,7 +77,8 @@ while ($MyRow = DB_fetch_array($Result)) {
 		}
 		$CurrDecimalPlaces = $MyRow1['currdecimalplaces'];
 
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>

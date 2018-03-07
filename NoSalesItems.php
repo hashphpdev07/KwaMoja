@@ -9,7 +9,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<br />';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	//select location
 	echo '<tr>
@@ -85,12 +85,12 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td>' . _('Number Of Days') . ' </td>
 			<td>:</td>
-			<td><input class="number" tabindex="3" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
+			<td><input class="number" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
 		 </tr>
 	</table>
 	<br />
 	<div class="centre">
-		<input tabindex="5" type="submit" name="Search" value="' . _('Search') . '" />
+		<input type="submit" name="Search" value="' . _('Search') . '" />
 	</div>
 	</form>';
 } else {
@@ -205,7 +205,7 @@ if (!(isset($_POST['Search']))) {
 	$Result = DB_query($SQL);
 	echo '<p class="page_title_text"  align="center"><strong>' . _('No Sales Items') . '</strong></p>';
 	echo '<form action="PDFNoSalesItems.php"  method="GET">
-		<table class="selection">';
+		<table>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<tr>
 				<th>' . _('No') . '</th>
@@ -221,13 +221,6 @@ if (!(isset($_POST['Search']))) {
 			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$QOHResult = DB_query("SELECT sum(quantity)
 				FROM locstock
 				INNER JOIN locationusers
@@ -241,25 +234,27 @@ if (!(isset($_POST['Search']))) {
 
 		$CodeLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['stockid']) . '">' . $MyRow['stockid'] . '</a>';
 		if ($_POST['Location'][0] == 'All') {
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $i, 'All', $CodeLink, $MyRow['description'], $QOH, //on hand on ALL locations
 				$QOH, // total on hand
 				$MyRow['units'] //unit
 				);
 		} else {
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
 					</tr>', $i, $MyRow['locationname'], $CodeLink, $MyRow['description'], $MyRow['quantity'], //on hand on location selected only
 				$QOH, // total on hand
 				$MyRow['units'] //unit

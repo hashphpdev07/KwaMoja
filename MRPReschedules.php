@@ -6,8 +6,7 @@
 
 include('includes/session.php');
 
-$Result = DB_show_tables('mrprequirements');
-if (DB_num_rows($Result) == 0) {
+if (!DB_table_exists('mrprequirements')) {
 	$Title = 'MRP error';
 	include('includes/header.php');
 	echo '<br />';
@@ -126,7 +125,7 @@ if (isset($_POST['PrintPDF'])) {
 		<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 		<div>
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('Print Option') . ':</td>
 			<td><select name="Fill">

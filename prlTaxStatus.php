@@ -103,7 +103,7 @@ $SQL = "SELECT  taxstatusid,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result)) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Status ID') . '<th>
 				<th>' . _('Description') . '<th>
@@ -140,7 +140,7 @@ if (isset($TaxStatusID)) {
 	$_POST['AdditionalExemption'] = $MyRow['additionalexemption'];
 	$_POST['TotalExemption'] = $MyRow['totalexemption'];
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<input type="hidden" name="TaxStatusID" value="' . $TaxStatusID . '" />';
 	echo '<tr>
 			<td>' . _('Tax Status ID') . ':</td>
@@ -148,7 +148,7 @@ if (isset($TaxStatusID)) {
 		</tr>';
 } else {
 	// its a new status being added
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>' . _('Tax Status ID') . ':</td>
 			<td><input type="text" name="TaxStatusID" value="" size="12" maxlength="10" /></td>

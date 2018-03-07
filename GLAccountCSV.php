@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('General Ledger Account Report');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountCSV';
-include('includes/header.php');
-include('includes/GLPostings.php');
+include ('includes/header.php');
+include ('includes/GLPostings.php');
 
 if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
@@ -24,14 +23,14 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 $DefaultPeriodDate = Date('Y-m-d', Mktime(0, 0, 0, Date('m'), 0, Date('Y')));
 
 /*Show a form to allow input of criteria for the report */
-echo '<table class="selection" summary="' . _('Criteria for report') . '">
+echo '<table summary="' . _('Criteria for report') . '">
 			<tr>
 			 <td>' . _('Selected Accounts') . ':</td>
 			 <td><select name="Account[]" size="12" multiple="multiple">';
 $SQL = "SELECT chartmaster.accountcode,
 			   chartmaster.accountname
 		FROM chartmaster
-		INNER JOIN glaccountusers ON glaccountusers.accountcode=chartmaster.accountcode AND glaccountusers.userid='" .  $_SESSION['UserID'] . "' AND glaccountusers.canview=1
+		INNER JOIN glaccountusers ON glaccountusers.accountcode=chartmaster.accountcode AND glaccountusers.userid='" . $_SESSION['UserID'] . "' AND glaccountusers.canview=1
 		WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 		ORDER BY chartmaster.accountcode";
 $AccountsResult = DB_query($SQL);
@@ -83,7 +82,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 }
 echo '</select></td></tr>';
 // End select tag
-
 echo '</table>
 		<div class="centre"><input type="submit" name="MakeCSV" value="' . _('Make CSV File') . '" /></div>
 	</form>';
@@ -94,12 +92,12 @@ if (isset($_POST['MakeCSV'])) {
 
 	if (!isset($SelectedPeriod)) {
 		prnMsg(_('A period or range of periods must be selected from the list box'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (!isset($_POST['Account'])) {
 		prnMsg(_('An account or range of accounts must be selected from the list box'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -111,9 +109,9 @@ if (isset($_POST['MakeCSV'])) {
 
 	$fp = fopen($FileName, 'w');
 
-	if ($fp == FALSE) {
+	if ($fp == false) {
 		prnMsg(_('Could not open or create the file under') . ' ' . $FileName, 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -208,15 +206,12 @@ if (isset($_POST['MakeCSV'])) {
 			}
 		}
 		$PeriodTotal = 0;
-		$PeriodNo = -9999;
-
-		$j = 1;
-		$k = 0; //row colour counter
+		$PeriodNo = - 9999;
 
 		while ($MyRow = DB_fetch_array($TransResult)) {
 
 			if ($MyRow['periodno'] != $PeriodNo) {
-				if ($PeriodNo != -9999) { //ie its not the first time around
+				if ($PeriodNo != - 9999) { //ie its not the first time around
 					/*Get the ChartDetails balance b/fwd and the actual movement in the account for the period as recorded in the chart details - need to ensure integrity of transactions to the chart detail movements. Also, for a balance sheet account it is the balance carried forward that is important, not just the transactions*/
 					$SQL = "SELECT bfwd,
 									actual,
@@ -238,8 +233,8 @@ if (isset($_POST['MakeCSV'])) {
 				$PeriodTotal = 0;
 			}
 
-			$RunningTotal += $MyRow['amount'];
-			$PeriodTotal += $MyRow['amount'];
+			$RunningTotal+= $MyRow['amount'];
+			$PeriodTotal+= $MyRow['amount'];
 
 			$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
 
@@ -281,5 +276,5 @@ if (isset($_POST['MakeCSV'])) {
 }
 /* end of if CreateCSV button hit */
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

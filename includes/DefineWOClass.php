@@ -1,9 +1,8 @@
 <?php
-
 /* Definition of the Works Order class to hold all the information for a purchase order and delivery
- */
+*/
 
-Class WorkOrder {
+class WorkOrder {
 
 	var $OrderNumber;
 	var $LocationCode;
@@ -13,6 +12,8 @@ Class WorkOrder {
 	var $Closed;
 	var $Items; //Array of WOItem objects
 	var $NumberOfItems;
+	var $Reference;
+	var $Remark;
 
 	function __construct() {
 		$this->OrderNumber = 0;
@@ -23,6 +24,8 @@ Class WorkOrder {
 		$this->Closed = 0;
 		$this->Items = array();
 		$this->NumberOfItems = 0;
+		$this->Reference = '';
+		$this->Remark = '';
 	}
 
 	function AddItemToOrder($StockId, $Comments, $QuantityRequired, $QuantityReceived, $NextLotSerialNumber) {
@@ -31,10 +34,11 @@ Class WorkOrder {
 	}
 
 	function UpdateItem($StockId, $Comments, $QuantityRequired, $NextLotSerialNumber = '') {
-		$this->Items[$this->ItemByStockID($StockId)]->QuantityRequired = $QuantityRequired;
-		$this->Items[$this->ItemByStockID($StockId)]->Comments = $Comments;
-		$this->Items[$this->ItemByStockID($StockId)]->NextLotSerialNumbers = $NextLotSerialNumber;
-//		$this->Items[$this->ItemByStockID($StockId)]->RefreshRequirements($this->LocationCode);
+		$this->Items[$this->ItemByStockID($StockId) ]->QuantityRequired = $QuantityRequired;
+		$this->Items[$this->ItemByStockID($StockId) ]->Comments = $Comments;
+		$this->Items[$this->ItemByStockID($StockId) ]->NextLotSerialNumbers = $NextLotSerialNumber;
+		//		$this->Items[$this->ItemByStockID($StockId)]->RefreshRequirements($this->LocationCode);
+		
 	}
 
 	function RemoveItemFromOrder($LineNumber) {
@@ -42,9 +46,9 @@ Class WorkOrder {
 		$this->Items[$LineNumber]->QuantityRequired = $this->Items[$LineNumber]->QuantityReceived;
 		$this->Items[$LineNumber]->RefreshRequirements($this->LocationCode);
 		if ($this->OrderNumber != 0) {
-			$SQL = "DELETE FROM worequirements WHERE wo='" . $this->OrderNumber . "' AND parentstockid='" . $this->Items[$LineNumber]->StockID . "'";
+			$SQL = "DELETE FROM worequirements WHERE wo='" . $this->OrderNumber . "' AND parentstockid='" . $this->Items[$LineNumber]->StockId . "'";
 			$DeleteResult = DB_query($SQL);
-			$SQL = "DELETE FROM woitems WHERE wo='" . $this->OrderNumber . "' AND stockid='" . $this->Items[$LineNumber]->StockID . "'";
+			$SQL = "DELETE FROM woitems WHERE wo='" . $this->OrderNumber . "' AND stockid='" . $this->Items[$LineNumber]->StockId . "'";
 			$DeleteResult = DB_query($SQL, _('Error deleting the item'));
 		}
 		unset($this->Items[$LineNumber]);
@@ -52,8 +56,8 @@ Class WorkOrder {
 	}
 
 	function ItemByStockID($StockId) {
-		for ($i = 0; $i <= $this->NumberOfItems; $i++) {
-			if (isset($this->Items[$i]) and $this->Items[$i]->StockID == $StockId) {
+		for ($i = 0;$i <= $this->NumberOfItems;$i++) {
+			if (isset($this->Items[$i]) and $this->Items[$i]->StockId == $StockId) {
 				return $i;
 			}
 		}
@@ -132,7 +136,7 @@ Class WorkOrder {
 
 }
 
-Class WOItem {
+class WOItem {
 
 	var $StockId;
 	var $Comments;
@@ -183,7 +187,7 @@ Class WOItem {
 		$this->Requirements = array();
 		$this->NumberOfRequirements = 0;
 
-		$BOMResult = DB_Query("SELECT   bom.component,
+		$BOMResult = DB_query("SELECT   bom.component,
 										bom.quantity,
 										bom.autoissue,
 										description,
@@ -210,7 +214,7 @@ Class WOItem {
 							stockid
 						FROM woitems
 						WHERE wo='" . $OrderNumber . "'
-							AND stockid='" . $this->StockID . "'";
+							AND stockid='" . $this->StockId . "'";
 		$CheckResult = DB_query($CheckSQL);
 
 		if (DB_num_rows($CheckResult) == 0) {
@@ -223,7 +227,7 @@ Class WOItem {
 										nextlotsnref
 									) VALUES (
 										'" . $OrderNumber . "',
-										'" . $this->StockID . "',
+										'" . $this->StockId . "',
 										'" . $this->Comments . "',
 										'" . $this->QuantityRequired . "',
 										'" . $this->QuantityReceived . "',
@@ -237,7 +241,7 @@ Class WOItem {
 										stdcost='" . $this->StandardCost . "',
 										nextlotsnref='" . $this->NextLotSerialNumbers . "'
 									WHERE wo='" . $OrderNumber . "'
-										AND stockid='" . $this->StockID . "'";
+										AND stockid='" . $this->StockId . "'";
 		}
 		$UpdateItems = DB_query($SQL);
 		foreach ($this->Requirements as $i => $Requirement) {
@@ -246,7 +250,7 @@ Class WOItem {
 	}
 
 	function AddRequirements($StockId, $Quantity, $StandardCost, $AutoIssue, $Description, $DecimalPlaces) {
-		$this->Requirements[$this->NumberOfRequirements + 1] = new WORequirement($this->StockID, $StockId, $Quantity, $StandardCost, $AutoIssue, $Description, $DecimalPlaces);
+		$this->Requirements[$this->NumberOfRequirements + 1] = new WORequirement($this->StockId, $StockId, $Quantity, $StandardCost, $AutoIssue, $Description, $DecimalPlaces);
 		$this->NumberOfRequirements++;
 	}
 
@@ -255,7 +259,7 @@ Class WOItem {
 
 	function RefreshRequirements($LocationCode) {
 
-		$BOMResult = DB_Query("SELECT   bom.component,
+		$BOMResult = DB_query("SELECT   bom.component,
 										bom.quantity,
 										bom.autoissue,
 										description,
@@ -269,16 +273,16 @@ Class WOItem {
 									LEFT JOIN stockcosts
 										ON stockmaster.stockid=stockcosts.stockid
 										AND stockcosts.succeeded=0
-									WHERE bom.parent='" . $this->StockID . "'
+									WHERE bom.parent='" . $this->StockId . "'
 										AND bom.loccode='" . $LocationCode . "'");
 		while ($BOMRow = DB_fetch_array($BOMResult)) {
-			$this->Requirements[$this->RequirementByStockID($this->StockID, $BOMRow['component'])]->Quantity = $BOMRow['quantity'];
+			$this->Requirements[$this->RequirementByStockID($this->StockId, $BOMRow['component']) ]->Quantity = $BOMRow['quantity'];
 		}
 	}
 
 	function RequirementByStockID($Parent, $StockId) {
-		for ($i = 1; $i <= $this->NumberOfRequirements; $i++) {
-			if ($this->Requirements[$i]->StockID == $StockId and $this->Requirements[$i]->ParentStockID == $Parent) {
+		for ($i = 1;$i <= $this->NumberOfRequirements;$i++) {
+			if ($this->Requirements[$i]->StockId == $StockId and $this->Requirements[$i]->ParentStockId == $Parent) {
 				return $i;
 			}
 		}
@@ -286,9 +290,9 @@ Class WOItem {
 	}
 }
 
-Class WORequirement {
+class WORequirement {
 
-	var $ParentStockID;
+	var $ParentStockId;
 	var $StockId;
 	var $Description;
 	var $DecimalPlaces;
@@ -296,9 +300,9 @@ Class WORequirement {
 	var $StandardCost;
 	var $AutoIssue;
 
-	function __construct($ParentStockID, $StockId, $Quantity, $StandardCost, $AutoIssue, $Description, $DecimalPlaces) {
-		$this->ParentStockID = $ParentStockID;
-		$this->StockID = $StockId;
+	function __construct($ParentStockId, $StockId, $Quantity, $StandardCost, $AutoIssue, $Description, $DecimalPlaces) {
+		$this->ParentStockId = $ParentStockId;
+		$this->StockId = $StockId;
 		$this->Quantity = $Quantity;
 		$this->StandardCost = $StandardCost;
 		$this->AutoIssue = $AutoIssue;
@@ -313,8 +317,8 @@ Class WORequirement {
 							stockid
 						FROM worequirements
 						WHERE wo='" . $OrderNumber . "'
-							AND parentstockid='" . $this->ParentStockID . "'
-							AND stockid='" . $this->StockID . "'";
+							AND parentstockid='" . $this->ParentStockId . "'
+							AND stockid='" . $this->StockId . "'";
 		$CheckResult = DB_query($CheckSQL);
 
 		if (DB_num_rows($CheckResult) == 0) {
@@ -326,8 +330,8 @@ Class WORequirement {
 												autoissue
 											) VALUES (
 												'" . $OrderNumber . "',
-												'" . $this->ParentStockID . "',
-												'" . $this->StockID . "',
+												'" . $this->ParentStockId . "',
+												'" . $this->StockId . "',
 												'" . $this->Quantity . "',
 												'" . $this->StandardCost . "',
 												'" . $this->AutoIssue . "'
@@ -337,8 +341,8 @@ Class WORequirement {
 												stdcost='" . $this->StandardCost . "',
 												autoissue='" . $this->AutoIssue . "'
 											WHERE wo='" . $OrderNumber . "'
-												AND parentstockid='" . $this->ParentStockID . "'
-												AND stockid='" . $this->StockID . "'";
+												AND parentstockid='" . $this->ParentStockId . "'
+												AND stockid='" . $this->StockId . "'";
 		}
 		$UpdateRequirements = DB_query($SQL);
 	}

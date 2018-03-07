@@ -201,7 +201,7 @@ $DbgMsg = _('The SQL used to retrieve these records was');
 $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 echo '<table><tr><td valign="top">';
-echo '<table class="selection">';
+echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
 	prnMsg( _('There are no default prices set up for this part'), 'info');
@@ -217,7 +217,7 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		printf('<tr class="EvenTableRows">
+		printf('<tr class="striped_row">
 					<td class="number">%s</td>
 					<td class="date">%s</td>
 					<td class="date">%s</td>
@@ -249,7 +249,7 @@ $ErrMsg = _('Could not retrieve the special prices set up because');
 $DbgMsg = _('The SQL used to retrieve these records was');
 $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table class="selection">';
+echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
 	prnMsg( _('There are no special prices set up for this part'), 'info');
@@ -258,6 +258,8 @@ if (DB_num_rows($Result) == 0) {
 	echo '<tr>
 			<th>' . _('Special Price') . '</th>
 			<th>' . _('Branch') . '</th>
+			<th>' . _('Start Date') . '</th>
+			<th>' . _('End Date') . '</th>
 		</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -272,11 +274,9 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		echo '<tr style="background-color:#CCCCCC">
+		echo '<tr>
 				<td class="number">' . locale_number_format($MyRow['price'], $CurrDecimalPlaces) . '</td>
 				<td>' . $Branch . '</td>
-				<td>' . $MyRow['units'] . '</td>
-				<td class="number">' . $MyRow['conversionfactor'] . '</td>
 				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
 				<td>' . $EndDateDisplay . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Price=' . $MyRow['price'] . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>
@@ -327,7 +327,7 @@ $SQL = "SELECT branchcode,
 		WHERE debtorno='" . $_SESSION['CustomerID'] . "'";
 $Result = DB_query($SQL);
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Branch') . ':</td>
 			<td>
@@ -344,11 +344,11 @@ while ($MyRow = DB_fetch_array($Result)) {
 echo '</select></td></tr>';
 echo '<tr>
 		<td>' . _('Start Date') . ':</td>
-		<td><input type="text" name="StartDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
+		<td><input type="text" name="StartDate" class="date" size="11" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('End Date') . ':</td>
-		<td><input type="text" name="EndDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" value="' . $_POST['EndDate'] . '" /></td></tr>';
+		<td><input type="text" name="EndDate" class="date" size="11" required="required" maxlength="10" value="' . $_POST['EndDate'] . '" /></td></tr>';
 
 echo '<tr><td>' . _('Price') . ':</td>
 		  <td><input type="text" class="number" name="Price" size="11" required="required" maxlength="10" value="' . locale_number_format($_POST['Price'], 2) . '" /></td>

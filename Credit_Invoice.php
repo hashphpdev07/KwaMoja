@@ -213,7 +213,7 @@ if (isset($_POST['Location'])) {
 	}
 }
 
-if (isset($_POST['ChargeFreightCost'])) {
+if (isset($_POST['ChargeFreightCost']) and $_POST['ChargeFreightCost'] != 0) {
 	$_SESSION['CreditItems' . $Identifier]->FreightCost = filter_number_format($_POST['ChargeFreightCost']);
 	if (($TotalQtyCredited + abs($_POST['ChargeFreightCost'])) <= 0) {
 		prnMsg(_('There are no item quantity or freight charge input'), 'error');
@@ -276,7 +276,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 
 if (!isset($_POST['ProcessCredit'])) {
 
-	echo '<table cellpadding="2" class="selection">';
+	echo '<table cellpadding="2">';
 	echo '<tr>
 			<th colspan="13">
 				<div class="centre"><b>' . _('Credit Invoice') . ' ' . $_SESSION['ProcessingCredit'] . '</b>
@@ -321,19 +321,13 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 	$_SESSION['CreditItems' . $Identifier]->totalWeight += ($LnItm->QtyDispatched * $LnItm->Weight);
 
 	if (!isset($_POST['ProcessCredit'])) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		++$j;
 
-		echo '<td>' . $LnItm->StockID . '</td>
-			<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
-			<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
-			<td>' . $LnItm->Units . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $LnItm->StockID . '</td>
+				<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
+				<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
+				<td>' . $LnItm->Units . '</td>';
 
 		if ($LnItm->Controlled == 1) {
 
@@ -341,15 +335,15 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 
 		} else {
 
-			echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Quantity_' . $LnItm->LineNumber . '" required="required" maxlength="6" size="6" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
+			echo '<td><input type="text" class="number" name="Quantity_' . $LnItm->LineNumber . '" required="required" maxlength="6" size="6" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
 
 		}
 
 		$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
 		++$j;
-		echo '<td><input tabindex="' . $j . '" type="text" class="number" name="Price_' . $LnItm->LineNumber . '" required="required" maxlength="12" size="6" value="' . locale_number_format($LnItm->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
-		<td><input tabindex="' . $j . '" type="text" class="number" name="Discount_' . $LnItm->LineNumber . '" required="required" maxlength="3" size="3" value="' . locale_number_format(($LnItm->DiscountPercent * 100), 2) . '" />%</td>
+		echo '<td><input type="text" class="number" name="Price_' . $LnItm->LineNumber . '" required="required" maxlength="12" size="6" value="' . locale_number_format($LnItm->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
+		<td><input type="text" class="number" name="Discount_' . $LnItm->LineNumber . '" required="required" maxlength="3" size="3" value="' . locale_number_format(($LnItm->DiscountPercent * 100), 2) . '" />%</td>
 		<td class="number">' . $DisplayLineTotal . '</td>';
 
 		/*Need to list the taxes applicable to this line */
@@ -380,10 +374,18 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 			}
 			++$i;
 			if ($Tax->TaxOnTax == 1) {
-				$TaxTotals[$Tax->TaxAuthID] += ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
+				if (!isset($TaxTotals[$Tax->TaxAuthID])) {
+					$TaxTotals[$Tax->TaxAuthID] = ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
+				} else {
+					$TaxTotals[$Tax->TaxAuthID] += ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
+				}
 				$TaxLineTotal += ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
 			} else {
-				$TaxTotals[$Tax->TaxAuthID] += ($Tax->TaxRate * $LineTotal);
+				if (!isset($TaxTotals[$Tax->TaxAuthID])) {
+					$TaxTotals[$Tax->TaxAuthID] = ($Tax->TaxRate * $LineTotal);
+				} else {
+					$TaxTotals[$Tax->TaxAuthID] += ($Tax->TaxRate * $LineTotal);
+				}
 				$TaxLineTotal += ($Tax->TaxRate * $LineTotal);
 			}
 			$TaxGLCodes[$Tax->TaxAuthID] = $Tax->TaxGLCode;
@@ -403,7 +405,7 @@ foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 			</tr>';
 
 		echo '<tr>
-				<td colspan="12"><textarea tabindex="' . $j . '"  name="Narrative_' . $LnItm->LineNumber . '" cols="100%" rows="1">' . $LnItm->Narrative . '</textarea>
+				<td colspan="12"><textarea name="Narrative_' . $LnItm->LineNumber . '" cols="100%" rows="1">' . $LnItm->Narrative . '</textarea>
 				<hr /></td>
 			</tr>';
 		++$j;
@@ -421,7 +423,7 @@ if (!isset($_POST['ProcessCredit'])) {
 		<td class="number">' . locale_number_format($_SESSION['Old_FreightCost'], $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '</td>
 		<td></td>
 		<td colspan="2" class="number">' . _('Credit Freight Cost') . '</td>
-		<td><input tabindex="' . $j . '" type="text" class="number" size="6" maxlength="6" name="ChargeFreightCost" value="' . locale_number_format($_SESSION['CreditItems' . $Identifier]->FreightCost, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
+		<td><input type="text" class="number" size="6" maxlength="6" name="ChargeFreightCost" value="' . locale_number_format($_SESSION['CreditItems' . $Identifier]->FreightCost, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
 		<td></td>
 		<td>';
 
@@ -488,7 +490,7 @@ if (isset($_POST['CreditType']) and ($_POST['CreditType'] == 'WriteOff' or $_POS
 		$ErrMsg = _('Failed to retrieve salesoderdetails to compare if the order has been invoiced and that it is possible that the credit note may not already have been done');
 		$DuplicateCreditResult = DB_query($SQL, $ErrMsg);
 		$MyRow1 = DB_fetch_row($DuplicateCreditResult);
-		if ($MyRow1[0] == 0) {
+		if ($MyRow1[0] === 0) {
 			prnMsg(_('The credit quantity for the line for') . ' ' . $CreditLine->StockID . ' ' . ('is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated.'), 'error');
 			$OKToProcess = false;
 			include('includes/footer.php');
@@ -602,6 +604,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 									ovfreight,
 									rate,
 									invtext,
+									shipvia,
 									alloc,
 									settled,
 									salesperson)
@@ -620,6 +623,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 							'" . -$_SESSION['CreditItems' . $Identifier]->FreightCost . "',
 							'" . $_SESSION['CurrencyRate'] . "',
 							'" . $_POST['CreditText'] . "',
+							'" . $_SESSION['CreditItems' . $Identifier]->ShipVia . "',
 							'" . -$Allocate_amount . "',
 							'" . $Settled . "',
 							'" . $_SESSION['CreditItems' . $Identifier]->SalesPerson . "')";
@@ -1506,11 +1510,8 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	unset($_SESSION['ProcessingCredit']);
 
 	echo '<div class="centre">' . _('Credit Note number') . ' ' . $CreditNo . ' ' . _('has been processed');
-	if ($_SESSION['InvoicePortraitFormat'] == 0) {
-		echo '<br /><a href="' . $RootPath . '/PrintCustTrans.php?FromTransNo=' . urlencode($CreditNo) . '&InvOrCredit=Credit&PrintPDF=True">' . _('Print this credit note') . '</a>';
-	} else {
-		echo '<br /><a href="' . $RootPath . '/PrintCustTransPortrait.php?FromTransNo=' . urlencode($CreditNo) . '&InvOrCredit=Credit&PrintPDF=True">' . _('Print this credit note') . '</a>';
-	}
+	echo '<br /><a href="' . $RootPath . '/PrintCredit.php?FromTransNo=' . urlencode($CreditNo) . '">' . _('Print this credit note') . '</a>';
+
 	echo '</div>';
 	/*end of process credit note */
 
@@ -1518,10 +1519,10 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 } else {
 	/*Process Credit NOT set so allow inputs to set up the credit note */
 
-	echo '<br /><table class="selection">';
+	echo '<br /><table>';
 
 	echo '<tr><td>' . _('Credit Note Type') . '</td>
-			<td><select tabindex="' . $j . '" name="CreditType" onchange="ReloadForm(Update)">';
+			<td><select name="CreditType" onchange="ReloadForm(Update)">';
 
 	if (!isset($_POST['CreditType']) or $_POST['CreditType'] == 'Return') {
 		echo '<option selected="selected" value="Return">' . _('Goods returned to store') . '</option>';
@@ -1537,13 +1538,12 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 		echo '<option selected="selected" value="ReverseOverCharge">' . _('Reverse overcharge') . '</option>';
 	}
 	echo '</select></td></tr>';
-	++$j;
 
 	if (!isset($_POST['CreditType']) or $_POST['CreditType'] == 'Return') {
 
 		/*if the credit note is a return of goods then need to know which location to receive them into */
 
-		echo '<tr><td>' . _('Goods returned to location') . '</td><td><select tabindex="' . $j . '" name="Location">';
+		echo '<tr><td>' . _('Goods returned to location') . '</td><td><select name="Location">';
 
 		$SQL = "SELECT locations.loccode,
 						locationname
@@ -1566,14 +1566,13 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 			}
 		}
 		echo '</select></td></tr>';
-		++$j;
 
 	} elseif ($_POST['CreditType'] == 'WriteOff') {
 		/* the goods are to be written off to somewhere */
 
 		echo '<tr>
 				<td>' . _('Write off the cost of the goods to') . '</td>
-				<td><select tabindex="' . $j . '" name="WriteOffGLCode">';
+				<td><select name="WriteOffGLCode">';
 
 		$SQL = "SELECT accountcode,
 					accountname
@@ -1597,7 +1596,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 		}
 		echo '</select></td></tr>';
 	}
-	++$j;
 	echo '<tr>
 			<td>' . _('Sales person') . ':</td>';
 
@@ -1606,7 +1604,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 		echo $_SESSION['UsersRealName'];
 		echo '</td>';
 	} else {
-		echo '<td><select tabindex="' . $j . '" name="SalesPerson">';
+		echo '<td><select name="SalesPerson">';
 		$SalesPeopleResult = DB_query("SELECT salesmancode, salesmanname FROM salesman WHERE current=1");
 		/* SalesPerson will be set because it is an invoice being credited and the order salesperson would/should have been retrieved */
 		while ($SalesPersonRow = DB_fetch_array($SalesPeopleResult)) {
@@ -1625,15 +1623,14 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	}
 	echo '<tr>
 			<td>' . _('Credit note text') . '</td>
-			<td><textarea tabindex="' . $j . '"  name="CreditText" cols="31" rows="5">' . $_POST['CreditText'] . '</textarea></td>
+			<td><textarea name="CreditText" cols="31" rows="5">' . $_POST['CreditText'] . '</textarea></td>
 		</tr>
 		</table>
 		<br />
 		<div class="centre">
-			<input tabindex="' . $j . '" type="submit" name="Update" value="' . _('Update') . '" />
+			<input type="submit" name="Update" value="' . _('Update') . '" />
 			<br />';
-	++$j;
-	echo '<input type="submit" tabindex="' . $j++ . '" name="ProcessCredit" value="' . _('Process Credit') . '" />
+	echo '<input type="submit" name="ProcessCredit" value="' . _('Process Credit') . '" />
 		</div>';
 }
 echo '</form>';

@@ -13,6 +13,12 @@ margin:0;
 padding:0;
 }
 
+button img {
+	/* Describes how button image should be displayed. */
+	height:32px;
+	width:32px;
+}
+
 div.toplink {
 }
 
@@ -147,12 +153,6 @@ input.inputerror {
 select.inputerror {
 }
 
-.EvenTableRows {
-}
-
-.OddTableRows {
-}
-
 div.error {
 }
 
@@ -163,9 +163,6 @@ div.success {
 }
 
 div.info {
-}
-
-DIV.page_help_text {
 }
 
 .dpTbl {

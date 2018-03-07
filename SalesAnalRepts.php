@@ -276,7 +276,7 @@ if (!isset($SelectedReport)) {
 
 	$Result = DB_query("SELECT reportid, reportheading FROM reportheaders ORDER BY reportid");
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Report No') . '</th>
 			<th>' . _('Report Title') . '</th>
@@ -285,16 +285,9 @@ if (!isset($SelectedReport)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 
-
-		echo '<td>' . $MyRow[0] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow[0] . '</td>
 				<td>' . $MyRow[1] . '</td>
 				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedReport=' . urlencode($MyRow[0]) . '">' . _('Design') . '</a></td>
 				<td><a href="' . $RootPath . '/SalesAnalReptCols.php?ReportID=' . urlencode($MyRow[0]) . '">' . _('Define Columns') . '</a></td>
@@ -368,12 +361,12 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedReport" value="' . $SelectedReport . '" />';
 		echo '<input type="hidden" name="ReportID" value="' . $ReportID . '" />';
-		echo '<table width="98%" class="selection">
+		echo '<table width="98%">
 				<tr>
 					<th colspan="8"><h3>' . _('Edit The Selected Report') . '</h3></th>
 				</tr>';
 	} else {
-		echo '<table width="98%" class="selection">
+		echo '<table width="98%">
 				<tr>
 					<th colspan="8"><h3>' . _('Define A New Report') . '</h3></th>
 				</tr>';

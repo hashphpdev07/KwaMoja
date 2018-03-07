@@ -195,7 +195,7 @@ if (isset($_POST['submit'])) {
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Demand Type') . ':</td>
 			<td><select name="MRPDemandtype">';
@@ -258,11 +258,11 @@ if (!isset($_POST['DistDate'])) {
 }
 echo '<tr>
 		<td>' . _('From Sales Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" size="10" value="' . $_POST['FromDate'] . '" />&nbsp;&nbsp;&nbsp;' . _('To Sales Date') . ':<input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" size="10" value="' . $_POST['ToDate'] . '" /></td>
+		<td><input type="text" class="date" name="FromDate" size="10" value="' . $_POST['FromDate'] . '" />&nbsp;&nbsp;&nbsp;' . _('To Sales Date') . ':<input type="text" class="date" name="ToDate" size="10" value="' . $_POST['ToDate'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Start Date For Distribution') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DistDate" size="10" value="' . $_POST['DistDate'] . '" /></td>
+		<td><input type="text" class="date" name="DistDate" size="10" value="' . $_POST['DistDate'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Distribution Period') . ':</td>

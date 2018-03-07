@@ -150,7 +150,7 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 	$Result = DB_query($SQL);
 
 	echo '<br />
-			<table class="selection">';
+			<table>';
 	echo '<tr>
 			<th>' . _('Cat Code') . '</th>
 			<th>' . _('Description') . '</th>
@@ -163,14 +163,8 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
 					<td>%s</td>
 					<td class="number">%s</td>
 					<td class="number">%s</td>
@@ -178,7 +172,7 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 					<td class="number">%s</td>
 					<td><a href="%sSelectedCategory=%s">' . _('Edit') . '</a></td>
 					<td><a href="%sSelectedCategory=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this fixed asset category? Additional checks will be performed before actual deletion to ensure data integrity is not compromised.') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-					</tr>', $MyRow['categoryid'], $MyRow['categorydescription'], $MyRow['costact'], $MyRow['depnact'], $MyRow['disposalact'], $MyRow['accumdepnact'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid']);
+				</tr>', $MyRow['categoryid'], $MyRow['categorydescription'], $MyRow['costact'], $MyRow['depnact'], $MyRow['disposalact'], $MyRow['accumdepnact'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid']);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>
@@ -217,7 +211,7 @@ if (isset($SelectedCategory) and !isset($_POST['submit'])) {
 
 	echo '<input type="hidden" name="SelectedCategory" value="' . $SelectedCategory . '" />';
 	echo '<input type="hidden" name="CategoryID" value="' . $_POST['CategoryID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td>' . _('Category Code') . ':</td>
 			<td>' . $_POST['CategoryID'] . '</td>
@@ -227,7 +221,7 @@ if (isset($SelectedCategory) and !isset($_POST['submit'])) {
 	if (!isset($_POST['CategoryID'])) {
 		$_POST['CategoryID'] = '';
 	}
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Category Code') . ':</td>
 				<td><input type="text" name="CategoryID" size="7" required="required" maxlength="6" value="' . $_POST['CategoryID'] . '" /></td>

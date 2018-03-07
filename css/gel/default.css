@@ -13,6 +13,12 @@ margin:0;
 padding:5px;
 }
 
+button img {
+	/* Describes how button image should be displayed. */
+	height:21px;
+	width:21px;
+}
+
 div.toplink {
 padding-top:1%;
 padding-left:1%;
@@ -144,39 +150,6 @@ font-weight:700;
 color:red;
 }
 
-table {
-background-color:#eee;
-border:0 0 2px 2px #222 solid;
-background:#eee;
-width:100%;
-}
-
-table.selection {
-background-color:#eee;
-outline-style:solid;
-outline-width:1px;
-}
-
-th {
-background-color:#ccc;
-color:#300;
-text-align:center;
-}
-
-th.number {
-text-align:right;
-background-color:#ccc;
-color:#300;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
 .centre {
 text-align:center;
 margin:0 auto;
@@ -228,14 +201,6 @@ input:required,select:required,textarea:required {
 background-color:#D1D1D5;
 }
 
-.EvenTableRows {
-background-color:#CCC;
-}
-
-.OddTableRows {
-background-color:#EEE;
-}
-
 textarea:hover {
 background:url(images/inputhtxt.png) #eee;
 color:#000;
@@ -266,22 +231,6 @@ div.info {
 background-color:#5d70f8;
 color:#FFF;
 border:1px solid #FFF;
-}
-
-DIV.page_help_text {
-background:#D3D3D3;
-border:#a52a2a 1px solid;
-padding-top:2px;
-padding-bottom:2px;
-padding-left:10px;
-z-index:1;
-width:80%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
 }
 
 DIV.system_check {
@@ -326,18 +275,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-background:#eee;
-border:1px solid #222;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:#cccce5;
-color:#300;
 }
 
 .notavailable {

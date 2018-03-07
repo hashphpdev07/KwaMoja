@@ -50,7 +50,7 @@ if (!isset($Counter)) {
 	$ErrMsg = _('The ot could not be retrieved because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Index') . '</th>
 			<th>' . _('Pay ID') . '</th>
@@ -67,25 +67,18 @@ if (!isset($Counter)) {
 
 	while ($MyRow = DB_fetch_row($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="OddTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			$k++;
-		}
-
-		echo '<td>' . $MyRow[0] . '</td>
-			<td>' . $MyRow[1] . '</td>
-			<td>' . $MyRow[2] . '</td>
-			<td>' . $MyRow[3] . '</td>
-			<td>' . $MyRow[4] . '</td>
-			<td>' . $MyRow[5] . '</td>
-			<td>' . $MyRow[6] . '</td>
-			<td>' . $MyRow[7] . '</td>
-			<td>' . $MyRow[8] . '</td>
-			<td><a href="' . $_SERVER['PHP_SELF'] . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow[0] . '</td>
+				<td>' . $MyRow[1] . '</td>
+				<td>' . $MyRow[2] . '</td>
+				<td>' . $MyRow[3] . '</td>
+				<td>' . $MyRow[4] . '</td>
+				<td>' . $MyRow[5] . '</td>
+				<td>' . $MyRow[6] . '</td>
+				<td>' . $MyRow[7] . '</td>
+				<td>' . $MyRow[8] . '</td>
+				<td><a href="' . $_SERVER['PHP_SELF'] . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 

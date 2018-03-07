@@ -30,7 +30,7 @@ if ((!isset($SelectedCOA) || $SelectedCOA == '') and (!isset($QASampleID) or $QA
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Enter Item') . ':</td>
 				<td><input type="text" name="ProdSpec" size="25" maxlength="25" /></td>
@@ -56,7 +56,7 @@ if ((!isset($SelectedCOA) || $SelectedCOA == '') and (!isset($QASampleID) or $QA
 						WHERE cert='1'
 						ORDER BY lotkey";
 	$ResultSelection = DB_query($SQLSpecSelect);
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Or Select Existing Lot') . ':</td>
 				<td><select name="QASampleID" style="font-family: monospace; white-space:pre;">';
@@ -88,7 +88,8 @@ if (isset($SelectedCOA)) {
 					type,
 					testvalue,
 					sampledate,
-					groupby
+					groupby,
+					prodspeckey
 				FROM qasamples
 				INNER JOIN sampleresults
 					ON sampleresults.sampleid=qasamples.sampleid
@@ -110,7 +111,8 @@ if (isset($SelectedCOA)) {
 					type,
 					testvalue,
 					sampledate,
-					groupby
+					groupby,
+					prodspeckey
 				FROM qasamples
 				INNER JOIN sampleresults
 					ON sampleresults.sampleid=qasamples.sampleid
@@ -372,7 +374,7 @@ $Disclaimer = $_SESSION['QualityCOAText'];
 $LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 500, $FontSize, $Disclaimer);
 while (mb_strlen($LeftOvers) > 1) {
 	$YPos -= $LineHeight;
-	$LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 445, $FontSize, $LeftOvers, 'left');
+	$LeftOvers = $PDF->addTextWrap($XPos + 5, $YPos, 500, $FontSize, $LeftOvers, 'left');
 }
 
 $PDF->OutputI($_SESSION['DatabaseName'] . 'COA' . date('Y-m-d') . '.pdf');

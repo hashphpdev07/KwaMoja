@@ -107,7 +107,7 @@ if (!isset($SelectedUser)) {
 	then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table class="selection">
+			<table>
 			<tr>
 				<td>' . _('Select User') . ':</td>
 				<td><select name="SelectedUser">';
@@ -167,7 +167,7 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Authorised Inventory Locations for User') . ': ' . $SelectedUserName . '</h3></th>
 		</tr>';
@@ -181,13 +181,6 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['canupd'] == 1) {
 			$ToggleText = '<td><a href="%s?SelectedLocation=%s&amp;ToggleUpdate=0&amp;SelectedUser=' . $SelectedUser . '" onclick="return confirm(\'' . _('Are you sure you wish to remove Update for this location?') . '\');">' . _('Remove Update') . '</a></td>';
@@ -195,7 +188,8 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 			$ToggleText = '<td><a href="%s?SelectedLocation=%s&amp;ToggleUpdate=1&amp;SelectedUser=' . $SelectedUser . '" onclick="return confirm(\'' . _('Are you sure you wish to add Update for this location?') . '\');">' . _('Add Update') . '</a></td>';
 		}
 
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>' . $ToggleText . '
@@ -216,7 +210,7 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 	if (!isset($_GET['delete'])) {
 
 
-		echo '<table  class="selection">'; //Main table
+		echo '<table >'; //Main table
 
 		echo '<tr>
 				<td>' . _('Select Location') . ':</td>

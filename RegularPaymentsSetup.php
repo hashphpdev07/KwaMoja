@@ -159,7 +159,7 @@ if (isset($_POST['Add']) or isset($_POST['Update'])) {
 echo '<form method="post" id="RegularPaymentsSetup" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<th colspan="2">
 			<h3>' . _('Regular General Ledger Payment') . '</h3>
@@ -212,11 +212,11 @@ echo '</select>
 	</tr>
 	<tr>
 		<td>' . _('Date of first payment') . '</td>
-		<td><input type="date" name="FirstPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['FirstPaymentDate'] . '" /></td>
+		<td><input type="date" name="FirstPaymentDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['FirstPaymentDate'] . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Date of Last payment') . '</td>
-		<td><input type="date" name="LastPaymentDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['LastPaymentDate'] . '" /></td>
+		<td><input type="date" name="LastPaymentDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ' . "'" . $_SESSION['DefaultDateFormat'] . "'" . ')" value="' . $_POST['LastPaymentDate'] . '" /></td>
 	</tr>';
 
 $SQL = "SELECT bankaccountname,
@@ -434,7 +434,7 @@ $SQL = "SELECT regularpayments.id,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0 and !isset($_GET['Edit'])) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Frequency') . '</th>
 				<th>' . _('Days into Period') . '</th>

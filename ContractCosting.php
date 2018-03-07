@@ -63,7 +63,7 @@ if ($_SESSION['Contract' . $Identifier]->Status == 3) {
 }
 echo _('Contract') . '<br />' . $_SESSION['Contract' . $Identifier]->CustomerName . '<br />' . $_SESSION['Contract' . $Identifier]->ContractDescription . '</p>';
 
-echo '<table class="selection">
+echo '<table>
 	<tr>
 		<th colspan="6">' . _('Original Costing') . '</th>
 		<th colspan="6">' . _('Actual Costs') . '</th>
@@ -144,7 +144,7 @@ echo '<tr>
 $OtherReqtsBudget = 0;
 //other requirements budget sub-table
 echo '<tr>
-		<td colspan="6"><table class="selection">
+		<td colspan="6"><table>
 		<tr>
 			<th>' . _('Requirement') . '</th>
 			<th>' . _('Quantity') . '</th>
@@ -168,7 +168,7 @@ echo '<tr>
 
 //Now other requirements actual in a sub table
 echo '<td colspan="6">
-			<table class="selection">
+			<table>
 			<tr>
 				<th>' . _('Supplier') . '</th>
 				<th>' . _('Reference') . '</th>

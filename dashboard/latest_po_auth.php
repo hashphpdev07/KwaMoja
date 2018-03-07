@@ -85,13 +85,6 @@ echo '<tbody>
 		</tr>';
 $k = 0;
 while ($row = DB_fetch_array($Result)) {
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
 	$AuthSQL = "SELECT authlevel
 					FROM purchorderauth
 					WHERE currabrev='" . $row['currcode'] . "'
@@ -115,7 +108,8 @@ while ($row = DB_fetch_array($Result)) {
 	$FormatedOrderDate2 = ConvertSQLDate($row['orddate']);
 	$FormatedDelDate2 = ConvertSQLDate($row['deliverydate']);
 
-	echo '<td>' . $row['suppname'] . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $row['suppname'] . '</td>
 			<td>' . $row['email'] . '</td>
 			<td>' . $FormatedOrderDate2 . '</td>
 			<td>' . $FormatedDelDate2 . '</td>

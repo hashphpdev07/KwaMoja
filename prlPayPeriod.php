@@ -117,7 +117,7 @@ $ErrMsg = _('Could not get pay period because');
 $Result = DB_query($SQL, $ErrMsg);
 
 if (DB_num_rows($Result)) {
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>' . _('Pay Code') . '</td>
 			<th>' . _('Pay Description') . '</td>
@@ -149,7 +149,7 @@ if (DB_num_rows($Result)) {
 
 echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<table>';
 
 //if (!isset($_POST["New"])) {
 if (isset($PayPeriodID)) {

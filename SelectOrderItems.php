@@ -34,6 +34,35 @@ if (isset($_POST['SelectingOrderItems'])) {
 
 } //isset($_POST['SelectingOrderItems'])
 
+if (isset($_POST['UploadFile'])) {
+	if (isset($_FILES['CSVFile']) and $_FILES['CSVFile']['name']) {
+		//check file info
+		$FileName = $_FILES['CSVFile']['name'];
+		$TempName = $_FILES['CSVFile']['tmp_name'];
+		$FileSize = $_FILES['CSVFile']['size'];
+		//get file handle
+		$FileHandle = fopen($TempName, 'r');
+		$Row = 0;
+		$InsertNum = 0;
+		while (($FileRow = fgetcsv($FileHandle, 10000, ",")) !== False) {
+			/* Check the stock code exists */
+			++$Row;
+			$SQL = "SELECT stockid FROM stockmaster WHERE stockid='" . $FileRow[0] . "'";
+			$Result = DB_query($SQL);
+			if (DB_num_rows($Result) > 0) {
+				$NewItemArray[$FileRow[0]] = filter_number_format($FileRow[1]);
+				++$InsertNum;
+			}
+		}
+	}
+	$_POST['SelectingOrderItems'] = 1;
+	if (sizeof($NewItemArray) == 0) {
+		prnMsg(_('There are no items that can be imported'), 'error');
+	} else {
+		prnMsg($InsertNum . ' ' . _('of') . ' ' . $Row . ' ' . _('rows have been added to the order'), 'info');
+	}
+}
+
 if (isset($_GET['NewItem'])) {
 	$NewItem = trim($_GET['NewItem']);
 } //isset($_GET['NewItem'])
@@ -146,6 +175,14 @@ if (isset($_GET['ModifyOrderNumber']) and $_GET['ModifyOrderNumber'] != '') {
 			include ('includes/footer.php');
 			exit;
 		} //$_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']
+
+		if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+			/* If it's a customer login and the invoice is for a different customer the do not print */
+			prnMsg(_('This transaction is addressed to another customer and cannot be displayed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
+			include('includes/header.php');
+			exit;
+		}
+
 		$_SESSION['Items' . $Identifier]->OrderNo = $_GET['ModifyOrderNumber'];
 		$_SESSION['Items' . $Identifier]->DebtorNo = DB_escape_string($MyRow['debtorno']);
 		$_SESSION['Items' . $Identifier]->CreditAvailable = GetCreditAvailable($_SESSION['Items' . $Identifier]->DebtorNo);
@@ -526,28 +563,28 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 	echo '<div class="page_help_text">' . _('Orders/Quotations are placed against the Customer Branch. A Customer may have several Branches.') . '</div>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">
 			 <input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			 <table cellpadding="3" class="selection">
+			 <table cellpadding="3">
 				<tr>
 				<td>' . _('Part of the Customer Branch Name') . ':</td>
-				<td><input tabindex="1" type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
+				<td><input type="text" name="CustKeywords" size="20" autofocus="autofocus" maxlength="25" /></td>
 				<td><b>' . _('OR') . '</b></td>
 				<td>' . _('Part of the Customer Branch Code') . ':</td>
-				<td><input tabindex="2" type="text" name="CustCode" size="15" maxlength="18" /></td>
+				<td><input type="text" name="CustCode" size="15" maxlength="18" /></td>
 				<td><b>' . _('OR') . '</b></td>
 				<td>' . _('Part of the Branch Phone Number') . ':</td>
-				<td><input tabindex="3" type="text" name="CustPhone" size="15" maxlength="18" /></td>
+				<td><input type="text" name="CustPhone" size="15" maxlength="18" /></td>
 				</tr>
 			</table>
 			<div class="centre">
-				<input tabindex="4" type="submit" name="SearchCust" value="' . _('Search Now') . '" />
-				<input tabindex="5" type="submit" name="reset" value="' . _('Reset') . '" />
+				<input type="submit" name="SearchCust" value="' . _('Search Now') . '" />
+				<input type="submit" name="reset" value="' . _('Reset') . '" />
 			</div>';
 
 	if (isset($Result_CustSelect)) {
 		echo '<div>
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<input type="hidden" name="JustSelectedACustomer" value="Yes" />
-				<table class="selection">
+				<table>
 					<thead>
 						<tr>
 							<th class="SortedColumn">' . _('Customer') . '</th>
@@ -563,21 +600,15 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		$LastCustomer = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_CustSelect)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			if ($LastCustomer != $MyRow['name']) {
-				echo '<td>' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false) . '</td>';
+				echo '<tr class="striped_row">
+						<td>' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false) . '</td>';
 			} //$LastCustomer != $MyRow['name']
 			else {
-				echo '<td></td>';
+				echo '<tr class="striped_row">
+						<td></td>';
 			}
-			echo '<td><input tabindex="' . strval($j + 5) . '" type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false) . '" />
+			echo '<td><input type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false) . '" />
 					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
 					<input type="hidden" name="SelectedBranch' . $j . '" value="' . $MyRow['branchcode'] . '" /></td>
 					<td>' . $MyRow['contactname'] . '</td>
@@ -740,7 +771,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 	//Always do the stuff below if not looking for a customerid
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" id="SelectParts" method="post">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" id="SelectParts" method="post" enctype="multipart/form-data">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	//Get The exchange rate used for GPPercent calculations on adding or amending items
@@ -985,14 +1016,17 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 					/*There is a new price being input for the line item */
 
 					$Price = filter_number_format($_POST['Price_' . $OrderLine->LineNumber]);
-					if ($_POST['Discount_' . $OrderLine->LineNumber] < 100) {//to avoid divided by zero error
-						$_POST['GPPercent_' . $OrderLine->LineNumber] = (($Price * (1 - (filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]) / 100))) - $OrderLine->StandardCost * $ExRate) / ($Price * (1 - filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]) / 100) / 100);
+					if (isset($_POST['Discount_' . $OrderLine->LineNumber]) and is_numeric(filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]))) {
+							if ($_POST['Discount_' . $OrderLine->LineNumber] < 100) {//to avoid divided by zero error
+								$_POST['GPPercent_' . $OrderLine->LineNumber] = (($Price * (1 - (filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]) / 100))) - $OrderLine->StandardCost * $ExRate) / ($Price * (1 - filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]) / 100) / 100);
+							} else {
+								$_POST['GPPercent_' . $OrderLine->LineNumber] = 0;
+							}
 					} else {
-						$_POST['GPPercent_' . $OrderLine->LineNumber] = 0;
+						$_POST['GPPercent_' . $OrderLine->LineNumber] = ($Price - $OrderLine->StandardCost * $ExRate) * 100 / $Price;
 					}
 
-				} //ABS($OrderLine->Price - filter_number_format($_POST['Price_' . $OrderLine->LineNumber])) > 0.01
-				elseif (ABS($OrderLine->GPPercent - filter_number_format($_POST['GPPercent_' . $OrderLine->LineNumber])) >= 0.01) {
+				} elseif (isset($_POST['GPPercent_' . $OrderLine->LineNumber]) and ABS($OrderLine->GPPercent - filter_number_format($_POST['GPPercent_' . $OrderLine->LineNumber])) >= 0.01) {
 					/* A GP % has been input so need to do a recalculation of the price at this new GP Percentage */
 
 					prnMsg(_('Recalculated the price from the GP % entered - the GP % was') . ' ' . $OrderLine->GPPercent . '  the new GP % is ' . filter_number_format($_POST['GPPercent_' . $OrderLine->LineNumber]), 'info');
@@ -1001,8 +1035,21 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				} //ABS($OrderLine->GPPercent - filter_number_format($_POST['GPPercent_' . $OrderLine->LineNumber])) >= 0.01
 				else {
 					$Price = filter_number_format($_POST['Price_' . $OrderLine->LineNumber]);
+					if (isset($_POST['Discount_' . $OrderLine->LineNumber]) and is_numeric(filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]))) {
+							if ($_POST['Discount_' . $OrderLine->LineNumber] < 100) {//to avoid divided by zero error
+								$_POST['GPPercent_' . $OrderLine->LineNumber] = (($Price * (1 - (filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]) / 100))) - $OrderLine->StandardCost*$ExRate) / ($Price * (1 - filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]) / 100) / 100);
+							} else {
+								$_POST['GPPercent_' . $OrderLine->LineNumber] = 0;
+							}
+					} else {
+						$_POST['GPPercent_' . $OrderLine->LineNumber] = ($Price - $OrderLine->StandardCost * $ExRate) * 100 / $Price;
+					}
 				}
-				$DiscountPercentage = filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]);
+				if (isset($_POST['Discount_' . $OrderLine->LineNumber])) {
+					$DiscountPercentage = filter_number_format($_POST['Discount_' . $OrderLine->LineNumber]);
+				} else {
+					$DiscountPercentage = 0;
+				}
 				if ($_SESSION['AllowOrderLineItemNarrative'] == 1) {
 					$Narrative = $_POST['Narrative_' . $OrderLine->LineNumber];
 				} //$_SESSION['AllowOrderLineItemNarrative'] == 1
@@ -1291,7 +1338,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 		echo '<div class="page_help_text">' . _('Quantity (required) - Enter the number of units ordered.  Price (required) - Enter the unit price.  Discount (optional) - Enter a percentage discount.  GP% (optional) - Enter a percentage Gross Profit (GP) to add to the unit cost.  Due Date (optional) - Enter a date for delivery. Items bordered in red do not have enough stock to fulfil the order.') . '</div><br />';
 		echo '<table width="90%" cellpadding="2" style="border-collapse: collapse;">
-				<tr style="background-color:#800000">';
+				<tr>';
 		if($ShowPOLine) {
 			echo '<th>' . _('PO Line') . '</th>';
 		} //$_SESSION['Items' . $Identifier]->DefaultPOLine == 1
@@ -1327,17 +1374,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				$RowStarter = '<tr style="border:solid 2px #FF0000">'; //rows show red where stock deficiency
 
 			} //$OrderLine->QOHatLoc < $OrderLine->Quantity and ($OrderLine->MBflag == 'B' or $OrderLine->MBflag == 'M')
-			elseif ($k == 1) {
-				$RowStarter = '<tr class="OddTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				$RowStarter = '<tr class="EvenTableRows">';
-				$k = 1;
-			}
 
-			echo $RowStarter;
-			echo '<td>';
+			echo '<tr class="striped_row">
+					<td>';
 			if($ShowPOLine) {// Show the input field only if required.
 				echo '<input maxlength="20" name="POLine_' . $OrderLine->LineNumber . '" size="20" type="text" value="' . $OrderLine->POLine . '" /></td><td>';
 			} else {
@@ -1347,7 +1386,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			echo '<a href="' . $RootPath . '/StockStatus.php?identifier=' . urlencode($Identifier) . '&amp;StockID=' . urlencode($OrderLine->StockID) . '&amp;DebtorNo=' . urlencode($_SESSION['Items' . $Identifier]->DebtorNo) . '" target="_blank">' . $OrderLine->StockID . '</a></td>
 				<td title="' . $OrderLine->LongDescription . '">' . $OrderLine->ItemDescription . '</td>';
 
-			echo '<td><input class="number" tabindex="2" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="11" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
+			echo '<td><input class="number" type="text" name="Quantity_' . $OrderLine->LineNumber . '" size="6" required="required" maxlength="11" value="' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . '" />';
 			if ($QtyRemain != $QtyOrdered) {
 				echo '<br />' . locale_number_format($OrderLine->QtyInv, $OrderLine->DecimalPlaces) . ' ' . _('of') . ' ' . locale_number_format($OrderLine->Quantity, $OrderLine->DecimalPlaces) . ' ' . _('invoiced');
 			} //$QtyRemain != $QtyOrdered
@@ -1378,7 +1417,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				$_SESSION['Items' . $Identifier]->LineItems[$OrderLine->LineNumber]->ItemDue = $LineDueDate;
 			} //!is_date($OrderLine->ItemDue)
 
-			echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ItemDue_' . $OrderLine->LineNumber . '" size="10" required="required" maxlength="10" value="' . $LineDueDate . '" /></td>';
+			echo '<td><input type="text" class="date" name="ItemDue_' . $OrderLine->LineNumber . '" size="10" required="required" maxlength="10" value="' . $LineDueDate . '" /></td>';
 
 			echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $OrderLine->LineNumber . '" onclick="return MakeConfirm(\'' . _('Are You Sure?') . '\', \'Confirm Delete\', this);">' . $RemTxt . '</a></td></tr>';
 
@@ -1405,7 +1444,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		else {
 			$ColSpanNumber = 1;
 		}
-		echo '<tr class="EvenTableRows">
+		echo '<tr class="striped_row">
 				<td class="number" colspan="6"><b>' . _('TOTAL Excl Tax/Freight') . '</b></td>
 				<td colspan="' . $ColSpanNumber . '" class="number">' . $DisplayTotal . '</td>
 			</tr>
@@ -1414,7 +1453,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		$DisplayVolume = locale_number_format($_SESSION['Items' . $Identifier]->totalVolume, 2);
 		$DisplayWeight = locale_number_format($_SESSION['Items' . $Identifier]->totalWeight, 2);
 		echo '<table>
-				<tr class="EvenTableRows">
+				<tr class="striped_row">
 					<td>' . _('Total Weight') . ':</td>
 					<td>' . $DisplayWeight . '</td>
 					<td>' . _('Total Volume') . ':</td>
@@ -1476,9 +1515,12 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				// This code needs sorting out, but until then :
 				$ImageSource = _('No Image');
 				// Find the quantity in stock at location
-				$QOHSQL = "SELECT sum(locstock.quantity) AS qoh
+				$QOHSQL = "SELECT SUM(locstock.quantity) AS qoh,
+								decimalplaces
 							FROM locstock
-							WHERE stockid='" . $MyRow['stockid'] . "'
+							INNER JOIN stockmaster
+								ON stockmaster.stockid=locstock.stockid
+							WHERE locstock.stockid='" . $MyRow['stockid'] . "'
 							AND loccode = '" . $_SESSION['Items' . $Identifier]->Location . "'";
 				$QOHResult = DB_query($QOHSQL);
 				$QOHRow = DB_fetch_array($QOHResult);
@@ -1509,28 +1551,21 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$WoQty = GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} //$k == 1
-				else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
 				$OnOrder = $PurchQty + $WoQty;
 
 				$Available = $QOH - $DemandQty + $OnOrder;
 
-				printf('<td>%s</td>
-						<td title="%s">%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" required="required" maxlength="10" size="6" name="OrderQty' . $i . '" value="0" />
-						<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
-						</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td title="%s">%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td><input class="number" type="text" required="required" maxlength="10" size="6" name="OrderQty' . $i . '" value="0" />
+								<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
+							</td>
 						</tr>', $MyRow['stockid'], $MyRow['longdescription'], $MyRow['description'], $MyRow['units'], locale_number_format($QOH, $QOHRow['decimalplaces']), locale_number_format($DemandQty, $QOHRow['decimalplaces']), locale_number_format($OnOrder, $QOHRow['decimalplaces']), locale_number_format($Available, $QOHRow['decimalplaces']));
 				++$i;
 				//end of page full new headings if
@@ -1540,7 +1575,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			echo '</tbody>';
 			echo '<td style="text-align:center" colspan="8">
 					<input type="hidden" name="SelectingOrderItems" value="1" />
-					<input tabindex="' . strval($j + 8) . '" type="submit" value="' . _('Add to Sales Order') . '" />
+					<input type="submit" value="' . _('Add to Sales Order') . '" />
 				</td>
 			</tr>';
 			echo '</table>';
@@ -1549,9 +1584,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ';
 		echo _('Search for Order Items') . '</p></div>';
 		echo '<div class="page_help_text">' . _('Search for Order Items') . _(', Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code') . '.</div><br />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
-					<td><b>' . _('Select a Stock Category') . ': </b><select tabindex="1" name="StockCat">';
+					<td><b>' . _('Select a Stock Category') . ': </b><select name="StockCat">';
 
 		if (!isset($_POST['StockCat']) or $_POST['StockCat'] == 'All') {
 			echo '<option selected="selected" value="All">' . _('All') . '</option>';
@@ -1578,14 +1613,14 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 
 		echo '</select></td>
 
-			<td><b>' . _('Enter partial Description') . ':</b><input tabindex="2" type="text" name="Keywords" size="20" maxlength="25" value="';
+			<td><b>' . _('Enter partial Description') . ':</b><input type="text" name="Keywords" size="20" maxlength="25" value="';
 
 		if (isset($_POST['Keywords'])) {
 			echo $_POST['Keywords'];
 		} //isset($_POST['Keywords'])
 		echo '" /></td>';
 
-		echo '<td align="right"><b>' . _('OR') . ' ' . _('Enter extract of the Stock Code') . ':</b><input tabindex="3" type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="';
+		echo '<td align="right"><b>' . _('OR') . ' ' . _('Enter extract of the Stock Code') . ':</b><input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="';
 		if (isset($_POST['StockCode'])) {
 			echo $_POST['StockCode'];
 		} //isset($_POST['StockCode'])
@@ -1595,9 +1630,13 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		</table>';
 
 		echo '<div class="centre">
-				<input tabindex="4" type="submit" name="Search" value="' . _('Search Now') . '" />
-				<input tabindex="5" type="submit" name="QuickEntry" value="' . _('Use Quick Entry') . '" />
+				<input type="submit" name="Search" value="' . _('Search Now') . '" />
+				<input type="submit" name="QuickEntry" value="' . _('Use Quick Entry') . '" />
+				<h2>' . _('Or') . '</h2>
+				' . _('Upload items from csv file') . '<input type="file" name="CSVFile" />
+				<input type="submit" name="UploadFile" value="' . _('Upload File') . '" />
 			</div>';
+		echo '<div class="page_help_text">' . _('The csv file should have exactly 2 columns, part code and quantity.') . '</div>';
 
 		if (isset($SearchResult)) {
 			echo '<div class="page_help_text">' . _('Select an item by entering the quantity required.  Click Order when ready.') . '</div>';
@@ -1607,15 +1646,15 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 						<tr>
 							<td colspan="1">
 								<input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" />
-								<input tabindex="' . strval($j + 8) . '" type="submit" name="Previous" value="' . _('Previous') . '" />
+								<input type="submit" name="Previous" value="' . _('Previous') . '" />
 							</td>
-							<td style="text-align:center" colspan="6">
+							<td style="text-align:center" colspan="7">
 								<input type="hidden" name="SelectingOrderItems" value="1" />
-								<input tabindex="' . strval($j + 9) . '" type="submit" value="' . _('Add to Sales Order') . '" />
+								<input type="submit" value="' . _('Add to Sales Order') . '" />
 							</td>
-							<td colspan="1">
+							<td style="text-align:right" colspan="1">
 								<input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" />
-								<input tabindex="' . strval($j + 10) . '" type="submit" name="Next" value="' . _('Next') . '" />
+								<input type="submit" name="Next" value="' . _('Next') . '" />
 							</td>
 						</tr>
 						<tr>
@@ -1671,37 +1710,44 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 				$WoQty = GetQuantityOnOrderDueToWorkOrders($MyRow['stockid']);
 
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} //$k == 1
-				else {
-					echo '<tr class="OddTableRows">';
-					$k = 1;
-				}
 				$OnOrder = $PurchQty + $WoQty;
 				$Available = $QOH - $DemandQty + $OnOrder;
 
-				printf('<td>%s</td>
-						<td title="%s">%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td><input class="number"  tabindex="' . strval($j + 7) . '" type="text" size="6" required="required" maxlength="10" name="OrderQty' . $i . '" value="0" />
-						<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
-						</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td title="%s">%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td><input class="number" type="text" size="6" required="required" maxlength="10" name="OrderQty' . $i . '" value="0" />
+							<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" />
+							</td>
 						</tr>', $MyRow['stockid'], $MyRow['longdescription'], $MyRow['description'], $MyRow['cust_part'] . '-' . $MyRow['cust_description'], $MyRow['units'], locale_number_format($QOH, $QOHRow['decimalplaces']), locale_number_format($DemandQty, $QOHRow['decimalplaces']), locale_number_format($OnOrder, $QOHRow['decimalplaces']), locale_number_format($Available, $QOHRow['decimalplaces']));
 				++$i;
 				//end of page full new headings if
 
 			} //$MyRow = DB_fetch_array($SearchResult)
 			//end of while loop
-			echo '</tbody><tr><td><input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" /><input tabindex="' . strval($j + 7) . '" type="submit" name="Previous" value="' . _('Previous') . '" /></td>';
-			echo '<td style="text-align:center" colspan="6"><input type="hidden" name="SelectingOrderItems" value="1" /><input tabindex="' . strval($j + 8) . '" type="submit" value="' . _('Add to Sales Order') . '" /></td>';
-			echo '<td><input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" /><input tabindex="' . strval($j + 9) . '" type="submit" name="Next" value="' . _('Next') . '" /></td></tr>';
+			echo '</tbody>';
+			echo '<tfoot>
+					<tr>
+						<td>
+							<input type="hidden" name="PreviousList" value="' . strval($Offset - 1) . '" />
+							<input type="submit" name="Previous" value="' . _('Previous') . '" />
+						</td>
+						<td style="text-align:center" colspan="7">
+							<input type="hidden" name="SelectingOrderItems" value="1" />
+							<input type="submit" value="' . _('Add to Sales Order') . '" />
+						</td>
+						<td style="text-align:right">
+							<input type="hidden" name="NextList" value="' . strval($Offset + 1) . '" />
+							<input type="submit" name="Next" value="' . _('Next') . '" />
+						</td>
+					</tr>
+				</tfoot>';
 			echo '</table>';
 
 		} //end if SearchResults to show
@@ -1732,7 +1778,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			} //$_SESSION['Items' . $Identifier]->DefaultPOLine > 0
 			echo '<td><input type="text" name="part_' . $i . '" size="21" maxlength="20" /></td>
 					<td><input type="text" name="qty_' . $i . '" size="6" maxlength="6" /></td>
-					<td><input type="text" class="date" name="itemdue_' . $i . '" size="25" maxlength="25" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . $DefaultDeliveryDate . '" /></td></tr>';
+					<td><input type="text" class="date" name="itemdue_' . $i . '" size="25" maxlength="25" value="' . $DefaultDeliveryDate . '" /></td></tr>';
 		} //$i = 1; $i <= $_SESSION['QuickEntries']; $i++
 		echo '</table>';
 

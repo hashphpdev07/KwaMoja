@@ -1,17 +1,8 @@
 <?php
-
 // BOMIndented.php - Indented Bill of Materials
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF'])) {
-
-	include('includes/PDFStarter.php');
-	$PDF->addInfo('Title', _('Indented BOM Listing'));
-	$PDF->addInfo('Subject', _('Indented BOM Listing'));
-	$FontSize = 9;
-	$PageNumber = 1;
-	$line_height = 12;
 
 	$SQL = "DROP TABLE IF EXISTS tempbom";
 	$Result = DB_query($SQL);
@@ -40,7 +31,6 @@ if (isset($_POST['PrintPDF'])) {
 	// Put those first level parts in passbom, use COMPONENT in passbom
 	// to link to PARENT in bom to find next lower level and accumulate
 	// those parts into tempbom
-
 	// This finds the top level
 	$SQL = "INSERT INTO passbom (part, sortpart)
 				SELECT bom.component AS part,
@@ -75,7 +65,7 @@ if (isset($_POST['PrintPDF'])) {
 				FROM bom
 				INNER JOIN locationusers
 					ON locationusers.loccode=bom.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE bom.parent ='" . $_POST['Part'] . "'
 					AND bom.effectiveto > CURRENT_DATE
@@ -85,7 +75,6 @@ if (isset($_POST['PrintPDF'])) {
 	// This while routine finds the other levels as long as $ComponentCounter - the
 	// component counter - finds there are more components that are used as
 	// assemblies at lower levels
-
 	$ComponentCounter = 1;
 	if ($_POST['Levels'] == 'All') {
 		while ($ComponentCounter > 0) {
@@ -114,7 +103,7 @@ if (isset($_POST['PrintPDF'])) {
 					ON bom.parent = passbom.part
 				INNER JOIN locationusers
 					ON locationusers.loccode=bom.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE bom.effectiveto > CURRENT_DATE
 					AND bom.effectiveafter <= CURRENT_DATE";
@@ -134,7 +123,6 @@ if (isset($_POST['PrintPDF'])) {
 								sortpart text) DEFAULT CHARSET=utf8";
 			$Result = DB_query($SQL);
 
-
 			$SQL = "INSERT INTO passbom (part, sortpart)
 						SELECT bom.component AS part,
 							CONCAT(passbom2.sortpart,bom.component) AS sortpart
@@ -144,7 +132,6 @@ if (isset($_POST['PrintPDF'])) {
 							AND bom.effectiveafter <= CURRENT_DATE";
 			$Result = DB_query($SQL);
 
-
 			$SQL = "SELECT COUNT(*) FROM bom,passbom WHERE bom.parent = passbom.part";
 			$Result = DB_query($SQL);
 
@@ -152,20 +139,19 @@ if (isset($_POST['PrintPDF'])) {
 			$ComponentCounter = $MyRow[0];
 
 		} // End of while $ComponentCounter > 0
+		
 	} // End of if $_POST['Levels']
-
 	if (DB_error_no() != 0) {
 		$Title = _('Indented BOM Listing') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Indented BOM Listing could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
-
 
 	$SQL = "SELECT stockmaster.stockid,
 					stockmaster.description
@@ -176,163 +162,119 @@ if (isset($_POST['PrintPDF'])) {
 	$assembly = $_POST['Part'];
 	$assemblydesc = $MyRow['description'];
 
-	PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $assemblydesc);
-
 	$Tot_Val = 0;
 	$SQL = "SELECT tempbom.*,
 				stockmaster.description,
-				stockmaster.mbflag
+				stockmaster.mbflag,
+				stockmaster.units
 			FROM tempbom,stockmaster
 			WHERE tempbom.component = stockmaster.stockid
 			ORDER BY sortpart";
 	$Result = DB_query($SQL);
 
-	// $fill is used to alternate between lines with transparent and painted background
-	$fill = false;
-	$PDF->SetFillColor(224, 235, 255);
+	$Title = _('Indented BOM Listing');
+	include ('includes/header.php');
 
-	$ListCount = DB_num_rows($Result);
-
-	while ($MyRow = DB_fetch_array($Result)) {
-
-		$YPos -= $line_height;
-		$FontSize = 8;
-
-		$FormatedEffectiveAfter = ConvertSQLDate($MyRow['effectiveafter']);
-		$FormatedEffectiveTo = ConvertSQLDate($MyRow['effectiveto']);
-
-
-		if ($_POST['Fill'] == 'yes') {
-			$fill = !$fill;
-		}
-
-		// Parameters for addTextWrap are defined in /includes/class.pdf.php
-		// 1) X position 2) Y position 3) Width
-		// 4) Height 5) Text 6) Alignment 7) Border 8) Fill - True to use SetFillColor
-		// and False to set to transparent
-		$PDF->addTextWrap($Left_Margin + ($MyRow['level'] * 5), $YPos, 90, $FontSize, $MyRow['component'], '', 0, $fill);
-		$PDF->addTextWrap(160, $YPos, 20, $FontSize, $MyRow['mbflag'], '', 0, $fill);
-		$PDF->addTextWrap(180, $YPos, 180, $FontSize, $MyRow['description'], '', 0, $fill);
-		$PDF->addTextWrap(360, $YPos, 30, $FontSize, $MyRow['loccode'], 'right', 0, $fill);
-		$PDF->addTextWrap(390, $YPos, 25, $FontSize, $MyRow['workcentreadded'], 'right', 0, $fill);
-		$PDF->addTextWrap(415, $YPos, 45, $FontSize, locale_number_format($MyRow['quantity'], 'Variable'), 'right', 0, $fill);
-		$PDF->addTextWrap(460, $YPos, 55, $FontSize, $FormatedEffectiveAfter, 'right', 0, $fill);
-		$PDF->addTextWrap(515, $YPos, 50, $FontSize, $FormatedEffectiveTo, 'right', 0, $fill);
-
-		if ($YPos < $Bottom_Margin + $line_height) {
-			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $assemblydesc);
-		}
-
-	}
-	/*end while loop */
-
-	$FontSize = 10;
-	$YPos -= (2 * $line_height);
-
-	if ($YPos < $Bottom_Margin + $line_height) {
-		PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $assemblydesc);
-	}
-
-	if ($ListCount == 0) {
-		$Title = _('Print Indented BOM Listing Error');
-		include('includes/header.php');
-		prnMsg(_('There were no items for the selected assembly'), 'error');
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
-		exit;
+	if ($_POST['Fill'] == 'yes') {
+		$CSSClass = 'striped_row';
 	} else {
-		$PDF->OutputD($_SESSION['DatabaseName'] . '_Bill_Of_Material_Indented_' . date('Y-m-d') . '.pdf');
-		$PDF->__destruct();
+		$CSSClass = '';
 	}
+
+	echo '<table>
+			<thead>
+				<tr class="noPrint">
+					<th colspan="9"><h2>', $Title, '</h2>
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print this report'), '" alt="', _('Print'), '" onclick="window.print();" />
+					</th>
+				</tr>
+				<tr>
+					<td colspan="8"><h3>
+						', $_SESSION['CompanyRecord']['coyname'], '<br />
+						', _('Indented BOM Listing For '), mb_strtoupper($_POST['Part']), '<br />
+					</td>
+					<td style="float:right;vertical-align:top;text-align:right">
+						', _('Printed On'), ' ', Date($_SESSION['DefaultDateFormat']) . '
+					</td></h3>
+				</tr>
+				<tr>
+					<th>', _('Part Number'), '</th>
+					<th>', _('M/B'), '</th>
+					<th>', _('Part Description'), '</th>
+					<th>', _('Location'), '</th>
+					<th>', _('Work Centre'), '</th>
+					<th>', _('Quantity'), '</th>
+					<th>', _('Units'), '</th>
+					<th>', _('From Date'), '</th>
+					<th>', _('To Date'), '</th>
+				</tr>
+			</thead>
+			<tbody>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		echo '<tr class="', $CSSClass, '">
+					<td>', indent($MyRow['level'] - 2), $MyRow['component'], '</td>
+					<td>', indent($MyRow['level'] - 2), $MyRow['mbflag'], '</td>
+					<td>', indent($MyRow['level'] - 2), $MyRow['description'], '</td>
+					<td>', indent($MyRow['level'] - 2), $MyRow['loccode'], '</td>
+					<td>', indent($MyRow['level'] - 2), $MyRow['workcentreadded'], '</td>
+					<td class="number">', indent($MyRow['level'] - 2), locale_number_format($MyRow['quantity'], 'Variable'), '</td>
+					<td>', indent($MyRow['level'] - 2), $MyRow['units'], '</td>
+					<td>', indent($MyRow['level'] - 2), ConvertSQLDate($MyRow['effectiveafter']), '</td>
+					<td>', indent($MyRow['level'] - 2), ConvertSQLDate($MyRow['effectiveto']), '</td>
+				</tr>';
+	}
+	echo '</tbody>
+	</table>';
+	echo '<a class="noPrint" href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another BOM'), '</a><br />';
+	include ('includes/footer.php');
 
 } else {
-	/*The option to print PDF was not hit so display form */
 
 	$Title = _('Indented BOM Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
-			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table class="selection">';
-	echo '<tr>
-			<td>' . _('Part') . ':</td>
-			<td><input type ="text" name="Part" autofocus="autofocus" required="required" maxlength="20" size="20" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Levels') . ':</td>
-			<td><select name="Levels">
-				<option selected="selected" value="All">' . _('All Levels') . '</option>
-				<option value="One">' . _('One Level') . '</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Print Option') . ':</td>
-			<td><select name="Fill">
-				<option selected="selected" value="yes">' . _('Print With Alternating Highlighted Lines') . '</option>
-				<option value="no">' . _('Plain Print') . '</option>
-				</select>
-			</td>
-		</tr>
-		</table>
-		<div class="centre">
-			<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
-		</div>
-		</form>';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	include('includes/footer.php');
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label>', _('Part'), ':</label>
+				<input type ="text" name="Part" autofocus="autofocus" required="required" maxlength="20" size="20" />
+				<fieldhelp>', _('Enter the code of the top level item of the BOM'), '</fieldhelp>
+			</field>
+			<field>
+				<label>', _('Levels'), ':</label>
+				<select name="Levels">
+					<option selected="selected" value="All">', _('All Levels'), '</option>
+					<option value="One">', _('One Level'), '</option>
+				</select>
+				<fieldhelp>', _('Choose to print all levels of the BOM or just the top level'), '</fieldhelp>
+			</field>
+			<field>
+				<label>', _('Print Option'), ':</label>
+				<select name="Fill">
+					<option selected="selected" value="yes">', _('Print With Alternating Highlighted Lines'), '</option>
+					<option value="no">', _('Plain Print'), '</option>
+				</select>
+				<fieldhelp>', _('Select the print options for the report'), '</fieldhelp>
+			</field>
+		</fieldset>
+		<div class="centre">
+			<input type="submit" name="PrintPDF" value="', _('View Report'), '" />
+		</div>
+	</form>';
+
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
 
-
-function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $assemblydesc) {
-
-	$line_height = 12;
-	/*PDF page header for Indented BOM Listing report */
-	if ($PageNumber > 1) {
-		$PDF->newPage();
+function indent($Level) {
+	for ($i = 0;$i < $Level;$i++) {
+		echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 	}
-
-	$FontSize = 9;
-	$YPos = $Page_Height - $Top_Margin - 5;
-
-	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
-
-	$YPos -= $line_height;
-
-	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('Indented BOM Listing'));
-	$PDF->addTextWrap($Page_Width - $Right_Margin - 105, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . ' ' . _('Page') . ' ' . $PageNumber, 'left');
-
-	$YPos -= (2 * $line_height);
-
-	/*set up the headings */
-	$Xpos = $Left_Margin + 1;
-
-	$PDF->addTextWrap($Xpos, $YPos, 90, $FontSize, _('Part Number'), 'left');
-	$PDF->addTextWrap(160, $YPos, 20, $FontSize, _('M/B'), 'left');
-	$PDF->addTextWrap(180, $YPos, 180, $FontSize, _('Description'), 'center');
-	$PDF->addTextWrap(360, $YPos, 30, $FontSize, _('Locn'), 'right');
-	$PDF->addTextWrap(390, $YPos, 25, $FontSize, _('WC'), 'right');
-	$PDF->addTextWrap(415, $YPos, 45, $FontSize, _('Quantity'), 'right');
-	$PDF->addTextWrap(460, $YPos, 55, $FontSize, _('From Date'), 'right');
-	$PDF->addTextWrap(515, $YPos, 50, $FontSize, _('To Date'), 'right');
-	$YPos = $YPos - $line_height;
-
-	$FontSize = 8;
-	$YPos = $YPos - (2 * $line_height);
-
-	$PDF->addTextWrap($Left_Margin + 1, $YPos, 40, $FontSize, _('Assembly') . ': ', '', 0);
-	$PDF->addTextWrap(85, $YPos, 100, $FontSize, mb_strtoupper($_POST['Part']), '', 0);
-	$PDF->addTextWrap(185, $YPos, 150, $FontSize, $assemblydesc, '', 0);
-	$YPos -= (2 * $line_height);
-	$Xpos = $Left_Margin + 5;
-	$PDF->addTextWrap($Xpos, $YPos, 90, $FontSize, _(' 12345678901234567890'), 'left');
-	$YPos -= $line_height;
-
-	$PageNumber++;
-
-} // End of PrintHeader function
+}
 
 ?>

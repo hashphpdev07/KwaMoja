@@ -7,6 +7,7 @@ include('includes/header.php');
 echo '<table>';
 
 $Header = '<tr>
+			<th>' . _('Date') . '</th>
 			<th>' . _('Type') . '</th>
 			<th>' . _('Number') . '</th>
 			<th>' . _('Period') . '</th>
@@ -16,6 +17,7 @@ $Header = '<tr>
 echo $Header;
 
 $SQL = "SELECT gltrans.type,
+			gltrans.trandate,
 			systypes.typename,
 			gltrans.typeno,
 			periodno,
@@ -47,6 +49,7 @@ while ($OutOfWackRow = DB_fetch_array($OutOfWackResult)) {
 		$RowCounter++;
 	}
 	echo '<tr>
+			<td>' . ConvertSQLDate($OutOfWackRow['trandate']) . '</td>
 			<td><a href="' . $RootPath . '/GLTransInquiry.php?TypeID=' . urlencode($OutOfWackRow['type']) . '&TransNo=' . urlencode($OutOfWackRow['typeno']) . '">' . $OutOfWackRow['typename'] . '</a></td>
 			<td class="number">' . $OutOfWackRow['typeno'] . '</td>
 			<td class="number">' . $OutOfWackRow['periodno'] . '</td>

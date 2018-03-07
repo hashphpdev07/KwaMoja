@@ -140,7 +140,7 @@ if (!isset($_SESSION['SPL' . $Identifier]->BranchCode)) {
 
 		echo '</div>
 			<br />
-			<table class="selection">
+			<table>
 				<tr>
 					<th>' . _('Code') . '</th>
 					<th>' . _('Branch Name') . '</th>
@@ -150,16 +150,9 @@ if (!isset($_SESSION['SPL' . $Identifier]->BranchCode)) {
 
 		while ($MyRow = DB_fetch_array($BranchResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
-			printf('<td><input type="submit" name="SelectBranch" value="%s" /></td>
-					<td>%s</td>
+			printf('<tr class="striped_row">
+						<td><input type="submit" name="SelectBranch" value="%s" /></td>
+						<td>%s</td>
 					</tr>', $MyRow['branchcode'], htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8', false));
 
 		}
@@ -631,7 +624,7 @@ echo '<td>' . _('Initiated By') . ': <input type="text" name="Initiator" size="1
 if (count($_SESSION['SPL' . $Identifier]->LineItems) > 0) {
 
 	echo '<div class="centre"><b>' . _('Special Order Summary') . '</b></div>';
-	echo '<table class="selection" cellpadding="2" border="1">';
+	echo '<table cellpadding="2" border="1">';
 
 	echo '<tr>
 			<th>' . _('Item Description') . '</th>
@@ -659,24 +652,18 @@ if (count($_SESSION['SPL' . $Identifier]->LineItems) > 0) {
 		$DisplayPrice = locale_number_format($SPLLine->Price, $_SESSION['SPL' . $Identifier]->CustCurrDecimalPlaces);
 		$DisplayQuantity = locale_number_format($SPLLine->Quantity, 'Variable');
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td>' . $SPLLine->ItemDescription . '</td>
-			<td>' . $SPLLine->ReqDelDate . '</td>
-			<td class="number">' . $DisplayQuantity . '</td>
-			<td class="number">' . $DisplayCost . '</td>
-			<td class="number">' . $DisplayPrice . '</td>
-			<td class="number">' . $DisplayLineCostTotal . '</td>
-			<td class="number">' . $DisplayLineTotal . '</td>
-			<td class="number">' . $DisplayLineCostTotalCurr . '</td>
-			<td class="number">' . $DisplayLineTotalCurr . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $SPLLine->LineNo . '">' . _('Delete') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $SPLLine->ItemDescription . '</td>
+				<td>' . $SPLLine->ReqDelDate . '</td>
+				<td class="number">' . $DisplayQuantity . '</td>
+				<td class="number">' . $DisplayCost . '</td>
+				<td class="number">' . $DisplayPrice . '</td>
+				<td class="number">' . $DisplayLineCostTotal . '</td>
+				<td class="number">' . $DisplayLineTotal . '</td>
+				<td class="number">' . $DisplayLineCostTotalCurr . '</td>
+				`<td class="number">' . $DisplayLineTotalCurr . '</td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $SPLLine->LineNo . '">' . _('Delete') . '</a></td>
+			</tr>';
 
 		$_SESSION['SPL' . $Identifier]->total += ($LineTotal / $_SESSION['SPL' . $Identifier]->CustCurrExRate);
 	}
@@ -752,7 +739,7 @@ $_POST['ReqDelDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date
 
 echo '<tr>
 		<td>' . _('Required Delivery Date') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="12" maxlength="11" name="ReqDelDate" value="' . $_POST['ReqDelDate'] . '" /></td>
+		<td><input type="text" class="date" size="12" maxlength="11" name="ReqDelDate" value="' . $_POST['ReqDelDate'] . '" /></td>
 	</tr>';
 
 echo '</table>';

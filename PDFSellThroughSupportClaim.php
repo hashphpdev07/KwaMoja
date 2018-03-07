@@ -168,24 +168,21 @@ if (isset($_POST['PrintPDF'])) {
 		$_POST['FromDate'] = Date($_SESSION['DefaultDateFormat']);
 		$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-		echo '<div>
-				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table class="selection">
+		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+		echo '<table>
 					<tr>
 						<td>' . _('Sales Made From') . ' (' . _('in the format') . ' ' . $_SESSION['DefaultDateFormat'] . '):</td>
-						<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td>
+						<td><input type="text" class="date" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td>
 					</tr>
 					<tr>
 						<td>' . _('Sales Made To') . ' (' . _('in the format') . ' ' . $_SESSION['DefaultDateFormat'] . '):</td>
-						<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
+						<td><input type="text" class="date" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
 					</tr>
 				</table>
-				<br />
 				<div class="centre">
 					<input type="submit" name="PrintPDF" value="' . _('Create Claims Report') . '" />
 				</div>';
-		echo '</div>
-			  </form>';
+		echo '</form>';
 	}
 	include('includes/footer.php');
 

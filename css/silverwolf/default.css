@@ -13,6 +13,12 @@ margin:0;
 padding:5px;
 }
 
+button img {
+	/* Describes how button image should be displayed. */
+	height:21px;
+	width:21px;
+}
+
 div.toplink {
 padding-top:1%;
 padding-left:1%;
@@ -197,39 +203,6 @@ margin:10px auto;
 padding:5px;
 }
 
-table {
-width:auto;
-max-width:90%;
-margin:0 auto 10px;
-}
-
-table.selection {
-border:solid 1px #B8BAC5;
-border-radius:5px;
-}
-
-th {
-background-color:#C3C3C3;
-color:#300;
-text-align:center;
-vertical-align:middle;
-}
-
-th.number {
-background-color:#cccce5;
-color:#300;
-text-align:right;
-vertical-align:middle;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
 .centre {
 text-align:center;
 margin:0 auto 10px;
@@ -269,10 +242,6 @@ background:#FFA4A4;
 background-color:#FFA4A4;
 }
 
-.EvenTableRows {
-background-color:#ccc;
-}
-
 div.error {
 background-color:#fddbdb;
 color:red;
@@ -309,23 +278,6 @@ text-align:center;
 margin:0 auto;
 }
 
-div.page_help_text {
-background-color:#ccc;
-border:#a52a2a 1px solid;
-border-radius:5px;
-padding-top:3px;
-padding-bottom:3px;
-padding-left:3px;
-z-index:1;
-width:50%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
-}
-
 .dpTbl {
 border:solid navy 1px;
 }
@@ -352,18 +304,6 @@ width:20px;
 background-color:#ccc;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-border:0 0 2px 2px #222 solid;
-background:#eee;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:#cccce5;
-color:#300;
 }
 
 .notavailable {
@@ -569,10 +509,6 @@ text-align:right;
 a:hover,#AppInfoUserDiv a:hover {
 color:#000;
 text-decoration:underline;
-}
-
-td.select,.OddTableRows {
-background-color:#eee;
 }
 
 input,textarea {

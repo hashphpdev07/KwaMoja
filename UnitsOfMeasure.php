@@ -159,7 +159,7 @@ if (!isset($SelectedMeasureID)) {
 	$ErrMsg = _('Could not get unit of measures because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Units of Measure') . '</th>
@@ -169,15 +169,8 @@ if (!isset($SelectedMeasureID)) {
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>' . $MyRow[1] . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow[1] . '</td>';
 		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>';
 		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this unit of measure?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
 		echo '</tr>';
@@ -218,7 +211,7 @@ if (!isset($_GET['delete'])) {
 			$_POST['MeasureName'] = $MyRow['unitname'];
 
 			echo '<input type="hidden" name="SelectedMeasureID" value="' . $_POST['MeasureID'] . '" />';
-			echo '<table class="selection">';
+			echo '<table>';
 		}
 
 	} else {

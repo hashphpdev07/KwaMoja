@@ -32,11 +32,6 @@ if (!is_Date($_POST['ToDate'])) {
 }
 $FromDate = FormatDateForSQL($_POST['FromDate']);
 $ToDate = FormatDateForSQL($_POST['ToDate']);
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
 
 echo '<p class="page_title_text">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
@@ -46,7 +41,7 @@ echo '<p class="page_title_text">
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Show Test Results For') . ':</td>
 			<td><select name="KeyValue">';
@@ -145,15 +140,7 @@ if (isset($KeyValue)) {
 		}
 		echo '</tr>';
 		foreach ($TestsArray as $TestKey => $TestValue) {
-			if ($k == 1) {
-				/*alternate bgcolour of row for highlighting */
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k++;
-			}
-			echo '<td class="select" style="white-space:nowrap;">' . $TestValue . '</th>';
+			echo '<tr class="striped_row"><td class="select" style="white-space:nowrap;">' . $TestValue . '</td>';
 			foreach ($SamplesArray as $SampleKey => $SampleValue) {
 				if ($AllResultsArray[$TestKey][$SampleKey]['testvalue'] == '' or !isset($AllResultsArray[$TestKey][$SampleKey]['testvalue'])) {
 					$AllResultsArray[$TestKey][$SampleKey]['testvalue'] = '&nbsp;';

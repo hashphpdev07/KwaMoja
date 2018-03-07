@@ -285,7 +285,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 			$YPos -= $line_height;
 			$FontSize = 8;
 			if (mb_strlen($CheckItemRow['bin']) > 0){
-				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'] . ' - ' . _('Bin:') . $CheckItemRow['bin'], 'left');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'] . ' - ' . _('Bin') . ':' . $CheckItemRow['bin'], 'left');
 			} else {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'], 'left');
 			}
@@ -352,7 +352,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr><td>' . _('Choose Option') . ':</td>
 			  <td><select required="required" name="ReportOrClose">';
 

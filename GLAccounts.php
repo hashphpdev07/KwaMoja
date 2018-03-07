@@ -1,5 +1,29 @@
 <?php
 
+// BEGIN: Functions division ---------------------------------------------------
+function CashFlowsActivityName($Activity) {
+	// Converts the cash flow activity number to an activity text.
+	switch ($Activity) {
+		case -1:
+			return '<b>' . _('Not set up') . '</b>';
+		case 0:
+			return _('No effect on cash flow');
+		case 1:
+			return _('Operating activity');
+		case 2:
+			return _('Investing activity');
+		case 3:
+			return _('Financing activity');
+		case 4:
+			return _('Cash or cash equivalent');
+		default:
+			return '<b>' . _('Unknown') . '</b>';
+	}
+}
+// END: Functions division -----------------------------------------------------
+
+// BEGIN: Procedure division ---------------------------------------------------
+
 include('includes/session.php');
 $Title = _('Chart of Accounts Maintenance');
 
@@ -14,11 +38,16 @@ if (isset($_POST['SelectedAccount'])) {
 	$SelectedAccount = $_GET['SelectedAccount'];
 }
 
+// Merges gets into posts:
+if (isset($_GET['CashFlowsActivity'])) { // Select period from.
+	$_POST['CashFlowsActivity'] = $_GET['CashFlowsActivity'];
+}
+
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Accounts') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['submit'])) {
 
-	foreach ($_POST as $Key=>$Value) {
+	foreach ($_POST as $Key => $Value) {
 		if (mb_substr($Key, 0, 11) == 'AccountName') {
 			$AccountNames[mb_substr($Key, -5) . '.utf8'] = $Value;
 		}
@@ -38,14 +67,18 @@ if (isset($_POST['submit'])) {
 
 	//first off validate inputs sensible
 
-	if (mb_strlen($_POST['AccountName']) > 150) {
-		$InputError = 1;
-		prnMsg(_('The account name must be one hundred and fifty characters or less long'), 'warn');
+	foreach ($_POST as $Key => $Value) {
+		if (mb_substr($Key, 0, 11) == 'AccountName') {
+			if (mb_strlen($Value) > 150) {
+				$InputError = 1;
+				prnMsg(_('The account name must be one hundred and fifty characters or less long'), 'warn');
+			}
+		}
 	}
 
 	if (isset($SelectedAccount) and $InputError != 1) {
 
-		foreach ($AccountNames as $AccountLanguage=>$AccountName) {
+		foreach ($AccountNames as $AccountLanguage => $AccountName) {
 			$GroupNameSQL = "SELECT groupname
 								FROM accountgroups
 								WHERE language='" . $AccountLanguage . "'
@@ -54,7 +87,8 @@ if (isset($_POST['submit'])) {
 			$GroupNameRow = DB_fetch_array($GroupNameResult);
 			$SQL = "UPDATE chartmaster SET accountname='" . htmlspecialchars($AccountName) . "',
 											group_='" . htmlspecialchars($GroupNameRow['groupname']) . "',
-											groupcode='" . $_POST['Group'] . "'
+											groupcode='" . $_POST['Group'] . "',
+											cashflowsactivity='" . $_POST['CashFlowsActivity'] . "'
 										WHERE accountcode ='" . $SelectedAccount . "'
 										AND language='" . $AccountLanguage . "'";
 
@@ -66,7 +100,7 @@ if (isset($_POST['submit'])) {
 
 		/*SelectedAccount is null cos no item selected on first time round so must be adding a	record must be submitting new entries */
 
-		foreach ($AccountNames as $AccountLanguage=>$AccountName) {
+		foreach ($AccountNames as $AccountLanguage => $AccountName) {
 			$GroupNameSQL = "SELECT groupname
 								FROM accountgroups
 								WHERE language='" . $AccountLanguage . "'
@@ -78,13 +112,15 @@ if (isset($_POST['submit'])) {
 											language,
 											accountname,
 											group_,
-											groupcode)
+											groupcode,
+											cashflowsactivity)
 										VALUES (
 											'" . $_POST['AccountCode'] . "',
 											'" . $AccountLanguage . "',
 											'" . $AccountName . "',
 											'" . htmlspecialchars($GroupNameRow['groupname']) . "',
-											'" . $_POST['Group'] . "'
+											'" . $_POST['Group'] . "',
+											'" . $_POST['CashFlowsActivity']. "'
 										)";
 			$Result = DB_query($SQL, $ErrMsg);
 
@@ -95,6 +131,7 @@ if (isset($_POST['submit'])) {
 	unset($_POST['Group']);
 	unset($_POST['AccountCode']);
 	unset($_POST['AccountName']);
+	unset($_POST['CashFlowsActivity']);
 	unset($SelectedAccount);
 
 } elseif (isset($_GET['delete'])) {
@@ -240,13 +277,18 @@ if (!isset($_GET['delete'])) {
 	echo '<form method="post" id="GLAccounts" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
+	if (!isset($_POST['CashFlowsActivity'])) {
+		$_POST['CashFlowsActivity'] = 0;
+	}
+
 	if (isset($SelectedAccount)) {
 		//editing an existing account
 
 		$SQL = "SELECT accountcode,
 						language,
 						accountname,
-						groupcode
+						groupcode,
+						cashflowsactivity
 					FROM chartmaster
 					WHERE accountcode='" . $SelectedAccount . "'";
 
@@ -255,11 +297,12 @@ if (!isset($_GET['delete'])) {
 			$_POST['AccountCode'] = $MyRow['accountcode'];
 			$AccountName[$MyRow['language']] = $MyRow['accountname'];
 			$_POST['Group'] = $MyRow['groupcode'];
+			$_POST['CashFlowsActivity'] = $MyRow['cashflowsactivity'];
 		}
 
 		echo '<input type="hidden" name="SelectedAccount" value="', $SelectedAccount, '" />';
 		echo '<input type="hidden" name="AccountCode" value="', $_POST['AccountCode'], '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>', _('Account Code'), ':</td>
 					<td>', $_POST['AccountCode'], '</td>
@@ -276,7 +319,7 @@ if (!isset($_GET['delete'])) {
 				</tr>';
 		}
 	} else {
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<td>', _('Account Code'), ':</td>
 				<td><input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" maxlength="20" /></td>
@@ -312,6 +355,18 @@ if (!isset($_GET['delete'])) {
 	echo '</select>
 				</td>
 			</tr>
+			<tr>
+				<td><label for="CashFlowsActivity">', _('Cash Flows Activity'), ':</label></td>
+				<td>
+					<select id="CashFlowsActivity" name="CashFlowsActivity" required="required">
+						<option value="0"', ($_POST['CashFlowsActivity'] == 0 ? ' selected="selected"' : ''), '>', _('No effect on cash flow'), '</option>
+						<option value="1"', ($_POST['CashFlowsActivity'] == 1 ? ' selected="selected"' : ''), '>', _('Operating activity'), '</option>
+						<option value="2"', ($_POST['CashFlowsActivity'] == 2 ? ' selected="selected"' : ''), '>', _('Investing activity'), '</option>
+						<option value="3"', ($_POST['CashFlowsActivity'] == 3 ? ' selected="selected"' : ''), '>', _('Financing activity'), '</option>
+						<option value="4"', ($_POST['CashFlowsActivity'] == 4 ? ' selected="selected"' : ''), '>', _('Cash or cash equivalent'), '</option>
+					</select>
+				</td>
+			</tr>
 		</table>';
 
 	echo '<div class="centre">
@@ -335,7 +390,8 @@ if (!isset($SelectedAccount)) {
 					CASE WHEN pandl=0
 						THEN '" . _('Balance Sheet') . "'
 						ELSE '" . _('Profit/Loss') . "'
-					END AS acttype
+					END AS acttype,
+					cashflowsactivity
 				FROM chartmaster
 				INNER JOIN accountgroups
 					ON chartmaster.groupcode=accountgroups.groupcode
@@ -347,7 +403,7 @@ if (!isset($SelectedAccount)) {
 
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Account Code'), '</th>
@@ -355,6 +411,7 @@ if (!isset($SelectedAccount)) {
 					<th class="SortedColumn">', _('Account Group Code'), '</th>
 					<th class="SortedColumn">', _('Account Group Name'), '</th>
 					<th class="SortedColumn">', _('P/L or B/S'), '</th>
+					<th class="SortedColumn">', _('Cash Flows Activity'), '</th>
 					<th colspan="2"></th>
 				</tr>
 			</thead>';
@@ -362,23 +419,17 @@ if (!isset($SelectedAccount)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-
-		echo '<td>', $MyRow['accountcode'],'</td>
-			<td>', $MyRow['accountname'], '</td>
-			<td>', $MyRow['groupcode'], '</td>
-			<td>', $MyRow['group_'], '</td>
-			<td>', $MyRow['acttype'], '</td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm("', _('Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised.'), '", \'Confirm Delete\', this);">', _('Delete'), '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>', $MyRow['accountcode'], '</td>
+				<td>', $MyRow['accountname'], '</td>
+				<td>', $MyRow['groupcode'], '</td>
+				<td>', $MyRow['group_'], '</td>
+				<td>', $MyRow['acttype'], '</td>
+				<td class="text">', CashFlowsActivityName($MyRow['cashflowsactivity']), '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm("', _('Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised.'), '", \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
 	}
 	//END WHILE LIST LOOP

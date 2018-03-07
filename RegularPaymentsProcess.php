@@ -58,7 +58,7 @@ $SQL = "SELECT regularpayments.id,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0 and !isset($_GET['Edit'])) {
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Frequency') . '</th>
 				<th>' . _('Days into Period') . '</th>

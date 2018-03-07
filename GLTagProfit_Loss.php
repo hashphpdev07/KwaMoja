@@ -33,7 +33,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$Period = GetPeriod($FromDate);
 
 	/*Show a form to allow input of criteria for profit and loss to show */
-	echo '<table class="selection" summary="' . _('Input Criteria for Report') . '">
+	echo '<table summary="' . _('Input Criteria for Report') . '">
 			<tr>
 				<td>' . _('Select Period From') . ':</td>
 				<td><select name="FromPeriod">';
@@ -552,7 +552,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="' . _('Print') . '" />' . ' ' . $Title . '</p>';
 
-	echo '<table cellpadding="2" class="selection" summary="' . _('Income and Expenditure by Tag') . '">';
+	echo '<table cellpadding="2" summary="' . _('Income and Expenditure by Tag') . '">';
 	echo '<tr>
 			<th colspan="9">
 				<div class="centre">
@@ -782,26 +782,20 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 		if ($_POST['Detail'] == _('Detailed')) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-
 			$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?Period=' . $_POST['ToPeriod'] . '&amp;Account=' . $MyRow['account'] . '&amp;Show=Yes">' . $MyRow['account'] . '</a>';
 
 			if ($Section == 4) {
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td></td>
-						<td class="number">%s</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td></td>
+							<td class="number">%s</td>
 						</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']));
 			} else {
-				printf('<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
+				printf('<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
 						</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']));
 			}
 

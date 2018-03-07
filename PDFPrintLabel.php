@@ -53,7 +53,7 @@ if ((isset($_POST['ShowLabels']) or isset($_POST['SelectAll'])) and isset($_POST
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Item Code') . '</th>
 				<th>' . _('Item Description') . '</th>
@@ -282,7 +282,7 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table class="selection">
+				<table>
 				<tr>
 					<td>' . _('Label to print') . ':</td>
 					<td><select required="required" autofocus="autofocus" name="LabelID">';
@@ -340,7 +340,7 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 		</tr>
 		<tr>
 			<td>' . _('Effective As At') . ':</td>
-			<td><input type="text" size="11" class="date"	alt="' . $_SESSION['DefaultDateFormat'] . '" name="EffectiveDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" />';
+			<td><input type="text" size="11" class="date" name="EffectiveDate" value="' . Date($_SESSION['DefaultDateFormat']) . '" />';
 		echo '</td></tr>';
 
 		echo '<tr><td>' . _('Number of labels per item') . ':</td>

@@ -80,7 +80,7 @@ if (isset($_SESSION['FirstStart'])) {
 
 if (DB_num_rows($TaxRatesResult) > 0) {
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="3"><h3>' . _('Update') . ' ' . $MyRow[0] . ' ' . _('Rates') . '</h3></th>
@@ -100,18 +100,11 @@ if (DB_num_rows($TaxRatesResult) > 0) {
 			echo '<tr style="background-color:#555555"><td colspan="3"></td></tr>';
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td><input type="text" class="number" name="%s" required="required" maxlength="5" size="5" value="%s" /></td>
-				</tr>', $MyRow['taxprovincename'], _($MyRow['taxcatname']), $MyRow['dispatchtaxprovince'] . '_' . $MyRow['taxcatid'], locale_number_format($MyRow['taxrate'] * 100, 2));
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td><input type="text" class="number" name="%s" required="required" maxlength="5" size="5" value="%s" /></td>
+				</tr>', $MyRow['taxprovincename'], _($MyRow['taxcatname']), $MyRow['dispatchtaxprovince'] . '_' . $MyRow['taxcatid'], locale_number_format($MyRow['taxrate']*100,3));
 
 		$OldProvince = $MyRow['dispatchtaxprovince'];
 

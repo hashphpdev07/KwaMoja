@@ -62,7 +62,7 @@ if (isset($_POST['ShowReport'])) {
 
 	echo '<div class="page_help_text">' . _('Shows the list of goods received not yet invoiced, both in supplier currency and home currency. When run for all suppliers, the total in home curency should match the GL Account for Goods received not invoiced.') . '</div>';
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th colspan="14">
@@ -86,16 +86,10 @@ if (isset($_POST['ShowReport'])) {
 	$k = 0; //row colour counter
 	$TotalHomeCurrency = 0;
 	while ($GRNs = DB_fetch_array($GRNsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 		$QtyPending = $GRNs['qtyrecd'] - $GRNs['quantityinv'];
 		$TotalHomeCurrency = $TotalHomeCurrency + ($QtyPending * $GRNs['stdcostunit']);
-		echo '<td>' . $GRNs['supplierid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $GRNs['supplierid'] . '</td>
 				<td>' . $GRNs['suppname'] . '</td>
 				<td class="number">' . $GRNs['orderno'] . '</td>
 				<td>' . $GRNs['itemcode'] . '</td>
@@ -142,7 +136,7 @@ if (isset($_POST['ShowReport'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('From Supplier Code') . ':</td>
 				<td><input type="text" name="FromCriteria" autofocus="autofocus" required="required" maxlength="20" value="' . $MyRow['fromcriteria'] . '" /></td>

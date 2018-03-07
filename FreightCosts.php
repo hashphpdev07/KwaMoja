@@ -30,7 +30,7 @@ if (!isset($LocationFrom) or !isset($ShipperID)) {
 	$SQL = "SELECT shippername, shipper_id FROM shippers";
 	$ShipperResults = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td>' . _('Select A Freight Company to set up costs for') . '</td>
 			<td><select name="ShipperID">';
@@ -217,7 +217,7 @@ if (!isset($SelectedFreightCost) and isset($LocationFrom) and isset($ShipperID))
 
 	$Result = DB_query($SQL);
 
-	echo '<br /><table class="selection">
+	echo '<br /><table>
 					<tr>
 						<th>' . _('Destination') . '</th>
 						<th>' . _('Country') . '</th>
@@ -233,26 +233,18 @@ if (!isset($SelectedFreightCost) and isset($LocationFrom) and isset($ShipperID))
 
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td><a href="%s&amp;SelectedFreightCost=%s&amp;LocationFrom=%s&amp;ShipperID=%s">' . _('Edit') . '</a></td>
-				<td><a href="%s&amp;SelectedFreightCost=%s&amp;LocationFrom=%s&amp;ShipperID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this freight cost') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>',
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td class="number">%s</td>
+					<td><a href="%s&amp;SelectedFreightCost=%s&amp;LocationFrom=%s&amp;ShipperID=%s">' . _('Edit') . '</a></td>
+					<td><a href="%s&amp;SelectedFreightCost=%s&amp;LocationFrom=%s&amp;ShipperID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this freight cost') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				</tr>',
 				$MyRow['destinationcountry'],
 				$MyRow['destination'],
 				locale_number_format($MyRow['cubrate'], $_SESSION['CompanyRecord']['decimalplaces']),
@@ -346,7 +338,7 @@ if (isset($LocationFrom) and isset($ShipperID)) {
 		$_POST['MAXCub'] = '';
 	}
 
-	echo '<br /><table class="selection">';
+	echo '<br /><table>';
 	echo '<tr>
 			<th colspan="2">' . _('For Deliveries From') . ' ' . $LocationName . ' ' . _('using') . ' ' . $ShipperName . '</th>
 		</tr>';

@@ -39,17 +39,13 @@ if (isset($_POST['UpdateDatabase']) or isset($_POST['RefreshAllocTotal'])) {
 			if (!is_numeric(filter_number_format($_POST['Amt' . $AllocCounter]))) {
 				$_POST['Amt' . $AllocCounter] = 0;
 			}
-			if (filter_number_format($_POST['Amt' . $AllocCounter]) < 0) {
-				prnMsg(_('Amount entered was negative') . '. ' . _('Only positive amounts are allowed') . '.', 'warn');
-				$_POST['Amt' . $AllocCounter] = 0;
-			}
 			if (isset($_POST['All' . $AllocCounter]) and $_POST['All' . $AllocCounter] == True) {
 				$_POST['Amt' . $AllocCounter] = $_POST['YetToAlloc' . $AllocCounter];
 			}
-			if (filter_number_format($_POST['Amt' . $AllocCounter]) > $_POST['YetToAlloc' . $AllocCounter]) {
-				$_POST['Amt' . $AllocCounter] = locale_number_format($_POST['YetToAlloc' . $AllocCounter], $_SESSION['Alloc']->CurrDecimalPlaces);
-				// Amount entered must be smaller than unallocated amount
-			}
+//			if (filter_number_format($_POST['Amt' . $AllocCounter]) > $_POST['YetToAlloc' . $AllocCounter]) {
+//				$_POST['Amt' . $AllocCounter] = locale_number_format($_POST['YetToAlloc' . $AllocCounter], $_SESSION['Alloc']->CurrDecimalPlaces);
+//				// Amount entered must be smaller than unallocated amount
+//			}
 
 			$_SESSION['Alloc']->Allocs[$_POST['AllocID' . $AllocCounter]]->AllocAmt = filter_number_format($_POST['Amt' . $AllocCounter]);
 			// recalcuate the new difference on exchange (a +positive amount is a gain -ve a loss)
@@ -321,7 +317,7 @@ if (isset($_POST['AllocTrans'])) {
 
 	// Show trans already allocated and potential new allocations
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="7">
 				<b>', $_SESSION['Alloc']->DebtorNo, ' - ', $_SESSION['Alloc']->CustomerName, '</b>';
@@ -349,29 +345,26 @@ if (isset($_POST['AllocTrans'])) {
 		$YetToAlloc = ($AllocnItem->TransAmount - $AllocnItem->PrevAlloc);
 
 		if ($AllocnItem->ID == $_POST['AllocTrans']) {
-			echo '<tr class="OddTableRows">';
 			$CurTrans = _('Being allocated');
 		} else if ($AllocnItem->AllocAmt > 0) {
-			echo '<tr class="OddTableRows">';
 		} else {
-			echo '<tr class="EvenTableRows">';
 			$CurTrans = "&nbsp;";
 		}
 
-		echo '<td>', _($AllocnItem->TransType), '</td>
-			<td class="number">', $AllocnItem->TypeNo, '</td>
-			<td>', $AllocnItem->TransDate, '</td>
-			<td class="number">', locale_number_format($AllocnItem->TransAmount, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
-			<td class="number">', locale_number_format($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>';
+		echo '<tr class="striped_row"><td>', _($AllocnItem->TransType), '</td>
+				<td class="number">', $AllocnItem->TypeNo, '</td>
+				<td>', $AllocnItem->TransDate, '</td>
+				<td class="number">', locale_number_format($AllocnItem->TransAmount, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
+				<td class="number">', locale_number_format($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>';
 
-		if ($AllocnItem->TransAmount < 0) {
+		if ($AllocnItem->ID == $_POST['AllocTrans']) {
 			$Balance += $YetToAlloc;
 			echo '<td>', $CurTrans, '</td>
 					<td class="number">', locale_number_format($Balance, $_SESSION['Alloc']->CurrDecimalPlaces), '</td>
 				</tr>';
+			++$j;
 		} else {
 			echo '<td class="number"><input type="hidden" name="YetToAlloc', $Counter, '" value="', round($YetToAlloc, $_SESSION['Alloc']->CurrDecimalPlaces), '" />';
-
 			if (ABS($AllocnItem->AllocAmt - $YetToAlloc) < 0.01) {
 				echo '<input type="checkbox" name="All', $Counter, '" checked="checked" />';
 			} else {
@@ -451,7 +444,7 @@ if (isset($_POST['AllocTrans'])) {
 		include('includes/footer.php');
 		exit;
 	}
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<th>', _('Trans Type'), '</th>
 					<th>', _('Customer'), '</th>
@@ -465,14 +458,8 @@ if (isset($_POST['AllocTrans'])) {
 				</tr>';
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['debtorno'], '</td>
 				<td>', $MyRow['transno'], '</td>
@@ -510,8 +497,7 @@ if (isset($_POST['AllocTrans'])) {
 			INNER JOIN currencies
 				ON debtorsmaster.currcode=currencies.currabrev
 			WHERE (debtortrans.type=12 OR debtortrans.type=11)
-				AND debtortrans.settled=0
-				AND debtortrans.ovamount<0";
+				AND debtortrans.settled=0";
 
 	if ($_SESSION['SalesmanLogin'] != '') {
 		$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
@@ -523,7 +509,7 @@ if (isset($_POST['AllocTrans'])) {
 	$NoOfUnallocatedTrans = DB_num_rows($Result);
 	$CurrentTransaction = 1;
 	$CurrentDebtor = '';
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<th>', _('Trans Type'), '</th>
 					<th>', _('Customer'), '</th>
@@ -543,7 +529,7 @@ if (isset($_POST['AllocTrans'])) {
 
 		if ($CurrentDebtor != $MyRow['debtorno']) {
 			if ($CurrentTransaction > 1) {
-				echo '<tr class="OddTableRows">
+				echo '<tr class="striped_row">
 						<td colspan="7" class="number"><b>', locale_number_format($Balance, $CurrDecimalPlaces), '</b></td>
 						<td><b>', $CurrCode, '</b></td>
 						<td><b>', _('Balance'), '</b></td>
@@ -568,15 +554,8 @@ if (isset($_POST['AllocTrans'])) {
 			$AllocateLink = '&nbsp;';
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['debtorno'], '</td>
 				<td>', $MyRow['transno'], '</td>
@@ -595,7 +574,7 @@ if (isset($_POST['AllocTrans'])) {
 	if ($NoOfUnallocatedTrans == 0) {
 		prnMsg(_('There are no allocations to be done'), 'info');
 	} else {
-		echo '<tr class="OddTableRows">
+		echo '<tr class="striped_row">
 				<td colspan="7" class="number"><b>', locale_number_format($Balance, $CurrDecimalPlaces), '</b></td>
 				<td><b>', $CurrCode, '</b></td>
 				<td><b>', _('Balance'), '</b></td>

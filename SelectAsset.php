@@ -45,7 +45,7 @@ echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-
 	<div>
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('In Asset Category') . ':</td>
 			<td><select name="AssetCategory">';
@@ -255,7 +255,7 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 
 		echo '<form action="FixedAssetItems.php" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>' . _('Asset Code') . '</th>
 					<th>' . _('Description') . '</th>
@@ -268,14 +268,8 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
 		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
-			echo '<td><input type="submit" name="Select" value="' . $MyRow['assetid'] . '" /></td>
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="Select" value="' . $MyRow['assetid'] . '" /></td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $MyRow['locationdescription'] . '</td>
 					<td>' . ConvertSQLDate($MyRow['datepurchased']) . '</td>

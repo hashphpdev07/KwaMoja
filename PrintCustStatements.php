@@ -97,7 +97,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 		include('includes/header.php');
 		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/email.png" title="' . _('Email') . '" alt="" />' . ' ' . _('Emailing Customer Account Statements') . '</p>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="text">', _('Account #'), '</th>
@@ -417,7 +417,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 				$CustomerResult = DB_query($SQL);
 
 				/*there should be only one record returned ?? */
-				$AgedAnalysis = DB_fetch_array($CustomerResult, $db);
+				$AgedAnalysis = DB_fetch_array($CustomerResult);
 
 
 				/*Now print out the footer and totals */
@@ -557,7 +557,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<td>', _('Starting Customer statement to print (Customer code)'), '</td>
 				<td><input type="text" maxlength="10" size="8" name="FromCust" value="0" /></td></tr>

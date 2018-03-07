@@ -94,7 +94,7 @@ echo '<div class="toplink">
 	</div>';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order') . '" alt="" />' . ' ' . $Title . '</p>';
 
-echo '<table class="selection" cellpadding="2">
+echo '<table cellpadding="2">
 		<tr>
 			<th colspan="8"><b>' . _('Order Header Details') . '</b></th>
 		</tr>
@@ -185,7 +185,7 @@ $LineItemsSQL = "SELECT purchorderdetails.*,
 $LineItemsResult = DB_query($LineItemsSQL, $ErrMsg);
 
 
-echo '<table class="selection" cellpadding="0">';
+echo '<table cellpadding="0">';
 echo '<tr>
 		<th colspan="8"><b>' . _('Order Line Details') . '</b></th>
 	</tr>';
@@ -215,28 +215,17 @@ while ($MyRow = DB_fetch_array($LineItemsResult)) {
 	} else {
 		$DecimalPlaces = 2;
 	}
-	// if overdue and outstanding quantities, then highlight as so
-	if (($MyRow['quantityord'] - $MyRow['quantityrecd'] > 0) AND Date1GreaterThanDate2(Date($_SESSION['DefaultDateFormat']), $DisplayReqdDate)) {
-		echo '<tr class="OsRow">';
-	} else {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-	}
 
-	printf('<td>%s</td>
-			<td>%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td class="number">%s</td>
-			<td>%s</td>
-		</tr>', $MyRow['itemcode'], stripslashes($MyRow['itemdescription']), locale_number_format($MyRow['quantityord'], $DecimalPlaces), locale_number_format($MyRow['quantityrecd'], $DecimalPlaces), locale_number_format($MyRow['qtyinvoiced'], $DecimalPlaces), locale_number_format($MyRow['unitprice'], $CurrDecimalPlaces), locale_number_format($MyRow['actprice'], $CurrDecimalPlaces), $DisplayReqdDate);
+	printf('<tr class="striped_row">
+				<td>%s</td>
+				<td>%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td class="number">%s</td>
+				<td>%s</td>
+			</tr>', $MyRow['itemcode'], stripslashes($MyRow['itemdescription']), locale_number_format($MyRow['quantityord'], $DecimalPlaces), locale_number_format($MyRow['quantityrecd'], $DecimalPlaces), locale_number_format($MyRow['qtyinvoiced'], $DecimalPlaces), locale_number_format($MyRow['unitprice'], $CurrDecimalPlaces), locale_number_format($MyRow['actprice'], $CurrDecimalPlaces), $DisplayReqdDate);
 
 }
 

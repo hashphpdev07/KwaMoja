@@ -228,7 +228,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table class="selection">
+			<table>
 			<tr>
 				<td>' . _('Select Inventory Categories') . ':</td>
 				<td><select autofocus="autofocus" required="required" size="12" name="Categories[]"multiple="multiple">';

@@ -29,10 +29,10 @@ if ((!isset($_GET['TransNo']) or $_GET['TransNo'] == '') and !isset($_POST['Tran
 	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" name="form">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-		<table class="selection">
+		<table>
 		<tr>
 			<td>' . _('Create picking lists for all deliveries to be made on') . ' : ' . '</td>
-			<td><input type="text" required="required" autofocus="autofocus" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="TransDate" maxlength="10" size="11" value="' . date($_SESSION['DefaultDateFormat'], mktime(date('m'), date('Y'), date('d') + 1)) . '" /></td>
+			<td><input type="text" required="required" autofocus="autofocus" class="date" name="TransDate" maxlength="10" size="11" value="' . date($_SESSION['DefaultDateFormat'], mktime(date('m'), date('Y'), date('d') + 1)) . '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('From Warehouse') . ' : ' . '</td>
@@ -148,9 +148,9 @@ if (isset($_POST['TransDate']) or (isset($_GET['TransNo']) and $_GET['TransNo'] 
 		echo '<br />';
 		prnMsg(_('Unable to Locate any orders for this criteria '), 'info');
 		echo '<br />
-				<table class="selection">
+				<table>
 				<tr>
-					<td><a href="' . $RootPath . '/PDFPickingList.php">' . _('Enter Another Date') . '</a></td>
+					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Enter Another Date') . '</a></td>
 				</tr>
 				</table>
 				<br />';
@@ -233,7 +233,7 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 				AND closed='0'";
 		$CountResult = DB_query($SQL);
 		$Count = DB_fetch_row($CountResult);
-		if (!isset($Count[2]) or $COunt[2] == '') {
+		if (!isset($Count[2]) or $Count[2] == '') {
 			$Count[2]='Please pick order. Generate packing slip. Apply shipment labels and ship in system.';
 		}
 		if ($Count[0] == 0) {
@@ -447,7 +447,7 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 						AND quantity > 0
 						ORDER BY createdate, quantity";
 
-				$ErrMsg = '<br />' . _('Could not retrieve the items for') . ' ' . $StockId;
+				$ErrMsg = '<br />' . _('Could not retrieve the items for') . ' ' . $MyRow2['stkcode'];
 				$Bundles = DB_query($SQL, $ErrMsg);
 				$YPos += ($line_height);
 				while ($mybundles = DB_fetch_array($Bundles)) {

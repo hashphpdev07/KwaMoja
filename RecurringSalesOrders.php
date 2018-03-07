@@ -302,7 +302,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table cellpadding="2" class="selection">';
+echo '<table cellpadding="2">';
 echo '<tr>
 		<th colspan="7"><b>' . _('Order Line Details') . '</b></th>
 	</tr>
@@ -329,16 +329,8 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $StockItem) {
 	$DisplayQuantity = locale_number_format($StockItem->Quantity, $StockItem->DecimalPlaces);
 	$DisplayDiscount = locale_number_format(($StockItem->DiscountPercent * 100), 2);
 
-
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
-
-	echo '<td>' . $StockItem->StockID . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $StockItem->StockID . '</td>
 			<td title="' . $StockItem->LongDescription . '">' . $StockItem->ItemDescription . '</td>
 			<td class="number">' . $DisplayQuantity . '</td>
 			<td>' . $StockItem->Units . '</td>
@@ -359,7 +351,7 @@ echo '<tr>
 	</tr>
 	</table>';
 
-echo '<br /><table class="selection">';
+echo '<br /><table>';
 echo '<tr>
 		<th colspan="7"><h3>' . _('Order Header Details') . '</h3></th>
 	</tr>';
@@ -412,7 +404,7 @@ if (!isset($_POST['StartDate'])) {
 if ($NewRecurringOrder == 'Yes') {
 	echo '<tr>
 	<td>' . _('Start Date') . ':</td>
-	<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StartDate" size="11" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td></tr>';
+	<td><input type="text" class="date" name="StartDate" size="11" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td></tr>';
 } else {
 	echo '<tr>
 	<td>' . _('Last Recurrence') . ':</td>
@@ -426,7 +418,7 @@ if (!isset($_POST['StopDate'])) {
 
 echo '<tr>
 	<td>' . _('Finish Date') . ':</td>
-	<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="StopDate" size="11" required="required" maxlength="10" value="' . $_POST['StopDate'] . '" /></td></tr>';
+	<td><input type="text" class="date" name="StopDate" size="11" required="required" maxlength="10" value="' . $_POST['StopDate'] . '" /></td></tr>';
 
 echo '<tr>
 	<td>' . _('Frequency of Recurrence') . ':</td>

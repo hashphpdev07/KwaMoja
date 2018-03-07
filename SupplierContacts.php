@@ -141,7 +141,7 @@ if (!isset($SelectedContact)) {
 
 		$MyRow = DB_fetch_array($Result);
 
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="7"><h3>' . _('Contacts Defined for') . ' - ' . $MyRow['suppname'] . '</h3></th>
@@ -220,7 +220,7 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['Contact'])) {
 			$_POST['Contact'] = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Contact Name') . ':</td>
 					<td><input type="text" name="Contact" size="41" required="required" maxlength="40" value="' . $_POST['Contact'] . '" /></td>

@@ -49,7 +49,6 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 			$ResMsg = _('The Security role was created.');
 		}
 		unset($_POST['SecRoleName']);
-		unset($SelectedRole);
 	} elseif (isset($SelectedRole)) {
 		$PageTokenId = $_GET['PageToken'];
 		if (isset($_GET['add'])) { // updating Security Groups add a page token
@@ -75,6 +74,29 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 		$Result = DB_query($SQL, $ErrMsg);
 		if ($Result) {
 			prnMsg($ResMsg, 'success');
+			if (isset($SelectedRole)) {
+				$SQL = "DELETE FROM modules WHERE secroleid='" . $SelectedRole . "'";
+				$Result = DB_query($SQL);
+				$SQL = "DELETE FROM menuitems WHERE secroleid='" . $SelectedRole . "'";
+				$Result = DB_query($SQL);
+				$SQL = "INSERT INTO `modules` SELECT '" . $SelectedRole . "',
+												modulelink,
+												reportlink,
+												modulename,
+												sequence
+											FROM modules
+											WHERE secroleid=8";
+				$Result = DB_query($SQL);
+				$SQL = "INSERT INTO `menuitems` SELECT '" . $SelectedRole . "',
+											modulelink,
+											menusection,
+											caption,
+											url,
+											sequence
+										FROM menuitems
+										WHERE secroleid=8";
+				$Result = DB_query($SQL);
+			}
 		}
 	}
 } elseif (isset($_GET['delete'])) {
@@ -108,7 +130,7 @@ if (!isset($SelectedRole)) {
 		ORDER BY secrolename";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Role') . '</th>
 			</tr>';
@@ -116,17 +138,11 @@ if (!isset($SelectedRole)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		/*The SecurityHeadings array is defined in config.php */
 
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td><a href="%s&amp;SelectedRole=%s">' . _('Edit') . '</a></td>
 				<td><a href="%s&amp;SelectedRole=%s&amp;delete=1&amp;SecRoleName=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this role?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>', $MyRow['secrolename'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], urlencode($MyRow['secrolename']));
@@ -162,7 +178,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 if (isset($_POST['SelectedRole'])) {
 	echo '<input type="hidden" name="SelectedRole" value="' . $_POST['SelectedRole'] . '" />';
 }
-echo '<table class="selection">';
+echo '<table>';
 if (!isset($_POST['SecRoleName'])) {
 	$_POST['SecRoleName'] = '';
 }
@@ -194,7 +210,7 @@ if (isset($SelectedRole)) {
 		++$i;
 	}
 
-	echo '<br /><table class="selection"><tr>';
+	echo '<br /><table><tr>';
 
 	if (DB_num_rows($Result) > 0) {
 		echo '<th colspan="3"><div class="centre">' . _('Assigned Security Tokens') . '</div></th>';
@@ -205,23 +221,17 @@ if (isset($SelectedRole)) {
 	$k = 0; //row colour counter
 	while ($AvailRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		if (in_array($AvailRow['tokenid'], $TokensUsed)) {
-			printf('<td>%s</td>
+			printf('<tr class="striped_row">
+					<td>%s</td>
 					<td>%s</td>
 					<td><a href="%sSelectedRole=%s&amp;remove=1&amp;PageToken=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this security token from this role?') . '\', \'Confirm Delete\', this);">' . _('Remove') . '</a></td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
 		} else {
-			printf('<td>&nbsp;</td>
+			printf('<tr class="striped_row">
+					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td>%s</td>

@@ -25,14 +25,14 @@ if (!isset($_POST['FromDate'])) {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 				<td>' . _('Enter the date from which the transactions are to be listed') . ':</td>
-				<td><input type="text" name="FromDate" autofocus="autofocus" required="required" maxlength="10" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" name="FromDate" autofocus="autofocus" required="required" maxlength="10" size="10" class="date" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 			</tr>';
 	echo '<tr>
 				<td>' . _('Enter the date to which the transactions are to be listed') . ':</td>
-				<td><input type="text" name="ToDate" required="required" maxlength="10" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+				<td><input type="text" name="ToDate" required="required" maxlength="10" size="10" class="date" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 			</tr>';
 
 	echo '<tr>
@@ -50,12 +50,6 @@ if (!isset($_POST['FromDate'])) {
 			</td>
 		</tr>';
 
-	$Result = DB_query($SQL);
-	$ResultStkLocs = DB_query($SQL);
-
-	echo '<tr>
-			<td>' . _('For Stock Location') . ':</td>
-			<td><select required="required" name="StockLocation">';
 	$SQL = "SELECT locationname,
 					locations.loccode
 				FROM locations
@@ -63,7 +57,15 @@ if (!isset($_POST['FromDate'])) {
 					ON locationusers.loccode=locations.loccode
 					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
-	echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
+
+	$Result = DB_query($SQL);
+	$ResultStkLocs = DB_query($SQL);
+
+	echo '<tr>
+			<td>' . _('For Stock Location') . ':</td>
+			<td>
+				<select required="required" name="StockLocation">
+					<option selected="selected" value="All">' . _('All Locations') . '</option>';
 
 	while ($MyRow = DB_fetch_array($ResultStkLocs)) {
 		if (isset($_POST['StockLocation']) and $_POST['StockLocation'] != 'All') {

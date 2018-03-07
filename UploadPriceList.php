@@ -76,7 +76,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] == 0) {
 			$InputError = 1;
-			prnMsg(_('Stock item "' . $MyRow[0] . '" does not exist'), 'error');
+			prnMsg(_('Stock item ' . $MyRow[0] . ' does not exist'), 'error');
 		}
 		//Then check that the price list actually exists
 		$SQL = "SELECT COUNT(typeabbrev) FROM salestypes WHERE typeabbrev='" . $MyRow[1] . "'";
@@ -84,7 +84,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] == 0) {
 			$InputError = 1;
-			prnMsg(_('Price List "' . $MyRow[1] . '" does not exist'), 'error');
+			prnMsg(_('Price List ' . $MyRow[1] . ' does not exist'), 'error');
 		}
 
 		//Then check that the currency code actually exists
@@ -93,7 +93,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		$testrow = DB_fetch_row($Result);
 		if ($testrow[0] == 0) {
 			$InputError = 1;
-			prnMsg(_('Price List "' . $MyRow[2] . '" does not exist'), 'error');
+			prnMsg(_('Price List ' . $MyRow[2] . ' does not exist'), 'error');
 		}
 
 		//Finally force the price to be a double
@@ -154,7 +154,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="page_help_text">' . _('This function loads a new sales price list from a comma separated variable (csv) file.') . '<br />' . _('The file must contain four columns, and the first row should be the following headers') . ':' . '<br />' . _('StockID,PriceListID,CurrencyCode,Price') . '<br />' . _('followed by rows containing these four fields for each price to be uploaded.') . '<br />' . _('The StockID, PriceListID, and CurrencyCode fields must have a corresponding entry in the stockmaster, salestypes, and currencies tables.') . '</div>';
 
-	echo '<br /><input type="hidden" name="MAX_FILE_SIZE" value="1000000" />' . _('Prices effective from') . ':&nbsp;<input type="text" name="StartDate" size="10" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" value="' . date($_SESSION['DefaultDateFormat']) . '" />&nbsp;' . _('Upload file') . ': <input name="userfile" type="file" />
+	echo '<br /><input type="hidden" name="MAX_FILE_SIZE" value="1000000" />' . _('Prices effective from') . ':&nbsp;<input type="text" name="StartDate" size="10" class="date" value="' . date($_SESSION['DefaultDateFormat']) . '" />&nbsp;' . _('Upload file') . ': <input name="userfile" type="file" />
 			<input type="submit" name="submit" value="' . _('Send File') . '" />
 		</div>
 		</form>';

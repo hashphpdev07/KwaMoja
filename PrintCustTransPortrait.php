@@ -141,6 +141,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							custbranch.brpostaddr4,
 							custbranch.brpostaddr5,
 							custbranch.brpostaddr6,
+							salesman.salesmancode,
 							salesman.salesmanname,
 							debtortrans.debtorno,
 							debtortrans.branchcode,
@@ -205,6 +206,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							custbranch.brpostaddr4,
 							custbranch.brpostaddr5,
 							custbranch.brpostaddr6,
+							salesman.salesmancode,
 							salesman.salesmanname,
 							debtortrans.debtorno,
 							debtortrans.branchcode,
@@ -248,6 +250,19 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		}
 		if (DB_num_rows($Result) == 1) {
 			$MyRow = DB_fetch_array($Result);
+
+			if ($_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']) {
+				prnMsg(_('Your account is set up to see only a specific salespersons orders. You are not authorised to view transaction for this order'), 'error');
+				include('includes/footer.php');
+				exit;
+			}
+
+			if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+				/* If it's a customer login and the invoice is for a different customer the do not print */
+				prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
+				include('includes/header.php');
+				exit;
+			}
 
 			$ExchRate = $MyRow['rate'];
 			//Change the language to the customer's language
@@ -524,7 +539,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		$mail->IsSMTP();
 		$mail->CharSet = 'UTF-8';
 
-		$SQL = "SELECT realname FROM www_users WHERE userid='" . $MyRow['initiator'] . "'";
+		$SQL = "SELECT realname FROM www_users WHERE userid='" . $_SESSION['UserID'] . "'";
 		$UserResult = DB_query($SQL);
 		$MyUserRow = DB_fetch_array($UserResult);
 		$SenderName = $MyUserRow['realname'];
@@ -532,8 +547,8 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		$mail->Host = $_SESSION['SMTPSettings']['host']; // SMTP server example
 		$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
 		$mail->SMTPAuth   = $_SESSION['SMTPSettings']['auth'];
-		$mail->SMTPSecure = "ssl";                 // enable SMTP authentication
-		$mail->Port       = $_SESSION['SMTPSettings']['port'];                    // set the SMTP port for the GMAIL server
+		$mail->SMTPSecure = $_SESSION['SMTPSettings']['security'];                 // enable SMTP authentication
+		$mail->Port       = $_SESSION['SMTPSettings']['port'];                    // set the SMTP port for the mail server
 		$mail->Username   = html_entity_decode($_SESSION['SMTPSettings']['username']); // SMTP account username example
 		$mail->Password   = html_entity_decode($_SESSION['SMTPSettings']['password']);        // SMTP account password example
 		$mail->From =  $_SESSION['CompanyRecord']['email'];
@@ -578,7 +593,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 } else {
 	/*The option to print PDF was not hit */
 
-	$Title = _('Select Invoices/Credit Notes To Print');
+	$Title = _('Select Invoices or Credit Notes To Print');
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'PrintInvoicesCredits';
@@ -593,7 +608,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Invoices or Credit Notes (Portrait Mode)') . '</p>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Print Invoices or Credit Notes') . '</td>
 					<td><select name="InvOrCredit">';
@@ -629,7 +644,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			</tr>';
 		echo '<tr>
 				<td>' . _('Despatch Location') . ': </td>
-				<td><select tabindex="2" name="LocCode">';
+				<td><select name="LocCode">';
 
 		if ($_SESSION['RestrictLocations'] == 0) {
 			$SQL = "SELECT locationname,
@@ -734,6 +749,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							custbranch.braddress4,
 							custbranch.braddress5,
 							custbranch.braddress6,
+							salesman.salesmancode,
 							salesman.salesmanname,
 							debtortrans.debtorno,
 							currencies.decimalplaces
@@ -785,6 +801,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							custbranch.braddress4,
 							custbranch.braddress5,
 							custbranch.braddress6,
+							salesman.salesmancode,
 							salesman.salesmanname,
 							debtortrans.debtorno,
 							currencies.decimalplaces
@@ -816,6 +833,20 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			} elseif (DB_num_rows($Result) == 1) {
 
 				$MyRow = DB_fetch_array($Result);
+
+				if ($_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']) {
+					prnMsg(_('Your account is set up to see only a specific salespersons orders. You are not authorised to view transaction for this order'), 'error');
+					include('includes/footer.php');
+					exit;
+				}
+
+				if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+					/* If it's a customer login and the invoice is for a different customer the do not print */
+					prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
+					include('includes/header.php');
+					exit;
+				}
+
 				/* Then there's an invoice (or credit note) to print. So print out the invoice header and GST Number from the company record */
 				if (count($_SESSION['AllowedPageSecurityTokens']) == 1 and in_array(1, $_SESSION['AllowedPageSecurityTokens']) and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
 					echo '<p class="bad">' . _('This transaction is addressed to another customer and cannot be displayed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company');
@@ -995,16 +1026,6 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 					while ($MyRow2 = DB_fetch_array($Result)) {
 
-						if ($k == 1) {
-							$RowStarter = '<tr class="EvenTableRows">';
-							$k = 0;
-						} else {
-							$RowStarter = '<tr class="OddTableRows">';
-							$k = 1;
-						}
-
-						echo $RowStarter;
-
 						$DisplayPrice = locale_number_format($MyRow2['fxprice'], $MyRow['decimalplaces']);
 						$DisplayQty = locale_number_format($MyRow2['quantity'], $MyRow2['decimalplaces']);
 						$DisplayNet = locale_number_format($MyRow2['fxnet'], $MyRow['decimalplaces']);
@@ -1015,14 +1036,15 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							$DisplayDiscount = locale_number_format($MyRow2['discountpercent'] * 100, 2) . '%';
 						}
 
-						printf('<td>%s</td>
+						printf('<tr class="striped_row">
+									<td>%s</td>
 							  		<td>%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
 									<td class="number">%s</td>
-									</tr>', $MyRow2['stockid'], $MyRow2['description'], $DisplayQty, $MyRow2['units'], $DisplayPrice, $DisplayDiscount, $DisplayNet);
+								</tr>', $MyRow2['stockid'], $MyRow2['description'], $DisplayQty, $MyRow2['units'], $DisplayPrice, $DisplayDiscount, $DisplayNet);
 
 						if (mb_strlen($MyRow2['narrative']) > 1) {
 							echo $RowStarter . '<td></td>

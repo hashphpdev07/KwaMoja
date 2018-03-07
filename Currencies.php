@@ -17,13 +17,7 @@ if (isset($_GET['SelectedCurrency'])) {
 $ForceConfigReload = true;
 include('includes/GetConfig.php');
 
-if (isset($Errors)) {
-	unset($Errors);
-}
-
-$Errors = array();
-
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
 $SQL = "SELECT count(currabrev)
 		FROM currencies";
@@ -297,21 +291,24 @@ if (!isset($SelectedCurrency)) {
 				FROM currencies";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<td></td>
-			<th>' . _('ISO4217 Code') . '</th>
-			<th>' . _('Currency Name') . '</th>
-			<th>' . _('Country') . '</th>
-			<th>' . _('Hundredths Name') . '</th>
-			<th>' . _('Currency Symbol') . '</th>
-			<th>' . _('Symbol before Amount') . '</th>
-			<th>' . _('Decimal Places') . '</th>
-			<th>' . _('Show in webSHOP') . '</th>
-			<th>' . _('Exchange Rate') . '</th>
-			<th>' . _('1 / Ex Rate') . '</th>
-			<th>' . _('Ex Rate - ECB') . '</th>
-		</tr>';
+	echo '<table>';
+	echo '<thead>
+			<tr>
+				<td></td>
+				<th class="SortedColumn">', _('ISO4217 Code'), '</th>
+				<th class="SortedColumn">', _('Currency Name'), '</th>
+				<th class="SortedColumn">', _('Country'), '</th>
+				<th>', _('Hundredths Name'), '</th>
+				<th>', _('Currency Symbol'), '</th>
+				<th>', _('Symbol before Amount'), '</th>
+				<th>', _('Decimal Places'), '</th>
+				<th>', _('Show in webSHOP'), '</th>
+				<th>', _('Exchange Rate'), '</th>
+				<th>', _('1 / Ex Rate'), '</th>
+				<th>', _('Ex Rate - ECB'), '</th>
+			</tr>
+		</thead>
+		<tbody>';
 
 	$k = 0; //row colour counter
 	/*Get published currency rates from Eurpoean Central Bank */
@@ -322,15 +319,6 @@ if (!isset($SelectedCurrency)) {
 	}
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($MyRow['currabrev'] == $FunctionalCurrency) {
-			echo '<tr style="background-color:#FFbbbb">';
-		} elseif ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		// Lets show the country flag
 		$ImageFile = 'flags/' . mb_strtoupper($MyRow['currabrev']) . '.gif';
 
@@ -349,41 +337,44 @@ if (!isset($SelectedCurrency)) {
 		}
 
 		if ($MyRow['currabrev'] != $FunctionalCurrency) {
-			echo '<td><img src="' . $ImageFile . '" alt="" /></td>
-					<td>' . $MyRow['currabrev'] . '</td>
-					<td>' . _($MyRow['currency']) . '</td>
-					<td>' . $MyRow['country'] . '</td>
-					<td>' . $MyRow['hundredsname'] . '</td>
-					<td>' . $MyRow['symbol'] . '</td>
-					<td>' . $MyRow['symbolbefore'] . '</td>
-					<td class="number">' . locale_number_format($MyRow['decimalplaces'], 0) . '</td>
-					<td>' . $ShowInWebText . '</td>
-					<td class="number">' . locale_number_format($MyRow['rate'], 8) . '</td>
-					<td class="number">' . locale_number_format(1 / $MyRow['rate'], 8) . '</td>
-					<td class="number">' . locale_number_format(GetCurrencyRate($MyRow['currabrev'], $CurrencyRatesArray), 8) . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedCurrency=' . urlencode($MyRow['currabrev']) . '">' . _('Edit') . '</a></td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedCurrency=' . urlencode($MyRow['currabrev']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this currency?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-					<td><a href="' . $RootPath . '/ExchangeRateTrend.php?CurrencyToShow=' . urlencode($MyRow['currabrev']) . '">' . _('Graph') . '</a></td>
+			echo '<tr class="striped_row">
+					<td><img src="', $ImageFile, '" alt="" /></td>
+					<td>', $MyRow['currabrev'], '</td>
+					<td>', _($MyRow['currency']), '</td>
+					<td>', $MyRow['country'], '</td>
+					<td>', $MyRow['hundredsname'], '</td>
+					<td>', $MyRow['symbol'], '</td>
+					<td>', $MyRow['symbolbefore'], '</td>
+					<td class="number">', locale_number_format($MyRow['decimalplaces'], 0), '</td>
+					<td>', $ShowInWebText, '</td>
+					<td class="number">', locale_number_format($MyRow['rate'], 8), '</td>
+					<td class="number">', locale_number_format(1 / $MyRow['rate'], 8), '</td>
+					<td class="number">', locale_number_format(GetCurrencyRate($MyRow['currabrev'], $CurrencyRatesArray), 8), '</td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?&amp;SelectedCurrency=', urlencode($MyRow['currabrev']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?&amp;SelectedCurrency=', urlencode($MyRow['currabrev']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this currency?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+					<td><a href="', $RootPath . '/ExchangeRateTrend.php?CurrencyToShow=', urlencode($MyRow['currabrev']), '">', _('Graph'), '</a></td>
 				</tr>';
 		} else {
-			echo '<td><img src="' . $ImageFile . '" alt="" /></td>
-					<td>' . $MyRow['currabrev'] . '</td>
-					<td>' . $MyRow['currency'] . '</td>
-					<td>' . $MyRow['country'] . '</td>
-					<td>' . $MyRow['hundredsname'] . '</td>
-					<td>' . $MyRow['symbol'] . '</td>
-					<td>' . $MyRow['symbolbefore'] . '</td>
-					<td class="number">' . locale_number_format($MyRow['decimalplaces'], 0) . '</td>
-					<td>' . $ShowInWebText . '</td>
+			echo '<tr class="success_row">
+					<td><img src="', $ImageFile, '" alt="" /></td>
+					<td>', $MyRow['currabrev'], '</td>
+					<td>', $MyRow['currency'], '</td>
+					<td>', $MyRow['country'], '</td>
+					<td>', $MyRow['hundredsname'], '</td>
+					<td>', $MyRow['symbol'], '</td>
+					<td>', $MyRow['symbolbefore'], '</td>
+					<td class="number">', locale_number_format($MyRow['decimalplaces'], 0), '</td>
+					<td>', $ShowInWebText, '</td>
 					<td class="number">1</td>
-					<td colspan="2">' . _('Functional Currency') . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedCurrency=' . urlencode($MyRow['currabrev']) . '">' . _('Edit') . '</a></td>
+					<td colspan="2"><a href="CompanyPreferences.php#CurrencyDefault">', _('Functional Currency'), '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?&amp;SelectedCurrency=', urlencode($MyRow['currabrev']), '">', _('Edit'), '</a></td>
 					<td colspan="2"></td>
-					</tr>';
+				</tr>';
 		}
 
 	} //END WHILE LIST LOOP
-	echo '</table>';
+	echo '</tbody>
+		</table>';
 } //end of ifs and buts!
 
 
@@ -429,131 +420,111 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedCurrency" value="' . $SelectedCurrency . '" />';
 		echo '<input type="hidden" name="Abbreviation" value="' . $_POST['Abbreviation'] . '" />';
-		echo '<table class="selection">
-			<tr>
-				<td>' . _('ISO 4217 Currency Code') . ':</td>
-				<td>' . $_POST['Abbreviation'] . '</td>
-			</tr>';
+		echo '<fieldset>
+				<legend>', _('Edit Currency Details'), '</legend>
+				<field>
+					<label for="Abbreviation">', _('ISO 4217 Currency Code'), ':</label>
+					<div class="fieldtext">', $_POST['Abbreviation'], '</div>
+				</field>';
 
 	} else { //end of if $SelectedCurrency only do the else when a new record is being entered
-		if (!isset($_POST['Abbreviation'])) {
-			$_POST['Abbreviation'] = '';
-		}
-		echo '<table class="selection">
-			<tr>
-				<td>' . _('Currency') . ':</td>
-				<td><select name="Abbreviation">';
-		foreach ($CurrencyName as $CurrencyAbbreviation => $Currency) {
-			echo '<option value="' . $CurrencyAbbreviation . '">' . $CurrencyAbbreviation . '-' . $Currency . '</option>';
-		}
 
-		echo '</select></td>
-			</tr>';
-	}
-
-	echo '<tr>
-			<td>' . _('Country') . ':</td>';
-	if (!isset($_POST['Country'])) {
+		$_POST['Abbreviation'] = '';
+		$_POST['CurrencyName'] = '';
 		$_POST['Country'] = '';
-	}
-	if ($_POST['Abbreviation'] != $FunctionalCurrency) {
-		echo '<td><input type="text" name="Country" size="30" required="required" maxlength="50" value="' . $_POST['Country'] . '" /></td>';
-	} else {
-		echo '<td>' . $_POST['Country'] . '</td>';
-		echo '<input type="hidden" name="Country" value="' . $_POST['Country'] . '" />';
-	}
-	echo '</tr>';
-
-	if (!isset($_POST['HundredsName'])) {
 		$_POST['HundredsName'] = '';
-	}
-	echo '<tr>
-			<td>' . _('Hundredths Name') . ':</td>
-			<td>
-				<input type="text" name="HundredsName" size="10" required="required" maxlength="15" value="' . $_POST['HundredsName'] . '" />
-			</td>
-		</tr>';
-
-	if (!isset($_POST['Symbol'])) {
 		$_POST['Symbol'] = '';
-	}
-	echo '<tr>
-			<td>' . _('Symbol') . ':</td>
-			<td>
-				<input type="text" name="Symbol" size="4" required="required" maxlength="4" value="' . $_POST['Symbol'] . '" />
-			</td>
-		</tr>';
+		$_POST['SymbolBefore'] = '';
+		$_POST['ExchangeRate'] = locale_number_format(1, 8);
+		$_POST['DecimalPlaces'] = locale_number_format(2, 0);
+		$_POST['webcart'] = 1;
+		echo '<fieldset>
+				<legend>', _('New Currency Details'), '</legend>
+				<field>
+					<label for="Abbreviation">', _('Currency'), ':</label>
+					<select name="Abbreviation" autofocus="autofocus">';
+		foreach ($CurrencyName as $CurrencyAbbreviation => $Currency) {
+			echo '<option value="', $CurrencyAbbreviation, '">', $CurrencyAbbreviation, '-', $Currency, '</option>';
+		}
 
-	if (!isset($_POST['SymbolBefore'])) {
-		$_POST['SymbolBefore'] = 1;
+		echo '</select>
+			</field>';
 	}
-	echo '<tr>
-			<td>' . _('Show symbol before amount') . ':</td>
-			<td><select name="SymbolBefore">';
+
+	echo '<field>
+			<label for="Country">', _('Country'), ':</label>';
+	if ($_POST['Abbreviation'] != $FunctionalCurrency) {
+		echo '<input type="text" name="Country" size="30" required="required" autofocus="autofocus" maxlength="50" value="', $_POST['Country'], '" />';
+	} else {
+		echo '<div class="fieldtext">', $_POST['Country'], '</div>';
+		echo '<input type="hidden" name="Country" value="', $_POST['Country'], '" />';
+	}
+	echo '</field>';
+
+	echo '<field>
+			<label for="HundredsName">', _('Hundredths Name'), ':</label>
+			<input type="text" name="HundredsName" size="10" required="required" autofocus="autofocus" maxlength="15" value="', $_POST['HundredsName'], '" />
+		</field>';
+
+	echo '<field>
+			<label for="Symbol">', _('Symbol'), ':</label>
+			<input type="text" name="Symbol" size="4" required="required" maxlength="4" value="', $_POST['Symbol'], '" />
+		</field>';
+
+	echo '<field>
+			<label for="SymbolBefore">', _('Show symbol before amount'), ':</label>
+			<select name="SymbolBefore">';
 
 	if ($_POST['SymbolBefore'] == 1) {
-		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
+		echo '<option selected="selected" value="1">', _('Yes'), '</option>';
 	} else {
-		echo '<option value="1">' . _('Yes') . '</option>';
+		echo '<option value="1">', _('Yes'), '</option>';
 	}
 	if ($_POST['SymbolBefore'] == 0) {
-		echo '<option selected="selected" value="0">' . _('No') . '</option>';
+		echo '<option selected="selected" value="0">', _('No'), '</option>';
 	} else {
-		echo '<option value="0">' . _('No') . '</option>';
+		echo '<option value="0">', _('No'), '</option>';
 	}
 
 	echo '</select>
-				</td>
-			</tr>';
+		</field>';
 
-	echo '<tr>
-			<td>' . _('Decimal Places to Display') . ':</td>
-			<td>';
-	if (!isset($_POST['DecimalPlaces'])) {
-		$_POST['DecimalPlaces'] = 2;
-	}
-	echo '<input class="integer" type="text" name="DecimalPlaces" size="2" required="required" maxlength="2" value="' . $_POST['DecimalPlaces'] . '" />
-			</td>
-		</tr>';
+	echo '<field>
+			<label for="DecimalPlaces">', _('Decimal Places to Display'), ':</label>
+			<input class="integer" type="text" name="DecimalPlaces" size="2" required="required" maxlength="2" value="', $_POST['DecimalPlaces'], '" />
+		</field>';
 
-	echo '<tr>
-			<td>' . _('Exchange Rate') . ':</td>';
-	if (!isset($_POST['ExchangeRate'])) {
-		$_POST['ExchangeRate'] = 1;
-	}
+	echo '<field>
+			<label for="ExchangeRate">', _('Exchange Rate'), ':</label>';
 	if ($_POST['Abbreviation'] != $FunctionalCurrency) {
-		echo '<td><input type="text" class="number" name="ExchangeRate" size="10" required="required" maxlength="10" value="' . $_POST['ExchangeRate'] . '" /></td>';
+		echo '<input type="text" class="number" name="ExchangeRate" size="10" required="required" maxlength="10" value="', $_POST['ExchangeRate'], '" />';
 	} else {
-		echo '<td>' . $_POST['ExchangeRate'] . '</td>';
-		echo '<input type="hidden" class="number" name="ExchangeRate" value="' . $_POST['ExchangeRate'] . '" />';
+		echo '<div class="fieldtext">', $_POST['ExchangeRate'], '</div>';
+		echo '<input type="hidden" class="number" name="ExchangeRate" value="', $_POST['ExchangeRate'], '" />';
 	}
-	echo '</tr>';
+	echo '</field>';
 
-	if (!isset($_POST['webcart'])) {
-		$_POST['webcart'] = 1;
-	}
-	echo '<tr>
-			<td>' . _('Show in webSHOP') . ':</td>
-			<td><select name="webcart">';
+	echo '<field>
+			<label for="webcart">', _('Show in webSHOP'), ':</label>
+			<select name="webcart">';
 
 	if ($_POST['webcart'] == 1) {
-		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
+		echo '<option selected="selected" value="1">', _('Yes'), '</option>';
 	} else {
-		echo '<option value="1">' . _('Yes') . '</option>';
+		echo '<option value="1">', _('Yes'), '</option>';
 	}
 	if ($_POST['webcart'] == 0) {
-		echo '<option selected="selected" value="0">' . _('No') . '</option>';
+		echo '<option selected="selected" value="0">', _('No'), '</option>';
 	} else {
-		echo '<option value="0">' . _('No') . '</option>';
+		echo '<option value="0">', _('No'), '</option>';
 	}
 
 	echo '</select>
-				</td>
-			</tr>
-		</table>';
+		</field>
+	</fieldset>';
 
 	echo '<div class="centre">
-			<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+			<input type="submit" name="submit" value="', _('Enter Information'), '" />
 		</div>
 	</form>';
 

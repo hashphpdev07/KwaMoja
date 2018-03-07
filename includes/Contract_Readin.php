@@ -6,6 +6,7 @@ $ContractHeaderSQL = "SELECT contractdescription,
 							contracts.debtorno,
 							contracts.branchcode,
 							contracts.loccode,
+							contracts.customerref,
 							status,
 							categoryid,
 							orderno,
@@ -43,6 +44,7 @@ if (DB_num_rows($ContractHdrResult) == 1 and !isset($_SESSION['Contract' . $Iden
 	$_SESSION['Contract' . $Identifier]->DebtorNo = $MyRow['debtorno'];
 	$_SESSION['Contract' . $Identifier]->BranchCode = $MyRow['branchcode'];
 	$_SESSION['Contract' . $Identifier]->LocCode = $MyRow['loccode'];
+	$_SESSION['Contract' . $Identifier]->CustomerRef = $MyRow['customerref'];
 	$_SESSION['Contract' . $Identifier]->Status = $MyRow['status'];
 	$_SESSION['Contract' . $Identifier]->CategoryID = $MyRow['categoryid'];
 	$_SESSION['Contract' . $Identifier]->OrderNo = $MyRow['orderno'];

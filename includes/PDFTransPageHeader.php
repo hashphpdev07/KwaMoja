@@ -79,7 +79,7 @@ $FontSize = 8;
 $PDF->addText($XPos, $YPos - 10, $FontSize, $_SESSION['TaxAuthorityReferenceName'] . ': ' . $_SESSION['CompanyRecord']['gstno']);
 $PDF->addText($XPos, $YPos - 19, $FontSize, $_SESSION['CompanyRecord']['regoffice1']);
 $PDF->addText($XPos, $YPos - 28, $FontSize, $_SESSION['CompanyRecord']['regoffice2']);
-$PDF->addText($XPos, $YPos - 37, $FontSize, $_SESSION['CompanyRecord']['regoffice3'] . ' ' . $_SESSION['CompanyRecord']['regoffice4'] . ' ' . $_SESSION['CompanyRecord']['regoffice5']);
+$PDF->addText($XPos, $YPos - 37, $FontSize, $_SESSION['CompanyRecord']['regoffice3'] . '  ' . $_SESSION['CompanyRecord']['regoffice4'] . '  ' . $_SESSION['CompanyRecord']['regoffice5']);
 $PDF->addText($XPos, $YPos - 46, $FontSize, $_SESSION['CompanyRecord']['regoffice6']);
 $PDF->addText($XPos, $YPos - 54, $FontSize, _('Phone') . ':' . $_SESSION['CompanyRecord']['telephone'] . ' ' . _('Fax') . ': ' . $_SESSION['CompanyRecord']['fax']);
 $PDF->addText($XPos, $YPos - 63, $FontSize, _('Email') . ': ' . $_SESSION['CompanyRecord']['email']);
@@ -98,12 +98,12 @@ if ($MyRow['invaddrbranch'] == 0) {
 	$PDF->addText($XPos, $YPos, $FontSize, html_entity_decode($MyRow['name']));
 	$PDF->addText($XPos, $YPos - 14, $FontSize, html_entity_decode($MyRow['address1']));
 	$PDF->addText($XPos, $YPos - 28, $FontSize, html_entity_decode($MyRow['address2']));
-	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['address3']) . ' ' . html_entity_decode($MyRow['address4']));
+	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['address3']) . '  ' . html_entity_decode($MyRow['address4']) . '  ' . html_entity_decode($MyRow['address5']) . '  ' . html_entity_decode($MyRow['address6']));
 } else {
 	$PDF->addText($XPos, $YPos, $FontSize, html_entity_decode($MyRow['name']));
 	$PDF->addText($XPos, $YPos - 14, $FontSize, html_entity_decode($MyRow['brpostaddr1']));
 	$PDF->addText($XPos, $YPos - 28, $FontSize, html_entity_decode($MyRow['brpostaddr2']));
-	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['brpostaddr3']) . ' ' . html_entity_decode($MyRow['brpostaddr4']) . ' ' . html_entity_decode($MyRow['brpostaddr5']) . ' ' . html_entity_decode($MyRow['brpostaddr6']));
+	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['brpostaddr3']) . '  ' . html_entity_decode($MyRow['brpostaddr4']) . '  ' . html_entity_decode($MyRow['brpostaddr5']) . '  ' . html_entity_decode($MyRow['brpostaddr6']));
 }
 
 
@@ -132,7 +132,7 @@ if ($InvOrCredit == 'Invoice') {
 	$PDF->addText($XPos, $YPos, $FontSize, html_entity_decode($MyRow['deliverto']));
 	$PDF->addText($XPos, $YPos - 14, $FontSize, html_entity_decode($MyRow['deladd1']));
 	$PDF->addText($XPos, $YPos - 28, $FontSize, html_entity_decode($MyRow['deladd2']));
-	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['deladd3']) . ' ' . html_entity_decode($MyRow['deladd4']) . ' ' . html_entity_decode($MyRow['deladd5']));
+	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['deladd3']) . '  ' . html_entity_decode($MyRow['deladd4']) . '  ' . html_entity_decode($MyRow['deladd5']) . '  ' . html_entity_decode($MyRow['deladd6']));
 	$XPos -= 80;
 }
 if ($InvOrCredit == 'Credit') {
@@ -143,7 +143,7 @@ if ($InvOrCredit == 'Credit') {
 	$PDF->addText($XPos, $YPos, $FontSize, html_entity_decode($MyRow['brname']));
 	$PDF->addText($XPos, $YPos - 14, $FontSize, html_entity_decode($MyRow['braddress1']));
 	$PDF->addText($XPos, $YPos - 28, $FontSize, html_entity_decode($MyRow['braddress2']));
-	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['braddress3']) . ' ' . html_entity_decode($MyRow['braddress4']) . ' ' . html_entity_decode($MyRow['braddress5']) . ' ' . html_entity_decode($MyRow['braddress6']));
+	$PDF->addText($XPos, $YPos - 42, $FontSize, html_entity_decode($MyRow['braddress3']) . '  ' . html_entity_decode($MyRow['braddress4']) . '  ' . html_entity_decode($MyRow['braddress5']) . '  ' . html_entity_decode($MyRow['braddress6']));
 	$XPos -= 80;
 }
 

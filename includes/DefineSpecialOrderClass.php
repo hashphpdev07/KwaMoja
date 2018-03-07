@@ -48,7 +48,7 @@ class SpecialOrder {
 	}
 
 
-	function remove_from_order(&$LineNo) {
+	function remove_from_order($LineNo) {
 		unset($this->LineItems[$LineNo]);
 	}
 

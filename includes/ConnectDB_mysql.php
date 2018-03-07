@@ -110,43 +110,43 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 
 }
 
-function DB_fetch_row(&$ResultIndex) {
+function DB_fetch_row($ResultIndex) {
 
 	$RowPointer = mysql_fetch_row($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_assoc(&$ResultIndex) {
+function DB_fetch_assoc($ResultIndex) {
 
 	$RowPointer = mysql_fetch_assoc($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_array(&$ResultIndex) {
+function DB_fetch_array($ResultIndex) {
 
 	$RowPointer = mysql_fetch_array($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_all(&$ResultIndex) {
+function DB_fetch_all($ResultIndex) {
 
 	$ResultArray = mysqli_fetch_all($ResultIndex, MYSQLI_ASSOC);
 	return $ResultArray;
 }
 
-function DB_data_seek(&$ResultIndex, $Record) {
+function DB_data_seek($ResultIndex, $Record) {
 	mysql_data_seek($ResultIndex, $Record);
 }
 
-function DB_free_result(&$ResultIndex) {
+function DB_free_result($ResultIndex) {
 	mysql_free_result($ResultIndex);
 }
 
-function DB_num_rows(&$ResultIndex) {
+function DB_num_rows($ResultIndex) {
 	return mysql_num_rows($ResultIndex);
 }
 // Added by MGT
-function DB_affected_rows(&$ResultIndex) {
+function DB_affected_rows($ResultIndex) {
 	return mysql_affected_rows($ResultIndex);
 }
 
@@ -232,7 +232,8 @@ function DB_ReinstateForeignKeys() {
 }
 
 function DB_table_exists($TableName) {
-	$ShowSQL = "SHOW TABLES WHERE Tables_in_" . $_SESSION['DatabaseName'] . "='" . $TableName . "'";
+	global $db;
+	$ShowSQL = "SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = '" . $_SESSION['DatabaseName'] . "' AND TABLE_NAME = '" . $TableName . "'";
 	$Result = DB_query($ShowSQL);
 	if (DB_num_rows($Result) > 0) {
 		return True;

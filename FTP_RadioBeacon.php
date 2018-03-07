@@ -58,13 +58,6 @@ echo '<table cellpadding="2" width="100%">
 
 $k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		$k = 1;
-	}
 
 	$FTPDispatchNote = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?OrderNo=' . $MyRow['orderno'];
 	$FormatedDelDate = ConvertSQLDate($MyRow['deliverydate']);
@@ -74,27 +67,31 @@ while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 	$ModifyPage = $RootPath . 'SelectOrderItems.php?ModifyOrderNumber=' . $MyRow['orderno'];
 
 	if ($MyRow['printedpackingslip'] == 1) {
-		printf('<td><font size="2"><a href="%s">%s</a></font></td>
-				<td><font color=RED size="2">' . _('Already') . '<br />' . _('Sent') . '</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td class="number"><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td></tr>', $ModifyPage, $MyRow['orderno'], $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, $MyRow['deliverto'], $FormatedOrderValue, $FormatedDateLastSent);
+		printf('<tr class="striped_row">
+					<td><font size="2"><a href="%s">%s</a></font></td>
+					<td><font color=RED size="2">' . _('Already') . '<br />' . _('Sent') . '</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td class="number"><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+				</tr>', $ModifyPage, $MyRow['orderno'], $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, $MyRow['deliverto'], $FormatedOrderValue, $FormatedDateLastSent);
 	} else {
-		printf('<td><font size="2"><a href="%s">%s</a></font></td>
-				<td><font size="2"><a href="%s">' . _('Send') . '</a></font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td>
-				<td class="number"><font size="2">%s</font></td>
-				<td><font size="2">%s</font></td></tr>', $ModifyPage, $MyRow['orderno'], $FTPDispatchNote, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, $MyRow['deliverto'], $FormatedOrderValue, $FormatedDateLastSent);
+		printf('<tr class="striped_row">
+					<td><font size="2"><a href="%s">%s</a></font></td>
+					<td><font size="2"><a href="%s">' . _('Send') . '</a></font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+					<td class="number"><font size="2">%s</font></td>
+					<td><font size="2">%s</font></td>
+				</tr>', $ModifyPage, $MyRow['orderno'], $FTPDispatchNote, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, $MyRow['deliverto'], $FormatedOrderValue, $FormatedDateLastSent);
 	}
 }
 //end of while loop

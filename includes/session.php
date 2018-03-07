@@ -66,14 +66,14 @@ if (isset($_SESSION['DatabaseName'])) {
 			if (get_magic_quotes_gpc()) {
 				$_POST['name'] = stripslashes($_POST['name']);
 			} //get_magic_quotes_gpc()
-			$_POST[$PostVariableName] = DB_escape_string($PostVariableValue);
+			$_POST[$PostVariableName] = DB_escape_string(htmlspecialchars($PostVariableValue, ENT_QUOTES, 'UTF-8'));
 		} //gettype($Value) != 'array'
 		else {
 			foreach ($PostVariableValue as $PostArrayKey => $PostArrayValue) {
 				if (get_magic_quotes_gpc()) {
 					$PostVariableValue[$PostArrayKey] = stripslashes($Value[$PostArrayKey]);
 				}
-				$PostVariableValue[$PostArrayKey] = DB_escape_string($PostArrayValue);
+				$PostVariableValue[$PostArrayKey] = DB_escape_string(htmlspecialchars($PostArrayValue, ENT_QUOTES, 'UTF-8'));
 			} //$Value as $Key1 => $Value1
 		}
 	} //$_POST as $Key => $Value
@@ -83,7 +83,7 @@ if (isset($_SESSION['DatabaseName'])) {
 	*/
 	foreach ($_GET as $GetKey => $GetValue) {
 		if (gettype($GetValue) != 'array' and basename($_SERVER['SCRIPT_NAME']) != 'index.php') {
-			$_GET[$GetKey] = DB_escape_string(urldecode($GetValue));
+			$_GET[$GetKey] = DB_escape_string(htmlspecialchars(urldecode($GetValue), ENT_QUOTES, 'UTF-8'));
 		} //gettype($Value) != 'array'
 	} //$_GET as $Key => $Value
 } //isset($_SESSION['DatabaseName'])

@@ -1,0 +1,94 @@
+
+table {
+background:none repeat scroll 0 0 #FFF;
+box-shadow:3px 3px 4px #631;
+text-align:center;
+width:auto;
+max-width:90%;
+margin:5px auto;
+padding:3px;
+}
+
+th {
+background-color:#ffd980;
+color:#000;
+text-align:center;
+}
+
+th.number {
+text-align:right;
+background-color:maroon;
+color:#FFF;
+}
+
+th.SortedColumn {
+cursor:s-resize;
+padding-right:16px;
+background-image:url(images/ascending.png);
+background-repeat: no-repeat;
+background-position:right;
+background-size:12px;
+
+td {
+text-align:left;
+}
+
+td.select {
+background-color:#ffb;
+}
+
+.table1 {
+width:90%;
+background:#eee;
+border:0 0 2px 2px solid #222;
+margin:0 auto;
+}
+
+.tableheader {
+background-color:#777C59;
+color:#FFF;
+}
+
+tr.striped_row:nth-of-type(even) {
+background-color:#f5e6c9;
+}
+
+tr.striped_row:nth-of-type(odd) {
+background-color:#f2fac0;
+}
+
+tr.success_row {
+background-color:#b9ecb4;
+color:#006400;
+border:1px solid #006400;
+width:80%;
+margin:0 auto 10px;
+padding:10px;
+}
+
+tr.warn_row {
+background-color:#f5dbfd;
+color:maroon;
+border:1px solid maroon;
+width:80%;
+margin:0 auto 10px;
+padding:10px;
+}
+
+tr.info_row {
+background-color:#C7CCF6;
+border:0 solid navy;
+color:navy;
+width:80%;
+margin:0 auto 10px;
+padding:10px;
+}
+
+tr.error_row {
+background-color:#fddbdb;
+color:red;
+border:1px solid red;
+width:80%;
+margin:0 auto 10px;
+padding:10px;
+}

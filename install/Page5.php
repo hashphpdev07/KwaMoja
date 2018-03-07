@@ -335,7 +335,6 @@ $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('geocode_integr
 $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('GoogleTranslatorAPIKey','')";
 $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('HTTPS_Only','0')";
 $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('InventoryManagerEmail','" . $_SESSION['Installer']['Email'] . "')";
-$SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('InvoicePortraitFormat','0')";
 $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('InvoiceQuantityDefault','0')";
 $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('ItemDescriptionLanguages','')";
 $SQL[] = "INSERT INTO `config` (`confname`, `confvalue`) VALUES ('KwaMojaImagesFromOpenCart','data/part_pics/')";

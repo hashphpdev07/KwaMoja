@@ -215,7 +215,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 					</tr>';
 			}
 		}
-	} //end of if PricesSecuirty allows viewing of prices
+	} //end of if PricesSecurity allows viewing of prices
 	if (in_array($CostSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
 		if ($MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'A') {
 			$CostResult = DB_query("SELECT SUM(bom.quantity * (stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost)) AS cost
@@ -430,6 +430,7 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 			} else {
 				echo '<td class="select">', _('No'), '</td>';
 			}
+			echo '<td class="select"><a href="' . $RootPath . '/PurchData.php?StockID=', urlencode($StockId), '&SupplierID=', urlencode($SuppRow['supplierid']), '&Edit=1&EffectiveFrom=', urlencode($SuppRow['effectivefrom']), '">' . _('Edit') . ' </a></td>';
 			echo '<td class="select"><a href="', $RootPath, '/PO_Header.php?NewOrder=Yes&amp;SelectedSupplier=', urlencode($SuppRow['supplierid']), '&amp;StockID=', urlencode($StockId), '&amp;Quantity=', urlencode($SuppRow['minorderqty']), '&amp;LeadTime=', urlencode($SuppRow['leadtime']), '">', _('Order'), ' </a></td>';
 			echo '</tr>';
 		}
@@ -443,9 +444,18 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 	$UrlEncodedStockId = urlencode($StockId);
 	echo '<table width="90%">
 			<tr>
-				<th style="width:33%">', _('Item Inquiries'), '</th>
-				<th style="width:33%">', _('Item Transactions'), '</th>
-				<th style="width:33%">', _('Item Maintenance'), '</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Item Inquiries'), '" />',
+					_('Item Inquiries'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Item Transactions'), '" />',
+					_('Item Transactions'),
+				'</th>
+				<th style="width:33%">
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Item Maintenance'), '" />',
+					_('Item Maintenance'),
+				'</th>
 			</tr>';
 	echo '<tr>
 			<td valign="top" class="select">';
@@ -482,15 +492,15 @@ if (!isset($_POST['Search']) and (isset($_POST['Select']) or isset($_SESSION['Se
 		//show the item image if it has been uploaded
 		if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 			if ($_SESSION['ShowStockidOnImages'] == '0') {
-				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . $UrlEncodedStockId . '&amp;text=' . '&amp;width=100' . '&amp;height=100' . '" alt="" />';
+				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . $UrlEncodedStockId . '&amp;text=' . '&amp;width=200' . '&amp;height=200' . '" alt="" />';
 			} else if (file_exists($ImageFile)) {
 				$StockImgLink = '<img src="' . $ImageFile . '" height="100" width="100" />';
 			} else {
-				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . $UrlEncodedStockId . '&amp;text=' . $UrlEncodedStockId . '&amp;width=100' . '&amp;height=100' . '" alt="" />';
+				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . $UrlEncodedStockId . '&amp;text=' . $UrlEncodedStockId . '&amp;width=200' . '&amp;height=200' . '" alt="" />';
 			}
 		} else {
 			if (isset($StockId) and file_exists($_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg')) {
-				$StockImgLink = '<img src="' . $_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg" height="100" width="100" />';
+				$StockImgLink = '<img src="' . urlencode($_SESSION['part_pics_dir']) . '/' . urlencode($StockId) . '.jpg" height="200" width="200" />';
 			} else {
 				$StockImgLink = _('No Image');
 			}
@@ -562,7 +572,7 @@ echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>', _('In Stock Category'), ':
 				<select name="StockCat">';
@@ -728,11 +738,12 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 					<input type="hidden" name="StockCode" value="', $_POST['StockCode'], '" />
 			</div>';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>', _('Stock Status'), '</th>
 						<th class="SortedColumn">', _('Code'), '</th>
+						<th>'. _('image').'</th>
 						<th class="SortedColumn">', _('Description'), '</th>
 						<th class="SortedColumn">', _('Suppliers Stock Code'), '</th>
 						<th>', _('Total Qty On Hand'), '</th>
@@ -746,13 +757,6 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 		$RowIndex = 1;
 		echo '<tbody>';
 		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <= $_SESSION['DisplayRecordsMax'])) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			if ($MyRow['mbflag'] == 'D') {
 				$QOH = _('N/A');
 			} else {
@@ -763,15 +767,23 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 			} else {
 				$ItemStatus = '';
 			}
-
-			echo '<td>', $ItemStatus, '</td>
-				<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
-				<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
-				<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
-				<td class="number">', $QOH, '</td>
-				<td>', $MyRow['units'], '</td>
-				<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>
-			</tr>';
+			if (file_exists($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.png')
+				or file_exists($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.jpg')
+					or file_exists($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.jpeg')) {
+				$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=' . urlencode($MyRow['stockid']) . '&width=100&height=100" alt="" />';
+			} else {
+				$StockImgLink = '<p>'._('No Image').'</p>';
+			}
+			echo '<tr class="striped_row">
+					<td>', $ItemStatus, '</td>
+					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
+					<td>', $StockImgLink, '</td>
+					<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
+					<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
+					<td class="number">', $QOH, '</td>
+					<td>', $MyRow['units'], '</td>
+					<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>
+				</tr>';
 			++$RowIndex;
 		}
 		//end of while loop

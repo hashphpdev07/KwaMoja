@@ -33,6 +33,7 @@ if (isset($_GET['OrderNumber'])) {
 }
 if (isset($_GET['CustomerRef'])) {
 	$CustomerRef = $_GET['CustomerRef'];
+	$CustomerGet = 1;
 } elseif (isset($_POST['CustomerRef'])) {
 	$CustomerRef = $_POST['CustomerRef'];
 }
@@ -122,7 +123,7 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 		echo '<br />', _('For the part'), ': ', $SelectedStockItem, ' ', _('and'), ' <input type="hidden" name="SelectedStockItem" value="', $SelectedStockItem, '" />';
 	}
 
-} else if (isset($_POST['SearchOrders']) and is_date($_POST['OrdersAfterDate']) == 1) {
+} else if ((isset($_POST['SearchOrders']) and Is_Date($_POST['OrdersAfterDate'])==1) or (isset($CustomerGet))) {
 
 	//figure out the SQL required from the inputs available
 	if (isset($OrderNumber)) {
@@ -330,7 +331,7 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 if (!isset($_POST['OrdersAfterDate']) or $_POST['OrdersAfterDate'] == '' or !is_date($_POST['OrdersAfterDate'])) {
 	$_POST['OrdersAfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 2, Date('d'), Date('Y')));
 }
-echo '<table class="selection">';
+echo '<table>';
 
 if (isset($PartString)) {
 	echo '<tr>
@@ -345,7 +346,7 @@ if (!isset($_POST['OrderNumber'])) {
 echo '<td>', _('Order Number'), ':</td>
 		<td><input type="text" name="OrderNumber" maxlength="8" size="9" value="', $_POST['OrderNumber'], '" /></td>
 		<td>', _('for all orders placed after'), ': </td>
-		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '"  name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" /></td>
+		<td><input type="text" class="date" name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" /></td>
 		<td><input type="submit" name="SearchOrders" value="', _('Search Orders'), '" /></td>
 	</tr>';
 echo '<tr>
@@ -364,7 +365,7 @@ if (!isset($SelectedStockItem)) {
 						ORDER BY categorydescription");
 
 	echo '<div class="page_help_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<td>', _('Select a stock category'), ':';
 	echo '<select name="StockCat">';
@@ -404,7 +405,7 @@ if (!isset($SelectedStockItem)) {
 
 if (isset($StockItemsResult)) {
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
@@ -418,21 +419,14 @@ if (isset($StockItemsResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		echo '<td>
-				<input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" />
-			</td>
-			<td>', $MyRow['description'], '</td>
-			<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
-			<td>', $MyRow['units'], '</td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>
+					<input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" />
+				</td>
+				<td>', $MyRow['description'], '</td>
+				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['units'], '</td>
+			</tr>';
 
 		//end of page full new headings if
 	}
@@ -446,9 +440,18 @@ if (isset($StockItemsResult)) {
 
 if (isset($SalesOrdersResult)) {
 
+	if (DB_num_rows($SalesOrdersResult) == 1) {
+		if (!isset($OrderNumber)) {
+			$OrderRow = DB_fetch_array($SalesOrdersResult);
+			$OrderNumber = $OrderRow['orderno'];
+		}
+		echo '<meta http-equiv="refresh" content="0; url=', $RootPath, '/OrderDetails.php?OrderNumber=', $OrderNumber, '">';
+		exit;
+	}
+
 	/*show a table of the orders returned by the SQL */
 
-	echo '<table cellpadding="2" width="90%" class="selection">
+	echo '<table cellpadding="2" width="90%">
 			<thead>
 				<tr>
 					<th colspan="9">
@@ -473,15 +476,8 @@ if (isset($SalesOrdersResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td><a href="', $RootPath . '/OrderDetails.php?OrderNumber=' . $MyRow['orderno'], '">', $MyRow['orderno'], '</a></td>
+		echo '<tr class="striped_row">
+				<td><a href="', $RootPath . '/OrderDetails.php?OrderNumber=' . $MyRow['orderno'], '">', $MyRow['orderno'], '</a></td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['brname'], '</td>
 				<td>', $MyRow['customerref'], '</td>

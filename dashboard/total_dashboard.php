@@ -45,7 +45,7 @@ $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 
 echo '<div class="centre">
-		<table border="0" cellspacing="0" style="max-width:100%;width:99%;" cellpadding="2" class="selection">
+		<table border="0" cellspacing="0" style="max-width:100%;width:99%;" cellpadding="2">
 			<tr>
 				<th colspan="2" style="margin:0px;padding:0px;background: transparent;">
 					<div class="CanvasTitle">' . _('Sales/Purchase Order Report') . '

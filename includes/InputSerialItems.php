@@ -47,9 +47,9 @@ if (!isset($RecvQty)) {
 	$RecvQty = 0;
 }
 if (!isset($_POST['EntryType']) or trim($_POST['EntryType']) == '') {
-	if ($RecvQty <= 500000) {
+	if ($RecvQty <= $_SESSION['MaxSerialItemsIssued']) {
 		$_POST['EntryType'] = 'KEYED';
-	} //elseif ($RecvQty <= 50) { $EntryType = "BARCODE"; }
+	} //elseif ($RecvQty <= $_SESSION['MaxSerialItemsIssued']) { $EntryType = "BARCODE"; }
 	else {
 		$_POST['EntryType'] = 'FILE';
 	}
@@ -70,7 +70,7 @@ if (isset($_GET['CreditInvoice']) or isset($_POST['CreditInvoice'])) {
 	$CreditInvoice = '';
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td><input type="radio" name="EntryType" onclick="submit();" ';
 if ($_POST['EntryType'] == 'KEYED') {

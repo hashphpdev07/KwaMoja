@@ -89,7 +89,7 @@ if (isset($_GET['Delete'])) {
 
 /*Show all the selected GRNs so far from the SESSION['SuppTrans']->GRNs array */
 
-echo '<table class="selection">
+echo '<table>
 		<thead>
 			<tr>
 				<th colspan="7"><h3>', _('Invoiced Goods Received Selected'), '</h3></th>
@@ -203,7 +203,7 @@ if (isset($_GET['Modify'])) {
 	$GRNNo = $_GET['Modify'];
 	$GRNTmp = $_SESSION['SuppTrans']->GRNs[$GRNNo];
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<thead>
 			<tr>
 				<th colspan="10"><h3>', _('GRN Selected For Adding To A Purchase Invoice'), '</h3></th>
@@ -252,7 +252,7 @@ if (isset($_GET['Modify'])) {
 else {
 	if (count($_SESSION['SuppTransTmp']->GRNs) > 0) {
 		/*if there are any outstanding GRNs then */
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th colspan="10"><h3>', _('Goods Received Yet to be Invoiced From'), ' ', $_SESSION['SuppTrans']->SupplierName, '</h3></th>

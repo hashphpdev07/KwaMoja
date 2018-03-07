@@ -551,7 +551,7 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 		echo '<input type="hidden" name="SuppliersReturned" value="' . $SuppliersReturned . '" />';
 	} //isset($SuppliersReturned)
 
-	echo '<table cellpadding="3" class="selection">
+	echo '<table cellpadding="3">
 			<tr>
 				<td>' . _('Enter text in the supplier name') . ':</td>
 				<td><input type="text" autofocus="autofocus" name="Keywords" size="20" maxlength="25" /></td>
@@ -566,7 +566,7 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 		</div>';
 
 	if (isset($Result_SuppSelect)) {
-		echo '<table cellpadding="3" class="selection">
+		echo '<table cellpadding="3">
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Code') . '</th>
@@ -580,17 +580,10 @@ if ($_SESSION['RequireSupplierSelection'] == 1 or !isset($_SESSION['PO' . $Ident
 		/*row counter to determine background colour */
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_SuppSelect)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} //$k == 1
-			else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 
-			echo '<td><input type="submit" style="width:100%" name="Select" value="' . $MyRow['supplierid'] . '" /></td>
-				<td>' . $MyRow['suppname'] . '</td><td>';
+			echo '<tr class="striped_row">
+					<td><input type="submit" style="width:100%" name="Select" value="' . $MyRow['supplierid'] . '" /></td>
+					<td>' . $MyRow['suppname'] . '</td><td>';
 
 			for ($i = 1; $i <= 6; $i++) {
 				if ($MyRow['address' . $i] != '') {
@@ -729,7 +722,7 @@ else {
 				<tr>
 					<td style="width:50%">';
 	//sub table starts
-	echo '<table class="selection" width="100%">';
+	echo '<table width="100%">';
 	echo '<tr>
 			<td>' . _('PO Date') . ':</td>
 			<td>';
@@ -767,7 +760,7 @@ else {
 		</tr>
 		<tr>
 			<td>' . _('Delivery Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="DeliveryDate" required="required" maxlength="10" size="11" value="' . $_POST['DeliveryDate'] . '" /></td>
+			<td><input type="text" class="date" name="DeliveryDate" required="required" maxlength="10" size="11" value="' . $_POST['DeliveryDate'] . '" /></td>
 		</tr>';
 
 	if (!isset($_POST['Initiator'])) {
@@ -824,7 +817,7 @@ else {
 	echo '</table></td>';
 	//Set up the next column with a sub-table in it too
 	echo '<td style="width:50%" valign="top">
-		<table class="selection" width="100%">';
+		<table width="100%">';
 
 	if ($_SESSION['ExistingOrder'] != 0 and $_SESSION['PO' . $Identifier]->Status == 'Printed') {
 		echo '<tr>
@@ -898,7 +891,7 @@ else {
 		<tr><td valign="top">';
 	/*nested table level1 */
 
-	echo '<table class="selection" width="100%">
+	echo '<table width="100%">
 			<tr>
 				<td>' . _('Warehouse') . ':</td>
 				<td><select required="required" name="StkLocation" onchange="ReloadForm(form1.LookupDeliveryAddress)">';
@@ -1062,7 +1055,7 @@ else {
 
 	echo '</td><td>';
 	/*sub table nested */
-	echo '<table class="selection" width="100%">
+	echo '<table width="100%">
 			<tr>
 				<td>' . _('Supplier Selection') . ':</td>
 				<td><select required="required" name="Keywords" onchange="ReloadForm(form1.SearchSuppliers)">';

@@ -49,7 +49,7 @@ if (!isset($PayrollID)) {
 	$ErrMsg = _('The payroll record could not be retrieved because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Payroll ID') . '</th>
 				<th>' . _('Desciption') . '</th>
@@ -64,23 +64,16 @@ if (!isset($PayrollID)) {
 
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k++;
-		}
-
-		echo '<td>' . $MyRow['payrollid'] . '</td>
-			<td>' . $MyRow['payrolldesc'] . '</td>
-			<td>' . $MyRow['fsmonth'] . '</td>
-			<td>' . $MyRow['fsyear'] . '</td>
-			<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
-			<td>' . ConvertSQLDate($MyRow['enddate']) . '</td>
-			<td>' . $MyRow['payperiodid'] . '</td>
-			<td><a href="' . $RootPath . '/prlCreatePayroll.php?PayrollID=' . $MyRow['payrollid'] . '">' . _('Select') . '</a></td>
-		</tr>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['payrollid'] . '</td>
+				<td>' . $MyRow['payrolldesc'] . '</td>
+				<td>' . $MyRow['fsmonth'] . '</td>
+				<td>' . $MyRow['fsyear'] . '</td>
+				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
+				<td>' . ConvertSQLDate($MyRow['enddate']) . '</td>
+				<td>' . $MyRow['payperiodid'] . '</td>
+				<td><a href="' . $RootPath . '/prlCreatePayroll.php?PayrollID=' . $MyRow['payrollid'] . '">' . _('Select') . '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 

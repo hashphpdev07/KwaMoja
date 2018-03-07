@@ -13,6 +13,12 @@ margin:0;
 padding:0;
 }
 
+button img {
+	/* Describes how button image should be displayed. */
+	height:21px;
+	width:21px;
+}
+
 div.toplink {
 padding-top:1%;
 padding-left:1%;
@@ -140,14 +146,6 @@ margin:0 auto;
  	/* Class selector to horizontal align text (left) in an element. */
 }
 
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .dpTbl {
 border:solid navy 1px;
 background:#FFF;
@@ -175,30 +173,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.EvenTableRows {
-background-color:#CCC;
-}
-
-.OddTableRows {
-background-color:#EEE;
-}
-
-th {
-background-color:#cccce5;
-color:#300;
-text-align:center;
-}
-
-th.number {
-background-color:#cccce5;
-color:#300;
-text-align:right;
-}
-
-th.SortedColumn {
-cursor:s-resize;
 }
 
 div.error {
@@ -273,13 +247,6 @@ margin:0;
 padding:0;
 }
 
-.table1 {
-width:90%;
-background:#eee;
-border:1px solid #222;
-margin:0 auto;
-}
-
 input.address3 {
 text-transform:uppercase;
 }
@@ -306,22 +273,6 @@ padding-bottom:2px;
 font-weight:700;
 color:#000;
 text-align:center;
-}
-
-DIV.page_help_text {
-background:#D3D3D3 url(images/help.png) top left no-repeat;
-border:#a52a2a 1px solid;
-padding-top:2px;
-padding-bottom:2px;
-padding-left:10px;
-z-index:1;
-width:80%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
 }
 
 .menu_group_items a:hover {

@@ -44,7 +44,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection" summary="' . _('Criteria for inquiry') . '">
+echo '<table summary="' . _('Criteria for inquiry') . '">
 		<tr>
 			<td>' . _('Enter extract of text in the Account name') . ':</td>
 			<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
@@ -85,7 +85,7 @@ if (isset($Result) and DB_num_rows($Result) > 0) {
 
 	echo '<form action="GLAccountInquiry.php" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection" summary="' . _('List of GL Accounts') . '">
+	echo '<table summary="' . _('List of GL Accounts') . '">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>

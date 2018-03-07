@@ -164,7 +164,9 @@ if (isset($_POST['submit'])) {
 						pdflanguage='" . $_POST['PDFLanguage'] . "',
 						department='" . $_POST['Department'] . "',
 						fontsize='" . $_POST['FontSize'] . "',
-						defaulttag='" . $_POST['DefaultTag'] . "'
+						defaulttag='" . $_POST['DefaultTag'] . "',
+						showpagehelp='" . $_POST['ShowPageHelp'] . "',
+						showfieldhelp='" . $_POST['ShowFieldHelp'] . "'
 					WHERE userid = '" . $SelectedUser . "'";
 
 		prnMsg(_('The selected user record has been updated'), 'success');
@@ -183,7 +185,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The default user locations could not be processed because');
 		$DbgMsg = _('The SQL that was used to create the user locations and failed was');
 		$Result = DB_query($LocationSql, $ErrMsg, $DbgMsg);
-		prnMsg( _('User has been authorized to use and update only his / her default location'), 'success' );
+		prnMsg( _('User has been authorised to use and update only his / her default location'), 'success' );
 
 		$GLAccountsSql = "INSERT INTO glaccountusers (userid,
 													accountcode,
@@ -198,7 +200,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The default user GL Accounts could not be processed because');
 		$DbgMsg = _('The SQL that was used to create the user GL Accounts and failed was');
 		$Result = DB_query($GLAccountsSql, $ErrMsg, $DbgMsg);
-		prnMsg( _('User has been authorized to use and update all GL accounts'), 'success' );
+		prnMsg( _('User has been authorised to use and update all GL accounts'), 'success' );
 
 		$SQL = "INSERT INTO www_users (userid,
 						realname,
@@ -221,7 +223,9 @@ if (isset($_POST['submit'])) {
 						pdflanguage,
 						department,
 						fontsize,
-						defaulttag)
+						defaulttag,
+						showpagehelp,
+						showfieldhelp)
 					VALUES ('" . $_POST['UserID'] . "',
 						'" . $_POST['RealName'] . "',
 						'" . $_POST['Cust'] . "',
@@ -243,12 +247,16 @@ if (isset($_POST['submit'])) {
 						'" . $_POST['PDFLanguage'] . "',
 						'" . $_POST['Department'] . "',
 						'" . $_POST['FontSize'] . "',
-						'" . $_POST['DefaultTag'] . "'
+						'" . $_POST['DefaultTag'] . "',
+						'" . $_POST['ShowPageHelp'] . "',
+						'" . $_POST['ShowFieldHelp'] . "'
 						)";
 		prnMsg(_('A new user record has been inserted'), 'success');
 	}
 	if ($_SESSION['UserID'] == $_POST['UserID']) {
 		$_SESSION['RestrictLocations'] = $_POST['RestrictLocations'];
+		$_SESSION['ShowPageHelp'] = $_POST['ShowPageHelp'];
+		$_SESSION['ShowFieldHelp'] = $_POST['ShowFieldHelp'];
 	}
 	if ($InputError != 1) {
 		//run the SQL from either of the above possibilites
@@ -279,6 +287,8 @@ if (isset($_POST['submit'])) {
 		unset($_POST['Department']);
 		unset($_POST['FontSize']);
 		unset($_POST['DefaultTag']);
+		unset($_POST['ShowPageHelp']);
+		unset($_POST['ShowFieldHelp']);
 		unset($SelectedUser);
 	}
 
@@ -289,7 +299,7 @@ if (isset($_POST['submit'])) {
 
 
 	if ($AllowDemoMode and $SelectedUser == 'admin') {
-		prnMsg(_('The demonstration user called demo cannot be deleted'), 'error');
+		prnMsg(_('The administration user called admin cannot be deleted'), 'error');
 	} else {
 
 		$SQL = "SELECT userid FROM audittrail where userid='" . $SelectedUser . "'";
@@ -340,38 +350,35 @@ if (!isset($SelectedUser)) {
 					theme,
 					language,
 					fontsize,
-					defaulttag
+					defaulttag,
+					showpagehelp,
+					showfieldhelp
 				FROM www_users";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
-			<tr>
-				<th>' . _('User Login') . '</th>
-				<th>' . _('Full Name') . '</th>
-				<th>' . _('Telephone') . '</th>
-				<th>' . _('Email') . '</th>
-				<th>' . _('Customer Code') . '</th>
-				<th>' . _('Branch Code') . '</th>
-				<th>' . _('Supplier Code') . '</th>
-				<th>' . _('Salesperson') . '</th>
-				<th>' . _('Last Visit') . '</th>
-				<th>' . _('Security Role') . '</th>
-				<th>' . _('Report Size') . '</th>
-				<th>' . _('Theme') . '</th>
-				<th>' . _('Language') . '</th>
-				<th>' . _('Screen Font Size') . '</th>
-			</tr>';
+	echo '<table>
+			<thead>
+				<tr>
+					<th class="SortedColumn">' . _('User Login') . '</th>
+					<th class="SortedColumn">' . _('Full Name') . '</th>
+					<th class="SortedColumn">' . _('Telephone') . '</th>
+					<th class="SortedColumn">' . _('Email') . '</th>
+					<th class="SortedColumn">' . _('Customer Code') . '</th>
+					<th class="SortedColumn">' . _('Branch Code') . '</th>
+					<th class="SortedColumn">' . _('Supplier Code') . '</th>
+					<th class="SortedColumn">' . _('Salesperson') . '</th>
+					<th class="SortedColumn">' . _('Last Visit') . '</th>
+					<th class="SortedColumn">' . _('Security Role') . '</th>
+					<th class="SortedColumn">' . _('Report Size') . '</th>
+					<th class="SortedColumn">' . _('Theme') . '</th>
+					<th class="SortedColumn">' . _('Language') . '</th>
+					<th>' . _('Screen Font Size') . '</th>
+				</tr>
+			</thead>';
 
 	$k = 0; //row colour counter
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['lastvisitdate'] == '') {
 			$LastVisitDate = _('User has not logged in yet');
@@ -396,26 +403,28 @@ if (!isset($SelectedUser)) {
 				$FontSize = _('Medium');
 		}
 
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td><a href="%s&amp;SelectedUser=%s">' . _('Edit') . '</a></td>
-				<td><a href="%s&amp;SelectedUser=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this user?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['userid'], $MyRow['realname'], $MyRow['phone'], $MyRow['email'], $MyRow['customerid'], $MyRow['branchcode'], $MyRow['supplierid'], $MyRow['salesman'], $LastVisitDate, $SecurityRoles[($MyRow['fullaccess'])], $MyRow['pagesize'], $MyRow['theme'], $LanguagesArray[$MyRow['language']]['LanguageName'], $FontSize, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['userid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['userid']);
+		echo '<tr class="striped_row">
+				<td>', $MyRow['userid'], '</td>
+				<td>', $MyRow['realname'], '</td>
+				<td>', $MyRow['phone'], '</td>
+				<td>', $MyRow['email'], '</td>
+				<td>', $MyRow['customerid'], '</td>
+				<td>', $MyRow['branchcode'], '</td>
+				<td>', $MyRow['supplierid'], '</td>
+				<td>', $MyRow['salesman'], '</td>
+				<td>', $LastVisitDate, '</td>
+				<td>', $SecurityRoles[($MyRow['fullaccess'])], '</td>
+				<td>', $MyRow['pagesize'], '</td>
+				<td>', $MyRow['theme'], '</td>
+				<td>', $LanguagesArray[$MyRow['language']]['LanguageName'], '</td>
+				<td>', $FontSize, '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this user?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
-	echo '</table><br />';
+	echo '</tbody>
+		</table>';
 } //end of ifs and buts!
 
 
@@ -450,7 +459,9 @@ if (isset($SelectedUser)) {
 			pdflanguage,
 			department,
 			fontsize,
-			defaulttag
+			defaulttag,
+			showpagehelp,
+			showfieldhelp
 		FROM www_users
 		WHERE userid='" . $SelectedUser . "'";
 
@@ -478,12 +489,14 @@ if (isset($SelectedUser)) {
 	$_POST['Department'] = $MyRow['department'];
 	$_POST['FontSize'] = $MyRow['fontsize'];
 	$_POST['DefaultTag'] = $MyRow['defaulttag'];
+	$_POST['ShowPageHelp'] = $MyRow['showpagehelp'];
+	$_POST['ShowFieldHelp'] = $MyRow['showfieldhelp'];
 
 	echo '<input type="hidden" name="SelectedUser" value="' . $SelectedUser . '" />';
 	echo '<input type="hidden" name="UserID" value="' . $_POST['UserID'] . '" />';
 	echo '<input type="hidden" name="ModulesAllowed" value="' . $_POST['ModulesAllowed'] . '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('User code') . ':</td>
 				<td>' . $_POST['UserID'] . '</td>
@@ -491,7 +504,7 @@ if (isset($SelectedUser)) {
 
 } else { //end of if $SelectedUser only do the else when a new record is being entered
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('User Login') . ':</td>
 				<td><input type="text" name="UserID" size="22" required="required" maxlength="20" /></td>
@@ -812,6 +825,37 @@ if (isset($_POST['Blocked']) and $_POST['Blocked'] == 0) {
 	echo '<option value="0">' . _('Open') . '</option>';
 }
 echo '</select></td>
+	</tr>';
+
+// Turn off/on page help:
+echo '<tr>
+		<td><label for="ShowPageHelp">', _('Display page help'), ':</label></td>
+		<td><select id="ShowPageHelp" name="ShowPageHelp">';
+if ($_SESSION['ShowPageHelp'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>',
+		 '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>',
+ 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+			<fieldhelp>' . _('Show page help when available.') . '</fieldhelp>
+		</td>
+	</tr>';
+// Turn off/on field help:
+echo '<tr>
+		<td><label for="ShowFieldHelp">', _('Display field help'), ':</label></td>
+		<td><select id="ShowFieldHelp" name="ShowFieldHelp">';
+if ($_SESSION['ShowFieldHelp'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>',
+		 '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>',
+ 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+			<fieldhelp>' . _('Show field help when available.') . '</fieldhelp>
+		</td>
 	</tr>';
 
 /* Screen Font Size */

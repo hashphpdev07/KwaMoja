@@ -28,7 +28,7 @@ if (isset($_POST['Submit'])) {
 					AND periodno<='" . $_POST['YearEndDate'] . "'
 				ORDER BY periodno ASC";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th>', _('Year End'), '</th>
 			<th>', _('Profit/Loss for Year'), '</th>

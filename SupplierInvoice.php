@@ -25,18 +25,7 @@ else {
 	$Identifier = $_GET['identifier'];
 }
 
-if (!isset($_SESSION['SuppTrans']->SupplierName)) {
-	$SQL = "SELECT suppname FROM suppliers WHERE supplierid='" . $_GET['SupplierID'] . "'";
-	$Result = DB_query($SQL);
-	$MyRow = DB_fetch_row($Result);
-	$SupplierName = $MyRow[0];
-} //!isset($_SESSION['SuppTrans']->SupplierName)
-else {
-	$SupplierName = $_SESSION['SuppTrans']->SupplierName;
-}
-
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Supplier Invoice') . '" alt="" />' . ' ' . _('Enter Supplier Invoice') . ': ' . $SupplierName . '</p>';
-if (isset($_GET['SupplierID']) and $_GET['SupplierID'] != '') {
+if (isset($_GET['New'])) {
 	/*It must be a new invoice entry - clear any existing invoice details from the SuppTrans object and initiate a newy*/
 	if (isset($_SESSION['SuppTrans'])) {
 		unset($_SESSION['SuppTrans']->GRNs);
@@ -129,6 +118,18 @@ elseif (!isset($_SESSION['SuppTrans'])) {
 
 	/*It all stops here if there ain't no supplier selected */
 } //!isset($_SESSION['SuppTrans'])
+
+if (!isset($_SESSION['SuppTrans']->SupplierName)) {
+	$SQL = "SELECT suppname FROM suppliers WHERE supplierid='" . $_GET['SupplierID'] . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_row($Result);
+	$SupplierName = $MyRow[0];
+} //!isset($_SESSION['SuppTrans']->SupplierName)
+else {
+	$SupplierName = $_SESSION['SuppTrans']->SupplierName;
+}
+
+echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Supplier Invoice') . '" alt="" />' . ' ' . _('Enter Supplier Invoice') . ': ' . $SupplierName . ' ' . $_GET['SupplierID'] . '</p>';
 
 /* The code below automatically receives the outstanding balances on the purchase order ReceivePO and adds all the GRNs from that purchase order onto the invoice
  * This is geared towards smaller businesses that have purchase orders that are automatically approved by users, and they want to enter the invoice directly based
@@ -551,6 +552,11 @@ if (isset($_POST['ExRate'])) {
 
 
 if (!isset($_POST['PostInvoice'])) {
+
+	foreach ($_SESSION['SuppTrans']->Taxes as $ID=>$TaxAmount) {
+		$_SESSION['SuppTrans']->Taxes[$ID]->TaxOvAmount = 0;
+	}
+
 	if (isset($_POST['GRNS']) and $_POST['GRNS'] == _('Purchase Orders')) {
 		/*This ensures that any changes in the page are stored in the session before calling the grn page */
 		echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/SuppInvGRNs.php">';
@@ -584,10 +590,14 @@ if (!isset($_POST['PostInvoice'])) {
 		exit;
 	} //isset($_POST['FixedAssets']) and $_POST['FixedAssets'] == _('Fixed Assets')
 
+	if (!isset($_POST['OverRideTax'])) {
+		$_POST['OverRideTax'] = 'Man';
+	}
+
 	/* everything below here only do if a Supplier is selected
 	fisrt add a header to show who we are making an invoice for */
 
-	echo '<br /><table class="selection">
+	echo '<br /><table>
 			<tr>
 				<th>' . _('Supplier') . '</th>
 				<th>' . _('Currency') . '</th>
@@ -603,10 +613,10 @@ if (!isset($_POST['PostInvoice'])) {
 		</tr>
 		</table>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SupplierID=' . stripslashes($_SESSION['SuppTrans']->SupplierID) . '" method="post" id="form1">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<br /><table class="selection">';
+	echo '<br /><table>';
 
 	echo '<tr>
 			<td>' . _('Supplier Invoice Reference') . ':</td>
@@ -616,7 +626,7 @@ if (!isset($_POST['PostInvoice'])) {
 		$_SESSION['SuppTrans']->TranDate = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y')));
 	} //!isset($_SESSION['SuppTrans']->TranDate)
 	echo '<td>' . _('Invoice Date') . ' (' . _('in format') . ' ' . $_SESSION['DefaultDateFormat'] . ') :</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="11" required="required" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
+		<td><input type="text" class="date" size="11" required="required" maxlength="10" name="TranDate" value="' . $_SESSION['SuppTrans']->TranDate . '" /></td>
 		<td>' . _('Exchange Rate') . ':</td>
 		<td><input type="text" class="number" size="14" required="required" maxlength="12" name="ExRate" value="' . locale_number_format($_SESSION['SuppTrans']->ExRate, 'Variable') . '" /></td>
 	</tr>
@@ -639,11 +649,11 @@ if (!isset($_POST['PostInvoice'])) {
 		/*if there are any GRNs selected for invoicing then */
 		/*Show all the selected GRNs so far from the SESSION['SuppInv']->GRNs array */
 
-		echo '<table class="selection">
+		echo '<table>
 			<tr>
 				<th colspan="6">' . _('Purchase Order Charges') . '</th>
 			</tr>
-				<tr style="background-color:#800000">
+				<tr>
 					<th>' . _('Seq') . ' #</th>
 					<th>' . _('GRN Batch') . '</th>
 					<th>' . _('Supplier Ref') . '</th>
@@ -683,7 +693,7 @@ if (!isset($_POST['PostInvoice'])) {
 		/*if there are any Shipment charges on the invoice*/
 
 		echo '<br />
-				<table class="selection">
+				<table>
 				<tr>
 					<th colspan="2">' . _('Shipment Charges') . '</th>
 				</tr>
@@ -715,7 +725,7 @@ if (!isset($_POST['PostInvoice'])) {
 		/*if there are any fixed assets on the invoice*/
 
 		echo '<br />
-			<table class="selection">
+			<table>
 			<tr>
 				<th colspan="3">' . _('Fixed Asset Additions') . '</th>
 			</tr>
@@ -749,7 +759,7 @@ if (!isset($_POST['PostInvoice'])) {
 		/*if there are any contract charges on the invoice*/
 
 		echo '<br />
-			<table class="selection">
+			<table>
 			<tr>
 				<th colspan="3">' . _('Contract Charges') . '</th>
 			</tr>
@@ -778,12 +788,13 @@ if (!isset($_POST['PostInvoice'])) {
 	} //count($_SESSION['SuppTrans']->Contracts) > 0
 
 	$TotalGLValue = 0;
+	$TotalTax = 0;
 
 	if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 		if (count($_SESSION['SuppTrans']->GLCodes) > 0) {
-			echo '<table class="selection">
+			echo '<table>
 					<tr>
-						<th colspan="5">' . _('General Ledger Analysis') . '</th>
+						<th colspan="7">' . _('General Ledger Analysis') . '</th>
 					</tr>
 					<tr>
 						<th>' . _('Account') . '</th>
@@ -791,6 +802,8 @@ if (!isset($_POST['PostInvoice'])) {
 						<th>' . _('Narrative') . '</th>
 						<th>' . _('Tag') . '</th>
 						<th>' . _('Amount') . '<br />' . _('in') . ' ' . $_SESSION['SuppTrans']->CurrCode . '</th>
+						<th>' . _('Tax') . '<br />' . _('in') . ' ' . $_SESSION['SuppTrans']->CurrCode . '</th>
+						<th>' . _('Tax') . '<br />' . _('Rate') . '</th>
 					</tr>';
 
 			foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
@@ -809,35 +822,54 @@ if (!isset($_POST['PostInvoice'])) {
 					}
 				}
 
+				$TaxDescription = '';
+				$TaxRatesDescription = '';
+				foreach ($EnteredGLCode->Tax as $ID=>$TaxAmount) {
+					if (!isset($TotalTaxes[$ID])) {
+						$TotalTaxes[$ID] = 0;
+					}
+					$TaxDescription .= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($TaxAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
+					$TaxRatesDescription .= locale_number_format($TaxAmount / $EnteredGLCode->Amount * 100, 2) . '%<br />';
+					$TotalTaxes[$ID] += $TaxAmount;
+					$_SESSION['SuppTrans']->Taxes[$ID]->TaxOvAmount += $TaxAmount;
+				}
+
 				echo '<tr>
 						<td valign="top">' . $EnteredGLCode->GLCode . '</td>
 						<td valign="top">' . $EnteredGLCode->GLActName . '</td>
 						<td valign="top">' . $EnteredGLCode->Narrative . '</td>
 						<td valign="top">' . $TagDescription . '</td>
 						<td valign="top" class="number">' . locale_number_format($EnteredGLCode->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
+						<td valign="top" class="number">' . $TaxDescription . '</td>
+						<td valign="top" class="number">' . $TaxRatesDescription . '</td>
 					</tr>';
 
 				$TotalGLValue += $EnteredGLCode->Amount;
 
 			} //$_SESSION['SuppTrans']->GLCodes as $EnteredGLCode
 
+			$TotalTaxDescription = '';
+			foreach ($TotalTaxes as $ID=>$Tax) {
+				$TotalTaxDescription .= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
+			}
 			echo '<tr>
 					<td colspan="4" class="number" style="color:blue">' . _('Total GL Analysis') . ':</td>
 					<td class="number" style="color:blue">' . locale_number_format($TotalGLValue, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
+					<td class="number" style="color:blue">' . $TotalTaxDescription . '</td>
 				</tr>
 				</table>';
 		} //count($_SESSION['SuppTrans']->GLCodes) > 0
 
 		$_SESSION['SuppTrans']->OvAmount = ($TotalGRNValue + $TotalGLValue + $TotalAssetValue + $TotalShiptValue + $TotalContractsValue);
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Amount in supplier currency') . ':</td>
 					<td colspan="2" class="number">' . locale_number_format($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
 				</tr>';
 	} //$_SESSION['SuppTrans']->GLLink_Creditors == 1
 	else {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Amount in supplier currency') . ':</td>
 					<td colspan="2" class="number"><input type="text" class="number" size="12" maxlength="10" name="OvAmount" value="' . locale_number_format($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" /></td>
@@ -860,7 +892,6 @@ if (!isset($_POST['PostInvoice'])) {
 	echo '</select></td>
 		</tr>';
 	$TaxTotal = 0; //initialise tax total
-
 	foreach ($_SESSION['SuppTrans']->Taxes as $Tax) {
 		echo '<tr>
 				<td>' . $Tax->TaxAuthDescription . '</td>
@@ -898,7 +929,9 @@ if (!isset($_POST['PostInvoice'])) {
 			//			if (!isset($_POST['TaxAmount'  . $Tax->TaxCalculationOrder])) {
 			//				$_POST['TaxAmount'  . $Tax->TaxCalculationOrder]=0;
 			//		}
-			$_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount = filter_number_format($_POST['TaxAmount' . $Tax->TaxCalculationOrder]);
+			if (isset($_POST['TaxAmount' . $Tax->TaxCalculationOrder])) {
+				$_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount = filter_number_format($_POST['TaxAmount' . $Tax->TaxCalculationOrder]);
+			}
 
 			echo ' <input type="hidden" name="TaxRate' . $Tax->TaxCalculationOrder . '" value="' . locale_number_format($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate * 100, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />';
 
@@ -922,7 +955,7 @@ if (!isset($_POST['PostInvoice'])) {
 		</table>';
 
 	echo '<br />
-		<table class="selection">
+		<table>
 			<tr>
 				<td>' . _('Comments') . '</td>
 				<td><textarea name="Comments" cols="40" rows="2">' . $_SESSION['SuppTrans']->Comments . '</textarea></td>
@@ -1887,7 +1920,7 @@ else { // $_POST['PostInvoice'] is set so do the postings -and dont show the but
 
 		prnMsg(_('Supplier invoice number') . ' ' . $InvoiceNo . ' ' . _('has been processed'), 'success');
 		echo '<div class="centre">
-				<a href="' . $RootPath . '/SupplierInvoice.php?&SupplierID=' . urlencode($_SESSION['SuppTrans']->SupplierID) . '">' . _('Enter another Invoice for this Supplier') . '</a>
+				<a href="' . $RootPath . '/SupplierInvoice.php?New=True&SupplierID=' . urlencode($_SESSION['SuppTrans']->SupplierID) . '">' . _('Enter another Invoice for this Supplier') . '</a>
 				<a href="' . $RootPath . '/Payments.php?&SupplierID=' . urlencode($_SESSION['SuppTrans']->SupplierID) . '&amp;Amount=' . urlencode($_SESSION['SuppTrans']->OvAmount + $TaxTotal) . '">' . _('Enter payment') . '</a>
 			</div>';
 		unset($_SESSION['SuppTrans']->GRNs);

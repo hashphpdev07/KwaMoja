@@ -225,7 +225,7 @@ function ShowDays() { //####LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LIST
 	$Result = DB_query($SQL, $ErrMsg);
 
 	echo '<br />
-		<table class="selection">
+		<table>
 		<tr>
 			<th>' . _('Date') . '</th>
 			<th>' . _('Manufacturing Date') . '</th>
@@ -260,19 +260,16 @@ function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DIS
 		$_POST['FromDate'] = date($_SESSION['DefaultDateFormat']);
 		$_POST['ToDate'] = date($_SESSION['DefaultDateFormat']);
 	}
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
-		  <div>
-			<br />
-			<br />';
+	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-	echo '<br /><table class="selection">';
+	echo '<table>';
 
 	echo '<tr>
 			<td>' . _('From Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td></tr>
+			<td><input type="text" class="date" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td></tr>
 			<tr><td>' . _('To Date') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
+			<td><input type="text" class="date" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -311,7 +308,7 @@ function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DIS
 			<td>' . _('Friday') . ':</td>
 			<td><input type="checkbox" name="Friday" value="Friday" /></td>
 		</tr>
-		</table><br />
+		</table>
 		<div class="centre">
 			<input type="submit" name="submit" value="' . _('Create Calendar') . '" />
 			<input type="submit" name="ListAll" value="' . _('List Date Range') . '" />
@@ -321,18 +318,14 @@ function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DIS
 		$_POST['ChangeDate'] = date($_SESSION['DefaultDateFormat']);
 	}
 
-	echo '<br />
-		<table class="selection">
-		<tr>
-			<td>' . _('Change Date Status') . ':</td>
-			<td><input type="text" name="ChangeDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" size="10" maxlength="10" value="' . $_POST['ChangeDate'] . '" /></td>
-			<td><input type="submit" name="update" value="' . _('Update') . '" /></td>
-		</tr>
+	echo '<table>
+			<tr>
+				<td>' . _('Change Date Status') . ':</td>
+				<td><input type="text" name="ChangeDate" class="date" size="10" maxlength="10" value="' . $_POST['ChangeDate'] . '" /></td>
+				<td><input type="submit" name="update" value="' . _('Update') . '" /></td>
+			</tr>
 		</table>
-		<br />
-		<br />
-		</div>
-		</form>';
+	</form>';
 
 } // End of function ShowInputForm()
 

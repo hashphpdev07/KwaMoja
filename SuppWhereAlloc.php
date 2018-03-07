@@ -27,7 +27,7 @@ if (!isset($_POST['TransType'])) {
 echo '<table class="selection noPrint">
 		<tr>
 			<td>', _('Type'), ':</td>
-			<td><select tabindex="1" name="TransType"> ';
+			<td><select name="TransType"> ';
 if ($_POST['TransType'] == 20) {
 	echo '<option selected="selected" value="20">', _('Purchase Invoice'), '</option>
 			<option value="22">', _('Payment'), '</option>
@@ -49,11 +49,11 @@ if (!isset($_POST['TransNo'])) {
 	$_POST['TransNo'] = '';
 }
 echo '<td>', _('Transaction Number'), ':</td>
-		<td><input tabindex="2" type="text" class="number" name="TransNo"  required="required" maxlength="20" size="20" value="', $_POST['TransNo'], '" /></td>
+		<td><input type="text" class="number" name="TransNo"  required="required" maxlength="20" size="20" value="', $_POST['TransNo'], '" /></td>
 	</tr>
 	</table>
 	<div class="centre noPrint">
-		<input tabindex="3" type="submit" name="ShowResults" value="', _('Show How Allocated'), '" />
+		<input type="submit" name="ShowResults" value="', _('Show How Allocated'), '" />
 	</div>';
 
 if (isset($_POST['ShowResults']) and $_POST['TransNo'] == '') {
@@ -81,7 +81,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 	}
 	$Result = DB_query($SQL);
 
-	if (DB_num_rows($Result) == 1) {
+	if (DB_num_rows($Result) > 0) {
 		$MyRow = DB_fetch_array($Result);
 		$AllocToID = $MyRow['id'];
 		$CurrCode = $MyRow['currcode'];
@@ -120,7 +120,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			}
 		} else {
 			echo '<div id="Report">
-				<table class="selection">';
+				<table>';
 
 			echo '<tr>
 					<th colspan="7">
@@ -145,13 +145,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			$AllocsTotal = 0;
 
 			while ($MyRow = DB_fetch_array($TransResult)) {
-				if ($k == 1) {
-					echo '<tr class="EvenTableRows">';
-					$k = 0;
-				} else {
-					echo '<tr class="OddTableRows">';
-					$k++;
-				}
 
 				if ($MyRow['type'] == 21) {
 					$TransType = _('Debit Note');
@@ -160,14 +153,15 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 				} else {
 					$TransType = _('Payment');
 				}
-				echo '<td>', ConvertSQLDate($MyRow['trandate']), '</td>
-					<td>', $TransType, '</td>
-					<td>', $MyRow['transno'], '</td>
-					<td>', $MyRow['suppreference'], '</td>
-					<td>', $MyRow['rate'], '</td>
-					<td class="number">', locale_number_format($MyRow['totalamt'], $CurrDecimalPlaces), '</td>
-					<td class="number">', locale_number_format($MyRow['amt'], $CurrDecimalPlaces), '</td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td>', ConvertSQLDate($MyRow['trandate']), '</td>
+						<td>', $TransType, '</td>
+						<td>', $MyRow['transno'], '</td>
+						<td>', $MyRow['suppreference'], '</td>
+						<td>', $MyRow['rate'], '</td>
+						<td class="number">', locale_number_format($MyRow['totalamt'], $CurrDecimalPlaces), '</td>
+						<td class="number">', locale_number_format($MyRow['amt'], $CurrDecimalPlaces), '</td>
+					</tr>';
 
 				//end of page full new headings if
 				$AllocsTotal += $MyRow['amt'];

@@ -77,7 +77,7 @@ $SQL = "SELECT chartmaster.accountcode,
 		ORDER BY chartmaster.accountcode";
 $Account = DB_query($SQL);
 
-echo '<table class="selection" summary="', _('Inquiry Selection Criteria'), '">
+echo '<table summary="', _('Inquiry Selection Criteria'), '">
 		<tr>
 			<td>', _('Account'), ':</td>
 			<td><select name="Account">';
@@ -203,7 +203,7 @@ if (isset($_POST['Show'])) {
 	$ErrMsg = _('The transactions for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved because');
 	$TransResult = DB_query($SQL, $ErrMsg);
 
-	echo '<table class="selection" summary="', _('General Ledger account inquiry details'), '">
+	echo '<table summary="', _('General Ledger account inquiry details'), '">
 			<thead>
 				<tr>
 					<th colspan="9">
@@ -216,11 +216,11 @@ if (isset($_POST['Show'])) {
 					<th>', _('Trans no'), '</th>
 					<th>', _('Cheque'), '</th>
 					<th>', _('Date'), '</th>
+					<th>', _('Narrative'), '</th>
+					<th>', _('Tag'), '</th>
 					<th>', _('Debit'), '</th>
 					<th>', _('Credit'), '</th>
-					<th>', _('Narrative'), '</th>
 					<th>', _('Balance'), '</th>
-					<th>', _('Tag'), '</th>
 				</tr>
 			</thead>';
 
@@ -320,14 +320,6 @@ if (isset($_POST['Show'])) {
 			$PeriodTotal = 0;
 		}
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$RunningTotal += $MyRow['amount'];
 		$PeriodTotal += $MyRow['amount'];
 
@@ -348,15 +340,16 @@ if (isset($_POST['Show'])) {
 		if ($TagRow['tagdescription'] == '') {
 			$TagRow['tagdescription'] = _('None');
 		}
-		echo '<td>', _($MyRow['typename']), '</td>
+		echo '<tr class="striped_row">
+				<td>', _($MyRow['typename']), '</td>
 				<td class="number"><a href="', $URL_to_TransDetail, '">', $MyRow['typeno'], '</a></td>
 				<td>', $MyRow['chequeno'], '</td>
 				<td>', $FormatedTranDate, '</td>
+				<td>', $MyRow['narrative'], '</td>
+				<td>', $TagRow['tagdescription'], '</td>
 				<td class="number">', $DebitAmount, '</td>
 				<td class="number">', $CreditAmount, '</td>
-				<td>', $MyRow['narrative'], '</td>
 				<td class="number"><b>', locale_number_format($RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-				<td>', $TagRow['tagdescription'], '</td>
 			</tr>';
 
 	}
@@ -365,7 +358,7 @@ if (isset($_POST['Show'])) {
 		$PeriodResult = DB_query($PeriodSQL);
 		$PeriodRow = DB_fetch_array($PeriodResult);
 		echo '<tr>
-				<td colspan="3"><b>', _('Total for period ending'), ' ', ConvertSQLDate($PeriodRow['lastdate_in_period']), '</b></td>';
+				<td colspan="5"><b>', _('Total for period ending'), ' ', ConvertSQLDate($PeriodRow['lastdate_in_period']), '</b></td>';
 		if ($PeriodTotal < 0) { //its a credit balance b/fwd
 			echo '<td></td>
 					<td class="number"><b>', locale_number_format(-$PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
@@ -373,13 +366,13 @@ if (isset($_POST['Show'])) {
 				</tr>';
 		} else { //its a debit balance b/fwd
 			echo '<td class="number"><b>', locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-					<td colspan="2"></td>
+					<td colspan="4"></td>
 				</tr>';
 		}
 	}
 
 	echo '<tr>
-			<td colspan="4"><b>';
+			<td colspan="6"><b>';
 	if ($PandLAccount == True) {
 		echo _('Total Movement for selected periods');
 	} else {

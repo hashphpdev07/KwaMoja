@@ -42,7 +42,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />'
 echo '<input type="hidden" name="SelectedSupplier" value="' . $SupplierID . '" />';
 echo '<input type="hidden" name="SupplierName" value="' . $SupplierName . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Part of Supplier\'s Delivery Note') . ':</td><td><input type="text" name="SupplierRef" value="' . $_POST['SupplierRef'] . '" size="20" maxlength="30" ></td>
 			<td>' . _('GRN No') . ':</td><td><input type="text" name="GRNBatchNo" value="' . $_POST['GRNBatchNo'] . '" size="6" maxlength="6" /></td>
@@ -83,7 +83,7 @@ if (isset($_POST['Submit'])) {
 	$Result = DB_query($SQL, $ErrMsg);
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">' . _('Supplier Delivery Note') . '</th>
@@ -95,18 +95,12 @@ if (isset($_POST['Submit'])) {
 		$k = 0;
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 0) {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			}
-			echo '<td>' . $MyRow['supplierref'] . '</td>
-				<td><a href="' . $RootPath . '/PDFGrn.php?GRNNo=' . $MyRow['grnbatch'] . '&amp;PONo=' . $MyRow['orderno'] . '">' . $MyRow['grnbatch'] . '</td>
-				<td>' . $MyRow['orderno'] . '</td>
-				<td>' . $MyRow['suppinv'] . '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['supplierref'] . '</td>
+					<td><a href="' . $RootPath . '/PDFGrn.php?GRNNo=' . $MyRow['grnbatch'] . '&amp;PONo=' . $MyRow['orderno'] . '">' . $MyRow['grnbatch'] . '</td>
+					<td>' . $MyRow['orderno'] . '</td>
+					<td>' . $MyRow['suppinv'] . '</td>
+				</tr>';
 
 		}
 		echo '</table>';

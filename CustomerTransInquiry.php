@@ -16,10 +16,10 @@ echo '<div class="page_help_text">' . _('Choose which type of transaction to rep
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Type') . ':</td>
-			<td><select tabindex="1" name="TransType"> ';
+			<td><select name="TransType"> ';
 
 $SQL = "SELECT typeid,
 				typename
@@ -51,13 +51,13 @@ if (!isset($_POST['ToDate'])) {
 	$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
 }
 echo '<td>' . _('From') . ':</td>
-	<td><input tabindex="2" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" type="text" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
+	<td><input class="date" type="text" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
 	<td>' . _('To') . ':</td>
-	<td><input tabindex="3" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" type="text" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
+	<td><input class="date" type="text" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
 	</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="4" type="submit" name="ShowResults" value="' . _('Show Transactions') . '" />
+		<input type="submit" name="ShowResults" value="' . _('Show Transactions') . '" />
 	</div>
 	</form>';
 
@@ -96,7 +96,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 	$TransResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	echo '<br />
-		<table class="selection">
+		<table>
 			<tr>
 				<th>' . _('Type') . '</th>
 				<th>' . _('Number') . '</th>
@@ -115,25 +115,18 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 
 	while ($MyRow = DB_fetch_array($TransResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
-		$format_base = '<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td style="width:200px">%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td>%s</td>';
+		$format_base = '<tr class="striped_row">
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td>%s</td>
+							<td style="width:200px">%s</td>
+							<td>%s</td>
+							<td class="number">%s</td>
+							<td class="number">%s</td>
+							<td>%s</td>';
 
 		if ($_POST['TransType'] == 10) {
 			/* invoices */

@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the transaction number is unique
  * for this type of transaction*/
 function VerifyTransNo($TransNo, $Type, $i, $Errors) {
@@ -17,7 +16,7 @@ function VerifyTransNo($TransNo, $Type, $i, $Errors) {
 function ConvertToSQLDate($DateEntry) {
 
 	//for MySQL dates are in the format YYYY-mm-dd
-
+	
 
 	if (mb_strpos($DateEntry, '/')) {
 		$Date_Array = explode('/', $DateEntry);
@@ -32,7 +31,6 @@ function ConvertToSQLDate($DateEntry) {
 		$Date_Array[2] = mb_substr($Date_Array[2], 0, 2);
 	}
 
-
 	if ($_SESSION['DefaultDateFormat'] == 'd/m/Y') {
 		return $Date_Array[2] . '-0' . $Date_Array[1] . '-' . $Date_Array[0];
 	} elseif ($_SESSION['DefaultDateFormat'] == 'm/d/Y') {
@@ -44,7 +42,6 @@ function ConvertToSQLDate($DateEntry) {
 	}
 
 } // end function ConvertSQLDate
-
 /* Check that the transaction date is a valid date. The date
  * must be in the same format as the date format specified in the
  * target KwaMoja company */
@@ -255,7 +252,7 @@ function VerifyConsignment($consignment, $i, $Errors) {
  $MyRow=DB_fetch_array($Result);
  return $MyRow[0];
  }
- */
+*/
 
 /* Retrieves the default debtors code for KwaMoja */
 function GetDebtorsGLCode($db) {
@@ -265,12 +262,11 @@ function GetDebtorsGLCode($db) {
 	return $MyRow[0];
 }
 
-
 function InsertDebtorReceipt($Receipt, $User, $Password) {
 
 	/*
 	This function inserts a debtors receipt into a bank account/GL Postings
-
+	
 	$Receipt contains an associative array in the format:
 	* $Receipt['debtorno'] - the customer code
 	* $Receipt['trandate'] - the date of the receipt in Y-m-d format
@@ -279,7 +275,7 @@ function InsertDebtorReceipt($Receipt, $User, $Password) {
 	* $Receipt['bankaccount'] - the KwaMoja bank account
 	* $Receipt['reference']
 	* $Receipt['discountfx']
-
+	
 	*/
 	$Errors = array();
 	$db = db($User, $Password);
@@ -337,8 +333,8 @@ function InsertDebtorReceipt($Receipt, $User, $Password) {
 	 The receipt ex rate is the rate at which one can sell the received currency and purchase the bank account currency in this case the AUD/USD cross rate
 	 or 0.8/0.9 = 0.88889
 	 So the receipt ex rate will always be 1 if the currency of the bank account is the same as the customer currency.
-
-	 */
+	
+	*/
 	$ReceiptExRate = $CustCurrRow['rate'] / $BankActRow['rate'];
 	$FunctionalExRate = $BankActRow['rate'];
 
@@ -370,7 +366,6 @@ function InsertDebtorReceipt($Receipt, $User, $Password) {
 						'" . $CustCurrRow['currcode'] . "')";
 
 	$Result = api_DB_query($SQL, $db, '', '', true);
-
 
 	if ($CompanyRecord['gllink_debtors'] == 1) {
 		/* Now Credit Debtors account with receipts */
@@ -462,7 +457,6 @@ function InsertDebtorReceipt($Receipt, $User, $Password) {
 
 	$Result = api_DB_query($SQL, $db, '', '', true);
 
-
 	if (sizeof($Errors) == 0) {
 		$Result = DB_Txn_Commit();
 		$Errors[0] = 0;
@@ -473,13 +467,12 @@ function InsertDebtorReceipt($Receipt, $User, $Password) {
 	return $Errors;
 }
 
-
 function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 
 	/* Create a customer credit note in KwaMoja.
 	 * Needs an associative array for the $Header
 	 * and an array of assocative arrays for the $LineDetails
-
+	
 	 * $Header contains an associative array in the format:
 	 * Header['debtorno'] - the customer code
 	 * Header['branchcode']  - the branch code
@@ -495,14 +488,13 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 	 * $LineDetails[0]['price']
 	 * $LineDetails[0]['qty'] - expected to be a negative quantity (a negative sale)
 	 * $LineDetails[0]['discountpercent']
-	 */
+	*/
 	$Errors = array();
 	$db = db($User, $Password);
 	if (gettype($db) == 'integer') {
 		$Errors[0] = NoAuthorisation;
 		return $Errors;
 	}
-
 
 	$Errors = VerifyDebtorExists($Header['debtorno'], sizeof($Errors), $Errors);
 	$Errors = VerifyBranchNoExists($Header['debtorno'], $Header['branchcode'], sizeof($Errors), $Errors);
@@ -582,7 +574,7 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 		$LineNetAmount = $CN_Line['price'] * $CN_Line['qty'] * (1 - floatval($CN_Line['discountpercent']));
 
 		/*Gets the Taxes and rates applicable to this line from the TaxGroup of the branch and TaxCategory of the item
-		and the taxprovince of the dispatch location */
+		 and the taxprovince of the dispatch location */
 
 		$SQL = "SELECT taxgrouptaxes.calculationorder,
 							taxauthorities.description,
@@ -621,31 +613,22 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 			} else {
 				$TaxAuthAmount = $LineNetAmount * $MyRow['taxrate'];
 			}
-			$TaxTotals[$MyRow['taxauthid']]['FXAmount'] += $TaxAuthAmount;
+			$TaxTotals[$MyRow['taxauthid']]['FXAmount']+= $TaxAuthAmount;
 
 			/*Make an array of the taxes and amounts including GLcodes for later posting - need debtortransid
-			so can only post once the debtor trans is posted - can only post debtor trans when all tax is calculated */
-			$LineTaxes[$LineCounter][$MyRow['calculationorder']] = array(
-				'TaxCalculationOrder' => $MyRow['calculationorder'],
-				'TaxAuthID' => $MyRow['taxauthid'],
-				'TaxAuthDescription' => $MyRow['description'],
-				'TaxRate' => $MyRow['taxrate'],
-				'TaxOnTax' => $MyRow['taxontax'],
-				'TaxAuthAmount' => $TaxAuthAmount
-			);
-			$LineTaxAmount += $TaxAuthAmount;
+			 so can only post once the debtor trans is posted - can only post debtor trans when all tax is calculated */
+			$LineTaxes[$LineCounter][$MyRow['calculationorder']] = array('TaxCalculationOrder' => $MyRow['calculationorder'], 'TaxAuthID' => $MyRow['taxauthid'], 'TaxAuthDescription' => $MyRow['description'], 'TaxRate' => $MyRow['taxrate'], 'TaxOnTax' => $MyRow['taxontax'], 'TaxAuthAmount' => $TaxAuthAmount);
+			$LineTaxAmount+= $TaxAuthAmount;
 
 		} //end loop around Taxes
-
-		$TotalFXNetCredit += $LineNetAmount;
-		$TotalFXTax += $LineTaxAmount;
-
+		$TotalFXNetCredit+= $LineNetAmount;
+		$TotalFXTax+= $LineTaxAmount;
 
 		if ($LineRow['mbflag'] == 'B' or $LineRow['mbflag'] == 'M') {
 			$Assembly = False;
 
 			/* Need to get the current location quantity
-			will need it later for the stock movement */
+			 will need it later for the stock movement */
 			$SQL = "SELECT locstock.quantity
 						FROM locstock
 						WHERE locstock.stockid='" . $CN_Line['stockid'] . "'
@@ -701,7 +684,7 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 		} else if ($LineRow['mbflag'] == 'A') {
 			/* its an assembly */
 			/*Need to get the BOM for this part and make
-			stock moves for the components then update the Location stock balances */
+			 stock moves for the components then update the Location stock balances */
 			$Assembly = True;
 			$StandardCost = 0;
 			/*To start with - accumulate the cost of the comoponents for use in journals later on */
@@ -720,9 +703,9 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 
 			while ($AssParts = DB_fetch_array($AssResult)) {
 
-				$StandardCost += ($AssParts['standard'] * $AssParts['quantity']);
+				$StandardCost+= ($AssParts['standard'] * $AssParts['quantity']);
 				/* Need to get the current location quantity
-				will need it later for the stock movement */
+				 will need it later for the stock movement */
 				$SQL = "SELECT locstock.quantity
 							FROM locstock
 							WHERE locstock.stockid='" . $AssParts['component'] . "'
@@ -778,7 +761,6 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 			/* end of assembly explosion and updates */
 		}
 		/* end of its an assembly */
-
 
 		if ($LineRow['mbflag'] == 'A' or $LineRow['mbflag'] == 'D') {
 			/*it's a Dummy/Service item or an Assembly item - still need stock movement record
@@ -1018,6 +1000,7 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 		/*end of if sales integrated with gl */
 
 		$LineCounter++; //needed for the array of taxes by line
+		
 	}
 	/*end of OrderLine loop */
 
@@ -1122,7 +1105,6 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 	}
 
 	#Now figure out if there was an invoice in the same POS transaction to allocate against?
-
 	$SQL = "SELECT id,
 					ovamount+ovgst AS total,
 					alloc
@@ -1165,7 +1147,7 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
 						WHERE id = '" . $InvoiceRow['id'] . "'";
 			$UpdateAllocResult = api_DB_query($SQL, $db, '', '', true);
 
-			$Allocated -= $AllocateAmount;
+			$Allocated-= $AllocateAmount;
 		}
 		if (abs($TotalCreditFX - $Allocated) < 0.005) {
 			$Settled = 1;
@@ -1197,7 +1179,7 @@ function CreateCreditNote($Header, $LineDetails, $User, $Password) {
  * to sales analysis records - no cost of sales entries in GL
 
  ************ USE ONLY WITH CAUTION********************
- */
+*/
 function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 	$Errors = array();
 	$db = db($user, $password);
@@ -1269,16 +1251,16 @@ function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 	$InvoiceDetails['trandate'] = ConvertToSQLDate($InvoiceDetails['trandate']);
 	$InvoiceDetails['prd'] = GetPeriodFromTransactionDate($InvoiceDetails['trandate'], sizeof($Errors), $Errors);
 	foreach ($InvoiceDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$Result = DB_Txn_Begin();
 		$SQL = "INSERT INTO debtortrans (" . mb_substr($FieldNames, 0, -2) . ")
 									VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$SQL = "UPDATE systypes SET typeno='" . GetNextTransactionNo(10) . "' WHERE typeid=10";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$SalesGLCode = GetSalesGLCode($SalesArea, $PartCode);
 		$DebtorsGLCode = GetDebtorsGLCode($db);
 		$SQL = "INSERT INTO gltrans VALUES(null,
@@ -1293,7 +1275,7 @@ function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 											0,
 											'" . $InvoiceDetails['jobref'] . "',
 											1)";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$SQL = "INSERT INTO gltrans VALUES(null,
 											10,
 											'" . GetNextTransactionNo(10) . "',
@@ -1306,7 +1288,7 @@ function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 											0,
 											'" . $InvoiceDetails['jobref'] . "',
 											1)";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$Result = DB_Txn_Commit();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -1331,7 +1313,7 @@ function AllocateTrans($AllocDetails, $User, $Password) {
 	 * AllocDetails['type']
 	 * AllocDetails['transno']
 	 * AllocDetails['customerref']
-	 */
+	*/
 
 	$Errors = array();
 	$db = db($User, $Password);
@@ -1379,12 +1361,11 @@ function AllocateTrans($AllocDetails, $User, $Password) {
 
 		$OSInvRow = DB_fetch_array($Result);
 
-
 		if ($OSInvRow['rate'] == $LeftToAllocRow['rate'] and $OSInvRow['outstanding'] > 0) {
 
 			if ($OSInvRow['outstanding'] + $LeftToAllocRow['lefttoalloc'] >= 0) {
 				/*We can allocate the whole amount of the credit/receipt */
-				$AllocateAmount = -$LeftToAllocRow['lefttoalloc'];
+				$AllocateAmount = - $LeftToAllocRow['lefttoalloc'];
 			} else {
 				/*We can only allocate the rest of the invoice outstanding */
 				$AllocateAmount = $OSInvRow['outstanding'];
@@ -1413,7 +1394,7 @@ function AllocateTrans($AllocDetails, $User, $Password) {
 		/*end if it is a normal allocation of receipt to invoice*/
 	} elseif ($LeftToAllocRow['lefttoalloc'] > 0) {
 		/* it is a payment - negative receipt - already checked type=12 need to find credit note to allocate to
-		Now look for credit notes  type 11 with the same customerref to allocate to */
+		 Now look for credit notes  type 11 with the same customerref to allocate to */
 		$SQL = "SELECT id,
 						rate,
 						ovamount+ovgst+ovdiscount-alloc AS outstanding
@@ -1454,7 +1435,7 @@ function AllocateTrans($AllocDetails, $User, $Password) {
 				} else {
 					/*We can only allocate the rest of the invoice outstanding */
 					$AllocateAmount = $OSCreditRow['outstanding'];
-					$LeftToAllocate += $OSCreditRow['outstanding'];
+					$LeftToAllocate+= $OSCreditRow['outstanding'];
 				}
 
 				/*Now insert the allocation records */
@@ -1477,6 +1458,7 @@ function AllocateTrans($AllocDetails, $User, $Password) {
 
 			}
 		} //end loop around potential positive receipts not fully allocated already
+		
 	}
 	if (sizeof($Errors) == 0) {
 		$Result = DB_Txn_Commit();
@@ -1497,7 +1479,7 @@ function AllocateTrans($AllocDetails, $User, $Password) {
  * the sales analysis is not updated either
 
  ****************** USE WITH CAUTION!! **********************
- */
+*/
 function InsertSalesCredit($CreditDetails, $user, $password) {
 	$Errors = array();
 	$db = db($user, $password);
@@ -1569,16 +1551,16 @@ function InsertSalesCredit($CreditDetails, $user, $password) {
 	$CreditDetails['trandate'] = ConvertToSQLDate($CreditDetails['trandate']);
 	$CreditDetails['prd'] = GetPeriodFromTransactionDate($CreditDetails['trandate'], sizeof($Errors), $Errors);
 	foreach ($CreditDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$Result = DB_Txn_Begin();
 		$SQL = "INSERT INTO debtortrans (" . mb_substr($FieldNames, 0, -2) . ")
 						VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$SQL = "UPDATE systypes SET typeno='" . GetNextTransactionNo(11) . "' WHERE typeid=10";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$SalesGLCode = GetSalesGLCode($SalesArea, $PartCode);
 		$DebtorsGLCode = GetDebtorsGLCode($db);
 		$SQL = "INSERT INTO gltrans VALUES(null,
@@ -1592,7 +1574,7 @@ function InsertSalesCredit($CreditDetails, $user, $password) {
 											'" . $CreditDetails['ovamount'] . "',
 											0,
 											'" . $CreditDetails['jobref'] . "')";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$SQL = "INSERT INTO gltrans VALUES(null,
 											10,
 											'" . GetNextTransactionNo(11) . "',
@@ -1604,7 +1586,7 @@ function InsertSalesCredit($CreditDetails, $user, $password) {
 											'" . (-intval($CreditDetails['ovamount'])) . "',
 											0,
 											'" . $CreditDetails['jobref'] . "')";
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		$Result = DB_Txn_Commit();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;

@@ -126,7 +126,7 @@ if (isset($_GET['Edit'])) {
 				WHERE closed=0
 					AND requiredbydate >= CURRENT_DATE";
 	$Result = DB_query($SQL);
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Tender ID') . '</th>
@@ -235,13 +235,13 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	}
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="4"><h3>' . _('Tender header details') . '</h3></th>
 		</tr>';
 	echo '<tr>
 			<td>' . _('Delivery Must Be Made Before') . '</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required" maxlength="10" name="RequiredByDate" size="11" value="' . ConvertSQLDate($_SESSION['tender' . $Identifier]->RequiredByDate) . '" /></td>
+			<td><input type="text" class="date" required="required" maxlength="10" name="RequiredByDate" size="11" value="' . ConvertSQLDate($_SESSION['tender' . $Identifier]->RequiredByDate) . '" /></td>
 		</tr>';
 
 	if (!isset($_POST['StkLocation']) or $_POST['StkLocation'] == '') {
@@ -403,7 +403,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	 */
 	echo '<tr>
 			<td valign="top">
-			<table class="selection">';
+			<table>';
 	echo '<tr>
 			<th colspan="4"><h3>' . _('Suppliers To Send Tender') . '</h3></th>
 		</tr>';
@@ -423,7 +423,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	echo '</table></td>';
 	/* Item Details
 	 */
-	echo '<td valign="top"><table class="selection">';
+	echo '<td valign="top"><table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Items in Tender') . '</h3></th>
 		</tr>
@@ -436,18 +436,12 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	$k = 0;
 	foreach ($_SESSION['tender' . $Identifier]->LineItems as $LineItems) {
 		if ($LineItems->Deleted == False) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-			echo '<td>' . $LineItems->StockID . '</td>
-				<td>' . $LineItems->ItemDescription . '</td>
-				<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
-				<td>' . $LineItems->Units . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteItem=' . $LineItems->LineNo . '">' . _('Delete') . '</a></td>
+			echo '<tr class="striped_row">
+					<td>' . $LineItems->StockID . '</td>
+					<td>' . $LineItems->ItemDescription . '</td>
+					<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
+					<td>' . $LineItems->Units . '</td>
+					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteItem=' . $LineItems->LineNo . '">' . _('Delete') . '</a></td>
 				</tr>';
 		}
 	}
@@ -475,7 +469,7 @@ if (isset($_POST['Suppliers'])) {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
-		<table cellpadding="3" class="selection">
+		<table cellpadding="3">
 			<tr>
 				<td>' . _('Enter a partial Name') . ':</td>
 				<td>';
@@ -572,20 +566,14 @@ if (isset($_POST['SearchSupplier'])) {
 	$RowIndex = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td><input type="submit" name="SelectedSupplier" value="' . $MyRow['supplierid'] . '" /></td>
-			<td>' . $MyRow['suppname'] . '</td>
-			<td>' . $MyRow['currcode'] . '</td>
-			<td>' . $MyRow['address1'] . '</td>
-			<td>' . $MyRow['address2'] . '</td>
-			<td>' . $MyRow['address3'] . '</td>
-			<td>' . $MyRow['address4'] . '</td>
+		echo '<tr class="striped_row">
+				<td><input type="submit" name="SelectedSupplier" value="' . $MyRow['supplierid'] . '" /></td>
+				<td>' . $MyRow['suppname'] . '</td>
+				<td>' . $MyRow['currcode'] . '</td>
+				<td>' . $MyRow['address1'] . '</td>
+				<td>' . $MyRow['address2'] . '</td>
+				<td>' . $MyRow['address3'] . '</td>
+				<td>' . $MyRow['address4'] . '</td>
 			</tr>';
 		$RowIndex = $RowIndex + 1;
 		//end of page full new headings if
@@ -612,7 +600,7 @@ if (isset($_POST['Items'])) {
 		echo '<br /><a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>';
 		exit;
 	}
-	echo '<table class="selection">
+	echo '<table>
 		<tr>
 			<td>' . _('In Stock Category') . ':<select required="required" name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
@@ -716,14 +704,6 @@ if (isset($_POST['Search'])) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			$SupportedImgExt = array('png', 'jpg', 'jpeg');
 			$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 			$ImageFile = reset($ImageFileArray);
@@ -735,7 +715,8 @@ if (isset($_POST['Search'])) {
 				$ImageSource = _('No Image');
  			}
 
-			echo '<td>' . $MyRow['stockid'] . '</td>
+			echo '<tr class="striped_row">
+					<td>' . $MyRow['stockid'] . '</td>
 					<td>' . $MyRow['description'] . '</td>
 					<td>' . $MyRow['units'] . '</td>
 					<td>' . $ImageSource . '</td>

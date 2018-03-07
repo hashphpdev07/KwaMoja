@@ -123,7 +123,7 @@ if (!isset($SelectedSalesPostingID)) {
 
 		$Result = DB_query($SQL);
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 				<th>' . _('Area') . '</th>
 				<th>' . _('Stock Category') . '</th>
@@ -135,22 +135,16 @@ if (!isset($SelectedSalesPostingID)) {
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_row($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 
-			echo '<td>', $MyRow[1], '</td>
-				<td>', $MyRow[2], '</td>
-				<td>', $MyRow[3], '</td>
-				<td>', htmlspecialchars($PossibleGLCodes[$MyRow[4]], ENT_QUOTES, 'UTF-8'), '</td>
-				<td>', htmlspecialchars($PossibleGLCodes[$MyRow[5]], ENT_QUOTES, 'UTF-8'), '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '">' . _('Edit') . '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td>', $MyRow[1], '</td>
+					<td>', $MyRow[2], '</td>
+					<td>', $MyRow[3], '</td>
+					<td>', htmlspecialchars($PossibleGLCodes[$MyRow[4]], ENT_QUOTES, 'UTF-8'), '</td>
+					<td>', htmlspecialchars($PossibleGLCodes[$MyRow[5]], ENT_QUOTES, 'UTF-8'), '</td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '">' . _('Edit') . '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				</tr>';
 		}
 		//END WHILE LIST LOOP
 		echo '</table>';
@@ -199,7 +193,7 @@ if (!isset($_GET['delete'])) {
 			areadescription FROM areas";
 	$Result = DB_query($SQL);
 
-	echo '<br /><table class="selection">
+	echo '<br /><table>
 		<tr>
 			<td>' . _('Area') . ':</td>
 			<td>

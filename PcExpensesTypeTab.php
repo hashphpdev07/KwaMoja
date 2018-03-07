@@ -4,7 +4,9 @@ include('includes/session.php');
 $Title = _('Maintenance Of Petty Cash Expenses For a Type Tab');
 include('includes/header.php');
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Payment Entry') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -16,7 +18,7 @@ if (isset($_POST['SelectedType'])) {
 
 if (!isset($_GET['delete']) and (ContainsIllegalCharacters($SelectedType) or mb_strpos($SelectedType, ' ') > 0)) {
 	$InputError = 1;
-	prnMsg(_('The petty cash tab type contain any of the following characters " \' - &amp; or a space'), 'error');
+	prnMsg(_('The petty cash tab type contain any of the following characters ') . '" \' - &amp; or a space', 'error');
 }
 
 if (isset($_POST['SelectedTab'])) {
@@ -55,15 +57,15 @@ if (isset($_POST['submit'])) {
 
 		// First check the type is not being duplicated
 
-		$checkSql = "SELECT count(*)
+		$CheckSQL = "SELECT count(*)
 				 FROM pctabexpenses
 				 WHERE typetabcode= '" . $_POST['SelectedTab'] . "'
 				 AND codeexpense = '" . $_POST['SelectedExpense'] . "'";
 
-		$checkresult = DB_query($checkSql);
-		$checkrow = DB_fetch_row($checkresult);
+		$CheckResult = DB_query($CheckSQL);
+		$CheckRow = DB_fetch_row($CheckResult);
 
-		if ($checkrow[0] > 0) {
+		if ($CheckRow[0] > 0) {
 			$InputError = 1;
 			prnMsg(_('The Expense') . ' ' . $_POST['codeexpense'] . ' ' . _('already exists in this Type of Tab'), 'error');
 		} else {
@@ -74,9 +76,9 @@ if (isset($_POST['submit'])) {
 												'" . $_POST['SelectedExpense'] . "')";
 
 			$Msg = _('Expense code') . ': ' . $_POST['SelectedExpense'] . ' ' . _('for Type of Tab') . ': ' . $_POST['SelectedTab'] . ' ' . _('has been created');
-			$checkSql = "SELECT count(typetabcode)
+			$CheckSQL = "SELECT count(typetabcode)
 							FROM pctypetabs";
-			$Result = DB_query($checkSql);
+			$Result = DB_query($CheckSQL);
 			$row = DB_fetch_row($Result);
 		}
 	}
@@ -105,12 +107,12 @@ if (!isset($SelectedTab)) {
 	then none of the above are true and the list of sales types will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">'; //Main table
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<table>'; //Main table
 
 	echo '<tr>
-			<td>' . _('Select Type of Tab') . ':</td>
+			<td>', _('Select Type of Tab'), ':</td>
 			<td><select required="required" name="SelectedTab">';
 
 	$SQL = "SELECT typetabcode,
@@ -118,25 +120,24 @@ if (!isset($SelectedTab)) {
 			FROM pctypetabs";
 
 	$Result = DB_query($SQL);
-	echo '<option value="">' . _('Not Yet Selected') . '</option>';
+	echo '<option value="">', _('Not Yet Selected'), '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($SelectedTab) and $MyRow['typetabcode'] == $SelectedTab) {
-			echo '<option selected="selected" value="';
+			echo '<option selected="selected" value="', $MyRow['typetabcode'], '">', $MyRow['typetabcode'], ' - ', $MyRow['typetabdescription'], '</option>';
 		} else {
-			echo '<option value="';
+			echo '<option value="', $MyRow['typetabcode'], '">', $MyRow['typetabcode'], ' - ', $MyRow['typetabdescription'], '</option>';
 		}
-		echo $MyRow['typetabcode'] . '">' . $MyRow['typetabcode'] . ' - ' . $MyRow['typetabdescription'] . '</option>';
-
 	} //end while loop
 
-	echo '</select></td></tr>';
+	echo '</select>
+			</td>
+		</tr>';
 
 	echo '</table>'; // close main table
-	DB_free_result($Result);
 
 	echo '<div class="centre">
-			<input type="submit" name="Process" value="' . _('Accept') . '" />
-			<input type="submit" name="Cancel" value="' . _('Cancel') . '" />
+			<input type="submit" name="Process" value="', _('Accept'), '" />
+			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 		</div>';
 
 	echo '</form>';
@@ -146,45 +147,45 @@ if (!isset($SelectedTab)) {
 //end of ifs and buts!
 if (isset($_POST['process']) or isset($SelectedTab)) {
 
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Expense Codes for Type of Tab ') . ' ' . $SelectedTab . '</a></div>';
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Expense Codes for Type of Tab '), ' ', $SelectedTab, '</a>
+		</div>';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<input type="hidden" name="SelectedTab" value="' . $SelectedTab . '" />';
+	echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />';
 
 	$SQL = "SELECT pctabexpenses.codeexpense,
 					pcexpenses.description
-			FROM pctabexpenses INNER JOIN pcexpenses
-			ON pctabexpenses.codeexpense=pcexpenses.codeexpense
-			WHERE pctabexpenses.typetabcode='" . $SelectedTab . "'
-			ORDER BY pctabexpenses.codeexpense ASC";
+				FROM pctabexpenses
+				INNER JOIN pcexpenses
+					ON pctabexpenses.codeexpense=pcexpenses.codeexpense
+				WHERE pctabexpenses.typetabcode='" . $SelectedTab . "'
+				ORDER BY pctabexpenses.codeexpense ASC";
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
-	echo '<tr>
-			<th colspan="3"><h3>' . _('Expense Codes for Type of Tab ') . ' ' . $SelectedTab . '</h3></th>
-		</tr>
-		<tr>
-			<th>' . _('Expense Code') . '</th>
-			<th>' . _('Description') . '</th>
-		</tr>';
+	echo '<table>
+			<tr>
+				<th colspan="3">
+					<h3>', _('Expense Codes for Type of Tab '), ' ', $SelectedTab, '</h3>
+				</th>
+			</tr>
+			<tr>
+				<th>', _('Expense Code'), '</th>
+				<th>', _('Description'), '</th>
+			</tr>';
 
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
-		printf('<td>%s</td>
-			<td>%s</td>
-			<td><a href="%s?SelectedType=%s&amp;delete=yes&amp;SelectedTab=' . $SelectedTab . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['codeexpense'], $MyRow['description'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['codeexpense'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['codeexpense']);
+		echo '<tr class="striped_row">
+				<td>', $MyRow['codeexpense'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
@@ -192,10 +193,10 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 	if (!isset($_GET['delete'])) {
 
 
-		echo '<table  class="selection">'; //Main table
+		echo '<table >'; //Main table
 
 		echo '<tr>
-				<td>' . _('Select Expense Code') . ':</td>
+				<td>', _('Select Expense Code'), ':</td>
 				<td><select required="required" name="SelectedExpense">';
 
 		$SQL = "SELECT codeexpense,
@@ -204,16 +205,14 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 
 		$Result = DB_query($SQL);
 		if (!isset($_POST['SelectedExpense'])) {
-			echo '<option selected="selected" value="">' . _('Not Yet Selected') . '</option>';
+			echo '<option selected="selected" value="">', _('Not Yet Selected'), '</option>';
 		}
 		while ($MyRow = DB_fetch_array($Result)) {
 			if (isset($_POST['SelectedExpense']) and $MyRow['codeexpense'] == $_POST['SelectedExpense']) {
-				echo '<option selected="selected" value="';
+				echo '<option selected="selected" value="', $MyRow['codeexpense'], '">', $MyRow['codeexpense'], ' - ', $MyRow['description'], '</option>';
 			} else {
-				echo '<option value="';
+				echo '<option value="', $MyRow['codeexpense'], '">', $MyRow['codeexpense'], ' - ', $MyRow['description'], '</option>';
 			}
-			echo $MyRow['codeexpense'] . '">' . $MyRow['codeexpense'] . ' - ' . $MyRow['description'] . '</option>';
-
 		} //end while loop
 
 		echo '</select>
@@ -221,11 +220,10 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 			</tr>';
 
 		echo '</table>'; // close main table
-		DB_free_result($Result);
 
 		echo '<div class="centre">
-				<input type="submit" name="submit" value="' . _('Accept') . '" />
-				<input type="submit" name="Cancel" value="' . _('Cancel') . '" />
+				<input type="submit" name="submit" value="', _('Accept'), '" />
+				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 			</div>';
 
 		echo '</form>';

@@ -226,7 +226,7 @@ if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contract Bill of Material') . '" alt="" />  ' . $_SESSION['Contract' . $Identifier]->CustomerName . '
 		</p>';
 
-	echo '<table class="selection">';
+	echo '<table>';
 
 	if (isset($_SESSION['Contract' . $Identifier]->ContractRef)) {
 		echo '<tr>
@@ -252,21 +252,15 @@ if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
 
 		$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CompanyRecord']['decimalplaces']);
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
-		echo '<td>' . $ContractComponent->StockID . '</td>
-			  <td>' . $ContractComponent->ItemDescription . '</td>
-			  <td><input type="text" class="number" name="Qty' . $ContractComponent->ComponentID . '" required="required" maxlength="11" size="11" value="' . locale_number_format($ContractComponent->Quantity, $ContractComponent->DecimalPlaces) . '" /></td>
-			  <td>' . $ContractComponent->UOM . '</td>
-			  <td class="number">' . locale_number_format($ContractComponent->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-			  <td class="number">' . $DisplayLineTotal . '</td>
-			  <td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>';
+		echo '<tr class="striped_row">
+				<td>' . $ContractComponent->StockID . '</td>
+				<td>' . $ContractComponent->ItemDescription . '</td>
+				<td><input type="text" class="number" name="Qty' . $ContractComponent->ComponentID . '" required="required" maxlength="11" size="11" value="' . locale_number_format($ContractComponent->Quantity, $ContractComponent->DecimalPlaces) . '" /></td>
+				<td>' . $ContractComponent->UOM . '</td>
+				<td class="number">' . locale_number_format($ContractComponent->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+				<td class="number">' . $DisplayLineTotal . '</td>
+				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			</tr>';
 		$TotalCost += $LineTotal;
 	}
 
@@ -296,7 +290,7 @@ if (!isset($_GET['Edit'])) {
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Search For Stock Items') . '</p>';
-	echo '<table class="selection">
+	echo '<table>
 			<tr></tr>
 			<tr>
 				<td><select name="StockCat">';
@@ -358,14 +352,6 @@ if (isset($SearchResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		$SupportedImgExt = array('png', 'jpg', 'jpeg');
 		$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 		$ImageFile = reset($ImageFileArray);
@@ -377,7 +363,8 @@ if (isset($SearchResult)) {
 			$ImageSource = _('No Image');
 		}
 
-		echo '<td>' . $MyRow['stockid'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['stockid'] . '</td>
 				<td>' . $MyRow['description'] . '</td>
 				<td>' . $MyRow['units'] . '</td>
 				<td>' . $ImageSource . '</td>

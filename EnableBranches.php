@@ -48,7 +48,7 @@ if (DB_num_rows($Result) > 0) {
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<input type="hidden" name="debtorno' . $i . '" value="' . $MyRow['debtorno'] . '" />';
 		echo '<input type="hidden" name="branchno' . $i . '" value="' . $MyRow['branchcode'] . '" />';
-		echo '<tr class="EvenTableRows">
+		echo '<tr class="striped_row">
 				<td>' . $MyRow['debtorno'] . '</td>
 				<td>' . $MyRow['name'] . '</td>
 				<td>' . $MyRow['branchcode'] . '</td>

@@ -12,6 +12,12 @@ margin:0;
 padding:0;
 }
 
+button img {
+	/* Describes how button image should be displayed. */
+	height:21px;
+	width:21px;
+}
+
 div.toplink {
 padding-top:1%;
 padding-left:1%;
@@ -154,36 +160,6 @@ font-weight:700;
 color:red;
 }
 
-table {
-background-color:#fff;
-width:100%;
-margin:0 auto;
-}
-
-th {
-background-color:#777C59;
-color:#FFF;
-text-align:center;
-}
-
-th.number {
-text-align:right;
-background-color:maroon;
-color:#FFF;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .centre {
 text-align:center;
 margin:0 auto;
@@ -208,14 +184,6 @@ input.image:hover {
 background-color:transparent;
 }
 
-.EvenTableRows {
-background-color:#72824D;
-}
-
-.OddTableRows {
-background-color:#CAF17C;
-}
-
 div.error {
 background-color:#fddbdb;
 color:red;
@@ -238,22 +206,6 @@ div.info {
 background-color:#c7ccf6;
 color:navy;
 border:0 solid navy;
-}
-
-DIV.page_help_text {
-background:#D3D3D3 url(images/help.png) top left no-repeat;
-border:#a52a2a 1px solid;
-padding-top:2px;
-padding-bottom:2px;
-padding-left:10px;
-z-index:1;
-width:80%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
 }
 
 .dpTbl {
@@ -282,11 +234,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.tableheader {
-background-color:#777C59;
-color:#FFF;
 }
 
 .notavailable {
@@ -527,13 +474,6 @@ clear:left;
 
 #dialog_buttons,td.number,input.number,input.integer {
 text-align:right;
-}
-
-.table1,.table2 {
-width:90%;
-background:#eee;
-border:0 0 2px 2px #222 solid;
-margin:0 auto;
 }
 
 input.inputerror,textarea.texterror,select.selecterror {

@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the stock code exists*/
 function VerifyWorkOrderExists($WorkOrder, $i, $Errors) {
 	$Searchsql = "SELECT count(wo)
@@ -227,23 +226,23 @@ function InsertWorkOrder($WorkOrderDetails, $user, $password) {
 	$WOFieldNames = '';
 	$WOFieldValues = '';
 	foreach ($WorkOrder as $Key => $Value) {
-		$WOFieldNames .= $Key . ', ';
-		$WOFieldValues .= '"' . $Value . '", ';
+		$WOFieldNames.= $Key . ', ';
+		$WOFieldValues.= '"' . $Value . '", ';
 	}
 	$ItemFieldNames = '';
 	$ItemFieldValues = '';
 	foreach ($WorkOrderItem as $Key => $Value) {
-		$ItemFieldNames .= $Key . ', ';
-		$ItemFieldValues .= '"' . $Value . '", ';
+		$ItemFieldNames.= $Key . ', ';
+		$ItemFieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$wosql = 'INSERT INTO workorders (' . mb_substr($WOFieldNames, 0, -2) . ') ' . 'VALUES (' . mb_substr($WOFieldValues, 0, -2) . ') ';
 		$itemsql = 'INSERT INTO woitems (' . mb_substr($ItemFieldNames, 0, -2) . ') ' . 'VALUES (' . mb_substr($ItemFieldValues, 0, -2) . ') ';
 		$systypessql = 'UPDATE systypes set typeno=' . GetNextTransactionNo(40) . ' where typeid=40';
 		DB_Txn_Begin();
-		$woresult = DB_Query($wosql);
-		$itemresult = DB_Query($itemsql);
-		$systyperesult = DB_Query($systypessql);
+		$woresult = DB_query($wosql);
+		$itemresult = DB_query($itemsql);
+		$systyperesult = DB_query($systypessql);
 		DB_Txn_Commit();
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -276,7 +275,7 @@ function WorkOrderIssue($WONumber, $StockId, $Location, $Quantity, $TranDate, $B
 		$balances = GetStockBalance($StockId, $user, $password);
 		$balance = 0;
 		$SizeOfBalances = sizeOf($balances);
-		for ($i = 0; $i < $SizeOfBalances; $i++) {
+		for ($i = 0;$i < $SizeOfBalances;$i++) {
 			$balance = $balance + $balances[$i]['quantity'];
 		}
 		$newqoh = $Quantity + $balance;
@@ -352,7 +351,7 @@ function WorkOrderIssue($WONumber, $StockId, $Location, $Quantity, $TranDate, $B
 		api_DB_query($systypessql);
 		api_DB_query($costsql);
 		if ($Batch != '') {
-			DB_Query($batchsql);
+			DB_query($batchsql);
 		}
 		DB_Txn_Commit();
 		if (DB_error_no() != 0) {
@@ -383,7 +382,7 @@ function WorkOrderReceive($WONumber, $StockId, $Location, $Quantity, $TranDate, 
 	$balances = GetStockBalance($StockId, $user, $password);
 	$balance = 0;
 	$SizeOfBalnces = sizeOf($balances);
-	for ($i = 0; $i < $SizeOfBalances; $i++) {
+	for ($i = 0;$i < $SizeOfBalances;$i++) {
 		$balance = $balance + $balances[$i]['quantity'];
 	}
 	$newqoh = $Quantity + $balance;
@@ -473,7 +472,7 @@ function SearchWorkOrders($Field, $Criteria, $user, $password) {
 	$SQL = "SELECT wo
 			  FROM woitems
 			  WHERE " . $Field . " " . LIKE . " '%" . $Criteria . "%'";
-	$Result = DB_Query($SQL);
+	$Result = DB_query($SQL);
 	$i = 0;
 	$WOList = array();
 	while ($MyRow = DB_fetch_array($Result)) {

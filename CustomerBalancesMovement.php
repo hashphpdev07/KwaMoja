@@ -24,7 +24,7 @@ if (!isset($_POST['RunReport'])) {
 
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 
-			<table cellpadding="2" class="selection">
+			<table cellpadding="2">
 				<tr>
 					<td>' . _('Customer') . '</td>
 					<td><select name="Customer">
@@ -58,11 +58,11 @@ if (!isset($_POST['RunReport'])) {
 				</tr>
 				<tr>
 					<td>' . _('Date From') . ':</td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - $_SESSION['NumberOfMonthMustBeShown'], Date('d'), Date('Y'))) . '" /></td>
+					<td><input type="text" class="date" name="FromDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - $_SESSION['NumberOfMonthMustBeShown'], Date('d'), Date('Y'))) . '" /></td>
 				</tr>
 				<tr>
 					<td>' . _('Date To') . ':</td>
-					<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
+					<td><input type="text" class="date" name="ToDate" maxlength="10" size="11" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
 				</tr>
 				<tr>
 					<td>' . _('Create CSV') . ':</td>
@@ -71,7 +71,7 @@ if (!isset($_POST['RunReport'])) {
 
 			</table>
 			<div class="centre">
-				<input tabindex="4" type="submit" name="RunReport" value="' . _('Show Customer Balance Movements') . '" />
+				<input type="submit" name="RunReport" value="' . _('Show Customer Balance Movements') . '" />
 			</div>
 	</form>';
 	include('includes/footer.php');

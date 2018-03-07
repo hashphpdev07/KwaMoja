@@ -38,7 +38,7 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 						AND locations.internalrequest=1";
 	$LocationResult = DB_query($SQL);
 	$LocationTotal = DB_num_rows($LocationResult);
-	echo '<table class="selection">
+	echo '<table>
 				<tr>
 					<td>', _('Request Number'), ':</td>
 					<td>
@@ -129,9 +129,9 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 		$_POST['ToDate'] = date($_SESSION['DefaultDateFormat']);
 	}
 	echo '<td>', _('Date From'), '</td>
-		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
+		<td><input type="text" class="date" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
 		<td>', _('Date To'), '</td>
-		<td><input type="text" class="date" alt="', $_SESSION['DefaultDateFormat'], '" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
+		<td><input type="text" class="date" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
 		<td><input type="submit" name="Search"  value="', _('Search'), '" /></td>
 	</tr>';
 	if (!isset($_POST['ShowDetails'])) {
@@ -168,7 +168,7 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 
 	if (DB_num_rows($Result) > 0) {
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="6"><h3>', _('To search for internal request for a specific part use the part selection facilities below'), '</h3></th>
 				</tr>';
@@ -233,7 +233,7 @@ if (isset($StockItemsResult)) {
 
 	if (DB_num_rows($StockItemsResult) > 1) {
 		echo '<a href="', $RootPath, '/InternalStockRequestInquiry.php">', _('Return to Main Inquiry Screen'), '</a>';
-		echo '<table cellpadding="2" class="selection">';
+		echo '<table cellpadding="2">';
 		echo '<thead>
 				<tr>
 					<th class="SortedColumn" >', _('Code'), '</th>
@@ -247,19 +247,12 @@ if (isset($StockItemsResult)) {
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k++;
-			}
-
-			echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" /></td>
-				<td>', $MyRow['description'], '</td>
-				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
-				<td>', $MyRow['units'], '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '" /></td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 			//end of page full new headings if
 		}
 		//end of while loop
@@ -379,13 +372,6 @@ if (isset($StockItemsResult)) {
 		$i = 0;
 		//There are items without details AND with it
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($i == 0) {
-				echo '<tr class="EvenTableRows">';
-				$i = 1;
-			} elseif ($i == 1) {
-				echo '<tr class="OddTableRows">';
-				$i = 0;
-			}
 			if ($MyRow['authorised'] == 0) {
 				$Authorised = _('No');
 			} else {
@@ -405,7 +391,8 @@ if (isset($StockItemsResult)) {
 			}
 			if (isset($ID) and ($ID != $MyRow['dispatchid'])) {
 				$ID = $MyRow['dispatchid'];
-				echo '<td>', $MyRow['dispatchid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['dispatchid'], '</td>
 						<td>', $MyRow['locationname'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $Authorised, '</td>
@@ -417,7 +404,8 @@ if (isset($StockItemsResult)) {
 						<td>', $Completed, '</td>';
 
 			} elseif (isset($ID) and ($ID == $MyRow['dispatchid'])) {
-				echo '<td></td>
+				echo '<tr class="striped_row">
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -428,7 +416,8 @@ if (isset($StockItemsResult)) {
 						<td>', $MyRow['uom'], '</td>
 						<td>', $Completed, '</td>';
 			} elseif (!isset($ID)) {
-				echo '<td>', $MyRow['dispatchid'], '</td>
+				echo '<tr class="striped_row">
+						<td>', $MyRow['dispatchid'], '</td>
 						<td>', $MyRow['locationname'], '</td>
 						<td>', $MyRow['description'], '</td>
 						<td>', $Authorised, '</td>

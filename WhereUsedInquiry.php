@@ -67,7 +67,7 @@ if (isset($StockId)) {
 		prnMsg(_('The selected item') . ' ' . $StockId . ' ' . _('is not used as a component of any other parts'), 'error');
 	} else {
 
-		echo '<table width="97%" class="selection">
+		echo '<table width="97%">
 				<tr>
 					<th>' . _('Used By') . '</th>
 					<th>' . _('Status') . '</th>
@@ -80,27 +80,20 @@ if (isset($StockId)) {
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			if ($MyRow['discontinued'] == 1){
 				$Status = _('Obsolete');
 			}else{
 				$Status = _('Current');
 			}
 
-			echo '<td><a target="_blank" href="' . $RootPath . '/BOMInquiry.php?StockID=' . $MyRow['parent'] . '" alt="' . _('Show Bill Of Material') . '">' . $MyRow['parent'] . ' - ' . $MyRow['description'] . '</a></td>
-				<td>' . $MyRow['workcentreadded'] . '</td>
-				<td>' . $MyRow['loccode'] . '</td>
-				<td class="number">' . locale_number_format($MyRow['quantity'], 'Variable') . '</td>
-				<td>' . ConvertSQLDate($MyRow['effectiveafter']) . '</td>
-				<td>' . ConvertSQLDate($MyRow['effectiveto']) . '</td>
-			</tr>';
+			echo '<tr class="striped_row">
+					<td><a target="_blank" href="' . $RootPath . '/BOMInquiry.php?StockID=' . $MyRow['parent'] . '" alt="' . _('Show Bill Of Material') . '">' . $MyRow['parent'] . ' - ' . $MyRow['description'] . '</a></td>
+					<td>' . $MyRow['workcentreadded'] . '</td>
+					<td>' . $MyRow['loccode'] . '</td>
+					<td class="number">' . locale_number_format($MyRow['quantity'], 'Variable') . '</td>
+					<td>' . ConvertSQLDate($MyRow['effectiveafter']) . '</td>
+					<td>' . ConvertSQLDate($MyRow['effectiveto']) . '</td>
+				</tr>';
 
 			//end of page full new headings if
 		}

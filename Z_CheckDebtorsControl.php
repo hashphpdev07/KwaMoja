@@ -18,7 +18,7 @@ echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">';
+echo '<table>';
 
 $DefaultFromPeriod = (!isset($_POST['FromPeriod']) or $_POST['FromPeriod'] == '') ? 1 : $_POST['FromPeriod'];
 
@@ -92,15 +92,9 @@ if (isset($_POST['Show'])) {
 		$GLOpening += $dtRow['bfwd'];
 		$glMovement = $dtRow['bfwd'] + $dtRow['actual'];
 
-		if ($j == 1) {
-			echo '<tr class="OddTableRows">';
-			$j = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			++$j;
-		}
-		echo '<td>' . $CurPeriod . '</td>
-					<td class="number">' . locale_number_format($dtRow['bfwd'], 2) . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $CurPeriod . '</td>
+				<td class="number">' . locale_number_format($dtRow['bfwd'], 2) . '</td>';
 
 		$SQL = "SELECT SUM((ovamount+ovgst)/rate) AS totinvnetcrds
 					FROM debtortrans

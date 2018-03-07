@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the debtor number exists*/
 function VerifyBranchDebtorExists($DebtorNumber, $i, $Errors) {
 	$Searchsql = "SELECT count(debtorno)
@@ -14,7 +13,7 @@ function VerifyBranchDebtorExists($DebtorNumber, $i, $Errors) {
 }
 
 /* Verify that the branch number is valid, and doesn't already
-exist.*/
+ exist.*/
 function VerifyBranchNo($DebtorNumber, $BranchNumber, $i, $Errors) {
 	if ((mb_strlen($BranchNumber) < 1) or (mb_strlen($BranchNumber) > 10)) {
 		$Errors[$i] = IncorrectBranchNumberLength;
@@ -47,7 +46,6 @@ function VerifyBranchNoExists($DebtorNumber, $BranchNumber, $i, $Errors) {
 	}
 	return $Errors;
 }
-
 
 /* Check that the name exists and is 40 characters or less long */
 function VerifyBranchName($BranchName, $i, $Errors) {
@@ -369,12 +367,12 @@ function InsertBranch($BranchDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($BranchDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= "'" . $Value . "', ";
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= "'" . $Value . "', ";
 	}
 	$SQL = "INSERT INTO custbranch (" . mb_substr($FieldNames, 0, -2) . ") VALUES (" . mb_substr($FieldValues, 0, -2) . ") ";
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL, $db);
+		$Result = api_DB_query($SQL, $db);
 		return $_SESSION['db_err_msg'];
 		if ($_SESSION['db_err_msg'] != '') {
 			$Errors[0] = DatabaseUpdateFailed;
@@ -384,7 +382,6 @@ function InsertBranch($BranchDetails, $user, $password) {
 	}
 	return $Errors;
 }
-
 
 function ModifyBranch($BranchDetails, $user, $password) {
 	$Errors = array();
@@ -492,17 +489,17 @@ function ModifyBranch($BranchDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($BranchDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	$SQL = 'UPDATE custbranch SET ';
 	foreach ($BranchDetails as $Key => $Value) {
-		$SQL .= $Key . '="' . $Value . '", ';
+		$SQL.= $Key . '="' . $Value . '", ';
 	}
 	$SQL = mb_substr($SQL, 0, -2) . " WHERE debtorno='" . $BranchDetails['debtorno'] . "'
 								   AND branchcode='" . $BranchDetails['branchcode'] . "'";
 	if (sizeof($Errors) == 0) {
-		$Result = api_DB_Query($SQL);
+		$Result = api_DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {
@@ -516,7 +513,7 @@ function ModifyBranch($BranchDetails, $user, $password) {
  * The returned data is an array with first value 0 and then as many branch
  * codes are there are branches.  Otherwise, the first value is non-zero,
  * and it (and any following) are error codes encountered.
- */
+*/
 
 function GetCustomerBranchCodes($DebtorNumber, $user, $password) {
 	$Errors = array();
@@ -528,8 +525,7 @@ function GetCustomerBranchCodes($DebtorNumber, $user, $password) {
 	$SQL = "SELECT branchcode FROM custbranch
 				WHERE debtorno = '" . $DebtorNumber . "'";
 	$Result = api_DB_query($SQL);
-	if (DB_error_no() != 0)
-		$Errors[0] = DatabaseUpdateFailed;
+	if (DB_error_no() != 0) $Errors[0] = DatabaseUpdateFailed;
 	else {
 		$Errors[0] = 0; // Signal data may follow.
 		while ($MyRow = DB_fetch_row($Result)) {
@@ -557,13 +553,12 @@ function GetCustomerBranch($DebtorNumber, $BranchCode, $user, $password) {
 	$SQL = "SELECT * FROM custbranch
 					 WHERE debtorno='" . $DebtorNumber . "'
 					 AND branchcode='" . $BranchCode . "'";
-	$Result = api_DB_Query($SQL);
+	$Result = api_DB_query($SQL);
 	if (DB_error_no() != 0) {
 		$Errors[0] = DatabaseUpdateFailed;
 	} else {
 		$Errors[0] = 0;
-		if (DB_num_rows($Result) > 0)
-			$Errors += DB_fetch_array($Result);
+		if (DB_num_rows($Result) > 0) $Errors+= DB_fetch_array($Result);
 	}
 	return $Errors;
 }

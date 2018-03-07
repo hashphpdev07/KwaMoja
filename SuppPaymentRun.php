@@ -247,7 +247,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 
 	if (!isset($_POST['FromCriteria']) or mb_strlen($_POST['FromCriteria']) < 1) {
 		$DefaultFromCriteria = $MyRow['fromcriteria'];
@@ -304,7 +304,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 
 	echo '<tr>
 			<td>' . _('Payments Due To') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="AmountsDueBy" required="required" maxlength="11" size="12" value="' . $DefaultDate . '" /></td>
+			<td><input type="text" class="date" name="AmountsDueBy" required="required" maxlength="11" size="12" value="' . $DefaultDate . '" /></td>
 		  </tr>';
 
 	$SQL = "SELECT bankaccountname, accountcode FROM bankaccounts";

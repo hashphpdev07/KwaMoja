@@ -11,7 +11,7 @@ echo '<p class="page_title_text" >
 echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Type') . ':</td>
 			<td><select name="TransType">';
@@ -48,9 +48,9 @@ if (!isset($_POST['SupplierNo'])) {
 	$_POST['SupplierNo'] = '';
 }
 echo '<td>' . _('From') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
+		<td><input type="text" class="date" name="FromDate" required="required" maxlength="10" size="11" value="' . $_POST['FromDate'] . '" /></td>
 		<td>' . _('To') . ':</td>
-		<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
+		<td><input type="text" class="date" name="ToDate" required="required" maxlength="10" size="11" value="' . $_POST['ToDate'] . '" /></td>
 		<td>' . _('Supplier No') . ':</td>
 		<td><input type="text" name="SupplierNo" size="11" maxlength="10" value="' . $_POST['SupplierNo'] . '" /></td>
 	</tr>
@@ -94,7 +94,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 	$ErrMsg = _('The supplier transactions for the selected criteria could not be retrieved because') . ' - ' . DB_error_msg();
 	$DbgMsg = _('The SQL that failed was');
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Type') . '</th>
 				<th>' . _('Number') . '</th>
@@ -112,15 +112,8 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 
 	while ($MyRow = DB_fetch_array($TransResult)) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			++$k;
-		}
-
-		printf('<td>%s</td>
+		printf('<tr class="striped_row">
+				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
 				<td>%s</td>
@@ -152,7 +145,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 			echo '<tr>
 					<td colspan="2"></td>
 					<td colspan="8">
-						<table class="selection" width="100%">';
+						<table width="100%">';
 			echo '<tr>
 					<th colspan="2"><b>' . _('GL Account') . '</b></th>
 					<th><b>' . _('Local Amount') . '</b></th>

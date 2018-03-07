@@ -4,7 +4,9 @@ include('includes/session.php');
 $Title = _('Import Asterisk Data');
 include('includes/header.php');
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['Submit'])) { //start file processing
 
@@ -32,7 +34,7 @@ if (isset($_POST['Submit'])) { //start file processing
 		$CheckRow = DB_fetch_row($Result);
 		if ($CheckRow[0] == 0) {
 			echo '<div class="centre">
-					<a href="Customers.php" target="_blank">' . _('Create a new customer account.') . '</a>
+					<a href="Customers.php" target="_blank">', _('Create a new customer account.'), '</a>
 				</div>';
 			prnMsg(_('Account code') . ' ' . $MyRow[0] . ' ' . _('has not been created yet. Please create and import the file again.'), 'error');
 			include('includes/footer.php');
@@ -156,29 +158,29 @@ if (isset($_POST['Submit'])) { //start file processing
 	}
 
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Import another days transactions') . '</a>
+			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Import another days transactions'), '</a>
 		</div>';
 
 	fclose($FileHandle);
 
 } else { //show file upload form
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" enctype="multipart/form-data">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	$FilesToImport = glob('companies/' . $_SESSION['DatabaseName'] . '/pbx-data/*.as');
 	if (sizeof($FilesToImport) > 0) {
-		echo '<table class="selection">';
-		echo '<tr>
-				<td>' . _('Days transactions to import') . '</td>
-				<td><select name="Day">';
+		echo '<fieldhelp>
+				<legend>', _('Criteria for upload of Asterix files'), '</legend>
+				<field>
+					<label for="Day">' . _('Days transactions to import') . '</label>
+					<select name="Day" autofocus="autofocus">';
 		foreach ($FilesToImport as $File) {
-			echo '<option value="' . $File . '">' . date($_SESSION['DefaultDateFormat'], strtotime(basename($File, '.as'))) . '</option>';
+			echo '<option value="', $File, '">', date($_SESSION['DefaultDateFormat'], strtotime(basename($File, '.as'))), '</option>';
 		}
 		echo '</select>
-					</td>
-				</tr>';
+			</field>';
 
-		echo '</table>';
+		echo '</fieldhelp>';
 
 		echo '<div class="centre">
 				<input type="submit" name="Submit" value="Import Files" />

@@ -234,7 +234,7 @@ if (isset($_POST['UpdateAll'])) {
 if (!isset($_POST['Location'])) {
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Choose a location to issue requests from') . '</td>
 				<td><select required="required" name="Location">
@@ -300,7 +300,7 @@ if (isset($_POST['Location'])) {
 
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th>' . _('Request Number') . '</th>
 				<th>' . _('Department') . '</th>
@@ -336,7 +336,7 @@ if (isset($_POST['Location'])) {
 		echo '<tr>
 				<td></td>
 				<td colspan="5" align="left">
-					<table class="selection" align="left">
+					<table align="left">
 					<tr>
 						<th>' . _('Product') . '</th>
 						<th>' . _('Quantity') . '<br />' . _('Required') . '</th>

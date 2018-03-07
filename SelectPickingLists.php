@@ -156,7 +156,7 @@ if (isset($_POST['SearchParts'])) {
 }
 
 if (true or !isset($OrderNumber) or $OrderNumber == "") { //revisit later, right now always show all inputs
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>';
 	if (isset($SelectedStockItem) and $SelectedStockItem != '') {
@@ -186,7 +186,7 @@ if (true or !isset($OrderNumber) or $OrderNumber == "") { //revisit later, right
 			echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 		}
 	}
-	echo '</select>', _('Pick List Status:'), '<select name="Status">';
+	echo '</select>', _('Pick List Status'), ':<select name="Status">';
 
 	if ($_POST['Status'] == 'New') {
 		echo '<option selected="selected" value="New">', _('New'), '</option>';
@@ -223,7 +223,7 @@ $SQL = "SELECT categoryid,
 		FROM stockcategory
 		ORDER BY categorydescription";
 $Result1 = DB_query($SQL);
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th colspan="6">
 				<h3>', _('To search for Pick Lists for a specific part use the part selection facilities below'), '</h3>
@@ -258,7 +258,7 @@ echo '</select></td>
 	</table>';
 
 if (isset($StockItemsResult)) {
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">', _('Code'), '</th>
@@ -271,14 +271,8 @@ if (isset($StockItemsResult)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-		echo '<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
+		echo '<tr class="striped_row">
+				<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
 				<td>', $MyRow['description'], '</td>
 				<td class="number">', locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['qpicked'], $MyRow['decimalplaces']), '</td>
@@ -405,7 +399,7 @@ else {
 
 	if (DB_num_rows($PickReqResult) > 0) {
 		/*show a table of the pick lists returned by the SQL */
-		echo '<table cellpadding="2" width="90%" class="selection">
+		echo '<table cellpadding="2" width="90%">
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Modify'), '</th>
@@ -424,14 +418,6 @@ else {
 		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PickReqResult)) {
-			if ($k == 1) {
-				/*alternate bgcolour of row for highlighting */
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				++$k;
-			}
 			$ModifyPickList = $RootPath . '/PickingLists.php?Prid=' . $MyRow['prid'];
 			$PrintPickList = $RootPath . '/GeneratePickingList.php?TransNo=' . $MyRow['orderno'];
 			if ($_SESSION['PackNoteFormat'] == 1) {
@@ -456,7 +442,8 @@ else {
 				$Confirm_Invoice = '<td><a href="' . $RootPath . '/ConfirmDispatch_Invoice.php?OrderNumber=' . $MyRow['orderno'] . '">' . _('Invoice Order') . '</a></td>';
 			}
 
-			echo '<td><a href="', $ModifyPickList, '">', str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT), '</a></td>
+			echo '<tr class="striped_row">
+					<td><a href="', $ModifyPickList, '">', str_pad($MyRow['prid'], 10, '0', STR_PAD_LEFT), '</a></td>
 					<td><a href="', $PrintPickList, '">Print <img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" /></a></td>
 					<td><a target="_blank" href="', $PrintDispatchNote, '">', $PrintText, ' <img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" /></a></td>
 					<td><a target="_blank" href="', $PrintLabels . '">' . _('Labels') . '</a></td>
@@ -478,7 +465,7 @@ else {
 echo '</form>';
 if ($_POST['Status'] == 'New') {
 	//office is gnerating picks.  Warehouse needs to see latest "To Do" list so refresh every 5 minutes
-	echo '<meta http-equiv="refresh" content="300" url=', $RootPath, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" />';
+	echo '<meta http-equiv="refresh" content="300" url="', $RootPath, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" />';
 }
 include('includes/footer.php');
 ?>

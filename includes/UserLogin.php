@@ -111,12 +111,14 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 			require_once 'MobileDetect.php';
 			$MobileDetect = new Mobile_Detect;
 			if ($MobileDetect->isMobile()) {
-				$_SESSION['Theme'] = 'mobile';
+//				$_SESSION['Theme'] = 'mobile';
 			}
 			$_SESSION['Language'] = $MyRow['language'];
 			$_SESSION['SalesmanLogin'] = $MyRow['salesman'];
 			$_SESSION['CanCreateTender'] = $MyRow['cancreatetender'];
 			$_SESSION['AllowedDepartment'] = $MyRow['department'];
+			$_SESSION['ShowFieldHelp'] = $MyRow['showfieldhelp'];
+			$_SESSION['ShowPageHelp'] = $MyRow['showpagehelp'];
 			if (isset($MyRow['fontsize'])) {
 				switch ($MyRow['fontsize']) {
 					case 0:

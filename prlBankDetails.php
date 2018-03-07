@@ -231,7 +231,7 @@ $SQL = "SELECT prlbankdetails.employeeid,
 $Result = DB_query($SQL);
 
 //This section caters for the html table
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('Employee id') . '</th>
 			<th>' . _('Employee Name') . '</th>
@@ -243,15 +243,8 @@ $k = 0; //row colour counter
 
 //while loop
 while ($MyRow = DB_fetch_array($Result)) {
-
-	if ($k == 1) {
-		echo '<tr class="OddTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="EvenTableRows">';
-		$k++;
-	}
-	echo '<td>' . $MyRow['employeeid'] . '</td>
+	echo '<tr class="striped_row">
+			<td>' . $MyRow['employeeid'] . '</td>
 			<td>' . $MyRow['firstname'] . ' ' . $MyRow['lastname'] . '</td>
 			<td>' . $MyRow['bankcode'] . '</td>
 			<td>' . $MyRow['bankname'] . '</td>

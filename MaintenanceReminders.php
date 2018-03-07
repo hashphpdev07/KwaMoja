@@ -33,7 +33,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 		${'Mail' . $MyRow['userresponsible']}->setSubject('Maintenance Tasks Reminder');
 		${'Mail' . $MyRow['userresponsible']}->setFrom('Do_not_reply <>');
 	}
-	$MailText .= "Asset: " . $MyRow['description'] . "\nTask: " . $MyRow['taskdescription'] . "\nDue: " . ConvertSQLDate($MyRow['duedate']);
+	$MailText .= _('Asset') . ': ' . $MyRow['description'] . "\nTask: " . $MyRow['taskdescription'] . "\nDue: " . ConvertSQLDate($MyRow['duedate']);
 	if (Date1GreaterThanDate2(ConvertSQLDate($MyRow['duedate']), Date($_SESSION['DefaultDateFormat']))) {
 		$MailText .= _('NB: THIS JOB IS OVERDUE');
 	}

@@ -1,95 +1,64 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Company Preferences');
 /* Manual links before header.php */
 $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'CompanyParameters';
-include('includes/header.php');
-
-if (isset($Errors)) {
-	unset($Errors);
-}
+include ('includes/header.php');
 
 //initialise no input errors assumed initially before we test
 $InputError = 0;
-$Errors = array();
-$i = 1;
 
 if (isset($_POST['submit'])) {
 
-
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (mb_strlen($_POST['CoyName']) > 50 or mb_strlen($_POST['CoyName']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The company name must be entered and be fifty characters or less long'), 'error');
-		$Errors[$i] = 'CoyName';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice1']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 1 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice1';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice2']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 2 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice2';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice3']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 3 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice3';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice4']) > 40) {
 		$InputError = 1;
 		prnMsg(_('The Line 4 of the address must be forty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice4';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice5']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The Line 5 of the address must be twenty characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice5';
-		++$i;
 	}
 	if (mb_strlen($_POST['RegOffice6']) > 15) {
 		$InputError = 1;
 		prnMsg(_('The Line 6 of the address must be fifteen characters or less long'), 'error');
-		$Errors[$i] = 'RegOffice6';
-		++$i;
 	}
 	if (mb_strlen($_POST['Telephone']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The telephone number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Telephone';
-		++$i;
 	}
 	if (mb_strlen($_POST['Fax']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The fax number must be 25 characters or less long'), 'error');
-		$Errors[$i] = 'Fax';
-		++$i;
 	}
 	if (mb_strlen($_POST['Email']) > 55) {
 		$InputError = 1;
 		prnMsg(_('The email address must be 55 characters or less long'), 'error');
-		$Errors[$i] = 'Email';
-		++$i;
 	}
 	if (mb_strlen($_POST['Email']) > 0 and !IsEmailAddress($_POST['Email'])) {
 		$InputError = 1;
 		prnMsg(_('The email address is not correctly formed'), 'error');
-		$Errors[$i] = 'Email';
-		++$i;
 	}
 
 	if ($InputError != 1) {
@@ -111,6 +80,7 @@ if (isset($_POST['submit'])) {
 											fax,
 											email,
 											currencydefault,
+											npo,
 											debtorsact,
 											pytdiscountact,
 											creditorsact,
@@ -138,6 +108,7 @@ if (isset($_POST['submit'])) {
 											'" . $_POST['Fax'] . "',
 											'" . $_POST['Email'] . "',
 											'" . $_POST['CurrencyDefault'] . "',
+											'" . $_POST['IsNPO'] . "',
 											'" . $_POST['DebtorsAct'] . "',
 											'" . $_POST['PytDiscountAct'] . "',
 											'" . $_POST['CreditorsAct'] . "',
@@ -166,6 +137,7 @@ if (isset($_POST['submit'])) {
 										fax='" . $_POST['Fax'] . "',
 										email='" . $_POST['Email'] . "',
 										currencydefault='" . $_POST['CurrencyDefault'] . "',
+										npo='" . $_POST['IsNPO'] . "',
 										debtorsact='" . $_POST['DebtorsAct'] . "',
 										pytdiscountact='" . $_POST['PytDiscountAct'] . "',
 										creditorsact='" . $_POST['CreditorsAct'] . "',
@@ -201,7 +173,7 @@ if (isset($_POST['submit'])) {
 		/* End of update currencies */
 
 		$ForceConfigReload = True; // Required to force a load even if stored in the session vars
-		include('includes/GetConfig.php');
+		include ('includes/GetConfig.php');
 		$ForceConfigReload = False;
 
 	} else {
@@ -211,11 +183,12 @@ if (isset($_POST['submit'])) {
 }
 /* end of if submit */
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table class="selection">';
+echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if ($InputError != 1) {
 	$SQL = "SELECT coyname,
@@ -231,6 +204,7 @@ if ($InputError != 1) {
 					fax,
 					email,
 					currencydefault,
+					npo,
 					debtorsact,
 					pytdiscountact,
 					creditorsact,
@@ -264,6 +238,7 @@ if ($InputError != 1) {
 	$_POST['Fax'] = $MyRow['fax'];
 	$_POST['Email'] = $MyRow['email'];
 	$_POST['CurrencyDefault'] = $MyRow['currencydefault'];
+	$_POST['IsNPO'] = $MyRow['npo'];
 	$_POST['DebtorsAct'] = $MyRow['debtorsact'];
 	$_POST['PytDiscountAct'] = $MyRow['pytdiscountact'];
 	$_POST['CreditorsAct'] = $MyRow['creditorsact'];
@@ -279,91 +254,117 @@ if ($InputError != 1) {
 }
 
 if (DB_num_rows($Result) == 0) {
-	echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first fill out the company details.') .
-			'<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
-	include('companies/' . $_SESSION['DatabaseName'] . '/Companies.php');
+	echo '<div class="page_help_text">', _('As this is the first time that the system has been used, you must first fill out the company details.'), '<br />', _('Once you have filled in all the details, click on the button at the bottom of the screen'), '</div>';
+	include ('companies/' . $_SESSION['DatabaseName'] . '/Companies.php');
 	$_POST['CoyName'] = $CompanyName[$_SESSION['DatabaseName']];
 }
+echo '<fieldset>
+		<legend>', _('Edit Company Details'), '</legend>';
 
-echo '<tr>
-		<td>' . _('Name') . ' (' . _('to appear on reports') . '):</td>
-		<td><input tabindex="1" type="text" name="CoyName" value="' . stripslashes($_POST['CoyName']) . '" size="52" required="required" maxlength="50" /></td>
-	</tr>';
+echo '<field>
+		<label for="CoyName">', _('Name'), ' (', _('to appear on reports'), '):</label>
+		<input type="text" name="CoyName" value="', stripslashes($_POST['CoyName']), '" size="52" required="required" autofocus="autofocus" maxlength="50" />
+		<fieldhelp>', _('The official name of the company that will appear throughout KwaMoja, and on all reports.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Official Company Number') . ':</td>
-		<td><input tabindex="2" type="text" name="CompanyNumber" value="' . $_POST['CompanyNumber'] . '" size="22" maxlength="20" /></td>
-	</tr>';
+echo '<field>
+		<label for="CompanyNumber">', _('Official Company Number'), ':</label>
+		<input type="text" name="CompanyNumber" value="', $_POST['CompanyNumber'], '" size="22" maxlength="20" />
+		<fieldhelp>', _('The official government registration number for the company, allocated on incorporation.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Tax Authority Reference') . ':</td>
-		<td><input tabindex="3" type="text" name="GSTNo" value="' . stripslashes($_POST['GSTNo']) . '" size="22" maxlength="20" /></td>
-	</tr>';
+echo '<field>
+		<label for="GSTNo">', _('Tax Authority Reference'), ':</label>
+		<input type="text" name="GSTNo" value="', stripslashes($_POST['GSTNo']), '" size="22" maxlength="20" />
+		<fieldhelp>', _('The official number allocated by the tax authority of the country where the company is based.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Address Line 1') . ':</td>
-		<td><input tabindex="4" type="text" name="RegOffice1" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice1']) . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="RegOffice1">', _('Address Line 1'), ':</label>
+		<input type="text" name="RegOffice1" size="42" maxlength="40" value="', stripslashes($_POST['RegOffice1']), '" />
+		<fieldhelp>', _('The first line of the address for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Address Line 2') . ':</td>
-		<td><input tabindex="5" type="text" name="RegOffice2" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice2']) . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="RegOffice2">', _('Address Line 2'), ':</label>
+		<input type="text" name="RegOffice2" size="42" maxlength="40" value="', stripslashes($_POST['RegOffice2']), '" />
+		<fieldhelp>', _('The second line of the address for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Address Line 3') . ':</td>
-		<td><input tabindex="6" type="text" name="RegOffice3" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice3']) . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="RegOffice3">', _('Address Line 3'), ':</label>
+		<input type="text" name="RegOffice3" size="42" maxlength="40" value="', stripslashes($_POST['RegOffice3']), '" />
+		<fieldhelp>', _('The third line of the address for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Address Line 4') . ':</td>
-		<td><input tabindex="7" type="text" name="RegOffice4" size="42" maxlength="40" value="' . stripslashes($_POST['RegOffice4']) . '" /></td>
-</tr>';
+echo '<field>
+		<label for="RegOffice4">', _('Address Line 4'), ':</label>
+		<input type="text" name="RegOffice4" size="42" maxlength="40" value="', stripslashes($_POST['RegOffice4']), '" />
+		<fieldhelp>', _('The fourth line of the address for the registered office of the company.'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td>' . _('Address Line 5') . ':</td>
-		<td><input tabindex="8" type="text" name="RegOffice5" size="22" maxlength="20" value="' . stripslashes($_POST['RegOffice5']) . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="RegOffice5">', _('Address Line 5'), ':</label>
+		<input type="text" name="RegOffice5" size="22" maxlength="20" value="', stripslashes($_POST['RegOffice5']), '" />
+		<fieldhelp>', _('The fifth line of the address for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Address Line 6') . ':</td>
-		<td><input tabindex="9" type="text" name="RegOffice6" size="17" maxlength="15" value="' . stripslashes($_POST['RegOffice6']) . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="RegOffice6">', _('Address Line 6'), ':</label>
+		<input type="text" name="RegOffice6" size="17" maxlength="15" value="', stripslashes($_POST['RegOffice6']), '" />
+		<fieldhelp>', _('The sixth line of the address for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Telephone Number') . ':</td>
-		<td><input tabindex="10" type="tel" name="Telephone" size="26" maxlength="25" value="' . $_POST['Telephone'] . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="Telephone">', _('Telephone Number'), ':</label>
+		<input type="tel" name="Telephone" size="26" maxlength="25" value="', $_POST['Telephone'], '" />
+		<fieldhelp>', _('The telephone number for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Facsimile Number') . ':</td>
-		<td><input tabindex="11" type="tel" name="Fax" size="26" maxlength="25" value="' . $_POST['Fax'] . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="Fax">', _('Facsimile Number'), ':</label>
+		<input type="tel" name="Fax" size="26" maxlength="25" value="', $_POST['Fax'], '" />
+		<fieldhelp>', _('The fax number for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Email Address') . ':</td>
-		<td><input tabindex="12" type="email" name="Email" size="50" maxlength="55" value="' . $_POST['Email'] . '" /></td>
-	</tr>';
-
+echo '<field>
+		<label for="Email">', _('Email Address'), ':</label>
+		<input type="email" name="Email" size="50" maxlength="55" value="', $_POST['Email'], '" />
+		<fieldhelp>', _('The email address for the registered office of the company.'), '</fieldhelp>
+	</field>';
 
 $Result = DB_query("SELECT currabrev, currency FROM currencies");
 
-echo '<tr>
-		<td>' . _('Home Currency') . ':</td>
-		<td><select tabindex="13" name="CurrencyDefault">';
+echo '<field>
+		<label for="CurrencyDefault">', _('Home Currency'), ':</label>
+		<select id="CurrencyDefault" name="CurrencyDefault">';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($_POST['CurrencyDefault'] == $MyRow['currabrev']) {
-		echo '<option selected="selected" value="' . $MyRow['currabrev'] . '">' . _($MyRow['currency']) . '</option>';
+		echo '<option selected="selected" value="', $MyRow['currabrev'], '">', _($MyRow['currency']), '</option>';
 	} else {
-		echo '<option value="' . $MyRow['currabrev'] . '">' . _($MyRow['currency']) . '</option>';
+		echo '<option value="', $MyRow['currabrev'], '">', _($MyRow['currency']), '</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The base currency that the company will use for the general ledger.'), '</fieldhelp>
+</field>';
 
-DB_free_result($Result);
+echo '<field>
+		<label for="IsNPO">', _('Is the organisation an NPO?'), ':</label>
+		<select name="IsNPO">';
 
-echo '</select></td>
-	</tr>';
+if ($_POST['IsNPO'] == '0') {
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>';
+}
+
+echo '</select>
+	<fieldhelp>', _('Is the organisation a not for profit organisation.'), '</fieldhelp>
+</field>';
 
 $Result = DB_query("SELECT accountcode,
 						accountname
@@ -375,93 +376,88 @@ $Result = DB_query("SELECT accountcode,
 						AND chartmaster.Language='" . $_SESSION['ChartLanguage'] . "'
 					ORDER BY chartmaster.accountcode");
 
-echo '<tr>
-		<td>' . _('Debtors Control GL Account') . ':</td>
-		<td><select tabindex="14" name="DebtorsAct">';
+echo '<field>
+		<label for="DebtorsAct">', _('Debtors Control GL Account'), ':</label>
+		<select name="DebtorsAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['DebtorsAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Creditors Control GL Account') . ':</td>
-		<td><select tabindex="15" name="CreditorsAct">';
+echo '<field>
+		<label for="CreditorsAct">', _('Creditors Control GL Account'), ':</label>
+		<select name="CreditorsAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['CreditorsAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Payroll Net Pay Clearing GL Account') . ':</td>
-		<td><select tabindex="16" name="PayrollAct">';
+echo '<field>
+		<label for="PayrollAct">', _('Payroll Net Pay Clearing GL Account'), ':</label>
+		<select name="PayrollAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['PayrollAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account to act as the control for the payroll transactions.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Goods Received Clearing GL Account') . ':</td>
-		<td><select tabindex="17" name="GRNAct">';
+echo '<field>
+		<label for="GRNAct">', _('Goods Received Clearing GL Account'), ':</label>
+		<select name="GRNAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['GRNAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
-echo '</select></td>
-	</tr>';
 
-echo '<tr>
-		<td>' . _('Retained Earning Clearing GL Account') . ':</td>
-		<td><select tabindex="18" name="RetainedEarnings">';
+echo '<field>
+		<label for="RetainedEarnings">', _('Retained Earning Clearing GL Account'), ':</label>
+		<select name="RetainedEarnings">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['RetainedEarnings'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
-
-DB_free_result($Result);
-
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Freight Re-charged GL Account') . ':</td>
-		<td><select tabindex="19" name="FreightAct">';
+echo '</select>
+	<fieldhelp>', _('The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly.'), '</fieldhelp>
+</field>';
 
 $Result = DB_query("SELECT accountcode,
 						accountname
@@ -473,122 +469,129 @@ $Result = DB_query("SELECT accountcode,
 						AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 					ORDER BY chartmaster.accountcode");
 
+echo '<field>
+		<label for="FreightAct">', _('Freight Re-charged GL Account'), ':</label>
+		<select name="FreightAct">';
+
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['FreightAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account where the freight charges will get posted to.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Sales Exchange Variances GL Account') . ':</td>
-		<td><select tabindex="20" name="ExchangeDiffAct">';
+echo '<field>
+		<label for="ExchangeDiffAct">', _('Sales Exchange Variances GL Account'), ':</label>
+		<select name="ExchangeDiffAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['ExchangeDiffAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account where the profit/loss on currency exchange for sales transactions will be posted.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Purchases Exchange Variances GL Account') . ':</td>
-		<td><select tabindex="21" name="PurchasesExchangeDiffAct">';
+echo '<field>
+		<label for="PurchasesExchangeDiffAct">', _('Purchases Exchange Variances GL Account'), ':</label>
+		<select name="PurchasesExchangeDiffAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['PurchasesExchangeDiffAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option  value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option  value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account where the profit/loss on currency exchange for purchase transactions will be posted.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Payment Discount GL Account') . ':</td>
-		<td><select tabindex="22" name="PytDiscountAct">';
+echo '<field>
+		<label for="PytDiscountAct">', _('Payment Discount GL Account'), ':</label>
+		<select name="PytDiscountAct">';
 
 while ($MyRow = DB_fetch_row($Result)) {
 	if ($_POST['PytDiscountAct'] == $MyRow[0]) {
-		echo '<option selected="selected" value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	} else {
-		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
 	}
 } //end while loop
+echo '</select>
+	<fieldhelp>', _('The general ledger account where the discount on purchase transactions will be posted.'), '</fieldhelp>
+</field>';
 
 DB_data_seek($Result, 0);
 
-echo '</select></td>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Create GL entries for accounts receivable transactions') . ':</td>
-		<td><select tabindex="23" name="GLLink_Debtors">';
+echo '<field>
+		<label for="GLLink_Debtors">', _('Create GL entries for AR transactions'), ':</label>
+		<select name="GLLink_Debtors">';
 
 if ($_POST['GLLink_Debtors'] == 0) {
-	echo '<option selected="selected" value="0">' . _('No') . '</option>';
-	echo '<option value="1">' . _('Yes') . '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
-	echo '<option value="0">' . _('No') . '</option>';
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>';
 }
 
-echo '</select></td>
-	</tr>';
+echo '</select>
+	<fieldhelp>', _('When an accounts receivable transaction is done, should KwaMoja create the required General Ledger entries'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td>' . _('Create GL entries for accounts payable transactions') . ':</td>
-		<td><select tabindex="24" name="GLLink_Creditors">';
+echo '<field>
+		<label for="GLLink_Creditors">', _('Create GL entries for AP transactions'), ':</label>
+		<select name="GLLink_Creditors">';
 
 if ($_POST['GLLink_Creditors'] == 0) {
-	echo '<option selected="selected" value="0">' . _('No') . '</option>';
-	echo '<option value="1">' . _('Yes') . '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
 } else {
 	echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
-	echo '<option value="0">' . _('No') . '</option>';
+	echo '<option value="0">', _('No'), '</option>';
 }
 
-echo '</select></td>
-	</tr>';
+echo '</select>
+	<fieldhelp>', _('When an accounts payable transaction is done, should KwaMoja create the required General Ledger entries'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td>' . _('Create GL entries for stock transactions') . ':</td>
-		<td><select tabindex="25" name="GLLink_Stock">';
+echo '<field>
+		<label for="GLLink_Stock">', _('Create GL entries for stock transactions'), ':</label>
+		<select name="GLLink_Stock">';
 
 if ($_POST['GLLink_Stock'] == '0') {
-	echo '<option selected="selected" value="0">' . _('No') . '</option>';
-	echo '<option value="1">' . _('Yes') . '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
-	echo '<option value="0">' . _('No') . '</option>';
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>';
 }
 
-echo '</select></td>
-	</tr>';
+echo '</select>
+	<fieldhelp>', _('When an inventory transaction is done, should KwaMoja create the required General Ledger entries'), '</fieldhelp>
+</field>';
 
+echo '</fieldset>';
 
-echo '</table>
-	<br />
-	<div class="centre">
-		<input tabindex="26" type="submit" name="submit" value="' . _('Update') . '" />
+echo '<div class="centre">
+		<input type="submit" name="submit" value="', _('Update'), '" />
 	</div>';
+
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -9,6 +9,7 @@ include('includes/header.php');
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/email.png" title="' . _('SMTP Server') . '" alt="" />' . ' ' . _('SMTP Server Settings') . '</p>';
 // First check if there are smtp server data or not
 
+$SecurityOptions = array('', 'ssl', 'tls');
 
 if ((isset($_POST['submit']) or isset($_POST['reload'])) and $_POST['MailServerSetting'] == 1) { //if there are already data setup, Update the table
 	$SQL = "UPDATE emailsettings SET
@@ -18,7 +19,8 @@ if ((isset($_POST['submit']) or isset($_POST['reload'])) and $_POST['MailServerS
 				username='" . $_POST['UserName'] . "',
 				password='" . $_POST['Password'] . "',
 				timeout='" . $_POST['Timeout'] . "',
-				auth='" . $_POST['Auth'] . "'";
+				auth='" . $_POST['Auth'] . "',
+				security='" . $_POST['Security'] . "'";
 	$ErrMsg = _('The email setting information failed to update');
 	$DbgMsg = _('The SQL failed to update is ');
 	$Result1 = DB_query($SQL, $ErrMsg, $DbgMsg);
@@ -35,7 +37,8 @@ if ((isset($_POST['submit']) or isset($_POST['reload'])) and $_POST['MailServerS
 						username,
 						password,
 						timeout,
-						auth)
+						auth,
+						security)
 				VALUES (
 					'" . $_POST['Host'] . "',
 					'" . $_POST['Port'] . "',
@@ -43,7 +46,8 @@ if ((isset($_POST['submit']) or isset($_POST['reload'])) and $_POST['MailServerS
 					'" . $_POST['UserName'] . "',
 					'" . $_POST['Password'] . "',
 					'" . $_POST['Timeout'] . "',
-					'" . $_POST['Auth'] . "')";
+					'" . $_POST['Auth'] . "'
+					'" . $_POST['Security'] . "')";
 	$ErrMsg = _('The email settings failed to be inserted');
 	$DbgMsg = _('The SQL failed to insert the email information is');
 	$Result2 = DB_query($SQL);
@@ -63,7 +67,8 @@ $SQL = "SELECT id,
 				username,
 				password,
 				timeout,
-				auth
+				auth,
+				security
 			FROM emailsettings";
 $ErrMsg = _('The email settings information cannot be retrieved');
 $DbgMsg = _('The SQL that failed was');
@@ -82,13 +87,14 @@ if (DB_num_rows($Result) != 0) {
 	$MyRow['password'] = '';
 	$MyRow['timeout'] = 5;
 	$MyRow['auth'] = 1;
+	$MyRow['security'] = '';
 }
 
 
 echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="MailServerSetting" value="' . $MailServerSetting . '" />';
-echo '<table class="selection">';
+echo '<table>';
 echo '<tr>
 		<td>' . _('Server Host Name') . '</td>
 		<td><input type="text" name="Host" required="required" maxlength="50" value="' . $MyRow['host'] . '" /></td>
@@ -123,6 +129,19 @@ if ($MyRow['auth'] == 1) {
 		<tr>
 			<td>' . _('Password') . '</td>
 			<td><input type="password" name="Password" required="required" maxlength="50" value="' . $MyRow['password'] . '" /></td>
+		</tr>';
+	echo '<tr>
+			<td>', _('SSL/TLS'), '</td>
+			<td><select name="Security">';
+	foreach ($SecurityOptions as $SecurityOption) {
+		if ($SecurityOption == $MyRow['security']) {
+			echo '<option selected="selected" value="', $SecurityOption, '">', mb_strtoupper($SecurityOption), '</option>';
+		} else {
+			echo '<option value="', $SecurityOption, '">', mb_strtoupper($SecurityOption), '</option>';
+		}
+	}
+	echo '</select>
+			</td>
 		</tr>';
 } else {
 	echo '<input type="hidden" name="UserName" value="' . $MyRow['username'] . '" />

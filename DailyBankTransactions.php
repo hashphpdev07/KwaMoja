@@ -7,6 +7,20 @@ $ViewTopic = 'GeneralLedger';
 $BookMark = 'DailyBankTransactions';
 include('includes/header.php');
 
+if (isset($_GET['BankAccount'])) {
+	$_POST['BankAccount'] = $_GET['BankAccount'];
+	$_POST['ShowType'] = 'All';
+	$_POST['Show'] = True;
+}
+
+if (isset($_GET['FromTransDate'])) {
+	$_POST['FromTransDate'] = $_GET['FromTransDate'];
+}
+
+if (isset($_GET['ToTransDate'])) {
+	$_POST['ToTransDate'] = $_GET['ToTransDate'];
+}
+
 if (!isset($_POST['Show'])) {
 
 	$SQL = "SELECT 	bankaccountname,
@@ -31,7 +45,7 @@ if (!isset($_POST['Show'])) {
 	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>', _('Bank Account'), ':</td>
 				<td><select name="BankAccount">';
@@ -62,11 +76,11 @@ if (!isset($_POST['Show'])) {
 	}
 	echo '<tr>
 			<td>', _('Transactions Dated From'), ':</td>
-			<td><input type="text" name="FromTransDate" class="date" alt="', $_SESSION['DefaultDateFormat'], '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', date($_SESSION['DefaultDateFormat']), '" /></td>
+			<td><input type="text" name="FromTransDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', date($_SESSION['DefaultDateFormat']), '" /></td>
 		</tr>
 		<tr>
 			<td>' . _('Transactions Dated To') . ':</td>
-			<td><input type="text" name="ToTransDate" class="date" alt="', $_SESSION['DefaultDateFormat'], '" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', date($_SESSION['DefaultDateFormat']), '" /></td>
+			<td><input type="text" name="ToTransDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', date($_SESSION['DefaultDateFormat']), '" /></td>
 		</tr>
 		<tr>
 			<td>', _('Show Transactions'), '</td>
@@ -143,7 +157,7 @@ if (!isset($_POST['Show'])) {
 					$BankDetailRow['bankaccountname'], ' ',
 					_('Between'), ' ', $_POST['FromTransDate'], ' ', _('and'), ' ', $_POST['ToTransDate'], '
 			</p>';// Page title.*/
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th>' . ('Date') . '</th>
@@ -166,7 +180,7 @@ if (!isset($_POST['Show'])) {
 		$AccountCurrTotal = $BalancesRow['balance'];
 		$LocalCurrTotal = $BalancesRow['fbalance'];
 		if ($BankDetailRow['currcode'] != $_SESSION['CompanyRecord']['currencydefault']) {
-			echo '<tr class="EvenTableRows">
+			echo '<tr class="striped_row">
 					<td colspan="8">' . _('Balances Brought Forward') . '</td>
 					<td class="number">' . locale_number_format($BalancesRow['balance'], $BankDetailRow['decimalplaces']) . '</td>
 					<td></td>
@@ -174,7 +188,7 @@ if (!isset($_POST['Show'])) {
 					<td></td>
 				</tr>';
 		} else {
-			echo '<tr class="EvenTableRows">
+			echo '<tr class="striped_row">
 					<td colspan="8">' . _('Balances Brought Forward') . '</td>
 					<td class="number">' . locale_number_format($BalancesRow['balance'], $BankDetailRow['decimalplaces']) . '</td>
 					<td></td>
@@ -195,14 +209,8 @@ if (!isset($_POST['Show'])) {
 			}
 
 			if ($_POST['ShowType'] == 'All' or ($_POST['ShowType'] == 'Unmatched' and $Matched == _('No')) or ($_POST['ShowType'] == 'Matched' and $Matched == _('Yes'))) {
-				if ($RowCounter === 0) {
-					echo '<tr class="OddTableRows">';
-					$RowCounter = 1;
-				} else {
-					echo '<tr class="EvenTableRows">';
-					$RowCounter = 0;
-				}
-				echo '<td>' . ConvertSQLDate($MyRow['transdate']) . '</td>
+				echo '<tr class="striped_row">
+						<td>' . ConvertSQLDate($MyRow['transdate']) . '</td>
 						<td>' . _($MyRow['typename']) . '</td>
 						<td class="number"><a href="' . $RootPath . '/GLTransInquiry.php?TypeID=' . $MyRow['typeid'] . '&amp;TransNo=' . $MyRow['transno'] . '">' . $MyRow['transno'] . '</a></td>
 						<td>' . $MyRow['banktranstype'] . '</td>
@@ -219,15 +227,8 @@ if (!isset($_POST['Show'])) {
 					</tr>';
 			}
 		}
-		if ($RowCounter === 0) {
-			echo '<tr class="OddTableRows">';
-			$RowCounter = 1;
-		} else {
-			echo '<tr class="EvenTableRows">';
-			$RowCounter = 0;
-		}
 		if ($BankDetailRow['currcode'] != $_SESSION['CompanyRecord']['currencydefault']) {
-			echo '<tr class="EvenTableRows">
+			echo '<tr class="striped_row">
 					<td colspan="8">' . _('Balances Brought Forward') . '</td>
 					<td class="number">' . locale_number_format($AccountCurrTotal, $BankDetailRow['decimalplaces']) . '</td>
 					<td></td>
@@ -235,7 +236,7 @@ if (!isset($_POST['Show'])) {
 					<td></td>
 				</tr>';
 		} else {
-			echo '<tr class="EvenTableRows">
+			echo '<tr class="striped_row">
 					<td colspan="8">' . _('Balances Brought Forward') . '</td>
 					<td class="number">' . locale_number_format($LocalCurrTotal, $BankDetailRow['decimalplaces']) . '</td>
 					<td></td>

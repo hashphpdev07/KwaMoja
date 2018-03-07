@@ -1,5 +1,4 @@
 <?php
-
 /* Check that the account section doesn't already exist'*/
 function VerifyAccountSection($AccountSection, $i, $Errors) {
 	$Searchsql = "SELECT count(sectionid)
@@ -38,13 +37,13 @@ function InsertGLAccountSection($AccountSectionDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($AccountSectionDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	if (sizeof($Errors) == 0) {
 		$SQL = "INSERT INTO accountsection ('" . mb_substr($FieldNames, 0, -2) . "')
 					VALUES ('" . mb_substr($FieldValues, 0, -2) . "')";
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {

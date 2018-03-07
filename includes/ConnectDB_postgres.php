@@ -98,41 +98,41 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 
 }
 
-function DB_fetch_row(&$ResultIndex) {
+function DB_fetch_row($ResultIndex) {
 	$RowPointer = pg_fetch_row($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_assoc(&$ResultIndex) {
+function DB_fetch_assoc($ResultIndex) {
 
 	$RowPointer = pg_fetch_assoc($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_array(&$ResultIndex) {
+function DB_fetch_array($ResultIndex) {
 	$RowPointer = pg_fetch_array($ResultIndex);
 	return $RowPointer;
 }
 
-function DB_fetch_all(&$ResultIndex) {
+function DB_fetch_all($ResultIndex) {
 
 	$ResultArray = mysqli_fetch_all($ResultIndex, MYSQLI_ASSOC);
 	return $ResultArray;
 }
 
-function DB_data_seek(&$ResultIndex, $Record) {
+function DB_data_seek($ResultIndex, $Record) {
 	pg_result_seek($ResultIndex, $Record);
 }
 
-function DB_free_result(&$ResultIndex) {
+function DB_free_result($ResultIndex) {
 	pg_free_result($ResultIndex);
 }
 
-function DB_num_rows(&$ResultIndex) {
+function DB_num_rows($ResultIndex) {
 	return pg_num_rows($ResultIndex);
 }
 // Added by MGT
-function DB_affected_rows(&$ResultIndex) {
+function DB_affected_rows($ResultIndex) {
 	return pg_affected_rows($ResultIndex);
 }
 
@@ -188,6 +188,17 @@ function DB_Maintenance() {
 	$Result = DB_query("UPDATE config
 				SET confvalue=CURRENT_DATE
 				WHERE confname='DB_Maintenance_LastRun'");
+}
+
+function DB_table_exists($TableName) {
+	global $db;
+	$ShowSQL = "SELECT TABLE_NAME FROM information_schema.tables WHERE TABLE_SCHEMA = '" . $_SESSION['DatabaseName'] . "' AND TABLE_NAME = '" . $TableName . "'";
+	$Result = DB_query($ShowSQL);
+	if (DB_num_rows($Result) > 0) {
+		return True;
+	} else {
+		return False;
+	}
 }
 
 function DB_select_database($DBName) {

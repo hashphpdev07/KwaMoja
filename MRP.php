@@ -566,7 +566,7 @@ if (isset($_POST['submit'])) {
 		if ($MyRow['shrinkageflag'] == 'y') {
 			$UseShrinkage = _('Yes');
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="3"><h3>' . _('Last Run Details') . '</h3></th>
 				</tr>
@@ -605,7 +605,7 @@ if (isset($_POST['submit'])) {
 	}
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<th colspan="3"><h3>' . _('This Run Details') . '</h3></th>
 			</tr>

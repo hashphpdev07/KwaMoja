@@ -38,7 +38,7 @@ $SQL = "SELECT taskid,
 $ErrMsg = _('The maintenance schedule cannot be retrieved because');
 $Result = DB_query($SQL, $ErrMsg);
 
-echo '<table class="selection">
+echo '<table>
 	 <tr>
 		<th>' . _('Task ID') . '</th>
 		<th>' . _('Asset') . '</th>

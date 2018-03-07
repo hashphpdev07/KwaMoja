@@ -106,7 +106,7 @@ if (!isset($SelectedLocation)) {
 	then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table class="selection">
+			<table>
 			<tr>
 				<td>' . _('Select Location') . ':</td>
 				<td><select name="SelectedLocation">';
@@ -167,7 +167,7 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">';
+	echo '<table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Authorised users for Location') . ': ' . $SelectedLocationName . '</h3></th>
 		</tr>';
@@ -181,13 +181,6 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 	$k = 0; //row colour counter
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
 
 		if ($MyRow['canupd'] == 1) {
 			$ToggleText = '<td><a href="%s?SelectedUser=%s&amp;ToggleUpdate=0&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to remove Update for this user?') . '\');">' . _('Remove Update') . '</a></td>';
@@ -195,12 +188,13 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 			$ToggleText = '<td><a href="%s?SelectedUser=%s&amp;ToggleUpdate=1&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to add Update for this user?') . '\');">' . _('Add Update') . '</a></td>';
 		}
 
-		printf('<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>' .
-				$ToggleText . '
-				<td><a href="%s?SelectedUser=%s&amp;delete=yes&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorise this user?') . '\');">' . _('Un-authorise') . '</a></td>
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>' .
+					$ToggleText . '
+					<td><a href="%s?SelectedUser=%s&amp;delete=yes&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorise this user?') . '\');">' . _('Un-authorise') . '</a></td>
 				</tr>',
 				$MyRow['userid'],
 				$MyRow['realname'],
@@ -217,7 +211,7 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 	if (!isset($_GET['delete'])) {
 
 
-		echo '<table  class="selection">'; //Main table
+		echo '<table >'; //Main table
 
 		echo '<tr>
 				<td>' . _('Select User') . ':</td>

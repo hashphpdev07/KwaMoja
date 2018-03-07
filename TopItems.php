@@ -14,7 +14,7 @@ if (!(isset($_POST['Search']))) {
 		</p>';
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">';
+	echo '<table>';
 	//to view store location
 	echo '<tr>
 			<td style="width:150px">' . _('Select Location') . '  </td>
@@ -95,18 +95,18 @@ if (!(isset($_POST['Search']))) {
 	echo '<tr>
 			<td>' . _('Number Of Days') . ' </td>
 			<td>:</td>
-			<td><input class="integer" tabindex="3" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
+			<td><input class="integer" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
 		 </tr>';
 	//Stock in days less than
 	echo '<tr>
 			<td>' . _('With less than') . ' </td><td>:</td>
-			<td><input class="integer" tabindex="4" type="text" name="MaxDaysOfStock" size="8" required="required" maxlength="8" value="999" /></td>
+			<td><input class="integer" type="text" name="MaxDaysOfStock" size="8" required="required" maxlength="8" value="999" /></td>
 			<td>' . ' ' . _('Days of Stock (QOH + QOO) Available') . ' </td>
 		 </tr>';
 	//view number of NumberOfTopItems items
 	echo '<tr>
 			<td>' . _('Number Of Top Items') . ' </td><td>:</td>
-			<td><input class="integer" tabindex="4" type="text" name="NumberOfTopItems" size="8" required="required" maxlength="8" value="100" /></td>
+			<td><input class="integer" type="text" name="NumberOfTopItems" size="8" required="required" maxlength="8" value="100" /></td>
 		 </tr>
 		 <tr>
 			<td></td>
@@ -114,7 +114,7 @@ if (!(isset($_POST['Search']))) {
 		</tr>
 	</table>
 	<div class="centre">
-		<input tabindex="5" type="submit" name="Search" value="' . _('Search') . '" />
+		<input type="submit" name="Search" value="' . _('Search') . '" />
 	</div>
 	</form>';
 } else {
@@ -167,7 +167,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<p class="page_title_text"  align="center"><strong>' . _('Top Sales Items List') . '</strong></p>';
 	echo '<form action="PDFTopItems.php"  method="GET">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('#') . '</th>
@@ -227,13 +227,6 @@ if (!(isset($_POST['Search']))) {
 			$DaysOfStock = 0;
 		}
 		if ($DaysOfStock < $_POST['MaxDaysOfStock']) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			$CodeLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['stkcode']) . '">' . $MyRow['stkcode'] . '</a>';
 			if (is_numeric($QOH)) {
 				$QOH = locale_number_format($QOH, $MyRow['decimalplaces']);
@@ -242,15 +235,16 @@ if (!(isset($_POST['Search']))) {
 				$QOO = locale_number_format($QOO, $MyRow['decimalplaces']);
 			}
 
-			printf('<td class="number">%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
+			printf('<tr class="striped_row">
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
+						<td class="number">%s</td>
 					</tr>', $i, $CodeLink, $MyRow['description'], locale_number_format($MyRow['totalinvoiced'], $MyRow['decimalplaces']), //total invoice here
 				$MyRow['units'], //unit
 				locale_number_format($MyRow['valuesales'], $_SESSION['CompanyRecord']['decimalplaces']), //value sales here

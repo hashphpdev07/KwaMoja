@@ -162,7 +162,7 @@ echo '</td>
 </table>';
 /*Close the main table */
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<th>' . _('RT Hour') . '</td>
 			<th>' . _('Employee Name') . '</td>

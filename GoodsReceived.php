@@ -94,16 +94,16 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 		}
 	}
 
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Date Goods/Service Received') . ':</td>
-				<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . "'" . ')" name="DefaultReceivedDate" value="' . $_SESSION['PO' . $Identifier]->DefaultReceivedDate . '" /></td>
-				<td>' . _("Supplier's Reference") . ':</td>
+				<td><input type="text" class="date" name="DefaultReceivedDate" value="' . $_SESSION['PO' . $Identifier]->DefaultReceivedDate . '" /></td>
+				<td>' . _('Supplier Reference') . ':</td>
 				<td><input type="text" name="SupplierReference" value="' . $_SESSION['PO' . $Identifier]->SupplierRef . '" maxlength="30" size="20"  onchange="ReloadForm(form1.Update)"/></td>
 			</tr>
 		</table>';
 
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<tr>
 				<th colspan="2"></th>
 				<th align="center" colspan="3"><b>' . _('Supplier Units') . '</b></th>
@@ -143,14 +143,6 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 
 	foreach ($_SESSION['PO' . $Identifier]->LineItems as $LnItm) {
 
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
-		}
-
 		/*  if ($LnItm->ReceiveQty==0){   /*if no quantities yet input default the balance to be received
 		$LnItm->ReceiveQty = $LnItm->QuantityOrd - $LnItm->QtyReceived;
 		}
@@ -186,18 +178,19 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 			$ImageLink = $LnItm->StockID;
 		}
 
-		echo '<td>' . $ImageLink . '</td>
-			<td>' . $LnItm->Suppliers_PartNo . '</td>
-			<td>' . $LnItm->ItemDescription . '</td>
-			<td class="number">' . $DisplaySupplierQtyOrd . '</td>
-			<td>' . $LnItm->SuppliersUnit . '</td>
-			<td class="number">' . $DisplaySupplierQtyRec . '</td>
-			<td class="number">' . $LnItm->ConversionFactor . '</td>
-			<td class="number">' . $DisplayQtyOrd . '</td>
-			<td>' . $LnItm->Units . '</td>
-			<td class="number">' . $DisplayQtyRec . '</td>
-			<td>' . $LnItm->ReqDelDate . '</td>
-			<td class="number">';
+		echo '<tr class="striped_row">
+				<td>' . $ImageLink . '</td>
+				<td>' . $LnItm->Suppliers_PartNo . '</td>
+				<td>' . $LnItm->ItemDescription . '</td>
+				<td class="number">' . $DisplaySupplierQtyOrd . '</td>
+				<td>' . $LnItm->SuppliersUnit . '</td>
+				<td class="number">' . $DisplaySupplierQtyRec . '</td>
+				<td class="number">' . $LnItm->ConversionFactor . '</td>
+				<td class="number">' . $DisplayQtyOrd . '</td>
+				<td>' . $LnItm->Units . '</td>
+				<td class="number">' . $DisplayQtyRec . '</td>
+				<td>' . $LnItm->ReqDelDate . '</td>
+				<td class="number">';
 
 		if ($LnItm->Controlled == 1) {
 
@@ -368,7 +361,7 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 			prnMsg(_('This order has been changed or invoiced since this delivery was started to be actioned') . '. ' . _('Processing halted') . '. ' . _('To enter a delivery against this purchase order') . ', ' . _('it must be re-selected and re-read again to update the changes made by the other user'), 'warn');
 
 			if ($Debug == 1) {
-				echo '<table class="selection">
+				echo '<table>
 					<tr>
 						<td>' . _('GL Code of the Line Item') . ':</td>
 						<td>' . $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->GLCode . '</td>

@@ -133,7 +133,7 @@ if (isset($_POST['Process'])) { //user hit the process the work order receipts e
 		}
 	}
 
-	if ($QuantityReceived + $WORow['qtyrecd'] > $WORow['qtyreqd'] * (1 + $_SESSION['OverReceiveProportion'])) {
+	if ($QuantityReceived + $WORow['qtyrecd'] > $WORow['qtyreqd'] * (1 + $_SESSION['OverReceiveProportion'] / 100)) {
 		prnMsg(_('The quantity received is greater than the quantity required even after allowing for the configured allowable over-receive proportion. If this is correct then the work order must be modified first.'), 'error');
 		$InputError = true;
 	}
@@ -824,7 +824,7 @@ if ($WORow['closed'] == 1) {
 if (!isset($_POST['ReceivedDate'])) {
 	$_POST['ReceivedDate'] = Date($_SESSION['DefaultDateFormat']);
 }
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Receive work order') . ':</td>
 			<td>' . $_POST['WO'] . '</td><td>' . _('Item') . ':</td>
@@ -852,7 +852,7 @@ echo '<table class="selection">
 		//add expiry date for perishable product
 		if ($WORow['perishable'] == 1){
 			echo '<td>' . _('Expiry Date') . ':<td>
-			      <td><input type="text" name="ExpiryDate" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" required="required"  /></td>';
+			      <td><input type="text" name="ExpiryDate" class="date" required="required"  /></td>';
 		}
 
 		echo '<td>' . _('Received Into') . ':</td>
@@ -885,7 +885,7 @@ echo '</select></td>
 	</table>';
 
 //Now Setup the form for entering quantities received
-echo '<table class="selection">';
+echo '<table>';
 
 if ($WORow['controlled'] == 1) { //controlled
 	$LotSNRefLength = mb_strlen($WORow['nextlotsnref']);

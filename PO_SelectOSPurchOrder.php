@@ -51,22 +51,9 @@ if (isset($_POST['SearchParts'])) {
 
 	$SQL = "SELECT stockmaster.stockid,
 					stockmaster.description,
-					SUM(locstock.quantity) AS qoh,
-					stockmaster.units,
-					SUM(purchorderdetails.quantityord-purchorderdetails.quantityrecd) AS qord
+					stockmaster.units
 				FROM stockmaster
-				INNER JOIN locstock
-					ON stockmaster.stockid = locstock.stockid
-				INNER JOIN purchorderdetails
-					ON stockmaster.stockid=purchorderdetails.itemcode
-				INNER JOIN purchorders
-					ON purchorders.orderno=purchorderdetails.orderno
-				INNER JOIN locationusers
-					ON locationusers.loccode=purchorders.intostocklocation
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
-					AND locationusers.canview=1
-				WHERE purchorderdetails.completed=0
-					AND stockmaster.description " . LIKE . " '" . $SearchString . "'
+				WHERE stockmaster.description " . LIKE . " '" . $SearchString . "'
 					AND stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'
 					AND stockmaster.categoryid " . LIKE . " '%" . $_POST['StockCat'] . "%'
 				GROUP BY stockmaster.stockid,
@@ -107,7 +94,7 @@ if (!isset($_POST['OrderNumber']) or $_POST['OrderNumber'] == '') {
 	$_POST['OrderNumber'] = '';
 }
 
-echo '<table class="selection">
+echo '<table>
 		<tr>
 			<td>' . _('Order Number') . ': <input type="text" name="OrderNumber" autofocus="autofocus" maxlength="8" size="9" value="' . $_POST['OrderNumber'] . '" />  ' . _('Into Stock Location') . ':
 			<select name="StockLocation">';
@@ -190,8 +177,8 @@ else {
 	echo '<option value="Rejected">' . _('Rejected') . '</option>';
 }
 echo '</select>
-	' . _('Orders Between') . ':&nbsp;<input type="text" name="DateFrom" value="' . ConvertSQLDate($DateFrom) . '"  class="date" size="10" alt="' . $_SESSION['DefaultDateFormat'] . '"  />
-	' . _('and') . ':&nbsp;<input type="text" name="DateTo" value="' . ConvertSQLDate($DateTo) . '"  class="date" size="10" alt="' . $_SESSION['DefaultDateFormat'] . '"  />
+	' . _('Orders Between') . ':&nbsp;<input type="text" name="DateFrom" value="' . ConvertSQLDate($DateFrom) . '"  class="date" size="10"  />
+	' . _('and') . ':&nbsp;<input type="text" name="DateTo" value="' . ConvertSQLDate($DateTo) . '"  class="date" size="10"  />
 	<input type="submit" name="SearchOrders" value="' . _('Search Purchase Orders') . '" />
 	</td>';
 
@@ -223,7 +210,7 @@ if (!isset($_POST['Keywords'])) {
 	$_POST['Keywords'] = '';
 }
 
-echo '<table class="selection">
+echo '<table>
 			<tr>
 				<td>' . _('Select a stock category') . ':
 					<select name="StockCat">
@@ -255,7 +242,7 @@ echo '</select></td>
 	</table>';
 
 if (isset($StockItemsResult)) {
-	echo '<table cellpadding="2" class="selection">
+	echo '<table cellpadding="2">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Code') . '</th>
@@ -268,21 +255,26 @@ if (isset($StockItemsResult)) {
 	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} //$k == 1
-		else {
-			echo '<tr class="OddTableRows">';
-			$k = 1;
+		$QuantitySQL = "SELECT sum(quantity) AS qoh FROM locstock WHERE stockid='" . $MyRow['stockid'] . "'";
+		$QuantityResult = DB_query($QuantitySQL);
+		$QuantityRow = DB_fetch_array($QuantityResult);
+
+		$OrdersSQL = "SELECT SUM(purchorderdetails.quantityord-purchorderdetails.quantityrecd) AS qord
+						FROM purchorderdetails
+						WHERE completed=0
+							AND itemcode='" . $MyRow['stockid'] . "'";
+		$OrdersResult = DB_query($OrdersSQL);
+		$OrdersRow = DB_fetch_array($OrdersResult);
+
+		if ($OrdersRow['qord'] != '') {
+			echo '<tr class="striped_row">
+					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', $QuantityRow['qoh'], '</td>
+					<td class="number">', $OrdersRow['qord'], '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 		}
-
-		printf('<td><input type="submit" name="SelectedStockItem" value="%s"</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td>%s</td></tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['qoh'], $MyRow['qord'], $MyRow['units']);
-
 	} //end of while loop through search items
 
 	echo '</tbody>';
@@ -324,7 +316,7 @@ if (isset($StockItemsResult)) {
 	if (isset($_POST['StockLocation'])) {
 		$LocationSearchString = " AND purchorders.intostocklocation " . LIKE . " '%" . $_POST['StockLocation'] . "%' ";
 	} else {
-		$LocationSearchString = '';
+		$LocationSearchString = " AND purchorders.intostocklocation " . LIKE . " '%" . $_SESSION['UserStockLocation'] . "%' ";
 	}
 
 	$SQL = "SELECT purchorders.orderno,
@@ -371,7 +363,7 @@ if (isset($StockItemsResult)) {
 
 	/*show a table of the orders returned by the SQL */
 
-	echo '<table cellpadding="2" width="97%" class="selection">
+	echo '<table cellpadding="2" width="97%">
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Order #') . '</th>
@@ -414,15 +406,6 @@ if (isset($StockItemsResult)) {
 			$BalanceRow = '';
 		}
 
-		if ($k == 1) {
-			/*alternate bgcolour of row for highlighting */
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
-
 		$ModifyPage = $RootPath . '/PO_Header.php?ModifyOrderNumber=' . urlencode($MyRow['orderno']);
 		if ($MyRow['status'] == 'Printed') {
 			$ReceiveOrder = '<a href="' . $RootPath . '/GoodsReceived.php?PONumber=' . urlencode($MyRow['orderno']) . '">' . _('Receive') . '</a>';
@@ -448,13 +431,14 @@ if (isset($StockItemsResult)) {
 		$MyUserRow = DB_fetch_array($UserResult);
 		$InitiatorName = $MyUserRow['realname'];
 
-		echo '<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
-			<td>', $FormatedOrderDate, '</td>
-			<td>', $FormatedDeliveryDate, '</td>
-			<td>', $InitiatorName, '</td>
-			<td>', $MyRow['suppname'], '</td>
-			' . $BalanceRow . '
-			<td>', $MyRow['currcode'], '</td>';
+		echo '<tr class="striped_row">
+				<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
+				<td>', $FormatedOrderDate, '</td>
+				<td>', $FormatedDeliveryDate, '</td>
+				<td>', $InitiatorName, '</td>
+				<td>', $MyRow['suppname'], '</td>
+				' . $BalanceRow . '
+				<td>', $MyRow['currcode'], '</td>';
 		if (in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PricesSecurity)) {
 			echo '<td class="number">', $FormatedOrderValue, '</td>';
 		} //in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PricesSecurity)

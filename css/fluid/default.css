@@ -12,7 +12,13 @@ margin:0;
 padding:0;
 }
 
-div.toplink {
+button img {
+	/* Describes how button image should be displayed. */
+	height:21px;
+	width:21px;
+}
+
+.toplink {
 padding-top:1%;
 padding-left:1%;
 margin-bottom:-1%;
@@ -146,35 +152,6 @@ font-weight:700;
 color:red;
 }
 
-table {
-width:auto;
-margin:0 auto 5px;
-}
-
-th {
-background-color:#cccce5;
-color:#300;
-text-align:center;
-}
-
-th.number {
-background-color:#cccce5;
-color:#300;
-text-align:right;
-}
-
-th.SortedColumn {
-cursor:s-resize;
-}
-
-td {
-text-align:left;
-}
-
-td.select {
-background-color:#eee;
-}
-
 .centre {
 text-align:center;
 margin:0 auto 5px;
@@ -209,14 +186,6 @@ background:#FFA4A4;
 
 :-moz-ui-invalid {
 background-color:#FFA4A4;
-}
-
-.EvenTableRows {
-background-color:#CCC;
-}
-
-.OddTableRows {
-background-color:#EEE;
 }
 
 div.error {
@@ -259,22 +228,6 @@ text-align:center;
 margin:0 auto;
 }
 
-DIV.page_help_text {
-background:#D3D3D3 url(images/help.png) top left no-repeat;
-border:#a52a2a 1px solid;
-padding-top:2px;
-padding-bottom:2px;
-padding-left:10px;
-z-index:1;
-width:80%;
-float:none;
-visibility:visible;
-position:static;
-color:#000;
-text-align:center;
-margin:0 auto;
-}
-
 .dpTbl {
 border:solid navy 1px;
 background:#FFF;
@@ -302,18 +255,6 @@ width:20px;
 background-color:#CCC;
 text-align:right;
 cursor:pointer;
-}
-
-.table1 {
-width:90%;
-background:#eee;
-border:1px solid #222;
-margin:0 auto;
-}
-
-.tableheader {
-background-color:#cccce5;
-color:#300;
 }
 
 .notavailable {

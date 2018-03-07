@@ -1,8 +1,7 @@
 <?php
-
 /* This function returns a list of the sales type abbreviations
  * currently setup on KwaMoja
- */
+*/
 
 function GetSalesTypeList($user, $password) {
 	$Errors = array();
@@ -26,7 +25,7 @@ function GetSalesTypeList($user, $password) {
 /* This function takes as a parameter a sales type abbreviation
  * and returns an array containing the details of the selected
  * sales type.
- */
+*/
 
 function GetSalesTypeDetails($salestype, $user, $password) {
 	$Errors = array();
@@ -49,7 +48,7 @@ function GetSalesTypeDetails($salestype, $user, $password) {
 
 /* This function takes as a parameter an array of sales type details
  * to be inserted into KwaMoja.
- */
+*/
 
 function InsertSalesType($SalesTypeDetails, $user, $password) {
 	$Errors = array();
@@ -62,13 +61,13 @@ function InsertSalesType($SalesTypeDetails, $user, $password) {
 	$FieldNames = '';
 	$FieldValues = '';
 	foreach ($SalesTypeDetails as $Key => $Value) {
-		$FieldNames .= $Key . ', ';
-		$FieldValues .= '"' . $Value . '", ';
+		$FieldNames.= $Key . ', ';
+		$FieldValues.= '"' . $Value . '", ';
 	}
 	$SQL = "INSERT INTO salestypes ('" . mb_substr($FieldNames, 0, -2) . "')
 				VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
 	if (sizeof($Errors) == 0) {
-		$Result = DB_Query($SQL);
+		$Result = DB_query($SQL);
 		if (DB_error_no() != 0) {
 			$Errors[0] = DatabaseUpdateFailed;
 		} else {

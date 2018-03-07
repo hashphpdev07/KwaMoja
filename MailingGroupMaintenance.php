@@ -151,7 +151,7 @@ function GetMailGroup() {
 	$ErrMsg = _('Failed to retrieve mail groups information');
 	$Result = DB_query($SQL, $ErrMsg);
 	if (DB_num_rows($Result) != 0) {
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th>' . _('Mail Group') . '</th>
 				</tr>';
@@ -187,35 +187,30 @@ function GetUsers($GroupId, $GroupName) {
 		echo '<div class="centre">' . _('Current Mail Group') . ' : ' . stripslashes($GroupName) . '</div>
 			<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('View All Groups') . '</a></div>';
 
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="3">' . _('Assigned Users') . '</th>
 					<th colspan="3">' . _('Available Users') . '</th>
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 0) {
-				echo '<tr class="EvenTableRows">';
-				$k = 1;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 0;
-			}
 
 			if (in_array($MyRow['userid'], $UsersAssigned)) {
-				echo '<td>' . $MyRow['userid'] . '</td>
-					<td>' . $MyRow['realname'] . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;Remove=1&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '" onclick="return MakeConfirm(\'Are you sure you want to remove this user?\', \'Confirm Delete\', this); ">' . _('Remove') . '</a></td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>';
+				echo '<tr class="striped_row">
+						<td>' . $MyRow['userid'] . '</td>
+						<td>' . $MyRow['realname'] . '</td>
+						<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;Remove=1&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '" onclick="return MakeConfirm(\'Are you sure you want to remove this user?\', \'Confirm Delete\', this); ">' . _('Remove') . '</a></td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>';
 			} else {
-				echo '<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>' . $MyRow['userid'] . '</td>
-					<td>' . $MyRow['realname'] . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;Add=1&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '">' . _('Add') . '</a></td>';
+				echo '<tr class="striped_row">
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>' . $MyRow['userid'] . '</td>
+						<td>' . $MyRow['realname'] . '</td>
+						<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?UserId=' . urlencode(stripslashes($MyRow['userid'])) . '&amp;Add=1&amp;GroupName=' . urlencode(stripslashes($GroupName)) . '&amp;GroupId=' . urlencode(stripslashes($GroupId)) . '">' . _('Add') . '</a></td>';
 			}
 
 			echo '</tr>';

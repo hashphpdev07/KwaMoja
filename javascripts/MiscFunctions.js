@@ -1,5 +1,5 @@
 function makeAlert(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	document.getElementById("mask").style["display"] = "inline";
 	html = '<div id="dialog_header"><img src="css/' + theme + '/images/help.png" />' + t + '</div><img style="float: left;vertical-align:middle" src="css/' + theme + '/images/alert.png" /><div id="dialog_main">' + e;
 	html = html + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="OK" onClick="hideAlert()" /></div>';
@@ -17,7 +17,7 @@ function hideAlert() {
 
 function MakeConfirm(e, t, n) {
 	url = n.href;
-	th = document.getElementById("Theme").value;
+	th = localStorage.Theme;
 	document.getElementById("mask").style["display"] = "inline";
 	h = '<div id="dialog_header"><img src="css/' + th + '/images/help.png" />' + t + '</div><div id="dialog_main">' + e;
 	h = h + '</div><div id="dialog_buttons"><input type="submit" class="okButton" value="Cancel" onClick="hideConfirm(\'\')" />';
@@ -251,7 +251,7 @@ function drawCalendar(e, t, n, r, s) {
 	xTR = "</tr>";
 	TD = "<td class='dpTD' onMouseOut='this.className=\"dpTD\";' onMouseOver='this.className=\"dpTDHover\";'";
 	xTD = "</td>";
-	html = "<table class='dpTbl'>" + TR + '<th colspan="3">' + months[o.getMonth()] + " " + o.getFullYear() + "</th>" + '<td colspan="2">' + getButtonCode(e, o, -1, "<", s) + xTD + '<td colspan="2">' + getButtonCode(e, o, 1, ">", s) + xTD + xTR + TR;
+	html = '<table class="dpTbl">' + TR + '<th colspan="3">' + months[o.getMonth()] + " " + o.getFullYear() + "</th>" + '<td colspan="2">' + getButtonCode(e, o, -1, "<", s) + xTD + '<td colspan="2">' + getButtonCode(e, o, 1, ">", s) + xTD + xTR + TR;
 	for (i = 0; i < days.length; i++) html += "<th>" + days[i] + "</th>";
 	html += xTR + TR;
 	for (i = 0; i < o.getDay(); i++) html += TD + " " + xTD;
@@ -260,7 +260,7 @@ function drawCalendar(e, t, n, r, s) {
 		TD_onclick = " onclick=\"postDate('" + e + "','" + formatDate(o, s) + "');\">";
 		if (dN == r) html += "<td" + TD_onclick + "<div class='dpDayHighlight'>" + dN + "</div>" + xTD;
 		else html += TD + TD_onclick + dN + xTD; if (o.getDay() == 6) html += xTR + TR;
-		o.setDate(o.getDate() + 1)
+		o.setDate(o.getDate() + 1);
 	} while (o.getDate() > 1);
 	if (o.getDay() > 0)
 		for (i = 6; i > o.getDay(); i--) html += TD + " " + xTD;
@@ -298,33 +298,47 @@ function formatDate(e, t) {
 	}
 }
 
-function convertDate(e, t) {
-	var n, r, i;
-	if (t == "d.m.Y") dA = e.split(".");
-	else dA = e.split("/");
-	switch (t) {
-	case "d/m/Y":
-		n = parseInt(dA[0], 10);
-		r = parseInt(dA[1], 10) - 1;
-		i = parseInt(dA[2], 10);
-		break;
-	case "d.m.Y":
-		n = parseInt(dA[0], 10);
-		r = parseInt(dA[1], 10) - 1;
-		i = parseInt(dA[2], 10);
-		break;
-	case "Y/m/d":
-		n = parseInt(dA[2], 10);
-		r = parseInt(dA[1], 10) - 1;
-		i = parseInt(dA[0], 10);
-		break;
-	default:
-		n = parseInt(dA[1], 10);
-		r = parseInt(dA[0], 10) - 1;
-		i = parseInt(dA[2], 10);
-		break
+function convertDate(dS, dF) {
+	// Converts a date in DefaultDateFormat into a javascript date-object.
+	// dS: Date to convert.
+	// dF: Date format. Formats: "d/m/Y", "d.m.Y", "m/d/Y", "Y-m-d", "Y/m/d".
+	var y, m, d;
+	switch(dF) {
+		case "d/m/Y":
+			dA = dS.split("/");
+			d = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			y = parseInt(dA[2], 10);
+			break;
+		case "d.m.Y":
+			dA = dS.split(".");
+			d = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			y = parseInt(dA[2], 10);
+			break;
+		case "m/d/Y":
+			dA = dS.split("/");
+			m = parseInt(dA[0], 10)-1;
+			d = parseInt(dA[1], 10);
+			y = parseInt(dA[2], 10);
+			break;
+		case "Y-m-d":
+			dA = dS.split("-");
+			y = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			d = parseInt(dA[2], 10);
+			break;
+		case "Y/m/d":
+			dA = dS.split("/");
+			y = parseInt(dA[0], 10);
+			m = parseInt(dA[1], 10)-1;
+			d = parseInt(dA[2], 10);
+			break;
+		default:
+			alert("Unknown date format " + dF);
+			return false;
 	}
-	return new Date(i, r, n)
+return new Date(y, m, d);
 }
 
 function postDate(e, t) {
@@ -337,17 +351,17 @@ function postDate(e, t) {
 }
 
 function clickDate() {
-	Calendar(this.name, this.alt)
+	Calendar(this.name, localStorage.DateFormat)
 }
 
 function changeDate() {
-	isDate(this.value, this.alt)
+	isDate(this.value, localStorage.DateFormat)
 }
 
 function SortSelect() {
 	selElem = this;
 	var e = new Array;
-	th = document.getElementById("Theme").value;
+	th = localStorage.Theme;
 	columnText = selElem.innerHTML;
 	TableHeader = selElem.parentNode;
 	TableBodyElements = TableHeader.parentNode.parentNode.getElementsByTagName('tbody');
@@ -389,8 +403,12 @@ function SortSelect() {
 			if (columnClass == "number") {
 				return parseFloat(e[columnNumber].replace(/[,.]/g, '')) - parseFloat(t[columnNumber].replace(/[,.]/g, ''))
 			} else if (columnClass == "date") {
-				da = new Date(e[columnNumber]);
-				db = new Date(t[columnNumber]);
+				if (e[columnNumber] !== undefined) {
+					da = new Date(convertDate(e[columnNumber], localStorage.DateFormat));
+				} else {
+					da = new Date(e[columnNumber]);
+				}
+				db = new Date(convertDate(t[columnNumber], localStorage.DateFormat));
 				return da > db
 			} else {
 				return e[columnNumber].localeCompare(t[columnNumber])
@@ -399,8 +417,12 @@ function SortSelect() {
 			if (columnClass == "number") {
 				return parseFloat(t[columnNumber].replace(/[,.]/g, '')) - parseFloat(e[columnNumber].replace(/[,.]/g, ''))
 			} else if (columnClass == "date") {
-				da = new Date(e[columnNumber]);
-				db = new Date(t[columnNumber]);
+				if (e[columnNumber] !== undefined) {
+					da = new Date(convertDate(e[columnNumber], localStorage.DateFormat));
+				} else {
+					da = new Date(e[columnNumber]);
+				}
+				db = new Date(convertDate(t[columnNumber], localStorage.DateFormat));
 				return da <= db
 			} else {
 				return t[columnNumber].localeCompare(e[columnNumber])
@@ -430,7 +452,7 @@ function remSelOpt(e, t) {
 }
 
 function AddScript(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	document.getElementById("favourites").innerHTML = document.getElementById("favourites").innerHTML + '<option value="' + e + '">' + t + "</option>";
 	document.getElementById("PlusMinus").src = "css/" + theme + "/images/subtract.png";
 	document.getElementById("PlusMinus").setAttribute("onClick", "javascript: RemoveScript('" + e + "', '" + t + "');");
@@ -438,7 +460,7 @@ function AddScript(e, t) {
 }
 
 function RemoveScript(e, t) {
-	theme = document.getElementById("Theme").value;
+	theme = localStorage.Theme;
 	remSelOpt(e, document.getElementById("favourites"));
 	document.getElementById("PlusMinus").src = "css/" + theme + "/images/add.png";
 	document.getElementById("PlusMinus").setAttribute("onClick", "javascript: AddScript('" + e + "', '" + t + "');");
@@ -512,6 +534,18 @@ function initial() {
 		if (n[i].type == "tel") n[i].pattern = "[0-9 +s()]*";
 		if (n[i].type == "email") n[i].pattern = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$"
 	}
+	ScriptName=(location.pathname.substring(location.pathname.lastIndexOf("/") + 1)).slice(0, -4);
+	var n = document.getElementsByTagName("field");
+	for (i = 0; i < n.length; i++) {
+		n[i].className = n[i].className+" "+ScriptName;
+		SubElements=n[i].children;
+		for (j = 0; j < SubElements.length; j++) {
+			if (SubElements[j].tagName == "INPUT") {
+				ElementName = SubElements[j].name;
+				n[i].className = n[i].className+"_"+ElementName;
+			}
+		}
+	}
 	var n = document.getElementsByTagName("th");
 	for (i = 0; i < n.length; i++) {
 		if (n[i].className == "SortedColumn") {
@@ -525,4 +559,13 @@ longdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fr
 months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
 longmonths = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 dateDivID = "calendar";
+function AddAmount(t,Target,d) {
+	if (t.checked) {
+		document.getElementById(Target).value=Number(t.value) + Number(document.getElementById(Target).value);
+		if(d) document.getElementById(d).required="required";
+	} else {
+		document.getElementById(Target).value=Number(document.getElementById(Target).value)-Number(t.value);
+		if(d) document.getElementById(d).required="";
+	}
+}
 window.onload = initial

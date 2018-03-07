@@ -683,7 +683,7 @@ function submit($PartNumber, $PartNumberOp, $DebtorNo, $DebtorNoOp, $DebtorName,
 			echo '  ' . _('Invoice Type') . '  - ' . $itype . '<br/>';
 		} //$_POST['DateType'] != 'Order'
 		echo '</div><br />';
-		echo '<table class="selection" style="width: 99%">
+		echo '<table style="width: 99%">
 				<tr>
 					<th colspan="15">
 						<h3>' . _('Sales Inquiry') . '
@@ -970,9 +970,9 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 
 	echo '<tr>
 			<td>' . _('Date Range') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td>
+			<td><input type="text" class="date" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td>
 			<td>' . _('To') . ':</td>
-			<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
+			<td><input type="text" class="date" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
 		</tr>';
 	if (!isset($_POST['PartNumber'])) {
 		$_POST['PartNumber'] = '';
@@ -1052,7 +1052,7 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 		echo '<td><select name="Salesman">';
 		$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 		$SalesmanResult = DB_query($SQL);
-		echo '<option selected="selected" value="All">' . _('All Salesmen') . '</option>';
+		echo '<option selected="selected" value="All">' . _('All Salespeople') . '</option>';
 		while ($MyRow = DB_fetch_array($SalesmanResult)) {
 			echo '<option value="' . $MyRow['salesmancode'] . '">' . $MyRow['salesmanname'] . '</option>';
 		}

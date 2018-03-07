@@ -143,7 +143,7 @@ $ContractsResult = DB_query($SQL, $ErrMsg);
 
 /*show a table of the contracts returned by the SQL */
 
-echo '<table cellpadding="2" width="98%" class="selection">
+echo '<table cellpadding="2" width="98%">
 		<thead>
 			<tr>
 				<th>' . _('Modify') . '</th>
@@ -160,13 +160,6 @@ echo '<table cellpadding="2" width="98%" class="selection">
 $k = 0; //row colour counter
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($ContractsResult)) {
-	if ($k == 1) {
-		echo '<tr class="EvenTableRows">';
-		$k = 0;
-	} else {
-		echo '<tr class="OddTableRows">';
-		++$k;
-	}
 
 	$ModifyPage = $RootPath . '/Contracts.php?ModifyContractRef=' . $MyRow['contractref'];
 	$OrderModifyPage = $RootPath . '/SelectOrderItems.php?ModifyOrderNumber=' . $MyRow['orderno'];
@@ -194,10 +187,12 @@ while ($MyRow = DB_fetch_array($ContractsResult)) {
 	} else {
 		echo '<td>' . _('n/a') . '</td>';
 	}
-	echo '<td>' . $MyRow['contractref'] . '</td>
-		  <td>' . $MyRow['contractdescription'] . '</td>
-		  <td>' . $MyRow['customername'] . '</td>
-		  <td>' . $FormatedRequiredDate . '</td></tr>';
+	echo '<tr class="striped_row">
+			<td>' . $MyRow['contractref'] . '</td>
+			<td>' . $MyRow['contractdescription'] . '</td>
+			<td>' . $MyRow['customername'] . '</td>
+			<td>' . $FormatedRequiredDate . '</td>
+		</tr>';
 
 }
 //end of while loop

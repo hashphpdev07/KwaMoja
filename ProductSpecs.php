@@ -81,7 +81,7 @@ if (!isset($KeyValue) or $KeyValue == '') {
 	//prompt user for Key Value
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<tr>
 				<td>' . _('Enter Specification Name') . ':</td>
 				<td><input type="text" name="KeyValue" size="25" maxlength="25" /></td>
@@ -94,7 +94,7 @@ if (!isset($KeyValue) or $KeyValue == '') {
 	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 			<div>
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-				<table class="selection">
+				<table>
 				<tr>
 					<td>' . _('Or Select Existing Specification') . ':</td>';
 	$SQLSpecSelect = "SELECT DISTINCT(keyval),
@@ -147,7 +147,7 @@ if (isset($_GET['ListTests'])) {
 	$Result = DB_query($SQL);
 	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Add') . '</th>
@@ -164,14 +164,6 @@ if (isset($_GET['ListTests'])) {
 	$x = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		++$x;
 		$Class = '';
 		$RangeMin = '';
@@ -203,15 +195,16 @@ if (isset($_GET['ListTests'])) {
 				$RangeMax = '<input  class="' . $Class . '" type="text" name="AddRangeMax' . $x . '" />';
 				break;
 		} //end switch
-		printf('<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			</tr>', '<input type="checkbox" name="AddRow' . $x . '"><input type="hidden" name="AddTestID' . $x . '" value="' . $MyRow['testid'] . '">', $MyRow['name'], $MyRow['method'], $MyRow['units'], $MyRow['defaultvalue'], '<input  class="' . $Class . '" type="text" name="AddTargetValue' . $x . '" />', $RangeMin, $RangeMax);
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+				</tr>', '<input type="checkbox" name="AddRow' . $x . '"><input type="hidden" name="AddTestID' . $x . '" value="' . $MyRow['testid'] . '">', $MyRow['name'], $MyRow['method'], $MyRow['units'], $MyRow['defaultvalue'], '<input  class="' . $Class . '" type="text" name="AddTargetValue' . $x . '" />', $RangeMin, $RangeMax);
 
 	} //END WHILE LIST LOOP
 
@@ -366,7 +359,7 @@ if (!isset($SelectedQATest)) {
 			ORDER BY name";
 	$Result = DB_query($SQL);
 
-	echo '<table class="selection">
+	echo '<table>
 			<thead>
 				<tr>
 					<th class="SortedColumn">' . _('Name') . '</th>
@@ -386,14 +379,6 @@ if (!isset($SelectedQATest)) {
 	$k = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-
-		if ($k == 1) {
-			echo '<tr class="EvenTableRows">';
-			$k = 0;
-		} else {
-			echo '<tr class="OddTableRows">';
-			++$k;
-		}
 		if ($MyRow['active'] == 1) {
 			$ActiveText = _('Yes');
 		} else {
@@ -439,21 +424,22 @@ if (!isset($SelectedQATest)) {
 				break;
 		} //end switch
 
-		printf('<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td>%s</td>
-			<td><a href="%sSelectedQATest=%s&amp;KeyValue=%s">' . _('Edit') . '</a></td>
-			<td><a href="%sSelectedQATest=%s&amp;KeyValue=%s&amp;delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this Product Specification ?') . '\');">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['name'], $MyRow['method'], $MyRow['units'], $TypeDisp, $MyRow['defaultvalue'], $MyRow['targetvalue'], $MyRow['rangemin'], $MyRow['rangemax'], $ShowOnCertText, $ShowOnSpecText, $ShowOnTestPlanText, $ActiveText, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['testid'], $KeyValue, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['testid'], $KeyValue);
+		printf('<tr class="striped_row">
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td>%s</td>
+					<td><a href="%sSelectedQATest=%s&amp;KeyValue=%s">' . _('Edit') . '</a></td>
+					<td><a href="%sSelectedQATest=%s&amp;KeyValue=%s&amp;delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this Product Specification ?') . '\');">' . _('Delete') . '</a></td>
+				</tr>', $MyRow['name'], $MyRow['method'], $MyRow['units'], $TypeDisp, $MyRow['defaultvalue'], $MyRow['targetvalue'], $MyRow['rangemin'], $MyRow['rangemax'], $ShowOnCertText, $ShowOnSpecText, $ShowOnTestPlanText, $ActiveText, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['testid'], $KeyValue, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['testid'], $KeyValue);
 
 	} //END WHILE LIST LOOP
 	echo '</tbody>
@@ -516,7 +502,7 @@ if (!isset($_GET['delete'])) {
 		echo '<input type="hidden" name="SelectedQATest" value="' . $SelectedQATest . '" />';
 		echo '<input type="hidden" name="KeyValue" value="' . $KeyValue . '" />';
 		echo '<input type="hidden" name="TestID" value="' . $_POST['SelectedQATest'] . '" />';
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<td>' . _('Test Name') . ':</td>
 					<td>' . $_POST['QATestName'] . '</td>

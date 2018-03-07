@@ -76,7 +76,7 @@ $SQL = "SELECT serialno,
 $ErrMsg = _('The serial numbers/batches held cannot be retrieved because');
 $LocStockResult = DB_query($SQL, $ErrMsg);
 
-echo '<table class="selection">';
+echo '<table>';
 
 if ($Serialised == 1) {
 	echo '<tr>
@@ -140,31 +140,27 @@ $Col = 0;
 $BGColor = '#CCCCCC';
 while ($MyRow = DB_fetch_array($LocStockResult)) {
 
-	if ($Col == 0 and $BGColor == '#EEEEEE') {
-		$BGColor = '#CCCCCC';
-		echo '<tr class="EvenTableRows">';
-	} elseif ($Col == 0) {
-		$BGColor = '#EEEEEE';
-		echo '<tr class="OddTableRows">';
-	}
-
 	$TotalQuantity += $MyRow['quantity'];
 
 	if ($Serialised == 1 and $Perishable == 0) {
-		echo '<td>' . $MyRow['serialno'] . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['serialno'] . '</td>';
 		echo '<th></th>';
 	} else if ($Serialised == 1 and $Perishable == 1) {
-		echo '<td>' . $MyRow['serialno'] . '</td>
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['serialno'] . '</td>
 				<td>' . ConvertSQLDate($MyRow['expirationdate']) . '</td>';
 	} else if ($Serialised == 0 and $Perishable == 0) {
-		echo '<td>' . $MyRow['serialno'] . '</td>
-			<td class="number">' . locale_number_format($MyRow['quantity'], $DecimalPlaces) . '</td>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['serialno'] . '</td>
+				<td class="number">' . locale_number_format($MyRow['quantity'], $DecimalPlaces) . '</td>';
 		echo '<th></th>';
 	} else if ($Serialised == 0 and $Perishable == 1) {
-		echo '<td>' . $MyRow['serialno'] . '</td>
-			<td class="number">' . locale_number_format($MyRow['quantity'], $DecimalPlaces) . '</td>
-			<td>' . ConvertSQLDate($MyRow['expirationdate']) . '</td>
-			<th></th>';
+		echo '<tr class="striped_row">
+				<td>' . $MyRow['serialno'] . '</td>
+				<td class="number">' . locale_number_format($MyRow['quantity'], $DecimalPlaces) . '</td>
+				<td>' . ConvertSQLDate($MyRow['expirationdate']) . '</td>
+				<th></th>';
 	}
 	//end of page full new headings if
 	$Col++;

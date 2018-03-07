@@ -419,7 +419,7 @@ if (!isset($SelectedLocation)) {
 
 	if (DB_num_rows($Result) != 0) {
 
-		echo '<table class="selection">
+		echo '<table>
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Location Code'), '</th>
@@ -434,13 +434,6 @@ if (!isset($SelectedLocation)) {
 		echo'<tbody>';
 		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
 			/* warehouse management not implemented ... yet
 			if($MyRow['managed'] == 1) {
 			$MyRow['managed'] = _('Yes');
@@ -448,14 +441,15 @@ if (!isset($SelectedLocation)) {
 			$MyRow['managed'] = _('No');
 			}
 			*/
-			printf('<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="centre">%s</td>
-					<td>%s</td>
-					<td><a href="%sSelectedLocation=%s">' . _('Edit') . '</a></td>
-					<td><a href="%sLocation=%s">' . _('Define') . '</a></td>
-					<td><a href="%sSelectedLocation=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this inventory location?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			printf('<tr class="striped_row">
+						<td>%s</td>
+						<td>%s</td>
+						<td class="number">%s</td>
+						<td class="centre">%s</td>
+						<td>%s</td>
+						<td><a href="%sSelectedLocation=%s">' . _('Edit') . '</a></td>
+						<td><a href="%sLocation=%s">' . _('Define') . '</a></td>
+						<td><a href="%sSelectedLocation=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this inventory location?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					</tr>',
 					$MyRow['loccode'],
 					$MyRow['locationname'],
@@ -537,7 +531,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedLocation" value="' . $SelectedLocation . '" />';
 		echo '<input type="hidden" name="LocCode" value="' . $_POST['LocCode'] . '" />';
-		echo '<table class="selection">';
+		echo '<table>';
 		echo '<tr>
 				<th colspan="2">' . _('Amend Location details') . '</th>
 			</tr>';
@@ -549,7 +543,7 @@ if (!isset($_GET['delete'])) {
 		if (!isset($_POST['LocCode'])) {
 			$_POST['LocCode'] = '';
 		}
-		echo '<table class="selection">
+		echo '<table>
 				<tr>
 					<th colspan="2"><h3>' . _('New Location details') . '</h3></th>
 				</tr>';

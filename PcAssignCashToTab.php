@@ -54,12 +54,12 @@ if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		</p>';
 
 	/* actions to take once the user has clicked the submit button
 	ie the page has called itself with some user input */
-
-	$i = 1;
 
 	if ($_POST['Amount'] == 0) {
 		$InputError = 1;
@@ -138,7 +138,9 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		</p>';
 	$SQL = "DELETE FROM pcashdetails
 		WHERE counterindex='" . $SelectedIndex . "'";
 	$ErrMsg = _('The assignment of cash record could not be deleted because');
@@ -153,10 +155,12 @@ if (!isset($SelectedTabs)) {
 	then none of the above are true and the list of sales types will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		</p>';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	$SQL = "SELECT tabcode
 			FROM pctabs
@@ -165,27 +169,26 @@ if (!isset($SelectedTabs)) {
 
 	$Result = DB_query($SQL);
 
-	echo '<br /><table class="selection">'; //Main table
-
-	echo '<tr>
-			<td>' . _('Petty Cash Tab To Assign Cash') . ':</td>
-			<td><select name="SelectedTabs">';
+	echo '<table>
+			<tr>
+				<td>', _('Petty Cash Tab To Assign Cash'), ':</td>
+				<td><select name="SelectedTabs">';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['SelectTabs']) and $MyRow['tabcode'] == $_POST['SelectTabs']) {
-			echo '<option selected="selected" value="';
+			echo '<option selected="selected" value="', $MyRow['tabcode'], '">', $MyRow['tabcode'], '</option>';
 		} else {
-			echo '<option value="';
+			echo '<option value="', $MyRow['tabcode'], '">', $MyRow['tabcode'], '</option>';
 		}
-		echo $MyRow['tabcode'] . '">' . $MyRow['tabcode'] . '</option>';
 	}
 
-	echo '</select></td></tr>';
+	echo '</select>
+			</td>
+		</tr>';
 	echo '</table>'; // close main table
-	DB_free_result($Result);
 
 	echo '<div class="centre">
-			<input type="submit" name="Process" value="' . _('Accept') . '" />
-			<input type="submit" name="Cancel" value="' . _('Cancel') . '" />
+			<input type="submit" name="Process" value="', _('Accept'), '" />
+			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 		</div>';
 	echo '</form>';
 }
@@ -194,11 +197,13 @@ if (!isset($SelectedTabs)) {
 if (isset($_POST['Process']) or isset($SelectedTabs)) {
 
 	if (!isset($_POST['submit'])) {
-		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_title_text">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+			</p>';
 	}
-	echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select another tab') . '</a></div>';
-
-
+	echo '<div class="centre">
+			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another tab'), '</a>
+		</div>';
 
 	if (!isset($_GET['edit']) or isset($_POST['GO'])) {
 
@@ -222,45 +227,46 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 		$MyRow = DB_fetch_array($Result);
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];
 
-		$SQL = "SELECT * FROM pcashdetails
-				WHERE tabcode='" . $SelectedTabs . "'
-				AND date >=DATE_SUB(CURDATE(), INTERVAL " . $Days . " DAY)
-				ORDER BY date, counterindex ASC";
+		$SQL = "SELECT counterindex,
+						tabcode,
+						date,
+						codeexpense,
+						amount,
+						authorized,
+						posted,
+						notes,
+						receipt
+					FROM pcashdetails
+					WHERE tabcode='" . $SelectedTabs . "'
+						AND date >=DATE_SUB(CURDATE(), INTERVAL " . $Days . " DAY)
+					ORDER BY date,
+							 counterindex ASC";
 		$Result = DB_query($SQL);
 
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table class="selection">
+		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+		echo '<table>
 				<tr>
-					<th colspan="8">' . _('Detail Of PC Tab Movements For Last') . ':
-						<input type="hidden" name="SelectedTabs" value="' . $SelectedTabs . '" />
-						<input type="text" class="number" name="Days" value="' . $Days . '" required="required" maxlength="3" size="4" />
-							' . _('Days') . '
+					<th colspan="8">', _('Detail Of PC Tab Movements For Last'), ':
+						<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />
+						<input type="text" class="number" name="Days" value="', $Days, '" required="required" maxlength="3" size="4" />' . _('Days') . '
 					</th>
+				</tr>
+				<tr>
+					<th>', _('Date'), '</th>
+					<th>', _('Expense Code'), '</th>
+					<th>', _('Amount'), '</th>
+					<th>', _('Authorised'), '</th>
+					<th>', _('Notes'), '</th>
+					<th>', _('Receipt'), '</th>
 				</tr>';
-		echo '<tr>
-				<th>' . _('Date') . '</th>
-				<th>' . _('Expense Code') . '</th>
-				<th>' . _('Amount') . '</th>
-				<th>' . _('Authorised') . '</th>
-				<th>' . _('Notes') . '</th>
-				<th>' . _('Receipt') . '</th>
-			</tr>';
 
 		$k = 0; //row colour counter
 
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k = 1;
-			}
-
 			$SQLdes = "SELECT description
 					FROM pcexpenses
-					WHERE codeexpense='" . $MyRow['3'] . "'";
+					WHERE codeexpense='" . $MyRow['codeexpense'] . "'";
 
 			$ResultDes = DB_query($SQLdes);
 			$Description = DB_fetch_array($ResultDes);
@@ -271,23 +277,25 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 
 			if (($MyRow['authorized'] == '0000-00-00') and ($Description['0'] == 'ASSIGNCASH')) {
 				// only cash assignations NOT authorized can be modified or deleted
-				echo '<td>' . ConvertSQLDate($MyRow['date']) . '</td>
-					<td>' . $Description['0'] . '</td>
-					<td class="number">' . locale_number_format($MyRow['amount'], $CurrDecimalPlaces) . '</td>
-					<td>' . ConvertSQLDate($MyRow['authorized']) . '</td>
-					<td>' . $MyRow['notes'] . '</td>
-					<td>' . $MyRow['receipt'] . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=' . $MyRow['counterindex'] . '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;edit=yes">' . _('Edit') . '</a></td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=' . $MyRow['counterindex'] . '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and the expense it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td>', ConvertSQLDate($MyRow['date']), '</td>
+						<td>', $Description['0'], '</td>
+						<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
+						<td>', ConvertSQLDate($MyRow['authorized']), '</td>
+						<td>', $MyRow['notes'], '</td>
+						<td>', $MyRow['receipt'], '</td>
+						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=', $SelectedTabs, '&amp;Days=', $Days, '&amp;edit=yes">', _('Edit'), '</a></td>
+						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=', $SelectedTabs, '&amp;Days=', $Days, '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this code and the expense it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+					</tr>';
 			} else {
-				echo '<td>' . ConvertSQLDate($MyRow['date']) . '</td>
-					<td>' . $Description['0'] . '</td>
-					<td class="number">' . locale_number_format($MyRow['amount'], $CurrDecimalPlaces) . '</td>
-					<td>' . ConvertSQLDate($MyRow['authorized']) . '</td>
-					<td>' . $MyRow['notes'] . '</td>
-					<td>' . $MyRow['receipt'] . '</td>
-				</tr>';
+				echo '<tr class="striped_row">
+						<td>', ConvertSQLDate($MyRow['date']), '</td>
+						<td>', $Description['0'], '</td>
+						<td class="number">', locale_number_format($MyRow['amount'], $CurrDecimalPlaces), '</td>
+						<td>', ConvertSQLDate($MyRow['authorized']), '</td>
+						<td>', $MyRow['notes'], '</td>
+						<td>', $MyRow['receipt'], '</td>
+					</tr>';
 			}
 		}
 		//END WHILE LIST LOOP
@@ -304,12 +312,12 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 		}
 
 		echo '<tr>
-				<td colspan="2" style="text-align:right"><b>' . _('Current balance') . ':</b></td>
-				<td>' . locale_number_format($Amount['0'], $CurrDecimalPlaces) . '</td>
+				<td colspan="2" style="text-align:right"><b>', _('Current balance'), ':</b></td>
+				<td class="number">', locale_number_format($Amount['0'], $CurrDecimalPlaces), '</td>
 			</tr>';
 
-		echo '</table>';
-		echo '</form>';
+		echo '</table>
+			</form>';
 	}
 
 	if (!isset($_GET['delete'])) {
@@ -318,9 +326,18 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			$Amount['0'] = 0;
 		}
 
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		if (isset($_GET['edit'])) {
+
+			/* Retrieve decimal places to display */
+			$SqlDecimalPlaces = "SELECT decimalplaces
+						FROM currencies,pctabs
+						WHERE currencies.currabrev = pctabs.currency
+							AND tabcode='" . $SelectedTabs . "'";
+			$Result = DB_query($SqlDecimalPlaces);
+			$MyRow = DB_fetch_array($Result);
+			$CurrDecimalPlaces = $MyRow['decimalplaces'];
 
 			$SQL = "SELECT * FROM pcashdetails
 				WHERE counterindex='" . $SelectedIndex . "'";
@@ -334,10 +351,10 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			$_POST['Notes'] = $MyRow['notes'];
 			$_POST['Receipt'] = $MyRow['receipt'];
 
-			echo '<input type="hidden" name="SelectedTabs" value="' . $SelectedTabs . '" />';
-			echo '<input type="hidden" name="SelectedIndex" value="' . $SelectedIndex . '" />';
-			echo '<input type="hidden" name="CurrentAmount" value="' . $Amount[0] . '" />';
-			echo '<input type="hidden" name="Days" value="' . $Days . '" />';
+			echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
+			echo '<input type="hidden" name="SelectedIndex" value="', $SelectedIndex, '" />';
+			echo '<input type="hidden" name="CurrentAmount" value="', $Amount[0], '" />';
+			echo '<input type="hidden" name="Days" value="', $Days, '" />';
 		}
 
 		/* Ricard: needs revision of this date initialization */
@@ -345,20 +362,23 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			$_POST['Date'] = Date($_SESSION['DefaultDateFormat']);
 		}
 
-		echo '<br /><table class="selection">'; //Main table
+		echo '<br /><table>'; //Main table
 		if (isset($_GET['SelectedIndex'])) {
 			echo '<tr>
-					<th colspan="2"><h3>' . _('Update Cash Assignment') . '</h3></th>
+					<th colspan="2"><h3>', _('Update Cash Assignment'), '</h3></th>
 				</tr>';
 		} else {
 			echo '<tr>
-					<th colspan="2"><h3>' . _('New Cash Assignment') . '</h3></th>
+					<th colspan="2"><h3>', _('New Cash Assignment'), '</h3></th>
 				</tr>';
 		}
 		echo '<tr>
-				<td>' . _('Cash Assignation Date') . ':</td>';
+				<td>', _('Cash Assignation Date'), ':</td>';
 
-		echo '<td><input type="text" class="date" alt="' . $_SESSION['DefaultDateFormat'] . '" name="Date" size="10" required="required" maxlength="10" value="' . $_POST['Date'] . '" /></td></tr>';
+		echo '<td>
+				<input type="text" class="date" name="Date" size="10" required="required" maxlength="10" value="', $_POST['Date'], '" />
+			</td>
+		</tr>';
 
 
 		if (!isset($_POST['Amount'])) {
@@ -366,16 +386,18 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 		}
 
 		echo '<tr>
-				<td>' . _('Amount') . ':</td>
-				<td><input type="text" class="number" name="Amount" size="12" required="required" maxlength="11" value="' . locale_number_format($_POST['Amount'], $CurrDecimalPlaces) . '" /></td>
+				<td>', _('Amount'), ':</td>
+				<td><input type="text" class="number" name="Amount" size="12" required="required" maxlength="11" value="', locale_number_format($_POST['Amount'], $CurrDecimalPlaces), '" /></td>
 			</tr>';
 
 		if (!isset($_POST['Notes'])) {
 			$_POST['Notes'] = '';
 		}
 
-		echo '<tr><td>' . _('Notes') . ':</td>
-				<td><input type="text" name="Notes" size="50" maxlength="49" value="' . $_POST['Notes'] . '" /></td></tr>';
+		echo '<tr>
+				<td>', _('Notes'), ':</td>
+				<td><input type="text" name="Notes" size="50" maxlength="49" value="', $_POST['Notes'], '" /></td>
+			</tr>';
 
 		if (!isset($_POST['Receipt'])) {
 			$_POST['Receipt'] = '';
@@ -383,18 +405,18 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 
 		echo '<tr>
 				<td>' . _('Receipt') . ':</td>
-				<td><input type="text" name="Receipt" size="50" maxlength="49" value="' . $_POST['Receipt'] . '" /></td>
+				<td><input type="text" name="Receipt" size="50" maxlength="49" value="', $_POST['Receipt'], '" /></td>
 			</tr>';
 
 		echo '</table>'; // close main table
 
-		echo '<input type="hidden" name="CurrentAmount" value="' . $Amount['0'] . '" />';
-		echo '<input type="hidden" name="SelectedTabs" value="' . $SelectedTabs . '" />';
-		echo '<input type="hidden" name="Days" value="' . $Days . '" />';
+		echo '<input type="hidden" name="CurrentAmount" value="', $Amount['0'], '" />';
+		echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
+		echo '<input type="hidden" name="Days" value="', $Days, '" />';
 
 		echo '<div class="centre">
-				<input type="submit" name="submit" value="' . _('Accept') . '" />
-				<input type="submit" name="Cancel" value="' . _('Cancel') . '" />
+				<input type="submit" name="submit" value="', _('Accept'), '" />
+				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 			</div>';
 
 		echo '</form>';

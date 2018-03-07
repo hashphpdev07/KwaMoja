@@ -79,7 +79,7 @@ InsertRecord('systypes', array('typeid' ,'typename'), array('36', _('Exchange Di
 InsertRecord('systypes', array('typeid' ,'typename'), array('40', _('Work Order')), array('typeid' ,'typename'), array('40', _('Work Order')));
 InsertRecord('systypes', array('typeid', 'typename'), array('41', _('Asset Addition')), array('typeid', 'typename'), array('41', _('Asset Addition')));
 InsertRecord('systypes', array('typeid', 'typename'), array('42', _('Asset Category Change')), array('typeid', 'typename'), array('42', _('Asset Category Change')));
-InsertRecord('systypes', array('typeid', 'typename'), array('43', _('Delete w/down asset')), array('typeid', 'typename'), array('43', _('Delete w/down asset')));
+InsertRecord('systypes', array('typeid', 'typename'), array('43', _('Delete writedown asset')), array('typeid', 'typename'), array('43', _('Delete writedown asset')));
 InsertRecord('systypes', array('typeid', 'typename'), array('44', _('Depreciation')), array('typeid', 'typename'), array('44', _('Depreciation')));
 InsertRecord('systypes', array('typeid', 'typename'), array('49', _('Import Fixed Assets')), array('typeid', 'typename'), array('49', _('Import Fixed Assets')));
 InsertRecord('systypes', array('typeid' ,'typename'), array('50', _('Opening Balance')), array('typeid' ,'typename'), array('50', _('Opening Balance')));

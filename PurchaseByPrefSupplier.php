@@ -308,7 +308,7 @@ if (isset($_POST['CreatePO']) and isset($_POST['Supplier'])) {
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>
 	<form id="SupplierPurchasing" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-	<table class="selection">
+	<table>
 	<tr>
 		<td>' . _('For Supplier') . ':</td>
 		<td><select name="Supplier">';
