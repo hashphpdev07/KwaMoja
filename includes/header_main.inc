@@ -47,6 +47,18 @@ if ($Debug === 0) {
 	echo '<body class="holmes-debug" onload="initial()">';
 }
 
+if ($_SESSION['ShowPageHelp'] == 0) {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
+} else {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_on.css" rel="stylesheet" type="text/css" media="screen" />';
+}
+
+if ($_SESSION['ShowFieldHelp'] == 0) {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/field_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
+} else {
+	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/field_help_on.css" rel="stylesheet" type="text/css" media="screen" />';
+}
+
 if (isset($_GET['FontSize'])) {
 	$SQL = "UPDATE www_users
 				SET fontsize='" . $_GET['FontSize'] . "'
