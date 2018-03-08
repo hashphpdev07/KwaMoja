@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Paye Section');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
 if (isset($_GET['PayeID'])) {
 	$PayeID = strtoupper($_GET['PayeID']);
@@ -22,11 +21,10 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
-	if (strlen(isset($_POST['companyname'])) > 50 OR strlen(isset($_POST['companyname'])) == 0) {
+	if (strlen(isset($_POST['companyname'])) > 50 or strlen(isset($_POST['companyname'])) == 0) {
 		$InputError = 1;
 		prnMsg(_('The company name must be entered and be fifty characters or less long'), 'error');
 	} elseif (strlen(isset($_POST['payeid'])) > 10) {
@@ -35,10 +33,10 @@ if (isset($_POST['submit'])) {
 	} elseif (strlen(isset($_POST['employeename'])) > 20) {
 		$InputError = 1;
 		prnMsg(_('The employee name must be entered and be twenty characters or less long'), 'error');
-	} elseif (strlen($_POST['rangefrom']) > 10 OR strlen($_POST['rangefrom']) > 10) {
+	} elseif (strlen($_POST['rangefrom']) > 10 or strlen($_POST['rangefrom']) > 10) {
 		$InputError = 1;
 		prnMsg(_('All the range fields must be entered and be ten characters or less long'), 'error');
-	} elseif (strlen(isset($_POST['Employershare'])) > 14 OR strlen(isset($_POST['EmployerShare'])) > 14) {
+	} elseif (strlen(isset($_POST['Employershare'])) > 14 or strlen(isset($_POST['EmployerShare'])) > 14) {
 		$InputError = 1;
 		prnMsg(_('The share fields must be entered and be ten digits or less long'), 'error');
 	}
@@ -98,10 +96,9 @@ if (isset($_POST['submit'])) {
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS found
@@ -114,12 +111,11 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-
 if (!isset($PayeID)) {
 
 	/*new hdmf*/
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
 	echo '<input type="hidden" name="New" value="Yes">';
 
@@ -165,7 +161,6 @@ if (!isset($PayeID)) {
 		<th>" . _('Employee ID') . "</td>
 	</tr>";
 
-
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
@@ -183,18 +178,16 @@ if (!isset($PayeID)) {
 		echo '<td>' . $MyRow[4] . '</td>';
 		echo '<td>' . $MyRow[5] . '</td>';
 		echo '<td>' . $MyRow[6] . '</td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&PayeID=' . $MyRow[0] . '&edit=1">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&PayeID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&PayeID=' . $MyRow[0] . '&edit=1">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&PayeID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><p>';
 
-
 } else {
 	//PayeID exists - either passed when calling the form or from the form itself
-
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 
 	//if (!isset($_POST["New"])) {
@@ -263,6 +256,5 @@ if (!isset($PayeID)) {
 	}
 
 } // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

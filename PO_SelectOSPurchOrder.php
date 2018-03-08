@@ -1,13 +1,12 @@
 <?php
-
 $PricesSecurity = 1000;
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Search Outstanding Purchase Orders');
 
-include('includes/header.php');
-include('includes/DefinePOClass.php');
+include ('includes/header.php');
+include ('includes/DefinePOClass.php');
 
 if (isset($_GET['SelectedStockItem'])) {
 	$SelectedStockItem = trim($_GET['SelectedStockItem']);
@@ -21,21 +20,18 @@ if (isset($_GET['OrderNumber'])) {
 elseif (isset($_POST['OrderNumber'])) {
 	$OrderNumber = $_POST['OrderNumber'];
 } //isset($_POST['OrderNumber'])
-
 if (isset($_GET['SelectedSupplier'])) {
 	$SelectedSupplier = trim(stripslashes($_GET['SelectedSupplier']));
 } //isset($_GET['SelectedSupplier'])
 elseif (isset($_POST['SelectedSupplier'])) {
 	$SelectedSupplier = trim(stripslashes($_POST['SelectedSupplier']));
 } //isset($_POST['SelectedSupplier'])
-
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
 } //isset($_POST['ResetPart'])
-
 if (isset($OrderNumber) and $OrderNumber != '') {
 	if (!is_numeric($OrderNumber)) {
 		prnMsg(_('The Order Number entered') . ' <u>' . _('MUST') . '</u> ' . _('be numeric'), 'error');
@@ -123,7 +119,7 @@ $SQL = "SELECT locationname,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1";
 $ResultStkLocs = DB_query($SQL);
 if (DB_num_rows($ResultStkLocs) > 1) {
@@ -276,13 +272,11 @@ if (isset($StockItemsResult)) {
 				</tr>';
 		}
 	} //end of while loop through search items
-
 	echo '</tbody>';
 	echo '</table>';
 
 } elseif (isset($_POST['SearchOrders'])) {
 	//figure out the SQL required from the inputs available
-
 	if (!isset($_POST['Status']) or $_POST['Status'] == 'Pending_Authorised') {
 		$StatusCriteria = " AND (purchorders.status='Pending' OR purchorders.status='Authorised' OR purchorders.status='Printed') ";
 	} elseif ($_POST['Status'] == 'Authorised') {
@@ -294,7 +288,6 @@ if (isset($StockItemsResult)) {
 	} elseif ($_POST['Status'] == 'Cancelled') {
 		$StatusCriteria = " AND purchorders.status='Cancelled' ";
 	} //$_POST['Status'] == 'Cancelled'
-
 	//If searching on supplier code
 	if (isset($SelectedSupplier) and $SelectedSupplier != '') {
 		$SupplierSearchString = " AND purchorders.supplierno='" . DB_escape_string($SelectedSupplier) . "' ";
@@ -340,7 +333,7 @@ if (isset($StockItemsResult)) {
 					ON suppliers.currcode=currencies.currabrev
 				INNER JOIN locationusers
 					ON locationusers.loccode=purchorders.intostocklocation
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE purchorderdetails.completed=0
 					" . $SupplierSearchString . "
@@ -372,7 +365,7 @@ if (isset($StockItemsResult)) {
 					<th class="SortedColumn">' . _('Initiated by') . '</th>
 					<th class="SortedColumn">' . _('Supplier') . '</th>';
 	if (isset($_POST['PODetails'])) {
-		echo '<th class="SortedColumn">' . _('Balance') .' ('. _('Stock ID') . '--' . _('Quantity') . ' )</th>';
+		echo '<th class="SortedColumn">' . _('Balance') . ' (' . _('Stock ID') . '--' . _('Quantity') . ' )</th>';
 	}
 	echo '<th>' . _('Currency') . '</th>';
 
@@ -393,10 +386,10 @@ if (isset($StockItemsResult)) {
 			//lets retrieve the PO balance here to make it a standard sql query.
 			$BalanceSql = "SELECT itemcode, quantityord - quantityrecd as balance FROM purchorderdetails WHERE orderno = '" . $MyRow['orderno'] . "'";
 			$ErrMsg = _('Failed to retrieve purchorder details');
-			$BalanceResult  = DB_query($BalanceSql, $ErrMsg);
+			$BalanceResult = DB_query($BalanceSql, $ErrMsg);
 			if (DB_num_rows($BalanceResult) > 0) {
 				while ($BalanceRow = DB_fetch_array($BalanceResult)) {
-					$Balance .= '<div>' . $BalanceRow['itemcode'] . ' -- ' . $BalanceRow['balance'] . '</div>';
+					$Balance.= '<div>' . $BalanceRow['itemcode'] . ' -- ' . $BalanceRow['balance'] . '</div>';
 				}
 			}
 		}
@@ -447,12 +440,12 @@ if (isset($StockItemsResult)) {
 				<td>', $ReceiveOrder, '</td>
 			</tr>';
 		//end of page full new headings if
+		
 	} //end of while loop around purchase orders retrieved
-
 	echo '</tbody>';
 	echo '</table>';
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,18 +1,15 @@
 <?php
-
 // ReorderLevelLocation.php - Report of reorder level by category
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Reorder Level Location Reporting');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Reorder Level Location Report') . '</p>';
 
-
 //update database if update pressed
 if (isset($_POST['submit'])) {
-	for ($i = 1; $i < count($_POST); $i++) { //loop through the returned customers
+	for ($i = 1;$i < count($_POST);$i++) { //loop through the returned customers
 		if (isset($_POST['StockID' . $i]) and is_numeric(filter_number_format($_POST['ReorderLevel' . $i]))) {
 			$SQLUpdate = "UPDATE locstock SET reorderlevel = '" . filter_number_format($_POST['ReorderLevel' . $i]) . "',
 											bin = '" . strtoupper($_POST['BinLocation' . $i]) . "'
@@ -47,7 +44,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 				ON locstock.stockid = stockmaster.stockid
 			INNER JOIN locationusers
 				ON locationusers.loccode=locstock.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			WHERE stockmaster.categoryid = '" . $_POST['StockCat'] . "'
 				AND locstock.loccode = '" . $_POST['StockLocation'] . "'
@@ -82,12 +79,10 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		//variable for update data
-
 		echo '<input type="hidden" value="' . $_POST['Sequence'] . '" name="Sequence" />
 			<input type="hidden" value="' . $_POST['StockLocation'] . '" name="StockLocation" />
 			<input type="hidden" value="' . $_POST['StockCat'] . '" name="StockCat" />
 			<input type="hidden" value="' . locale_number_format($_POST['NumberOfDays'], 0) . '" name="NumberOfDays" />';
-
 
 		$SqlInv = "SELECT SUM(-qty) AS qtyinvoiced
 				FROM stockmoves
@@ -99,14 +94,13 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 		$ResultInvQty = DB_query($SqlInv);
 		$SalesRow = DB_fetch_array($ResultInvQty);
 
-
 		//get On Hand all
 		//find the quantity onhand item
 		$SqlOH = "SELECT SUM(quantity) AS qty
 				FROM locstock
 				INNER JOIN locationusers
 					ON locationusers.loccode=locstock.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE stockid='" . $MyRow['stockid'] . "'";
 		$TotQtyResult = DB_query($SqlOH);
@@ -120,11 +114,11 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 				<td class="number">' . locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']) . '</td>
 				<td class="number">';
 		if ($MyRow['canupd'] == 1) {
-			echo '<input type="text" class="number" name="ReorderLevel' . $i .'" maxlength="10" size="10" value="' . locale_number_format($MyRow['reorderlevel'],0) . '" />
+			echo '<input type="text" class="number" name="ReorderLevel' . $i . '" maxlength="10" size="10" value="' . locale_number_format($MyRow['reorderlevel'], 0) . '" />
 			<input type="hidden" name="StockID' . $i . '" value="' . $MyRow['stockid'] . '" /></td>
 			<td><input type="text" name="BinLocation' . $i . '" maxlength="10" size="10" value="' . $MyRow['bin'] . '" />';
 		} else {
-			echo locale_number_format($MyRow['reorderlevel'],0) . '</td><td>' . $MyRow['bin'] . '</td>';
+			echo locale_number_format($MyRow['reorderlevel'], 0) . '</td><td>' . $MyRow['bin'] . '</td>';
 		}
 
 		echo '</td>
@@ -139,21 +133,19 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 		</table>
 		</form>';
 
-
 } else {
 	/*The option to submit was not hit so display form */
 
-
 	echo '<div class="page_help_text">' . _('Use this report to display the reorder levels for Inventory items in different categories.') . '</div>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$SQL = "SELECT locationname,
 					locations.loccode
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$ResultStkLocs = DB_query($SQL);
 	echo '<table>
@@ -200,5 +192,5 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 
 }
 /*end of else not submit */
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

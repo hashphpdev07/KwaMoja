@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Create Database Template File');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['CreateTemplate'])) {
 	$InputError = false; //assume the best - but check for the worst
@@ -28,12 +27,11 @@ if (isset($_POST['CreateTemplate'])) {
 								WHERE coycode='1'");
 		$CurrRow = DB_fetch_array($CurrResult);
 
-
 		$SQLScript = "SET FOREIGN_KEY_CHECKS=0;
 				DELETE FROM currencies WHERE currabrev='" . $CurrRow['currabrev'] . "';\n";
-		$SQLScript .= "INSERT INTO currencies (currabrev, currency, country, rate)
+		$SQLScript.= "INSERT INTO currencies (currabrev, currency, country, rate)
 				VALUES ('" . $CurrRow['currabrev'] . "', '" . $CurrRow['currency'] . "', '" . $CurrRow['country'] . "', 1);\n";
-		$SQLScript .= "UPDATE companies SET currencydefault='" . $CurrRow['currabrev'] . "',
+		$SQLScript.= "UPDATE companies SET currencydefault='" . $CurrRow['currabrev'] . "',
 						  regoffice6='" . $CurrRow['country'] . "',
 						  debtorsact=" . $CurrRow['debtorsact'] . ",
 						  creditorsact=" . $CurrRow['creditorsact'] . ",
@@ -55,14 +53,14 @@ if (isset($_POST['CreateTemplate'])) {
 		taxcategories,
 		taxprovinces */
 
-		$SQLScript .= "TRUNCATE TABLE chartmaster;\n";
-		$SQLScript .= "TRUNCATE TABLE accountgroups;\n";
-		$SQLScript .= "TRUNCATE TABLE taxauthorities;\n";
-		$SQLScript .= "TRUNCATE TABLE taxauthrates;\n";
-		$SQLScript .= "TRUNCATE TABLE taxgroups;\n";
-		$SQLScript .= "TRUNCATE TABLE taxgrouptaxes;\n";
-		$SQLScript .= "TRUNCATE TABLE taxcategories;\n";
-		$SQLScript .= "TRUNCATE TABLE taxprovinces;\n";
+		$SQLScript.= "TRUNCATE TABLE chartmaster;\n";
+		$SQLScript.= "TRUNCATE TABLE accountgroups;\n";
+		$SQLScript.= "TRUNCATE TABLE taxauthorities;\n";
+		$SQLScript.= "TRUNCATE TABLE taxauthrates;\n";
+		$SQLScript.= "TRUNCATE TABLE taxgroups;\n";
+		$SQLScript.= "TRUNCATE TABLE taxgrouptaxes;\n";
+		$SQLScript.= "TRUNCATE TABLE taxcategories;\n";
+		$SQLScript.= "TRUNCATE TABLE taxprovinces;\n";
 
 		$GroupsResult = DB_query("SELECT groupcode,
 										language,
@@ -75,7 +73,7 @@ if (isset($_POST['CreateTemplate'])) {
 									FROM accountgroups");
 
 		while ($GroupRow = DB_fetch_array($GroupsResult)) {
-			$SQLScript .= "INSERT INTO accountgroups (groupcode,
+			$SQLScript.= "INSERT INTO accountgroups (groupcode,
 													language,
 													groupname,
 													sectioninaccounts,
@@ -105,7 +103,7 @@ if (isset($_POST['CreateTemplate'])) {
 		while ($ChartRow = DB_fetch_array($ChartResult)) {
 			if ($_POST['IncludeAccount_' . $i] == 'on') {
 
-				$SQLScript .= "INSERT INTO chartmaster (accountcode,
+				$SQLScript.= "INSERT INTO chartmaster (accountcode,
 														language,
 														accountname,
 														group_,
@@ -135,7 +133,7 @@ if (isset($_POST['CreateTemplate'])) {
 										FROM taxauthorities");
 
 		while ($TaxAuthoritiesRow = DB_fetch_array($TaxAuthoritiesResult)) {
-			$SQLScript .= "INSERT INTO taxauthorities (taxid,
+			$SQLScript.= "INSERT INTO taxauthorities (taxid,
 						   description,
 						   taxglcode,
 						   purchtaxglaccount,
@@ -161,7 +159,7 @@ if (isset($_POST['CreateTemplate'])) {
 									FROM taxauthrates");
 
 		while ($TaxAuthRatesRow = DB_fetch_array($TaxAuthRatesResult)) {
-			$SQLScript .= "INSERT INTO taxauthrates (taxauthority,
+			$SQLScript.= "INSERT INTO taxauthrates (taxauthority,
 							   dispatchtaxprovince,
 							   taxcatid,
 							   taxrate)
@@ -177,7 +175,7 @@ if (isset($_POST['CreateTemplate'])) {
 										FROM taxgroups");
 
 		while ($TaxGroupsRow = DB_fetch_array($TaxGroupsResult)) {
-			$SQLScript .= "INSERT INTO taxgroups (taxgroupid,
+			$SQLScript.= "INSERT INTO taxgroups (taxgroupid,
 							taxgroupdescription)
 				   VALUES ('" . $TaxGroupsRow['taxgroupid'] . "',
 					  '" . $TaxGroupsRow['taxgroupdescription'] . "');\n";
@@ -188,7 +186,7 @@ if (isset($_POST['CreateTemplate'])) {
 										FROM taxcategories");
 
 		while ($TaxCategoriesRow = DB_fetch_array($TaxCategoriesResult)) {
-			$SQLScript .= "INSERT INTO taxcategories (taxcatid,
+			$SQLScript.= "INSERT INTO taxcategories (taxcatid,
 							taxcatname)
 				   VALUES (" . $TaxCategoriesRow['taxcatid'] . ",
 					  '" . $TaxCategoriesRow['taxcatname'] . "');\n";
@@ -199,7 +197,7 @@ if (isset($_POST['CreateTemplate'])) {
 										FROM taxprovinces");
 
 		while ($TaxProvincesRow = DB_fetch_array($TaxProvincesResult)) {
-			$SQLScript .= "INSERT INTO taxprovinces (taxprovinceid,
+			$SQLScript.= "INSERT INTO taxprovinces (taxprovinceid,
 							taxprovincename)
 				   VALUES (" . $TaxProvincesRow['taxprovinceid'] . ",
 					  '" . $TaxProvincesRow['taxprovincename'] . "');\n";
@@ -212,7 +210,7 @@ if (isset($_POST['CreateTemplate'])) {
 											FROM taxgrouptaxes");
 
 		while ($TaxGroupTaxesRow = DB_fetch_array($TaxGroupTaxesResult)) {
-			$SQLScript .= "INSERT INTO taxgrouptaxes (taxgroupid,
+			$SQLScript.= "INSERT INTO taxgrouptaxes (taxgroupid,
 							taxauthid,
 							calculationorder,
 							taxontax)
@@ -221,17 +219,15 @@ if (isset($_POST['CreateTemplate'])) {
 					   " . $TaxGroupTaxesRow['calculationorder'] . ",
 					   " . $TaxGroupTaxesRow['taxontax'] . ");\n";
 		}
-		$SQLScript .= "SET FOREIGN_KEY_CHECKS=1;";
+		$SQLScript.= "SET FOREIGN_KEY_CHECKS=1;";
 		/*Now write $SQLScript to a file */
 		$FileHandle = fopen("./companies/" . $_SESSION['DatabaseName'] . "/reports/" . $_POST['TemplateName'] . ".sql", "w");
 		fwrite($FileHandle, $SQLScript);
 		fclose($FileHandle);
 
 		echo '<p><a href="' . $RootPath . '/companies/' . $_SESSION['DatabaseName'] . '/reports/' . $_POST['TemplateName'] . '.sql">' . _('Show the sql template file produced') . '</a>';
-		include('includes/htmlMimeMail.php');
-		$Recipients = array(
-			'"Submissions" <' . $SubmissionsEmail . '>'
-		);
+		include ('includes/htmlMimeMail.php');
+		$Recipients = array('"Submissions" <' . $SubmissionsEmail . '>');
 		$Mail = new htmlMimeMail();
 		$Host = $_SERVER['HTTP_HOST'];
 		$attachment = $Mail->getFile('http://' . $Host . $RootPath . '/companies/' . $_SESSION['DatabaseName'] . '/reports/' . $_POST['TemplateName'] . '.sql');
@@ -250,7 +246,7 @@ if (isset($_POST['CreateTemplate'])) {
 }
 /*end submit button hit */
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 prnMsg(_('Running the create a new company template script will export all account groups, account codes and tax set up tables including tax groups, tax authorities, tax rates etc. However, no transactions or private data will be exported. There is opportunity to prevent specific general ledger accounts from being exported where these are considered private - again no transactional or balance data is exported and you can inspect the contents of the sql file. The template file will be emailed automatically to the project'), 'info');
@@ -287,5 +283,5 @@ echo '<div class="centre"><input type="submit" name="CreateTemplate" value="' . 
 
 echo '</div>
 	  </form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

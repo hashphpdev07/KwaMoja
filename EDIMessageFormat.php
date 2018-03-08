@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('EDI Message Format');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['PartnerCode'])) {
 	$PartnerCode = $_GET['PartnerCode'];
@@ -21,7 +20,6 @@ if (isset($_GET['SelectedMessageLine'])) {
 } elseif (isset($_POST['SelectedMessageLine'])) {
 	$SelectedMessageLine = $_POST['SelectedMessageLine'];
 }
-
 
 if (isset($_POST['NewEDIInvMsg'])) {
 	$SQL = "INSERT INTO edimessageformat (partnercode,
@@ -84,7 +82,7 @@ if ($InputError != 1 and isset($_POST['update'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
+	
 
 	$SQL = "DELETE FROM edimessageformat WHERE id='" . $_GET['delete'] . "'";
 	$Result = DB_query($SQL);
@@ -95,7 +93,7 @@ if (isset($Msg)) {
 	prnMsg($Msg, 'success');
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<br />
@@ -139,7 +137,7 @@ if (!isset($SelectedMessageLine)) {
 					<td>%s</td>
 					<td><a href="%s&amp;SelectedMessageLine=%s">' . _('Edit') . '</a></td>
 					<td><a href="%s&amp;delete=%s">' . _('Delete') . '</a></td>
-				</tr>', $MyRow[1], $MyRow[2], $MyRow[3], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow[0]);
+				</tr>', $MyRow[1], $MyRow[2], $MyRow[3], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow[0], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow[0]);
 
 	} //END WHILE LIST LOOP
 	echo '</table>';
@@ -151,11 +149,8 @@ if (!isset($SelectedMessageLine)) {
 } //end of ifs SelectedLine is not set
 
 
-
-
 if (isset($SelectedMessageLine)) {
 	//editing an existing message line
-
 	$SQL = "SELECT messagetype,
 			partnercode,
 			section,
@@ -171,7 +166,7 @@ if (isset($SelectedMessageLine)) {
 	$_POST['SequenceNo'] = $MyRow['sequenceno'];
 	$_POST['LineText'] = $MyRow['linetext'];
 
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?MessageType=INVOIC&amp;PartnerCode=' . $MyRow['partnercode'] . '">' . _('Review Message Lines') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?MessageType=INVOIC&amp;PartnerCode=' . $MyRow['partnercode'] . '">' . _('Review Message Lines') . '</a></div>';
 
 	echo '<input type="hidden" name="SelectedMessageLine" value="' . $SelectedMessageLine . '" />';
 	echo '<input type="hidden" name="MessageType" value="' . $MyRow['messagetype'] . '" />';
@@ -220,7 +215,6 @@ if (!isset($_POST['LineText'])) {
 	$_POST['LineText'] = '';
 }
 
-
 echo '</td></tr>';
 
 echo '<tr><td>Sequence Number:</td>';
@@ -238,5 +232,5 @@ if (isset($_GET['SelectedMessageLine'])) {
 }
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

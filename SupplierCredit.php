@@ -1,5 +1,4 @@
 <?php
-
 /*This page is very largely the same as the SupplierInvoice.php script
 the same result could have been acheived by using if statements in that script and just having the one
 SupplierTransaction.php script. However, to aid readability - variable names have been changed  -
@@ -17,16 +16,16 @@ This is widely considered poor programming but in my view, much easier to read f
 the SuppTrans class contains an array of GRNs objects - containing details of GRNs for invoicing and also
 an array of GLCodes objects - only used if the AP - GL link is effective */
 
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 
 /* Session started in header.php for password checking and authorisation level check */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Supplier Credit Note');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['New'])) {
 	unset($_SESSION['SuppTrans']);
@@ -110,7 +109,7 @@ if (isset($_GET['SupplierID']) and $_GET['SupplierID'] != '') {
 
 	if (DB_num_rows($LocalTaxProvinceResult) == 0) {
 		prnMsg(_('The tax province associated with your user account has not been set up in this database. Tax calculations are based on the tax group of the supplier and the tax province of the user entering the invoice. The system administrator should redefine your account with a valid default stocking location and this location should refer to a valid tax province'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -119,18 +118,17 @@ if (isset($_GET['SupplierID']) and $_GET['SupplierID'] != '') {
 
 	$_SESSION['SuppTrans']->GetTaxes();
 
-
 	$_SESSION['SuppTrans']->GLLink_Creditors = $_SESSION['CompanyRecord']['gllink_creditors'];
 	$_SESSION['SuppTrans']->GRNAct = $_SESSION['CompanyRecord']['grnact'];
 	$_SESSION['SuppTrans']->CreditorsAct = $_SESSION['CompanyRecord']['creditorsact'];
 
 	$_SESSION['SuppTrans']->InvoiceOrCredit = 'Credit Note'; //note no gettext going on here
-
+	
 } elseif (!isset($_SESSION['SuppTrans'])) {
 
 	prnMsg(_('To enter a supplier credit note the supplier must first be selected from the supplier selection screen'), 'warn');
 	echo '<br /><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select A Supplier to Enter an Credit Note For') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 	/*It all stops here if there aint no supplier selected */
 }
@@ -144,23 +142,22 @@ if (isset($_POST['ExRate'])) {
 
 	if (mb_substr($_SESSION['SuppTrans']->Terms, 0, 1) == '1') {
 		/*Its a day in the following month when due */
-		$DayInFollowingMonth = (int) mb_substr($_SESSION['SuppTrans']->Terms, 1);
+		$DayInFollowingMonth = (int)mb_substr($_SESSION['SuppTrans']->Terms, 1);
 		$DaysBeforeDue = 0;
 	} else {
 		/*Use the Days Before Due to add to the invoice date */
 		$DayInFollowingMonth = 0;
-		$DaysBeforeDue = (int) mb_substr($_SESSION['SuppTrans']->Terms, 1);
+		$DaysBeforeDue = (int)mb_substr($_SESSION['SuppTrans']->Terms, 1);
 	}
 
 	$_SESSION['SuppTrans']->DueDate = CalcDueDate($_SESSION['SuppTrans']->TranDate, $DayInFollowingMonth, $DaysBeforeDue);
 
 	$_SESSION['SuppTrans']->SuppReference = $_POST['SuppReference'];
 
-
 	if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 
 		/*The link to GL from creditors is active so the total should be built up from GLPostings and GRN entries
-		if the link is not active then OvAmount must be entered manually. */
+		 if the link is not active then OvAmount must be entered manually. */
 
 		$_SESSION['SuppTrans']->OvAmount = 0;
 		/* for starters */
@@ -171,22 +168,22 @@ if (isset($_POST['ExRate'])) {
 		}
 		if (count($_SESSION['SuppTrans']->GLCodes) > 0) {
 			foreach ($_SESSION['SuppTrans']->GLCodes as $GLLine) {
-				$_SESSION['SuppTrans']->OvAmount += $GLLine->Amount;
+				$_SESSION['SuppTrans']->OvAmount+= $GLLine->Amount;
 			}
 		}
 		if (count($_SESSION['SuppTrans']->Contracts) > 0) {
 			foreach ($_SESSION['SuppTrans']->Contracts as $Contract) {
-				$_SESSION['SuppTrans']->OvAmount += $Contract->Amount;
+				$_SESSION['SuppTrans']->OvAmount+= $Contract->Amount;
 			}
 		}
 		if (count($_SESSION['SuppTrans']->Shipts) > 0) {
 			foreach ($_SESSION['SuppTrans']->Shipts as $ShiptLine) {
-				$_SESSION['SuppTrans']->OvAmount += $ShiptLine->Amount;
+				$_SESSION['SuppTrans']->OvAmount+= $ShiptLine->Amount;
 			}
 		}
 		if (count($_SESSION['SuppTrans']->Assets) > 0) {
 			foreach ($_SESSION['SuppTrans']->Assets as $FixedAsset) {
-				$_SESSION['SuppTrans']->OvAmount += $FixedAsset->Amount;
+				$_SESSION['SuppTrans']->OvAmount+= $FixedAsset->Amount;
 			}
 		}
 		$_SESSION['SuppTrans']->OvAmount = round($_SESSION['SuppTrans']->OvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces);
@@ -203,7 +200,7 @@ if (isset($_POST['GRNS']) and $_POST['GRNS'] == _('Purchase Orders')) {
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/SuppCreditGRNs.php">';
 	echo '<br />' . _('You should automatically be forwarded to the entry of credit notes against goods received page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/SuppCreditGRNs.php">' . _('click here') . '</a> ' . _('to continue') . '.
 		<br />';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if (isset($_POST['Shipts'])) {
@@ -214,7 +211,7 @@ if (isset($_POST['Shipts'])) {
 	echo '<br />
 		' . _('You should automatically be forwarded to the entry of credit notes against shipments page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/SuppShiptChgs.php">' . _('click here') . '</a> ' . _('to continue') . '.
 		<br />';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if (isset($_POST['GL']) and $_POST['GL'] == _('General Ledger')) {
@@ -225,7 +222,7 @@ if (isset($_POST['GL']) and $_POST['GL'] == _('General Ledger')) {
 	echo '<br />
 		' . _('You should automatically be forwarded to the entry of credit notes against the general ledger page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/SuppTransGLAnalysis.php">' . _('click here') . '</a> ' . _('to continue') . '.
 		<br />';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if (isset($_POST['Contracts']) and $_POST['Contracts'] == _('Contracts')) {
@@ -247,7 +244,7 @@ if (isset($_POST['FixedAssets']) and $_POST['FixedAssets'] == _('Fixed Assets'))
 	exit;
 }
 /* everything below here only do if a Supplier is selected
-fisrt add a header to show who we are making an credit note for */
+ fisrt add a header to show who we are making an credit note for */
 
 echo '<table>
 		<tr>
@@ -264,7 +261,7 @@ echo '<table>
 		</tr>
 	</table>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -296,7 +293,7 @@ if (count($_SESSION['SuppTrans']->GRNs) > 0) {
 	/*if there are some GRNs selected for crediting then */
 
 	/*Show all the selected GRNs so far from the SESSION['SuppInv']->GRNs array
-	Note that the class for carrying GRNs refers to quantity invoiced read credited in this context*/
+	 Note that the class for carrying GRNs refers to quantity invoiced read credited in this context*/
 
 	echo '<table>
 			<tr>
@@ -358,7 +355,7 @@ if (count($_SESSION['SuppTrans']->Shipts) > 0) {
 				<td>' . $EnteredShiptRef->ShiptRef . '</td>
 				<td class="number">' . locale_number_format($EnteredShiptRef->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
 			</tr>';
-		$TotalShiptValue += $EnteredShiptRef->Amount;
+		$TotalShiptValue+= $EnteredShiptRef->Amount;
 	}
 
 	echo '<tr>
@@ -392,7 +389,7 @@ if (count($_SESSION['SuppTrans']->Assets) > 0) {
 				<td class="number">' . locale_number_format($EnteredAsset->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
 			</tr>';
 
-		$TotalAssetValue += $EnteredAsset->Amount;
+		$TotalAssetValue+= $EnteredAsset->Amount;
 
 	}
 
@@ -426,7 +423,7 @@ if (count($_SESSION['SuppTrans']->Contracts) > 0) {
 				<td class="number">' . locale_number_format($Contract->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
 			</tr>';
 
-		$TotalContractsValue += $Contract->Amount;
+		$TotalContractsValue+= $Contract->Amount;
 
 	}
 
@@ -436,7 +433,6 @@ if (count($_SESSION['SuppTrans']->Contracts) > 0) {
 		</tr>
 	</table><br />';
 }
-
 
 if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 
@@ -465,7 +461,7 @@ if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 					<td class="number">' . locale_number_format($EnteredGLCode->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
 				</tr>';
 
-			$TotalGLValue += $EnteredGLCode->Amount;
+			$TotalGLValue+= $EnteredGLCode->Amount;
 
 		}
 
@@ -524,7 +520,6 @@ if (isset($_POST['OverRideTax']) and $_POST['OverRideTax'] == 'Man') {
 echo '</select></td>
 	</tr>';
 $TaxTotal = 0; //initialise tax total
-
 foreach ($_SESSION['SuppTrans']->Taxes as $Tax) {
 
 	echo '<tr>
@@ -538,7 +533,7 @@ foreach ($_SESSION['SuppTrans']->Taxes as $Tax) {
 
 	/*If a tax rate is entered that is not the same as it was previously then recalculate automatically the tax amounts */
 
-	if (!isset($_POST['OverRideTax']) OR $_POST['OverRideTax'] == 'Auto') {
+	if (!isset($_POST['OverRideTax']) or $_POST['OverRideTax'] == 'Auto') {
 
 		echo ' <input type="text" class="number" name="TaxRate' . $Tax->TaxCalculationOrder . '" required="required" maxlength="4" size="4" value="' . locale_number_format($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate * 100, 2) . '" />%';
 
@@ -564,14 +559,12 @@ foreach ($_SESSION['SuppTrans']->Taxes as $Tax) {
 
 		echo ' <input type="hidden" name="TaxRate' . $Tax->TaxCalculationOrder . '" value="' . locale_number_format($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate * 100, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />';
 
-
 		echo '</td>
 				<td><input type="text" class="number" size="12" required="required" maxlength="12" name="TaxAmount' . $Tax->TaxCalculationOrder . '"  value="' . locale_number_format(round($_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount, $_SESSION['SuppTrans']->CurrDecimalPlaces), $_SESSION['SuppTrans']->CurrDecimalPlaces) . '" />';
 
 	}
 
-	$TaxTotal += $_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount;
-
+	$TaxTotal+= $_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount;
 
 	echo '</td></tr>';
 }
@@ -597,11 +590,10 @@ echo '<br />
 			<input type="submit" name="PostCreditNote" value="' . _('Enter Credit Note') . '" />
 		</div>';
 
-
 if (isset($_POST['PostCreditNote'])) {
 
 	/*First do input reasonableness checks
-	then do the updates and inserts to process the credit note entered */
+	 then do the updates and inserts to process the credit note entered */
 	$TaxTotal = 0;
 	foreach ($_SESSION['SuppTrans']->Taxes as $Tax) {
 
@@ -609,7 +601,6 @@ if (isset($_POST['PostCreditNote'])) {
 		if (isset($_POST['TaxRate' . $Tax->TaxCalculationOrder])) {
 			$_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxRate = filter_number_format($_POST['TaxRate' . $Tax->TaxCalculationOrder]) / 100;
 		}
-
 
 		if ($_POST['OverRideTax'] == 'Auto' or !isset($_POST['OverRideTax'])) {
 
@@ -629,7 +620,7 @@ if (isset($_POST['PostCreditNote'])) {
 
 			$_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount = filter_number_format($_POST['TaxAmount' . $Tax->TaxCalculationOrder]);
 		}
-		$TaxTotal += $_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount;
+		$TaxTotal+= $_SESSION['SuppTrans']->Taxes[$Tax->TaxCalculationOrder]->TaxOvAmount;
 	}
 
 	$InputError = False;
@@ -665,7 +656,6 @@ if (isset($_POST['PostCreditNote'])) {
 		$PeriodNo = GetPeriod($_SESSION['SuppTrans']->TranDate);
 		$SQLCreditNoteDate = FormatDateForSQL($_SESSION['SuppTrans']->TranDate);
 
-
 		if ($_SESSION['SuppTrans']->GLLink_Creditors == 1) {
 
 			/*Loop through the GL Entries and create a debit posting for each of the accounts entered */
@@ -673,18 +663,18 @@ if (isset($_POST['PostCreditNote'])) {
 			$LocalTotal = 0;
 
 			/*the postings here are a little tricky, the logic goes like this:
-
+			
 			> if its a shipment entry then the cost must go against the GRN suspense account defined in the company record
-
+			
 			> if its a general ledger amount it goes straight to the account specified
-
+			
 			> if its a GRN amount credited then there are two possibilities:
-
+			
 			1 The PO line is on a shipment.
 			The whole charge goes to the GRN suspense account pending the closure of the
 			shipment where the variance is calculated on the shipment as a whole and the clearing entry to the GRN suspense
 			is created. Also, shipment records are created for the charges in local currency.
-
+			
 			2. The order line item is not on a shipment
 			The whole amount of the credit is written off to the purchase price variance account applicable to the
 			stock category record of the stock item being credited.
@@ -695,7 +685,7 @@ if (isset($_POST['PostCreditNote'])) {
 			foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
 
 				/*GL Items are straight forward - just do the credit postings to the GL accounts specified -
-				the debit is to creditors control act  done later for the total credit note value + tax*/
+				 the debit is to creditors control act  done later for the total credit note value + tax*/
 
 				$SQL = "INSERT INTO gltrans (type,
 											typeno,
@@ -716,7 +706,7 @@ if (isset($_POST['PostCreditNote'])) {
 				$DbgMsg = _('The following SQL to insert the GL transaction was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 
-				foreach($EnteredGLCode->Tag as $Tag) {
+				foreach ($EnteredGLCode->Tag as $Tag) {
 					$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 														'" . $Tag . "')";
 					$ErrMsg = _('Cannot insert a GL tag for the invoice line because');
@@ -724,13 +714,13 @@ if (isset($_POST['PostCreditNote'])) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				}
 
-				$LocalTotal += ($EnteredGLCode->Amount / $_SESSION['SuppTrans']->ExRate);
+				$LocalTotal+= ($EnteredGLCode->Amount / $_SESSION['SuppTrans']->ExRate);
 			}
 
 			foreach ($_SESSION['SuppTrans']->Shipts as $ShiptChg) {
 
 				/*shipment postings are also straight forward - just do the credit postings to the GRN suspense account
-				these entries are reversed from the GRN suspense when the shipment is closed - entries only to open shipts*/
+				 these entries are reversed from the GRN suspense when the shipment is closed - entries only to open shipts*/
 
 				$SQL = "INSERT INTO gltrans (type,
 											typeno,
@@ -752,7 +742,7 @@ if (isset($_POST['PostCreditNote'])) {
 
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 
-				$LocalTotal += $ShiptChg->Amount / $_SESSION['SuppTrans']->ExRate;
+				$LocalTotal+= $ShiptChg->Amount / $_SESSION['SuppTrans']->ExRate;
 
 			}
 
@@ -776,7 +766,7 @@ if (isset($_POST['PostCreditNote'])) {
 				$DbgMsg = _('The following SQL to insert the GL transaction was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 
-				$LocalTotal += $AssetAddition->Amount / $_SESSION['SuppTrans']->ExRate;
+				$LocalTotal+= $AssetAddition->Amount / $_SESSION['SuppTrans']->ExRate;
 			}
 
 			foreach ($_SESSION['SuppTrans']->Contracts as $Contract) {
@@ -812,16 +802,16 @@ if (isset($_POST['PostCreditNote'])) {
 
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 
-				$LocalTotal += ($Contract->Amount / $_SESSION['SuppTrans']->ExRate);
+				$LocalTotal+= ($Contract->Amount / $_SESSION['SuppTrans']->ExRate);
 
 			}
 
 			foreach ($_SESSION['SuppTrans']->GRNs as $EnteredGRN) {
 
-				if (mb_strlen($EnteredGRN->ShiptRef) == 0 OR $EnteredGRN->ShiptRef == '' OR $EnteredGRN->ShiptRef == 0) {
+				if (mb_strlen($EnteredGRN->ShiptRef) == 0 or $EnteredGRN->ShiptRef == '' or $EnteredGRN->ShiptRef == 0) {
 					/*so its not a shipment item */
 					/*so its not a shipment item
-					enter the GL entry to reverse the GRN suspense entry created on delivery at standard cost used on delivery */
+					 enter the GL entry to reverse the GRN suspense entry created on delivery at standard cost used on delivery */
 
 					if ($EnteredGRN->StdCostUnit * $EnteredGRN->This_QuantityInv != 0) {
 						$SQL = "INSERT INTO gltrans (type,
@@ -847,10 +837,9 @@ if (isset($_POST['PostCreditNote'])) {
 
 					}
 
-
 					$PurchPriceVar = $EnteredGRN->This_QuantityInv * (($EnteredGRN->ChgPrice / $_SESSION['SuppTrans']->ExRate) - $EnteredGRN->StdCostUnit);
 					/*Yes but where to post this difference to - if its a stock item the variance account must be retrieved from the stock category record
-					if its a nominal purchase order item with no stock item then  post it to the account specified in the purchase order detail record */
+					 if its a nominal purchase order item with no stock item then  post it to the account specified in the purchase order detail record */
 
 					if ($PurchPriceVar != 0) {
 						/* don't bother with this lot if there is no difference ! */
@@ -867,7 +856,7 @@ if (isset($_POST['PostCreditNote'])) {
 
 								/*
 								First off figure out the new weighted average cost Need the following data:
-
+								
 								How many in stock now
 								The quantity being invoiced here - $EnteredGRN->This_QuantityInv
 								The cost of these items - $EnteredGRN->ChgPrice  / $_SESSION['SuppTrans']->ExRate
@@ -880,10 +869,9 @@ if (isset($_POST['PostCreditNote'])) {
 								$QtyRow = DB_fetch_row($Result);
 								$TotalQuantityOnHand = $QtyRow[0];
 
-
 								/*The cost adjustment is the price variance / the total quantity in stock
 								But thats only provided that the total quantity in stock is greater than the quantity charged on this invoice
-
+								
 								If the quantity on hand is less the amount charged on this invoice then some must have been sold and the price variance on these must be written off to price variances*/
 
 								$WriteOffToVariances = 0;
@@ -912,7 +900,6 @@ if (isset($_POST['PostCreditNote'])) {
 									$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The general ledger transaction could not be added for the price variance of the stock item because');
 									$DbgMsg = _('The following SQL to insert the GL transaction was used');
 
-
 									$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 								}
 								/*Now post any remaining price variance to stock rather than price variances */
@@ -940,9 +927,8 @@ if (isset($_POST['PostCreditNote'])) {
 								/*Now to update the stock cost with the new weighted average */
 
 								/*Need to consider what to do if the cost has been changed manually between receiving the stock and entering the invoice - this code assumes there has been no cost updates made manually and all the price variance is posted to stock.
-
+								
 								A nicety or important?? */
-
 
 								$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The cost could not be updated because');
 								$DbgMsg = _('The following SQL to update the cost was used');
@@ -993,7 +979,6 @@ if (isset($_POST['PostCreditNote'])) {
 								/* End of Weighted Average Costing Code */
 
 							} else { //It must be Standard Costing
-
 								$SQL = "INSERT INTO gltrans (type,
 															typeno,
 															trandate,
@@ -1021,9 +1006,7 @@ if (isset($_POST['PostCreditNote'])) {
 							the goods were received */
 
 							$GLCode = $EnteredGRN->GLCode; //by default
-
 							if ($EnteredGRN->AssetID != 0) { //then it is an asset
-
 								/*Need to get the asset details  for posting */
 								$Result = DB_query("SELECT costact
 													FROM fixedassets INNER JOIN fixedassetcategories
@@ -1032,7 +1015,6 @@ if (isset($_POST['PostCreditNote'])) {
 								$AssetRow = DB_fetch_array($Result);
 								$GLCode = $AssetRow['costact'];
 							} //the item was an asset
-
 							$SQL = "INSERT INTO gltrans (type,
 														typeno,
 														trandate,
@@ -1079,11 +1061,10 @@ if (isset($_POST['PostCreditNote'])) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 				}
 
-				$LocalTotal += ($EnteredGRN->ChgPrice * $EnteredGRN->This_QuantityInv / $_SESSION['SuppTrans']->ExRate);
+				$LocalTotal+= ($EnteredGRN->ChgPrice * $EnteredGRN->This_QuantityInv / $_SESSION['SuppTrans']->ExRate);
 
 			}
 			/* end of GRN postings */
-
 
 			if ($Debug == 1 and abs(($_SESSION['SuppTrans']->OvAmount / $_SESSION['SuppTrans']->ExRate) - $LocalTotal) > 0.004) {
 
@@ -1259,7 +1240,9 @@ if (isset($_POST['PostCreditNote'])) {
 					$DbgMsg = _('The following SQL was used to attempt the update of the fixed asset cost') . ':';
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				} //end if there is a cost difference on invoice compared to purchase order for the fixed asset
+				
 			} //the line is a fixed asset
+			
 		}
 		/* end of the loop to do the updates for the quantity of order items the supplier has credited */
 
@@ -1310,7 +1293,7 @@ if (isset($_POST['PostCreditNote'])) {
 			$DbgMsg = _('The following SQL to insert the contract charge record was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 		} //end of loop around contracts on credit note
-
+		
 
 		foreach ($_SESSION['SuppTrans']->Assets as $AssetAddition) {
 
@@ -1318,7 +1301,7 @@ if (isset($_POST['PostCreditNote'])) {
 			 * 	1. A fixed asset transaction inserted for the cost
 			 * 	2. A general ledger transaction to fixed asset cost account if creditors linked - done in the GLCreditors Link above
 			 * 	3. The fixedasset table cost updated by the negative addition
-			 */
+			*/
 
 			/* First the fixed asset transaction */
 			$SQL = "INSERT INTO fixedassettrans (assetid,
@@ -1348,7 +1331,6 @@ if (isset($_POST['PostCreditNote'])) {
 			$DbgMsg = _('The following SQL was used to attempt the update of the asset cost') . ':';
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		} //end of non-gl fixed asset stuff
-
 		DB_Txn_Commit();
 
 		prnMsg(_('Supplier credit note number') . ' ' . $CreditNoteNo . ' ' . _('has been processed'), 'success');
@@ -1360,12 +1342,11 @@ if (isset($_POST['PostCreditNote'])) {
 		unset($_SESSION['SuppTrans']->GLCodes);
 		unset($_SESSION['SuppTrans']);
 
-
 	}
 
 }
 /*end of process credit note */
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

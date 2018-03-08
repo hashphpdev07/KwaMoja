@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Department of Company Section');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
 if (isset($_GET['DepartmentID'])) {
 	$DepartmentID = $_GET['DepartmentID'];
@@ -21,15 +20,13 @@ echo '<a href="prlUserSettings.php">' . _('Back to User Settings') . '</a>';
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
-	if (strpos(isset($_POST['departmentname']), '&') > 0 OR strpos(isset($_POST['departmentname']), "'") > 0) {
+	if (strpos(isset($_POST['departmentname']), '&') > 0 or strpos(isset($_POST['departmentname']), "'") > 0) {
 		$InputError = 1;
 		prnMsg(_('The department name cannot contain the character') . " '&' " . _('or the character') . " '", 'error');
 	}
@@ -57,7 +54,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The department table master record for') . ' ' . $DepartmentID . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new cost center record
-
 			$SQL = "INSERT INTO prldepartment (
 							departmentid,
 							departmentname,
@@ -83,10 +79,9 @@ if (isset($_POST['submit'])) {
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS FOUND
@@ -99,10 +94,9 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-
 if (!isset($DepartmentID)) {
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
 	echo '<input type="hidden" name="New" value="Yes">';
 
@@ -129,7 +123,6 @@ if (!isset($DepartmentID)) {
 		<th>" . _('Company Name') . "</td>
 	</tr>";
 
-
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
@@ -143,17 +136,16 @@ if (!isset($DepartmentID)) {
 		echo '<td>' . $MyRow[0] . '</td>';
 		echo '<td>' . $MyRow[1] . '</td>';
 		echo '<td>' . $MyRow[2] . '</td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&DepartmentID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&DepartmentID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&DepartmentID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&DepartmentID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><p>';
 
-
 } else {
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 
 	//if (!isset($_POST["New"])) {
@@ -189,6 +181,5 @@ if (!isset($DepartmentID)) {
 	}
 
 } // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

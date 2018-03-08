@@ -1,7 +1,7 @@
 <?php
 /* Allows the user to change system wide defaults for the theme - appearance, the number of records to show in searches and the language to display messages in */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('User Settings');
 $ViewTopic = 'GettingStarted';
 $BookMark = 'UserSettings';
@@ -18,25 +18,20 @@ if (isset($_POST['FontSize'])) {
 	$_GET['FontSize'] = $_POST['FontSize'];
 }
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '
 	</p>';
 
-$PDFLanguages = array(
-	_('Latin Western Languages - Times'),
-	_('Eastern European Russian Japanese Korean Hebrew Arabic Thai'),
-	_('Chinese'),
-	_('Free Serif')
-);
+$PDFLanguages = array(_('Latin Western Languages - Times'), _('Eastern European Russian Japanese Korean Hebrew Arabic Thai'), _('Chinese'), _('Free Serif'));
 
 if (isset($_POST['Modify'])) {
 	// no input errors assumed initially before we test
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if ($_POST['DisplayRecordsMax'] <= 0) {
@@ -45,7 +40,6 @@ if (isset($_POST['Modify'])) {
 	}
 
 	//!!!for the demo only - enable this check so password is not changed
-
 	if ($AllowDemoMode and $_POST['Password'] != '') {
 		$InputError = 1;
 		prnMsg(_('Cannot change password in the demo or others would be locked out!'), 'warn');
@@ -118,20 +112,18 @@ if (isset($_POST['Modify'])) {
 		$_SESSION['PDFLanguage'] = $_POST['PDFLanguage'];
 		$_SESSION['ShowPageHelp'] = $_POST['ShowPageHelp'];
 		$_SESSION['ShowFieldHelp'] = $_POST['ShowFieldHelp'];
-		include('includes/MainMenuLinksArray.php');
-		include('includes/LanguageSetup.php');
+		include ('includes/MainMenuLinksArray.php');
+		include ('includes/LanguageSetup.php');
 
 	}
 	$_SESSION['ChartLanguage'] = GetChartLanguage();
 	$_SESSION['InventoryLanguage'] = GetInventoryLanguage();
 }
 
-echo '<form method="post" class="centre" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" class="centre" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<div class="page_help_text">', _('This page contains the users settings than can be changed by the user.'),
-		'<br />', _('For help, click on the help icon in the top right'),
-		'<br />', _('Once you have filled in the details, click on the button at the bottom of the screen'), '
+echo '<div class="page_help_text">', _('This page contains the users settings than can be changed by the user.'), '<br />', _('For help, click on the help icon in the top right'), '<br />', _('Once you have filled in the details, click on the button at the bottom of the screen'), '
 	</div>';
 
 echo '<fieldset>
@@ -238,11 +230,9 @@ echo '<field>
 		<label for="ShowPageHelp">', _('Display page help'), ':</label>
 		<select id="ShowPageHelp" name="ShowPageHelp">';
 if ($_SESSION['ShowPageHelp'] == 0) {
-	echo '<option selected="selected" value="0">', _('No'), '</option>',
-		 '<option value="1">', _('Yes'), '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>', '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option value="0">', _('No'), '</option>',
- 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>', '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
 echo '</select>
 			<fieldhelp>', _('Show page help when available.'), '</fieldhelp>
@@ -252,11 +242,9 @@ echo '<field>
 		<label for="ShowFieldHelp">', _('Display field help'), ':</label>
 		<select id="ShowFieldHelp" name="ShowFieldHelp">';
 if ($_SESSION['ShowFieldHelp'] == 0) {
-	echo '<option selected="selected" value="0">', _('No'), '</option>',
-		 '<option value="1">', _('Yes'), '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>', '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option value="0">', _('No'), '</option>',
- 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>', '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
 echo '</select>
 			<fieldhelp>', _('Show field help when available.'), '</fieldhelp>
@@ -266,7 +254,7 @@ echo '<field>
 		<label for="PDFLanguage">', _('PDF Language Support'), ': </label>
 		<select name="PDFLanguage">';
 
-foreach ($PDFLanguages as $ID=>$PDFLanguage) {
+foreach ($PDFLanguages as $ID => $PDFLanguage) {
 	if ($_SESSION['PDFLanguage'] == $ID) {
 		echo '<option selected="selected" value="', $ID, '">', $PDFLanguage, '</option>';
 	} else {
@@ -282,5 +270,5 @@ echo '<div  class="centre">
 	</div>
 </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

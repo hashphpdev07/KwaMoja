@@ -1,7 +1,6 @@
 <?php
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 $Title = _('Petty Cash Management Report');
 $ViewTopic = 'PettyCash';
@@ -15,13 +14,13 @@ if (isset($_POST['SelectedTabs'])) {
 
 if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['SelectDifferentDate'])) {
 
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (!isset($_POST['FromDate'])) {
@@ -51,7 +50,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 			echo '<option value="', $MyRow['tabcode'], '">', $MyRow['tabcode'], '</option>';
 		}
 	} //end while loop get type of tab
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -74,7 +72,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 
 } else if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PageNumber = 0;
 	$FontSize = 10;
 	$PDF->addInfo('Title', _('Petty Cash Report Of Tab'));
@@ -92,24 +90,24 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$TabDetail = DB_query($SQL);
 
 	if (DB_error_no() != 0) {
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('An error occurred getting the orders details'), '', _('Database Error'));
 		if ($Debug == 1) {
 			prnMsg(_('The SQL used to get the orders that failed was') . '<br />' . $SQL, '', _('Database Error'));
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} elseif (DB_num_rows($TabDetail) == 0) {
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no expenses found in the database within the period from') . ' ' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate'] . '. ' . _('Please try again selecting a different date range'), 'warn');
 		if ($Debug == 1) {
 			prnMsg(_('The SQL that returned no rows was') . '<br />' . $SQL, '', _('Database Error'));
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFTabReportHeader.php');
+	include ('includes/PDFTabReportHeader.php');
 
 	$SqlTabs = "SELECT * FROM pctabs
 			WHERE tabcode='" . $SelectedTabs . "'";
@@ -130,7 +128,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		$Balance['0'] = 0;
 	}
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Tab Code') . ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 100, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, $SelectedTabs);
@@ -138,7 +136,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 320, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 340, $YPos, 70, $FontSize, $_POST['FromDate']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('User'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 100, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, $Tabs['usercode']);
@@ -146,27 +144,27 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 320, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 340, $YPos, 70, $FontSize, $_POST['ToDate']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Authoriser'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 100, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, $Tabs['authorizer']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Currency'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 100, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, $Tabs['currency']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 40, $FontSize, _('Balance before'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 55, $YPos, 70, $FontSize, $_POST['FromDate']);
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 100, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, locale_number_format($Balance['0'], $_SESSION['CompanyRecord']['decimalplaces']));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 150, $YPos, 70, $FontSize, $Tabs['currency']);
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$PDF->line($Page_Width - $Right_Margin, $YPos + $line_height, $Left_Margin, $YPos + $line_height);
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$FontSize = 8;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 70, $FontSize, _('Date Of Expense'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 70, $YPos, 100, $FontSize, _('Description'));
@@ -174,7 +172,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 100, $FontSize, _('Note'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 100, $FontSize, _('Receipt'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 420, $YPos, 100, $FontSize, _('Date Authorised'));
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	while ($MyRow = DB_fetch_array($TabDetail)) {
 
@@ -196,10 +194,9 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 100, $FontSize, $MyRow['notes']);
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 70, $FontSize, $MyRow['receipt']);
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, ConvertSQLDate($MyRow['authorized']));
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 	} //end of while loop
-
 	$SQLamount = "SELECT sum(amount)
 				FROM pcashdetails
 				WHERE tabcode='" . $SelectedTabs . "'
@@ -212,7 +209,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		$Amount[0] = 0;
 	}
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 70, $YPos, 100, $FontSize, _('Balance at'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, $_POST['ToDate']);
@@ -226,7 +223,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	exit;
 } else {
 
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
@@ -235,7 +232,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$SQL_FromDate = FormatDateForSQL($_POST['FromDate']);
 	$SQL_ToDate = FormatDateForSQL($_POST['ToDate']);
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<input type="hidden" name="FromDate" value="', $_POST['FromDate'], '" />
 			<input type="hidden" name="ToDate" value="', $_POST['ToDate'], '" />';
@@ -329,8 +326,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	echo '</table>';
 
 	/*show a table of the accounts info returned by the SQL
-	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
-
+	 Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
 	$SQL = "SELECT counterindex,
 					tabcode,
@@ -362,7 +358,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 
 	$j = 1;
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($TabDetail)) {
 		$SQLdes = "SELECT description
 				FROM pcexpenses
@@ -420,6 +415,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		</div>';
 	echo '</form>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

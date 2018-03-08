@@ -1,13 +1,12 @@
 <?php
-
 /* Steve Kitchen */
 
-include('includes/session.php');
+include ('includes/session.php');
 
-$Title = _('Edit Header');// _('Edit a Language File Header')
+$Title = _('Edit Header'); // _('Edit a Language File Header')
 $ViewTopic = 'SpecialUtilities';
-$BookMark = 'Z_poEditLangHeader';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$BookMark = 'Z_poEditLangHeader'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<div class ="toplink"><a href="' . $RootPath . '/Z_poAdmin.php">' . _('Back to the translation menu') . '</a></div>';
 
@@ -26,7 +25,7 @@ $PathToNewLanguage = './locale/' . $_SESSION['Language'] . '/LC_MESSAGES/message
 
 $fpIn = fopen($PathToLanguage, 'r');
 
-for ($i = 1; $i <= 17; $i++) {
+for ($i = 1;$i <= 17;$i++) {
 	/* message.po header is 17 lines long - this is easily broken */
 	$LanguageHeader[$i] = fgets($fpIn);
 }
@@ -34,7 +33,7 @@ for ($i = 1; $i <= 17; $i++) {
 if (isset($_POST['submit'])) {
 
 	echo '<br /><table><tr><td>';
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	/* write the new header then the rest of the language file to a new file */
@@ -43,7 +42,7 @@ if (isset($_POST['submit'])) {
 
 	$fpOut = fopen($PathToNewLanguage, 'w');
 
-	for ($i = 1; $i <= 17; $i++) {
+	for ($i = 1;$i <= 17;$i++) {
 		$Result = fputs($fpOut, stripslashes(html_entity_decode($_POST['Header_' . $i])) . "\n");
 	}
 
@@ -88,7 +87,7 @@ if (isset($_POST['submit'])) {
 		echo '<br />';
 		prnMsg(_('Your existing translation file (messages.po) will be backed up as messages.po.old') . '<br /><br />' . _('Make sure you know what you are doing BEFORE you edit the header'), 'info', _('PLEASE NOTE'));
 		echo '<br /></div>';
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table>
@@ -99,7 +98,7 @@ if (isset($_POST['submit'])) {
 					<td colspan="2"></td>
 				</tr>';
 
-		for ($i = 1; $i <= 17; $i++) {
+		for ($i = 1;$i <= 17;$i++) {
 
 			echo '<tr>';
 			echo '<td>' . _('Header Line') . ' # ' . $i . '</td>';
@@ -113,6 +112,6 @@ if (isset($_POST['submit'])) {
 		echo '</form>';
 	}
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

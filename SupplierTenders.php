@@ -1,9 +1,8 @@
 <?php
-
-include('includes/DefineOfferClass.php');
-include('includes/session.php');
+include ('includes/DefineOfferClass.php');
+include ('includes/session.php');
 $Title = _('Supplier Tendering');
-include('includes/header.php');
+include ('includes/header.php');
 
 $Maximum_Number_Of_Parts_To_Show = 50;
 
@@ -24,7 +23,7 @@ if (!isset($_POST['SupplierID'])) {
 	$MyRow = DB_fetch_array($Result);
 	if ($MyRow['supplierid'] == '') {
 		prnMsg(_('This functionality can only be accessed via a supplier login.'), 'warning');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		$_POST['SupplierID'] = $MyRow['supplierid'];
@@ -75,7 +74,7 @@ if (isset($_POST['Process'])) {
 		}
 	}
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Confirm the Response For Tender') . ' ' . $_SESSION['offer' . $Identifier]->TenderID . '</p>';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier) . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	echo '<input type="hidden" name="TenderType" value="3" />';
@@ -101,7 +100,7 @@ if (isset($_POST['Process'])) {
 	echo '<tr>
 			<td valign="top" style="background-color:#cccce5">' . _('Deliver To') . ':</td>
 			<td valign="top" style="background-color:#cccce5">';
-	for ($i = 1; $i < 8; $i++) {
+	for ($i = 1;$i < 8;$i++) {
 		if ($MyLocationRow[$i] != '') {
 			echo $MyLocationRow[$i] . '<br />';
 		}
@@ -139,18 +138,18 @@ if (isset($_POST['Process'])) {
 			<input type="submit" name="Cancel" value="' . _('Cancel Offer') . '" />
 		</div>
 		</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 /* If the supplierID is set then it must be a login from the supplier but if nothing else is
  * set then the supplier must have just logged in so show them the choices.
- */
+*/
 if (isset($_POST['SupplierID']) and empty($_POST['TenderType']) and empty($_POST['Search']) and empty($_POST['NewItem']) and empty($_GET['Delete'])) {
 	if (isset($_SESSION['offer' . $Identifier])) {
 		unset($_SESSION['offer' . $Identifier]);
 	}
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier) . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Create or View Offers from') . ' ' . $Supplier . '</p>';
 	echo '<table>';
@@ -229,7 +228,7 @@ if (isset($_POST['Update'])) {
 	$_SESSION['offer' . $Identifier]->Save('Yes');
 	$_SESSION['offer' . $Identifier]->EmailOffer();
 	unset($_SESSION['offer' . $Identifier]);
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -253,12 +252,12 @@ if (isset($_POST['Save'])) {
 	$_SESSION['offer' . $Identifier]->Save();
 	$_SESSION['offer' . $Identifier]->EmailOffer();
 	unset($_SESSION['offer' . $Identifier]);
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 /*The supplier has chosen option 1
- */
+*/
 if (isset($_POST['TenderType']) and $_POST['TenderType'] == 1 and !isset($_POST['Refresh']) and !isset($_GET['Delete'])) {
 	$SQL = "SELECT offers.offerid,
 				offers.stockid,
@@ -283,7 +282,7 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] == 1 and !isset($_POST[
 }
 
 if (isset($_POST['TenderType']) and $_POST['TenderType'] != 3 and isset($_SESSION['offer' . $Identifier]) and $_SESSION['offer' . $Identifier]->LinesOnOffer > 0 or isset($_POST['Update'])) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier) . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Items to offer from') . ' ' . $Supplier . '</p>';
 	echo '<table>
@@ -312,7 +311,7 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] != 3 and isset($_SESSIO
 					<td><input type="text" class="number" required="required" maxlebgth="11" name="Price' . $LineItems->LineNo . '" value="' . locale_number_format($LineItems->Price, 2, '.', '') . '" /></td>
 					<td class="number">' . locale_number_format($LineItems->Price * $LineItems->Quantity, 2) . '</td>
 					<td><input type="text" size="11" required="required" maxlebgth="10" class="date" name="expirydate' . $LineItems->LineNo . '" value="' . $LineItems->ExpiryDate . '" /></td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $LineItems->LineNo . '&Type=' . $_POST['TenderType'] . '">' . _('Remove') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $LineItems->LineNo . '&Type=' . $_POST['TenderType'] . '">' . _('Remove') . '</a></td>
 				</tr>';
 		}
 	}
@@ -336,13 +335,13 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] != 3 and isset($_SESSIO
 }
 
 /*The supplier has chosen option 2
- */
-if (isset($_POST['TenderType']) AND $_POST['TenderType'] == 2 AND !isset($_POST['Search']) OR isset($_GET['Delete'])) {
+*/
+if (isset($_POST['TenderType']) and $_POST['TenderType'] == 2 and !isset($_POST['Search']) or isset($_GET['Delete'])) {
 
 	if (!isset($_SESSION['offer' . $Identifier])) {
 		$_SESSION['offer' . $Identifier] = new Offer($_POST['SupplierID']);
 	}
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier) . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Inventory Items') . '</p>';
 
@@ -405,7 +404,7 @@ if (isset($_POST['TenderType']) AND $_POST['TenderType'] == 2 AND !isset($_POST[
 }
 
 /*The supplier has chosen option 3
- */
+*/
 if (isset($_POST['TenderType']) and $_POST['TenderType'] == 3 and !isset($_POST['Search']) or isset($_GET['Delete'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Tenders Waiting For Offers') . '</p>';
@@ -426,7 +425,7 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] == 3 and !isset($_POST[
 			<th colspan="13"><font size="3" color="#616161">' . _('Outstanding Tenders Waiting For Offer') . '</font></th>
 		</tr>';
 	while ($MyRow = DB_fetch_row($Result)) {
-		echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="post">';
+		echo '<form action="' . basename(__FILE__) . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" name="TenderType" value="3" />';
 		$LocationSQL = "SELECT tenderid,
@@ -448,7 +447,7 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] == 3 and !isset($_POST[
 		echo '<tr>
 				<td valign="top" style="background-color:#cccce5">' . _('Deliver To') . ':</td>
 				<td valign="top" style="background-color:#cccce5">';
-		for ($i = 1; $i < 8; $i++) {
+		for ($i = 1;$i < 8;$i++) {
 			if ($MyLocationRow[$i] != '') {
 				echo $MyLocationRow[$i] . '<br />';
 			}
@@ -522,7 +521,7 @@ if (isset($_POST['TenderType']) and $_POST['TenderType'] == 3 and !isset($_POST[
 
 if (isset($_POST['Search'])) {
 	/*ie seach for stock items */
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier) . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Select items to offer from') . ' ' . $Supplier . '</p>';
 
@@ -656,7 +655,7 @@ if (isset($_POST['Search'])) {
 			$ImageFile = reset($ImageFileArray);
 			if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 				$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
-			} else if (file_exists ($ImageFile)) {
+			} else if (file_exists($ImageFile)) {
 				$ImageSource = '<img src="' . $ImageFile . '" height="64" width="64" />';
 			} else {
 				$ImageSource = _('No Image');
@@ -698,6 +697,7 @@ if (isset($_POST['Search'])) {
 				break;
 			}
 			#end of page full new headings if
+			
 		}
 		#end of while loop
 		echo '</tbody>';
@@ -718,7 +718,6 @@ if (isset($_POST['Search'])) {
 	echo '</form>';
 
 } //end of if search
-
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

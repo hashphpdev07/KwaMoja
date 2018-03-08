@@ -1,7 +1,7 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Status = array();
 $Status[0] = _('Pending Authorisation');
@@ -12,11 +12,11 @@ $Status[4] = _('Rejected');
 $Status[5] = _('Written Off');
 
 $Title = _('Issue Employee Loans');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['update'])) {
-	foreach ($_POST as $key=>$value) {
+	foreach ($_POST as $key => $value) {
 		if (mb_substr($key, 0, 4) == 'Post') {
 			$Loan = mb_substr($key, 4);
 			$LoanSQL = "SELECT employeeid,
@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
 			$TransNo = GetNextTransNo(60);
 			$PeriodNo = GetPeriod(Date($_SESSION['DefaultDateFormat']));
 
-			$result = DB_Txn_Begin();
+			$Result = DB_Txn_Begin();
 
 			/* Then do the bank transaction */
 			$BankTransactionSQL = "INSERT INTO banktrans (transno,
@@ -63,9 +63,9 @@ if (isset($_POST['update'])) {
 													)";
 			$ErrMsg = _('Cannot insert a bank transaction because');
 			$DbgMsg = _('Cannot insert a bank transaction with the SQL');
-			$result = DB_query($BankTransactionSQL, $ErrMsg, $DbgMsg, true);
-			if (DB_error_no($result) == 0) {
-				prnMsg( _('The bank transaction has been successfully entered'), 'success');
+			$Result = DB_query($BankTransactionSQL, $ErrMsg, $DbgMsg, true);
+			if (DB_error_no($Result) == 0) {
+				prnMsg(_('The bank transaction has been successfully entered'), 'success');
 			}
 
 			/* Then credit the bank account */
@@ -87,9 +87,9 @@ if (isset($_POST['update'])) {
 									)";
 			$ErrMsg = _('Cannot insert a GL transaction for the bank account credit because');
 			$DbgMsg = _('Cannot insert a GL transaction for the bank account credit using the SQL');
-			$result = DB_query($BankGLSQL, $ErrMsg, $DbgMsg, true);
-			if (DB_error_no($result) == 0) {
-				prnMsg( _('The GL credit has been successfully entered'), 'success');
+			$Result = DB_query($BankGLSQL, $ErrMsg, $DbgMsg, true);
+			if (DB_error_no($Result) == 0) {
+				prnMsg(_('The GL credit has been successfully entered'), 'success');
 			}
 
 			/* then debit the loan account */
@@ -111,27 +111,27 @@ if (isset($_POST['update'])) {
 									)";
 			$ErrMsg = _('Cannot insert a GL transaction for the bank account credit because');
 			$DbgMsg = _('Cannot insert a GL transaction for the bank account credit using the SQL');
-			$result = DB_query($LoanGLSQL, $ErrMsg, $DbgMsg, true);
-			if (DB_error_no($result) == 0) {
-				prnMsg( _('The GL debit has been successfully entered'), 'success');
+			$Result = DB_query($LoanGLSQL, $ErrMsg, $DbgMsg, true);
+			if (DB_error_no($Result) == 0) {
+				prnMsg(_('The GL debit has been successfully entered'), 'success');
 			}
 
 			/* and finally update the loan status */
 			$UpdateLoanSQL = "UPDATE prlloanfile SET status=2 WHERE counterindex='" . $Loan . "'";
 			$ErrMsg = _('Cannot update the loan status because');
 			$DbgMsg = _('Cannot update the loan status using the SQL');
-			$result = DB_query($UpdateLoanSQL, $ErrMsg, $DbgMsg, true);
-			if (DB_error_no($result) == 0) {
-				prnMsg( _('The loan has been updated'), 'success');
+			$Result = DB_query($UpdateLoanSQL, $ErrMsg, $DbgMsg, true);
+			if (DB_error_no($Result) == 0) {
+				prnMsg(_('The loan has been updated'), 'success');
 			}
 
-			$result = DB_Txn_Commit();
+			$Result = DB_Txn_Commit();
 		}
 	}
 }
 
 echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/loan.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT prlloanfile.counterindex,
@@ -194,9 +194,9 @@ if (DB_num_rows($Result) > 0) {
 				<td class="number">' . locale_number_format($LoanRow['loanamount'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td>' . $Status[$LoanRow['status']] . '</td>
 				<td><select minlength="0" name="PaymentType' . $LoanRow['counterindex'] . '">';
-		include('includes/GetPaymentMethods.php');
+		include ('includes/GetPaymentMethods.php');
 		/* The array Payttypes is set up in includes/GetPaymentMethods.php
-		payment methods can be modified from the setup tab of the main menu under payment methods*/
+		 payment methods can be modified from the setup tab of the main menu under payment methods*/
 
 		foreach ($PaytTypes as $PaytID => $PaytType) {
 			echo '<option value="' . $PaytID . '">' . $PaytType . '</option>';
@@ -212,9 +212,9 @@ if (DB_num_rows($Result) > 0) {
 			<input type="submit" name="update" value="' . _('Make Loan Payments') . '" />
 		</div>';
 } else {
-	prnMsg( _('There are no loans waiting to be issued.'), 'info');
+	prnMsg(_('There are no loans waiting to be issued.'), 'info');
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

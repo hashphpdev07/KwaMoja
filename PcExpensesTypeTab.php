@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Maintenance Of Petty Cash Expenses For a Type Tab');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
@@ -56,7 +55,6 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$CheckSQL = "SELECT count(*)
 				 FROM pctabexpenses
 				 WHERE typetabcode= '" . $_POST['SelectedTab'] . "'
@@ -107,10 +105,9 @@ if (!isset($SelectedTab)) {
 	then none of the above are true and the list of sales types will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>'; //Main table
-
 	echo '<tr>
 			<td>', _('Select Type of Tab'), ':</td>
 			<td><select required="required" name="SelectedTab">';
@@ -128,13 +125,11 @@ if (!isset($SelectedTab)) {
 			echo '<option value="', $MyRow['typetabcode'], '">', $MyRow['typetabcode'], ' - ', $MyRow['typetabdescription'], '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
 
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="Process" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -148,9 +143,9 @@ if (!isset($SelectedTab)) {
 if (isset($_POST['process']) or isset($SelectedTab)) {
 
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Expense Codes for Type of Tab '), ' ', $SelectedTab, '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Expense Codes for Type of Tab '), ' ', $SelectedTab, '</a>
 		</div>';
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />';
@@ -177,14 +172,11 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 			</tr>';
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
-
 		echo '<tr class="striped_row">
 				<td>', $MyRow['codeexpense'], '</td>
 				<td>', $MyRow['description'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', '&amp;delete=yes&amp;SelectedTab=', $SelectedTab, '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this expense code?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -192,9 +184,7 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 
 	if (!isset($_GET['delete'])) {
 
-
 		echo '<table >'; //Main table
-
 		echo '<tr>
 				<td>', _('Select Expense Code'), ':</td>
 				<td><select required="required" name="SelectedExpense">';
@@ -214,13 +204,11 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 				echo '<option value="', $MyRow['codeexpense'], '">', $MyRow['codeexpense'], ' - ', $MyRow['description'], '</option>';
 			}
 		} //end while loop
-
 		echo '</select>
 				</td>
 			</tr>';
 
 		echo '</table>'; // close main table
-
 		echo '<div class="centre">
 				<input type="submit" name="submit" value="', _('Accept'), '" />
 				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -229,7 +217,8 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 		echo '</form>';
 
 	} // end if user wish to delete
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

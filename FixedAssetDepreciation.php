@@ -1,13 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Depreciation Journal Entry');
 
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetDepreciation';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /*Get the last period depreciation (depn is transtype =44) was posted for */
 $Result = DB_query("SELECT periods.lastdate_in_period,
@@ -39,7 +37,6 @@ if (DB_num_rows($Result) == 0) { //then depn has never been run yet?
 	$AllowUserEnteredProcessDate = false;
 	$_POST['ProcessDate'] = LastDayOfMonth(DateAdd(ConvertSQLDate($LastDepnRun[0]), 'd', 28));
 }
-
 
 /* Get list of assets for journal */
 $SQL = "SELECT fixedassets.assetid,
@@ -161,12 +158,12 @@ while ($AssetRow = DB_fetch_array($AssetsResult)) {
 			<td class="number">' . $AssetRow['depnrate'] . '</td>
 			<td class="number">' . locale_number_format($NewDepreciation, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
-	$TotalCategoryCost += $AssetRow['costtotal'];
-	$TotalCategoryAccumDepn += $AssetRow['depnbfwd'];
-	$TotalCategoryDepn += $NewDepreciation;
-	$TotalCost += $AssetRow['costtotal'];
-	$TotalAccumDepn += $AssetRow['depnbfwd'];
-	$TotalDepn += $NewDepreciation;
+	$TotalCategoryCost+= $AssetRow['costtotal'];
+	$TotalCategoryAccumDepn+= $AssetRow['depnbfwd'];
+	$TotalCategoryDepn+= $NewDepreciation;
+	$TotalCost+= $AssetRow['costtotal'];
+	$TotalAccumDepn+= $AssetRow['depnbfwd'];
+	$TotalDepn+= $NewDepreciation;
 
 	if (isset($_POST['CommitDepreciation']) and $NewDepreciation != 0 and $InputError == false) {
 
@@ -234,6 +231,7 @@ while ($AssetRow = DB_fetch_array($AssetsResult)) {
 		$DbgMsg = _('The following SQL was used to attempt the update the accumulated depreciation of the asset was') . ': ';
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 	} //end if Committing the depreciation to DB
+	
 } //end loop around the assets to calculate depreciation for
 echo '<tr>
 		<th colspan="3" align="right">' . _('Total for') . ' ' . $AssetCategoryDescription . ' </th>
@@ -262,9 +260,9 @@ if (isset($_POST['CommitDepreciation']) and $InputError == false) {
 	unset($_POST['ProcessDate']);
 	echo '<br /><a href="index.php">' . _('Return to main menu') . '</a>';
 	/*And post the journal too */
-	include('includes/GLPostings.php');
+	include ('includes/GLPostings.php');
 } else {
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="form">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table width="30%">
 		<tr>';
@@ -280,5 +278,5 @@ if (isset($_POST['CommitDepreciation']) and $InputError == false) {
 		</table>
 		</form>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,7 +1,6 @@
 <?php
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 $InputError = 0;
 
@@ -19,7 +18,7 @@ if (isset($_POST['ToDate']) and !is_date($_POST['ToDate'])) {
 if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 
 	$Title = _('Order Status Report');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	if ($InputError == 1) {
 		prnMsg($Msg, 'error');
@@ -27,7 +26,7 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Order Status Report') . '</p>';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -45,7 +44,6 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 	$SQL = "SELECT categorydescription, categoryid FROM stockcategory WHERE stocktype<>'D' AND stocktype<>'L'";
 	$Result = DB_query($SQL);
 
-
 	echo '<select required="required" name="CategoryID">';
 	echo '<option selected="selected" value="All">' . _('Over All Categories') . '</option>';
 
@@ -59,7 +57,7 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$Result = DB_query($SQL);
 	echo '<tr>
@@ -85,17 +83,16 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 		</div>';
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Order Status Report'));
 	$PDF->addInfo('Subject', _('Orders from') . ' ' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate']);
 	$line_height = 12;
 	$PageNumber = 1;
 	$TotalDiffs = 0;
 }
-
 
 if ($_POST['CategoryID'] == 'All' and $_POST['Location'] == 'All') {
 	$SQL = "SELECT salesorders.orderno,
@@ -130,7 +127,7 @@ if ($_POST['CategoryID'] == 'All' and $_POST['Location'] == 'All') {
 					ON salesorders.fromstkloc=locations.loccode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE salesorders.orddate >='" . FormatDateForSQL($_POST['FromDate']) . "'
 					AND salesorders.orddate <='" . FormatDateForSQL($_POST['ToDate']) . "'
@@ -169,13 +166,12 @@ if ($_POST['CategoryID'] == 'All' and $_POST['Location'] == 'All') {
 					ON salesorders.fromstkloc=locations.loccode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE stockmaster.categoryid ='" . $_POST['CategoryID'] . "'
 					AND orddate >='" . FormatDateForSQL($_POST['FromDate']) . "'
 					AND orddate <='" . FormatDateForSQL($_POST['ToDate']) . "'
 					AND salesorders.quotation=0";
-
 
 } elseif ($_POST['CategoryID'] == 'All' and $_POST['Location'] != 'All') {
 	$SQL = "SELECT salesorders.orderno,
@@ -210,13 +206,12 @@ if ($_POST['CategoryID'] == 'All' and $_POST['Location'] == 'All') {
 					ON salesorders.fromstkloc=locations.loccode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE salesorders.fromstkloc ='" . $_POST['Location'] . "'
 					AND salesorders.orddate >='" . FormatDateForSQL($_POST['FromDate']) . "'
 					AND salesorders.orddate <='" . FormatDateForSQL($_POST['ToDate']) . "'
 					AND salesorders.quotation=0";
-
 
 } elseif ($_POST['CategoryID'] != 'All' and $_POST['location'] != 'All') {
 
@@ -252,7 +247,7 @@ if ($_POST['CategoryID'] == 'All' and $_POST['Location'] == 'All') {
 					ON salesorders.fromstkloc=locations.loccode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE stockmaster.categoryid ='" . $_POST['CategoryID'] . "'
 					AND salesorders.fromstkloc ='" . $_POST['Location'] . "'
@@ -262,35 +257,34 @@ if ($_POST['CategoryID'] == 'All' and $_POST['Location'] == 'All') {
 }
 
 if ($_POST['BackOrders'] == 'Yes') {
-	$SQL .= " AND salesorderdetails.quantity-salesorderdetails.qtyinvoiced >0";
+	$SQL.= " AND salesorderdetails.quantity-salesorderdetails.qtyinvoiced >0";
 }
 
 //Add salesman role control
 if ($_SESSION['SalesmanLogin'] != '') {
-	$SQL .= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+	$SQL.= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 }
 
-$SQL .= " ORDER BY salesorders.orderno";
+$SQL.= " ORDER BY salesorders.orderno";
 
 $Result = DB_query($SQL, '', '', false, false); //dont trap errors here
-
 if (DB_error_no() != 0) {
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />' . _('An error occurred getting the orders details');
 	if ($Debug == 1) {
 		echo '<br />' . _('The SQL used to get the orders that failed was') . '<br />' . $SQL;
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } elseif (DB_num_rows($Result) == 0) {
 	$Title = _('Order Status Report - No Data');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('There were no orders found in the database within the period from') . ' ' . $_POST['FromDate'] . ' ' . _('to') . ' ' . $_POST['ToDate'] . '. ' . _('Please try again selecting a different date range'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
-include('includes/PDFOrderStatusPageHeader.php');
+include ('includes/PDFOrderStatusPageHeader.php');
 
 $OrderNo = 0;
 /*initialise */
@@ -299,7 +293,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 	$PDF->line($XPos, $YPos, $Page_Width - $Right_Margin, $YPos);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	/*Set up headings */
 	/*draw a line */
 
@@ -311,22 +305,21 @@ while ($MyRow = DB_fetch_array($Result)) {
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 360, $YPos, 60, $FontSize, _('Location'), 'left');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 420, $YPos, 80, $FontSize, _('Status'), 'left');
 
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 		/*draw a line */
 		$PDF->line($XPos, $YPos, $Page_Width - $Right_Margin, $YPos);
 		$PDF->line($XPos, $YPos - $line_height * 2, $XPos, $YPos + $line_height * 2);
 		$PDF->line($Page_Width - $Right_Margin, $YPos - $line_height * 2, $Page_Width - $Right_Margin, $YPos + $line_height * 2);
 
-
 		if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 			/*Then set up a new page */
 			$PageNumber++;
-			include('includes/PDFOrderStatusPageHeader.php');
+			include ('includes/PDFOrderStatusPageHeader.php');
 			$OrderNo = 0;
 		}
 		/*end of new page header  */
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 2, $YPos, 40, $FontSize, $MyRow['orderno'], 'left');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 40, $YPos, 150, $FontSize, html_entity_decode($MyRow['name'], ENT_QUOTES, 'UTF-8'), 'left');
@@ -342,10 +335,10 @@ while ($MyRow = DB_fetch_array($Result)) {
 		}
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 420, $YPos, 100, $FontSize, $PackingSlipPrinted, 'left');
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		$PDF->line($XPos, $YPos, $Page_Width - $Right_Margin, $YPos);
 
-		$YPos -= ($line_height);
+		$YPos-= ($line_height);
 
 		/*Its not the first line */
 		$OrderNo = $MyRow['orderno'];
@@ -354,7 +347,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 180, $YPos, 60, $FontSize, _('Ordered'), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 240, $YPos, 60, $FontSize, _('Invoiced'), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 320, $YPos, 60, $FontSize, _('Outstanding'), 'center');
-		$YPos -= ($line_height);
+		$YPos-= ($line_height);
 
 	}
 
@@ -369,11 +362,11 @@ while ($MyRow = DB_fetch_array($Result)) {
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 320, $YPos, 60, $FontSize, _('Complete'), 'left');
 	}
 
-	$YPos -= ($line_height);
+	$YPos-= ($line_height);
 	if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 		/*Then set up a new page */
 		$PageNumber++;
-		include('includes/PDFOrderStatusPageHeader.php');
+		include ('includes/PDFOrderStatusPageHeader.php');
 		$OrderNo = 0;
 	}
 	/*end of new page header  */

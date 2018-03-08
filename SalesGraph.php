@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
-include('includes/phplot/phplot.php');
+include ('includes/session.php');
+include ('includes/phplot/phplot.php');
 $Title = _('Sales Report Graph');
 /* Manual links before header.php */
 $ViewTopic = 'ARInquiries';
 $BookMark = 'SalesGraph';
-include('includes/header.php');
+include ('includes/header.php');
 
 $SelectADifferentPeriod = '';
 
@@ -28,7 +27,7 @@ if (isset($_POST['FromPeriod']) and isset($_POST['ToPeriod'])) {
 
 if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADifferentPeriod == _('Select A Different Period')) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Select criteria') . '" alt="' . _('Select criteria') . '" />' . ' ' . $Title . '</p>';
@@ -142,10 +141,10 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 	if ($_SESSION['SalesmanLogin'] != '') {
-		$SQL .= " WHERE salesmancode='" . $_SESSION['SalesmanLogin'] . "' ORDER BY salesmanname";
+		$SQL.= " WHERE salesmancode='" . $_SESSION['SalesmanLogin'] . "' ORDER BY salesmanname";
 		$_POST['Salesperson'] = $_SESSION['SalesmanLogin'];
 	} else if (!isset($_POST['SalesmanCode'])) {
-		$SQL .= ' ORDER BY salesmanname';
+		$SQL.= ' ORDER BY salesmanname';
 		$_POST['SalesmanCode'] = 'All';
 		echo '<option selected="selected" value="All">' . _('All') . '</option>';
 	} else {
@@ -212,7 +211,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 
 	echo '<div class="centre"><input type="submit" name="ShowGraph" value="' . _('Show Sales Graph') . '" /></div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 } else {
 
 	$graph = new PHPlot(950, 450);
@@ -236,41 +235,41 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	$FromPeriodDate = GetMonthText($MyRow['month']) . ' ' . $MyRow['year'];
 	$MyRow = DB_fetch_array($Result);
 	$ToPeriodDate = GetMonthText($MyRow['month']) . ' ' . $MyRow['year'];
-	$GraphTitle .= ' ' . _('From Period') . ' ' . $FromPeriodDate . ' ' . _('to') . ' ' . $ToPeriodDate . "\n\r";
+	$GraphTitle.= ' ' . _('From Period') . ' ' . $FromPeriodDate . ' ' . _('to') . ' ' . $ToPeriodDate . "\n\r";
 
 	if ($_POST['SalesArea'] == 'All') {
-		$GraphTitle .= ' ' . _('For All Sales Areas');
+		$GraphTitle.= ' ' . _('For All Sales Areas');
 	} else {
 		$Result = DB_query("SELECT areadescription FROM areas WHERE areacode='" . $_POST['SalesArea'] . "'");
 		$MyRow = DB_fetch_row($Result);
-		$GraphTitle .= ' ' . _('For') . ' ' . $MyRow[0];
-		$WhereClause .= " area='" . $_POST['SalesArea'] . "' AND";
+		$GraphTitle.= ' ' . _('For') . ' ' . $MyRow[0];
+		$WhereClause.= " area='" . $_POST['SalesArea'] . "' AND";
 	}
 	if ($_POST['CategoryID'] == 'All') {
-		$GraphTitle .= ' ' . _('For All Stock Categories');
+		$GraphTitle.= ' ' . _('For All Stock Categories');
 	} else {
 		$Result = DB_query("SELECT categorydescription FROM stockcategory WHERE categoryid='" . $_POST['CategoryID'] . "'");
 		$MyRow = DB_fetch_row($Result);
-		$GraphTitle .= ' ' . _('For') . ' ' . $MyRow[0];
-		$WhereClause .= " stkcategory='" . $_POST['CategoryID'] . "' AND";
+		$GraphTitle.= ' ' . _('For') . ' ' . $MyRow[0];
+		$WhereClause.= " stkcategory='" . $_POST['CategoryID'] . "' AND";
 
 	}
 	if ($_POST['SalesmanCode'] == 'All') {
-		$GraphTitle .= ' ' . _('For All Salespeople');
+		$GraphTitle.= ' ' . _('For All Salespeople');
 	} else {
 		$Result = DB_query("SELECT salesmanname FROM salesman WHERE salesmancode='" . $_POST['SalesmanCode'] . "'");
 		$MyRow = DB_fetch_row($Result);
-		$GraphTitle .= ' ' . _('For Salesperson') . ': ' . $MyRow[0];
-		$WhereClause .= " salesperson='" . $_POST['SalesmanCode'] . "' AND";
+		$GraphTitle.= ' ' . _('For Salesperson') . ': ' . $MyRow[0];
+		$WhereClause.= " salesperson='" . $_POST['SalesmanCode'] . "' AND";
 
 	}
 	if ($_POST['GraphOn'] == 'Customer') {
-		$GraphTitle .= ' ' . _('For Customers from') . ' ' . $_POST['ValueFrom'] . ' ' . _('to') . ' ' . $_POST['ValueTo'];
-		$WhereClause .= "  cust >='" . $_POST['ValueFrom'] . "' AND cust <='" . $_POST['ValueTo'] . "' AND";
+		$GraphTitle.= ' ' . _('For Customers from') . ' ' . $_POST['ValueFrom'] . ' ' . _('to') . ' ' . $_POST['ValueTo'];
+		$WhereClause.= "  cust >='" . $_POST['ValueFrom'] . "' AND cust <='" . $_POST['ValueTo'] . "' AND";
 	}
 	if ($_POST['GraphOn'] == 'StockID') {
-		$GraphTitle .= ' ' . _('For Items from') . ' ' . $_POST['ValueFrom'] . ' ' . _('to') . ' ' . $_POST['ValueTo'];
-		$WhereClause .= "  stockid >='" . $_POST['ValueFrom'] . "' AND stockid <='" . $_POST['ValueTo'] . "' AND";
+		$GraphTitle.= ' ' . _('For Items from') . ' ' . $_POST['ValueFrom'] . ' ' . _('to') . ' ' . $_POST['ValueTo'];
+		$WhereClause.= "  stockid >='" . $_POST['ValueFrom'] . "' AND stockid <='" . $_POST['ValueTo'] . "' AND";
 	}
 
 	$WhereClause = "WHERE " . $WhereClause . " salesanalysis.periodno>='" . $_POST['FromPeriod'] . "' AND salesanalysis.periodno <= '" . $_POST['ToPeriod'] . "'";
@@ -283,7 +282,6 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 		GROUP BY salesanalysis.periodno,
 			periods.lastdate_in_period
 		ORDER BY salesanalysis.periodno";
-
 
 	$graph->SetTitle($GraphTitle);
 	$graph->SetTitleColor('blue');
@@ -305,7 +303,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	$graph->SetPlotType($_POST['GraphType']);
 	$graph->SetIsInline('1');
 	$graph->SetShading(5);
-	$graph->SetDrawYGrid(TRUE);
+	$graph->SetDrawYGrid(true);
 	$graph->SetDataType('text-data');
 	$graph->SetNumberFormat('.', ',');
 	$graph->SetPrecisionY($_SESSION['CompanyRecord']['decimalplaces']);
@@ -314,39 +312,27 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	if (DB_error_no() != 0) {
 
 		prnMsg(_('The sales graph data for the selected criteria could not be retrieved because') . ' - ' . DB_error_msg(), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($SalesResult) == 0) {
 		prnMsg(_('There is not sales data for the criteria entered to graph'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$GraphArrays = array();
 	$i = 0;
 	while ($MyRow = DB_fetch_array($SalesResult)) {
-		$GraphArray[$i] = array(
-			MonthAndYearFromSQLDate($MyRow['lastdate_in_period']),
-			$MyRow['sales'],
-			$MyRow['budget']
-		);
+		$GraphArray[$i] = array(MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), $MyRow['sales'], $MyRow['budget']);
 		++$i;
 	}
 
 	$graph->SetDataValues($GraphArray);
-	$graph->SetDataColors(array(
-		'grey',
-		'wheat'
-	), //Data Colors
-		array(
-		'black'
-	) //Border Colors
-		);
-	$graph->SetLegend(array(
-		_('Actual'),
-		_('Budget')
-	));
+	$graph->SetDataColors(array('grey', 'wheat'), //Data Colors
+	array('black') //Border Colors
+	);
+	$graph->SetLegend(array(_('Actual'), _('Budget')));
 
 	$graph->SetYDataLabelPos('plotin');
 
@@ -364,6 +350,6 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 				</td>
 			</tr>
 		</table>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

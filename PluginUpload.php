@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Upload a Plugin');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/upload.png" title="' . _('Upload Plugin') . '" alt="" />' . _('Upload Plugin') . '</p>';
 
@@ -23,30 +22,30 @@ if (isset($_POST['submit'])) {
 				}
 				move_uploaded_file($_FILES['pluginfile']['tmp_name'], 'plugins/' . $_FILES['pluginfile']['name']);
 				prnMsg(_('The plugin has been successfully uploaded to your plugins directory. Now you can install it.'), 'success');
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
-			break;
+		break;
 		case UPLOAD_ERR_INI_SIZE:
 			prnMsg(_('The file you have selected is too big. It exceeds the maximum size allowed by your PHP installation.'), 'error');
 			unset($_POST['submit']);
-			break;
+		break;
 		case UPLOAD_ERR_FORM_SIZE:
 			prnMsg(_('The file you have selected is too big. Please try a different file.'), 'error');
 			unset($_POST['submit']);
-			break;
+		break;
 		case UPLOAD_ERR_PARTIAL:
 			prnMsg(_('The upload was interrupted. Please start it again.'), 'error');
 			unset($_POST['submit']);
-			break;
+		break;
 		case UPLOAD_ERR_NO_FILE:
 			prnMsg(_('The file either does not exist, or the file name is empty. Please try again.'), 'error');
 			unset($_POST['submit']);
-			break;
+		break;
 		case UPLOAD_ERR_NO_TMP_DIR:
 			prnMsg(_('There is no temporary directory to upload the file to. Please see your system administrator.'), 'error');
 			unset($_POST['submit']);
-			break;
+		break;
 		default:
 			prnMsg(_('An unknown error occurred while uploading the file. Please see your system administrator.'), 'error');
 			unset($_POST['submit']);
@@ -54,7 +53,7 @@ if (isset($_POST['submit'])) {
 }
 
 if (!isset($_POST['submit'])) {
-	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<div class="page_help_text">' . _('Use this screen to upload a plugin file to your plugins directory. The file should be of type *.zip') . '</div>';
@@ -107,7 +106,7 @@ if (!isset($_POST['submit'])) {
 	echo '</form><br />';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 function IsPlugin($File) {
 	if ($File['type'] != 'application/zip') {

@@ -1,22 +1,21 @@
 <?php
-
 /* MRPReschedules.php - Report of purchase orders and work orders that MRP determines should be
  * rescheduled.
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 
 if (!DB_table_exists('mrprequirements')) {
 	$Title = 'MRP error';
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />';
 	prnMsg(_('The MRP calculation must be run before you can run this report') . '<br />' . _('To run the MRP calculation click') . ' ' . '<a href="' . $RootPath . '/MRP.php">' . _('here') . '</a>', 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('MRP Reschedule Report'));
 	$PDF->addInfo('Subject', _('MRP Reschedules'));
 	$FontSize = 9;
@@ -39,25 +38,25 @@ if (isset($_POST['PrintPDF'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('MRP Reschedules') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The MRP reschedules could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($Result) == 0) {
 		$Title = _('MRP Reschedules') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('No MRP reschedule retrieved'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -67,7 +66,7 @@ if (isset($_POST['PrintPDF'])) {
 	$PDF->SetFillColor(224, 235, 255);
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		$FontSize = 8;
 
 		$FormatedDueDate = ConvertSQLDate($MyRow['duedate']);
@@ -101,7 +100,7 @@ if (isset($_POST['PrintPDF'])) {
 	/*end while loop */
 
 	$FontSize = 10;
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	if ($YPos < $Bottom_Margin + $line_height) {
 		PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin);
@@ -114,7 +113,7 @@ if (isset($_POST['PrintPDF'])) {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('MRP Reschedule Reporting');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '
@@ -122,7 +121,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	echo '<br />
 		<br />
-		<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+		<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 		<div>
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<table>
@@ -149,11 +148,10 @@ if (isset($_POST['PrintPDF'])) {
 		</div>
 		</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
-
 
 function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin) {
 
@@ -168,15 +166,15 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('MRP Reschedule Report'));
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 115, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 70, $FontSize, _('Selection') . ': ');
 	$PDF->addTextWrap(90, $YPos, 15, $FontSize, $_POST['Selection']);
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
@@ -193,4 +191,5 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$YPos = $YPos - (2 * $line_height);
 	$PageNumber++;
 } // End of PrintHeader function
+
 ?>

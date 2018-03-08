@@ -1,17 +1,17 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Bank Details Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/bank.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
 /* Fill $employeeid variable if set in either
  * $_GET or $_POST arrays
- */
+*/
 if (isset($_GET['employeeid'])) {
 	$employeeid = $_GET['employeeid'];
 } elseif (isset($_POST['employeeid'])) {
@@ -24,11 +24,10 @@ if (isset($_GET['delete'])) {
 }
 
 //printerr($BankDetails);
-
 if (isset($_POST['insert']) or isset($_POST['update'])) {
 	/* If the user has submitted either the update or
 	 * new item forms
-	 */
+	*/
 
 	/*initialise no input errors assumed initially before we test  */
 	$InputError = 0;
@@ -57,7 +56,6 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		prnMsg(_('branchname must not be empty'), 'error');
 		$InputError = 1;
 	}
-
 
 	if ($InputError != 1) {
 		/* If the are no errors then process the form */
@@ -104,7 +102,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 	}
 	/* End of if there were errors */
 
-} else if (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} else if (isset($_POST['delete']) and $_POST['delete'] != '') {
 	/* If we are deleting a record */
 	$CancelDelete = 0;
 
@@ -122,7 +120,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 
 if (!isset($employeeid)) {
 	/* If there is no employee id set then show an input form */
-	echo '<form method="post" class="noPrint" id="BankDetails" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" class="noPrint" id="BankDetails" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -173,7 +171,7 @@ if (isset($_GET['employeeid']) and (!isset($_GET['delete']))) {
 					ON prlemployeemaster.employeeid=prlbankdetails.employeeid
 				    WHERE prlemployeemaster.employeeid='" . $employeeid . "'";
 	$Result = DB_query($SQL);
-	echo '<form method="post" class="noPrint" id="BankDetails" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" class="noPrint" id="BankDetails" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 
@@ -240,7 +238,6 @@ echo '<table>
 			<th>' . _('Bank branch') . '</th>
 		</tr>';
 $k = 0; //row colour counter
-
 //while loop
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr class="striped_row">
@@ -249,14 +246,13 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td>' . $MyRow['bankcode'] . '</td>
 			<td>' . $MyRow['bankname'] . '</td>
 			<td>' . $MyRow['branchname'] . '</td>
-			<td><a href="' . $_SERVER['PHP_SELF'] . '?employeeid=' . $MyRow['employeeid'] . '">' . _('Edit') . '</a></td>
-			<td><a href="' . $_SERVER['PHP_SELF'] . '?employeeid=' . $MyRow['employeeid'] . '&delete=1">' . _('Delete') . '</a></td>
+			<td><a href="' . basename(__FILE__) . '?employeeid=' . $MyRow['employeeid'] . '">' . _('Edit') . '</a></td>
+			<td><a href="' . basename(__FILE__) . '?employeeid=' . $MyRow['employeeid'] . '&delete=1">' . _('Delete') . '</a></td>
 		</tr>';
 
 } //END WHILE LIST LOOP
-
 echo '</table>';
 /* End of listing of all bank details */
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

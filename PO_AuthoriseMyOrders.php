@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Authorise Purchase Orders');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -30,7 +29,7 @@ if (isset($_POST['UpdateAll'])) {
 }
 
 /* Retrieve the purchase order header information
- */
+*/
 $SQL = "SELECT purchorders.*,
 			suppliers.suppname,
 			suppliers.currcode,
@@ -46,7 +45,7 @@ $SQL = "SELECT purchorders.*,
 	WHERE status='Pending'";
 $Result = DB_query($SQL);
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>
 		<thead>
@@ -146,5 +145,5 @@ echo '<div class="centre">
 		<input type="submit" name="UpdateAll" value="' . _('Update') . '" />
 	</div>
 	</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Bank Account Users');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'UserBankAccounts';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('User Authorised Bank Accounts') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -50,7 +49,6 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 
 		// First check the user is not being duplicated
-
 		$CheckSql = "SELECT count(*)
 			     FROM bankaccountusers
 			     WHERE accountcode= '" . $_POST['SelectedBankAccount'] . "'
@@ -89,8 +87,8 @@ if (isset($_POST['submit'])) {
 if (!isset($SelectedUser)) {
 
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedBankAccount will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
-	then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	 then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table>
 			<tr>
@@ -112,7 +110,6 @@ if (!isset($SelectedUser)) {
 		echo $MyRow['userid'] . '">' . $MyRow['userid'] . ' - ' . $MyRow['realname'] . '</option>';
 
 	} //end while loop
-
 	echo '</select></td></tr>';
 
 	echo '</table>'; // close main table
@@ -136,8 +133,8 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 	$MyRow = DB_fetch_array($Result);
 	$SelectedUserName = $MyRow['realname'];
 
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Authorised bank accounts for') . ' ' . $SelectedUserName . '</a></div>
-		<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Authorised bank accounts for') . ' ' . $SelectedUserName . '</a></div>
+		<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<input type="hidden" name="SelectedUser" value="' . $SelectedUser . '" />';
 
@@ -160,23 +157,20 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 		</tr>';
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		printf('<tr class="striped_row">
 					<td>%s</td>
 					<td>%s</td>
 					<td><a href="%s?SelectedBankAccount=%s&amp;delete=yes&amp;SelectedUser=' . $SelectedUser . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorise this bank account?') . '\');">' . _('Un-authorise') . '</a></td>
-				</tr>', $MyRow['accountcode'], $MyRow['bankaccountname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['accountcode'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow['accountcode']);
+				</tr>', $MyRow['accountcode'], $MyRow['bankaccountname'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow['accountcode'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow['accountcode']);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
 
 	if (!isset($_GET['delete'])) {
 
-
 		echo '<table >'; //Main table
-
 		echo '<tr>
 				<td>' . _('Select Bank Account') . ':</td>
 				<td><select name="SelectedBankAccount">';
@@ -202,7 +196,6 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 			echo $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' - ' . $MyRow['bankaccountname'] . '</option>';
 
 		} //end while loop
-
 		echo '</select>
 					</td>
 				</tr>
@@ -216,7 +209,8 @@ if (isset($_POST['process']) or isset($SelectedUser)) {
 			</form>';
 
 	} // end if user wish to delete
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

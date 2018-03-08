@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Stock Re-Order Level Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['StockID'])) {
 	$StockId = trim(mb_strtoupper($_GET['StockID']));
@@ -23,7 +22,7 @@ echo '<p class="page_title_text" >
 $Result = DB_query("SELECT description, units FROM stockmaster WHERE stockid='" . $StockId . "'");
 $MyRow = DB_fetch_row($Result);
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT locstock.loccode,
@@ -38,7 +37,7 @@ $SQL = "SELECT locstock.loccode,
 				ON locstock.loccode=locations.loccode
 			INNER JOIN locationusers
 				ON locationusers.loccode=locstock.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			INNER JOIN stockmaster
 				ON locstock.stockid=stockmaster.stockid
@@ -69,7 +68,7 @@ $k = 0; //row colour counter
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($LocStockResult)) {
 
-	if (isset($_POST['UpdateData']) AND $_POST['Old_' . $MyRow['loccode']] != filter_number_format($_POST[$MyRow['loccode']]) AND is_numeric(filter_number_format($_POST[$MyRow['loccode']])) AND filter_number_format($_POST[$MyRow['loccode']]) >= 0) {
+	if (isset($_POST['UpdateData']) and $_POST['Old_' . $MyRow['loccode']] != filter_number_format($_POST[$MyRow['loccode']]) and is_numeric(filter_number_format($_POST[$MyRow['loccode']])) and filter_number_format($_POST[$MyRow['loccode']]) >= 0) {
 
 		$MyRow['reorderlevel'] = filter_number_format($_POST[$MyRow['loccode']]);
 		$SQL = "UPDATE locstock SET reorderlevel = '" . filter_number_format($_POST[$MyRow['loccode']]) . "'
@@ -88,17 +87,11 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 	printf('<tr class="striped_row">
 			<td>%s</td>
 			<td class="number">%s</td>
-			<td class="number">' . $UpdateCode . '</td></tr>',
-			$MyRow['locationname'],
-			locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']),
-			$MyRow['loccode'],
-			$MyRow['reorderlevel'],
-			$MyRow['loccode'],
-			$MyRow['reorderlevel']);
+			<td class="number">' . $UpdateCode . '</td></tr>', $MyRow['locationname'], locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']), $MyRow['loccode'], $MyRow['reorderlevel'], $MyRow['loccode'], $MyRow['reorderlevel']);
 	//end of page full new headings if
+	
 }
 //end of while loop
-
 echo '</tbody>
 	</table>
 	<div class="centre">
@@ -111,5 +104,5 @@ echo '<a href="' . $RootPath . '/SelectCompletedOrder.php?SelectedStockItem=' . 
 
 echo '</div>
 	</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

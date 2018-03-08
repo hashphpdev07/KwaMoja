@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales Category Report');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Sales Report'), '" alt="" />', ' ', _('Sales Category Report'), '
@@ -14,7 +13,7 @@ if (!isset($_POST['DateRange'])) {
 	$_POST['DateRange'] = 'ThisMonth';
 }
 
-echo '<form id="form1" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form id="form1" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<table cellpadding="2">';
@@ -84,7 +83,6 @@ if ($_POST['DateRange'] == 'Custom') {
 }
 echo '</table>';
 
-
 echo '<div class="centre">
 		<input type="submit" name="ShowSales" value="', _('Show Sales'), '" />
 	</div>';
@@ -110,34 +108,34 @@ if (isset($_POST['ShowSales'])) {
 		case 'ThisWeek':
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') - date('w') + 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'ThisMonth':
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'ThisQuarter':
 			switch (date('m')) {
 				case 1:
 				case 2:
 				case 3:
 					$QuarterStartMonth = 1;
-					break;
+				break;
 				case 4:
 				case 5:
 				case 6:
 					$QuarterStartMonth = 4;
-					break;
+				break;
 				case 7:
 				case 8:
 				case 9:
 					$QuarterStartMonth = 7;
-					break;
+				break;
 				default:
 					$QuarterStartMonth = 10;
 			}
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, $QuarterStartMonth, 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'Custom':
 			$FromDate = FormatDateForSQL($_POST['FromDate']);
 			$ToDate = FormatDateForSQL($_POST['ToDate']);
@@ -198,7 +196,7 @@ if (isset($_POST['ShowSales'])) {
 	while ($SalesRow = DB_fetch_array($SalesResult)) {
 
 		echo '<tr class="striped_row">
-				<td>' . $SalesRow['categoryid'],' - ', $SalesRow['categorydescription'], '</td>
+				<td>' . $SalesRow['categoryid'], ' - ', $SalesRow['categorydescription'], '</td>
 				<td class="number">', locale_number_format($SalesRow['salesvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SalesRow['salesvalue'] + $SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
@@ -206,13 +204,12 @@ if (isset($_POST['ShowSales'])) {
 				<td class="number">', locale_number_format(($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']), $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			</tr>';
 
-		$CumulativeTotalSales += $SalesRow['salesvalue'];
-		$CumulativeTotalRefunds += $SalesRow['returnvalue'];
-		$CumulativeTotalNetSales += ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
-		$CumulativeTotalCost += $SalesRow['cost'];
-		$CumulativeTotalGP += ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
+		$CumulativeTotalSales+= $SalesRow['salesvalue'];
+		$CumulativeTotalRefunds+= $SalesRow['returnvalue'];
+		$CumulativeTotalNetSales+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
+		$CumulativeTotalCost+= $SalesRow['cost'];
+		$CumulativeTotalGP+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
 	} //loop around category sales for the period
-
 	if ($k == 1) {
 		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
 		echo '<tr class="striped_row">';
@@ -231,5 +228,5 @@ if (isset($_POST['ShowSales'])) {
 	echo '</table>';
 
 } //end of if user hit show sales
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

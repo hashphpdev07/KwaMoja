@@ -1,13 +1,12 @@
 <?php
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 /* Manual links before header.php */
 $ViewTopic = 'Inventory';
 $BookMark = 'PlanningReport';
 
 if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST['Categories']) > 0) {
-	include('includes/class.pdf.php');
+	include ('includes/class.pdf.php');
 
 	/* A4_Landscape */
 
@@ -20,7 +19,6 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 	// Javier: now I use the native constructor
 	//	$PageSize = array(0,0,$Page_Width,$Page_Height);
-
 	/* Standard PDF file creation header stuff */
 
 	// Javier: better to not use references
@@ -46,7 +44,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	$LineHeight = 12;
 
 	/*Now figure out the inventory data to report for the category range under review
-	need QOH, QOO, QDem, Sales Mth -1, Sales Mth -2, Sales Mth -3, Sales Mth -4*/
+	 need QOH, QOO, QDem, Sales Mth -1, Sales Mth -2, Sales Mth -3, Sales Mth -4*/
 	if ($_POST['Location'] == 'All') {
 		$SQL = "SELECT stockmaster.categoryid,
 						stockmaster.description,
@@ -99,13 +97,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 	if (DB_error_no() != 0) {
 		$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The inventory quantities could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	$Period_0_Name = GetMonthText(date('m', mktime(0, 0, 0, Date('m'), Date('d'), Date('Y'))));
@@ -115,7 +113,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	$Period_4_Name = GetMonthText(date('m', mktime(0, 0, 0, Date('m') - 4, Date('d'), Date('Y'))));
 	$Period_5_Name = GetMonthText(date('m', mktime(0, 0, 0, Date('m') - 5, Date('d'), Date('Y'))));
 
-	include('includes/PDFInventoryPlanPageHeader.php');
+	include ('includes/PDFInventoryPlanPageHeader.php');
 
 	$Category = '';
 
@@ -133,9 +131,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 			if ($Category != '') {
 				/*Then it's NOT the first time round */
 				/*draw a line under the CATEGORY TOTAL*/
-				$YPos -= $LineHeight;
+				$YPos-= $LineHeight;
 				$PDF->line($Left_Margin, $YPos, $Page_Width - $Right_Margin, $YPos);
-				$YPos -= (2 * $LineHeight);
+				$YPos-= (2 * $LineHeight);
 			}
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 260 - $Left_Margin, $FontSize, $InventoryPlan['categoryid'] . ' - ' . $InventoryPlan['categorydescription'], 'left');
@@ -143,8 +141,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 			$FontSize = 8;
 		}
 
-		$YPos -= $LineHeight;
-
+		$YPos-= $LineHeight;
 
 		if ($_POST['Location'] == 'All') {
 			$SQL = "SELECT SUM(CASE WHEN prd='" . $CurrentPeriod . "' THEN -qty ELSE 0 END) AS prd0,
@@ -183,14 +180,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The sales quantities could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
 
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -228,18 +225,17 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The sales order demand quantities could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		// Also need to add in the demand as a component of an assembly items if this items has any assembly parents.
-
 		if ($_POST['Location'] == 'All') {
 			$SQL = "SELECT SUM((salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*bom.quantity) AS dem
 						FROM salesorderdetails
@@ -284,13 +280,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The sales order demand quantities from parent assemblies could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -298,10 +294,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 		if ($_POST['Location'] == 'All') {
 			$QOO = GetQuantityOnOrderDueToPurchaseOrders($InventoryPlan['stockid']);
-			$QOO += GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid']);
+			$QOO+= GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid']);
 		} else {
 			$QOO = GetQuantityOnOrderDueToPurchaseOrders($InventoryPlan['stockid'], $_POST['Location']);
-			$QOO += GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid'], $_POST['Location']);
+			$QOO+= GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid'], $_POST['Location']);
 		}
 
 		$DemandRow = DB_fetch_array($DemandResult);
@@ -325,8 +321,6 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 			$MaxMthSales = max($SalesRow['prd1'], $SalesRow['prd2'], $SalesRow['prd3'], $SalesRow['prd4'], $SalesRow['prd5']);
 		}
 
-
-
 		$IdealStockHolding = ceil($MaxMthSales * $NumberMonths);
 		$LeftOvers = $PDF->addTextWrap(497, $YPos, 40, $FontSize, locale_number_format($IdealStockHolding, 0), 'right');
 		$LeftOvers = $PDF->addTextWrap(597, $YPos, 40, $FontSize, locale_number_format($InventoryPlan['qoh'], 0), 'right');
@@ -343,38 +337,35 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 			$LeftOvers = $PDF->addTextWrap(720, $YPos, 40, $FontSize, locale_number_format($SuggestedTopUpOrder, 0), 'right');
 		}
 
-
-
 		if ($YPos < $Bottom_Margin + $LineHeight) {
 			$PageNumber++;
-			include('includes/PDFInventoryPlanPageHeader.php');
+			include ('includes/PDFInventoryPlanPageHeader.php');
 		}
 
 	}
 	/*end inventory valn while loop */
 
-	$YPos -= (2 * $LineHeight);
+	$YPos-= (2 * $LineHeight);
 
 	$PDF->line($Left_Margin, $YPos + $LineHeight, $Page_Width - $Right_Margin, $YPos + $LineHeight);
 
 	if ($ListCount == 0) {
 		$Title = _('Print Inventory Planning Report Empty');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items in the range and location specified'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_Inventory_Planning_' . Date('Y-m-d') . '.pdf');
 		$PDF->__destruct();
 	}
 } elseif (isset($_POST['ExportToCSV'])) { //send the data to a CSV
-
 	function stripcomma($String) { //because we're using comma as a delimiter
 		return str_replace(',', '', str_replace(';', '', $String));
 	}
 	/*Now figure out the inventory data to report for the category range under review
-	need QOH, QOO, QDem, Sales Mth -1, Sales Mth -2, Sales Mth -3, Sales Mth -4*/
+	 need QOH, QOO, QDem, Sales Mth -1, Sales Mth -2, Sales Mth -3, Sales Mth -4*/
 	if ($_POST['Location'] == 'All') {
 		$SQL = "SELECT stockmaster.categoryid,
 						stockmaster.description,
@@ -419,30 +410,30 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	$InventoryResult = DB_query($SQL);
 	$CurrentPeriod = GetPeriod(Date($_SESSION['DefaultDateFormat']));
 	$Periods = array();
-	for ($i = 0; $i < 24; $i++) {
+	for ($i = 0;$i < 24;$i++) {
 		$Periods[$i]['Period'] = $CurrentPeriod - $i;
 		$Periods[$i]['Month'] = GetMonthText(Date('m', mktime(0, 0, 0, Date('m') - $i, Date('d'), Date('Y')))) . ' ' . Date('Y', mktime(0, 0, 0, Date('m') - $i, Date('d'), Date('Y')));
 	}
 	$SQLStarter = "SELECT stockmoves.stockid,";
-	for ($i = 0; $i < 24; $i++) {
-		$SQLStarter .= "SUM(CASE WHEN prd='" . $Periods[$i]['Period'] . "' THEN -qty ELSE 0 END) AS prd" . $i . ' ';
+	for ($i = 0;$i < 24;$i++) {
+		$SQLStarter.= "SUM(CASE WHEN prd='" . $Periods[$i]['Period'] . "' THEN -qty ELSE 0 END) AS prd" . $i . ' ';
 		if ($i < 23) {
-			$SQLStarter .= ', ';
+			$SQLStarter.= ', ';
 		}
 	}
-	$SQLStarter .= "FROM stockmoves
+	$SQLStarter.= "FROM stockmoves
 					INNER JOIN locationusers ON locationusers.loccode=stockmoves.loccode AND locationusers.userid='" . $_SESSION['UserID'] . "' AND locationusers.canview=1
 					WHERE (type=10 OR type=11)
 					AND stockmoves.hidemovt=0";
 	if ($_POST['Location'] != 'All') {
-		$SQLStarter .= " AND stockmoves.loccode ='" . $_POST['Location'] . "'";
+		$SQLStarter.= " AND stockmoves.loccode ='" . $_POST['Location'] . "'";
 	}
 
 	$CSVListing = _('Category ID') . ',' . _('Category Description') . ',' . _('Stock ID') . ',' . _('Description') . ',' . _('QOH') . ',';
-	for ($i = 0; $i < 24; $i++) {
-		$CSVListing .= $Periods[$i]['Month'] . ',';
+	for ($i = 0;$i < 24;$i++) {
+		$CSVListing.= $Periods[$i]['Month'] . ',';
 	}
-	$CSVListing .= "\r\n";
+	$CSVListing.= "\r\n";
 
 	$Category = '';
 
@@ -452,14 +443,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		$SalesResult = DB_query($SQL, _('The stock usage of this item could not be retrieved because'));
 
 		if (DB_num_rows($SalesResult) == 0) {
-			$CSVListing .= stripcomma($InventoryPlan['categoryid']) . ',' . stripcomma($InventoryPlan['categorydescription']) . ',' . stripcomma($InventoryPlan['stockid']) . ',' . stripcomma($InventoryPlan['description']) . ',' . stripcomma($InventoryPlan['qoh']) . "\r\n";
+			$CSVListing.= stripcomma($InventoryPlan['categoryid']) . ',' . stripcomma($InventoryPlan['categorydescription']) . ',' . stripcomma($InventoryPlan['stockid']) . ',' . stripcomma($InventoryPlan['description']) . ',' . stripcomma($InventoryPlan['qoh']) . "\r\n";
 		} else {
 			$SalesRow = DB_fetch_array($SalesResult);
-			$CSVListing .= stripcomma($InventoryPlan['categoryid']) . ',' . stripcomma($InventoryPlan['categorydescription']) . ',' . stripcomma($InventoryPlan['stockid']) . ',' . stripcomma($InventoryPlan['description']) . ',' . stripcomma($InventoryPlan['qoh']);
-			for ($i = 0; $i < 24; $i++) {
-				$CSVListing .= ',' . $SalesRow['prd' . $i];
+			$CSVListing.= stripcomma($InventoryPlan['categoryid']) . ',' . stripcomma($InventoryPlan['categorydescription']) . ',' . stripcomma($InventoryPlan['stockid']) . ',' . stripcomma($InventoryPlan['description']) . ',' . stripcomma($InventoryPlan['qoh']);
+			for ($i = 0;$i < 24;$i++) {
+				$CSVListing.= ',' . $SalesRow['prd' . $i];
 			}
-			$CSVListing .= "\r\n";
+			$CSVListing.= "\r\n";
 		}
 
 	}
@@ -476,12 +467,12 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	/*The option to print PDF was not hit */
 
 	$Title = _('Inventory Planning Reporting');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -492,7 +483,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 			ORDER BY categorydescription';
 	$CatResult = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($CatResult)) {
-		if (isset($_POST['Categories']) AND in_array($MyRow['categoryid'], $_POST['Categories'])) {
+		if (isset($_POST['Categories']) and in_array($MyRow['categoryid'], $_POST['Categories'])) {
 			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
@@ -548,7 +539,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 			<input type="submit" name="ExportToCSV" value="' . _('Export 24 months to CSV') . '" />
 		</div>
 		</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

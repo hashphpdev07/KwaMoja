@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Search GL Accounts');
 
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountInquiry';
-include('includes/header.php');
+include ('includes/header.php');
 
 unset($Result);
 
@@ -27,7 +26,7 @@ if (isset($_POST['Search'])) {
 					AND chartmaster.language = accountgroups.language
 				INNER JOIN glaccountusers
 					ON glaccountusers.accountcode=chartmaster.accountcode
-					AND glaccountusers.userid='" .  $_SESSION['UserID'] . "'
+					AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
 					AND glaccountusers.canupd=1
 				WHERE accountname " . LIKE . " '" . $SearchString . "'
 					AND chartmaster.accountcode " . LIKE . " '" . $_POST['GLCode'] . "%'
@@ -41,7 +40,7 @@ if (isset($_POST['Search'])) {
 }
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="' . _('Search for General Ledger Accounts') . '" />' . ' ' . _('Search for General Ledger Accounts') . '</p>';
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table summary="' . _('Criteria for inquiry') . '">
@@ -98,8 +97,8 @@ if (isset($Result) and DB_num_rows($Result) > 0) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr>
-				<td>' . htmlspecialchars($MyRow['accountcode'],ENT_QUOTES,'UTF-8',false) . '</td>
-				<td>' . htmlspecialchars($MyRow['accountname'],ENT_QUOTES,'UTF-8',false) . '</td>
+				<td>' . htmlspecialchars($MyRow['accountcode'], ENT_QUOTES, 'UTF-8', false) . '</td>
+				<td>' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</td>
 				<td>' . $MyRow['group_'] . '</td>
 				<td>' . $MyRow['pl'] . '</td>
 				<td>
@@ -114,14 +113,12 @@ if (isset($Result) and DB_num_rows($Result) > 0) {
 			</tr>';
 	}
 	//end of while loop
-
 	echo '</tbody>';
 	echo '</table>';
 
 }
 //end if results to show
-
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Change Asset Location');
 
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetTransfer';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -32,7 +31,7 @@ if (isset($_GET['AssetID'])) {
 } else {
 	$SQL = "SELECT categoryid, categorydescription FROM fixedassetcategories";
 	$Result = DB_query($SQL);
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table><tr>';
@@ -53,7 +52,6 @@ if (isset($_GET['AssetID'])) {
 
 	echo '</select></td>';
 	echo '<td>' . _('Enter partial') . '<b> ' . _('Description') . '</b>:</td><td>';
-
 
 	if (isset($_POST['Keywords'])) {
 		echo '<input type="text" autofocus="autofocus" name="Keywords" value="' . trim($_POST['Keywords'], '%') . '" size="20" maxlength="25" />';
@@ -84,7 +82,6 @@ if (isset($_GET['AssetID'])) {
 		}
 	}
 	echo '</select>';
-
 
 	echo '<td><b>' . _('OR') . ' ' . '</b>' . _('Enter partial') . ' <b>' . _('Asset Code') . '</b>:</td>';
 	echo '<td>';
@@ -124,7 +121,6 @@ if (isset($_POST['Search'])) {
 		$AssetID = '%';
 	}
 
-
 	$SQL = "SELECT fixedassets.assetid,
 				fixedassets.cost,
 				fixedassets.accumdepn,
@@ -143,10 +139,9 @@ if (isset($_POST['Search'])) {
 			AND fixedassets.assetlocation " . LIKE . "'" . $AssetLocation . "'
 			ORDER BY fixedassets.assetid";
 
-
 	$Result = DB_query($SQL);
 	echo '<br />';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 		  <div>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
@@ -199,6 +194,6 @@ if (isset($_POST['Search'])) {
 		  </form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

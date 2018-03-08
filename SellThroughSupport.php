@@ -150,7 +150,7 @@ if (isset($_POST['SearchSupplier'])) {
 	$DbgMsg = _('The SQL to retrieve supplier details that failed was');
 	$SuppliersResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table cellpadding="2" colspan="7">
 				<thead>
@@ -181,7 +181,7 @@ if (isset($_POST['SearchSupplier'])) {
 } //end if results to show
 if (!isset($SupplierID) or isset($_POST['SearchSupplier'])) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table cellpadding="3" colspan="4">
 			<tr>
@@ -276,7 +276,7 @@ if (isset($SupplierID) and $Edit == false) {
 						<td>%s</td>
 						<td><a href="%s?SellSupportID=%s&amp;SupplierID=%s&amp;Edit=1">' . _('Edit') . '</a></td>
 						<td><a href="%s?SellSupportID=%s&amp;Delete=1&amp;SupplierID=%s" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this sell through support record?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
-					</tr>', $ItemDescription, $Customer, locale_number_format($MyRow['rebateamount'], $SuppRow['decimalplaces']), locale_number_format($MyRow['rebatepercent'] * 100, 2), $MyRow['narrative'], ConvertSQLDate($MyRow['effectivefrom']), ConvertSQLDate($MyRow['effectiveto']), htmlspecialchars($_SERVER['PHP_SELF']), $MyRow['id'], $SupplierID, htmlspecialchars($_SERVER['PHP_SELF']), $MyRow['id'], $SupplierID);
+					</tr>', $ItemDescription, $Customer, locale_number_format($MyRow['rebateamount'], $SuppRow['decimalplaces']), locale_number_format($MyRow['rebatepercent'] * 100, 2), $MyRow['narrative'], ConvertSQLDate($MyRow['effectivefrom']), ConvertSQLDate($MyRow['effectiveto']), htmlspecialchars(basename(__FILE__)), $MyRow['id'], $SupplierID, htmlspecialchars(basename(__FILE__)), $MyRow['id'], $SupplierID);
 		} //end of while loop
 		echo '</table><br/>';
 	} // end of there are sell through support rows to show
@@ -306,7 +306,7 @@ if (isset($SupplierID)) { //not selecting a supplier
 
 	$SuppName = $SuppRow['suppname'];
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<input type="hidden" name="SupplierID" value="' . $SupplierID . '" />
 			<table>';

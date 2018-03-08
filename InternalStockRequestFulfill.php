@@ -1,13 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Fulfil Stock Requests');
 $ViewTopic = 'Inventory';
 $BookMark = 'FulfilRequest';
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Contract') . '" alt="" />' . _('Fulfil Stock Requests') . '</p>';
 
@@ -93,11 +92,9 @@ if (isset($_POST['UpdateAll'])) {
 									'" . ($QtyOnHandPrior - $Quantity) . "'
 								)";
 
-
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The stock movement record cannot be inserted because');
 				$DbgMsg = _('The following SQL to insert the stock movement record was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-
 
 				/*Get the ID of the StockMove... */
 				$StkMoveNo = DB_Last_Insert_ID('stockmoves', 'stkmoveno');
@@ -142,7 +139,7 @@ if (isset($_POST['UpdateAll'])) {
 					$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The general ledger transaction entries could not be added because');
 					$DbgMsg = _('The following SQL to insert the GL entries was used');
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-					foreach($Tags as $Tag) {
+					foreach ($Tags as $Tag) {
 						$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 															'" . $Tag . "')";
 						$ErrMsg = _('Cannot insert a GL tag for the journal line because');
@@ -169,7 +166,7 @@ if (isset($_POST['UpdateAll'])) {
 					$Errmsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The general ledger transaction entries could not be added because');
 					$DbgMsg = _('The following SQL to insert the GL entries was used');
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-					foreach($Tags as $Tag) {
+					foreach ($Tags as $Tag) {
 						$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 															'" . $Tag . "')";
 						$ErrMsg = _('Cannot insert a GL tag for the journal line because');
@@ -197,15 +194,12 @@ if (isset($_POST['UpdateAll'])) {
 					if ($_SESSION['SmtpSetting'] == 0) {
 						mail($_SESSION['InventoryManagerEmail'], $EmailSubject, $ConfirmationText);
 					} else {
-						include('includes/htmlMimeMail.php');
+						include ('includes/htmlMimeMail.php');
 						$Mail = new htmlMimeMail();
 						$Mail->setSubject($EmailSubject);
 						$Mail->setText($ConfirmationText);
-						$Result = SendmailBySmtp($Mail, array(
-							$_SESSION['InventoryManagerEmail']
-						));
+						$Result = SendmailBySmtp($Mail, array($_SESSION['InventoryManagerEmail']));
 					}
-
 
 				}
 			} else {
@@ -232,7 +226,7 @@ if (isset($_POST['UpdateAll'])) {
 }
 
 if (!isset($_POST['Location'])) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -244,7 +238,7 @@ if (!isset($_POST['Location'])) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 				WHERE internalrequest = 1
 				ORDER BY locationname";
@@ -264,12 +258,12 @@ if (!isset($_POST['Location'])) {
 	echo '</table>';
 	echo '<div class="centre"><input type="submit" name="EnterAdjustment" value="' . _('Show Requests') . '" /></div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 /* Retrieve the requisition header information
- */
+*/
 if (isset($_POST['Location'])) {
 	$SQL = "SELECT stockrequest.dispatchid,
 			locations.locationname,
@@ -293,12 +287,12 @@ if (isset($_POST['Location'])) {
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('There are no outstanding authorised requests for this location'), 'info');
 		echo '<br />';
-		echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select another location') . '</a></div>';
-		include('includes/footer.php');
+		echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Select another location') . '</a></div>';
+		include ('includes/footer.php');
 		exit;
 	}
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -384,6 +378,6 @@ if (isset($_POST['Location'])) {
 		  </form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

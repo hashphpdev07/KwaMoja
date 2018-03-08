@@ -1,5 +1,4 @@
 <?php
-
 $Host = $_SESSION['Installer']['HostName'];
 $DBUser = $_SESSION['Installer']['UserName'];
 $DBPassword = $_SESSION['Installer']['Password'];
@@ -8,30 +7,30 @@ $_SESSION['DatabaseName'] = $_SESSION['Installer']['Database'];
 $DefaultDatabase = 'default';
 
 /* Try to connect to the DBMS */
-switch($_SESSION['Installer']['DBMS']) {
+switch ($_SESSION['Installer']['DBMS']) {
 	case 'mariadb':
 		$DB = @mysqli_connect($_SESSION['Installer']['HostName'], $_SESSION['Installer']['UserName'], $_SESSION['Installer']['Password'], $_SESSION['DatabaseName']);
-		break;
+	break;
 	case 'mysql':
 		$DB = @mysql_connect($_SESSION['Installer']['HostName'] . ':' . $_SESSION['Installer']['DBPort'], $_SESSION['Installer']['UserName'], $_SESSION['Installer']['Password']);
-		break;
+	break;
 	case 'mysqli':
 		$DB = @mysqli_connect($_SESSION['Installer']['HostName'], $_SESSION['Installer']['UserName'], $_SESSION['Installer']['Password'], $_SESSION['DatabaseName']);
-		break;
+	break;
 	case 'posgres':
 		$DB = pg_connect('host=' . $_SESSION['Installer']['HostName'] . ' dbname=kwamoja port=5432 user=postgres');;
-		break;
+	break;
 	default:
 		$DB = @mysqli_connect($_SESSION['Installer']['HostName'], $_SESSION['Installer']['UserName'], $_SESSION['Installer']['Password']);
-		break;
+	break;
 }
 if (!$DB) {
 	$Errors[] = _('Failed to connect the database management system');
 }
 
-include($PathPrefix . 'includes/ConnectDB_' . $_SESSION['Installer']['DBMS'] . '.php');
-include($PathPrefix . 'includes/UpgradeDB_' . $_SESSION['Installer']['DBMS'] . '.php');
-include($PathPrefix . 'includes/DateFunctions.php');
+include ($PathPrefix . 'includes/ConnectDB_' . $_SESSION['Installer']['DBMS'] . '.php');
+include ($PathPrefix . 'includes/UpgradeDB_' . $_SESSION['Installer']['DBMS'] . '.php');
+include ($PathPrefix . 'includes/DateFunctions.php');
 date_default_timezone_set($_SESSION['Installer']['TimeZone']);
 $Path_To_Root = '..';
 $Config_File = $Path_To_Root . '/config.php';
@@ -70,51 +69,51 @@ if (!file_exists($Path_To_Root . '/companies/' . $_SESSION['Installer']['Databas
 }
 //$Msg holds the text of the new config.php file
 $Msg = "<?php\n\n";
-$Msg .= "// User configurable variables\n";
-$Msg .= "//---------------------------------------------------\n\n";
-$Msg .= "//DefaultLanguage to use for the login screen and the setup of new users.\n";
-$Msg .= "\$DefaultLanguage = '" . $_SESSION['Installer']['Language'] . "';\n\n";
-$Msg .= "// Whether to display the demo login and password or not on the login screen\n";
-$Msg .= "\$AllowDemoMode = FALSE;\n\n";
-$Msg .= "// Connection information for the database\n";
-$Msg .= "// \$Host is the computer ip address or name where the database is located\n";
-$Msg .= "// assuming that the webserver is also the sql server\n";
-$Msg .= "\$Host = '" . $Host . "';\n\n";
-$Msg .= "// assuming that the web server is also the sql server\n";
-$Msg .= "\$DBType = '" . $_SESSION['Installer']['DBMS'] . "';\n";
-$Msg .= "//assuming that the web server is also the sql server\n";
-$Msg .= "\$DBUser = '" . $DBUser . "';\n";
-$Msg .= "\$DBPassword = '" . $DBPassword . "';\n";
-$Msg .= "// The timezone of the business - this allows the possibility of having;\n";
-$Msg .= "define('TIMEZONE', '" . $_SESSION['Installer']['TimeZone'] . "');\n";
-$Msg .= "date_default_timezone_set(TIMEZONE);\n";
-$Msg .= "\$AllowCompanySelectionBox = 'ShowSelectionBox';\n";
-$Msg .= "//The system administrator name use the user input mail;\n";
+$Msg.= "// User configurable variables\n";
+$Msg.= "//---------------------------------------------------\n\n";
+$Msg.= "//DefaultLanguage to use for the login screen and the setup of new users.\n";
+$Msg.= "\$DefaultLanguage = '" . $_SESSION['Installer']['Language'] . "';\n\n";
+$Msg.= "// Whether to display the demo login and password or not on the login screen\n";
+$Msg.= "\$AllowDemoMode = FALSE;\n\n";
+$Msg.= "// Connection information for the database\n";
+$Msg.= "// \$Host is the computer ip address or name where the database is located\n";
+$Msg.= "// assuming that the webserver is also the sql server\n";
+$Msg.= "\$Host = '" . $Host . "';\n\n";
+$Msg.= "// assuming that the web server is also the sql server\n";
+$Msg.= "\$DBType = '" . $_SESSION['Installer']['DBMS'] . "';\n";
+$Msg.= "//assuming that the web server is also the sql server\n";
+$Msg.= "\$DBUser = '" . $DBUser . "';\n";
+$Msg.= "\$DBPassword = '" . $DBPassword . "';\n";
+$Msg.= "// The timezone of the business - this allows the possibility of having;\n";
+$Msg.= "define('TIMEZONE', '" . $_SESSION['Installer']['TimeZone'] . "');\n";
+$Msg.= "date_default_timezone_set(TIMEZONE);\n";
+$Msg.= "\$AllowCompanySelectionBox = 'ShowSelectionBox';\n";
+$Msg.= "//The system administrator name use the user input mail;\n";
 if (strtolower($_SESSION['Installer']['Email']) != 'admin@kwamoja.com') {
-	$Msg .= "\$SysAdminEmail = '" . $_SESSION['Installer']['Email'] . "';\n";
+	$Msg.= "\$SysAdminEmail = '" . $_SESSION['Installer']['Email'] . "';\n";
 }
 if (isset($NewCompany)) {
-	$Msg .= "\$DefaultCompany = '" . $_SESSION['Installer']['Database'] . "';\n";
+	$Msg.= "\$DefaultCompany = '" . $_SESSION['Installer']['Database'] . "';\n";
 } else {
-	$Msg .= "\$DefaultCompany = '" . $_SESSION['Installer']['Database'] . "';\n";
+	$Msg.= "\$DefaultCompany = '" . $_SESSION['Installer']['Database'] . "';\n";
 }
-$Msg .= "\$SessionLifeTime = 3600;\n";
-$Msg .= "\$MaximumExecutionTime = 120;\n";
-$Msg .= "\$DefaultClock = 12;\n";
-$Msg .= "\$RootPath = dirname(htmlspecialchars(\$_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8'));\n";
-$Msg .= "if (isset(\$DirectoryLevelsDeep)){\n";
-$Msg .= "   for (\$i=0;\$i<\$DirectoryLevelsDeep;\$i++){\n";
-$Msg .= "		\$RootPath = mb_substr(\$RootPath,0, strrpos(\$RootPath,'/'));\n";
-$Msg .= "	}\n";
-$Msg .= "}\n";
+$Msg.= "\$SessionLifeTime = 3600;\n";
+$Msg.= "\$MaximumExecutionTime = 120;\n";
+$Msg.= "\$DefaultClock = 12;\n";
+$Msg.= "\$RootPath = dirname(htmlspecialchars(\basename(__FILE__),ENT_QUOTES,'UTF-8'));\n";
+$Msg.= "if (isset(\$DirectoryLevelsDeep)){\n";
+$Msg.= "   for (\$i=0;\$i<\$DirectoryLevelsDeep;\$i++){\n";
+$Msg.= "		\$RootPath = mb_substr(\$RootPath,0, strrpos(\$RootPath,'/'));\n";
+$Msg.= "	}\n";
+$Msg.= "}\n";
 
-$Msg .= "if (\$RootPath == '/' OR \$RootPath == '\\\') {\n";
-$Msg .= "	\$RootPath = '';\n";
-$Msg .= "}\n";
-$Msg .= "error_reporting(E_ALL && ~E_NOTICE);\n";
-$Msg .= "\$Debug = 0;\n";
-$Msg .= "?>";
-$Msg .= "/* Make sure there is nothing - not even spaces after this last ?> */\n";
+$Msg.= "if (\$RootPath == '/' OR \$RootPath == '\\\') {\n";
+$Msg.= "	\$RootPath = '';\n";
+$Msg.= "}\n";
+$Msg.= "error_reporting(E_ALL && ~E_NOTICE);\n";
+$Msg.= "\$Debug = 0;\n";
+$Msg.= "?>";
+$Msg.= "/* Make sure there is nothing - not even spaces after this last ?> */\n";
 
 //write the config.php file since we have test the writability of the root path and companies,
 //there is little possibility that it will fail here. So just an warn if it is failed.
@@ -133,10 +132,10 @@ ob_flush();
 
 $CompanyFileHandler = fopen($Path_To_Root . '/companies/' . $_SESSION['DatabaseName'] . '/Companies.php', 'w');
 $Contents = "<?php\n\n";
-$Contents .= "\$CompanyName['" . $_SESSION['DatabaseName'] . "'] = '" . $_SESSION['CompanyRecord']['coyname'] . "';\n";
-$Contents .= "?>";
+$Contents.= "\$CompanyName['" . $_SESSION['DatabaseName'] . "'] = '" . $_SESSION['CompanyRecord']['coyname'] . "';\n";
+$Contents.= "?>";
 
-if (!fwrite($CompanyFileHandler, $Contents )) {
+if (!fwrite($CompanyFileHandler, $Contents)) {
 	fclose($CompanyFileHandler);
 	echo '<div class="error">' . _("Cannot write to the Companies.php file") . '</div>';
 }
@@ -151,40 +150,37 @@ $DBName = $_SESSION['Installer']['Database'];
 
 $SQLScriptFile = file('db/structure.sql');
 $ScriptFileEntries = sizeof($SQLScriptFile);
-$SQL ='';
+$SQL = '';
 $InAFunction = false;
 DB_IgnoreForeignKeys();
-for ($i=0; $i<$ScriptFileEntries; $i++) {
+for ($i = 0;$i < $ScriptFileEntries;$i++) {
 
 	$SQLScriptFile[$i] = trim($SQLScriptFile[$i]);
 	//ignore lines that start with -- or USE or /*
-	if (mb_substr($SQLScriptFile[$i], 0, 2) != '--'
-		and mb_strstr($SQLScriptFile[$i],'/*')==FALSE
-		and mb_strlen($SQLScriptFile[$i])>1){
+	if (mb_substr($SQLScriptFile[$i], 0, 2) != '--' and mb_strstr($SQLScriptFile[$i], '/*') == false and mb_strlen($SQLScriptFile[$i]) > 1) {
 
-		$SQL .= ' ' . $SQLScriptFile[$i];
+		$SQL.= ' ' . $SQLScriptFile[$i];
 
 		//check if this line kicks off a function definition - pg chokes otherwise
-		if (mb_substr($SQLScriptFile[$i],0,15) == 'CREATE FUNCTION'){
+		if (mb_substr($SQLScriptFile[$i], 0, 15) == 'CREATE FUNCTION') {
 			$InAFunction = true;
 		}
 		//check if this line completes a function definition - pg chokes otherwise
-		if (mb_substr($SQLScriptFile[$i],0,8) == 'LANGUAGE'){
+		if (mb_substr($SQLScriptFile[$i], 0, 8) == 'LANGUAGE') {
 			$InAFunction = false;
 		}
-		if (mb_strpos($SQLScriptFile[$i],';')>0 and ! $InAFunction){
+		if (mb_strpos($SQLScriptFile[$i], ';') > 0 and !$InAFunction) {
 			// Database created above with correct name.
-			if (strncasecmp($SQL, ' CREATE DATABASE ', 17)
-   				and strncasecmp($SQL, ' USE ', 5)){
-				$SQL = mb_substr($SQL,0,mb_strlen($SQL)-1);
-				$result = DB_query($SQL);
+			if (strncasecmp($SQL, ' CREATE DATABASE ', 17) and strncasecmp($SQL, ' USE ', 5)) {
+				$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1);
+				$Result = DB_query($SQL);
 			}
 			$SQL = '';
 		}
 
 	} //end if its a valid sql line not a comment
+	
 } //end of for loop around the lines of the sql script
-
 /* End database structure */
 
 $SQL = "INSERT INTO config VALUES('VersionNumber', '16.03')";
@@ -241,43 +237,40 @@ if (DB_error_no() == 0) {
 	echo '<div class="error">' . _('There was an error inserting the admin user') . ' - ' . DB_error_msg() . '</div>';
 }
 
-
 /* Now we uploade the chosen chart of accounts */
 if (!isset($_POST['Demo'])) {
 	$COAScriptFile = file($_SESSION['Installer']['CoA']);
 	$ScriptFileEntries = sizeof($COAScriptFile);
-	$SQL ='';
+	$SQL = '';
 	$InAFunction = false;
 	DB_IgnoreForeignKeys();
-	for ($i=0; $i<$ScriptFileEntries; $i++) {
+	for ($i = 0;$i < $ScriptFileEntries;$i++) {
 
 		$COAScriptFile[$i] = trim($COAScriptFile[$i]);
 		//ignore lines that start with -- or USE or /*
-		if (mb_substr($COAScriptFile[$i], 0, 2) != '--'
-			and mb_strstr($COAScriptFile[$i],'/*')==FALSE
-			and mb_strlen($COAScriptFile[$i])>1){
+		if (mb_substr($COAScriptFile[$i], 0, 2) != '--' and mb_strstr($COAScriptFile[$i], '/*') == false and mb_strlen($COAScriptFile[$i]) > 1) {
 
-			$SQL .= ' ' . $COAScriptFile[$i];
+			$SQL.= ' ' . $COAScriptFile[$i];
 
 			//check if this line kicks off a function definition - pg chokes otherwise
-			if (mb_substr($COAScriptFile[$i],0,15) == 'CREATE FUNCTION'){
+			if (mb_substr($COAScriptFile[$i], 0, 15) == 'CREATE FUNCTION') {
 				$InAFunction = true;
 			}
 			//check if this line completes a function definition - pg chokes otherwise
-			if (mb_substr($COAScriptFile[$i],0,8) == 'LANGUAGE'){
+			if (mb_substr($COAScriptFile[$i], 0, 8) == 'LANGUAGE') {
 				$InAFunction = false;
 			}
-			if (mb_strpos($COAScriptFile[$i],';')>0 and ! $InAFunction){
+			if (mb_strpos($COAScriptFile[$i], ';') > 0 and !$InAFunction) {
 				// Database created above with correct name.
-				if (strncasecmp($SQL, ' CREATE DATABASE ', 17)
-					and strncasecmp($SQL, ' USE ', 5)){
-					$SQL = mb_substr($SQL,0,mb_strlen($SQL)-1);
-					$result = DB_query($SQL);
+				if (strncasecmp($SQL, ' CREATE DATABASE ', 17) and strncasecmp($SQL, ' USE ', 5)) {
+					$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1);
+					$Result = DB_query($SQL);
 				}
 				$SQL = '';
 			}
 
 		} //end if its a valid sql line not a comment
+		
 	} //end of for loop around the lines of the sql script
 	echo '<div class="success">' . _('Your chosen chart of accounts has been uploaded') . '</div>';
 	ob_flush();
@@ -1365,13 +1358,13 @@ function HighestFileName($PathPrefix) {
 	return basename(array_pop($files), ".php");
 }
 
-function CryptPass($Password ) {
+function CryptPass($Password) {
 	if (PHP_VERSION_ID < 50500) {
 		$Salt = base64_encode(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
 		$Salt = str_replace('+', '.', $Salt);
-		$Hash = crypt($Password, '$2y$10$'.$Salt.'$');
+		$Hash = crypt($Password, '$2y$10$' . $Salt . '$');
 	} else {
-		$Hash = password_hash($Password,PASSWORD_DEFAULT);
+		$Hash = password_hash($Password, PASSWORD_DEFAULT);
 	}
 	return $Hash;
 }
@@ -1413,12 +1406,11 @@ function PopulateSQLDataBySQL($File, $DB, $DBType, $NewDB = false, $DemoDB = 'kw
 	$InAFunction = false;
 	echo '<div id="progress' . $File . '" class="centre" style="border-radius: 5px;width:100%;border:1px solid #157213;"></div>';
 	echo '<div id="information' . $File . '" style="width"></div>';
-	for ($i = 1; $i <= $ScriptFileEntries; $i++) {
+	for ($i = 1;$i <= $ScriptFileEntries;$i++) {
 
 		$SQLScriptFile[$i - 1] = trim($SQLScriptFile[$i - 1]);
 		//ignore lines that start with -- or USE or /*
-
-		$SQL .= ' ' . $SQLScriptFile[$i - 1];
+		$SQL.= ' ' . $SQLScriptFile[$i - 1];
 
 		//check if this line kicks off a function definition - pg chokes otherwise
 		if (mb_substr($SQLScriptFile[$i - 1], 0, 15) == 'CREATE FUNCTION') {
@@ -1442,35 +1434,36 @@ function PopulateSQLDataBySQL($File, $DB, $DBType, $NewDB = false, $DemoDB = 'kw
 		flush();
 
 	} //end of for loop around the lines of the sql script
+	
 }
 
 function chmod_R($path, $filemode, $dirmode) {
-    if (is_dir($path) ) {
-        if (!chmod($path, $dirmode)) {
-            $dirmode_str=decoct($dirmode);
-            print "Failed applying filemode '$dirmode_str' on directory '$path'\n";
-            print "  `-> the directory '$path' will be skipped from recursive chmod\n";
-            return;
-        }
-        $dh = opendir($path);
-        while (($file = readdir($dh)) !== false) {
-            if($file != '.' && $file != '..') {  // skip self and parent pointing directories
-                $fullpath = $path.'/'.$file;
-                chmod_R($fullpath, $filemode,$dirmode);
-            }
-        }
-        closedir($dh);
-    } else {
-        if (is_link($path)) {
-            print "link '$path' is skipped\n";
-            return;
-        }
-        if (!chmod($path, $filemode)) {
-            $filemode_str=decoct($filemode);
-            print "Failed applying filemode '$filemode_str' on file '$path'\n";
-            return;
-        }
-    }
+	if (is_dir($path)) {
+		if (!chmod($path, $dirmode)) {
+			$dirmode_str = decoct($dirmode);
+			print "Failed applying filemode '$dirmode_str' on directory '$path'\n";
+			print "  `-> the directory '$path' will be skipped from recursive chmod\n";
+			return;
+		}
+		$dh = opendir($path);
+		while (($file = readdir($dh)) !== false) {
+			if ($file != '.' && $file != '..') { // skip self and parent pointing directories
+				$fullpath = $path . '/' . $file;
+				chmod_R($fullpath, $filemode, $dirmode);
+			}
+		}
+		closedir($dh);
+	} else {
+		if (is_link($path)) {
+			print "link '$path' is skipped\n";
+			return;
+		}
+		if (!chmod($path, $filemode)) {
+			$filemode_str = decoct($filemode);
+			print "Failed applying filemode '$filemode_str' on file '$path'\n";
+			return;
+		}
+	}
 }
 
 echo '<form id="DatabaseConfig" action="../index.php" method="post">';

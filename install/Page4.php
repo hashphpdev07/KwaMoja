@@ -1,6 +1,6 @@
 <?php
-include('../includes/CountriesArray.php');
-echo '<form id="DatabaseConfig" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+include ('../includes/CountriesArray.php');
+echo '<form id="DatabaseConfig" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<fieldset>
 			<legend>' . _('Company Settings') . '</legend>
 			<div class="page_help_text">
@@ -19,9 +19,9 @@ $COAs = glob('coa/*.sql');
 
 foreach ($COAs as $Value) {
 	if ($Value == $_SESSION['Installer']['CoA']) {
-		echo '<option value="' . $Value . '" selected="true">' . $CountriesArray[substr(basename($Value, '.sql'), 3, 2)] . '</option>';
+		echo '<option value="' . $Value . '" selected="true">' . $CountriesArray[substr(basename($Value, '.sql'), 3, 2) ] . '</option>';
 	} else {
-		echo '<option value="' . $Value . '">' . $CountriesArray[substr(basename($Value, '.sql'), 3, 2)] . '</option>';
+		echo '<option value="' . $Value . '">' . $CountriesArray[substr(basename($Value, '.sql'), 3, 2) ] . '</option>';
 	}
 }
 echo '</select>
@@ -31,7 +31,7 @@ echo '</select>
 echo '<li>
 			<label for="TimeZone">' . _("Time Zone") . ': </label>
 			<select name="TimeZone">';
-include('timezone.php');
+include ('timezone.php');
 echo '</select>
 		</li>';
 

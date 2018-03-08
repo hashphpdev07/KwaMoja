@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Tax Authority Section');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
 if (isset($_POST['SelectedTaxAuthID'])) {
 	$SelectedTaxAuthID = $_POST['SelectedTaxAuthID'];
@@ -17,11 +16,10 @@ if (isset($_POST['SelectedTaxAuthID'])) {
 <a href="prlUserSettings.php">Back to User Settings
     </a>
 	<?php
-
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	if (trim($_POST['Description']) == '') {
 		$InputError = 1;
 
@@ -98,9 +96,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN OTHER TABLES
-
 	$SQL = 'SELECT COUNT(*)
 			FROM prltaxgrouptaxes
 		WHERE taxauthid=' . $SelectedTaxAuthID;
@@ -116,6 +112,7 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The selected tax authority record has been deleted'), 'success');
 		unset($SelectedTaxAuthID);
 	} // end of related records testing
+	
 }
 
 if (!isset($SelectedTaxAuthID)) {
@@ -151,28 +148,22 @@ if (!isset($SelectedTaxAuthID)) {
 				<td>%s</td>
 				<td><a href=\"%s&SelectedTaxAuthID=%s\">" . _('Edit') . "</a></td>
 				<td><a href=\"%s&SelectedTaxAuthID=%s&delete=yes\">" . _('Delete') . '</a></td>
-			</tr>', $MyRow[0], $MyRow[1], $MyRow[3], $MyRow[2], $MyRow[4], $RootPath . '/prlTaxAuthorityRates.php?', $MyRow[0], $_SERVER['PHP_SELF'], $MyRow[0], $_SERVER['PHP_SELF'], $MyRow[0]);
+			</tr>', $MyRow[0], $MyRow[1], $MyRow[3], $MyRow[2], $MyRow[4], $RootPath . '/prlTaxAuthorityRates.php?', $MyRow[0], basename(__FILE__), $MyRow[0], basename(__FILE__), $MyRow[0]);
 
 	}
 	//END WHILE LIST LOOP
-
 	//end of ifs and buts!
-
 	echo '</table><p>';
 }
 
-
-
 if (isset($SelectedTaxAuthID)) {
-	echo '<div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '">' . _('Review all defined tax authority records') . '</a></div>';
+	echo '<div class="centre"><a href="' . basename(__FILE__) . '">' . _('Review all defined tax authority records') . '</a></div>';
 }
 
-
-echo '<p><form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+echo '<p><form method="post" action="' . basename(__FILE__) . '">';
 
 if (isset($SelectedTaxAuthID)) {
 	//editing an existing tax authority
-
 	$SQL = 'SELECT
 			taxid,
 			description,
@@ -217,7 +208,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	echo $MyRow['accountcode'] . '>' . $MyRow['accountname'] . ' (' . $MyRow['accountcode'] . ')';
 
 } //end while loop
-
 echo '</select></td></tr>';
 
 DB_data_seek($Result, 0);
@@ -226,7 +216,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	echo $MyRow['accountcode'] . "'>" . $MyRow['accountname'] . ' (' . $MyRow['accountcode'] . ')';
 
 } //end while loop
-
 if (!isset($_POST['Bank'])) {
 	$_POST['Bank'] = '';
 }
@@ -249,6 +238,6 @@ echo '</table>';
 
 echo '<div class="centre"><input type=submit name=submit value=' . _('Enter Information') . '></div></form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

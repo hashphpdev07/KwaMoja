@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Other Income Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['OthIncID'])) {
 	$OthIncID = $_GET['OthIncID'];
@@ -18,19 +17,16 @@ if (isset($_GET['OthIncID'])) {
 <a href="prlUserSettings.php">Back to User Settings
     </a>
 	<?php
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
-	if (strpos($_POST['OthIncDesc'], '&') > 0 OR strpos($_POST['OthIncDesc'], "'") > 0) {
+	if (strpos($_POST['OthIncDesc'], '&') > 0 or strpos($_POST['OthIncDesc'], "'") > 0) {
 		$InputError = 1;
 		prnMsg(_('The Other Income description cannot contain the character') . " '&' " . _('or the character') . " '", 'error');
 	}
@@ -58,7 +54,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The other income master record for') . ' ' . $OthIncID . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new other income
-
 			$SQL = "INSERT INTO prlothinctable (othincid,
 							othincdesc,
 							taxable,
@@ -85,10 +80,9 @@ if (isset($_POST['submit'])) {
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -99,14 +93,14 @@ if (isset($_POST['submit'])) {
 		unset($OthIncID);
 		unset($_SESSION['OthIncID']);
 	} //end if Delete paypayperiod
+	
 }
-
 
 if (!isset($OthIncID)) {
 
 	/*If the page was called without $SupplierID passed to page then assume a new supplier is to be entered show a form with a Supplier Code field other wise the form showing the fields with the existing entries against the supplier will show for editing with only a hidden SupplierID field*/
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
 	echo '<input type="hidden" name="New" value="Yes">';
 
@@ -141,7 +135,6 @@ if (!isset($OthIncID)) {
 		<th>" . _('Taxable Percentange') . "</td>
 	</tr>";
 
-
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
@@ -156,18 +149,16 @@ if (!isset($OthIncID)) {
 		echo '<td>' . $MyRow[1] . '</td>';
 		echo '<td>' . $MyRow[2] . '</td>';
 		echo '<td>' . $MyRow[3] . '</td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&OthIncID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&OthIncID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&OthIncID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&OthIncID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><p>';
 
-
 } else {
 	//OthIncID exists - either passed when calling the form or from the form itself
-
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 
 	//if (!isset($_POST["New"])) {
@@ -211,6 +202,5 @@ if (!isset($OthIncID)) {
 	}
 
 } // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

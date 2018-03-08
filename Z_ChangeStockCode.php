@@ -1,21 +1,20 @@
 <?php
-
 /*     This script is an utility to change an inventory item code.
  *     It uses function ChangeFieldInTable($TableName, $FieldName, $OldValue,
  *     $NewValue) from .../includes/MiscFunctions.php.
- */
+*/
 
-include('includes/session.php');
-$Title = _('UTILITY PAGE Change A Stock Code');// Screen identificator.
+include ('includes/session.php');
+$Title = _('UTILITY PAGE Change A Stock Code'); // Screen identificator.
 $ViewTopic = 'SpecialUtilities'; // Filename in ManualContents.php's TOC.
 $BookMark = 'Z_ChangeStockCode'; // Anchor's id in the manual's html document.
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Change An Inventory Item Code') . '" />' . ' ' . _('Change An Inventory Item Code') . '
 	</p>';
 
-include('includes/SQL_CommonFunctions.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['ProcessStockChange'])) {
 
@@ -40,7 +39,6 @@ if (isset($_POST['ProcessStockChange'])) {
 		$InputError = 1;
 	}
 
-
 	/*Now check that the new code doesn't already exist */
 	$Result = DB_query("SELECT stockid FROM stockmaster WHERE stockid='" . $_POST['NewStockID'] . "'");
 	if (DB_num_rows($Result) != 0) {
@@ -48,7 +46,6 @@ if (isset($_POST['ProcessStockChange'])) {
 		prnMsg(_('The replacement stock code') . ': ' . $_POST['NewStockID'] . ' ' . _('already exists as a stock code in the system') . ' - ' . _('a unique stock code must be entered for the new code'), 'error');
 		$InputError = 1;
 	}
-
 
 	if ($InputError == 0) { // no input errors
 		DB_IgnoreForeignKeys();
@@ -130,7 +127,6 @@ if (isset($_POST['ProcessStockChange'])) {
 		ChangeFieldInTable("mrpdemands", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 
 		//check if MRP tables exist before assuming
-
 		$SQL = "SELECT * FROM mrpparameters";
 		$Result = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() == 0) {
@@ -167,13 +163,12 @@ if (isset($_POST['ProcessStockChange'])) {
 		ChangeFieldInTable("custitem", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("pickreqdetails", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 
-
 		echo '<br />' . _('Changing any image files');
 		$SupportedImgExt = array('png', 'jpg', 'jpeg');
 		foreach ($SupportedImgExt as $ext) {
 			$file = $_SESSION['part_pics_dir'] . '/' . $_POST['OldStockID'] . '.' . $ext;
-			if (file_exists ($file)) {
-				if (rename($File, $_SESSION['part_pics_dir'] . '/' .$_POST['NewStockID'] . '.' . $ext)) {
+			if (file_exists($file)) {
+				if (rename($File, $_SESSION['part_pics_dir'] . '/' . $_POST['NewStockID'] . '.' . $ext)) {
 					echo ' ... ' . _('completed');
 				} else {
 					echo ' ... ' . _('failed');
@@ -192,7 +187,7 @@ if (isset($_POST['ProcessStockChange'])) {
 		ChangeFieldInTable("tenderitems", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("prodspecs", "keyval", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("qasamples", "prodspeckey", $_POST['OldStockID'], $_POST['NewStockID']);
-		ChangeFieldInTable("stockdescriptiontranslations", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);// Updates the translated item titles (StockTitles)
+		ChangeFieldInTable("stockdescriptiontranslations", "stockid", $_POST['OldStockID'], $_POST['NewStockID']); // Updates the translated item titles (StockTitles)
 		ChangeFieldInTable("stocklongdescriptiontranslations", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("custitem", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
 		ChangeFieldInTable("pricematrix", "stockid", $_POST['OldStockID'], $_POST['NewStockID']);
@@ -207,7 +202,6 @@ if (isset($_POST['ProcessStockChange'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		echo ' ... ' . _('completed');
 
-
 		echo '<p>' . _('Stock Code') . ': ' . $_POST['OldStockID'] . ' ' . _('was successfully changed to') . ' : ' . $_POST['NewStockID'];
 
 		// If the current SelectedStockItem is the same as the OldStockID, it updates to the NewStockID:
@@ -216,9 +210,10 @@ if (isset($_POST['ProcessStockChange'])) {
 		}
 
 	} //only do the stuff above if  $InputError==0
+	
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
@@ -236,6 +231,6 @@ echo '<table>
 		<input type="submit" name="ProcessStockChange" value="' . _('Process') . '" />
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

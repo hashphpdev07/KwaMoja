@@ -1,7 +1,7 @@
 <?php
 $PageSecurity = 0;
 $PathPrefix = '../';
-include('../includes/session.php');
+include ('../includes/session.php');
 
 $RootPath = '../';
 
@@ -23,13 +23,13 @@ header('Expires: 0'); // Proxies.
 switch ($_SESSION['ScreenFontSize']) {
 	case 0:
 		$FontSize = '8pt';
-		break;
+	break;
 	case 1:
 		$FontSize = '10pt';
-		break;
+	break;
 	case 2:
 		$FontSize = '12pt';
-		break;
+	break;
 	default:
 		$FontSize = '10pt';
 }
@@ -40,7 +40,7 @@ echo '<style>
 
 echo '</head><body style="background:transparent;">';
 
-$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename($_SERVER['PHP_SELF']) . "'";
+$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
 $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 
@@ -81,15 +81,12 @@ $SQL = "SELECT salesorders.orderno,
 					salesorders.customerref,
 					salesorders.orddate ORDER BY salesorders.orderno";
 
-
-
 $SalesOrdersResult = DB_query($SQL);
 
 $TotalSalesOrders = 0;
 while ($row = DB_fetch_array($SalesOrdersResult)) {
-	$TotalSalesOrders += $row['ordervalue'];
+	$TotalSalesOrders+= $row['ordervalue'];
 }
-
 
 echo '<td style="border-bottom:1px solid #3550aa;" class="number"><strong>' . locale_number_format($TotalSalesOrders, $row['currdecimalplaces']) . '</strong></td></tr>
 <tr bgcolor="#FFFFFF"><td style="border-bottom:1px solid #3550aa";>Total amount of Purchase orders</td>';
@@ -126,7 +123,7 @@ $SalesOrdersResult2 = DB_query($SQL);
 $TotalPurchaseOrders = 0;
 while ($row = DB_fetch_array($SalesOrdersResult2)) {
 
-	$TotalPurchaseOrders += $row['ordervalue'];
+	$TotalPurchaseOrders+= $row['ordervalue'];
 }
 
 echo '<td style="border-bottom:1px solid #3550aa;" class="number"><strong>' . locale_number_format($TotalPurchaseOrders, $row['currdecimalplaces']) . '</strong></td></tr>
@@ -165,7 +162,7 @@ $SQL = "SELECT salesorders.orderno,
 $SalesOrdersResult1 = DB_query($SQL);
 $TotalOutstanding = 0;
 while ($row = DB_fetch_array($SalesOrdersResult1)) {
-	$TotalOutstanding += $row['ordervalue'];
+	$TotalOutstanding+= $row['ordervalue'];
 }
 
 echo '<td style="padding-left:60px;" class="number"><strong>' . locale_number_format($TotalOutstanding, $row['currdecimalplaces']) . '</strong></td>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Fixed Asset Locations');
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetLocations';
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
@@ -42,7 +41,6 @@ if (isset($_GET['SelectedLocation'])) {
 }
 
 //Attempting to update fields
-
 if (isset($_POST['update']) and !isset($_POST['delete'])) {
 	$InputError = 0;
 	if (!isset($_POST['LocationDescription']) or mb_strlen($_POST['LocationDescription']) < 1) {
@@ -56,7 +54,7 @@ if (isset($_POST['update']) and !isset($_POST['delete'])) {
 					WHERE locationid ='" . $_POST['LocationID'] . "'";
 
 		$Result = DB_query($SQL);
-		echo '<meta http-equiv="Refresh" content="0; url="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<meta http-equiv="Refresh" content="0; url="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	}
 } else {
 	// if you are not updating then you want to delete but lets be sure first.
@@ -107,12 +105,12 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$ParentResult = DB_query($ParentSql);
 	$ParentRow = DB_fetch_array($ParentResult);
 	echo '<td>' . $ParentRow['locationdescription'] . '</td>
-		<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedLocation=' . $MyRow['locationid'] . '">' . _('Edit') . '</a></td></tr>';
+		<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedLocation=' . $MyRow['locationid'] . '">' . _('Edit') . '</a></td></tr>';
 }
 
 echo '</tbody>';
 echo '</table>';
-echo '<form id="LocationForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form id="LocationForm" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<table>
 	<tr>
@@ -160,5 +158,5 @@ if (isset($_GET['SelectedLocation'])) {
 echo '</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Geocode Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedParam'])) {
 	$SelectedParam = $_GET['SelectedParam'];
@@ -18,10 +17,9 @@ if (isset($_POST['submit'])) {
 	$i = 1;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs are sensible
-
 	$SQL = "SELECT count(geocodeid)
 			FROM geocode_param WHERE geocodeid='" . $_POST['GeoCodeID'] . "'";
 	$Result = DB_query($SQL);
@@ -154,25 +152,23 @@ if (!isset($SelectedParam)) {
 					<td>%s</td>
 					<td><a href=\'%s?SelectedParam=%s\'>' . _('Edit') . '</a></td>
 					<td><a href=\'%s?SelectedParam=%s&delete=%s\'>' . _('Delete') . '</a></td>
-				</tr>', $MyRow[0], $MyRow[1], $MyRow[2], $MyRow[3], $MyRow[4], $MyRow[5], $MyRow[6], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow[0], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), $MyRow[0], $MyRow[0]);
+				</tr>', $MyRow[0], $MyRow[1], $MyRow[2], $MyRow[3], $MyRow[4], $MyRow[5], $MyRow[6], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow[0], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow[0], $MyRow[0]);
 
 	} //END WHILE LIST LOOP
 	echo '</table>';
 
 } //end of ifs and buts!
-
 if (isset($SelectedParam)) {
-	echo '<div class="centre"><br /><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show Defined Geocode Param Codes') . '</a><br /></div>';
+	echo '<div class="centre"><br /><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show Defined Geocode Param Codes') . '</a><br /></div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedParam) and ($InputError != 1)) {
 		//editing an existing status code
-
 		$SQL = "SELECT geocodeid,
 					geocode_key,
 					center_long,
@@ -248,5 +244,5 @@ if (!isset($_GET['delete'])) {
 	echo '<a href="' . $RootPath . '/geo_displaymap_customers.php">' . _('Display Map of Customer Branches') . '</a><br />';
 	echo '<a href="' . $RootPath . '/geo_displaymap_suppliers.php">' . _('Display Map of Suppliers') . '</a></div>';
 } //end if record deleted no point displaying form to add record
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Update Pricing');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
 
 echo '<br /><div class="page_help_text">' . _('This page adds new prices or updates already existing prices for a specified sales type (price list) and currency for the stock category selected - based on a percentage mark up from cost prices or from preferred supplier cost data or from another price list. The rounding factor ensures that prices are at least this amount or a multiple of it. A rounding factor of 5 would mean that prices would be a minimum of 5 and other prices would be expressed as multiples of 5.') . '</div><br />';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = 'SELECT sales_type, typeabbrev FROM salestypes';
@@ -171,7 +170,6 @@ echo '<tr>
 	</tr>
 </table>';
 
-
 echo '<div class="centre"><input type="submit" name="UpdatePrices" value="' . _('Update Prices') . '"  onclick="return MakeConfirm(\'' . _('Are you sure you wish to update or add all the prices according to the criteria selected?') . '\');" /></div>';
 
 echo '</form>';
@@ -235,12 +233,12 @@ if (isset($_POST['UpdatePrices'])) {
 
 		if ($_POST['PriceList'] == '0') {
 			echo '<br />' . _('The price list/sales type to be updated must be selected first');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		if ($_POST['CurrCode'] == '0') {
 			echo '<br />' . _('The currency of prices to be updated must be selected first');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		if (is_date($_POST['PriceEndDate'])) {
@@ -366,8 +364,10 @@ if (isset($_POST['UpdatePrices'])) {
 				prnMsg(_('Inserting new price for') . ' ' . $MyRow['stockid'] . ' ' . _('to') . ' ' . $RoundedPrice, 'info');
 
 			} // end if cost > 0
+			
 		} //end while loop around items in the category
+		
 	}
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

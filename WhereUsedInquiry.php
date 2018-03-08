@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Where Used Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['StockID'])) {
 	$StockId = trim(mb_strtoupper($_GET['StockID']));
@@ -23,14 +22,14 @@ if (isset($StockId)) {
 	$MyRow = DB_fetch_row($Result);
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('The item code entered') . ' - ' . $StockId . ' ' . _('is not set up as an item in the system') . '. ' . _('Re-enter a valid item code or select from the Select Item link above'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	echo '<br />
 		<div class="centre"><h3>' . $StockId . ' - ' . $MyRow[0] . '  (' . _('in units of') . ' ' . $MyRow[1] . ')</h3></div>';
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 	<div class="centre">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -55,7 +54,7 @@ if (isset($StockId)) {
 				ON bom.parent = stockmaster.stockid
 			INNER JOIN locationusers
 				ON locationusers.loccode=bom.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			WHERE component='" . $StockId . "'
 				AND bom.effectiveafter <= CURRENT_DATE
@@ -80,9 +79,9 @@ if (isset($StockId)) {
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			if ($MyRow['discontinued'] == 1){
+			if ($MyRow['discontinued'] == 1) {
 				$Status = _('Obsolete');
-			}else{
+			} else {
 				$Status = _('Current');
 			}
 
@@ -96,12 +95,12 @@ if (isset($StockId)) {
 				</tr>';
 
 			//end of page full new headings if
+			
 		}
 
 		echo '</table>';
 	}
 } // StockID is set
-
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

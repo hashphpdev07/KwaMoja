@@ -1,13 +1,12 @@
 <?php
-
 /* InventoryQuantities.php - Report of parts with quantity. Sorts by part and shows
  * all locations where there are quantities of the part
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Inventory Quantities Report'));
 	$PDF->addInfo('Subject', _('Parts With Quantities'));
 	$FontSize = 9;
@@ -75,26 +74,25 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 						locstock.loccode";
 	}
 
-
 	$Result = DB_query($SQL, '', '', false, true);
 
 	if (DB_error_no() != 0) {
 		$Title = _('Inventory Quantities') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Inventory Quantity report could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($Result) == 0) {
 		$Title = _('Print Inventory Quantities Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items with inventory quantities'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -106,17 +104,16 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 		$holdpart = " ";
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['stockid'] != $holdpart) {
-				$YPos -= (2 * $line_height);
+				$YPos-= (2 * $line_height);
 				$holdpart = $MyRow['stockid'];
 			} else {
-				$YPos -= ($line_height);
+				$YPos-= ($line_height);
 			}
 
 			// Parameters for addTextWrap are defined in /includes/class.pdf.php
 			// 1) X position 2) Y position 3) Width
 			// 4) Height 5) Text 6) Alignment 7) Border 8) Fill - True to use SetFillColor
 			// and False to set to transparent
-
 			$PDF->addTextWrap(50, $YPos, 100, $FontSize, $MyRow['stockid'], '', 0);
 			$PDF->addTextWrap(150, $YPos, 150, $FontSize, $MyRow['description'], '', 0);
 			$PDF->addTextWrap(310, $YPos, 60, $FontSize, $MyRow['loccode'], 'left', 0);
@@ -137,9 +134,9 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_Inventory_Quantities_' . Date('Y-m-d') . '.pdf');
 		$PDF->__destruct();
 	} elseif (isset($_POST['CSV'])) {
-		$CSVListing = _('Stock ID') .','. _('Description') .','. _('Location Code') .','. _('Location') .','. _('Quantity') .','. _('Reorder Level') .','. _('Decimal Places') .','. _('Serialised') .','. _('Controlled') . "\n";
+		$CSVListing = _('Stock ID') . ',' . _('Description') . ',' . _('Location Code') . ',' . _('Location') . ',' . _('Quantity') . ',' . _('Reorder Level') . ',' . _('Decimal Places') . ',' . _('Serialised') . ',' . _('Controlled') . "\n";
 		while ($InventoryQties = DB_fetch_row($Result)) {
-			$CSVListing .= implode(',', $InventoryQties) . "\n";
+			$CSVListing.= implode(',', $InventoryQties) . "\n";
 		}
 		header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
@@ -154,12 +151,11 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('Inventory Quantities Reporting');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Quantities Report') . '</p>';
 	echo '<div class="page_help_text">' . _('Use this report to display the quantity of Inventory items in different categories.') . '</div><br />';
 
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<table>
 		<tr>
@@ -180,7 +176,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 			<p />';
 		prnMsg(_('There are no stock categories currently defined please use the link below to set them up'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -210,7 +206,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['CSV'])) {
 			<input type="submit" name="CSV" value="' . _('Output to CSV') . '" />
 		</div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
@@ -227,15 +223,15 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Inventory Quantities Report'));
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Category'));
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, $_POST['StockCat']);
 	$PDF->addTextWrap(160, $YPos, 150, $FontSize, $CatDescription, 'left');
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
@@ -245,11 +241,11 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$PDF->addTextWrap(310, $YPos, 60, $FontSize, _('Location'), 'left');
 	$PDF->addTextWrap(370, $YPos, 50, $FontSize, _('Quantity'), 'right');
 	$PDF->addTextWrap(420, $YPos, 50, $FontSize, _('Reorder'), 'right');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap(415, $YPos, 50, $FontSize, _('Level'), 'right');
-
 
 	$FontSize = 8;
 	$PageNumber++;
 } // End of PrintHeader() function
+
 ?>

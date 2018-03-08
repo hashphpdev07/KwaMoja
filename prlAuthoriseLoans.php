@@ -1,7 +1,7 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Status = array();
 $Status[0] = _('Pending Authorisation');
@@ -12,20 +12,20 @@ $Status[4] = _('Rejected');
 $Status[5] = _('Written Off');
 
 $Title = _('Employee Loan Authorisation');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['update'])) {
-	foreach ($_POST as $key=>$value) {
+	foreach ($_POST as $key => $value) {
 		if (mb_substr($key, 0, 6) == 'Status') {
 			$Loan = mb_substr($key, 6);
-			$sql = "UPDATE prlloanfile SET status='" . $value . "' WHERE counterindex='" . $Loan . "'";
-			$result = DB_query($sql);
+			$SQL = "UPDATE prlloanfile SET status='" . $value . "' WHERE counterindex='" . $Loan . "'";
+			$Result = DB_query($SQL);
 		}
 	}
 }
 
 echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/loan.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT prlloanfile.counterindex,
@@ -102,9 +102,9 @@ if (DB_num_rows($Result) > 0) {
 			<input type="submit" name="update" value="' . _('Update Status Information') . '" />
 		</div>';
 } else {
-	prnMsg( _('There are no loans for you to authorise'), 'info');
+	prnMsg(_('There are no loans for you to authorise'), 'info');
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

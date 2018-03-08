@@ -1,13 +1,12 @@
 <?php
+include ('includes/prlTardinessClass.php');
 
-include('includes/prlTardinessClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Late and Absenses Data Entry');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
-if (isset($_GET['NewTD']) == 'Yes' AND isset($_SESSION['TDDetail'])) {
+if (isset($_GET['NewTD']) == 'Yes' and isset($_SESSION['TDDetail'])) {
 	unset($_SESSION['TDDetail']->TDEntries);
 	unset($_SESSION['TDDetail']);
 }
@@ -26,6 +25,7 @@ if (isset($_POST['TDDate'])) {
 		prnMsg(_('The date entered was not valid please enter the date') . $_SESSION['DefaultDateFormat'], 'warn');
 		$_POST['CommitBatch'] = 'Do not do it the date is wrong';
 		$AllowThisPosting = false; //do not allow posting
+		
 	}
 }
 $msg = '';
@@ -33,10 +33,8 @@ $msg = '';
 if (isset($_POST['CommitBatch']) == _('Accept and Process Tardiness')) {
 	// echo "Start commit Batch";
 	//$PeriodNo = GetPeriod($_SESSION['JournalDetail']->JnlDate);
-
 	/*Start a transaction to do the whole lot inside */
 	$Result = DB_query('BEGIN');
-
 
 	foreach ($_SESSION['TDDetail']->TDEntries as $TDItem) {
 		$SQL = "INSERT INTO prldailytrans (
@@ -59,7 +57,6 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Tardiness')) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 	}
 
-
 	$ErrMsg = _('Cannot commit the changes');
 	$Result = DB_query('COMMIT', $ErrMsg, _('The commit database transaction failed'), true);
 
@@ -69,7 +66,7 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Tardiness')) {
 	unset($_SESSION['TDDetail']);
 
 	/*Set up a new in case user wishes to enter another */
-	echo '<br /><a href="' . $_SERVER['PHP_SELF'] . '?NewTD=Yes">' . _('Enter Another Late/Absenses Data') . '</a>';
+	echo '<br /><a href="' . basename(__FILE__) . '?NewTD=Yes">' . _('Enter Another Late/Absenses Data') . '</a>';
 	exit;
 } elseif (isset($_GET['Delete'])) {
 	/* User hit delete the line from the ot */
@@ -93,13 +90,10 @@ if (isset($Cancel)) {
 }
 
 // set up the form whatever
-
-echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="POST">';
-
+echo '<form action="' . basename(__FILE__) . '" method="POST">';
 
 echo '<p><table BORDER=1 WIDTH=100%>';
 echo '<tr><td VALIGN=TOP WIDTH=15%><table>'; // A new table in the first column of the main table
-
 if (!Is_Date($_SESSION['JournalDetail']->JnlDate)) {
 	$_SESSION['JournalDetail']->JnlDate = Date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, date('m'), 0, date('Y')));
 }
@@ -143,7 +137,6 @@ echo '<input type=SUBMIT name=Process value="' . _('Accept') . '"><input type=SU
 echo '</td></tr></table>';
 /*Close the main table */
 
-
 echo "<table WIDTH=100% BORDER=1><tr>
 	<th>" . _('Late(s)- Hour(s)') . "</td>
 	<th>" . _('Absent - Hour(s)') . "</td>
@@ -153,16 +146,16 @@ foreach ($_SESSION['TDDetail']->TDEntries as $TDItem) {
 	echo '<tr><td align="right">' . number_format($TDItem->TDHours, 2) . '</td>
         <td align="right">' . number_format($TDItem->TDHoursAbs, 2) . '</td>
 		<td>' . $TDItem->EmployeeID . ' - ' . $TDItem->LastName . ',' . $TDItem->FirstName . '</td>
-		<td><a href="' . $_SERVER['PHP_SELF'] . '?&Delete=' . $TDItem->ID . '">' . _('Delete') . '</a></td>
+		<td><a href="' . basename(__FILE__) . '?&Delete=' . $TDItem->ID . '">' . _('Delete') . '</a></td>
 	</tr>';
 }
 
 echo '<tr><td align="right"><B>' . number_format($_SESSION['TDDetail']->TDTotal, 2) . '</B></td><td align="right"><B>' . number_format($_SESSION['TDDetail']->TDTotalAbs, 2) . '</B></td></tr></table>';
 
-if ((ABS($_SESSION['TDDetail']->TDTotal) > 0.001 AND $_SESSION['TDDetail']->TDItemCounter > 0) OR (ABS($_SESSION['TDDetail']->TDTotalAbs) > 0.001 AND $_SESSION['TDDetail']->TDItemCounter > 0)) {
+if ((ABS($_SESSION['TDDetail']->TDTotal) > 0.001 and $_SESSION['TDDetail']->TDItemCounter > 0) or (ABS($_SESSION['TDDetail']->TDTotalAbs) > 0.001 and $_SESSION['TDDetail']->TDItemCounter > 0)) {
 	echo "<br /><br /><input type=SUBMIT name='CommitBatch' value='" . _('Accept and Process Tardiness') . "'>";
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

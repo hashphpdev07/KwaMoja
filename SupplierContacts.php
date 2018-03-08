@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Supplier Contacts');
 /* Manual links before header.php */
 $ViewTopic = 'AccountsPayable';
 $BookMark = 'SupplierContact';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SupplierID'])) {
 	$SupplierID = stripslashes($_GET['SupplierID']);
@@ -23,7 +22,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 if (!isset($SupplierID)) {
 	echo '<p /><p />';
 	prnMsg(_('This page must be called with the supplier code of the supplier for whom you wish to edit the contacts') . '<br />' . _('When the page is called from within the system this will always be the case') . '<br />' . _('Select a supplier first, then select the link to add/edit/delete contacts'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -33,17 +32,15 @@ if (isset($_GET['SelectedContact'])) {
 	$SelectedContact = $_POST['SelectedContact'];
 }
 
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (mb_strlen($_POST['Contact']) == 0) {
 		$InputError = 1;
 		prnMsg(_('The contact name must be at least one character long'), 'error');
@@ -122,7 +119,6 @@ if (isset($_POST['submit'])) {
 
 }
 
-
 if (!isset($SelectedContact)) {
 	$SQL = "SELECT suppliers.suppname,
 					contact,
@@ -162,7 +158,7 @@ if (!isset($SelectedContact)) {
 					<td>%s</td>
 					<td><a href="mailto:%s">%s</a></td>
 					<td><a href="%s&amp;SupplierID=%s&amp;SelectedContact=%s">' . _('Edit') . '</a></td>
-					<td><a href="%s&amp;SupplierID=%s&amp;SelectedContact=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this contact?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>', $MyRow['contact'], $MyRow['position'], $MyRow['tel'], $MyRow['fax'], $MyRow['email'], $MyRow['email'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', urlencode($SupplierID), $MyRow['contact'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', urlencode($SupplierID), $MyRow['contact']);
+					<td><a href="%s&amp;SupplierID=%s&amp;SelectedContact=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this contact?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td></tr>', $MyRow['contact'], $MyRow['position'], $MyRow['tel'], $MyRow['fax'], $MyRow['email'], $MyRow['email'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', urlencode($SupplierID), $MyRow['contact'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', urlencode($SupplierID), $MyRow['contact']);
 		} while ($MyRow = DB_fetch_array($Result));
 		echo '</tbody>
 			</table>';
@@ -170,6 +166,7 @@ if (!isset($SelectedContact)) {
 		prnMsg(_('There are no contacts defined for this supplier'), 'info');
 	}
 	//END WHILE LIST LOOP
+	
 }
 
 //end of ifs and buts!
@@ -177,18 +174,17 @@ if (!isset($SelectedContact)) {
 
 if (isset($SelectedContact)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SupplierID=' . $SupplierID . '">' . _('Show all the supplier contacts for') . ' ' . $SupplierID . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SupplierID=' . $SupplierID . '">' . _('Show all the supplier contacts for') . ' ' . $SupplierID . '</a>
 		 </div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedContact)) {
 		//editing an existing contact
-
 		$SQL = "SELECT contact,
 						position,
 						tel,
@@ -272,6 +268,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

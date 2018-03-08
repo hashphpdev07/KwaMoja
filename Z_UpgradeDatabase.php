@@ -1,18 +1,16 @@
 <?php
-
 $PageSecurity = 15;
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Database Upgrade');
 
 //ob_start(); /*what is this for? */
-
 if (!isset($_SESSION['DBVersion'])) {
 	header('Location: index.php');
 }
 
-include('includes/header.php');
+include ('includes/header.php');
 
 function executeSQL($SQL, $TrapErrors = False) {
 	global $SQLFile;
@@ -37,12 +35,12 @@ function updateDBNo($NewNumber) {
 	}
 }
 
-include('includes/UpgradeDB_' . $DBType . '.php');
+include ('includes/UpgradeDB_' . $DBType . '.php');
 
 echo '<div class="centre"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title;
 
 if (!isset($_POST['continue'])) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<div class="page_help_text">' . _('You have database updates that are required.') . '<br />' . _('Please ensure that you have taken a backup of your current database before continuing.') . '</div><br />';
@@ -60,11 +58,11 @@ if (!isset($_POST['continue'])) {
 	$_SESSION['Updates']['Errors'] = 0;
 	$_SESSION['Updates']['Successes'] = 0;
 	$_SESSION['Updates']['Warnings'] = 0;
-	for ($UpdateNumber = $StartingUpdate; $UpdateNumber <= $EndingUpdate; $UpdateNumber++) {
+	for ($UpdateNumber = $StartingUpdate;$UpdateNumber <= $EndingUpdate;$UpdateNumber++) {
 		if (file_exists('sql/updates/' . $UpdateNumber . '.php')) {
 			$SQL = "SET FOREIGN_KEY_CHECKS=0";
 			$Result = DB_query($SQL);
-			include('sql/updates/' . $UpdateNumber . '.php');
+			include ('sql/updates/' . $UpdateNumber . '.php');
 			$SQL = "SET FOREIGN_KEY_CHECKS=1";
 			$Result = DB_query($SQL);
 		}
@@ -76,7 +74,7 @@ if (!isset($_POST['continue'])) {
 	echo '<tr><td style="background-color: #c7ccf6;color: #616162;">' . $_SESSION['Updates']['Warnings'] . ' ' . _('updates have not been done as the update was unnecessary on this database') . '</td></tr>';
 	if ($_SESSION['Updates']['Errors'] > 0) {
 		$SizeOfErrorMessages = sizeOf($_SESSION['Updates']['Messages']);
-		for ($i = 0; $i < $SizeOfErrorMessages; $i++) {
+		for ($i = 0;$i < $SizeOfErrorMessages;$i++) {
 			echo '<tr><td>' . $_SESSION['Updates']['Messages'][$i] . '</td></tr>';
 		}
 	}
@@ -85,7 +83,8 @@ if (!isset($_POST['continue'])) {
 }
 if (isset($SQLFile)) {
 	//		header('Location: Z_UpgradeDatabase.php'); //divert to the db upgrade if the table doesn't exist
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

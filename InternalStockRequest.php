@@ -1,15 +1,16 @@
 <?php
+include ('includes/DefineStockRequestClass.php');
 
-include('includes/DefineStockRequestClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Internal Materials Request');
 $ViewTopic = 'Inventory';
 $BookMark = 'CreateRequest';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title, '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_GET['Cancel'])) {
 	$Title = _('Amend an Internal Materials Request');
@@ -93,7 +94,7 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 	$_SESSION['Request'] = new StockRequest();
 
 	/* Retrieve the requisition header information
-	 */
+	*/
 	$SQL = "SELECT stockrequest.dispatchid,
 					locations.locationname,
 					stockrequest.despatchdate,
@@ -116,33 +117,34 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 					AND w2.userid='" . $_SESSION['UserID'] . "'";
 	$Result = DB_query($SQL);
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<table>
+			<thead>
+				<tr>
+					<th>', _('Request Number'), '</th>
+					<th>', _('Department'), '</th>
+					<th>', _('Initiator'), '</th>
+					<th>', _('Location Of Stock'), '</th>
+					<th>', _('Requested Date'), '</th>
+					<th>', _('Narrative'), '</th>
+				</tr>
+			</thead>';
 
-	/* Create the table for the purchase order header */
-	echo '<tr>
-			<th>' . _('Request Number') . '</th>
-			<th>' . _('Department') . '</th>
-			<th>' . _('Initiator') . '</th>
-			<th>' . _('Location Of Stock') . '</th>
-			<th>' . _('Requested Date') . '</th>
-			<th>' . _('Narrative') . '</th>
-		</tr>';
-
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		echo '<tr>
-				<td>' . $MyRow['dispatchid'] . '</td>
-				<td>' . $MyRow['description'] . '</td>
-				<td>' . $MyRow['initiator'] . '</td>
-				<td>' . $MyRow['locationname'] . '</td>
-				<td>' . ConvertSQLDate($MyRow['despatchdate']) . '</td>
-				<td>' . $MyRow['narrative'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Amend=' . $MyRow['dispatchid'] . '">' . _('Amend') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Cancel=' . $MyRow['dispatchid'] . '">' . _('Cancel') . '</a></td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['dispatchid'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td>', $MyRow['initiator'], '</td>
+				<td>', $MyRow['locationname'], '</td>
+				<td>', ConvertSQLDate($MyRow['despatchdate']), '</td>
+				<td>', $MyRow['narrative'], '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Amend=', urlencode($MyRow['dispatchid']), '">', _('Amend'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Cancel=', urlencode($MyRow['dispatchid']), '">', _('Cancel'), '</a></td>
 			</tr>';
-		$linesql = "SELECT stockrequestitems.dispatchitemsid,
+		$LineSQL = "SELECT stockrequestitems.dispatchitemsid,
 							stockrequestitems.stockid,
 							stockrequestitems.decimalplaces,
 							stockrequestitems.uom,
@@ -152,32 +154,33 @@ if (isset($_GET['Edit']) and $_GET['Edit'] == 'Yes') {
 					INNER JOIN stockmaster
 						ON stockmaster.stockid=stockrequestitems.stockid
 					WHERE dispatchid='" . $MyRow['dispatchid'] . "'";
-		$lineresult = DB_query($linesql);
+		$LineResult = DB_query($LineSQL);
 
 		echo '<tr>
 				<td></td>
 				<td colspan="5" align="left">
 					<table align="left">
 						<tr>
-							<th>' . _('Product') . '</th>
-							<th>' . _('Quantity Required') . '</th>
-							<th>' . _('Units') . '</th>
+							<th>', _('Product'), '</th>
+							<th>', _('Quantity Required'), '</th>
+							<th>', _('Units'), '</th>
 						</tr>';
 
-		while ($linerow = DB_fetch_array($lineresult)) {
+		while ($LineRow = DB_fetch_array($LineResult)) {
 			echo '<tr>
-					<td>' . $linerow['description'] . '</td>
-					<td class="number">' . locale_number_format($linerow['quantity'], $linerow['decimalplaces']) . '</td>
-					<td>' . $linerow['uom'] . '</td>
+					<td>', $LineRow['description'], '</td>
+					<td class="number">', locale_number_format($LineRow['quantity'], $LineRow['decimalplaces']), '</td>
+					<td>', $LineRow['uom'], '</td>
 				</tr>';
 		} // end while order line detail
 		echo '</table>
 			</td>
 		</tr>';
 	} //end while header loop
-	echo '</table>
-		</form>';
-	include('includes/footer.php');
+	echo '</tbody>
+		</table>
+	</form>';
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -237,7 +240,8 @@ if (isset($_POST['Submit']) and (!empty($_SESSION['Request']->LineItems))) {
 		foreach ($_SESSION['Request']->LineItems as $LineItems) {
 			$SQL = "SELECT COUNT(stockid) as total FROM stockrequestitems
 									WHERE dispatchid='" . $_SESSION['Request']->ID . "'
-										AND dispatchitemsid='" . $LineItems->LineNumber . "'";			$Result = DB_query($SQL);
+										AND dispatchitemsid='" . $LineItems->LineNumber . "'";
+			$Result = DB_query($SQL);
 			$MyRow = DB_fetch_array($Result);
 			if ($MyRow['total'] == 0) {
 				$LineSQL = "INSERT INTO stockrequestitems (dispatchitemsid,
@@ -277,13 +281,11 @@ if (isset($_POST['Submit']) and (!empty($_SESSION['Request']->LineItems))) {
 			if ($_SESSION['SmtpSetting'] == 0) {
 				mail($myEmail['email'], $EmailSubject, $ConfirmationText);
 			} else {
-				include('includes/htmlMimeMail.php');
+				include ('includes/htmlMimeMail.php');
 				$Mail = new htmlMimeMail();
 				$Mail->setSubject($EmailSubject);
 				$Mail->setText($ConfirmationText);
-				$Result = SendmailBySmtp($Mail, array(
-					$myEmail['email']
-				));
+				$Result = SendmailBySmtp($Mail, array($myEmail['email']));
 			}
 		}
 
@@ -291,64 +293,65 @@ if (isset($_POST['Submit']) and (!empty($_SESSION['Request']->LineItems))) {
 	DB_Txn_Commit();
 	if ($_SESSION['Request']->NewRequest == 0) {
 		prnMsg(_('The internal stock request has been entered and now needs to be authorised'), 'success');
-		echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?New=Yes">' . _('Create another request') . '</a></div>';
+		echo '<br /><div class="centre">
+				<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?New=Yes">', _('Create another request'), '</a>
+			</div>';
 	} else {
 		prnMsg(_('The internal stock request has been updated'), 'success');
-		echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Edit=Yes">' . _('Amend another request') . '</a></div>';
+		echo '<br /><div class="centre">
+				<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Edit=Yes">', _('Amend another request'), '</a>
+			</div>';
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	unset($_SESSION['Request']);
 	exit;
-} elseif(isset($_POST['Submit'])) {
+} elseif (isset($_POST['Submit'])) {
 	prnMsg(_('There are no items added to this request'), 'warn');
 }
 
 if (isset($_GET['Edit'])) {
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>';
 	echo '<tr>
-			<th colspan="2"><h4>' . _('Edit the Request Line') . '</h4></th>
+			<th colspan="2"><h4>', _('Edit the Request Line'), '</h4></th>
 		</tr>';
 	echo '<tr>
-			<td>' . _('Line number') . '</td>
-			<td>' . $_SESSION['Request']->LineItems[$_GET['Edit']]->LineNumber . '</td>
+			<td>', _('Line number'), '</td>
+			<td>', $_SESSION['Request']->LineItems[$_GET['Edit']]->LineNumber, '</td>
 		</tr>
 		<tr>
-			<td>' . _('Stock Code') . '</td>
-			<td>' . $_SESSION['Request']->LineItems[$_GET['Edit']]->StockID . '</td>
+			<td>', _('Stock Code'), '</td>
+			<td>', $_SESSION['Request']->LineItems[$_GET['Edit']]->StockID, '</td>
 		</tr>
 		<tr>
-			<td>' . _('Item Description') . '</td>
-			<td>' . $_SESSION['Request']->LineItems[$_GET['Edit']]->ItemDescription . '</td>
+			<td>', _('Item Description'), '</td>
+			<td>', $_SESSION['Request']->LineItems[$_GET['Edit']]->ItemDescription, '</td>
 		</tr>
 		<tr>
-			<td>' . _('Unit of Measure') . '</td>
-			<td>' . $_SESSION['Request']->LineItems[$_GET['Edit']]->UOM . '</td>
+			<td>', _('Unit of Measure'), '</td>
+			<td>', $_SESSION['Request']->LineItems[$_GET['Edit']]->UOM, '</td>
 		</tr>
 		<tr>
-			<td>' . _('Quantity Requested') . '</td>
-			<td><input type="text" class="number" name="Quantity" value="' . locale_number_format($_SESSION['Request']->LineItems[$_GET['Edit']]->Quantity, $_SESSION['Request']->LineItems[$_GET['Edit']]->DecimalPlaces) . '" /></td>
+			<td>', _('Quantity Requested'), '</td>
+			<td><input type="text" class="number" name="Quantity" value="', locale_number_format($_SESSION['Request']->LineItems[$_GET['Edit']]->Quantity, $_SESSION['Request']->LineItems[$_GET['Edit']]->DecimalPlaces), '" /></td>
 		</tr>';
-	echo '<input type="hidden" name="LineNumber" value="' . $_SESSION['Request']->LineItems[$_GET['Edit']]->LineNumber . '" />';
+	echo '<input type="hidden" name="LineNumber" value="', $_SESSION['Request']->LineItems[$_GET['Edit']]->LineNumber, '" />';
 	echo '</table>';
 	echo '<div class="centre">
-			<input type="submit" name="Edit" value="' . _('Update Line') . '" />
+			<input type="submit" name="Edit" value="', _('Update Line'), '" />
 		</div>
-		</form>';
-	include('includes/footer.php');
+	</form>';
+	include ('includes/footer.php');
 	exit;
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<table>';
-echo '<tr>
-		<th colspan="2"><h4>' . _('Internal Stock Request Details') . '</h4></th>
-	</tr>
-	<tr>
-		<td>' . _('Department') . ':</td>';
+echo '<fieldset>
+		<legend>', _('Internal Stock Request Details'), '</legend>';
+
 if ($_SESSION['AllowedDepartment'] == 0) {
 	// any internal department allowed
 	$SQL = "SELECT departmentid,
@@ -364,103 +367,112 @@ if ($_SESSION['AllowedDepartment'] == 0) {
 			ORDER BY description";
 }
 $Result = DB_query($SQL);
-echo '<td><select required="required" name="Department">
-		<option value="">' . _('Select a Department') . '</option>';
+
+echo '<field>
+		<label for="Department">', _('Department'), ':</label>
+		<select required="required" autofocus="autofocus" name="Department">
+			<option value="">', _('Select a Department'), '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_SESSION['Request']->Department) and $_SESSION['Request']->Department == $MyRow['departmentid']) {
-		echo '<option selected="True" value="' . $MyRow['departmentid'] . '">' . htmlspecialchars($MyRow['description'], ENT_QUOTES, 'UTF-8') . '</option>';
+		echo '<option selected="True" value="', $MyRow['departmentid'], '">', htmlspecialchars($MyRow['description'], ENT_QUOTES, 'UTF-8'), '</option>';
 	} else {
-		echo '<option value="' . $MyRow['departmentid'] . '">' . htmlspecialchars($MyRow['description'], ENT_QUOTES, 'UTF-8') . '</option>';
+		echo '<option value="', $MyRow['departmentid'], '">', htmlspecialchars($MyRow['description'], ENT_QUOTES, 'UTF-8'), '</option>';
 	}
 }
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>' . _('Location from which to request stock') . ':</td>';
+echo '</select>
+		<fieldhelp>', _('The department that is requisitioning the stock items'), '</fieldhelp>
+	</field>';
 
 $SQL = "SELECT locationname,
 				locations.loccode
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1
 			WHERE internalrequest = 1
 			ORDER BY locationname";
 $Result = DB_query($SQL);
-echo '<td><select required="required" name="Location">
-		<option value="">' . _('Select a Location') . '</option>';
+
+echo '<field>
+		<label for="Location">', _('Location from which to request stock'), ':</label>';
+echo '<select required="required" name="Location">
+		<option value="">', _('Select a Location'), '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_SESSION['Request']->Location) and $_SESSION['Request']->Location == $MyRow['loccode']) {
-		echo '<option selected="True" value="' . $MyRow['loccode'] . '">' . $MyRow['loccode'] . ' - ' . htmlspecialchars($MyRow['locationname'], ENT_QUOTES, 'UTF-8') . '</option>';
+		echo '<option selected="True" value="', $MyRow['loccode'], '">', $MyRow['loccode'], ' - ', htmlspecialchars($MyRow['locationname'], ENT_QUOTES, 'UTF-8'), '</option>';
 	} else {
-		echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['loccode'] . ' - ' . htmlspecialchars($MyRow['locationname'], ENT_QUOTES, 'UTF-8') . '</option>';
+		echo '<option value="', $MyRow['loccode'], '">', $MyRow['loccode'], ' - ', htmlspecialchars($MyRow['locationname'], ENT_QUOTES, 'UTF-8'), '</option>';
 	}
 }
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>' . _('Date when required') . ':</td>';
-echo '<td><input type="text" class="date" name="DispatchDate" maxlength="10" size="11" value="' . $_SESSION['Request']->DispatchDate . '" /></td>
-	  </tr>';
+echo '</select>
+		<fieldhelp>', _('The warehouse that the stock items will be drawn from'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td>' . _('Narrative') . ':</td>
-		<td><textarea name="Narrative" cols="30" rows="5">' . $_SESSION['Request']->Narrative . '</textarea></td>
-	</tr>
-	</table>';
+echo '<field>
+		<label for="DispatchDate">', _('Date when required'), ':</label>
+		<input type="text" class="date" name="DispatchDate" maxlength="10" size="11" value="', $_SESSION['Request']->DispatchDate, '" />
+		<fieldhelp>', _('The date the items are needed for'), '</fieldhelp>
+	</field>';
+
+echo '<field>
+		<label for="Narrative">', _('Narrative'), ':</label>
+		<textarea name="Narrative" cols="30" rows="5">', $_SESSION['Request']->Narrative, '</textarea>
+		<fieldhelp>', _('Any narrative relating to the request'), '</fieldhelp>
+	</field>
+</fieldset>';
 
 echo '<div class="centre">
-		<input type="submit" name="Update" value="' . _('Update') . '" />
+		<input type="submit" name="Update" value="', _('Update'), '" />
 	</div>
-	</form>';
+</form>';
 
 if (!isset($_SESSION['Request']->Location)) {
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 //****************MUESTRO LA TABLA CON LOS REGISTROS DE LA TRANSFERENCIA*************************************
-$i = 0; //Line Item Array pointer
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<br />
-	<table>
-	<tr>
-		<th colspan="7"><h4>' . _('Details of Items Requested') . '</h4></th>
-	</tr>
-	<tr>
-		<th>' . _('Line Number') . '</th>
-		<th>' . _('Item Code') . '</th>
-		<th>' . _('Item Description') . '</th>
-		<th>' . _('Quantity Required') . '</th>
-		<th>' . _('UOM') . '</th>
-	</tr>';
+if (sizeof($_SESSION['Request']->LineItems) > 0) {
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<table>
+			<tr>
+				<th colspan="7"><h4>', _('Details of Items Requested'), '</h4></th>
+			</tr>
+			<tr>
+				<th>', _('Line Number'), '</th>
+				<th>', _('Item Code'), '</th>
+				<th>', _('Item Description'), '</th>
+				<th>', _('Quantity Required'), '</th>
+				<th>', _('UOM'), '</th>
+			</tr>';
 
-$k = 0;
+	foreach ($_SESSION['Request']->LineItems as $LineItems) {
+		echo '<tr class="striped_row">
+				<td>', $LineItems->LineNumber, '</td>
+				<td>', $LineItems->StockID, '</td>
+				<td>', $LineItems->ItemDescription, '</td>
+				<td class="number">', locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces), '</td>
+				<td>', $LineItems->UOM, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Edit=', urlencode($LineItems->LineNumber), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Delete=', urlencode($LineItems->LineNumber), '">', _('Delete'), '</a></td>
+			`</tr>';
+	}
 
-foreach ($_SESSION['Request']->LineItems as $LineItems) {
-	echo '<tr class="striped_row">
-			<td>' . $LineItems->LineNumber . '</td>
-			<td>' . $LineItems->StockID . '</td>
-			<td>' . $LineItems->ItemDescription . '</td>
-			<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
-			<td>' . $LineItems->UOM . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Edit=' . $LineItems->LineNumber . '">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $LineItems->LineNumber . '">' . _('Delete') . '</a></td>
-		</tr>';
-}
+	echo '</table>';
 
-echo '</table>
-	<div class="centre">
-		<input type="submit" name="Submit" value="' . _('Submit') . '" />
-	</div>
+	echo '<div class="centre">
+			<input type="submit" name="Submit" value="', _('Submit'), '" />
+		</div>
 	</form>';
+}
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory Items') . '" alt="" />' . ' ' . _('Inventory Items') . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory Items'), '" alt="" />', ' ', _('Inventory Items'), '
+	</p>';
 
 $SQL = "SELECT stockcategory.categoryid,
 				stockcategory.categorydescription
@@ -470,57 +482,61 @@ $SQL = "SELECT stockcategory.categoryid,
 			ORDER BY stockcategory.categorydescription";
 $Result1 = DB_query($SQL);
 if (DB_num_rows($Result1) == 0) {
-	echo '<p class="bad">' . _('Problem Report') . ': ' . _('There are no stock categories currently defined for which you are allowed to create stock requests') . '.</p>';
-	echo '<br />
-		<a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>';
-	include('includes/footer.php');
+	echo '<p class="bad">', _('Problem Report'), ': ', _('There are no stock categories currently defined for which you are allowed to create stock requests'), '.</p>';
+	echo '<a href="', $RootPath, '/StockCategories.php">', _('Define Stock Categories'), '</a>';
+	include ('includes/footer.php');
 	exit;
 }
-echo '<table>
-	<tr>
-		<td>' . _('In Stock Category') . ':<select name="StockCat">';
+echo '<fieldset>
+		<legend>', _('Item Search Criteria'), '</legend>
+		<field>
+			<label for="StockCat">', _('In Stock Category'), ':</label>
+			<select name="StockCat">';
 
 if (!isset($_POST['StockCat'])) {
 	$_POST['StockCat'] = '';
 }
 if ($_POST['StockCat'] == 'All') {
-	echo '<option selected="True" value="All">' . _('All Categories') . '</option>';
+	echo '<option selected="True" value="All">', _('All Categories'), '</option>';
 } else {
-	echo '<option value="All">' . _('All Categories') . '</option>';
+	echo '<option value="All">', _('All Categories'), '</option>';
 }
 while ($MyRow1 = DB_fetch_array($Result1)) {
 	if ($MyRow1['categoryid'] == $_POST['StockCat']) {
-		echo '<option selected="True" value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+		echo '<option selected="True" value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 	} else {
-		echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+		echo '<option value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 	}
 }
-echo '</select></td>
-	<td>' . _('Enter partial') . '<b> ' . _('Description') . '</b>:</td>';
+echo '</select>
+	</field>';
+
+echo '<field>
+		<label for="Keywords">', _('Enter partial'), '<b> ', _('Description'), '</b>:</label>';
 if (isset($_POST['Keywords'])) {
-	echo '<td><input type="text" name="Keywords" value="' . $_POST['Keywords'] . '" size="20" maxlength="25" /></td>';
+	echo '<input type="text" name="Keywords" value="', $_POST['Keywords'], '" size="20" maxlength="25" />';
 } else {
-	echo '<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>';
+	echo '<input type="text" name="Keywords" size="20" maxlength="25" />';
 }
-echo '</tr>
-		<tr>
-			<td></td>
-			<td><h3>' . _('OR') . ' ' . '</h3>' . _('Enter partial') . ' <b>' . _('Stock Code') . '</b>:</td>';
+echo '</field>';
+echo '<h3>', _('OR'), ' ', '</h3>';
+echo '<field>
+		<label for="StockCode">', _('Enter partial'), ' <b>', _('Stock Code'), '</b>:</label>';
 
 if (isset($_POST['StockCode'])) {
-	echo '<td><input type="text" autofocus="autofocus" name="StockCode" value="' . $_POST['StockCode'] . '" size="15" maxlength="18" /></td>';
+	echo '<input type="text" autofocus="autofocus" name="StockCode" value="', $_POST['StockCode'], '" size="15" maxlength="18" />';
 } else {
-	echo '<td><input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" /></td>';
+	echo '<input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" />';
 }
-echo '</tr>
-	</table>
+echo '</field>
+	</fieldset>
 	<div class="centre">
-		<input type="submit" name="Search" value="' . _('Search Now') . '" />
+		<input type="submit" name="Search" value="', _('Search Now'), '" />
 	</div>';
 
 echo '</form>';
 
-if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Prev'])) {
+if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
 
 	if ($_POST['Keywords'] != '' and $_POST['StockCode'] == '') {
 		prnMsg(_('Order Item description has been used in search'), 'warn');
@@ -637,18 +653,17 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Prev'])) {
 					ORDER BY stockmaster.stockid";
 		}
 	}
-
-	if (isset($_POST['Next'])) {
+	$TotalResult = DB_query($SQL);
+	$ListCount = DB_num_rows($TotalResult);
+	if (isset($_POST['NextList'])) {
 		$Offset = $_POST['NextList'];
-	}
-	if (isset($_POST['Prev'])) {
+	} elseif (isset($_POST['Previous'])) {
 		$Offset = $_POST['Previous'];
 	}
 	if (!isset($Offset) or $Offset < 0) {
 		$Offset = 0;
 	}
 	$SQL = $SQL . ' LIMIT ' . $_SESSION['DefaultDisplayRecordsMax'] . ' OFFSET ' . ($_SESSION['DefaultDisplayRecordsMax'] * $Offset);
-
 	$ErrMsg = _('There is a problem selecting the part records to display because');
 	$DbgMsg = _('The SQL used to get the part selection was');
 	$SearchResult = DB_query($SQL, $ErrMsg, $DbgMsg);
@@ -656,18 +671,15 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Prev'])) {
 	if (DB_num_rows($SearchResult) == 0) {
 		prnMsg(_('There are no products available meeting the criteria specified'), 'info');
 	}
-	if (DB_num_rows($SearchResult) < $_SESSION['DisplayRecordsMax']) {
-		$Offset = 0;
-	}
 
 } //end of if search
 /* display list if there is more than one record */
-if (isset($searchresult) and !isset($_POST['Select'])) {
+if (isset($SearchResult) and !isset($_POST['Select'])) {
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	$ListCount = DB_num_rows($searchresult);
 	if ($ListCount > 0) {
+
 		// If the user hit the search button and there is more than one item to show
 		$ListPageMax = ceil($ListCount / $_SESSION['DisplayRecordsMax']);
 		if (isset($_POST['Next'])) {
@@ -714,10 +726,10 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 				</tr>';
 		$k = 0; //row counter to determine background colour
 		$RowIndex = 0;
-		if (DB_num_rows($searchresult) <> 0) {
-			DB_data_seek($searchresult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
+		if (DB_num_rows($SearchResult) <> 0) {
+			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		}
-		while (($MyRow = DB_fetch_array($searchresult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
+		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
 			if ($MyRow['mbflag'] == 'D') {
 				$qoh = _('N/A');
 			} else {
@@ -738,6 +750,7 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 					<td>', $ItemStatus, '</td>
 				</tr>';
 			//end of page full new headings if
+			
 		}
 		//end of while loop
 		echo '</table>
@@ -748,8 +761,11 @@ if (isset($searchresult) and !isset($_POST['Select'])) {
 
 if (isset($SearchResult)) {
 	echo '<div class="page_help_text">' . _('Select an item by entering the quantity required.  Click Order when ready.') . '</div>';
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="orderform">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="orderform" name="orderform">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<input type="hidden" name=Keywords value="' . $_POST['Keywords'] . '" />';
+	echo '<input type="hidden" name=StockCat value="' . $_POST['StockCat'] . '" />';
+	echo '<input type="hidden" name=StockCode value="' . $_POST['StockCode'] . '" />';
 	echo '<table class="table1">
 			<thead>
 				<tr>
@@ -876,6 +892,7 @@ if (isset($SearchResult)) {
 
 		++$i;
 		//end of page full new headings if
+		
 	}
 	//end of while loop
 	echo '</tbody>';
@@ -897,7 +914,6 @@ if (isset($SearchResult)) {
 		</form>';
 
 } //end if SearchResults to show
-
 //*********************************************************************************************************
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

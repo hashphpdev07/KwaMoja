@@ -1,13 +1,11 @@
 <?php
-
 // POReport.php
 // Inquiry on Purchase Orders
 // If Date Type is Order, the main file is purchorderdetails
 // If Date Type is Delivery, the main file is grns
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Purchase Order Report');
-include('includes/header.php');
+include ('includes/header.php');
 
 # Sets default date range for current month
 if (!isset($_POST['FromDate'])) {
@@ -65,7 +63,6 @@ if (isset($_POST['submit'])) {
 	display();
 }
 
-
 //####_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT####
 function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $SupplierName, $SupplierNameOp, $SaveSummaryType) {
 
@@ -74,10 +71,9 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (!is_date($_POST['FromDate'])) {
 		$InputError = 1;
 		prnMsg(_('Invalid From Date'), 'error');
@@ -575,10 +571,10 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 							<td>' . $MyRow['description'] . '</td>
 							</tr>';
 					$LastDecimalPlaces = $MyRow['decimalplaces'];
-					$TotalQty += $MyRow['quantityord'];
-					$TotalExtCost += $MyRow['extcost'];
-					$TotalExtPrice += $MyRow['extprice'];
-					$TotalInvQty += $MyRow['qtyinvoiced'];
+					$TotalQty+= $MyRow['quantityord'];
+					$TotalExtCost+= $MyRow['extcost'];
+					$TotalExtPrice+= $MyRow['extprice'];
+					$TotalInvQty+= $MyRow['qtyinvoiced'];
 				} //END WHILE LIST LOOP
 				// Print totals
 				echo '<tr>
@@ -635,10 +631,10 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 							</tr>', $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], locale_number_format($MyRow['quantityrecd'], $MyRow['decimalplaces']), locale_number_format($MyRow['quantityord'], $MyRow['decimalplaces']), locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), locale_number_format($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
 
 					$LastDecimalPlaces = $MyRow['decimalplaces'];
-					$TotalQty += $MyRow['quantityord'];
-					$TotalExtCost += $MyRow['extcost'];
-					$TotalExtPrice += $MyRow['extprice'];
-					$TotalInvQty += $MyRow['qtyinvoiced'];
+					$TotalQty+= $MyRow['quantityord'];
+					$TotalExtCost+= $MyRow['extcost'];
+					$TotalExtPrice+= $MyRow['extprice'];
+					$TotalInvQty+= $MyRow['qtyinvoiced'];
 				} //END WHILE LIST LOOP
 				// Print totals
 				printf('<tr>
@@ -724,10 +720,10 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 							<td class="number">%s</td>
 							<td class="number">%s</td>
 						</tr>', $MyRow[$summarytype], $MyRow[$description], $MyRow['quantityord'], locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), $MyRow['qtyinvoiced'], $suppname);
-				$TotalQty += $MyRow['quantityord'];
-				$TotalExtCost += $MyRow['extcost'];
-				$TotalExtPrice += $MyRow['extprice'];
-				$TotalInvQty += $MyRow['qtyinvoiced'];
+				$TotalQty+= $MyRow['quantityord'];
+				$TotalExtCost+= $MyRow['extcost'];
+				$TotalExtPrice+= $MyRow['extprice'];
+				$TotalInvQty+= $MyRow['qtyinvoiced'];
 			} //END WHILE LIST LOOP
 			// Print totals
 			printf('<tr>
@@ -740,7 +736,7 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 						</tr>', _('Totals'), _('Lines - ') . $linectr, locale_number_format($TotalQty, 2), locale_number_format($TotalExtCost, 2), locale_number_format($TotalExtPrice, 2), locale_number_format($TotalInvQty, 2), ' ');
 			echo '</table>';
 		} // End of if ($_POST['ReportType']
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" name="ReportType" value="' . $_POST['ReportType'] . '" />';
 		echo '<input type="hidden" name="DateType" value="' . $_POST['DateType'] . '" />';
@@ -760,8 +756,8 @@ function submit($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supplie
 		echo '<div class="centre"><input type="submit" name="submitcsv" value="' . _('Export as csv file') . '" /></div>';
 		echo '</form>';
 	} // End of if inputerror != 1
+	
 } // End of function submit()
-
 //####_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT####
 function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $SupplierName, $SupplierNameOp, $SaveSummaryType) {
 
@@ -769,10 +765,9 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (!is_date($_POST['FromDate'])) {
 		$InputError = 1;
 		prnMsg(_('Invalid From Date'), 'error');
@@ -837,7 +832,6 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 			$WhereLineStatus = " AND IF(grns.qtyrecd - grns.quantityinv <> 0,'Open','Completed') = '" . $_POST['LineStatus'] . "'";
 		}
 	}
-
 
 	$WhereCategory = ' ';
 	if ($_POST['Category'] != 'All') {
@@ -1210,12 +1204,12 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 				while ($MyRow = DB_fetch_array($Result)) {
 					$linectr++;
 					// Detail for both DateType of Order
-					fprintf($FileHandle, '"%s","%s","%s","%s","%s",%s,%s,%s,%s,%s,"%s","%s","%s"' . "\n", $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], round($MyRow['quantityord'], $MyRow['decimalplaces']), round($MyRow['quantityrecd'],$MyRow['decimalplaces']), round($MyRow['extcost'], 2), round($MyRow['extprice'], 2), round($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
+					fprintf($FileHandle, '"%s","%s","%s","%s","%s",%s,%s,%s,%s,%s,"%s","%s","%s"' . "\n", $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], round($MyRow['quantityord'], $MyRow['decimalplaces']), round($MyRow['quantityrecd'], $MyRow['decimalplaces']), round($MyRow['extcost'], 2), round($MyRow['extprice'], 2), round($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
 					$LastDecimalPlaces = $MyRow['decimalplaces'];
-					$TotalQty += $MyRow['quantityord'];
-					$TotalExtCost += $MyRow['extcost'];
-					$TotalExtPrice += $MyRow['extprice'];
-					$TotalInvQty += $MyRow['qtyinvoiced'];
+					$TotalQty+= $MyRow['quantityord'];
+					$TotalExtCost+= $MyRow['extcost'];
+					$TotalExtPrice+= $MyRow['extprice'];
+					$TotalInvQty+= $MyRow['qtyinvoiced'];
 				} //END WHILE LIST LOOP
 				// Print totals
 				fprintf($FileHandle, '"%s","%s","%s","%s","%s",%s,%s,%s,%s,"%s","%s"' . "\n", 'Totals', _('Lines - ') . $linectr, ' ', ' ', ' ', round($TotalQty, 2), round($TotalExtCost, 2), round($TotalExtPrice, 2), round($TotalInvQty, 2), ' ', ' ');
@@ -1227,12 +1221,12 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 					$linectr++;
 					// Detail for both DateType of Ship
 					// In sql, had to alias grns.qtyrecd as quantityord so could use same name here
-					fprintf($FileHandle, '"%s","%s","%s","%s","%s",%s,%s,%s,%s,%s,"%s","%s","%s"' . "\n", $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], round($MyRow['quantityrecd'],$MyRow['decimalplaces']), round($MyRow['quantityord'], $MyRow['decimalplaces']), round($MyRow['extcost'], 2), round($MyRow['extprice'], 2), round($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
+					fprintf($FileHandle, '"%s","%s","%s","%s","%s",%s,%s,%s,%s,%s,"%s","%s","%s"' . "\n", $MyRow['orderno'], $MyRow['itemcode'], ConvertSQLDate($MyRow['orddate']), $MyRow['supplierno'], $MyRow['suppname'], round($MyRow['quantityrecd'], $MyRow['decimalplaces']), round($MyRow['quantityord'], $MyRow['decimalplaces']), round($MyRow['extcost'], 2), round($MyRow['extprice'], 2), round($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $MyRow['linestatus'], ConvertSQLDate($MyRow['deliverydate']), $MyRow['description']);
 					$LastDecimalPlaces = $MyRow['decimalplaces'];
-					$TotalQty += $MyRow['quantityord'];
-					$TotalExtCost += $MyRow['extcost'];
-					$TotalExtPrice += $MyRow['extprice'];
-					$TotalInvQty += $MyRow['qtyinvoiced'];
+					$TotalQty+= $MyRow['quantityord'];
+					$TotalExtCost+= $MyRow['extcost'];
+					$TotalExtPrice+= $MyRow['extprice'];
+					$TotalInvQty+= $MyRow['qtyinvoiced'];
 				} //END WHILE LIST LOOP
 				// Print totals
 				fprintf($FileHandle, '"%s","%s","%s","%s","%s",%s,%s,%s,%s,"%s","%s"' . "\n", 'Totals', _('Lines - ') . $linectr, ' ', ' ', ' ', round($TotalQty, $LastDecimalPlaces), round($TotalExtCost, 2), round($TotalExtPrice, 2), round($TotalInvQty, $LastDecimalPlaces), " ", " ");
@@ -1290,10 +1284,10 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 				fprintf($FileHandle, '"%s","%s",%s,%s,%s,%s,"%s"' . "\n", $MyRow[$summarytype], $MyRow[$description], locale_number_format($MyRow['quantityord'], $MyRow['decimalplaces']), locale_number_format($MyRow['extcost'], 2), locale_number_format($MyRow['extprice'], 2), locale_number_format($MyRow['qtyinvoiced'], $MyRow['decimalplaces']), $suppname);
 				print '<br/>';
 				$LastDecimalPlaces = $MyRow['decimalplaces'];
-				$TotalQty += $MyRow['quantityord'];
-				$TotalExtCost += $MyRow['extcost'];
-				$TotalExtPrice += $MyRow['extprice'];
-				$TotalInvQty += $MyRow['qtyinvoiced'];
+				$TotalQty+= $MyRow['quantityord'];
+				$TotalExtCost+= $MyRow['extcost'];
+				$TotalExtPrice+= $MyRow['extprice'];
+				$TotalInvQty+= $MyRow['qtyinvoiced'];
 			} //END WHILE LIST LOOP
 			// Print totals
 			fprintf($FileHandle, '"%s","%s",%s,%s,%s,%s,"%s"' . "\n", 'Totals', _('Lines - ') . $linectr, round($TotalQty, $LastDecimalPlaces), round($TotalExtCost, 2), round($TotalExtPrice, 2), round($TotalInvQty, $LastDecimalPlaces), ' ');
@@ -1303,15 +1297,15 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 		echo '<p><a href="' . $FileName . '">' . _('click here') . '</a> ' . _('to view the file') . '</div></p>';
 
 	} // End of if inputerror != 1
+	
 } // End of function submitcvs()
 
 
 function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
-	{
+{
 	// Display form fields. This function is called the first time
 	// the page is called.
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>
@@ -1464,5 +1458,5 @@ function display() //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
 } // End of function display()
 
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

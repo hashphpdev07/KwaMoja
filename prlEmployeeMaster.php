@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Employee Maintenance');
 
-include('includes/header.php');
-include('includes/CountriesArray.php');
+include ('includes/header.php');
+include ('includes/CountriesArray.php');
 
 if (isset($_GET['EmployeeID'])) {
 	$EmployeeID = strtoupper($_GET['EmployeeID']);
@@ -164,7 +163,6 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 } elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	$SQL = "SELECT counterindex,overtimeid,employeeid
@@ -183,10 +181,10 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		unset($EmployeeID);
 		unset($_SESSION['EmployeeID']);
 	} //end if Delete employee
+	
 } //end of (isset($_POST['submit']))
-
 //EmployeeID exists - either passed when calling the form or from the form itself
-echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+echo '<form method="post" action="' . basename(__FILE__) . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -485,7 +483,8 @@ if ($_POST['PayType'] === 0) {
 } else {
 	echo '<option selected="selected" value=""></option>';
 	echo '<option value=1>' . _('Hourly') . '</option>';
-	echo '<option value=0>' . _('Salary') . '</option>';#
+	echo '<option value=0>' . _('Salary') . '</option>'; #
+	
 }
 echo '</select>
 			</td>
@@ -541,5 +540,5 @@ if (!isset($EmployeeID)) {
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

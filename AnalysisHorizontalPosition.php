@@ -11,27 +11,22 @@ function RelativeChange($SelectedPeriod, $PreviousPeriod) {
 	}
 }
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Horizontal Analysis of Statement of Financial Position'); // Screen identification.
 $ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'AnalysisHorizontalPosition'; // Anchor's id in the manual's html document.
-include('includes/SQL_CommonFunctions.php');
-include('includes/AccountSectionsDef.php'); // This loads the $Sections variable
-
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
 if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod'])) {
 
 	/*Show a form to allow input of criteria for TB to show */
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text">
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print Horizontal Analysis of Statement of Financial Position'), '" /> ', // Icon title.
-			_('Horizontal Analysis of Statement of Financial Position'),
-		'</p>'; // Page title.
-
-	echo '<div class="page_help_text">',
-			_('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'),
-		'</div>';
+	_('Horizontal Analysis of Statement of Financial Position'), '</p>'; // Page title.
+	echo '<div class="page_help_text">', _('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 	// Show a form to allow input of criteria for the report to show:
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<fieldset>
 			<legend>', _('Select Report Criteria'), '</legend>
@@ -80,10 +75,10 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		</div>';
 
 	// Now do the posting while the user is thinking about the period to select:
-	include('includes/GLPostings.php');
+	include ('includes/GLPostings.php');
 
 } else {
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
 
@@ -93,20 +88,19 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$BalanceDate = ConvertSQLDate($MyRow[0]);
 
 	// Page title as IAS 1, numerals 10 and 51:
-	include_once('includes/CurrenciesArray.php'); // Array to retrieve currency name.
+	include_once ('includes/CurrenciesArray.php'); // Array to retrieve currency name.
 	echo '<div id="Report">
 			<p class="page_title_text">
 				<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', _('Horizontal Analysis of Statement of Financial Position'), '" /> ', // Icon title.
-		_('Horizontal Analysis of Statement of Financial Position'), '<br />', // Page title, reporting statement.
-		stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />', // Page title, reporting entity.
-		_('as at'), ' ', $BalanceDate, '<br />', // Page title, reporting period.
-		_('All amounts stated in'), ': ', _($CurrencyName[$_SESSION['CompanyRecord']['currencydefault']]), '
+	_('Horizontal Analysis of Statement of Financial Position'), '<br />', // Page title, reporting statement.
+	stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />', // Page title, reporting entity.
+	_('as at'), ' ', $BalanceDate, '<br />', // Page title, reporting period.
+	_('All amounts stated in'), ': ', _($CurrencyName[$_SESSION['CompanyRecord']['currencydefault']]), '
 			</p>'; // Page title, reporting presentation currency and level of rounding used.
 	echo '<table class="scrollable">
 			<thead>
 				<tr class="noPrint">
-					<th colspan="6"><h3>',
-						$Title, '
+					<th colspan="6"><h3>', $Title, '
 						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
 					</h3></th>
 				<tr>';
@@ -125,12 +119,11 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	echo '<tfoot>
 			<tr>
 				<td class="text" colspan="6">', // Prints an explanation of signs in absolute and relative changes:
-		'<br /><b>', _('Notes'), ':</b><br />', _('Absolute change signs: a positive number indicates a source of funds; a negative number indicates an application of funds.'), '<br />', _('Relative change signs: a positive number indicates an increase in the amount of that account; a negative number indicates a decrease in the amount of that account.'), '<br />
+	'<br /><b>', _('Notes'), ':</b><br />', _('Absolute change signs: a positive number indicates a source of funds; a negative number indicates an application of funds.'), '<br />', _('Relative change signs: a positive number indicates an increase in the amount of that account; a negative number indicates a decrease in the amount of that account.'), '<br />
 				</td>
 			</tr>
 		</tfoot>
 		<tbody>'; // thead and tfoot used in conjunction with tbody enable scrolling of the table body independently of the header and footer. Also, when printing a large table that spans multiple pages, these elements can enable the table header to be printed at the top of each page.
-
 	// Calculate B/Fwd retained earnings:
 	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
 					Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwdly
@@ -191,12 +184,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$Level = 0;
 	$ParentGroups = array();
 	$ParentGroups[$Level] = '';
-	$GroupTotal = array(
-		0
-	);
-	$GroupTotalLY = array(
-		0
-	);
+	$GroupTotal = array(0);
+	$GroupTotalLY = array(0);
 
 	$k = 0; // Row colour counter.
 	$DrawTotalLine = '<tr>
@@ -212,8 +201,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		$AccountBalanceLY = $MyRow['balancecfwdly'];
 
 		if ($MyRow['accountcode'] == $RetainedEarningsAct) {
-			$AccountBalance += $AccumProfitRow['accumprofitbfwd'];
-			$AccountBalanceLY += $AccumProfitRow['accumprofitbfwdly'];
+			$AccountBalance+= $AccumProfitRow['accumprofitbfwd'];
+			$AccountBalanceLY+= $AccumProfitRow['accumprofitbfwdly'];
 		}
 
 		if ($MyRow['groupname'] != $ActGrp and $ActGrp != '') {
@@ -287,15 +276,15 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			$ActGrp = $MyRow['groupname'];
 			$ParentGroups[$Level] = $MyRow['groupname'];
 		}
-		$SectionBalance += $AccountBalance;
-		$SectionBalanceLY += $AccountBalanceLY;
+		$SectionBalance+= $AccountBalance;
+		$SectionBalanceLY+= $AccountBalanceLY;
 
-		for ($i = 0; $i <= $Level; $i++) {
-			$GroupTotalLY[$i] += $AccountBalanceLY;
-			$GroupTotal[$i] += $AccountBalance;
+		for ($i = 0;$i <= $Level;$i++) {
+			$GroupTotalLY[$i]+= $AccountBalanceLY;
+			$GroupTotal[$i]+= $AccountBalance;
 		}
-		$CheckTotal += $AccountBalance;
-		$CheckTotalLY += $AccountBalanceLY;
+		$CheckTotal+= $AccountBalance;
+		$CheckTotalLY+= $AccountBalanceLY;
 
 		if ($_POST['Detail'] == 'Detailed') {
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and (round($AccountBalance, $_SESSION['CompanyRecord']['decimalplaces']) <> 0 or round($AccountBalanceLY, $_SESSION['CompanyRecord']['decimalplaces']) <> 0))) {
@@ -310,7 +299,6 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			}
 		}
 	} // End of loop.
-
 	while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
 		if ($_POST['Detail'] == 'Detailed') {
 			echo $DrawTotalLine;
@@ -360,9 +348,9 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		</tr>';
 	echo $DrawTotalLine;
 	echo '</tbody>', // See comment at the begin of the table.
-		'</table>
+	'</table>
 		</div>'; // Close div id="Report".
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">
 			<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
 			<input type="hidden" name="BalancePeriodEnd" value="', $_POST['BalancePeriodEnd'], '" />
 			<div class="centre noPrint">
@@ -370,5 +358,5 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

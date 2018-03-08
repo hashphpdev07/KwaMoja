@@ -1,11 +1,11 @@
 <?php
 /* $Id: CustItem.php 1 2014-04-23 05:10:46Z agaluski $*/
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Customer Item Data');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['DebtorNo'])) {
 	$DebtorNo = trim(mb_strtoupper($_GET['DebtorNo']));
@@ -115,7 +115,6 @@ if (isset($_GET['Delete'])) {
 	unset($DebtorNo);
 }
 
-
 if ($Edit == false) {
 
 	$ItemResult = DB_query("SELECT description FROM stockmaster WHERE stockid='" . $StockId . "'");
@@ -166,11 +165,12 @@ if ($Edit == false) {
 						<td>%s</td>
 						<td><a href="%s?StockID=%s&amp;DebtorNo=%s&amp;Edit=1">' . _('Edit') . '</a></td>
 						<td><a href="%s?StockID=%s&amp;DebtorNo=%s&amp;Delete=1" onclick=\'return confirm("' . _('Are you sure you wish to delete this customer data?') . '");\'>' . _('Delete') . '</a></td>
-					</tr>', $MyRow['name'], $MyRow['customersUOM'], locale_number_format($MyRow['conversionfactor'], 'Variable'), $MyRow['cust_part'], $MyRow['cust_description'], htmlspecialchars($_SERVER['PHP_SELF']), $StockId, $MyRow['debtorno'], htmlspecialchars($_SERVER['PHP_SELF']), $StockId, $MyRow['debtorno']);
+					</tr>', $MyRow['name'], $MyRow['customersUOM'], locale_number_format($MyRow['conversionfactor'], 'Variable'), $MyRow['cust_part'], $MyRow['cust_description'], htmlspecialchars(basename(__FILE__)), $StockId, $MyRow['debtorno'], htmlspecialchars(basename(__FILE__)), $StockId, $MyRow['debtorno']);
 		} //end of while loop
 		echo '</tbody>';
 		echo '</table>';
 	} // end of there are rows to show
+	
 }
 /* Only show the existing records if one is not being edited */
 
@@ -201,7 +201,7 @@ if (isset($DebtorNo) and $DebtorNo != '' and !isset($_POST['Searchcustomer'])) {
 		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . ' ' . _('For Stock Code') . ' - ' . $StockId . '</p><br />';
 	}
 	if (!isset($_POST['Searchcustomer'])) {
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 				<table cellpadding="3" colspan="4">
 				<tr>
 					<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
@@ -217,7 +217,7 @@ if (isset($DebtorNo) and $DebtorNo != '' and !isset($_POST['Searchcustomer'])) {
 					<input type="submit" name="Searchcustomer" value="' . _('Find Customers Now') . '" />
 				</div>
 			</form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -280,7 +280,7 @@ if (isset($debtorsmasterResult) and DB_num_rows($debtorsmasterResult) > 0) {
 		$StockId = '';
 		$StockUOM = 'each';
 	}
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__)) . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table cellpadding="2" colspan="7">
@@ -317,7 +317,6 @@ if (isset($debtorsmasterResult) and DB_num_rows($debtorsmasterResult) > 0) {
 	</form>';
 }
 //end if results to show
-
 /*Show the input form for new customer details */
 if (!isset($debtorsmasterResult)) {
 	if ($Edit == true or isset($_GET['Copy'])) {
@@ -353,7 +352,7 @@ if (!isset($debtorsmasterResult)) {
 		$_POST['cust_part'] = $MyRow['cust_part'];
 		$StockUOM = $MyRow['units'];
 	}
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF']) . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__)) . '" method="post">
 		<table>';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($DebtorNo)) {
@@ -425,7 +424,6 @@ if (!isset($debtorsmasterResult)) {
 			<td><input type="text" name="cust_description" maxlength="30" size="30" value="' . $_POST['cust_description'] . '" /></td>
 		</tr>';
 
-
 	echo '</table>
 		<div class="centre">';
 
@@ -449,5 +447,5 @@ if (!isset($debtorsmasterResult)) {
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

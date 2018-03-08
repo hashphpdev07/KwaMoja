@@ -1,10 +1,10 @@
 <?php
-$PageSecurity=1;
-include('includes/session.php');
+$PageSecurity = 1;
+include ('includes/session.php');
 
 $Title = _('Supplier Group Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['GroupID'])) {
 	$GroupID = mb_strtoupper($_GET['GroupID']);
@@ -25,7 +25,7 @@ echo '<div class="centre">
 	</div>';
 
 /* This section has been reached because the user has pressed either the insert/update buttons on the
-form hopefully with input in the correct fields, which we check for firsrt. */
+ form hopefully with input in the correct fields, which we check for firsrt. */
 
 //initialise no input errors assumed initially before we test
 $InputError = 0;
@@ -43,14 +43,13 @@ if (isset($_POST['Submit']) or isset($_POST['Update'])) {
 	// But if errors were found in the input
 	if ($InputError > 0) {
 		prnMsg(_('Validation failed no insert or update took place'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	/* If no input errors have been recieved */
 	if ($InputError == 0 and isset($_POST['Submit'])) {
 		//And if its not a new part then update existing one
-
 		$SQL = "INSERT INTO suppliergroups (id,
 						coyname,
 						address1,
@@ -104,6 +103,7 @@ if (isset($_POST['Submit']) or isset($_POST['Update'])) {
 		prnMsg(_('The supplier group record for') . ' ' . $_POST['GroupName'] . ' ' . _('has been updated'), 'success');
 
 		//If it is a new part then insert it
+		
 	}
 	unset($GroupID);
 	unset($_POST['GroupName']);
@@ -123,7 +123,6 @@ if (isset($_POST['Delete'])) {
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
-
 	$SQL = "SELECT COUNT(*) FROM suppliers WHERE suppliergroupid='" . $GroupID . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -143,9 +142,7 @@ if (isset($_POST['Delete'])) {
 	unset($GroupID);
 }
 
-
 /* So the page hasn't called itself with the input/update/delete/buttons */
-
 
 if (isset($GroupID) and isset($_POST['Amend'])) {
 
@@ -195,8 +192,7 @@ if (isset($GroupID) and isset($_POST['Amend'])) {
 
 if (isset($_POST['Amend']) or isset($_POST['Create'])) {
 	// its a new factor being added
-
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="GroupID" value="' . $GroupID . '" />
 		<input type="hidden" name="New" value="Yes" />
@@ -247,7 +243,6 @@ if (isset($_POST['Amend']) or isset($_POST['Create'])) {
 		</table>';
 }
 
-
 if (isset($_POST['Create'])) {
 	echo '<br />
 		<div class="centre">
@@ -265,11 +260,11 @@ if (isset($_POST['Create'])) {
 }
 
 /* If it didn't come with a $GroupID it must be a completely fresh start, so choose a new $factorID or give the
-option to create a new one*/
+ option to create a new one*/
 
 if (empty($GroupID) and !isset($_POST['Create']) and !isset($_POST['Amend'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<input type="hidden" name="New" value="No" />';
@@ -327,5 +322,5 @@ if (empty($GroupID) and !isset($_POST['Create']) and !isset($_POST['Amend'])) {
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Supplier Types') . ' / ' . _('Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -19,7 +18,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
@@ -56,7 +55,6 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 	} elseif ($InputError != 1) {
 
 		// Add new record on submit
-
 		$SQL = "INSERT INTO suppliertype
 					(typename,
 					 nextsupplierno)
@@ -120,7 +118,7 @@ if (!isset($SelectedType)) {
 	 *  exist because it was sent with the new call. If its the first time the page has been displayed with no parameters then
 	 * none of the above are true and the list of sales types will be displayed with links to delete or edit each. These will call
 	 * the same page again and allow update/input or deletion of the records
-	 */
+	*/
 
 	$SQL = "SELECT typeid, typename, nextsupplierno FROM suppliertype";
 	$Result = DB_query($SQL);
@@ -141,8 +139,8 @@ if (!isset($SelectedType)) {
 				<td>' . $MyRow[0] . '</td>
 				<td>' . $MyRow[1] . '</td>
 				<td>' . $MyRow[2] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&Edit=Yes">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Supplier Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&Edit=Yes">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Supplier Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -154,15 +152,14 @@ if (!isset($SelectedType)) {
 if (isset($SelectedType)) {
 
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Types Defined') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Types Defined') . '</a>
 		</div>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>'; //Main table
-
 	// The user wish to EDIT an existing type
 	if (isset($SelectedType) and $SelectedType != '') {
 
@@ -182,7 +179,6 @@ if (!isset($_GET['delete'])) {
 		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
 
 		// We dont allow the user to change an existing type code
-
 		echo '<tr>
 				<td>' . _('Type ID') . ': </td>
 				<td>' . $_POST['TypeID'] . '</td>
@@ -217,6 +213,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Loan Table Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['LoanTableID'])) {
 	$LoanTableID = $_GET['LoanTableID'];
@@ -20,14 +19,12 @@ echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_
 if (isset($_POST['update']) or isset($_POST['insert'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['LoanTableDesc']) == '') {
 		$InputError = 1;
 		prnMsg(_('The loan description may not be empty'), 'error');
@@ -48,7 +45,6 @@ if (isset($_POST['update']) or isset($_POST['insert'])) {
 			unset($_POST['LoanTableDesc']);
 
 		} elseif (isset($_POST['insert'])) { //its a new loan record
-
 			$SQL = "INSERT INTO prlloantable (loantableid,
 							loantabledesc)
 					 VALUES (NULL,
@@ -74,7 +70,6 @@ if (isset($_POST['update']) or isset($_POST['insert'])) {
 } elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS FOUND
@@ -102,13 +97,13 @@ if (DB_num_rows($Result) > 0) {
 		echo '<tr>
 				<td>' . $MyRow['loantableid'] . '</td>
 				<td>' . $MyRow['loantabledesc'] . '</td>
-				<td><a href="' . $_SERVER['PHP_SELF'] . '?LoanTableID=' . $MyRow['loantableid'] . '">' . _('Edit') . '</a></td>
+				<td><a href="' . basename(__FILE__) . '?LoanTableID=' . $MyRow['loantableid'] . '">' . _('Edit') . '</a></td>
 			</tr>';
 	}
 	echo '</table>';
 }
 
-echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -146,8 +141,7 @@ if (!isset($LoanTableID)) {
 			</div>';
 }
 
-
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

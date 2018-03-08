@@ -20,50 +20,49 @@
 		 What section is named after Help Begin: and there can be multiple sections separated with a comma.
 -->';*/
 // $PageSecurity=1;
-$PathPrefix='../../';
+$PathPrefix = '../../';
 //include($PathPrefix.'includes/session.inc');
-
-include('ManualHeader.html');
+include ('ManualHeader.html');
 ?>
-	<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8'); ?>" method="POST">
+	<form action="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'); ?>" method="POST">
 <?php
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
-if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
-     ((isset($_POST['Submit'])) and (isset($_POST['SelectTableOfContents'])))) {
-// if not submittws then coming into manual to look at TOC
-// if SelectTableOfContents set then user wants it displayed
+if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or ((isset($_POST['Submit'])) and (isset($_POST['SelectTableOfContents'])))) {
+	// if not submittws then coming into manual to look at TOC
+	// if SelectTableOfContents set then user wants it displayed
+	
 ?>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
           <input type="submit" name="Submit" value="显示选取">
 					点击下面的链接查看。点击核取框，然后会显示要打印的格式
 					<br /><br /><br />
 <?php
-  }
+	}
 ?>
     <table cellpadding="0" cellspacing="0">
       <tr>
         <td>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
   	      <input type="checkbox" name="SelectTableOfContents">
 <?php
-  }
+	}
 ?>
           <font size="+3"><b>内容</b></font>
           <br /><br />
           <UL>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectIntroduction">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Introduction'; ?>">简介</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Introduction'; ?>">简介</A>
 <?php
-  } else {
+	} else {
 ?>
               <A href="#Introduction">简介</A>
 <?php
@@ -76,12 +75,12 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
 						<LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectRequirements">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Requirements'; ?>">要求</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Requirements'; ?>">要求</A>
 <?php
-  } else {
+	} else {
 ?>
               <A href="#Requirements">要求</A>
 <?php
@@ -96,16 +95,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
 						<LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectGettingStarted">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=GettingStarted'; ?>">初识KwaMoja</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=GettingStarted'; ?>">初识KwaMoja</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#GettingStarted">启航</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>前提条件</LI>
@@ -120,31 +119,31 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSecuritySchema">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SecuritySchema'; ?>">安全计划</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SecuritySchema'; ?>">安全计划</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SecuritySchema">安全计划</A>
 <?php
-  }
+	}
 ?>
             </LI>
             <br /><br />
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectCreatingNewSystem">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=CreatingNewSystem'; ?>">创建一个新系统</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=CreatingNewSystem'; ?>">创建一个新系统</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#CreatingNewSystem">创建一个新系统</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>运行演示数据库</LI>
@@ -161,16 +160,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
 						</LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSystemConventions">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SystemConventions'; ?>">系统惯例</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SystemConventions'; ?>">系统惯例</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SystemConventions">系统惯例</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>菜单导航</LI>
@@ -180,16 +179,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
 						<LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectInventory">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Inventory'; ?>">库存 (aka "存货")</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Inventory'; ?>">库存 (aka "存货")</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Inventory">库存 (aka "存货")</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>概述</LI>
@@ -246,16 +245,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectAccountsReceivable">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=AccountsReceivable'; ?>">应收账款</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=AccountsReceivable'; ?>">应收账款</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#AccountsReceivable">应收账款</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>概述</LI>
@@ -293,16 +292,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             <LI>
 
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectAccountsPayable">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=AccountsPayable'; ?>">应付账款</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=AccountsPayable'; ?>">应付账款</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#AccountsPayable">应付账款</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>概述</LI>
@@ -322,16 +321,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesPeople">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SalesPeople'; ?>">销售人员</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SalesPeople'; ?>">销售人员</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SalesPeople">销售人员</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>销售人员记录</LI>
@@ -343,16 +342,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectCurrencies">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Currencies'; ?>">货币</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Currencies'; ?>">货币</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Currencies">货币</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>货币缩写</LI>
@@ -366,16 +365,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             <LI>
 
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesTypes">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SalesTypes'; ?>">销售类型 / 价格表</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SalesTypes'; ?>">销售类型 / 价格表</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SalesTypes">销售类型/价格表</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>销售类型/ 价格表</LI>
@@ -386,16 +385,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectPaymentTerms">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=PaymentTerms'; ?>">付款条件</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=PaymentTerms'; ?>">付款条件</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#PaymentTerms">付款条件</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>付款条件</LI>
@@ -407,16 +406,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectCreditStatus">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=CreditStatus'; ?>">信用状况</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=CreditStatus'; ?>">信用状况</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#CreditStatus">信用状况</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>信用状况评级</LI>
@@ -428,16 +427,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectTax">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Tax'; ?>">税收</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Tax'; ?>">税收</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Tax">税收</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>税收计算</LI>
@@ -451,16 +450,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectPrices">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Prices'; ?>">价格和折扣</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Prices'; ?>">价格和折扣</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Prices">价格和折扣</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>价格和折扣</LI>
@@ -472,16 +471,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectARTransactions">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=ARTransactions'; ?>">应收账款交易</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=ARTransactions'; ?>">应收账款交易</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#ARTransactions">应收账款交易</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>为订单开发票</LI>
@@ -505,16 +504,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectARInquiries">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=ARInquiries'; ?>">应收账款查询</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=ARInquiries'; ?>">应收账款查询</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#ARInquiries">应收账款查询</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>顾客查询</LI>
@@ -525,16 +524,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectARReports">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=ARReports'; ?>">应收账款报告</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=ARReports'; ?>">应收账款报告</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#ARReports">应收账款报告</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>顾客 - 报告</LI>
@@ -547,16 +546,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesAnalysis">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SalesAnalysis'; ?>">销售分析</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SalesAnalysis'; ?>">销售分析</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SalesAnalysis">销售分析</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>销售分析</LI>
@@ -568,16 +567,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesOrders">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SalesOrders'; ?>">销售订单</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SalesOrders'; ?>">销售订单</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SalesOrders">销售订单</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>销售订单</LI>
@@ -596,16 +595,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="PurchaseOrdering">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=PurchaseOrdering'; ?>">采购订单</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=PurchaseOrdering'; ?>">采购订单</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Shipments">采购订单</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>概述</LI>
@@ -618,16 +617,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectShipments">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Shipments'; ?>">运输</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Shipments'; ?>">运输</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Shipments">运输</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>运输</LI>
@@ -640,16 +639,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectContractCosting">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Contracts'; ?>">合同成本</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Contracts'; ?>">合同成本</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Contracts">合同成本</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>合同成本概述</LI>
@@ -661,16 +660,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectManufacturing">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Manufacturing'; ?>">制造</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Manufacturing'; ?>">制造</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Manufacturing">制造</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>制造概述</LI>
@@ -684,17 +683,17 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectMRP">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=MRP'; ?>">
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=MRP'; ?>">
               物料需求计划</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#MRP">物料需求计划</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>MRP 概述</LI>
@@ -709,16 +708,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectGeneralLedger">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=GeneralLedger'; ?>">总帐</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=GeneralLedger'; ?>">总帐</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#GeneralLedger">总帐</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>总帐概述</LI>
@@ -736,16 +735,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
  <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectFixedAssets">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=FixedAssets'; ?>">固定资产</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=FixedAssets'; ?>">固定资产</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Fixed Assets">固定资产</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>固定资产概述</LI>
@@ -758,16 +757,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </LI>
             <LI>
 <?php
-if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectReportBuilder">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=ReportBuilder'; ?>">自定义SQL报告工具</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=ReportBuilder'; ?>">自定义SQL报告工具</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#ReportBuilder">报告工具</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>报告工具介绍</LI>
@@ -785,16 +784,16 @@ if (!isset($_POST['Submit'])) {
             </LI>
             <LI>
 <?php
-if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="PettyCash">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=PettyCash'; ?>">小额现金管理系统</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=PettyCash'; ?>">小额现金管理系统</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#PettyCash">小额现金管理系统</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>概述</LI>
@@ -805,16 +804,16 @@ if (!isset($_POST['Submit'])) {
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectMultilanguage">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Multilanguage'; ?>">多语言</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Multilanguage'; ?>">多语言</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Multilanguage">多语言</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>多语言简介</LI>
@@ -827,16 +826,16 @@ if (!isset($_POST['Submit'])) {
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSpecialUtilities">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=SpecialUtilities'; ?>">特殊工具</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=SpecialUtilities'; ?>">特殊工具</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#SpecialUtilities">特殊工具</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>以新标准成本进行销售分析</LI>
@@ -849,16 +848,16 @@ if (!isset($_POST['Submit'])) {
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectNewScripts">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=NewScripts'; ?>">研发 - 基础</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=NewScripts'; ?>">研发 - 基础</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#NewScripts">研发 - 基础</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>路径结构</LI>
@@ -880,16 +879,16 @@ if (!isset($_POST['Submit'])) {
 
 
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectAPI">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=API'; ?>">研发 - API</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=API'; ?>">研发 - API</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#API">研发 - API</A>
 <?php
-  }
+	}
 ?>
               <br />
               <br />
@@ -902,16 +901,16 @@ if (!isset($_POST['Submit'])) {
 
 
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectStructure">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Structure'; ?>">研发 - 结构</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Structure'; ?>">研发 - 结构</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Structure">研发 - 结构</A>
 <?php
-  }
+	}
 ?>
               <UL>
                 <LI>销售订单</LI>
@@ -933,16 +932,16 @@ if (!isset($_POST['Submit'])) {
             </LI>
             <LI>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectContributors">
-              <A HREF="<?php echo htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?ViewTopic=Contributors'; ?>">贡献者 -致谢</A>
+              <A HREF="<?php echo htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=Contributors'; ?>">贡献者 -致谢</A>
 <?php
-  } else {
+	} else {
 ?>
               <A HREF="#Contributors">贡献者 - 致谢</A>
 <?php
-  }
+	}
 ?>
             </LI>
           </UL>
@@ -955,142 +954,141 @@ if (!isset($_POST['Submit'])) {
 ?>
   </form>
 <?php
-
 if (!isset($_GET['ViewTopic'])) {
 	$_GET['ViewTopic'] = '';
 }
 
 if ($_GET['ViewTopic'] == 'Introduction' or isset($_POST['SelectIntroduction'])) {
-  include('ManualIntroduction.html');
+	include ('ManualIntroduction.html');
 }
 
 if ($_GET['ViewTopic'] == 'Requirements' or isset($_POST['SelectRequirements'])) {
-  include('ManualRequirements.html');
+	include ('ManualRequirements.html');
 }
 
 if ($_GET['ViewTopic'] == 'GettingStarted' or isset($_POST['SelectGettingStarted'])) {
-  include('ManualGettingStarted.html');
+	include ('ManualGettingStarted.html');
 }
 
 if ($_GET['ViewTopic'] == 'SecuritySchema' or isset($_POST['SelectSecuritySchema'])) {
-  include('ManualSecuritySchema.html');
+	include ('ManualSecuritySchema.html');
 }
 
 if ($_GET['ViewTopic'] == 'CreatingNewSystem' or isset($_POST['SelectCreatingNewSystem'])) {
-  include('ManualCreatingNewSystem.html');
+	include ('ManualCreatingNewSystem.html');
 }
 
 if ($_GET['ViewTopic'] == 'SystemConventions' or isset($_POST['SelectSystemConventions'])) {
-  include('ManualSystemConventions.html');
+	include ('ManualSystemConventions.html');
 }
 
 if ($_GET['ViewTopic'] == 'Inventory' or isset($_POST['SelectInventory'])) {
-  include('ManualInventory.html');
+	include ('ManualInventory.html');
 }
 
 if ($_GET['ViewTopic'] == 'AccountsReceivable' or isset($_POST['SelectAccountsReceivable'])) {
-  include('ManualAccountsReceivable.html');
+	include ('ManualAccountsReceivable.html');
 }
 
 if ($_GET['ViewTopic'] == 'AccountsPayable' or isset($_POST['SelectAccountsPayable'])) {
-  include('ManualAccountsPayable.html');
+	include ('ManualAccountsPayable.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesPeople' or isset($_POST['SelectSalesPeople'])) {
-  include('ManualSalesPeople.html');
+	include ('ManualSalesPeople.html');
 }
 if ($_GET['ViewTopic'] == 'Currencies' or isset($_POST['Currencies'])) {
-  include('ManualCurrencies.html');
+	include ('ManualCurrencies.html');
 }
 if ($_GET['ViewTopic'] == 'SalesTypes' or isset($_POST['SelectSalesTypes'])) {
-  include('ManualSalesTypes.html');
+	include ('ManualSalesTypes.html');
 }
 
 if ($_GET['ViewTopic'] == 'PaymentTerms' or isset($_POST['SelectPaymentTerms'])) {
-  include('ManualPaymentTerms.html');
+	include ('ManualPaymentTerms.html');
 }
 
 if ($_GET['ViewTopic'] == 'CreditStatus' or isset($_POST['SelectCreditStatus'])) {
-  include('ManualCreditStatus.html');
+	include ('ManualCreditStatus.html');
 }
 
 if ($_GET['ViewTopic'] == 'Tax' or isset($_POST['SelectTax'])) {
-  include('ManualTax.html');
+	include ('ManualTax.html');
 }
 
 if ($_GET['ViewTopic'] == 'Prices' or isset($_POST['SelectPrices'])) {
-  include('ManualPrices.html');
+	include ('ManualPrices.html');
 }
 
 if ($_GET['ViewTopic'] == 'ARTransactions' or isset($_POST['SelectARTransactions'])) {
-  include('ManualARTransactions.html');
+	include ('ManualARTransactions.html');
 }
 
 if ($_GET['ViewTopic'] == 'ARInquiries' or isset($_POST['SelectARInquiries'])) {
-  include('ManualARInquiries.html');
+	include ('ManualARInquiries.html');
 }
 
 if ($_GET['ViewTopic'] == 'ARReports' or isset($_POST['SelectARReports'])) {
-  include('ManualARReports.html');
+	include ('ManualARReports.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesAnalysis' or isset($_POST['SelectSalesAnalysis'])) {
-  include('ManualSalesAnalysis.html');
+	include ('ManualSalesAnalysis.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesOrders' or isset($_POST['SelectSalesOrders'])) {
-  include('ManualSalesOrders.html');
+	include ('ManualSalesOrders.html');
 }
 
 if ($_GET['ViewTopic'] == 'PurchaseOrdering' or isset($_POST['PurchaseOrdering'])) {
-  include('ManualPurchaseOrdering.html');
+	include ('ManualPurchaseOrdering.html');
 }
 if ($_GET['ViewTopic'] == 'Shipments' or isset($_POST['SelectShipments'])) {
-  include('ManualShipments.html');
+	include ('ManualShipments.html');
 }
 if ($_GET['ViewTopic'] == 'Contracts' or isset($_POST['SelectContractCosting'])) {
-  include('ManualContracts.html');
+	include ('ManualContracts.html');
 }
 if ($_GET['ViewTopic'] == 'GeneralLedger' or isset($_POST['SelectGeneralLedger'])) {
-  include('ManualGeneralLedger.html');
+	include ('ManualGeneralLedger.html');
 }
 if ($_GET['ViewTopic'] == 'FixedAssets' or isset($_POST['SelectFixedAssets'])) {
-  include('ManualFixedAssets.html');
+	include ('ManualFixedAssets.html');
 }
 if ($_GET['ViewTopic'] == 'Manufacturing' or isset($_POST['SelectManufacturing'])) {
-  include('ManualManufacturing.html');
+	include ('ManualManufacturing.html');
 }
 if ($_GET['ViewTopic'] == 'MRP' or isset($_POST['SelectMRP'])) {
-  include('ManualMRP.html');
+	include ('ManualMRP.html');
 }
 if ($_GET['ViewTopic'] == 'ReportBuilder' or isset($_POST['SelectReportBuilder'])) {
-  include('ManualReportBuilder.html');
+	include ('ManualReportBuilder.html');
 }
 if ($_GET['ViewTopic'] == 'PettyCash' or isset($_POST['PettyCash'])) {
-  include('ManualPettyCash.html');
+	include ('ManualPettyCash.html');
 }
 if ($_GET['ViewTopic'] == 'Multilanguage' or isset($_POST['SelectMultilanguage'])) {
-  include('ManualMultilanguage.html');
+	include ('ManualMultilanguage.html');
 }
 
 if ($_GET['ViewTopic'] == 'SpecialUtilities' or isset($_POST['SelectSpecialUtilities'])) {
-  include('ManualSpecialUtilities.html');
+	include ('ManualSpecialUtilities.html');
 }
 
 if ($_GET['ViewTopic'] == 'NewScripts' or isset($_POST['SelectNewScripts'])) {
-  include('ManualNewScripts.html');
+	include ('ManualNewScripts.html');
 }
 
 if ($_GET['ViewTopic'] == 'API' or isset($_POST['SelectAPI'])) {
-  include('ManualAPIFunctions.php');
+	include ('ManualAPIFunctions.php');
 }
 
 if ($_GET['ViewTopic'] == 'Structure' or isset($_POST['SelectStructure'])) {
-  include('ManualDevelopmentStructure.html');
+	include ('ManualDevelopmentStructure.html');
 }
 
 if ($_GET['ViewTopic'] == 'Contributors' or isset($_POST['SelectContributors'])) {
-  include('ManualContributors.html');
+	include ('ManualContributors.html');
 }
 
-include('ManualFooter.html');
+include ('ManualFooter.html');

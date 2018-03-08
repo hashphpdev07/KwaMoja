@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/htmlMimeMail.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/htmlMimeMail.php');
 
 $ViewTopic = 'ARReports';
 $BookMark = 'CustomerStatements';
@@ -11,7 +10,6 @@ $Title = _('Print Customer Statements');
 
 // if this file is called from another script, we set the required POST variables from the GET
 // We call this file from SelectCustomer.php when a customer is selected and we want a statement printed
-
 if (isset($_POST['PrintPDF'])) {
 	$PaperSize = 'A4_Landscape';
 }
@@ -80,21 +78,21 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 
 	if (DB_Num_Rows($StatementResults) == 0) {
 		$Title = _('Print Statements') . ' - ' . _('No Customers Found');
-		require('includes/header.php');
+		require ('includes/header.php');
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Customer Account Statements') . '</p>';
 		prnMsg(_('There were no Customers matching your selection of ') . $_POST['FromCust'] . ' - ' . $_POST['ToCust'] . '.', 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit();
 	}
 	//Start the statement if there are any in the range and we are printing the whole lot
 	if ($_POST['EmailOrPrint'] == 'print') {
-		include('includes/PDFStarter.php');
+		include ('includes/PDFStarter.php');
 		$PDF->addInfo('Title', _('Customer Statements'));
 		$PDF->addInfo('Subject', _('Statements from') . ' ' . $_POST['FromCust'] . ' ' . _('to') . ' ' . $_POST['ToCust']);
 		$PageNumber = 1;
 	} else {
 		$Title = _('Email Customer Statements');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/email.png" title="' . _('Email') . '" alt="" />' . ' ' . _('Emailing Customer Account Statements') . '</p>';
 
 		echo '<table>
@@ -133,13 +131,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 		$RecipientArray = array();
 		$RecipientsResult = DB_query("SELECT email FROM custcontacts WHERE statement=1 AND debtorno='" . $StmtHeader['debtorno'] . "'");
 		while ($RecipientRow = DB_fetch_row($RecipientsResult)) {
-			if (IsEmailAddress($RecipientRow[0])){
+			if (IsEmailAddress($RecipientRow[0])) {
 				$RecipientArray[] = $RecipientRow[0];
 			}
 		}
 
 		if ($_POST['EmailOrPrint'] == 'email') {
-			include('includes/PDFStarter.php');
+			include ('includes/PDFStarter.php');
 			$PDF->addInfo('Title', $_SESSION['CompanyRecord']['coyname'] . ' - ' . _('Customer Statement'));
 			$PDF->addInfo('Subject', _('For customer') . ': ' . $StmtHeader['name']);
 			$PageNumber = 1;
@@ -149,8 +147,8 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 		 * set to print and there are no email addresses defined
 		 * OR
 		 * set to email and there are email addresses defined.
-		 */
-		if (($_POST['EmailOrPrint']=='print' and count($RecipientArray)==0) or ($_POST['EmailOrPrint'] == 'email' and count($RecipientArray) > 0)) {
+		*/
+		if (($_POST['EmailOrPrint'] == 'print' and count($RecipientArray) == 0) or ($_POST['EmailOrPrint'] == 'email' and count($RecipientArray) > 0)) {
 
 			$line_height = 16;
 
@@ -168,10 +166,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 					AND debtortrans.settled=0";
 
 			if ($_SESSION['SalesmanLogin'] != '') {
-				$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+				$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 			}
 
-			$SQL .= " ORDER BY debtortrans.id";
+			$SQL.= " ORDER BY debtortrans.id";
 
 			$OstdgTrans = DB_query($SQL, $ErrMsg);
 
@@ -197,13 +195,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 							AND debtortrans.settled=1";
 
 				if ($_SESSION['SalesmanLogin'] != '') {
-					$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+					$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 				}
 
-				$SQL .= " ORDER BY debtortrans.id";
+				$SQL.= " ORDER BY debtortrans.id";
 
 				$SetldTrans = DB_query($SQL, $ErrMsg);
-				$NumberOfRecordsReturned += DB_num_rows($SetldTrans);
+				$NumberOfRecordsReturned+= DB_num_rows($SetldTrans);
 
 			}
 
@@ -219,7 +217,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 					$PDF->newPage();
 				}
 
-				include('includes/PDFStatementPageHeader.php');
+				include ('includes/PDFStatementPageHeader.php');
 
 				$Cust_Name = $StmtHeader['name'];
 				$Cust_No = $StmtHeader['debtorno'];
@@ -230,7 +228,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 						$FontSize = 12;
 						$PDF->addText($Left_Margin + 1, $YPos + 5, $FontSize, _('Settled Transactions'));
 
-						$YPos -= (2 * $line_height);
+						$YPos-= (2 * $line_height);
 
 						$FontSize = 10;
 
@@ -261,29 +259,28 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 
 								++$PageNumber;
 								$PDF->newPage();
-								include('includes/PDFStatementPageHeader.php');
+								include ('includes/PDFStatementPageHeader.php');
 							} //end if need a new page headed up
-
 							/*increment a line down for the next line item */
-							$YPos -= ($line_height);
+							$YPos-= ($line_height);
 
 						} //end while there transactions settled this month to print out
+						
 					}
 				} // end of if there are transaction that were settled this month
-
 				if (DB_num_rows($OstdgTrans) >= 1) {
 
-					$YPos -= ($line_height);
+					$YPos-= ($line_height);
 					if ($YPos - (2 * $line_height) <= $Bottom_Margin) {
 						$PageNumber++;
 						$PDF->newPage();
-						include('includes/PDFStatementPageHeader.php');
+						include ('includes/PDFStatementPageHeader.php');
 					}
 					/*Now the same again for outstanding transactions */
 
 					$FontSize = 12;
 					$PDF->addText($Left_Margin + 1, $YPos + 20, $FontSize, _('Outstanding Transactions'));
-					$YPos -= $line_height;
+					$YPos-= $line_height;
 
 					while ($MyRow = DB_fetch_array($OstdgTrans)) {
 
@@ -318,15 +315,15 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 
 							++$PageNumber;
 							$PDF->newPage();
-							include('includes/PDFStatementPageHeader.php');
+							include ('includes/PDFStatementPageHeader.php');
 						} //end if need a new page headed up
-
 						/*increment a line down for the next line item */
-						$YPos -= ($line_height);
+						$YPos-= ($line_height);
 
 					} //end while there are outstanding transaction to print
+					
 				} // end if there are outstanding transaction to print
-
+				
 
 				/* check to see enough space left to print the totals/footer
 				which is made up of 2 ruled lines, the totals/aging another 2 lines
@@ -337,7 +334,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 					++$PageNumber;
 					$PDF->newPage();
 					$PDF->newPage();
-					include('includes/PDFStatementPageHeader.php');
+					include ('includes/PDFStatementPageHeader.php');
 				}
 				/*Now figure out the aged analysis for the customer under review */
 
@@ -400,10 +397,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 							debtorsmaster.debtorno = '" . $StmtHeader['debtorno'] . "'";
 
 				if ($_SESSION['SalesmanLogin'] != '') {
-					$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+					$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 				}
 
-				$SQL .= " GROUP BY
+				$SQL.= " GROUP BY
 							debtorsmaster.name,
 							currencies.currency,
 							paymentterms.terms,
@@ -419,7 +416,6 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 				/*there should be only one record returned ?? */
 				$AgedAnalysis = DB_fetch_array($CustomerResult);
 
-
 				/*Now print out the footer and totals */
 
 				$DisplayDue = locale_number_format($AgedAnalysis['due'] - $AgedAnalysis['overdue1'], $StmtHeader['currdecimalplaces']);
@@ -428,11 +424,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 				$DisplayOverdue1 = locale_number_format($AgedAnalysis['overdue1'] - $AgedAnalysis['overdue2'], $StmtHeader['currdecimalplaces']);
 				$DisplayOverdue2 = locale_number_format($AgedAnalysis['overdue2'], $StmtHeader['currdecimalplaces']);
 
-
 				$PDF->line($Page_Width - $Right_Margin, $Bottom_Margin + (4 * $line_height), $Left_Margin, $Bottom_Margin + (4 * $line_height));
 
 				$FontSize = 10;
-
 
 				$PDF->addText($Left_Margin + 75, ($Bottom_Margin + 10) + (3 * $line_height) + 4, $FontSize, _('Current') . ' ');
 				$PDF->addText($Left_Margin + 158, ($Bottom_Margin + 10) + (3 * $line_height) + 4, $FontSize, _('Past Due') . ' ');
@@ -448,13 +442,11 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 
 				$LeftOvers = $PDF->addTextWrap($Left_Margin + 432, $Bottom_Margin + (2 * $line_height) + 8, 70, $FontSize, $DisplayBalance, 'right');
 
-
 				/*draw a line under the balance info */
 				$YPos = $Bottom_Margin + (2 * $line_height);
 				$PDF->line($Left_Margin, $YPos, $Perforation, $YPos);
 
-
-				if (mb_strlen($StmtHeader['lastpaiddate']) > 1 AND $StmtHeader['lastpaid'] != 0) {
+				if (mb_strlen($StmtHeader['lastpaiddate']) > 1 and $StmtHeader['lastpaid'] != 0) {
 					$PDF->addText($Left_Margin + 5, $Bottom_Margin + 13, $FontSize, _('Last payment received') . ' ' . ConvertSQLDate($StmtHeader['lastpaiddate']) . '    ' . _('Amount received was') . ' ' . locale_number_format($StmtHeader['lastpaid'], $StmtHeader['currdecimalplaces']));
 
 				}
@@ -486,9 +478,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 					$Mail->setFrom($_SESSION['CompanyRecord']['coyname'] . ' <' . $_SESSION['CompanyRecord']['email'] . '>');
 					$Result = $Mail->send($RecipientArray);
 				} else {
-					$Result = SendmailBySmtp($Mail, array(
-						$RecipientArray
-					));
+					$Result = SendmailBySmtp($Mail, array($RecipientArray));
 				}
 				echo '<tr>
 						<td>', $StmtHeader['debtorno'], '</td>
@@ -519,19 +509,19 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 	} elseif (!isset($PDF)) {
 		$Title = _('Print Statements') . ' - ' . _('No Statements Found');
 		if ($_POST['EmailOrPrint'] == 'print') {
-			include('includes/header.php');
+			include ('includes/header.php');
 			echo '<br />
 				<br />
-				<br />' . prnMsg( _('There were no statements to print'), 'warn');
+				<br />' . prnMsg(_('There were no statements to print'), 'warn');
 		} else {
 			echo '<br />
 				<br />
-				<br />' . prnMsg( _('There were no statements to email'), 'warn');
+				<br />' . prnMsg(_('There were no statements to email'), 'warn');
 		}
-		echo'<br />
+		echo '<br />
 				<br />
 				<br />';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 	}
 
 } else {
@@ -541,7 +531,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'CustomerStatements';
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Customer Account Statements') . '</p>';
 	if (!isset($_POST['FromCust']) or $_POST['FromCust'] == '') {
 
@@ -554,7 +544,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table>';
@@ -579,7 +569,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCust']) and $_POST['FromCust
 			</div>';
 		echo '</form>';
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

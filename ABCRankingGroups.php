@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Maintain ABC ranking groups');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
@@ -18,9 +17,9 @@ if (isset($_GET['Delete'])) {
 		$Result = DB_query($SQL);
 		prnMsg(_('ABC Ranking group number') . ' ' . $_GET['SelectedGroupID'] . ' ' . _('has been deleted'), 'success');
 		echo '<div class="centre">
-				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking groups'), '</a>
+				<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking groups'), '</a>
 			</div>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		prnMsg(_('ABC Ranking group number') . ' ' . $_GET['SelectedMethodID'] . ' ' . _('cannot be deleted as it already has been run'), 'error');
@@ -94,9 +93,9 @@ if (isset($_POST['Submit'])) {
 		$InputResult = DB_query($SQL);
 		prnMsg(_('The ranking group has been successfully saved to the database'), 'success');
 		echo '<div class="centre">
-				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking groups'), '</a>
+				<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking groups'), '</a>
 			</div>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -143,12 +142,12 @@ if (isset($_POST['Submit'])) {
 				<td>', $MyRow['cpercentage'], '</td>
 				<td>', $MyRow['zerousage'], '</td>
 				<td>', $MyRow['months'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedGroupID=', urlencode($MyRow['groupid']), '&amp;Delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this ranking group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedGroupID=', urlencode($MyRow['groupid']), '&amp;Delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this ranking group?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 	}
 	echo '</table>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCMethods">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCMethods">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<fieldset>
@@ -216,6 +215,6 @@ if (isset($_POST['Submit'])) {
 	echo '</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

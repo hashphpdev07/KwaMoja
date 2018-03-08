@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Employment Status Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedStatusID'])) {
 	$SelectedStatusID = $_GET['SelectedStatusID'];
@@ -17,14 +16,12 @@ echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_
 if (isset($_POST['insert']) or isset($_POST['update'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['EmploymentName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The employment description may not be empty'), 'error');
@@ -106,23 +103,23 @@ if (!isset($SelectedStatusID)) {
 			}
 
 			echo '<td>' . $MyRow['employmentdesc'] . '</td>
-					<td><a href="' . $_SERVER['PHP_SELF'] . '?&SelectedStatusID=' . $MyRow['employmentid'] . '">' . _('Edit') . '</a></td>
-					<td><a href="' . $_SERVER['PHP_SELF'] . '?&SelectedStatusID=' . $MyRow['employmentid'] . '&delete=1">' . _('Delete') . '</a></td>
+					<td><a href="' . basename(__FILE__) . '?&SelectedStatusID=' . $MyRow['employmentid'] . '">' . _('Edit') . '</a></td>
+					<td><a href="' . basename(__FILE__) . '?&SelectedStatusID=' . $MyRow['employmentid'] . '&delete=1">' . _('Delete') . '</a></td>
 				</tr>';
 
 		} //END WHILE LIST LOOP
 		echo '</table>';
 	} //end of ifs and buts!
+	
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedStatusID)) {
 		//editing an existing section
-
 		$SQL = "SELECT employmentid,
 						employmentdesc
 					FROM prlemploymentstatus
@@ -159,6 +156,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

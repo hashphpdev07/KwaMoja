@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Customer Listing'));
 	$PDF->addInfo('Subject', _('Customer Listing'));
 	$line_height = 12;
@@ -14,10 +13,10 @@ if (isset($_POST['PrintPDF'])) {
 	if ($_POST['Activity'] != 'All') {
 		if (!is_numeric($_POST['ActivityAmount'])) {
 			$Title = _('Customer List') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			echo '<p />';
 			prnMsg(_('The activity amount is not numeric and you elected to print customer relative to a certain amount of activity') . ' - ' . _('this level of activity must be specified in the local currency') . '.', 'error');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -99,13 +98,13 @@ if (isset($_POST['PrintPDF'])) {
 			$i = 0;
 			foreach ($_POST['SalesPeople'] as $Salesperson) {
 				if ($i > 0) {
-					$SQL .= " OR ";
+					$SQL.= " OR ";
 				}
 				++$i;
-				$SQL .= "custbranch.salesman='" . $Salesperson . "'";
+				$SQL.= "custbranch.salesman='" . $Salesperson . "'";
 			}
 
-			$SQL .= ") ORDER BY area,
+			$SQL.= ") ORDER BY area,
 						salesman,
 						debtorsmaster.debtorno,
 						custbranch.branchcode";
@@ -150,13 +149,13 @@ if (isset($_POST['PrintPDF'])) {
 			$i = 0;
 			foreach ($_POST['Areas'] as $Area) {
 				if ($i > 0) {
-					$SQL .= " OR ";
+					$SQL.= " OR ";
 				}
 				++$i;
-				$SQL .= "custbranch.area='" . $Area . "'";
+				$SQL.= "custbranch.area='" . $Area . "'";
 			}
 
-			$SQL .= ") ORDER BY custbranch.area,
+			$SQL.= ") ORDER BY custbranch.area,
 					custbranch.salesman,
 					debtorsmaster.debtorno,
 					custbranch.branchcode";
@@ -198,24 +197,24 @@ if (isset($_POST['PrintPDF'])) {
 			$i = 0;
 			foreach ($_POST['Areas'] as $Area) {
 				if ($i > 0) {
-					$SQL .= " OR ";
+					$SQL.= " OR ";
 				}
 				++$i;
-				$SQL .= "custbranch.area='" . $Area . "'";
+				$SQL.= "custbranch.area='" . $Area . "'";
 			}
 
-			$SQL .= ") AND (";
+			$SQL.= ") AND (";
 
 			$i = 0;
 			foreach ($_POST['SalesPeople'] as $Salesperson) {
 				if ($i > 0) {
-					$SQL .= " OR ";
+					$SQL.= " OR ";
 				}
 				++$i;
-				$SQL .= "custbranch.salesman='" . $Salesperson . "'";
+				$SQL.= "custbranch.salesman='" . $Salesperson . "'";
 			}
 
-			$SQL .= ") ORDER BY custbranch.area,
+			$SQL.= ") ORDER BY custbranch.area,
 					custbranch.salesman,
 					debtorsmaster.debtorno,
 					custbranch.branchcode";
@@ -225,32 +224,30 @@ if (isset($_POST['PrintPDF'])) {
 	}
 	/* end if not all sales areas was selected */
 
-
 	$CustomersResult = DB_query($SQL);
 
 	if (DB_error_no() != 0) {
 		$Title = _('Customer List') . ' - ' . _('Problem Report') . '....';
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The customer List could not be retrieved by the SQL because') . ' - ' . DB_error_msg());
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($CustomersResult) == 0) {
 		$Title = _('Customer List') . ' - ' . _('Problem Report') . '....';
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('This report has no output because there were no customers retrieved'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-
-	include('includes/PDFCustomerListPageHeader.php');
+	include ('includes/PDFCustomerListPageHeader.php');
 
 	$Area = '';
 	$SalesPerson = '';
@@ -260,7 +257,7 @@ if (isset($_POST['PrintPDF'])) {
 		if ($_POST['Activity'] != 'All') {
 
 			/*Get the total turnover in local currency for the customer/branch
-			since the date entered */
+			 since the date entered */
 
 			$SQL = "SELECT SUM((ovamount+ovfreight+ovdiscount)/rate) AS turnover
 					FROM debtortrans
@@ -293,33 +290,33 @@ if (isset($_POST['PrintPDF'])) {
 		if ($PrintThisCustomer) {
 			if ($Area != $Customers['area']) {
 				$FontSize = 10;
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 				if ($YPos < ($Bottom_Margin + 80)) {
-					include('includes/PDFCustomerListPageHeader.php');
+					include ('includes/PDFCustomerListPageHeader.php');
 				}
 				$PDF->setFont('', 'B');
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 260 - $Left_Margin, $FontSize, _('Customers in') . ' ' . $Customers['areadescription']);
 				$Area = $Customers['area'];
 				$PDF->setFont('', '');
 				$FontSize = 8;
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 			}
 
 			if ($SalesPerson != $Customers['salesman']) {
 				$FontSize = 10;
-				$YPos -= ($line_height);
+				$YPos-= ($line_height);
 				if ($YPos < ($Bottom_Margin + 80)) {
-					include('includes/PDFCustomerListPageHeader.php');
+					include ('includes/PDFCustomerListPageHeader.php');
 				}
 				$PDF->setFont('', 'B');
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 300 - $Left_Margin, $FontSize, $Customers['salesmanname']);
 				$PDF->setFont('', '');
 				$SalesPerson = $Customers['salesman'];
 				$FontSize = 8;
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 			}
 
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 
 			$LeftOvers = $PDF->addTextWrap(20, $YPos, 60, $FontSize, $Customers['debtorno']);
 			$LeftOvers = $PDF->addTextWrap(80, $YPos, 150, $FontSize, $Customers['name']);
@@ -352,9 +349,9 @@ if (isset($_POST['PrintPDF'])) {
 
 			$PDF->line($Page_Width - $Right_Margin, $YPos - 32, $Left_Margin, $YPos - 32);
 
-			$YPos -= 40;
+			$YPos-= 40;
 			if ($YPos < ($Bottom_Margin + 30)) {
-				include('includes/PDFCustomerListPageHeader.php');
+				include ('includes/PDFCustomerListPageHeader.php');
 			}
 		}
 		/*end if $PrintThisCustomer == true */
@@ -371,10 +368,10 @@ if (isset($_POST['PrintPDF'])) {
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'CustomerListing';
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table summary="' . _('Input criteria for report') . '">';
 	echo '<tr>
@@ -396,7 +393,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	$SQL = "SELECT salesmancode, salesmanname FROM salesman";
 	if ($_SESSION['SalesmanLogin'] != '') {
-		$SQL .= " WHERE salesmancode='" . $_SESSION['SalesmanLogin'] . "'";
+		$SQL.= " WHERE salesmancode='" . $_SESSION['SalesmanLogin'] . "'";
 	} else {
 		echo '<option selected="selected" value="All">' . _('All salespeople') . '</option>';
 	}
@@ -436,7 +433,7 @@ if (isset($_POST['PrintPDF'])) {
 			</div>';
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

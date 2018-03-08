@@ -1,10 +1,9 @@
 <?php
-
 /* Get the php-gettext function.
  * When users have not select the language, we guess user's language via
  * the http header information. once the user has select their lanugage,
  * use the language user selected
- */
+*/
 
 if (!isset($_POST['Language'])) {
 	if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) { //get users preferred language
@@ -12,85 +11,85 @@ if (!isset($_POST['Language'])) {
 		switch ($ClientLang) {
 			case 'ar':
 				$Language = 'ar_EG.utf8';
-				break;
+			break;
 			case 'cs':
 				$Language = 'cs_CZ.utf8';
-				break;
+			break;
 			case 'de':
 				$Language = 'de_DE.utf8';
-				break;
+			break;
 			case 'el':
 				$Language = 'el_GR.utf8';
-				break;
+			break;
 			case 'en':
 				$Language = 'en_GB.utf8';
-				break;
+			break;
 			case 'es':
 				$Language = 'es_ES.utf8';
-				break;
+			break;
 			case 'et':
 				$Language = 'et_EE.utf8';
-				break;
+			break;
 			case 'fa':
 				$Language = 'fa_IR.utf8';
-				break;
+			break;
 			case 'fr':
 				$Langauge = 'fr_CA.utf8';
-				break;
+			break;
 			case 'hi':
 				$Language = 'hi_IN.utf8';
-				break;
+			break;
 			case 'hr':
 				$Language = 'hr_HR.utf8';
-				break;
+			break;
 			case 'hu':
 				$Language = 'hu_HU.utf8';
-				break;
+			break;
 			case 'id':
 				$Language = 'id_ID.utf8';
-				break;
+			break;
 			case 'it':
 				$Language = 'it_IT.utf8';
-				break;
+			break;
 			case 'ja':
 				$Language = 'ja_JP.utf8';
-				break;
+			break;
 			case 'lv':
 				$Language = 'lv_LV.utf8';
-				break;
+			break;
 			case 'nl':
 				$Language = 'nl_NL.utf8';
-				break;
+			break;
 			case 'pl':
 				$Language = 'pl_PL.utf8';
-				break;
+			break;
 			case 'pt':
 				$Language = 'pt-PT.utf8';
-				break;
+			break;
 			case 'ro':
 				$Language = 'ro_RO.utf8';
-				break;
+			break;
 			case 'ru':
 				$Language = 'ru_RU.utf8';
-				break;
+			break;
 			case 'sq':
 				$Language = 'sq_AL.utf8';
-				break;
+			break;
 			case 'sv':
 				$Language = 'sv_SE.utf8';
-				break;
+			break;
 			case 'sw':
 				$Language = 'sw_KE.utf8';
-				break;
+			break;
 			case 'tr':
 				$Language = 'tr_TR.utf8';
-				break;
+			break;
 			case 'vi':
 				$Language = 'vi_VN.utf8';
-				break;
+			break;
 			case 'zh':
 				$Language = 'zh_CN.utf8';
-				break;
+			break;
 			default:
 				$Language = 'en_GB.utf8';
 
@@ -105,7 +104,7 @@ if (!isset($_POST['Language'])) {
 	$_SESSION['Installer']['Language'] = $_POST['Language'];
 }
 
-echo '<form id="installation" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form id="installation" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<fieldset>
 			<legend>' . _('Welcome to the KwaMoja Installation Wizard') . '</legend>
 			<div class="page_help_text">
@@ -120,8 +119,8 @@ echo '<fieldset>
 
 /* Select the language for the install. This language will also
  * be the default language for the admin user
- */
-include($PathPrefix . 'includes/LanguagesArray.php');
+*/
+include ($PathPrefix . 'includes/LanguagesArray.php');
 echo '<fieldset>
 			<legend>' . _('Select your language') . '</legend>
 				<div class="page_help_text">
@@ -179,7 +178,6 @@ echo '</select>
 			</li>
 		</ul>
 	</fieldset>';
-
 
 /* Now we acquire default information about the system setup */
 

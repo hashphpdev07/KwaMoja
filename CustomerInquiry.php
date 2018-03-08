@@ -1,18 +1,16 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Inquiry');
 /* Manual links before header.php */
 $ViewTopic = 'ARInquiries'; // Filename in ManualContents.php's TOC.
 $BookMark = 'CustomerInquiry'; // Anchor's id in the manual's html document.
-include('includes/header.php');
+include ('includes/header.php');
 
 // always figure out the SQL required from the inputs available
-
 if (!isset($_GET['CustomerID']) and !isset($_SESSION['CustomerID'])) {
 	prnMsg(_('To display the enquiry a customer must first be selected from the customer selection screen'), 'info');
 	echo '<br /><div class="centre"><a href="', $RootPath, '/SelectCustomer.php">', _('Select a Customer to Inquire On'), '</a></div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	if (isset($_GET['CustomerID'])) {
@@ -26,21 +24,21 @@ if ($_SESSION['SalesmanLogin'] != '') {
 	$ViewAllowed = false;
 	$SQL = "SELECT salesman FROM custbranch WHERE debtorno = '" . $CustomerID . "'";
 	$ErrMsg = _('Failed to retrieve sales data');
-	$Result = DB_query($SQL,$ErrMsg);
-	if(DB_num_rows($Result)>0) {
-		while($MyRow = DB_fetch_array($Result)) {
-			if ($_SESSION['SalesmanLogin'] == $MyRow['salesman']){
+	$Result = DB_query($SQL, $ErrMsg);
+	if (DB_num_rows($Result) > 0) {
+		while ($MyRow = DB_fetch_array($Result)) {
+			if ($_SESSION['SalesmanLogin'] == $MyRow['salesman']) {
 				$ViewAllowed = true;
 			}
 		}
 	} else {
-		prnMsg(_('There is no salesman data set for this debtor'),'error');
-		include('includes/footer.php');
+		prnMsg(_('There is no salesman data set for this debtor'), 'error');
+		include ('includes/footer.php');
 		exit;
 	}
-	if (!$ViewAllowed){
-		prnMsg(_('You have no authority to review this data'),'error');
-		include('includes/footer.php');
+	if (!$ViewAllowed) {
+		prnMsg(_('You have no authority to review this data'), 'error');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -50,7 +48,7 @@ if (isset($_GET['Status'])) {
 		$_POST['Status'] = $_GET['Status'];
 	}
 } elseif (isset($_POST['Status'])) {
-	if($_POST['Status'] == '' or $_POST['Status'] == 1 or $_POST['Status'] == 0) {
+	if ($_POST['Status'] == '' or $_POST['Status'] == 1 or $_POST['Status'] == 0) {
 		$Status = $_POST['Status'];
 	} else {
 		prnMsg(_('The balance status should be all or zero balance or not zero balance'), 'error');
@@ -184,7 +182,7 @@ echo '<tr>
 	</tr>
 </table>';
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
 		<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 echo _('Show all transactions after'), ':<input type="text" required="required" class="date" id="datepicker" name="TransAfterDate" value="', $_POST['TransAfterDate'], '" maxlength="10" size="12" />';
 
@@ -239,7 +237,7 @@ $TransResult = DB_query($SQL, $ErrMsg);
 
 if (DB_num_rows($TransResult) == 0) {
 	echo '<div class="centre">', _('There are no transactions to display since'), ' ', $_POST['TransAfterDate'], '</div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -281,7 +279,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 			 * - Is invoice
 			 * - User can raise credits
 			 * - User can view GL transactions
-			 */
+			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
 					<td><a href="', $RootPath, '/CustWhereAlloc.php?TransType=', urlencode($MyRow['type']), '&TransNo=', urlencode($MyRow['transno']), '" target="_blank">', $MyRow['transno'], '</a></td>
@@ -324,7 +322,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 			 * - Is invoice
 			 * - User can raise credits
 			 * - User cannot view GL transactions
-			 */
+			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
 					<td><a href="', $RootPath, '/CustWhereAlloc.php?TransType=', urlencode($MyRow['type']), '&TransNo=', urlencode($MyRow['transno']), '">', $MyRow['transno'], '</a></td>
@@ -337,7 +335,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 					<td class="number">', locale_number_format($MyRow['allocated'], $CustomerRecord['decimalplaces']), '</td>
 					<td class="number">', locale_number_format($MyRow['totalamount'] - $MyRow['allocated'], $CustomerRecord['decimalplaces']), '</td>
 					<td class="noPrint">
-						<a href="', $RootPath, '/Credit_Invoice.php?InvoiceNumber=', urlencode($MyRow['transno']), '">' . _('Credit ')  . '
+						<a href="', $RootPath, '/Credit_Invoice.php?InvoiceNumber=', urlencode($MyRow['transno']), '">' . _('Credit ') . '
 							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/credit.png" title="', _('Click to credit the invoice'), '" alt="" />
 						</a>
 					</td>
@@ -366,7 +364,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 		 * - Is invoice
 		 * - User cannot raise credits
 		 * - User cannot view GL transactions
-		 */
+		*/
 		echo '<tr class="striped_row">
 				<td>', _($MyRow['typename']), '</td>
 				<td><a href="', $RootPath, '/CustWhereAlloc.php?TransType=', urlencode($MyRow['type']), '&TransNo=', urlencode($MyRow['transno']), '">', $MyRow['transno'], '</a></td>
@@ -401,7 +399,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 		/* Show transactions where:
 		 * - Is credit note
 		 * - User can view GL transactions
-		 */
+		*/
 		if ($_SESSION['CompanyRecord']['gllink_debtors'] == 1 and in_array($_SESSION['PageSecurityArray']['GLTransInquiry.php'], $_SESSION['AllowedPageSecurityTokens'])) {
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
@@ -443,8 +441,8 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 
 		} else {
 			/* Show transactions where:
-			* - Is credit note
-			* - User cannot view GL transactions
+			 * - Is credit note
+			 * - User cannot view GL transactions
 			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
@@ -485,7 +483,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 		/* Show transactions where:
 		 * - Is receipt
 		 * - User can view GL transactions
-		 */
+		*/
 		if ($_SESSION['CompanyRecord']['gllink_debtors'] == 1 and in_array($_SESSION['PageSecurityArray']['GLTransInquiry.php'], $_SESSION['AllowedPageSecurityTokens'])) {
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
@@ -514,10 +512,10 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 				</tr>';
 
 		} else { //no permission for GLTrans Inquiries
-		/* Show transactions where:
-		 * - Is credit note
-		 * - User cannot view GL transactions
-		 */
+			/* Show transactions where:
+			 * - Is credit note
+			 * - User cannot view GL transactions
+			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
 					<td>', $MyRow['transno'], '</td>
@@ -544,8 +542,8 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 	} elseif ($MyRow['type'] == 12 and $MyRow['totalamount'] > 0) {
 		if ($_SESSION['CompanyRecord']['gllink_debtors'] == 1 and in_array($_SESSION['PageSecurityArray']['GLTransInquiry.php'], $_SESSION['AllowedPageSecurityTokens'])) {
 			/* Show transactions where:
-			* - Is a negative receipt
-			* - User can view GL transactions
+			 * - Is a negative receipt
+			 * - User can view GL transactions
 			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
@@ -571,8 +569,8 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 
 		} else {
 			/* Show transactions where:
-			* - Is a negative receipt
-			* - User cannot view GL transactions
+			 * - Is a negative receipt
+			 * - User cannot view GL transactions
 			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
@@ -595,8 +593,8 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 	} else {
 		if ($_SESSION['CompanyRecord']['gllink_debtors'] == 1 and in_array($_SESSION['PageSecurityArray']['GLTransInquiry.php'], $_SESSION['AllowedPageSecurityTokens'])) {
 			/* Show transactions where:
-			* - Is a misc transaction
-			* - User can view GL transactions
+			 * - Is a misc transaction
+			 * - User can view GL transactions
 			*/
 			echo '<tr class="striped_row">
 					<td>', _($MyRow['typename']), '</td>
@@ -622,8 +620,8 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 
 		} else {
 			/* Show transactions where:
-			* - Is a misc transaction
-			* - User cannot view GL transactions
+			 * - Is a misc transaction
+			 * - User cannot view GL transactions
 			*/
 			echo '<tr class="striped_row">
 					<td>', $MyRow['typename'], '</td>
@@ -647,8 +645,7 @@ while ($MyRow = DB_fetch_array($TransResult)) {
 
 }
 //end of while loop
-
 echo '</tbody>';
 echo '</table>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

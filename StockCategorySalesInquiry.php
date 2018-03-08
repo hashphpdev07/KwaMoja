@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales By Category By Item Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Sales Report') . '" alt="" />' . ' ' . _('Sales By Category By Item Inquiry') . '</p>';
 echo '<div class="page_help_text">' . _('Select the parameters for the inquiry') . '</div>';
@@ -12,7 +11,7 @@ if (!isset($_POST['DateRange'])) {
 	$_POST['DateRange'] = 'ThisMonth';
 }
 
-echo '<form id="form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form id="form1" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 // stock category selection
 $SQL = "SELECT categoryid,
@@ -182,12 +181,12 @@ if (isset($_POST['ShowSales'])) {
 		}
 		echo '</tr>';
 
-		$CumulativeTotalSales += $SalesRow['salesvalue'];
-		$CumulativeTotalCOGS += $SalesRow['cogs'];
-		$CumulativeTotalQty += $SalesRow['quantitysold'];
-		$CategorySales += $SalesRow['salesvalue'];
-		$CategoryQty += $SalesRow['quantitysold'];
-		$CategoryCOGS += $SalesRow['cogs'];
+		$CumulativeTotalSales+= $SalesRow['salesvalue'];
+		$CumulativeTotalCOGS+= $SalesRow['cogs'];
+		$CumulativeTotalQty+= $SalesRow['quantitysold'];
+		$CategorySales+= $SalesRow['salesvalue'];
+		$CategoryQty+= $SalesRow['quantitysold'];
+		$CategoryCOGS+= $SalesRow['cogs'];
 
 	} //loop around category sales for the period
 	//print out the previous category totals
@@ -220,5 +219,5 @@ if (isset($_POST['ShowSales'])) {
 		</table>';
 
 } //end of if user hit show sales
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Sales Price List');
-include('includes/header.php');
+include ('includes/header.php');
 
-$FieldHeadings = array(
-	'StockID', //  0 'STOCKID',
-	'PriceListID', //  1 'Price list id',
-	'CurrencyCode', //  2 'Currency Code',
-	'Price' //  3 'Price'
+$FieldHeadings = array('StockID', //  0 'STOCKID',
+'PriceListID', //  1 'Price list id',
+'CurrencyCode', //  2 'Currency Code',
+'Price'
+//  3 'Price'
 );
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
@@ -31,7 +30,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	if (count($HeadRow) != count($FieldHeadings)) {
 		prnMsg(_('File contains ' . count($HeadRow) . ' columns, expected ' . count($FieldHeadings) . '. Try downloading a new template.'), 'error');
 		fclose($FileHandle);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -41,7 +40,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		if (trim(mb_strtoupper($HeadField)) != trim(mb_strtoupper($FieldHeadings[$head]))) {
 			prnMsg(_('File contains incorrect headers ' . mb_strtoupper($HeadField) . ' != ' . mb_strtoupper($FieldHeadings[$head]) . '. Try downloading a new template.'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		$head++;
@@ -52,20 +51,20 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 	//loop through file rows
 	$row = 1;
-	while (($MyRow = fgetcsv($FileHandle, 10000, ",")) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ",")) !== false) {
 
 		//check for correct number of fields
 		$FieldCount = count($MyRow);
 		if ($FieldCount != $FieldTarget) {
 			prnMsg(_($FieldTarget . ' fields required, ' . $FieldCount . ' fields received'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		// cleanup the data (csv files often import with empty strings and such)
 		$StockId = mb_strtoupper($MyRow[0]);
-		foreach ($MyRow as &$Value) {
+		foreach ($MyRow as & $Value) {
 			$Value = trim($Value);
 			$Value = str_replace('"', '', $Value);
 		}
@@ -97,7 +96,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		}
 
 		//Finally force the price to be a double
-		$MyRow[3] = (double) $MyRow[3];
+		$MyRow[3] = (double)$MyRow[3];
 		if ($InputError != 1) {
 
 			//Firstly close any open prices for this item
@@ -126,7 +125,6 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			$DbgMsg = _('The SQL that was used to add the price failed was');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-
 		}
 
 		if ($InputError == 1) { //this row failed so exit loop
@@ -148,8 +146,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	fclose($FileHandle);
 
 } else { //show file upload form
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="page_help_text">' . _('This function loads a new sales price list from a comma separated variable (csv) file.') . '<br />' . _('The file must contain four columns, and the first row should be the following headers') . ':' . '<br />' . _('StockID,PriceListID,CurrencyCode,Price') . '<br />' . _('followed by rows containing these four fields for each price to be uploaded.') . '<br />' . _('The StockID, PriceListID, and CurrencyCode fields must have a corresponding entry in the stockmaster, salestypes, and currencies tables.') . '</div>';
@@ -161,6 +158,6 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

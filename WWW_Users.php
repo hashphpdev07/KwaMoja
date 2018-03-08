@@ -1,27 +1,21 @@
 <?php
-
 if (isset($_POST['UserID']) and isset($_POST['ID'])) {
 	if ($_POST['UserID'] == $_POST['ID']) {
 		$_POST['Language'] = $_POST['UserLanguage'];
 	}
 }
-include('includes/session.php');
+include ('includes/session.php');
 
-include('includes/MainMenuLinksArray.php');
+include ('includes/MainMenuLinksArray.php');
 
-$PDFLanguages = array(
-	_('Latin Western Languages'),
-	_('Eastern European Russian Japanese Korean Vietnamese Hebrew Arabic Thai'),
-	_('Chinese'),
-	_('Free Serif')
-);
+$PDFLanguages = array(_('Latin Western Languages'), _('Eastern European Russian Japanese Korean Vietnamese Hebrew Arabic Thai'), _('Chinese'), _('Free Serif'));
 
 $Title = _('User Maintenance');
 /* Manual links before header.php */
 $ViewTopic = 'GettingStarted';
 $BookMark = 'UserMaintenance';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -51,7 +45,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['UserID']) < 3) {
@@ -68,7 +62,7 @@ if (isset($_POST['submit'])) {
 	} elseif (mb_strstr($_POST['Password'], $_POST['UserID']) != False) {
 		$InputError = 1;
 		prnMsg(_('The password cannot contain the user id'), 'error');
-	} elseif ((mb_strlen($_POST['Cust']) > 0) AND (mb_strlen($_POST['BranchCode']) == 0)) {
+	} elseif ((mb_strlen($_POST['Cust']) > 0) and (mb_strlen($_POST['BranchCode']) == 0)) {
 		$InputError = 1;
 		prnMsg(_('If you enter a Customer Code you must also enter a Branch Code valid for this Customer'), 'error');
 	}
@@ -110,7 +104,7 @@ if (isset($_POST['submit'])) {
 	$ModulesAllowed = '';
 	while ($i < count($_SESSION['ModuleList'])) {
 		$FormVbl = 'Module_' . $i;
-		$ModulesAllowed .= $_POST[($FormVbl)] . ',';
+		$ModulesAllowed.= $_POST[($FormVbl) ] . ',';
 		++$i;
 	}
 	$_POST['ModulesAllowed'] = $ModulesAllowed;
@@ -133,13 +127,13 @@ if (isset($_POST['submit'])) {
 			switch ($_POST['FontSize']) {
 				case 0:
 					$_SESSION['ScreenFontSize'] = '8pt';
-					break;
+				break;
 				case 1:
 					$_SESSION['ScreenFontSize'] = '10pt';
-					break;
+				break;
 				case 2:
 					$_SESSION['ScreenFontSize'] = '12pt';
-					break;
+				break;
 				default:
 					$_SESSION['ScreenFontSize'] = '10pt';
 			}
@@ -185,7 +179,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The default user locations could not be processed because');
 		$DbgMsg = _('The SQL that was used to create the user locations and failed was');
 		$Result = DB_query($LocationSql, $ErrMsg, $DbgMsg);
-		prnMsg( _('User has been authorised to use and update only his / her default location'), 'success' );
+		prnMsg(_('User has been authorised to use and update only his / her default location'), 'success');
 
 		$GLAccountsSql = "INSERT INTO glaccountusers (userid,
 													accountcode,
@@ -200,7 +194,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The default user GL Accounts could not be processed because');
 		$DbgMsg = _('The SQL that was used to create the user GL Accounts and failed was');
 		$Result = DB_query($GLAccountsSql, $ErrMsg, $DbgMsg);
-		prnMsg( _('User has been authorised to use and update all GL accounts'), 'success' );
+		prnMsg(_('User has been authorised to use and update all GL accounts'), 'success');
 
 		$SQL = "INSERT INTO www_users (userid,
 						realname,
@@ -294,9 +288,8 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// comment out except for demo!  Do not want anyopne deleting demo user.
-
+	
 
 	if ($AllowDemoMode and $SelectedUser == 'admin') {
 		prnMsg(_('The administration user called admin cannot be deleted'), 'error');
@@ -308,17 +301,17 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('Cannot delete user as entries already exist in the audit trail'), 'warn');
 		} else {
 			$Result = DB_Txn_Begin();
-			$SQL="DELETE FROM locationusers WHERE userid='" . $SelectedUser . "'";
+			$SQL = "DELETE FROM locationusers WHERE userid='" . $SelectedUser . "'";
 			$ErrMsg = _('The Location - User could not be deleted because');;
-			$Result = DB_query($SQL,$ErrMsg, '', true);
+			$Result = DB_query($SQL, $ErrMsg, '', true);
 
-			$SQL="DELETE FROM glaccountusers WHERE userid='" . $SelectedUser . "'";
+			$SQL = "DELETE FROM glaccountusers WHERE userid='" . $SelectedUser . "'";
 			$ErrMsg = _('The GL Account - User could not be deleted because');;
-			$Result = DB_query($SQL,$ErrMsg);
+			$Result = DB_query($SQL, $ErrMsg);
 
-			$SQL="DELETE FROM bankaccountusers WHERE userid='" . $SelectedUser . "'";
+			$SQL = "DELETE FROM bankaccountusers WHERE userid='" . $SelectedUser . "'";
 			$ErrMsg = _('The Bank Accounts - User could not be deleted because');;
-			$Result = DB_query($SQL,$ErrMsg);
+			$Result = DB_query($SQL, $ErrMsg);
 
 			$SQL = "DELETE FROM www_users WHERE userid='" . $SelectedUser . "'";
 			$ErrMsg = _('The User could not be deleted because');
@@ -392,13 +385,13 @@ if (!isset($SelectedUser)) {
 
 			case 0:
 				$FontSize = _('Small');
-				break;
+			break;
 			case 1:
 				$FontSize = _('Medium');
-				break;
+			break;
 			case 2:
 				$FontSize = _('Large');
-				break;
+			break;
 			default:
 				$FontSize = _('Medium');
 		}
@@ -413,13 +406,13 @@ if (!isset($SelectedUser)) {
 				<td>', $MyRow['supplierid'], '</td>
 				<td>', $MyRow['salesman'], '</td>
 				<td>', $LastVisitDate, '</td>
-				<td>', $SecurityRoles[($MyRow['fullaccess'])], '</td>
+				<td>', $SecurityRoles[($MyRow['fullaccess']) ], '</td>
 				<td>', $MyRow['pagesize'], '</td>
 				<td>', $MyRow['theme'], '</td>
 				<td>', $LanguagesArray[$MyRow['language']]['LanguageName'], '</td>
 				<td>', $FontSize, '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '">' . _('Edit') . '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this user?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedUser=', $MyRow['userid'], '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this user?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
@@ -429,15 +422,14 @@ if (!isset($SelectedUser)) {
 
 
 if (isset($SelectedUser)) {
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Users') . '</a></div><br />';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Users') . '</a></div><br />';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedUser)) {
 	//editing an existing User
-
 	$SQL = "SELECT userid,
 			realname,
 			phone,
@@ -503,7 +495,6 @@ if (isset($SelectedUser)) {
 			</tr>';
 
 } else { //end of if $SelectedUser only do the else when a new record is being entered
-
 	echo '<table>
 			<tr>
 				<td>' . _('User Login') . ':</td>
@@ -511,16 +502,16 @@ if (isset($SelectedUser)) {
 			</tr>';
 
 	/*set the default modules to show to all
-	this had trapped a few people previously*/
+	 this had trapped a few people previously*/
 	$i = 0;
 	if (!isset($_POST['ModulesAllowed'])) {
 		$_POST['ModulesAllowed'] = '1,1,1,1,1,1,1,1,1,1,1,1,';
 	}
 	foreach ($_SESSION['ModuleList'] as $ModuleName) {
 		if ($i > 0) {
-			$_POST['ModulesAllowed'] .= ',';
+			$_POST['ModulesAllowed'].= ',';
 		}
-		$_POST['ModulesAllowed'] .= '1';
+		$_POST['ModulesAllowed'].= '1';
 		++$i;
 	}
 }
@@ -715,7 +706,6 @@ echo '<tr>
 		<td>' . _('Theme') . ':</td>
 		<td><select name="Theme">';
 
-
 $Themes = glob('css/*', GLOB_ONLYDIR);
 foreach ($Themes as $ThemeName) {
 	$ThemeName = basename($ThemeName);
@@ -730,7 +720,6 @@ foreach ($Themes as $ThemeName) {
 
 echo '</select></td>
 	</tr>';
-
 
 echo '<tr>
 		<td>' . _('Language') . ':</td>
@@ -775,7 +764,7 @@ if (!isset($_POST['PDFLanguage'])) {
 echo '<tr>
 		<td>' . _('PDF Language Support') . ': </td>
 		<td><select name="PDFLanguage">';
-for ($i = 0; $i < count($PDFLanguages); $i++) {
+for ($i = 0;$i < count($PDFLanguages);$i++) {
 	if ($_POST['PDFLanguage'] == $i) {
 		echo '<option selected="selected" value="' . $i . '">' . $PDFLanguages[$i] . '</option>';
 	} else {
@@ -832,11 +821,9 @@ echo '<tr>
 		<td><label for="ShowPageHelp">', _('Display page help'), ':</label></td>
 		<td><select id="ShowPageHelp" name="ShowPageHelp">';
 if ($_SESSION['ShowPageHelp'] == 0) {
-	echo '<option selected="selected" value="0">', _('No'), '</option>',
-		 '<option value="1">', _('Yes'), '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>', '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option value="0">', _('No'), '</option>',
- 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>', '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
 echo '</select>
 			<fieldhelp>' . _('Show page help when available.') . '</fieldhelp>
@@ -847,11 +834,9 @@ echo '<tr>
 		<td><label for="ShowFieldHelp">', _('Display field help'), ':</label></td>
 		<td><select id="ShowFieldHelp" name="ShowFieldHelp">';
 if ($_SESSION['ShowFieldHelp'] == 0) {
-	echo '<option selected="selected" value="0">', _('No'), '</option>',
-		 '<option value="1">', _('Yes'), '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>', '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option value="0">', _('No'), '</option>',
- 		 '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>', '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
 echo '</select>
 			<fieldhelp>' . _('Show field help when available.') . '</fieldhelp>
@@ -900,12 +885,11 @@ while ($MyRow = DB_fetch_array($Result)) {
 }
 echo '</select></td>';
 // End select tag
-
 echo '</table>
 	<div class="centre">
 		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

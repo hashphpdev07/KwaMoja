@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Fixed Assets');
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetItems';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<div class="toplink"><a href="' . $RootPath . '/SelectAsset.php">' . _('Back to Select') . '</a></div>' . "\n";
 
@@ -31,8 +30,8 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	$UploadTheFile = 'Yes'; //Assume all is well to start off with
 	$FileName = $_SESSION['part_pics_dir'] . '/ASSET_' . $AssetID . '.' . $ImgExt;
 	//But check for the worst
-	if (!in_array ($ImgExt, $SupportedImgExt)) {
-		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'),'warn');
+	if (!in_array($ImgExt, $SupportedImgExt)) {
+		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'), 'warn');
 		$UploadTheFile = 'No';
 	} elseif ($_FILES['ItemPicture']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
 		prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
@@ -43,11 +42,11 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	}
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/ASSET_' . $AssetID . '.' . $ext;
-		if (file_exists ($File) ) {
+		if (file_exists($File)) {
 			$Result = unlink($File);
 			if (!$Result) {
 				prnMsg(_('The existing image could not be removed'), 'error');
-				$UploadTheFile ='No';
+				$UploadTheFile = 'No';
 			}
 		}
 	}
@@ -64,13 +63,11 @@ $InputError = 0;
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
-
 
 	if (!isset($_POST['Description']) or mb_strlen($_POST['Description']) > 50 or mb_strlen($_POST['Description']) == 0) {
 		$InputError = 1;
@@ -94,14 +91,13 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 		prnMsg(_('There are no asset locations defined. All assets must belong to a valid location,'), 'error');
 	}
-	if (!is_numeric(filter_number_format($_POST['DepnRate'])) OR filter_number_format($_POST['DepnRate']) > 100 OR filter_number_format($_POST['DepnRate']) < 0) {
+	if (!is_numeric(filter_number_format($_POST['DepnRate'])) or filter_number_format($_POST['DepnRate']) > 100 or filter_number_format($_POST['DepnRate']) < 0) {
 		$InputError = 1;
 		prnMsg(_('The depreciation rate is expected to be a number between 0 and 100'), 'error');
 	}
 	if (filter_number_format($_POST['DepnRate']) > 0 and filter_number_format($_POST['DepnRate']) < 1) {
 		prnMsg(_('Numbers less than 1 are interpreted as less than 1%. The depreciation rate should be entered as a number between 0 and 100'), 'warn');
 	}
-
 
 	if ($InputError != 1) {
 
@@ -273,7 +269,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_POST['delete']) and mb_strlen($_POST['delete']) > 1) {
 	//the button to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 	//what validation is required before allowing deletion of assets ....  maybe there should be no deletion option?
 	$Result = DB_query("SELECT cost,
@@ -350,7 +345,6 @@ if (isset($_POST['submit'])) {
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 		} //end if cost > 0
-
 		$SQL = "DELETE FROM fixedassets WHERE assetid='" . $AssetID . "'";
 		$Result = DB_query($SQL, _('Could not delete the asset record'), '', true);
 
@@ -359,7 +353,7 @@ if (isset($_POST['submit'])) {
 		// Delete the AssetImage
 		foreach ($SupportedImgExt as $ext) {
 			$File = $_SESSION['part_pics_dir'] . '/ASSET_' . $AssetID . '.' . $ext;
-			if (file_exists($File) ) {
+			if (file_exists($File)) {
 				unlink($File);
 			}
 		}
@@ -377,15 +371,15 @@ if (isset($_POST['submit'])) {
 		unset($_SESSION['SelectedAsset']);
 
 	} //end if OK Delete Asset
+	
 }
 /* end if delete asset */
 $Result = DB_Txn_Commit();
 
-echo '<form id="AssetForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form id="AssetForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 	  <div>';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
-
 
 if (!isset($AssetID) or $AssetID == '') {
 
@@ -404,7 +398,6 @@ if (!isset($AssetID) or $AssetID == '') {
 	$_POST['DepnRate'] = 0;
 
 } elseif ($InputError != 1) { // Must be modifying an existing item and no changes made yet - need to lookup the details
-
 	$SQL = "SELECT assetid,
 				description,
 				longdescription,
@@ -476,18 +469,17 @@ echo '<tr>
 	</tr>';
 
 if (!isset($New)) { //ie not new at all!
-
 	echo '<tr>
-			<td>' .  _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
+			<td>' . _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
 			<td><input type="file" id="ItemPicture" name="ItemPicture" />
 			<br /><input type="checkbox" name="ClearImage" id="ClearImage" value="1" >' . _('Clear Image') . '
 			</td>';
 
 	$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/ASSET_' . $AssetID . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 	$ImageFile = reset($ImageFileArray);
-	if (extension_loaded ('gd') and function_exists ('gd_info') and file_exists ($ImageFile) ) {
+	if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 		$AssetImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC' . '&StockID=' . urlencode('ASSET_' . $AssetID) . '&text=' . '&width=64' . '&height=64' . '" />';
-	} else if (file_exists ($ImageFile)) {
+	} else if (file_exists($ImageFile)) {
 		$AssetImgLink = '<img src="' . $ImageFile . '" height="64" width="64" />';
 	} else {
 		$AssetImgLink = _('No Image');
@@ -500,16 +492,16 @@ if (!isset($New)) { //ie not new at all!
 	}
 
 	// EOR Add Image upload for New Item  - by Ori
+	
 } //only show the add image if the asset already exists - otherwise AssetID will not be set - and the image needs the AssetID to save
-
 if (isset($_POST['ClearImage'])) {
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/ASSET_' . $AssetID . '.' . $ext;
-		if (file_exists ($file) ) {
+		if (file_exists($file)) {
 			//workaround for many variations of permission issues that could cause unlink fail
 			@unlink($File);
 			if (is_file($ImageFile)) {
-               prnMsg(_('You do not have access to delete this item image file.'), 'error');
+				prnMsg(_('You do not have access to delete this item image file.'), 'error');
 			} else {
 				$AssetImgLink = _('No Image');
 			}
@@ -579,6 +571,7 @@ echo '</select>
 
 if (!isset($_POST['DepnType'])) {
 	$_POST['DepnType'] = 0; //0 = Straight line - 1 = Diminishing Value
+	
 }
 if ($_POST['DepnType'] == 0) { //straight line
 	echo '<option selected="selected" value="0">' . _('Straight Line') . '</option>';
@@ -610,16 +603,16 @@ if (isset($AssetRow)) {
 			<td>' . _('Accumulated Depreciation') . ':</td>
 			<td class="number">' . locale_number_format($AssetRow['accumdepn'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
-	if ($AssetRow['disposaldate'] != '0000-00-00'){
-		echo'<tr>
+	if ($AssetRow['disposaldate'] != '0000-00-00') {
+		echo '<tr>
 			<td>' . _('Net Book Value at disposal date') . ':</td>
-			<td class="number">' . locale_number_format($AssetRow['cost']-$AssetRow['accumdepn'],$_SESSION['CompanyRecord']['decimalplaces']) . '</td>
+			<td class="number">' . locale_number_format($AssetRow['cost'] - $AssetRow['accumdepn'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
-		echo'<tr>
+		echo '<tr>
 			<td>' . _('Disposal Proceeds') . ':</td>
 			<td class="number">' . locale_number_format($AssetRow['disposalproceeds'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
-		echo'<tr>
+		echo '<tr>
 			<td>' . _('P/L after disposal') . ':</td>
 			<td class="number">' . locale_number_format(-$AssetRow['cost'] + $AssetRow['accumdepn'] + $AssetRow['disposalproceeds'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
@@ -670,5 +663,5 @@ if (isset($New)) {
 echo '</div>
 	  </div>
 	</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

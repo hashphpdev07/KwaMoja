@@ -1,10 +1,8 @@
 <?php
-
 //The scripts used to provide a Price break matrix for those users who like selling product in quantity break at different constant price.
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Price break matrix Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['StockID'])) {
 	$StockId = trim(mb_strtoupper($_GET['StockID']));
@@ -13,8 +11,8 @@ if (isset($_GET['StockID'])) {
 }
 
 if (!isset($StockId)) {
-	prnMsg( _('This page must be called with a stock code. Please select a stock item first'), 'warn');
-	include('includes/footer.php');
+	prnMsg(_('This page must be called with a stock code. Please select a stock item first'), 'warn');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -53,12 +51,11 @@ if (isset($_POST['submit'])) {
 	if (!is_date($_POST['EndDate'])) {
 		$InputError = 1;
 		prnMsg(_('The date this price is be in effect to must be entered in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
-		if (Date1GreaterThanDate2($_POST['StartDate'], $_POST['EndDate'])){
+		if (Date1GreaterThanDate2($_POST['StartDate'], $_POST['EndDate'])) {
 			$InputError = 1;
 			prnMsg(_('The end date is expected to be after the start date, enter an end date after the start date for this price'), 'error');
 		}
 	}
-
 
 	if (is_date($_POST['EndDate'])) {
 		$SQLEndDate = FormatDateForSQL($_POST['EndDate']);
@@ -81,7 +78,7 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 	}
 
-	if (isset($_POST['OldTypeAbbrev']) and isset($_POST['OldCurrAbrev']) and mb_strlen($StockId)  > 1 and $InputError != 1) {
+	if (isset($_POST['OldTypeAbbrev']) and isset($_POST['OldCurrAbrev']) and mb_strlen($StockId) > 1 and $InputError != 1) {
 
 		/* Update existing prices */
 		$SQL = "UPDATE pricematrix SET
@@ -103,11 +100,11 @@ if (isset($_POST['submit'])) {
 
 		ReSequenceEffectiveDates($StockId, $_POST['SalesType'], $_POST['CurrAbrev'], $_POST['QuantityBreak']);
 
-		prnMsg(_('The price has been updated'),'success');
+		prnMsg(_('The price has been updated'), 'success');
 	} elseif ($InputError != 1) {
 
-	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+		/* actions to take once the user has clicked the submit button
+		 ie the page has called itself with some user input */
 
 		$SQL = "INSERT INTO pricematrix (salestype,
 							stockid,
@@ -151,7 +148,7 @@ if (isset($_POST['submit'])) {
 	echo '<br />';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($_GET['Edit'])) {
@@ -171,7 +168,7 @@ if (isset($_GET['Edit'])) {
 
 $SQL = "SELECT currabrev FROM currencies";
 $Result = DB_query($SQL);
-require_once('includes/CurrenciesArray.php');
+require_once ('includes/CurrenciesArray.php');
 
 echo '<table>';
 
@@ -185,7 +182,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['currabrev'] . '">' . $CurrencyName[$MyRow['currabrev']] . '</option>';
 	}
 } // End while loop
-
 echo '</select>
 		</td>';
 
@@ -218,12 +214,12 @@ if (isset($_GET['StockID'])) {
 } elseif (isset($_POST['StockID'])) {
 	$StockId = trim(strtoupper($_POST['StockID']));
 } elseif (!isset($StockId)) {
-	prnMsg(_('You must select a stock item first before set a price maxtrix'),'error');
-	include('includes/footer.php');
+	prnMsg(_('You must select a stock item first before set a price maxtrix'), 'error');
+	include ('includes/footer.php');
 	exit;
 }
 echo '<input type="hidden" name="StockID" value="' . $StockId . '" />';
-if (!isset($_POST['StartDate'])){
+if (!isset($_POST['StartDate'])) {
 	$_POST['StartDate'] = Date($_SESSION['DefaultDateFormat']);
 }
 if (!isset($_POST['EndDate'])) {
@@ -236,7 +232,7 @@ if (!isset($_POST['Price'])) {
 	$_POST['Price'] = 0;
 }
 echo '<tr>
-		<td>'. _('Price Effective From Date') . ':</td>
+		<td>' . _('Price Effective From Date') . ':</td>
 		<td><input type="text" class="date" name="StartDate" required="required" size="10" maxlength="10" title="' . _('Enter the date from which this price should take effect.') . '" value="' . $_POST['StartDate'] . '" /></td>
 	</tr>';
 echo '<tr>
@@ -290,13 +286,12 @@ echo '<table>
 		</tr>';
 
 $k = 0; //row colour counter
-
 while ($MyRow = DB_fetch_array($Result)) {
-	$DeleteURL = htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?Delete=yes&amp;SalesType=' . urlencode($MyRow['salestype']) . '&amp;StockID=' . urlencode($MyRow['stockid']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']) . '&amp;Price=' . urlencode($MyRow['price']) . '&amp;currabrev=' . urlencode($MyRow['currabrev']) . '&amp;StartDate=' . urlencode($MyRow['startdate']) . '&amp;EndDate=' . urlencode($MyRow['enddate']);
-	$EditURL = htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?Edit=yes&amp;StockID=' . urlencode($MyRow['stockid']) . '&amp;TypeAbbrev=' . urlencode($MyRow['salestype']) . '&amp;CurrAbrev=' . urlencode($MyRow['currabrev']) . '&amp;Price=' . urlencode(locale_number_format($MyRow['price'], $MyRow['currdecimalplaces'])) . '&amp;StartDate=' . urlencode($MyRow['startdate']) . '&amp;EndDate=' . urlencode($MyRow['enddate']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']);
+	$DeleteURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;SalesType=' . urlencode($MyRow['salestype']) . '&amp;StockID=' . urlencode($MyRow['stockid']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']) . '&amp;Price=' . urlencode($MyRow['price']) . '&amp;currabrev=' . urlencode($MyRow['currabrev']) . '&amp;StartDate=' . urlencode($MyRow['startdate']) . '&amp;EndDate=' . urlencode($MyRow['enddate']);
+	$EditURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Edit=yes&amp;StockID=' . urlencode($MyRow['stockid']) . '&amp;TypeAbbrev=' . urlencode($MyRow['salestype']) . '&amp;CurrAbrev=' . urlencode($MyRow['currabrev']) . '&amp;Price=' . urlencode(locale_number_format($MyRow['price'], $MyRow['currdecimalplaces'])) . '&amp;StartDate=' . urlencode($MyRow['startdate']) . '&amp;EndDate=' . urlencode($MyRow['enddate']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']);
 
-    if (in_array(5, $_SESSION['AllowedPageSecurityTokens'])) {
-	    printf('<tr class="striped_row">
+	if (in_array(5, $_SESSION['AllowedPageSecurityTokens'])) {
+		printf('<tr class="striped_row">
 					<td>%s</td>
 					<td>%s</td>
 					<td>%s</td>
@@ -307,7 +302,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 					<td><a href="%s">' . _('Edit') . '</a></td>
 				</tr>', $MyRow['currency'], $MyRow['sales_type'], ConvertSQLDate($MyRow['startdate']), ConvertSQLDate($MyRow['enddate']), $MyRow['quantitybreak'], $MyRow['price'], $EditURL, $DeleteURL);
 	} else {
-	    printf('<tr class="striped_row">
+		printf('<tr class="striped_row">
 					<td>%s</td>
 					<td>%s</td>
 					<td>%s</td>
@@ -322,7 +317,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 echo '</table>
 	  </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 function GetMySQLMaxDate() {
 	switch ($_SESSION['DefaultDateFormat']) {
@@ -339,7 +334,7 @@ function GetMySQLMaxDate() {
 	}
 }
 
-function ReSequenceEffectiveDates ($Item, $PriceList, $CurrAbbrev, $QuantityBreak) {
+function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev, $QuantityBreak) {
 
 	/*This is quite complicated - the idea is that prices set up should be unique and there is no way two prices could be returned as valid - when getting a price in includes/GetPrice.php the logic is to first look for a price of the salestype/currency within the effective start and end dates - then if not get the price with a start date prior but a blank end date (the default price). We would not want two prices where one price falls inside another effective date range except in the case of a blank end date - ie no end date - the default price for the currency/salestype.
 	I first thought that we would need to update the previous default price (blank end date), when a new default price is entered, to have an end date of the startdate of this new default price less 1 day - but this is  converting a default price into a special price which could result in having two special prices over the same date range - best to leave it unchanged and use logic in the GetPrice.php to ensure the correct default price is returned
@@ -354,7 +349,7 @@ function ReSequenceEffectiveDates ($Item, $PriceList, $CurrAbbrev, $QuantityBrea
 				WHERE stockid='" . $Item . "'
 					AND currabrev='" . $CurrAbbrev . "'
 					AND salestype='" . $PriceList . "'
-					AND quantitybreak='".$QuantityBreak."'
+					AND quantitybreak='" . $QuantityBreak . "'
 				ORDER BY startdate,
 						enddate";
 	$Result = DB_query($SQL);
@@ -366,7 +361,7 @@ function ReSequenceEffectiveDates ($Item, $PriceList, $CurrAbbrev, $QuantityBrea
 				//Only if the previous enddate is after the new start date do we need to look at updates
 				if (Date1GreaterThanDate2(ConvertSQLDate($EndDate), ConvertSQLDate($MyRow['startdate']))) {
 					/*Need to make the end date the new start date less 1 day */
-					$SQL = "UPDATE pricematrix SET enddate = '" . FormatDateForSQL(DateAdd($NextStartDate, 'd' ,-1))  . "'
+					$SQL = "UPDATE pricematrix SET enddate = '" . FormatDateForSQL(DateAdd($NextStartDate, 'd', -1)) . "'
 									WHERE stockid ='" . $Item . "'
 									AND currabrev='" . $CurrAbbrev . "'
 									AND salestype='" . $PriceList . "'
@@ -376,13 +371,15 @@ function ReSequenceEffectiveDates ($Item, $PriceList, $CurrAbbrev, $QuantityBrea
 					$UpdateResult = DB_query($SQL);
 				}
 			} //end of if startdate  after NextStartDate - we have a new NextStartDate
+			
 		} else {
-				$NextStartDate = ConvertSQLDate($MyRow['startdate']);
+			$NextStartDate = ConvertSQLDate($MyRow['startdate']);
 		}
 		$StartDate = $MyRow['startdate'];
 		$EndDate = $MyRow['enddate'];
 		$Price = $MyRow['price'];
 	} // end of loop around all prices
+	
 } // end function ReSequenceEffectiveDates
 
 ?>

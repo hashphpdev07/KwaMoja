@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Process regular payments');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'RegularPayments';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
@@ -19,9 +18,9 @@ $Frequencies['M'] = _('Monthly');
 $Frequencies['Q'] = _('Quarterly');
 $Frequencies['Y'] = _('Annually');
 
-if (isset($_POST['Add'])){
+if (isset($_POST['Add'])) {
 	$AddedPayments = array();
-	foreach($_POST as $Key=>$Value) {
+	foreach ($_POST as $Key => $Value) {
 		if (substr($Key, 0, 7) == 'Payment') {
 			$ID = substr($Key, 7);
 			$AddedPayments[$ID]['PaymentExchangeRate'] = 'test';
@@ -31,7 +30,7 @@ if (isset($_POST['Add'])){
 	var_dump($AddedPayments);
 }
 
-echo '<form method="post" id="RegularPaymentsProcess" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" id="RegularPaymentsProcess" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT regularpayments.id,
@@ -97,6 +96,6 @@ echo '<div class="centre">
 
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

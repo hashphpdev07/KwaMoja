@@ -1,18 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Check Comparison Report'));
 	$PDF->addInfo('Subject', _('Inventory Check Comparison') . ' ' . Date($_SESSION['DefaultDateFormat']));
 	$PageNumber = 1;
 	$line_height = 15;
 
-
-	include('includes/SQL_CommonFunctions.php');
-
+	include ('includes/SQL_CommonFunctions.php');
 
 	/*First off do the Inventory Comparison file stuff */
 	if ($_POST['ReportOrClose'] == 'ReportAndClose') {
@@ -33,14 +30,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 		$StockChecks = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() != 0) {
 			$Title = _('Stock Freeze') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			echo '<br />';
 			prnMsg(_('The inventory check file could not be retrieved because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -59,14 +56,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 			$StockCounts = DB_query($SQL);
 			if (DB_error_no() != 0) {
 				$Title = _('Stock Count Comparison') . ' - ' . _('Problem Report') . '....';
-				include('includes/header.php');
+				include ('includes/header.php');
 				echo '<br />';
 				prnMsg(_('The inventory counts file could not be retrieved because') . ' - ' . DB_error_msg() . 'error');
 				echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 				if ($Debug == 1) {
 					echo '<br />' . $SQL;
 				}
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 
@@ -80,7 +77,6 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 			}
 
 			if ($StockQtyDifference != 0) { // only adjust stock if there is an adjustment to make!!
-
 				DB_Txn_Begin();
 
 				// Need to get the current location quantity will need it later for the stock movement
@@ -178,10 +174,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 				DB_Txn_Commit();
 
 			} // end if $StockQtyDifference !=0
-
+			
 		} // end loop round all the checked parts
+		
 	} // end user wanted to close the inventory check file and do the adjustments
-
 	// now do the report
 	$ErrMsg = _('The Inventory Comparison data could not be retrieved because');
 	$DbgMsg = _('The following SQL to retrieve the Inventory Comparison data was used');
@@ -212,19 +208,19 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 
 	if (DB_num_rows($CheckedItems) == 0) {
 		$Title = _('Inventory Comparison Comparison Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There is no inventory check data to report on'), 'warn');
 		echo '<p>' . _('To start an inventory check first run the') . ' <a href="' . $RootPath . '/StockCheck.php">' . _('inventory check sheets') . '</a> - ' . _('and select the option to create new Inventory Comparison data file');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$FirstRow = DB_fetch_array($CheckedItems);
 	$LocationName = $FirstRow['locationname'];
-	DB_data_seek($CheckedItems,0);
+	DB_data_seek($CheckedItems, 0);
 
-	include('includes/PDFStockComparisonPageHeader.php');
+	include ('includes/PDFStockComparisonPageHeader.php');
 
 	$Location = '';
 	$Category = '';
@@ -237,14 +233,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 				/*Then it is NOT the first time round */
 				/*draw a line under the Location*/
 				$PDF->line($Left_Margin, $YPos - 2, $Page_Width - $Right_Margin, $YPos - 2);
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 			}
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 260 - $Left_Margin, $FontSize, $CheckItemRow['loccode'] . ' - ' . $CheckItemRow['locationname'], 'left');
 			$Location = $CheckItemRow['loccode'];
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 		}
-
 
 		if ($Category != $CheckItemRow['categoryid']) {
 			$FontSize = 12;
@@ -252,12 +247,12 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 				/*Then it is NOT the first time round */
 				/*draw a line under the CATEGORY TOTAL*/
 				$PDF->line($Left_Margin, $YPos - 2, $Page_Width - $Right_Margin, $YPos - 2);
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 			}
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin + 15, $YPos, 260 - $Left_Margin, $FontSize, $CheckItemRow['categoryid'] . ' - ' . $CheckItemRow['categorydescription'], 'left');
 			$Category = $CheckItemRow['categoryid'];
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 		}
 
 		$SQL = "SELECT qtycounted,
@@ -270,21 +265,21 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Comparison') . ' - ' . _('Problem Report') . '.... ';
-			include('includes/header.php');
+			include ('includes/header.php');
 			echo '<br />';
 			prnMsg(_('The inventory counts could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		if ($CheckItemRow['qoh'] != 0 or DB_num_rows($Counts) > 0) {
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			$FontSize = 8;
-			if (mb_strlen($CheckItemRow['bin']) > 0){
+			if (mb_strlen($CheckItemRow['bin']) > 0) {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'] . ' - ' . _('Bin') . ':' . $CheckItemRow['bin'], 'left');
 			} else {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $CheckItemRow['stockid'], 'left');
@@ -293,7 +288,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 			$LeftOvers = $PDF->addTextWrap(315, $YPos, 60, $FontSize, locale_number_format($CheckItemRow['qoh'], $CheckItemRow['decimalplaces']), 'right');
 		}
 
-		if (DB_num_rows($Counts) == 0 and $CheckItemRow['qoh'] != 0){
+		if (DB_num_rows($Counts) == 0 and $CheckItemRow['qoh'] != 0) {
 			$LeftOvers = $PDF->addTextWrap(380, $YPos, 160, $FontSize, _('No counts entered'), 'left');
 			if ($_POST['ZeroCounts'] == 'Adjust') {
 				$LeftOvers = $PDF->addTextWrap(485, $YPos, 60, $FontSize, locale_number_format(-($CheckItemRow['qoh']), $CheckItemRow['decimalplaces']), 'right');
@@ -304,30 +299,29 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 
 				$LeftOvers = $PDF->addTextWrap(375, $YPos, 60, $FontSize, locale_number_format(($CountRow['qtycounted']), $CheckItemRow['decimalplaces']), 'right');
 				$LeftOvers = $PDF->addTextWrap(440, $YPos, 100, $FontSize, $CountRow['reference'], 'left');
-				$TotalCount += $CountRow['qtycounted'];
-				$YPos -= $line_height;
+				$TotalCount+= $CountRow['qtycounted'];
+				$YPos-= $line_height;
 
 				if ($YPos < $Bottom_Margin + $line_height) {
 					$PageNumber++;
-					include('includes/PDFStockComparisonPageHeader.php');
+					include ('includes/PDFStockComparisonPageHeader.php');
 				}
 			} // end of loop printing count information
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 375 - $Left_Margin, $FontSize, _('Total for') . ': ' . $CheckItemRow['stockid'], 'right');
 			$LeftOvers = $PDF->addTextWrap(375, $YPos, 60, $FontSize, locale_number_format($TotalCount, $CheckItemRow['decimalplaces']), 'right');
 			$LeftOvers = $PDF->addTextWrap(485, $YPos, 60, $FontSize, locale_number_format($TotalCount - $CheckItemRow['qoh'], $CheckItemRow['decimalplaces']), 'right');
 		} //end of if there are counts to print
-
 		$PDF->line($Left_Margin, $YPos - 2, $Page_Width - $Right_Margin, $YPos - 2);
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			$PageNumber++;
-			include('includes/PDFStockComparisonPageHeader.php');
+			include ('includes/PDFStockComparisonPageHeader.php');
 		}
 
 	}
 	/*end STOCK comparison while loop */
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	$PDF->OutputD($_SESSION['DatabaseName'] . '_StockComparison_' . date('Y-m-d') . '.pdf');
 	$PDF->__destruct();
@@ -345,11 +339,11 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 	/*The option to print PDF was not hit */
 
 	$Title = _('Inventory Comparison Report');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>';
@@ -386,7 +380,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['ReportOrClose'])) {
 		</div>';
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

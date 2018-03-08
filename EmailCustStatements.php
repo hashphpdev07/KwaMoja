@@ -1,9 +1,8 @@
 <?php
-
 /* $Id: EmailCustTrans.php 6310 2013-08-29 10:42:50Z daintree $*/
 
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 if (!isset($_GET['FromCust'])) {
 	$_GET['FromCust'] = $_SESSION['CustomerID'];
 }
@@ -16,9 +15,9 @@ if (isset($_POST['DoIt']) and IsEmailAddress($_POST['EmailAddr'])) {
 } elseif (isset($_POST['DoIt'])) {
 	prnMsg(_('The email address does not appear to be a valid email address. The statement was not emailed'), 'warn');
 }
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT custbranch.email
@@ -48,5 +47,5 @@ echo '<div class="centre">
 		<input type="submit" name="DoIt" value="' . _('OK') . '" />
 	</div>';
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,11 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('View Payroll Data');
 
-include('includes/header.php');
-
-
+include ('includes/header.php');
 
 if (isset($_GET['Counter'])) {
 	$Counter = $_GET['Counter'];
@@ -14,7 +11,6 @@ if (isset($_GET['Counter'])) {
 } else {
 	unset($Counter);
 }
-
 
 /*
 if (isset($_GET['delete'])) {
@@ -45,9 +41,8 @@ unset($_SESSION['Counter']);
 }
 */
 
-
 if (!isset($Counter)) {
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<input type="hidden" name="New" value="Yes">';
 	echo '<table>';
 
@@ -95,7 +90,6 @@ if (!isset($Counter)) {
 	</tr>";
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
@@ -122,17 +116,16 @@ if (!isset($Counter)) {
 		echo '<td>' . $MyRow[13] . '</td>';
 		echo '<td>' . $MyRow[14] . '</td>';
 		echo '<td>' . $MyRow[15] . '</td>';
-		//echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') .'</a></td>';
+		//echo '<td><a href="' . basename(__FILE__) . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') .'</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
-
 	//END WHILE LIST LOOP
+	
 } //END IF selected="selected" ACCOUNT
 
 
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

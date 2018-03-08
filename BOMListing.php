@@ -99,7 +99,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		</tr>';
 	echo '</tbody>
 		</table>';
-	echo '<a class="noPrint" href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select different criteria'), '</a><br />';
+	echo '<a class="noPrint" href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select different criteria'), '</a><br />';
 	include ('includes/footer.php');
 
 } else {
@@ -122,7 +122,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	if (!isset($_POST['FromCriteria']) or !isset($_POST['ToCriteria'])) {
 		/*if $FromCriteria is not set then show a form to allow input	*/
 
-		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+		echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		echo '<fieldset>

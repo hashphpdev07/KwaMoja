@@ -1,8 +1,7 @@
 <?php
-
 /* Steve Kitchen/Kaill */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 /* Was the Cancel button pressed the last time through ? */
 
@@ -11,21 +10,21 @@ if (isset($_POST['cancel'])) {
 	exit;
 }
 
-$Title = _('New Language');// _('Add a New Language to the System')
+$Title = _('New Language'); // _('Add a New Language to the System')
 $ViewTopic = 'SpecialUtilities';
-$BookMark = 'Z_poAddLanguage';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$BookMark = 'Z_poAddLanguage'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 /* Your webserver user MUST have read/write access to here,	otherwise you'll be wasting your time */
 echo '<div class="toplink">
 		<a href="' . $RootPath . '/Z_poAdmin.php">' . _('Back to the translation menu') . '</a>
 	</div>';
 
-echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Add a New Language to the System') . '" />' . ' ' .  _('Add a New Language to the System') . '</p>';
+echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Add a New Language to the System') . '" />' . ' ' . _('Add a New Language to the System') . '</p>';
 
 echo '<div class="page_help_text">' . _('Utility to create a new language file') . _('Current language is') . ' ' . $_SESSION['Language'] . '</div>';
 
-$DefaultLanguage = 'en_GB';// The default language is English-United Kingdom (British English).
+$DefaultLanguage = 'en_GB'; // The default language is English-United Kingdom (British English).
 $PathToDefault = './locale/' . $DefaultLanguage . '.utf8/LC_MESSAGES/messages.pot';
 
 if (isset($_POST['submit']) and isset($_POST['NewLanguage'])) {
@@ -40,9 +39,8 @@ if (isset($_POST['submit']) and isset($_POST['NewLanguage'])) {
 		$_POST['NewLanguage'] = mb_substr($_POST['NewLanguage'], 0, 3) . mb_strtoupper(mb_substr($_POST['NewLanguage'], 3, 2));
 
 		echo '<div class="centre">';
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 		/* check for directory existence */
 
@@ -53,7 +51,7 @@ if (isset($_POST['submit']) and isset($_POST['NewLanguage'])) {
 		} else {
 			prnMsg(_('This language cannot be added because it already exists!'), 'error');
 			echo '</form>';
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -63,15 +61,14 @@ if (isset($_POST['submit']) and isset($_POST['NewLanguage'])) {
 		prnMsg(_('Done. You should now change to your newly created language from the user settings link above. Then you can edit the new language file header and use the language module editor to translate the system strings'), 'info');
 
 		echo '</form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 }
 
-
 prnMsg(_('This utility will create a new language and a new language translation file for it from the system default') . '<br /><br />' . _('If the language already exists then you cannot recreate it'), 'info', _('PLEASE NOTE'));
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -84,6 +81,6 @@ echo '<table>
 echo '<input type="submit" name="submit" value="' . _('Proceed') . '" />';
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

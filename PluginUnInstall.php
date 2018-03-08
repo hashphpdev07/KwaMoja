@@ -1,15 +1,14 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $_SESSION['Updates']['Errors'] = 0;
 $_SESSION['Updates']['Successes'] = 0;
 $_SESSION['Updates']['Warnings'] = 0;
 
-include('includes/UpgradeDB_' . $DBType . '.php');
+include ('includes/UpgradeDB_' . $DBType . '.php');
 $Title = _('Uninstall a Plugin');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/plugin.png" width="24px" title="' . _('Uninstall Plugin') . '" alt="" />' . _('Uninstall Plugin') . '</p>';
 
@@ -69,7 +68,7 @@ if (isset($_POST['UnInstall'])) {
 			$TempDBRemove = tempnam('includes', 'DB');
 			$handle = fopen($TempDBRemove, "w");
 			fwrite($handle, $Removes);
-			include($TempDBRemove);
+			include ($TempDBRemove);
 		}
 	}
 	if ($Menus != '') {
@@ -105,7 +104,7 @@ if (isset($_POST['UnInstall'])) {
 	$ForceConfigReload = True;
 	prnMsg(_('The plugin has been successfully removed.'), 'success');
 } else {
-	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="submit" name="reload" value="Reload" hidden="hidden" />';
 
@@ -217,6 +216,6 @@ function executeSQL($SQL, $TrapErrors = False) {
 	return $ErrorNumber;
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_POST['FromCriteria']) >= 1 and isset($_POST['ToCriteria']) and mb_strlen($_POST['ToCriteria']) >= 1) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Aged Supplier Listing'));
 	$PDF->addInfo('Subject', _('Aged Suppliers'));
 	$FontSize = 12;
@@ -18,10 +17,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	if ($_POST['FromCriteria']=='') {
+	if ($_POST['FromCriteria'] == '') {
 		$_POST['FromCriteria'] = $MyRow['fromcriteria'];
 	}
-	if ($_POST['ToCriteria']=='') {
+	if ($_POST['ToCriteria'] == '') {
 		$_POST['Toriteria'] = $MyRow['tocriteria'];
 	}
 
@@ -115,17 +114,17 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 	if (DB_error_no() != 0) {
 		$Title = _('Aged Supplier Account Analysis') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Supplier details could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 		if ($Debug == 1) {
 			echo '<br />', $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFAgedSuppliersPageHeader.php');
+	include ('includes/PDFAgedSuppliersPageHeader.php');
 	$TotBal = 0;
 	$TotDue = 0;
 	$TotCurr = 0;
@@ -134,7 +133,6 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$CurrDecimalPlaces = 0;
 
 	$ListCount = DB_num_rows($SupplierResult); // UldisN
-
 	while ($AgedAnalysis = DB_fetch_array($SupplierResult)) {
 
 		$CurrDecimalPlaces = $AgedAnalysis['currdecimalplaces'];
@@ -145,11 +143,11 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		$DisplayOverdue1 = locale_number_format($AgedAnalysis['overdue1'] - $AgedAnalysis['overdue2'], $CurrDecimalPlaces);
 		$DisplayOverdue2 = locale_number_format($AgedAnalysis['overdue2'], $CurrDecimalPlaces);
 
-		$TotBal += $AgedAnalysis['balance'];
-		$TotDue += ($AgedAnalysis['due'] - $AgedAnalysis['overdue1']);
-		$TotCurr += ($AgedAnalysis['balance'] - $AgedAnalysis['due']);
-		$TotOD1 += ($AgedAnalysis['overdue1'] - $AgedAnalysis['overdue2']);
-		$TotOD2 += $AgedAnalysis['overdue2'];
+		$TotBal+= $AgedAnalysis['balance'];
+		$TotDue+= ($AgedAnalysis['due'] - $AgedAnalysis['overdue1']);
+		$TotCurr+= ($AgedAnalysis['balance'] - $AgedAnalysis['due']);
+		$TotOD1+= ($AgedAnalysis['overdue1'] - $AgedAnalysis['overdue2']);
+		$TotOD2+= $AgedAnalysis['overdue2'];
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 220 - $Left_Margin, $FontSize, $AgedAnalysis['supplierid'] . ' - ' . $AgedAnalysis['suppname'], 'left');
 		$LeftOvers = $PDF->addTextWrap(220, $YPos, 60, $FontSize, $DisplayBalance, 'right');
@@ -158,9 +156,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		$LeftOvers = $PDF->addTextWrap(400, $YPos, 60, $FontSize, $DisplayOverdue1, 'right');
 		$LeftOvers = $PDF->addTextWrap(460, $YPos, 60, $FontSize, $DisplayOverdue2, 'right');
 
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		if ($YPos < $Bottom_Margin + $line_height) {
-			include('includes/PDFAgedSuppliersPageHeader.php');
+			include ('includes/PDFAgedSuppliersPageHeader.php');
 		}
 
 		if ($_POST['DetailedReport'] == 'Yes') {
@@ -203,13 +201,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 			/*dont trap errors - trapped below*/
 			if (DB_error_no() != 0) {
 				$Title = _('Aged Supplier Account Analysis - Problem Report');
-				include('includes/header.php');
+				include ('includes/header.php');
 				prnMsg(_('The details of outstanding transactions for Supplier') . ' - ' . $AgedAnalysis['supplierid'] . ' ' . _('could not be retrieved because') . ' - ' . DB_error_msg(), 'error');
 				echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 				if ($Debug == 1) {
 					echo '<br />', _('The SQL that failed was'), '<br />', $SQL;
 				}
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 
@@ -232,10 +230,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 				$LeftOvers = $PDF->addTextWrap(400, $YPos, 60, $FontSize, $DisplayOverdue1, 'right');
 				$LeftOvers = $PDF->addTextWrap(460, $YPos, 60, $FontSize, $DisplayOverdue2, 'right');
 
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 				if ($YPos < $Bottom_Margin + $line_height) {
 					$PageNumber++;
-					include('includes/PDFAgedSuppliersPageHeader.php');
+					include ('includes/PDFAgedSuppliersPageHeader.php');
 					$FontSize = 6;
 				}
 			}
@@ -248,10 +246,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	}
 	/*end Supplier aged analysis while loop */
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	if ($YPos < $Bottom_Margin + (2 * $line_height)) {
 		$PageNumber++;
-		include('includes/PDFAgedSuppliersPageHeader.php');
+		include ('includes/PDFAgedSuppliersPageHeader.php');
 	} elseif ($_POST['DetailedReport'] == 'Yes') {
 		//dont do a line if the totals have to go on a new page
 		$PDF->line($Page_Width - $Right_Margin, $YPos + 10, 220, $YPos + 10);
@@ -269,14 +267,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$LeftOvers = $PDF->addTextWrap(400, $YPos, 60, $FontSize, $DisplayTotOverdue1, 'right');
 	$LeftOvers = $PDF->addTextWrap(460, $YPos, 60, $FontSize, $DisplayTotOverdue2, 'right');
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->line($Page_Width - $Right_Margin, $YPos, 220, $YPos);
 
 	if ($ListCount == 0) {
 		$Title = _('Aged Supplier Analysis');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There are no results so the PDF is empty'));
-		include('includes/footer.php');
+		include ('includes/footer.php');
 	} else {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_AggedSupliers_' . date('Y-m-d') . '.pdf');
 	}
@@ -285,7 +283,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	/*The option to print PDF was not hit */
 
 	$Title = _('Aged Supplier Analysis');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
@@ -302,7 +300,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
-		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+		echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<fieldset>
 				<legend>', _('Select Report Criteria'), '</legend>
@@ -356,7 +354,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 			</div>
 		</form>';
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 

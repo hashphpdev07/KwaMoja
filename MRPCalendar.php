@@ -1,13 +1,11 @@
 <?php
-
 /* MRPCalendar.php
  * Maintains the calendar of valid manufacturing dates for MRP
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('MRP Calendar');
-include('includes/header.php');
-
+include ('includes/header.php');
 
 if (isset($_POST['ChangeDate'])) {
 	$ChangeDate = trim(mb_strtoupper($_POST['ChangeDate']));
@@ -35,10 +33,9 @@ function submit(&$ChangeDate) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (!is_date($_POST['FromDate'])) {
 		$InputError = 1;
 		prnMsg(_('Invalid From Date'), 'error');
@@ -60,7 +57,6 @@ function submit(&$ChangeDate) {
 
 	$DateGreater = Date1GreaterThanDate2($_POST['ToDate'], $_POST['FromDate']);
 	$DateDiff = DateDiff($ConvertToDate, $ConvertFromDate, 'd'); // Date1 minus Date2
-
 	if ($DateDiff < 1) {
 		$InputError = 1;
 		prnMsg(_('To Date Must Be Greater Than From Date'), 'error');
@@ -86,29 +82,13 @@ function submit(&$ChangeDate) {
 	$i = 0;
 
 	/* $DaysTextArray used so can get text of day based on the value get from DayOfWeekFromSQLDate of
-	the calendar date. See if that text is in the ExcludeDays array note no gettext here hard coded english days from $_POST*/
-	$DaysTextArray = array(
-		'Sunday',
-		'Monday',
-		'Tuesday',
-		'Wednesday',
-		'Thursday',
-		'Friday',
-		'Saturday'
-	);
+	 the calendar date. See if that text is in the ExcludeDays array note no gettext here hard coded english days from $_POST*/
+	$DaysTextArray = array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 
-	$ExcludeDays = array(
-		$_POST['Sunday'],
-		$_POST['Monday'],
-		$_POST['Tuesday'],
-		$_POST['Wednesday'],
-		$_POST['Thursday'],
-		$_POST['Friday'],
-		$_POST['Saturday']
-	);
+	$ExcludeDays = array($_POST['Sunday'], $_POST['Monday'], $_POST['Tuesday'], $_POST['Wednesday'], $_POST['Thursday'], $_POST['Friday'], $_POST['Saturday']);
 
 	$CalDate = $ConvertFromDate;
-	for ($i = 0; $i <= $DateDiff; $i++) {
+	for ($i = 0;$i <= $DateDiff;$i++) {
 		$DateAdd = FormatDateForSQL(DateAdd($CalDate, 'd', $i));
 
 		// If the check box for the calendar date's day of week was clicked, set the manufacturing flag to 0
@@ -155,7 +135,6 @@ function submit(&$ChangeDate) {
 function update(&$ChangeDate) {
 	// Change manufacturing flag for a date. The value "1" means the date is a manufacturing date.
 	// After change the flag, re-calculate the daynumber for all dates.
-
 	$InputError = 0;
 	$CalDate = FormatDateForSQL($ChangeDate);
 	$SQL = "SELECT COUNT(*) FROM mrpcalendar
@@ -204,12 +183,11 @@ function update(&$ChangeDate) {
 					WHERE calendardate = '" . $CalDate . "'";
 		$Resultupdate = DB_query($SQL, $ErrMsg);
 	} // End of while
-
+	
 } // End of function update()
 
 
 function ShowDays() { //####LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_####
-
 	// List all records in date range
 	$FromDate = FormatDateForSQL($_POST['FromDate']);
 	$ToDate = FormatDateForSQL($_POST['ToDate']);
@@ -242,7 +220,6 @@ function ShowDays() { //####LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LIST
 					<td>%s</td>
 				</tr>', ConvertSQLDate($MyRow[0]), _($MyRow[3]), $flag);
 	} //END WHILE LIST LOOP
-
 	echo '</table>';
 	echo '<br /><br />';
 	unset($ChangeDate);
@@ -252,15 +229,13 @@ function ShowDays() { //####LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LIST
 
 
 function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
-
 	// Display form fields. This function is called the first time
 	// the page is called, and is also invoked at the end of all of the other functions.
-
 	if (!isset($_POST['FromDate'])) {
 		$_POST['FromDate'] = date($_SESSION['DefaultDateFormat']);
 		$_POST['ToDate'] = date($_SESSION['DefaultDateFormat']);
 	}
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>';
@@ -328,6 +303,5 @@ function ShowInputForm(&$ChangeDate) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DIS
 	</form>';
 
 } // End of function ShowInputForm()
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

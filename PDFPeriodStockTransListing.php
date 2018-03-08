@@ -1,7 +1,6 @@
 <?php
-
-include('includes/SQL_CommonFunctions.php');
-include('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
 
 $InputError = 0;
 if (isset($_POST['FromDate']) and !is_date($_POST['FromDate'])) {
@@ -13,7 +12,7 @@ if (isset($_POST['FromDate']) and !is_date($_POST['FromDate'])) {
 if (!isset($_POST['FromDate'])) {
 
 	$Title = _('Stock Transaction Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<div class="centre">
 			<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Stock Transaction Listing') . '</p>
@@ -23,7 +22,7 @@ if (!isset($_POST['FromDate'])) {
 		prnMsg($Msg, 'error');
 	}
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	echo '<tr>
@@ -55,7 +54,7 @@ if (!isset($_POST['FromDate'])) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 
 	$Result = DB_query($SQL);
@@ -89,13 +88,12 @@ if (!isset($_POST['FromDate'])) {
 			</div>';
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 
-	include('includes/ConnectDB.php');
+	include ('includes/ConnectDB.php');
 }
-
 
 if ($_POST['StockLocation'] == 'All') {
 	$SQL = "SELECT stockmoves.type,
@@ -115,7 +113,7 @@ if ($_POST['StockLocation'] == 'All') {
 				ON stockmoves.loccode=locations.loccode
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			WHERE type='" . $_POST['TransType'] . "'
 			AND date_format(trandate, '%Y-%m-%d')>='" . FormatDateForSQL($_POST['FromDate']) . "'
@@ -138,7 +136,7 @@ if ($_POST['StockLocation'] == 'All') {
 				ON stockmoves.loccode=locations.loccode
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			WHERE type='" . $_POST['TransType'] . "'
 				AND date_format(trandate, '%Y-%m-%d')>='" . FormatDateForSQL($_POST['FromDate']) . "'
@@ -149,20 +147,20 @@ $Result = DB_query($SQL, '', '', false, false);
 
 if (DB_error_no() != 0) {
 	$Title = _('Transaction Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('An error occurred getting the transactions'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } elseif (DB_num_rows($Result) == 0) {
 	$Title = _('Transaction Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />';
 	prnMsg(_('There were no transactions found in the database between the dates') . ' ' . $_POST['FromDate'] . ' ' . _('and') . ' ' . $_POST['ToDate'] . '<br />' . _('Please try again selecting a different date'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
-include('includes/PDFStarter.php');
+include ('includes/PDFStarter.php');
 
 /*PDFStarter.php has all the variables for page size and width set up depending on the users default preferences for paper size */
 
@@ -171,32 +169,31 @@ $PDF->addInfo('Subject', _('Stock transaction listing from') . '  ' . $_POST['Fr
 $line_height = 12;
 $PageNumber = 1;
 
-
 switch ($_POST['TransType']) {
 	case 10:
 		$TransType = _('Customer Invoices');
-		break;
+	break;
 	case 11:
 		$TransType = _('Customer Credit Notes');
-		break;
+	break;
 	case 16:
 		$TransType = _('Location Transfers');
-		break;
+	break;
 	case 17:
 		$TransType = _('Stock Adjustments');
-		break;
+	break;
 	case 25:
 		$TransType = _('Purchase Order Deliveries');
-		break;
+	break;
 	case 26:
 		$TransType = _('Work Order Receipts');
-		break;
+	break;
 	case 28:
 		$TransType = _('Work Order Issues');
-		break;
+	break;
 }
 
-include('includes/PDFPeriodStockTransListingPageHeader.php');
+include ('includes/PDFPeriodStockTransListingPageHeader.php');
 
 while ($MyRow = DB_fetch_array($Result)) {
 
@@ -207,19 +204,18 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 382, $YPos, 70, $FontSize, $MyRow['locationname'], 'right');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 452, $YPos, 70, $FontSize, $MyRow['reference'], 'right');
 
-	$YPos -= ($line_height);
+	$YPos-= ($line_height);
 
 	if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 		/*Then set up a new page */
 		$PageNumber++;
-		include('includes/PDFPeriodStockTransListingPageHeader.php');
+		include ('includes/PDFPeriodStockTransListingPageHeader.php');
 	}
 	/*end of new page header  */
 }
 /* end of while there are customer receipts in the batch to print */
 
-
-$YPos -= $line_height;
+$YPos-= $line_height;
 
 $ReportFileName = $_SESSION['DatabaseName'] . '_StockTransListing_' . date('Y-m-d') . '.pdf';
 $PDF->OutputD($ReportFileName);

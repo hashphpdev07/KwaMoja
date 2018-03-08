@@ -1,13 +1,12 @@
 <?php
+include ('includes/session.php');
 
-include('includes/session.php');
+$Title = _('Bank Reconciliation');; // Screen identificator.
+$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'BankAccounts'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
-$Title = _('Bank Reconciliation');;// Screen identificator.
-$ViewTopic= 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'BankAccounts';// Anchor's id in the manual's html document.
-include('includes/header.php');
-
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
@@ -46,7 +45,7 @@ if (isset($_POST['PostExchangeDifference']) and is_numeric(filter_number_format(
 
 		$ExchangeDifference = ($CalculatedBalance - filter_number_format($_POST['BankStatementBalance'])) / $CurrencyRow['rate'];
 
-		include('includes/SQL_CommonFunctions.php');
+		include ('includes/SQL_CommonFunctions.php');
 		$ExDiffTransNo = GetNextTransNo(36);
 		/*Post the exchange difference to the last day of the month prior to current date*/
 		$PostingDate = Date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, Date('m'), 0, Date('Y')));
@@ -54,7 +53,6 @@ if (isset($_POST['PostExchangeDifference']) and is_numeric(filter_number_format(
 		$Result = DB_Txn_Begin();
 
 		//yet to code the journal
-
 		$SQL = "INSERT INTO gltrans (type,
 									typeno,
 									trandate,
@@ -92,6 +90,7 @@ if (isset($_POST['PostExchangeDifference']) and is_numeric(filter_number_format(
 		$Result = DB_Txn_Commit();
 		prnMsg(_('Exchange difference of') . ' ' . locale_number_format($ExchangeDifference, $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('has been posted'), 'success');
 	} //end if the bank statement balance was numeric
+	
 }
 
 $SQL = "SELECT bankaccounts.accountcode,
@@ -116,8 +115,8 @@ if (DB_num_rows($AccountsResults) == 0) {
 	echo '</select>
 		</field>
 	</fieldset>';
-	prnMsg( _('Bank Accounts have not yet been defined') . '. ' . _('You must first') . '<a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a>' . ' ' . _('and general ledger accounts to be affected') . '.', 'warn');
-	include('includes/footer.php');
+	prnMsg(_('Bank Accounts have not yet been defined') . '. ' . _('You must first') . '<a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a>' . ' ' . _('and general ledger accounts to be affected') . '.', 'warn');
+	include ('includes/footer.php');
 	exit;
 } else {
 	while ($MyRow = DB_fetch_array($AccountsResults)) {
@@ -144,13 +143,12 @@ echo '<field>
 	</field>';
 /*Now do the posting while the user is thinking about the bank account to select */
 
-include('includes/GLPostings.php');
+include ('includes/GLPostings.php');
 
 echo '</fieldset>';
 echo '<div class="centre">
 		<input type="submit" name="ShowRec" value="', _('Show bank reconciliation statement'), '" />
 	</div>';
-
 
 if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 
@@ -178,7 +176,6 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 	$ErrMsg = _('Could not retrieve the currency and exchange rate for the selected bank account');
 	$CurrencyResult = DB_query($SQL);
 	$CurrencyRow = DB_fetch_array($CurrencyResult);
-
 
 	echo '<table>
 			<tr class="striped_row">
@@ -245,11 +242,10 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 				<td class="number">', locale_number_format($MyRow['outstanding'], $CurrencyRow['currdecimalplaces']), '</td>
 			</tr>';
 
-		$TotalUnpresentedCheques += $MyRow['outstanding'];
+		$TotalUnpresentedCheques+= $MyRow['outstanding'];
 
 	}
 	//end of while loop
-
 	echo '<tr>
 			 <td></td>
 		</tr>
@@ -309,7 +305,7 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 				<td class="number">', locale_number_format($MyRow['outstanding'], $CurrencyRow['currdecimalplaces']), '</td>
 			</tr>';
 
-		$TotalUnclearedDeposits += $MyRow['outstanding'];
+		$TotalUnclearedDeposits+= $MyRow['outstanding'];
 
 	}
 	//end of while loop
@@ -358,7 +354,6 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 	echo '</table>';
 }
 
-
 if (isset($_POST['BankAccount'])) {
 	echo '<div class="centre">
 			<a href="', $RootPath, '/BankMatching.php?Type=Payments&amp;Account=', urlencode($_POST['BankAccount']), '">', _('Match off cleared payments'), '</a>
@@ -371,5 +366,5 @@ if (isset($_POST['BankAccount'])) {
 		</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

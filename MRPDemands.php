@@ -1,14 +1,13 @@
 <?php
-
 /* Add, Edit, Delete, and List MRP demand records. Table is mrpdemands.
  * Have separate functions for each routine. Use pass-by-reference - (&$StockId) -
  * to pass values of $StockId to functions. - when just used $StockId as variable,
  * got error: Catchable fatal error: Object of class mysqli could not be converted to string
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('MRP Demands');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['DemandID'])) {
 	$DemandID = $_POST['DemandID'];
@@ -41,11 +40,9 @@ if (isset($_POST['Search'])) {
 }
 
 function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_#####
-
 	// Search by partial part number or description. Display the part number and description from
 	// the stockmaster so user can select one. If the user clicks on a part number
 	// MRPDemands.php is called again, and it goes to the display() routine.
-
 	// Work around to auto select
 	if ($_POST['Keywords'] == '' and $_POST['StockCode'] == '') {
 		$_POST['StockCode'] = '%';
@@ -79,10 +76,9 @@ function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEA
 		$Result = DB_query($SQL, $ErrMsg);
 
 	} //one of keywords or StockCode was more than a zero length string
-
 	// If the SELECT found records, display them
 	if (DB_num_rows($Result) > 0) {
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table cellpadding="2">
 				<tr>
@@ -96,22 +92,20 @@ function search(&$StockId) { //####SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEARCH_SEA
 					<td>' . $MyRow['description'] . '</td>
 				</tr>';
 		} //end of while loop
-
 		echo '</table>';
 		echo '</form>';
 
 	} else {
 		prnMsg(_('No record found in search'), 'error');
 		unset($StockId);
-		display( $StockId, $DemandID);
+		display($StockId, $DemandID);
 	}
-
 
 } // End of function search()
 
 
 function submit(&$StockId, &$DemandID) //####SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT####
-	{
+{
 	// In this section if hit submit button. Do edit checks. If all checks pass, see if record already
 	// exists for StockID/Duedate/MRPDemandtype combo; that means do an Update, otherwise, do INSERT.
 	//initialise no input errors assumed initially before we test
@@ -120,10 +114,9 @@ function submit(&$StockId, &$DemandID) //####SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (!is_numeric(filter_number_format($_POST['Quantity']))) {
 		$InputError = 1;
 		prnMsg(_('Quantity must be numeric'), 'error');
@@ -198,7 +191,6 @@ function submit(&$StockId, &$DemandID) //####SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_
 			$Msg = _('A new MRP demand record has been added to the database for') . ' ' . $StockId;
 		}
 
-
 		$Result = DB_query($SQL, _('The update/addition of the MRP demand record failed because'));
 		prnMsg($Msg, 'success');
 		echo '<br />';
@@ -209,16 +201,14 @@ function submit(&$StockId, &$DemandID) //####SUBMIT_SUBMIT_SUBMIT_SUBMIT_SUBMIT_
 		unset($StockId);
 		unset($DemandID);
 	} // End of else where DB_num_rows showed there was a valid stockmaster record
-
 	display($StockId, $DemandID);
 } // End of function submit()
 
 
 function delete($DemandID, $DemandType, $StockId) { //####DELETE_DELETE_DELETE_DELETE_DELETE_DELETE_####
-
 	// If wanted to have a Confirm routine before did actually deletion, could check if
 	// deletion = "yes"; if it did, display link that redirects back to this page
-	// like this - <a href=" ' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?&delete=confirm&StockID=' . "$StockId" . ' ">
+	// like this - <a href=" ' . htmlspecialchars(basename(__FILE__),ENT_QUOTES,'UTF-8') . '?&delete=confirm&StockID=' . "$StockId" . ' ">
 	// that sets delete=confirm. If delete=confirm, do actually deletion.
 	//  This deletes an individual record by DemandID if called from a listall that shows
 	// edit/delete or deletes all of a particular demand type if press Delete Demand Type button.
@@ -245,12 +235,10 @@ function delete($DemandID, $DemandType, $StockId) { //####DELETE_DELETE_DELETE_D
 
 
 function listall($part, $DemandType) { //####LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_LISTALL_####
-
 	// List all mrpdemands records, with anchors to Edit or Delete records if hit List All anchor
 	// Lists some in hit List Selection submit button, and uses part number if it is entered or
 	// demandtype
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$where = " ";
 	if ($DemandType) {
@@ -291,8 +279,8 @@ function listall($part, $DemandType) { //####LISTALL_LISTALL_LISTALL_LISTALL_LIS
 				<td>' . $MyRow['mrpdemandtype'] . '</td>
 				<td>' . locale_number_format($MyRow['quantity'], $MyRow['decimalplaces']) . '</td>
 				<td>' . $displaydate . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DemandID=' . $MyRow['demandid'] . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DemandID=' . $MyRow['demandid'] . '&amp;StockID=' . $MyRow['stockid'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this demand?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?DemandID=' . $MyRow['demandid'] . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?DemandID=' . $MyRow['demandid'] . '&amp;StockID=' . $MyRow['stockid'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this demand?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 
@@ -310,11 +298,10 @@ function listall($part, $DemandType) { //####LISTALL_LISTALL_LISTALL_LISTALL_LIS
 
 
 function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_DISPLAY_#####
-
 	// Display Seach fields at top and Entry form below that. This function is called the first time
 	// the page is called, and is also invoked at the end of all of the other functions.
 	// echo "<br/>DISPLAY - DemandID = $DemandID<br/>";
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($StockId)) {
 		echo '<table cellpadding="3"><tr>
@@ -324,12 +311,11 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 			<td>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
 			<td><input type="text" name="StockCode" size="15" maxlength="20" /></td>
 			<td><b>' . _('OR') . '</b></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?listall=yes">' . _('List All Demands') . '</a></td></tr>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?listall=yes">' . _('List All Demands') . '</a></td></tr>
 			<tr><td colspan="7"><div class="centre"><input type="submit" name="Search" value="' . _('Search Now') . '" /></div></td></tr></table>';
 	} else {
 		if (isset($DemandID)) {
 			//editing an existing MRP demand
-
 			$SQL = "SELECT demandid,
 					stockid,
 					mrpdemandtype,
@@ -366,7 +352,6 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 						<td><input type="text" name="StockID" size="21" required="required" maxlength="20" value="' . $_POST['StockID'] . '" /></td>
 					</tr>';
 		}
-
 
 		if (!isset($_POST['Quantity'])) {
 			$_POST['Quantity'] = 0;
@@ -409,13 +394,12 @@ function display(&$StockId, &$DemandID) { //####DISPLAY_DISPLAY_DISPLAY_DISPLAY_
 				<input type="submit" name="deletesome" value="' . _('Delete Demand Type') . '" />';
 		// If mrpdemand record exists, display option to delete it
 		if ((isset($DemandID)) and (DB_num_rows($Result) > 0)) {
-			echo '<br/><br/><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?delete=yes&amp;StockID=' . $StockId . '&amp;DemandID=' . $DemandID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this demand?') . '\', \'Confirm Delete\', this);">' . _('Or Delete Record') . '</a>';
+			echo '<br/><br/><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?delete=yes&amp;StockID=' . $StockId . '&amp;DemandID=' . $DemandID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this demand?') . '\', \'Confirm Delete\', this);">' . _('Or Delete Record') . '</a>';
 		}
 		echo '</div>';
 	}
 	echo '</form>';
 
 } // End of function display()
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Tax Authorities Maintenance');
-$ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
-$BookMark = 'TaxAuthorities';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'Tax'; // Filename in ManualContents.php's TOC.
+$BookMark = 'TaxAuthorities'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="" />', $Title, '
@@ -16,13 +15,12 @@ if (isset($_POST['SelectedTaxAuthID'])) {
 	$SelectedTaxAuthID = $_GET['SelectedTaxAuthID'];
 }
 
-
 if (isset($_POST['submit'])) {
 
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	if (trim($_POST['Description']) == '') {
 		$InputError = 1;
 		prnMsg(_('The tax type description may not be empty'), 'error');
@@ -103,9 +101,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN OTHER TABLES
-
 	$SQL = "SELECT COUNT(*)
 			FROM taxgrouptaxes
 		WHERE taxauthid='" . $SelectedTaxAuthID . "'";
@@ -121,6 +117,7 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The selected tax authority record has been deleted'), 'success');
 		unset($SelectedTaxAuthID);
 	} // end of related records testing
+	
 }
 
 if (!isset($SelectedTaxAuthID)) {
@@ -142,9 +139,7 @@ if (!isset($SelectedTaxAuthID)) {
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	if (DB_num_rows($Result) == 0) {
-		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax authority.') .
-				'<br />' . _('For help, click on the help icon in the top right') .
-				'<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
+		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax authority.') . '<br />' . _('For help, click on the help icon in the top right') . '<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
 	}
 
 	echo '<table>
@@ -165,40 +160,36 @@ if (!isset($SelectedTaxAuthID)) {
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		echo '<tr class="striped_row">
-				<td>', $MyRow[1]. '</td>
+				<td>', $MyRow[1] . '</td>
 				<td>', $MyRow[3], '</td>
 				<td>', $MyRow[2], '</td>
 				<td>', $MyRow[4], '</td>
 				<td>', $MyRow[5], '</td>
 				<td>', $MyRow[6], '</td>
 				<td>', $MyRow[7], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow[0]), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow[0]), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this tax authority?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow[0]), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow[0]), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this tax authority?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				<td><a href="', $RootPath, '/TaxAuthorityRates.php?TaxAuthority=', urlencode($MyRow[0]), '">', _('Edit Rates'), '</a></td>
 			</tr>';
 
 	}
 	//END WHILE LIST LOOP
-
 	//end of ifs and buts!
-
 	echo '</tbody>';
 	echo '</table>';
 }
 
 if (isset($SelectedTaxAuthID)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Review all defined tax authority records'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review all defined tax authority records'), '</a>
 		</div>';
 }
 
-
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($SelectedTaxAuthID)) {
 	//editing an existing tax authority
-
 	$SQL = "SELECT taxglcode,
 				purchtaxglaccount,
 				description,
@@ -220,11 +211,9 @@ if (isset($SelectedTaxAuthID)) {
 	$_POST['BankAcc'] = $MyRow['bankacc'];
 	$_POST['BankSwift'] = $MyRow['bankswift'];
 
-
 	echo '<input type="hidden" name="SelectedTaxAuthID" value="', $SelectedTaxAuthID, '" />';
 
 } //end of if $SelectedTaxAuthID only do the else when a new record is being entered
-
 $SQL = "SELECT accountcode,
 				accountname
 		FROM chartmaster
@@ -253,12 +242,11 @@ echo '<table>
 
 foreach ($GLAccounts as $Code => $Name) {
 	if (isset($_POST['PurchTaxGLCode']) and $Code == $_POST['PurchTaxGLCode']) {
-		echo '<option selected="selected" value="', $Code, '">', $Name, ' (', $Code,  ')</option>';
+		echo '<option selected="selected" value="', $Code, '">', $Name, ' (', $Code, ')</option>';
 	} else {
-		echo '<option value="', $Code, '">', $Name, ' (', $Code,  ')</option>';
+		echo '<option value="', $Code, '">', $Name, ' (', $Code, ')</option>';
 	}
 } //end while loop
-
 echo '</select>
 		</td>
 	</tr>';
@@ -269,12 +257,11 @@ echo '<tr>
 
 foreach ($GLAccounts as $Code => $Name) {
 	if (isset($_POST['TaxGLCode']) and $Code == $_POST['TaxGLCode']) {
-		echo '<option selected="selected" value="', $Code, '">', $Name, ' (', $Code,  ')</option>';
+		echo '<option selected="selected" value="', $Code, '">', $Name, ' (', $Code, ')</option>';
 	} else {
-		echo '<option value="', $Code, '">', $Name, ' (', $Code,  ')</option>';
+		echo '<option value="', $Code, '">', $Name, ' (', $Code, ')</option>';
 	}
 } //end while loop
-
 if (!isset($_POST['Bank'])) {
 	$_POST['Bank'] = '';
 }
@@ -319,7 +306,6 @@ echo '<div class="centre">
 		<a href="', $RootPath, '/TaxCategories.php">', _('Tax Category Maintenance'), '</a>
 	</div>';
 
-
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

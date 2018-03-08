@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Enable Customer Branches');
 $ViewTopic = '';
 $BookMark = '';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Enable Customer Branches') . '" alt="" />' . $Title . '
@@ -21,7 +20,7 @@ if (isset($_POST['Submit'])) {
 			$UpdateResult = DB_query($UpdateSQL);
 		}
 	}
-	prnMsg( _('All updates hve been applied'), 'success');
+	prnMsg(_('All updates hve been applied'), 'success');
 }
 
 $SQL = "SELECT debtorsmaster.debtorno,
@@ -35,7 +34,7 @@ $SQL = "SELECT debtorsmaster.debtorno,
 $Result = DB_query($SQL);
 if (DB_num_rows($Result) > 0) {
 
-	echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="post"  enctype="multipart/form-data">';
+	echo '<form action="' . basename(__FILE__) . '" method="post"  enctype="multipart/form-data">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -65,9 +64,9 @@ if (DB_num_rows($Result) > 0) {
 		</div>';
 	echo '</form>';
 } else {
-	prnMsg( _('There are no customer branches requiring authorisation'), 'info');
+	prnMsg(_('There are no customer branches requiring authorisation'), 'info');
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

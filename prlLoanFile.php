@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.php');
-include('includes/prlFunctions.php');
+include ('includes/session.php');
+include ('includes/prlFunctions.php');
 $Title = _('Employees Loan Deduction Entry');
-include('includes/header.php');
+include ('includes/header.php');
 echo '<a href="' . $RootPath . '/prlSelectLoan.php">' . _('Back to View Loan File Records') . '</a><br />';
 if (isset($_GET['SelectedID'])) {
 	$SelectedID = $_GET['SelectedID'];
@@ -45,6 +44,7 @@ if (isset($_POST['submit'])) {
 
 		} else { //its a new employee
 			//new record
+			
 		}
 
 	} else {
@@ -53,10 +53,9 @@ if (isset($_POST['submit'])) {
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 	if (isset($_SESSION['Status']) == 'Closed') {
 		$CancelDelete = 1;
@@ -78,13 +77,14 @@ if (isset($_POST['submit'])) {
 		unset($_POST['StartDeduction']);
 		unset($_POST['AccountCode']);
 	} //end if Delete employee
+	
 } //end of (isset($_POST['submit']))
-
 if (!isset($SelectedID)) {
 	//new loan
+	
 } else {
 	//SupplierID exists - either passed when calling the form or from the form itself
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 	if (!isset($_POST["New"])) {
 		$SQL = "SELECT  loanfileid,
@@ -113,6 +113,7 @@ if (!isset($SelectedID)) {
 		echo '<input type="hidden" name="SelectedID" value="' . $SelectedID . '">';
 	} else {
 		// its a new supplier being added
+		
 	}
 	echo '<tr><td>' . _('Description') . ":</td>
 		<td><input type='Text' name='LoanFileDesc' value='" . $_POST['LoanFileDesc'] . "' SIZE=42 MAXLENGTH=40></td></tr>";
@@ -163,7 +164,6 @@ if (!isset($SelectedID)) {
 		}
 		echo $MyRow['accountcode'] . '>' . $MyRow['accountname'];
 	} //end while loop
-
 	if (isset($_POST["New"])) {
 		echo "</table><p><input type='Submit' name='submit' value='" . _('Add These New Employee Loan Details') . "'></form>";
 	} else {
@@ -173,6 +173,5 @@ if (!isset($SelectedID)) {
 	}
 
 } // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

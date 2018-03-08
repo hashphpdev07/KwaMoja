@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Payment Terms Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Payment Terms') . '" alt="" />' . ' ' . $Title . '</p>';
@@ -21,11 +20,10 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	$i = 1;
 
 	//first off validate inputs are sensible
-
 	if (mb_strlen($_POST['TermsIndicator']) < 1) {
 		$InputError = 1;
 		prnMsg(_('The payment terms name must exist'), 'error');
@@ -109,9 +107,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN DebtorsMaster
-
 	$SQL = "SELECT COUNT(*) FROM debtorsmaster WHERE debtorsmaster.paymentterms = '" . $SelectedTerms . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -127,14 +123,13 @@ if (isset($_POST['submit'])) {
 			echo '<br /> ' . _('There are') . ' ' . $MyRow[0] . ' ' . _('supplier accounts that refer to this payment term');
 		} else {
 			//only delete if used in neither customer or supplier accounts
-
 			$SQL = "DELETE FROM paymentterms WHERE termsindicator='" . $SelectedTerms . "'";
 			$Result = DB_query($SQL);
 			prnMsg(_('The payment term definition record has been deleted') . '!', 'success');
 		}
 	}
 	//end if payment terms used in customer or supplier accounts
-
+	
 }
 
 if (!isset($SelectedTerms)) {
@@ -177,28 +172,26 @@ if (!isset($SelectedTerms)) {
 				<td>' . $MyRow['terms'] . '</td>
 				<td>' . $FollMthText . '</td>
 				<td>' . $DueAfterText . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTerms=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTerms=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this payment term?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTerms=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTerms=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this payment term?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table>';
 } //end of ifs and buts!
-
 if (isset($SelectedTerms)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all Payment Terms Definitions') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show all Payment Terms Definitions') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedTerms)) {
 		//editing an existing payment terms
-
 		$SQL = "SELECT termsindicator,
 						terms,
 						daysbeforedue,
@@ -225,9 +218,7 @@ if (!isset($_GET['delete'])) {
 				<td>' . $_POST['TermsIndicator'] . '</td></tr>';
 
 	} else { //end of if $SelectedTerms only do the else when a new record is being entered
-
-		if (!isset($_POST['TermsIndicator']))
-			$_POST['TermsIndicator'] = '';
+		if (!isset($_POST['TermsIndicator'])) $_POST['TermsIndicator'] = '';
 		if (!isset($DaysBeforeDue)) {
 			$DaysBeforeDue = 0;
 		}
@@ -276,6 +267,5 @@ if (!isset($_GET['delete'])) {
 		</div>';
 	echo '</form>';
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

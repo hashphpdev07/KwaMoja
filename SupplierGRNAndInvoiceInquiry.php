@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Supplier Invoice and GRN inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedSupplier'])) {
 	$SupplierID = $_GET['SelectedSupplier'];
@@ -12,7 +11,7 @@ if (isset($_GET['SelectedSupplier'])) {
 } else {
 	prnMsg(_('The page must be called from suppliers selected interface, please click following link to select the supplier'), 'error');
 	echo '<a href="' . $RootPath . '/SelectSupplier.php">' . _('Select Supplier') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -37,7 +36,7 @@ if (!isset($_POST['SupplierRef']) or trim($_POST['SupplierRef']) == '') {
 
 echo '<p class="page_title_text">' . _('Supplier Invoice and Delivery Note Inquiry') . '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" alt="" />' . _('Supplier') . ': ' . $SupplierName . '</p>';
 echo '<div class="page_help_text">' . _('The supplier\'s delivery note is prefer to GRN No, and GRN No is prefered to Invoice No') . '</div>';
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="SelectedSupplier" value="' . $SupplierID . '" />';
 echo '<input type="hidden" name="SupplierName" value="' . $SupplierName . '" />';
@@ -59,15 +58,15 @@ if (isset($_POST['Submit'])) {
 	if (isset($_POST['SupplierRef']) and trim($_POST['SupplierRef']) != '') {
 		$SupplierRef = trim($_POST['SupplierRef']);
 		$WhereSupplierRef = " AND grns.supplierref LIKE '%" . $SupplierRef . "%'";
-		$Where .= $WhereSupplierRef;
+		$Where.= $WhereSupplierRef;
 	} elseif (isset($_POST['GRNBatchNo']) and trim($_POST['GRNBatchNo']) != '') {
 		$GRNBatchNo = trim($_POST['GRNBatchNo']);
 		$WhereGRN = " AND grnbatch LIKE '%" . $GRNBatchNo . "%'";
-		$Where .= $WhereGRN;
+		$Where.= $WhereGRN;
 	} elseif (isset($_POST['InvoiceNo']) and (trim($_POST['InvoiceNo']) != '')) {
 		$InvoiceNo = trim($_POST['InvoiceNo']);
 		$WhereInvoiceNo = " AND suppinv LIKE '%" . $InvoiceNo . "%'";
-		$Where .= $WhereInvoiceNo;
+		$Where.= $WhereInvoiceNo;
 	}
 
 	$SQL = "SELECT grnbatch,
@@ -108,5 +107,5 @@ if (isset($_POST['Submit'])) {
 	}
 
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

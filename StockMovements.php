@@ -20,7 +20,7 @@ echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" /><b>', ' ', $StockId, ' - ', $MyRow['0'], ' : ', _('in units of'), ' : ', $MyRow[1], '</b>
 	</p>';
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_POST['BeforeDate']) or !is_date($_POST['BeforeDate'])) {

@@ -1,35 +1,29 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Units Of Measure');
 
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
-if (isset($_GET['SelectedMeasureID']))
-	$SelectedMeasureID = $_GET['SelectedMeasureID'];
-elseif (isset($_POST['SelectedMeasureID']))
-	$SelectedMeasureID = $_POST['SelectedMeasureID'];
+if (isset($_GET['SelectedMeasureID'])) $SelectedMeasureID = $_GET['SelectedMeasureID'];
+elseif (isset($_POST['SelectedMeasureID'])) $SelectedMeasureID = $_POST['SelectedMeasureID'];
 
 if (isset($_POST['Submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['MeasureName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The unit of measure may not be empty'), 'error');
 	}
 
 	if (isset($_POST['SelectedMeasureID']) and $_POST['SelectedMeasureID'] != '' and $InputError != 1) {
-
 
 		/*SelectedMeasureID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
 		// Check the name does not clash
@@ -171,8 +165,8 @@ if (!isset($SelectedMeasureID)) {
 
 		echo '<tr class="striped_row">
 				<td>' . $MyRow[1] . '</td>';
-		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this unit of measure?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this unit of measure?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
@@ -183,18 +177,17 @@ if (!isset($SelectedMeasureID)) {
 
 if (isset($SelectedMeasureID)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Units of Measure') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Units of Measure') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedMeasureID)) {
 		//editing an existing section
-
 		$SQL = "SELECT unitid,
 				unitname
 				FROM unitsofmeasure
@@ -231,6 +224,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

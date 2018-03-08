@@ -1,13 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Employer Section');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
 if (isset($_GET['EmployerID'])) {
 	$EmployerID = strtoupper($_GET['EmployerID']);
@@ -22,13 +20,12 @@ $InputError = 0;
 <a href="prlUserSettings.php">Back to User Settings
     </a>
 <?php
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
 	$i = 1;
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$SQL = "SELECT COUNT(employerid) FROM prlemployer WHERE employerid='" . $EmployerID . "'";
@@ -94,7 +91,6 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The employer master record for') . ' ' . $EmployerID . ' ' . _('has been updated'), 'success');
 
 	} else { //its a new employer
-
 		$SQL = "INSERT INTO prlemployer (
 							employerid,
 							employername,
@@ -146,14 +142,13 @@ if (isset($_POST['submit'])) {
 
 }
 
-if (isset($_POST['delete']) AND $_POST['delete'] != '') {
+if (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
-
+	
 
 	if ($CancelDelete == 0) {
 		$SQL = "DELETE FROM prlemployer WHERE employerid='$EmployerID'";
@@ -162,14 +157,14 @@ if (isset($_POST['delete']) AND $_POST['delete'] != '') {
 		unset($EmployerID);
 		unset($_SESSION['EmployerID']);
 	} //end if Delete employer
+	
 }
-
 
 if (!isset($EmployerID)) {
 
 	/*If the page was called without $EmployerID passed to page then assume a new employer is to be entered show a form with a Supplier Code field other wise the form showing the fields with the existing entries against the employer will show for editing with only a hidden EmployerID field*/
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
 	echo '<input type="hidden" name="New" value="Yes">';
 
@@ -188,15 +183,13 @@ if (!isset($EmployerID)) {
 
 	echo '<tr><td>' . _('Country') . ":</td><td><input type='text' name='country' size=30 maxlength=40></td></tr>";
 
-
 	echo "</select></td></tr></table><p><div class='centre'><input type='Submit' name='submit' value='" . _('Insert New Employer') . "'>";
 	echo '</form>';
 
 } else {
 
 	//EmployerID exists - either passed when calling the form or from the form itself
-
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 
 	if (!isset($_POST["New"])) {
@@ -253,7 +246,6 @@ if (!isset($EmployerID)) {
 
 	echo '<tr><td>' . _('Country') . ':</td><td><input type="text" name="country" value="' . $_POST['country'] . '" size=42 maxlength=40></td></tr>';
 
-
 	echo '</select></td></tr></table>';
 
 	if (isset($_POST["New"])) {
@@ -267,6 +259,5 @@ if (!isset($EmployerID)) {
 	}
 
 } // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

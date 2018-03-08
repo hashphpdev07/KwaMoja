@@ -1,18 +1,17 @@
 <?php
-
 /* Adds customer contacts */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Contacts');
 $ViewTopic = 'AccountsReceivable';
 $BookMark = 'AddCustomerContacts';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['Id'])) {
-	$Id = (int) $_GET['Id'];
+	$Id = (int)$_GET['Id'];
 } else if (isset($_POST['Id'])) {
-	$Id = (int) $_POST['Id'];
+	$Id = (int)$_POST['Id'];
 }
 if (isset($_POST['DebtorNo'])) {
 	$DebtorNo = $_POST['DebtorNo'];
@@ -39,10 +38,10 @@ if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-	if (isset($_POST['Con_ID']) and !is_long((integer) $_POST['Con_ID'])) {
+	if (isset($_POST['Con_ID']) and !is_long((integer)$_POST['Con_ID'])) {
 		$InputError = 1;
 		prnMsg(_('The Contact ID must be an integer.'), 'error');
 	} elseif (mb_strlen($_POST['ContactName']) > 40) {
@@ -100,9 +99,7 @@ if (isset($_POST['submit'])) {
 	}
 } elseif (isset($_GET['delete']) and $_GET['delete']) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SalesOrders'
-
 	$SQL = "DELETE FROM custcontacts
 			WHERE contid='" . $Id . "'
 			AND debtorno='" . $DebtorNo . "'";
@@ -150,12 +147,13 @@ if (!isset($Id)) {
 					<td class="text">', $MyRow['role'], '</td>
 					<td class="text">', $MyRow['phoneno'], '</td>
 					<td class="text"><a href="mailto:', $MyRow['email'], '">', $MyRow['email'], '</a></td>
-					<td class="text">', ($MyRow['statement']==0) ? _('No') : _('Yes'), '</td>
+					<td class="text">', ($MyRow['statement'] == 0) ? _('No') : _('Yes'), '</td>
 					<td class="text">', $MyRow['notes'], '</td>
-					<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['contid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">' . _('Edit') . '</a></td>
-					<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['contid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this contact?') . '\');">' . _('Delete'). '</a></td>
+					<td class="noPrint"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['contid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">' . _('Edit') . '</a></td>
+					<td class="noPrint"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['contid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this contact?') . '\');">' . _('Delete') . '</a></td>
 				</tr>';
 			//END WHILE LIST LOOP
+			
 		}
 		echo '</tbody>
 		</table>';
@@ -164,13 +162,13 @@ if (!isset($Id)) {
 
 if (isset($Id)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">', _('Review all contacts for this Customer'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">', _('Review all contacts for this Customer'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . $DebtorNo . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . $DebtorNo . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($Id)) {
@@ -268,6 +266,5 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

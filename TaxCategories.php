@@ -1,12 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Tax Categories Maintenance');
-$ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
-$BookMark = 'TaxCategories';// Anchor's id in the manual's html document.
-
-include('includes/header.php');
+$ViewTopic = 'Tax'; // Filename in ManualContents.php's TOC.
+$BookMark = 'TaxCategories'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '</p>';
 
@@ -21,14 +19,12 @@ if (isset($_GET['SelectedTaxCategory'])) {
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['TaxCategoryName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The tax category name may not be empty'), 'error');
@@ -48,7 +44,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The tax category cannot be renamed because another with the same name already exists.'), 'error');
 		} else {
 			// Get the old name and check that the record still exists
-
 			$SQL = "SELECT taxcatname FROM taxcategories
 					WHERE taxcatid = '" . $SelectedTaxCategory . "'";
 			$Result = DB_query($SQL);
@@ -176,8 +171,8 @@ if (!isset($SelectedTaxCategory) or $SelectedTaxCategory == '') {
 		if ($MyRow['taxcatname'] != 'Freight') {
 			echo '<tr class="striped_row">
 					<td>' . _($MyRow['taxcatname']) . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxCategory=' . $MyRow['taxcatid'] . '">' . _('Edit') . '</a></td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxCategory=' . $MyRow['taxcatid'] . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax category?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTaxCategory=' . $MyRow['taxcatid'] . '">' . _('Edit') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTaxCategory=' . $MyRow['taxcatid'] . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax category?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 		} else {
 			echo '<tr class="striped_row">
@@ -195,18 +190,17 @@ if (!isset($SelectedTaxCategory) or $SelectedTaxCategory == '') {
 
 if ($SelectedTaxCategory != '') {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Tax Categories') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Tax Categories') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if ($SelectedTaxCategory != '') {
 		//editing an existing section
-
 		$SQL = "SELECT taxcatid,
 				taxcatname
 				FROM taxcategories
@@ -241,12 +235,11 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } //end if record deleted no point displaying form to add record
-
 echo '<div class="centre">
 		<a href="', $RootPath, '/TaxAuthorities.php">', _('Tax Authorities and Rates Maintenance'), '</a>
 		<a href="', $RootPath, '/TaxGroups.php">', _('Tax Group Maintenance'), '</a>
 		<a href="', $RootPath, '/TaxProvinces.php">', _('Dispatch Tax Province Maintenance'), '</a>
 	</div>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

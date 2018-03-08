@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $UpdateSecurity = $_SESSION['PageSecurityArray']['PurchData.php'];
 $Title = _('Stock Cost Update');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 echo '<script src="javascripts/Chart.js"></script>';
 if (isset($_GET['StockID'])) {
 	$StockId = trim(mb_strtoupper($_GET['StockID']));
@@ -90,7 +89,7 @@ if (isset($_POST['UpdateData'])) {
 		$Result = DB_Txn_Commit();
 
 		UpdateCost($StockId); //Update any affected BOMs
-
+		
 	}
 }
 
@@ -130,7 +129,7 @@ $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 $MyRow = DB_fetch_array($Result);
 $ItemDescription = $MyRow['description'];
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table widthe="98%">
 		<tr>
@@ -164,7 +163,7 @@ if (($MyRow['mbflag'] == 'D' and $MyRow['stocktype'] != 'L') or $MyRow['mbflag']
 		echo '<br />' . $StockId . ' ' . _('is a kit set part');
 	}
 	prnMsg(_('Cost information cannot be modified for kits assemblies or service items') . '. ' . _('Please select a different part'), 'warn');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -292,7 +291,6 @@ echo '</td>
 			</ul>
 		</td>
 	</tr>'; //Box
-
 echo '</table>'; //Container
 if ($MyRow['mbflag'] != 'D') {
 	echo '<div class="centre">
@@ -304,5 +302,5 @@ if ($MyRow['mbflag'] != 'D') {
 		</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

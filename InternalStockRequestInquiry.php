@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Internal Stock Request Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title, '" alt="" />', $Title, '</p>';
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($_POST['ResetPart'])) {
@@ -59,18 +58,14 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 			</td>';
 	} else {
 		prnMsg(_('There are no locations which you have authority to inquire on'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (!isset($_POST['AuthorisedStatus'])) {
 		$_POST['AuthorisedStatus'] = 'All';
 	}
-	$AuthorisationStatus = array(
-		'All' => _('All'),
-		0 => _('Unauthorised'),
-		1 => _('Authorised')
-	);
+	$AuthorisationStatus = array('All' => _('All'), 0 => _('Unauthorised'), 1 => _('Authorised'));
 	echo '<td>', _('Authorisation status'), '</td>
 			<td><select name="AuthorisedStatus">';
 	foreach ($AuthorisationStatus as $Code => $Description) {
@@ -117,7 +112,7 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 				</td>';
 	} else {
 		prnMsg(_('There are no internal request result available for you or your department'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -219,7 +214,7 @@ if (!isset($_POST['SearchPart'])) { //The scripts is just opened or click a subm
 	} else {
 		echo '<p class="bad">', _('Problem Report'), ':<br />', _('There are no stock categories currently defined please use the link below to set them up'), '</p>';
 		echo '<a href="', $RootPath, '/StockCategories.php">', _('Define Stock Categories'), '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	echo '<div class="centre">
@@ -254,16 +249,15 @@ if (isset($StockItemsResult)) {
 					<td>', $MyRow['units'], '</td>
 				</tr>';
 			//end of page full new headings if
+			
 		}
 		//end of while loop
-
 		echo '</tbody>
 		</table>';
 
 	}
 
 } elseif (isset($_POST['Search']) or isset($StockID)) { //lets show the search result here
-
 	if ($_POST['ShowDetails'] === 'on' or isset($StockID)) {
 		$SQL = "SELECT stockrequest.dispatchid,
 						stockrequest.loccode,
@@ -309,34 +303,34 @@ if (isset($StockItemsResult)) {
 	}
 	//lets add the condition selected by users
 	if (isset($_POST['RequestNo'])) {
-		$SQL .= " WHERE stockrequest.dispatchid = '" . $_POST['RequsetNo'] . "'";
+		$SQL.= " WHERE stockrequest.dispatchid = '" . $_POST['RequsetNo'] . "'";
 	} else {
 		//first the constraint of locations;
 		if (isset($_POST['StockLocation']) and $_POST['StockLocation'] != 'All') { //retrieve the location data from current code
-			$SQL .= " WHERE stockrequest.loccode='" . $_POST['StockLocation'] . "'";
+			$SQL.= " WHERE stockrequest.loccode='" . $_POST['StockLocation'] . "'";
 		} else { //retrieve the location data from serialzed data
-			$SQL .= " WHERE stockrequest.loccode " . LIKE . " '%%'";
+			$SQL.= " WHERE stockrequest.loccode " . LIKE . " '%%'";
 		}
 		//the authorization status
 		if ($_POST['AuthorisedStatus'] != 'All') { //no bothering for all
-			$SQL .= " AND authorised = '" . $_POST['AuthorisedStatus'] . "'";
+			$SQL.= " AND authorised = '" . $_POST['AuthorisedStatus'] . "'";
 		}
 		//the department: if the department is all, no bothering for this since user has no relation ship with department; but consider the efficency, we should use the departments to filter those no needed out
 		if ($_POST['Department'] == 'All') {
-			$SQL .= " AND stockrequest.departmentid " . LIKE . " '%%'";
+			$SQL.= " AND stockrequest.departmentid " . LIKE . " '%%'";
 		} else {
-			$SQL .= " AND stockrequest.departmentid='" . $_POST['Department'] . "'";
+			$SQL.= " AND stockrequest.departmentid='" . $_POST['Department'] . "'";
 		}
 		//Date from
 		if (isset($_POST['FromDate'])) {
-			$SQL .= " AND despatchdate>='" . FormatDateForSQL($_POST['FromDate']) . "'";
+			$SQL.= " AND despatchdate>='" . FormatDateForSQL($_POST['FromDate']) . "'";
 		}
 		if (isset($_POST['ToDate'])) {
-			$SQL .= " AND despatchdate<='" . FormatDateForSQL($_POST['ToDate']) . "'";
+			$SQL.= " AND despatchdate<='" . FormatDateForSQL($_POST['ToDate']) . "'";
 		}
 		//item selected
 		if (isset($StockID)) {
-			$SQL .= " AND stockrequestitems.stockid='" . $StockID . "'";
+			$SQL.= " AND stockrequestitems.stockid='" . $StockID . "'";
 		}
 	} //end of no request no selected
 	$Result = DB_query($SQL);
@@ -368,6 +362,7 @@ if (isset($StockItemsResult)) {
 
 		if ($_POST['ShowDetails'] === 'on' or isset($StockID)) {
 			$ID = ''; //mark the ID change of the internal request
+			
 		}
 		$i = 0;
 		//There are items without details AND with it
@@ -432,7 +427,7 @@ if (isset($StockItemsResult)) {
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 function GetSearchItems($SQLConstraint = '') {
 	if ($_POST['Keywords'] and $_POST['StockCode']) {
@@ -459,20 +454,19 @@ function GetSearchItems($SQLConstraint = '') {
 		//insert wildcard characters in spaces
 		$SearchString = '%' . str_replace(' ', '%', $_POST['Keywords']) . '%';
 
-		$SQL .= " WHERE stockmaster.description " . LIKE . " '" . $SearchString . "'
+		$SQL.= " WHERE stockmaster.description " . LIKE . " '" . $SearchString . "'
 			  " . $WhereStockCat;
 
-
 	} elseif (isset($_POST['StockCode'])) {
-		$SQL .= " WHERE stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'" . $WhereStockCat;
+		$SQL.= " WHERE stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'" . $WhereStockCat;
 
 	} elseif (!isset($_POST['StockCode']) and !isset($_POST['Keywords'])) {
-		$SQL .= " WHERE stockmaster.categoryid='" . $_POST['StockCat'] . "'";
+		$SQL.= " WHERE stockmaster.categoryid='" . $_POST['StockCat'] . "'";
 
 	}
-	$SQL .= ' AND (departments.authoriser="' . $_SESSION['UserID'] . '" OR userid="' . $_SESSION['UserID'] . '") ';
-	$SQL .= $SQLConstraint;
-	$SQL .= " GROUP BY stockmaster.stockid,
+	$SQL.= ' AND (departments.authoriser="' . $_SESSION['UserID'] . '" OR userid="' . $_SESSION['UserID'] . '") ';
+	$SQL.= $SQLConstraint;
+	$SQL.= " GROUP BY stockmaster.stockid,
 					    stockmaster.description,
 					    stockmaster.decimalplaces,
 					    stockmaster.units

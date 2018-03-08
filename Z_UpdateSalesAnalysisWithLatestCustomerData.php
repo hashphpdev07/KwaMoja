@@ -1,18 +1,17 @@
 <?php
-
 /* $Id: Z_UpdateSalesAnalysisWithLatestCustomerData.php 5784 2012-12-29 04:00:43Z daintree $*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Apply Current Customer and Branch Data to Sales Analysis');
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<br />
 		<input type="submit" name="UpdateSalesAnalysis" value="' . _('Update Sales Analysis Customer Data') . '" />
 	</form>';
 
-if (isset($_POST['UpdateSalesAnalysis'])){
+if (isset($_POST['UpdateSalesAnalysis'])) {
 
 	/* Loop around each customer/branch combo */
 
@@ -27,7 +26,7 @@ if (isset($_POST['UpdateSalesAnalysis'])){
 	$ErrMsg = _('Could not retrieve the customer records to be updated because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	while ($CustomerRow = DB_fetch_array($Result)){
+	while ($CustomerRow = DB_fetch_array($Result)) {
 
 		$SQL = "UPDATE salesanalysis SET area = '" . $CustomerRow['area'] . "',
 										typeabbrev= '" . $CustomerRow['salestype'] . "',
@@ -41,8 +40,7 @@ if (isset($_POST['UpdateSalesAnalysis'])){
 		prnMsg(_('Updated sales analysis for customer code') . ': ' . $CustomerRow['debtorno'] . ' ' . _('and branch code') . ': ' . $CustomerRow['branchcode'], 'success');
 	}
 
-
 	prnMsg(_('Updated the sales analysis with all the latest sales areas, salesman and sales types as set up now'), 'success');
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

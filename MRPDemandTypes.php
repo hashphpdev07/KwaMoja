@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('MRP Demand Types');
-include('includes/header.php');
+include ('includes/header.php');
 
 //SelectedDT is the Selected MRPDemandType
 if (isset($_POST['SelectedDT'])) {
@@ -19,10 +18,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim(mb_strtoupper($_POST['MRPDemandType']) == 'WO') or trim(mb_strtoupper($_POST['MRPDemandType']) == 'SO')) {
 		$InputError = 1;
 		prnMsg(_('The Demand Type is reserved for the system'), 'error');
@@ -50,7 +48,6 @@ if (isset($_POST['submit'])) {
 
 		//Selected demand type is null cos no item selected on first time round so must be adding a
 		//record must be submitting new entries in the new work centre form
-
 		$SQL = "INSERT INTO mrpdemandtypes (mrpdemandtype,
 						description)
 					VALUES ('" . trim(mb_strtoupper($_POST['MRPDemandType'])) . "',
@@ -59,7 +56,6 @@ if (isset($_POST['submit'])) {
 		$Msg = _('The new demand type has been added to the database');
 	}
 	//run the SQL from either of the above possibilites
-
 	if ($InputError != 1) {
 		$Result = DB_query($SQL, _('The update/addition of the demand type failed because'));
 		prnMsg($Msg, 'success');
@@ -71,9 +67,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'MRPDemands'
-
 	$SQL = "SELECT COUNT(*) FROM mrpdemands
 			 WHERE mrpdemands.mrpdemandtype='" . $SelectedDT . "'
 			 GROUP BY mrpdemandtype";
@@ -87,6 +81,7 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The selected demand type record has been deleted'), 'succes');
 		echo '<br />';
 	} // end of MRPDemands test
+	
 }
 
 if (!isset($SelectedDT) or isset($_GET['delete'])) {
@@ -97,7 +92,6 @@ if (!isset($SelectedDT) or isset($_GET['delete'])) {
 	//then none of the above are true and the list of demand types will be displayed with
 	//links to delete or edit each. These will call the same page again and allow update/input
 	//or deletion of the records
-
 	$SQL = "SELECT mrpdemandtype,
 					description
 			FROM mrpdemandtypes";
@@ -115,8 +109,8 @@ if (!isset($SelectedDT) or isset($_GET['delete'])) {
 		echo '<tr>
 					<td>' . $MyRow[0] . '</td>
 					<td>' . $MyRow[1] . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedDT=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedDT=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedDT=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedDT=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account group?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 	}
 
@@ -125,17 +119,15 @@ if (!isset($SelectedDT) or isset($_GET['delete'])) {
 }
 
 //end of ifs and buts!
-
 if (isset($SelectedDT) and !isset($_GET['delete'])) {
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all Demand Types') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show all Demand Types') . '</a></div>';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedDT) and !isset($_GET['delete'])) {
 	//editing an existing demand type
-
 	$SQL = "SELECT mrpdemandtype,
 			description
 		FROM mrpdemandtypes
@@ -180,5 +172,5 @@ echo '<tr>
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

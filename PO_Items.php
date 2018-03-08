@@ -1,32 +1,29 @@
 <?php
-
-include('includes/DefinePOClass.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/DefinePOClass.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /* Session started in header.php for password checking
  * and authorisation level check
- */
-include('includes/session.php');
+*/
+include ('includes/session.php');
 $Title = _('Purchase Order Items');
 
 $Identifier = $_GET['identifier'];
 
 /* If a purchase order header doesn't exist, then go to
  * PO_Header.php to create one
- */
+*/
 if (!isset($_SESSION['PO' . $Identifier])) {
 	header('Location:' . $RootPath . '/PO_Header.php');
 	exit;
 } //end if (!isset($_SESSION['PO'.$Identifier]))
-
-include('includes/header.php');
+include ('includes/header.php');
 
 if (!isset($_POST['Commit'])) {
 	echo '<div class="toplink">
 			<a href="', $RootPath, '/PO_Header.php?identifier=', urlencode($Identifier), '">', _('Back To Purchase Order Header'), '</a>
 		</div>';
 } //!isset($_POST['Commit'])
-
 if (isset($_POST['UpdateLines']) or isset($_POST['Commit']) or isset($_POST['RefreshPrices'])) {
 	foreach ($_SESSION['PO' . $Identifier]->LineItems as $POLine) {
 		if ($POLine->Deleted == false) {
@@ -52,9 +49,10 @@ if (isset($_POST['UpdateLines']) or isset($_POST['Commit']) or isset($_POST['Ref
 			$_SESSION['PO' . $Identifier]->LineItems[$POLine->LineNo]->ReqDelDate = $_POST['ReqDelDate' . $POLine->LineNo];
 			$_SESSION['PO' . $Identifier]->LineItems[$POLine->LineNo]->ItemDescription = $_POST['ItemDescription' . $POLine->LineNo];
 		} //$POLine->Deleted == false
+		
 	} //$_SESSION['PO' . $Identifier]->LineItems as $POLine
+	
 } //isset($_POST['UpdateLines']) or isset($_POST['Commit'])
-
 //Refresh the prices
 if (isset($_POST['RefreshPrices'])) {
 	foreach ($_SESSION['PO' . $Identifier]->LineItems as $POLine) {
@@ -118,8 +116,8 @@ if (isset($_POST['RefreshPrices'])) {
 			$DbgMsg = _('The SQL used to retrive the supplier discounts that failed was');
 			$DiscountResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 			while ($DiscountRow = DB_fetch_array($DiscountResult)) {
-				$ItemDiscountPercent += $DiscountRow['discountpercent'];
-				$ItemDiscountAmount += $DiscountRow['discountamount'];
+				$ItemDiscountPercent+= $DiscountRow['discountpercent'];
+				$ItemDiscountAmount+= $DiscountRow['discountamount'];
 			}
 			if ($ItemDiscountPercent != 0) {
 				prnMsg(_('Taken accumulated supplier percentage discounts of') . ' ' . locale_number_format($ItemDiscountPercent * 100, 2) . '%', 'info');
@@ -140,11 +138,12 @@ if (isset($_POST['RefreshPrices'])) {
 			$LeadTime = $PurchRow['leadtime'];
 			/* Work out the delivery date based on today + lead time
 			 * if > header DeliveryDate then set DeliveryDate to today + leadtime
-			 */
+			*/
 			$DeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $LeadTime);
 			if (Date1GreaterThanDate2($_SESSION['PO' . $Identifier]->DeliveryDate, $DeliveryDate)) {
 				$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
 			} //!Date1GreaterThanDate2($DeliveryDate, $_SESSION['PO' . $Identifier]->DeliveryDate)
+			
 		} //DB_num_rows($PurchDataResult) > 0
 		else { // no purchasing data setup
 			$PurchPrice = 0;
@@ -164,7 +163,7 @@ if (isset($_POST['Commit'])) {
 
 	/*First do some validation
 	 *Is the delivery information all entered
-	 */
+	*/
 	$InputError = 0;
 	/*Start off assuming the best */
 	if ($_SESSION['PO' . $Identifier]->DelAdd1 == '' or mb_strlen($_SESSION['PO' . $Identifier]->DelAdd1) < 3) {
@@ -175,13 +174,12 @@ if (isset($_POST['Commit'])) {
 		prnMsg(_('The purchase order can not be committed to the database because there is no location specified to book any stock items into'), 'error');
 		$InputError = 1;
 	} //$_SESSION['PO' . $Identifier]->Location == '' or !isset($_SESSION['PO' . $Identifier]->Location)
-		elseif ($_SESSION['PO' . $Identifier]->LinesOnOrder <= 0) {
+	elseif ($_SESSION['PO' . $Identifier]->LinesOnOrder <= 0) {
 		prnMsg(_('The purchase order can not be committed to the database because there are no lines entered on this order'), 'error');
 		$InputError = 1;
 	} //$_SESSION['PO' . $Identifier]->LinesOnOrder <= 0
-
 	/*If all clear then proceed to update the database
-	 */
+	*/
 	if ($InputError != 1) {
 		$Result = DB_Txn_Begin();
 
@@ -341,8 +339,8 @@ if (isset($_POST['Commit'])) {
 
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				} //$POLine->Deleted == False
+				
 			} //$_SESSION['PO' . $Identifier]->LineItems as $POLine
-
 			/* end of the loop round the detail line items on the order */
 			prnMsg(_('Purchase Order') . ' ' . $_SESSION['PO' . $Identifier]->OrderNo . ' ' . _('on') . ' ' . $_SESSION['PO' . $Identifier]->SupplierName . ' ' . _('has been created'), 'success');
 			if ($_SESSION['PO' . $Identifier]->AllowPrintPO == 1 and ($_SESSION['PO' . $Identifier]->Status == 'Authorised' or $_SESSION['PO' . $Identifier]->Status == 'Printed')) {
@@ -359,6 +357,7 @@ if (isset($_POST['Commit'])) {
 					$Completed = false;
 					break;
 				} //$POLine->Completed == 0
+				
 			} //$_SESSION['PO' . $Identifier]->LineItems as $POLine
 			if ($Completed) {
 				$_SESSION['PO' . $Identifier]->Status = 'Completed';
@@ -414,12 +413,13 @@ if (isset($_POST['Commit'])) {
 						$DbgMsg = _('The SQL statement used to delete the purchase order detail record, that failed was');
 						$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 					} //$POLine->PODetailRec != ''
+					
 				} //$POLine->Deleted == true
 				else if ($POLine->PODetailRec == '') {
 					/*When the purchase order line is an existing record the auto-increment
 					 * field PODetailRec is given to the session for that POLine
 					 * So it will only be a new POLine if PODetailRec is empty
-					 */
+					*/
 					$SQL = "INSERT INTO purchorderdetails ( orderno,
 														itemcode,
 														deliverydate,
@@ -488,16 +488,14 @@ if (isset($_POST['Commit'])) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			} //$_SESSION['PO' . $Identifier]->LineItems as $POLine
-
 			/* end of the loop round the detail line items on the order */
 			prnMsg(_('Purchase Order') . ' ' . $_SESSION['PO' . $Identifier]->OrderNo . ' ' . _('has been updated'), 'success');
 			if ($_SESSION['PO' . $Identifier]->AllowPrintPO == 1 and ($_SESSION['PO' . $Identifier]->Status == 'Authorised' or $_SESSION['PO' . $Identifier]->Status == 'Printed')) {
 				echo '<br /><div class="centre"><a target="_blank" href="' . $RootPath . '/PO_PDFPurchOrder.php?OrderNo=' . $_SESSION['PO' . $Identifier]->OrderNo . '">' . _('Print Purchase Order') . '</a></div>';
 			} //$_SESSION['PO' . $Identifier]->AllowPrintPO == 1 and ($_SESSION['PO' . $Identifier]->Status == 'Authorised' or $_SESSION['PO' . $Identifier]->Status == 'Printed')
-
+			
 		}
 		/*end of if its a new order or an existing one */
-
 
 		$Result = DB_Txn_Commit();
 		/* Only show the link to auto receive the order if the user has permission to receive goods and permission to authorise and has authorised the order */
@@ -505,35 +503,29 @@ if (isset($_POST['Commit'])) {
 
 			echo '<a href="SupplierInvoice.php?SupplierID=' . urlencode($_SESSION['PO' . $Identifier]->SupplierID) . '&amp;ReceivePO=' . urlencode($_SESSION['PO' . $Identifier]->OrderNo) . '&amp;DeliveryDate=' . urlencode($_SESSION['PO' . $Identifier]->DeliveryDate) . '">' . _('Receive and Enter Purchase Invoice') . '</a>';
 		} //$_SESSION['PO' . $Identifier]->Status == 'Authorised' and in_array(1001, $_SESSION['AllowedPageSecurityTokens'])
-
 		unset($_SESSION['PO' . $Identifier]);
 		/*Clear the PO data to allow a newy to be input*/
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} //$InputError != 1
-
 	/*end if there were no input errors trapped */
 } //isset($_POST['Commit'])
-
 /* end of the code to do transfer the PO object to the database  - user hit the place PO*/
-
 
 /* Always do the stuff below if not looking for a supplierid */
 
 if (isset($_GET['Delete'])) {
 	if ($_SESSION['PO' . $Identifier]->Some_Already_Received($_GET['Delete']) == 0) {
 		$_SESSION['PO' . $Identifier]->remove_from_order($_GET['Delete']);
-		include('includes/PO_UnsetFormVbls.php');
+		include ('includes/PO_UnsetFormVbls.php');
 	} //$_SESSION['PO' . $Identifier]->Some_Already_Received($_GET['Delete']) == 0
 	else {
 		prnMsg(_('This item cannot be deleted because some of it has already been received'), 'warn');
 	}
 } //isset($_GET['Delete'])
-
 if (isset($_GET['Complete'])) {
 	$_SESSION['PO' . $Identifier]->LineItems[$_GET['Complete']]->Completed = 1;
 } //isset($_GET['Complete'])
-
 if (isset($_POST['EnterLine'])) {
 	/*Inputs from the form directly without selecting a stock item from the search */
 
@@ -555,12 +547,11 @@ if (isset($_POST['EnterLine'])) {
 		$AllowUpdate = False;
 		prnMsg(_('Cannot Enter this order line') . '</b><br />' . _('The date entered must be in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
 	} //!is_date($_POST['ReqDelDate'])
-
 	/*It's not a stock item
 	 * need to check GL Code is valid if GLLink is active
 	 * [icedlava] GL Code is required for non stock item variance in price vs purchase order when supplier invoice generated even if stock not linked to GL, but AP is else
 	 * there will be an sql error  in SupplierInvoice.php without a valid GL Code
-	 */
+	*/
 	if ($_SESSION['PO' . $Identifier]->GLLink == 1 or $_SESSION['CompanyRecord']['gllink_creditors'] == 1) {
 		$SQL = "SELECT accountname
 					FROM chartmaster
@@ -575,7 +566,7 @@ if (isset($_POST['EnterLine'])) {
 			if ($Debug == 1) {
 				prnMsg(_('The SQL used to validate the code entered was') . ' ' . $SQL, 'error');
 			} //$Debug == 1
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		} //DB_error_no() != 0
 		if (DB_num_rows($GLValidResult) == 0) {
@@ -611,46 +602,44 @@ if (isset($_POST['EnterLine'])) {
 			if ($_POST['ItemDescription'] == '') {
 				$_POST['ItemDescription'] = $AssetRow['description'];
 			} //$_POST['ItemDescription'] == ''
+			
 		}
 	} //$_POST['AssetID'] != 'Not an Asset'
-
 	/*end if an AssetID is entered */
 	else {
 		$_POST['AssetID'] = 0; // cannot commit a string to an integer field so make it 0 if AssetID = 'Not an Asset'
+		
 	}
 	if (mb_strlen($_POST['ItemDescription']) <= 3) {
 		$AllowUpdate = false;
 		prnMsg(_('Cannot enter this order line') . ':<br />' . _('The description of the item being purchased is required where a non-stock item is being ordered'), 'warn');
 	} //mb_strlen($_POST['ItemDescription']) <= 3
-
 	if ($AllowUpdate == true) {
 		//adding the non-stock item
-
-		$_SESSION['PO' . $Identifier]->add_to_order($_SESSION['PO' . $Identifier]->LinesOnOrder + 1, '', 0, /*Serialised */ 0, /*Controlled */ filter_number_format($_POST['Qty']), $_POST['ItemDescription'], filter_number_format($_POST['Price']), $_POST['SuppliersUnit'], $_POST['GLCode'], $_POST['ReqDelDate'], '', 0, '', 0, 0, $GLAccountName, 2, $_POST['SuppliersUnit'], 1, 1, '', $_POST['AssetID']);
-		include('includes/PO_UnsetFormVbls.php');
+		$_SESSION['PO' . $Identifier]->add_to_order($_SESSION['PO' . $Identifier]->LinesOnOrder + 1, '', 0, /*Serialised */
+		0, /*Controlled */
+		filter_number_format($_POST['Qty']), $_POST['ItemDescription'], filter_number_format($_POST['Price']), $_POST['SuppliersUnit'], $_POST['GLCode'], $_POST['ReqDelDate'], '', 0, '', 0, 0, $GLAccountName, 2, $_POST['SuppliersUnit'], 1, 1, '', $_POST['AssetID']);
+		include ('includes/PO_UnsetFormVbls.php');
 	} //$AllowUpdate == true
+	
 } //isset($_POST['EnterLine'])
-
 /*end if Enter line button was hit - adding non stock items */
 
 //Add variables $_SESSION['PO_ItemsResubmitForm' . $Identifier] and $_POST['PO_ItemsResubmitFormValue'] to prevent from page refreshing effect
-
 $_SESSION['PO_ItemsResubmitForm' . $Identifier] = (empty($_SESSION['PO_ItemsResubmitForm' . $Identifier])) ? '1' : $_SESSION['PO_ItemsResubmitForm' . $Identifier];
 if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and $_SESSION['PO_ItemsResubmitForm' . $Identifier] == $_POST['PO_ItemsResubmitFormValue']) { //only submit values can be processed
-
 	/* NewItem is set from the part selection list as the part code selected
 	 * take the form entries and enter the data from the form into the PurchOrder class variable
 	 * A series of form variables of the format "NewQty" with the ItemCode concatenated are created on the search for adding new
 	 * items for each of these form variables need to parse out the item code and look up the details to add them to the purchase
 	 * order  $_POST is of course the global array of all posted form variables
-	 */
+	*/
 
 	foreach ($_POST as $FormVariableName => $Quantity) {
 		/*The form entity name is of the format NewQtyX where X is the index number that identifies the stock item code held in the hidden StockIDX form variable
 		 * */
 		if (mb_substr($FormVariableName, 0, 6) == 'NewQty' and filter_number_format($Quantity) != 0) { //if the form variable represents a Qty to add to the order
-
-			$ItemCode = $_POST['StockID' . mb_substr($FormVariableName, 6)];
+			$ItemCode = $_POST['StockID' . mb_substr($FormVariableName, 6) ];
 			$AlreadyOnThisOrder = 0;
 
 			if ($_SESSION['PO_AllowSameItemMultipleTimes'] == false) {
@@ -661,10 +650,11 @@ if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and
 							$AlreadyOnThisOrder = 1;
 							prnMsg(_('The item') . ' ' . $ItemCode . ' ' . _('is already on this order') . '. ' . _('The system will not allow the same item on the order more than once') . '. ' . _('However you can change the quantity ordered of the existing line if necessary'), 'error');
 						} //($OrderItem->StockID == $ItemCode) and ($OrderItem->Deleted == false)
+						
 					} //$_SESSION['PO' . $Identifier]->LineItems as $OrderItem
-
 					/* end of the foreach loop to look for preexisting items of the same code */
 				} //count($_SESSION['PO' . $Identifier]->LineItems) != 0
+				
 			} //$_SESSION['PO_AllowSameItemMultipleTimes'] == false
 			if ($AlreadyOnThisOrder != 1 and filter_number_format($Quantity) > 0) {
 				$SQL = "SELECT description,
@@ -729,8 +719,8 @@ if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and
 						$DbgMsg = _('The SQL used to retrive the supplier discounts that failed was');
 						$DiscountResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 						while ($DiscountRow = DB_fetch_array($DiscountResult)) {
-							$ItemDiscountPercent += $DiscountRow['discountpercent'];
-							$ItemDiscountAmount += $DiscountRow['discountamount'];
+							$ItemDiscountPercent+= $DiscountRow['discountpercent'];
+							$ItemDiscountAmount+= $DiscountRow['discountamount'];
 						}
 						if ($ItemDiscountPercent != 0) {
 							prnMsg(_('Taken accumulated supplier percentage discounts of') . ' ' . locale_number_format($ItemDiscountPercent * 100, 2) . '%', 'info');
@@ -751,11 +741,12 @@ if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and
 						$LeadTime = $PurchRow['leadtime'];
 						/* Work out the delivery date based on today + lead time
 						 * if > header DeliveryDate then set DeliveryDate to today + leadtime
-						 */
+						*/
 						$DeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $LeadTime);
 						if (Date1GreaterThanDate2($_SESSION['PO' . $Identifier]->DeliveryDate, $DeliveryDate)) {
 							$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
 						} //!Date1GreaterThanDate2($DeliveryDate, $_SESSION['PO' . $Identifier]->DeliveryDate)
+						
 					} //DB_num_rows($PurchDataResult) > 0
 					else { // no purchasing data setup
 						$PurchPrice = 0;
@@ -767,33 +758,33 @@ if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and
 						$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
 					}
 
-					$_SESSION['PO' . $Identifier]->add_to_order($_SESSION['PO' . $Identifier]->LinesOnOrder + 1, $ItemCode, 0, /*Serialised */ 0, /*Controlled */ filter_number_format($Quantity) * $ConversionFactor, /* Qty */ $SupplierDescription, $PurchPrice, $ItemRow['units'], $ItemRow['stockact'], $DeliveryDate, 0, 0, 0, 0, 0, $ItemRow['accountname'], $ItemRow['decimalplaces'], $SuppliersUnitOfMeasure, $ConversionFactor, $LeadTime, $SuppliersPartNo);
+					$_SESSION['PO' . $Identifier]->add_to_order($_SESSION['PO' . $Identifier]->LinesOnOrder + 1, $ItemCode, 0, /*Serialised */
+					0, /*Controlled */
+					filter_number_format($Quantity) * $ConversionFactor, /* Qty */
+					$SupplierDescription, $PurchPrice, $ItemRow['units'], $ItemRow['stockact'], $DeliveryDate, 0, 0, 0, 0, 0, $ItemRow['accountname'], $ItemRow['decimalplaces'], $SuppliersUnitOfMeasure, $ConversionFactor, $LeadTime, $SuppliersPartNo);
 				} //DB_num_rows($ItemResult) == 1
 				else { //no rows returned by the SQL to get the item
 					prnMsg(_('The item code') . ' ' . $ItemCode . ' ' . _('does not exist in the database and therefore cannot be added to the order'), 'error');
 					if ($Debug == 1) {
 						echo '<br />' . $SQL;
 					} //$Debug == 1
-					include('includes/footer.php');
+					include ('includes/footer.php');
 					exit;
 				}
 			} //$AlreadyOnThisOrder != 1 and filter_number_format($Quantity) > 0
-
 			/* end of if not already on the order */
 		} //mb_substr($FormVariableName, 0, 6) == 'NewQty' and filter_number_format($Quantity) != 0
-
 		/* end if the $_POST has NewQty in the variable name */
 	} //$_POST as $FormVariableName => $Quantity
-
 	/* end loop around the $_POST array */
 	$_SESSION['PO_ItemsResubmitForm' . $Identifier]++; //change the $_SESSION VALUE
+	
 } //isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and $_SESSION['PO_ItemsResubmitForm' . $Identifier] == $_POST['PO_ItemsResubmitFormValue']
-
 /* end of if its a new item */
 
 /* This is where the order as selected should be displayed  reflecting any deletions or insertions*/
 
-echo '<form id="form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form id="form1" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /*need to set up entry for item description where not a stock item and GL Codes */
@@ -858,14 +849,15 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 			echo '<td class="number">', $DisplayLineTotal, '</td>
 				<td><input type="text" class="date" required="required" maxlength="10" name="ReqDelDate', $POLine->LineNo, '" size="10" value="', $POLine->ReqDelDate, '" /></td>';
 			if ($POLine->QtyReceived != 0 and $POLine->Completed != 1) {
-				echo '<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '&amp;Complete=', urlencode($POLine->LineNo), '">', _('Complete'), '</a></td>';
+				echo '<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '&amp;Complete=', urlencode($POLine->LineNo), '">', _('Complete'), '</a></td>';
 			} //$POLine->QtyReceived != 0 and $POLine->Completed != 1
 			elseif ($POLine->QtyReceived == 0) {
-				echo '<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '&amp;Delete=', urlencode($POLine->LineNo), '">', _('Delete'), '</a></td>';
+				echo '<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '&amp;Delete=', urlencode($POLine->LineNo), '">', _('Delete'), '</a></td>';
 			} //$POLine->QtyReceived == 0
 			echo '</tr>';
-			$_SESSION['PO' . $Identifier]->Total += $LineTotal;
+			$_SESSION['PO' . $Identifier]->Total+= $LineTotal;
 		} //$POLine->Deleted == False
+		
 	} //$_SESSION['PO' . $Identifier]->LineItems as $POLine
 	echo '</tbody>';
 	$DisplayTotal = locale_number_format($_SESSION['PO' . $Identifier]->Total, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces);
@@ -881,9 +873,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 		</div>';
 
 } //count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit'])
-
 /*Only display the order line items if there are any !! */
-
 
 if (isset($_POST['NonStockOrder'])) {
 	echo '<table>
@@ -927,7 +917,6 @@ if (isset($_POST['NonStockOrder'])) {
 		}
 		echo '<option value="', $AssetRow['assetid'], '">', $AssetRow['assetid'], ' - ', $DatePurchased, ' - ', $AssetRow['description'], '</option>';
 	} //$AssetRow = DB_fetch_array($AssetsResult)
-
 	echo '</select><a href="FixedAssetItems.php" target=_blank>', _('New Fixed Asset'), '</a></td></tr>
 		<tr>
 			<td>', _('Quantity to purchase'), '</td>
@@ -950,7 +939,6 @@ if (isset($_POST['NonStockOrder'])) {
 			<input type="submit" name="EnterLine" value="', _('Enter Item'), '" />
 		</div>';
 } //isset($_POST['NonStockOrder'])
-
 /* Now show the stock item selection search stuff below */
 if (isset($_POST['Search'])) {
 	/*ie seach for stock items */
@@ -983,7 +971,6 @@ if (isset($_POST['Search'])) {
 						LIMIT " . $_SESSION['DisplayRecordsMax'];
 			} //$_POST['SupplierItemsOnly'] == 'on'
 			else { // not just supplier purchdata items
-
 				$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units
@@ -1202,9 +1189,8 @@ if (isset($_POST['Search'])) {
 		$_GET['NewItem'] = $MyRow['stockid'];
 		DB_data_seek($SearchResult, 0);
 	} //DB_num_rows($SearchResult) == 1
-
+	
 } //end of if search
-
 if (!isset($_GET['Edit'])) {
 	$SQL = "SELECT categoryid,
 				categorydescription
@@ -1240,11 +1226,9 @@ if (!isset($_GET['Edit'])) {
 	if (!isset($_POST['Keywords'])) {
 		$_POST['Keywords'] = '';
 	} //!isset($_POST['Keywords'])
-
 	if (!isset($_POST['StockCode'])) {
 		$_POST['StockCode'] = '';
 	} //!isset($_POST['StockCode'])
-
 	echo '<td>', _('Enter text extracts in the description'), ':</td>
 			<td><input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" /></td>
 		</tr>
@@ -1276,7 +1260,6 @@ if (!isset($_GET['Edit'])) {
 
 	$PartsDisplayed = 0;
 } //!isset($_GET['Edit'])
-
 if (isset($SearchResult)) {
 	echo '<div class="centre">
 			<input type="submit" name="NewItem" value="', _('Order some'), '" />
@@ -1298,11 +1281,7 @@ if (isset($SearchResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
 
-		$SupportedImgExt = array(
-			'png',
-			'jpg',
-			'jpeg'
-		);
+		$SupportedImgExt = array('png', 'jpg', 'jpeg');
 		$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 		$ImageFile = reset($ImageFileArray);
 		if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
@@ -1343,6 +1322,7 @@ if (isset($SearchResult)) {
 		++$j;
 		++$PartsDisplayed;
 		//end of page full new headings if
+		
 	} //$MyRow = DB_fetch_array($SearchResult)
 	//end of while loop
 	echo '</tbody>';
@@ -1353,7 +1333,6 @@ if (isset($SearchResult)) {
 			<input type="submit" name="NewItem" value="', _('Order some'), '" />
 		</div>';
 } //end if SearchResults to show
-
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,16 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Sales Price List');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Import Price List from CSV file') . '" />' . ' ' . _('Import Price List from CSV file') . '</p>';
 
-$FieldHeadings = array(
-	'StockID', //  0 'STOCKID',
-	'SalesType', //  1 'Price list id',
-	'CurrencyCode', //  2 'Currency Code',
-	'Price' //  3 'Price'
+$FieldHeadings = array('StockID', //  0 'STOCKID',
+'SalesType', //  1 'Price list id',
+'CurrencyCode', //  2 'Currency Code',
+'Price'
+//  3 'Price'
 );
 
 if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //start file processing
@@ -31,7 +30,7 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 	if (count($HeadRow) != count($FieldHeadings)) {
 		prnMsg(_('File contains') . ' ' . count($HeadRow) . ' ' . _('columns, expected') . ' ' . count($FieldHeadings) . '. ' . _('Download the template to see the expected columns.'), 'error');
 		fclose($FileHandle);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -41,7 +40,7 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 		if (trim(mb_strtoupper($HeadField)) != trim(mb_strtoupper($FieldHeadings[$HeadingColumnNumber]))) {
 			prnMsg(_('The file to import the price list from contains incorrect column headings') . ' ' . mb_strtoupper($HeadField) . ' != ' . mb_strtoupper($FieldHeadings[$HeadingColumnNumber]) . '<br />' . _('The column headings must be') . ' StockID, SalesType, CurrencyCode, Price', 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		$HeadingColumnNumber++;
@@ -52,20 +51,20 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 
 	//loop through file rows
 	$LineNumber = 1;
-	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== false) {
 
 		//check for correct number of fields
 		$FieldCount = count($MyRow);
 		if ($FieldCount != $FieldTarget) {
 			prnMsg($FieldTarget . ' ' . _('fields required') . ', ' . $FieldCount . ' ' . _('fields received'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		// cleanup the data (csv files often import with empty strings and such)
 		$StockId = mb_strtoupper($MyRow[0]);
-		foreach ($MyRow as &$Value) {
+		foreach ($MyRow as & $Value) {
 			$Value = trim($Value);
 			$Value = str_replace('"', '', $Value);
 		}
@@ -97,7 +96,7 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 		}
 
 		//Finally force the price to be a double
-		$MyRow[3] = (double) $MyRow[3];
+		$MyRow[3] = (double)$MyRow[3];
 		if ($InputError != 1) {
 
 			//Firstly close any open prices for this item
@@ -143,8 +142,7 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 	fclose($FileHandle);
 
 } else { //show file upload form
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="page_help_text">' . _('This function loads a new sales price list from a comma separated variable (csv) file.') . '<br />' . _('The file must contain four columns, and the first row should be the following headers') . ':<br />StockID, SalesType, CurrencyCode, Price<br />' . _('followed by rows containing these four fields for each price to be uploaded.') . '<br />' . _('The StockID, SalesType, and CurrencyCode fields must have a corresponding entry in the stockmaster, salestypes, and currencies tables.') . '</div>';
@@ -156,6 +154,6 @@ if (isset($_FILES['PriceListFile']) and $_FILES['PriceListFile']['name']) { //st
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

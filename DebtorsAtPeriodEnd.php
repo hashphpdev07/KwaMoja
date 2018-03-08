@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_POST['FromCriteria']) >= 1 and isset($_POST['ToCriteria']) and mb_strlen($_POST['ToCriteria']) >= 1) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Customer Balance Listing'));
 	$PDF->addInfo('Subject', _('Customer Balances'));
 	$FontSize = 12;
@@ -18,10 +17,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	if ($_POST['FromCriteria']=='') {
+	if ($_POST['FromCriteria'] == '') {
 		$_POST['FromCriteria'] = $MyRow['fromcriteria'];
 	}
-	if ($_POST['ToCriteria']=='') {
+	if ($_POST['ToCriteria'] == '') {
 		$_POST['Toriteria'] = $MyRow['tocriteria'];
 	}
 
@@ -63,26 +62,26 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 	if (DB_error_no() != 0) {
 		$Title = _('Customer Balances') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The customer details could not be retrieved by the SQL because') . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($CustomerResult) == 0) {
 		$Title = _('Customer Balances') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The customer details listing has no clients to report on'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFDebtorBalsPageHeader.php');
+	include ('includes/PDFDebtorBalsPageHeader.php');
 
 	$TotBal = 0;
 
@@ -96,26 +95,25 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 			$DisplayBalance = locale_number_format($DebtorBalances['balance'] - $DebtorBalances['afterdatetrans'], $DebtorBalances['decimalplaces']);
 			$DisplayFXBalance = locale_number_format($DebtorBalances['fxbalance'] - $DebtorBalances['fxafterdatetrans'], $DebtorBalances['decimalplaces']);
 
-			$TotBal += $Balance;
+			$TotBal+= $Balance;
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin + 3, $YPos, 220 - $Left_Margin, $FontSize, $DebtorBalances['debtorno'] . ' - ' . html_entity_decode($DebtorBalances['name'], ENT_QUOTES, 'UTF-8'), 'left');
 			$LeftOvers = $PDF->addTextWrap(220, $YPos, 60, $FontSize, $DisplayBalance, 'right');
 			$LeftOvers = $PDF->addTextWrap(280, $YPos, 60, $FontSize, $DisplayFXBalance, 'right');
 			$LeftOvers = $PDF->addTextWrap(350, $YPos, 100, $FontSize, $DebtorBalances['currency'], 'left');
 
-
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			if ($YPos < $Bottom_Margin + $line_height) {
-				include('includes/PDFDebtorBalsPageHeader.php');
+				include ('includes/PDFDebtorBalsPageHeader.php');
 			}
 		}
 	}
 	/*end customer aged analysis while loop */
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	if ($YPos < $Bottom_Margin + (2 * $line_height)) {
 		$PageNumber++;
-		include('includes/PDFDebtorBalsPageHeader.php');
+		include ('includes/PDFDebtorBalsPageHeader.php');
 	}
 
 	$DisplayTotBalance = locale_number_format($TotBal, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -133,7 +131,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'PriorMonthDebtors';
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Debtor Balances') . '" alt="' . _('Debtor Balances') . '" />' . ' ' . $Title . '</p><br />';
 
 	$SQL = "SELECT min(debtorno) AS fromcriteria,
@@ -147,7 +145,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 		/*if $FromCriteria is not set then show a form to allow input	*/
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<table summary="' . _('Input criteria for report') . '">';
@@ -181,7 +179,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		</div>
 		</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 

@@ -1,5 +1,4 @@
 <?php
-
 /*This page shows the serial numbers created for a works order
  * - creating automatically from the last serial number counter in the stockmaster or by manual entry
  * - If the item is lot controlled then the lot reference and the quantity in the lot can be entered
@@ -7,9 +6,9 @@
  * The work order quantity can only be modified by creating lots or serial numbers for controlled item work orders
  *
  * Need to allow adding serial numbers/batches and deleting batches/serial numbers
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['StockID'])) { //the page was called for the first time - get variables into $_POST array
 	$StockId = $_GET['StockID'];
@@ -26,9 +25,9 @@ if (isset($_GET['StockID'])) { //the page was called for the first time - get va
 }
 if (!isset($WO) or $WO == '') {
 	$Title = _('Work order serial number entry problem');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('This page must to be called from the work order entry screen'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if ($Serialised == 1) {
@@ -37,7 +36,7 @@ if ($Serialised == 1) {
 	$Title = _('Work Order Batches in Progress');
 }
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="" alt="" />' . ' ' . _('For Work Order Number') . ' ' . $WO . ' ' . _('and output item') . ' ' . $StockId . ' - ' . $Description . '
@@ -63,7 +62,7 @@ if (isset($_POST['AddControlledItems'])) {
 												'" . $WO . "',
 												'',
 												'' ";
-			for ($i = 0; $i < filter_number_format($_POST['NumberToAdd']); $i++) {
+			for ($i = 0;$i < filter_number_format($_POST['NumberToAdd']);$i++) {
 				$NextItemNumber = $NextSerialNo + $i;
 				$Result = DB_query("SELECT serialno FROM woserialnos
 									WHERE wo='" . $WO . "'
@@ -82,12 +81,12 @@ if (isset($_POST['AddControlledItems'])) {
 				}
 				if (!$InputError) {
 					if ($i > 0) {
-						$SQL .= ',';
+						$SQL.= ',';
 					}
-					$SQL .= $ValueLine . $NextItemNumber . "')";
+					$SQL.= $ValueLine . $NextItemNumber . "')";
 				}
 			}
-echo $SQL;
+			echo $SQL;
 			$NextSerialNo = $NextItemNumber + 1;
 			$ErrMsg = _('Unable to add the serial numbers requested');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
@@ -153,7 +152,6 @@ echo $SQL;
 }
 
 if (isset($_GET['Delete'])) { //user hit delete link
-
 	/*when serial numbers /lots received they are removed from the woserialnos table so no need to check if already received - they will only show here if they are in progress */
 	$Result = DB_query("DELETE FROM woserialnos
 						WHERE wo='" . $WO . "'
@@ -172,7 +170,7 @@ if (isset($_POST['UpdateItems'])) {
 	$InputError = false;
 	$WOQuantityTotal = 0;
 	$SQL = array();
-	for ($i = 0; $i < $_POST['CountOfItems']; $i++) {
+	for ($i = 0;$i < $_POST['CountOfItems'];$i++) {
 
 		if (mb_strlen($_POST['Reference' . $i]) == 0) {
 			prnMsg($_POST['OldReference' . $i] . ': ', _('The new batch or serial number reference has not been entered - a reference is required'), 'error');
@@ -206,9 +204,9 @@ if (isset($_POST['UpdateItems'])) {
 										WHERE    wo='" . $WO . "'
 										AND stockid='" . $StockId . "'
 										AND serialno='" . $_POST['OldReference' . $i] . "'";
-			$WOQuantityTotal += filter_number_format($_POST['Quantity' . $i]);
+			$WOQuantityTotal+= filter_number_format($_POST['Quantity' . $i]);
 		} else {
-			$WOQuantityTotal += $_POST['OldQuantity' . $i];
+			$WOQuantityTotal+= $_POST['OldQuantity' . $i];
 		}
 	} //end loop around all serial numbers/batches
 	$ErrMsg = _('Could not update serial/batches on the work order');
@@ -225,8 +223,7 @@ if (isset($_POST['UpdateItems'])) {
 
 }
 
-
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<input type="hidden" name="StockID" value="' . $StockId . '" />';
@@ -316,7 +313,7 @@ if (DB_num_rows($WOSerialNoResult) == 0) {
 			echo '<td><input type="hidden" name="Quantity' . $i . '" value="1" /></td>';
 		}
 		echo '<td><textarea name="Notes' . $i . '" cols="60" rows="3">' . $WOSNRow['qualitytext'] . '</textarea></td>';
-		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=1&Reference=' . $WOSNRow['serialno'] . '&Quantity=' . locale_number_format($WOSNRow['quantity'], 'Variable') . '&WO=' . $WO . '&StockID=' . $StockId . '&Description=' . $Description . '&Serialised=' . $Serialised . '&NextSerialNo=' . $NextSerialNo . '">' . _('Delete') . '</a></td></tr>';
+		echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=1&Reference=' . $WOSNRow['serialno'] . '&Quantity=' . locale_number_format($WOSNRow['quantity'], 'Variable') . '&WO=' . $WO . '&StockID=' . $StockId . '&Description=' . $Description . '&Serialised=' . $Serialised . '&NextSerialNo=' . $NextSerialNo . '">' . _('Delete') . '</a></td></tr>';
 		++$i;
 		++$j;
 	}
@@ -332,11 +329,10 @@ if (DB_num_rows($WOSerialNoResult) == 0) {
 	echo '<input type="hidden" name="CountOfItems" value="' . $i . '" />';
 
 } //end of if there are woserialno items defined
-
 echo '<br /><a href="' . $RootPath . '/WorkOrderEntry.php?WO=' . urlencode($WO) . '">' . _('Back To Work Order') . ' ' . $WO . '</a>';
 
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

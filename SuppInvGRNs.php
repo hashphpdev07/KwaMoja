@@ -1,14 +1,13 @@
 <?php
-
 /*The supplier transaction uses the SuppTrans class to hold the information about the invoice
 the SuppTrans class contains an array of GRNs objects - containing details of GRNs for invoicing and also
 an array of GLCodes objects - only used if the AP - GL link is effective */
 
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 /* Session started in header.php for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Enter Supplier Invoice Against Goods Received');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
@@ -18,22 +17,23 @@ $Complete = false;
 if (!isset($_SESSION['SuppTrans'])) {
 	prnMsg(_('To enter a supplier transactions the supplier must first be selected from the supplier selection screen') . ', ' . _('then the link to enter a supplier invoice must be clicked on'), 'info');
 	echo '<a href="', $RootPath, '/SelectSupplier.php">', _('Select A Supplier to Enter a Transaction For'), '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 	/*It all stops here if there aint no supplier selected and invoice initiated ie $_SESSION['SuppTrans'] started off*/
 } //!isset($_SESSION['SuppTrans'])
-
 /*If the user hit the Add to Invoice button then process this first before showing  all GRNs on the invoice
-otherwise it wouldnt show the latest additions*/
+ otherwise it wouldnt show the latest additions*/
 if (isset($_POST['AddPOToTrans']) and $_POST['AddPOToTrans'] != '') {
 	foreach ($_SESSION['SuppTransTmp']->GRNs as $GRNTmp) { //loop around temp GRNs array
 		if ($_POST['AddPOToTrans'] == $GRNTmp->PONo) {
 			$_SESSION['SuppTrans']->Copy_GRN_To_Trans($GRNTmp); //copy from  temp GRNs array to entered GRNs array
 			$_SESSION['SuppTransTmp']->Remove_GRN_From_Trans($GRNTmp->GRNNo); //remove from temp GRNs array
+			
 		} //$_POST['AddPOToTrans'] == $GRNTmp->PONo
+		
 	} //$_SESSION['SuppTransTmp']->GRNs as $GRNTmp
+	
 } //isset($_POST['AddPOToTrans']) and $_POST['AddPOToTrans'] != ''
-
 if (isset($_POST['AddGRNToTrans'])) {
 	/*adding a GRN to the invoice */
 	foreach ($_SESSION['SuppTransTmp']->GRNs as $GRNTmp) {
@@ -48,9 +48,10 @@ if (isset($_POST['AddGRNToTrans'])) {
 			$_SESSION['SuppTrans']->Copy_GRN_To_Trans($GRNTmp);
 			$_SESSION['SuppTransTmp']->Remove_GRN_From_Trans($GRNTmp->GRNNo);
 		} //$Selected == True
+		
 	} //$_SESSION['SuppTransTmp']->GRNs as $GRNTmp
+	
 } //isset($_POST['AddGRNToTrans'])
-
 if (isset($_POST['ModifyGRN'])) {
 	$InputError = False;
 	$Hold = False;
@@ -74,13 +75,13 @@ if (isset($_POST['ModifyGRN'])) {
 			prnMsg(_('The price being invoiced is more than the purchase order price by more than') . ' ' . $_SESSION['OverChargeProportion'] . '%. ' . _('The system is set up to prohibit this so will put this invoice on hold until it is authorised'), 'warn');
 			$Hold = True;
 		} //filter_number_format($_POST['ChgPrice']) / $_POST['OrderPrice'] > (1 + ($_SESSION['OverChargeProportion'] / 100))
+		
 	} //$_SESSION['Check_Price_Charged_vs_Order_Price'] == True and $_POST['OrderPrice'] != 0
-
 	if ($InputError == False) {
 		$_SESSION['SuppTrans']->Modify_GRN_To_Trans($_POST['GRNNumber'], $_POST['PODetailItem'], $_POST['ItemCode'], $_POST['ItemDescription'], $_POST['QtyRecd'], $_POST['Prev_QuantityInv'], filter_number_format($_POST['This_QuantityInv']), $_POST['OrderPrice'], filter_number_format($_POST['ChgPrice']), $Complete, $_SESSION['SuppTrans']->GRNs[$_POST['GRNNo' . $i]]->StdCostUnit, $_SESSION['SuppTrans']->GRNs[$_POST['GRNNo' . $i]]->ShiptRef, $_SESSION['SuppTrans']->GRNs[$_POST['GRNNo' . $i]]->JobRef, $_SESSION['SuppTrans']->GRNs[$_POST['GRNNo' . $i]]->GLCode, $Hold, $_SESSION['SuppTrans']->GRNs[$_POST['GRNNo' . $i]]->SupplierRef);
 	} //$InputError == False
+	
 } //isset($_POST['ModifyGRN'])
-
 if (isset($_GET['Delete'])) {
 	$_SESSION['SuppTransTmp']->Copy_GRN_To_Trans($_SESSION['SuppTrans']->GRNs[$_GET['Delete']]);
 	$_SESSION['SuppTrans']->Remove_GRN_From_Trans($_GET['Delete']);
@@ -121,14 +122,13 @@ foreach ($_SESSION['SuppTrans']->GRNs as $EnteredGRN) {
 			<td class="number">', locale_number_format($EnteredGRN->This_QuantityInv, 'Variable') . '</td>
 			<td class="number">', $DisplayPrice . '</td>
 			<td class="number">', locale_number_format($EnteredGRN->ChgPrice * $EnteredGRN->This_QuantityInv, $_SESSION['SuppTrans']->CurrDecimalPlaces), '</td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Modify=', $EnteredGRN->GRNNo, '">', _('Modify'), '</a></td>
-			<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Delete=', $EnteredGRN->GRNNo, '">', _('Delete'), '</a></td>
+			<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Modify=', $EnteredGRN->GRNNo, '">', _('Modify'), '</a></td>
+			<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Delete=', $EnteredGRN->GRNNo, '">', _('Delete'), '</a></td>
 		</tr>';
 
 	$TotalValueCharged = $TotalValueCharged + ($EnteredGRN->ChgPrice * $EnteredGRN->This_QuantityInv);
 
 } //$_SESSION['SuppTrans']->GRNs as $EnteredGRN
-
 echo '</tbody>
 		<tr>
 			<td colspan="5" align="right">', _('Total Value of Goods Charged'), ':</td>
@@ -138,7 +138,6 @@ echo '</tbody>
 	<div class="centre">
 		<a href="', $RootPath, '/SupplierInvoice.php">', _('Back to Invoice Entry'), '</a>
 	</div>';
-
 
 /* Now get all the outstanding GRNs for this supplier from the database*/
 
@@ -172,12 +171,11 @@ if (DB_num_rows($GRNResults) == 0) {
 	echo '<div class="centre">
 			<a href="', $RootPath, '/PO_SelectOSPurchOrder.php?SupplierID=', urlencode($_SESSION['SuppTrans']->SupplierID), '">', _('Select Purchase Orders to Receive'), '</a>
 		</div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } //DB_num_rows($GRNResults) == 0
-
 /*Set up a table to show the GRNs outstanding for selection */
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_SESSION['SuppTransTmp'])) {
@@ -189,6 +187,7 @@ if (!isset($_SESSION['SuppTransTmp'])) {
 			if ($EnteredGRN->GRNNo == $MyRow['grnno']) {
 				$GRNAlreadyOnInvoice = True;
 			} //$EnteredGRN->GRNNo == $MyRow['grnno']
+			
 		} //$_SESSION['SuppTrans']->GRNs as $EnteredGRN
 		if ($MyRow['decimalplaces'] == '') {
 			$MyRow['decimalplaces'] = 2;
@@ -196,9 +195,10 @@ if (!isset($_SESSION['SuppTransTmp'])) {
 		if ($GRNAlreadyOnInvoice == False) {
 			$_SESSION['SuppTransTmp']->Add_GRN_To_Trans($MyRow['grnno'], $MyRow['podetailitem'], $MyRow['itemcode'], $MyRow['itemdescription'], $MyRow['qtyrecd'], $MyRow['quantityinv'], $MyRow['qtyrecd'] - $MyRow['quantityinv'], $MyRow['unitprice'], $MyRow['unitprice'], $Complete, $MyRow['stdcostunit'], $MyRow['shiptref'], $MyRow['jobref'], $MyRow['glcode'], $MyRow['orderno'], $MyRow['assetid'], 0, $MyRow['decimalplaces'], $MyRow['grnbatch'], $MyRow['supplierref']);
 		} //$GRNAlreadyOnInvoice == False
+		
 	} //$MyRow = DB_fetch_array($GRNResults)
+	
 } //!isset($_SESSION['SuppTransTmp'])
-
 if (isset($_GET['Modify'])) {
 	$GRNNo = $_GET['Modify'];
 	$GRNTmp = $_SESSION['SuppTrans']->GRNs[$GRNNo];
@@ -235,7 +235,6 @@ if (isset($_GET['Modify'])) {
 	echo '<div class="centre">
 			<input type="submit" name="ModifyGRN" value="', _('Modify Line'), '" />
 		</div>';
-
 
 	echo '<input type="hidden" name="GRNNumber" value="', $GRNTmp->GRNNo, '" />';
 	echo '<input type="hidden" name="ItemCode" value="', $GRNTmp->ItemCode, '" />';
@@ -314,8 +313,9 @@ else {
 				<input type="submit" name="AddGRNToTrans" value="', _('Add to Invoice'), '" />
 			</div>';
 	} //count($_SESSION['SuppTransTmp']->GRNs) > 0
+	
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

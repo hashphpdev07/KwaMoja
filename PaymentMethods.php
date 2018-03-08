@@ -1,13 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Payment Methods');
 /* Manual links before header.php */
 /* RChacon: This is a topic to create.*/
-$ViewTopic = 'ARTransactions';// Filename in ManualContents.php's TOC.
-$BookMark = 'PaymentMethods';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'ARTransactions'; // Filename in ManualContents.php's TOC.
+$BookMark = 'PaymentMethods'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 if (isset($_GET['SelectedPaymentID'])) {
 	$SelectedPaymentID = $_GET['SelectedPaymentID'];
@@ -16,7 +15,7 @@ if (isset($_GET['SelectedPaymentID'])) {
 }
 
 if (isset($SelectedPaymentID)) {
-	echo '<div class="toplink"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Payment Methods') . '</a></div>';
+	echo '<div class="toplink"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Payment Methods') . '</a></div>';
 }
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Payments') . '" alt="" />' . ' ' . $Title . '</p>';
@@ -24,27 +23,25 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['MethodName']) == "") {
 		$InputError = 1;
 		prnMsg(_('The payment method may not be empty.'), 'error');
 	} else if (!is_numeric(filter_number_format($_POST['DiscountPercent']))) {
 		$InputError = 1;
-		prnMsg( _('The discount percentage must be a number less than 1'),'error');
-	} else if (filter_number_format($_POST['DiscountPercent'])>1) {
+		prnMsg(_('The discount percentage must be a number less than 1'), 'error');
+	} else if (filter_number_format($_POST['DiscountPercent']) > 1) {
 		$InputError = 1;
-		prnMsg( _('The discount percentage must be a number less than 1'),'error');
-	} else if (filter_number_format($_POST['DiscountPercent'])<0) {
+		prnMsg(_('The discount percentage must be a number less than 1'), 'error');
+	} else if (filter_number_format($_POST['DiscountPercent']) < 0) {
 		$InputError = 1;
-		prnMsg( _('The discount percentage must be either zero or less than 1'),'error');
- 	}
+		prnMsg(_('The discount percentage must be either zero or less than 1'), 'error');
+	}
 	if (isset($_POST['SelectedPaymentID']) and $InputError != 1) {
 
 		/*SelectedPaymentID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
@@ -59,7 +56,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The payment method can not be renamed because another with the same name already exists.'), 'error');
 		} else {
 			// Get the old name and check that the record still exists need to be very careful here
-
 			$SQL = "SELECT paymentname FROM paymentmethods
 					WHERE paymentid = '" . $SelectedPaymentID . "'";
 			$Result = DB_query($SQL);
@@ -148,6 +144,7 @@ if (isset($_POST['submit'])) {
 			prnMsg($OldMeasureName . ' ' . _('payment method has been deleted') . '!', 'success');
 			echo '<br />';
 		} //end if not used
+		
 	} //end if payment method exist
 	unset($SelectedPaymentID);
 	unset($_GET['SelectedPaymentID']);
@@ -195,7 +192,7 @@ if (!isset($SelectedPaymentID)) {
 				</tr>
 			</thead>';
 
-	echo'<tbody>';
+	echo '<tbody>';
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
@@ -206,23 +203,21 @@ if (!isset($SelectedPaymentID)) {
 				<td class="centre">', ($MyRow['usepreprintedstationery'] ? _('Yes') : _('No')), '</td>
 				<td class="centre">', ($MyRow['opencashdrawer'] ? _('Yes') : _('No')), '</td>
 				<td class="centre">', locale_number_format($MyRow['percentdiscount'] * 100, 2), '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedPaymentID=', urlencode($MyRow['paymentid']), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedPaymentID=', urlencode($MyRow['paymentid']), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this payment method?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedPaymentID=', urlencode($MyRow['paymentid']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedPaymentID=', urlencode($MyRow['paymentid']), '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this payment method?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</tbody>';
 	echo '</table>';
 } //end of ifs and buts!
-
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedPaymentID)) {
 		//editing an existing section
-
 		$SQL = "SELECT paymentid,
 						paymentname,
 						paymenttype,
@@ -258,7 +253,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['ForReceipt'] = 1; // Default is use for receipts
 		$_POST['UsePrePrintedStationery'] = 0; // Default is use for receipts
 		$_POST['OpenCashDrawer'] = 0; //Default is not to open cash drawer
-		$_POST['DiscountPercent']=0;
+		$_POST['DiscountPercent'] = 0;
 		echo '<table>';
 	}
 	echo '<tr>
@@ -305,6 +300,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

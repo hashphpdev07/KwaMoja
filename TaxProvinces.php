@@ -1,33 +1,28 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Dispatch Tax Province Maintenance');
 
-$ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
-$BookMark = 'TaxProvinces';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'Tax'; // Filename in ManualContents.php's TOC.
+$BookMark = 'TaxProvinces'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
-if (isset($_GET['SelectedTaxProvince']))
-	$SelectedTaxProvince = $_GET['SelectedTaxProvince'];
-elseif (isset($_POST['SelectedTaxProvince']))
-	$SelectedTaxProvince = $_POST['SelectedTaxProvince'];
+if (isset($_GET['SelectedTaxProvince'])) $SelectedTaxProvince = $_GET['SelectedTaxProvince'];
+elseif (isset($_POST['SelectedTaxProvince'])) $SelectedTaxProvince = $_POST['SelectedTaxProvince'];
 
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['TaxProvinceName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The tax province name may not be empty'), 'error');
@@ -167,9 +162,7 @@ if (!isset($SelectedTaxProvince)) {
 	$Result = DB_query($SQL, $ErrMsg);
 
 	if (DB_num_rows($Result) == 0) {
-		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax province.') .
-				'<br />' . _('For help, click on the help icon in the top right') .
-				'<br />' . _('Once you have filled in the details, click on the button at the bottom of the screen') . '</div>';
+		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax province.') . '<br />' . _('For help, click on the help icon in the top right') . '<br />' . _('Once you have filled in the details, click on the button at the bottom of the screen') . '</div>';
 	}
 
 	echo '<table>
@@ -188,8 +181,8 @@ if (!isset($SelectedTaxProvince)) {
 		echo '<tr class="striped_row">
 				<td>' . $MyRow['taxprovincename'] . '</td>
 				<td>' . $MyRow['taxcatname'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '&amp;delete=1">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTaxProvince=' . $MyRow['taxprovinceid'] . '&amp;delete=1">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
@@ -200,18 +193,17 @@ if (!isset($SelectedTaxProvince)) {
 
 if (isset($SelectedTaxProvince)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Tax Provinces') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Tax Provinces') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedTaxProvince)) {
 		//editing an existing section
-
 		$SQL = "SELECT freighttaxcatid,
 						taxprovincename
 				FROM taxprovinces
@@ -257,7 +249,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="' . $MyRow['taxcatid'] . '">' . $MyRow['taxcatname'] . '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -269,12 +260,11 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
 echo '<div class="centre">
 		<a href="' . $RootPath . '/TaxAuthorities.php">' . _('Edit/Review Tax Authorities') . '</a>
 		<a href="' . $RootPath . '/TaxGroups.php">' . _('Edit/Review Tax Groupings') . '</a>
 		<a href="' . $RootPath . '/TaxCategories.php">' . _('Edit/Review Tax Categories') . '</a>
 	</div>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

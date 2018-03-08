@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Sales Area Maintenance');
 $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'Areas';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
@@ -23,7 +22,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$_POST['AreaCode'] = mb_strtoupper($_POST['AreaCode']);
@@ -89,11 +88,9 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorsMaster'
-
 	$SQL = "SELECT COUNT(branchcode) AS branches FROM custbranch WHERE custbranch.area='$SelectedArea'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
@@ -148,8 +145,8 @@ if (!isset($SelectedArea)) {
 				<td>', $MyRow['areacode'], '</td>
 				<td>', $ParentRow['areadescription'], '</td>
 				<td>', $MyRow['areadescription'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedArea=', urlencode($MyRow['areacode']), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedArea=', urlencode($MyRow['areacode']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this area?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedArea=', urlencode($MyRow['areacode']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedArea=', urlencode($MyRow['areacode']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this area?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				<td><a href="SelectCustomer.php?Area=', urlencode($MyRow['areacode']), '">', _('View Customers from this Area'), '</a></td>
 			</tr>';
 	}
@@ -159,22 +156,19 @@ if (!isset($SelectedArea)) {
 }
 
 //end of ifs and buts!
-
 if (isset($SelectedArea)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Review Areas Defined'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review Areas Defined'), '</a>
 		</div>';
 }
 
-
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedArea)) {
 		//editing an existing area
-
 		$SQL = "SELECT areacode,
 						parentarea,
 						areadescription
@@ -246,6 +240,5 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

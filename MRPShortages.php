@@ -1,21 +1,19 @@
 <?php
-
 // MRPShortages.php - Report of parts with demand greater than supply as determined by MRP
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (!DB_table_exists('mrprequirements')) {
 	$Title = _('MRP error');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />';
 	prnMsg(_('The MRP calculation must be run before you can run this report') . '<br />' . _('To run the MRP calculation click') . ' ' . '<a href="' . $RootPath . '/MRP.php">' . _('here') . '</a>', 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	if ($_POST['ReportType'] == 'Shortage') {
 		$PDF->addInfo('Title', _('MRP Shortages Report'));
 		$PDF->addInfo('Subject', _('MRP Shortages'));
@@ -30,7 +28,6 @@ if (isset($_POST['PrintPDF'])) {
 	// Create temporary tables for supply and demand, with one record per part with the
 	// total for either supply or demand. Did this to simplify main sql where used
 	// several subqueries.
-
 	$SQL = "CREATE TEMPORARY TABLE demandtotal (
 				part char(20),
 				demand double,
@@ -71,7 +68,6 @@ if (isset($_POST['PrintPDF'])) {
 
 	$SQL = "UPDATE supplytotal SET supply = 0 WHERE supply IS NULL";
 	$Result = DB_query($SQL);
-
 
 	// Only include directdemand mrprequirements so don't have demand for top level parts and also
 	// show demand for the lower level parts that the upper level part generates. See MRP.php for
@@ -149,25 +145,25 @@ if (isset($_POST['PrintPDF'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('MRP Shortages and Excesses') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The MRP shortages and excesses could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br/><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br/>' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($Result) == 0) {
 		$Title = _('MRP Shortages and Excesses') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('No MRP shortages - Excess retrieved'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -186,7 +182,7 @@ if (isset($_POST['PrintPDF'])) {
 		}
 
 		if ($LineToPrint) {
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			$FontSize = 8;
 
 			// Use to alternate between lines with transparent and painted background
@@ -209,7 +205,7 @@ if (isset($_POST['PrintPDF'])) {
 			$PDF->addTextWrap(460, $YPos, 50, $FontSize, locale_number_format($shortage, $MyRow['decimalplaces']), 'right', 0, $fill);
 			$PDF->addTextWrap(510, $YPos, 60, $FontSize, locale_number_format($MyRow['extcost'], 2), 'right', 0, $fill);
 
-			$Total_Shortage += $MyRow['extcost'];
+			$Total_Shortage+= $MyRow['extcost'];
 			$Partctr++;
 
 			if ($YPos < $Bottom_Margin + $line_height) {
@@ -221,7 +217,7 @@ if (isset($_POST['PrintPDF'])) {
 	/*end while loop */
 
 	$FontSize = 8;
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	if ($YPos < $Bottom_Margin + $line_height) {
 		PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin);
@@ -247,11 +243,11 @@ if (isset($_POST['PrintPDF'])) {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('MRP Shortages - Excess Reporting');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Stock') . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	echo '<tr><td>' . _('Inventory Category') . ':</td><td><select name="CategoryID">';
@@ -298,11 +294,10 @@ if (isset($_POST['PrintPDF'])) {
 		</div>
 		</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
-
 
 function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin) {
 
@@ -317,7 +312,7 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	if ($_POST['ReportType'] == 'Shortage') {
 		$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, _('MRP Shortages Report'));
 	} else {
@@ -326,7 +321,7 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 110, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	/*Draw a rectangle to put the headings in	 */
 
@@ -334,7 +329,6 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	//$PDF->line($Left_Margin, $YPos+$line_height,$Left_Margin, $YPos- $line_height);
 	//$PDF->line($Left_Margin, $YPos- $line_height,$Page_Width-$Right_Margin, $YPos- $line_height);
 	//$PDF->line($Page_Width-$Right_Margin, $YPos+$line_height,$Page_Width-$Right_Margin, $YPos- $line_height);
-
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
 

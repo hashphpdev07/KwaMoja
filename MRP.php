@@ -1,10 +1,9 @@
 <?php
-
 /* $Id: MRP.php 6986 2014-11-15 09:19:14Z exsonqu $*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Run MRP Calculation');
-include('includes/header.php');
+include ('includes/header.php');
 if (isset($_POST['submit'])) {
 
 	if (!isset($_POST['Leeway']) or !is_numeric(filter_number_format($_POST['Leeway']))) {
@@ -37,7 +36,6 @@ if (isset($_POST['submit'])) {
 	// Put those top level assemblies in passbom, use COMPONENT in passbom
 	// to link to PARENT in bom to find next lower level and accumulate
 	// those parts into tempbom
-
 	prnMsg(_('Creating first level'), 'info');
 	flush();
 	// This finds the top level
@@ -89,7 +87,6 @@ if (isset($_POST['submit'])) {
 				   WHERE bom.parent = passbom2.part";
 		$Result = DB_query($SQL);
 
-
 		$SQL = "SELECT COUNT(*) FROM bom
 						INNER JOIN passbom ON bom.parent = passbom.part
 						GROUP BY bom.parent";
@@ -99,7 +96,6 @@ if (isset($_POST['submit'])) {
 		$ComponentCounter = $MyRow[0];
 
 	} // End of while $ComponentCounter > 0
-
 	prnMsg(_('Creating bomlevels table'), 'info');
 	flush();
 	$SQL = "CREATE TEMPORARY TABLE bomlevels (
@@ -111,7 +107,6 @@ if (isset($_POST['submit'])) {
 	// the sortpart level minus the position in the @parts array of the part. For example, the first
 	// part in the array for a level 4 sortpart would be created as a level 3 in levels, the fourth
 	// and last part in sortpart would have a level code of zero, meaning it has no components
-
 	$SQL = "SELECT * FROM tempbom";
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -124,12 +119,11 @@ if (isset($_POST['submit'])) {
 			$SQL = "INSERT INTO bomlevels (part, level) VALUES('" . $Part . "','" . $NewLevel . "')";
 			$Result2 = DB_query($SQL);
 		} // End of foreach
+		
 	} //end of while loop
-
 	prnMsg(_('Creating levels table'), 'info');
 	flush();
 	// Create levels from bomlevels using the highest level number found for a part
-
 	$SQL = "CREATE TABLE levels (
 							part char(20),
 							level int,
@@ -162,7 +156,6 @@ if (isset($_POST['submit'])) {
 
 	// Create levels records with level of zero for all parts in stockmaster that
 	// are not in bom
-
 	$SQL = "INSERT INTO levels (part,
 							level,
 							leadtime,
@@ -394,13 +387,14 @@ if (isset($_POST['submit'])) {
 		$WhereLocation = " AND loccode IN(";
 		$CommaCounter = 0;
 		foreach ($_POST['location'] as $Key => $Value) {
-			$WhereLocation .= "'" . $Value . "'";
+			$WhereLocation.= "'" . $Value . "'";
 			$CommaCounter++;
 			if ($CommaCounter < sizeof($_POST['location'])) {
-				$WhereLocation .= ",";
+				$WhereLocation.= ",";
 			} // End of if
+			
 		} // End of foreach
-		$WhereLocation .= ')';
+		$WhereLocation.= ')';
 	}
 	$SQL = "INSERT INTO mrpsupplies	(id,
 									 part,
@@ -480,15 +474,15 @@ if (isset($_POST['submit'])) {
 	// planned orders to satisfy requirements. If there is a net requirement from a higher level
 	// part, that serves as a gross requirement for a lower level part, so will read down through
 	// the Bill of Materials to generate those requirements in function LevelNetting().
-	for ($Level = $MaxLevel; $Level >= $MinLevel; $Level--) {
+	for ($Level = $MaxLevel;$Level >= $MinLevel;$Level--) {
 		$SQL = "SELECT * FROM levels WHERE level = '" . $Level . "' LIMIT 50000"; //should cover most eventualities!! ... yes indeed :-)
-
 		prnMsg('------ ' . _('Processing level') . ' ' . $Level . ' ------', 'info');
 		flush();
 		$Result = DB_query($SQL);
 		while ($MyRow = DB_fetch_array($Result)) {
 			LevelNetting($MyRow['part'], $MyRow['eoq'], $MyRow['pansize'], $MyRow['shrinkfactor'], $MyRow['leadtime']);
 		} //end of while loop
+		
 	} // end of for
 	echo '<br />' . _('End time') . ': ' . date('h:i:s') . '<br />';
 
@@ -510,11 +504,12 @@ if (isset($_POST['submit'])) {
 	$CommaCounter = 0;
 	$LocationParameter = '';
 	foreach ($_POST['location'] as $Key => $Value) {
-		$LocationParameter .= $Value;
+		$LocationParameter.= $Value;
 		$CommaCounter++;
 		if ($CommaCounter < sizeof($_POST['location'])) {
-			$LocationParameter .= " - ";
+			$LocationParameter.= " - ";
 		} // End of if
+		
 	} // End of foreach
 	$SQL = "INSERT INTO mrpparameters (runtime,
 									location,
@@ -603,7 +598,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				</table>';
 	}
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -658,13 +653,11 @@ if (isset($_POST['submit'])) {
 } // End of Main program logic -------------------------------------------------------
 
 
-
 function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 	// Create an array of mrprequirements and an array of mrpsupplies, then read through
 	// them seeing if all requirements are covered by supplies. Create a planned order
 	// for any unmet requirements. Change dates if necessary for the supplies.
 	//echo '<br />Part is ' . "$Part" . '<br />';
-
 	// Get decimal places from stockmaster for rounding of shrinkage factor
 	$SQL = "SELECT decimalplaces FROM stockmaster WHERE stockid = '" . $Part . "'";
 	$Result = DB_query($SQL);
@@ -680,7 +673,6 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 		array_push($Requirements, $MyRow);
 		++$i;
 	} //end of while loop
-
 	// Load mrpsupplies into $Supplies array
 	$SQL = "SELECT * FROM mrpsupplies WHERE part = '" . $Part . "' ORDER BY duedate";
 	$Result = DB_query($SQL);
@@ -699,8 +691,8 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 	$TotalSupply = 0;
 
 	if ($RequirementCount > 0 && $SupplyCount > 0) {
-		$TotalRequirement += $Requirements[$RequirementsIndex]['quantity'];
-		$TotalSupply += $Supplies[$SuppliesIndex]['supplyquantity'];
+		$TotalRequirement+= $Requirements[$RequirementsIndex]['quantity'];
+		$TotalSupply+= $Supplies[$SuppliesIndex]['supplyquantity'];
 		while ($TotalRequirement > 0 && $TotalSupply > 0) {
 			$Supplies[$SuppliesIndex]['updateflag'] = 1;
 			// ******** Put leeway calculation in here ********
@@ -712,50 +704,49 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 				$Result = DB_query($SQL);
 			}
 			if ($TotalRequirement > $TotalSupply) {
-				$TotalRequirement -= $TotalSupply;
-				$Requirements[$RequirementsIndex]['quantity'] -= $TotalSupply;
+				$TotalRequirement-= $TotalSupply;
+				$Requirements[$RequirementsIndex]['quantity']-= $TotalSupply;
 				$TotalSupply = 0;
 				$Supplies[$SuppliesIndex]['supplyquantity'] = 0;
 				$SuppliesIndex++;
 				if ($SupplyCount > $SuppliesIndex) {
-					$TotalSupply += $Supplies[$SuppliesIndex]['supplyquantity'];
+					$TotalSupply+= $Supplies[$SuppliesIndex]['supplyquantity'];
 				}
 			} elseif ($TotalRequirement < $TotalSupply) {
-				$TotalSupply -= $TotalRequirement;
-				$Supplies[$SuppliesIndex]['supplyquantity'] -= $TotalRequirement;
+				$TotalSupply-= $TotalRequirement;
+				$Supplies[$SuppliesIndex]['supplyquantity']-= $TotalRequirement;
 				$TotalRequirement = 0;
 				$Requirements[$RequirementsIndex]['quantity'] = 0;
 				$RequirementsIndex++;
 				if ($RequirementCount > $RequirementsIndex) {
-					$TotalRequirement += $Requirements[$RequirementsIndex]['quantity'];
+					$TotalRequirement+= $Requirements[$RequirementsIndex]['quantity'];
 				}
 			} else {
-				$TotalSupply -= $TotalRequirement;
-				$Supplies[$SuppliesIndex]['supplyquantity'] -= $TotalRequirement;
+				$TotalSupply-= $TotalRequirement;
+				$Supplies[$SuppliesIndex]['supplyquantity']-= $TotalRequirement;
 				$TotalRequirement = 0;
 				$Requirements[$RequirementsIndex]['quantity'] = 0;
 				$RequirementsIndex++;
 				if ($RequirementCount > $RequirementsIndex) {
-					$TotalRequirement += $Requirements[$RequirementsIndex]['quantity'];
+					$TotalRequirement+= $Requirements[$RequirementsIndex]['quantity'];
 				}
-				$TotalRequirement -= $TotalSupply;
+				$TotalRequirement-= $TotalSupply;
 				if (isset($Requirements[$RequirementsIndex]['quantity'])) {
-					$Requirements[$RequirementsIndex]['quantity'] -= $TotalSupply;
+					$Requirements[$RequirementsIndex]['quantity']-= $TotalSupply;
 				}
 				$TotalSupply = 0;
 				$Supplies[$SuppliesIndex]['supplyquantity'] = 0;
 				$SuppliesIndex++;
 				if ($SupplyCount > $SuppliesIndex) {
-					$TotalSupply += $Supplies[$SuppliesIndex]['supplyquantity'];
+					$TotalSupply+= $Supplies[$SuppliesIndex]['supplyquantity'];
 				}
 			}
 		} // End of while
+		
 	} // End of if
-
 	// When get to this part of code, have gone through all requirements, If there is any
 	// unmet requirements, create an mrpplannedorder to cover it. Also call the
 	// CreateLowerLevelRequirement() function to create gross requirements for lower level parts.
-
 	// There is an excess quantity if the eoq is higher than the actual required amount.
 	// If there is a subsuquent requirement, the excess quantity is subtracted from that
 	// quantity. For instance, if the first requirement was for 2 and the eoq was 5, there
@@ -777,7 +768,7 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 		}
 		if ($ExcessQty >= $Requirement['quantity']) {
 			$PlannedQty = 0;
-			$ExcessQty -= $Requirement['quantity'];
+			$ExcessQty-= $Requirement['quantity'];
 		} else {
 			$PlannedQty = $Requirement['quantity'] - $ExcessQty;
 			$ExcessQty = 0;
@@ -799,7 +790,7 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 
 			// Calculate required date by subtracting leadtime from top part's required date
 			$PartRequiredDate = $Requirement['daterequired'];
-			if ((int) $LeadTime > 0) {
+			if ((int)$LeadTime > 0) {
 
 				$CalendarSQL = "SELECT COUNT(*),cal2.calendardate
 						  FROM mrpcalendar
@@ -818,6 +809,7 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 					$NewDate = FormatDateForSQL($DateAdd);
 				}
 				// If can't find date based on manufacturing calendar, use $PartRequiredDate
+				
 			} else {
 				// Convert $PartRequiredDate from mysql format to system date format, use that to subtract leadtime
 				// from it using DateAdd, convert that date back to mysql format
@@ -843,7 +835,6 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 												'" . $NewDate . "',
 												'0')";
 
-
 			$Result = DB_query($SQL);
 			// If part has lower level components, create requirements for them
 			$SQL = "SELECT COUNT(*) FROM bom
@@ -855,11 +846,10 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 				CreateLowerLevelRequirement($Requirement['part'], $NewDate, $PlannedQty, $Requirement['mrpdemandtype'], $Requirement['orderno'], $Requirement['whererequired']);
 			}
 		} // End of if $PlannedQty > 0
+		
 	} // End of foreach $Requirements
-
 	// If there are any supplies not used and updateflag is zero, those supplies are not
 	// necessary, so change date
-
 	foreach ($Supplies as $supply) {
 		if ($supply['supplyquantity'] > 0 && $supply['updateflag'] == 0) {
 			$ID = $supply['id'];
@@ -870,7 +860,6 @@ function LevelNetting($Part, $EOQ, $PanSize, $ShrinkFactor, $LeadTime) {
 	}
 
 } // End of LevelNetting -------------------------------------------------------
-
 function CreateLowerLevelRequirement($TopPart, $TopDate, $TopQuantity, $TopMRPDemandType, $TopOrderNo, $WhereRequired) {
 	// Creates an mrprequirement based on the net requirement from the part above it in the bom
 	$SQL = "SELECT bom.component,
@@ -910,8 +899,7 @@ function CreateLowerLevelRequirement($TopPart, $TopDate, $TopQuantity, $TopMRPDe
 					  '" . $WhereRequired . "')";
 		$Result = DB_query($SQL);
 	} //end of while loop
-
+	
 } // End of CreateLowerLevelRequirement
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

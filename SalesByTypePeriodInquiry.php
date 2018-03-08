@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales Report');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Sales Report') . '" alt="" />' . ' ' . _('Sales Report') . '</p>';
 echo '<div class="page_help_text">' . _('Select the parameters for the report') . '</div><br />';
@@ -16,7 +15,7 @@ if (!isset($_POST['DateRange'])) {
 	$_POST['DateRange'] = 'ThisMonth';
 }
 
-echo '<form id="Form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form id="Form1" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table cellpadding="2">
@@ -116,7 +115,6 @@ echo '</table>
 		</td></tr>
 	</table>';
 
-
 echo '<br />
 		<div class="centre">
 			<input type="submit" name="ShowSales" value="' . _('Show Sales') . '" />
@@ -149,34 +147,34 @@ if (isset($_POST['ShowSales'])) {
 		case 'ThisWeek':
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') - date('w') + 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'ThisMonth':
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'ThisQuarter':
 			switch (date('m')) {
 				case 1:
 				case 2:
 				case 3:
 					$QuarterStartMonth = 1;
-					break;
+				break;
 				case 4:
 				case 5:
 				case 6:
 					$QuarterStartMonth = 4;
-					break;
+				break;
 				case 7:
 				case 8:
 				case 9:
 					$QuarterStartMonth = 7;
-					break;
+				break;
 				default:
 					$QuarterStartMonth = 10;
 			}
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, $QuarterStartMonth, 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'Custom':
 			$FromDate = FormatDateForSQL($_POST['FromDate']);
 			$ToDate = FormatDateForSQL($_POST['ToDate']);
@@ -210,15 +208,15 @@ if (isset($_POST['ShowSales'])) {
 					AND debtortrans.trandate<='" . $ToDate . "'";
 
 			if ($_SESSION['SalesmanLogin'] != '') {
-				$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+				$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 			}
 
-			$SQL .= " GROUP BY debtortrans.trandate,
+			$SQL.= " GROUP BY debtortrans.trandate,
 							tpe
 					ORDER BY debtortrans.trandate,
 							tpe";
 
-			break;
+		break;
 		case 'Weekly':
 			$SQL = "SELECT WEEKOFYEAR(debtortrans.trandate) as week_no,
 							YEAR(debtortrans.trandate) as transyear,
@@ -248,17 +246,17 @@ if (isset($_POST['ShowSales'])) {
 					AND debtortrans.trandate<='" . $ToDate . "'";
 
 			if ($_SESSION['SalesmanLogin'] != '') {
-				$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+				$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 			}
 
-			$SQL .= " GROUP BY week_no,
+			$SQL.= " GROUP BY week_no,
 							transyear,
 							tpe
 					ORDER BY transyear,
 							week_no,
 							tpe";
 
-			break;
+		break;
 		case 'Monthly':
 			$SQL = "SELECT MONTH(debtortrans.trandate) as month_no,
 							MONTHNAME(debtortrans.trandate) as month_name,
@@ -289,10 +287,10 @@ if (isset($_POST['ShowSales'])) {
 					AND debtortrans.trandate<='" . $ToDate . "'";
 
 			if ($_SESSION['SalesmanLogin'] != '') {
-				$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+				$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 			}
 
-			$SQL .= " GROUP BY month_no,
+			$SQL.= " GROUP BY month_no,
 							month_name,
 							transyear,
 							debtortrans.tpe
@@ -300,7 +298,7 @@ if (isset($_POST['ShowSales'])) {
 							month_no,
 							tpe";
 
-			break;
+		break;
 		case 'Quarterly':
 			$SQL = "SELECT QUARTER(debtortrans.trandate) as quarter_no,
 							YEAR(debtortrans.trandate) as transyear,
@@ -330,22 +328,21 @@ if (isset($_POST['ShowSales'])) {
 					AND debtortrans.trandate<='" . $ToDate . "'";
 
 			if ($_SESSION['SalesmanLogin'] != '') {
-				$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+				$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 			}
 
-			$SQL .= " GROUP BY quarter_no,
+			$SQL.= " GROUP BY quarter_no,
 							transyear,
 							tpe
 					ORDER BY transyear,
 							quarter_no,
 							tpe";
 
-			break;
+		break;
 	}
 
 	$ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 	$SalesResult = DB_query($SQL, $ErrMsg);
-
 
 	echo '<table cellpadding="2">
 			<tr>
@@ -421,7 +418,7 @@ if (isset($_POST['ShowSales'])) {
 				} else {
 					echo '<td></td>';
 				}
-				break;
+			break;
 			case 'Weekly':
 				if ($LastPeriodHeading != _('wk') . '-' . $SalesRow['week_no'] . ' ' . $SalesRow['transyear']) {
 					$PeriodHeadingDone = false;
@@ -457,7 +454,7 @@ if (isset($_POST['ShowSales'])) {
 				} else {
 					echo '<td></td>';
 				}
-				break;
+			break;
 			case 'Monthly':
 				if ($LastPeriodHeading != $SalesRow['month_name'] . ' ' . $SalesRow['transyear']) {
 					$PeriodHeadingDone = false;
@@ -493,7 +490,7 @@ if (isset($_POST['ShowSales'])) {
 				} else {
 					echo '<td></td>';
 				}
-				break;
+			break;
 			case 'Quarterly':
 				if ($LastPeriodHeading != _('Qtr') . '-' . $SalesRow['quarter_no'] . ' ' . $SalesRow['transyear']) {
 					$PeriodHeadingDone = false;
@@ -529,7 +526,7 @@ if (isset($_POST['ShowSales'])) {
 				} else {
 					echo '<td></td>';
 				}
-				break;
+			break;
 		}
 		echo '<tr class="striped_row">
 				<td>' . $SalesRow['tpe'] . '</td>
@@ -540,19 +537,19 @@ if (isset($_POST['ShowSales'])) {
 				<td class="number">' . locale_number_format($SalesRow['cost'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format(($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			</tr>';
-		$PrdTotalOrders += $SalesRow['nooforders'];
-		$PrdTotalSales += $SalesRow['salesvalue'];
-		$PrdTotalRefunds += $SalesRow['returnvalue'];
-		$PrdTotalNetSales += ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
-		$PrdTotalCost += $SalesRow['cost'];
-		$PrdTotalGP += ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
+		$PrdTotalOrders+= $SalesRow['nooforders'];
+		$PrdTotalSales+= $SalesRow['salesvalue'];
+		$PrdTotalRefunds+= $SalesRow['returnvalue'];
+		$PrdTotalNetSales+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
+		$PrdTotalCost+= $SalesRow['cost'];
+		$PrdTotalGP+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
 
-		$CumulativeTotalSales += $SalesRow['salesvalue'];
-		$CumulativeTotalOrders += $SalesRow['nooforders'];
-		$CumulativeTotalRefunds += $SalesRow['returnvalue'];
-		$CumulativeTotalNetSales += ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
-		$CumulativeTotalCost += $SalesRow['cost'];
-		$CumulativeTotalGP += ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
+		$CumulativeTotalSales+= $SalesRow['salesvalue'];
+		$CumulativeTotalOrders+= $SalesRow['nooforders'];
+		$CumulativeTotalRefunds+= $SalesRow['returnvalue'];
+		$CumulativeTotalNetSales+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
+		$CumulativeTotalCost+= $SalesRow['cost'];
+		$CumulativeTotalGP+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
 	}
 	echo '<tr class="striped_row">
 			<td colspan="2" class="number">' . _('Total') . ' ' . $LastPeriodHeading . '</td>
@@ -583,5 +580,5 @@ if (isset($_POST['ShowSales'])) {
 	echo '</table>';
 
 } //end of if user hit show sales
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

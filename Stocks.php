@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Item Maintenance');
 /* Manual links before header.php */
 $ViewTopic = 'Inventory';
 $BookMark = 'InventoryAddingItems';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /*If this form is called with the StockID then it is assumed that the stock item is to be modified */
 
@@ -18,14 +17,13 @@ if (isset($_GET['StockID'])) {
 	$StockId = '';
 }
 
-$ItemDescriptionLanguagesArray = explode(',',$_SESSION['ItemDescriptionLanguages']);//WARNING: if the last character is a ",", there are n+1 languages.
-
+$ItemDescriptionLanguagesArray = explode(',', $_SESSION['ItemDescriptionLanguages']); //WARNING: if the last character is a ",", there are n+1 languages.
 if (isset($_POST['NextItem_x'])) {
 	$Result = DB_query("SELECT stockid FROM stockmaster WHERE stockid>'" . $StockId . "' ORDER BY stockid ASC LIMIT 1");
 	$NextItemRow = DB_fetch_row($Result);
 	$StockId = $NextItemRow[0];
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-		unset($_POST['Description_' . str_replace('.', '_', $LanguageId)]);
+		unset($_POST['Description_' . str_replace('.', '_', $LanguageId) ]);
 	}
 }
 if (isset($_POST['PreviousItem_x'])) {
@@ -33,7 +31,7 @@ if (isset($_POST['PreviousItem_x'])) {
 	$PreviousItemRow = DB_fetch_row($Result);
 	$StockId = $PreviousItemRow[0];
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-		unset($_POST['Description_' . str_replace('.', '_', $LanguageId)]);
+		unset($_POST['Description_' . str_replace('.', '_', $LanguageId) ]);
 	}
 }
 
@@ -73,8 +71,8 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	$FileName = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ImgExt;
 
 	//But check for the worst
-	if (!in_array ($ImgExt, $SupportedImgExt)) {
-		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'),'warn');
+	if (!in_array($ImgExt, $SupportedImgExt)) {
+		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'), 'warn');
 		$UploadTheFile = 'No';
 	} elseif ($_FILES['ItemPicture']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
 		prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
@@ -82,17 +80,17 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	} elseif ($_FILES['ItemPicture']['type'] == 'text/plain') { //File Type Check
 		prnMsg(_('Only graphics files can be uploaded'), 'warn');
 		$UploadTheFile = 'No';
-	} elseif ($_FILES['ItemPicture']['error'] == 6 ) {  //upload temp directory check
-		prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
-		$UploadTheFile ='No';
+	} elseif ($_FILES['ItemPicture']['error'] == 6) { //upload temp directory check
+		prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+		$UploadTheFile = 'No';
 	}
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;
-		if (file_exists ($File) ) {
+		if (file_exists($File)) {
 			$Result = unlink($File);
-			if (!$Result){
+			if (!$Result) {
 				prnMsg(_('The existing image could not be removed'), 'error');
-				$UploadTheFile ='No';
+				$UploadTheFile = 'No';
 			}
 		}
 	}
@@ -107,13 +105,11 @@ $InputError = 0;
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
-
 
 	if (!isset($_POST['Description']) or mb_strlen($_POST['Description']) > 50 or mb_strlen($_POST['Description']) == 0) {
 		$InputError = 1;
@@ -158,11 +154,11 @@ if (isset($_POST['submit'])) {
 	}
 	if (!is_numeric(filter_number_format($_POST['NetWeight']))) {
 		$InputError = 1;
-		prnMsg(_('The net weight of the item in Net Weight must be numeric'),'error');
+		prnMsg(_('The net weight of the item in Net Weight must be numeric'), 'error');
 	}
-	if (filter_number_format($_POST['NetWeight'])<0) {
+	if (filter_number_format($_POST['NetWeight']) < 0) {
 		$InputError = 1;
-		prnMsg(_('The net weight of the item must be a positive number'),'error');
+		prnMsg(_('The net weight of the item must be a positive number'), 'error');
 	}
 	if (!is_numeric(filter_number_format($_POST['EOQ']))) {
 		$InputError = 1;
@@ -237,7 +233,6 @@ if (isset($_POST['submit'])) {
 			$OldWIPAccount = $MyRow[5];
 			$OldDescription = $MyRow[6];
 			$OldLongDescription = $MyRow[7];
-
 
 			$SQL = "SELECT SUM(locstock.quantity)
 					FROM locstock
@@ -345,7 +340,7 @@ if (isset($_POST['submit'])) {
 			}
 			/* Do some check for property input */
 
-			for ($i = 0; $i < $_POST['PropertyCounter']; $i++) {
+			for ($i = 0;$i < $_POST['PropertyCounter'];$i++) {
 				if ($_POST['PropNumeric' . $i] == 1) {
 					if (filter_number_format($_POST['PropValue' . $i]) < $_POST['PropMin' . $i] or filter_number_format($_POST['PropValue' . $i]) > $_POST['PropMax' . $i]) {
 						$InputError = 1;
@@ -353,8 +348,6 @@ if (isset($_POST['submit'])) {
 					}
 				}
 			}
-
-
 
 			if ($InputError == 0) {
 
@@ -411,7 +404,6 @@ if (isset($_POST['submit'])) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 					UpdateCost($StockId); //Update any affected BOMs
-
 					/* End of cost updates */
 				}
 
@@ -422,9 +414,9 @@ if (isset($_POST['submit'])) {
 					foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 						if ($LanguageId != '') {
 							$Result = DB_query("DELETE FROM stockdescriptiontranslations WHERE stockid='" . $StockId . "' AND language_id='" . $LanguageId . "'", $ErrMsg, $DbgMsg, true);
-							$Result = DB_query("INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "', '0')", $ErrMsg, $DbgMsg, true);
+							$Result = DB_query("INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId) ] . "', '0')", $ErrMsg, $DbgMsg, true);
 							$Result = DB_query("DELETE FROM stocklongdescriptiontranslations WHERE stockid='" . $StockId . "' AND language_id='" . $LanguageId . "'", $ErrMsg, $DbgMsg, true);
-							$Result = DB_query("INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "', '0')", $ErrMsg, $DbgMsg, true);
+							$Result = DB_query("INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId) ] . "', '0')", $ErrMsg, $DbgMsg, true);
 						}
 					}
 					/*
@@ -477,7 +469,7 @@ if (isset($_POST['submit'])) {
 									WHERE stockid ='" . $StockId . "'", $ErrMsg, $DbgMsg, true);
 
 				//now insert any item properties
-				for ($i = 0; $i < $_POST['PropertyCounter']; $i++) {
+				for ($i = 0;$i < $_POST['PropertyCounter'];$i++) {
 
 					if ($_POST['PropType' . $i] == 2) {
 						if ($_POST['PropValue' . $i] == 'on') {
@@ -498,7 +490,6 @@ if (isset($_POST['submit'])) {
 																'" . $_POST['PropID' . $i] . "',
 																'" . $_POST['PropValue' . $i] . "')", $ErrMsg, $DbgMsg, true);
 				} //end of loop around properties defined for the category
-
 				if ($OldStockAccount != $NewStockAct and $_SESSION['CompanyRecord']['gllink_stock'] == 1) {
 					/*Then we need to make a journal to transfer the cost to the new stock account */
 					$JournalNo = GetNextTransNo(0); //enter as a journal
@@ -552,7 +543,7 @@ if (isset($_POST['submit'])) {
 												GROUP BY workorders.costissued", _('Error retrieving value of finished goods received and cost issued against work orders for this item'));
 					$WIPValue = 0;
 					while ($WIPRow = DB_fetch_array($WOCostsResult)) {
-						$WIPValue += ($WIPRow['costissued'] - $WIPRow['costrecd']);
+						$WIPValue+= ($WIPRow['costissued'] - $WIPRow['costrecd']);
 					}
 					if ($WIPValue != 0) {
 						$JournalNo = GetNextTransNo(0); //enter as a journal
@@ -594,7 +585,7 @@ if (isset($_POST['submit'])) {
 				DB_Txn_Commit();
 				prnMsg(_('Stock Item') . ' ' . $StockId . ' ' . _('has been updated'), 'success');
 			}
-			if (DB_error_no() != 0){
+			if (DB_error_no() != 0) {
 				$Result = DB_Txn_Rollback();
 			}
 
@@ -689,10 +680,10 @@ if (isset($_POST['submit'])) {
 					$DbgMsg = _('The SQL that was used to update the language description and failed was');
 					if (count($ItemDescriptionLanguagesArray) > 0) {
 						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-							if ($LanguageId != '' and $_POST['Description_' . str_replace('.', '_', $LanguageId)] != '') {
-								$SQL = "INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "', 0)";
+							if ($LanguageId != '' and $_POST['Description_' . str_replace('.', '_', $LanguageId) ] != '') {
+								$SQL = "INSERT INTO stockdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['Description_' . str_replace('.', '_', $LanguageId) ] . "', 0)";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-								$SQL = "INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "', 0)";
+								$SQL = "INSERT INTO stocklongdescriptiontranslations VALUES('" . $StockId . "','" . $LanguageId . "', '" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId) ] . "', 0)";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 							}
 						}
@@ -706,7 +697,7 @@ if (isset($_POST['submit'])) {
 					/* End default language descriptions */
 
 					//now insert any item properties
-					for ($i = 0; $i < $_POST['PropertyCounter']; $i++) {
+					for ($i = 0;$i < $_POST['PropertyCounter'];$i++) {
 
 						if ($_POST['PropType' . $i] == 2) {
 							if ($_POST['PropValue' . $i] == 'on') {
@@ -729,9 +720,7 @@ if (isset($_POST['submit'])) {
 														'" . $_POST['PropID' . $i] . "',
 														'" . $_POST['PropValue' . $i] . "')", $ErrMsg, $DbgMsg, true);
 					} //end of loop around properties defined for the category
-
 					//Add data to locstock
-
 					$SQL = "INSERT INTO locstock (loccode,
 													stockid)
 										SELECT locations.loccode,
@@ -770,16 +759,17 @@ if (isset($_POST['submit'])) {
 						unset($_POST['Pansize']);
 						unset($StockId);
 						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-							unset($_POST['Description_' . str_replace('.', '_', $LanguageId)]);
+							unset($_POST['Description_' . str_replace('.', '_', $LanguageId) ]);
 						}
 						$New = 1;
 					} else {
 						$InsResult = DB_Txn_Rollback();
 					}
 				} //THE INSERT OF THE NEW CODE WORKED SO BANG IN THE STOCK LOCATION RECORDS TOO
+				
 			} //END CHECK FOR ALREADY EXISTING ITEM OF THE SAME CODE
+			
 		}
-
 
 	} else {
 		echo '<br />' . "\n";
@@ -788,11 +778,9 @@ if (isset($_POST['submit'])) {
 
 } else if (isset($_POST['delete']) and mb_strlen($_POST['delete']) > 1) {
 	//the button to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'StockMoves'
-
 	$SQL = "SELECT COUNT(*) FROM stockmoves WHERE stockid='" . $StockId . "' GROUP BY stockid";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -917,16 +905,16 @@ if (isset($_POST['submit'])) {
 		unset($_POST['DecimalPlaces']);
 		unset($_SESSION['SelectedStockItem']);
 		foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-			unset($_POST['Description_' . str_replace('.', '_', $LanguageId)]);
+			unset($_POST['Description_' . str_replace('.', '_', $LanguageId) ]);
 		}
 		unset($StockId);
 
 		$New = 1;
 	} //end if Delete Part
+	
 }
 
-
-echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<input type="hidden" name="New" value="' . $New . '" />
 	<table>';
@@ -969,7 +957,6 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 	}
 
 } elseif (!isset($_POST['UpdateCategories']) and $InputError != 1) { // Must be modifying an existing item and no changes made yet
-
 	$SQL = "SELECT stockmaster.stockid,
 					description,
 					longdescription,
@@ -1015,7 +1002,7 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 	$_POST['Perishable'] = $MyRow['perishable'];
 	$_POST['Volume'] = $MyRow['volume'];
 	$_POST['GrossWeight'] = $MyRow['grossweight'];
-	$_POST['NetWeight']  = $MyRow['netweight'];
+	$_POST['NetWeight'] = $MyRow['netweight'];
 	$_POST['BarCode'] = $MyRow['barcode'];
 	$_POST['DiscountCategory'] = $MyRow['discountcategory'];
 	$_POST['TaxCat'] = $MyRow['taxcatid'];
@@ -1029,21 +1016,21 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 	$SQL = "SELECT descriptiontranslation, language_id FROM stockdescriptiontranslations WHERE stockid='" . $StockId . "' AND (";
 
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-		$SQL .= "language_id='" . $LanguageId . "' OR ";
+		$SQL.= "language_id='" . $LanguageId . "' OR ";
 	}
 	$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 3) . ')';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		$_POST['Description_' . str_replace('.', '_', $MyRow['language_id'])] = $MyRow['descriptiontranslation'];
+		$_POST['Description_' . str_replace('.', '_', $MyRow['language_id']) ] = $MyRow['descriptiontranslation'];
 	}
 	$SQL = "SELECT longdescriptiontranslation, language_id FROM stocklongdescriptiontranslations WHERE stockid='" . $StockId . "' AND (";
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-		$SQL .= "language_id='" . $LanguageId . "' OR ";
+		$SQL.= "language_id='" . $LanguageId . "' OR ";
 	}
 	$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 3) . ')';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		$_POST['LongDescription_' . str_replace('.', '_', $MyRow['language_id'])] = $MyRow['longdescriptiontranslation'];
+		$_POST['LongDescription_' . str_replace('.', '_', $MyRow['language_id']) ] = $MyRow['longdescriptiontranslation'];
 	}
 
 	echo '<tr>
@@ -1099,16 +1086,16 @@ foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 	}
 }
 echo '<tr>
-		<td>' .  _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
+		<td>' . _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
 		<td><input type="file" id="ItemPicture" name="ItemPicture" />
-		<br /><input type="checkbox" name="ClearImage" id="ClearImage" value="1" > '._('Clear Image').'
+		<br /><input type="checkbox" name="ClearImage" id="ClearImage" value="1" > ' . _('Clear Image') . '
 		</td>';
 
 $ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $StockId . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 $ImageFile = reset($ImageFileArray);
 if (extension_loaded('gd') and function_exists('gd_info') and isset($StockId) and !empty($StockId)) {
 	$StockImgLink = '<img src="GetStockImage.php?automake=1&amp;textcolor=FFFFFF&amp;bgcolor=CCCCCC' . '&amp;StockID=' . urlencode($StockId) . '&amp;text=' . '&amp;width=64' . '&amp;height=64' . '" alt="" />';
-} else if (file_exists ($ImageFile)) {
+} else if (file_exists($ImageFile)) {
 	$StockImgLink = '<img src="' . $ImageFile . '" height="64" width="64" />';
 } else {
 	$StockImgLink = _('No Image');
@@ -1121,7 +1108,7 @@ if ($StockImgLink != _('No Image')) {
 if (isset($_POST['ClearImage'])) {
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;
-		if (file_exists($File) ) {
+		if (file_exists($File)) {
 			//workaround for many variations of permission issues that could cause unlink fail
 			@unlink($File);
 			if (is_file($ImageFile)) {
@@ -1169,7 +1156,7 @@ if (!isset($_POST['Volume']) or $_POST['Volume'] == '') {
 if (!isset($_POST['GrossWeight']) or $_POST['GrossWeight'] == '') {
 	$_POST['GrossWeight'] = 0;
 }
-if (!isset($_POST['NetWeight']) or $_POST['NetWeight']==''){
+if (!isset($_POST['NetWeight']) or $_POST['NetWeight'] == '') {
 	$_POST['NetWeight'] = 0;
 }
 if (!isset($_POST['Controlled']) or $_POST['Controlled'] == '') {
@@ -1203,7 +1190,6 @@ if (!isset($_POST['OverheadCost'])) {
 	$_POST['OverheadCost'] = 0;
 }
 
-
 echo '<tr>
 		<td>' . _('Economic Order Quantity') . ':</td>
 		<td><input type="text" class="number" name="EOQ" size="12" maxlength="10" value="' . locale_number_format($_POST['EOQ'], 'Variable') . '" /></td></tr>';
@@ -1218,7 +1204,7 @@ echo '<tr>
 	</tr>';
 
 echo '<tr>
-		<td>' . _('Net Weight (KGs)') . ':</td><td><input type="text" class="number" name="NetWeight" size="12" maxlength="10" value="' . locale_number_format($_POST['NetWeight'],'Variable') . '" /></td>
+		<td>' . _('Net Weight (KGs)') . ':</td><td><input type="text" class="number" name="NetWeight" size="12" maxlength="10" value="' . locale_number_format($_POST['NetWeight'], 'Variable') . '" /></td>
 	</tr>';
 
 echo '<tr>
@@ -1394,7 +1380,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['taxcatid'] . '">' . $MyRow['taxcatname'] . '</option>';
 	}
 } //end while loop
-
 echo '</select></td>
 	</tr>';
 
@@ -1489,43 +1474,43 @@ if (DB_num_rows($PropertiesResult) > 0) {
 			<td>';
 		switch ($PropertyRow['controltype']) {
 			case 0; //textbox
-				if ($PropertyRow['numericvalue'] == 1) {
-					echo '<input type="hidden" name="PropMin' . $PropertyCounter . '" value="' . $PropertyRow['minimumvalue'] . '" />';
-					echo '<input type="hidden" name="PropMax' . $PropertyCounter . '" value="' . $PropertyRow['maximumvalue'] . '" />';
+			if ($PropertyRow['numericvalue'] == 1) {
+				echo '<input type="hidden" name="PropMin' . $PropertyCounter . '" value="' . $PropertyRow['minimumvalue'] . '" />';
+				echo '<input type="hidden" name="PropMax' . $PropertyCounter . '" value="' . $PropertyRow['maximumvalue'] . '" />';
 
-					echo '<input type="text" class="number" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . locale_number_format($PropertyValue, 'Variable') . '" />';
-					echo _('A number between') . ' ' . locale_number_format($PropertyRow['minimumvalue'], 'Variable') . ' ' . _('and') . ' ' . locale_number_format($PropertyRow['maximumvalue'], 'Variable') . ' ' . _('is expected');
-				} else {
-					echo '<input type="text" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . $PropertyValue . '" />';
-				}
-				break;
-			case 1; //select box
-				$OptionValues = explode(',', $PropertyRow['defaultvalue']);
-				echo '<select name="PropValue' . $PropertyCounter . '">';
-				foreach ($OptionValues as $PropertyOptionValue) {
-					if ($PropertyOptionValue == $PropertyValue) {
-						echo '<option selected="selected" value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
-					} else {
-						echo '<option value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
-					}
-				}
-				echo '</select>';
-				break;
-			case 2; //checkbox
-				echo '<input type="checkbox" name="PropValue' . $PropertyCounter . '"';
-				if ($PropertyValue == 1) {
-					echo 'checked';
-				}
-				echo ' />';
-				break;
-		} //end switch
-		echo '<input type="hidden" name="PropType' . $PropertyCounter . '" value="' . $PropertyRow['controltype'] . '" />';
-		echo '</td></tr>';
-		$PropertyCounter++;
+				echo '<input type="text" class="number" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . locale_number_format($PropertyValue, 'Variable') . '" />';
+				echo _('A number between') . ' ' . locale_number_format($PropertyRow['minimumvalue'], 'Variable') . ' ' . _('and') . ' ' . locale_number_format($PropertyRow['maximumvalue'], 'Variable') . ' ' . _('is expected');
+			} else {
+				echo '<input type="text" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . $PropertyValue . '" />';
+			}
+		break;
+		case 1; //select box
+		$OptionValues = explode(',', $PropertyRow['defaultvalue']);
+		echo '<select name="PropValue' . $PropertyCounter . '">';
+		foreach ($OptionValues as $PropertyOptionValue) {
+			if ($PropertyOptionValue == $PropertyValue) {
+				echo '<option selected="selected" value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
+			} else {
+				echo '<option value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
+			}
+		}
+		echo '</select>';
+	break;
+	case 2; //checkbox
+	echo '<input type="checkbox" name="PropValue' . $PropertyCounter . '"';
+	if ($PropertyValue == 1) {
+		echo 'checked';
+	}
+	echo ' />';
+break;
+} //end switch
+echo '<input type="hidden" name="PropType' . $PropertyCounter . '" value="' . $PropertyRow['controltype'] . '" />';
+echo '</td></tr>';
+$PropertyCounter++;
 
-	} //end loop round properties for the item category
-	unset($StockId);
-	echo '</table>';
+} //end loop round properties for the item category
+unset($StockId);
+echo '</table>';
 }
 echo '<input type="hidden" name="PropertyCounter" value="' . $PropertyCounter . '" />';
 echo '<br />';
@@ -1537,7 +1522,6 @@ if ($New == 1) {
 } else {
 
 	// Now the form to enter the item properties
-
 	echo '<input type="submit" name="submit" value="' . _('Update') . '" />';
 	echo '<input type="submit" name="UpdateCategories" style="visibility:hidden;width:1px" value="' . _('Categories') . '" />';
 	echo '<br />';
@@ -1549,5 +1533,5 @@ if ($New == 1) {
 
 echo '</div>
 	</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

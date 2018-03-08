@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Supplier Purchasing Data');
 
 $ViewTopic = 'PurchaseOrdering';
 $BookMark = 'SupplierPriceList';
-include('includes/header.php');
+include ('includes/header.php');
 if (isset($_POST['SupplierID'])) {
 	$_POST['SupplierID'] = stripslashes($_POST['SupplierID']);
 } elseif (isset($_GET['SupplierID'])) {
@@ -18,7 +17,7 @@ if (isset($_POST['StockSearch'])) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '
 		</p>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<input type="hidden" value="', $_POST['SupplierID'], '" name="SupplierID" />';
 
@@ -77,7 +76,7 @@ if (isset($_POST['StockSearch'])) {
 			<input type="submit" name="Search" value="', _('Search Now'), '" />
 		</div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -236,7 +235,7 @@ if (isset($_POST['Search']) or isset($_POST['Go']) or isset($_POST['Next']) or i
 /* display list if there is more than one record */
 if (isset($SearchResult) and !isset($_POST['Select'])) {
 	echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Search for Inventory Items'), '</p>';
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<input type="hidden" value="', stripslashes($_POST['SupplierID']), '" name="SupplierID" />';
 	$ListCount = DB_num_rows($SearchResult);
@@ -297,12 +296,13 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 				</tr>';
 			++$RowIndex;
 			//end of page full new headings if
+			
 		}
 		//end of while loop
 		echo '</table>
 			  </form>';
-		echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SupplierID=', urlencode($_POST['SupplierID']), '">', _('Return to the main screen'), '</a>';
-		include('includes/footer.php');
+		echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SupplierID=', urlencode($_POST['SupplierID']), '">', _('Return to the main screen'), '</a>';
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -404,7 +404,7 @@ if ((isset($SupplierID) and $SupplierID != '') and !isset($_POST['SearchSupplier
 	}
 	if (!isset($_POST['SearchSupplier'])) {
 		echo '<p class="page_title_text"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Search'), '" alt="" />', _('Search for a supplier'), '</p>';
-		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+		echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		echo '<fieldset>
@@ -425,7 +425,7 @@ if ((isset($SupplierID) and $SupplierID != '') and !isset($_POST['SearchSupplier
 				<input type="submit" name="SearchSupplier" value="', _('Find Suppliers Now'), '" />
 			</div>';
 		echo '</form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -459,12 +459,11 @@ if (isset($_POST['SearchSupplier'])) {
 	$DbgMsg = _('The SQL to retrieve supplier details that failed was');
 	$SuppliersResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 } //end of if search
-
 if (isset($SuppliersResult)) {
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Search'), '" alt="" />', _('Select a supplier'), '
 		</p>';
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<table cellpadding="2">
@@ -496,18 +495,17 @@ if (isset($SuppliersResult)) {
 	</table>
 </form>';
 
-	echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Return to supplier selection screen'), '</a><br />';
+	echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Return to supplier selection screen'), '</a><br />';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 //end if results to show
-
 if (isset($_POST['SupplierID'])) {
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Search'), '" alt="" />', _('Supplier Purchasing Data'), '
 		</p>';
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') , '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	$SQL = "SELECT purchdata.stockid,
 				stockmaster.description,
@@ -633,7 +631,7 @@ if (isset($_POST['SupplierID'])) {
 	}
 	echo '</table>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 

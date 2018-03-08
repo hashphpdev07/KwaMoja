@@ -1,15 +1,14 @@
 <?php
+include ('includes/DefineContractClass.php');
 
-include('includes/DefineContractClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Contract Other Requirements');
 
 $Identifier = $_GET['identifier'];
 
 /* If a contract header doesn't exist, then go to
  * Contracts.php to create one
- */
+*/
 
 if (!isset($_SESSION['Contract' . $Identifier])) {
 	header('Location:' . $RootPath . '/Contracts.php');
@@ -17,8 +16,7 @@ if (!isset($_SESSION['Contract' . $Identifier])) {
 }
 $ViewTopic = 'Contracts';
 $BookMark = 'AddToContract';
-include('includes/header.php');
-
+include ('includes/header.php');
 
 if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 	if ($_SESSION['Contract' . $Identifier]->Status != 2) { //dont do anything if the customer has committed to the contract
@@ -33,7 +31,9 @@ if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 				$_SESSION['Contract' . $Identifier]->ContractReqts[$ContractComponentID]->Requirement = $_POST['Requirement' . $ContractComponentID];
 			}
 		} // end loop around the items on the contract requirements array
+		
 	} // end if the contract is not currently committed to by the customer
+	
 } // end if the user has hit the update lines or back to header buttons
 
 
@@ -41,10 +41,9 @@ if (isset($_POST['BackToHeader'])) {
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/Contracts.php?identifier=' . $Identifier . '" />';
 	echo '<br />';
 	prnMsg(_('You should automatically be forwarded to the Contract page. If this does not happen perhaps the browser does not support META Refresh') . '<a href="' . $RootPath . '/Contracts.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
 
 if (isset($_GET['Delete'])) {
 	if ($_SESSION['Contract' . $Identifier]->Status != 2) {
@@ -73,7 +72,7 @@ if (isset($_POST['EnterNewRequirement'])) {
 
 /* This is where the other requirement as entered/modified should be displayed reflecting any deletions or insertions*/
 
-echo '<form name="ContractReqtsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form name="ContractReqtsForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contract Other Requirements') . '" alt="" />  ' . _('Contract Other Requirements') . ' - ' . $_SESSION['Contract' . $Identifier]->CustomerName . '</p>';
 
@@ -107,9 +106,9 @@ if (count($_SESSION['Contract' . $Identifier]->ContractReqts) > 0) {
 				<td><input type="text" class="number" maxlength="11" required="required" name="Qty' . $ContractReqtID . '" size="11" value="' . locale_number_format($ContractComponent->Quantity, 'Variable') . '" /></td>
 				<td><input type="text" class="number" maxlength="11" required="required" name="CostPerUnit' . $ContractReqtID . '" size="11" value="' . locale_number_format($ContractComponent->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>
 				<td class="number">' . $DisplayLineTotal . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this contract requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this contract requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			  </tr>';
-		$TotalCost += $LineTotal;
+		$TotalCost+= $LineTotal;
 	}
 
 	$DisplayTotal = locale_number_format($TotalCost, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -157,5 +156,5 @@ echo '<table>
 		</div>
 		</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

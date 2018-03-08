@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Stock Check Sheets Entry');
 
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<form name="EnterCountsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form name="EnterCountsForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory Adjustment') . '" alt="" />' . ' ' . $Title . '</p>';
@@ -43,7 +42,6 @@ if ($_GET['Action'] == 'Enter') {
 		}
 		for ($i = 1;$i <= $Counter;$i++) {
 			$InputError = False; //always assume the best to start with
-
 			$Quantity = 'Qty_' . $i;
 			$BarCode = 'BarCode_' . $i;
 			$StockId = 'StockID_' . $i;
@@ -93,7 +91,6 @@ if ($_GET['Action'] == 'Enter') {
 		prnMsg($Added . _(' Stock Counts Entered'), 'success');
 		unset($_POST['EnterCounts']);
 	} // end of if enter counts button hit
-
 	$CatsResult = DB_query("SELECT DISTINCT stockcategory.categoryid,
 								categorydescription
 							FROM stockcategory INNER JOIN stockmaster
@@ -113,7 +110,7 @@ if ($_GET['Action'] == 'Enter') {
 						FROM locations
 						INNER JOIN locationusers
 							ON locationusers.loccode=locations.loccode
-							AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+							AND locationusers.userid='" . $_SESSION['UserID'] . "'
 							AND locationusers.canupd=1";
 		$Result = DB_query($SQL);
 		while ($MyRow = DB_fetch_array($Result)) {
@@ -180,7 +177,7 @@ if ($_GET['Action'] == 'Enter') {
 					<th>' . _('Reference') . '</th>
 				</tr>';
 
-			for ($RowCount = 1; $RowCount <= 10; $RowCount++) {
+			for ($RowCount = 1;$RowCount <= 10;$RowCount++) {
 
 				echo '<tr>
 						<td><input type="text" name="BarCode_' . $RowCount . '" maxlength="20" size="20" /></td>
@@ -195,11 +192,11 @@ if ($_GET['Action'] == 'Enter') {
 		echo '</table>
 				<div class="centre">
 					<input type="submit" name="EnterCounts" value="' . _('Enter Above Counts') . '" />
-					<input type="hidden" name="RowCount" value="' .$RowCount . '" />
+					<input type="hidden" name="RowCount" value="' . $RowCount . '" />
 				</div>';
 	} // there is a stock check to enter counts for
-
 	//END OF action=ENTER
+	
 } elseif ($_GET['Action'] == 'View') {
 
 	if (isset($_POST['DEL']) and is_array($_POST['DEL'])) {
@@ -219,7 +216,7 @@ if ($_GET['Action'] == 'Enter') {
 				FROM stockcounts
 				INNER JOIN locationusers
 					ON locationusers.loccode=stockcounts.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$Result = DB_query($SQL);
 	echo '<input type="hidden" name="Action" value="View" />';
@@ -251,9 +248,10 @@ if ($_GET['Action'] == 'Enter') {
 			</div>';
 
 	//END OF action=VIEW
+	
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

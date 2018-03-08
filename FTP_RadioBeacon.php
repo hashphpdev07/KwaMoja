@@ -1,15 +1,13 @@
 <?php
-
 /*Variables required to configure this script must be set in config.php */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('FTP order to Radio Beacon');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /*Logic should allow entry of an order number which returns
-some details of the order for confirming before producing the file for ftp */
+ some details of the order for confirming before producing the file for ftp */
 
 $SQL = "SELECT salesorders.orderno,
 				debtorsmaster.name,
@@ -59,7 +57,7 @@ echo '<table cellpadding="2" width="100%">
 $k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
-	$FTPDispatchNote = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?OrderNo=' . $MyRow['orderno'];
+	$FTPDispatchNote = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?OrderNo=' . $MyRow['orderno'];
 	$FormatedDelDate = ConvertSQLDate($MyRow['deliverydate']);
 	$FormatedOrderDate = ConvertSQLDate($MyRow['orddate']);
 	$FormatedOrderValue = locale_number_format($MyRow['ordervalue'], 2);
@@ -95,9 +93,7 @@ while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 	}
 }
 //end of while loop
-
 echo '</table>';
-
 
 if (isset($_GET['OrderNo'])) {
 	/*An order has been selected for sending */
@@ -105,7 +101,7 @@ if (isset($_GET['OrderNo'])) {
 	if ($_SESSION['CompanyRecord'] == 0) {
 		/*CompanyRecord will be 0 if the company information could not be retrieved */
 		prnMsg(_('There was a problem retrieving the company information ensure that the company record is correctly set up'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -140,7 +136,6 @@ if (isset($_GET['OrderNo'])) {
 				AND salesorders.fromstkloc = '" . $_SESSION['RadioBeaconStockLocation'] . "'
 				AND salesorders.orderno='" . $_GET['OrderNo'] . "'";
 
-
 	$ErrMsg = _('There was a problem retrieving the order header details for Order Number') . ' ' . $_GET['OrderNo'] . ' ' . _('from the database');
 	$Result = DB_query($SQL, $ErrMsg);
 
@@ -152,7 +147,7 @@ if (isset($_GET['OrderNo'])) {
 			prnMsg(_('Order Number') . ' ' . $_GET['OrderNo'] . ' ' . _('has previously been sent to Radio Beacon') . '. ' . _('It was sent on') . ' ' . ConvertSQLDate($MyRow['datepackingslipprinted']) . '<br />' . _('To re-send the order with the balance not previously dispatched and invoiced the order must be modified to allow a reprint (or re-send)') . '.<br />' . _('This check is there to ensure that duplication of dispatches to the customer are avoided'), 'warn');
 			echo '<p><a href="' . $RootPath . '/SelectOrderItems.php?ModifyOrderNumber=' . urlencode($_GET['OrderNo']) . '">' . _('Modify the order to allow a re-send or reprint') . ' (' . _('Select Delivery Details') . ')' . '</a>';
 			echo '<p><a href="' . $RootPath / 'index.php">' . _('Back to the menu') . '</a>';
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -189,7 +184,6 @@ if (isset($_GET['OrderNo'])) {
 				$FileNumber = 1;
 			}
 
-
 			$fp = fopen($FileCounter, 'w');
 			fwrite($fp, $FileNumber);
 			fclose($fp);
@@ -212,7 +206,7 @@ if (isset($_GET['OrderNo'])) {
 			}
 
 			/*the file number is used as an integer to uniquely identify multiple sendings of the order
-			for back orders dispatched later */
+			 for back orders dispatched later */
 			if ($FileNumber < 10) {
 				$FileNumber = '00' . $FileNumber;
 			} elseif ($FileNumber < 100) {
@@ -266,5 +260,5 @@ if (isset($_GET['OrderNo'])) {
 }
 /*end of if page called with a OrderNo - OrderNo*/
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

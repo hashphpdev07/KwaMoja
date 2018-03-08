@@ -1,5 +1,4 @@
 <?php
-
 // BEGIN: Functions division ---------------------------------------------------
 function CashFlowsActivityName($Activity) {
 	// Converts the cash flow activity number to an activity text.
@@ -21,16 +20,14 @@ function CashFlowsActivityName($Activity) {
 	}
 }
 // END: Functions division -----------------------------------------------------
-
 // BEGIN: Procedure division ---------------------------------------------------
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Chart of Accounts Maintenance');
 
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccounts';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedAccount'])) {
 	$SelectedAccount = $_POST['SelectedAccount'];
@@ -63,10 +60,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	foreach ($_POST as $Key => $Value) {
 		if (mb_substr($Key, 0, 11) == 'AccountName') {
 			if (mb_strlen($Value) > 150) {
@@ -120,7 +116,7 @@ if (isset($_POST['submit'])) {
 											'" . $AccountName . "',
 											'" . htmlspecialchars($GroupNameRow['groupname']) . "',
 											'" . $_POST['Group'] . "',
-											'" . $_POST['CashFlowsActivity']. "'
+											'" . $_POST['CashFlowsActivity'] . "'
 										)";
 			$Result = DB_query($SQL, $ErrMsg);
 
@@ -136,9 +132,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'ChartDetails'
-
 	$SQL = "SELECT COUNT(*)
 			FROM chartdetails
 			WHERE chartdetails.accountcode ='" . $SelectedAccount . "'
@@ -173,7 +167,6 @@ if (isset($_POST['submit'])) {
 					OR exchangediffact='" . $SelectedAccount . "'
 					OR purchasesexchangediffact='" . $SelectedAccount . "'
 					OR retainedearnings='" . $SelectedAccount . "'";
-
 
 			$ErrMsg = _('Could not test for default company GL codes because');
 
@@ -274,7 +267,7 @@ if (isset($_POST['submit'])) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" id="GLAccounts" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" id="GLAccounts" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (!isset($_POST['CashFlowsActivity'])) {
@@ -283,7 +276,6 @@ if (!isset($_GET['delete'])) {
 
 	if (isset($SelectedAccount)) {
 		//editing an existing account
-
 		$SQL = "SELECT accountcode,
 						language,
 						accountname,
@@ -427,8 +419,8 @@ if (!isset($SelectedAccount)) {
 				<td>', $MyRow['group_'], '</td>
 				<td>', $MyRow['acttype'], '</td>
 				<td class="text">', CashFlowsActivityName($MyRow['cashflowsactivity']), '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm("', _('Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised.'), '", \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?', '&amp;SelectedAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm("', _('Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised.'), '", \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 
 	}
@@ -436,12 +428,11 @@ if (!isset($SelectedAccount)) {
 	echo '</tbody>';
 	echo '</table>';
 } //END IF selected ACCOUNT
-
 if (isset($SelectedAccount)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show All Accounts'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Accounts'), '</a>
 		</div>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>
