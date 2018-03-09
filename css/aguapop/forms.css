@@ -16,7 +16,7 @@ border-radius:7px;
 form legend {
 background-color:transparent;
 padding:3px;
-border: 1px solid #1F1F57;
+border: 1px solid #FFFFFF;
 border-radius:3px;
 font-size:150%;
 }
@@ -32,12 +32,14 @@ form field {
 display:block;
 text-align:left;
 margin-bottom:3px;
+color:#FFFFFF;
 }
 
 form label {
 float:left;
 width:24.5em;
 text-align:left;
+color:#FFFFFF;
 }
 
 .fieldtext {

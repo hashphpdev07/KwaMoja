@@ -4,6 +4,7 @@ width:auto;
 max-width:90%;
 padding-bottom:5px;
 margin:5px auto;
+color:#1A1A1A;
 }
 
 table.search {
@@ -48,6 +49,7 @@ background-size:12px;
 
 td {
 text-align:left;
+color:#1A1A1A;
 }
 
 td.select {
