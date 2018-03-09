@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (!isset($_POST['FromCat']) or $_POST['FromCat'] == '') {
 	$Title = _('Low Gross Profit Sales');
@@ -8,7 +7,7 @@ if (!isset($_POST['FromCat']) or $_POST['FromCat'] == '') {
 $Debug = 0;
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Low Gross Profit Sales'));
 	$PDF->addInfo('Subject', _('Low Gross Profit Sales'));
 	$FontSize = 10;
@@ -18,9 +17,9 @@ if (isset($_POST['PrintPDF'])) {
 	$Title = _('Low GP sales') . ' - ' . _('Problem Report');
 
 	if (!is_date($_POST['FromDate']) or !is_date($_POST['ToDate'])) {
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The dates entered must be in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -56,35 +55,35 @@ if (isset($_POST['PrintPDF'])) {
 
 	if (DB_error_no() != 0) {
 
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The low GP items could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($LowGPSalesResult) == 0) {
 
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('No low GP items retrieved'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFLowGPPageHeader.php');
+	include ('includes/PDFLowGPPageHeader.php');
 	$Tot_Val = 0;
 	$Category = '';
 	$CatTot_Val = 0;
 	while ($LowGPItems = DB_fetch_array($LowGPSalesResult)) {
 
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		$FontSize = 8;
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 2, $YPos, 30, $FontSize, $LowGPItems['typename']);
@@ -102,7 +101,7 @@ if (isset($_POST['PrintPDF'])) {
 		$LeftOvers = $PDF->addTextWrap(500, $YPos, 60, $FontSize, $DisplayGPPercent . '%', 'right');
 
 		if ($YPos < $Bottom_Margin + $line_height) {
-			include('includes/PDFLowGPPageHeader.php');
+			include ('includes/PDFLowGPPageHeader.php');
 		}
 
 	}
@@ -110,14 +109,14 @@ if (isset($_POST['PrintPDF'])) {
 
 	$FontSize = 10;
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$PDF->OutputD($_SESSION['DatabaseName'] . '_LowGPSales_' . date('Y-m-d') . '.pdf');
 	$PDF->__destruct();
 
 } else {
 	/*The option to print PDF was not hit */
 
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Low Gross Profit Report') . '</p>';
 
@@ -127,7 +126,7 @@ if (isset($_POST['PrintPDF'])) {
 		$_POST['FromDate'] = Date($_SESSION['DefaultDateFormat']);
 		$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
 		$_POST['GPMin'] = 0;
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table>';
 		echo '<tr>
@@ -151,7 +150,7 @@ if (isset($_POST['PrintPDF'])) {
 				</div>';
 		echo '</form>';
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

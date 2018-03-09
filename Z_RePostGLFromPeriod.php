@@ -1,11 +1,9 @@
 <?php
-
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Recalculation of GL Balances in Chart Details Table');
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['FromPeriod'])) {
@@ -59,16 +57,16 @@ if (!isset($_POST['FromPeriod'])) {
 
 			/* Update the chartdetails table */
 			$SQL = "UPDATE chartdetails SET actual='" . $MyRow['actual'] . "',
-											bfwd=" . $BalanceBroughtForward ."
+											bfwd=" . $BalanceBroughtForward . "
 										WHERE accountcode='" . $GLCodes['accountcode'] . "'
 											AND period='" . $Periods['period'] . "'";
 			$Result = DB_query($SQL);
 
 			/* Calculate the balance carried forward */
-			$BalanceBroughtForward += $MyRow['actual'];
+			$BalanceBroughtForward+= $MyRow['actual'];
 		}
 	}
 	prnMsg(_('All general ledger postings have been reposted from period') . ' ' . $_POST['FromPeriod'], 'success');
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

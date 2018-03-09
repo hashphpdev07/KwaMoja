@@ -1,14 +1,12 @@
 <?php
-
 // StockDispatch.php - Report of parts with overstock at one location that can be transferred
 // to another location to cover shortage based on reorder level. Creates loctransfer records
 // that can be processed using Bulk Inventory Transfer - Receive.
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	if (!is_numeric(filter_number_format($_POST['Percent']))) {
 		$_POST['Percent'] = 0;
 	}
@@ -119,24 +117,24 @@ if (isset($_POST['PrintPDF'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Stock Dispatch - Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Stock Dispatch report could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br />
 				<a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($Result) == 0) {
 		$Title = _('Stock Dispatch - Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<br />';
 		prnMsg(_('The stock dispatch did not have any items to list'), 'warn');
 		echo '<br />
 				<a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -193,7 +191,7 @@ if (isset($_POST['PrintPDF'])) {
 		}
 
 		if ($ShipQty > 0) {
-			$YPos -= (2 * $line_height);
+			$YPos-= (2 * $line_height);
 			// Parameters for addTextWrap are defined in /includes/class.pdf.php
 			// 1) X position 2) Y position 3) Width
 			// 4) Height 5) Text 6) Alignment 7) Border 8) Fill - True to use SetFillColor
@@ -222,7 +220,7 @@ if (isset($_POST['PrintPDF'])) {
 				$SupportedImgExt = array('png', 'jpg', 'jpeg');
 				$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 				$ImageFile = reset($ImageFileArray);
-				if (file_exists ($ImageFile) ) {
+				if (file_exists($ImageFile)) {
 					$PDF->Image($ImageFile, 135, $Page_Height - $Top_Margin - $YPos + 10, 35, 35);
 				}
 				/*end checked file exist*/
@@ -315,7 +313,7 @@ if (isset($_POST['PrintPDF'])) {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('Stock Dispatch Report');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Stock Dispatch Report') . '</p>';
 	echo '<div class="page_help_text">' . _('Create a transfer batch of overstock from one location to another location that is below reorder level.') . '<br/>' . _('Quantity to ship is based on reorder level minus the quantity on hand at the To Location; if there is a') . '<br/>' . _('dispatch percentage entered, that needed quantity is inflated by the percentage entered.') . '<br/>' . _('You need access to both locations to do the transfer.') . '<br/>' . _('Use Bulk Inventory Transfer - Receive to process the batch') . '</div>';
 
@@ -323,7 +321,7 @@ if (isset($_POST['PrintPDF'])) {
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$DefaultLocation = $MyRow['defaultlocation'];
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<div>
 		  <br />';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
@@ -332,7 +330,7 @@ if (isset($_POST['PrintPDF'])) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1";
 	$ResultStkLocs = DB_query($SQL);
 	if (!isset($_POST['FromLocation'])) {
@@ -381,7 +379,7 @@ if (isset($_POST['PrintPDF'])) {
 		echo '<br /><a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>';
 		echo '</div>
 			  </form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -430,7 +428,6 @@ if (isset($_POST['PrintPDF'])) {
 			<td>&nbsp;</td>
 		</tr>';
 
-
 	echo '<tr>
 			<td>' . _('Template') . ':</td>
 			<td>
@@ -452,14 +449,12 @@ if (isset($_POST['PrintPDF'])) {
 	echo '</div>
 		  </form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
 
-
 function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $Trf_ID, $FromLocation, $ToLocation, $template, $CategoryDescription) {
-
 
 	/*PDF page header for Stock Dispatch report */
 	if ($PageNumber > 1) {
@@ -468,28 +463,28 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$line_height = 12;
 	$FontSize = 9;
 	$YPos = $Page_Height - $Top_Margin;
-	$YPos -= (3 * $line_height);
+	$YPos-= (3 * $line_height);
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Stock Dispatch ') . $_POST['ReportType']);
 	$PDF->addTextWrap(200, $YPos, 30, $FontSize, _('From') . ' : ');
 	$PDF->addTextWrap(230, $YPos, 200, $FontSize, $FromLocation);
 
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Transfer No.'));
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, $Trf_ID);
 	$PDF->setFont('', 'B');
 	$PDF->addTextWrap(200, $YPos, 30, $FontSize, _('To') . ' : ');
 	$PDF->addTextWrap(230, $YPos, 200, $FontSize, $ToLocation);
 	$PDF->setFont('', '');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Category'));
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, $_POST['StockCat']);
 	$PDF->addTextWrap(160, $YPos, 150, $FontSize, $CategoryDescription, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Over transfer'));
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, $_POST['Percent'] . "%");
 	if ($_POST['Strategy'] == 'OverFrom') {
@@ -497,7 +492,7 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	} else {
 		$PDF->addTextWrap(200, $YPos, 200, $FontSize, _('Items needed at ') . $ToLocation);
 	}
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
 
@@ -515,7 +510,7 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 		$PDF->addTextWrap(405, $YPos, 40, $FontSize, _('To'), 'right');
 		$PDF->addTextWrap(460, $YPos, 40, $FontSize, _('Shipped'), 'right');
 		$PDF->addTextWrap(510, $YPos, 40, $FontSize, _('Received'), 'right');
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		$PDF->addTextWrap(370, $YPos, 40, $FontSize, _('Available'), 'right');
 		$PDF->addTextWrap(420, $YPos, 40, $FontSize, _('Available'), 'right');
 
@@ -524,4 +519,5 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$FontSize = 8;
 	$PageNumber++;
 } // End of PrintHeader() function
+
 ?>

@@ -1,7 +1,6 @@
 <?php
-
-include('includes/SQL_CommonFunctions.php');
-include('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
 
 $InputError = 0;
 if (isset($_POST['Date']) and !is_date($_POST['Date'])) {
@@ -16,7 +15,7 @@ if (!isset($_POST['Date'])) {
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'DailyTransactions';
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<div class="centre">
 			<p class="page_title_text" >
@@ -26,7 +25,7 @@ if (!isset($_POST['Date'])) {
 		prnMsg($Msg, 'error');
 	}
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" /></div>';
 	echo '<table summary="' . _('Input criteria for report') . '">
 	 		<tr>
@@ -49,11 +48,11 @@ if (!isset($_POST['Date'])) {
 		</div>
 	</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 
-	include('includes/ConnectDB.php');
+	include ('includes/ConnectDB.php');
 }
 
 $SQL = "SELECT type,
@@ -76,23 +75,23 @@ $Result = DB_query($SQL, '', '', false, false);
 
 if (DB_error_no() != 0) {
 	$Title = _('Payment Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('An error occurred getting the transactions'), 'error');
 	if ($Debug == 1) {
 		prnMsg(_('The SQL used to get the transaction information that failed was') . ':<br />' . $SQL, 'error');
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } elseif (DB_num_rows($Result) == 0) {
 	$Title = _('Payment Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />';
 	prnMsg(_('There were no transactions found in the database for the date') . ' ' . $_POST['Date'] . '. ' . _('Please try again selecting a different date'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
-include('includes/PDFStarter.php');
+include ('includes/PDFStarter.php');
 
 /*PDFStarter.php has all the variables for page size and width set up depending on the users default preferences for paper size */
 
@@ -102,7 +101,7 @@ $line_height = 12;
 $PageNumber = 1;
 $TotalAmount = 0;
 
-include('includes/PDFCustTransListingPageHeader.php');
+include ('includes/PDFCustTransListingPageHeader.php');
 
 while ($MyRow = DB_fetch_array($Result)) {
 
@@ -117,20 +116,19 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 382, $YPos, 70, $FontSize, locale_number_format($MyRow['ovgst'], $MyRow['decimalplaces']), 'right');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 452, $YPos, 70, $FontSize, locale_number_format($MyRow['ovamount'] + $MyRow['ovgst'], $MyRow['decimalplaces']), 'right');
 
-	$YPos -= ($line_height);
+	$YPos-= ($line_height);
 	$TotalAmount = $TotalAmount + ($MyRow['ovamount'] / $MyRow['rate']);
 
 	if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 		/*Then set up a new page */
 		$PageNumber++;
-		include('includes/PDFCustTransListingPageHeader.php');
+		include ('includes/PDFCustTransListingPageHeader.php');
 	}
 	/*end of new page header  */
 }
 /* end of while there are customer receipts in the batch to print */
 
-
-$YPos -= $line_height;
+$YPos-= $line_height;
 $LeftOvers = $PDF->addTextWrap($Left_Margin + 452, $YPos, 70, $FontSize, locale_number_format($TotalAmount, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 $LeftOvers = $PDF->addTextWrap($Left_Margin + 265, $YPos, 300, $FontSize, _('Total') . '  ' . _('Transactions') . ' ' . $_SESSION['CompanyRecord']['currencydefault'], 'left');
 

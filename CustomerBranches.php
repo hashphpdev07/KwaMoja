@@ -1,9 +1,8 @@
 <?php
-
 include ('includes/session.php');
-$Title = _('Customer Branches');// Screen identification.
-$ViewTopic = 'AccountsReceivable';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'NewCustomerBranch';// Anchor's id in the manual's html document.
+$Title = _('Customer Branches'); // Screen identification.
+$ViewTopic = 'AccountsReceivable'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'NewCustomerBranch'; // Anchor's id in the manual's html document.
 include ('includes/header.php');
 include ('includes/CountriesArray.php');
 
@@ -35,7 +34,6 @@ if (isset($_POST['submit'])) {
 	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	$_POST['BranchCode'] = mb_strtoupper($_POST['BranchCode']);
 
 	if ($_SESSION['SalesmanLogin'] != '') {
@@ -106,7 +104,6 @@ if (isset($_POST['submit'])) {
 	if (isset($_FILES['Attachment']) and $_FILES['Attachment']['name'] != '' and $InputError != 1) {
 
 		$UploadTheFile = 'Yes'; //Assume all is well to start off with
-
 		//But check for the worst
 		if (mb_strtoupper(mb_substr(trim($_FILES['Attachment']['name']), mb_strlen($_FILES['Attachment']['name']) - 3)) != 'PDF') {
 			prnMsg(_('Only pdf files are supported - a file extension of .pdf is expected'), 'warn');
@@ -117,9 +114,9 @@ if (isset($_POST['submit'])) {
 		} elseif ($_FILES['Attachment']['type'] != 'application/pdf') { //File Type Check
 			prnMsg(_('Only pdf files can be uploaded'), 'warn');
 			$UploadTheFile = 'No';
-		} elseif ($_FILES['Attachment']['error'] == 6 ) {  //upload temp directory check
-			prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
-			$UploadTheFile ='No';
+		} elseif ($_FILES['Attachment']['error'] == 6) { //upload temp directory check
+			prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+			$UploadTheFile = 'No';
 		} elseif (file_exists($FileName)) {
 			prnMsg(_('Attempting to overwrite an existing item attachment'), 'warn');
 			$Result = unlink($FileName);
@@ -265,7 +262,6 @@ if (isset($_POST['submit'])) {
 	$Msg = _('Customer branch') . '<b> ' . $_POST['BranchCode'] . ': ' . $_POST['BrName'] . ' </b>' . _('has been added, add another branch, or return to the') . ' <a href="index.php">' . _('Main Menu') . '</a>';
 
 	//run the SQL from either of the above possibilites
-
 	$ErrMsg = _('The branch record could not be inserted or updated because');
 	if ($InputError == 0) {
 		$Result = DB_query($SQL, $ErrMsg);
@@ -274,7 +270,7 @@ if (isset($_POST['submit'])) {
 	if (isset($_POST['CashSaleBranch'])) {
 		/* It is possible that the location has changed so
 		 * firstly remove any old record
-		 */
+		*/
 		$SQL = "UPDATE locations SET cashsalecustomer='',
 									 cashsalebranch=''
 								WHERE cashsalecustomer='" . $DebtorNo . "'
@@ -328,9 +324,7 @@ if (isset($_POST['submit'])) {
 	}
 } else if (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
-
 	$SQL = "SELECT COUNT(*) FROM debtortrans WHERE debtortrans.branchcode='" . $SelectedBranch . "' AND debtorno = '" . $DebtorNo . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -400,7 +394,7 @@ if (isset($_POST['submit'])) {
 				}
 			}
 		} //end ifs to test if the branch can be deleted
-
+		
 	}
 }
 if (!isset($SelectedBranch)) {
@@ -470,8 +464,8 @@ if (!isset($SelectedBranch)) {
 					<td><a href="Mailto:', $MyRow['email'], '">', $MyRow['email'], '</a></td>
 					<td>', $MyRow['taxgroupdescription'], '</td>
 					<td>', $MyRow['disabletrans'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode(stripslashes($DebtorNo)), '&amp;SelectedBranch=', urlencode($MyRow['branchcode']), '">', _('Edit'), '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode(stripslashes($DebtorNo)), '&amp;SelectedBranch=', urlencode($MyRow['branchcode']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this branch?') . '\', \'Confirm Delete\', this);">', _('Delete Branch'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode(stripslashes($DebtorNo)), '&amp;SelectedBranch=', urlencode($MyRow['branchcode']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode(stripslashes($DebtorNo)), '&amp;SelectedBranch=', urlencode($MyRow['branchcode']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this branch?') . '\', \'Confirm Delete\', this);">', _('Delete Branch'), '</a></td>
 				</tr>';
 
 			if ($MyRow['disabletrans'] == _('No')) {
@@ -514,12 +508,11 @@ if (!isset($SelectedBranch)) {
 }
 
 if (!isset($_GET['delete'])) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedBranch)) {
 		//editing an existing branch
-
 		$SQL = "SELECT branchcode,
 						debtorno,
 						brname,
@@ -608,7 +601,7 @@ if (!isset($_GET['delete'])) {
 		echo '<input type="hidden" name="BranchCode" value="' . stripslashes($_POST['BranchCode']) . '" />';
 
 		if (isset($SelectedBranch)) {
-			echo '<div class="toplink"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . urlencode(stripslashes($DebtorNo)) . '">' . _('Show all branches defined for') . ' ' . stripslashes($DebtorNo) . '</a></div>';
+			echo '<div class="toplink"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?DebtorNo=' . urlencode(stripslashes($DebtorNo)) . '">' . _('Show all branches defined for') . ' ' . stripslashes($DebtorNo) . '</a></div>';
 		}
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />
 				 ' . ' ' . _('Change Details for Branch') . ' ' . stripslashes($SelectedBranch) . '</p>';
@@ -625,7 +618,6 @@ if (!isset($_GET['delete'])) {
 			</tr>';
 
 	} else { //end of if $SelectedBranch only do the else when a new record is being entered
-
 		/* SETUP ANY $_GET VALUES THAT ARE PASSED.  This really is just used coming from the Customers.php when a new customer is created.
 		Maybe should only do this when that page is the referrer?
 		*/
@@ -783,7 +775,6 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
 
 	} //end while loop
-
 	echo '</select></td>
 		</tr>';
 	DB_data_seek($Result, 0);
@@ -825,15 +816,14 @@ if (!isset($_GET['delete'])) {
 			echo $MyRow['salesmancode'] . '">' . $MyRow['salesmanname'] . '</option>';
 
 		} //end while loop
-
 		echo '</select></td>
 			</tr>';
 
 		//	DB_data_seek($Result,0); //by thumb
-
+		
 	}
 
-// BEGIN: **********************************************************************
+	// BEGIN: **********************************************************************
 	$SQL = "SELECT locations.loccode,
 					locationname
 				FROM locations
@@ -866,8 +856,7 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 
 	} //end while loop
-// END: ************************************************************************
-
+	// END: ************************************************************************
 	echo '</select></td>
 		</tr>';
 
@@ -929,7 +918,6 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['taxgroupid'] . '">' . $MyRow['taxgroupdescription'] . '</option>';
 
 	} //end while loop
-
 	echo '</select></td>
 		</tr>';
 
@@ -1058,6 +1046,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
 include ('includes/footer.php');
 ?>

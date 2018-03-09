@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Stock Category Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 // BEGIN: Stock Type Name array.
 $SQL = "SELECT type,
@@ -17,7 +16,6 @@ while ($Row = DB_fetch_array($Result)) {
 }
 asort($StockTypeName);
 // END: Stock Type Name array.
-
 // BEGIN: Tax Category Name array.
 $TaxCategoryName = array();
 $Query = "SELECT taxcatid, taxcatname FROM taxcategories ORDER BY taxcatname";
@@ -26,7 +24,6 @@ while ($Row = DB_fetch_array($Result)) {
 	$TaxCategoryName[$Row['taxcatid']] = $Row['taxcatname'];
 }
 // END: Tax Category Name array.
-
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory Adjustment') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_GET['SelectedCategory'])) {
@@ -50,7 +47,7 @@ if (isset($_POST['UpdateProperties'])) {
 		$_POST['PropertyCounter'] = 0;
 	}
 
-	for ($i = 0; $i <= $_POST['PropertyCounter']; $i++) {
+	for ($i = 0;$i <= $_POST['PropertyCounter'];$i++) {
 
 		if (isset($_POST['PropReqSO' . $i]) and $_POST['PropReqSO' . $i] == true) {
 			$_POST['PropReqSO' . $i] = 1;
@@ -108,10 +105,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	$_POST['CategoryID'] = mb_strtoupper($_POST['CategoryID']);
 
 	$SQL = "SELECT type FROM stocktypes WHERE type='" . $_POST['StockType'] . "'";
@@ -133,7 +129,7 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 		prnMsg(_('The stock type selected must exist'), 'error');
 	}
-	for ($i = 0; $i <= $_POST['PropertyCounter']; $i++) {
+	for ($i = 0;$i <= $_POST['PropertyCounter'];$i++) {
 		if (isset($_POST['PropNumeric' . $i]) and $_POST['PropNumeric' . $i] == true) {
 			if (!is_numeric(filter_number_format($_POST['PropMinimum' . $i]))) {
 				$InputError = 1;
@@ -145,7 +141,6 @@ if (isset($_POST['submit'])) {
 			}
 		}
 	} //check the properties are sensible
-
 	if (isset($SelectedCategory) and $InputError != 1) {
 
 		/*SelectedCategory could also exist if submit had not been clicked this code
@@ -169,7 +164,7 @@ if (isset($_POST['submit'])) {
 			$_POST['PropertyCounter'] = 0;
 		}
 
-		for ($i = 0; $i <= $_POST['PropertyCounter']; $i++) {
+		for ($i = 0;$i <= $_POST['PropertyCounter'];$i++) {
 
 			if (isset($_POST['PropReqSO' . $i]) and $_POST['PropReqSO' . $i] == true) {
 				$_POST['PropReqSO' . $i] = 1;
@@ -214,7 +209,6 @@ if (isset($_POST['submit'])) {
 			}
 
 		} //end of loop round properties
-
 		prnMsg(_('Updated the stock category record for') . ' ' . stripslashes($_POST['CategoryDescription']), 'success');
 		unset($SelectedCategory);
 		unset($_POST['CategoryID']);
@@ -257,7 +251,6 @@ if (isset($_POST['submit'])) {
 
 	}
 	//run the SQL from either of the above possibilites
-
 	unset($_POST['StockType']);
 	unset($_POST['CategoryDescription']);
 	unset($_POST['StockAct']);
@@ -267,12 +260,9 @@ if (isset($_POST['submit'])) {
 	unset($_POST['MaterialUseageVarAc']);
 	unset($_POST['WIPAct']);
 
-
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'StockMaster'
-
 	$SQL = "SELECT stockid FROM stockmaster WHERE stockmaster.categoryid='" . $SelectedCategory . "'";
 	$Result = DB_query($SQL);
 
@@ -299,6 +289,7 @@ if (isset($_POST['submit'])) {
 			}
 		}
 	} //end if stock category used in debtor transactions
+	
 }
 
 if (!isset($SelectedCategory)) {
@@ -337,7 +328,6 @@ if (!isset($SelectedCategory)) {
 			</tr>';
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr class="striped_row">
 				<td>' . $MyRow['categoryid'] . '</td>
@@ -350,8 +340,8 @@ if (!isset($SelectedCategory)) {
 				<td class="number">' . $MyRow['purchpricevaract'] . '</td>
 				<td class="number">' . $MyRow['materialuseagevarac'] . '</td>
 				<td class="number">' . $MyRow['wipact'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedCategory=' . urlencode($MyRow['categoryid']) . '">' . _('Edit') . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedCategory=' . urlencode($MyRow['categoryid']) . '&delete=yes" onclick="return MakeConfirm("' . _('Are you sure you wish to delete this stock category? Additional checks will be performed before actual deletion to ensure data integrity is not compromised.') . '", \'Confirm Delete\', this);">' . _('Delete') . '</td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedCategory=' . urlencode($MyRow['categoryid']) . '">' . _('Edit') . '</td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedCategory=' . urlencode($MyRow['categoryid']) . '&delete=yes" onclick="return MakeConfirm("' . _('Are you sure you wish to delete this stock category? Additional checks will be performed before actual deletion to ensure data integrity is not compromised.') . '", \'Confirm Delete\', this);">' . _('Delete') . '</td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -359,8 +349,7 @@ if (!isset($SelectedCategory)) {
 }
 
 //end of ifs and buts!
-
-echo '<form name="CategoryForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form name="CategoryForm" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedCategory)) {
@@ -391,7 +380,7 @@ if (isset($SelectedCategory)) {
 		$_POST['PurchPriceVarAct'] = $MyRow['purchpricevaract'];
 		$_POST['MaterialUseageVarAc'] = $MyRow['materialuseagevarac'];
 		$_POST['WIPAct'] = $MyRow['wipact'];
-		$_POST['DefaultTaxCatID']  = $MyRow['defaulttaxcatid'];
+		$_POST['DefaultTaxCatID'] = $MyRow['defaulttaxcatid'];
 	}
 	echo '<input type="hidden" name="SelectedCategory" value="' . $SelectedCategory . '" />';
 	echo '<input type="hidden" name="CategoryID" value="' . $_POST['CategoryID'] . '" />';
@@ -455,7 +444,7 @@ echo '<tr>
 		<td>' . _('Stock Type') . '</td>
 		<td><select id="StockType" name="StockType" onChange="ReloadForm(CategoryForm.UpdateTypes)" >';
 foreach ($StockTypeName as $StockTypeId => $Row) {
-	if (isset($_POST['StockType']) and $_POST['StockType']==$StockTypeId) {
+	if (isset($_POST['StockType']) and $_POST['StockType'] == $StockTypeId) {
 		echo '<option selected="selected" value="' . $StockTypeId . '">' . $Row . '</option>';
 	} else {
 		echo '<option value="' . $StockTypeId . '">' . $Row . '</option>';
@@ -480,7 +469,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['taxcatid'] . '">' . $MyRow['taxcatname'] . '</option>';
 	}
 } //end while loop
-
 echo '</select></td>
 	</tr>';
 
@@ -604,7 +592,6 @@ echo '</select></td>
 
 if (isset($SelectedCategory)) {
 	//editing an existing stock category
-
 	$SQL = "SELECT stkcatpropid,
 					label,
 					controltype,
@@ -676,7 +663,7 @@ if (isset($SelectedCategory)) {
 			echo '<td align="center"><input type="checkbox" name="PropReqSO' . $PropertyCounter . '" /></td>';
 		}
 
-		echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DeleteProperty=' . $MyRow['stkcatpropid'] . '&SelectedCategory=' . $SelectedCategory . '" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this property? All properties of this type set up for stock items will also be deleted.') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</td>
+		echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?DeleteProperty=' . $MyRow['stkcatpropid'] . '&SelectedCategory=' . $SelectedCategory . '" onclick=\'return MakeConfirm("' . _('Are you sure you wish to delete this property? All properties of this type set up for stock items will also be deleted.') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</td>
 			</tr>';
 
 		$PropertyCounter++;
@@ -709,8 +696,8 @@ echo '<div class="centre">
 	</form>';
 
 if (isset($SelectedCategory)) {
-	echo '<div style="text-align: right"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Stock Categories') . '</a></div>';
+	echo '<div style="text-align: right"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Stock Categories') . '</a></div>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

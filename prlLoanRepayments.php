@@ -1,11 +1,11 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Employee Loan Repayments');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -16,19 +16,19 @@ if (isset($_POST['Process'])) {
 	$SQL = "SELECT numberofpayday, dayofpay FROM prlpayperiod WHERE payperiodid='" . $_POST['PayPeriodID'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
-	switch($MyRow['numberofpayday']) {
+	switch ($MyRow['numberofpayday']) {
 		case 12:
-			$NextDeductionDate= DateAdd($_POST['PayrollDate'], 'm', 1);
-			break;
+			$NextDeductionDate = DateAdd($_POST['PayrollDate'], 'm', 1);
+		break;
 		case 52:
-			$NextDeductionDate= DateAdd($_POST['PayrollDate'], 'w', 1);
-			break;
+			$NextDeductionDate = DateAdd($_POST['PayrollDate'], 'w', 1);
+		break;
 		default:
-			$NextDeductionDate= DateAdd($_POST['PayrollDate'], 'm', 1);
-			break;
+			$NextDeductionDate = DateAdd($_POST['PayrollDate'], 'm', 1);
+		break;
 	}
 
-	foreach ($_POST as $Key=>$Value) {
+	foreach ($_POST as $Key => $Value) {
 		if (substr($Key, 0, 7) == 'Payment') {
 			$Index = substr($Key, 7);
 			$Amount = $Value;
@@ -103,12 +103,12 @@ if (isset($_POST['Process'])) {
 			}
 		}
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 if (!isset($_POST['PayPeriodID'])) {
-	echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	echo '<tr>
@@ -149,7 +149,7 @@ if (!isset($_POST['PayPeriodID'])) {
 					AND prlloanfile.loanbalance>0";
 	$Result = DB_query($SQL);
 
-	echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="PayPeriodID" value="' . $_POST['PayPeriodID'] . '" />';
 	echo '<input type="hidden" name="PayrollDate" value="' . $_POST['PayrollDate'] . '" />';
@@ -182,6 +182,6 @@ if (!isset($_POST['PayPeriodID'])) {
 	}
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

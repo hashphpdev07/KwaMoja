@@ -1,23 +1,21 @@
 <?php
-
 /*The credit selection screen uses the Cart class used for the making up orders
-some of the variable names refer to order - please think credit when you read order */
+ some of the variable names refer to order - please think credit when you read order */
 
-include('includes/DefineCartClass.php');
-include('includes/DefineSerialItems.php');
+include ('includes/DefineCartClass.php');
+include ('includes/DefineSerialItems.php');
 /* Session started in session.php for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Create Credit Note');
 
 /* Manual links before header.php */
 $ViewTopic = 'ARTransactions';
 $BookMark = 'CreditItems';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/GetSalesTransGLCodes.php');
-include('includes/GetPrice.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/GetSalesTransGLCodes.php');
+include ('includes/GetPrice.php');
 
 if (empty($_GET['identifier'])) {
 	/*unique session identifier to ensure that there is no conflict with other order entry sessions on the same machine  */
@@ -29,7 +27,7 @@ if (empty($_GET['identifier'])) {
 if (isset($_POST['ProcessCredit']) and !isset($_SESSION['CreditItems' . $Identifier])) {
 	prnMsg(_('This credit note has already been processed. Refreshing the page will not enter the credit note again') . '<br />' . _('Please use the navigation links provided rather than using the browser back button and then having to refresh'), 'info');
 	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -40,7 +38,6 @@ if (isset($_GET['NewCredit'])) {
 		unset($_SESSION['CreditItems' . $Identifier]);
 	}
 }
-
 
 if (!isset($_SESSION['CreditItems' . $Identifier])) {
 	/* It must be a new credit note being created $_SESSION['CreditItems'.$Identifier] would be set up from a previous call*/
@@ -64,7 +61,6 @@ if (isset($_POST['CancelCredit'])) {
 	$_SESSION['CreditItems' . $Identifier] = new cart;
 	$_SESSION['RequireCustomerSelection'] = 1;
 }
-
 
 if (isset($_POST['SearchCust']) and $_SESSION['RequireCustomerSelection'] == 1) {
 
@@ -101,10 +97,9 @@ if (isset($_POST['SearchCust']) and $_SESSION['RequireCustomerSelection'] == 1) 
 }
 /*end of if search button for customers was hit*/
 
-
 if (isset($_POST['JustSelectedACustomer']) and !isset($SelectedCustomer)) {
 	/*Need to figure out the number of the form variable that the user clicked on */
-	for ($i = 1; $i < count($_POST); $i++) { //loop through the returned customers
+	for ($i = 1;$i < count($_POST);$i++) { //loop through the returned customers
 		if (isset($_POST['SubmitCustomerSelection' . $i])) {
 			break;
 		}
@@ -117,7 +112,6 @@ if (isset($_POST['JustSelectedACustomer']) and !isset($SelectedCustomer)) {
 	}
 }
 
-
 if (isset($SelectedCustomer) and isset($_POST['JustSelectedACustomer'])) {
 
 	/*will only be true if page called from customer selection form
@@ -129,7 +123,7 @@ if (isset($SelectedCustomer) and isset($_POST['JustSelectedACustomer'])) {
 	$_SESSION['RequireCustomerSelection'] = 0;
 
 	/*  default the branch information from the customer branches table CustBranch -particularly where the stock
-	will be booked back into. */
+	 will be booked back into. */
 
 	$SQL = "SELECT debtorsmaster.name,
 					debtorsmaster.salestype,
@@ -163,7 +157,7 @@ if (isset($SelectedCustomer) and isset($_POST['JustSelectedACustomer'])) {
 	$MyRow = DB_fetch_array($Result);
 
 	/* the sales type determines the price list to be used by default the customer of the user is
-	defaulted from the entry of the userid and password.  */
+	 defaulted from the entry of the userid and password.  */
 	$_SESSION['CreditItems' . $Identifier]->CustomerName = $MyRow['name'];
 	$_SESSION['CreditItems' . $Identifier]->DefaultSalesType = $MyRow['salestype'];
 	$_SESSION['CreditItems' . $Identifier]->DefaultCurrency = $MyRow['currcode'];
@@ -186,9 +180,9 @@ if (isset($SelectedCustomer) and isset($_POST['JustSelectedACustomer'])) {
 }
 
 /* if the change customer button hit or the customer has not already been selected */
-if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems' . $Identifier]->DebtorNo) OR $_SESSION['CreditItems' . $Identifier]->DebtorNo == '') {
+if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems' . $Identifier]->DebtorNo) or $_SESSION['CreditItems' . $Identifier]->DebtorNo == '') {
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Customer For Credit Note') . '</p>';
 
@@ -243,6 +237,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			$LastCustomer = $MyRow['name'];
 			++$j;
 			//end of page full new headings if
+			
 		} //end of while loop
 		echo '</tbody>
 			</table>
@@ -250,11 +245,11 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 	} //end if results to show
 	echo '</form>';
 
-
 	//end if RequireCustomerSelection
+	
 } else {
 	/* everything below here only do if a customer is selected
-	first add a header to show who we are making a credit note for */
+	 first add a header to show who we are making a credit note for */
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $_SESSION['CreditItems' . $Identifier]->CustomerName . ' - ' . $_SESSION['CreditItems' . $Identifier]->DeliverTo . '</p>';
 
@@ -371,13 +366,11 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		}
 
 	} //end of if search for parts to add to the credit note
-
 	/*Always do the stuff below if not looking for a customerid
-	Set up the form for the credit note display and  entry*/
+	 Set up the form for the credit note display and  entry*/
 
-	echo '<form id="MainForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+	echo '<form id="MainForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 	/*Process Quick Entry */
 	if (isset($_POST['QuickEntry'])) {
@@ -403,7 +396,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $OrderItem) {
 
 				/* do a loop round the items on the credit note to see that the item
-				is not already on this credit note */
+				 is not already on this credit note */
 
 				if ($_SESSION['SO_AllowSameItemMultipleTimes'] == 0 and strcasecmp($OrderItem->StockID, $_POST['NewItem']) == 0) {
 					$AlreadyOnThisCredit = 1;
@@ -455,15 +448,15 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 				}
 			}
 			/* end of if not already on the credit note */
-		} while ($i <= $_SESSION['QuickEntries']);
+		}
+		while ($i <= $_SESSION['QuickEntries']);
 		/*loop to the next quick entry record */
 		unset($_POST['NewItem']);
 	}
 	/* end of if quick entry */
 
-
 	/* setup system defaults for looking up prices and the number of ordered items
-	if an item has been selected for adding to the basket add it to the session arrays */
+	 if an item has been selected for adding to the basket add it to the session arrays */
 	if ($_SESSION['CreditItems' . $Identifier]->ItemsOrdered > 0 or isset($_POST['NewItem'])) {
 
 		if (isset($_GET['Delete'])) {
@@ -500,9 +493,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 						$TaxTotalPercent = 0;
 						foreach ($LineItem->Taxes as $Tax) {
 							if ($Tax->TaxOnTax == 1) {
-								$TaxTotalPercent += (1 + $TaxTotalPercent) * $Tax->TaxRate;
+								$TaxTotalPercent+= (1 + $TaxTotalPercent) * $Tax->TaxRate;
 							} else {
-								$TaxTotalPercent += $Tax->TaxRate;
+								$TaxTotalPercent+= $Tax->TaxRate;
 							}
 						}
 						$Price = round(filter_number_format($_POST['Price_' . $LineItem->LineNumber]) / ($TaxTotalPercent + 1), $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
@@ -541,7 +534,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $OrderItem) {
 
 				/* do a loop round the items on the credit note to see that the item
-				is not already on this credit note */
+				 is not already on this credit note */
 
 				if ($_SESSION['SO_AllowSameItemMultipleTimes'] == 0 and strcasecmp($OrderItem->StockID, $_POST['NewItem']) == 0) {
 					$AlreadyOnThisCredit = 1;
@@ -642,7 +635,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			<td><input type="text" class="number" name="Discount_' . $LineItem->LineNumber . '" size="3" required="required" maxlength="3" value="' . locale_number_format(($LineItem->DiscountPercent * 100), 'Variable') . '" />%</td>
 			<td class="number">' . $DisplayLineTotal . '</td>';
 
-
 			/*Need to list the taxes applicable to this line */
 			echo '<td>';
 			foreach ($_SESSION['CreditItems' . $Identifier]->LineItems[$LineItem->LineNumber]->Taxes as $Tax) {
@@ -654,7 +646,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 
 			$i = 0; // initialise the number of taxes iterated through
 			$TaxLineTotal = 0; //initialise tax total for the line
-
 			foreach ($LineItem->Taxes as $TaxKey => $Tax) {
 
 				if ($i > 0) {
@@ -663,33 +654,32 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 				echo '<input type="text" class="number" name="' . $LineItem->LineNumber . $TaxKey . '_TaxRate" maxlength="4" size="4" value="' . locale_number_format($Tax->TaxRate * 100, 'Variable') . '" />';
 				++$i;
 				if ($Tax->TaxOnTax == 1) {
-					$TaxTotals[$Tax->TaxAuthID] += ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
-					$TaxLineTotal += ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
+					$TaxTotals[$Tax->TaxAuthID]+= ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
+					$TaxLineTotal+= ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
 				} else {
-					$TaxTotals[$Tax->TaxAuthID] += ($Tax->TaxRate * $LineTotal);
-					$TaxLineTotal += ($Tax->TaxRate * $LineTotal);
+					$TaxTotals[$Tax->TaxAuthID]+= ($Tax->TaxRate * $LineTotal);
+					$TaxLineTotal+= ($Tax->TaxRate * $LineTotal);
 				}
 				$TaxGLCodes[$Tax->TaxAuthID] = $Tax->TaxGLCode;
 			}
 			echo '</td>';
 
-			$TaxTotal += $TaxLineTotal;
+			$TaxTotal+= $TaxLineTotal;
 
 			$DisplayTaxAmount = locale_number_format($TaxLineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 			$DisplayGrossLineTotal = locale_number_format($LineTotal + $TaxLineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
 			echo '<td class="number">' . $DisplayTaxAmount . '</td>
 				<td class="number">' . $DisplayGrossLineTotal . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $LineItem->LineNumber . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this line item from the credit note?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $LineItem->LineNumber . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this line item from the credit note?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 
 			echo $RowStarter;
 			echo '<td colspan="11"><textarea  name="Narrative_' . $LineItem->LineNumber . '" cols="100%" rows="1">' . $LineItem->Narrative . '</textarea><br /></td></tr>';
 
-
-			$_SESSION['CreditItems' . $Identifier]->total += $LineTotal;
-			$_SESSION['CreditItems' . $Identifier]->totalVolume += ($LineItem->Quantity * $LineItem->Volume);
-			$_SESSION['CreditItems' . $Identifier]->totalWeight += ($LineItem->Quantity * $LineItem->Weight);
+			$_SESSION['CreditItems' . $Identifier]->total+= $LineTotal;
+			$_SESSION['CreditItems' . $Identifier]->totalVolume+= ($LineItem->Quantity * $LineItem->Volume);
+			$_SESSION['CreditItems' . $Identifier]->totalWeight+= ($LineItem->Quantity * $LineItem->Weight);
 		}
 
 		if (!isset($_POST['ChargeFreightCost']) and !isset($_SESSION['CreditItems' . $Identifier]->FreightCost)) {
@@ -702,7 +692,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			<td><input type="text" class="number" size="6" required="required" maxlength="6" name="ChargeFreightCost" value="' . locale_number_format($_SESSION['CreditItems' . $Identifier]->FreightCost, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>';
 
 		$FreightTaxTotal = 0; //initialise tax total
-
 		echo '<td>';
 
 		$i = 0; // initialise the number of taxes iterated through
@@ -725,11 +714,11 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			echo '<input type="text" class="number" name=FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder . ' required="required" maxlength="4" size="4" value="' . locale_number_format(($FreightTaxLine->TaxRate * 100), 'Variable') . '" />';
 
 			if ($FreightTaxLine->TaxOnTax == 1) {
-				$TaxTotals[$FreightTaxLine->TaxAuthID] += ($FreightTaxLine->TaxRate * ($_SESSION['CreditItems' . $Identifier]->FreightCost + $FreightTaxTotal));
-				$FreightTaxTotal += ($FreightTaxLine->TaxRate * ($_SESSION['CreditItems' . $Identifier]->FreightCost + $FreightTaxTotal));
+				$TaxTotals[$FreightTaxLine->TaxAuthID]+= ($FreightTaxLine->TaxRate * ($_SESSION['CreditItems' . $Identifier]->FreightCost + $FreightTaxTotal));
+				$FreightTaxTotal+= ($FreightTaxLine->TaxRate * ($_SESSION['CreditItems' . $Identifier]->FreightCost + $FreightTaxTotal));
 			} else {
-				$TaxTotals[$FreightTaxLine->TaxAuthID] += ($FreightTaxLine->TaxRate * $_SESSION['CreditItems' . $Identifier]->FreightCost);
-				$FreightTaxTotal += ($FreightTaxLine->TaxRate * $_SESSION['CreditItems' . $Identifier]->FreightCost);
+				$TaxTotals[$FreightTaxLine->TaxAuthID]+= ($FreightTaxLine->TaxRate * $_SESSION['CreditItems' . $Identifier]->FreightCost);
+				$FreightTaxTotal+= ($FreightTaxLine->TaxRate * $_SESSION['CreditItems' . $Identifier]->FreightCost);
 			}
 			++$i;
 			$TaxGLCodes[$FreightTaxLine->TaxAuthID] = $FreightTaxLine->TaxGLCode;
@@ -740,7 +729,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 			<td class="number">' . locale_number_format($FreightTaxTotal + $_SESSION['CreditItems' . $Identifier]->FreightCost, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '</td>
 			</tr>';
 
-		$TaxTotal += $FreightTaxTotal;
+		$TaxTotal+= $FreightTaxTotal;
 		$DisplayTotal = locale_number_format($_SESSION['CreditItems' . $Identifier]->total + $_SESSION['CreditItems' . $Identifier]->FreightCost, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
 		echo '<tr>
@@ -775,7 +764,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		}
 
 		echo '</select></td></tr>';
-
 
 		if (!isset($_POST['CreditType']) or $_POST['CreditType'] == 'Return') {
 
@@ -877,7 +865,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 		}
 		echo '</div>';
 	} // end of if lines
-
+	
 
 	/* Now show the stock item selection search stuff below */
 
@@ -940,12 +928,11 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 
 			$j = 1;
 			$k = 0; //row colour counter
-
 			while ($MyRow = DB_fetch_array($SearchResult)) {
 
 				$SupportedImgExt = array('png', 'jpg', 'jpeg');
 				$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
-				if (extension_loaded('gd') && function_exists('gd_info') && file_exists ($ImageFile) ) {
+				if (extension_loaded('gd') && function_exists('gd_info') && file_exists($ImageFile)) {
 					$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
 					printf('<tr class="striped_row">
 								<td><input type="submit" name="NewItem" value="%s" /></td>
@@ -962,10 +949,12 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 							</tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units']);
 				}
 				//end of page full new headings if
+				
 			}
 			//end of while loop
 			echo '</table>';
 		} //end if SearchResults to show
+		
 	}
 	/*end if part searching required */
 	elseif (!isset($_POST['ProcessCredit'])) {
@@ -981,7 +970,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 	           		<th>' . _('Quantity') . '</th>
 	           	</tr>';
 
-		for ($i = 1; $i <= $_SESSION['QuickEntries']; $i++) {
+		for ($i = 1;$i <= $_SESSION['QuickEntries'];$i++) {
 
 			echo '<tr class="striped_row">
 					<td><input type="text" name="part_' . $i . '" size="21" maxlength="20" /></td>
@@ -1000,11 +989,10 @@ if ($_SESSION['RequireCustomerSelection'] == 1 OR !isset($_SESSION['CreditItems'
 
 	echo '</form>';
 } //end of else not selecting a customer
-
 if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 	/* SQL to process the postings for sales credit notes...
-	First Get the area where the credit note is to from the branches table */
+	 First Get the area where the credit note is to from the branches table */
 
 	$SQL = "SELECT area
 		 	FROM custbranch
@@ -1023,10 +1011,9 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	if ($_SESSION['CompanyRecord']['gllink_stock'] == 1 and $_POST['CreditType'] == 'WriteOff' and (!isset($_POST['WriteOffGLCode']) or $_POST['WriteOffGLCode'] == '')) {
 
 		prnMsg(_('For credit notes created to write off the stock a general ledger account is required to be selected. Please select an account to write the cost of the stock off to then click on Process again'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
-
 
 	/*Now Get the next credit note number - function in SQL_CommonFunctions*/
 
@@ -1036,7 +1023,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 	/*Start an SQL transaction */
 	DB_Txn_Begin();
-
 
 	/*Now insert the Credit Note into the DebtorTrans table allocations will have to be done seperately*/
 
@@ -1073,7 +1059,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 	$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The customer credit note transaction could not be added to the database because');
 	$DbgMsg = _('The following SQL to insert the customer credit note was used');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-
 
 	$CreditTransID = DB_Last_Insert_ID('debtortrans', 'id');
 
@@ -1117,6 +1102,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 				}
 			} else {
 				$QtyOnHandPrior = 0; //because its a dummy/assembly/kitset part
+				
 			}
 
 			if ($_POST['CreditType'] == 'ReverseOverCharge') {
@@ -1162,7 +1148,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			} else { //its a return or a write off need to record goods coming in first
-
 				if ($CreditLine->MBflag == "M" or $CreditLine->MBflag == "B") {
 					$SQL = "INSERT INTO stockmoves (stockid,
 													type,
@@ -1261,7 +1246,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				}
 
-
 				if (($CreditLine->MBflag == 'M' or $CreditLine->MBflag == 'B') and $CreditLine->Controlled == 1) {
 					/*Need to do the serial stuff in here now */
 
@@ -1280,7 +1264,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 						if ($MyRow[0] == 0) {
 							/*The StockSerialItem record didnt exist
-							so insert a new record */
+							 so insert a new record */
 							$SQL = "INSERT INTO stockserialitems ( stockid,
 																loccode,
 																serialno,
@@ -1353,7 +1337,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 					$StandardCost = 0;
 					/*To start with then accumulate the cost of the comoponents
-					for use in journals later on */
+					 for use in journals later on */
 
 					$SQL = "SELECT bom.component,
 									bom.quantity,
@@ -1372,7 +1356,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 					while ($AssParts = DB_fetch_array($AssResult)) {
 
-						$StandardCost += $AssParts['standard'] * $AssParts['quantity'];
+						$StandardCost+= $AssParts['standard'] * $AssParts['quantity'];
 
 						/*Need to get the current location quantity will need it later for the stock movement */
 						$SQL = "SELECT locstock.quantity
@@ -1437,9 +1421,8 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 					}
 					/* end of assembly explosion and updates */
 
-
 					/*Update the cart with the recalculated standard cost
-					from the explosion of the assembly's components*/
+					 from the explosion of the assembly's components*/
 					$_SESSION['CreditItems' . $Identifier]->LineItems[$CreditLine->LineNumber]->StandardCost = $StandardCost;
 					$CreditLine->StandardCost = $StandardCost;
 				}
@@ -1449,7 +1432,7 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 				if ($CreditLine->MBflag == 'B' or $CreditLine->MBflag == 'M') {
 					/* Insert stock movements for the
-					item being written off - with unit cost */
+					 item being written off - with unit cost */
 					$SQL = "INSERT INTO stockmoves ( stockid,
 													type,
 													transno,
@@ -1530,13 +1513,13 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 
 				if (($CreditLine->MBflag == 'M' or $CreditLine->MBflag == 'B') and $CreditLine->Controlled == 1) {
 					/*Its a write off too still so need to process the serial items
-					written off */
+					 written off */
 
 					$StkMoveNo = DB_Last_Insert_ID('stockmoves', 'stkmoveno');
 
 					foreach ($CreditLine->SerialItems as $Item) {
 						/*no need to check StockSerialItems record exists
-						it would have been added by the return stock movement above */
+						 it would have been added by the return stock movement above */
 						$SQL = "UPDATE stockserialitems SET quantity= quantity - " . $Item->BundleQty . "
 								WHERE stockid='" . $CreditLine->StockID . "'
 								AND loccode='" . $_SESSION['CreditItems' . $Identifier]->Location . "'
@@ -1719,7 +1702,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 			$DbgMsg = _('The following SQL to insert the sales analysis record was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-
 			/* If GLLink_Stock then insert GLTrans to either debit stock or an expense
 			depending on the valuve of $_POST['CreditType'] and then credit the cost of sales
 			at standard cost*/
@@ -1748,11 +1730,10 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 				$DbgMsg = _('The following SQL to insert the GLTrans record was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-
 				if ($_POST['CreditType'] == 'WriteOff') {
 
 					/* The double entry required is to reverse the cost of sales entry as above
-					then debit the expense account the stock is to written off to */
+					 then debit the expense account the stock is to written off to */
 
 					$SQL = "INSERT INTO gltrans (type,
 												typeno,
@@ -1844,7 +1825,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 										'" . -(($CreditLine->Price * $CreditLine->Quantity * $CreditLine->DiscountPercent) / $_SESSION['CurrencyRate']) . "'
 										)";
 
-
 					$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The credit note discount GL posting could not be inserted because');
 					$DbgMsg = _('The following SQL to insert the GLTrans record was used');
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
@@ -1856,7 +1836,6 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 		/*Quantity credited is more than 0 */
 	}
 	/*end of CreditLine loop */
-
 
 	if ($_SESSION['CompanyRecord']['gllink_debtors'] == 1) {
 
@@ -1942,5 +1921,5 @@ if (isset($_POST['ProcessCredit']) and $OKToProcess == true) {
 }
 /*end of process credit note */
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

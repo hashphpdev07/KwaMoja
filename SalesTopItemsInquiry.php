@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Top Sales Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Sales Inquiry') . '" alt="" />' . ' ' . _('Top Sales Items Inquiry') . '</p>';
 echo '<div class="page_help_text">' . _('Select the parameters for the report') . '</div><br />';
@@ -12,7 +11,7 @@ if (!isset($_POST['DateRange'])) {
 	$_POST['DateRange'] = 'ThisMonth';
 }
 
-echo '<form id="form1" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form id="form1" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table cellpadding="2">
@@ -108,7 +107,6 @@ echo ' /></td>
 	</td></tr>
 	</table>';
 
-
 echo '<div class="centre"><input type="submit" name="ShowSales" value="' . _('Show Sales') . '" />';
 echo '</form>';
 
@@ -132,34 +130,34 @@ if (isset($_POST['ShowSales'])) {
 		case 'ThisWeek':
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), date('d') - date('w') + 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'ThisMonth':
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, date('m'), 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'ThisQuarter':
 			switch (date('m')) {
 				case 1:
 				case 2:
 				case 3:
 					$QuarterStartMonth = 1;
-					break;
+				break;
 				case 4:
 				case 5:
 				case 6:
 					$QuarterStartMonth = 4;
-					break;
+				break;
 				case 7:
 				case 8:
 				case 9:
 					$QuarterStartMonth = 7;
-					break;
+				break;
 				default:
 					$QuarterStartMonth = 10;
 			}
 			$FromDate = date('Y-m-d', mktime(0, 0, 0, $QuarterStartMonth, 1, date('Y')));
 			$ToDate = date('Y-m-d');
-			break;
+		break;
 		case 'Custom':
 			$FromDate = FormatDateForSQL($_POST['FromDate']);
 			$ToDate = FormatDateForSQL($_POST['ToDate']);
@@ -195,19 +193,18 @@ if (isset($_POST['ShowSales'])) {
 					stockcategory.categorydescription ";
 
 	if ($_POST['OrderBy'] == 'NetSales') {
-		$SQL .= " ORDER BY netsalesvalue DESC ";
+		$SQL.= " ORDER BY netsalesvalue DESC ";
 	} else {
-		$SQL .= " ORDER BY salesquantity DESC ";
+		$SQL.= " ORDER BY salesquantity DESC ";
 	}
 	if (is_numeric($_POST['NoToDisplay'])) {
 		if ($_POST['NoToDisplay'] > 0) {
-			$SQL .= " LIMIT " . $_POST['NoToDisplay'];
+			$SQL.= " LIMIT " . $_POST['NoToDisplay'];
 		}
 	}
 
 	$ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 	$SalesResult = DB_query($SQL, $ErrMsg);
-
 
 	echo '<table cellpadding="2">';
 
@@ -240,13 +237,12 @@ if (isset($_POST['ShowSales'])) {
 				</tr>';
 		++$i;
 
-		$CumulativeTotalSales += $SalesRow['salesvalue'];
-		$CumulativeTotalRefunds += $SalesRow['returnvalue'];
-		$CumulativeTotalNetSales += ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
-		$CumulativeTotalQuantity += $SalesRow['salesquantity'];
+		$CumulativeTotalSales+= $SalesRow['salesvalue'];
+		$CumulativeTotalRefunds+= $SalesRow['returnvalue'];
+		$CumulativeTotalNetSales+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue']);
+		$CumulativeTotalQuantity+= $SalesRow['salesquantity'];
 
 	} //loop around category sales for the period
-
 	if ($k == 1) {
 		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
 		echo '<tr class="striped_row">';
@@ -264,5 +260,5 @@ if (isset($_POST['ShowSales'])) {
 	echo '</table>';
 
 } //end of if user hit show sales
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

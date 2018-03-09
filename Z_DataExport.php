@@ -1,32 +1,24 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 function stripcomma($str) { //because we're using comma as a delimiter
 	$str = trim($str);
 	$str = str_replace('"', '""', $str);
 	$str = str_replace("\r", "", $str);
 	$str = str_replace("\n", '\n', $str);
-	if ($str == "")
-		return $str;
-	else
-		return '"' . $str . '"';
+	if ($str == "") return $str;
+	else return '"' . $str . '"';
 }
 
 function NULLToZero(&$Field) {
-	if (is_null($Field))
-		return '0';
-	else
-		return $Field;
+	if (is_null($Field)) return '0';
+	else return $Field;
 }
 
 function NULLToPrice(&$Field) {
-	if (is_null($Field))
-		return '-1';
-	else
-		return $Field;
+	if (is_null($Field)) return '-1';
+	else return $Field;
 }
-
 
 // EXPORT FOR PRICE LIST
 if (isset($_POST['pricelist'])) {
@@ -66,13 +58,13 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Price List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Price List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -96,7 +88,7 @@ if (isset($_POST['pricelist'])) {
 
 		$DisplayUnitPrice = $PriceList['price'];
 
-		$CSVContent .= (stripcomma($PriceList['stockid']) . ',' . stripcomma($PriceList['description']) . ',' . stripcomma($PriceList['barcode']) . ',' . stripcomma($PriceList['units']) . ',' . stripcomma($PriceList['mbflag']) . ',' . stripcomma($PriceList['taxcatid']) . ',' . stripcomma($PriceList['discontinued']) . ',' . stripcomma($DisplayUnitPrice) . ',' . stripcomma($Qty) . ',' . stripcomma($PriceList['categoryid']) . ',' . stripcomma($PriceList['categorydescription']) . "\n");
+		$CSVContent.= (stripcomma($PriceList['stockid']) . ',' . stripcomma($PriceList['description']) . ',' . stripcomma($PriceList['barcode']) . ',' . stripcomma($PriceList['units']) . ',' . stripcomma($PriceList['mbflag']) . ',' . stripcomma($PriceList['taxcatid']) . ',' . stripcomma($PriceList['discontinued']) . ',' . stripcomma($DisplayUnitPrice) . ',' . stripcomma($Qty) . ',' . stripcomma($PriceList['categoryid']) . ',' . stripcomma($PriceList['categorydescription']) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -141,18 +133,17 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Customer List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Customer List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('debtorno') . ',' . stripcomma('branchcode') . ',' . stripcomma('name') . ',' . stripcomma('contactname') . ',' . stripcomma('address1') . ',' . stripcomma('address2') . ',' . stripcomma('address3') . ',' . stripcomma('address4') . ',' . stripcomma('address5') . ',' . stripcomma('address6') . ',' . stripcomma('phoneno') . ',' . stripcomma('faxno') . ',' . stripcomma('email') . ',' . stripcomma('currcode') . ',' . stripcomma('clientsince') . ',' . stripcomma('creditlimit') . ',' . stripcomma('taxref') . ',' . stripcomma('disabletrans') . "\n";
-
 
 	while ($CustList = DB_fetch_array($CustResult)) {
 
@@ -173,7 +164,7 @@ if (isset($_POST['pricelist'])) {
 			$Address6 = $CustList['braddress6'];
 		}
 
-		$CSVContent .= (stripcomma($CustList['debtorno']) . ',' . stripcomma($CustList['branchcode']) . ',' . stripcomma($CustList['name']) . ',' . stripcomma($CustList['contactname']) . ',' . stripcomma($Address1) . ',' . stripcomma($Address2) . ',' . stripcomma($Address3) . ',' . stripcomma($Address4) . ',' . stripcomma($Address5) . ',' . stripcomma($Address6) . ',' . stripcomma($CustList['phoneno']) . ',' . stripcomma($CustList['faxno']) . ',' . stripcomma($CustList['email']) . ',' . stripcomma($CustList['currcode']) . ',' . stripcomma($CustList['clientsince']) . ',' . stripcomma($CreditLimit) . ',' . stripcomma($CustList['taxref']) . ',' . stripcomma($CustList['disabletrans']) . "\n");
+		$CSVContent.= (stripcomma($CustList['debtorno']) . ',' . stripcomma($CustList['branchcode']) . ',' . stripcomma($CustList['name']) . ',' . stripcomma($CustList['contactname']) . ',' . stripcomma($Address1) . ',' . stripcomma($Address2) . ',' . stripcomma($Address3) . ',' . stripcomma($Address4) . ',' . stripcomma($Address5) . ',' . stripcomma($Address6) . ',' . stripcomma($CustList['phoneno']) . ',' . stripcomma($CustList['faxno']) . ',' . stripcomma($CustList['email']) . ',' . stripcomma($CustList['currcode']) . ',' . stripcomma($CustList['clientsince']) . ',' . stripcomma($CreditLimit) . ',' . stripcomma($CustList['taxref']) . ',' . stripcomma($CustList['disabletrans']) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -198,18 +189,17 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Salesman List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Salesman List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('salesmancode') . ',' . stripcomma('salesmanname') . ',' . stripcomma('smantel') . ',' . stripcomma('smanfax') . ',' . stripcomma('commissionrate1') . ',' . stripcomma('breakpoint') . ',' . stripcomma('commissionrate2') . "\n";
-
 
 	while ($SalesManList = DB_fetch_array($SalesManResult)) {
 
@@ -217,7 +207,7 @@ if (isset($_POST['pricelist'])) {
 		$BreakPoint = $SalesManList['breakpoint'];
 		$CommissionRate2 = $SalesManList['commissionrate2'];
 
-		$CSVContent .= (stripcomma($SalesManList['salesmancode']) . ',' . stripcomma($SalesManList['salesmanname']) . ',' . stripcomma($SalesManList['smantel']) . ',' . stripcomma($SalesManList['smanfax']) . ',' . stripcomma($CommissionRate1) . ',' . stripcomma($BreakPoint) . ',' . stripcomma($CommissionRate2) . "\n");
+		$CSVContent.= (stripcomma($SalesManList['salesmancode']) . ',' . stripcomma($SalesManList['salesmanname']) . ',' . stripcomma($SalesManList['smantel']) . ',' . stripcomma($SalesManList['smanfax']) . ',' . stripcomma($CommissionRate1) . ',' . stripcomma($BreakPoint) . ',' . stripcomma($CommissionRate2) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -235,21 +225,21 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Security Token List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Image List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('stockid') . ',' . stripcomma('filename') . ',' . stripcomma('url') . "\n";
-	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . dirname(htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8')) . '/' . 'getstockimg.php?automake=1&stockid=%s.png';
+	$baseurl = 'http://' . $_SERVER['HTTP_HOST'] . dirname(htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8')) . '/' . 'getstockimg.php?automake=1&stockid=%s.png';
 	while ($ImageList = DB_fetch_array($ImageResult)) {
 		$url = sprintf($baseurl, urlencode($ImageList['stockid']));
-		$CSVContent .= (stripcomma($ImageList['stockid']) . ',' . stripcomma($ImageList['stockid'] . '.png') . ',' . stripcomma($url) . "\n");
+		$CSVContent.= (stripcomma($ImageList['stockid']) . ',' . stripcomma($ImageList['stockid'] . '.png') . ',' . stripcomma($url) . "\n");
 	}
 
 	header('Content-type: application/csv');
@@ -269,22 +259,21 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Security Token List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Security Token List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('tokenid') . ',' . stripcomma('tokenname') . "\n";
 
-
 	while ($SecTokenList = DB_fetch_array($SecTokenResult)) {
 
-		$CSVContent .= (stripcomma($SecTokenList['tokenid']) . ',' . stripcomma($SecTokenList['tokenname']) . "\n");
+		$CSVContent.= (stripcomma($SecTokenList['tokenid']) . ',' . stripcomma($SecTokenList['tokenname']) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -303,22 +292,21 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Security Role List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Security Role List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('secroleid') . ',' . stripcomma('secrolename') . "\n";
 
-
 	while ($SecRoleList = DB_fetch_array($SecRoleResult)) {
 
-		$CSVContent .= (stripcomma($SecRoleList['secroleid']) . ',' . stripcomma($SecRoleList['secrolename']) . "\n");
+		$CSVContent.= (stripcomma($SecRoleList['secroleid']) . ',' . stripcomma($SecRoleList['secrolename']) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -337,22 +325,21 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Security Group List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Security Group List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('secroleid') . ',' . stripcomma('tokenid') . "\n";
 
-
 	while ($SecGroupList = DB_fetch_array($SecGroupResult)) {
 
-		$CSVContent .= (stripcomma($SecGroupList['secroleid']) . ',' . stripcomma($SecGroupList['tokenid']) . "\n");
+		$CSVContent.= (stripcomma($SecGroupList['secroleid']) . ',' . stripcomma($SecGroupList['tokenid']) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -387,22 +374,21 @@ if (isset($_POST['pricelist'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Security User List Export Problem ....');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Security User List could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	$CSVContent = stripcomma('userid') . ',' . stripcomma('password') . ',' . stripcomma('realname') . ',' . stripcomma('customerid') . ',' . stripcomma('phone') . ',' . stripcomma('email') . ',' . stripcomma('defaultlocation') . ',' . stripcomma('fullaccess') . ',' . stripcomma('lastvisitdate') . ',' . stripcomma('branchcode') . ',' . stripcomma('pagesize') . ',' . stripcomma('modulesallowed') . ',' . stripcomma('blocked') . ',' . stripcomma('displayrecordsmax') . ',' . stripcomma('theme') . ',' . stripcomma('language') . ',' . stripcomma('pinno') . ',' . stripcomma('swipecard') . "\n";
 
-
 	while ($SecUserList = DB_fetch_array($SecUserResult)) {
 
-		$CSVContent .= (stripcomma($SecUserList['userid']) . ',' . stripcomma($SecUserList['password']) . ',' . stripcomma($SecUserList['realname']) . ',' . stripcomma($SecUserList['customerid']) . ',' . stripcomma($SecUserList['phone']) . ',' . stripcomma($SecUserList['email']) . ',' . stripcomma($SecUserList['defaultlocation']) . ',' . stripcomma($SecUserList['fullaccess']) . ',' . stripcomma($SecUserList['lastvisitdate']) . ',' . stripcomma($SecUserList['branchcode']) . ',' . stripcomma($SecUserList['pagesize']) . ',' . stripcomma($SecUserList['modulesallowed']) . ',' . stripcomma($SecUserList['blocked']) . ',' . stripcomma($SecUserList['displayrecordsmax']) . ',' . stripcomma($SecUserList['theme']) . ',' . stripcomma($SecUserList['language']) . ',' . stripcomma($SecUserList['pinno']) . ',' . stripcomma($SecUserList['swipecard']) . "\n");
+		$CSVContent.= (stripcomma($SecUserList['userid']) . ',' . stripcomma($SecUserList['password']) . ',' . stripcomma($SecUserList['realname']) . ',' . stripcomma($SecUserList['customerid']) . ',' . stripcomma($SecUserList['phone']) . ',' . stripcomma($SecUserList['email']) . ',' . stripcomma($SecUserList['defaultlocation']) . ',' . stripcomma($SecUserList['fullaccess']) . ',' . stripcomma($SecUserList['lastvisitdate']) . ',' . stripcomma($SecUserList['branchcode']) . ',' . stripcomma($SecUserList['pagesize']) . ',' . stripcomma($SecUserList['modulesallowed']) . ',' . stripcomma($SecUserList['blocked']) . ',' . stripcomma($SecUserList['displayrecordsmax']) . ',' . stripcomma($SecUserList['theme']) . ',' . stripcomma($SecUserList['language']) . ',' . stripcomma($SecUserList['pinno']) . ',' . stripcomma($SecUserList['swipecard']) . "\n");
 	}
 	header('Content-type: application/csv');
 	header('Content-Length: ' . mb_strlen($CSVContent));
@@ -414,11 +400,10 @@ if (isset($_POST['pricelist'])) {
 	exit;
 } else {
 	$Title = _('Data Exports');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	// SELECT EXPORT FOR PRICE LIST
-
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -449,7 +434,7 @@ if (isset($_POST['pricelist'])) {
 
 	// SELECT EXPORT FOR CUSTOMER LIST
 	// Export Stock For Location
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -471,7 +456,7 @@ if (isset($_POST['pricelist'])) {
 
 	// SELECT EXPORT FOR SALES MAN
 	// Export Stock For Location
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -482,7 +467,7 @@ if (isset($_POST['pricelist'])) {
 	echo '</form>';
 
 	// SELECT EXPORT FOR IMAGES
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -493,7 +478,7 @@ if (isset($_POST['pricelist'])) {
 	echo '</form>';
 
 	// SELECT EXPORT SECURITY TOKENS
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -504,7 +489,7 @@ if (isset($_POST['pricelist'])) {
 	echo '</form>';
 
 	// SELECT EXPORT SECURITY ROLES
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -515,7 +500,7 @@ if (isset($_POST['pricelist'])) {
 	echo '</form>';
 
 	// SELECT EXPORT SECURITY GROUPS
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -526,7 +511,7 @@ if (isset($_POST['pricelist'])) {
 	echo '</form>';
 
 	// SELECT EXPORT SECURITY USERS
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -536,7 +521,6 @@ if (isset($_POST['pricelist'])) {
 	echo '<div class="centre"><input type="submit" name="secuserlist" value="' . _('Export') . '" /></div>';
 	echo '</form>';
 
-
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

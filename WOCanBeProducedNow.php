@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('WO items can be produced with available stock');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" align="center">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" title="' . _('Search') . '" alt="" />
@@ -159,8 +158,7 @@ function submit($RootPath, $Location) {
 function display() {
 	// Display form fields. This function is called the first time
 	// the page is called.
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>';
@@ -169,13 +167,12 @@ function display() {
 				<td>' . _('For Factory Location') . ':</td>
 				<td><select name="Location">';
 
-
 	$SQL = "SELECT locations.loccode,
 				locationname
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
 			WHERE locations.usedforwo=1";
 	$LocnResult = DB_query($SQL);
@@ -186,7 +183,6 @@ function display() {
 	echo '</select></td>
 			</tr>';
 
-
 	echo '</table>
 		<div class="centre">
 			<input type="submit" name="submit" value="' . _('Search Items To Produce') . '" />
@@ -194,6 +190,5 @@ function display() {
 	echo '</form>';
 
 } // End of function display()
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

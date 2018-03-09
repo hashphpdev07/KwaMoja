@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Freight Costs Maintenance');
-include('includes/header.php');
-include('includes/CountriesArray.php');
+include ('includes/header.php');
+include ('includes/CountriesArray.php');
 
 if (isset($_GET['LocationFrom'])) {
 	$LocationFrom = $_GET['LocationFrom'];
@@ -22,10 +21,9 @@ if (isset($_GET['SelectedFreightCost'])) {
 }
 
 if (!isset($LocationFrom) or !isset($ShipperID)) {
-	echo '<div class="centre"><p class="page_title_text"><img src="'.$RootPath.'/css/'.$_SESSION['Theme'].'/images/supplier.png" title="' .
-		_('Freight Costs') . '" alt="" />' . ' ' . $Title . '</p></div>';
+	echo '<div class="centre"><p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Freight Costs') . '" alt="" />' . ' ' . $Title . '</p></div>';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	$SQL = "SELECT shippername, shipper_id FROM shippers";
 	$ShipperResults = DB_query($SQL);
@@ -48,7 +46,7 @@ if (!isset($LocationFrom) or !isset($ShipperID)) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1";
 	$LocationResults = DB_query($SQL);
 
@@ -76,18 +74,16 @@ if (!isset($LocationFrom) or !isset($ShipperID)) {
 	$LocationResults = DB_query($SQL);
 	$MyRow = DB_fetch_row($LocationResults);
 	$LocationName = $MyRow[0];
-	if (isset($ShipperID)){
-		$Title .= ' ' . _('For') . ' ' . $ShipperName;
+	if (isset($ShipperID)) {
+		$Title.= ' ' . _('For') . ' ' . $ShipperName;
 	}
-	if (isset($LocationFrom)){
-		$Title .= ' ' . _('From') . ' ' . $LocationName;
+	if (isset($LocationFrom)) {
+		$Title.= ' ' . _('From') . ' ' . $LocationName;
 	}
 
-	echo '<div class="centre"><p class="page_title_text"><img src="'.$RootPath.'/css/'.$_SESSION['Theme'].'/images/supplier.png" title="' .
-		_('Freight Costs') . '" alt="" />' . ' ' . $Title . '</p></div>';
+	echo '<div class="centre"><p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Freight Costs') . '" alt="" />' . ' ' . $Title . '</p></div>';
 
 }
-
 
 if (isset($_POST['submit'])) {
 
@@ -95,8 +91,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	//first off validate inputs sensible
-
-	if (trim($_POST['DestinationCountry']) == '' ) {
+	if (trim($_POST['DestinationCountry']) == '') {
 		$_POST['DestinationCountry'] = $CountriesArray[$_SESSION['CountryOfOperation']];
 	}
 	if (trim($_POST['CubRate']) == '') {
@@ -118,7 +113,7 @@ if (isset($_POST['submit'])) {
 		$_POST['MinimumChg'] = 0;
 	}
 
-	if (!is_double((double) $_POST['CubRate']) or !is_double((double) $_POST['KGRate']) or !is_double((double) $_POST['MAXKGs']) or !is_double((double) $_POST['MAXCub']) or !is_double((double) $_POST['FixedPrice']) or !is_double((double) $_POST['MinimumChg'])) {
+	if (!is_double((double)$_POST['CubRate']) or !is_double((double)$_POST['KGRate']) or !is_double((double)$_POST['MAXKGs']) or !is_double((double)$_POST['MAXCub']) or !is_double((double)$_POST['FixedPrice']) or !is_double((double)$_POST['MinimumChg'])) {
 		$InputError = 1;
 		prnMsg(_('The entries for Cubic Rate, KG Rate, Maximum Weight, Maximum Volume, Fixed Price and Minimum charge must be numeric'), 'warn');
 	}
@@ -197,7 +192,6 @@ if (isset($_POST['submit'])) {
 
 if (!isset($SelectedFreightCost) and isset($LocationFrom) and isset($ShipperID)) {
 
-
 	$SQL = "SELECT shipcostfromid,
 					destinationcountry,
 					destination,
@@ -230,7 +224,6 @@ if (!isset($SelectedFreightCost) and isset($LocationFrom) and isset($ShipperID))
 					</tr>';
 
 	$k = 0; //row counter to determine background colour
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		printf('<tr class="striped_row">
@@ -244,23 +237,7 @@ if (!isset($SelectedFreightCost) and isset($LocationFrom) and isset($ShipperID))
 					<td class="number">%s</td>
 					<td><a href="%s&amp;SelectedFreightCost=%s&amp;LocationFrom=%s&amp;ShipperID=%s">' . _('Edit') . '</a></td>
 					<td><a href="%s&amp;SelectedFreightCost=%s&amp;LocationFrom=%s&amp;ShipperID=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this freight cost') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>',
-				$MyRow['destinationcountry'],
-				$MyRow['destination'],
-				locale_number_format($MyRow['cubrate'], $_SESSION['CompanyRecord']['decimalplaces']),
-				locale_number_format($MyRow['kgrate'], $_SESSION['CompanyRecord']['decimalplaces']),
-				locale_number_format($MyRow['maxkgs'], 2),
-				locale_number_format($MyRow['maxcub'], 3),
-				locale_number_format($MyRow['fixedprice'], $_SESSION['CompanyRecord']['decimalplaces']),
-				locale_number_format($MyRow['minimumchg'], $_SESSION['CompanyRecord']['decimalplaces']),
-				htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?',
-				$MyRow['shipcostfromid'],
-				$LocationFrom,
-				$ShipperID,
-				htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?',
-				$MyRow['shipcostfromid'],
-				$LocationFrom,
-				$ShipperID);
+				</tr>', $MyRow['destinationcountry'], $MyRow['destination'], locale_number_format($MyRow['cubrate'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['kgrate'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['maxkgs'], 2), locale_number_format($MyRow['maxcub'], 3), locale_number_format($MyRow['fixedprice'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['minimumchg'], $_SESSION['CompanyRecord']['decimalplaces']), htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['shipcostfromid'], $LocationFrom, $ShipperID, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['shipcostfromid'], $LocationFrom, $ShipperID);
 
 	}
 
@@ -269,19 +246,17 @@ if (!isset($SelectedFreightCost) and isset($LocationFrom) and isset($ShipperID))
 }
 
 //end of ifs and buts!
-
 if (isset($SelectedFreightCost)) {
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?LocationFrom=' . $LocationFrom . '&amp;ShipperID=' . $ShipperID . '">' . _('Show all freight costs for') . ' ' . $ShipperName . ' ' . _('from') . ' ' . $LocationName . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?LocationFrom=' . $LocationFrom . '&amp;ShipperID=' . $ShipperID . '">' . _('Show all freight costs for') . ' ' . $ShipperName . ' ' . _('from') . ' ' . $LocationName . '</a></div>';
 }
 
 if (isset($LocationFrom) and isset($ShipperID)) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedFreightCost)) {
 		//editing an existing freight cost item
-
 		$SQL = "SELECT locationfrom,
 						destinationcountry,
 						destination,
@@ -345,17 +320,17 @@ if (isset($LocationFrom) and isset($ShipperID)) {
 	echo '<tr>
 			<td>' . _('Destination Country') . ':</td>
 			<td><select name="DestinationCountry">';
-	foreach ($CountriesArray as $CountryEntry => $CountryName){
-		if (isset($_POST['DestinationCountry']) and (strtoupper($_POST['DestinationCountry']) == strtoupper($CountryName))){
-			echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName .'</option>';
+	foreach ($CountriesArray as $CountryEntry => $CountryName) {
+		if (isset($_POST['DestinationCountry']) and (strtoupper($_POST['DestinationCountry']) == strtoupper($CountryName))) {
+			echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
 		} else {
-			echo '<option value="' . $CountryName . '">' . $CountryName .'</option>';
+			echo '<option value="' . $CountryName . '">' . $CountryName . '</option>';
 		}
 	}
 	echo '</select></td>
 		</tr>';
 
-	echo'<tr>
+	echo '<tr>
 			<td>' . _('Destination Zone') . ':</td>
 			<td><input type="text" required="required" maxlength="20" size="20" name="Destination" value="' . $_POST['Destination'] . '" /></td>
 		</tr>';
@@ -392,6 +367,5 @@ if (isset($LocationFrom) and isset($ShipperID)) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

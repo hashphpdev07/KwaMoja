@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sell Through Support Claims Report');
 
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Sell Through Support Claim'));
 	$PDF->addInfo('Subject', _('Sell Through Support Claim'));
 	$FontSize = 10;
@@ -14,10 +13,10 @@ if (isset($_POST['PrintPDF'])) {
 
 	$Title = _('Sell Through Support Claim') . ' - ' . _('Problem Report');
 
-	if (!is_date($_POST['FromDate']) OR !is_date($_POST['ToDate'])) {
-		include('includes/header.php');
+	if (!is_date($_POST['FromDate']) or !is_date($_POST['ToDate'])) {
+		include ('includes/header.php');
 		prnMsg(_('The dates entered must be in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -67,46 +66,46 @@ if (isset($_POST['PrintPDF'])) {
 
 	if (DB_error_no() != 0) {
 
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The sell through support items to claim could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($ClaimsResult) == 0) {
 
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('No sell through support items retrieved'), 'warn');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFSellThroughSupportClaimPageHeader.php');
+	include ('includes/PDFSellThroughSupportClaimPageHeader.php');
 	$SupplierClaimTotal = 0;
 	$Supplier = '';
 	$FontSize = 8;
 	while ($SellThroRow = DB_fetch_array($ClaimsResult)) {
 
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		if ($SellThroRow['suppname'] != $Supplier) {
 			if ($SupplierClaimTotal > 0) {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin + 2, $YPos, 30, $FontSize, $Supplier . ' ' . _('Total Claim') . ': (' . $CurrCode . ')');
 				$LeftOvers = $PDF->addTextWrap(440, $YPos, 60, $FontSize, locale_number_format($SupplierClaimTotal, $CurrDecimalPlaces), 'right');
-				include('includes/PDFSellThroughClaimPageHeader.php');
+				include ('includes/PDFSellThroughClaimPageHeader.php');
 			}
 		}
 		if ($SellThroRow['suppname'] != $Supplier) {
 			$PDF->SetFont('helvetica', $style = 'B', $size = 11);
 			$FontSize = 10;
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			$LeftOvers = $PDF->addTextWrap($Left_Margin + 2, $YPos, 250, $FontSize, $SellThroRow['suppname']);
 			$Supplier = $SellThroRow['suppname'];
 			$CurrDecimalPlaces = $SellThroRow['currdecimalplaces'];
@@ -114,7 +113,7 @@ if (isset($_POST['PrintPDF'])) {
 			$SupplierClaimTotal = 0;
 			$PDF->SetFont('helvetica', $style = 'N', $size = 8);
 			$FontSize = 8;
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 		}
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 2, $YPos, 60, $FontSize, $SellThroRow['typename'] . '-' . $SellThroRow['transno']);
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 63, $YPos, 160, $FontSize, $SellThroRow['stockid'] . '-' . $SellThroRow['description']);
@@ -122,52 +121,51 @@ if (isset($_POST['PrintPDF'])) {
 		$DisplaySellingPrice = locale_number_format($SellThroRow['sellingprice'], $_SESSION['CompanyRecord']['decimalplaces']);
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 334, $YPos, 60, $FontSize, $DisplaySellingPrice, 'right');
 		$ClaimAmount = (($SellThroRow['fxcost'] * $SellThroRow['rebatepercent']) + $SellThroRow['rebateamount']) * -$SellThroRow['qty'];
-		$SupplierClaimTotal += $ClaimAmount;
-
+		$SupplierClaimTotal+= $ClaimAmount;
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 395, $YPos, 60, $FontSize, locale_number_format(-$SellThroRow['qty']), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 480, $YPos, 60, $FontSize, locale_number_format($ClaimAmount, $CurrDecimalPlaces), 'right');
 
 		if ($YPos < $Bottom_Margin + $line_height) {
-			include('includes/PDFSellThroughSupportClaimPageHeader.php');
+			include ('includes/PDFSellThroughSupportClaimPageHeader.php');
 		}
 
 	}
 	/*end sell through support claims while loop */
 
 	if ($SupplierClaimTotal > 0) {
-		$YPos -= 5;
+		$YPos-= 5;
 		$PDF->line($Left_Margin + 480, $YPos, $Left_Margin + 480 + 60, $YPos);
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 2, $YPos, 470, $FontSize, $Supplier . ' ' . _('Total Claim') . ': ', 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 480, $YPos, 60, $FontSize, locale_number_format($SupplierClaimTotal, $CurrDecimalPlaces), 'right');
-		$YPos -= 5;
+		$YPos-= 5;
 
 		$PDF->line($Left_Margin + 480, $YPos, $Left_Margin + 480 + 60, $YPos);
-		$YPos -= 1;
+		$YPos-= 1;
 		$PDF->line($Left_Margin + 480, $YPos, $Left_Margin + 480 + 60, $YPos);
 
 	}
 	$FontSize = 10;
 
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$PDF->OutputD($_SESSION['DatabaseName'] . '_SellThroughSupportClaim_' . date('Y-m-d') . '.pdf');
 	$PDF->__destruct();
 
 } else {
 	/*The option to print PDF was not hit */
 
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Sell Through Support Claims Report') . '</p>';
 
-	if (!isset($_POST['FromDate']) OR !isset($_POST['ToDate'])) {
+	if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 
 		/*if $FromDate is not set then show a form to allow input */
 		$_POST['FromDate'] = Date($_SESSION['DefaultDateFormat']);
 		$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table>
 					<tr>
@@ -184,7 +182,7 @@ if (isset($_POST['PrintPDF'])) {
 				</div>';
 		echo '</form>';
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

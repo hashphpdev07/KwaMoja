@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Clone Item');
 /* Manual links before header.php */
 $ViewTopic = 'Inventory';
 $BookMark = 'CloneItem';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['OldStockID']) or isset($_POST['OldStockID'])) { //we are cloning
 	$_POST['OldStockID'] = (isset($_GET['OldStockID']) and !empty($_GET['OldStockID'])) ? $_GET['OldStockID'] : $_POST['OldStockID'];
@@ -50,11 +49,7 @@ echo '<div class="toplink"><a href="' . $RootPath . '/SelectProduct.php">' . _('
 	</p>';
 echo '<div class="page_help_text">' . _('Cloning will create a new item with the same properties, image, cost, purchasing and pricing data as the selected item. Item image and general item details can be changed below prior to cloning.') . '</div>';
 
-$SupportedImgExt = array(
-	'png',
-	'jpg',
-	'jpeg'
-);
+$SupportedImgExt = array('png', 'jpg', 'jpeg');
 
 // Check extention for existing old file
 foreach ($SupportedImgExt as $ext) {
@@ -127,7 +122,7 @@ $InputError = 0;
 if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
@@ -294,7 +289,7 @@ if (isset($_POST['submit'])) {
 																			)VALUES(
 																				'" . $_POST['StockID'] . "',
 																				'" . $LanguageId . "',
-																				'" . $_POST['Description_' . str_replace('.', '_', $LanguageId)] . "'
+																				'" . $_POST['Description_' . str_replace('.', '_', $LanguageId) ] . "'
 																			)";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 								$SQL = "INSERT INTO stocklongdescriptiontranslations (stockid,
@@ -303,14 +298,14 @@ if (isset($_POST['submit'])) {
 																				)VALUES(
 																					'" . $_POST['StockID'] . "',
 																					'" . $LanguageId . "',
-																					'" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . "'
+																					'" . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId) ] . "'
 																				)";
 								$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 							}
 						}
 					}
 					//now insert any item properties
-					for ($i = 0; $i < $_POST['PropertyCounter']; $i++) {
+					for ($i = 0;$i < $_POST['PropertyCounter'];$i++) {
 
 						if ($_POST['PropType' . $i] == 2) {
 							if ($_POST['PropValue' . $i] == 'on') {
@@ -333,9 +328,7 @@ if (isset($_POST['submit'])) {
 														'" . $_POST['PropID' . $i] . "',
 														'" . $_POST['PropValue' . $i] . "')", $ErrMsg, $DbgMsg, true);
 					} //end of loop around properties defined for the category
-
 					//Add data to locstock
-
 					$SQL = "INSERT INTO locstock (loccode,
 													stockid)
 										SELECT locations.loccode,
@@ -374,7 +367,6 @@ if (isset($_POST['submit'])) {
 						$NoPurchasingData = 1;
 					} else {
 						while ($MyRow = DB_fetch_array($PurchDataResult)) { //clone the purchase data
-
 							$SQL = "INSERT INTO purchdata (supplierno,
 										stockid,
 										price,
@@ -518,14 +510,18 @@ if (isset($_POST['submit'])) {
 						unset($_POST['Pansize']);
 						unset($_POST['StockID']);
 						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-							unset($_POST['Description_' . str_replace('.', '_', $LanguageId)]);
+							unset($_POST['Description_' . str_replace('.', '_', $LanguageId) ]);
 							$_POST['New'] = 1; //do not show input form again
+							
 						}
 					} //Reset the form variables
+					
 				} //Stock records finished
 				DB_Txn_Commit();
 			} //End of check for existing item
+			
 		} //END Cloned item
+		
 	} else {
 		$_POST['New'] = 1;
 		echo '<br />' . "\n";
@@ -534,7 +530,7 @@ if (isset($_POST['submit'])) {
 
 }
 
-echo '<form name="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form name="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<input type="hidden" name="New" value="' . $_POST['New'] . '" />
 	<table>';
@@ -542,7 +538,7 @@ echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 if ($_POST['StockID'] == '' or ($_POST['StockID'] == $_POST['OldStockID']) or isset($_POST['UpdateCategories'])) {
 
 	/*If the page was called without $StockId or empty $StockId  then a new cloned stock item is to be entered. Show a form with a part Code field,
-	otherwise show form for editing with only a hidden OldStockID field. */
+	 otherwise show form for editing with only a hidden OldStockID field. */
 
 	$StockIdStyle = (!empty($_POST['StockID']) and ($_POST['StockID'] != $_POST['OldStockID'])) ? '' : ' style="color:red;border: 2px solid red;background-color:#fddbdb;" ';
 	$StockId = !empty($_POST['StockID']) ? $_POST['StockID'] : $_POST['OldStockID'];
@@ -555,7 +551,6 @@ if ($_POST['StockID'] == '' or ($_POST['StockID'] == $_POST['OldStockID']) or is
 
 }
 if ((!isset($_POST['UpdateCategories']) and ($InputError != 1)) or $_POST['New'] == 1) { // Must be modifying an existing item and no changes made yet
-
 	$SelectedStockId = $_POST['OldStockID'];
 	$SQL = "SELECT stockid,
 					description,
@@ -607,22 +602,22 @@ if ((!isset($_POST['UpdateCategories']) and ($InputError != 1)) or $_POST['New']
 
 	$SQL = "SELECT descriptiontranslation, language_id FROM stockdescriptiontranslations WHERE stockid='" . $SelectedStockId . "' AND (";
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-		$SQL .= "language_id='" . $LanguageId . "' OR ";
+		$SQL.= "language_id='" . $LanguageId . "' OR ";
 	}
 	$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 3) . ')';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		$_POST['Description_' . str_replace('.', '_', $MyRow['language_id'])] = $MyRow['descriptiontranslation'];
+		$_POST['Description_' . str_replace('.', '_', $MyRow['language_id']) ] = $MyRow['descriptiontranslation'];
 	}
 
 	$SQL = "SELECT longdescriptiontranslation, language_id FROM stocklongdescriptiontranslations WHERE stockid='" . $SelectedStockId . "' AND (";
 	foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
-		$SQL .= "language_id='" . $LanguageId . "' OR ";
+		$SQL.= "language_id='" . $LanguageId . "' OR ";
 	}
 	$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 3) . ')';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		$_POST['LongDescription_' . str_replace('.', '_', $MyRow['language_id'])] = $MyRow['longdescriptiontranslation'];
+		$_POST['LongDescription_' . str_replace('.', '_', $MyRow['language_id']) ] = $MyRow['longdescriptiontranslation'];
 	}
 
 }
@@ -648,7 +643,7 @@ foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 		echo '<tr>
 				<td>' . $LanguagesArray[$LanguageId]['LanguageName'] . ' ' . _('Description') . ':</td>
 				<td><input type="text" name="' . $PostVariableName . '" size="52" maxlength="50" value="' . $_POST[$PostVariableName] . '" /></td>
-				<td><input type="hidden" name="' . $LongDescriptionTranslated . '" value="' . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId)] . '" />
+				<td><input type="hidden" name="' . $LongDescriptionTranslated . '" value="' . $_POST['LongDescription_' . str_replace('.', '_', $LanguageId) ] . '" />
 			</tr>';
 	}
 }
@@ -765,7 +760,6 @@ if (!isset($_POST['ShrinkFactor'])) {
 if (!isset($_POST['NextSerialNo'])) {
 	$_POST['NextSerialNo'] = 0;
 }
-
 
 echo '<tr>
 			<td>' . _('Economic Order Quantity') . ':</td>
@@ -961,7 +955,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['taxcatid'] . '">' . $MyRow['taxcatname'] . '</option>';
 	}
 } //end while loop
-
 echo '</select></td>
 		</tr>';
 
@@ -1024,43 +1017,43 @@ if (DB_num_rows($PropertiesResult) > 0) {
 					<td>';
 		switch ($PropertyRow['controltype']) {
 			case 0; //textbox
-				if ($PropertyRow['numericvalue'] == 1) {
-					echo '<input type="hidden" name="PropMin' . $PropertyCounter . '" value="' . $PropertyRow['minimumvalue'] . '" />';
-					echo '<input type="hidden" name="PropMax' . $PropertyCounter . '" value="' . $PropertyRow['maximumvalue'] . '" />';
+			if ($PropertyRow['numericvalue'] == 1) {
+				echo '<input type="hidden" name="PropMin' . $PropertyCounter . '" value="' . $PropertyRow['minimumvalue'] . '" />';
+				echo '<input type="hidden" name="PropMax' . $PropertyCounter . '" value="' . $PropertyRow['maximumvalue'] . '" />';
 
-					echo '<input type="text" class="number" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . locale_number_format($PropertyValue, 'Variable') . '" />';
-					echo _('A number between') . ' ' . locale_number_format($PropertyRow['minimumvalue'], 'Variable') . ' ' . _('and') . ' ' . locale_number_format($PropertyRow['maximumvalue'], 'Variable') . ' ' . _('is expected');
-				} else {
-					echo '<input type="text" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . $PropertyValue . '" />';
-				}
-				break;
-			case 1; //select box
-				$OptionValues = explode(',', $PropertyRow['defaultvalue']);
-				echo '<select name="PropValue' . $PropertyCounter . '">';
-				foreach ($OptionValues as $PropertyOptionValue) {
-					if ($PropertyOptionValue == $PropertyValue) {
-						echo '<option selected="selected" value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
-					} else {
-						echo '<option value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
-					}
-				}
-				echo '</select>';
-				break;
-			case 2; //checkbox
-				echo '<input type="checkbox" name="PropValue' . $PropertyCounter . '"';
-				if ($PropertyValue == 1) {
-					echo 'checked';
-				}
-				echo ' />';
-				break;
-		} //end switch
-		echo '<input type="hidden" name="PropType' . $PropertyCounter . '" value="' . $PropertyRow['controltype'] . '" />';
-		echo '</td></tr>';
-		$PropertyCounter++;
+				echo '<input type="text" class="number" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . locale_number_format($PropertyValue, 'Variable') . '" />';
+				echo _('A number between') . ' ' . locale_number_format($PropertyRow['minimumvalue'], 'Variable') . ' ' . _('and') . ' ' . locale_number_format($PropertyRow['maximumvalue'], 'Variable') . ' ' . _('is expected');
+			} else {
+				echo '<input type="text" name="PropValue' . $PropertyCounter . '" size="20" maxlength="100" value="' . $PropertyValue . '" />';
+			}
+		break;
+		case 1; //select box
+		$OptionValues = explode(',', $PropertyRow['defaultvalue']);
+		echo '<select name="PropValue' . $PropertyCounter . '">';
+		foreach ($OptionValues as $PropertyOptionValue) {
+			if ($PropertyOptionValue == $PropertyValue) {
+				echo '<option selected="selected" value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
+			} else {
+				echo '<option value="' . $PropertyOptionValue . '">' . $PropertyOptionValue . '</option>';
+			}
+		}
+		echo '</select>';
+	break;
+	case 2; //checkbox
+	echo '<input type="checkbox" name="PropValue' . $PropertyCounter . '"';
+	if ($PropertyValue == 1) {
+		echo 'checked';
+	}
+	echo ' />';
+break;
+} //end switch
+echo '<input type="hidden" name="PropType' . $PropertyCounter . '" value="' . $PropertyRow['controltype'] . '" />';
+echo '</td></tr>';
+$PropertyCounter++;
 
-	} //end loop round properties for the item category
-	unset($StockId);
-	echo '</table>';
+} //end loop round properties for the item category
+unset($StockId);
+echo '</table>';
 }
 echo '<input type="hidden" name="PropertyCounter" value="' . $PropertyCounter . '" />';
 
@@ -1068,6 +1061,6 @@ echo '<div class="centre"><input type="submit" name="submit" value="' . _('Inser
 echo '<input type="submit" name="UpdateCategories" style="visibility:hidden;width:1px" value="' . _('Categories') . '" /></div>';
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

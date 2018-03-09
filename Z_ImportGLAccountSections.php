@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Chart of Accounts');
-include('includes/header.php');
-include('xmlrpc/lib/xmlrpc.php');
-include('api/api_errorcodes.php');
+include ('includes/header.php');
+include ('xmlrpc/lib/xmlrpc.php');
+include ('api/api_errorcodes.php');
 
 $User = $_SESSION['UserID'];
 $SQL = "SELECT password FROM www_users WHERE userid='" . $User . "'";
@@ -34,19 +33,15 @@ if (isset($_POST['update'])) {
 		$buffer = fgets($fp, 4096);
 		$FieldValues = explode(',', $buffer);
 		if ($FieldValues[0] != '') {
-		$SizeOfFieldValues = sizeOf($FieldValues);
-			for ($i = 0; $i < $SizeOfFieldValues; $i++) {
+			$SizeOfFieldValues = sizeOf($FieldValues);
+			for ($i = 0;$i < $SizeOfFieldValues;$i++) {
 				$AccountSectionDetails[$FieldNames[$i]] = $FieldValues[$i];
 			}
 			$accountsection = php_xmlrpc_encode($AccountSectionDetails);
 			$user = new xmlrpcval($User);
 			$password = new xmlrpcval($password);
 
-			$Msg = new xmlrpcmsg($APIServer . ".xmlrpc_InsertGLAccountSection", array(
-				$accountsection,
-				$user,
-				$password
-			));
+			$Msg = new xmlrpcmsg($APIServer . ".xmlrpc_InsertGLAccountSection", array($accountsection, $user, $password));
 
 			$client = new xmlrpc_client($ServerURL);
 			$client->setDebug($DebugLevel);
@@ -59,7 +54,7 @@ if (isset($_POST['update'])) {
 			} else {
 				echo '<tr ' . $FailureStyle . '><td>' . $AccountSectionDetails['sectionname'] . '</td><td>' . 'Failure' . '</td><td>';
 				$SizeOfAnswer = sizeOf($answer);
-				for ($i = 0; $i < $SizeOfAnswer; $i++) {
+				for ($i = 0;$i < $SizeOfAnswer;$i++) {
 					echo 'Error no ' . $answer[$i] . ' - ' . $ErrorDescription[$answer[$i]] . '<br />';
 				}
 				echo '</td></tr>';
@@ -74,7 +69,7 @@ if (isset($_POST['update'])) {
 	fclose($fp);
 } else {
 	prnMsg(_('Select a csv file containing the details of the account sections that you wish to import') . '. ' . '<br />' . _('The first line must contain the field names that you wish to import. ') . '<a href ="Z_DescribeTable.php?table=accountsection">' . _('The field names can be found here') . '</a>', 'info');
-	echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table><tr><td>' . _('File to import') . '</td>' . '<td><input type="file" id="ImportFile" name="ImportFile" /></td></tr></table>';
@@ -82,5 +77,5 @@ if (isset($_POST['update'])) {
 	echo '</div>
 		  </form>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,13 +1,12 @@
 <?php
-
-include('includes/DefineSpecialOrderClass.php');
+include ('includes/DefineSpecialOrderClass.php');
 /* Session started in header.php for password checking and authorisation level check */
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 $Title = _('Special Order Entry');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (empty($_GET['identifier'])) {
 	/*unique session identifier to ensure that there is no conflict with other supplier tender sessions on the same machine  */
@@ -16,7 +15,7 @@ if (empty($_GET['identifier'])) {
 	$Identifier = $_GET['identifier'];
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier) . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier) . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($_GET['NewSpecial']) and $_GET['NewSpecial'] == 'yes') {
@@ -26,15 +25,15 @@ if (isset($_GET['NewSpecial']) and $_GET['NewSpecial'] == 'yes') {
 if (!isset($_SESSION['SupplierID'])) {
 	prnMsg(_('To set up a special') . ', ' . _('the supplier must first be selected from the Select Supplier page'), 'info');
 	echo '<br /><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select the supplier now') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 if (!isset($_SESSION['CustomerID']) or $_SESSION['CustomerID'] == '') {
-	prnMsg( _('To set up a special') . ', ' . _('the customer must first be selected from the Select Customer page'), 'info');
+	prnMsg(_('To set up a special') . ', ' . _('the customer must first be selected from the Select Customer page'), 'info');
 	echo '<br />
 		<a href="' . $RootPath . '/SelectCustomer.php">' . _('Select the customer now') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -42,14 +41,12 @@ if (isset($_POST['Cancel'])) {
 	unset($_SESSION['SPL' . $Identifier]);
 }
 
-
 if (!isset($_SESSION['SPL' . $Identifier])) {
 	/* It must be a new special order being created $_SESSION['SPL'.$Identifier] would be set up from the order modification code above if a modification to an existing order.  */
 
 	$_SESSION['SPL' . $Identifier] = new SpecialOrder;
 
 }
-
 
 /*if not already done populate the SPL object with supplier data */
 if (!isset($_SESSION['SPL' . $Identifier]->SupplierID)) {
@@ -147,7 +144,6 @@ if (!isset($_SESSION['SPL' . $Identifier]->BranchCode)) {
 				</tr>';
 
 		$k = 0; //row counter to determine background colour
-
 		while ($MyRow = DB_fetch_array($BranchResult)) {
 
 			printf('<tr class="striped_row">
@@ -157,25 +153,22 @@ if (!isset($_SESSION['SPL' . $Identifier]->BranchCode)) {
 
 		}
 		//end of while loop
-
 		echo '</table>';
 		echo '</form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 
 	} else {
 		prnMsg(_('There are no branches defined for the customer selected') . '. ' . _('Please select a customer that has branches defined'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
-
 
 if (isset($_GET['Delete'])) {
 	/*User hit the delete link on a line */
 	$_SESSION['SPL' . $Identifier]->remove_from_order($_GET['Delete']);
 }
-
 
 if (isset($_POST['EnterLine'])) {
 
@@ -255,7 +248,7 @@ if (isset($_POST['Commit'])) {
 	/*User wishes to commit the order to the database */
 
 	/*First do some validation
-	Is the delivery information all entered*/
+	 Is the delivery information all entered*/
 	$InputError = 0;
 	/*Start off assuming the best */
 	if ($_SESSION['SPL' . $Identifier]->StkLocation == '' or !isset($_SESSION['SPL' . $Identifier]->StkLocation)) {
@@ -365,7 +358,6 @@ if (isset($_POST['Commit'])) {
 									'" . $_SESSION['SPL' . $Identifier]->AllowPrintPO . "',
 									CURRENT_DATE,
 									CURRENT_DATE)";
-
 
 		$ErrMsg = _('The purchase order header record could not be inserted into the database because');
 		$DbgMsg = _('The SQL statement used to insert the purchase order header record and failed was');
@@ -573,13 +565,12 @@ if (isset($_POST['Commit'])) {
 		unset($_SESSION['SPL' . $Identifier]);
 		/*Clear the PO data to allow a newy to be input*/
 		echo '<br /><br /><a href="' . $RootPath . '/SpecialOrder.php">' . _('Enter A New Special Order') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	/*end if there were no input errors trapped */
 }
 /* end of the code to do transfer the SPL object to the database  - user hit the place Order*/
-
 
 /*Show the header information for modification */
 
@@ -590,7 +581,7 @@ $SQL = "SELECT locations.loccode,
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1";
 $LocnResult = DB_query($SQL);
 
@@ -662,10 +653,10 @@ if (count($_SESSION['SPL' . $Identifier]->LineItems) > 0) {
 				<td class="number">' . $DisplayLineTotal . '</td>
 				<td class="number">' . $DisplayLineCostTotalCurr . '</td>
 				`<td class="number">' . $DisplayLineTotalCurr . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $SPLLine->LineNo . '">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $SPLLine->LineNo . '">' . _('Delete') . '</a></td>
 			</tr>';
 
-		$_SESSION['SPL' . $Identifier]->total += ($LineTotal / $_SESSION['SPL' . $Identifier]->CustCurrExRate);
+		$_SESSION['SPL' . $Identifier]->total+= ($LineTotal / $_SESSION['SPL' . $Identifier]->CustCurrExRate);
 	}
 
 	$DisplayTotal = locale_number_format($_SESSION['SPL' . $Identifier]->total, $_SESSION['SPL' . $Identifier]->CustCurrDecimalPlaces);
@@ -756,5 +747,5 @@ echo '<div class="centre">
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

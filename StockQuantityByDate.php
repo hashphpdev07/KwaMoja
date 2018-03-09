@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Stock On Hand By Date');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . $Title . '</b>
 	</p>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT categoryid, categorydescription FROM stockcategory";
@@ -39,7 +38,7 @@ $SQL = "SELECT locationname,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1";
 
 $ResultStkLocs = DB_query($SQL);
@@ -129,7 +128,6 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 		$NumRows = DB_num_rows($LocStockResult);
 
 		$k = 0; //row colour counter
-
 		while ($LocQtyRow = DB_fetch_array($LocStockResult)) {
 
 			$CostSQL = "SELECT stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS cost
@@ -165,9 +163,10 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 						<td class="number">%s</td>
 						<td class="number">%s</td></tr>', 'StockID=' . mb_strtoupper($MyRows['stockid']), mb_strtoupper($MyRows['stockid']), $MyRows['description'], locale_number_format($LocQtyRow['newqoh'], $MyRows['decimalplaces']), locale_number_format($CostRow['cost'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(($CostRow['cost'] * $LocQtyRow['newqoh']), $_SESSION['CompanyRecord']['decimalplaces']));
 
-				$TotalQuantity += $LocQtyRow['newqoh'];
+				$TotalQuantity+= $LocQtyRow['newqoh'];
 			}
 			//end of page full new headings if
+			
 		}
 
 	} //end of while loop
@@ -177,5 +176,5 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 		</table>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Tax Status Maintenance');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['TaxStatusID'])) {
 	$TaxStatusID = strtoupper($_GET['TaxStatusID']);
@@ -15,12 +14,11 @@ if (isset($_GET['TaxStatusID'])) {
 	unset($TaxStatusID);
 }
 
-
 //initialise no input errors assumed initially before we test
 $InputError = 0;
 
 /* actions to take once the user has clicked the submit button
-ie the page has called itself with some user input */
+ ie the page has called itself with some user input */
 
 //first off validate inputs sensible
 
@@ -68,14 +66,12 @@ if ($InputError != 1 and (isset($_POST['update']) or isset($_POST['insert']))) {
 	prnMsg(_('Validation failed') . _('no updates or deletes took place'), 'warn');
 }
 
-if (isset($_POST['delete']) AND $_POST['delete'] != '') {
+if (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
-
 	if ($CancelDelete == 0) {
 		$SQL = "DELETE FROM prltaxstatus WHERE taxstatusid='$TaxStatusID'";
 		$Result = DB_query($SQL);
@@ -83,12 +79,12 @@ if (isset($_POST['delete']) AND $_POST['delete'] != '') {
 		unset($TaxStatusID);
 		unset($_SESSION['TaxStatusID']);
 	} //end if Delete tax status
+	
 } //end of (isset($_POST['submit']))
 
 
-
 //SupplierID exists - either passed when calling the form or from the form itself
-echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text noPrint" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
@@ -118,7 +114,7 @@ if (DB_num_rows($Result)) {
 				<td class="number">' . locale_number_format($MyRow['personalexemption'], $_SESSION['CompanyRecord']['decimalplaces']) . '<td>
 				<td class="number">' . locale_number_format($MyRow['additionalexemption'], $_SESSION['CompanyRecord']['decimalplaces']) . '<td>
 				<td class="number">' . locale_number_format($MyRow['totalexemption'], $_SESSION['CompanyRecord']['decimalplaces']) . '<td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?TaxStatusID=' . $MyRow['taxstatusid'] . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?TaxStatusID=' . $MyRow['taxstatusid'] . '">' . _('Edit') . '</a></td>
 			</tr>';
 	}
 	echo '</table>';
@@ -192,5 +188,5 @@ if (!isset($TaxStatusID)) {
 	</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

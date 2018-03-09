@@ -1,15 +1,17 @@
 <?php
-$PageSecurity=1;
+$PageSecurity = 1;
 include ('includes/session.php');
 
 $Title = _('Donor Maintenance');
 /* Manual links before header.php */
 if (isset($_POST['Edit']) or isset($_GET['Edit']) or isset($_GET['DonorNo'])) {
-//	$ViewTopic = 'AccountsReceivable';
-//	$BookMark = 'AmendCustomer';
+	//	$ViewTopic = 'AccountsReceivable';
+	//	$BookMark = 'AmendCustomer';
+	
 } else {
-//	$ViewTopic = 'AccountsReceivable';
-//	$BookMark = 'NewCustomer';
+	//	$ViewTopic = 'AccountsReceivable';
+	//	$BookMark = 'NewCustomer';
+	
 }
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
@@ -110,14 +112,14 @@ if (isset($_POST['Reset'])) {
 	unset($_POST['LanguageID']);
 
 } //isset($_POST['Reset'])
-
 /*DonorNo could be set from a post or a get when passed as a parameter to this page */
 
 if (isset($_POST['DonorNo'])) {
 	$DonorNo = stripslashes($_POST['DonorNo']);
 } elseif (isset($_GET['DonorNo'])) {
 	$DonorNo = stripslashes($_GET['DonorNo']);
-} if (isset($_POST['ID'])) {
+}
+if (isset($_POST['ID'])) {
 	$ID = $_POST['ID'];
 } elseif (isset($_GET['ID'])) {
 	$ID = $_GET['ID'];
@@ -138,7 +140,7 @@ if (isset($_POST['Add'])) {
 	$Add = $_GET['Add'];
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($DonorNo)) {
@@ -282,7 +284,6 @@ if (isset($_POST['New']) and $_POST['New']) {
 			<input type="submit" name="submit" value="' . _('Update Donor Information') . '" />&nbsp;
 		</div>';
 } //!isset($_GET['Modify'])
-
 echo '</form>';
 
 include ('includes/footer.php');

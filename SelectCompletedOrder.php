@@ -1,16 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Search All Sales Orders');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" /> ', ' ', _('Search Sales Orders'), '
 	</p>';
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($_POST['completed'])) {
@@ -123,7 +122,7 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 		echo '<br />', _('For the part'), ': ', $SelectedStockItem, ' ', _('and'), ' <input type="hidden" name="SelectedStockItem" value="', $SelectedStockItem, '" />';
 	}
 
-} else if ((isset($_POST['SearchOrders']) and Is_Date($_POST['OrdersAfterDate'])==1) or (isset($CustomerGet))) {
+} else if ((isset($_POST['SearchOrders']) and Is_Date($_POST['OrdersAfterDate']) == 1) or (isset($CustomerGet))) {
 
 	//figure out the SQL required from the inputs available
 	if (isset($OrderNumber)) {
@@ -304,12 +303,12 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 								AND salesorderdetails.completed " . $Completed;
 			}
 		} //end selected customer
+		
 	} //end not order number selected
-
 	if ($_SESSION['SalesmanLogin'] != '') {
-		$SQL .= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+		$SQL.= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 	}
-	$SQL .= " GROUP BY salesorders.orderno,
+	$SQL.= " GROUP BY salesorders.orderno,
 					debtorsmaster.name,
 					currencies.decimalplaces,
 					custbranch.brname,
@@ -327,7 +326,6 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 	}
 
 } //end of which button clicked options
-
 if (!isset($_POST['OrdersAfterDate']) or $_POST['OrdersAfterDate'] == '' or !is_date($_POST['OrdersAfterDate'])) {
 	$_POST['OrdersAfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 2, Date('d'), Date('Y')));
 }
@@ -429,15 +427,14 @@ if (isset($StockItemsResult)) {
 			</tr>';
 
 		//end of page full new headings if
+		
 	}
 	//end of while loop
-
 	echo '</tbody>';
 	echo '</table>';
 
 }
 //end if stock search results to show
-
 if (isset($SalesOrdersResult)) {
 
 	if (DB_num_rows($SalesOrdersResult) == 1) {
@@ -488,14 +485,14 @@ if (isset($SalesOrdersResult)) {
 			</tr>';
 
 		//end of page full new headings if
+		
 	}
 	//end of while loop
-
 	echo '</tbody>
 	</table>';
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

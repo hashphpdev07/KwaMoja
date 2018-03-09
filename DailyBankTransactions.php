@@ -1,11 +1,11 @@
 <?php
 /* Allows you to view all bank transactions for a selected date range, and the inquiry can be filtered by matched or unmatched transactions, or all transactions can be chosen. */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Bank Transactions Inquiry');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'DailyBankTransactions';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['BankAccount'])) {
 	$_POST['BankAccount'] = $_GET['BankAccount'];
@@ -31,7 +31,7 @@ if (!isset($_POST['Show'])) {
 					ON bankaccounts.accountcode=chartmaster.accountcode
 				INNER JOIN bankaccountusers
 					ON bankaccounts.accountcode=bankaccountusers.accountcode
-				WHERE bankaccountusers.userid = '" . $_SESSION['UserID'] ."'
+				WHERE bankaccountusers.userid = '" . $_SESSION['UserID'] . "'
 					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 
 	$ErrMsg = _('The bank accounts could not be retrieved because');
@@ -40,9 +40,8 @@ if (!isset($_POST['Show'])) {
 
 	echo '<p class="page_title_text">
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Transactions Inquiry'), '" />', _('Bank Transactions Inquiry'), '
-		</p>';// Page title.
-
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8'), '" method="post">';
+		</p>'; // Page title.
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<table>
@@ -56,7 +55,7 @@ if (!isset($_POST['Show'])) {
 				</tr>
 			</table>';
 		prnMsg(_('Bank Accounts have not yet been defined. You must first') . ' <a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a> ' . _('and general ledger accounts to be affected'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		while ($MyRow = DB_fetch_array($AccountsResults)) {
@@ -146,17 +145,14 @@ if (!isset($_POST['Show'])) {
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) == 0) {
 		echo '<p class="page_title_text">
-				<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Transactions Inquiry'),  '" />', _('Bank Transactions Inquiry'), '
-			</p>';// Page title.
+				<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Transactions Inquiry'), '" />', _('Bank Transactions Inquiry'), '
+			</p>'; // Page title.
 		prnMsg(_('There are no transactions for this account in the date range selected'), 'info');
 	} else {
 		$BankDetailRow = DB_fetch_array($BankResult);
 		echo '<p class="page_title_text">
-				<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Transactions Inquiry'), '" />',
-					_('Account Transactions For'),' ',
-					$BankDetailRow['bankaccountname'], ' ',
-					_('Between'), ' ', $_POST['FromTransDate'], ' ', _('and'), ' ', $_POST['ToTransDate'], '
-			</p>';// Page title.*/
+				<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Transactions Inquiry'), '" />', _('Account Transactions For'), ' ', $BankDetailRow['bankaccountname'], ' ', _('Between'), ' ', $_POST['FromTransDate'], ' ', _('and'), ' ', $_POST['ToTransDate'], '
+			</p>'; // Page title.*/
 		echo '<table>
 				<thead>
 					<tr>
@@ -199,8 +195,8 @@ if (!isset($_POST['Show'])) {
 
 		while ($MyRow = DB_fetch_array($Result)) {
 
-			$AccountCurrTotal += $MyRow['amount'];
-			$LocalCurrTotal += $MyRow['amount'] / $MyRow['functionalexrate'] / $MyRow['exrate'];
+			$AccountCurrTotal+= $MyRow['amount'];
+			$LocalCurrTotal+= $MyRow['amount'] / $MyRow['functionalexrate'] / $MyRow['exrate'];
 
 			if ($MyRow['amount'] == $MyRow['amountcleared']) {
 				$Matched = _('Yes');
@@ -244,12 +240,11 @@ if (!isset($_POST['Show'])) {
 		}
 		echo '</table>';
 	} //end if no bank trans in the range to show
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="centre"><input type="submit" name="Return" value="' . _('Select Another Date') . '" /></div>';
 	echo '</form>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

@@ -1,11 +1,9 @@
 <?php
-
 // User configurable variables
 //---------------------------------------------------
-
 /*DefaultLanguage to use for the login screen and the setup of new users
  *the users language selection will override
- */
+*/
 $DefaultLanguage = 'en_GB.utf8';
 
 // Whether to display the demo login and password or not on the login screen
@@ -35,7 +33,6 @@ $DBType = 'mysqli';
 //$DBType = 'postgres';
 //$DBType = 'mysql';
 //$DBType = 'mysqli'; for PHP 5 and mysql > 4.1
-
 // sql user & password
 $DBUser = 'db_user';
 $DBPassword = 'db_pwd';
@@ -65,29 +62,25 @@ $MaximumExecutionTime = 120;
 //The path to which session files should be stored in the server - useful for some multi-host web servers
 //this can be left commented out
 //$SessionSavePath = '/tmp';
-
 // which encryption function should be used
 //$CryptFunction = "md5"; // MD5 Hash
 //$CryptFunction = ""; // Plain Text
-
 //Setting to 12 or 24 determines the format of the clock display at the end of all screens
 $DefaultClock = 12;
 //$DefaultClock = 24;
 
 
-
 // END OF USER CONFIGURABLE VARIABLES
-
 
 
 /*The $RootPath is used in most scripts to tell the script the installation details of the files.
  * NOTE: In some windows installation this command doesn't work and the administrator must set
  * this to the path of the installation manually:
- */
+*/
 
-$RootPath = dirname(htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'));
+$RootPath = dirname(htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'));
 if (isset($DirectoryLevelsDeep)) {
-	for ($i = 0; $i < $DirectoryLevelsDeep; $i++) {
+	for ($i = 0;$i < $DirectoryLevelsDeep;$i++) {
 		$RootPath = mb_substr($RootPath, 0, strrpos($RootPath, '/'));
 	}
 }
@@ -99,8 +92,8 @@ if ($RootPath == "/" or $RootPath == "\\") {
 /*Report all errors except E_NOTICE
  * This is the default value set in php.ini for most installations but
  * just to be sure it is forced here turning on NOTICES destroys things
- */
-error_reporting(E_ALL && ~E_NOTICE);
+*/
+error_reporting(E_ALL && ~ E_NOTICE);
 /* For Development Use */
 //error_reporting (-1);
 $Debug = 0; // 1=debugging mode, 0=producation mode

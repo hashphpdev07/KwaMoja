@@ -1,7 +1,6 @@
 <?php
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['BatchNo'])) {
 	$_POST['BatchNo'] = $_GET['BatchNo'];
@@ -12,7 +11,7 @@ if (!isset($_POST['BatchNo'])) {
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'BankingSummary';
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
 
@@ -24,7 +23,7 @@ if (!isset($_POST['BatchNo'])) {
 		ORDER BY transno DESC";
 	$Result = DB_query($SQL);
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<table summary="' . _('Details of the batch to be re-printed') . '">
 					<tr>
@@ -42,7 +41,7 @@ if (!isset($_POST['BatchNo'])) {
 			</div>
 		</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -70,9 +69,9 @@ if (isset($_POST['BatchNo']) and $_POST['BatchNo'] != '') {
 
 	if (DB_num_rows($Result) == 0) {
 		$Title = _('Create PDF Print-out For A Batch Of Receipts');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The receipt batch number') . ' ' . $_POST['BatchNo'] . ' ' . _('was not found in the database') . '. ' . _('Please try again selecting a different batch number'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	/* OK get the row of receipt batch header info from the BankTrans table */
@@ -99,12 +98,12 @@ if (isset($_POST['BatchNo']) and $_POST['BatchNo'] != '') {
 	$CustRecs = DB_query($SQL, '', '', false, false);
 	if (DB_error_no() != 0) {
 		$Title = _('Create PDF Print-out For A Batch Of Receipts');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('An error occurred getting the customer receipts for batch number') . ' ' . $_POST['BatchNo'], 'error');
 		if ($Debug == 1) {
 			prnMsg(_('The SQL used to get the customer receipt information that failed was') . '<br />' . $SQL, 'error');
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	$SQL = "SELECT narrative,
@@ -118,17 +117,16 @@ if (isset($_POST['BatchNo']) and $_POST['BatchNo'] != '') {
 	$GLRecs = DB_query($SQL, '', '', false, false);
 	if (DB_error_no() != 0) {
 		$Title = _('Create PDF Print-out For A Batch Of Receipts');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('An error occurred getting the GL receipts for batch number') . ' ' . $_POST['BatchNo'], 'error');
 		if ($Debug == 1) {
 			prnMsg(_('The SQL used to get the GL receipt information that failed was') . ':<br />' . $SQL, 'error');
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 
 	/*PDFStarter.php has all the variables for page size and width set up depending on the users default preferences for paper size */
 
@@ -138,7 +136,7 @@ if (isset($_POST['BatchNo']) and $_POST['BatchNo'] != '') {
 	$PageNumber = 0;
 	$TotalBanked = 0;
 
-	include('includes/PDFBankingSummaryPageHeader.php');
+	include ('includes/PDFBankingSummaryPageHeader.php');
 
 	while ($MyRow = DB_fetch_array($CustRecs)) {
 
@@ -147,12 +145,12 @@ if (isset($_POST['BatchNo']) and $_POST['BatchNo'] != '') {
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 215, $YPos, 100, $FontSize, $MyRow['invtext'], 'left');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 315, $YPos, 100, $FontSize, $MyRow['reference'], 'left');
 
-		$YPos -= ($line_height);
-		$TotalBanked -= $MyRow['ovamount'];
+		$YPos-= ($line_height);
+		$TotalBanked-= $MyRow['ovamount'];
 
 		if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 			/*Then set up a new page */
-			include('includes/PDFBankingSummaryPageHeader.php');
+			include ('includes/PDFBankingSummaryPageHeader.php');
 		}
 		/*end of new page header  */
 	}
@@ -163,19 +161,18 @@ if (isset($_POST['BatchNo']) and $_POST['BatchNo'] != '') {
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, locale_number_format((-$MyRow['amount'] * $ExRate * $FunctionalExRate), $BankCurrDecimalPlaces), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 65, $YPos, 300, $FontSize, $MyRow['narrative'], 'left');
-		$YPos -= ($line_height);
-		$TotalBanked += (-$MyRow['amount'] * $ExRate);
+		$YPos-= ($line_height);
+		$TotalBanked+= (-$MyRow['amount'] * $ExRate);
 
 		if ($YPos - (2 * $line_height) < $Bottom_Margin) {
 			/*Then set up a new page */
-			include('includes/PDFBankingSummaryPageHeader.php');
+			include ('includes/PDFBankingSummaryPageHeader.php');
 		}
 		/*end of new page header  */
 	}
 	/* end of while there are GL receipts in the batch to print */
 
-
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, locale_number_format($TotalBanked, 2), 'right');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 65, $YPos, 300, $FontSize, _('TOTAL') . ' ' . $Currency . ' ' . _('BANKED'), 'left');
 

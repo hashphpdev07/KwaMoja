@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Label Templates');
-include('includes/header.php');
+include ('includes/header.php');
 
 //define PaperSize array sizes in mm
 $PaperSize = array();
@@ -22,17 +21,15 @@ echo '<p class="page_title_text" >
 	</p>';
 
 if (!function_exists('gd_info')) {
-	prnMsg(_('The GD module for PHP is required to print barcode labels. Your PHP installation is not capable currently. You will most likely experience problems with this script until the GD module is enabled.'),'error');
+	prnMsg(_('The GD module for PHP is required to print barcode labels. Your PHP installation is not capable currently. You will most likely experience problems with this script until the GD module is enabled.'), 'error');
 }
 
 if (isset($_POST['SelectedLabelID'])) {
 	$SelectedLabelID = $_POST['SelectedLabelID'];
 	if (ctype_digit($_POST['NoOfFieldsDefined'])) { //Now Process any field updates
-
-		for ($i = 0; $i <= $_POST['NoOfFieldsDefined']; $i++) {
+		for ($i = 0;$i <= $_POST['NoOfFieldsDefined'];$i++) {
 
 			if (ctype_digit($_POST['VPos' . $i]) and ctype_digit($_POST['HPos' . $i]) and ctype_digit($_POST['FontSize' . $i])) { // if all entries are integers
-
 				$Result = DB_query("UPDATE labelfields SET fieldvalue='" . $_POST['FieldName' . $i] . "',
 														vpos='" . $_POST['VPos' . $i] . "',
 														hpos='" . $_POST['HPos' . $i] . "',
@@ -69,7 +66,7 @@ if (isset($_POST['SelectedLabelID'])) {
 if (isset($_POST['submit'])) {
 	$InputError = 0;
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	if (trim($_POST['Description']) == '') {
 		$InputError = 1;
 		prnMsg(_('The label description may not be empty'), 'error');
@@ -151,7 +148,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$Result = DB_query("DELETE FROM labelfields WHERE labelid= '" . $SelectedLabelID . "'");
 	$Result = DB_query("DELETE FROM labels WHERE labelid= '" . $SelectedLabelID . "'");
 	prnMsg(_('The selected label template has been deleted'), 'success');
@@ -192,12 +188,12 @@ if (!isset($SelectedLabelID)) {
 				</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($MyRow['rowheight'] == 0 ) {
+			if ($MyRow['rowheight'] == 0) {
 				$NoOfRows = 0;
 			} else {
 				$NoOfRows = floor(($MyRow['pageheight'] - $MyRow['topmargin']) / $MyRow['rowheight']);
 			}
-			if ($MyRow['columnwidth'] == 0 ) {
+			if ($MyRow['columnwidth'] == 0) {
 				$NoOfCols = 0;
 			} else {
 				$NoOfCols = floor(($MyRow['pagewidth'] - $MyRow['leftmargin']) / $MyRow['columnwidth']);
@@ -219,7 +215,7 @@ if (!isset($SelectedLabelID)) {
 							<td class="number">%s</td>
 							<td><a href="%sSelectedLabelID=%s">' . _('Edit') . '</a></td>
 							<td><a href="%sSelectedLabelID=%s&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-						</tr>', $MyRow['description'], $NoOfRows . ' x ' . $NoOfCols, $Paper, $MyRow['height'], $MyRow['width'], $MyRow['rowheight'], $MyRow['columnwidth'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], $RootPath . '/LabelFields.php?', $MyRow['labelid']);
+						</tr>', $MyRow['description'], $NoOfRows . ' x ' . $NoOfCols, $Paper, $MyRow['height'], $MyRow['width'], $MyRow['rowheight'], $MyRow['columnwidth'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], $RootPath . '/LabelFields.php?', $MyRow['labelid']);
 			} else {
 				printf('<tr class="striped_row">
 							<td>%s</td>
@@ -232,29 +228,27 @@ if (!isset($SelectedLabelID)) {
 							<td class="number">%s</td>
 							<td><a href="%sSelectedLabelID=%s">' . _('Edit') . '</a></td>
 							<td><a href="%sSelectedLabelID=%s&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-						</tr>', $MyRow['description'], $NoOfRows . ' x ' . $NoOfCols, $MyRow['pagewidth'], $MyRow['pageheight'], $MyRow['height'], $MyRow['width'], $MyRow['rowheight'], $MyRow['columnwidth'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], $RootPath . '/LabelFields.php?', $MyRow['labelid']);
+						</tr>', $MyRow['description'], $NoOfRows . ' x ' . $NoOfCols, $MyRow['pagewidth'], $MyRow['pageheight'], $MyRow['height'], $MyRow['width'], $MyRow['rowheight'], $MyRow['columnwidth'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['labelid'], $RootPath . '/LabelFields.php?', $MyRow['labelid']);
 			}
 		}
 		//END WHILE LIST LOOP
-
 		//end of ifs and buts!
-
 		echo '</table>';
 	} //end if there are label definitions to show
+	
 }
 
 if (isset($SelectedLabelID)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review all defined label records') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review all defined label records') . '</a>
 		</div>';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedLabelID)) {
 	//editing an existing label
-
 	$SQL = "SELECT pagewidth,
 					pageheight,
 					description,
@@ -320,7 +314,6 @@ foreach ($PaperSize as $PaperType => $PaperSizeElement) {
 	echo $PaperType . '">' . $PaperType . '</option>';
 
 } //end while loop
-
 echo '</select></td>
 	</tr>';
 
@@ -444,7 +437,7 @@ if (isset($SelectedLabelID)) {
 			} else {
 				echo '<option value="price">' . _('Price') . '</option>';
 			}
-			if ($MyRow['fieldvalue'] == 'logo'){
+			if ($MyRow['fieldvalue'] == 'logo') {
 				echo '<option selected="selected" value="logo">' . _('Company Logo') . '</option>';
 			} else {
 				echo '<option value="logo">' . _('Company Logo') . '</option>';
@@ -462,13 +455,13 @@ if (isset($SelectedLabelID)) {
 						<option value="0">' . _('No') . '</option>';
 			}
 			echo '</select></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedLabelID=' . $SelectedLabelID . '&amp;DeleteField=' . $MyRow['labelfieldid'] . ' onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label field?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedLabelID=' . $SelectedLabelID . '&amp;DeleteField=' . $MyRow['labelfieldid'] . ' onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this label field?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 			++$i;
 		}
 		//END WHILE LIST LOOP
 		$i--; //last increment needs to be wound back
-
+		
 	} //end if there are label definitions to show
 	echo '<input type="hidden" name="NoOfFieldsDefined" value="' . $i . '" />';
 
@@ -512,6 +505,6 @@ echo '<div class="centre">
 		</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

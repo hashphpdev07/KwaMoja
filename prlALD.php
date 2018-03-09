@@ -1,10 +1,10 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Employee Loan Deduction Entry');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedID'])) {
 	$SelectedID = $_GET['SelectedID'];
@@ -26,10 +26,10 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
+	
 
 	if ($InputError != 1) {
 		//printerr($_POST['LoanTableID']);
@@ -118,7 +118,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 }
 
 echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/loan.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" id="LoanDeductionForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $SQL = "SELECT prlloanfile.counterindex,
@@ -178,7 +178,7 @@ if (DB_num_rows($Result) > 0) {
 				<td class="number">' . locale_number_format($LoanRow['loanbalance'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td>' . $Status[$LoanRow['status']] . '</td>
 				<td>' . $LoanRow['realname'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedID=' . urlencode($LoanRow['counterindex']) . '&Edit=Yes">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedID=' . urlencode($LoanRow['counterindex']) . '&Edit=Yes">' . _('Edit') . '</a></td>
 			</tr>';
 	}
 	echo '</table>';
@@ -397,7 +397,6 @@ if ($_POST['Status'] == 0 or $_POST['Status'] == 4) {
 			echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -437,7 +436,6 @@ while ($MyRow = DB_fetch_row($Result)) {
 		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
 	}
 } //end while loop
-
 echo '</select>
 		</td>
 	</tr>';
@@ -466,6 +464,7 @@ if ($_POST['Status'] == 0 or $_POST['Status'] == 4) {
 			</td>
 		</tr>';
 	// End select tag
+	
 } else {
 	$SQL = "SELECT tagref,
 					tagdescription
@@ -509,6 +508,5 @@ if (!isset($SelectedID)) {
 
 echo '</form>';
 
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

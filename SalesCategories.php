@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Sales Category Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -41,8 +40,8 @@ if (isset($SelectedCategory) and isset($_FILES['CategoryPicture']) and $_FILES['
 	$FileName = $_SESSION['part_pics_dir'] . '/SALESCAT_' . $SelectedCategory . '.' . $ImgExt;
 
 	//But check for the worst
-	if (!in_array ($ImgExt, $SupportedImgExt)) {
-		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'),'warn');
+	if (!in_array($ImgExt, $SupportedImgExt)) {
+		prnMsg(_('Only ' . implode(", ", $SupportedImgExt) . ' files are supported - a file extension of ' . implode(", ", $SupportedImgExt) . ' is expected'), 'warn');
 		$UploadTheFile = 'No';
 	} elseif ($_FILES['CategoryPicture']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
 		prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
@@ -58,7 +57,7 @@ if (isset($SelectedCategory) and isset($_FILES['CategoryPicture']) and $_FILES['
 			$Result = unlink($File);
 			if (!$Result) {
 				prnMsg(_('The existing image could not be removed'), 'error');
-				$UploadTheFile ='No';
+				$UploadTheFile = 'No';
 			}
 		}
 	}
@@ -77,7 +76,7 @@ if (isset($_POST['ClearImage'])) {
 			//workaround for many variations of permission issues that could cause unlink fail
 			@unlink($File);
 			if (is_file($ImageFile)) {
-               prnMsg(_('You do not have access to delete this item image file.'), 'error');
+				prnMsg(_('You do not have access to delete this item image file.'), 'error');
 			} else {
 				$AssetImgLink = _('No Image');
 			}
@@ -86,15 +85,13 @@ if (isset($_POST['ClearImage'])) {
 }
 
 if (isset($_POST['submit']) and isset($EditName)) { // Creating or updating a category
-
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (mb_strlen($_POST['SalesCatName']) > 50 or trim($_POST['SalesCatName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The Sales category description must be fifty characters or less long'), 'error');
@@ -137,9 +134,7 @@ if (isset($_POST['submit']) and isset($EditName)) { // Creating or updating a ca
 
 } elseif (isset($_GET['delete']) and isset($EditName)) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'salescatprod'
-
 	$SQL = "SELECT COUNT(*) FROM salescatprod WHERE salescatid='" . $SelectedCategory . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -191,10 +186,9 @@ if (isset($_POST['submit']) and isset($EditName)) { // Creating or updating a ca
 	$Result = DB_query("UPDATE salescatprod SET featured=0 WHERE stockid='" . $_GET['StockID'] . "'");
 }
 
-
 // ----------------------------------------------------------------------------------------
 // Calculate Path for navigation
-$CategoryPath = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ParentCategory=0">' . _('Main') . '</a>' . "&nbsp;\\&nbsp;";
+$CategoryPath = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ParentCategory=0">' . _('Main') . '</a>' . "&nbsp;\\&nbsp;";
 
 $TempPath = '';
 if (!isset($ParentCategory)) {
@@ -206,15 +200,16 @@ if (isset($ParentCategory)) {
 }
 
 $LastParentName = '';
-for ($Busy = (isset($TmpParentID) AND ($TmpParentID != 0)); $Busy == true; $Busy = (isset($TmpParentID) AND ($TmpParentID != 0))) {
+for ($Busy = (isset($TmpParentID) and ($TmpParentID != 0));$Busy == true;$Busy = (isset($TmpParentID) and ($TmpParentID != 0))) {
 	$SQL = "SELECT parentcatid, salescatname FROM salescat WHERE salescatid='" . $TmpParentID . "'";
 	$Result = DB_query($SQL);
 	if ($Result) {
 		if (DB_num_rows($Result) > 0) {
 			$row = DB_fetch_array($Result);
 			$LastParentName = $row['salescatname'];
-			$TempPath = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ParentCategory=' . $TmpParentID . '">' . $LastParentName . '</a>' . '&nbsp;\\&nbsp;' . $TempPath;
+			$TempPath = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ParentCategory=' . $TmpParentID . '">' . $LastParentName . '</a>' . '&nbsp;\\&nbsp;' . $TempPath;
 			$TmpParentID = $row['parentcatid']; // Set For Next Round
+			
 		} else {
 			$Busy = false;
 		}
@@ -239,7 +234,6 @@ if ($ParentCategory != 0) {
 
 // ----------------------------------------------------------------------------------------
 // We will always display Categories
-
 /* It could still be the second time the page has been run and a record has been selected for modification - SelectedCategory will exist because it was sent with the new call. if its the first time the page has been displayed with no parameters
 then none of the above are true and the list of stock categorys will be displayed with
 links to delete or edit each. These will call the same page again and allow update/input
@@ -252,7 +246,6 @@ $SQL = "SELECT salescatid,
 			WHERE parentcatid" . (isset($ParentCategory) ? ('=' . $ParentCategory) : ' =0') . "
 			ORDER BY salescatname";
 $Result = DB_query($SQL);
-
 
 echo '<br />';
 if (DB_num_rows($Result) == 0) {
@@ -273,16 +266,16 @@ if (DB_num_rows($Result) == 0) {
 		$SupportedImgExt = array('png', 'jpg', 'jpeg');
 		$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/SALESCAT_' . $MyRow['salescatid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 		$ImageFile = reset($ImageFileArray);
-		if( extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
+		if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 			$CatImgLink = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode('SALESCAT_' . $MyRow['salescatid']) . '&text=&width=64&height=64" alt="" />';
-		} else if (file_exists ($ImageFile)) {
+		} else if (file_exists($ImageFile)) {
 			$CatImgLink = '<img src="' . $ImageFile . '" height="64" width="64" />';
 		} else {
 			$CatImgLink = _('No Image');
 		}
-		if ($MyRow['active'] == 1){
+		if ($MyRow['active'] == 1) {
 			$Active = _('Yes');
-		}else{
+		} else {
 			$Active = _('No');
 		}
 
@@ -293,7 +286,7 @@ if (DB_num_rows($Result) == 0) {
 					<td><a href="%sSelectedCategory=%s&amp;ParentCategory=%s">' . _('Edit') . '</td>
 					<td><a href="%sSelectedCategory=%s&amp;Delete=yes&amp;EditName=1&amp;ParentCategory=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales category?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					<td>%s</td>
-				</tr>', $MyRow['salescatname'], $Active, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, $CatImgLink);
+				</tr>', $MyRow['salescatname'], $Active, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['salescatid'], $ParentCategory, $CatImgLink);
 	}
 	//END WHILE LIST LOOP
 	echo '</tbody>';
@@ -307,14 +300,12 @@ if (DB_num_rows($Result) == 0) {
 
 // ----------------------------------------------------------------------------------------
 // Show New or Edit Category
-
-echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 // This array will contain the stockids in use for this category
 if (isset($SelectedCategory)) {
 	//editing an existing stock category
-
 	$SQL = "SELECT salescatid,
 					parentcatid,
 					salescatname,
@@ -369,7 +360,7 @@ echo '</select></td>
 // Image upload only if we have a selected category
 if (isset($SelectedCategory)) {
 	echo '<tr>
-			<td>' .  _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
+			<td>' . _('Image File (' . implode(", ", $SupportedImgExt) . ')') . ':</td>
 			<td><input type="file" id="CategoryPicture" name="CategoryPicture" />
 			<br /><input type="checkbox" name="ClearImage" id="ClearImage" value="1" >' . _('Clear Image') . '
 			</td>
@@ -384,10 +375,8 @@ echo '</table>
 
 // END Show New or Edit Category
 // ----------------------------------------------------------------------------------------
-
 // ----------------------------------------------------------------------------------------
 // Always display Stock Select screen
-
 // $SQL = "SELECT stockid, description FROM stockmaster ORDER BY stockid";
 /*
 $SQL = "SELECT sm.stockid, sm.description FROM stockmaster as sm
@@ -411,6 +400,7 @@ $Result = DB_query($SQL);
 if ($Result and DB_num_rows($Result)) {
 	while ($MyRow = DB_fetch_array($Result)) {
 		$StockIds[] = $MyRow['stockid']; // Add Stock
+		
 	}
 	DB_free_result($Result);
 }
@@ -427,13 +417,12 @@ $SQL = "SELECT stockid,
 $Result = DB_query($SQL);
 if ($Result and DB_num_rows($Result)) {
 	// continue id stock id in the stockid array
-	echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+	echo '<form enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (isset($SelectedCategory)) { // if we selected a category we need to keep it selected
 		echo '<input type="hidden" name="SelectedCategory" value="' . $SelectedCategory . '" />';
 	}
 	echo '<input type="hidden" name="ParentCategory" value="' . (isset($_POST['ParentCategory']) ? ($_POST['ParentCategory']) : ('0')) . '" /> ';
-
 
 	echo '<table>
 			<tr>
@@ -479,7 +468,6 @@ if ($Result) {
 unset($StockIds);
 // END Always display Stock Select screen
 // ----------------------------------------------------------------------------------------
-
 // ----------------------------------------------------------------------------------------
 // Always Show Stock In Category
 echo '<br />';
@@ -527,12 +515,12 @@ if ($Result) {
 					<td>';
 			if ($MyRow['featured'] == 1) {
 				echo '<img src="css/' . $_SESSION['Theme'] . '/images/tick.png"></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?RemoveFeature=Yes&amp;ParentCategory=' . $ParentCategory . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Cancel Feature') . '</a></td>';
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?RemoveFeature=Yes&amp;ParentCategory=' . $ParentCategory . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Cancel Feature') . '</a></td>';
 			} else {
 				echo '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?AddFeature=Yes&amp;ParentCategory=' . $ParentCategory . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Make Featured') . '</a></td>';
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?AddFeature=Yes&amp;ParentCategory=' . $ParentCategory . '&amp;StockID=' . $MyRow['stockid'] . '">' . _('Make Featured') . '</a></td>';
 			}
-			echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ParentCategory=' . $ParentCategory . '&amp;DelStockID=' . $MyRow['stockid'] . '">' . _('Remove') . '</a></td>
+			echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ParentCategory=' . $ParentCategory . '&amp;DelStockID=' . $MyRow['stockid'] . '">' . _('Remove') . '</a></td>
 			</tr>';
 		}
 		echo '</tbody>';
@@ -543,5 +531,5 @@ if ($Result) {
 	DB_free_result($Result);
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

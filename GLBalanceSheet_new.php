@@ -1,32 +1,29 @@
 <?php
-
-$PageSecurity=1;
+$PageSecurity = 1;
 /* Through deviousness and cunning, this system allows shows the balance sheets
  * as at the end of any period selected - so first off need to show the input
  * of criteria screen while the user is selecting the period end of the balance
  * date meanwhile the system is posting any unposted transactions
- */
+*/
 
-include('includes/session.php');
-$Title = _('Balance Sheet');// Screen identification.
-$ViewTopic = 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'BalanceSheet';// Anchor's id in the manual's html document.
-include('includes/SQL_CommonFunctions.php');
-include('includes/AccountSectionsDef.php'); // This loads the $Sections variable
-
+include ('includes/session.php');
+$Title = _('Balance Sheet'); // Screen identification.
+$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'BalanceSheet'; // Anchor's id in the manual's html document.
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
 if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod'])) {
 
 	/*Show a form to allow input of criteria for Balance Sheet to show */
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img alt="" src="' . $RootPath.'/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print Statement of Financial Position') . '" />
+			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print Statement of Financial Position') . '" />
 			' . _('Balance Sheet') . '
-		</p>';// Page title.
-
+		</p>'; // Page title.
 	echo '<div class="page_help_text">' . _('Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time.') . '<br />' . _('The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table summary="' . _('Criteria for report') . '">
 			<tr>
@@ -72,12 +69,12 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	echo '</form>';
 
 	/*Now do the posting while the user is thinking about the period to select */
-	include('includes/GLPostings.php');
-	include('includes/footer.php');
+	include ('includes/GLPostings.php');
+	include ('includes/footer.php');
 
 } else {
 
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/preview.png" title="' . _('HTML View') . '" alt="' . _('HTML View') . '" /> ' . _('HTML View') . '</p>';
 
 	/* Get last years totals into arrays */
@@ -91,7 +88,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 				INNER JOIN accountgroups
 					ON chartmaster.groupcode=accountgroups.groupcode
 					AND chartmaster.language=accountgroups.language
-				WHERE periodno<='" . ($_POST['BalancePeriodEnd']-12) . "'
+				WHERE periodno<='" . ($_POST['BalancePeriodEnd'] - 12) . "'
 					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 				GROUP BY chartmaster.groupcode
 						ORDER BY sequenceintb,
@@ -104,12 +101,12 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		$LYLowestLevelGroupBalances[$MyRow['groupcode']] = $MyRow['grouptotal'];
 		/* Find the parent group codes */
 		if (isset($LYParentGroupCodeTotal[$MyRow['parentgroupcode']])) {
-			$LYParentGroupCodeTotal[$MyRow['parentgroupcode']] += $MyRow['grouptotal'];
+			$LYParentGroupCodeTotal[$MyRow['parentgroupcode']]+= $MyRow['grouptotal'];
 		} else {
 			$LYParentGroupCodeTotal[$MyRow['parentgroupcode']] = $MyRow['grouptotal'];
 		}
 		if (isset($LYSectionTotal[$MyRow['sectioninaccounts']])) {
-			$LYSectionTotal[$MyRow['sectioninaccounts']] += $MyRow['grouptotal'];
+			$LYSectionTotal[$MyRow['sectioninaccounts']]+= $MyRow['grouptotal'];
 		} else {
 			$LYSectionTotal[$MyRow['sectioninaccounts']] = $MyRow['grouptotal'];
 		}
@@ -139,12 +136,12 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		$LowestLevelGroupBalances[$MyRow['groupcode']] = $MyRow['grouptotal'];
 		/* Find the parent group codes */
 		if (isset($ParentGroupCodeTotal[$MyRow['parentgroupcode']])) {
-			$ParentGroupCodeTotal[$MyRow['parentgroupcode']] += $MyRow['grouptotal'];
+			$ParentGroupCodeTotal[$MyRow['parentgroupcode']]+= $MyRow['grouptotal'];
 		} else {
 			$ParentGroupCodeTotal[$MyRow['parentgroupcode']] = $MyRow['grouptotal'];
 		}
 		if (isset($SectionTotal[$MyRow['sectioninaccounts']])) {
-			$SectionTotal[$MyRow['sectioninaccounts']] += $MyRow['grouptotal'];
+			$SectionTotal[$MyRow['sectioninaccounts']]+= $MyRow['grouptotal'];
 		} else {
 			$SectionTotal[$MyRow['sectioninaccounts']] = $MyRow['grouptotal'];
 		}
@@ -224,7 +221,6 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$LastYearTotal = 0;
 	$ThisYearTotal = 0;
 	$i = 0; //Table row counter
-
 	while ($MainAccountListRow = DB_fetch_array($MainListResult)) {
 		$LYMainAccountListRow = DB_fetch_array($LYMainListResult);
 		if ($_SESSION['CompanyRecord']['retainedearnings'] == $MainAccountListRow['accountcode']) {
@@ -250,7 +246,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 											AND pandl=1";
 			$RetainedEarningsResult = DB_query($RetainedEarningsSQL);
 			$RetainedEarningsRow = DB_fetch_array($RetainedEarningsResult);
-			$LYMainAccountListRow['balance'] += $RetainedEarningsRow['retainedearnings'];
+			$LYMainAccountListRow['balance']+= $RetainedEarningsRow['retainedearnings'];
 			$LYLowestLevelGroupBalances[$MainAccountListRow['groupcode']] = $LYLowestLevelGroupBalances[$MainAccountListRow['groupcode']] + $RetainedEarningsRow['retainedearnings'];
 			$LYParentGroupCodeTotal[$MainAccountListRow['parentgroupcode']] = $LYParentGroupCodeTotal[$MainAccountListRow['parentgroupcode']] + $RetainedEarningsRow['retainedearnings'];
 			$LYSectionTotal[$LastSection] = $LYSectionTotal[$LastSection] + $RetainedEarningsRow['retainedearnings'];
@@ -277,13 +273,13 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 											AND pandl=1";
 			$RetainedEarningsResult = DB_query($RetainedEarningsSQL);
 			$RetainedEarningsRow = DB_fetch_array($RetainedEarningsResult);
-			$MainAccountListRow['balance'] += $RetainedEarningsRow['retainedearnings'];
+			$MainAccountListRow['balance']+= $RetainedEarningsRow['retainedearnings'];
 			$LowestLevelGroupBalances[$MainAccountListRow['groupcode']] = $LowestLevelGroupBalances[$MainAccountListRow['groupcode']] + $RetainedEarningsRow['retainedearnings'];
 			$ParentGroupCodeTotal[$MainAccountListRow['parentgroupcode']] = $ParentGroupCodeTotal[$MainAccountListRow['parentgroupcode']] + $RetainedEarningsRow['retainedearnings'];
 			$SectionTotal[$LastSection] = $SectionTotal[$LastSection] + $RetainedEarningsRow['retainedearnings'];
 		}
-		$LastYearTotal += $LYMainAccountListRow['balance'];
-		$ThisYearTotal += $MainAccountListRow['balance'];
+		$LastYearTotal+= $LYMainAccountListRow['balance'];
+		$ThisYearTotal+= $MainAccountListRow['balance'];
 		if ($MainAccountListRow['groupcode'] != $LastGroup and $LastGroup != '') {
 			if (!isset($LYLowestLevelGroupBalances[$LastGroup])) {
 				$LYLowestLevelGroupBalances[$LastGroup] = 0;
@@ -510,8 +506,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		</tr>';
 	echo '</table>';
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select A Different Balance Date') . ' </a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Select A Different Balance Date') . ' </a>
 		</div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

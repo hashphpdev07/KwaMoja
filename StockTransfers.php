@@ -1,14 +1,14 @@
 <?php
 /* Entry of point to point stock location transfers of a single part. */
-include('includes/DefineSerialItems.php');
-include('includes/DefineStockTransfers.php');
+include ('includes/DefineSerialItems.php');
+include ('includes/DefineStockTransfers.php');
 
-include('includes/session.php');
-$Title = _('Stock Transfers');// Screen identification.
-$ViewTopic = 'Inventory';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'LocationTransfers';// Anchor's id in the manual's html document.
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+$Title = _('Stock Transfers'); // Screen identification.
+$ViewTopic = 'Inventory'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'LocationTransfers'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (empty($_GET['identifier'])) {
 	/*unique session identifier to ensure that there is no conflict with other order entry sessions on the same machine  */
@@ -67,7 +67,7 @@ if (isset($_POST['CheckCode'])) {
 	}
 	echo '</tbody>';
 	echo '</table>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -80,7 +80,6 @@ if (isset($_GET['NewTransfer'])) {
 	/*this is defined in bulk transfers but needs to be unset for individual transfers */
 	$NewTransfer = $_GET['NewTransfer'];
 }
-
 
 if (isset($_GET['StockID'])) {
 	/*carry the stockid through to the form for additional inputs */
@@ -134,7 +133,6 @@ if ($NewTransfer and isset($_POST['StockID'])) {
 		$MyRow = DB_fetch_array($Result);
 		$_SESSION['Transfer' . $Identifier]->TransferItem[0] = new LineItem(trim(mb_strtoupper($_POST['StockID'])), $MyRow['description'], filter_number_format($_POST['Quantity']), $MyRow['units'], $MyRow['controlled'], $MyRow['serialised'], $MyRow['perishable'], $MyRow['decimalplaces']);
 
-
 		$_SESSION['Transfer' . $Identifier]->TransferItem[0]->StandardCost = $MyRow['standardcost'];
 
 		if ($MyRow['mbflag'] == 'D' or $MyRow['mbflag'] == 'A' or $MyRow['mbflag'] == 'K') {
@@ -142,7 +140,7 @@ if ($NewTransfer and isset($_POST['StockID'])) {
 			echo '.<hr />';
 			echo '<a href="' . $RootPath . '/StockTransfers.php?NewTransfer=Yes">' . _('Enter another Transfer') . '</a>';
 			unset($_SESSION['Transfer' . $Identifier]);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -217,18 +215,19 @@ if (isset($_POST['EnterTransfer'])) {
 		}
 		if ($_SESSION['ProhibitNegativeStock'] == 1 and $QtyOnHandPrior < $_SESSION['Transfer' . $Identifier]->TransferItem[0]->Quantity) {
 			prnMsg(_('There is insufficient stock to make this transfer and') . ' ' . $ProjectName . ' ' . _('is setup to prevent negative stock'), 'warn');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
-// BEGIN: **********************************************************************
+		// BEGIN: **********************************************************************
 		// Insert outgoing inventory GL transaction if any of the locations has a GL account code:
 		if ($_SESSION['Transfer']->StockLocationFromAccount != '' or $_SESSION['Transfer']->StockLocationToAccount != '') {
 			// Get the account code:
 			if ($_SESSION['Transfer']->StockLocationToAccount != '') {
 				$AccountCode = $_SESSION['Transfer']->StockLocationToAccount;
 			} else {
-				$StockGLCode = GetStockGLCode($_SESSION['Transfer']->TransferItem[0]->StockID);// Get Category's account codes.
-				$AccountCode = $StockGLCode['stockact'];// Select account code for stock.
+				$StockGLCode = GetStockGLCode($_SESSION['Transfer']->TransferItem[0]->StockID); // Get Category's account codes.
+				$AccountCode = $StockGLCode['stockact']; // Select account code for stock.
+				
 			}
 			// Get the item cost:
 			$SQLStandardCost = "SELECT stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost AS standardcost
@@ -236,9 +235,9 @@ if (isset($_POST['EnterTransfer'])) {
 								WHERE stockcosts.stockid ='" . $_SESSION['Transfer']->TransferItem[0]->StockID . "'";
 			$ErrMsg = _('The standard cost of the item cannot be retrieved because');
 			$DbgMsg = _('The SQL that failed was');
-			$Result = DB_query($SQLStandardCost,$ErrMsg,$DbgMsg);
+			$Result = DB_query($SQLStandardCost, $ErrMsg, $DbgMsg);
 			$MyRow = DB_fetch_array($Result);
-			$StandardCost = $MyRow['standardcost'];// QUESTION: Standard cost for: Assembly (value="A") and Manufactured (value="M") items ?
+			$StandardCost = $MyRow['standardcost']; // QUESTION: Standard cost for: Assembly (value="A") and Manufactured (value="M") items ?
 			// Insert record:
 			$SQL = "INSERT INTO gltrans (
 					periodno,
@@ -256,11 +255,11 @@ if (isset($_POST['EnterTransfer'])) {
 					'" . $AccountCode . "',
 					'" . $_SESSION['Transfer']->StockLocationFrom . ' - ' . $_SESSION['Transfer']->TransferItem[0]->StockID . ' x ' . $_SESSION['Transfer']->TransferItem[0]->Quantity . ' @ ' . $StandardCost . "',
 					'" . -$_SESSION['Transfer']->TransferItem[0]->Quantity * $StandardCost . "')";
-					$ErrMsg =  _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The outgoing inventory GL transacction record could not be inserted because');
-					$DbgMsg =  _('The following SQL to insert records was used');
-					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The outgoing inventory GL transacction record could not be inserted because');
+			$DbgMsg = _('The following SQL to insert records was used');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		}
-// END: ************************************************************************
+		// END: ************************************************************************
 		// Insert the stock movement for the stock going out of the from location
 		$SQL = "INSERT INTO stockmoves (stockid,
 										type,
@@ -297,7 +296,7 @@ if (isset($_POST['EnterTransfer'])) {
 		if ($_SESSION['Transfer' . $Identifier]->TransferItem[0]->Controlled == 1) {
 			foreach ($_SESSION['Transfer' . $Identifier]->TransferItem[0]->SerialItems as $Item) {
 				/*We need to add or update the StockSerialItem record and
-				The StockSerialMoves as well */
+				 The StockSerialMoves as well */
 
 				/*First need to check if the serial items already exists or not in the location from */
 				$SQL = "SELECT COUNT(*)
@@ -341,7 +340,6 @@ if (isset($_POST['EnterTransfer'])) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				}
 
-
 				/* now insert the serial stock movement */
 
 				$SQL = "INSERT INTO stockserialmoves (
@@ -365,7 +363,6 @@ if (isset($_POST['EnterTransfer'])) {
 		}
 		/*end if the transferred item is a controlled item */
 
-
 		// Need to get the current location quantity will need it later for the stock movement
 		$SQL = "SELECT locstock.quantity
 				FROM locstock
@@ -380,15 +377,16 @@ if (isset($_POST['EnterTransfer'])) {
 			// There must actually be some error this should never happen
 			$QtyOnHandPrior = 0;
 		}
-// BEGIN: **********************************************************************
+		// BEGIN: **********************************************************************
 		// Insert incoming inventory GL transaction if any of the locations has a GL account code:
 		if ($_SESSION['Transfer']->StockLocationFromAccount != '' or $_SESSION['Transfer']->StockLocationToAccount != '') {
 			// Get the account code:
-			if($_SESSION['Transfer']->StockLocationToAccount != '') {
+			if ($_SESSION['Transfer']->StockLocationToAccount != '') {
 				$AccountCode = $_SESSION['Transfer']->StockLocationToAccount;
 			} else {
-				$StockGLCode = GetStockGLCode($_SESSION['Transfer']->TransferItem[0]->StockID);// Get Category's account codes.
-				$AccountCode = $StockGLCode['stockact'];// Select account code for stock.
+				$StockGLCode = GetStockGLCode($_SESSION['Transfer']->TransferItem[0]->StockID); // Get Category's account codes.
+				$AccountCode = $StockGLCode['stockact']; // Select account code for stock.
+				
 			}
 			// Get the item cost:
 			$SQLStandardCost = "SELECT stockcosts.materialcost + stockcosts.labourcost + stockcosts.overheadcost AS standardcost
@@ -398,7 +396,7 @@ if (isset($_POST['EnterTransfer'])) {
 			$DbgMsg = _('The SQL that failed was');
 			$Result = DB_query($SQLStandardCost, $ErrMsg, $DbgMsg);
 			$MyRow = DB_fetch_array($Result);
-			$StandardCost = $MyRow['standardcost'];// QUESTION: Standard cost for: Assembly (value="A") and Manufactured (value="M") items ?
+			$StandardCost = $MyRow['standardcost']; // QUESTION: Standard cost for: Assembly (value="A") and Manufactured (value="M") items ?
 			// Insert record:
 			$SQL = "INSERT INTO gltrans (
 					periodno,
@@ -414,14 +412,13 @@ if (isset($_POST['EnterTransfer'])) {
 					16,
 					'" . $TransferNumber . "',
 					'" . $AccountCode . "',
-					'" . $_SESSION['Transfer']->StockLocationTo . ' - ' . $_SESSION['Transfer']->TransferItem[0]->StockID . ' x ' . $_SESSION['Transfer']->TransferItem[0]->Quantity . ' @ ' .  $StandardCost . "',
+					'" . $_SESSION['Transfer']->StockLocationTo . ' - ' . $_SESSION['Transfer']->TransferItem[0]->StockID . ' x ' . $_SESSION['Transfer']->TransferItem[0]->Quantity . ' @ ' . $StandardCost . "',
 					'" . $_SESSION['Transfer']->TransferItem[0]->Quantity * $StandardCost . "')";
-			$ErrMsg =  _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The incoming inventory GL transacction record could not be inserted because');
-			$DbgMsg =  _('The following SQL to insert records was used');
+			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The incoming inventory GL transacction record could not be inserted because');
+			$DbgMsg = _('The following SQL to insert records was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		}
-// END: ************************************************************************
-
+		// END: ************************************************************************
 		// Insert the stock movement for the stock coming into the to location
 		$SQL = "INSERT INTO stockmoves (stockid,
 						type,
@@ -456,7 +453,7 @@ if (isset($_POST['EnterTransfer'])) {
 		if ($_SESSION['Transfer' . $Identifier]->TransferItem[0]->Controlled == 1) {
 			foreach ($_SESSION['Transfer' . $Identifier]->TransferItem[0]->SerialItems as $Item) {
 				/*We need to add or update the StockSerialItem record and
-				The StockSerialMoves as well */
+				 The StockSerialMoves as well */
 
 				/*First need to check if the serial items already exists or not in the location from */
 				$SQL = "SELECT COUNT(*)
@@ -503,7 +500,6 @@ if (isset($_POST['EnterTransfer'])) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				}
 
-
 				/* now insert the serial stock movement */
 
 				$SQL = "INSERT INTO stockserialmoves (stockmoveno,
@@ -522,7 +518,6 @@ if (isset($_POST['EnterTransfer'])) {
 			/* foreach controlled item in the serialitems array */
 		}
 		/*end if the transfer item is a controlled item */
-
 
 		$SQL = "UPDATE locstock SET quantity = quantity - '" . round($_SESSION['Transfer' . $Identifier]->TransferItem[0]->Quantity, $_SESSION['Transfer' . $Identifier]->TransferItem[0]->DecimalPlaces) . "'
 				WHERE stockid='" . $_SESSION['Transfer' . $Identifier]->TransferItem[0]->StockID . "'
@@ -546,7 +541,7 @@ if (isset($_POST['EnterTransfer'])) {
 		prnMsg(_('An inventory transfer of') . ' ' . $_SESSION['Transfer' . $Identifier]->TransferItem[0]->StockID . ' - ' . $_SESSION['Transfer' . $Identifier]->TransferItem[0]->ItemDescription . ' ' . _('has been created from') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationFrom . ' ' . _('to') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationTo . ' ' . _('for a quantity of') . ' ' . $_SESSION['Transfer' . $Identifier]->TransferItem[0]->Quantity, 'success');
 		echo '<br /><a href="PDFStockTransfer.php?identifier=' . urlencode($Identifier) . '&TransferNo=' . urlencode($TransferNumber) . '">' . _('Print Transfer Note') . '</a>';
 		unset($_SESSION['Transfer' . $Identifier]);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -556,7 +551,7 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . $Title . '
 	  </p>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . urlencode($Identifier) . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . urlencode($Identifier) . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_GET['Description'])) {
@@ -597,7 +592,7 @@ $SQL = "SELECT locationname,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1";
 
 $ResultStkLocs = DB_query($SQL);
@@ -677,5 +672,5 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 	echo '<a href="' . $RootPath . '/SelectCompletedOrder.php?SelectedStockItem=' . urlencode($StockId) . '">' . _('Search Completed Sales Orders') . '</a>';
 }
 echo '</div></form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,16 +1,15 @@
 <?php
-
 /*Through deviousness and cunning, this system allows trial balances for
  * any date range that recalcuates the p & l balances and shows the balance
  * sheets as at the end of the period selected - so first off need to show
  * the input of criteria screen while the user is selecting the criteria
  * the system is posting any unposted transactions
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Trial Balance');
-include('includes/SQL_CommonFunctions.php');
-include('includes/AccountSectionsDef.php'); //this reads in the Accounts Sections array
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/AccountSectionsDef.php'); //this reads in the Accounts Sections array
 
 
 if (isset($_POST['FromPeriod']) and isset($_POST['ToPeriod']) and $_POST['FromPeriod'] > $_POST['ToPeriod']) {
@@ -23,11 +22,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TrialBalance';
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Trial Balance') . '" />' . ' ' . $Title . '
 		</p>';
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
@@ -53,7 +52,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				WHERE lastdate_in_period < '" . $NextYear . "'
 				ORDER BY periodno DESC";
 	$Periods = DB_query($SQL);
-
 
 	while ($MyRow = DB_fetch_array($Periods)) {
 		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] != '') {
@@ -106,11 +104,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	/*Now do the posting while the user is thinking about the period to select */
 
-	include('includes/GLPostings.php');
+	include ('includes/GLPostings.php');
 
 } else if (isset($_POST['PrintPDF'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 
 	$PDF->addInfo('Title', _('Trial Balance'));
 	$PDF->addInfo('Subject', _('Trial Balance'));
@@ -161,46 +159,38 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$Title = _('Trial Balance') . ' - ' . _('Problem Report') . '....';
 		$ViewTopic = 'GeneralLedger';
 		$BookMark = 'TrialBalance';
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('No general ledger accounts were returned by the SQL because') . ' - ' . DB_error_msg());
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($AccountsResult) == 0) {
 		$Title = _('Print Trial Balance Error');
 		$ViewTopic = 'GeneralLedger';
 		$BookMark = 'TrialBalance';
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There were no entries to print out for the selections specified'));
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFTrialBalancePageHeader.php');
+	include ('includes/PDFTrialBalancePageHeader.php');
 
 	$j = 1;
 	$Level = 1;
 	$ActGrp = '';
 	$ParentGroups = array();
 	$ParentGroups[$Level] = '';
-	$GrpActual = array(
-		0
-	);
-	$GrpBudget = array(
-		0
-	);
-	$GrpPrdActual = array(
-		0
-	);
-	$GrpPrdBudget = array(
-		0
-	);
+	$GrpActual = array(0);
+	$GrpBudget = array(0);
+	$GrpPrdActual = array(0);
+	$GrpPrdBudget = array(0);
 	$PeriodProfitLoss = 0;
 	$PeriodBudgetProfitLoss = 0;
 	$MonthProfitLoss = 0;
@@ -219,13 +209,13 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 				// Print heading if at end of page
 				if ($YPos < ($Bottom_Margin + (2 * $line_height))) {
-					include('includes/PDFTrialBalancePageHeader.php');
+					include ('includes/PDFTrialBalancePageHeader.php');
 				}
 				if ($MyRow['parentgroupname'] == $ActGrp) {
 					$Level++;
 					$ParentGroups[$Level] = $MyRow['groupname'];
 				} elseif ($MyRow['parentgroupname'] == $ParentGroups[$Level]) {
-					$YPos -= (.5 * $line_height);
+					$YPos-= (.5 * $line_height);
 					$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
 					$PDF->setFont('', 'B');
 					$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
@@ -236,7 +226,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 					$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
 					/*Draw the bottom line */
-					$YPos -= (2 * $line_height);
+					$YPos-= (2 * $line_height);
 					$PDF->setFont('', '');
 					$ParentGroups[$Level] = $MyRow['groupname'];
 					$GrpActual[$Level] = 0;
@@ -246,7 +236,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 				} else {
 					do {
-						$YPos -= $line_height;
+						$YPos-= $line_height;
 						$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
 						$PDF->setFont('', 'B');
 						$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
@@ -257,7 +247,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 						$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
 						/*Draw the bottom line */
-						$YPos -= (2 * $line_height);
+						$YPos-= (2 * $line_height);
 						$PDF->setFont('', '');
 						$ParentGroups[$Level] = '';
 						$GrpActual[$Level] = 0;
@@ -268,7 +258,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					} while ($Level > 0 and $MyRow['parentgroupname'] != $ParentGroups[$Level]);
 
 					if ($Level > 0) {
-						$YPos -= $line_height;
+						$YPos-= $line_height;
 						$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
 						$PDF->setFont('', 'B');
 						$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
@@ -279,7 +269,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 						$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
 						/*Draw the bottom line */
-						$YPos -= (2 * $line_height);
+						$YPos-= (2 * $line_height);
 						$PDF->setFont('', '');
 						$GrpActual[$Level] = 0;
 						$GrpBudget[$Level] = 0;
@@ -290,7 +280,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					}
 				}
 			}
-			$YPos -= (2 * $line_height);
+			$YPos-= (2 * $line_height);
 			// Print account group name
 			$PDF->setFont('', 'B');
 			$ActGrp = $MyRow['groupname'];
@@ -299,7 +289,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, $MyRow['groupname']);
 			$FontSize = 8;
 			$PDF->setFont('', '');
-			$YPos -= (2 * $line_height);
+			$YPos-= (2 * $line_height);
 		}
 
 		if ($MyRow['pandl'] == 1) {
@@ -307,11 +297,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			$AccountPeriodActual = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
 			$AccountPeriodBudget = $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
 
-			$PeriodProfitLoss += $AccountPeriodActual;
-			$PeriodBudgetProfitLoss += $AccountPeriodBudget;
-			$MonthProfitLoss += $MyRow['monthactual'];
-			$MonthBudgetProfitLoss += $MyRow['monthbudget'];
-			$BFwdProfitLoss += $MyRow['firstprdbfwd'];
+			$PeriodProfitLoss+= $AccountPeriodActual;
+			$PeriodBudgetProfitLoss+= $AccountPeriodBudget;
+			$MonthProfitLoss+= $MyRow['monthactual'];
+			$MonthBudgetProfitLoss+= $MyRow['monthbudget'];
+			$BFwdProfitLoss+= $MyRow['firstprdbfwd'];
 		} else {
 			/*PandL ==0 its a balance sheet account */
 			if ($MyRow['accountcode'] == $RetainedEarningsAct) {
@@ -323,33 +313,33 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			}
 
 		}
-		for ($i = 0; $i <= $Level; $i++) {
+		for ($i = 0;$i <= $Level;$i++) {
 			if (!isset($GrpActual[$i])) {
 				$GrpActual[$i] = 0;
 			}
-			$GrpActual[$i] += $MyRow['monthactual'];
+			$GrpActual[$i]+= $MyRow['monthactual'];
 			if (!isset($GrpBudget[$i])) {
 				$GrpBudget[$i] = 0;
 			}
-			$GrpBudget[$i] += $MyRow['monthbudget'];
+			$GrpBudget[$i]+= $MyRow['monthbudget'];
 			if (!isset($GrpPrdActual[$i])) {
 				$GrpPrdActual[$i] = 0;
 			}
-			$GrpPrdActual[$i] += $AccountPeriodActual;
+			$GrpPrdActual[$i]+= $AccountPeriodActual;
 			if (!isset($GrpPrdBudget[$i])) {
 				$GrpPrdBudget[$i] = 0;
 			}
-			$GrpPrdBudget[$i] += $AccountPeriodBudget;
+			$GrpPrdBudget[$i]+= $AccountPeriodBudget;
 		}
 
-		$CheckMonth += $MyRow['monthactual'];
-		$CheckBudgetMonth += $MyRow['monthbudget'];
-		$CheckPeriodActual += $AccountPeriodActual;
-		$CheckPeriodBudget += $AccountPeriodBudget;
+		$CheckMonth+= $MyRow['monthactual'];
+		$CheckBudgetMonth+= $MyRow['monthbudget'];
+		$CheckPeriodActual+= $AccountPeriodActual;
+		$CheckPeriodBudget+= $AccountPeriodBudget;
 
 		// Print heading if at end of page
 		if ($YPos < ($Bottom_Margin)) {
-			include('includes/PDFTrialBalancePageHeader.php');
+			include ('includes/PDFTrialBalancePageHeader.php');
 		}
 
 		// Print total for each account
@@ -359,14 +349,14 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($MyRow['monthbudget'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 	} //end of while loop
-
+	
 
 	while ($Level > 0 and $MyRow['parentgroupname'] != $ParentGroups[$Level]) {
 
-		$YPos -= (.5 * $line_height);
+		$YPos-= (.5 * $line_height);
 		$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
 		$PDF->setFont('', 'B');
 		$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
@@ -377,7 +367,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
 		/*Draw the bottom line */
-		$YPos -= (2 * $line_height);
+		$YPos-= (2 * $line_height);
 		$ParentGroups[$Level] = '';
 		$GrpActual[$Level] = 0;
 		$GrpBudget[$Level] = 0;
@@ -386,8 +376,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$Level--;
 	}
 
-
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Check Totals'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($CheckMonth, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
@@ -400,15 +389,15 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$PDF->__destruct();
 	exit;
 } elseif (isset($_POST['ExportCSV'])) {
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<div class="centre"><a href="GLTrialBalance.php">' . _('Select A Different Period') . '</a></div>';
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/GLTrialBalance_csv.php?FromPeriod=' . $_POST['FromPeriod'] . '&ToPeriod=' . $_POST['ToPeriod'] . '">';
 } else {
 
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TrialBalance';
-	include('includes/header.php');
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	include ('includes/header.php');
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="FromPeriod" value="' . $_POST['FromPeriod'] . '" />
 			<input type="hidden" name="ToPeriod" value="' . $_POST['ToPeriod'] . '" />';
@@ -451,13 +440,12 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			accountgroups.groupcode,
 			chartdetails.accountcode";
 
-
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was') . ': ');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Print') . '" />' . ' ' . _('Trial Balance Report') . '</p>';
 
 	/*show a table of the accounts info returned by the SQL
-	Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
+	 Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
 	echo '<table cellpadding="2" summary="' . _('Trial Balance Report') . '">';
 	echo '<thead>
@@ -482,18 +470,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$ParentGroups = array();
 	$Level = 1; //level of nested sub-groups
 	$ParentGroups[$Level] = '';
-	$GrpActual = array(
-		0
-	);
-	$GrpBudget = array(
-		0
-	);
-	$GrpPrdActual = array(
-		0
-	);
-	$GrpPrdBudget = array(
-		0
-	);
+	$GrpActual = array(0);
+	$GrpBudget = array(0);
+	$GrpPrdActual = array(0);
+	$GrpPrdBudget = array(0);
 
 	$PeriodProfitLoss = 0;
 	$PeriodBudgetProfitLoss = 0;
@@ -585,11 +565,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			$AccountPeriodActual = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
 			$AccountPeriodBudget = $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
 
-			$PeriodProfitLoss += $AccountPeriodActual;
-			$PeriodBudgetProfitLoss += $AccountPeriodBudget;
-			$MonthProfitLoss += $MyRow['monthactual'];
-			$MonthBudgetProfitLoss += $MyRow['monthbudget'];
-			$BFwdProfitLoss += $MyRow['firstprdbfwd'];
+			$PeriodProfitLoss+= $AccountPeriodActual;
+			$PeriodBudgetProfitLoss+= $AccountPeriodBudget;
+			$MonthProfitLoss+= $MyRow['monthactual'];
+			$MonthBudgetProfitLoss+= $MyRow['monthbudget'];
+			$BFwdProfitLoss+= $MyRow['firstprdbfwd'];
 		} else {
 			/*PandL ==0 its a balance sheet account */
 			if ($MyRow['accountcode'] == $RetainedEarningsAct) {
@@ -614,15 +594,15 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		if (!isset($GrpPrdBudget[$Level])) {
 			$GrpPrdBudget[$Level] = 0;
 		}
-		$GrpActual[$Level] += $MyRow['monthactual'];
-		$GrpBudget[$Level] += $MyRow['monthbudget'];
-		$GrpPrdActual[$Level] += $AccountPeriodActual;
-		$GrpPrdBudget[$Level] += $AccountPeriodBudget;
+		$GrpActual[$Level]+= $MyRow['monthactual'];
+		$GrpBudget[$Level]+= $MyRow['monthbudget'];
+		$GrpPrdActual[$Level]+= $AccountPeriodActual;
+		$GrpPrdBudget[$Level]+= $AccountPeriodBudget;
 
-		$CheckMonth += $MyRow['monthactual'];
-		$CheckBudgetMonth += $MyRow['monthbudget'];
-		$CheckPeriodActual += $AccountPeriodActual;
-		$CheckPeriodBudget += $AccountPeriodBudget;
+		$CheckMonth+= $MyRow['monthactual'];
+		$CheckBudgetMonth+= $MyRow['monthbudget'];
+		$CheckPeriodActual+= $AccountPeriodActual;
+		$CheckPeriodBudget+= $AccountPeriodBudget;
 
 		$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?FromPeriod=' . $_POST['FromPeriod'] . '&amp;ToPeriod=' . $_POST['ToPeriod'] . '&amp;Account=' . $MyRow['accountcode'] . '&amp;Show=Yes">' . $MyRow['accountcode'] . '</a>';
 
@@ -638,7 +618,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		++$j;
 	}
 	//end of while loop
-
+	
 
 	if ($ActGrp != '') { //so its not the first account group of the first account displayed
 		if ($MyRow['parentgroupname'] == $ActGrp) {
@@ -698,8 +678,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		}
 	}
 
-
-
 	printf('<tr>
 				<td colspan="2"><b>' . _('Check Totals') . '</b></td>
 				<td class="number">%s</td>
@@ -710,8 +688,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	echo '</tbody>';
 	echo '</table>';
 	echo '<div class="centre"><input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" /></div>';
-}
-echo '</form>';
-include('includes/footer.php');
+} echo '</form>';
+include ('includes/footer.php');
 
 ?>

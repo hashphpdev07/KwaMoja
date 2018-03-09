@@ -1,5 +1,4 @@
 <?php
-
 /* Input Serial Items - used for inputing serial numbers or batch/roll/bundle
  * referencesfor controlled items - used in:
  * - ConfirmDispatchControlledInvoice.php
@@ -7,7 +6,7 @@
  * - StockAdjustments.php
  * - StockTransfers.php
  * - CreditItemsControlled.php
- */
+*/
 
 //bring up perishable variable here otherwise we cannot get it in Add_SerialItems.php
 $SQL = "SELECT perishable,
@@ -19,7 +18,7 @@ $MyRow = DB_fetch_array($Result);
 $Perishable = $MyRow['perishable'];
 $DecimalPlaces = $MyRow['decimalplaces'];
 
-include('includes/Add_SerialItems.php');
+include ('includes/Add_SerialItems.php');
 
 /*Setup the Data Entry Types */
 if (isset($_GET['LineNo'])) {
@@ -58,7 +57,7 @@ if (!isset($_POST['EntryType']) or trim($_POST['EntryType']) == '') {
 $invalid_imports = 0;
 $valid = true;
 
-echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" enctype="multipart/form-data" >';
+echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" enctype="multipart/form-data" >';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<input type="hidden" name="LineNo" value="' . $LineNo . '" />
 		<input type="hidden" name="StockID" value="' . $StockId . '" />';
@@ -106,17 +105,17 @@ echo ' value="FILE" />' . _('File Upload') . '&nbsp; <input type="file" name="Im
 global $TableHeader;
 /* Link to clear the list and start from scratch */
 $EditLink = '<div class="centre">
-					<a class="FontSize" href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;EditControlled=true&amp;StockID=' . $LineItem->StockID . '&amp;LineNo=' . $LineNo . $CreditInvoice . '">' . _('Edit') . '</a> | ';
-$RemoveLink = '<a class="FontSize" href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;DELETEALL=YES&amp;StockID=' . $LineItem->StockID . '&amp;LineNo=' . $LineNo . $CreditInvoice . '">' . _('Remove All') . '</a>
+					<a class="FontSize" href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;EditControlled=true&amp;StockID=' . $LineItem->StockID . '&amp;LineNo=' . $LineNo . $CreditInvoice . '">' . _('Edit') . '</a> | ';
+$RemoveLink = '<a class="FontSize" href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;DELETEALL=YES&amp;StockID=' . $LineItem->StockID . '&amp;LineNo=' . $LineNo . $CreditInvoice . '">' . _('Remove All') . '</a>
 			</div>';
 
 if ($LineItem->Serialised == 1) {
 	if ($Perishable == 0) {
-		$TableHeader .= '<tr>
+		$TableHeader.= '<tr>
 							<th>' . _('Serial No') . '</th>
 						</tr>';
 	} else {
-		$TableHeader .= '<tr>
+		$TableHeader.= '<tr>
 							<th>' . _('Serial No') . '</th>
 							<th>' . _('Expiry Date') . '<th>
 						</tr>';
@@ -136,11 +135,11 @@ if ($LineItem->Serialised == 1) {
 
 echo $EditLink . $RemoveLink;
 if ($_POST['EntryType'] == 'FILE') {
-	include('includes/InputSerialItemsFile.php');
+	include ('includes/InputSerialItemsFile.php');
 } elseif ($_POST['EntryType'] == 'SEQUENCE') {
-	include('includes/InputSerialItemsSequential.php');
+	include ('includes/InputSerialItemsSequential.php');
 } else {
 	/*KEYED or BARCODE */
-	include('includes/InputSerialItemsKeyed.php');
+	include ('includes/InputSerialItemsKeyed.php');
 }
 ?>

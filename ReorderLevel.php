@@ -1,12 +1,10 @@
 <?php
-
 // ReorderLevel.php - Report of parts with quantity below reorder level
 // Shows if there are other locations that have quantities for the parts that are short
-
-include('includes/session.php');
+include ('includes/session.php');
 if (isset($_POST['PrintPDF'])) {
 	$PaperSize = 'A4_Landscape';
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Reorder Level Report'));
 	$PDF->addInfo('Subject', _('Parts below reorder level'));
 	$FontSize = 9;
@@ -43,7 +41,7 @@ if (isset($_POST['PrintPDF'])) {
 				FROM locstock
 				INNER JOIN locationusers
 					ON locationusers.loccode=locstock.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				INNER JOIN stockmaster
 					ON locstock.stockid=stockmaster.stockid
@@ -58,13 +56,13 @@ if (isset($_POST['PrintPDF'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Reorder Level') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Reorder Level report could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -73,9 +71,8 @@ if (isset($_POST['PrintPDF'])) {
 	$FontSize = 8;
 
 	$ListCount = 0; // UldisN
-
 	while ($MyRow = DB_fetch_array($Result)) {
-		$YPos -= (2 * $line_height);
+		$YPos-= (2 * $line_height);
 
 		$ListCount++;
 
@@ -117,7 +114,7 @@ if (isset($_POST['PrintPDF'])) {
 					FROM locstock
 					INNER JOIN locationusers
 						ON locationusers.loccode=locstock.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canview=1
 					INNER JOIN stockmaster
 						ON locstock.stockid = stockmaster.stockid
@@ -126,7 +123,7 @@ if (isset($_POST['PrintPDF'])) {
 						AND locstock.stockid ='" . $MyRow['stockid'] . "' AND locstock.loccode !='" . $MyRow['loccode'] . "'";
 		$OtherResult = DB_query($SQL2, '', '', false, true);
 		while ($MyRow2 = DB_fetch_array($OtherResult)) {
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 
 			// Parameters for addTextWrap are defined in /includes/class.pdf.php
 			// 1) X position 2) Y position 3) Width
@@ -168,13 +165,12 @@ if (isset($_POST['PrintPDF'])) {
 
 	//$PDFcode = $PDF->output();
 	//$len = mb_strlen($PDFcode);
-
 	if ($ListCount == 0) {
 		$Title = _('Print Reorder Level Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items with demand greater than supply'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_ReOrderLevel_' . date('Y-m-d') . '.pdf');
@@ -185,11 +181,11 @@ if (isset($_POST['PrintPDF'])) {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('Reorder Level Reporting');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Inventory Reorder Level Report') . '</p>';
 	echo '<div class="page_help_text">' . _('Use this report to display the reorder levels for Inventory items in different categories.') . '</div>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -200,7 +196,7 @@ if (isset($_POST['PrintPDF'])) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
 	$ResultStkLocs = DB_query($SQL);
@@ -223,7 +219,7 @@ if (isset($_POST['PrintPDF'])) {
 		</table>';
 		prnMsg(_('There are no stock categories currently defined please use the link below to set them up'), 'warn');
 		echo '<a href="' . $RootPath . '/StockCategories.php">' . _('Define Stock Categories') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -253,7 +249,7 @@ if (isset($_POST['PrintPDF'])) {
 				<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
 			</div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
@@ -267,21 +263,21 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$line_height = 12;
 	$FontSize = 9;
 	$YPos = $Page_Height - $Top_Margin;
-	$PDF->RoundRectangle($Left_Margin - 5, $YPos + 5 + 10, 310, ($line_height * 3) + 10 + 10, 10, 10);// Function RoundRectangle from includes/class.pdf.php
+	$PDF->RoundRectangle($Left_Margin - 5, $YPos + 5 + 10, 310, ($line_height * 3) + 10 + 10, 10, 10); // Function RoundRectangle from includes/class.pdf.php
 	$PDF->addTextWrap($Left_Margin, $YPos, 290, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Reorder Level Report'));
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Category'));
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, $_POST['StockCat']);
 	$PDF->addTextWrap(160, $YPos, 150, $FontSize, $CategoryDescription, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Location'));
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, $_POST['StockLocation']);
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
@@ -293,12 +289,12 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$PDF->addTextWrap(520, $YPos, 50, $FontSize, _('Reorder'), 'right');
 	$PDF->addTextWrap(570, $YPos, 50, $FontSize, _('On Order'), 'right');
 	$PDF->addTextWrap(620, $YPos, 50, $FontSize, _('Needed'), 'right');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap(515, $YPos, 50, $FontSize, _('Level'), 'right');
-
 
 	$FontSize = 8;
 	//	$YPos =$YPos - (2*$line_height);
 	$PageNumber++;
 } // End of PrintHeader() function
+
 ?>

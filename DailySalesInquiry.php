@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Daily Sales Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Daily Sales') . '" alt="" />' . ' ' . _('Daily Sales') . '</p>';
 echo '<div class="page_help_text">' . _('Select the month to show daily sales for') . '</div>
 	<br />';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['MonthToShow'])) {
@@ -77,7 +76,7 @@ if (mb_strlen($Date_Array[2]) > 4) {
 	$Date_Array[2] = mb_substr($Date_Array[2], 0, 2);
 }
 
-$StartDateSQL = date('Y-m-d', mktime(0, 0, 0, (int) $Date_Array[1], 1, (int) $Date_Array[0]));
+$StartDateSQL = date('Y-m-d', mktime(0, 0, 0, (int)$Date_Array[1], 1, (int)$Date_Array[0]));
 
 $SQL = "SELECT 	trandate,
 				SUM(price*(1-discountpercent)* (-qty)) as salesvalue,
@@ -93,15 +92,15 @@ $SQL = "SELECT 	trandate,
 			AND trandate<='" . $EndDateSQL . "'";
 
 if ($_SESSION['SalesmanLogin'] != '') {
-	$SQL .= " AND custbranch.salesman='" . $_SESSION['SalesmanLogin'] . "'";
+	$SQL.= " AND custbranch.salesman='" . $_SESSION['SalesmanLogin'] . "'";
 } elseif ($_POST['Salesperson'] != 'All') {
-	$SQL .= " AND custbranch.salesman='" . $_POST['Salesperson'] . "'";
+	$SQL.= " AND custbranch.salesman='" . $_POST['Salesperson'] . "'";
 }
 
-$SQL .= " GROUP BY stockmoves.trandate ORDER BY stockmoves.trandate";
+$SQL.= " GROUP BY stockmoves.trandate ORDER BY stockmoves.trandate";
 $ErrMsg = _('The sales data could not be retrieved because') . ' - ' . DB_error_msg();
 $SalesResult = DB_query($SQL, $ErrMsg);
-$MonthName = date("F", mktime(0, 0, 0, (int) $Date_Array[1], 10));
+$MonthName = date("F", mktime(0, 0, 0, (int)$Date_Array[1], 10));
 echo '<table>
 		<tr>
 			<th colspan="9">
@@ -127,38 +126,38 @@ $DaySalesArray = array();
 while ($DaySalesRow = DB_fetch_array($SalesResult)) {
 
 	if ($DaySalesRow['salesvalue'] > 0) {
-		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate'])]['Sales'] = $DaySalesRow['salesvalue'];
+		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate']) ]['Sales'] = $DaySalesRow['salesvalue'];
 	} else {
-		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate'])]['Sales'] = 0;
+		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate']) ]['Sales'] = 0;
 	}
 	if ($DaySalesRow['salesvalue'] > 0.01) {
-		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate'])]['GPPercent'] = ($DaySalesRow['salesvalue'] - $DaySalesRow['cost']) / $DaySalesRow['salesvalue'];
+		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate']) ]['GPPercent'] = ($DaySalesRow['salesvalue'] - $DaySalesRow['cost']) / $DaySalesRow['salesvalue'];
 	} else {
-		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate'])]['GPPercent'] = 0;
+		$DaySalesArray[DayOfMonthFromSQLDate($DaySalesRow['trandate']) ]['GPPercent'] = 0;
 	}
 	$BilledDays++;
-	$CumulativeTotalSales += $DaySalesRow['salesvalue'];
-	$CumulativeTotalCost += $DaySalesRow['cost'];
+	$CumulativeTotalSales+= $DaySalesRow['salesvalue'];
+	$CumulativeTotalCost+= $DaySalesRow['cost'];
 }
 //end of while loop
 echo '<tr>';
 $ColumnCounter = DayOfWeekFromSQLDate($StartDateSQL);
-for ($i = 0; $i < $ColumnCounter; $i++) {
+for ($i = 0;$i < $ColumnCounter;$i++) {
 	echo '<td></td>';
 }
 $DayNumber = 1;
 /*Set up day number headings*/
-for ($i = $ColumnCounter; $i <= 6; $i++) {
+for ($i = $ColumnCounter;$i <= 6;$i++) {
 	echo '<th>' . $DayNumber . '</th>';
 	$DayNumber++;
 }
 echo '</tr><tr>';
-for ($i = 0; $i < $ColumnCounter; $i++) {
+for ($i = 0;$i < $ColumnCounter;$i++) {
 	echo '<td></td>';
 }
 
 $LastDayOfMonth = DayOfMonthFromSQLDate($EndDateSQL);
-for ($i = 1; $i <= $LastDayOfMonth; $i++) {
+for ($i = 1;$i <= $LastDayOfMonth;$i++) {
 	$ColumnCounter++;
 	if (isset($DaySalesArray[$i])) {
 		echo '<td class="number" style="outline: 1px solid gray;">' . locale_number_format($DaySalesArray[$i]['Sales'], 0) . '<br />' . locale_number_format($DaySalesArray[$i]['GPPercent'] * 100, 1) . '%</td>';
@@ -167,7 +166,7 @@ for ($i = 1; $i <= $LastDayOfMonth; $i++) {
 	}
 	if ($ColumnCounter == 7) {
 		echo '</tr><tr>';
-		for ($j = 1; $j <= 7; $j++) {
+		for ($j = 1;$j <= 7;$j++) {
 			echo '<th>' . $DayNumber . '</th>';
 			$DayNumber++;
 			if ($DayNumber > $LastDayOfMonth) {
@@ -177,7 +176,6 @@ for ($i = 1; $i <= $LastDayOfMonth; $i++) {
 		echo '</tr><tr>';
 		$ColumnCounter = 0;
 	}
-
 
 }
 if ($ColumnCounter != 0) {
@@ -196,5 +194,5 @@ echo '<th colspan="7">' . _('Total Sales for month') . ': ' . locale_number_form
 
 echo '</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

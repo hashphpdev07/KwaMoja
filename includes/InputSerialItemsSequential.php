@@ -1,5 +1,4 @@
 <?php
-
 /*Input Serial Items - used for inputing serial numbers or batch/roll/bundle
  * references for controlled items - used in:
  * - ConfirmDispatchControlledInvoice.php
@@ -7,7 +6,7 @@
  * - StockAdjustments.php
  * - StockTransfers.php
  * - CreditItemsControlled.php
- */
+*/
 
 //we start with a batch or serial no header and need to display something for verification...
 global $tableheader;
@@ -23,14 +22,13 @@ echo '<td valign="top">';
 /* Start a new table for the Serial/Batch ref input  in one column
  * (as a sub table then the multi select box for selection of existing
  * bundle/serial nos for dispatch if applicable
- */
+*/
 
 /*in the first column add a table for the input of newies */
 echo '<table>';
 echo $TableHeader;
 
-
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">
 	  <input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	  <input type="hidden" name="LineNo" value="' . $LineNo . '">
 	  <input type="hidden" name="StockID" value="' . $StockId . '">
@@ -53,4 +51,5 @@ echo '</table>';
 echo '<br /><center><input type="submit" name="AddSequence" value="' . _('Enter') . '"></center><br />';
 echo '</form></td><td valign="top">';
 //echo '</td></tr></table>'; /*end of nested table */
+
 ?>

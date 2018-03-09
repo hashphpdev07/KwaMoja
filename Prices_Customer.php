@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Result = DB_query("SELECT debtorsmaster.name,
 							debtorsmaster.currcode,
@@ -13,7 +12,7 @@ $MyRow = DB_fetch_array($Result);
 
 $Title = _('Special Prices for') . ' ' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['Item'])) {
 	$Item = $_GET['Item'];
@@ -25,7 +24,7 @@ if (!isset($Item) or !isset($_SESSION['CustomerID']) or $_SESSION['CustomerID'] 
 
 	prnMsg(_('A customer must be selected from the customer selection screen') . ', ' . _('then an item must be selected before this page is called') . '. ' . _('The product selection page should call this page with a valid product code'), 'info');
 	echo '<br />';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -59,10 +58,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (!is_numeric(filter_number_format($_POST['Price'])) or $_POST['Price'] == '') {
 		$InputError = 1;
 		$Msg = _('The price entered must be numeric');
@@ -106,7 +104,6 @@ if (isset($_POST['submit'])) {
 	if ((isset($_POST['Editing']) and $_POST['Editing'] == 'Yes') and mb_strlen($Item) > 1 and $InputError != 1) {
 
 		//editing an existing price
-
 		$SQL = "UPDATE prices SET typeabbrev='" . $SalesType . "',
 								currabrev='" . $CurrCode . "',
 								price='" . filter_number_format($_POST['Price']) . "',
@@ -164,7 +161,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$SQL = "DELETE FROM prices
 			WHERE prices.stockid = '" . $Item . "'
 			AND prices.typeabbrev='" . $SalesType . "'
@@ -178,10 +174,8 @@ if (isset($_POST['submit'])) {
 	prnMsg(_('This price has been deleted') . '!', 'success');
 }
 
-
 //Always do this stuff
 //Show the normal prices in the currency of this customer
-
 $SQL = "SELECT prices.price,
 				prices.currabrev,
 			   prices.typeabbrev,
@@ -204,7 +198,7 @@ echo '<table><tr><td valign="top">';
 echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
-	prnMsg( _('There are no default prices set up for this part'), 'info');
+	prnMsg(_('There are no default prices set up for this part'), 'info');
 } else {
 	echo '<tr>
 			<th>' . _('Normal Price') . '</th>
@@ -228,7 +222,6 @@ if (DB_num_rows($Result) == 0) {
 echo '</table></td><td valign="top">';
 
 //now get the prices for the customer selected
-
 $SQL = "SELECT prices.price,
 			   prices.branchcode,
 			   custbranch.brname,
@@ -252,7 +245,7 @@ $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
-	prnMsg( _('There are no special prices set up for this part'), 'info');
+	prnMsg(_('There are no special prices set up for this part'), 'info');
 } else {
 	/*THERE IS ALREADY A spl price setup */
 	echo '<tr>
@@ -279,17 +272,18 @@ if (DB_num_rows($Result) == 0) {
 				<td>' . $Branch . '</td>
 				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
 				<td>' . $EndDateDisplay . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Price=' . $MyRow['price'] . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Price=' . $MyRow['price'] . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	}
 	//END WHILE LIST LOOP
+	
 }
 
 echo '</table></td></tr></table><br />';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="Item" value="' . $Item . '" />';
 
@@ -355,19 +349,18 @@ echo '<tr><td>' . _('Price') . ':</td>
 		</tr>
 	</table>';
 
-
 echo '<div class="centre">
 		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>
 </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 exit;
 
 function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev, $CustomerID) {
 
 	/*This is quite complicated - the idea is that prices set up should be unique and there is no way two prices could be returned as valid - when getting a price in includes/GetPrice.php the logic is to first look for a price of the salestype/currency within the effective start and end dates - then if not get the price with a start date prior but a blank end date (the default price). We would not want two prices where the effective dates fall between an existing price so it is necessary to update enddates of prices  - with me - I am just hanging on here myself
-
+	
 	Prices with no end date are default prices and need to be ignored in this resquence*/
 
 	$SQL = "SELECT branchcode,
@@ -412,6 +405,7 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev, $CustomerID) {
 					$UpdateResult = DB_query($SQL);
 				}
 			} //end of if startdate  after NextStartDate - we have a new NextStartDate
+			
 		} //end of if set NextStartDate
 		else {
 			$NextStartDate = ConvertSQLDate($MyRow['startdate']);
@@ -452,5 +446,6 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev, $CustomerID) {
 		}
 		$OldStartDate = $MyRow['startdate'];
 	} // end of loop around duplicate no end date prices
+	
 }
 ?>

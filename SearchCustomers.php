@@ -1,9 +1,8 @@
 <?php
-
 /* Session started in session.php for password checking and authorisation level check
-config.php is in turn included in session.php $PageSecurity now comes from session.php (and gets read in by GetConfig.php*/
+ config.php is in turn included in session.php $PageSecurity now comes from session.php (and gets read in by GetConfig.php*/
 
-include('includes/session.php');
+include ('includes/session.php');
 echo '<script type="text/javascript" src = "' . $RootPath . '/javascripts/AjaxFunctions.js"></script>';
 $Title = _('Search for a Customer');
 
@@ -33,7 +32,7 @@ if (isset($_GET['Update']) and $_GET['Update'] == 'Details') {
 	ShowOptionLinks($_SESSION['DebtorNo'], $_SESSION['BranchNo'], $_SESSION['SingleOption']);
 	exit;
 }
-include('includes/header.php');
+include ('includes/header.php');
 
 unset($_SESSION['DebtorNo']);
 unset($_SESSION['BranchNo']);
@@ -44,7 +43,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 echo '<div class="container">';
 
 /* First box contains the input of the criteria to search for customers */
-echo '<form method="post" name="CustDetails" onSubmit="return SubmitForm(this, \'customers\');" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Update=Customers">
+echo '<form method="post" name="CustDetails" onSubmit="return SubmitForm(this, \'customers\');" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Update=Customers">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<div class="box">
 			<input type="submit" name="SubmitCustDetails" style="display: none;" />
@@ -64,7 +63,7 @@ echo '<form method="post" name="CustDetails" onSubmit="return SubmitForm(this, \
 /* End of the first box */
 
 /* Second box contains a list of the top 15 customers fitting the criteria in box 1 */
-echo '<form method="post" name="BranchDetails" onSubmit="return SubmitForm(this, \'branches\');" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Update=Branches">
+echo '<form method="post" name="BranchDetails" onSubmit="return SubmitForm(this, \'branches\');" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Update=Branches">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<div class="box">
 			<input type="submit" name="SubmitBranchDetails" style="display: none;" />
@@ -77,7 +76,7 @@ echo '</select>
 /* End of the second box */
 
 /* Third box contains a list of the branches belonging to the customer selected in box 2 */
-echo '<form method="post" name="Details" onSubmit="return SubmitForm(this, \'options\');" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Update=Details">
+echo '<form method="post" name="Details" onSubmit="return SubmitForm(this, \'options\');" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Update=Details">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<div class="box">
 			<input type="submit" name="SubmitAllDetails" style="display: none;" />
@@ -103,7 +102,7 @@ if (!isset($_SESSION['BranchNo'])) {
 		</div>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 function CustomerBox($PartialCode = '', $PartialName = '', $PartialAddress = '') {
 	if ($PartialCode == '') {
@@ -163,7 +162,7 @@ function ShowOptionLinks($DebtorNo, $BranchNo, $SingleOption = '') {
 			if (in_array($_SESSION['PageSecurityArray'][$SingleOption], $_SESSION['AllowedPageSecurityTokens'])) {
 				echo '<div style="text-align: left;margin: 1%;"><a href="' . $SingleOption . '?DebtorNo=' . $DebtorNo . '&BranchNo=' . $BranchNo . '">' . _('Raise a Quick Invoice') . '</a></div>';
 			}
-			break;
+		break;
 		default:
 			foreach ($Scripts as $Script => $Caption) {
 				if (in_array($_SESSION['PageSecurityArray'][$Script], $_SESSION['AllowedPageSecurityTokens'])) {

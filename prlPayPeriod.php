@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Pay Period Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['PayPeriodID'])) {
 	$PayPeriodID = $_GET['PayPeriodID'];
@@ -19,14 +18,12 @@ echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_
 if (isset($_POST['insert']) or isset($_POST['update'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (strpos($_POST['PayPeriodName'], '&') > 0 or strpos($_POST['PayPeriodName'], "'") > 0) {
 		$InputError = 1;
 		prnMsg(_('The Pay Period description cannot contain the character') . " '&' " . _('or the character') . " '", 'error');
@@ -62,7 +59,6 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 			unset($_POST['NumberOfPayday']);
 
 		} elseif (isset($_POST['insert'])) { //its a new pay period
-
 			$SQL = "INSERT INTO prlpayperiod (payperiodid,
 							payperioddesc,
 							numberofpayday,
@@ -93,7 +89,6 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 } elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -104,6 +99,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		unset($PayPeriodID);
 		unset($_SESSION['PayPeriodID']);
 	} //end if Delete paypayperiod
+	
 }
 
 $SQL = "SELECT payperiodid,
@@ -139,15 +135,14 @@ if (DB_num_rows($Result)) {
 		echo '<td>' . $MyRow[1] . '</td>';
 		echo '<td class="number">' . $MyRow[2] . '</td>';
 		echo '<td class="number">' . $MyRow[3] . '</td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&PayPeriodID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&PayPeriodID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&PayPeriodID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&PayPeriodID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 	}
 	echo '</table>';
 }
 //PayPeriodID exists - either passed when calling the form or from the form itself
-
-echo '<form method="post" class="noPrint" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -206,5 +201,5 @@ if (!isset($PayPeriodID)) {
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

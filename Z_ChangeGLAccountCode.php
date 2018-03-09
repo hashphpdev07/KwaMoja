@@ -1,16 +1,15 @@
 <?php
-
 /*Script to change the GL account code throughout the database */
 
-include('includes/session.php');
-$Title = _('UTILITY PAGE Change A GL Account Code');// Screen identificator.
+include ('includes/session.php');
+$Title = _('UTILITY PAGE Change A GL Account Code'); // Screen identificator.
 $ViewTopic = 'SpecialUtilities'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'Z_ChangeGLAccountCode'; // Anchor's id in the manual's html document.
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 echo '<p class="page_title_text">
-		<img alt="" src="' . $RootPath.'/css/' . $_SESSION['Theme'] . '/images/gl.png" title="' . _('Change A GL Account Code') . '" />' . _('Change A GL Account Code') . '
-	</p>';// Page title.
+		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/gl.png" title="' . _('Change A GL Account Code') . '" />' . _('Change A GL Account Code') . '
+	</p>'; // Page title.
 if (isset($_POST['ProcessGLAccountCode'])) {
 
 	$InputError = 0;
@@ -96,10 +95,9 @@ if (isset($_POST['ProcessGLAccountCode'])) {
 
 		ChangeFieldInTable("lastcostrollup", "stockact", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
 		ChangeFieldInTable("lastcostrollup", "adjglact", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
-// BEGIN: **********************************************************************
-		ChangeFieldInTable("locations", "glaccountcode", $_POST['OldAccountCode'], $_POST['NewAccountCode']);// Location's ledger account.
-// END: ************************************************************************
-
+		// BEGIN: **********************************************************************
+		ChangeFieldInTable("locations", "glaccountcode", $_POST['OldAccountCode'], $_POST['NewAccountCode']); // Location's ledger account.
+		// END: ************************************************************************
 		ChangeFieldInTable("pcexpenses", "glaccount", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
 
 		ChangeFieldInTable("pctabs", "glaccountassignment", $_POST['OldAccountCode'], $_POST['NewAccountCode']);
@@ -133,13 +131,12 @@ if (isset($_POST['ProcessGLAccountCode'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		echo ' ... ' . _('completed');
 
-
 		echo '<p>' . _('GL account Code') . ': ' . $_POST['OldAccountCode'] . ' ' . _('was successfully changed to') . ' : ' . $_POST['NewAccountCode'];
 	} //only do the stuff above if  $InputError==0
-
+	
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -157,6 +154,6 @@ echo '<table>
 	</div>
 </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

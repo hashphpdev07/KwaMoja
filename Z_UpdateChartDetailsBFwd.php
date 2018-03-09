@@ -1,11 +1,9 @@
 <?php
-
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Recalculation of Brought Forward Balances in Chart Details Table');
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) {
@@ -63,10 +61,10 @@ if (!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) {
 		prnMsg(_('The selected period from is actually after the period to') . '. ' . _('Please re-select the reporting period'), 'error');
 		unset($_POST['FromPeriod']);
 		unset($_POST['ToPeriod']);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 	}
 
-	for ($i = $_POST['FromPeriod']; $i <= $_POST['ToPeriod']; $i++) {
+	for ($i = $_POST['FromPeriod'];$i <= $_POST['ToPeriod'];$i++) {
 
 		$SQL = "SELECT accountcode,
 					period,
@@ -99,5 +97,5 @@ if (!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) {
 	/* end of for loop */
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

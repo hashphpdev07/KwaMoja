@@ -1,18 +1,17 @@
 <?php
-
 /*The supplier transaction uses the SuppTrans class to hold the information about the invoice
 the SuppTrans class contains an array of Contract objects - containing details of all contract charges
 Contract charges are posted to the debit of Work In Progress (based on the account specified in the stock category record of the contract item
 This is cleared against the cost of the contract as originally costed - when the contract is closed and any difference is taken to the price variance on the contract */
 
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 
 /* Session started here for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Contract Charges or Credits');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (!isset($_SESSION['SuppTrans'])) {
 	prnMsg(_('Contract charges or credits are entered against supplier invoices or credit notes respectively. To enter supplier transactions the supplier must first be selected from the supplier selection screen, then the link to enter a supplier invoice or credit note must be clicked on'), 'info');
@@ -37,6 +36,7 @@ if (isset($_POST['AddContractChgToInvoice'])) {
 			prnMsg(_('The contract reference entered does not exist as a customer ordered contract. This contract cannot be charged to'), 'error');
 			$InputError = true;
 		} //end if the contract ref entered is not a valid contract
+		
 	} //end if a contract ref was entered manually
 	if (!is_numeric(filter_number_format($_POST['Amount']))) {
 		prnMsg(_('The amount entered is not numeric. This contract charge cannot be added to the invoice'), 'error');
@@ -92,10 +92,10 @@ foreach ($_SESSION['SuppTrans']->Contracts as $EnteredContract) {
 			<td class="number">' . locale_number_format($EnteredContract->Amount, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			<td>' . $EnteredContract->Narrative . '</td>
 			<td>' . $AnticipatedCost . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredContract->Counter . '">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredContract->Counter . '">' . _('Delete') . '</a></td>
 		</tr>';
 
-	$TotalContractsValue += $EnteredContract->Amount;
+	$TotalContractsValue+= $EnteredContract->Amount;
 
 }
 
@@ -117,7 +117,7 @@ if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 }
 
 /*Set up a form to allow input of new Contract charges */
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['ContractRef'])) {
@@ -136,7 +136,6 @@ $SQL = "SELECT contractref, name
 		FROM contracts INNER JOIN debtorsmaster
 		ON contracts.debtorno=debtorsmaster.debtorno
 		WHERE status=2"; //only show customer ordered contracts not quotes or contracts that are finished with
-
 $Result = DB_query($SQL);
 
 while ($MyRow = DB_fetch_array($Result)) {
@@ -180,5 +179,5 @@ echo '</td>
 echo '<div class="centre"><input type="submit" name="AddContractChgToInvoice" value="' . _('Enter Contract Charge') . '" /></div>';
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

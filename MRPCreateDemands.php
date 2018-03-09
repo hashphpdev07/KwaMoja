@@ -1,14 +1,11 @@
 <?php
-
 // MRPCreateDemands.php - Create mrpdemands based on sales order history
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('MRP Create Demands');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['submit'])) {
 	// Create mrpdemands based on sales order history
-
 	$InputError = 0;
 
 	if (isset($_POST['FromDate']) and !is_date($_POST['FromDate'])) {
@@ -59,7 +56,7 @@ if (isset($_POST['submit'])) {
 				 ON salesorders.orderno = salesorderdetails.orderno
 			INNER JOIN locationusers
 				ON locationusers.loccode=salesorders.fromstkloc
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1
 			INNER JOIN stockmaster
 				ON salesorderdetails.stkcode = stockmaster.stockid
@@ -77,7 +74,6 @@ if (isset($_POST['submit'])) {
 	// number quantity into each entry of the periodqty array, and add 1 to the periodqty array
 	// until the remainder number is used up. Then create an mrpdemands records for everything
 	// in the array
-
 	if (filter_number_format($_POST['Multiplier']) < 1) {
 		$Multiplier = 1;
 	} else {
@@ -123,7 +119,7 @@ if (isset($_POST['submit'])) {
 	}
 
 	$date = date('Y-m-d', mktime(0, 0, 0, $mm, $dd, $yyyy));
-	for ($i = 1; $i <= ($_POST['PeriodNumber'] - 1); $i++) {
+	for ($i = 1;$i <= ($_POST['PeriodNumber'] - 1);$i++) {
 		if ($_POST['Period'] == 'weekly') {
 			$date = strtotime(date('Y-m-d', strtotime($date)) . ' + 1 week');
 		} else {
@@ -159,13 +155,13 @@ if (isset($_POST['submit'])) {
 			$WholeNumber = floor($TotalQty / $_POST['PeriodNumber']);
 			$Remainder = ($TotalQty % $_POST['PeriodNumber']);
 			if ($WholeNumber > 0) {
-				for ($i = 0; $i <= ($_POST['PeriodNumber'] - 1); $i++) {
+				for ($i = 0;$i <= ($_POST['PeriodNumber'] - 1);$i++) {
 					$PeriodQty[$i] = $WholeNumber;
 				}
 			}
 			if ($Remainder > 0) {
-				for ($i = 0; $i <= ($Remainder - 1); $i++) {
-					$PeriodQty[$i] += 1;
+				for ($i = 0;$i <= ($Remainder - 1);$i++) {
+					$PeriodQty[$i]+= 1;
 				}
 			}
 
@@ -184,16 +180,15 @@ if (isset($_POST['submit'])) {
 				$TotalRecords++;
 
 			} // end of foreach for INSERT
+			
 		} // end of if that checks exludeqty, ExcludeAmount
-
+		
 	} //end while loop
-
 	prnMsg($TotalRecords . ' ' . _('records have been created'), 'success');
 
 } // end if submit has been pressed
-
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>
 		<tr>
@@ -213,18 +208,18 @@ echo '</select>
 echo '<tr>
 		<td>' . _('Inventory Categories') . ':</td>
 		<td><select autofocus="autofocus" required="required" minlength="1" size="12" name="Categories[]"multiple="multiple">';
-	$SQL = 'SELECT categoryid, categorydescription
+$SQL = 'SELECT categoryid, categorydescription
 			FROM stockcategory
 			ORDER BY categorydescription';
-	$CatResult = DB_query($SQL);
-	while ($MyRow = DB_fetch_array($CatResult)) {
-		if (isset($_POST['Categories']) and in_array($MyRow['categoryid'], $_POST['Categories'])) {
-			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] .'</option>';
-		} else {
-			echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
-		}
+$CatResult = DB_query($SQL);
+while ($MyRow = DB_fetch_array($CatResult)) {
+	if (isset($_POST['Categories']) and in_array($MyRow['categoryid'], $_POST['Categories'])) {
+		echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
+	} else {
+		echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 	}
-	echo '</select>
+}
+echo '</select>
 			</td>
 		</tr>';
 
@@ -237,7 +232,7 @@ $SQL = "SELECT locationname,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1";
 echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
 $Result = DB_query($SQL);
@@ -296,5 +291,5 @@ echo '<tr>
 	</div>';
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

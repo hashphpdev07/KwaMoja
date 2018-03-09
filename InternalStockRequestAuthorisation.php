@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Authorise Internal Stock Requests');
 $ViewTopic = 'Inventory';
 $BookMark = 'AuthoriseRequest';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -41,7 +40,7 @@ if (isset($_POST['UpdateAll'])) {
 }
 
 /* Retrieve the requisition header information
- */
+*/
 $SQL = "SELECT stockrequest.dispatchid,
 				locations.locationname,
 				stockrequest.despatchdate,
@@ -57,7 +56,7 @@ $SQL = "SELECT stockrequest.dispatchid,
 				ON stockrequest.loccode=locations.loccode
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1
 			INNER JOIN www_users as w2
 				ON w2.userid=stockrequest.userid
@@ -68,7 +67,7 @@ $SQL = "SELECT stockrequest.dispatchid,
 				AND w1.userid='" . $_SESSION['UserID'] . "'";
 $Result = DB_query($SQL);
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -134,5 +133,5 @@ echo '</table>';
 echo '<div class="centre"><input type="submit" name="UpdateAll" value="' . _('Update') . '" /></div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -267,7 +267,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
 			</p>';
 
-		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+		echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		echo '<table>
@@ -326,7 +326,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		</table>
 	</form>';
 
-		echo '<br /><a class="noprint" href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select different criteria.'), '</a>';
+		echo '<br /><a class="noprint" href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select different criteria.'), '</a>';
 		include ('includes/footer.php');
 
 	} // end Review planned purchase orders
@@ -340,7 +340,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<fieldset>
 			<legend>', _('Select Report Criteria'), '</legend>

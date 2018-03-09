@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Maintain General Ledger Tags');
 
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLTags';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedTag'])) {
 	if ($_GET['Action'] == 'delete') {
@@ -54,7 +53,7 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Print') . '" alt="' . $Title . '" />' . ' ' . $Title . '
 	</p>';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" id="form">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" id="form">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table summary="' . _('Description of tag') . '">
 		<tr>
@@ -130,13 +129,13 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td>' . $MyRow['tagref'] . '</td>
 			<td>' . $MyRow['description'] . '</td>
 			<td>' . $MyRow['tagdescription'] . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTag=' . $MyRow['tagref'] . '&amp;Action=edit">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTag=' . $MyRow['tagref'] . '&amp;Action=delete" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this GL tag?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTag=' . $MyRow['tagref'] . '&amp;Action=edit">' . _('Edit') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTag=' . $MyRow['tagref'] . '&amp;Action=delete" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this GL tag?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 		</tr>';
 }
 
 echo '</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

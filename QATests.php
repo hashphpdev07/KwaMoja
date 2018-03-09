@@ -1,11 +1,11 @@
 <?php
 /* $Id: QATests.php 1 2014-09-08 10:42:50Z agaluski $*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('QA Tests Maintenance');
-$ViewTopic= 'QualityAssurance';// Filename in ManualContents.php's TOC.
-$BookMark = 'QA_Tests';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'QualityAssurance'; // Filename in ManualContents.php's TOC.
+$BookMark = 'QA_Tests'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 if (isset($_GET['SelectedQATest'])) {
 	$SelectedQATest = mb_strtoupper($_GET['SelectedQATest']);
@@ -21,11 +21,10 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	$i = 1;
 
 	//first off validate inputs sensible
-
 	if (mb_strlen($_POST['QATestName']) > 50) {
 		$InputError = 1;
 		prnMsg(_('The QA Test name must be fifty characters or less long'), 'error');
@@ -111,13 +110,12 @@ if (isset($_POST['submit'])) {
 		//unset($_POST['ShowOnSpec']);
 		//unset($_POST['ShowOnTestPlan']);
 		//unset($_POST['Active']);
+		
 	}
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS
-
 	$SQL = "SELECT COUNT(*) FROM prodspec WHERE  prodspec.testid='" . $SelectedQATest . "'";
 	//$Result = DB_query($SQL);
 	//$MyRow = DB_fetch_row($Result);
@@ -136,18 +134,17 @@ if (isset($_POST['submit'])) {
 
 if (isset($SelectedQATest)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show All QA Tests'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All QA Tests'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedQATest)) {
 		//editing an existing Sales-person
-
 		$SQL = "SELECT testid,
 						name,
 						method,
@@ -178,7 +175,6 @@ if (!isset($_GET['delete'])) {
 		$_POST['ShowOnSpec'] = $MyRow['showonspec'];
 		$_POST['ShowOnTestPlan'] = $MyRow['showontestplan'];
 		$_POST['Active'] = $MyRow['active'];
-
 
 		echo '<input type="hidden" name="SelectedQATest" value="' . $SelectedQATest . '" />';
 		echo '<input type="hidden" name="TestID" value="' . $_POST['SelectedQATest'] . '" />';
@@ -351,7 +347,6 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
 if (!isset($SelectedQATest)) {
 
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedQATest will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
@@ -423,22 +418,22 @@ if (!isset($SelectedQATest)) {
 		}
 		switch ($MyRow['type']) {
 			case 0; //textbox
-				$TypeDisp = 'Text Box';
-				break;
-			case 1; //select box
-				$TypeDisp = 'Select Box';
-				break;
-			case 2; //checkbox
-				$TypeDisp = 'Check Box';
-				break;
-			case 3; //datebox
-				$TypeDisp = 'Date Box';
-				break;
-			case 4; //range
-				$TypeDisp = 'Range';
-				break;
-		} //end switch
-		echo '<tr class="striped_row">
+			$TypeDisp = 'Text Box';
+		break;
+		case 1; //select box
+		$TypeDisp = 'Select Box';
+	break;
+	case 2; //checkbox
+	$TypeDisp = 'Check Box';
+break;
+case 3; //datebox
+$TypeDisp = 'Date Box';
+break;
+case 4; //range
+$TypeDisp = 'Range';
+break;
+} //end switch
+echo '<tr class="striped_row">
 				<td class="number">', $MyRow['testid'], '</td>
 				<td>', $MyRow['name'], '</td>
 				<td>', $MyRow['method'], '</td>
@@ -451,14 +446,13 @@ if (!isset($SelectedQATest)) {
 				<td>', $ShowOnSpecText, '</td>
 				<td>', $ShowOnTestPlanText, '</td>
 				<td>', $ActiveText, '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '">' . _('Edit') . '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '&amp;delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this QA Test ?') . '\');">' . _('Delete') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedQATest=', urlencode($MyRow['testid']), '&amp;delete=1" onclick="return confirm(\'' . _('Are you sure you wish to delete this QA Test ?') . '\');">' . _('Delete') . '</a></td>
 			</tr>';
 
-	} //END WHILE LIST LOOP
-	echo '</tbody>';
-	echo '</table>';
+} //END WHILE LIST LOOP
+echo '</tbody>';
+echo '</table>';
 } //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

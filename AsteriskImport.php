@@ -1,19 +1,17 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Asterisk Data');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" />', ' ', $Title, '
 	</p>';
 
 if (isset($_POST['Submit'])) { //start file processing
-
 	/* First check both file exist */
 	if (!file_exists($_POST['Day'])) {
 		prnMsg(_('The Asterisk data file does not exist for this date.'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -21,11 +19,11 @@ if (isset($_POST['Submit'])) { //start file processing
 	/* First the service provider data file */
 	$FileHandle = fopen($_POST['Day'], 'r');
 	$i = 1;
-	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== false) {
 		if (count($MyRow) != 16) {
 			prnMsg(_('Row number') . ' ' . $i . ' ' . _('has') . ' ' . count($MyRow) . ' ' . _('columns, expected') . ' 16. ' . _('Download the template to see the expected columns.'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		++$i;
@@ -37,7 +35,7 @@ if (isset($_POST['Submit'])) { //start file processing
 					<a href="Customers.php" target="_blank">', _('Create a new customer account.'), '</a>
 				</div>';
 			prnMsg(_('Account code') . ' ' . $MyRow[0] . ' ' . _('has not been created yet. Please create and import the file again.'), 'error');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -48,7 +46,7 @@ if (isset($_POST['Submit'])) { //start file processing
 	//loop through the service provider file rows
 	$LineNumber = 1;
 	$FileHandle = fopen($_POST['Day'], 'r');
-	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== false) {
 
 		// cleanup the data (csv files often import with empty strings and such)
 		$InputError = 0;
@@ -63,15 +61,15 @@ if (isset($_POST['Submit'])) { //start file processing
 		$AnswerDateTime = date('Y-m-d H:i:s', strtotime($MyRow[10]));
 		$EndDateTime = date('Y-m-d H:i:s', strtotime($MyRow[11]));
 
-		$Duration = (int) $MyRow[12];
-		$Billable = (int) $MyRow[13];
+		$Duration = (int)$MyRow[12];
+		$Billable = (int)$MyRow[13];
 
 		/* Trim off any leading digits from destination number */
 		$Source = ltrim($MyRow[1], '0');
 		$Destination = ltrim($MyRow[2], '0');
 
 		$TestString = '';
-		for ($i = 0; $i < mb_strlen($Destination); $i++) {
+		for ($i = 0;$i < mb_strlen($Destination);$i++) {
 			$TestString = $TestString . $Destination[$i];
 			$SQL = "SELECT ratepersecond FROM telecomrates WHERE prefix LIKE '" . $TestString . '%' . "'";
 			$Result = DB_query($SQL);
@@ -89,11 +87,11 @@ if (isset($_POST['Submit'])) { //start file processing
 
 				case '00000':
 					$Quality = 'Premium';
-					break;
+				break;
 
 				case '00001':
 					$Quality = 'Grey';
-					break;
+				break;
 
 				default:
 					$Quality = 'Standard';
@@ -158,14 +156,13 @@ if (isset($_POST['Submit'])) { //start file processing
 	}
 
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Import another days transactions'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Import another days transactions'), '</a>
 		</div>';
 
 	fclose($FileHandle);
 
 } else { //show file upload form
-
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" enctype="multipart/form-data">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" enctype="multipart/form-data">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	$FilesToImport = glob('companies/' . $_SESSION['DatabaseName'] . '/pbx-data/*.as');
 	if (sizeof($FilesToImport) > 0) {
@@ -192,6 +189,6 @@ if (isset($_POST['Submit'])) { //start file processing
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

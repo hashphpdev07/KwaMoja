@@ -1,12 +1,11 @@
 <?php
-
 /* Defines the various centres of work within a manufacturing company. Also the overhead and labour rates applicable to the work centre and its standard capacity */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Work Centres');
 $ViewTopic = 'Manufacturing';
 $BookMark = 'WorkCentres';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedWC'])) {
 	$SelectedWC = $_POST['SelectedWC'];
@@ -20,10 +19,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (mb_strlen($_POST['Code']) < 2) {
 		$InputError = 1;
 		prnMsg(_('The Work Centre code must be at least 2 characters long'), 'error');
@@ -67,7 +65,6 @@ if (isset($_POST['submit'])) {
 		$Msg = _('The new work centre has been added to the database');
 	}
 	//run the SQL from either of the above possibilites
-
 	if ($InputError != 1) {
 		$Result = DB_query($SQL, _('The update/addition of the work centre failed because'));
 		prnMsg($Msg, 'success');
@@ -81,9 +78,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'BOM'
-
 	$SQL = "SELECT COUNT(*) FROM bom WHERE bom.workcentreadded='" . $SelectedWC . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -100,6 +95,7 @@ if (isset($_POST['submit'])) {
 			$Result = DB_query($SQL);
 			prnMsg(_('The selected work centre record has been deleted'), 'succes');
 		} // end of Contract BOM test
+		
 	} // end of BOM test
 	unset($SelectedWC);
 }
@@ -127,7 +123,7 @@ if (!isset($SelectedWC)) {
 					ON workcentres.overheadrecoveryact=chartmaster.accountcode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 	$Result = DB_query($SQL);
@@ -152,7 +148,7 @@ if (!isset($SelectedWC)) {
 					<td class="number">%s</td>
 					<td><a href="%s&amp;SelectedWC=%s">' . _('Edit') . '</a></td>
 					<td><a href="%s&amp;SelectedWC=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this work centre?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>', $MyRow['code'], $MyRow['description'], $MyRow['locationname'], $MyRow['overheadrecoveryact'] . ' - ' . $MyRow['accountname'], $MyRow['overheadperhour'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['code']);
+				</tr>', $MyRow['code'], $MyRow['description'], $MyRow['locationname'], $MyRow['overheadrecoveryact'] . ' - ' . $MyRow['accountname'], $MyRow['overheadperhour'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['code'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['code']);
 	}
 	echo '</tbody>';
 	//END WHILE LIST LOOP
@@ -160,18 +156,16 @@ if (!isset($SelectedWC)) {
 }
 
 //end of ifs and buts!
-
 if (isset($SelectedWC)) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show all Work Centres') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show all Work Centres') . '</a></div>';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedWC)) {
 	//editing an existing work centre
-
 	$SQL = "SELECT code,
 					location,
 					description,
@@ -180,7 +174,7 @@ if (isset($SelectedWC)) {
 			FROM workcentres
 			INNER JOIN locationusers
 				ON locationusers.loccode=workcentres.location
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1
 			WHERE code='" . $SelectedWC . "'";
 
@@ -217,7 +211,7 @@ $SQL = "SELECT locationname,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1";
 $Result = DB_query($SQL);
 
@@ -240,9 +234,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 	echo $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 
 } //end while loop
-
 DB_free_result($Result);
-
 
 echo '</select></td>
 	</tr>
@@ -290,5 +282,5 @@ echo '<div class="centre">
 	</div>';
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

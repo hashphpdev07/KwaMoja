@@ -1,11 +1,11 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Social Security System Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['employeeno'])) {
 	$employeeno = $_GET['employeeno'];
@@ -18,18 +18,15 @@ if (isset($_GET['employeeno'])) {
 ?>
 <a href="index.php">Back to Main Menu </a>
 <?php
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (strlen($employeeno) == 0) {
 		$InputError = 1;
 		prnMsg(_('The  employeeno cannot be empty'), 'error');
@@ -79,7 +76,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The nssf master record for') . ' ' . $employeeno . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new SSS
-
 			$SQL = "INSERT INTO prlnssftable (employeeno,
 					surname,
 					othernames,
@@ -143,10 +139,9 @@ if (isset($_POST['submit'])) {
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'Supptrans' , PurchOrders, SupplierContacts
@@ -157,14 +152,14 @@ if (isset($_POST['submit'])) {
 		unset($employeeno);
 		unset($_SESSION['employeeno']);
 	} //end if Delete paypayperiod
+	
 }
-
 
 if (!isset($employeeno)) {
 
 	/*If the page was called without $SupplierID passed to page then assume a new supplier is to be entered show a form with a Supplier Code field other wise the form showing the fields with the existing entries against the supplier will show for editing with only a hidden SupplierID field*/
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
 	echo '<input type="hidden" name="New" value="Yes">';
 
@@ -173,7 +168,6 @@ if (!isset($employeeno)) {
 
 	//echo "<tr><td width=200 height=20><div align='right'><b>" . _('Employee Number') . ":</td><td><input type='text' name='employeeno'  SIZE=11 MAXLENGTH=10></td>";
 	//echo "<td><align=right><b>Accept Alpha Numeric Character</b></td></tr>";
-
 	echo '<tr><td>' . _('Surname') . ":</td><td><input type='text' name='surname' SIZE=40 MAXLENGTH=40></td></tr>";
 	echo '<tr><td>' . _('Othernames') . ":</td><td><input type='text' name='othernames' SIZE=40 MAXLENGTH=40></Ttd></tr>";
 ?>
@@ -234,8 +228,7 @@ if (!isset($employeeno)) {
               <select name="Year">
               <option value="" Selected>Year</option>
               <?php
-
-	for ($yy = 1900; $yy <= 2010; $yy++) {
+	for ($yy = 1900;$yy <= 2010;$yy++) {
 
 		echo "<option value=$yy>$yy</option>\n";
 
@@ -311,15 +304,13 @@ if (!isset($employeeno)) {
               <option value="" Selected>Year</option>
               <p>
                 <?php
-
-	for ($yy = 1930; $yy <= 2010; $yy++) {
+	for ($yy = 1930;$yy <= 2010;$yy++) {
 
 		echo "<option value=$yy>$yy</option>\n";
 
 	}
 ?>
                 <?php
-
 	echo '<tr><td>' . _('Place of Birth') . ":</td><td><input type='text' name='placeofbirth' SIZE=40 MAXLENGTH=40></td></tr>";
 	echo '<tr><td>' . _('Area Office') . ":</td><td><input type='text' name='areaoffice' SIZE=40 MAXLENGTH=40></td></tr>";
 	echo '<tr><td>' . _('Nationality') . ":</td><td><input type='text' name='nationality' SIZE=40 MAXLENGTH=40></td></tr>";
@@ -333,7 +324,6 @@ if (!isset($employeeno)) {
 	//	echo '</select></td></tr>';
 	echo "</select></td></tr></table><p><input type='Submit' name='submit' value='" . _('Insert New nssf') . "'>";
 	echo '</form>';
-
 
 	$SQL = "SELECT employeeno,
 					surname,
@@ -377,7 +367,6 @@ if (!isset($employeeno)) {
 		<th>" . _('Email') . "</td>
 	</tr>";
 
-
 	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
@@ -406,18 +395,16 @@ if (!isset($employeeno)) {
 		echo '<td>' . $MyRow[15] . '</td>';
 		echo '<td>' . isset($MyRow[16]) . '</td>';
 
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&employeeno=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&employeeno=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&employeeno=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&employeeno=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><p>';
 
-
 } else {
 	//employeeno exists - either passed when calling the form or from the form itself
-
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 
 	//if (!isset($_POST["New"])) {
@@ -508,6 +495,5 @@ if (!isset($employeeno)) {
 	}
 
 } // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

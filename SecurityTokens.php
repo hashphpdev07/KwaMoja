@@ -124,15 +124,15 @@ while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr class="striped_row">
 			<td>', $MyRow['tokenid'], '</td>
 			<td>', htmlspecialchars($MyRow['tokenname'], ENT_QUOTES, 'UTF-8'), '</td>
-			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Action=edit&amp;TokenID=', $MyRow['tokenid'], '">', _('Edit'), '</a></td>
-			<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Action=delete&amp;TokenID=', $MyRow['tokenid'], '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this security token?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			<td class="noPrint"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Action=edit&amp;TokenID=', $MyRow['tokenid'], '">', _('Edit'), '</a></td>
+			<td class="noPrint"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Action=delete&amp;TokenID=', $MyRow['tokenid'], '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this security token?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 		</tr>';
 }
 
 echo '</tbody>
 	</table>';
 
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" id="form">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" id="form">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 echo '<fieldset>';
 

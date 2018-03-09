@@ -1,11 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('View Regular Time - Hourly Employees Only');
 
-include('includes/header.php');
-
-
+include ('includes/header.php');
 
 if (isset($_GET['Counter'])) {
 	$Counter = $_GET['Counter'];
@@ -15,11 +12,8 @@ if (isset($_GET['Counter'])) {
 	unset($Counter);
 }
 
-
-
 if (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -30,15 +24,15 @@ if (isset($_GET['delete'])) {
 		unset($Counter);
 		unset($_SESSION['Counter']);
 	} //end if Delete paypayperiod
+	
 }
-
 
 if (!isset($Counter)) {
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedAccount will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
 	then none of the above are true and the list of ChartMaster will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<input type="hidden" name="New" value="Yes">';
 	echo '<table>';
 
@@ -64,7 +58,6 @@ if (!isset($Counter)) {
 	</tr>";
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
@@ -81,17 +74,16 @@ if (!isset($Counter)) {
 		echo '<td>' . $MyRow[3] . '</td>';
 		echo '<td>' . $MyRow[4] . '</td>';
 		echo '<td>' . $MyRow[5] . '</td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
-
 	//END WHILE LIST LOOP
+	
 } //END IF selected="selected" ACCOUNT
 
 
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

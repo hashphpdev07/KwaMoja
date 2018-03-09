@@ -1,15 +1,15 @@
 <?php
-$PageSecurity=1;
-include('includes/session.php');
+$PageSecurity = 1;
+include ('includes/session.php');
 $Title = _('General Ledger Retained Earnings Reconciliation');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountInquiry';
-include('includes/header.php');
-include('includes/GLPostings.php');
+include ('includes/header.php');
+include ('includes/GLPostings.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($_POST['Submit'])) {
@@ -36,7 +36,7 @@ if (isset($_POST['Submit'])) {
 
 	echo '<tr>
 			<th class="number">', _('Opening Balances'), '</th>
-			<th class="number">', locale_number_format($OpeningBalance,  $_SESSION['CompanyRecord']['decimalplaces']), '</th>
+			<th class="number">', locale_number_format($OpeningBalance, $_SESSION['CompanyRecord']['decimalplaces']), '</th>
 		<tr>';
 
 	$TotalBalance = $OpeningBalance;
@@ -51,19 +51,19 @@ if (isset($_POST['Submit'])) {
 								AND chartmaster.language=accountgroups.language
 							WHERE pandl=1
 								AND periodno<='" . $YearEnd . "'
-								AND periodno>'" . ($YearEnd-12) . "'
+								AND periodno>'" . ($YearEnd - 12) . "'
 								AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 		$BalanceResult = DB_query($BalanceSQL);
 		$BalanceRow = DB_fetch_Row($BalanceResult);
 		echo '<tr>
 				<th>', ConvertSQLDate($MyRow['lastdate_in_period']), '</th>
-				<td class="number">', locale_number_format($BalanceRow[0],  $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($BalanceRow[0], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			</tr>';
-		$TotalBalance += $BalanceRow[0];
+		$TotalBalance+= $BalanceRow[0];
 	}
 	echo '<tr>
 			<th class="number">', _('Retained Earnings per Balance Sheet'), '</th>
-			<th class="number">', locale_number_format($TotalBalance,  $_SESSION['CompanyRecord']['decimalplaces']), '</th>
+			<th class="number">', locale_number_format($TotalBalance, $_SESSION['CompanyRecord']['decimalplaces']), '</th>
 		</tr>';
 	echo '</table>';
 }
@@ -91,5 +91,5 @@ echo '<div class="centre">
 
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,13 +1,12 @@
 <?php
+include ('includes/prlOverTimeClass.php');
 
-include('includes/prlOverTimeClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Overtime Entry');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
-if (isset($_GET['NewOT']) == 'Yes' AND isset($_SESSION['OTDetail'])) {
+if (isset($_GET['NewOT']) == 'Yes' and isset($_SESSION['OTDetail'])) {
 	unset($_SESSION['OTDetail']->OTEntries);
 	unset($_SESSION['OTDetail']);
 }
@@ -27,6 +26,7 @@ if (isset($_POST['OTDate'])) {
 		prnMsg(_('The date entered was not valid please enter the overtime date') . $_SESSION['DefaultDateFormat'], 'warn');
 		$_POST['CommitBatch'] = 'Do not do it the date is wrong';
 		$AllowThisPosting = false; //do not allow posting
+		
 	}
 }
 if (isset($_POST['OTType'])) {
@@ -60,7 +60,6 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Overtime')) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 	}
 
-
 	$ErrMsg = _('Cannot commit the changes');
 	$Result = DB_query('COMMIT', $ErrMsg, _('The commit database transaction failed'), true);
 
@@ -70,7 +69,7 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Overtime')) {
 	unset($_SESSION['OTDetail']);
 
 	/*Set up a new in case user wishes to enter another */
-	echo '<br /><a href="' . $_SERVER['PHP_SELF'] . '?NewOT=Yes">' . _('Enter Another Overtime Data') . '</a>';
+	echo '<br /><a href="' . basename(__FILE__) . '?NewOT=Yes">' . _('Enter Another Overtime Data') . '</a>';
 	exit;
 } elseif (isset($_GET['Delete'])) {
 	/* User hit delete the line from the ot */
@@ -98,15 +97,12 @@ if (isset($Cancel)) {
 	unset($_POST['EmployeeID']);
 }
 
-echo '<form action=' . $_SERVER['PHP_SELF'] . '? method=POST>';
-
+echo '<form action=' . basename(__FILE__) . '? method=POST>';
 
 echo '<p><table BORDER=1 WIDTH=100%>';
 echo '<tr><td VALIGN=TOP WIDTH=15%><table>'; // A new table in the first column of the main table
-
 echo '<tr><td>' . _('Date') . ":</td>
 	<td><input type='text' name='OTDate' maxlength=10 size=11 value='" . $_SESSION['OTDetail']->OTDate . "'></td></tr>";
-
 
 echo '<tr><td>' . _('OT Ref') . ":</td>
 	   <td><input type='text' name='OTRef' SIZE='11' MAXLENGTH='10' value='" . isset($_POST['OTRef']) . "'></td></tr>";
@@ -157,7 +153,6 @@ echo '<input type=SUBMIT name=Process value="' . _('Accept') . '"><input type=SU
 echo '</td></tr></table>';
 /*Close the main table */
 
-
 echo "<table WIDTH=100% BORDER=1><tr>
 	<td class='tableheader'>" . _('OT Hour') . "</td>
 	<td class='tableheader'>" . _('Employee Name') . "</td>
@@ -167,16 +162,16 @@ foreach ($_SESSION['OTDetail']->OTEntries as $OTItem) {
 	echo '<tr><td align="right">' . number_format($OTItem->OTHours, 2) . '</td>
 		<td>' . $OTItem->EmployeeID . ' - ' . $OTItem->LastName . ',' . $OTItem->FirstName . '</td>
 		<td>' . $OTItem->OverTimeDesc . '</td>
-		<td><a href="' . $_SERVER['PHP_SELF'] . '?&Delete=' . $OTItem->ID . '">' . _('Delete') . '</a></td>
+		<td><a href="' . basename(__FILE__) . '?&Delete=' . $OTItem->ID . '">' . _('Delete') . '</a></td>
 	</tr>';
 }
 
 echo '<tr><td align="right"><B>' . number_format($_SESSION['OTDetail']->OTTotal, 2) . '</B></td></tr></table>';
 
-if (ABS($_SESSION['OTDetail']->OTTotal) > 0.001 AND $_SESSION['OTDetail']->OTItemCounter > 0) {
+if (ABS($_SESSION['OTDetail']->OTTotal) > 0.001 and $_SESSION['OTDetail']->OTItemCounter > 0) {
 	echo "<br /><br /><input type=SUBMIT name='CommitBatch' value='" . _('Accept and Process Overtime') . "'>";
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

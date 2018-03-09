@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Update Related Items');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 //initialise no input errors assumed initially before we test
 $InputError = 0;
@@ -40,7 +39,7 @@ if (DB_num_rows($Result) == 0) {
 if (!isset($Item)) {
 	echo '<p>';
 	prnMsg(_('An item must first be selected before this page is called') . '. ' . _('The product selection page should call this page with a valid product code'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -49,11 +48,10 @@ $PartDescription = $MyRow[0];
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	// This gives some date in 1999?? $ZeroDate = Date($_SESSION['DefaultDateFormat'],Mktime(0,0,0,0,0,0));
-
 	$Result_related = DB_query("SELECT stockmaster.description,
 										stockmaster.mbflag
 									FROM stockmaster
@@ -115,7 +113,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	/* Again it is safe to assume that we have to delete both relations A to B and B to A */
 
 	$SQL = "DELETE FROM relateditems
@@ -128,7 +125,6 @@ if (isset($_POST['submit'])) {
 }
 
 //Always do this stuff
-
 $SQL = "SELECT stockmaster.stockid,
 			stockmaster.description
 		FROM stockmaster, relateditems
@@ -138,7 +134,7 @@ $SQL = "SELECT stockmaster.stockid,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<table>
 			<thead>
 				<tr>
@@ -154,15 +150,13 @@ if (DB_num_rows($Result) > 0) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($k == 1) {
 
 		echo '<tr class="striped_row">
 				<td>' . $MyRow['stockid'] . '</td>
 				<td>' . $MyRow['description'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Related=' . $MyRow['stockid'] . '&amp;delete=yes" onclick="return confirm(\'' . _('Are you sure you wish to delete this relationship?') . '\');">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Related=' . $MyRow['stockid'] . '&amp;delete=yes" onclick="return confirm(\'' . _('Are you sure you wish to delete this relationship?') . '\');">' . _('Delete') . '</a></td>
 			</tr>';
 
 	}
@@ -174,7 +168,7 @@ if (DB_num_rows($Result) > 0) {
 	prnMsg(_('There are no items related set up for this part'), 'warn');
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_GET['Edit'])) {
 	/*the price sent with the get is sql format price so no need to filter */
@@ -203,6 +197,6 @@ echo '<div class="centre">
 	</div>';
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

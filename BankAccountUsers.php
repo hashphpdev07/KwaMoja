@@ -91,7 +91,7 @@ if (!isset($SelectedBankAccount)) {
 
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedUser will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
 	 then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" id="SelectAccount">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" id="SelectAccount">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<fieldset>
 			<legend>', _('Select the Bank Account'), '</legend>
@@ -134,7 +134,7 @@ if (isset($_POST['process']) or isset($SelectedBankAccount)) {
 	$MyRow = DB_fetch_array($Result);
 	$SelectedBankName = $MyRow['bankaccountname'];
 
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Authorised users for') . ' ' . $SelectedBankName . ' ' . _('bank account') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Authorised users for') . ' ' . $SelectedBankName . ' ' . _('bank account') . '</a></div>';
 
 	$SQL = "SELECT bankaccountusers.userid,
 					www_users.realname
@@ -161,7 +161,7 @@ if (isset($_POST['process']) or isset($SelectedBankAccount)) {
 		echo '<tr class="striped_row">
 				<td>', $MyRow['userid'], '</td>
 				<td>', $MyRow['realname'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedUser=', urlencode($MyRow['userid']), '&amp;delete=yes&amp;SelectedBankAccount=', urlencode($SelectedBankAccount), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to un-authorise this user?'), '\', \'Confirm Delete\', this);">', _('Un-authorise'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedUser=', urlencode($MyRow['userid']), '&amp;delete=yes&amp;SelectedBankAccount=', urlencode($SelectedBankAccount), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to un-authorise this user?'), '\', \'Confirm Delete\', this);">', _('Un-authorise'), '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -169,7 +169,7 @@ if (isset($_POST['process']) or isset($SelectedBankAccount)) {
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" id="UserSelect">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" id="UserSelect">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		echo '<input type="hidden" name="SelectedBankAccount" value="', $SelectedBankAccount, '" />';

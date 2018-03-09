@@ -1,12 +1,11 @@
 <?php
-
 /* Shows the general ledger transactions for a specified account over a specified range of periods */
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('General Ledger Account Inquiry');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountInquiry';
-include('includes/header.php');
-include('includes/GLPostings.php');
+include ('includes/header.php');
+include ('includes/GLPostings.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Account Inquiry'), '" alt="', _('General Ledger Account Inquiry'), '" />', ' ', _('General Ledger Account Inquiry'), '
@@ -39,14 +38,14 @@ if (isset($_POST['Period'])) {
 
 if (isset($SelectedAccount) and $_SESSION['CompanyRecord']['retainedearnings'] == $SelectedAccount) {
 	prnMsg(_('The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details'), 'info');
-	echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another account'), '</a>';
-	include('includes/footer.php');
+	echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select another account'), '</a>';
+	include ('includes/footer.php');
 	exit;
 }
 
 echo '<div class="page_help_text noPrint">', _('Use the keyboard Shift key to select multiple periods'), '</div>';
 
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 /* Get the start and periods, depending on how this script was called*/
@@ -70,7 +69,7 @@ $SQL = "SELECT chartmaster.accountcode,
 		FROM chartmaster
 		INNER JOIN glaccountusers
 			ON glaccountusers.accountcode=chartmaster.accountcode
-			AND glaccountusers.userid='" .  $_SESSION['UserID'] . "'
+			AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
 			AND glaccountusers.canview=1
 		WHERE chartmaster.accountcode<>'" . $_SESSION['CompanyRecord']['retainedearnings'] . "'
 			AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
@@ -93,7 +92,6 @@ echo '</select>
 	</tr>';
 
 //Select the tag
-
 $SQL = "SELECT tagref,
 			tagdescription
 		FROM tags
@@ -145,7 +143,7 @@ if (isset($_POST['Show'])) {
 
 	if (!isset($SelectedPeriod)) {
 		prnMsg(_('A period or range of periods must be selected from the list box'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	/*Is the account a balance sheet or a profit and loss account */
@@ -266,14 +264,14 @@ if (isset($_POST['Show'])) {
 		}
 	}
 	$PeriodTotal = 0;
-	$PeriodNo = -9999;
+	$PeriodNo = - 9999;
 	$ShowIntegrityReport = False;
 	$j = 1;
 	$k = 0; //row colour counter
 	$IntegrityReport = '';
 	while ($MyRow = DB_fetch_array($TransResult)) {
 		if ($MyRow['periodno'] != $PeriodNo) {
-			if ($PeriodNo != -9999) { //ie its not the first time around
+			if ($PeriodNo != - 9999) { //ie its not the first time around
 				/*Get the ChartDetails balance b/fwd and the actual movement in the account for the period as recorded in the chart details - need to ensure integrity of transactions to the chart detail movements. Also, for a balance sheet account it is the balance carried forward that is important, not just the transactions*/
 
 				$SQL = "SELECT bfwd,
@@ -287,7 +285,7 @@ if (isset($_POST['Show'])) {
 				$ChartDetailsResult = DB_query($SQL, $ErrMsg);
 				$ChartDetailRow = DB_fetch_array($ChartDetailsResult);
 
-				if ($PeriodNo != -9999) {
+				if ($PeriodNo != - 9999) {
 					$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
 					$PeriodResult = DB_query($PeriodSQL);
 					$PeriodRow = DB_fetch_array($PeriodResult);
@@ -296,6 +294,7 @@ if (isset($_POST['Show'])) {
 					if ($PeriodTotal < 0) { //its a credit balance b/fwd
 						if ($PandLAccount == True) {
 							//							$RunningTotal = 0;
+							
 						}
 						echo '<td></td>
 								<td class="number"><b>', locale_number_format(-$PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
@@ -304,13 +303,14 @@ if (isset($_POST['Show'])) {
 					} else { //its a debit balance b/fwd
 						if ($PandLAccount == True) {
 							//								$RunningTotal = 0;
+							
 						}
 						echo '<td class="number"><b>', locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
 								<td colspan="2"></td>
 							</tr>';
 					}
 				}
-				$IntegrityReport .= '<br />' . _('Period') . ': ' . $PeriodNo . _('Account movement per transaction') . ': ' . locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Movement per ChartDetails record') . ': ' . locale_number_format($ChartDetailRow['actual'], $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Period difference') . ': ' . locale_number_format($PeriodTotal - $ChartDetailRow['actual'], 3);
+				$IntegrityReport.= '<br />' . _('Period') . ': ' . $PeriodNo . _('Account movement per transaction') . ': ' . locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Movement per ChartDetails record') . ': ' . locale_number_format($ChartDetailRow['actual'], $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Period difference') . ': ' . locale_number_format($PeriodTotal - $ChartDetailRow['actual'], 3);
 
 				if (ABS($PeriodTotal - $ChartDetailRow['actual']) > 0.01 and $_POST['tag'] == 0) {
 					$ShowIntegrityReport = True;
@@ -320,8 +320,8 @@ if (isset($_POST['Show'])) {
 			$PeriodTotal = 0;
 		}
 
-		$RunningTotal += $MyRow['amount'];
-		$PeriodTotal += $MyRow['amount'];
+		$RunningTotal+= $MyRow['amount'];
+		$PeriodTotal+= $MyRow['amount'];
 
 		if ($MyRow['amount'] >= 0) {
 			$DebitAmount = locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']);
@@ -353,7 +353,7 @@ if (isset($_POST['Show'])) {
 			</tr>';
 
 	}
-	if ($PeriodNo != -9999) {
+	if ($PeriodNo != - 9999) {
 		$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
 		$PeriodResult = DB_query($PeriodSQL);
 		$PeriodRow = DB_fetch_array($PeriodResult);
@@ -396,8 +396,6 @@ if (isset($_POST['Show'])) {
 }
 /* end of if Show button hit */
 
-
-
 if (isset($ShowIntegrityReport) and $ShowIntegrityReport == True) {
 	if (!isset($IntegrityReport)) {
 		$IntegrityReport = '';
@@ -405,5 +403,5 @@ if (isset($ShowIntegrityReport) and $ShowIntegrityReport == True) {
 	prnMsg(_('There are differences between the sum of the transactions and the recorded movements in the ChartDetails table') . '. ' . _('A log of the account differences for the periods report shows below'), 'warn');
 	echo '<p>' . $IntegrityReport;
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -11,32 +11,30 @@ function RelativeChange($SelectedPeriod, $PreviousPeriod) {
 	}
 }
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Horizontal Analysis of Statement of Comprehensive Income');
-$ViewTopic= 'GeneralLedger';
+$ViewTopic = 'GeneralLedger';
 $BookMark = 'AnalysisHorizontalIncome';
-include('includes/SQL_CommonFunctions.php');
-include('includes/AccountSectionsDef.php'); // This loads the $Sections variable
-
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
 if (isset($_POST['FromPeriod']) and ($_POST['FromPeriod'] > $_POST['ToPeriod'])) {
 	prnMsg(_('The selected period from is actually after the period to') . '! ' . _('Please reselect the reporting period'), 'error');
 	$_POST['SelectADifferentPeriod'] = 'Select A Different Period';
 }
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POST['SelectADifferentPeriod'])) {
 
 	echo '<p class="page_title_text">
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print Horizontal Analysis of Statement of Comprehensive Income'), '" /> ', // Icon title.
-			_('Horizontal Analysis of Statement of Comprehensive Income'), '
+	_('Horizontal Analysis of Statement of Comprehensive Income'), '
 		</p>'; // Page title.
-
 	echo '<div class="page_help_text">
 			', _('Horizontal analysis (also known as trend analysis) is a financial statement analysis technique that shows changes in the amounts of corresponding financial statement items over a period of time. It is a useful tool to evaluate trend situations.'), '<br />', _('The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (absolute change) and percentage (relative change).'), '<br />', _('KwaMoja is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
 		</div>';
 	// Show a form to allow input of criteria for the report to show:
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<fieldset>
 			<legend>', _('Select Report Criteria'), '</legend>
@@ -88,7 +86,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$SQL = "SELECT periodno FROM periods where lastdate_in_period = '" . $LastDate . "'";
 		$MaxPrd = DB_query($SQL);
 		$MaxPrdrow = DB_fetch_row($MaxPrd);
-		$DefaultToPeriod = (int) ($MaxPrdrow[0]);
+		$DefaultToPeriod = (int)($MaxPrdrow[0]);
 	} else {
 		$DefaultToPeriod = $_POST['ToPeriod'];
 	}
@@ -128,7 +126,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		</div>';
 
 	// Now do the posting while the user is thinking about the period to select:
-	include('includes/GLPostings.php');
+	include ('includes/GLPostings.php');
 
 } else {
 
@@ -137,7 +135,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	if ($NumberOfMonths > 12) {
 		echo '<br />';
 		prnMsg(_('A period up to 12 months in duration can be specified') . ' - ' . _('the system automatically shows a comparative for the same period from the previous year') . ' - ' . _('it cannot do this if a period of more than 12 months is specified') . '. ' . _('Please select an alternative period range'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -147,21 +145,18 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$PeriodToDate = MonthAndYearFromSQLDate($MyRow[0]);
 
 	// Page title as IAS 1, numerals 10 and 51:
-	include_once('includes/CurrenciesArray.php'); // Array to retrieve currency name.
-
+	include_once ('includes/CurrenciesArray.php'); // Array to retrieve currency name.
 	echo '<div id="Report">', // Division to identify the report block.
-		'<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', // Icon image.
-		_('Horizontal Analysis of Statement of Comprehensive Income'), '" /> ', // Icon title.
-		_('Horizontal Analysis of Statement of Comprehensive Income'), '<br />', // Page title, reporting statement.
-		stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />', // Page title, reporting entity.
-		_('For'), ' ', $NumberOfMonths, ' ', _('months to'), ' ', $PeriodToDate, '<br />', // Page title, reporting period.
-		_('All amounts stated in'), ': ', _($CurrencyName[$_SESSION['CompanyRecord']['currencydefault']]), '</p>'; // Page title, reporting presentation currency and level of rounding used.
-
+	'<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', // Icon image.
+	_('Horizontal Analysis of Statement of Comprehensive Income'), '" /> ', // Icon title.
+	_('Horizontal Analysis of Statement of Comprehensive Income'), '<br />', // Page title, reporting statement.
+	stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />', // Page title, reporting entity.
+	_('For'), ' ', $NumberOfMonths, ' ', _('months to'), ' ', $PeriodToDate, '<br />', // Page title, reporting period.
+	_('All amounts stated in'), ': ', _($CurrencyName[$_SESSION['CompanyRecord']['currencydefault']]), '</p>'; // Page title, reporting presentation currency and level of rounding used.
 	echo '<table class="scrollable">
 			<thead>
 				<tr class="noPrint">
-					<th colspan="6"><h3>',
-						$Title, '
+					<th colspan="6"><h3>', $Title, '
 						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
 					</h3></th>
 				<tr>';
@@ -185,7 +180,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			</tr>
 		</tfoot>
 		<tbody>'; // thead and tfoot used in conjunction with tbody enable scrolling of the table body independently of the header and footer. Also, when printing a large table that spans multiple pages, these elements can enable the table header to be printed at the top of each page.
-
 	$SQL = "SELECT accountgroups.sectioninaccounts,
 					accountgroups.parentgroupname,
 					accountgroups.groupname,
@@ -203,7 +197,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					ON chartmaster.accountcode= chartdetails.accountcode
 				INNER JOIN glaccountusers
 					ON glaccountusers.accountcode=chartmaster.accountcode
-					AND glaccountusers.userid='" .  $_SESSION['UserID'] . "'
+					AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
 					AND glaccountusers.canview=1
 			WHERE accountgroups.pandl=1
 				AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
@@ -226,12 +220,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$SectionTotalLY = 0;
 
 	$ActGrp = '';
-	$GrpTotal = array(
-		0
-	);
-	$GrpTotalLY = array(
-		0
-	);
+	$GrpTotal = array(0);
+	$GrpTotalLY = array(0);
 	$Level = 0;
 	$ParentGroups = array();
 	$ParentGroups[$Level] = '';
@@ -267,9 +257,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					$ParentGroups[$Level] = '';
 					$Level--;
 				} // End while.
-
 				//still need to print out the old group totals
-
 				if ($_POST['Detail'] == 'Detailed') {
 					echo $DrawTotalLine;
 					$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');
@@ -296,6 +284,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						<td class="number">', RelativeChange(-$GrpTotal[$Level], -$GrpTotalLY[$Level]), '</td>
 					</tr>';
 					// --->
+					
 				}
 				// <---
 				$GrpTotalLY[$Level] = 0;
@@ -340,7 +329,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						</tr>';
 				}
 
-				if (($Section != 1) AND ($Section != 2)) {
+				if (($Section != 1) and ($Section != 2)) {
 					echo $DrawTotalLine;
 					echo '<tr>
 							<td class="text" colspan="2"><h2>', _('Earnings after'), ' ', $Sections[$Section], '</h2></td>
@@ -365,7 +354,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		}
 
 		if ($MyRow['groupname'] != $ActGrp) {
-			if ($MyRow['parentgroupname'] == $ActGrp AND $ActGrp != '') { // Adding another level of nesting
+			if ($MyRow['parentgroupname'] == $ActGrp and $ActGrp != '') { // Adding another level of nesting
 				$Level++;
 			}
 			$ActGrp = $MyRow['groupname'];
@@ -380,20 +369,20 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		// Set totals for account, groups, section and period:
 		$AccountTotal = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
 		$AccountTotalLY = $MyRow['lastprdcfwdly'] - $MyRow['firstprdbfwdly'];
-		for ($i = 0; $i <= $Level; $i++) {
+		for ($i = 0;$i <= $Level;$i++) {
 			if (!isset($GrpTotalLY[$i])) {
 				$GrpTotalLY[$i] = 0;
 			}
-			$GrpTotalLY[$i] += $AccountTotalLY;
+			$GrpTotalLY[$i]+= $AccountTotalLY;
 			if (!isset($GrpTotal[$i])) {
 				$GrpTotal[$i] = 0;
 			}
-			$GrpTotal[$i] += $AccountTotal;
+			$GrpTotal[$i]+= $AccountTotal;
 		}
-		$SectionTotal += $AccountTotal;
-		$SectionTotalLY += $AccountTotalLY;
-		$PeriodTotal += $AccountTotal;
-		$PeriodTotalLY += $AccountTotalLY;
+		$SectionTotal+= $AccountTotal;
+		$SectionTotalLY+= $AccountTotalLY;
+		$PeriodTotal+= $AccountTotal;
+		$PeriodTotalLY+= $AccountTotalLY;
 
 		if ($_POST['Detail'] == 'Detailed') {
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and ($AccountTotal <> 0 or $AccountTotalLY <> 0))) {
@@ -419,7 +408,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			}
 		}
 	} // End of loop.
-
 	if ($MyRow['groupname'] != $ActGrp) {
 		if ($MyRow['parentgroupname'] != $ActGrp and $ActGrp != '') {
 			while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
@@ -524,10 +512,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		</tr>';
 	echo $DrawTotalLine;
 	echo '</tbody>', // See comment at the begin of the table.
-		'</table>
+	'</table>
 		</div>'; // Close div id="Report".
 	echo '<br />';
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">
 			<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
 			<input type="hidden" name="FromPeriod" value="', $_POST['FromPeriod'], '" />
 			<input type="hidden" name="ToPeriod" value="', $_POST['ToPeriod'], '" />
@@ -536,5 +524,5 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

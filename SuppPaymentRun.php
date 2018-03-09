@@ -1,5 +1,4 @@
 <?php
-
 class Allocation {
 	var $TransID;
 	var $Amount;
@@ -10,17 +9,16 @@ class Allocation {
 	}
 }
 
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/GetPaymentMethods.php');
-
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/GetPaymentMethods.php');
 
 if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset($_POST['FromCriteria']) and mb_strlen($_POST['FromCriteria']) >= 1 and isset($_POST['ToCriteria']) and mb_strlen($_POST['ToCriteria']) >= 1 and is_numeric(filter_number_format($_POST['ExRate']))) {
 
 	/*then print the report */
 	$Title = _('Payment Run - Problem Report');
 	$RefCounter = 0;
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Payment Run Report'));
 	$PDF->addInfo('Subject', _('Payment Run') . ' - ' . _('suppliers from') . ' ' . $_POST['FromCriteria'] . ' to ' . $_POST['ToCriteria'] . ' in ' . $_POST['Currency'] . ' ' . _('and Due By') . ' ' . $_POST['AmountsDueBy']);
 
@@ -29,7 +27,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 
 	/*Now figure out the invoice less credits due for the Supplier range under review */
 
-	include('includes/PDFPaymentRunPageHeader.php');
+	include ('includes/PDFPaymentRunPageHeader.php');
 
 	$SQL = "SELECT suppliers.supplierid,
 					currencies.decimalplaces AS currdecimalplaces,
@@ -58,7 +56,6 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 	$SupplierID = '';
 	$TotalPayments = 0;
 	$TotalAccumDiffOnExch = 0;
-
 
 	if (isset($_POST['PrintPDFAndProcess'])) {
 		$ProcessResult = DB_Txn_Begin();
@@ -101,20 +98,20 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 		$TransResult = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() != 0) {
 			$Title = _('Payment Run - Problem Report');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The details of supplier invoices due could not be retrieved because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . _('The SQL that failed was') . ' ' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		if (DB_num_rows($TransResult) == 0) {
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('There are no outstanding supplier invoices to pay'), 'info');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -129,7 +126,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 
 				if ($SupplierID != '') {
 					/*only print the footer if this is not the first pass */
-					include('includes/PDFPaymentRun_PymtFooter.php');
+					include ('includes/PDFPaymentRun_PymtFooter.php');
 				}
 				$SupplierID = $DetailTrans['supplierid'];
 				$SupplierName = $DetailTrans['suppname'];
@@ -140,7 +137,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 				$AccumDiffOnExch = 0;
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 450 - $Left_Margin, $FontSize, $DetailTrans['supplierid'] . ' - ' . $DetailTrans['suppname'] . ' - ' . $DetailTrans['terms'], 'left');
 
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 			}
 
 			$DislayTranDate = ConvertSQLDate($DetailTrans['trandate']);
@@ -150,9 +147,8 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 			/*Positive is a favourable */
 			$DiffOnExch = ($DetailTrans['balance'] / $DetailTrans['rate']) - ($DetailTrans['balance'] / filter_number_format($_POST['ExRate']));
 
-			$AccumBalance += $DetailTrans['balance'];
-			$AccumDiffOnExch += $DiffOnExch;
-
+			$AccumBalance+= $DetailTrans['balance'];
+			$AccumDiffOnExch+= $DiffOnExch;
 
 			if (isset($_POST['PrintPDFAndProcess'])) {
 
@@ -172,14 +168,14 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 				$ProcessResult = DB_query($SQL, '', '', false, false);
 				if (DB_error_no() != 0) {
 					$Title = _('Payment Processing - Problem Report') . '.... ';
-					include('includes/header.php');
+					include ('includes/header.php');
 					prnMsg(_('None of the payments will be processed since updates to the transaction records for') . ' ' . $SupplierName . ' ' . _('could not be processed because') . ' - ' . DB_error_msg(), 'error');
 					echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 					if ($Debug == 1) {
 						echo '<br />' . _('The SQL that failed was') . $SQL;
 					}
 					$ProcessResult = DB_Txn_Rollback();
-					include('includes/footer.php');
+					include ('includes/footer.php');
 					exit;
 				}
 			}
@@ -187,10 +183,10 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 			$LeftOvers = $PDF->addTextWrap(340, $YPos, 60, $FontSize, locale_number_format($DetailTrans['balance'], $CurrDecimalPlaces), 'right');
 			$LeftOvers = $PDF->addTextWrap(405, $YPos, 60, $FontSize, locale_number_format($DiffOnExch, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			if ($YPos < $Bottom_Margin + $line_height) {
 				$PageNumber++;
-				include('includes/PDFPaymentRunPageHeader.php');
+				include ('includes/PDFPaymentRunPageHeader.php');
 			}
 		}
 		/*end while there are detail transactions to show */
@@ -199,20 +195,20 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 
 	if ($SupplierID != '') {
 		/*All the payment processing is in the below file */
-		include('includes/PDFPaymentRun_PymtFooter.php');
+		include ('includes/PDFPaymentRun_PymtFooter.php');
 
 		$ProcessResult = DB_Txn_Commit();
 
 		if (DB_error_no() != 0) {
 			$Title = _('Payment Processing - Problem Report') . '.... ';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('None of the payments will be processed. Unfortunately, there was a problem committing the changes to the database because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				prnMsg(_('The SQL that failed was') . '<br />' . $SQL, 'error');
 			}
 			$ProcessResult = DB_Txn_Rollback();
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -229,7 +225,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 	/*The option to print PDF was not hit */
 
 	$Title = _('Payment Run');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '</p>';
 
@@ -245,7 +241,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 
@@ -267,7 +263,6 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 			<td>' . _('To Supplier Code') . ':</td>
 			<td><input type="text" required="required" maxlength="6" size="7" name="ToCriteria" value="' . $DefaultToCriteria . '" /></td>
 		 </tr>';
-
 
 	echo '<tr>
 			<td>' . _('For Suppliers Trading in') . ':</td>
@@ -329,7 +324,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 			</table>
 			<p>' . _('Bank Accounts have not yet been defined. You must first') . ' <a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a> ' . _('and general ledger accounts to be affected') . '.
 			</p>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		while ($MyRow = DB_fetch_array($AccountsResults)) {
@@ -350,7 +345,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 			<td><select required="required" name="PaytType">';
 
 	/* The array PaytTypes is set up in config.php for user modification
-	Payment types can be modified by editing that file */
+	 Payment types can be modified by editing that file */
 
 	foreach ($PaytTypes as $PaytID => $PaytType) {
 
@@ -370,7 +365,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['PrintPDFAndProcess'])) and isset
 				<input type="submit" name="PrintPDFAndProcess" value="' . _('Print and Process Payments') . '" />
 			</div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 ?>

@@ -6,7 +6,6 @@
 
 // Notes:
 // Info about a statement of cash flows using the indirect method: IAS 7 - Statement of Cash Flows.
-
 // BEGIN: Functions division ---------------------------------------------------
 function CashFlowsActivityName($Activity) {
 	// Converts the cash flow activity number to an activity text.
@@ -31,18 +30,19 @@ function colDebitCredit($Amount) {
 	// Function to display in debit or Credit columns in a HTML table.
 	if ($Amount < 0) {
 		return '<td class="number">' . locale_number_format($Amount, $_SESSION['CompanyRecord']['decimalplaces']) . '</td><td>&nbsp;</td>'; // Outflow.
+		
 	} else {
 		return '<td>&nbsp;</td><td class="number">' . locale_number_format($Amount, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>'; // Inflow.
+		
 	}
 }
 // END: Functions division -----------------------------------------------------
-
 // BEGIN: Procedure division ---------------------------------------------------
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Statement of Cash Flows, Indirect Method');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLCashFlowsIndirect';
-include('includes/header.php');
+include ('includes/header.php');
 
 // Merges gets into posts:
 if (isset($_GET['PeriodFrom'])) { // Select period from.
@@ -86,12 +86,11 @@ if ($_POST['PeriodFrom'] > $_POST['PeriodTo']) {
 }
 
 // Main code:
-if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates the report:
+if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates the report:
 	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', // Icon image.
-		$Title, '" /> ', // Icon title.
-		$Title, '<br />', // Page title, reporting statement.
-		stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />'; // Page title, reporting entity.
-
+	$Title, '" /> ', // Icon title.
+	$Title, '<br />', // Page title, reporting statement.
+	stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />'; // Page title, reporting entity.
 	$PeriodFromSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['PeriodFrom'] . "'";
 	$PeriodFromResult = DB_query($PeriodFromSQL);
 	$PeriodFromName = DB_fetch_array($PeriodFromResult);
@@ -100,11 +99,11 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	$PeriodToResult = DB_query($PeriodToSQL);
 	$PeriodToName = DB_fetch_array($PeriodToResult);
 	echo _('From'), ' ', MonthAndYearFromSQLDate($PeriodFromName['lastdate_in_period']), ' ', _('to'), ' ', MonthAndYearFromSQLDate($PeriodToName['lastdate_in_period']), '<br />'; // Page title, reporting period.
-	include_once('includes/CurrenciesArray.php'); // Array to retrieve currency name.
+	include_once ('includes/CurrenciesArray.php'); // Array to retrieve currency name.
 	echo _('All amounts stated in'), ': ', _($CurrencyName[$_SESSION['CompanyRecord']['currencydefault']]), '</p>'; // Page title, reporting presentation currency and level of rounding used.
 	echo '<table>',
 	// Content of the header and footer of the output table:
-		'<thead>
+	'<thead>
 			<tr>
 				<th colspan="8">
 					<h2>' . _('Statement of Cash Flows') . '
@@ -144,7 +143,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			$_SESSION['RetainedEarningsAccount'] = $MyRow['retainedearnings'];
 		}
 	}
-	include('includes/GLPostings.php'); // Posts pending GL transactions.
+	include ('includes/GLPostings.php'); // Posts pending GL transactions.
 	// Outputs the table:
 	if (isset($_POST['ShowBudget'])) { // Parameters: PeriodFrom, PeriodTo, ShowBudget=on, ShowZeroBalance=on/off, ShowCash=on/off.
 		// BEGIN Outputs the table with budget.
@@ -201,10 +200,10 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		$MyRow2 = DB_fetch_array(DB_query($SQL));
 		echo colDebitCredit($MyRow2['ActualRetained'] - $MyRow1['ActualProfit']), colDebitCredit($MyRow2['BudgetRetained'] - $MyRow1['BudgetProfit']), colDebitCredit($MyRow2['LastRetained'] - $MyRow1['LastProfit']), '</tr><tr>', '<td class="text" colspan="2">', _('Retained earnings'), '</td>',
 		// Retained earnings changes:
-			colDebitCredit($MyRow2['ActualRetained']), colDebitCredit($MyRow2['BudgetRetained']), colDebitCredit($MyRow2['LastRetained']), '</tr>';
-		$ActualTotal += $MyRow2['ActualRetained'];
-		$BudgetTotal += $MyRow2['BudgetRetained'];
-		$LastTotal += $MyRow2['LastRetained'];
+		colDebitCredit($MyRow2['ActualRetained']), colDebitCredit($MyRow2['BudgetRetained']), colDebitCredit($MyRow2['LastRetained']), '</tr>';
+		$ActualTotal+= $MyRow2['ActualRetained'];
+		$BudgetTotal+= $MyRow2['BudgetRetained'];
+		$LastTotal+= $MyRow2['LastRetained'];
 		// Cash flows sections:
 		$BudgetSection = 0;
 		$BudgetTotal = 0;
@@ -225,12 +224,12 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					chartmaster.cashflowsactivity,
 					chartdetails.accountcode";
 		$Result = DB_query($SQL);
-		$IdSection = -1;
+		$IdSection = - 1;
 		// Looks for an account without setting up:
-		$NeedSetup = FALSE;
+		$NeedSetup = false;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($MyRow['cashflowsactivity'] == -1) {
-				$NeedSetup = TRUE;
+			if ($MyRow['cashflowsactivity'] == - 1) {
+				$NeedSetup = true;
 				echo '<tr>
 						<td colspan="8">&nbsp;</td>
 					</tr>';
@@ -242,8 +241,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			if ($IdSection <> $MyRow['cashflowsactivity']) {
 				// Prints section total:
 				echo '<tr>
-						<td class="text" colspan="2">', CashFlowsActivityName($IdSection), '</td>',
-						colDebitCredit($ActualSection), colDebitCredit($BudgetSection), colDebitCredit($LastSection), '
+						<td class="text" colspan="2">', CashFlowsActivityName($IdSection), '</td>', colDebitCredit($ActualSection), colDebitCredit($BudgetSection), colDebitCredit($LastSection), '
 					</tr>';
 				// Resets section totals:
 				$ActualSection = 0;
@@ -258,12 +256,12 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 				echo '<tr class="striped_row">
 						<td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
-				$ActualSection += $MyRow['ActualAmount'];
-				$ActualTotal += $MyRow['ActualAmount'];
-				$BudgetSection += $MyRow['BudgetAmount'];
-				$BudgetTotal += $MyRow['BudgetAmount'];
-				$LastSection += $MyRow['LastAmount'];
-				$LastTotal += $MyRow['LastAmount'];
+				$ActualSection+= $MyRow['ActualAmount'];
+				$ActualTotal+= $MyRow['ActualAmount'];
+				$BudgetSection+= $MyRow['BudgetAmount'];
+				$BudgetTotal+= $MyRow['BudgetAmount'];
+				$LastSection+= $MyRow['LastAmount'];
+				$LastTotal+= $MyRow['LastAmount'];
 			}
 		}
 		// Prints the last section total:
@@ -271,7 +269,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 				<td class="text" colspan="2">', CashFlowsActivityName($IdSection), '</td>', colDebitCredit($ActualSection), colDebitCredit($BudgetSection), colDebitCredit($LastSection), '</tr>
 			<tr><td colspan="8">&nbsp;</td></tr>',
 		// Prints Net increase in cash and cash equivalents:
-			'<tr>
+		'<tr>
 				<td class="text" colspan="2"><b>', _('Net increase in cash and cash equivalents'), '</b></td>', colDebitCredit($ActualTotal), colDebitCredit($BudgetTotal), colDebitCredit($LastTotal), '</tr>';
 		// Prints Cash and cash equivalents at beginning of period:
 		if (isset($_POST['ShowCash'])) {
@@ -296,9 +294,9 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?Period=', $_POST['PeriodFrom'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
-					$ActualBeginning += $MyRow['ActualAmount'];
-					$BudgetBeginning += $MyRow['BudgetAmount'];
-					$LastBeginning += $MyRow['LastAmount'];
+					$ActualBeginning+= $MyRow['ActualAmount'];
+					$BudgetBeginning+= $MyRow['BudgetAmount'];
+					$LastBeginning+= $MyRow['LastAmount'];
 				}
 			}
 		} else {
@@ -373,9 +371,9 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
-					$ActualCash += $MyRow['ActualAmount'];
-					$BudgetCash += $MyRow['BudgetAmount'];
-					$LastCash += $MyRow['LastAmount'];
+					$ActualCash+= $MyRow['ActualAmount'];
+					$BudgetCash+= $MyRow['BudgetAmount'];
+					$LastCash+= $MyRow['LastAmount'];
 				}
 			}
 			// Prints 'Cash or cash equivalent' section total:
@@ -384,6 +382,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		}
 		//<<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		// END Outputs the table with budget.
+		
 	} else { // Parameters: PeriodFrom, PeriodTo, ShowBudget=OFF, ShowZeroBalance=on/off, ShowCash=on/off.
 		// BEGIN Outputs the table without budget.
 		// Code maintenance note: To update 'Outputs the table withOUT budget', copy 'Outputs the table with budget' and remove lines with 'budget'.
@@ -394,7 +393,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		echo '<tfoot>
 				<tr>
 					<td class="text" colspan="8">', // Prints an explanation of signs in actual and relative changes:
-						'<br /><b>', _('Notes'), ':</b>
+		'<br /><b>', _('Notes'), ':</b>
 						<br />', _('Cash flows signs: a negative number indicates a cash flow used in activities; a positive number indicates a cash flow provided by activities.'), '<br />';
 		if (isset($_POST['ShowCash'])) {
 			echo _('Cash and cash equivalents signs: a negative number indicates a cash outflow; a positive number indicates a cash inflow.'), '<br />';
@@ -436,9 +435,9 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		$MyRow2 = DB_fetch_array(DB_query($SQL));
 		echo colDebitCredit($MyRow2['ActualRetained'] - $MyRow1['ActualProfit']), colDebitCredit($MyRow2['LastRetained'] - $MyRow1['LastProfit']), '</tr><tr>', '<td class="text" colspan="2">', _('Retained earnings'), '</td>',
 		// Retained earnings changes:
-			colDebitCredit($MyRow2['ActualRetained']), colDebitCredit($MyRow2['LastRetained']), '</tr>';
-		$ActualTotal += $MyRow2['ActualRetained'];
-		$LastTotal += $MyRow2['LastRetained'];
+		colDebitCredit($MyRow2['ActualRetained']), colDebitCredit($MyRow2['LastRetained']), '</tr>';
+		$ActualTotal+= $MyRow2['ActualRetained'];
+		$LastTotal+= $MyRow2['LastRetained'];
 		// Cash flows sections:
 		$SQL = "SELECT
 					chartmaster.cashflowsactivity,
@@ -456,11 +455,11 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 					chartmaster.cashflowsactivity,
 					chartdetails.accountcode";
 		$Result = DB_query($SQL);
-		$IdSection = -1;
+		$IdSection = - 1;
 		// Looks for an account without setting up:
 		$NeedSetup = False;
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($MyRow['cashflowsactivity'] == -1) {
+			if ($MyRow['cashflowsactivity'] == - 1) {
 				$NeedSetup = True;
 				echo '<tr><td colspan="8">&nbsp;</td></tr>';
 				break;
@@ -483,10 +482,10 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			}
 			if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 				echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
-				$ActualSection += $MyRow['ActualAmount'];
-				$ActualTotal += $MyRow['ActualAmount'];
-				$LastSection += $MyRow['LastAmount'];
-				$LastTotal += $MyRow['LastAmount'];
+				$ActualSection+= $MyRow['ActualAmount'];
+				$ActualTotal+= $MyRow['ActualAmount'];
+				$LastSection+= $MyRow['LastAmount'];
+				$LastTotal+= $MyRow['LastAmount'];
 			}
 		}
 		// Prints the last section total:
@@ -494,7 +493,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 				<td class="text" colspan="2">', CashFlowsActivityName($IdSection), '</td>', colDebitCredit($ActualSection), colDebitCredit($LastSection), '</tr>
 			<tr><td colspan="8">&nbsp;</td></tr>',
 		// Prints Net increase in cash and cash equivalents:
-			'<tr>
+		'<tr>
 				<td class="text" colspan="2"><b>', _('Net increase in cash and cash equivalents'), '</b></td>', colDebitCredit($ActualTotal), colDebitCredit($LastTotal), '</tr>';
 		// Prints Cash and cash equivalents at beginning of period:
 		if (isset($_POST['ShowCash'])) {
@@ -517,8 +516,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?Period=', $_POST['PeriodFrom'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
-					$ActualBeginning += $MyRow['ActualAmount'];
-					$LastBeginning += $MyRow['LastAmount'];
+					$ActualBeginning+= $MyRow['ActualAmount'];
+					$LastBeginning+= $MyRow['LastAmount'];
 				}
 			}
 		} else {
@@ -588,8 +587,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
-					$ActualCash += $MyRow['ActualAmount'];
-					$LastCash += $MyRow['LastAmount'];
+					$ActualCash+= $MyRow['ActualAmount'];
+					$LastCash+= $MyRow['LastAmount'];
 				}
 			}
 			// Prints 'Cash or cash equivalent' section total:
@@ -598,11 +597,12 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		}
 		//<<----------------------------------------------------------------------------
 		// END Outputs the table without budget.
+		
 	}
 	echo '</tbody>
 		</table>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
 
 	echo '<input name="PeriodFrom" type="hidden" value="', $_POST['PeriodFrom'], '" />
@@ -616,20 +616,19 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	echo '<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '"><br />';
 	if ($NeedSetup) {
 		echo '<a href="GLCashFlowsSetup.php"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" /> ', _('Run Setup'), '</a>'; // "Run Setup" button.
+		
 	}
 	echo '</div>';
 } else { // If one or more parameters are NOT set or NOT valid, shows a parameters input form:
 	echo '<p class="page_title_text">
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', $Title, '" /> ', $Title, '
 		</p>'; // Page title.
-	echo '<div class="page_help_text">',
-			_('The statement of cash flows, also known as the successor of the old source and application of funds statement, reports how changes in balance sheet accounts and income affect cash and cash equivalents, and breaks the analysis down to operating, investing and financing activities.'), '<br />', _('The purpose of the statement of cash flows is to show where the company got their money from and how it was spent during the period being reported for a user selectable range of periods.'), '<br />', _('The statement of cash flows represents a period of time. This contrasts with the statement of financial position, which represents a single moment in time.'), '<br />', _('KwaMoja is an accrual based system (not a cash based system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
+	echo '<div class="page_help_text">', _('The statement of cash flows, also known as the successor of the old source and application of funds statement, reports how changes in balance sheet accounts and income affect cash and cash equivalents, and breaks the analysis down to operating, investing and financing activities.'), '<br />', _('The purpose of the statement of cash flows is to show where the company got their money from and how it was spent during the period being reported for a user selectable range of periods.'), '<br />', _('The statement of cash flows represents a period of time. This contrasts with the statement of financial position, which represents a single moment in time.'), '<br />', _('KwaMoja is an accrual based system (not a cash based system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
 		</div>';
 
 	// Shows a form to allow input of criteria for the report to generate:
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '"/>'; // Form's head.
-
 	// Input table:
 	echo '<table>
 			<thead>
@@ -647,7 +646,6 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 				</tr>
 			</tfoot>';
 	// Content of the body of the input table:
-
 	// Select period from:
 	echo '<tbody>
 			<tr>
@@ -677,7 +675,7 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 	}
 	echo '</select>
 			<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-		'</td>
+	'</td>
 	</tr>';
 	// Select period to:
 	echo '<tr>
@@ -698,8 +696,8 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 		}
 	}
 	echo '</select>
-			<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-			'</td>
+			<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	'</td>
 		</tr>';
 
 	// Show the budget for the period:
@@ -710,11 +708,13 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 
 	if (isset($_POST['ShowBudget']) and $_POST['ShowBudget'] == 'on') {
 		echo '<td><input checked="checked" id="ShowBudget" name="ShowBudget" type="checkbox">'; // "Checked" if ShowBudget is set AND it is TRUE.
+		
 	} else {
 		echo '<td><input id="ShowBudget" name="ShowBudget" type="checkbox">'; // "Checked" if ShowBudget is set AND it is TRUE.
+		
 	}
-	echo  '<fieldhelp>', _('Check this box to show the budget for the period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-		'</td>
+	echo '<fieldhelp>', _('Check this box to show the budget for the period'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	'</td>
 	</tr>';
 	// Show accounts with zero balance:
 	echo '<tr>
@@ -723,11 +723,13 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			</td>';
 	if (isset($_POST['ShowZeroBalance']) and $_POST['ShowZeroBalance'] == 'on') {
 		echo '<td><input checked="checked" id="ShowZeroBalance" name="ShowZeroBalance" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
+		
 	} else {
 		echo '<td><input id="ShowZeroBalance" name="ShowZeroBalance" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
+		
 	}
-	echo '<fieldhelp>', _('Check this box to show all accounts including those with zero balance'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-		'</td>
+	echo '<fieldhelp>', _('Check this box to show all accounts including those with zero balance'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	'</td>
 	</tr>';
 	// Show cash and cash equivalents accounts:
 	echo '<tr>
@@ -736,15 +738,17 @@ if (isset($_POST['Submit'])) {// If all parameters are set and valid, generates 
 			</td>';
 	if (isset($_POST['ShowCash']) and $_POST['ShowCash'] == 'on') {
 		echo '<td><input checked="checked" id="ShowCash" name="ShowCash" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
+		
 	} else {
 		echo '<td><input id="ShowCash" name="ShowCash" type="checkbox">'; // "Checked" if ShowZeroBalance is set AND it is TRUE.
+		
 	}
-	echo '<fieldhelp>', _('Check this box to show cash and cash equivalents accounts'), '</fieldhelp>',// If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
-			'</td>
+	echo '<fieldhelp>', _('Check this box to show cash and cash equivalents accounts'), '</fieldhelp>', // If it is not set the $field_help parameter OR it is TRUE, shows the page help text.
+	'</td>
 		</tr>';
 	echo '</tbody>
 		</table>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

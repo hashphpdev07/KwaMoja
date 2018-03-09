@@ -1,11 +1,10 @@
 <?php
-
 // Titles and screen header
 // Needs the file config.php loaded where the variables are defined for
 //  $RootPath
 //  $Title - should be defined in the page this file is included with
 if (!isset($RootPath)) {
-	$RootPath = dirname(htmlspecialchars($_SERVER['PHP_SELF']));
+	$RootPath = dirname(htmlspecialchars(basename(__FILE__)));
 	if ($RootPath == '/' or $RootPath == "\\") {
 		$RootPath = '';
 	}

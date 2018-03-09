@@ -1,17 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Account'); // Screen identification.
 $ViewTopic = 'ARInquiries'; // Filename in ManualContents.php's TOC.
 $BookMark = 'CustomerAccount'; // Anchor's id in the manual's html document.
-include('includes/header.php');
+include ('includes/header.php');
 
 // always figure out the SQL required from the inputs available
-
 if (!isset($_GET['CustomerID']) and !isset($_SESSION['CustomerID'])) {
 	prnMsg(_('To display the account a customer must first be selected from the customer selection screen'), 'info');
 	echo '<br /><div class="centre"><a href="', $RootPath, '/SelectCustomer.php">', _('Select a Customer Account to Display'), '</a></div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	if (isset($_GET['CustomerID'])) {
@@ -33,16 +31,15 @@ if ($_SESSION['SalesmanLogin'] != '') {
 		}
 	} else {
 		prnMsg(_('There is no salesman data set for this customer'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (!$ViewAllowed) {
 		prnMsg(_('You have no authority to review this customer account'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
-
 
 if (!isset($_POST['TransAfterDate'])) {
 	$_POST['TransAfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - $_SESSION['NumberOfMonthMustBeShown'], Date('d'), Date('Y')));
@@ -106,17 +103,17 @@ $SQL = "SELECT debtortrans.id,
 		AND debtortrans.settled=0";
 
 if ($_SESSION['SalesmanLogin'] != '') {
-	$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+	$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 }
 
-$SQL .= " ORDER BY debtortrans.id";
+$SQL.= " ORDER BY debtortrans.id";
 
 $OstdgTrans = DB_query($SQL, $ErrMsg);
 while ($MyRow = DB_fetch_array($OstdgTrans)) {
 	$Transactions[] = $MyRow;
 }
 
-$NumberOfRecordsReturned += DB_num_rows($OstdgTrans);
+$NumberOfRecordsReturned+= DB_num_rows($OstdgTrans);
 
 $SQL = "SELECT debtorsmaster.name,
 			debtorsmaster.address1,
@@ -184,10 +181,10 @@ $SQL = "SELECT debtorsmaster.name,
 			debtorsmaster.debtorno = '" . $CustomerID . "'";
 
 if ($_SESSION['SalesmanLogin'] != '') {
-	$SQL .= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+	$SQL.= " AND debtortrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 }
 
-$SQL .= " GROUP BY
+$SQL.= " GROUP BY
 			debtorsmaster.name,
 			debtorsmaster.address1,
 			debtorsmaster.address2,
@@ -220,12 +217,12 @@ echo '<table width="100%">
 		<tr>
 			<td colspan="2">', $CustomerRecord['address1'], '</td>
 		</tr>';
-if($CustomerRecord['address2']!='') {// If not empty, output this line.
+if ($CustomerRecord['address2'] != '') { // If not empty, output this line.
 	echo '<tr>
 			<td colspan="2">', $CustomerRecord['address2'], '</td>
 		</tr>';
 }
-if($CustomerRecord['address3']!='') {// If not empty, output this line.
+if ($CustomerRecord['address3'] != '') { // If not empty, output this line.
 	echo '<tr>
 			<td colspan="2">', $CustomerRecord['address3'], '</td>
 		</tr>';
@@ -258,10 +255,8 @@ if ($CustomerRecord['dissallowinvoices'] != 0) {
 	echo '<br /><b><font color="red" size="4">', _('ACCOUNT ON HOLD'), '</font></b><br />';
 }
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" class="centre noPrint">
-		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />',
-		_('Show all transactions after'), ':<input class="date" id="datepicker" maxlength="10" minlength="0" name="TransAfterDate" required="required" size="12" type="text" value="', $_POST['TransAfterDate'], '" />',
-		'<input name="Refresh Inquiry" type="submit" value="', _('Refresh Inquiry'), '" />
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" class="centre noPrint">
+		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />', _('Show all transactions after'), ':<input class="date" id="datepicker" maxlength="10" minlength="0" name="TransAfterDate" required="required" size="12" type="text" value="', $_POST['TransAfterDate'], '" />', '<input name="Refresh Inquiry" type="submit" value="', _('Refresh Inquiry'), '" />
 	</form>';
 
 /* Show a table of the invoices returned by the SQL. */
@@ -306,7 +301,6 @@ foreach ($Transactions as $MyRow) {
 	}
 
 	$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
-
 
 	if ($MyRow['type'] == 10) { //its an invoice
 		echo '<tr class="striped_row">
@@ -377,7 +371,7 @@ foreach ($Transactions as $MyRow) {
 	} elseif ($MyRow['type'] == 12 and $MyRow['totalamount'] < 0) {
 		/* Show transactions where:
 		 * - Is receipt
-		 */
+		*/
 		echo '<tr class="striped_row">
 				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['transno'], '</td>
@@ -404,7 +398,7 @@ foreach ($Transactions as $MyRow) {
 		/* Show transactions where:
 		 * - Is a negative receipt
 		 * - User cannot view GL transactions
-		 */
+		*/
 		echo '<tr class="striped_row">
 				<td>', _($MyRow['typename']), '</td>
 				<td>', $MyRow['transno'], '</td>
@@ -425,7 +419,6 @@ foreach ($Transactions as $MyRow) {
 	}
 }
 //end of while loop
-
 echo '</tbody>';
 echo '</table>';
 
@@ -447,5 +440,5 @@ echo '<tr>
 	</tr>
 </table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

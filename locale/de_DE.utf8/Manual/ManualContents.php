@@ -20,46 +20,46 @@
 -->
 
 <?php
-include('ManualHeader.html');
+include ('ManualHeader.html');
 
 ?>
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="noPrint">
+	<form action="<?php echo basename(__FILE__); ?>" method="post" class="noPrint">
 <?php
-if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
-     ((isset($_POST['Submit'])) and (isset($_POST['SelectTableOfContents'])))) {
-// if not submittws then coming into manual to look at TOC
-// if SelectTableOfContents set then user wants it displayed
+if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or ((isset($_POST['Submit'])) and (isset($_POST['SelectTableOfContents'])))) {
+	// if not submittws then coming into manual to look at TOC
+	// if SelectTableOfContents set then user wants it displayed
+	
 ?>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
           <input type="submit" name="Submit" value="Markierte anzeigen" /><br/>
 					Klicken Sie auf einen Titel, um den Anschnitt anzuzeigen.  Markieren Sie Auswahlkästchen und drücken Sie dann auf "Markierte anzeigen", wenn Sie eine druckfähige Ausgabe erzeugen möchten.
 					<br /><br /><br />
 <?php
-  }
+	}
 ?>
     <table cellpadding="0" cellspacing="0">
       <tr>
         <td>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
   	      <input type="checkbox" name="SelectTableOfContents" />
 <?php
-  }
+	}
 ?>
           <font size="+3"><b>Inhaltsverzeichnis</b></font>
           <br /><br />
           <ul>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectIntroduction" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Introduction'; ?>">Einleitung</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Introduction'; ?>">Einleitung</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Introduction">Einleitung</a>
 <?php
@@ -72,12 +72,12 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
 						<li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectRequirements" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Requirements'; ?>">Anforderungen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Requirements'; ?>">Anforderungen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Requirements">Anforderungen</a>
 <?php
@@ -91,16 +91,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
 						<li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectGettingStarted" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=GettingStarted'; ?>">Inbetriebnahme</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=GettingStarted'; ?>">Inbetriebnahme</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#GettingStarted">Inbetriebnahme</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Voraussetzungen</li>
@@ -115,30 +115,30 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSecuritySchema" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SecuritySchema'; ?>">Sicherheitskonzept</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SecuritySchema'; ?>">Sicherheitskonzept</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SecuritySchema">Sicherheitskonzept</a>
 <?php
-  }
+	}
 ?>
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectCreatingNewSystem" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=CreatingNewSystem'; ?>">Ein neues System einrichten</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=CreatingNewSystem'; ?>">Ein neues System einrichten</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#CreatingNewSystem">Ein neues System einrichten</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Das Demosystem erproben</li>
@@ -155,16 +155,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
 						</li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSystemConventions" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SystemConventions'; ?>">System-Gepflogenheiten </a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SystemConventions'; ?>">System-Gepflogenheiten </a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SystemConventions">System-Gepflogenheiten </a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Navigation im Menü</li>
@@ -174,16 +174,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
 						<li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectInventory" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Inventory'; ?>">Bestandsführung</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Inventory'; ?>">Bestandsführung</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Inventory">Bestandsführung</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Übersicht</li>
@@ -238,16 +238,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectAccountsReceivable" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=AccountsReceivable'; ?>">Debitorenbuchhaltung</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=AccountsReceivable'; ?>">Debitorenbuchhaltung</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#AccountsReceivable">Debitorenbuchhaltung</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Übersicht</li>
@@ -285,16 +285,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             <li>
 
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectAccountsPayable" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=AccountsPayable'; ?>">Kreditorenbuchhaltung</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=AccountsPayable'; ?>">Kreditorenbuchhaltung</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#AccountsPayable">Kreditorenbuchhaltung</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Übersicht</li>
@@ -314,16 +314,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesPeople" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SalesPeople'; ?>">Verkäufer</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SalesPeople'; ?>">Verkäufer</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SalesPeople">Verkäufer</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Verkäuferstammdaten</li>
@@ -335,16 +335,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesTypes" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SalesTypes'; ?>">Umsatzarten/Preislisten</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SalesTypes'; ?>">Umsatzarten/Preislisten</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SalesTypes">Umsatzarten/Preislisten</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Umsatzart-ID</li>
@@ -354,16 +354,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectPaymentTerms" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=PaymentTerms'; ?>">Zahlungsbedingungen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=PaymentTerms'; ?>">Zahlungsbedingungen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#PaymentTerms">Zahlungsbedingungen</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>ZB-Schlüssel</li>
@@ -374,16 +374,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectCreditStatus" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=CreditStatus'; ?>">Kreditstatus</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=CreditStatus'; ?>">Kreditstatus</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#CreditStatus">Kreditstatus</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Credit Status Ratings</li>
@@ -395,16 +395,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectTax" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Tax'; ?>">Steuern</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Tax'; ?>">Steuern</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Tax">Steuern</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Steuerberechnungen</li>
@@ -418,16 +418,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectPrices" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Prices'; ?>">Preise und Rabatte</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Prices'; ?>">Preise und Rabatte</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Prices">Preise und Rabatte</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Preise und Rabatte</li>
@@ -439,16 +439,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectARTransactions" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=ARTransactions'; ?>">Debitorenbuchungen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=ARTransactions'; ?>">Debitorenbuchungen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#ARTransactions">Debitorenbuchungen</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Fakturieren eines Kundenauftrages</li>
@@ -472,16 +472,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectARInquiries" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=ARInquiries'; ?>">Debitorenauswertungen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=ARInquiries'; ?>">Debitorenauswertungen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#ARInquiries">Debitorenauswertungen</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Kundenauswertungen</li>
@@ -492,16 +492,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectARReports" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=ARReports'; ?>">Debitorenberichte</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=ARReports'; ?>">Debitorenberichte</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#ARReports">Debitorenberichte</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Customers - Reporting</li>
@@ -514,16 +514,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesAnalysis" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SalesAnalysis'; ?>">Umsatzauswertungen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SalesAnalysis'; ?>">Umsatzauswertungen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SalesAnalysis">Umsatzauswertungen</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Umsatzauswertungen</li>
@@ -535,16 +535,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSalesOrders" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SalesOrders'; ?>">Kundenaufträge</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SalesOrders'; ?>">Kundenaufträge</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SalesOrders">Kundenaufträge</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Kundenaufträge</li>
@@ -561,16 +561,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectShipments" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Shipments'; ?>">Transportkosten</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Shipments'; ?>">Transportkosten</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Shipments">Transportkosten</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Transportkosten</li>
@@ -583,16 +583,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectManufacturing" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Manufacturing'; ?>">Fertigung</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Manufacturing'; ?>">Fertigung</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Manufacturing">Fertigung</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Fertigung Überblick</li>
@@ -606,16 +606,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectGeneralLedger" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=GeneralLedger'; ?>">Hauptbuchhaltung</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=GeneralLedger'; ?>">Hauptbuchhaltung</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#GeneralLedger">Hauptbuchhaltung</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Überblick</li>
@@ -633,16 +633,16 @@ if (((!isset($_POST['Submit'])) and (!isset($_GET['ViewTopic']))) or
             </li>
             <li>
 <?php
-if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectReportBuilder" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=ReportBuilder'; ?>">Report Builder/Form Builder</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=ReportBuilder'; ?>">Report Builder/Form Builder</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#ReportBuilder">Report Builder/Form Builder</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Einführung</li>
@@ -660,16 +660,16 @@ if (!isset($_POST['Submit'])) {
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectMultilanguage" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Multilanguage'; ?>">Mehrsprachigkeit</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Multilanguage'; ?>">Mehrsprachigkeit</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Multilanguage">Mehrsprachigkeit</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Mehrsprachigkeit</li>
@@ -682,16 +682,16 @@ if (!isset($_POST['Submit'])) {
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectSpecialUtilities" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=SpecialUtilities'; ?>">Servicewerkzeuge</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=SpecialUtilities'; ?>">Servicewerkzeuge</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#SpecialUtilities">Servicewerkzeuge</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Ergebnisrechnungssätze zu Standardkosten neu bewerten</li>
@@ -704,16 +704,16 @@ if (!isset($_POST['Submit'])) {
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectNewScripts" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=NewScripts'; ?>">Entwicklung - Grundlagen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=NewScripts'; ?>">Entwicklung - Grundlagen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#NewScripts">Entwicklung - Grundlagen</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Verzeichnisstruktur</li>
@@ -730,16 +730,16 @@ if (!isset($_POST['Submit'])) {
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectStructure" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Structure'; ?>">Entwicklung - Struktur</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Structure'; ?>">Entwicklung - Struktur</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Structure">Entwicklung - Struktur</a>
 <?php
-  }
+	}
 ?>
               <ul>
                 <li>Kundenaufträge</li>
@@ -761,16 +761,16 @@ if (!isset($_POST['Submit'])) {
             </li>
             <li>
 <?php
-  if (!isset($_POST['Submit'])) {
+	if (!isset($_POST['Submit'])) {
 ?>
               <input type="checkbox" name="SelectContributors" />
-              <a href="<?php echo $_SERVER['PHP_SELF'] . '?ViewTopic=Contributors'; ?>">Mitwirkende - Anerkennungen</a>
+              <a href="<?php echo basename(__FILE__) . '?ViewTopic=Contributors'; ?>">Mitwirkende - Anerkennungen</a>
 <?php
-  } else {
+	} else {
 ?>
               <a href="#Contributors">Mitwirkende - Anerkennungen</a>
 <?php
-  }
+	}
 ?>
             </li>
           </ul>
@@ -783,125 +783,124 @@ if (!isset($_POST['Submit'])) {
 ?>
   </form>
 <?php
-
 if (!isset($_GET['ViewTopic'])) {
 	$_GET['ViewTopic'] = '';
 }
 
 if ($_GET['ViewTopic'] == 'Introduction' or isset($_POST['SelectIntroduction'])) {
-  include('ManualIntroduction.html');
+	include ('ManualIntroduction.html');
 }
 
 if ($_GET['ViewTopic'] == 'Requirements' or isset($_POST['SelectRequirements'])) {
-  include('ManualRequirements.html');
+	include ('ManualRequirements.html');
 }
 
 if ($_GET['ViewTopic'] == 'GettingStarted' or isset($_POST['SelectGettingStarted'])) {
-  include('ManualGettingStarted.html');
+	include ('ManualGettingStarted.html');
 }
 
 if ($_GET['ViewTopic'] == 'SecuritySchema' or isset($_POST['SelectSecuritySchema'])) {
-  include('ManualSecuritySchema.html');
+	include ('ManualSecuritySchema.html');
 }
 
 if ($_GET['ViewTopic'] == 'CreatingNewSystem' or isset($_POST['SelectCreatingNewSystem'])) {
-  include('ManualCreatingNewSystem.html');
+	include ('ManualCreatingNewSystem.html');
 }
 
 if ($_GET['ViewTopic'] == 'SystemConventions' or isset($_POST['SelectSystemConventions'])) {
-  include('ManualSystemConventions.html');
+	include ('ManualSystemConventions.html');
 }
 
 if ($_GET['ViewTopic'] == 'Inventory' or isset($_POST['SelectInventory'])) {
-  include('ManualInventory.html');
+	include ('ManualInventory.html');
 }
 
 if ($_GET['ViewTopic'] == 'AccountsReceivable' or isset($_POST['SelectAccountsReceivable'])) {
-  include('ManualAccountsReceivable.html');
+	include ('ManualAccountsReceivable.html');
 }
 
 if ($_GET['ViewTopic'] == 'AccountsPayable' or isset($_POST['SelectAccountsPayable'])) {
-  include('ManualAccountsPayable.html');
+	include ('ManualAccountsPayable.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesPeople' or isset($_POST['SelectSalesPeople'])) {
-  include('ManualSalesPeople.html');
+	include ('ManualSalesPeople.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesTypes' or isset($_POST['SelectSalesTypes'])) {
-  include('ManualSalesTypes.html');
+	include ('ManualSalesTypes.html');
 }
 
 if ($_GET['ViewTopic'] == 'PaymentTerms' or isset($_POST['SelectPaymentTerms'])) {
-  include('ManualPaymentTerms.html');
+	include ('ManualPaymentTerms.html');
 }
 
 if ($_GET['ViewTopic'] == 'CreditStatus' or isset($_POST['SelectCreditStatus'])) {
-  include('ManualCreditStatus.html');
+	include ('ManualCreditStatus.html');
 }
 
 if ($_GET['ViewTopic'] == 'Tax' or isset($_POST['SelectTax'])) {
-  include('ManualTax.html');
+	include ('ManualTax.html');
 }
 
 if ($_GET['ViewTopic'] == 'Prices' or isset($_POST['SelectPrices'])) {
-  include('ManualPrices.html');
+	include ('ManualPrices.html');
 }
 
 if ($_GET['ViewTopic'] == 'ARTransactions' or isset($_POST['SelectARTransactions'])) {
-  include('ManualARTransactions.html');
+	include ('ManualARTransactions.html');
 }
 
 if ($_GET['ViewTopic'] == 'ARInquiries' or isset($_POST['SelectARInquiries'])) {
-  include('ManualARInquiries.html');
+	include ('ManualARInquiries.html');
 }
 
 if ($_GET['ViewTopic'] == 'ARReports' or isset($_POST['SelectARReports'])) {
-  include('ManualARReports.html');
+	include ('ManualARReports.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesAnalysis' or isset($_POST['SelectSalesAnalysis'])) {
-  include('ManualSalesAnalysis.html');
+	include ('ManualSalesAnalysis.html');
 }
 
 if ($_GET['ViewTopic'] == 'SalesOrders' or isset($_POST['SelectSalesOrders'])) {
-  include('ManualSalesOrders.html');
+	include ('ManualSalesOrders.html');
 }
 
 if ($_GET['ViewTopic'] == 'Shipments' or isset($_POST['SelectShipments'])) {
-  include('ManualShipments.html');
+	include ('ManualShipments.html');
 }
 
 if ($_GET['ViewTopic'] == 'Manufacturing' or isset($_POST['SelectManufacturing'])) {
-  include('ManualManufacturing.html');
+	include ('ManualManufacturing.html');
 }
 
 if ($_GET['ViewTopic'] == 'GeneralLedger' or isset($_POST['SelectGeneralLedger'])) {
-  include('ManualGeneralLedger.html');
+	include ('ManualGeneralLedger.html');
 }
 
 if ($_GET['ViewTopic'] == 'ReportBuilder' or isset($_POST['SelectReportBuilder'])) {
-  include('ManualReportBuilder.html');
+	include ('ManualReportBuilder.html');
 }
 
 if ($_GET['ViewTopic'] == 'Multilanguage' or isset($_POST['SelectMultilanguage'])) {
-  include('ManualMultilanguage.html');
+	include ('ManualMultilanguage.html');
 }
 
 if ($_GET['ViewTopic'] == 'SpecialUtilities' or isset($_POST['SelectSpecialUtilities'])) {
-  include('ManualSpecialUtilities.html');
+	include ('ManualSpecialUtilities.html');
 }
 
 if ($_GET['ViewTopic'] == 'NewScripts' or isset($_POST['SelectNewScripts'])) {
-  include('ManualNewScripts.html');
+	include ('ManualNewScripts.html');
 }
 
 if ($_GET['ViewTopic'] == 'Structure' or isset($_POST['SelectStructure'])) {
-  include('ManualDevelopmentStructure.html');
+	include ('ManualDevelopmentStructure.html');
 }
 
 if ($_GET['ViewTopic'] == 'Contributors' or isset($_POST['SelectContributors'])) {
-  include('ManualContributors.html');
+	include ('ManualContributors.html');
 }
 
-include('ManualFooter.html');
+include ('ManualFooter.html');

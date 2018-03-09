@@ -1,5 +1,4 @@
 <?php
-
 $ErrMsg = '';
 $InputError = 0;
 $WarnMsg = '';
@@ -23,7 +22,7 @@ if (false) {
 if (ini_get('safe_mode')) {
 	$SafeModeWarning = _('You php is running in safe mode, it will force a maximum script execution time of 30 seconds') . ' ' . _('This can sometimes mean that the installation cannot be completed in time.') . ' ' . _('It is better to turn this function off');
 	$InputWarn = 1;
-	$WarnMsg .= '<p>' . _($_POST['SafeModeWarning']) . '</p>';
+	$WarnMsg.= '<p>' . _($_POST['SafeModeWarning']) . '</p>';
 }
 
 //It's time to check the php version. The version should be run greater than 5.1
@@ -111,7 +110,7 @@ if (isset($_POST['DBMS'])) {
 }
 
 if ($InputError != 0) {
-	echo '<form id="refresh" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form id="refresh" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<fieldset style="text-align:center">
 			<button type="submit">' . _('Check Again') . '</button>
 		</fieldset>';
@@ -119,14 +118,14 @@ if ($InputError != 0) {
 	exit;
 }
 if ($InputWarn != 0) {
-	echo '<form id="refresh" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form id="refresh" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<fieldset style="text-align:center">
 			<button type="submit">' . _('Check Again') . '</button>
 		</fieldset>';
 	echo '</form';
 }
 
-echo '<form id="DatabaseConfig" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form id="DatabaseConfig" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<fieldset style="text-align:center">
 		<input type="hidden" name="SystemValid" value="1" />
 		<button type="submit" name="previous">' . _('Previous Step') . '<img src="left.png" style="float:left" /></button>

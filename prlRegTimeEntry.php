@@ -1,16 +1,15 @@
 <?php
-
 /* $Revision: 1.0 $ */
 
-include('includes/prlRegTimeClass.php');
-include('includes/DefineJournalClass.php');
+include ('includes/prlRegTimeClass.php');
+include ('includes/DefineJournalClass.php');
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Normal Time Entry for Hourly Employees');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
-if (isset($_GET['NewRT']) == 'Yes' AND isset($_SESSION['RTDetail'])) {
+if (isset($_GET['NewRT']) == 'Yes' and isset($_SESSION['RTDetail'])) {
 	unset($_SESSION['RTDetail']->RTEntries);
 	unset($_SESSION['RTDetail']);
 }
@@ -29,6 +28,7 @@ if (isset($_POST['RTDate'])) {
 		prnMsg(_('The date entered was not valid please enter the overtime date') . $_SESSION['DefaultDateFormat'], 'warn');
 		$_POST['CommitBatch'] = 'Do not do it the date is wrong';
 		$AllowThisPosting = false; //do not allow posting
+		
 	}
 }
 $msg = '';
@@ -64,7 +64,7 @@ if (isset($_POST['CommitBatch']) and ($_POST['CommitBatch']) == _('Accept and Pr
 	unset($_SESSION['RTDetail']);
 
 	/*Set up a newy in case user wishes to enter another */
-	echo '<a href="' . $_SERVER['PHP_SELF'] . '?NewRT=Yes">' . _('Enter Another Overtime Data') . '</a>';
+	echo '<a href="' . basename(__FILE__) . '?NewRT=Yes">' . _('Enter Another Overtime Data') . '</a>';
 	/*And post the journal too */
 	exit;
 } elseif (isset($_GET['Delete'])) {
@@ -90,15 +90,13 @@ if (isset($Cancel)) {
 }
 
 // set up the form whatever
-
-echo '<form method="post" class="noPrint" id="EmployeeMaster" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" id="EmployeeMaster" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
 		<tr>
 			<td valign="top" width="15%">
 				<table>'; // A new table in the first column of the main table
-
 echo '<tr>
 		<td>' . _('Date') . ':</td>
 		<td><input type="text" name="RTDate" maxlength="10" size="11" value="' . $_SESSION['RTDetail']->RTDate . '" /></td>
@@ -172,7 +170,7 @@ foreach ($_SESSION['RTDetail']->RTEntries as $RTItem) {
 	echo '<tr>
 			<td class="number">' . number_format($RTItem->RTHours, 2) . '</td>
 			<td>' . $RTItem->EmployeeID . ' - ' . $RTItem->LastName . ',' . $RTItem->FirstName . '</td>
-			<td><a href="' . $_SERVER['PHP_SELF'] . '?Delete=' . $RTItem->ID . '">' . _('Delete') . '</a></td>
+			<td><a href="' . basename(__FILE__) . '?Delete=' . $RTItem->ID . '">' . _('Delete') . '</a></td>
 		</tr>';
 }
 
@@ -186,5 +184,5 @@ if (ABS($_SESSION['RTDetail']->RTTotal) > 0.001 and $_SESSION['RTDetail']->RTIte
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

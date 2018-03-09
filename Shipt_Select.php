@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Shipments');
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_GET['SelectedStockItem'])) {
@@ -23,9 +22,8 @@ if (isset($_GET['SelectedSupplier'])) {
 	$SelectedSupplier = $_POST['SelectedSupplier'];
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
@@ -41,7 +39,7 @@ if (isset($ShiptRef) and $ShiptRef != '') {
 	}
 } else {
 	if (isset($SelectedSupplier)) {
-		echo  _('For supplier') . ': ' . stripslashes($SelectedSupplier) . ' ' . _('and') . ' ';
+		echo _('For supplier') . ': ' . stripslashes($SelectedSupplier) . ' ' . _('and') . ' ';
 		echo '<input type="hidden" name="SelectedSupplier" value="' . $SelectedSupplier . '" />';
 	}
 	if (isset($SelectedStockItem)) {
@@ -71,25 +69,25 @@ if (isset($_POST['SearchParts'])) {
 		//insert wildcard characters in spaces
 		$SearchString = '%' . str_replace(' ', '%', $_POST['Keywords']) . '%';
 
-		$SQL .= " WHERE purchorderdetails.shiptref IS NOT NULL
+		$SQL.= " WHERE purchorderdetails.shiptref IS NOT NULL
 			AND purchorderdetails.shiptref<>0
 			AND stockmaster.description " . LIKE . " '" . $SearchString . "'
 			AND categoryid='" . $_POST['StockCat'] . "'";
 
 	} elseif ($_POST['StockCode']) {
 
-		$SQL .= " WHERE purchorderdetails.shiptref IS NOT NULL
+		$SQL.= " WHERE purchorderdetails.shiptref IS NOT NULL
 			AND purchorderdetails.shiptref<>0
 			AND stockmaster.stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'
 			AND categoryid='" . $_POST['StockCat'] . "'";
 
 	} elseif (!$_POST['StockCode'] and !$_POST['Keywords']) {
-		$SQL .= " WHERE purchorderdetails.shiptref IS NOT NULL
+		$SQL.= " WHERE purchorderdetails.shiptref IS NOT NULL
 			AND purchorderdetails.shiptref<>0
 			AND stockmaster.categoryid='" . $_POST['StockCat'] . "'";
 
 	}
-	$SQL .= "  GROUP BY stockmaster.stockid,
+	$SQL.= "  GROUP BY stockmaster.stockid,
 						stockmaster.description,
 						stockmaster.decimalplaces,
 						stockmaster.units";
@@ -202,7 +200,7 @@ if (isset($StockItemsResult)) {
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		/*
-		Code	 Description	On Hand		 Orders Ostdg     Units		 Code	Description 	 On Hand     Orders Ostdg	Units	 */
+		 Code	 Description	On Hand		 Orders Ostdg     Units		 Code	Description 	 On Hand     Orders Ostdg	Units	 */
 		printf('<tr class="striped_row">
 					<td><input type="submit" name="SelectedStockItem" value="%s" /></td>
 					<td>%s</td>
@@ -213,7 +211,6 @@ if (isset($StockItemsResult)) {
 
 	}
 	//end of while loop
-
 	echo '</tbody>';
 	echo '</table>';
 
@@ -222,7 +219,6 @@ if (isset($StockItemsResult)) {
 else {
 
 	//figure out the SQL required from the inputs available
-
 	if (isset($ShiptRef) and $ShiptRef != "") {
 		$SQL = "SELECT shipments.shiptref,
 				vessel,
@@ -245,31 +241,30 @@ else {
 		if (isset($SelectedSupplier)) {
 
 			if (isset($SelectedStockItem)) {
-				$SQL .= " WHERE purchorderdetails.itemcode='" . $SelectedStockItem . "'
+				$SQL.= " WHERE purchorderdetails.itemcode='" . $SelectedStockItem . "'
 						AND shipments.supplierid='" . $SelectedSupplier . "'
 						AND purchorders.intostocklocation = '" . $_POST['StockLocation'] . "'
 						AND shipments.closed='" . $_POST['OpenOrClosed'] . "'";
 			} else {
-				$SQL .= " WHERE shipments.supplierid='" . $SelectedSupplier . "'
+				$SQL.= " WHERE shipments.supplierid='" . $SelectedSupplier . "'
 					AND purchorders.intostocklocation = '" . $_POST['StockLocation'] . "'
 					AND shipments.closed='" . $_POST['OpenOrClosed'] . "'";
 			}
 		} else { //no supplier selected
 			if (isset($SelectedStockItem)) {
-				$SQL .= " WHERE purchorderdetails.itemcode='" . $SelectedStockItem . "'
+				$SQL.= " WHERE purchorderdetails.itemcode='" . $SelectedStockItem . "'
 					AND purchorders.intostocklocation = '" . $_POST['StockLocation'] . "'
 					AND shipments.closed='" . $_POST['OpenOrClosed'] . "'";
 			} else {
-				$SQL .= " WHERE purchorders.intostocklocation = '" . $_POST['StockLocation'] . "'
+				$SQL.= " WHERE purchorders.intostocklocation = '" . $_POST['StockLocation'] . "'
 					AND shipments.closed='" . $_POST['OpenOrClosed'] . "'";
 			}
 
 		} //end selected supplier
+		
 	} //end not order number selected
-
 	$ErrMsg = _('No shipments were returned by the SQL because');
 	$ShipmentsResult = DB_query($SQL, $ErrMsg);
-
 
 	if (DB_num_rows($ShipmentsResult) > 0) {
 		/*show a table of the shipments returned by the SQL */
@@ -321,12 +316,12 @@ else {
 			}
 		}
 		//end of while loop
-
 		echo '</tbody>';
 		echo '</table>';
 	} // end if shipments to show
+	
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

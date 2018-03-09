@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Edit The Modules Menu');
 $ViewTopic = '';
 $BookMark = '';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['Save'])) {
-	foreach ($_POST as $Key=>$Value) {
+	foreach ($_POST as $Key => $Value) {
 		if (mb_substr($Key, 0, 8) == 'Sequence') {
 			$ReportLink = mb_substr($Key, 8, mb_strlen($Key) - 8);
 			$SQL = "UPDATE modules SET sequence='" . $Value . "',
@@ -28,7 +27,7 @@ if (!isset($_POST['SecurityRole'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="centre">
 			<select name="SecurityRole" required="required">
@@ -50,7 +49,7 @@ if (!isset($_POST['SecurityRole'])) {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="SecurityRole" value="' . $_POST['SecurityRole'] . '" />';
 
@@ -85,6 +84,6 @@ if (!isset($_POST['SecurityRole'])) {
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

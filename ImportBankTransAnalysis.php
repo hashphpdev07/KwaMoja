@@ -1,23 +1,22 @@
 <?php
-
 /* The ImportBankTransClass contains the structure ofinformation about the transactions
  * An array of class BankTrans objects - containing details of the bank transactions has an array of
  * GLEntries objects to hold the GL analysis for each transaction
- */
+*/
 
-include('includes/DefineImportBankTransClass.php');
+include ('includes/DefineImportBankTransClass.php');
 
 /* Session started in header.php for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Imported Bank Transaction General Ledger Analysis');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (!isset($_SESSION['Trans'])) {
 	prnMsg(_('This page can only be called from the importation of bank transactions page which sets up the data to receive the analysed general ledger entries'), 'info');
 	echo '<a href="' . $RootPath . '/ImportBankTrans.php">' . _('Import Bank Transactions') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 	/*It all stops here if there aint no bank transactions being imported i.e. $_SESSION['Trans'] has not been initiated */
 }
@@ -30,7 +29,7 @@ if (isset($_GET['TransID'])) {
 if (!isset($TransID)) {
 	prnMsg(_('This page can only be called from the importation of bank transactions page which sets up the data to receive the analysed general ledger entries'), 'info');
 	echo '<a href="' . $RootPath . '/ImportBankTrans.php">' . _('Import Bank Transactions') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -48,7 +47,7 @@ if (isset($_POST['SupplierID'])) {
 }
 /*If the user hit the Add to transaction button then process this first before showing  all GL codes on the transaction otherwise it wouldnt show the latest addition*/
 
-if (isset($_POST['AddGLCodeToTrans']) AND $_POST['AddGLCodeToTrans'] == _('Enter GL Line')) {
+if (isset($_POST['AddGLCodeToTrans']) and $_POST['AddGLCodeToTrans'] == _('Enter GL Line')) {
 
 	$InputError = False;
 	if ($_POST['GLCode'] == '') {
@@ -66,7 +65,7 @@ if (isset($_POST['AddGLCodeToTrans']) AND $_POST['AddGLCodeToTrans'] == _('Enter
 				WHERE accountcode='" . $_POST['GLCode'] . "'
 					AND language='" . $_SESSION['ChartLanguage'] . "'";
 	$Result = DB_query($SQL);
-	if (DB_num_rows($Result) == 0 AND $_POST['GLCode'] != '') {
+	if (DB_num_rows($Result) == 0 and $_POST['GLCode'] != '') {
 		prnMsg(_('The account code entered is not a valid code') . '. ' . _('This line cannot be added to the transaction') . '.<br />' . _('You can use the selection box to select the account you want'), 'error');
 		$InputError = True;
 	} else if ($_POST['GLCode'] != '') {
@@ -110,7 +109,7 @@ if ($_SESSION['Trans'][$TransID]->Amount >= 0) { //its a receipt
 }
 
 /*Set up a form to allow input of new GL entries */
-echo '<form name="form1" action="' . $_SERVER['PHP_SELF'] . '" method="post">';
+echo '<form name="form1" action="' . basename(__FILE__) . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<input type="hidden" name="TransID" value=' . $TransID . ' />';
@@ -215,11 +214,11 @@ if ($AllowGLAnalysis == false) {
 				<td class=number>' . locale_number_format($EnteredGLCode->Amount, $_SESSION['Statement']->CurrDecimalPlaces) . '</td>
 				<td>' . $EnteredGLCode->Narrative . '</td>
 				<td>' . $EnteredGLCode->Tag . '</td>
-				<td><a href="' . $_SERVER['PHP_SELF'] . '?Edit=' . $EnteredGLCode->ID . '&amp;TransID=' . $TransID . '">' . _('Edit') . '</a></td>
-				<td><a href="' . $_SERVER['PHP_SELF'] . '?Delete=' . $EnteredGLCode->ID . '&amp;TransID=' . $TransID . '">' . _('Delete') . '</a></td>
+				<td><a href="' . basename(__FILE__) . '?Edit=' . $EnteredGLCode->ID . '&amp;TransID=' . $TransID . '">' . _('Edit') . '</a></td>
+				<td><a href="' . basename(__FILE__) . '?Delete=' . $EnteredGLCode->ID . '&amp;TransID=' . $TransID . '">' . _('Delete') . '</a></td>
 			</tr>';
 
-		$TotalGLValue += $EnteredGLCode->Amount;
+		$TotalGLValue+= $EnteredGLCode->Amount;
 
 	}
 	echo '</tbody>';
@@ -241,7 +240,6 @@ if ($AllowGLAnalysis == false) {
 	}
 	echo '</tr>
 		</table>';
-
 
 	echo '<br />
 		<table>';
@@ -315,5 +313,5 @@ if ($AllowGLAnalysis == false) {
 	echo '<div class="centre"><input type="submit" name="AddGLCodeToTrans" value="' . _('Enter GL Line') . '"></div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

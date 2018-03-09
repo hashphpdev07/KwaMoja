@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales GL Postings Set Up');
 $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'SalesGLPostings';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedSalesPostingID'])) {
 	$SelectedSalesPostingID = $_GET['SelectedSalesPostingID'];
@@ -19,7 +18,7 @@ echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION[
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	if (isset($SelectedSalesPostingID)) {
 
@@ -65,7 +64,6 @@ if (isset($_POST['submit'])) {
 		}
 	}
 	//run the SQL from either of the above possibilites
-
 	$Result = DB_query($SQL);
 
 	if ($InputError == false) {
@@ -80,7 +78,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$SQL = "DELETE FROM salesglpostings WHERE id='" . $SelectedSalesPostingID . "'";
 
 	$Result = DB_query($SQL);
@@ -133,7 +130,6 @@ if (!isset($SelectedSalesPostingID)) {
 			</tr>';
 
 		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_row($Result)) {
 
 			echo '<tr class="striped_row">
@@ -142,8 +138,8 @@ if (!isset($SelectedSalesPostingID)) {
 					<td>', $MyRow[3], '</td>
 					<td>', htmlspecialchars($PossibleGLCodes[$MyRow[4]], ENT_QUOTES, 'UTF-8'), '</td>
 					<td>', htmlspecialchars($PossibleGLCodes[$MyRow[5]], ENT_QUOTES, 'UTF-8'), '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '">' . _('Edit') . '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '">' . _('Edit') . '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 		}
 		//END WHILE LIST LOOP
@@ -152,20 +148,17 @@ if (!isset($SelectedSalesPostingID)) {
 }
 
 //end of ifs and buts!
-
 if (isset($SelectedSalesPostingID)) {
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Sales Posting Codes Defined') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Sales Posting Codes Defined') . '</a></div>';
 }
-
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedSalesPostingID)) {
 		//editing an existing sales posting record
-
 		$SQL = "SELECT salesglpostings.stkcat,
 				salesglpostings.salesglcode,
 				salesglpostings.discountglcode,
@@ -209,14 +202,12 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
 
 	} //end while loop
-
 	DB_free_result($Result);
 
 	$SQL = "SELECT categoryid, categorydescription FROM stockcategory";
 	$Result = DB_query($SQL);
 
 	echo '</select></td></tr>';
-
 
 	echo '<tr>
 			<td>' . _('Stock Category') . ':</td>
@@ -234,9 +225,7 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 
 	} //end while loop
-
 	echo '</select></td></tr>';
-
 
 	DB_free_result($Result);
 
@@ -244,7 +233,6 @@ if (!isset($_GET['delete'])) {
 					sales_type
 			FROM salestypes";
 	$Result = DB_query($SQL);
-
 
 	echo '<tr>
 			<td>' . _('Sales Type') . ' / ' . _('Price List') . ':</td>
@@ -260,9 +248,7 @@ if (!isset($_GET['delete'])) {
 		echo $MyRow['typeabbrev'] . '">' . $MyRow['sales_type'] . '</option>';
 
 	} //end while loop
-
 	echo '</select></td></tr>';
-
 
 	echo '<tr>
 			<td>' . _('Post Sales to GL Account') . ':</td>
@@ -275,7 +261,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
 		}
 	} //end while loop
-
 	DB_data_seek($Result, 0);
 
 	echo '</select></td></tr>
@@ -291,7 +276,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
 		}
 	} //end while loop
-
 	echo '</select></td>
 		</tr>
 		</table>';
@@ -303,5 +287,5 @@ if (!isset($_GET['delete'])) {
 } //end if record deleted no point displaying form to add record
 
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

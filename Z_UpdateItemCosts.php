@@ -1,16 +1,11 @@
 <?php
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Update Item Costs From CSV');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Update Item Costs from CSV file') . '" />' . ' ' . _('Update Item Costs from CSV file') . '</p>';
 
-$FieldHeadings = array(
-	'StockID',
-	'Material Cost',
-	'Labour Cost',
-	'Overhead Cost'
-);
+$FieldHeadings = array('StockID', 'Material Cost', 'Labour Cost', 'Overhead Cost');
 
 if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //start file processing
 	//check file info
@@ -29,7 +24,7 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 	if (count($HeadRow) != count($FieldHeadings)) {
 		prnMsg(_('File contains') . ' ' . count($HeadRow) . ' ' . _('columns, expected') . ' ' . count($FieldHeadings), 'error');
 		fclose($FileHandle);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -39,7 +34,7 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 		if (trim(mb_strtoupper($HeadField)) != trim(mb_strtoupper($FieldHeadings[$HeadingColumnNumber]))) {
 			prnMsg(_('The file to import the item cost updates from contains incorrect column headings') . ' ' . mb_strtoupper($HeadField) . ' != ' . mb_strtoupper($FieldHeadings[$HeadingColumnNumber]) . '<br />' . _('The column headings must be') . ' StockID, Material Cost, Labour Cost, Overhead Cost', 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		$HeadingColumnNumber++;
@@ -49,11 +44,11 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 
 	//loop through file rows
 	$LineNumber = 1;
-	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ',')) !== false) {
 
 		$StockID = mb_strtoupper($MyRow[0]);
 
-		$NewCost = (double) $MyRow[1] + (double) $MyRow[2] + (double) $MyRow[3];
+		$NewCost = (double)$MyRow[1] + (double)$MyRow[2] + (double)$MyRow[3];
 
 		$SQL = "SELECT mbflag,
 						stockcosts.materialcost,
@@ -78,10 +73,7 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 
 		$OldCost = $OldRow['materialcost'] + $OldRow['labourcost'] + $OldRow['overheadcost'];
 		//dont update costs for assembly or kit-sets or ghost items!!
-		if ((abs($NewCost - $OldCost) > pow(10, -($_SESSION['StandardCostDecimalPlaces'] + 1)))
-			and $OldRow['mbflag'] != 'K'
-			and $OldRow['mbflag'] != 'A'
-			and $OldRow['mbflag'] != 'G') {
+		if ((abs($NewCost - $OldCost) > pow(10, -($_SESSION['StandardCostDecimalPlaces'] + 1))) and $OldRow['mbflag'] != 'K' and $OldRow['mbflag'] != 'A' and $OldRow['mbflag'] != 'G') {
 
 			ItemCostUpdateGL($StockID, $NewCost, $OldCost, $QOH);
 
@@ -104,7 +96,7 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			UpdateCost($StockID); //Update any affected BOMs
-
+			
 		}
 
 		$LineNumber++;
@@ -116,8 +108,7 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 	fclose($FileHandle);
 
 } else { //show file upload form
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="page_help_text">' . _('This function updates the costs of all items from a comma separated variable (csv) file.') . '<br />' . _('The file must contain two columns, and the first row should be the following headers:') . '<br /><i>StockID, Material Cost, Labour Cost, Overhead Cost</i><br />' . _('followed by rows containing these four fields for each cost to be updated.') . '<br />' . _('The StockID field must have a corresponding entry in the stockmaster table.') . '</div>';
@@ -128,6 +119,6 @@ if (isset($_FILES['CostUpdateFile']) and $_FILES['CostUpdateFile']['name']) { //
 		</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

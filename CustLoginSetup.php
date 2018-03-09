@@ -1,20 +1,17 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Login Configuration');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/LanguagesArray.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/LanguagesArray.php');
 
 if (!isset($_SESSION['CustomerID'])) {
 	echo '<br />
 		<br />';
 	prnMsg(_('A customer must first be selected before logins can be defined for it') . '<br /><br /><a href="' . $RootPath . '/SelectCustomer.php">' . _('Select A Customer') . '</a>', 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
 
 echo '<a href="' . $RootPath . '/SelectCustomer.php">' . _('Back to Customers') . '</a><br />';
 
@@ -30,14 +27,13 @@ echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer') . ' : ' . $_SESSION['CustomerID'] . ' - ' . $CustomerName . _(' has been selected') . '</p>
 	<br />';
 
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['UserID']) < 4) {
@@ -113,14 +109,14 @@ if (isset($_POST['submit'])) {
 			$DbgMsg = _('The SQL that was used to insert the new user and failed was');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 			prnMsg(_('A new customer login has been created'), 'success');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
 
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -269,5 +265,5 @@ echo '</select></td>
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

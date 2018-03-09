@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Maintain Stock Types');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -18,7 +17,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
@@ -31,7 +30,7 @@ if (isset($_POST['submit'])) {
 	if (mb_strlen($_POST['TypeAbbrev']) != 1) {
 		$InputError = 1;
 		prnMsg(_('The stock type code must be a single character'), 'error');
-	} elseif ($_POST['TypeAbbrev'] == '' OR $_POST['TypeAbbrev'] == ' ' OR $_POST['TypeAbbrev'] == '  ') {
+	} elseif ($_POST['TypeAbbrev'] == '' or $_POST['TypeAbbrev'] == ' ' or $_POST['TypeAbbrev'] == '  ') {
 		$InputError = 1;
 		prnMsg(_('The stock type code cannot be an empty string or spaces'), 'error');
 	} elseif (trim($_POST['StockType']) == '') {
@@ -53,7 +52,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$checkSql = "SELECT count(*)
 				 FROM stocktypes
 				 WHERE type = '" . $_POST['TypeAbbrev'] . "'";
@@ -67,7 +65,6 @@ if (isset($_POST['submit'])) {
 		} else {
 
 			// Add new record on submit
-
 			$SQL = "INSERT INTO stocktypes (type,
 											name,
 											physicalitem
@@ -95,7 +92,6 @@ if (isset($_POST['submit'])) {
 } elseif (isset($_GET['delete'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'stockcategories'
-
 	$SQL = "SELECT COUNT(categoryid)
 		   FROM stockcategory
 		   WHERE stocktype='" . $SelectedType . "'";
@@ -117,8 +113,8 @@ if (isset($_POST['submit'])) {
 		unset($_GET['delete']);
 
 	} //end if sales type used in debtor transactions or in customers set up
+	
 }
-
 
 if (isset($_POST['Cancel'])) {
 	unset($SelectedType);
@@ -133,7 +129,7 @@ if (!isset($SelectedType)) {
 	 * displayed with no parameters then none of the above are true and the list of stock types will be displayed
 	 * with links to delete or edit each. These will call the same page again and allow update/input or deletion
 	 * of the records
-	 */
+	*/
 
 	$SQL = "SELECT type,
 					name,
@@ -149,7 +145,6 @@ if (!isset($SelectedType)) {
 			</tr>';
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['physicalitem'] == 0) {
@@ -164,12 +159,7 @@ if (!isset($SelectedType)) {
 				<td>%s</td>
 				<td><a href="%sSelectedType=%s">' . _('Edit') . '</a></td>
 				<td><a href="%sSelectedType=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price list and all the prices it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>',
-				$MyRow['type'],
-				$MyRow['name'],
-				$PhysicalItem,
-				htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['type'],
-				htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['type']);
+			</tr>', $MyRow['type'], $MyRow['name'], $PhysicalItem, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['type'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['type']);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
@@ -178,11 +168,11 @@ if (!isset($SelectedType)) {
 //end of ifs and buts!
 if (isset($SelectedType)) {
 
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Stock Types Defined') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Stock Types Defined') . '</a></div>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" >';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	// The user wish to EDIT an existing type
@@ -215,7 +205,6 @@ if (!isset($_GET['delete'])) {
 	} else {
 
 		// This is a new type so the user may volunteer a type code
-
 		echo '<table>
 				<tr>
 					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
@@ -244,12 +233,10 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 
 	echo '</table>'; // close main table
-
 	echo '<div class="centre"><input type="submit" name="submit" value="' . _('Accept') . '" /></div>';
 
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,14 +1,13 @@
 <?php
+include ('includes/prlOthIncomeClass.php');
 
-include('includes/prlOthIncomeClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Other Income Data Entry');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
-if (isset($_GET['NewOI']) == 'Yes' AND isset($_SESSION['OIDetail'])) {
+if (isset($_GET['NewOI']) == 'Yes' and isset($_SESSION['OIDetail'])) {
 	unset($_SESSION['OIDetail']->OIEntries);
 	unset($_SESSION['OIDetail']);
 }
@@ -27,6 +26,7 @@ if (isset($_POST['OIDate'])) {
 		prnMsg(_('The date entered was not valid please enter the date') . isset($_SESSION['DefaultdateFormat']), 'warn');
 		$_POST['CommitBatch'] = 'Do not do it the date is wrong';
 		$AllowThisPosting = false; //do not allow posting
+		
 	}
 }
 $msg = '';
@@ -35,7 +35,6 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Other Income')) {
 
 	/*Start a transaction to do the whole lot inside */
 	$Result = DB_query('BEGIN');
-
 
 	foreach ($_SESSION['OIDetail']->OIEntries as $OIItem) {
 		$SQL = "INSERT INTO prlothincfile (
@@ -58,7 +57,6 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Other Income')) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 	}
 
-
 	$ErrMsg = _('Cannot commit the changes');
 	$Result = DB_query('COMMIT', $ErrMsg, _('The commit database transaction failed'), true);
 
@@ -68,7 +66,7 @@ if (isset($_POST['CommitBatch']) == _('Accept and Process Other Income')) {
 	unset($_SESSION['OIDetail']);
 
 	/*Set up a new in case user wishes to enter another */
-	echo '<br /><a href="' . $_SERVER['PHP_SELF'] . '?&NewOI=Yes">' . _('Enter Other Income Data') . '</a>';
+	echo '<br /><a href="' . basename(__FILE__) . '?&NewOI=Yes">' . _('Enter Other Income Data') . '</a>';
 	exit;
 } elseif (isset($_GET['Delete'])) {
 	/* User hit delete the line from the ot */
@@ -93,12 +91,10 @@ if (isset($Cancel)) {
 }
 
 // set up the form whatever
-
-echo '<form action=' . $_SERVER['PHP_SELF'] . '? method=POST>';
+echo '<form action=' . basename(__FILE__) . '? method=POST>';
 
 echo '<p><table BORDER=1 WIDTH=100%>';
 echo '<tr><td VALIGN=TOP WIDTH=15%><table>'; // A new table in the first column of the main table
-
 echo '<tr><td>' . _('Date') . ":</td>
 	<td><input type='text' name='OIDate' maxlength=10 size=11 value='" . $_SESSION['OIDetail']->OIDate . "'></td></tr>";
 echo '<tr><td>' . _('Ref') . ":</td>
@@ -110,7 +106,6 @@ echo '<td>';
 /* Set up the form for the transaction entry */
 
 echo '<FONT SIZE=3 COLOR=BLUE>' . _('Other Income Line Entry') . '</FONT><table>';
-
 
 echo '<tr><td>' . _('Description') . ":</td>
 <td COLSPAN=3><input type='Text' name='OIDesc' SIZE=42 MAXLENGTH=40 value='" . isset($_POST['OIDesc']) . "'></td></tr>";
@@ -150,7 +145,6 @@ echo '<input type=SUBMIT name=Process value="' . _('Accept') . '"><input type=SU
 echo '</td></tr></table>';
 /*Close the main table */
 
-
 echo '<table WIDTH=100% BORDER=1><tr>
 	<td class="tableheader">' . _('Amount') . '</td>
 	<td class="tableheader">' . _('Description') . '</td>
@@ -160,16 +154,16 @@ foreach ($_SESSION['OIDetail']->OIEntries as $OIItem) {
 	echo '<tr><td align="right">' . number_format($OIItem->Amount, 2) . "</td>
 		<td>" . $OIItem->OIIDDesc . "</td>
 		<td>" . $OIItem->EmployeeID . ' - ' . $OIItem->LastName . ',' . $OIItem->FirstName . "</td>
-		<td><a href='" . $_SERVER['PHP_SELF'] . '?&Delete=' . $OIItem->ID . "'>" . _('Delete') . '</a></td>
+		<td><a href='" . basename(__FILE__) . '?&Delete=' . $OIItem->ID . "'>" . _('Delete') . '</a></td>
 	</tr>';
 }
 
 echo '<tr><td align="right"><B>' . number_format($_SESSION['OIDetail']->OITotal, 2) . '</B></td></tr></table>';
 
-if ((ABS($_SESSION['OIDetail']->OITotal) > 0.001 AND $_SESSION['OIDetail']->OIItemCounter > 0) AND $_SESSION['OIDetail']->OIItemCounter > 0) {
+if ((ABS($_SESSION['OIDetail']->OITotal) > 0.001 and $_SESSION['OIDetail']->OIItemCounter > 0) and $_SESSION['OIDetail']->OIItemCounter > 0) {
 	echo "<br /><br /><input type=SUBMIT name='CommitBatch' value='" . _('Accept and Process Other Income') . "'>";
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

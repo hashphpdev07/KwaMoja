@@ -3,22 +3,21 @@
  * Author: Ashish Shukla <gmail.com!wahjava>
  *
  * Script to duplicate BoMs.
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Copy a BOM to New Item Code');
 
-include('includes/header.php');
+include ('includes/header.php');
 
-include('includes/SQL_CommonFunctions.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['Submit'])) {
 	$StockId = $_POST['StockID'];
 	$NewOrExisting = $_POST['NewOrExisting'];
 	$NewStockID = '';
 	$InputError = 0; //assume the best
-
 	if ($NewOrExisting == 'N') {
 		$NewStockID = $_POST['ToStockID'];
 		if (mb_strlen($NewStockID) == 0 or $NewStockID == '') {
@@ -156,11 +155,12 @@ if (isset($_POST['Submit'])) {
 		header('Location: BOMs.php?Select=' . $NewStockID);
 		ob_end_flush();
 	} //end  if there is no input error
+	
 } else {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Contract') . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	$SQL = "SELECT stockid,
@@ -207,6 +207,6 @@ if (isset($_POST['Submit'])) {
 	echo '<div class="centre"><input type="submit" name="Submit" value="Submit" /></div>
 		  </form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

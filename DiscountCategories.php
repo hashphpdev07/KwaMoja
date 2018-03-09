@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Discount Categories Maintenance');
 /* Manual links before header.php */
 $ViewTopic = 'SalesOrders';
 $BookMark = 'DiscountMatrix';
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
 if (isset($_POST['stockID'])) {
@@ -23,10 +22,9 @@ if (isset($_POST['submit']) and !isset($_POST['SubmitCategory'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	$Result = DB_query("SELECT stockid
 						FROM stockmaster
 						WHERE mbflag <>'K'
@@ -49,7 +47,6 @@ if (isset($_POST['submit']) and !isset($_POST['SubmitCategory'])) {
 		unset($_POST['StockID']);
 	}
 
-
 } elseif (isset($_GET['Delete']) and $_GET['Delete'] == 'yes') {
 	/*the link to delete a selected record was clicked instead of the submit button */
 
@@ -58,23 +55,23 @@ if (isset($_POST['submit']) and !isset($_POST['SubmitCategory'])) {
 	prnMsg(_('The stock master record has been updated to no discount category'), 'success');
 	echo '<br />';
 } elseif (isset($_POST['SubmitCategory'])) {
-	$SQL = "SELECT stockid FROM stockmaster WHERE categoryid='".$_POST['stockcategory']."'";
+	$SQL = "SELECT stockid FROM stockmaster WHERE categoryid='" . $_POST['stockcategory'] . "'";
 	$ErrMsg = _('Failed to retrieve stock category data');
 	$Result = DB_query($SQL, $ErrMsg);
-	if (DB_num_rows($Result) > 0){
+	if (DB_num_rows($Result) > 0) {
 		$SQL = "UPDATE stockmaster
 				SET discountcategory='" . $_POST['DiscountCategory'] . "'
 				WHERE categoryid='" . $_POST['stockcategory'] . "'";
 		$Result = DB_query($SQL);
 	} else {
 		prnMsg(_('There are no stock defined for this stock category, you must define stock for it first'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
 
 if (isset($_POST['SelectChoice'])) {
-	echo '<form id="update" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form id="update" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	$SQL = "SELECT DISTINCT discountcategory FROM stockmaster WHERE discountcategory <>''";
@@ -99,7 +96,7 @@ if (isset($_POST['SelectChoice'])) {
 	}
 	echo '</form>';
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="ChooseOption" value="' . $_POST['ChooseOption'] . '" />';
 	echo '<input type="hidden" name="SelectChoice" value="' . $_POST['SelectChoice'] . '" />';
@@ -148,14 +145,11 @@ if (isset($_POST['SelectChoice'])) {
 		echo '<div class="centre"><input type="submit" name="submit" value="' . _('Update Item') . '" /></div>';
 
 		if (isset($_POST['search'])) {
-			if ($_POST['PartID'] != '' and $_POST['PartDesc'] == '')
-				$SQL = "SELECT stockid, description FROM stockmaster
+			if ($_POST['PartID'] != '' and $_POST['PartDesc'] == '') $SQL = "SELECT stockid, description FROM stockmaster
 						WHERE stockid " . LIKE . " '%" . $_POST['PartID'] . "%'";
-			if ($_POST['PartID'] == '' and $_POST['PartDesc'] != '')
-				$SQL = "SELECT stockid, description FROM stockmaster
+			if ($_POST['PartID'] == '' and $_POST['PartDesc'] != '') $SQL = "SELECT stockid, description FROM stockmaster
 						WHERE description " . LIKE . " '%" . $_POST['PartDesc'] . "%'";
-			if ($_POST['PartID'] != '' and $_POST['PartDesc'] != '')
-				$SQL = "SELECT stockid, description FROM stockmaster
+			if ($_POST['PartID'] != '' and $_POST['PartDesc'] != '') $SQL = "SELECT stockid, description FROM stockmaster
 						WHERE stockid " . LIKE . " '%" . $_POST['PartID'] . "%'
 						AND description " . LIKE . " '%" . $_POST['PartDesc'] . "%'";
 			$Result = DB_query($SQL);
@@ -223,9 +217,8 @@ if (isset($_POST['SelectChoice'])) {
 					</tr>';
 
 		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
-			$DeleteURL = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;StockID=' . $MyRow['stockid'] . '&amp;DiscountCategory=' . $MyRow['discountcategory'];
+			$DeleteURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;StockID=' . $MyRow['stockid'] . '&amp;DiscountCategory=' . $MyRow['discountcategory'];
 
 			printf('<tr class="striped_row">
 						<td>%s</td>
@@ -245,7 +238,7 @@ if (isset($_POST['SelectChoice'])) {
 }
 
 if (!isset($_POST['SelectChoice'])) {
-	echo '<form method="post" id="choose" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+	echo '<form method="post" id="choose" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<table>
 					<tr>
@@ -262,5 +255,5 @@ if (!isset($_POST['SelectChoice'])) {
 			</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

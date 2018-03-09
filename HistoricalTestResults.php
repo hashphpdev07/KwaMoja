@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Historical Test Results');
-$ViewTopic = 'QualityAssurance';// Filename in ManualContents.php's TOC.
-$BookMark = 'QA_HistoricalResults';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'QualityAssurance'; // Filename in ManualContents.php's TOC.
+$BookMark = 'QA_HistoricalResults'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 if (isset($_GET['KeyValue'])) {
 	$KeyValue = mb_strtoupper($_GET['KeyValue']);
@@ -38,7 +37,7 @@ echo '<p class="page_title_text">
 	</p>';
 
 //prompt user for Key Value
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -49,7 +48,6 @@ $SQLSpecSelect = "SELECT DISTINCT(prodspeckey),
 						description
 					FROM qasamples LEFT OUTER JOIN stockmaster
 					ON stockmaster.stockid=qasamples.prodspeckey";
-
 
 $ResultSelection = DB_query($SQLSpecSelect);
 
@@ -154,5 +152,5 @@ if (isset($KeyValue)) {
 		</div>';
 	}
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

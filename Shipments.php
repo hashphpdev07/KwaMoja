@@ -1,11 +1,10 @@
 <?php
-
-include('includes/DefineShiptClass.php');
-include('includes/session.php');
+include ('includes/DefineShiptClass.php');
+include ('includes/session.php');
 $Title = _('Shipments');
-include('includes/header.php');
+include ('includes/header.php');
 
-include('includes/SQL_CommonFunctions.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['NewShipment']) and $_GET['NewShipment'] == 'Yes') {
 	unset($_SESSION['Shipment']->LineItems);
@@ -20,7 +19,7 @@ if (!isset($_SESSION['SupplierID']) and !isset($_SESSION['Shipment']) and !isset
 				<tr><td class="menu_group_item">
 				<li><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select the Supplier') . '</a></li>
 				</td></tr></table></div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -52,7 +51,7 @@ if (isset($_GET['SelectedShipment'])) {
 
 	if (DB_num_rows($GetShiptHdrResult) == 0) {
 		prnMsg(_('Unable to locate Shipment') . ' ' . $_GET['SelectedShipment'] . ' ' . _('in the database'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit();
 	}
 
@@ -62,7 +61,7 @@ if (isset($_GET['SelectedShipment'])) {
 
 		if ($MyRow['closed'] == 1) {
 			prnMsg(_('Shipment No.') . ' ' . $_GET['SelectedShipment'] . ': ' . _('The selected shipment is already closed and no further modifications to the shipment are possible'), 'error');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		$_SESSION['Shipment']->ShiptRef = $_GET['SelectedShipment'];
@@ -105,7 +104,7 @@ if (isset($_GET['SelectedShipment'])) {
 
 		if (DB_num_rows($GetShiptHdrResult) == 0) {
 			prnMsg(_('Unable to locate lines for Shipment') . ' ' . $_GET['SelectedShipment'] . ' ' . _('in the database'), 'error');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit();
 		}
 
@@ -128,9 +127,9 @@ if (isset($_GET['SelectedShipment'])) {
 			$_SESSION['Shipment']->StockLocation = $MyRow['intostocklocation'];
 
 		} //end of checks on returned data set
+		
 	}
 } // end of reading in the existing shipment
-
 if (!isset($_SESSION['Shipment'])) {
 
 	$_SESSION['Shipment'] = new Shipment;
@@ -154,7 +153,6 @@ if (!isset($_SESSION['Shipment'])) {
 }
 
 if (isset($_POST['Update']) or (isset($_GET['Add']) and $_SESSION['Shipment']->Closed == 0)) { //user hit the update button
-
 	$InputError = 0;
 	if (isset($_POST['Update'])) {
 
@@ -180,7 +178,7 @@ if (isset($_POST['Update']) or (isset($_GET['Add']) and $_SESSION['Shipment']->C
 		if (mb_strlen($_POST['VoyageRef']) < 2) {
 			prnMsg(_('A reference to the voyage (or HAWB in the case of air-freight) of more than 2 characters is expected'), 'error');
 		}
-	} elseif (mb_strlen($_SESSION['Shipment']->Vessel) < 2 OR mb_strlen($_SESSION['Shipment']->VoyageRef) < 2) {
+	} elseif (mb_strlen($_SESSION['Shipment']->Vessel) < 2 or mb_strlen($_SESSION['Shipment']->VoyageRef) < 2) {
 		prnMsg(_('Cannot add purchase order lines to the shipment unless the shipment is first initiated - hit update to setup the shipment first'), 'info');
 		$InputError = 1;
 	}
@@ -238,9 +236,8 @@ if (isset($_POST['Update']) or (isset($_GET['Add']) and $_SESSION['Shipment']->C
 		prnMsg(_('Updated the shipment record and delivery dates of order lines as necessary'), 'success');
 		echo '<br />';
 	} //error traps all passed ok
-
+	
 } //user hit Update
-
 if (isset($_GET['Add']) and $_SESSION['Shipment']->Closed == 0 and $InputError == 0) {
 
 	$SQL = "SELECT purchorderdetails.orderno,
@@ -281,7 +278,7 @@ if (isset($_GET['Delete']) and $_SESSION['Shipment']->Closed == 0) { //shipment 
 	$_SESSION['Shipment']->Remove_From_Shipment($_GET['Delete']);
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -349,7 +346,6 @@ if (count($_SESSION['Shipment']->LineItems) > 0) {
 		$_POST['StockLocation'] = $_SESSION['Shipment']->StockLocation;
 	}
 }
-
 
 if (!isset($_SESSION['Shipment']->StockLocation)) {
 
@@ -424,7 +420,6 @@ if (count($_SESSION['Shipment']->LineItems) > 0) {
 	/*show the line items on the shipment with the quantity being received for modification */
 
 	$k = 0; //row colour counter
-
 	foreach ($_SESSION['Shipment']->LineItems as $LnItm) {
 
 		echo '<tr class="striped_row">
@@ -435,12 +430,11 @@ if (count($_SESSION['Shipment']->LineItems) > 0) {
 				<td class="number">' . locale_number_format($LnItm->QtyInvoiced, $LnItm->DecimalPlaces) . '</td>
 				<td class="number">' . locale_number_format($LnItm->UnitPrice, $_SESSION['Shipment']->CurrDecimalPlaces) . '</td>
 				<td class="number">' . locale_number_format($LnItm->StdCostUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $LnItm->PODetailItem . '"  onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $LnItm->PODetailItem . '"  onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	} //for each line on the shipment
 	echo '</table>';
 } //there are lines on the shipment
-
 echo '<div class="centre">
 		<input type="submit" name="Update" value="' . _('Update Shipment Details') . '" />
 	</div>';
@@ -490,7 +484,6 @@ if (DB_num_rows($Result) > 0) {
 	/*show the PO items that could be added to the shipment */
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
@@ -500,7 +493,7 @@ if (DB_num_rows($Result) > 0) {
 				<td>' . $MyRow['units'] . '</td>
 				<td class="number">' . locale_number_format($MyRow['quantityrecd'], $MyRow['decimalplaces']) . '</td>
 				<td class="number">' . ConvertSQLDate($MyRow['deliverydate']) . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?' . 'Add=' . $MyRow['podetailitem'] . '">' . _('Add') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?' . 'Add=' . $MyRow['podetailitem'] . '">' . _('Add') . '</a></td>
 			</tr>';
 
 	}
@@ -509,5 +502,5 @@ if (DB_num_rows($Result) > 0) {
 
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

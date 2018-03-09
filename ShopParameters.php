@@ -1,13 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Shop Configuration');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Shop Configuration') . '" alt="" />' . $Title . '</p>';
-
 
 if (isset($_POST['submit'])) {
 
@@ -15,10 +13,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if ($InputError != 1) {
 
 		$SQL = array();
@@ -62,7 +59,7 @@ if (isset($_POST['submit'])) {
 		if (isset($_POST['X_ShopStockLocations'])) {
 			$ShopStockLocations = '';
 			foreach ($_POST['X_ShopStockLocations'] as $Location) {
-				$ShopStockLocations .= $Location . ',';
+				$ShopStockLocations.= $Location . ',';
 			}
 			$ShopStockLocations = mb_substr($ShopStockLocations, 0, mb_strlen($ShopStockLocations) - 1);
 			if ($_SESSION['ShopStockLocations'] != $ShopStockLocations) {
@@ -141,7 +138,6 @@ if (isset($_POST['submit'])) {
 				$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_ShopPayFlowMerchant'] . "' WHERE confname = 'ShopPayFlowMerchant'";
 			}
 
-
 			if ($_SESSION['ShopMode'] != $_POST['X_ShopMode']) {
 				$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_ShopMode'] . "' WHERE confname = 'ShopMode'";
 			}
@@ -169,7 +165,7 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('Shop configuration updated'), 'success');
 
 			$ForceConfigReload = True; // Required to force a load even if stored in the session vars
-			include($PathPrefix . 'includes/GetConfig.php');
+			include ($PathPrefix . 'includes/GetConfig.php');
 			$ForceConfigReload = False;
 		}
 	} else {
@@ -179,7 +175,7 @@ if (isset($_POST['submit'])) {
 }
 /* end of if submit */
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">
 	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 	<table cellpadding="2" width="98%">
 		<tr>
@@ -352,20 +348,7 @@ echo '<tr>
 		<td>' . _('Freight Calculations') . ':</td>
 		<td><select name="X_ShopFreightMethod">';
 
-$FreightMethods = array(
-	array(
-		'MethodName' => 'No Freight',
-		'MethodCode' => 'NoFreight'
-	),
-	array(
-		'MethodName' => 'Default calculation',
-		'MethodCode' => 'Default'
-	),
-	array(
-		'MethodName' => 'Australia Post API',
-		'MethodCode' => 'AusPost'
-	)
-);
+$FreightMethods = array(array('MethodName' => 'No Freight', 'MethodCode' => 'NoFreight'), array('MethodName' => 'Default calculation', 'MethodCode' => 'Default'), array('MethodName' => 'Australia Post API', 'MethodCode' => 'AusPost'));
 
 foreach ($FreightMethods as $FreightMethod) {
 	if ($_SESSION['ShopFreightMethod'] == $FreightMethod['MethodCode']) {
@@ -563,7 +546,7 @@ if ($AllowDemoMode) {
 	echo '<tr>
 			<td>' . _('PayPal Pro User') . ':</td>
 			<td><input type="text" class="noSpecialChars"  size="40" maxlength="40" name="X_ShopPayPalProUser" value="' . $_SESSION['ShopPayPalProUser'] . '" /></td>
-			<td>' . _('The') . '<a href="https://www.paypal.com/us/webapps/mpp/paypal-payments-pro">' . _('PayPal Pro') . '</a> ' .  _('Merchant User account for credit card payment available in only USA and Canada') . '</td>
+			<td>' . _('The') . '<a href="https://www.paypal.com/us/webapps/mpp/paypal-payments-pro">' . _('PayPal Pro') . '</a> ' . _('Merchant User account for credit card payment available in only USA and Canada') . '</td>
 		</tr>';
 
 	echo '<tr>
@@ -612,5 +595,5 @@ echo '</table>
 		<div class="centre"><input type="submit" name="submit" value="' . _('Update') . '" /></div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

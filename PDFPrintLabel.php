@@ -1,14 +1,12 @@
 <?php
-
-include('includes/session.php');
-include('includes/barcodepack/class.code128.php');
+include ('includes/session.php');
+include ('includes/barcodepack/class.code128.php');
 
 $PtsPerMM = 2.83464567; //pdf points per mm (72 dpi / 25.4 mm per inch)
-
 if ((isset($_POST['ShowLabels']) or isset($_POST['SelectAll'])) and isset($_POST['StockCategory']) and mb_strlen($_POST['StockCategory']) >= 1) {
 
 	$Title = _('Print Labels');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	$SQL = "SELECT prices.stockid,
 					stockmaster.description,
@@ -40,18 +38,17 @@ if ((isset($_POST['ShowLabels']) or isset($_POST['SelectAll'])) and isset($_POST
 		if ($debug == 1) {
 			prnMsg(_('For debugging purposes the SQL used was:') . $SQL, 'error');
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($LabelsResult) == 0) {
 		prnMsg(_('There were no price labels to print out for the category specified'), 'warn');
-		echo '<br /><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '</a>';
-		include('includes/footer.php');
+		echo '<br /><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '</a>';
+		include ('includes/footer.php');
 		exit;
 	}
 
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -75,7 +72,7 @@ if ((isset($_POST['ShowLabels']) or isset($_POST['SelectAll'])) and isset($_POST
 				<td>' . $LabelRow['description'] . '</td>
 				<td class="number">' . locale_number_format($LabelRow['price'], $LabelRow['decimalplaces']) . '</td>
 				<td>';
-		if (isset($_POST['SelectAll']) AND isset($_POST['CheckAll'])) {
+		if (isset($_POST['SelectAll']) and isset($_POST['CheckAll'])) {
 			echo '<input type="checkbox" checked="checked" name="PrintLabel' . $i . '" />';
 		} else {
 			echo '<input type="checkbox" name="PrintLabel' . $i . '" />';
@@ -105,14 +102,14 @@ if ((isset($_POST['ShowLabels']) or isset($_POST['SelectAll'])) and isset($_POST
 			<a href="' . $RootPath . '/Labels.php">' . _('Label Template Maintenance') . '</a>
 		</div>
 	</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 $NoOfLabels = 0;
 if (isset($_POST['PrintLabels']) and isset($_POST['NoOfLabels']) and $_POST['NoOfLabels'] > 0) {
 
-	for ($i = 0; $i < $_POST['NoOfLabels']; $i++) {
+	for ($i = 0;$i < $_POST['NoOfLabels'];$i++) {
 		if (isset($_POST['PrintLabel' . $i])) {
 			$NoOfLabels++;
 		}
@@ -161,11 +158,8 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 	}
 
 	$PaperSize = 'Custom'; // so PDF starter wont default the DocumentPaper
-	$DocumentPaper = array(
-		$LabelDimensions['page_width'],
-		$LabelDimensions['page_height']
-	);
-	include('includes/PDFStarter.php');
+	$DocumentPaper = array($LabelDimensions['page_width'], $LabelDimensions['page_height']);
+	include ('includes/PDFStarter.php');
 	$Top_Margin = $LabelDimensions['label_topmargin'];
 	$Left_Margin = $LabelDimensions['label_leftmargin'];
 	$Page_Height = $LabelDimensions['page_height'];
@@ -178,7 +172,6 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 	$PDF->setPrintHeader(false);
 	$PDF->setPrintFooter(false);
 
-
 	$PDF->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 	$PDF->setImageScale(PDF_IMAGE_SCALE_RATIO);
 	$PDF->setPrintHeader(false);
@@ -188,13 +181,12 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 	//go down first then accross
 	$YPos = $Page_Height - $Top_Margin; //top of current label
 	$XPos = $Left_Margin; // left of current label
-
 	$TotalLabels = $NoOfLabels * $_POST['LabelsPerItem'];
 	$LabelsPrinted = 0;
-	for ($i = 0; $i < $_POST['NoOfLabels']; $i++) {
+	for ($i = 0;$i < $_POST['NoOfLabels'];$i++) {
 		if (isset($_POST['PrintLabel' . $i])) {
 			$NoOfLabels--;
-			for ($LabelNumber = 0; $LabelNumber < $_POST['LabelsPerItem']; $LabelNumber++) {
+			for ($LabelNumber = 0;$LabelNumber < $_POST['LabelsPerItem'];$LabelNumber++) {
 				foreach ($LabelFields as $Field) {
 					//print_r($Field);
 					if ($Field['FieldValue'] == 'price') {
@@ -233,29 +225,34 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 						/* not enough space below the above label to print a new label
 						 * so the above was the last label in the column
 						 * need to start either a new column or new page
-						 */
+						*/
 						if (($Page_Width - $XPos - $LabelDimensions['label_columnwidth']) < $LabelDimensions['label_width']) {
 							/* Not enough space to start a new column so we are into a new page
-							 */
+							*/
 							$PDF->newPage();
 							$PageNumber++;
 							$YPos = $Page_Height - $Top_Margin; //top of next label
 							$XPos = $Left_Margin; // left of next label
+							
 						} else {
 							/* There is enough space for another column */
 							$YPos = $Page_Height - $Top_Margin; //back to the top of next label column
-							$XPos += $LabelDimensions['label_columnwidth']; // left of next label
+							$XPos+= $LabelDimensions['label_columnwidth']; // left of next label
+							
 						}
 					} else {
 						/* There is space below to print a label
-						 */
-						$YPos -= $LabelDimensions['label_rowheight']; //Top of next label
+						*/
+						$YPos-= $LabelDimensions['label_rowheight']; //Top of next label
+						
 					}
 				} //end if there is another label to print
+				
 			}
 		} //this label is set to print
+		
 	} //loop through labels selected to print
-
+	
 
 	$FileName = $_SESSION['DatabaseName'] . '_' . _('Price_Labels') . '_' . date('Y-m-d') . '.pdf';
 	ob_clean();
@@ -266,7 +263,7 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 	/*The option to print PDF was not hit */
 
 	$Title = _('Price Labels');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Price Labels') . '" alt="" />
          ' . ' ' . _('Print Price Labels') . '</p>';
@@ -275,12 +272,11 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 		prnMsg(_('The GD module for PHP is required to print barcode labels. Your PHP installation is not capable currently. You will most likely experience problems with this script until the GD module is enabled.'), 'error');
 	}
 
-
 	if (!isset($_POST['StockCategory'])) {
 
 		/*if $StockCategory is not set then show a form to allow input	*/
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 				<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<table>
 				<tr>
@@ -357,7 +353,7 @@ if (isset($_POST['PrintLabels']) and $NoOfLabels > 0) {
 				</form>';
 
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

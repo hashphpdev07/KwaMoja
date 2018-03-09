@@ -1,11 +1,10 @@
 <?php
-
 $PageSecurity = 0;
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Dashboard');
-include('includes/header.php');
-include('includes/MainMenuLinksArray.php');
+include ('includes/header.php');
+include ('includes/MainMenuLinksArray.php');
 
 $SQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserID'] . "' ";
 
@@ -52,7 +51,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 DB_data_seek($Result, 0);
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="submit" name="submit" value="" style="display:none;" />';
 echo '<div style="width:100%;font-size:120%;color:#2F4F4F;">' . _('Add reports to your dashboard') . '&nbsp;&nbsp;&nbsp;
@@ -66,5 +65,5 @@ while ($MyRow = DB_fetch_array($Result)) {
 echo '</select></div>';
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

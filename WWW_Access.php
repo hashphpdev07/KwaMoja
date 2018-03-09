@@ -1,11 +1,10 @@
 <?php
+include ('includes/session.php');
 
-include('includes/session.php');
-
-$Title = _('Access Permissions Maintenance');// Screen identificator.
-$ViewTopic = 'SecuritySchema';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'WWW_Access';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$Title = _('Access Permissions Maintenance'); // Screen identificator.
+$ViewTopic = 'SecuritySchema'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'WWW_Access'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
@@ -27,7 +26,7 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 	}
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	//first off validate inputs sensible
 	if (isset($_POST['SecRoleName']) and mb_strlen($_POST['SecRoleName']) < 4) {
 		$InputError = 1;
@@ -136,7 +135,6 @@ if (!isset($SelectedRole)) {
 			</tr>';
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		/*The SecurityHeadings array is defined in config.php */
@@ -145,7 +143,7 @@ if (!isset($SelectedRole)) {
 				<td>%s</td>
 				<td><a href="%s&amp;SelectedRole=%s">' . _('Edit') . '</a></td>
 				<td><a href="%s&amp;SelectedRole=%s&amp;delete=1&amp;SecRoleName=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this role?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['secrolename'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], urlencode($MyRow['secrolename']));
+			</tr>', $MyRow['secrolename'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], urlencode($MyRow['secrolename']));
 
 	} //END WHILE LIST LOOP
 	echo '</table>';
@@ -153,12 +151,11 @@ if (!isset($SelectedRole)) {
 
 
 if (isset($SelectedRole)) {
-	echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Roles') . '</a></div>';
+	echo '<br /><div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Roles') . '</a></div>';
 }
 
 if (isset($SelectedRole)) {
 	//editing an existing role
-
 	$SQL = "SELECT secroleid,
 			secrolename
 		FROM securityroles
@@ -173,7 +170,7 @@ if (isset($SelectedRole)) {
 	}
 }
 echo '<br />';
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_POST['SelectedRole'])) {
 	echo '<input type="hidden" name="SelectedRole" value="' . $_POST['SelectedRole'] . '" />';
@@ -228,7 +225,7 @@ if (isset($SelectedRole)) {
 					<td><a href="%sSelectedRole=%s&amp;remove=1&amp;PageToken=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this security token from this role?') . '\', \'Confirm Delete\', this);">' . _('Remove') . '</a></td>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
+					<td>&nbsp;</td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
 		} else {
 			printf('<tr class="striped_row">
 					<td>&nbsp;</td>
@@ -236,13 +233,13 @@ if (isset($SelectedRole)) {
 					<td>&nbsp;</td>
 					<td>%s</td>
 					<td>%s</td>
-					<td><a href="%sSelectedRole=%s&amp;add=1&amp;PageToken=%s">' . _('Add') . '</a></td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
+					<td><a href="%sSelectedRole=%s&amp;add=1&amp;PageToken=%s">' . _('Add') . '</a></td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
 		}
 		echo '</tr>';
 	}
 	echo '</table>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

@@ -1,19 +1,17 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Fixed Asset Maintenance Tasks');
 
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetMaintenance';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-
 if (isset($_POST['Submit'])) {
-	if (!is_numeric(filter_number_format($_POST['FrequencyDays'])) OR filter_number_format($_POST['FrequencyDays']) < 0) {
+	if (!is_numeric(filter_number_format($_POST['FrequencyDays'])) or filter_number_format($_POST['FrequencyDays']) < 0) {
 		prnMsg(_('The days before a task falls due is expected to be a postive'), 'error');
 	} else {
 		$SQL = "INSERT INTO fixedassettasks (assetid,
@@ -39,7 +37,7 @@ if (isset($_POST['Submit'])) {
 }
 
 if (isset($_POST['Update'])) {
-	if (!is_numeric(filter_number_format($_POST['FrequencyDays'])) OR filter_number_format($_POST['FrequencyDays']) < 0) {
+	if (!is_numeric(filter_number_format($_POST['FrequencyDays'])) or filter_number_format($_POST['FrequencyDays']) < 0) {
 		prnMsg(_('The days before a task falls due is expected to be a postive'), 'error');
 	} else {
 		$SQL = "UPDATE fixedassettasks SET
@@ -120,7 +118,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 echo '</table>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -236,5 +234,5 @@ if (isset($_GET['Edit'])) {
 		</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_POST['FromCriteria']) >= 1 and isset($_POST['ToCriteria']) and mb_strlen($_POST['ToCriteria']) >= 1) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 
 	$PDF->addInfo('Title', _('Supplier Balance Listing'));
 	$PDF->addInfo('Subject', _('Supplier Balances'));
@@ -20,10 +19,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	if ($_POST['FromCriteria']=='') {
+	if ($_POST['FromCriteria'] == '') {
 		$_POST['FromCriteria'] = $MyRow['fromcriteria'];
 	}
-	if ($_POST['ToCriteria']=='') {
+	if ($_POST['ToCriteria'] == '') {
 		$_POST['ToCriteria'] = $MyRow['tocriteria'];
 	}
 
@@ -57,25 +56,25 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 
 	if (DB_error_no() != 0) {
 		$Title = _('Supplier Balances - Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Supplier details could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($SupplierResult) == 0) {
 		$Title = _('Supplier Balances - Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There are no supplier balances to list'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFSupplierBalsPageHeader.php');
+	include ('includes/PDFSupplierBalsPageHeader.php');
 
 	$TotBal = 0;
 
@@ -89,25 +88,25 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 			$DisplayBalance = locale_number_format($SupplierBalances['balance'] - $SupplierBalances['afterdatetrans'] + $SupplierBalances['afterdatediffonexch'], $_SESSION['CompanyRecord']['decimalplaces']);
 			$DisplayFXBalance = locale_number_format($SupplierBalances['fxbalance'] - $SupplierBalances['fxafterdatetrans'], $SupplierBalances['currdecimalplaces']);
 
-			$TotBal += $Balance;
+			$TotBal+= $Balance;
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 220 - $Left_Margin, $FontSize, $SupplierBalances['supplierid'] . ' - ' . $SupplierBalances['suppname'], 'left');
 			$LeftOvers = $PDF->addTextWrap(220, $YPos, 60, $FontSize, $DisplayBalance, 'right');
 			$LeftOvers = $PDF->addTextWrap(280, $YPos, 60, $FontSize, $DisplayFXBalance, 'right');
 			$LeftOvers = $PDF->addTextWrap(350, $YPos, 100, $FontSize, $SupplierBalances['currency'], 'left');
 
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			if ($YPos < $Bottom_Margin + $line_height) {
-				include('includes/PDFSupplierBalsPageHeader.php');
+				include ('includes/PDFSupplierBalsPageHeader.php');
 			}
 		}
 	}
 	/*end Supplier aged analysis while loop */
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	if ($YPos < $Bottom_Margin + (2 * $line_height)) {
 		$PageNumber++;
-		include('includes/PDFSupplierBalsPageHeader.php');
+		include ('includes/PDFSupplierBalsPageHeader.php');
 	}
 
 	$DisplayTotBalance = locale_number_format($TotBal, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -121,7 +120,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	/*The option to print PDF was not hit */
 
 	$Title = _('Supplier Balances At A Period End');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	$SQL = "SELECT min(supplierid) AS fromcriteria,
 					max(supplierid) AS tocriteria
@@ -139,7 +138,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 	}
 	/*if $FromCriteria is not set then show a form to allow input	*/
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>';
@@ -174,7 +173,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 				<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
 			</div>';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 

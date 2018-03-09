@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Select Contract');
 $ViewTopic = 'Contracts';
 $BookMark = 'SelectContract';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contracts') . '" alt="" />' . ' ' . _('Select A Contract') . '</p> ';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<br /><div class="centre">';
@@ -19,7 +18,6 @@ if (isset($_GET['ContractRef'])) {
 if (isset($_GET['SelectedCustomer'])) {
 	$_POST['SelectedCustomer'] = $_GET['SelectedCustomer'];
 }
-
 
 if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
 	$_POST['ContractRef'] = trim($_POST['ContractRef']);
@@ -51,7 +49,7 @@ if (!isset($_POST['ContractRef']) or $_POST['ContractRef'] == '') {
 
 	$StatusCount = count($Statuses);
 
-	for ($i = 0; $i < $StatusCount; $i++) {
+	for ($i = 0;$i < $StatusCount;$i++) {
 		if ($i == $_POST['Status']) {
 			echo '<option selected="selected" value="' . $i . '">' . $Statuses[$i] . '</option>';
 		} else {
@@ -64,9 +62,7 @@ if (!isset($_POST['ContractRef']) or $_POST['ContractRef'] == '') {
 echo '<input type="submit" name="SearchContracts" value="' . _('Search') . '" />';
 echo '&nbsp;&nbsp;<a href="' . $RootPath . '/Contracts.php">' . _('New Contract') . '</a></div><br />';
 
-
 //figure out the SQL required from the inputs available
-
 if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
 	$SQL = "SELECT contractref,
 					   contractdescription,
@@ -84,7 +80,7 @@ if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
 					ON contracts.debtorno = debtorsmaster.debtorno
 				INNER JOIN locationusers
 					ON locationusers.loccode=contracts.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE contractref " . LIKE . " '%" . $_POST['ContractRef'] . "%'";
 
@@ -107,11 +103,11 @@ if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
 					ON contracts.debtorno = debtorsmaster.debtorno
 				INNER JOIN locationusers
 					ON locationusers.loccode=contracts.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE debtorno='" . $_POST['SelectedCustomer'] . "'";
 		if ($_POST['Status'] != 4) {
-			$SQL .= " AND status='" . $_POST['Status'] . "'";
+			$SQL.= " AND status='" . $_POST['Status'] . "'";
 		}
 	} else { //no customer selected
 		$SQL = "SELECT contractref,
@@ -130,14 +126,13 @@ if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
 					ON contracts.debtorno = debtorsmaster.debtorno
 				INNER JOIN locationusers
 					ON locationusers.loccode=contracts.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 		if ($_POST['Status'] != 4) {
-			$SQL .= " AND status='" . $_POST['Status'] . "'";
+			$SQL.= " AND status='" . $_POST['Status'] . "'";
 		}
 	}
 } //end not contract ref selected
-
 $ErrMsg = _('No contracts were returned by the SQL because');
 $ContractsResult = DB_query($SQL, $ErrMsg);
 
@@ -196,9 +191,8 @@ while ($MyRow = DB_fetch_array($ContractsResult)) {
 
 }
 //end of while loop
-
 echo '</table>
 	</tbody>
 </form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

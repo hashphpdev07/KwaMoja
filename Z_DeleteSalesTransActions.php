@@ -1,10 +1,9 @@
 <?php
-
 /*Script to Delete all sales transactions*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Delete Sales Transactions');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['ProcessDeletions'])) {
 
@@ -49,7 +48,6 @@ if (isset($_POST['ProcessDeletions'])) {
 
 		$ErrMsg = _('The SQL to delete sales order header records failed because');
 		$Result = DB_query('DELETE FROM salesorders', $ErrMsg);
-
 
 		$SQL = 'UPDATE systypes SET typeno =0 WHERE typeid =30';
 		$ErrMsg = _('The SQL to update the transaction number of sales orders has failed') . ', ' . _('the SQL statement was');
@@ -127,11 +125,10 @@ if (isset($_POST['ProcessDeletions'])) {
 
 	}
 
-
 	prnMsg(_('It is necessary to re-post the remaining general ledger transactions for the general ledger to get back in sync with the transactions that remain. This is an option from the Z_index.php page'), 'warn');
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -192,5 +189,5 @@ echo '<input type="submit" name="ProcessDeletions" value="' . _('Process') . '" 
 echo '</div>
 	  </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

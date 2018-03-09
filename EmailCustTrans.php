@@ -1,8 +1,7 @@
 <?php
+include ('includes/session.php');
 
-include('includes/session.php');
-
-include('includes/SQL_CommonFunctions.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if ($_GET['InvOrCredit'] == 'Invoice') {
 	$TransactionType = _('Invoice');
@@ -12,7 +11,7 @@ if ($_GET['InvOrCredit'] == 'Invoice') {
 	$TypeCode = 11;
 }
 $Title = _('Email') . ' ' . $TransactionType . ' ' . _('Number') . ' ' . $_GET['FromTransNo'];
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['DoIt']) and IsEmailAddress($_POST['EmailAddr'])) {
 
@@ -31,7 +30,7 @@ echo '<p class="page_title_text">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/email.png" title="' . $Title . '" alt="" />' . $Title . '
 	</p>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?FromTransNo=' . urlencode($_GET['FromTransNo']) . '&PrintPDF=Yes&InvOrCredit=' . urlencode($_GET['InvOrCredit']) . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?FromTransNo=' . urlencode($_GET['FromTransNo']) . '&PrintPDF=Yes&InvOrCredit=' . urlencode($_GET['InvOrCredit']) . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<input type="hidden" name="TransNo" value="' . $_GET['FromTransNo'] . '" />';
@@ -70,5 +69,5 @@ echo '<div class="centre">
 		<input type="submit" name="DoIt" value="' . _('OK') . '" />
 	</div>
 </form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

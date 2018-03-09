@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Stock Items');
-include('includes/header.php');
-include('xmlrpc/lib/xmlrpc.php');
-include('api/api_errorcodes.php');
+include ('includes/header.php');
+include ('xmlrpc/lib/xmlrpc.php');
+include ('api/api_errorcodes.php');
 
 $User = $_SESSION['UserID'];
 $SQL = "SELECT password FROM www_users WHERE userid='" . $User . "'";
@@ -35,18 +34,14 @@ if (isset($_POST['update'])) {
 		$FieldValues = explode(',', $buffer);
 		if ($FieldValues[0] != '') {
 			$SizeOfFieldValues = sizeOf($FieldValues);
-			for ($i = 0; $i < $SizeOfFieldValues; $i++) {
+			for ($i = 0;$i < $SizeOfFieldValues;$i++) {
 				$ItemDetails[$FieldNames[$i]] = $FieldValues[$i];
 			}
 			$stockitem = php_xmlrpc_encode($ItemDetails);
 			$user = new xmlrpcval($User);
 			$password = new xmlrpcval($password);
 
-			$Msg = new xmlrpcmsg($APIServer . ".xmlrpc_InsertStockItem", array(
-				$stockitem,
-				$user,
-				$password
-			));
+			$Msg = new xmlrpcmsg($APIServer . ".xmlrpc_InsertStockItem", array($stockitem, $user, $password));
 
 			$client = new xmlrpc_client($ServerURL);
 			$client->setDebug($DebugLevel);
@@ -59,7 +54,7 @@ if (isset($_POST['update'])) {
 			} else {
 				echo '<tr ' . $FailureStyle . '><td>' . $ItemDetails['stockid'] . '</td><td>' . 'Failure' . '</td><td>';
 				$SizeOfAnswer = sizeOf($answer);
-				for ($i = 0; $i < $SizeOfAnswer; $i++) {
+				for ($i = 0;$i < $SizeOfAnswer;$i++) {
 					echo 'Error no ' . $answer[$i] . ' - ' . $ErrorDescription[$answer[$i]] . '<br />';
 				}
 				echo '</td></tr>';
@@ -79,7 +74,7 @@ if (isset($_POST['update'])) {
 		prnMsg(_('No locations have been set up. At least one location should be set up first'), "error");
 	} else {
 		prnMsg(_('Select a csv file containing the details of the parts that you wish to import') . '. ' . '<br />' . _('The first line must contain the field names that you wish to import. ') . '<a href ="Z_DescribeTable.php?table=stockmaster">' . _('The field names can be found here') . '</a>', 'info');
-		echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 		echo '<div class="centre">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<table><tr><td>' . _('File to import') . '</td>' . '<td><input type="file" id="ImportFile" name="ImportFile" /></td></tr></table>';
@@ -89,6 +84,6 @@ if (isset($_POST['update'])) {
 	}
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

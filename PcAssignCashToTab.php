@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Assignment of Cash to Petty Cash Tab');
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'CashAssignment';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedTabs'])) {
 	$SelectedTabs = mb_strtoupper($_POST['SelectedTabs']);
@@ -59,7 +58,7 @@ if (isset($_POST['submit'])) {
 		</p>';
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	if ($_POST['Amount'] == 0) {
 		$InputError = 1;
@@ -77,13 +76,13 @@ if (isset($_POST['submit'])) {
 	$ResultLimit = DB_query($SQLLimit);
 	$Limit = DB_fetch_array($ResultLimit);
 
-	if (($_POST['CurrentAmount']) > $Limit['tablimit']){
+	if (($_POST['CurrentAmount']) > $Limit['tablimit']) {
 		$InputError = 1;
 		prnMsg(_('Cash NOT assigned because PC tab current balance is over its cash limit of') . ' ' . locale_number_format($Limit['tablimit'], $Limit['decimalplaces']) . ' ' . $Limit['currency'], 'error');
 		prnMsg(_('Report expenses before being allowed to assign more cash or ask the administrator to increase the limit'), 'error');
 	}
 
-	if ($InputError !=1 and (($_POST['CurrentAmount'] + $_POST['Amount']) > $Limit['tablimit'])) {
+	if ($InputError != 1 and (($_POST['CurrentAmount'] + $_POST['Amount']) > $Limit['tablimit'])) {
 		prnMsg(_('Cash assigned but PC tab current balance is over its cash limit of') . ' ' . locale_number_format($Limit['tablimit'], $Limit['decimalplaces']) . ' ' . $Limit['currency'], 'warning');
 		prnMsg(_('Report expenses before being allowed to assign more cash or ask the administrator to increase the limit'), 'warning');
 	}
@@ -159,7 +158,7 @@ if (!isset($SelectedTabs)) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	$SQL = "SELECT tabcode
@@ -185,7 +184,6 @@ if (!isset($SelectedTabs)) {
 			</td>
 		</tr>';
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="Process" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -202,7 +200,7 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			</p>';
 	}
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another tab'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select another tab'), '</a>
 		</div>';
 
 	if (!isset($_GET['edit']) or isset($_POST['GO'])) {
@@ -243,7 +241,7 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 							 counterindex ASC";
 		$Result = DB_query($SQL);
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table>
 				<tr>
@@ -262,7 +260,6 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 				</tr>';
 
 		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
 			$SQLdes = "SELECT description
 					FROM pcexpenses
@@ -284,8 +281,8 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 						<td>', ConvertSQLDate($MyRow['authorized']), '</td>
 						<td>', $MyRow['notes'], '</td>
 						<td>', $MyRow['receipt'], '</td>
-						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=', $SelectedTabs, '&amp;Days=', $Days, '&amp;edit=yes">', _('Edit'), '</a></td>
-						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=', $SelectedTabs, '&amp;Days=', $Days, '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this code and the expense it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+						<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=', $SelectedTabs, '&amp;Days=', $Days, '&amp;edit=yes">', _('Edit'), '</a></td>
+						<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=', $SelectedTabs, '&amp;Days=', $Days, '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this code and the expense it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 					</tr>';
 			} else {
 				echo '<tr class="striped_row">
@@ -299,7 +296,6 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			}
 		}
 		//END WHILE LIST LOOP
-
 		$SQLamount = "SELECT sum(amount)
 					FROM pcashdetails
 					WHERE tabcode='" . $SelectedTabs . "'";
@@ -326,7 +322,7 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			$Amount['0'] = 0;
 		}
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		if (isset($_GET['edit'])) {
 
@@ -380,7 +376,6 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			</td>
 		</tr>';
 
-
 		if (!isset($_POST['Amount'])) {
 			$_POST['Amount'] = 0;
 		}
@@ -409,7 +404,6 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 			</tr>';
 
 		echo '</table>'; // close main table
-
 		echo '<input type="hidden" name="CurrentAmount" value="', $Amount['0'], '" />';
 		echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
 		echo '<input type="hidden" name="Days" value="', $Days, '" />';
@@ -422,7 +416,8 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 		echo '</form>';
 
 	} // end if user wish to delete
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

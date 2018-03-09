@@ -50,7 +50,7 @@ if (isset($SelectedTabs)) {
 }
 if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) or isset($_POST['GO'])) {
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (!isset($Days)) {
@@ -105,7 +105,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 	while ($MyRow = DB_fetch_array($Result)) {
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];
 		//update database if update pressed
-		if (isset($_POST['Submit']) and $_POST['Submit'] == _('Update') and isset($_POST[$MyRow['counterindex']])) {
+		if (isset($_POST['Submit']) and $_POST['Submit'] == _('Update') and isset($_POST[$MyRow['counterindex']]) and $MyRow['posted'] == 0) {
 
 			$PeriodNo = GetPeriod(ConvertSQLDate($MyRow['date']));
 
@@ -240,6 +240,13 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 					WHERE counterindex = '" . $MyRow['counterindex'] . "'";
 			$Resultupdate = DB_query($SQL, '', '', true);
 			DB_Txn_Commit();
+			if (DB_error_no() == 0) {
+				prnMsg(_('The cash was successfully authorised and has been posted to the General Ledger'), 'success');
+			} else {
+				prnMsg(_('There was a problem authorising the cash, and the transaction has not been posted'), 'error');
+			}
+		} else if ($MyRow['posted'] == 1) {
+			prnMsg(_('This cash has already been authorised, and cannot be posted again'), 'error');
 		}
 		if ($MyRow['posted'] == 0) {
 			$Posted = _('No');
@@ -299,7 +306,7 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 } else {
 	/*The option to submit was not hit so display form */
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	$SQL = "SELECT tabcode

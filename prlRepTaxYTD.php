@@ -1,12 +1,11 @@
 <?php
+if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 
-If (isset($_POST['PrintPDF']) AND isset($_POST['FSYear'])) {
-
-	include('config.php');
-	include('includes/PDFStarter.php');
-	include('includes/ConnectDB.php');
-	include('includes/DateFunctions.php');
-	include('includes/prlFunctions.php');
+	include ('config.php');
+	include ('includes/PDFStarter.php');
+	include ('includes/ConnectDB.php');
+	include ('includes/DateFunctions.php');
+	include ('includes/prlFunctions.php');
 
 	/* A4_Landscape */
 
@@ -17,32 +16,26 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSYear'])) {
 	$Left_Margin = 25;
 	$Right_Margin = 22;
 
-	$PageSize = array(
-		0,
-		0,
-		$Page_Width,
-		$Page_Height
-	);
-	$pdf = new Cpdf($PageSize);
+	$PageSize = array(0, 0, $Page_Width, $Page_Height);
+	$PDF = new Cpdf($PageSize);
 
 	$PageNumber = 0;
 
-	$pdf->selectFont('./fonts/Helvetica.afm');
+	$PDF->selectFont('./fonts/Helvetica.afm');
 
 	/* Standard PDF file creation header stuff */
-	$pdf->addinfo('Title', _('Alphalist'));
-	$pdf->addinfo('Subject', _('Alphalist'));
-
+	$PDF->addinfo('Title', _('Alphalist'));
+	$PDF->addinfo('Subject', _('Alphalist'));
 
 	$PageNumber = 1;
 	$line_height = 12;
 
 	$PageNumber = 0;
 	$FontSize = 10;
-	$pdf->addinfo('Title', _('Alphalist'));
-	$pdf->addinfo('Subject', _('Alphalist'));
+	$PDF->addinfo('Title', _('Alphalist'));
+	$PDF->addinfo('Subject', _('Alphalist'));
 	$line_height = 12;
-	include('includes/PDFTaxYTDPageHeader.php');
+	include ('includes/PDFTaxYTDPageHeader.php');
 	//list of all employees
 	$SQL = "SELECT employeeid
 			FROM prlemployeemaster
@@ -68,49 +61,48 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSYear'])) {
 				$TaxWithheld = $MyRow['Tax'];
 				$MyTax = GetMyTax($NetTaxable);
 				$Refund = $MyTax - $TaxWithheld;
-				$GTNetTaxable += $NetTaxable;
-				$GTMyTax += $MyTax;
-				$GTTaxWithheld += $TaxWithheld;
-				$GTRefund += $Refund;
+				$GTNetTaxable+= $NetTaxable;
+				$GTMyTax+= $MyTax;
+				$GTTaxWithheld+= $TaxWithheld;
+				$GTRefund+= $Refund;
 
 				//$YPos -= (2 * $line_height);  //double spacing
 				$FontSize = 8;
-				$pdf->selectFont('./fonts/Helvetica.afm');
-				$LeftOvers = $pdf->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $FullName, 'left');
-				$LeftOvers = $pdf->addTextWrap(150, $YPos, 60, $FontSize, $TaxNumber, 'right');
-				$LeftOvers = $pdf->addTextWrap(220, $YPos, 60, $FontSize, $TaxID, 'right');
-				$LeftOvers = $pdf->addTextWrap(290, $YPos, 60, $FontSize, number_format($Gross, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap(360, $YPos, 60, $FontSize, number_format($MyExemption, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap(430, $YPos, 60, $FontSize, number_format($NetTaxable, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap(500, $YPos, 60, $FontSize, number_format($MyTax, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap(570, $YPos, 60, $FontSize, number_format($TaxWithheld, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap(660, $YPos, 60, $FontSize, number_format($Refund, 2), 'right');
-				$YPos -= $line_height;
+				$PDF->selectFont('./fonts/Helvetica.afm');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 120, $FontSize, $FullName, 'left');
+				$LeftOvers = $PDF->addTextWrap(150, $YPos, 60, $FontSize, $TaxNumber, 'right');
+				$LeftOvers = $PDF->addTextWrap(220, $YPos, 60, $FontSize, $TaxID, 'right');
+				$LeftOvers = $PDF->addTextWrap(290, $YPos, 60, $FontSize, number_format($Gross, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap(360, $YPos, 60, $FontSize, number_format($MyExemption, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap(430, $YPos, 60, $FontSize, number_format($NetTaxable, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap(500, $YPos, 60, $FontSize, number_format($MyTax, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap(570, $YPos, 60, $FontSize, number_format($TaxWithheld, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap(660, $YPos, 60, $FontSize, number_format($Refund, 2), 'right');
+				$YPos-= $line_height;
 				if ($YPos < ($Bottom_Margin)) {
-					include('includes/PDFTaxYTDPageHeader.php');
+					include ('includes/PDFTaxYTDPageHeader.php');
 				}
 			}
 		}
 	}
 
-	$LeftOvers = $pdf->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
-	$YPos -= (2 * $line_height);
-	$LeftOvers = $pdf->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
-	$LeftOvers = $pdf->addTextWrap(500, $YPos, 60, $FontSize, number_format($GTMyTax, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(570, $YPos, 60, $FontSize, number_format($GTTaxWithheld, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(660, $YPos, 60, $FontSize, number_format($GTRefund, 2), 'right');
-	$LeftOvers = $pdf->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
+	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
+	$YPos-= (2 * $line_height);
+	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
+	$LeftOvers = $PDF->addTextWrap(500, $YPos, 60, $FontSize, number_format($GTMyTax, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(570, $YPos, 60, $FontSize, number_format($GTTaxWithheld, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(660, $YPos, 60, $FontSize, number_format($GTRefund, 2), 'right');
+	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
 
-
-	$pdfcode = $pdf->output();
-	$len = strlen($pdfcode);
+	$PDFcode = $PDF->output();
+	$len = strlen($PDFcode);
 	if ($len <= 20) {
 		$Title = _('Alphalist error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There were no entries to print out for the selections specified'));
 		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		header('Content-type: application/pdf');
@@ -120,36 +112,36 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSYear'])) {
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		header('Pragma: public');
 
-		$pdf->Stream();
+		$PDF->Stream();
 
 	}
 	exit;
 
 } elseif (isset($_POST['ShowPR'])) {
-	include('includes/session.php');
+	include ('includes/session.php');
 	$Title = _('Alphalist');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
 	echo "<br /><a href='" . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	/*The option to print PDF was not hit */
-	include('includes/session.php');
+	include ('includes/session.php');
 	$Title = _('Alphalist');
-	include('includes/header.php');
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	include ('includes/header.php');
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 	echo '</select></td></tr>';
 	echo '<tr><td><align="centert"><b>' . _('FS Year') . ":<select name='FSYear'>";
 	echo '<option selected="selected" value=0>' . _('Select One');
-	for ($yy = 2006; $yy <= 2015; $yy++) {
+	for ($yy = 2006;$yy <= 2015;$yy++) {
 		echo "<option value=$yy>$yy</option>\n";
 	}
 	echo '</select></td></tr>';
 	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show Alpalist') . "'>";
 	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
