@@ -1,10 +1,10 @@
 <?php
-include('includes/session.inc');
+include ('includes/session.inc');
 $Title = _('Billing For Radiology Tests');
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
-include('includes/GetSalesTransGLCodes.inc');
-include('includes/CustomerSearch.php');
+include ('includes/header.inc');
+include ('includes/SQL_CommonFunctions.inc');
+include ('includes/GetSalesTransGLCodes.inc');
+include ('includes/CustomerSearch.php');
 
 if (!isset($_POST['BankAccount']) or isset($_POST['Cancel'])) {
 	unset($_POST['SubmitCash']);
@@ -34,7 +34,7 @@ if (isset($_POST['BankAccount'])) {
 
 if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previous']) and !isset($_POST['Go1']) and !isset($_POST['Go2']) and isset($_POST['JustSelectedACustomer']) and empty($_POST['Patient'])) {
 	/*Need to figure out the number of the form variable that the user clicked on */
-	for ($i = 0; $i < count($_POST); $i++) { //loop through the returned customers
+	for ($i = 0;$i < count($_POST);$i++) { //loop through the returned customers
 		if (isset($_POST['SubmitCustomerSelection' . $i])) {
 			break;
 		}
@@ -49,7 +49,7 @@ if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previ
 }
 
 if (isset($_GET['Delete'])) {
-	$_SESSION['Items']['Value'] -= $_SESSION['Items'][$_GET['Delete']]['Quantity'] * $_SESSION['Items'][$_GET['Delete']]['Price'];
+	$_SESSION['Items']['Value']-= $_SESSION['Items'][$_GET['Delete']]['Quantity'] * $_SESSION['Items'][$_GET['Delete']]['Price'];
 	unset($_SESSION['Items'][$_GET['Delete']]);
 	$_POST['Patient'] = $_GET['Patient'] . ' ' . $_GET['Branch'];
 	$Patient[0] = $_GET['Patient'];
@@ -79,12 +79,12 @@ if (isset($_POST['ChangeItem']) and $_POST['StockID'] != '') {
 	$_SESSION['Items'][$_SESSION['Items']['Lines']]['StockID'] = $_POST['StockID'];
 	$_SESSION['Items'][$_SESSION['Items']['Lines']]['Quantity'] = 1;
 	$_SESSION['Items'][$_SESSION['Items']['Lines']]['Price'] = $Price;
-	$_SESSION['Items']['Value'] += $Price;
+	$_SESSION['Items']['Value']+= $Price;
 	$_SESSION['Items']['Lines']++;
 } else if (isset($_POST['ChangeItem']) and $_POST['StockID'] == '' and isset($_POST['AddDoctorFee'])) {
-	$_SESSION['Items']['Value'] += filter_number_format($_POST['DoctorsFee']);
+	$_SESSION['Items']['Value']+= filter_number_format($_POST['DoctorsFee']);
 } else if (isset($_POST['ChangeItem']) and $_POST['StockID'] == '' and !isset($_POST['AddDoctorFee'])) {
-	$_SESSION['Items']['Value'] -= filter_number_format($_POST['DoctorsFee']);
+	$_SESSION['Items']['Value']-= filter_number_format($_POST['DoctorsFee']);
 }
 
 if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
@@ -118,7 +118,7 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 		DB_Txn_Begin();
 		/*First off create the sales order
 		 * entries in the database
-		 */
+		*/
 		$OrderNo = GetNextTransNo(30);
 
 		$HeaderSQL = "INSERT INTO salesorders (	orderno,
@@ -149,7 +149,7 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 		$ErrMsg = _('The order cannot be added because');
 		$InsertQryResult = DB_query($HeaderSQL, $ErrMsg);
 
-		for ($i = 0; $i < $_SESSION['Items']['Lines']; $i++) {
+		for ($i = 0;$i < $_SESSION['Items']['Lines'];$i++) {
 			if (isset($_SESSION['Items'][$i]['StockID'])) {
 				$LineItemSQL = "INSERT INTO salesorderdetails (orderlineno,
 																orderno,
@@ -181,7 +181,6 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 								WHERE nr='" . $_SESSION['Items'][$i]['Care2x'] . "'";
 				$DbgMsg = _('Trouble inserting a line of a sales order. The SQL that failed was');
 				$UpdateCare2xResult = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-				}
 			}
 		}
 
@@ -271,7 +270,7 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 		$DbgMsg = _('The following SQL to insert the debtor transaction record was used');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-		for ($i = 0; $i < $_SESSION['Items']['Lines']; $i++) {
+		for ($i = 0;$i < $_SESSION['Items']['Lines'];$i++) {
 			if (isset($_SESSION['Items'][$i]['StockID'])) {
 				$SQL = "INSERT INTO stockmoves (
 						stockid,
@@ -461,14 +460,14 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 			DB_Txn_Commit();
 			unset($_SESSION['Items']);
 			echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/PDFPatientReceipt.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">';
-			include('includes/footer.inc');
+			include ('includes/footer.inc');
 			$_SESSION['DefaultCashPoint'] = $_POST['BankAccount'];
 			exit;
 		} elseif (isset($_POST['SubmitInsurance'])) {
 			prnMsg(_('The transaction has been successfully posted'), 'success');
 			echo '<br /><div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '?New=True">' . _('Enter another receipt') . '</a>';
 			DB_Txn_Commit();
-			include('includes/footer.inc');
+			include ('includes/footer.inc');
 			exit;
 		}
 	}
@@ -478,7 +477,7 @@ if (!isset($Patient)) {
 	ShowCustomerSearchFields($RootPath, $_SESSION['Theme']);
 }
 
-if (isset($_POST['Search']) OR isset($_POST['Go1']) OR isset($_POST['Go2']) OR isset($_POST['Next']) OR isset($_POST['Previous'])) {
+if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
 
 	$PatientResult = CustomerSearchSQL();
 	if (DB_num_rows($PatientResult) == 0) {
@@ -486,7 +485,6 @@ if (isset($_POST['Search']) OR isset($_POST['Go1']) OR isset($_POST['Go2']) OR i
 		echo '<br />';
 	}
 } //end of if search
-
 if (isset($PatientResult)) {
 	ShowReturnedCustomers($PatientResult);
 }
@@ -539,7 +537,7 @@ if (isset($Patient)) {
 		$_SESSION['Items'][$i]['Quantity'] = $MyCare2xRow['total_dosage'];
 		$_SESSION['Items'][$i]['Price'] = $Price;
 		$_SESSION['Items'][$i]['Care2x'] = $MyCare2xRow['nr'];
-		$_SESSION['Items']['Value'] += $Price * $MyCare2xRow['total_dosage'];
+		$_SESSION['Items']['Value']+= $Price * $MyCare2xRow['total_dosage'];
 		$_SESSION['Items']['Lines']++;
 		$i++;
 	}
@@ -574,7 +572,7 @@ if (isset($Patient)) {
 		$StockID = '';
 	}
 
-	for ($i = 0; $i < $_SESSION['Items']['Lines']; $i++) {
+	for ($i = 0;$i < $_SESSION['Items']['Lines'];$i++) {
 		if (isset($_SESSION['Items'][$i])) {
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['stockid'] == $_SESSION['Items'][$i]['StockID']) {
@@ -661,7 +659,7 @@ if (isset($Patient)) {
 		if (DB_num_rows($AccountsResults) == 0) {
 			echo '</select></td></tr></table><p>';
 			prnMsg(_('Bank Accounts have not yet been defined. You must first') . ' <a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a> ' . _('and general ledger accounts to be affected'), 'warn');
-			include('includes/footer.inc');
+			include ('includes/footer.inc');
 			exit;
 		} else {
 			echo '<option value=""></option>';
@@ -692,5 +690,5 @@ if (isset($Patient)) {
 	echo '</form>';
 }
 
-include('includes/footer.inc');
+include ('includes/footer.inc');
 ?>
