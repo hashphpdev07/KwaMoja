@@ -276,7 +276,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FromCriteria']) and mb_strlen($_
 		prnMsg(_('There are no results so the PDF is empty'));
 		include ('includes/footer.php');
 	} else {
-		$PDF->OutputD($_SESSION['DatabaseName'] . '_AggedSupliers_' . date('Y-m-d') . '.pdf');
+		$PDF->OutputD($_SESSION['DatabaseName'] . '_AgedSupliers_' . date('Y-m-d') . '.pdf');
 	}
 	$PDF->__destruct();
 } else {
