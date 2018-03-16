@@ -80,6 +80,8 @@ echo '<div class="centre">
 		<input type="submit" name="reset" value="' . _('Reset') . '" />
 	</div></form>';
 
+$TargetPeriod = GetPeriod(date($_SESSION['DefaultDateFormat']));
+
 if (isset($Result) and DB_num_rows($Result) > 0) {
 
 	echo '<form action="GLAccountInquiry.php" method="post">';
@@ -96,13 +98,13 @@ if (isset($Result) and DB_num_rows($Result) > 0) {
 
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr>
+		echo '<tr class="striped_row">
 				<td>' . htmlspecialchars($MyRow['accountcode'], ENT_QUOTES, 'UTF-8', false) . '</td>
 				<td>' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</td>
 				<td>' . $MyRow['group_'] . '</td>
 				<td>' . $MyRow['pl'] . '</td>
 				<td>
-					<a href="' . $RootPath . '/GLAccountInquiry.php?Account=' . urlencode($MyRow['accountcode']) . '&amp;Show=Yes">
+					<a href="' . $RootPath . '/GLAccountInquiry.php?Account=' . urlencode($MyRow['accountcode']) . '&amp;Show=Yes&FromPeriod=', $TargetPeriod, '&ToPeriod=', $TargetPeriod, '">
 						<img width="24px" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Inquiry') . '" alt="' . _('Inquiry') . '" />
 					</a>
 				</td>
