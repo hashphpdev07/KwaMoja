@@ -36,6 +36,14 @@ if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
 }
 
+if (isset($_GET['Show'])) {
+	$_POST['Show'] = $_GET['Show'];
+}
+
+if (!isset($_POST['tag'])) {
+	$_POST['tag'] = 0;
+}
+
 if (isset($SelectedAccount) and $_SESSION['CompanyRecord']['retainedearnings'] == $SelectedAccount) {
 	prnMsg(_('The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details'), 'info');
 	echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select another account'), '</a>';
@@ -55,6 +63,8 @@ if (isset($SelectedPeriod)) { //If it was called from itself (in other words an 
 } elseif (isset($_GET['FromPeriod'])) { //If it was called from the Trial Balance/P&L or Balance sheet
 	$FirstPeriodSelected = $_GET['FromPeriod'];
 	$LastPeriodSelected = $_GET['ToPeriod'];
+	$SelectedPeriod[0] = $_GET['FromPeriod'];
+	$SelectedPeriod[1] = $_GET['ToPeriod'];
 } else { // Otherwise just highlight the current period
 	$FirstPeriodSelected = GetPeriod(date($_SESSION['DefaultDateFormat']));
 	$LastPeriodSelected = GetPeriod(date($_SESSION['DefaultDateFormat']));
