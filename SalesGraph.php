@@ -218,12 +218,13 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	$SelectClause = '';
 	$WhereClause = '';
 	$GraphTitle = '';
+
 	if ($_POST['GraphValue'] == 'Net') {
 		$GraphTitle = _('Sales Value');
-		$SelectClause = 'amt';
+		$SelectClause = 'amt - disc';
 	} elseif ($_POST['GraphValue'] == 'GP') {
 		$GraphTitle = _('Gross Profit');
-		$SelectClause = '(amt - cost)';
+		$SelectClause = '(amt - disc - cost)';
 	} else {
 		$GraphTitle = _('Unit Sales');
 		$SelectClause = 'qty';
