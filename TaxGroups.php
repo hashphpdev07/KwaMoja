@@ -189,7 +189,7 @@ if (!isset($SelectedGroup)) {
 				</thead>';
 
 		echo '<tbody>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
@@ -289,7 +289,7 @@ if (isset($SelectedGroup)) {
 						<th>' . _('Tax on Prior Taxes') . '</th>
 					</tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		for ($i = 1;$i < count($TaxAuthRow) + 1;$i++) {
 
@@ -354,7 +354,7 @@ if (isset($SelectedGroup)) {
 	}
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($AvailRow = DB_fetch_array($Result)) {
 		$TaxAuthUsedPointer = array_search($AvailRow['taxid'], $TaxAuthsUsed);
 

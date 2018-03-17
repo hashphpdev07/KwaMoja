@@ -645,7 +645,7 @@ if (isset($_POST['Search'])) {
 				</thead>';
 
 		$i = 0;
-		$k = 0; //row colour counter
+
 		$PartsDisplayed = 0;
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {

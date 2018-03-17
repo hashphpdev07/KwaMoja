@@ -1,15 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Employee Tax Status Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 ?>
 <a href="prlUserSettings.php">Back to User Settings
     </a>
 	<?php
-
 echo "<table WIDTH=30% BORDER=2></tr>";
 echo '<tr><td WIDTH=100%>';
 echo '<a href="' . $RootPath . '/prlTaxStatus.php?SelectedAccountr=">' . _('Add tax status records') . '</a><br />';
@@ -24,8 +22,6 @@ if (isset($_GET['TaxStatusID'])) {
 	unset($TaxStatusID);
 }
 
-
-
 if (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
 	$SQL = "DELETE FROM prltaxstatus WHERE taxstatusid " . LIKE . "'" . DB_escape_string($TaxStatusID) . "'";
@@ -38,6 +34,7 @@ if (isset($_GET['delete'])) {
 	unset($_GET['delete']);
 	unset($_POST['TaxStatusID']);
 	//unset ($_POST['EmployeeID']);
+	
 }
 
 if (!isset($TaxStatusID)) {
@@ -59,8 +56,6 @@ if (!isset($TaxStatusID)) {
 		<th>" . _('Tax Status Description ') . "</td>
 	</tr>";
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
@@ -77,13 +72,12 @@ if (!isset($TaxStatusID)) {
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
-
 	//END WHILE LIST LOOP
+	
 } //END IF selected="selected" ACCOUNT
 
 
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

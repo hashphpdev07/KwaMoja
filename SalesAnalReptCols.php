@@ -248,7 +248,7 @@ if (DB_num_rows($Result) != 0) {
 			<th>' . _('Operator') . '</th>
 			<th>' . _('Budget') . '<br />' . _('Or Actual') . '</th>
 		</tr>';
-	$k = 0; //row colour counter
+
 	do {
 		if ($MyRow[11] == 1) {
 			$BudOrAct = _('Actual');

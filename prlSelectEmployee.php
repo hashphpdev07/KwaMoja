@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Emloyee Master Record Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<div class="toplink"><a href="' . $RootPath . '/prlEmployeeMaster.php">' . _('Create a New Employee Record') . '</a></div>';
 
@@ -15,10 +14,7 @@ if (isset($_GET['EmployeeID'])) {
 	$EmployeeID = $_POST['EmployeeID'];
 }
 
-$PayTypes = array(
-	_('Salary'),
-	_('Hourly')
-);
+$PayTypes = array(_('Salary'), _('Hourly'));
 
 if (!isset($EmployeeID)) {
 	$SQL = "SELECT prlemployeemaster.employeeid,
@@ -55,7 +51,6 @@ if (!isset($EmployeeID)) {
 					</tr>
 				</thead>';
 
-		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
@@ -73,9 +68,9 @@ if (!isset($EmployeeID)) {
 		echo '</tbody>';
 		echo '</table>';
 	} else {
-		prnMsg( _('No employees have been created. Please create an employee first'), 'info');
+		prnMsg(_('No employees have been created. Please create an employee first'), 'info');
 	}
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

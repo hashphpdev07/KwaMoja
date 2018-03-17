@@ -220,7 +220,6 @@ if (!isset($SelectedManufacturer)) {
 				<th>' . _('Brands Image') . '</th>
 			</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/BRAND-' . $MyRow['manufacturers_id'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);

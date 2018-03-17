@@ -1297,21 +1297,21 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 			<fieldhelp>', _('Select one or more tags from the list. Use the CTL button to select multiple tags'), '</fieldhelp>
 		</field>';
 	// End select Tag
-	echo '</fieldset>';
 	echo '<div class="centre">
 			<input type="submit" name="Process" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 		</div>';
+	echo '</fieldset>';
 
 	if (sizeOf($_SESSION['PaymentDetail' . $Identifier]->GLItems) > 0) {
 		echo '<table>
-			<tr>
-				<th>', _('Cheque No'), '</th>
-				<th>', _('Amount'), ' (', $_SESSION['PaymentDetail' . $Identifier]->Currency, ')</th>
-				<th>', _('GL Account'), '</th>
-				<th>', _('Narrative'), '</th>
-				<th>', _('Tag'), '</th>
-			</tr>';
+				<tr>
+					<th>', _('Cheque No'), '</th>
+					<th>', _('Amount'), ' (', $_SESSION['PaymentDetail' . $Identifier]->Currency, ')</th>
+					<th>', _('GL Account'), '</th>
+					<th>', _('Narrative'), '</th>
+					<th>', _('Tag'), '</th>
+				</tr>';
 
 		$PaymentTotal = 0;
 		foreach ($_SESSION['PaymentDetail' . $Identifier]->GLItems as $PaymentItem) {
@@ -1328,7 +1328,7 @@ if ($_SESSION['CompanyRecord']['gllink_creditors'] == 1 and $_SESSION['PaymentDe
 				}
 				$TagDescription.= $Tag . ' - ' . $TagName . '<br />';
 			}
-			echo '<tr>
+			echo '<tr class="striped_row">
 					<td valign="top">', $PaymentItem->Cheque, '</td>
 					<td valign="top" class="number">', locale_number_format($PaymentItem->Amount, $_SESSION['PaymentDetail' . $Identifier]->CurrDecimalPlaces), '</td>
 					<td valign="top">', $PaymentItem->GLCode, ' - ', $PaymentItem->GLActName, '</td>

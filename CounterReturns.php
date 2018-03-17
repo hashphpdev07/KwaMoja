@@ -681,7 +681,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	$TaxTotals = array();
 	$TaxGLCodes = array();
 	$TaxTotal = 0;
-	$k = 0; //row colour counter
+
 	foreach ($_SESSION['Items' . $Identifier]->LineItems as $ReturnItemLine) {
 
 		$SubTotal = $ReturnItemLine->Quantity * $ReturnItemLine->Price * (1 - $ReturnItemLine->DiscountPercent);
@@ -1759,7 +1759,7 @@ if (!isset($_POST['ProcessReturn'])) {
 							<th>', _('Quantity'), '</th>
 						</tr>
 					</thead>';
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SearchResult)) {
 

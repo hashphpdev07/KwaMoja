@@ -307,7 +307,6 @@ if (!isset($SelectedCurrency)) {
 		</thead>
 		<tbody>';
 
-	$k = 0; //row colour counter
 	/*Get published currency rates from Eurpoean Central Bank */
 	if ($_SESSION['UpdateCurrencyRatesDaily'] != '0') {
 		$CurrencyRatesArray = GetECBCurrencyRates();

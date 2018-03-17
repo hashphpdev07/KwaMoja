@@ -100,7 +100,7 @@ if ($Its_A_KitSet_Assembly_Or_Dummy == True) {
 		</tr>';
 }
 echo '</thead>';
-$k = 0; //row colour counter
+
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($LocStockResult)) {
 
@@ -324,7 +324,6 @@ if ($DebtorNo) {
 					</tr>
 				</thead>';
 
-		$k = 0; //row colour counter
 		echo '<tbody>';
 		foreach ($PriceHistory as $PreviousPrice) {
 			printf('<tr class="striped_row">

@@ -7,7 +7,7 @@ $BookMark = 'WWW_Access'; // Anchor's id in the manual's html document.
 include ('includes/header.php');
 
 echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/group_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 if (isset($_GET['SelectedRole'])) {
@@ -131,19 +131,18 @@ if (!isset($SelectedRole)) {
 
 	echo '<table>
 			<tr>
-				<th>' . _('Role') . '</th>
+				<th>', _('Role'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		/*The SecurityHeadings array is defined in config.php */
 
-		printf('<tr class="striped_row">
-				<td>%s</td>
-				<td><a href="%s&amp;SelectedRole=%s">' . _('Edit') . '</a></td>
-				<td><a href="%s&amp;SelectedRole=%s&amp;delete=1&amp;SecRoleName=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this role?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['secrolename'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['secroleid'], urlencode($MyRow['secrolename']));
+		echo '<tr class="striped_row">
+				<td>', $MyRow['secrolename'], '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?&amp;SelectedRole=', urlencode($MyRow['secroleid']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?&amp;SelectedRole=', urlencode($MyRow['secroleid']), '&amp;delete=1&amp;SecRoleName=', urlencode($MyRow['secrolename']), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this role?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table>';
@@ -151,7 +150,9 @@ if (!isset($SelectedRole)) {
 
 
 if (isset($SelectedRole)) {
-	echo '<br /><div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Roles') . '</a></div>';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review Existing Roles'), '</a>
+		</div>';
 }
 
 if (isset($SelectedRole)) {
@@ -169,25 +170,25 @@ if (isset($SelectedRole)) {
 		$_POST['SecRoleName'] = $MyRow['secrolename'];
 	}
 }
-echo '<br />';
-echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 if (isset($_POST['SelectedRole'])) {
-	echo '<input type="hidden" name="SelectedRole" value="' . $_POST['SelectedRole'] . '" />';
+	echo '<input type="hidden" name="SelectedRole" value="', $_POST['SelectedRole'], '" />';
 }
-echo '<table>';
+echo '<fieldset>';
 if (!isset($_POST['SecRoleName'])) {
 	$_POST['SecRoleName'] = '';
 }
-echo '<tr>
-		<td>' . _('Role') . ':</td>
-		<td><input type="text" name="SecRoleName" size="40" required="required" maxlength="40" value="' . $_POST['SecRoleName'] . '" /></td>
-	</tr>';
-echo '</table>
+echo '<field>
+		<label for="SecRoleName">', _('Role'), ':</label>
+		<input type="text" name="SecRoleName" size="40" required="required" maxlength="40" value="', $_POST['SecRoleName'], '" />
+	</field>';
+echo '</fieldset>
 	<div class="centre">
-		<input type="submit" name="submit" value="' . _('Enter Role') . '" />
+		<input type="submit" name="submit" value="', _('Enter Role'), '" />
 	</div>
-	</form>';
+</form>';
 
 if (isset($SelectedRole)) {
 	$SQL = "SELECT tokenid,
@@ -207,33 +208,28 @@ if (isset($SelectedRole)) {
 		++$i;
 	}
 
-	echo '<br /><table><tr>';
+	echo '<table><tr>';
 
 	if (DB_num_rows($Result) > 0) {
-		echo '<th colspan="3"><div class="centre">' . _('Assigned Security Tokens') . '</div></th>';
-		echo '<th colspan="3"><div class="centre">' . _('Available Security Tokens') . '</div></th>';
+		echo '<th colspan="3"><div class="centre">', _('Assigned Security Tokens'), '</div></th>';
+		echo '<th colspan="3"><div class="centre">', _('Available Security Tokens'), '</div></th>';
 	}
 	echo '</tr>';
 
-	$k = 0; //row colour counter
 	while ($AvailRow = DB_fetch_array($Result)) {
 
 		if (in_array($AvailRow['tokenid'], $TokensUsed)) {
-			printf('<tr class="striped_row">
-					<td>%s</td>
-					<td>%s</td>
-					<td><a href="%sSelectedRole=%s&amp;remove=1&amp;PageToken=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this security token from this role?') . '\', \'Confirm Delete\', this);">' . _('Remove') . '</a></td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
+			echo '<tr class="striped_row">
+					<td>', $AvailRow['tokenid'], '</td>
+					<td>', $AvailRow['tokenname'], '</td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedRole=', urlencode($SelectedRole), '&amp;remove=1&amp;PageToken=', urlencode($AvailRow['tokenid']), '">', _('Remove'), '</a></td>
+					<td colspan="3">&nbsp;</td>';
 		} else {
-			printf('<tr class="striped_row">
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>&nbsp;</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td><a href="%sSelectedRole=%s&amp;add=1&amp;PageToken=%s">' . _('Add') . '</a></td>', $AvailRow['tokenid'], $AvailRow['tokenname'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $SelectedRole, $AvailRow['tokenid']);
+			echo '<tr class="striped_row">
+					<td colspan="3">&nbsp;</td>
+					<td>', $AvailRow['tokenid'], '</td>
+					<td>', $AvailRow['tokenname'], '</td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedRole=', urlencode($SelectedRole), '&amp;add=1&amp;PageToken=', urlencode($AvailRow['tokenid']), '">', _('Add'), '</a></td>';
 		}
 		echo '</tr>';
 	}

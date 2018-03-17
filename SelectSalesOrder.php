@@ -672,7 +672,6 @@ if (!isset($StockId)) {
 					</tr>
 				</thead>';
 
-		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
@@ -954,7 +953,7 @@ if (!isset($StockId)) {
 			}
 			echo '</thead>';
 			$i = 0;
-			$k = 0; //row colour counter
+
 			$OrdersTotal = 0;
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SalesOrdersResult)) {

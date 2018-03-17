@@ -305,7 +305,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 			</thead>';
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		switch ($MyRow['pandl']) {

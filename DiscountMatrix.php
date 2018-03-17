@@ -140,7 +140,6 @@ echo '<tr>
 		<th>' . _('Discount Rate') . ' %' . '</th>
 	</tr>';
 
-$k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($Result)) {
 	$DeleteURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;SalesType=' . urlencode($MyRow['salestype']) . '&amp;DiscountCategory=' . urlencode($MyRow['discountcategory']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']);
 

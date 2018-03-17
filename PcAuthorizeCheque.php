@@ -100,7 +100,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			<th>', _('Authorised'), '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
 	$CurrDecimalPlaces = 2;
 	while ($MyRow = DB_fetch_array($Result)) {
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];

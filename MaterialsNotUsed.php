@@ -1,12 +1,11 @@
 <?php
-
 /* Session started in session.php for password checking and authorisation level check
  * config.php is in turn included in session.php
- */
+*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Raw Materials Not Used Anywhere');
-include('includes/header.php');
+include ('includes/header.php');
 
 $SQL = "SELECT stockmaster.stockid,
 				stockmaster.description,
@@ -41,7 +40,7 @@ if (DB_num_rows($Result) != 0) {
 				<th>' . _('Std Cost') . '</th>
 				<th>' . _('Value') . '</th>
 			</tr>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 		$CodeLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['stockid']) . '">' . $MyRow['stockid'] . '</a>';
 		$LineValue = $MyRow['qoh'] * $MyRow['stdcost'];
@@ -69,5 +68,5 @@ if (DB_num_rows($Result) != 0) {
 	prnMsg(_('There are no raw materials to show in this inquiry'), 'info');
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -107,7 +107,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 				<th>' . _('Currency') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($TransResult)) {
 
 		printf('<tr class="striped_row">

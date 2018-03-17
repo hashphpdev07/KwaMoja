@@ -185,7 +185,7 @@ if (!(isset($_POST['Search']))) {
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfDays']) . '" name="NumberOfDays" />
 			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfTopItems']) . '" name="NumberOfTopItems" />';
-	$k = 0; //row colour counter
+
 	$i = 1;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {

@@ -171,7 +171,6 @@ if (isset($_POST['process']) or isset($SelectedTab)) {
 				<th>', _('Description'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr class="striped_row">
 				<td>', $MyRow['codeexpense'], '</td>

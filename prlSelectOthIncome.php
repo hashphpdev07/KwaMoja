@@ -51,7 +51,6 @@ if (!isset($Counter)) {
 		<th>" . _('Amount') . "</td>
 	</tr>";
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {

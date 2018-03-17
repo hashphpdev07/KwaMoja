@@ -419,7 +419,6 @@ if (count($_SESSION['Shipment']->LineItems) > 0) {
 
 	/*show the line items on the shipment with the quantity being received for modification */
 
-	$k = 0; //row colour counter
 	foreach ($_SESSION['Shipment']->LineItems as $LnItm) {
 
 		echo '<tr class="striped_row">
@@ -483,7 +482,6 @@ if (DB_num_rows($Result) > 0) {
 
 	/*show the PO items that could be added to the shipment */
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">

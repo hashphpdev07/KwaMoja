@@ -131,7 +131,7 @@ if (isset($KeyValue)) {
 
 	if ($TotResults > 0) {
 		echo '<br/>' . _('Historical Test Results for') . ' ' . $KeyValue . '-' . $MyRowSelection['description'] . '<br/>';
-		$k = 0; //row colour counter
+
 		echo '<div style="overflow:auto; width:98%; padding:10px; "><table width="90%" style="overflow: scroll;"><tr><th style="white-space:nowrap; text-align:right">' . _('Sample ID:') . '<br>' . _('Lot/Serial:') . '<br>' . _('Identifier:') . '<br>' . _('Sample Date:') . '</th>';
 		foreach ($SamplesArray as $SampleKey => $SampleValue) {
 			echo '<th>' . $SampleKey . '<br>' . $SampleValue['lotkey'] . '<br>' . $SampleValue['identifier'] . '<br>' . ConvertSQLDate($SampleValue['sampledate']) . '</th>';

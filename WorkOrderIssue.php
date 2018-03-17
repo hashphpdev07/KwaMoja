@@ -12,11 +12,13 @@ if (isset($_GET['StockID'])) {
 }
 
 echo '<div class="toplink">
-		<a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Back to Work Orders') . '</a>
-		<a href="' . $RootPath . '/WorkOrderCosting.php?WO=' . urlencode($_POST['WO']) . '">' . _('Back to Costing') . '</a>
+		<a href="', $RootPath, '/SelectWorkOrder.php">', _('Back to Work Orders'), '</a>
+		<a href="', $RootPath, '/WorkOrderCosting.php?WO=', urlencode($_POST['WO']), '">', _('Back to Costing'), '</a>
 	</div>';
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/group_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
@@ -931,7 +933,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 						<th>' . _('Description') . '</th>
 						<th>' . _('Units') . '</th>
 					</tr>';
-			$k = 0; //row colour counter
+
 			$ItemCodes = array();
 
 			while ($MyRow = DB_fetch_array($SearchResult)) {

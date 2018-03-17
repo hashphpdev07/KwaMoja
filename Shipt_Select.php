@@ -196,7 +196,6 @@ if (isset($StockItemsResult)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		/*
@@ -280,7 +279,7 @@ else {
 					</tr>
 				</thead>';
 		echo '<tbody>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($ShipmentsResult)) {
 
 			$URL_Modify_Shipment = $RootPath . '/Shipments.php?SelectedShipment=' . $MyRow['shiptref'];

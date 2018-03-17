@@ -294,7 +294,6 @@ if (isset($_POST['PrintPDF']) or isset($_POST['Review'])) {
 		$TotalPartCost = 0;
 		$Total_ExtCost = 0;
 		$j = 1; //row ID
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			list($lastdate, $lastsupplier, $preferredsupplier, $conversionfactor) = GetPartInfo($MyRow['part']);

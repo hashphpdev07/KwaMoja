@@ -285,7 +285,6 @@ echo '<table>
 			<th>' . _('Sell Price') . '</th>
 		</tr>';
 
-$k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($Result)) {
 	$DeleteURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;SalesType=' . urlencode($MyRow['salestype']) . '&amp;StockID=' . urlencode($MyRow['stockid']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']) . '&amp;Price=' . urlencode($MyRow['price']) . '&amp;currabrev=' . urlencode($MyRow['currabrev']) . '&amp;StartDate=' . urlencode($MyRow['startdate']) . '&amp;EndDate=' . urlencode($MyRow['enddate']);
 	$EditURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Edit=yes&amp;StockID=' . urlencode($MyRow['stockid']) . '&amp;TypeAbbrev=' . urlencode($MyRow['salestype']) . '&amp;CurrAbrev=' . urlencode($MyRow['currabrev']) . '&amp;Price=' . urlencode(locale_number_format($MyRow['price'], $MyRow['currdecimalplaces'])) . '&amp;StartDate=' . urlencode($MyRow['startdate']) . '&amp;EndDate=' . urlencode($MyRow['enddate']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']);

@@ -603,7 +603,7 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 		$j = 1;
-		$k = 0; //row colour counter
+
 		$ItemCodes = array();
 		for ($i = 1;$i <= $NumberOfOutputs;$i++) {
 			$ItemCodes[] = $_POST['OutputItem' . $i];

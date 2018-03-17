@@ -175,7 +175,6 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 			<th>' . _('Update') . '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['canupd'] == 1) {

@@ -200,7 +200,6 @@ if (isset($_POST['process']) or isset($SelectedRole)) {
 					<th>', _('Description'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">

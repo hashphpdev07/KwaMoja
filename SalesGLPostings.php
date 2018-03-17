@@ -129,7 +129,6 @@ if (!isset($SelectedSalesPostingID)) {
 				<th>' . _('Discount Account') . '</th>
 			</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_row($Result)) {
 
 			echo '<tr class="striped_row">

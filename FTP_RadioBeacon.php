@@ -54,7 +54,6 @@ echo '<table cellpadding="2" width="100%">
 			<th">' . _('Last Send') . '</td>
 		</tr>';
 
-$k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
 	$FTPDispatchNote = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?OrderNo=' . $MyRow['orderno'];

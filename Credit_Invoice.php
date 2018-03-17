@@ -309,7 +309,6 @@ $TaxTotal = 0;
 
 /*show the line items on the invoice with the quantity to credit and price being available for modification */
 
-$k = 0; //row colour counter
 $j = 0; //row counter
 foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LnItm) {
 	$LineTotal = $LnItm->QtyDispatched * $LnItm->Price * (1 - $LnItm->DiscountPercent);

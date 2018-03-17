@@ -253,7 +253,6 @@ if (isset($SupplierID) and $Edit == false) {
 					<th>' . _('Effective To') . '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['categoryid'] == '') {
 				$ItemDescription = $MyRow['stockid'] . ' - ' . $MyRow['description'];

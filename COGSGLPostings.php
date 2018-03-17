@@ -92,7 +92,7 @@ if (!isset($SelectedCOGSPostingID)) {
 					<th>', _('Sales Type'), '</th>
 					<th>', _('COGS Account'), '</th>
 				</tr>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">

@@ -259,7 +259,6 @@ if (DB_num_rows($Result) == 0) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
@@ -504,7 +503,6 @@ if ($Result) {
 					</tr>
 				</thead>';
 
-		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
 

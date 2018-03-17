@@ -137,7 +137,6 @@ if (!isset($SelectedReason)) {
 			<th>' . _('Disallow Invoices') . '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['dissallowinvoices'] == 0) {

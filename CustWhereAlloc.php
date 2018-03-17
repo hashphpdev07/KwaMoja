@@ -159,7 +159,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 						<th>', _('Alloc'), '</th>
 					</tr>';
 
-				$k = 0; //row colour counter
 				$AllocsTotal = 0;
 
 				while ($MyRow = DB_fetch_array($TransResult)) {

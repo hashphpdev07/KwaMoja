@@ -167,7 +167,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 						<th>' . _('List Price') . '</th>
 					<tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="update">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" value="' . $_POST['StockCat'] . '" name="StockCat" />

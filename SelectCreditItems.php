@@ -611,7 +611,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 		$TaxTotals = array();
 		$TaxGLCodes = array();
 
-		$k = 0; //row colour counter
 		foreach ($_SESSION['CreditItems' . $Identifier]->LineItems as $LineItem) {
 
 			$LineTotal = round($LineItem->Quantity * $LineItem->Price * (1 - $LineItem->DiscountPercent), $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
@@ -927,7 +926,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 					</tr>';
 
 			$j = 1;
-			$k = 0; //row colour counter
+
 			while ($MyRow = DB_fetch_array($SearchResult)) {
 
 				$SupportedImgExt = array('png', 'jpg', 'jpeg');

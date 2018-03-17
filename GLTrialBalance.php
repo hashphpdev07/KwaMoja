@@ -465,7 +465,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			</tr>
 		</thead>';
 
-	$k = 0; //row colour counter
 	$ActGrp = '';
 	$ParentGroups = array();
 	$Level = 1; //level of nested sub-groups

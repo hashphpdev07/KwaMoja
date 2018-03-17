@@ -259,7 +259,6 @@ if (isset($_POST['Process']) or isset($SelectedTabs)) {
 					<th>', _('Receipt'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			$SQLdes = "SELECT description
 					FROM pcexpenses

@@ -160,7 +160,7 @@ if (count($_SESSION['Project' . $Identifier]->ProjectBOM) > 0) {
 		</tr>';
 
 	$_SESSION['Project' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Project' . $Identifier]->ProjectBOM as $ProjectComponent) {
 
@@ -266,7 +266,6 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	$i = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {

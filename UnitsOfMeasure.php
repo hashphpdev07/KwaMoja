@@ -160,7 +160,7 @@ if (!isset($SelectedMeasureID)) {
 				</tr>
 			</thead>';
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		echo '<tr class="striped_row">

@@ -569,7 +569,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						</tr>';
 	}
 
-	$k = 0; //row colour counter
 	$Section = '';
 	$SectionPrdActual = 0;
 	$SectionPrdLY = 0;

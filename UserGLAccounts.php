@@ -158,7 +158,6 @@ if (!isset($SelectedUser)) { // If is NOT set a user for GL accounts.
 	$Result = DB_query($SQL);
 	echo '<tbody>';
 	if (DB_num_rows($Result) > 0) { // If the user has access permissions to one or more GL accounts:
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
 					<td class="text">', $MyRow['accountcode'], '</td>

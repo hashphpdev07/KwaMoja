@@ -175,7 +175,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 					</thead>';
 
 			echo '<tbody>';
-			$k = 0; //row colour counter
+
 			while ($MyRow = DB_fetch_array($StockItemsResult)) {
 				echo '<tr class="striped_row">
 						<td><input type="submit" name="SelectedStockItem" value="' . $MyRow['stockid'] . '"</td>
@@ -274,7 +274,7 @@ if (isset($_GET['CopyResults']) or isset($_POST['CopyResults'])) {
 						</thead>';
 
 				echo '<tbody>';
-				$k = 0; //row colour counter
+
 				while ($MyRow = DB_fetch_array($SampleResult)) {
 					$ModifySampleID = $RootPath . '/TestPlanResults.php?SelectedSampleID=' . $MyRow['sampleid'];
 					$Copy = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedSampleID=' . $SelectedSampleID . '&CopyToSampleID=' . $MyRow['sampleid'] . '">' . _('Copy to This Sample') . '</a>';
@@ -774,7 +774,7 @@ echo '<table cellpadding="2" width="90%">
 		</thead>';
 
 $i = 0;
-$k = 0; //row colour counter
+
 $TechSql = "SELECT userid,
 					realname
 				FROM www_users

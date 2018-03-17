@@ -144,7 +144,6 @@ if (!isset($SelectedType)) {
 				<th>' . _('Physical Items?') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['physicalitem'] == 0) {

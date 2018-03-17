@@ -135,7 +135,6 @@ if (!isset($OthIncID)) {
 		<th>" . _('Taxable Percentange') . "</td>
 	</tr>";
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {

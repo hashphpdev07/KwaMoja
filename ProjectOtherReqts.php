@@ -95,7 +95,7 @@ if (count($_SESSION['Project' . $Identifier]->ProjectReqts) > 0) {
 		</tr>';
 
 	$_SESSION['Project' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Project' . $Identifier]->ProjectReqts as $ProjectReqtID => $ProjectComponent) {
 

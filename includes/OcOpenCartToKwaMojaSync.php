@@ -1,8 +1,6 @@
 <?php
-
 function OpenCartToKwaMojaSync($ShowMessages, $oc_tableprefix, $EmailText = '') {
 	//	$begintime = time_start();
-
 	// connect to opencart DB
 	DB_Txn_Begin();
 
@@ -26,6 +24,7 @@ function OpenCartToKwaMojaSync($ShowMessages, $oc_tableprefix, $EmailText = '') 
 	DB_Txn_Commit();
 	if ($ShowMessages) {
 		//		time_finish($begintime);
+		
 	}
 	return $EmailText;
 }
@@ -110,7 +109,6 @@ function SyncOrderInformation($ShowMessages, $LastTimeRun, $oc_tableprefix, $Ema
 		$UpdateErrMsg = _('The SQL to update OpenCart orders in KwaMoja failed');
 		$InsertErrMsg = _('The SQL to insert OpenCart orders in KwaMoja failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($ShowMessages) {
 				echo '<table>';
@@ -465,7 +463,6 @@ function SyncPaypalPaymentInformation($ShowMessages, $LastTimeRun, $oc_tablepref
 		$UpdateErrMsg = _('The SQL to update OpenCart Paypal payments in KwaMoja failed');
 		$InsertErrMsg = _('The SQL to insert OpenCart Paypal payments in KwaMoja failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* FIELD MATCHING */
@@ -490,7 +487,6 @@ function SyncPaypalPaymentInformation($ShowMessages, $LastTimeRun, $oc_tablepref
 			$PayPalResponseArray = GetPaypalReturnDataInArray($MyRow['debug_data']);
 			$Commission = urldecode($PayPalResponseArray['PAYMENTINFO_0_FEEAMT']);
 
-
 			if (($MyRow['paypalcurrency'] == $MyRow['ordercurrency']) and ($MyRow['pending_reason'] == 'None')) {
 				// order currency and Paypal currency are the same
 				// AND has been paid OK
@@ -505,6 +501,7 @@ function SyncPaypalPaymentInformation($ShowMessages, $LastTimeRun, $oc_tablepref
 				InsertCustomerReceipt($CustomerCode, $AmountPaid, $CurrencyPayment, $Rate, $GLAccount, $PaymentSystem, $TransactionID, $OrderNo, $PeriodNo);
 				TransactionCommissionGL($CustomerCode, $GLAccount, $GLCommissionAccount, $Commission, $CurrencyPayment, $Rate, $PaymentSystem, $TransactionID, $PeriodNo);
 				ChangeOrderQuotationFlag($OrderNo, 0); // it has been paid, so we consider it a firm order
+				
 			}
 
 			if ($ShowMessages) {

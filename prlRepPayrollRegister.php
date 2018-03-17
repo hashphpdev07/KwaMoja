@@ -52,7 +52,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 	$Tax = 0;
 	$Net = 0;
 	include ('includes/PDFPayRegisterPageHeader.php');
-	$k = 0; //row colour counter
+
 	$SQL = "SELECT employeeid,basicpay,othincome,absent,late,otpay,grosspay,loandeduction,sss,hdmf,grosspay,tax,netpay
 			FROM prlpayrolltrans
 			WHERE prlpayrolltrans.payrollid='" . $_POST['PayrollID'] . "'";

@@ -143,7 +143,6 @@ if (isset($_POST['ShowUsage'])) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	$TotalUsage = 0;
 	$PeriodsCounter = 0;
 	echo '<tbody>';

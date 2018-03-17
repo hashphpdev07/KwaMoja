@@ -277,7 +277,7 @@ if (isset($_POST['Show'])) {
 	$PeriodNo = - 9999;
 	$ShowIntegrityReport = False;
 	$j = 1;
-	$k = 0; //row colour counter
+
 	$IntegrityReport = '';
 	while ($MyRow = DB_fetch_array($TransResult)) {
 		if ($MyRow['periodno'] != $PeriodNo) {

@@ -357,7 +357,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 		</tr>';
 
 	$j = 1;
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($TabDetail)) {
 		$SQLdes = "SELECT description
 				FROM pcexpenses

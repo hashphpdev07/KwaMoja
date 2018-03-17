@@ -82,7 +82,7 @@ if (isset($_POST['ShowReport'])) {
 					<th colspan="2">' . _('Line Total') . '</th>
 				</tr>
 			</thead>';
-	$k = 0; //row colour counter
+
 	$TotalHomeCurrency = 0;
 	while ($GRNs = DB_fetch_array($GRNsResult)) {
 		$QtyPending = $GRNs['qtyrecd'] - $GRNs['quantityinv'];

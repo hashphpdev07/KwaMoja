@@ -6,7 +6,9 @@ $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'SystemParameters';
 include ('includes/header.php');
 include ('includes/CountriesArray.php');
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '</p>';
+echo '<div class="page_title_text">
+		<img src="', $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '
+	</div>';
 
 echo '<style>
 form label {

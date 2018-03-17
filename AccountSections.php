@@ -156,7 +156,7 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 			</thead>';
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr class="striped_row">
 				<td class="number">', $MyRow['sectionid'], '</td>

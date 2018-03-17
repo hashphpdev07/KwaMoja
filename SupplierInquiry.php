@@ -208,7 +208,7 @@ echo '<table width="90%">
 		</thead>';
 
 $j = 1;
-$k = 0; //row colour counter
+
 $AuthSQL = "SELECT offhold
 				FROM purchorderauth
 				WHERE userid='" . $_SESSION['UserID'] . "'

@@ -630,7 +630,7 @@ if (count($_SESSION['SPL' . $Identifier]->LineItems) > 0) {
 		</tr>';
 
 	$_SESSION['SPL' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	foreach ($_SESSION['SPL' . $Identifier]->LineItems as $SPLLine) {
 
 		$LineTotal = $SPLLine->Quantity * $SPLLine->Price;

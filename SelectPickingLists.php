@@ -267,7 +267,7 @@ if (isset($StockItemsResult)) {
 					<th class="SortedColumn">', _('Units'), '</th>
 				</tr>
 			</thead>';
-	$k = 0; //row colour counter
+
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		echo '<tr class="striped_row">
@@ -415,7 +415,7 @@ else {
 						<th class="SortedColumn">', _('Initiated By'), '</th>
 					</tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PickReqResult)) {
 			$ModifyPickList = $RootPath . '/PickingLists.php?Prid=' . $MyRow['prid'];

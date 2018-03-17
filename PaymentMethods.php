@@ -193,7 +193,7 @@ if (!isset($SelectedPaymentID)) {
 			</thead>';
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">

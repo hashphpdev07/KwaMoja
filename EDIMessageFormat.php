@@ -128,7 +128,6 @@ if (!isset($SelectedMessageLine)) {
 				<th>' . _('Format String') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		printf('<tr class="striped_row">
