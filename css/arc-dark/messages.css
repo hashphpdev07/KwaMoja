@@ -1,5 +1,5 @@
 div.Message {
-    border-radius:10px;
+    border-radius:30px;
     padding:10px 10px 10px 36px;
     margin:5px;
 	opacity: 1;
@@ -8,18 +8,22 @@ div.Message {
 div.Message.error {
 	background:#ffecec url('images/message-error.png') no-repeat 10px 50%;
     border:1px solid #f5aca6;
+    color:#FF0000;
 }
 div.Message.success {
 	background:#e9ffd9 url('images/message-success.png') no-repeat 10px 50%;
     border:1px solid #a6ca8a;
+    color:#008000;
 }
 div.Message.info {
 	background:#e3f7fc url('images/message-info.png') no-repeat 10px 50%;
     border:1px solid #8ed9f6;
+    color:#0000FF;
 }
 div.Message.warn {
 	background:#fff8c4 url('images/message-warning.png') no-repeat 10px 50%;
     border:1px solid #f2c779;
+    color:#800080;
 }
 .MessageCloseButton {
     margin-left: 15px;
