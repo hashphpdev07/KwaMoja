@@ -561,13 +561,31 @@ function GetInventoryLanguage() {
 /* Used in report scripts for standard periods.
  * Parameter $Choice is from the 'Period' combobox value.
 */
-function ReportPeriodList($Choice) {
-	$Periods = array(_('This Month'), _('This Quarter'), _('This Year'), _('Last Month'), _('Last Quarter'), _('Last Year'), _('Next Month'), _('Next Quarter'), _('Next Year'));
+function ReportPeriodList($Choice, $Options = array('t', 'l', 'n')) {
+	$Periods = array();
+
+	if (in_array('t', $Options)) {
+		$Periods[] = _('This Month');
+		$Periods[] = _('This Year');
+		$Periods[] = _('This Financial Year');
+	}
+
+	if (in_array('l', $Options)) {
+		$Periods[] = _('Last Month');
+		$Periods[] = _('Last Year');
+		$Periods[] = _('Last Financial Year');
+	}
+
+	if (in_array('n', $Options)) {
+		$Periods[] = _('Next Month');
+		$Periods[] = _('Next Year');
+		$Periods[] = _('Next Financial Year');
+	}
 
 	$Count = count($Periods);
 
 	$HTML = '<select name="Period">
-			<option value=""></option>';
+				<option value=""></option>';
 
 	for ($x = 0;$x < $Count;++$x) {
 		if (!empty($Choice) && $Choice == $Periods[$x]) {
@@ -600,8 +618,8 @@ function ReportPeriod($PeriodName, $FromOrTo) {
 	switch ($PeriodName) {
 
 		case _('This Month'):
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, $ThisMonth, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, $ThisMonth, $TotalDays, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $ThisMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $ThisMonth, $TotalDays, $ThisYear));
 		break;
 		case _('This Quarter'):
 			$QtrStrt = intval(($ThisMonth - 1) / 3) * 3 + 1;
@@ -609,16 +627,24 @@ function ReportPeriod($PeriodName, $FromOrTo) {
 			if ($QtrEnd == 4 or $QtrEnd == 6 or $QtrEnd == 9 or $QtrEnd == 11) {
 				$TotalDays = 30;
 			}
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
 		break;
 		case _('This Year'):
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, 1, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, 12, 31, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 1, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 12, 31, $ThisYear));
+		break;
+		case _('This Financial Year'):
+			if (Date('m') > $_SESSION['YearEnd']) {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y')));
+			} else {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 1));
+			}
+			$DateEnd = date($_SESSION['DefaultDateFormat'], YearEndDate($_SESSION['YearEnd'], 0));
 		break;
 		case _('Last Month'):
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, $LastMonth, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, $LastMonth, $TotalDaysLast, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, $TotalDaysLast, $ThisYear));
 		break;
 		case _('Last Quarter'):
 			$QtrStrt = intval(($ThisMonth - 1) / 3) * 3 - 2;
@@ -626,16 +652,24 @@ function ReportPeriod($PeriodName, $FromOrTo) {
 			if ($QtrEnd == 4 or $QtrEnd == 6 or $QtrEnd == 9 or $QtrEnd == 11) {
 				$TotalDays = 30;
 			}
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
 		break;
 		case _('Last Year'):
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, 1, 1, $LastYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, 12, 31, $LastYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 1, 1, $LastYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 12, 31, $LastYear));
+		break;
+		case _('Last Financial Year'):
+			if (Date('m') > $_SESSION['YearEnd']) {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 1));
+			} else {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 2));
+			}
+			$DateEnd = date($_SESSION['DefaultDateFormat'], YearEndDate($_SESSION['YearEnd'], -1));
 		break;
 		case _('Next Month'):
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, $NextMonth, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, $NextMonth, $TotalDaysNext, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $NextMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $NextMonth, $TotalDaysNext, $ThisYear));
 		break;
 		case _('Next Quarter'):
 			$QtrStrt = intval(($ThisMonth - 1) / 3) * 3 + 4;
@@ -643,19 +677,31 @@ function ReportPeriod($PeriodName, $FromOrTo) {
 			if ($QtrEnd == 4 or $QtrEnd == 6 or $QtrEnd == 9 or $QtrEnd == 11) {
 				$TotalDays = 30;
 			}
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
 		break;
 		case _('Next Year'):
-			$DateStart = date('Y-m-d', mktime(0, 0, 0, 1, 1, $NextYear));
-			$DateEnd = date('Y-m-d', mktime(0, 0, 0, 12, 31, $NextYear));
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 1, 1, $NextYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 12, 31, $NextYear));
+		break;
+		case _('Next Financial Year'):
+			if (Date('m') > $_SESSION['YearEnd']) {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') + 1));
+			} else {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y')));
+			}
+			$DateEnd = date($_SESSION['DefaultDateFormat'], YearEndDate($_SESSION['YearEnd'], 1));
+		break;
+		default:
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, $TotalDaysLast, $ThisYear));
 		break;
 	}
 
 	if ($FromOrTo == 'From') {
-		$Period = GetPeriod(ConvertSQLDate($DateStart));
+		$Period = GetPeriod($DateStart);
 	} else {
-		$Period = GetPeriod(ConvertSQLDate($DateEnd));
+		$Period = GetPeriod($DateEnd);
 	}
 
 	return $Period;
