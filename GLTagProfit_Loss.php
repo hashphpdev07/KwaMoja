@@ -10,15 +10,20 @@ if (isset($_POST['FromPeriod']) and ($_POST['FromPeriod'] > $_POST['ToPeriod']))
 	$_POST['SelectADifferentPeriod'] = 'Select A Different Period';
 }
 
+if (isset($_POST['Period']) and $_POST['Period'] != '') {
+	$_POST['FromPeriod'] = ReportPeriod($_POST['Period'], 'From');
+	$_POST['ToPeriod'] = ReportPeriod($_POST['Period'], 'To');
+}
+
 if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POST['SelectADifferentPeriod'])) {
 
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TagReports';
 	include ('includes/header.php');
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<p class="page_title_text" >
-			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
 		</p>';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
@@ -32,10 +37,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$Period = GetPeriod($FromDate);
 
 	/*Show a form to allow input of criteria for profit and loss to show */
-	echo '<table summary="' . _('Input Criteria for Report') . '">
-			<tr>
-				<td>' . _('Select Period From') . ':</td>
-				<td><select name="FromPeriod">';
+	echo '<fieldset>
+			<legend>', _('Input Criteria for Report'), '</legend>
+				<field>
+					<label for="FromPeriod">', _('Select Period From'), ':</label>
+					<select name="FromPeriod" autofocus="autofocus">';
 
 	$SQL = "SELECT periodno,
 					lastdate_in_period
@@ -46,21 +52,22 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	while ($MyRow = DB_fetch_array($Periods)) {
 		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] != '') {
 			if ($_POST['FromPeriod'] == $MyRow['periodno']) {
-				echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
-				echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			}
 		} else {
 			if ($MyRow['lastdate_in_period'] == $DefaultFromDate) {
-				echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
-				echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			}
 		}
 	}
 
-	echo '</select></td>
-		</tr>';
+	echo '</select>
+		<fieldhelp>', _('Select the starting period for this report'), '</fieldhelp>
+	</field>';
 	if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
 		$LastDate = date('Y-m-d', mktime(0, 0, 0, Date('m') + 1, 0, Date('Y')));
 		$SQL = "SELECT periodno FROM periods where lastdate_in_period = '" . $LastDate . "'";
@@ -72,8 +79,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$DefaultToPeriod = $_POST['ToPeriod'];
 	}
 
-	echo '<tr>
-			<td>' . _('Select Period To') . ':</td>
+	echo '<field>
+			<label for="ToPeriod">', _('Select Period To'), ':</label>
 			<td><select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
@@ -81,16 +88,31 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	while ($MyRow = DB_fetch_array($Periods)) {
 
 		if ($MyRow['periodno'] == $DefaultToPeriod) {
-			echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+			echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		} else {
-			echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+			echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		}
 	}
-	echo '</select></td></tr>';
+	echo '</select>
+		<fieldhelp>', _('Select the end period for this report'), '</fieldhelp>
+	</field>';
+
+	echo '<h3>', _('OR'), '</h3>';
+
+	if (!isset($_POST['Period'])) {
+		$_POST['Period'] = '';
+	}
+
+	echo '<field>
+			<label for="Period">', _('Select Period'), ':</label>
+			', ReportPeriodList($_POST['Period'], array('l', 't')), '
+			<fieldhelp>', _('Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above.'), '</fieldhelp>
+		</field>';
+
 	//Select the tag
-	echo '<tr>
-			<td>' . _('Select tag') . '</td>
-			<td><select name="tag">';
+	echo '<field>
+			<label for="tag">', _('Select tag'), '</label>
+			<select name="tag">';
 
 	$SQL = "SELECT tagref,
 				tagdescription
@@ -98,31 +120,31 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				ORDER BY tagref";
 
 	$Result = DB_query($SQL);
-	echo '<option value="0">0 - ' . _('None') . '</option>';
+	echo '<option value="0">0 - ', _('None'), '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['tag']) and $_POST['tag'] == $MyRow['tagref']) {
-			echo '<option selected="selected" value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
+			echo '<option selected="selected" value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
 		} else {
-			echo '<option value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
+			echo '<option value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
 		}
 	}
-	echo '</select></td></tr>';
+	echo '</select>
+		<fieldhelp>', _('Select tag to be used for this report'), '</fieldhelp>
+	</field>';
 	// End select tag
-	echo '<tr>
-			<td>' . _('Detail Or Summary') . ':</td>
-			<td><select name="Detail">
-				<option selected="selected" value="Summary">' . _('Summary') . '</option>
-				<option selected="selected" value="Detailed">' . _('All Accounts') . '</option>
-				</select>
-			</td>
-		</tr>
-		</table>
-		<br />
-		<div class="centre">
-			<input type="submit" name="ShowPL" value="' . _('Show Statement of Income and Expenditure') . '" />
-			<br />
-			<br />
-			<input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '" />
+	echo '<field>
+			<label for="Detail">', _('Detail Or Summary'), ':</label>
+			<select name="Detail">
+				<option selected="selected" value="Summary">', _('Summary'), '</option>
+				<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
+			</select>
+			<fieldhelp>', _('Show a summary report, or report on all accounts.'), '</fieldhelp>
+		</field>
+	</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="ShowPL" value="', _('Show Statement of Income and Expenditure'), '" />
+			<input type="submit" name="PrintPDF" value="', _('PrintPDF'), '" />
 		</div>';
 
 	/*Now do the posting while the user is thinking about the period to select */
@@ -652,7 +674,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				$GrpPrdActual[$Level] = 0;
 				$ParentGroups[$Level] = '';
 			}
-			++$j;
 		}
 
 		if ($MyRow['sectioninaccounts'] != $Section) {
@@ -715,7 +736,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td></td>
 							<td class="number"><i>%s</i></td>
 							</tr><tr><td colspan="6"> </td></tr>', locale_number_format($PrdGPPercent, 1) . '%');
-					++$j;
 				}
 			}
 			$SectionPrdActual = 0;
@@ -727,7 +747,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td colspan="6"><h2><b>%s</b></h2></td>
 						</tr>', $Sections[$MyRow['sectioninaccounts']]);
 			}
-			++$j;
 
 		}
 
@@ -781,7 +800,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']));
 			}
 
-			++$j;
 		}
 	}
 	//end of loop
@@ -846,7 +864,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			$GrpPrdActual[$Level] = 0;
 			$ParentGroups[$Level] = '';
 		}
-		++$j;
 	}
 
 	if ($MyRow['sectioninaccounts'] != $Section) {
@@ -903,7 +920,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					<td></td>
 				</tr>';
 
-			++$j;
 		}
 
 		$SectionPrdActual = 0;
@@ -915,7 +931,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					<td colspan="6"><h2><b>' . $Sections[$MyRow['sectioninaccounts']] . '</b></h2></td>
 				</tr>';
 		}
-		++$j;
 
 	}
 
