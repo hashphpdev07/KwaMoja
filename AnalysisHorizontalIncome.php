@@ -24,6 +24,11 @@ if (isset($_POST['FromPeriod']) and ($_POST['FromPeriod'] > $_POST['ToPeriod']))
 
 include ('includes/header.php');
 
+if (isset($_POST['Period']) and $_POST['Period'] != '') {
+	$_POST['FromPeriod'] = ReportPeriod($_POST['Period'], 'From');
+	$_POST['ToPeriod'] = ReportPeriod($_POST['Period'], 'To');
+}
+
 if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POST['SelectADifferentPeriod'])) {
 
 	echo '<p class="page_title_text">
@@ -104,6 +109,18 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	echo '</select>
 		<fieldhelp>', _('Select the last period in the report'), '</fieldhelp>
 	</field>';
+
+	if (!isset($_POST['Period'])) {
+		$_POST['Period'] = '';
+	}
+
+	echo '<h3>', _('OR'), '</h3>';
+
+	echo '<field>
+			<label for="Period">', _('Select Period'), ':</label>
+			', ReportPeriodList($_POST['Period'], array('l', 't')), '
+			<fieldhelp>', _('Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above.'), '</fieldhelp>
+		</field>';
 
 	echo '<field>
 			<label for="Detail">', _('Detail or summary'), ':</label>
