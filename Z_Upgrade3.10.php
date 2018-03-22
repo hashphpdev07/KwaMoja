@@ -1,14 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Upgrade to version 3.10.5');
-include('includes/header.php');
-
+include ('includes/header.php');
 
 prnMsg(_('This script will perform any modifications to the database since v 3.10 required to allow the additional functionality in version 3.10 scripts'), 'info');
 
 if (!isset($_POST['DoUpgrade'])) {
-	echo '<br /><form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<br /><form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="centre"><input type="submit" name=DoUpgrade value="' . _('Perform Upgrade') . '" /></div>';
 	echo '</form>';
@@ -80,5 +78,5 @@ if ($_POST['DoUpgrade'] == _('Perform Upgrade')) {
 	echo '</table>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

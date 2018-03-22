@@ -6,7 +6,9 @@ $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'SystemParameters';
 include ('includes/header.php');
 include ('includes/CountriesArray.php');
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '</p>';
+echo '<div class="page_title_text">
+		<img src="', $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '
+	</div>';
 
 echo '<style>
 form label {
@@ -413,7 +415,7 @@ if (isset($_POST['submit'])) {
 }
 /* end of if submit */
 
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<fieldset style="width:66%">

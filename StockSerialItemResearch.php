@@ -1,9 +1,9 @@
 <?php
 /* $Id$*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Serial Item Research');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . $Title . '</b>
@@ -18,7 +18,7 @@ if (isset($_POST['serialno'])) {
 	$SerialNo = '';
 }
 
-echo '<form id="SerialNoResearch" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form id="SerialNoResearch" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo _('Serial Number') . ': <input id="serialno" type="text" name="serialno" size="21" required="required" maxlength="20" value="' . $SerialNo . '" /> &nbsp;<input type="submit" name="submit" value="' . _('Search') . '" />
@@ -62,7 +62,7 @@ if ($SerialNo != '') {
 					on stockmoves.loccode = locations.loccode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE stockserialitems.serialno " . LIKE . " '" . $SerialNo . "'
 				ORDER BY stkmoveno";
@@ -103,7 +103,7 @@ if ($SerialNo != '') {
 		} //END WHILE LIST LOOP
 		echo '</table>';
 	} // ELSE THERE WHERE ROWS
+	
 } //END OF POST IS SET
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

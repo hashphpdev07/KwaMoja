@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $FontSize = 8;
 
@@ -18,7 +17,7 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$TaxAuthDescription = DB_fetch_row($Result);
 	$TaxAuthorityName = $TaxAuthDescription[0];
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Tax Report') . ': ' . $TaxAuthorityName);
 	$PDF->addInfo('Subject', $_POST['NoOfPeriods'] . ' ' . _('months to') . ' ' . $PeriodEnd);
 
@@ -49,16 +48,15 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 				ORDER BY debtortrans.id";
 
 	$DebtorTransResult = DB_query($SQL, '', '', false, false); //don't trap errors in DB_query
-
 	if (DB_error_no() != 0) {
 		$Title = _('Taxation Reporting Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The accounts receivable transaction details could not be retrieved because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -67,12 +65,12 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$SalesTax = 0;
 	if ($_POST['DetailOrSummary'] == 'Detail') {
 		$FontSize = 10;
-		include('includes/PDFTaxPageHeader.php');
+		include ('includes/PDFTaxPageHeader.php');
 		PageHeaderDetail();
 
-		$YPos -= $FontSize; // Jumps additional line.
+		$YPos-= $FontSize; // Jumps additional line.
 		$PDF->addText($Left_Margin, $YPos, $FontSize, _('Tax On Sales'));
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 
 		$FontSize = 8;
 		while ($DebtorTransRow = DB_fetch_array($DebtorTransResult)) {
@@ -83,38 +81,40 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 			$LeftOvers = $PDF->addTextWrap(380, $YPos - $FontSize, 60, $FontSize, $DebtorTransRow['branchcode'], 'left'); // RChacon: This data or debtor.reference ?
 			$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, locale_number_format($DebtorTransRow['netamount'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 			$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format($DebtorTransRow['tax'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-			$YPos -= $FontSize; // End-of-line line-feed.
+			$YPos-= $FontSize; // End-of-line line-feed.
 			if ($YPos < $Bottom_Margin + $FontSize) {
-				include('includes/PDFTaxPageHeader.php');
+				include ('includes/PDFTaxPageHeader.php');
 				PageHeaderDetail();
 			}
 			$SalesCount++; // Counts sales transactions.
-			$SalesNet += $DebtorTransRow['netamount']; // Accumulates sales net.
-			$SalesTax += $DebtorTransRow['tax']; // Accumulates sales tax.
+			$SalesNet+= $DebtorTransRow['netamount']; // Accumulates sales net.
+			$SalesTax+= $DebtorTransRow['tax']; // Accumulates sales tax.
+			
 		}
 		/*end listing while loop */
 
 		// Prints out the sales totals:
 		$FontSize = 10;
 		if ($YPos < $Bottom_Margin + $FontSize * 4) {
-			include('includes/PDFTaxPageHeader.php');
+			include ('includes/PDFTaxPageHeader.php');
 			PageHeaderDetail();
 		}
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 		$PDF->line(306, $YPos - $FontSize / 2, $Page_Width - $Right_Margin, $YPos - $FontSize / 2);
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 		$PDF->addText(306, $YPos, $FontSize, _('Total Outputs'));
 		$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, locale_number_format($SalesNet, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format($SalesTax, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 		$PDF->line(306, $YPos - $FontSize / 2, $Page_Width - $Right_Margin, $YPos - $FontSize / 2); // Rule off under output totals.
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 
 	} else {
 		while ($DebtorTransRow = DB_fetch_array($DebtorTransResult)) {
 			$SalesCount++; // Counts sales transactions.
-			$SalesNet += $DebtorTransRow['netamount']; // Accumulates sales net.
-			$SalesTax += $DebtorTransRow['tax']; // Accumulates sales tax.
+			$SalesNet+= $DebtorTransRow['netamount']; // Accumulates sales net.
+			$SalesTax+= $DebtorTransRow['tax']; // Accumulates sales tax.
+			
 		}
 		/*end listing while loop */
 	}
@@ -129,15 +129,15 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 		$Date_Array = explode('-', $PeriodEnd);
 	}
 	if ($_SESSION['DefaultDateFormat'] == 'd/m/Y') {
-		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int) $Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int) $Date_Array[2]));
+		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int)$Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int)$Date_Array[2]));
 	} elseif ($_SESSION['DefaultDateFormat'] == 'm/d/Y') {
-		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int) $Date_Array[0] - $_POST['NoOfPeriods'] + 1, 1, (int) $Date_Array[2]));
+		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int)$Date_Array[0] - $_POST['NoOfPeriods'] + 1, 1, (int)$Date_Array[2]));
 	} elseif ($_SESSION['DefaultDateFormat'] == 'Y/m/d') {
-		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int) $Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int) $Date_Array[0]));
+		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int)$Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int)$Date_Array[0]));
 	} elseif ($_SESSION['DefaultDateFormat'] == 'd.m.Y') {
-		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int) $Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int) $Date_Array[2]));
+		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int)$Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int)$Date_Array[2]));
 	} elseif ($_SESSION['DefaultDateFormat'] == 'Y-m-d') {
-		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int) $Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int) $Date_Array[0]));
+		$StartDateSQL = Date('Y-m-d', mktime(0, 0, 0, (int)$Date_Array[1] - $_POST['NoOfPeriods'] + 1, 1, (int)$Date_Array[0]));
 	}
 
 	$SQL = "SELECT supptrans.trandate,
@@ -163,13 +163,13 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$SuppTransResult = DB_query($SQL, '', '', false, false); //doint trap errors in DB_query
 	if (DB_error_no() != 0) {
 		$Title = _('Taxation Reporting Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo _('The accounts payable transaction details could not be retrieved because') . ' ' . DB_error_msg();
 		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
 		if ($debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -191,16 +191,15 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 							AND pcashdetailtaxes.taxauthid = '" . $_POST['TaxAuthority'] . "'
 						ORDER BY pcashdetailtaxes.counterindex";
 	$PettyCashResult = DB_query($PettyCashSQL, '', '', false, false); //doint trap errors in DB_query
-
 	if (DB_error_no() != 0) {
 		$Title = _('Taxation Reporting Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo _('The petty cash transaction details could not be retrieved because') . ' ' . DB_error_msg();
 		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
 		if ($debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -210,9 +209,9 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	if ($_POST['DetailOrSummary'] == 'Detail') {
 
 		$FontSize = 10;
-		$YPos -= $FontSize; // Jumps additional line.
+		$YPos-= $FontSize; // Jumps additional line.
 		$PDF->addText($Left_Margin, $YPos + $FontSize, $FontSize, _('Tax On Purchases'));
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 
 		// Prints out lines:
 		$FontSize = 8;
@@ -224,29 +223,31 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 			$PDF->addText(380, $YPos, $FontSize, $SuppTransRow['suppreference']); //****************NEW
 			$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, locale_number_format($SuppTransRow['netamount'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 			$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format($SuppTransRow['taxamt'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-			$YPos -= $FontSize; // End-of-line line-feed.
+			$YPos-= $FontSize; // End-of-line line-feed.
 			if ($YPos < $Bottom_Margin + $FontSize) {
-				include('includes/PDFTaxPageHeader.php');
+				include ('includes/PDFTaxPageHeader.php');
 				PageHeaderDetail();
 			}
 			$PurchasesCount++; // Counts purchases transactions.
-			$PurchasesNet += $SuppTransRow['netamount']; // Accumulates purchases net.
-			$PurchasesTax += $SuppTransRow['taxamt']; // Accumulates purchases tax.
+			$PurchasesNet+= $SuppTransRow['netamount']; // Accumulates purchases net.
+			$PurchasesTax+= $SuppTransRow['taxamt']; // Accumulates purchases tax.
+			
 		}
 		/*end listing while loop */
 
 		// Print out the purchases totals:
 		$FontSize = 10;
 		if ($YPos < $Bottom_Margin + $FontSize * 4) {
-			include('includes/PDFTaxPageHeader.php');
+			include ('includes/PDFTaxPageHeader.php');
 			PageHeaderDetail();
 		}
 
 	} else {
 		while ($SuppTransRow = DB_fetch_array($SuppTransResult)) {
 			$PurchasesCount++; // Counts purchases transactions.
-			$PurchasesNet += $SuppTransRow['netamount']; // Accumulates purchases net.
-			$PurchasesTax += $SuppTransRow['taxamt']; // Accumulates purchases tax.
+			$PurchasesNet+= $SuppTransRow['netamount']; // Accumulates purchases net.
+			$PurchasesTax+= $SuppTransRow['taxamt']; // Accumulates purchases tax.
+			
 		}
 		/*end listing while loop */
 	}
@@ -258,10 +259,10 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	if ($_POST['DetailOrSummary'] == 'Detail') {
 
 		$FontSize = 10;
-		$YPos -= $FontSize; // Jumps additional line.
-		$YPos -= $FontSize; // Jumps additional line.
+		$YPos-= $FontSize; // Jumps additional line.
+		$YPos-= $FontSize; // Jumps additional line.
 		$PDF->addText($Left_Margin, $YPos + $FontSize, $FontSize, _('Tax On Petty cash expenses'));
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 
 		// Prints out lines:
 		$FontSize = 8;
@@ -277,33 +278,34 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 			$PDF->addText(380, $YPos, $FontSize, $PettyCashRow['suppreference']); //****************NEW
 			$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, locale_number_format($NetAmount, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 			$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format(-($PettyCashRow['taxamt']), $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-			$YPos -= $FontSize; // End-of-line line-feed.
+			$YPos-= $FontSize; // End-of-line line-feed.
 			if ($YPos < $Bottom_Margin + $FontSize) {
-				include('includes/PDFTaxPageHeader.php');
+				include ('includes/PDFTaxPageHeader.php');
 				PageHeaderDetail();
 			}
 			$PettyCashCount++; // Counts purchases transactions.
-			$PettyCashNet += $NetAmount; // Accumulates purchases net.
-			$PettyCashTax += (-$PettyCashRow['taxamt']); // Accumulates purchases tax.
+			$PettyCashNet+= $NetAmount; // Accumulates purchases net.
+			$PettyCashTax+= (-$PettyCashRow['taxamt']); // Accumulates purchases tax.
+			
 		}
 		/*end listing while loop */
 
 		// Print out the purchases totals:
 		$FontSize = 10;
 		if ($YPos < $Bottom_Margin + $FontSize * 4) {
-			include('includes/PDFTaxPageHeader.php');
+			include ('includes/PDFTaxPageHeader.php');
 			PageHeaderDetail();
 		}
 
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 		$PDF->line(306, $YPos - $FontSize / 2, $Page_Width - $Right_Margin, $YPos - $FontSize / 2);
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 		$PDF->addText(306, $YPos, $FontSize, _('Total Inputs'));
 		$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, locale_number_format(($PurchasesNet + $PettyCashNet), $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 		$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, locale_number_format(($PurchasesTax + $PettyCashTax), $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 		$PDF->line(306, $YPos - $FontSize / 2, $Page_Width - $Right_Margin, $YPos - $FontSize / 2); // Rule off under output totals.
-		$YPos -= $FontSize;
+		$YPos-= $FontSize;
 
 	} else {
 		while ($PettyCashRow = DB_fetch_array($PettyCashResult)) {
@@ -312,30 +314,29 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 			$TotalTaxRow = DB_fetch_array($TotalTaxResult);
 			$NetAmount = ((-$PettyCashRow['gross']) - $TotalTaxRow['totaltax']);
 			$PettyCashCount++; // Counts purchases transactions.
-			$PettyCashNet += $NetAmount; // Accumulates purchases net.
-			$PettyCashTax += (-$PettyCashRow['taxamt']); // Accumulates purchases tax.
+			$PettyCashNet+= $NetAmount; // Accumulates purchases net.
+			$PettyCashTax+= (-$PettyCashRow['taxamt']); // Accumulates purchases tax.
+			
 		}
 		/*end listing while loop */
 	}
 
 	/*OK and now the summary */
 
-	include('includes/PDFTaxPageHeader.php');
+	include ('includes/PDFTaxPageHeader.php');
 	PageHeaderSummary();
 
 	$FontSize = 10;
-	$YPos -= $FontSize; // Jumps additional line.
-
+	$YPos-= $FontSize; // Jumps additional line.
 	// Table headings:
 	$PDF->addText($Left_Margin, $YPos, $FontSize, _('Transactions'));
 	$PDF->addTextWrap(150, $YPos - $FontSize, 100, $FontSize, _('Quantity'), 'right');
 	$PDF->addTextWrap(250, $YPos - $FontSize, 100, $FontSize, _('Net'), 'right');
 	$PDF->addTextWrap(350, $YPos - $FontSize, 100, $FontSize, _('Tax'), 'right');
 	$PDF->addTextWrap(450, $YPos - $FontSize, 100, $FontSize, _('Total'), 'right');
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 
-	$YPos -= $FontSize; // Jumps additional line.
-
+	$YPos-= $FontSize; // Jumps additional line.
 	// Sales totals:
 	$PDF->addText($Left_Margin, $YPos, $FontSize, _('Outputs'));
 	$PDF->addTextWrap(150, $YPos - $FontSize, 100, $FontSize, locale_number_format($SalesCount), 'right');
@@ -343,7 +344,7 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$PDF->addTextWrap(350, $YPos - $FontSize, 100, $FontSize, locale_number_format($SalesTax, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 	$SalesTotal = $SalesNet + $SalesTax;
 	$PDF->addTextWrap(450, $YPos - $FontSize, 100, $FontSize, locale_number_format($SalesTotal, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 
 	// Purchases totals:
 	$PDF->addText($Left_Margin, $YPos, $FontSize, _('Inputs'));
@@ -352,10 +353,10 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$PDF->addTextWrap(350, $YPos - $FontSize, 100, $FontSize, locale_number_format($PurchasesTax + $PettyCashTax, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 	$PurchasesTotal = $PurchasesNet + $PettyCashNet + $PurchasesTax + $PettyCashTax;
 	$PDF->addTextWrap(450, $YPos - $FontSize, 100, $FontSize, locale_number_format($PurchasesTotal, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 
 	$PDF->line(140, $YPos - $FontSize / 2, $Page_Width - $Right_Margin, $YPos - $FontSize / 2); // Rule off under output totals.
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 
 	// Sales minus Purchases:
 	$PDF->addText($Left_Margin, $YPos, $FontSize, _('Difference'));
@@ -364,22 +365,21 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$PDF->addTextWrap(350, $YPos - $FontSize, 100, $FontSize, locale_number_format($SalesTax - $PurchasesTax, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
 	$PurchasesTotal = $PurchasesNet + $PurchasesTax;
 	$PDF->addTextWrap(450, $YPos - $FontSize, 100, $FontSize, locale_number_format($SalesTotal - $PurchasesTotal, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 
-	$YPos -= $FontSize * 4; // Jumps additional lines.
-
+	$YPos-= $FontSize * 4; // Jumps additional lines.
 	$PDF->addText($Left_Margin, $YPos, $FontSize, _('Adjustments for Tax paid to Customs, FBT, entertainments etc must also be entered'));
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - $FontSize, $Page_Width - $Left_Margin - $Right_Margin, $FontSize, _('This information excludes tax on journal entries/payments/receipts. All tax should be entered through AR/AP.'));
-	$YPos -= $FontSize;
+	$YPos-= $FontSize;
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - $FontSize, $Page_Width - $Left_Margin - $Right_Margin, $FontSize, $LeftOvers);
 
 	if ($SalesCount + $PurchasesCount + $PettyCashCount == 0) {
 		$Title = _('Taxation Reporting Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There are no tax entries to list'), 'info');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_Tax_Report_' . Date('Y-m-d'));
@@ -391,10 +391,10 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 	$Title = _('Tax Reporting');
 	$ViewTopic = 'Tax'; // Filename in ManualContents.php's TOC.
 	$BookMark = 'Tax'; // Anchor's id in the manual's html document.
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_delete.png" title="' . _('Tax Report') . '" />' . ' ' . _('Tax Reporting') . '</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 
@@ -462,7 +462,7 @@ if (isset($_POST['TaxAuthority']) and isset($_POST['PrintPDF']) and isset($_POST
 		</div>
 		</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 
@@ -475,10 +475,10 @@ function PageHeaderDetail() {
 	$FontSize = 8;
 	// Draws a rectangle to put the headings in:
 	$PDF->Rectangle($Left_Margin, // Rectangle $XPos.
-		$YPos - $FontSize / 2, // Rectangle $YPos.
-		$Page_Width - $Left_Margin - $Right_Margin, // Rectangle $Width.
-		$FontSize * 2); // Rectangle $Height.
-	$YPos -= $FontSize;
+	$YPos - $FontSize / 2, // Rectangle $YPos.
+	$Page_Width - $Left_Margin - $Right_Margin, // Rectangle $Width.
+	$FontSize * 2); // Rectangle $Height.
+	$YPos-= $FontSize;
 	// Prints the table headings:
 	$PDF->addText($Left_Margin, $YPos, $FontSize, _('Date'));
 	$PDF->addText(82, $YPos, $FontSize, _('Type'));
@@ -487,7 +487,7 @@ function PageHeaderDetail() {
 	$PDF->addText(380, $YPos, $FontSize, _('Reference'));
 	$PDF->addTextWrap(450, $YPos - $FontSize, 60, $FontSize, _('Net'), 'right');
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 60, $YPos - $FontSize, 60, $FontSize, _('Tax'), 'right');
-	$YPos -= $FontSize * 2;
+	$YPos-= $FontSize * 2;
 }
 
 function PageHeaderSummary() {
@@ -499,13 +499,13 @@ function PageHeaderSummary() {
 	$FontSize = 10;
 	// Draws a rectangle to put the headings in:
 	$PDF->Rectangle($Left_Margin, // Rectangle $XPos.
-		$YPos - $FontSize / 2, // Rectangle $YPos.
-		$Page_Width - $Left_Margin - $Right_Margin, // Rectangle $Width.
-		$FontSize * 2); // Rectangle $Height.
-	$YPos -= $FontSize;
+	$YPos - $FontSize / 2, // Rectangle $YPos.
+	$Page_Width - $Left_Margin - $Right_Margin, // Rectangle $Width.
+	$FontSize * 2); // Rectangle $Height.
+	$YPos-= $FontSize;
 	// Prints the table headings:
 	$PDF->addTextWrap($Left_Margin, $YPos - $FontSize, $Page_Width - $Left_Margin - $Right_Margin, $FontSize, _('Summary'), 'center');
-	$YPos -= $FontSize * 2;
+	$YPos-= $FontSize * 2;
 }
 
 ?>

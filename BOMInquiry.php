@@ -14,7 +14,7 @@ if (!isset($_POST['StockID'])) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<div class="page_help_text">
@@ -104,7 +104,7 @@ if (isset($_POST['Search'])) {
 } //end of if search
 if (isset($_POST['Search']) and isset($Result) and !isset($SelectedParent)) {
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -114,7 +114,6 @@ if (isset($_POST['Search']) and isset($Result) and !isset($SelectedParent)) {
 				<th>', _('Units'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	$j = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['mbflag'] == 'A' or $MyRow['mbflag'] == 'K') {

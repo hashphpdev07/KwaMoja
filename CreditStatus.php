@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Credit Status Code Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedReason'])) {
 	$SelectedReason = $_GET['SelectedReason'];
@@ -21,10 +20,9 @@ if (isset($_POST['submit'])) {
 	$i = 1;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs are sensible
-
 	$SQL = "SELECT count(reasoncode)
 			FROM holdreasons WHERE reasoncode='" . $_POST['ReasonCode'] . "'";
 	$Result = DB_query($SQL);
@@ -100,9 +98,7 @@ if (isset($_POST['submit'])) {
 	}
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN DebtorsMaster
-
 	$SQL = "SELECT COUNT(*)
 			FROM debtorsmaster
 			WHERE debtorsmaster.holdreason='" . $SelectedReason . "'";
@@ -114,7 +110,6 @@ if (isset($_POST['submit'])) {
 		echo '<br />' . _('There are') . ' ' . $MyRow[0] . ' ' . _('customer accounts that refer to this credit status code');
 	} else {
 		//only delete if used in neither customer or supplier accounts
-
 		$SQL = "DELETE FROM holdreasons WHERE reasoncode='" . $SelectedReason . "'";
 		$Result = DB_query($SQL);
 		prnMsg(_('This credit status code has been deleted'), 'success');
@@ -142,7 +137,6 @@ if (!isset($SelectedReason)) {
 			<th>' . _('Disallow Invoices') . '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['dissallowinvoices'] == 0) {
@@ -155,29 +149,27 @@ if (!isset($SelectedReason)) {
 				<td>' . $MyRow['reasoncode'] . '</td>
 				<td>' . $MyRow['reasondescription'] . '</td>
 				<td>' . $DissallowText . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this credit status record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this credit status record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table>';
 
 } //end of ifs and buts!
-
 if (isset($SelectedReason)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show Defined Credit Status Codes') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show Defined Credit Status Codes') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedReason) and ($InputError != 1)) {
 		//editing an existing status code
-
 		$SQL = "SELECT reasoncode,
 					reasondescription,
 					dissallowinvoices
@@ -232,5 +224,5 @@ if (!isset($_GET['delete'])) {
 			</div>
 			</form>';
 } //end if record deleted no point displaying form to add record
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

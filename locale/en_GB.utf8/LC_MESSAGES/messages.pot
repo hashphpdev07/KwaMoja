@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-05 22:26+0000\n"
+"POT-Creation-Date: 2018-03-07 07:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:122
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:210
 #: /home/tim/code/KwaMoja/SalesCategories.php:158
-#: /home/tim/code/KwaMoja/SalesTypes.php:129
+#: /home/tim/code/KwaMoja/SalesTypes.php:124
 #: /home/tim/code/KwaMoja/StockCategories.php:297
 #: /home/tim/code/KwaMoja/StockTypes.php:115
 #: /home/tim/code/KwaMoja/SupplierGroups.php:139
@@ -212,7 +212,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesCategoryPeriodInquiry.php:177
 #: /home/tim/code/KwaMoja/SalesGraph.php:358
 #: /home/tim/code/KwaMoja/SalesInquiry.php:690
-#: /home/tim/code/KwaMoja/SecurityTokens.php:111
+#: /home/tim/code/KwaMoja/SecurityTokens.php:108
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:459
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:431
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:1012
@@ -334,8 +334,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesCategories.php:294
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:146
 #: /home/tim/code/KwaMoja/SalesPeople.php:263
-#: /home/tim/code/KwaMoja/SalesTypes.php:186
-#: /home/tim/code/KwaMoja/SecurityTokens.php:159
+#: /home/tim/code/KwaMoja/SalesTypes.php:180
+#: /home/tim/code/KwaMoja/SecurityTokens.php:128
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:683
 #: /home/tim/code/KwaMoja/SelectCustomer.php:740
 #: /home/tim/code/KwaMoja/SelectCustomer.php:755
@@ -549,8 +549,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesCategories.php:293
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:145
 #: /home/tim/code/KwaMoja/SalesPeople.php:262
-#: /home/tim/code/KwaMoja/SalesTypes.php:185
-#: /home/tim/code/KwaMoja/SecurityTokens.php:158
+#: /home/tim/code/KwaMoja/SalesTypes.php:179
+#: /home/tim/code/KwaMoja/SecurityTokens.php:127
 #: /home/tim/code/KwaMoja/SelectCustomer.php:739
 #: /home/tim/code/KwaMoja/SelectCustomer.php:754
 #: /home/tim/code/KwaMoja/SelectCustomer.php:813
@@ -787,8 +787,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesCategories.php:9
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:17
 #: /home/tim/code/KwaMoja/SalesPeople.php:21
-#: /home/tim/code/KwaMoja/SalesTypes.php:157
-#: /home/tim/code/KwaMoja/SalesTypes.php:199
+#: /home/tim/code/KwaMoja/SalesTypes.php:152
+#: /home/tim/code/KwaMoja/SalesTypes.php:193
 #: /home/tim/code/KwaMoja/SearchCustomers.php:41
 #: /home/tim/code/KwaMoja/SelectAsset.php:47
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:10
@@ -998,8 +998,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesPeople.php:170
 #: /home/tim/code/KwaMoja/SalesPeople.php:177
 #: /home/tim/code/KwaMoja/SalesPeople.php:183
-#: /home/tim/code/KwaMoja/SalesTypes.php:113
-#: /home/tim/code/KwaMoja/SalesTypes.php:123
+#: /home/tim/code/KwaMoja/SalesTypes.php:108
+#: /home/tim/code/KwaMoja/SalesTypes.php:118
 #: /home/tim/code/KwaMoja/Shippers.php:70
 #: /home/tim/code/KwaMoja/Shippers.php:81
 #: /home/tim/code/KwaMoja/StockCategories.php:280
@@ -1843,7 +1843,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/QATests.php:63
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:127
 #: /home/tim/code/KwaMoja/SalesPeople.php:103
-#: /home/tim/code/KwaMoja/SalesTypes.php:45
+#: /home/tim/code/KwaMoja/SalesTypes.php:43
 #: /home/tim/code/KwaMoja/SelectQASamples.php:78
 #: /home/tim/code/KwaMoja/StockTypes.php:52
 #: /home/tim/code/KwaMoja/Stocks.php:595
@@ -2474,9 +2474,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:74
 #: /home/tim/code/KwaMoja/ReverseGRN.php:409
 #: /home/tim/code/KwaMoja/SalesCategories.php:513
-#: /home/tim/code/KwaMoja/SecurityTokens.php:120
-#: /home/tim/code/KwaMoja/SecurityTokens.php:130
-#: /home/tim/code/KwaMoja/SecurityTokens.php:146
+#: /home/tim/code/KwaMoja/SecurityTokens.php:115
+#: /home/tim/code/KwaMoja/SecurityTokens.php:157
 #: /home/tim/code/KwaMoja/SelectAsset.php:261
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:412
 #: /home/tim/code/KwaMoja/SelectContract.php:154
@@ -2989,7 +2988,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/StockTransfers.php:208
 #: /home/tim/code/KwaMoja/StockTransfers.php:238
 #: /home/tim/code/KwaMoja/StockTransfers.php:398
-#: /home/tim/code/KwaMoja/StockUsage.php:134
+#: /home/tim/code/KwaMoja/StockUsage.php:133
 #: /home/tim/code/KwaMoja/StockUsageGraph.php:62
 #: /home/tim/code/KwaMoja/Stocks.php:396 /home/tim/code/KwaMoja/Stocks.php:407
 #: /home/tim/code/KwaMoja/Stocks.php:668 /home/tim/code/KwaMoja/Stocks.php:681
@@ -4566,7 +4565,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Shipments.php:484
 #: /home/tim/code/KwaMoja/Shipments.php:486
 #: /home/tim/code/KwaMoja/SpecialOrder.php:632
-#: /home/tim/code/KwaMoja/StockAdjustments.php:482
+#: /home/tim/code/KwaMoja/StockAdjustments.php:474
 #: /home/tim/code/KwaMoja/StockCounts.php:153
 #: /home/tim/code/KwaMoja/StockCounts.php:179
 #: /home/tim/code/KwaMoja/StockLocMovements.php:103
@@ -4703,7 +4702,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ReorderLevel.php:291
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:161
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:354
-#: /home/tim/code/KwaMoja/StockAdjustments.php:481
+#: /home/tim/code/KwaMoja/StockAdjustments.php:473
 #: /home/tim/code/KwaMoja/StockCounts.php:229
 #: /home/tim/code/KwaMoja/StockLocStatus.php:162
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:62
@@ -5006,8 +5005,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SelectProduct.php:606
 #: /home/tim/code/KwaMoja/SelectQASamples.php:278
 #: /home/tim/code/KwaMoja/Shipt_Select.php:178
-#: /home/tim/code/KwaMoja/StockAdjustments.php:148
-#: /home/tim/code/KwaMoja/StockAdjustments.php:502
+#: /home/tim/code/KwaMoja/StockAdjustments.php:146
+#: /home/tim/code/KwaMoja/StockAdjustments.php:494
 #: /home/tim/code/KwaMoja/StockCounts.php:151
 #: /home/tim/code/KwaMoja/StockCounts.php:178
 #: /home/tim/code/KwaMoja/StockCounts.php:228
@@ -5016,7 +5015,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/StockStatus.php:58
 #: /home/tim/code/KwaMoja/StockTransfers.php:54
 #: /home/tim/code/KwaMoja/StockTransfers.php:567
-#: /home/tim/code/KwaMoja/StockUsage.php:57
+#: /home/tim/code/KwaMoja/StockUsage.php:56
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:66
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:633
 #: /home/tim/code/KwaMoja/SupplierTenders.php:391
@@ -5190,7 +5189,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Projects.php:853
 #: /home/tim/code/KwaMoja/Projects.php:888
 #: /home/tim/code/KwaMoja/SpecialOrder.php:725
-#: /home/tim/code/KwaMoja/StockAdjustments.php:523
+#: /home/tim/code/KwaMoja/StockAdjustments.php:515
 msgid "Unit Cost"
 msgstr ""
 
@@ -5663,7 +5662,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcExpensesTypeTab.php:226
 #: /home/tim/code/KwaMoja/PcTabs.php:557
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:223
-#: /home/tim/code/KwaMoja/SalesTypes.php:262
+#: /home/tim/code/KwaMoja/SalesTypes.php:252
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:873
 #: /home/tim/code/KwaMoja/SupplierAllocations.php:470
 #: /home/tim/code/KwaMoja/UserBankAccounts.php:123
@@ -5691,7 +5690,7 @@ msgid "The effective to date field must be a date in the format"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/BOMs.php:580
-#: /home/tim/code/KwaMoja/StockAdjustments.php:177
+#: /home/tim/code/KwaMoja/StockAdjustments.php:175
 #: /home/tim/code/KwaMoja/StockTransfers.php:179
 msgid "The quantity entered must be numeric"
 msgstr ""
@@ -6147,7 +6146,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcExpensesTypeTab.php:225
 #: /home/tim/code/KwaMoja/PcTabs.php:556
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:222
-#: /home/tim/code/KwaMoja/SalesTypes.php:261
+#: /home/tim/code/KwaMoja/SalesTypes.php:251
 #: /home/tim/code/KwaMoja/StockTypes.php:248
 #: /home/tim/code/KwaMoja/UserBankAccounts.php:122
 #: /home/tim/code/KwaMoja/UserBankAccounts.php:213
@@ -7321,7 +7320,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:561
 #: /home/tim/code/KwaMoja/Shipments.php:415
 #: /home/tim/code/KwaMoja/Shipments.php:483
-#: /home/tim/code/KwaMoja/StockUsage.php:52
+#: /home/tim/code/KwaMoja/StockUsage.php:51
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:256
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:213
 #: /home/tim/code/KwaMoja/WorkOrderCosting.php:98
@@ -7847,8 +7846,8 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:257
 #: /home/tim/code/KwaMoja/Locations.php:417
-#: /home/tim/code/KwaMoja/SalesTypes.php:166
-#: /home/tim/code/KwaMoja/SalesTypes.php:217
+#: /home/tim/code/KwaMoja/SalesTypes.php:160
+#: /home/tim/code/KwaMoja/SalesTypes.php:210
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:147
 #: /home/tim/code/KwaMoja/TaxAuthorityRates.php:78
 #: /home/tim/code/KwaMoja/TaxGroups.php:179
@@ -8130,7 +8129,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:136
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:99
 #: /home/tim/code/KwaMoja/SMTPServer.php:155
-#: /home/tim/code/KwaMoja/SecurityTokens.php:124
+#: /home/tim/code/KwaMoja/SecurityTokens.php:165
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:872
 #: /home/tim/code/KwaMoja/SellThroughSupport.php:441
 #: /home/tim/code/KwaMoja/ShopParameters.php:612
@@ -8962,13 +8961,13 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:446
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:467
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:474
-#: /home/tim/code/KwaMoja/StockAdjustments.php:251
-#: /home/tim/code/KwaMoja/StockAdjustments.php:282
-#: /home/tim/code/KwaMoja/StockAdjustments.php:302
-#: /home/tim/code/KwaMoja/StockAdjustments.php:318
-#: /home/tim/code/KwaMoja/StockAdjustments.php:333
-#: /home/tim/code/KwaMoja/StockAdjustments.php:358
-#: /home/tim/code/KwaMoja/StockAdjustments.php:385
+#: /home/tim/code/KwaMoja/StockAdjustments.php:249
+#: /home/tim/code/KwaMoja/StockAdjustments.php:280
+#: /home/tim/code/KwaMoja/StockAdjustments.php:300
+#: /home/tim/code/KwaMoja/StockAdjustments.php:315
+#: /home/tim/code/KwaMoja/StockAdjustments.php:328
+#: /home/tim/code/KwaMoja/StockAdjustments.php:353
+#: /home/tim/code/KwaMoja/StockAdjustments.php:380
 #: /home/tim/code/KwaMoja/StockDispatch.php:266
 #: /home/tim/code/KwaMoja/StockLocTransfer.php:189
 #: /home/tim/code/KwaMoja/StockLocTransfer.php:212
@@ -9299,13 +9298,13 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:446
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:467
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:474
-#: /home/tim/code/KwaMoja/StockAdjustments.php:251
-#: /home/tim/code/KwaMoja/StockAdjustments.php:282
-#: /home/tim/code/KwaMoja/StockAdjustments.php:302
-#: /home/tim/code/KwaMoja/StockAdjustments.php:318
-#: /home/tim/code/KwaMoja/StockAdjustments.php:333
-#: /home/tim/code/KwaMoja/StockAdjustments.php:358
-#: /home/tim/code/KwaMoja/StockAdjustments.php:385
+#: /home/tim/code/KwaMoja/StockAdjustments.php:249
+#: /home/tim/code/KwaMoja/StockAdjustments.php:280
+#: /home/tim/code/KwaMoja/StockAdjustments.php:300
+#: /home/tim/code/KwaMoja/StockAdjustments.php:315
+#: /home/tim/code/KwaMoja/StockAdjustments.php:328
+#: /home/tim/code/KwaMoja/StockAdjustments.php:353
+#: /home/tim/code/KwaMoja/StockAdjustments.php:380
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:117
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:151
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:169
@@ -9761,8 +9760,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:969
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:979
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:1305
-#: /home/tim/code/KwaMoja/StockAdjustments.php:282
-#: /home/tim/code/KwaMoja/StockAdjustments.php:302
+#: /home/tim/code/KwaMoja/StockAdjustments.php:280
+#: /home/tim/code/KwaMoja/StockAdjustments.php:300
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:151
 #: /home/tim/code/KwaMoja/StockTransfers.php:323
 #: /home/tim/code/KwaMoja/StockTransfers.php:481
@@ -9774,8 +9773,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:980
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:1306
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:1546
-#: /home/tim/code/KwaMoja/StockAdjustments.php:283
-#: /home/tim/code/KwaMoja/StockAdjustments.php:303
+#: /home/tim/code/KwaMoja/StockAdjustments.php:281
+#: /home/tim/code/KwaMoja/StockAdjustments.php:301
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:152
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:170
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:317
@@ -9790,7 +9789,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/GoodsReceived.php:662
 #: /home/tim/code/KwaMoja/PickingLists.php:607
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:1320
-#: /home/tim/code/KwaMoja/StockAdjustments.php:318
+#: /home/tim/code/KwaMoja/StockAdjustments.php:315
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:188
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:351
 #: /home/tim/code/KwaMoja/StockTransfers.php:359
@@ -9806,7 +9805,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:995
 #: /home/tim/code/KwaMoja/GoodsReceived.php:663
 #: /home/tim/code/KwaMoja/PickingLists.php:608
-#: /home/tim/code/KwaMoja/StockAdjustments.php:319
+#: /home/tim/code/KwaMoja/StockAdjustments.php:316
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:189
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:352
 #: /home/tim/code/KwaMoja/StockTransfers.php:360
@@ -10130,7 +10129,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesAnalysis_UserDefined.php:44
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1164
 #: /home/tim/code/KwaMoja/StockQties_csv.php:50
-#: /home/tim/code/KwaMoja/StockUsage.php:17
+#: /home/tim/code/KwaMoja/StockUsage.php:16
 #: /home/tim/code/KwaMoja/SupplierCredit.php:204
 #: /home/tim/code/KwaMoja/SupplierCredit.php:215
 #: /home/tim/code/KwaMoja/SupplierCredit.php:226
@@ -10159,7 +10158,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Projects.php:95
 #: /home/tim/code/KwaMoja/SalesAnalysis_UserDefined.php:44
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1164
-#: /home/tim/code/KwaMoja/StockUsage.php:17
+#: /home/tim/code/KwaMoja/StockUsage.php:16
 #: /home/tim/code/KwaMoja/SupplierCredit.php:204
 #: /home/tim/code/KwaMoja/SupplierCredit.php:215
 #: /home/tim/code/KwaMoja/SupplierCredit.php:226
@@ -10619,7 +10618,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:131
 #: /home/tim/code/KwaMoja/ProjectCosting.php:332
 #: /home/tim/code/KwaMoja/ReverseGRN.php:228
-#: /home/tim/code/KwaMoja/StockAdjustments.php:333
+#: /home/tim/code/KwaMoja/StockAdjustments.php:328
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:365
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:415
 #: /home/tim/code/KwaMoja/StockTransfers.php:531
@@ -10762,7 +10761,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Projects.php:88
 #: /home/tim/code/KwaMoja/Projects.php:95
 #: /home/tim/code/KwaMoja/SalesAnalysis_UserDefined.php:44
-#: /home/tim/code/KwaMoja/StockUsage.php:17
+#: /home/tim/code/KwaMoja/StockUsage.php:16
 #: /home/tim/code/KwaMoja/SupplierCredit.php:204
 #: /home/tim/code/KwaMoja/SupplierCredit.php:215
 #: /home/tim/code/KwaMoja/SupplierCredit.php:226
@@ -10787,7 +10786,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/Projects.php:88
 #: /home/tim/code/KwaMoja/Projects.php:95
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1164
-#: /home/tim/code/KwaMoja/StockUsage.php:17
+#: /home/tim/code/KwaMoja/StockUsage.php:16
 #: /home/tim/code/KwaMoja/SupplierCredit.php:204
 #: /home/tim/code/KwaMoja/SupplierCredit.php:215
 #: /home/tim/code/KwaMoja/SupplierCredit.php:226
@@ -11808,7 +11807,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1426
 #: /home/tim/code/KwaMoja/SellThroughSupport.php:251
 #: /home/tim/code/KwaMoja/SellThroughSupport.php:418
-#: /home/tim/code/KwaMoja/StockAdjustments.php:402
+#: /home/tim/code/KwaMoja/StockAdjustments.php:397
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:76
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:164
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:126
@@ -13506,7 +13505,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PurchData.php:733
 #: /home/tim/code/KwaMoja/SellThroughSupport.php:446
 #: /home/tim/code/KwaMoja/Shipments.php:503
-#: /home/tim/code/KwaMoja/StockAdjustments.php:565
+#: /home/tim/code/KwaMoja/StockAdjustments.php:557
 #: /home/tim/code/KwaMoja/TaxGroups.php:395
 #: /home/tim/code/KwaMoja/TestPlanResults.php:480
 #: /home/tim/code/KwaMoja/TestPlanResults.php:545
@@ -13519,7 +13518,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/CustItem.php:443
 #: /home/tim/code/KwaMoja/PurchData.php:738
 #: /home/tim/code/KwaMoja/SelectProduct.php:465
-#: /home/tim/code/KwaMoja/StockAdjustments.php:600
+#: /home/tim/code/KwaMoja/StockAdjustments.php:591
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:299
 #: /home/tim/code/KwaMoja/StockLocStatus.php:123
 #: /home/tim/code/KwaMoja/StockMovements.php:210
@@ -13545,7 +13544,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PurchData.php:740
 #: /home/tim/code/KwaMoja/SelectProduct.php:468
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:5
-#: /home/tim/code/KwaMoja/StockAdjustments.php:603
+#: /home/tim/code/KwaMoja/StockAdjustments.php:594
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:302
 #: /home/tim/code/KwaMoja/StockMovements.php:212
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:109
@@ -13558,7 +13557,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/CustItem.php:446
 #: /home/tim/code/KwaMoja/PurchData.php:741
 #: /home/tim/code/KwaMoja/SelectProduct.php:469
-#: /home/tim/code/KwaMoja/StockAdjustments.php:604
+#: /home/tim/code/KwaMoja/StockAdjustments.php:595
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:303
 #: /home/tim/code/KwaMoja/StockMovements.php:213
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:110
@@ -15307,8 +15306,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:201
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:202
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:232
-#: /home/tim/code/KwaMoja/StockAdjustments.php:365
-#: /home/tim/code/KwaMoja/StockAdjustments.php:392
+#: /home/tim/code/KwaMoja/StockAdjustments.php:360
+#: /home/tim/code/KwaMoja/StockAdjustments.php:387
 #: /home/tim/code/KwaMoja/SupplierCredit.php:723
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1125
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:149
@@ -15560,7 +15559,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcExpenses.php:332
 #: /home/tim/code/KwaMoja/PcTabs.php:520 /home/tim/code/KwaMoja/PcTabs.php:541
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:294
-#: /home/tim/code/KwaMoja/StockAdjustments.php:581
+#: /home/tim/code/KwaMoja/StockAdjustments.php:573
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:278
 #: /home/tim/code/KwaMoja/Suppliers.php:901
 #: /home/tim/code/KwaMoja/Suppliers.php:916
@@ -15803,7 +15802,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:67
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:62
-#: /home/tim/code/KwaMoja/SalesTypes.php:59
+#: /home/tim/code/KwaMoja/SalesTypes.php:56
 msgid " already exist."
 msgstr ""
 
@@ -15820,7 +15819,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcExpensesTypeTab.php:78
 #: /home/tim/code/KwaMoja/PcTabs.php:133
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:73
-#: /home/tim/code/KwaMoja/SalesTypes.php:68
+#: /home/tim/code/KwaMoja/SalesTypes.php:64
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:262
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:425
 #: /home/tim/code/KwaMoja/SpecialOrder.php:466
@@ -15879,7 +15878,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:179
 #: /home/tim/code/KwaMoja/CustomerTypes.php:236
-#: /home/tim/code/KwaMoja/SalesTypes.php:174
+#: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:147
 #: /home/tim/code/KwaMoja/SupplierTypes.php:132
 #: /home/tim/code/KwaMoja/SupplierTypes.php:199
@@ -19667,7 +19666,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/GLAccountReport.php:284
 #: /home/tim/code/KwaMoja/Payments.php:1297
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:292
-#: /home/tim/code/KwaMoja/StockAdjustments.php:572
+#: /home/tim/code/KwaMoja/StockAdjustments.php:564
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:269
 msgid "Select Tag"
 msgstr ""
@@ -21143,7 +21142,6 @@ msgid "No Department"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/GLTags.php:100
-#: /home/tim/code/KwaMoja/SecurityTokens.php:133
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:573
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:575
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:212
@@ -22800,7 +22798,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:97
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:123
-#: /home/tim/code/KwaMoja/StockAdjustments.php:251
+#: /home/tim/code/KwaMoja/StockAdjustments.php:249
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:117
 #: /home/tim/code/KwaMoja/StockTransfers.php:288
 #: /home/tim/code/KwaMoja/StockTransfers.php:447
@@ -22809,7 +22807,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:98
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:124
-#: /home/tim/code/KwaMoja/StockAdjustments.php:252
+#: /home/tim/code/KwaMoja/StockAdjustments.php:250
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:118
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:281
 #: /home/tim/code/KwaMoja/StockTransfers.php:289
@@ -22820,7 +22818,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:111
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:119
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:132
-#: /home/tim/code/KwaMoja/StockAdjustments.php:334
+#: /home/tim/code/KwaMoja/StockAdjustments.php:329
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:366
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:416
 msgid "The following SQL to update the stock record was used"
@@ -22830,8 +22828,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:169
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:138
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:157
-#: /home/tim/code/KwaMoja/StockAdjustments.php:358
-#: /home/tim/code/KwaMoja/StockAdjustments.php:385
+#: /home/tim/code/KwaMoja/StockAdjustments.php:353
+#: /home/tim/code/KwaMoja/StockAdjustments.php:380
 msgid "The general ledger transaction entries could not be added because"
 msgstr ""
 
@@ -22839,8 +22837,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:170
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:139
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:158
-#: /home/tim/code/KwaMoja/StockAdjustments.php:359
-#: /home/tim/code/KwaMoja/StockAdjustments.php:386
+#: /home/tim/code/KwaMoja/StockAdjustments.php:354
+#: /home/tim/code/KwaMoja/StockAdjustments.php:381
 msgid "The following SQL to insert the GL entries was used"
 msgstr ""
 
@@ -22856,19 +22854,19 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:191
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:212
-#: /home/tim/code/KwaMoja/StockAdjustments.php:406
+#: /home/tim/code/KwaMoja/StockAdjustments.php:401
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:419
 #: /home/tim/code/KwaMoja/StockTransfers.php:546
 msgid "for a quantity of"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:195
-#: /home/tim/code/KwaMoja/StockAdjustments.php:410
+#: /home/tim/code/KwaMoja/StockAdjustments.php:405
 msgid "by user"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:195
-#: /home/tim/code/KwaMoja/StockAdjustments.php:410
+#: /home/tim/code/KwaMoja/StockAdjustments.php:405
 #: /home/tim/code/KwaMoja/includes/PDFInventoryValnPageHeader.php:25
 msgid "at"
 msgstr ""
@@ -22925,7 +22923,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/StockLocTransfer.php:264
 #: /home/tim/code/KwaMoja/StockMovements.php:36
 #: /home/tim/code/KwaMoja/StockTransfers.php:592
-#: /home/tim/code/KwaMoja/StockUsage.php:59
+#: /home/tim/code/KwaMoja/StockUsage.php:58
 msgid "From Stock Location"
 msgstr ""
 
@@ -23123,7 +23121,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/ReorderLevel.php:205
 #: /home/tim/code/KwaMoja/StockLocMovements.php:26
 #: /home/tim/code/KwaMoja/StockLocStatus.php:37
-#: /home/tim/code/KwaMoja/StockUsage.php:68
+#: /home/tim/code/KwaMoja/StockUsage.php:67
 #: /home/tim/code/KwaMoja/TopItems.php:31
 msgid "All Locations"
 msgstr ""
@@ -23635,7 +23633,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/JobScheduler.php:105
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:202
 #: /home/tim/code/KwaMoja/SalesCategories.php:535
-#: /home/tim/code/KwaMoja/StockAdjustments.php:564
+#: /home/tim/code/KwaMoja/StockAdjustments.php:556
 #: /home/tim/code/KwaMoja/SupplierTenders.php:315
 #: /home/tim/code/KwaMoja/TaxGroups.php:382
 #: /home/tim/code/KwaMoja/WWW_Access.php:228
@@ -26840,7 +26838,7 @@ msgid "Location Transfers"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:186
-#: /home/tim/code/KwaMoja/StockAdjustments.php:6
+#: /home/tim/code/KwaMoja/StockAdjustments.php:5
 msgid "Stock Adjustments"
 msgstr ""
 
@@ -27674,7 +27672,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SalesInquiry.php:872
 #: /home/tim/code/KwaMoja/SalesInquiry.php:873
 #: /home/tim/code/KwaMoja/SalesInquiry.php:1100
-#: /home/tim/code/KwaMoja/StockUsage.php:142
+#: /home/tim/code/KwaMoja/StockUsage.php:141
 #: /home/tim/code/KwaMoja/StockUsageGraph.php:10
 #: /home/tim/code/KwaMoja/prlSelectPayTrans.php:93
 msgid "Month"
@@ -35601,125 +35599,136 @@ msgstr ""
 msgid "Top Sales Items Inquiry"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:4
+#: /home/tim/code/KwaMoja/SalesTypes.php:3
 #: /home/tim/code/KwaMoja/sql/updates/42.php:258
 msgid "Sales Types"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:4
+#: /home/tim/code/KwaMoja/SalesTypes.php:3
 msgid "Price List Maintenance"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:24
+#: /home/tim/code/KwaMoja/SalesTypes.php:22
 msgid "The sales type (price list) code must be two characters or less long"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:27
+#: /home/tim/code/KwaMoja/SalesTypes.php:25
 msgid "The sales type (price list) code cannot be an empty string or spaces"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:30
+#: /home/tim/code/KwaMoja/SalesTypes.php:28
 msgid "The sales type (price list) description cannot be empty"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:33
+#: /home/tim/code/KwaMoja/SalesTypes.php:31
 msgid "The sales type (price list) description must be forty characters or less long"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:36
+#: /home/tim/code/KwaMoja/SalesTypes.php:34
 msgid "The sales type code cannot be AN since this is a system defined abbreviation for any sales type in general ledger interface lookups"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:45
+#: /home/tim/code/KwaMoja/SalesTypes.php:43
 msgid "The customer/sales/pricelist type"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:59
+#: /home/tim/code/KwaMoja/SalesTypes.php:56
 msgid "The customer/sales/pricelist type "
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:68
+#: /home/tim/code/KwaMoja/SalesTypes.php:64
 msgid "Customer/sales/pricelist type"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:108
+#: /home/tim/code/KwaMoja/SalesTypes.php:103
 msgid "The number of transactions using this customer/sales/pricelist type could not be retrieved"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:113
+#: /home/tim/code/KwaMoja/SalesTypes.php:108
 msgid "Cannot delete this sale type because customer transactions have been created using this sales type"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:113
+#: /home/tim/code/KwaMoja/SalesTypes.php:108
 msgid "transactions using this sales type code"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:119
+#: /home/tim/code/KwaMoja/SalesTypes.php:114
 msgid "The number of transactions using this Sales Type record could not be retrieved because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:123
+#: /home/tim/code/KwaMoja/SalesTypes.php:118
 msgid "Cannot delete this sale type because customers are currently set up to use this sales type"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:123
+#: /home/tim/code/KwaMoja/SalesTypes.php:118
 msgid "customers with this sales type code"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:127
+#: /home/tim/code/KwaMoja/SalesTypes.php:122
 msgid "The Sales Type record could not be deleted because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:129
+#: /home/tim/code/KwaMoja/SalesTypes.php:124
 msgid "Sales type"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:129
+#: /home/tim/code/KwaMoja/SalesTypes.php:124
 msgid "price list"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:132
+#: /home/tim/code/KwaMoja/SalesTypes.php:127
 msgid "The Sales Type prices could not be deleted because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:135
+#: /home/tim/code/KwaMoja/SalesTypes.php:130
 msgid "and any prices for this sales type / price list were also deleted"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:165
+#: /home/tim/code/KwaMoja/SalesTypes.php:160
 msgid "As this is the first time that the system has been used, you must first create a sales type."
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:173
-#: /home/tim/code/KwaMoja/SalesTypes.php:233
-#: /home/tim/code/KwaMoja/SalesTypes.php:246
+#: /home/tim/code/KwaMoja/SalesTypes.php:167
+#: /home/tim/code/KwaMoja/SalesTypes.php:224
+#: /home/tim/code/KwaMoja/SalesTypes.php:234
 #: /home/tim/code/KwaMoja/StockTypes.php:146
 #: /home/tim/code/KwaMoja/StockTypes.php:211
 #: /home/tim/code/KwaMoja/StockTypes.php:224
 msgid "Type Code"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:186
+#: /home/tim/code/KwaMoja/SalesTypes.php:180
 #: /home/tim/code/KwaMoja/StockTypes.php:166
 #, php-format
 msgid "Are you sure you wish to delete this price list and all the prices it may have set up?"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:197
+#: /home/tim/code/KwaMoja/SalesTypes.php:191
 msgid "Show All Sales Types Defined"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:216
+#: /home/tim/code/KwaMoja/SalesTypes.php:210
 msgid "As this is the first time that the system has been used, you must first create a default price list."
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:230
-#: /home/tim/code/KwaMoja/SalesTypes.php:243
+#: /home/tim/code/KwaMoja/SalesTypes.php:222
+msgid "Edit Sales Type/Price List"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SalesTypes.php:232
 msgid "Sales Type/Price List Setup"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:255
+#: /home/tim/code/KwaMoja/SalesTypes.php:236
+msgid "The code for this sales type."
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SalesTypes.php:244
 msgid "Sales Type Name"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SalesTypes.php:246
+msgid "Description this sales type."
 msgstr ""
 
 #: /home/tim/code/KwaMoja/SearchCustomers.php:8
@@ -35761,54 +35770,71 @@ msgstr ""
 msgid "Raise a Quick Invoice"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:4
+#: /home/tim/code/KwaMoja/SecurityTokens.php:3
 #: /home/tim/code/KwaMoja/sql/updates/42.php:240
 msgid "Maintain Security Tokens"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:26
+#: /home/tim/code/KwaMoja/SecurityTokens.php:24
 msgid "The token ID is expected to be a number. Please enter a number for the token ID"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:30
+#: /home/tim/code/KwaMoja/SecurityTokens.php:28
 msgid "A token ID must be entered"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:34
+#: /home/tim/code/KwaMoja/SecurityTokens.php:32
 msgid "The token ID must be less than 1000"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:38
+#: /home/tim/code/KwaMoja/SecurityTokens.php:36
 msgid "A token description must be entered"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:59
+#: /home/tim/code/KwaMoja/SecurityTokens.php:57
 msgid "This security token is currently used by the following scripts and cannot be deleted"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:63
+#: /home/tim/code/KwaMoja/SecurityTokens.php:61
 msgid "The security token was deleted successfully"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:80
+#: /home/tim/code/KwaMoja/SecurityTokens.php:78
 msgid "This token ID has already been used. Please use a new one"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:86
+#: /home/tim/code/KwaMoja/SecurityTokens.php:84
 msgid "The security token was inserted successfully"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:97
+#: /home/tim/code/KwaMoja/SecurityTokens.php:95
 msgid "The security token was updated successfully"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:126
-#: /home/tim/code/KwaMoja/SecurityTokens.php:145
+#: /home/tim/code/KwaMoja/SecurityTokens.php:114
+#: /home/tim/code/KwaMoja/SecurityTokens.php:142
+#: /home/tim/code/KwaMoja/SecurityTokens.php:150
 msgid "Token ID"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SecurityTokens.php:159
+#: /home/tim/code/KwaMoja/SecurityTokens.php:128
 msgid "Are you sure you wish to delete this security token?"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SecurityTokens.php:140
+msgid "Edit Security Token Details"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SecurityTokens.php:148
+msgid "New Security Token Details"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SecurityTokens.php:152
+msgid "The number of the security token being created"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SecurityTokens.php:159
+msgid "A description of this security token that it will be known as"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/SelectAsset.php:6
@@ -36902,12 +36928,12 @@ msgid "Item Maintenance"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:466
-#: /home/tim/code/KwaMoja/StockAdjustments.php:602
+#: /home/tim/code/KwaMoja/StockAdjustments.php:593
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:301
 #: /home/tim/code/KwaMoja/StockMovements.php:211
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:108
 #: /home/tim/code/KwaMoja/StockTransfers.php:675
-#: /home/tim/code/KwaMoja/StockUsage.php:84
+#: /home/tim/code/KwaMoja/StockUsage.php:83
 msgid "Show Stock Usage"
 msgstr ""
 
@@ -38725,50 +38751,50 @@ msgstr ""
 msgid "Process This Order"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:125
+#: /home/tim/code/KwaMoja/StockAdjustments.php:123
 #: /home/tim/code/KwaMoja/StockCategories.php:30
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:19
 #: /home/tim/code/KwaMoja/StockCounts.php:12
 msgid "Inventory Adjustment"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:129
+#: /home/tim/code/KwaMoja/StockAdjustments.php:127
 #: /home/tim/code/KwaMoja/StockLocTransfer.php:243
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:541
 #: /home/tim/code/KwaMoja/StockLocTransferReceive.php:632
 #: /home/tim/code/KwaMoja/StockTransfers.php:33
 #: /home/tim/code/KwaMoja/StockTransfers.php:556
-#: /home/tim/code/KwaMoja/StockUsage.php:24
+#: /home/tim/code/KwaMoja/StockUsage.php:23
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:17
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:14
 #: /home/tim/code/KwaMoja/sql/updates/42.php:122
 msgid "Dispatch"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:129
+#: /home/tim/code/KwaMoja/StockAdjustments.php:127
 msgid "Select Item to Adjust"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:142
+#: /home/tim/code/KwaMoja/StockAdjustments.php:140
 #: /home/tim/code/KwaMoja/StockTransfers.php:48
 msgid "The stock information cannot be retrieved because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:143
+#: /home/tim/code/KwaMoja/StockAdjustments.php:141
 #: /home/tim/code/KwaMoja/StockTransfers.php:49
 msgid "The SQL to get the stock description was"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:149
+#: /home/tim/code/KwaMoja/StockAdjustments.php:147
 #: /home/tim/code/KwaMoja/StockTransfers.php:55
 msgid "Stock Description"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:158
+#: /home/tim/code/KwaMoja/StockAdjustments.php:156
 msgid "Adjust"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:174
+#: /home/tim/code/KwaMoja/StockAdjustments.php:172
 #: /home/tim/code/KwaMoja/StockClone.php:465
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:44
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:66
@@ -38778,93 +38804,93 @@ msgstr ""
 msgid "The entered item code does not exist"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:180
+#: /home/tim/code/KwaMoja/StockAdjustments.php:178
 msgid "The decimal places input is greater than the number defined for this item. The number of decimal places defined for this item is"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:183
+#: /home/tim/code/KwaMoja/StockAdjustments.php:181
 msgid "The quantity entered cannot be zero"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:183
+#: /home/tim/code/KwaMoja/StockAdjustments.php:181
 msgid "There would be no adjustment to make"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:186
+#: /home/tim/code/KwaMoja/StockAdjustments.php:184
 msgid "The item entered is a controlled item that requires the detail of the serial numbers or batch references to be adjusted to be entered"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:198
+#: /home/tim/code/KwaMoja/StockAdjustments.php:196
 msgid "The system parameters are set to prohibit negative stocks. Processing this stock adjustment would result in negative stock at this location. This adjustment will not be processed."
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:271
+#: /home/tim/code/KwaMoja/StockAdjustments.php:269
 msgid "Unable to determine if the serial item exists"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:364
-#: /home/tim/code/KwaMoja/StockAdjustments.php:391
+#: /home/tim/code/KwaMoja/StockAdjustments.php:359
+#: /home/tim/code/KwaMoja/StockAdjustments.php:386
 msgid "Cannot insert a GL tag for the adjustment line because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:406
+#: /home/tim/code/KwaMoja/StockAdjustments.php:401
 msgid "A stock adjustment for"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:406
+#: /home/tim/code/KwaMoja/StockAdjustments.php:401
 msgid "has been created from location"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:411
+#: /home/tim/code/KwaMoja/StockAdjustments.php:406
 msgid "Stock adjustment for"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:478
+#: /home/tim/code/KwaMoja/StockAdjustments.php:470
 msgid "Current Stock Balances"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:496
+#: /home/tim/code/KwaMoja/StockAdjustments.php:488
 msgid "Adjustment Details"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:510
+#: /home/tim/code/KwaMoja/StockAdjustments.php:502
 #: /home/tim/code/KwaMoja/StockTransfers.php:574
 msgid "Partial Description"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:511
+#: /home/tim/code/KwaMoja/StockAdjustments.php:503
 #: /home/tim/code/KwaMoja/StockTransfers.php:576
 msgid "Partial Stock Code"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:519
+#: /home/tim/code/KwaMoja/StockAdjustments.php:511
 #: /home/tim/code/KwaMoja/StockTransfers.php:582
 msgid "Check Part"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:523
+#: /home/tim/code/KwaMoja/StockAdjustments.php:515
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:59
 #: /home/tim/code/KwaMoja/StockTransfers.php:587
 msgid "In Units of"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:528
+#: /home/tim/code/KwaMoja/StockAdjustments.php:520
 msgid "Adjustment to Stock At Location"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:549
+#: /home/tim/code/KwaMoja/StockAdjustments.php:541
 msgid "Comments On Why"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:554
+#: /home/tim/code/KwaMoja/StockAdjustments.php:546
 msgid "Adjustment Quantity"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:594
+#: /home/tim/code/KwaMoja/StockAdjustments.php:585
 msgid "Enter Stock Adjustment"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockAdjustments.php:601
+#: /home/tim/code/KwaMoja/StockAdjustments.php:592
 #: /home/tim/code/KwaMoja/StockStatus.php:357
 #: /home/tim/code/KwaMoja/StockTransfers.php:674
 msgid "Show Movements"
@@ -40421,7 +40447,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/StockMovements.php:20
 #: /home/tim/code/KwaMoja/StockStatus.php:42
-#: /home/tim/code/KwaMoja/StockUsage.php:52
+#: /home/tim/code/KwaMoja/StockUsage.php:51
 #: /home/tim/code/KwaMoja/WhereUsedInquiry.php:30
 msgid "in units of"
 msgstr ""
@@ -40853,37 +40879,37 @@ msgstr ""
 msgid "Physical Items"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:5
+#: /home/tim/code/KwaMoja/StockUsage.php:4
 msgid "Stock Usage"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:17
+#: /home/tim/code/KwaMoja/StockUsage.php:16
 msgid "You should automatically be forwarded to the usage graph"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:47
+#: /home/tim/code/KwaMoja/StockUsage.php:46
 msgid "The selected item is a dummy or assembly or kit-set item and cannot have a stock holding"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:47
+#: /home/tim/code/KwaMoja/StockUsage.php:46
 msgid "Please select a different item"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:85
+#: /home/tim/code/KwaMoja/StockUsage.php:84
 msgid "Show Graph Of Stock Usage"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:132
+#: /home/tim/code/KwaMoja/StockUsage.php:131
 #: /home/tim/code/KwaMoja/StockUsageGraph.php:60
 msgid "The stock usage for the selected criteria could not be retrieved because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:143
+#: /home/tim/code/KwaMoja/StockUsage.php:142
 #: /home/tim/code/KwaMoja/StockUsageGraph.php:9
 msgid "Usage"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockUsage.php:170
+#: /home/tim/code/KwaMoja/StockUsage.php:169
 msgid "Average Usage per month is"
 msgstr ""
 

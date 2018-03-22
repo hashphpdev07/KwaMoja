@@ -18,14 +18,13 @@ ob_start();
 $PathPrefix = '../../';
 
 //include($PathPrefix.'includes/session.inc');
-include('ManualHeader.html');
-include('ManualOutline.php');
+include ('ManualHeader.html');
+include ('ManualOutline.php');
 $_GET['Bookmark'] = isset($_GET['Bookmark']) ? $_GET['Bookmark'] : '';
 $_GET['ViewTopic'] = isset($_GET['ViewTopic']) ? $_GET['ViewTopic'] : '';
 
 //all sections of manual listed here
-
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" class="noPrint">';
 
 if (((!isset($_POST['Submit'])) and (empty($_GET['ViewTopic']))) || ((isset($_POST['Submit'])) and (isset($_POST['SelectTableOfContents'])))) {
 	// if not submittws then coming into manual to look at TOC
@@ -41,7 +40,7 @@ if (((!isset($_POST['Submit'])) and (empty($_GET['ViewTopic']))) || ((isset($_PO
 		echo ' <input type="checkbox" name="SelectTableOfContents">';
 	}
 	echo "Table of Contents</h1></li>\n";
-	$j=0;
+	$j = 0;
 	foreach ($TOC_Array['TableOfContents'] as $Title => $SubLinks) {
 
 		$Name = 'Select' . $Title;
@@ -50,10 +49,10 @@ if (((!isset($_POST['Submit'])) and (empty($_GET['ViewTopic']))) || ((isset($_PO
 			echo '<li class="toc" style="list-style-type:none;"><input type="checkbox" name="' . $Name . '">' . "\n";
 			echo '<section style="margin-bottom:5px;">
 					<div class="roundedOne">
-						<input type="checkbox" value="None" id="roundedOne'.$j.'" name="' . $Name . '" />
-						<label for="roundedOne'.$j.'"></label>';
+						<input type="checkbox" value="None" id="roundedOne' . $j . '" name="' . $Name . '" />
+						<label for="roundedOne' . $j . '"></label>';
 
-			echo '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ViewTopic=' . $Title . '" style="padding-left:1%";>' . $SubLinks[0] . '</a></li>' . "\n";
+			echo '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ViewTopic=' . $Title . '" style="padding-left:1%";>' . $SubLinks[0] . '</a></li>' . "\n";
 
 			echo '</div>
 				</section>';
@@ -63,8 +62,7 @@ if (((!isset($_POST['Submit'])) and (empty($_GET['ViewTopic']))) || ((isset($_PO
 		if (count($SubLinks) > 1) {
 			echo '<ul>' . "\n";
 			foreach ($SubLinks as $k => $SubName) {
-				if ($k == 0)
-					continue;
+				if ($k == 0) continue;
 				echo '<li>' . $SubName . '</li>' . "\n";
 			}
 			echo '</ul>' . "\n";
@@ -90,11 +88,11 @@ foreach ($TOC_Array['TableOfContents'] as $Name => $FullName) {
 		}
 		if (file_exists($ManualPage)) {
 			echo '<div id="manualpage">';
-			include($ManualPage);
+			include ($ManualPage);
 			echo '</div>';
 		}
 	}
 }
 
-include('ManualFooter.html');
+include ('ManualFooter.html');
 ob_end_flush();

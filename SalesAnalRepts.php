@@ -1,13 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Sales Analysis Reports Maintenance');
 /* Manual links before header.php */
 $ViewTopic = 'SalesAnalysis';
 $BookMark = 'SalesAnalysis';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -66,17 +65,15 @@ if (isset($_GET['SelectedReport'])) {
 	$SelectedReport = $_POST['SelectedReport'];
 }
 
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (mb_strlen($_POST['ReportHeading']) < 2) {
 		$InputError = 1;
 		prnMsg(_('The report heading must be more than two characters long') . '. ' . _('No report heading was entered'), 'error', _('Heading too long'));
@@ -129,8 +126,6 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 		prnMsg(_('Group by Level 4 is set but the lower limit is greater than the upper limit') . ' - ' . _('the report will have no output'), 'error', _('Lower Limit greater than Upper Limit'));
 	}
-
-
 
 	if (isset($SelectedReport) and $InputError != 1) {
 
@@ -244,10 +239,8 @@ if (isset($_POST['submit'])) {
 
 	}
 
-
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$SQL = "DELETE FROM reportcolumns WHERE reportid='" . $SelectedReport . "'";
 	$ErrMsg = _('The deletion of the report column failed because');
 	$DbgMsg = _('The SQL used to delete the report column was');
@@ -261,7 +254,7 @@ if (isset($_POST['submit'])) {
 
 	prnMsg(_('Report Deleted'), 'info');
 	unset($SelectedReport);
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 
 }
@@ -273,7 +266,6 @@ if (!isset($SelectedReport)) {
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
 
-
 	$Result = DB_query("SELECT reportid, reportheading FROM reportheaders ORDER BY reportid");
 
 	echo '<table>';
@@ -282,18 +274,16 @@ if (!isset($SelectedReport)) {
 			<th>' . _('Report Title') . '</th>
 		  </tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
 				<td>' . $MyRow[0] . '</td>
 				<td>' . $MyRow[1] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?&amp;SelectedReport=' . urlencode($MyRow[0]) . '">' . _('Design') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?&amp;SelectedReport=' . urlencode($MyRow[0]) . '">' . _('Design') . '</a></td>
 				<td><a href="' . $RootPath . '/SalesAnalReptCols.php?ReportID=' . urlencode($MyRow[0]) . '">' . _('Define Columns') . '</a></td>
 				<td><a href="' . $RootPath . '/SalesAnalysis_UserDefined.php?ReportID=' . urlencode($MyRow[0]) . '&amp;ProducePDF=True">' . _('Make PDF Report') . '</a></td>
 				<td><a href="' . $RootPath . '/SalesAnalysis_UserDefined.php?ReportID=' . urlencode($MyRow[0]) . '&amp;ProduceCVSFile=True">' . _('Make CSV File') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?amp;SelectedReport=' . urlencode($MyRow[0]) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to remove this report design?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?amp;SelectedReport=' . urlencode($MyRow[0]) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to remove this report design?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	}
@@ -304,18 +294,16 @@ if (!isset($SelectedReport)) {
 //end of ifs and buts!
 
 
-
 if (isset($SelectedReport)) {
-	echo '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Defined Reports') . '</a>';
+	echo '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Defined Reports') . '</a>';
 }
 
 if (!isset($_GET['delete'])) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedReport)) {
 		//editing an existing Report
-
 		$SQL = "SELECT reportid,
 						reportheading,
 						groupbydata1,
@@ -425,7 +413,7 @@ if (!isset($_GET['delete'])) {
 	if (isset($_POST['NewPageAfter2']) and $_POST['NewPageAfter2'] == 0) {
 		echo '<option selected="selected" value="0">' . _('No') . '</option>';
 		echo '<option value="1">' . _('Yes') . '</option>';
-	} Else {
+	} else {
 		echo '<option value="0">' . _('No') . '</option>';
 		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
 	}
@@ -505,6 +493,5 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

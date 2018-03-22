@@ -1,34 +1,33 @@
 <?php
+if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth'] >= 0 and isset($_POST['FSYear']) and $_POST['FSYear'] >= 0) {
 
-If (isset($_POST['PrintPDF']) AND isset($_POST['FSMonth']) AND $_POST['FSMonth'] >= 0 AND isset($_POST['FSYear']) AND $_POST['FSYear'] >= 0) {
-
-	include('config.php');
-	include('includes/PDFStarter.php');
-	include('includes/ConnectDB.php');
-	include('includes/DateFunctions.php');
-	include('includes/prlFunctions.php');
+	include ('config.php');
+	include ('includes/PDFStarter.php');
+	include ('includes/ConnectDB.php');
+	include ('includes/DateFunctions.php');
+	include ('includes/prlFunctions.php');
 
 	$FontSize = 12;
-	$pdf->addinfo('Title', _('Gross pay Monthly Premium'));
-	$pdf->addinfo('Subject', _('Gross Pay Monthly Premium'));
+	$PDF->addinfo('Title', _('Gross pay Monthly Premium'));
+	$PDF->addinfo('Subject', _('Gross Pay Monthly Premium'));
 
 	$PageNumber = 0;
 	$line_height = 12;
 
 	if ($_POST['FSMonth'] == 0) {
 		$Title = _('Gross Pay Monthly Premuim Listing') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('Month not selected'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if ($_POST['FSYear'] == 0) {
 		$Title = _('Gross pay Monthly Premuim Listing') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('Year not selected'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	$GROSSPAYMonth = $_POST['FSMonth'];
@@ -44,13 +43,13 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSMonth']) AND $_POST['FSMonth']
 	$GROSSPAYEE = 0;
 	$GROSSPAYTotal = 0;
 
-	include('includes/PDFHDMFPremiumPageHeader.php');
+	include ('includes/PDFHDMFPremiumPageHeader.php');
 
-	$sql = "SELECT employeeid,employergrosspay,employeegrosspay,total
+	$SQL = "SELECT employeeid,employergrosspay,employeegrosspay,total
 			FROM prlempgrosspayfile
 			WHERE prlempgrosspayfile.fsmonth='" . $GROSSPAYMonth . "'
 			AND prlempgrosspayfile.fsyear='" . $GROSSPAYYear . "'";
-	$GROSSPAYDetails = DB_query($sql);
+	$GROSSPAYDetails = DB_query($SQL);
 	if (DB_num_rows($GROSSPAYDetails) > 0) {
 		//although it is assume that hdmf deduction once only every month but who knows
 		while ($hdmfrow = DB_fetch_array($GROSSPAYDetails)) {
@@ -60,34 +59,34 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSMonth']) AND $_POST['FSMonth']
 			$GROSSPAYER = $grosspayrow['employergrosspay'];
 			$GROSSPAYEE = $grosspayrow['employeegrosspay'];
 			$GROSSPAYTotal = $grosspayrow['total'];
-			$GTGROSSPAYER += $GROSSPAYER;
-			$GTGROSSPAYEE += $GROSSPAYEE;
-			$GTGROSSPAYTotal += $GROSSPAYTotal;
+			$GTGROSSPAYER+= $GROSSPAYER;
+			$GTGROSSPAYEE+= $GROSSPAYEE;
+			$GTGROSSPAYTotal+= $GROSSPAYTotal;
 			//$YPos -= (2 * $line_height);  //double spacing
 			if ($GROSSPAYTotal > 0) {
 				$FontSize = 8;
-				$pdf->selectFont('./fonts/Helvetica.afm');
-				$LeftOvers = $pdf->addTextWrap($Left_Margin, $YPos, 150, $FontSize, $FullName);
-				$LeftOvers = $pdf->addTextWrap($Left_Margin + 200, $YPos, 50, $FontSize, $GROSSPAYNumber, 'right');
-				$LeftOvers = $pdf->addTextWrap($Left_Margin + 350, $YPos, 50, $FontSize, number_format($GROSSPAYER, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($GROSSPAYEE, 2), 'right');
-				$LeftOvers = $pdf->addTextWrap($Left_Margin + 460, $YPos, 50, $FontSize, number_format($GROSSPAYTotal, 2), 'right');
-				$YPos -= $line_height;
+				$PDF->selectFont('./fonts/Helvetica.afm');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, $FullName);
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 200, $YPos, 50, $FontSize, $GROSSPAYNumber, 'right');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 50, $FontSize, number_format($GROSSPAYER, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($GROSSPAYEE, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 460, $YPos, 50, $FontSize, number_format($GROSSPAYTotal, 2), 'right');
+				$YPos-= $line_height;
 				if ($YPos < ($Bottom_Margin)) {
-					include('includes/PDFHDMFPremiumPageHeader.php');
+					include ('includes/PDFHDMFPremiumPageHeader.php');
 				}
 			}
 		}
 	}
-	$LeftOvers = $pdf->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
-	$YPos -= (2 * $line_height);
-	$LeftOvers = $pdf->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
-	$LeftOvers = $pdf->addTextWrap($Left_Margin + 350, $YPos, 50, $FontSize, number_format($GTGROSSPAYER, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($GTGROSSPAYEE, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap($Left_Margin + 460, $YPos, 50, $FontSize, number_format($GTGROSSPAYTotal, 2), 'right');
-	$LeftOvers = $pdf->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
+	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
+	$YPos-= (2 * $line_height);
+	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 50, $FontSize, number_format($GTGROSSPAYER, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($GTGROSSPAYEE, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 460, $YPos, 50, $FontSize, number_format($GTGROSSPAYTotal, 2), 'right');
+	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
 
-	$buf = $pdf->output();
+	$buf = $PDF->output();
 	$len = strlen($buf);
 
 	header('Content-type: application/pdf');
@@ -97,24 +96,24 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSMonth']) AND $_POST['FSMonth']
 	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 	header('Pragma: public');
 
-	$pdf->stream();
+	$PDF->stream();
 
 } elseif (isset($_POST['ShowPR'])) {
-	include('includes/session.php');
+	include ('includes/session.php');
 	$Title = _('Grosspay Monthly Premium Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
 	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	/*The option to print PDF was not hit */
 
-	include('includes/session.php');
+	include ('includes/session.php');
 	$Title = _('Gross Pay Monthly Premium Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 	echo '</select></td></tr>';
 	echo '<tr><td><align="centert"><b>' . _('FS Month') . ":<select name='FSMonth'>";
@@ -134,7 +133,7 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSMonth']) AND $_POST['FSMonth']
 	echo '</select>';
 	echo '<select name="FSYear">';
 	echo '<option selected="selected" value=0>' . _('Select One');
-	for ($yy = 2006; $yy <= 2015; $yy++) {
+	for ($yy = 2006;$yy <= 2015;$yy++) {
 		echo "<option value=$yy>$yy</option>\n";
 	}
 	echo '</select></td></tr>';
@@ -142,9 +141,8 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['FSMonth']) AND $_POST['FSMonth']
 	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show Gross Pay Premium') . "'>";
 	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
-
 
 ?>

@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Pick Lists ');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Pick Lists'), '" alt=""  />', ' ', _('Pick Lists'), '
@@ -36,7 +35,7 @@ if (!isset($_POST['Status'])) {
 	$_POST['Status'] = 'New';
 }
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
 	<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
@@ -268,7 +267,7 @@ if (isset($StockItemsResult)) {
 					<th class="SortedColumn">', _('Units'), '</th>
 				</tr>
 			</thead>';
-	$k = 0; //row colour counter
+
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		echo '<tr class="striped_row">
@@ -279,7 +278,7 @@ if (isset($StockItemsResult)) {
 				<td>', $MyRow['units'], '</td>
 			</tr>';
 		//end of page full new headings if
-
+		
 	}
 	//end of while loop
 	echo '</tbody>';
@@ -288,7 +287,6 @@ if (isset($StockItemsResult)) {
 //end if stock search results to show
 else {
 	//figure out the SQL required from the inputs available
-
 	if (!isset($_POST['Status']) or $_POST['Status'] == 'All') {
 		$StatusCriteria = " AND (pickreq.status='New' OR pickreq.status='Picked' OR pickreq.status='Cancelled' OR pickreq.status='Shipped') ";
 	} elseif ($_POST['Status'] == 'Picked') {
@@ -344,6 +342,7 @@ else {
 		}
 		if (isset($SelectedDebtor)) {
 			//future functionality - search by customer
+			
 		} else { //no customer selected
 			if (isset($SelectedStockItem)) {
 				$SQL = "SELECT pickreq.orderno,
@@ -391,8 +390,9 @@ else {
 							GROUP BY pickreq.prid
 							ORDER BY pickreq.requestdate, pickreq.prid";
 			} //no stock item selected
+			
 		} //no customer selected
-
+		
 	} //end not order number selected
 	$ErrMsg = _('No pick lists were returned by the SQL because');
 	$PickReqResult = DB_query($SQL, $ErrMsg);
@@ -415,7 +415,7 @@ else {
 						<th class="SortedColumn">', _('Initiated By'), '</th>
 					</tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PickReqResult)) {
 			$ModifyPickList = $RootPath . '/PickingLists.php?Prid=' . $MyRow['prid'];
@@ -431,7 +431,7 @@ else {
 				$PrintText = _('Print');
 			} else {
 				$PrintText = _('Reprint');
-				$PrintDispatchNote .= '&Reprint=OK';
+				$PrintDispatchNote.= '&Reprint=OK';
 			}
 			$PrintLabels = $RootPath . '/PDFShipLabel.php?Type=Sales&ORD=' . $MyRow['orderno'];
 			$FormatedRequestDate = ConvertSQLDate($MyRow['requestdate']);
@@ -457,15 +457,17 @@ else {
 					', $Confirm_Invoice, '
 				</tr>';
 			//end of page full new headings if
+			
 		} //end of while loop
 		echo '</tbody>';
 		echo '</table>';
 	} // end if Pick Lists to show
+	
 }
 echo '</form>';
 if ($_POST['Status'] == 'New') {
 	//office is gnerating picks.  Warehouse needs to see latest "To Do" list so refresh every 5 minutes
-	echo '<meta http-equiv="refresh" content="300" url="', $RootPath, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" />';
+	echo '<meta http-equiv="refresh" content="300" url="', $RootPath, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" />';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

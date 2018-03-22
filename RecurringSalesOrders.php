@@ -1,18 +1,17 @@
 <?php
-
 /* This is where the details specific to the recurring order are entered and the template committed to the database once the Process button is hit */
 
-include('includes/DefineCartClass.php');
+include ('includes/DefineCartClass.php');
 
 /* Session started in header.php for password checking the session will contain the details of the order from the Cart class object. The details of the order come from SelectOrderItems.php */
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Recurring Orders');
 
 /* Manual links before header.php */
 $ViewTopic = 'SalesOrders';
 $BookMark = 'RecurringSalesOrders';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (empty($_GET['identifier'])) {
 	$Identifier = date('U');
@@ -132,22 +131,24 @@ if (isset($_GET['NewRecurringOrder'])) {
 			if (DB_num_rows($LineItemsResult) > 0) {
 
 				while ($MyRow = DB_fetch_array($LineItemsResult)) {
-					$_SESSION['Items' . $Identifier]->add_to_cart($MyRow['stkcode'], $MyRow['quantity'], $MyRow['description'], $MyRow['longdescription'], $MyRow['unitprice'], $MyRow['discountpercent'], $MyRow['units'], $MyRow['volume'], $MyRow['grossweight'], $MyRow['qohatloc'], $MyRow['mbflag'], '', 0, $MyRow['discountcategory'], 0, /*Controlled*/ 0, /*Serialised */ $MyRow['decimalplaces'], $MyRow['narrative']);
+					$_SESSION['Items' . $Identifier]->add_to_cart($MyRow['stkcode'], $MyRow['quantity'], $MyRow['description'], $MyRow['longdescription'], $MyRow['unitprice'], $MyRow['discountpercent'], $MyRow['units'], $MyRow['volume'], $MyRow['grossweight'], $MyRow['qohatloc'], $MyRow['mbflag'], '', 0, $MyRow['discountcategory'], 0, /*Controlled*/
+					0, /*Serialised */
+					$MyRow['decimalplaces'], $MyRow['narrative']);
 					/*Just populating with existing order - no DBUpdates */
 
 				}
 				/* line items from sales order details */
 			} //end of checks on returned data set
+			
 		}
 	}
 }
 
 if ((!isset($_SESSION['Items' . $Identifier]) or $_SESSION['Items' . $Identifier]->ItemsOrdered == 0) and $NewRecurringOrder == 'Yes') {
 	prnMsg(_('A new recurring order can only be created if an order template has already been created from the normal order entry screen') . '. ' . _('To enter an order template select sales order entry from the orders tab of the main menu'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
 
 if (isset($_POST['DeleteRecurringOrder'])) {
 	$SQL = "DELETE FROM recurrsalesorderdetails WHERE recurrorderno='" . $_POST['ExistingRecurrOrderNo'] . "'";
@@ -164,7 +165,7 @@ if (isset($_POST['DeleteRecurringOrder'])) {
 
 	unset($_SESSION['Items' . $Identifier]->LineItems);
 	unset($_SESSION['Items' . $Identifier]);
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 if (isset($_POST['Process'])) {
@@ -189,7 +190,6 @@ if (isset($_POST['Process'])) {
 
 	if ($InputErrors == 0) {
 		/*Error checks above all passed ok so lets go*/
-
 
 		if ($NewRecurringOrder == 'Yes') {
 
@@ -292,14 +292,14 @@ if (isset($_POST['Process'])) {
 
 		unset($_SESSION['Items' . $Identifier]->LineItems);
 		unset($_SESSION['Items' . $Identifier]);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 
 	}
 }
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" /><b>' . ' ' . _('Recurring Order for Customer') . ' : ' . $_SESSION['Items' . $Identifier]->CustomerName . '</b></p>';
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table cellpadding="2">';
@@ -319,7 +319,6 @@ echo '<tr>
 $_SESSION['Items' . $Identifier]->total = 0;
 $_SESSION['Items' . $Identifier]->totalVolume = 0;
 $_SESSION['Items' . $Identifier]->totalWeight = 0;
-$k = 0; //row colour counter
 
 foreach ($_SESSION['Items' . $Identifier]->LineItems as $StockItem) {
 
@@ -339,9 +338,9 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $StockItem) {
 			<td class="number">' . $DisplayLineTotal . '</td>
 			</tr>';
 
-	$_SESSION['Items' . $Identifier]->total += $LineTotal;
-	$_SESSION['Items' . $Identifier]->totalVolume += ($StockItem->Quantity * $StockItem->Volume);
-	$_SESSION['Items' . $Identifier]->totalWeight += ($StockItem->Quantity * $StockItem->Weight);
+	$_SESSION['Items' . $Identifier]->total+= $LineTotal;
+	$_SESSION['Items' . $Identifier]->totalVolume+= ($StockItem->Quantity * $StockItem->Volume);
+	$_SESSION['Items' . $Identifier]->totalWeight+= ($StockItem->Quantity * $StockItem->Weight);
 }
 
 $DisplayTotal = locale_number_format($_SESSION['Items' . $Identifier]->total, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
@@ -461,7 +460,6 @@ if (isset($_POST['Frequency']) and $_POST['Frequency'] == 1) {
 }
 echo '</select></td></tr>';
 
-
 if ($_SESSION['Items' . $Identifier]->AllDummyLineItems() == true) {
 
 	echo '<tr><td>' . _('Invoice Automatically') . ':</td>
@@ -493,5 +491,5 @@ if ($NewRecurringOrder == 'Yes') {
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -6,38 +6,33 @@
 
 // Notes:
 // Coding Conventions/Style: http://www.weberp.org/CodingConventions.html
-
 // BEGIN: Functions division ---------------------------------------------------
 // END: Functions division -----------------------------------------------------
-
 // BEGIN: Procedure division ---------------------------------------------------
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Purchases from Suppliers');
 $ViewTopic = 'PurchaseOrdering';
 $BookMark = 'PurchasesReport';
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'],
-	'/images/reports.png" title="', // Icon image.
-	$Title, '" /> ', // Icon title.
-	$Title, '</p>';// Page title.
-
+echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', // Icon image.
+$Title, '" /> ', // Icon title.
+$Title, '</p>'; // Page title.
 // Merges gets into posts:
-if(isset($_GET['PeriodFrom'])) {// Select period from.
+if (isset($_GET['PeriodFrom'])) { // Select period from.
 	$_POST['PeriodFrom'] = $_GET['PeriodFrom'];
 }
-if(isset($_GET['PeriodTo'])) {// Select period to.
+if (isset($_GET['PeriodTo'])) { // Select period to.
 	$_POST['PeriodTo'] = $_GET['PeriodTo'];
 }
-if(isset($_GET['ShowDetails'])) {// Show the budget for the period.
+if (isset($_GET['ShowDetails'])) { // Show the budget for the period.
 	$_POST['ShowDetails'] = $_GET['ShowDetails'];
 }
 
 // Main code:
-if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action']!='New') {// If all parameters are set and valid, generates the report:
-
+if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'] != 'New') { // If all parameters are set and valid, generates the report:
 	// Validates the data submitted in the form:
-	if(Date1GreaterThanDate2($_POST['PeriodFrom'], $_POST['PeriodTo'])) {// RChacon: Is it the correct way to do this? **********************************************************************************
+	if (Date1GreaterThanDate2($_POST['PeriodFrom'], $_POST['PeriodTo'])) { // RChacon: Is it the correct way to do this? **********************************************************************************
 		// The beginning is after the end.
 		unset($_POST['PeriodFrom']);
 		unset($_POST['PeriodTo']);
@@ -45,10 +40,10 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 	}
 	$TotalGlAmount = 0;
 	$TotalGlTax = 0;
-	$k = 1;// Row colour counter.
+	$k = 1; // Row colour counter.
 	$PeriodFrom = FormatDateForSQL($_POST['PeriodFrom']);
 	$PeriodTo = FormatDateForSQL($_POST['PeriodTo']);
-	if(isset($_POST['ShowDetails'])) {// Parameters: PeriodFrom, PeriodTo, ShowDetails=on.
+	if (isset($_POST['ShowDetails'])) { // Parameters: PeriodFrom, PeriodTo, ShowDetails=on.
 		echo '<table>
 				<thead>
 					<tr>
@@ -68,12 +63,9 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				</thead>
 				<tfoot>
 					<tr>
-						<td colspan="9"><br /><b>' .
-							_('Notes') . '</b><br />' .
-							_('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') .
-						'</td>
+						<td colspan="9"><br /><b>' . _('Notes') . '</b><br />' . _('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') . '</td>
 					</tr>
-				</tfoot>';// Common table code.
+				</tfoot>'; // Common table code.
 		$SupplierId = '';
 		$SupplierOvAmount = 0;
 		$SupplierOvTax = 0;
@@ -96,20 +88,12 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 					AND supptrans.`type`=20
 				ORDER BY supptrans.supplierno, supptrans.trandate";
 		$Result = DB_query($SQL);
-		include('includes/CurrenciesArray.php'); // To get the currency name from the currency code.
+		include ('includes/CurrenciesArray.php'); // To get the currency name from the currency code.
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result)) {
-			if($MyRow['supplierno'] != $SupplierId) {// If different, prints supplier totals:
-				if($SupplierId != '') {// If NOT the first line.
-					echo '<tr>',
-							'<td colspan="3">&nbsp;</td>',
-							'<td class="number">', locale_number_format($SupplierOvAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-							'<td class="number">', locale_number_format($SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-							'<td class="number">', locale_number_format($SupplierOvAmount+$SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-							'<td class="number">', locale_number_format($SupplierGlAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-							'<td class="number">', locale_number_format($SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-							'<td class="number">', locale_number_format($SupplierGlAmount+$SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-						'</tr>';
+			if ($MyRow['supplierno'] != $SupplierId) { // If different, prints supplier totals:
+				if ($SupplierId != '') { // If NOT the first line.
+					echo '<tr>', '<td colspan="3">&nbsp;</td>', '<td class="number">', locale_number_format($SupplierOvAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($SupplierOvAmount + $SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($SupplierGlAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($SupplierGlAmount + $SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '</tr>';
 				}
 				echo '<tr>
 						<td colspan="9">&nbsp;</td>
@@ -117,31 +101,23 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				echo '<tr>
 						<td class="text" colspan="9">', $MyRow['supplierno'], ' - ', $MyRow['suppname'], ' - ', $MyRow['currcode'], ' ', $CurrencyName[$MyRow['currcode']], '</td>
 					</tr>';
-				$TotalGlAmount += $SupplierGlAmount;
-				$TotalGlTax += $SupplierGlTax;
+				$TotalGlAmount+= $SupplierGlAmount;
+				$TotalGlTax+= $SupplierGlTax;
 				$SupplierId = $MyRow['supplierno'];
 				$SupplierOvAmount = 0;
 				$SupplierOvTax = 0;
 				$SupplierGlAmount = 0;
 				$SupplierGlTax = 0;
 			}
-			$GlAmount = $MyRow['ovamount']/$MyRow['rate'];
-			$GlTax = $MyRow['ovgst']/$MyRow['rate'];
+			$GlAmount = $MyRow['ovamount'] / $MyRow['rate'];
+			$GlTax = $MyRow['ovgst'] / $MyRow['rate'];
 			echo '<tr class="striped_row">
-					<td class="centre">', $MyRow['trandate'], '</td>',
-					'<td class="number">', $MyRow['transno'], '</td>',
-					'<td class="text">', $MyRow['suppreference'], '</td>',
-					'<td class="number">', locale_number_format($MyRow['ovamount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['ovgst'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number"><a href="', $RootPath, '/SuppWhereAlloc.php?TransType=20&TransNo=', $MyRow['transno'], '&amp;ScriptFrom=PurchasesReport" target="_blank" title="', _('Click to view where allocated'), '">', locale_number_format($MyRow['ovamount']+$MyRow['ovgst'], $_SESSION['CompanyRecord']['decimalplaces']), '</a></td>',
-					'<td class="number">', locale_number_format($GlAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">',	locale_number_format($GlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number"><a href="', $RootPath, '/GLTransInquiry.php?TypeID=20&amp;TransNo=', $MyRow['transno'], '&amp;ScriptFrom=PurchasesReport" target="_blank" title="', _('Click to view the GL entries'), '">', locale_number_format($GlAmount+$GlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</a></td>', // RChacon: Should be "Click to view the General Ledger transaction" instead?
-				'</tr>';
-			$SupplierOvAmount += $MyRow['ovamount'];
-			$SupplierOvTax += $MyRow['ovgst'];
-			$SupplierGlAmount += $GlAmount;
-			$SupplierGlTax += $GlTax;
+					<td class="centre">', $MyRow['trandate'], '</td>', '<td class="number">', $MyRow['transno'], '</td>', '<td class="text">', $MyRow['suppreference'], '</td>', '<td class="number">', locale_number_format($MyRow['ovamount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['ovgst'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number"><a href="', $RootPath, '/SuppWhereAlloc.php?TransType=20&TransNo=', $MyRow['transno'], '&amp;ScriptFrom=PurchasesReport" target="_blank" title="', _('Click to view where allocated'), '">', locale_number_format($MyRow['ovamount'] + $MyRow['ovgst'], $_SESSION['CompanyRecord']['decimalplaces']), '</a></td>', '<td class="number">', locale_number_format($GlAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($GlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number"><a href="', $RootPath, '/GLTransInquiry.php?TypeID=20&amp;TransNo=', $MyRow['transno'], '&amp;ScriptFrom=PurchasesReport" target="_blank" title="', _('Click to view the GL entries'), '">', locale_number_format($GlAmount + $GlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</a></td>', // RChacon: Should be "Click to view the General Ledger transaction" instead?
+			'</tr>';
+			$SupplierOvAmount+= $MyRow['ovamount'];
+			$SupplierOvTax+= $MyRow['ovgst'];
+			$SupplierGlAmount+= $GlAmount;
+			$SupplierGlTax+= $GlTax;
 		}
 
 		// Prints last supplier total:
@@ -149,20 +125,20 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				<td colspan="3">&nbsp;</td>
 				<td class="number">', locale_number_format($SupplierOvAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-				<td class="number">', locale_number_format($SupplierOvAmount+$SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($SupplierOvAmount + $SupplierOvTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SupplierGlAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-				<td class="number">', locale_number_format($SupplierGlAmount+$SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($SupplierGlAmount + $SupplierGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			</tr>
 			<tr>
 				<td colspan="9">&nbsp;</td>
 			</tr>';
 		echo '</tbody>';
 
-		$TotalGlAmount += $SupplierGlAmount;
-		$TotalGlTax += $SupplierGlTax;
+		$TotalGlAmount+= $SupplierGlAmount;
+		$TotalGlTax+= $SupplierGlTax;
 
-	} else {// Parameters: PeriodFrom, PeriodTo, ShowDetails=off.
+	} else { // Parameters: PeriodFrom, PeriodTo, ShowDetails=off.
 		// RChacon: Needs to update the table_sort function to use in this table.
 		echo '<table>
 				<thead>
@@ -183,10 +159,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				</thead>
 				<tfoot>
 					<tr>
-						<td colspan="9"><br /><b>' .
-							_('Notes') . '</b><br />' .
-							_('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') .
-						'</td>
+						<td colspan="9"><br /><b>' . _('Notes') . '</b><br />' . _('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') . '</td>
 					</tr>
 				</tfoot>';
 		$SQL = "SELECT
@@ -207,50 +180,40 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 				ORDER BY supptrans.supplierno, supptrans.trandate";
 		$Result = DB_query($SQL);
 		echo '<tbody>';
-		foreach($Result as $MyRow) {
+		foreach ($Result as $MyRow) {
 			echo '<tr class="striped_row">
-					<td class="text"><a href="', $RootPath, '/SupplierInquiry.php?SupplierID=', $MyRow['supplierno'], '">', $MyRow['supplierno'], '</a></td>',
-					'<td class="text">', $MyRow['suppname'], '</td>',
-					'<td class="text">', $MyRow['currcode'], '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierOvAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierOvAmount'] + $MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierGlAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-					'<td class="number">', locale_number_format($MyRow['SupplierGlAmount'] + $MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>',
-				'</tr>';
-			$TotalGlAmount += $MyRow['SupplierGlAmount'];
-			$TotalGlTax += $MyRow['SupplierGlTax'];
+					<td class="text"><a href="', $RootPath, '/SupplierInquiry.php?SupplierID=', $MyRow['supplierno'], '">', $MyRow['supplierno'], '</a></td>', '<td class="text">', $MyRow['suppname'], '</td>', '<td class="text">', $MyRow['currcode'], '</td>', '<td class="number">', locale_number_format($MyRow['SupplierOvAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierOvAmount'] + $MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierGlAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierGlAmount'] + $MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '</tr>';
+			$TotalGlAmount+= $MyRow['SupplierGlAmount'];
+			$TotalGlTax+= $MyRow['SupplierGlTax'];
 		}
 	}
 	echo '<tr>
 			<td class="text" colspan="6">&nbsp;</td>
 			<td class="number">', locale_number_format($TotalGlAmount, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			<td class="number">', locale_number_format($TotalGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-			<td class="number">', locale_number_format($TotalGlAmount+$TotalGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($TotalGlAmount + $TotalGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 		</tr>
 	</tbody>
-</table>';// Prints all suppliers total.
-
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8'), '" method="post">
+</table>'; // Prints all suppliers total.
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
 		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />
 		<input name="PeriodFrom" type="hidden" value="', $_POST['PeriodFrom'], '" />
 		<input name="PeriodTo" type="hidden" value="', $_POST['PeriodTo'], '" />
 		<input name="ShowDetails" type="hidden" value="', $_POST['ShowDetails'], '" />';
 
 	echo '<div class="centre noPrint">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('New Report'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('New Report'), '</a>
 		</div>';
 
 } else {
 	// Shows a form to allow input of criteria for the report to generate:
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">',
-		'<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
-		// Input table:
-	if(!isset($_POST['PeriodFrom'])) {
-		$_POST['PeriodFrom'] = date($_SESSION['DefaultDateFormat'], strtotime("-1 year", time()));// One year before current date.
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">', '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
+	// Input table:
+	if (!isset($_POST['PeriodFrom'])) {
+		$_POST['PeriodFrom'] = date($_SESSION['DefaultDateFormat'], strtotime("-1 year", time())); // One year before current date.
+		
 	}
-	if(!isset($_POST['PeriodTo'])) {
+	if (!isset($_POST['PeriodTo'])) {
 		$_POST['PeriodTo'] = date($_SESSION['DefaultDateFormat']);
 	}
 	echo '<table>
@@ -261,15 +224,13 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 			</thead>
 			<tfoot>
 				<tr>
-					<td colspan="2">',
-						'<div class="centre">',
-							'<input name="Action" type="submit" value="', _('Submit'), '" />', // "Submit" button.
-						'</div>
+					<td colspan="2">', '<div class="centre">', '<input name="Action" type="submit" value="', _('Submit'), '" />', // "Submit" button.
+	'</div>
 					</td>
 				</tr>
 			</tfoot>';
-		// Content of the body of the input table:
-			// Select period from:
+	// Content of the body of the input table:
+	// Select period from:
 	if (isset($_POST['ShowDetails'])) {
 		$Checked = 'checked="checked"';
 	} else {
@@ -283,8 +244,7 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 					<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>
 		 		</td>
 			</tr>
-			<tr>',
-				'<td><label for="PeriodTo">', _('Select period to'), '</label></td>
+			<tr>', '<td><label for="PeriodTo">', _('Select period to'), '</label></td>
 				<td><input class="date" id="PeriodTo" maxlength="10" minlength="0" name="PeriodTo" required="required" size="12" type="text" value="', $_POST['PeriodTo'], '" />
 					<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>
 		 		</td>
@@ -294,12 +254,12 @@ if(isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'
 			 	<td><input ', $Checked, ' id="ShowDetails" name="ShowDetails" type="checkbox">
 					<fieldhelp>', _('Check this box to show purchase invoices'), '</fieldhelp>
 			 	</td>
-			</tr>',
-		 '</tbody>
+			</tr>', '</tbody>
 		</table>';
-echo '</form>';
+	echo '</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 // END: Procedure division -----------------------------------------------------
+
 ?>

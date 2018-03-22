@@ -1,12 +1,11 @@
 <?php
+if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 
-If (isset($_POST['PrintPDF']) AND isset($_POST['PayrollID'])) {
-
-	include('config.php');
-	include('includes/PDFStarter.php');
-	include('includes/ConnectDB.php');
-	include('includes/DateFunctions.php');
-	include('includes/prlFunctions.php');
+	include ('config.php');
+	include ('includes/PDFStarter.php');
+	include ('includes/ConnectDB.php');
+	include ('includes/DateFunctions.php');
+	include ('includes/prlFunctions.php');
 
 	/* A4_Landscape */
 
@@ -17,34 +16,27 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['PayrollID'])) {
 	$Left_Margin = 25;
 	$Right_Margin = 22;
 
-	$PageSize = array(
-		0,
-		0,
-		$Page_Width,
-		$Page_Height
-	);
-	$pdf = new Cpdf($PageSize);
+	$PageSize = array(0, 0, $Page_Width, $Page_Height);
+	$PDF = new Cpdf($PageSize);
 
 	$PageNumber = 0;
 
-	$pdf->selectFont('./fonts/Helvetica.afm');
+	$PDF->selectFont('./fonts/Helvetica.afm');
 
 	/* Standard PDF file creation header stuff */
-	$pdf->addinfo('Title', _('Payroll Register'));
-	$pdf->addinfo('Subject', _('Payroll Register'));
-
+	$PDF->addinfo('Title', _('Payroll Register'));
+	$PDF->addinfo('Subject', _('Payroll Register'));
 
 	$PageNumber = 1;
 	$line_height = 12;
-
 
 	$PayDesc = GetPayrollRow($_POST['PayrollID'], 1);
 	$FromPeriod = GetPayrollRow($_POST['PayrollID'], 3);
 	$ToPeriod = GetPayrollRow($_POST['PayrollID'], 4);
 	$PageNumber = 0;
 	$FontSize = 10;
-	$pdf->addinfo('Title', _('Payroll Register'));
-	$pdf->addinfo('Subject', _('Payroll Register'));
+	$PDF->addinfo('Title', _('Payroll Register'));
+	$PDF->addinfo('Subject', _('Payroll Register'));
 	$line_height = 12;
 	$EmpID = '';
 	$Basic = 0;
@@ -59,8 +51,8 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['PayrollID'])) {
 	$Loan = 0;
 	$Tax = 0;
 	$Net = 0;
-	include('includes/PDFPayRegisterPageHeader.php');
-	$k = 0; //row colour counter
+	include ('includes/PDFPayRegisterPageHeader.php');
+
 	$SQL = "SELECT employeeid,basicpay,othincome,absent,late,otpay,grosspay,loandeduction,sss,hdmf,grosspay,tax,netpay
 			FROM prlpayrolltrans
 			WHERE prlpayrolltrans.payrollid='" . $_POST['PayrollID'] . "'";
@@ -80,71 +72,69 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['PayrollID'])) {
 			$Tax = $MyRow['tax'];
 			$Net = $MyRow['netpay'];
 
-			$GTBasic += $MyRow['basicpay'];
-			$GTOthInc += $MyRow['othincome'];
-			$GTOT += $MyRow['otpay'];
-			$GTGross += $MyRow['grosspay'];
-			$GTSSS += $MyRow['sss'];
-			$GTHDMF += $MyRow['hdmf'];
-			$GTgrosspay += $MyRow['grosspay'];
-			$GTLoan += $MyRow['loandeduction'];
-			$GTTax += $MyRow['tax'];
-			$GTNet += $MyRow['netpay'];
+			$GTBasic+= $MyRow['basicpay'];
+			$GTOthInc+= $MyRow['othincome'];
+			$GTOT+= $MyRow['otpay'];
+			$GTGross+= $MyRow['grosspay'];
+			$GTSSS+= $MyRow['sss'];
+			$GTHDMF+= $MyRow['hdmf'];
+			$GTgrosspay+= $MyRow['grosspay'];
+			$GTLoan+= $MyRow['loandeduction'];
+			$GTTax+= $MyRow['tax'];
+			$GTNet+= $MyRow['netpay'];
 
 			//$YPos -= (2 * $line_height);  //double spacing
 			$FontSize = 8;
-			$pdf->selectFont('./fonts/Helvetica.afm');
-			$LeftOvers = $pdf->addTextWrap($Left_Margin, $YPos, 50, $FontSize, $EmpID);
-			$LeftOvers = $pdf->addTextWrap(100, $YPos, 120, $FontSize, $FullName, 'left');
-			$LeftOvers = $pdf->addTextWrap(221, $YPos, 50, $FontSize, number_format($Basic, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(272, $YPos, 50, $FontSize, number_format($OthInc, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(313, $YPos, 50, $FontSize, number_format($Lates, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(354, $YPos, 50, $FontSize, number_format($Absent, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(395, $YPos, 50, $FontSize, number_format($OT, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(446, $YPos, 50, $FontSize, number_format($Gross, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(487, $YPos, 50, $FontSize, number_format($SSS, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(528, $YPos, 50, $FontSize, number_format($HDMF, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(569, $YPos, 50, $FontSize, number_format($grosspay, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(610, $YPos, 50, $FontSize, number_format($Loan, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(671, $YPos, 50, $FontSize, number_format($Tax, 2), 'right');
-			$LeftOvers = $pdf->addTextWrap(722, $YPos, 50, $FontSize, number_format($Net, 2), 'right');
-			$YPos -= $line_height;
+			$PDF->selectFont('./fonts/Helvetica.afm');
+			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, $EmpID);
+			$LeftOvers = $PDF->addTextWrap(100, $YPos, 120, $FontSize, $FullName, 'left');
+			$LeftOvers = $PDF->addTextWrap(221, $YPos, 50, $FontSize, number_format($Basic, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(272, $YPos, 50, $FontSize, number_format($OthInc, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(313, $YPos, 50, $FontSize, number_format($Lates, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(354, $YPos, 50, $FontSize, number_format($Absent, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(395, $YPos, 50, $FontSize, number_format($OT, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(446, $YPos, 50, $FontSize, number_format($Gross, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(487, $YPos, 50, $FontSize, number_format($SSS, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(528, $YPos, 50, $FontSize, number_format($HDMF, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(569, $YPos, 50, $FontSize, number_format($grosspay, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(610, $YPos, 50, $FontSize, number_format($Loan, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(671, $YPos, 50, $FontSize, number_format($Tax, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(722, $YPos, 50, $FontSize, number_format($Net, 2), 'right');
+			$YPos-= $line_height;
 			if ($YPos < ($Bottom_Margin)) {
-				include('includes/PDFPayRegisterPageHeader.php');
+				include ('includes/PDFPayRegisterPageHeader.php');
 			}
 		}
 
 	} //end of loop
+	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
+	$YPos-= (2 * $line_height);
+	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
+	$LeftOvers = $PDF->addTextWrap(221, $YPos, 50, $FontSize, number_format($GTBasic, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(221, $YPos, 50, $FontSize, number_format($GTBasic, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(272, $YPos, 50, $FontSize, number_format($GTOthInc, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(313, $YPos, 50, $FontSize, number_format($GTLates, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(354, $YPos, 50, $FontSize, number_format($GTAbsent, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(395, $YPos, 50, $FontSize, number_format($GTOT, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(446, $YPos, 50, $FontSize, number_format($GTGross, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(487, $YPos, 50, $FontSize, number_format($GTSSS, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(528, $YPos, 50, $FontSize, number_format($GTHDMF, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(569, $YPos, 50, $FontSize, number_format($GTgrosspay, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(610, $YPos, 50, $FontSize, number_format($GTLoan, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(671, $YPos, 50, $FontSize, number_format($GTTax, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(722, $YPos, 50, $FontSize, number_format($GTNet, 2), 'right');
 
-	$LeftOvers = $pdf->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
-	$YPos -= (2 * $line_height);
-	$LeftOvers = $pdf->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
-	$LeftOvers = $pdf->addTextWrap(221, $YPos, 50, $FontSize, number_format($GTBasic, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(221, $YPos, 50, $FontSize, number_format($GTBasic, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(272, $YPos, 50, $FontSize, number_format($GTOthInc, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(313, $YPos, 50, $FontSize, number_format($GTLates, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(354, $YPos, 50, $FontSize, number_format($GTAbsent, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(395, $YPos, 50, $FontSize, number_format($GTOT, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(446, $YPos, 50, $FontSize, number_format($GTGross, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(487, $YPos, 50, $FontSize, number_format($GTSSS, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(528, $YPos, 50, $FontSize, number_format($GTHDMF, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(569, $YPos, 50, $FontSize, number_format($GTgrosspay, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(610, $YPos, 50, $FontSize, number_format($GTLoan, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(671, $YPos, 50, $FontSize, number_format($GTTax, 2), 'right');
-	$LeftOvers = $pdf->addTextWrap(722, $YPos, 50, $FontSize, number_format($GTNet, 2), 'right');
+	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
 
-	$LeftOvers = $pdf->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
-
-
-	$pdfcode = $pdf->output();
-	$len = strlen($pdfcode);
+	$PDFcode = $PDF->output();
+	$len = strlen($PDFcode);
 	if ($len <= 20) {
 		$Title = _('Payroll Register Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There were no entries to print out for the selections specified'));
 		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		header('Content-type: application/pdf');
@@ -154,27 +144,27 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['PayrollID'])) {
 		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		header('Pragma: public');
 
-		$pdf->Stream();
+		$PDF->Stream();
 
 	}
 	exit;
 
 } elseif (isset($_POST['ShowPR'])) {
-	include('includes/session.php');
+	include ('includes/session.php');
 	$Title = _('grosspay Monthly Premium Listing');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
 	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	/*The option to print PDF was not hit */
 
-	include('includes/session.php');
+	include ('includes/session.php');
 	$Title = _('Payroll Register');
-	include('includes/header.php');
+	include ('includes/header.php');
 
-	echo '<form method="POST" action="' . $_SERVER['PHP_SELF'] . '?">';
+	echo '<form method="POST" action="' . basename(__FILE__) . '?">';
 	echo '<table><tr><td>' . _('Select Payroll:') . '</td><td><select Name="PayrollID">';
 	DB_data_seek($Result, 0);
 	$SQL = 'SELECT payrollid, payrolldesc FROM prlpayrollperiod';
@@ -191,7 +181,7 @@ If (isset($_POST['PrintPDF']) AND isset($_POST['PayrollID'])) {
 	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show Payroll Register') . "'>";
 	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 

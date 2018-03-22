@@ -1,15 +1,15 @@
 <?php
-$PageSecurity=1;
-include('includes/DefineProjectClass.php');
+$PageSecurity = 1;
+include ('includes/DefineProjectClass.php');
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Project Other Requirements');
 
 $Identifier = $_GET['identifier'];
 
 /* If a project header doesn't exist, then go to
  * Projects.php to create one
- */
+*/
 
 if (!isset($_SESSION['Project' . $Identifier])) {
 	header('Location:' . $RootPath . '/Projects.php');
@@ -17,8 +17,7 @@ if (!isset($_SESSION['Project' . $Identifier])) {
 }
 $ViewTopic = 'Projects';
 $BookMark = 'AddToProject';
-include('includes/header.php');
-
+include ('includes/header.php');
 
 if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 	if ($_SESSION['Project' . $Identifier]->Status != 2) { //dont do anything if the customer has committed to the project
@@ -33,7 +32,9 @@ if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 				$_SESSION['Project' . $Identifier]->ProjectReqts[$ProjectComponentID]->Requirement = $_POST['Requirement' . $ProjectComponentID];
 			}
 		} // end loop around the items on the project requirements array
+		
 	} // end if the project is not currently committed to by the customer
+	
 } // end if the user has hit the update lines or back to header buttons
 
 
@@ -41,10 +42,9 @@ if (isset($_POST['BackToHeader'])) {
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/Projects.php?identifier=' . $Identifier . '" />';
 	echo '<br />';
 	prnMsg(_('You should automatically be forwarded to the Project page. If this does not happen perhaps the browser does not support META Refresh') . '<a href="' . $RootPath . '/Projects.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
 
 if (isset($_GET['Delete'])) {
 	if ($_SESSION['Project' . $Identifier]->Status != 2) {
@@ -73,7 +73,7 @@ if (isset($_POST['EnterNewRequirement'])) {
 
 /* This is where the other requirement as entered/modified should be displayed reflecting any deletions or insertions*/
 
-echo '<form name="ProjectReqtsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form name="ProjectReqtsForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/project.png" title="' . _('Project Other Requirements') . '" alt="" />  ' . _('Project Other Requirements') . ' - ' . $_SESSION['Project' . $Identifier]->DonorName . '</p>';
 
@@ -95,7 +95,7 @@ if (count($_SESSION['Project' . $Identifier]->ProjectReqts) > 0) {
 		</tr>';
 
 	$_SESSION['Project' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Project' . $Identifier]->ProjectReqts as $ProjectReqtID => $ProjectComponent) {
 
@@ -107,9 +107,9 @@ if (count($_SESSION['Project' . $Identifier]->ProjectReqts) > 0) {
 				<td><input type="text" class="number" maxlength="11" required="required" name="Qty' . $ProjectReqtID . '" size="11" value="' . locale_number_format($ProjectComponent->Quantity, 'Variable') . '" /></td>
 				<td><input type="text" class="number" maxlength="11" required="required" name="CostPerUnit' . $ProjectReqtID . '" size="11" value="' . locale_number_format($ProjectComponent->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '" /></td>
 				<td class="number">' . $DisplayLineTotal . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this project requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectReqtID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this project requirement?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
-		$TotalCost += $LineTotal;
+		$TotalCost+= $LineTotal;
 	}
 
 	$DisplayTotal = locale_number_format($TotalCost, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -135,7 +135,7 @@ if (!isset($_POST['RequirementDescription'])) {
 	$_POST['Quantity'] = 0;
 	$_POST['CostPerUnit'] = 0;
 }
-echo '<form name="ProjectReqtsForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form name="ProjectReqtsForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>
 		<tr>
@@ -162,5 +162,5 @@ echo '<table>
 		</div>
 		</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Work Order Costing');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['WO'])) {
 	$SelectedWO = $_GET['WO'];
@@ -19,20 +17,19 @@ echo '<div class="toplink"><a href="' . $RootPath . '/SelectWorkOrder.php">' . _
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($SelectedWO)) {
 	/* This page can only be called with a work order number */
 	echo '<div class="centre><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select a work order') . '</a></div>';
 	prnMsg(_('This page can only be opened if a work order has been selected.'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	echo '<input type="hidden" name="WO" value="' . $SelectedWO . '" />';
 	$_POST['WO'] = $SelectedWO;
 }
-
 
 $ErrMsg = _('Could not retrieve the details of the selected work order');
 $SQL = "SELECT workorders.loccode,
@@ -46,7 +43,7 @@ $SQL = "SELECT workorders.loccode,
 				ON workorders.loccode=locations.loccode
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1
 			WHERE workorders.wo='" . $_POST['WO'] . "'";
 
@@ -54,11 +51,10 @@ $WOResult = DB_query($SQL, $ErrMsg);
 
 if (DB_num_rows($WOResult) == 0) {
 	prnMsg(_('The selected work order item cannot be retrieved from the database'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 $WorkOrderRow = DB_fetch_array($WOResult);
-
 
 echo '<table>
 	<tr>
@@ -119,7 +115,7 @@ while ($WORow = DB_fetch_array($WOItemsResult)) {
 	 			<td class="number"><a href="' . $RootPath . '/WorkOrderIssue.php?WO=' . urlencode($_POST['WO']) . '&amp;StockID=' . urlencode($WORow['stockid']) . '">' . _('Issue') . '</a></td>
  			</tr>';
 
-	$TotalStdValueRecd += ($WORow['stdcost'] * $WORow['qtyrecd']);
+	$TotalStdValueRecd+= ($WORow['stdcost'] * $WORow['qtyrecd']);
 
 }
 echo '</table>
@@ -176,8 +172,7 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 								ON stockmoves.stockid = stockmaster.stockid
 								WHERE stockmoves.type=28
 								AND stockmoves.reference = '" . $_POST['WO'] . "'
-								AND stockmoves.stockid = '" . $RequirementsRow['stockid'] . "'", _('Could not retrieve the issues of the item because') . ':'
-							);
+								AND stockmoves.stockid = '" . $RequirementsRow['stockid'] . "'", _('Could not retrieve the issues of the item because') . ':');
 	$IssueQty = 0;
 	$IssueCost = 0;
 
@@ -187,8 +182,8 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 					<td colspan="4"></td><td>' . ConvertSQLDate($IssuesRow['trandate']) . '</td>
 					<td class="number">' . locale_number_format(-$IssuesRow['qty'], $RequirementsRow['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format(-($IssuesRow['qty'] * $IssuesRow['standardcost']), $IssuesRow['decimalplaces']) . '</td></tr>';
-			$IssueQty -= $IssuesRow['qty']; // because qty for the stock movement will be negative
-			$IssueCost -= ($IssuesRow['qty'] * $IssuesRow['standardcost']);
+			$IssueQty-= $IssuesRow['qty']; // because qty for the stock movement will be negative
+			$IssueCost-= ($IssuesRow['qty'] * $IssuesRow['standardcost']);
 
 		}
 		echo '<tr class="striped_row">
@@ -214,10 +209,10 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 			<td class="number">' . locale_number_format($UsageVar, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			<td class="number">' . locale_number_format($CostVar, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
-	$TotalReqdCost += $RequirementsRow['expectedcost'];
-	$TotalIssuedCost += $IssueCost;
-	$TotalCostVar += $CostVar;
-	$TotalUsageVar += $UsageVar;
+	$TotalReqdCost+= $RequirementsRow['expectedcost'];
+	$TotalIssuedCost+= $IssueCost;
+	$TotalCostVar+= $CostVar;
+	$TotalUsageVar+= $UsageVar;
 	if ($k == 1) {
 		$k = 0;
 	} else {
@@ -228,9 +223,7 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 		</tr>';
 }
 
-
 //Now need to run through the issues to the work order that weren't in the requirements
-
 $SQL = "SELECT stockmoves.stockid,
 				stockmaster.description,
 				stockmaster.decimalplaces,
@@ -263,7 +256,7 @@ if (DB_num_rows($WOIssuesResult) > 0) {
 				<td class="number">0</td>
 			</tr>';
 
-		$TotalUsageVar += ($WOIssuesRow['qty'] * $WOIssuesRow['standardcost']);
+		$TotalUsageVar+= ($WOIssuesRow['qty'] * $WOIssuesRow['standardcost']);
 	}
 }
 # <!--	<td colspan="5"></td> -->
@@ -291,7 +284,6 @@ echo '<tr>
 	</tr>';
 
 if (isset($_POST['Close'])) {
-
 
 	$WOItemsResult = DB_query("SELECT woitems.stockid,
 									stockmaster.description,
@@ -328,7 +320,6 @@ if (isset($_POST['Close'])) {
 		}
 		if ($_SESSION['WeightedAverageCosting'] == 1) {
 			//we need to post the variances to stock and update the weighted average cost
-
 			/*  need to get the current total quantity on hand
 			if the quantity on hand is less than the quantity received on the work order
 			then some of the variance needs to be written off to P & L and only the proportion
@@ -372,7 +363,6 @@ if (isset($_POST['Close'])) {
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				}
 
-
 				$SQL = "INSERT INTO gltrans (type,
 							typeno,
 							trandate,
@@ -413,7 +403,7 @@ if (isset($_POST['Close'])) {
 
 			}
 
-			if ($TotalOnHand > 0) {//to avoid negative quantity make cost data abnormal
+			if ($TotalOnHand > 0) { //to avoid negative quantity make cost data abnormal
 				$NewCost = $WORow['currcost'] + (-$TotalVariance * $ShareProportion * $ProportionOnHand) / $TotalOnHand;
 			} else {
 				$NewCost = $WORow['currcost'];
@@ -481,7 +471,6 @@ if (isset($_POST['Close'])) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			} //end if gl-stock linked and a usage variance exists
-
 			if ($_SESSION['CompanyRecord']['gllink_stock'] == 1 and $TotalCostVar != 0) {
 
 				$SQL = "INSERT INTO gltrans (type,
@@ -523,9 +512,10 @@ if (isset($_POST['Close'])) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			} //end of if gl-stock integrated and there's a cost variance
+			
 		} //end of standard costing section
+		
 	} // end loop around the items on the work order
-
 	$CloseWOResult = DB_query("UPDATE workorders SET closed=1, closecomments = '" . $_POST['CloseComments'] . "' WHERE wo='" . $_POST['WO'] . "'", _('Could not update the work order to closed because') . ':', _('The SQL used to close the work order was') . ':', true);
 	$DeleteAnyWOSerialNos = DB_query("DELETE FROM woserialnos WHERE wo='" . $_POST['WO'] . "'", _('Could not delete the predefined work order serial numbers'), _('The SQL used to delete the predefined serial numbers was') . ':', true);
 	$TransResult = DB_Txn_Commit();
@@ -544,7 +534,6 @@ if (isset($_POST['Close'])) {
 	}
 	$WorkOrderRow['closed'] = 1;
 } //end close button hit by user
-
 if ($WorkOrderRow['closed'] == 0) {
 	$ReadOnly = '';
 } else {
@@ -582,5 +571,5 @@ if ($WorkOrderRow['closed'] == 0) {
 echo '</table>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/DefineWOClass.php');
-include('includes/session.php');
+include ('includes/DefineWOClass.php');
+include ('includes/session.php');
 $Title = _('Work Order Entry');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text">
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
@@ -66,7 +65,7 @@ if (isset($_POST['AddToOrder'])) {
 	if (is_null($LocRow['loccode']) or $LocRow['loccode'] == '') {
 		prnMsg(_('Your security settings do not allow you to create or update new Work Order at this location') . ' ' . $_SESSION['WorkOrder' . $Identifier]->LocationCode, 'error');
 		echo '<br /><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select an existing work order') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	foreach ($_POST as $Key => $Value) {
@@ -207,19 +206,16 @@ if (isset($_POST['Save'])) {
 
 		}
 
-
 		$Result = DB_Txn_Commit();
-		prnMsg( _('The work order has been saved correctly'), 'success');
+		prnMsg(_('The work order has been saved correctly'), 'success');
 
 		unset($NewItem);
 	} //end if there were no input errors
+	
 } //adding a new item to the work order
-
 if (isset($_POST['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = false; //always assume the best
-
 	// can't delete it there are open work issues
 	$HasTransResult = DB_query("SELECT transno
 									FROM stockmoves
@@ -252,10 +248,9 @@ if (isset($_POST['delete'])) {
 		DB_Txn_Commit();
 		prnMsg(_('The work order has been cancelled'), 'success');
 
-
 		echo '<p><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select an existing outstanding work order') . '</a></p>';
 		unset($_POST['WO']);
-		for ($i = 1; $i <= $_POST['NumberOfOutputs']; $i++) {
+		for ($i = 1;$i <= $_POST['NumberOfOutputs'];$i++) {
 			unset($_POST['OutputItem' . $i]);
 			unset($_POST['OutputQty' . $i]);
 			unset($_POST['QtyRecd' . $i]);
@@ -263,12 +258,12 @@ if (isset($_POST['delete'])) {
 			unset($_POST['HasWOSerialNos' . $i]);
 			unset($_POST['WOComments' . $i]);
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="form1">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>';
@@ -347,7 +342,7 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 		if ($EditingExisting == true) {
 			prnMsg(_('Your location security settings do not allow you to Update this Work Order'), 'error');
 			echo '<br /><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select an existing work order') . '</a>';
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -432,18 +427,16 @@ if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems)) {
 		$DescriptionRow = DB_fetch_array($DescriptionResult);
 		echo '<tr class="striped_row">
 				<td>' . $WorkOrderItem->StockId . ' - ' . $DescriptionRow['description'] . '</td>';
-		echo '<input type="hidden" name="OutputStockId' . $i . '" value="' .  $WorkOrderItem->StockId . '" />';
+		echo '<input type="hidden" name="OutputStockId' . $i . '" value="' . $WorkOrderItem->StockId . '" />';
 		echo '<td><textarea style="width:100%" rows="2" cols="50" name="WOComments' . $i . '" >' . $WorkOrderItem->Comments . '</textarea></td>';
 		if ($WorkOrderItem->Controlled == 1 and $_SESSION['DefineControlledOnWOEntry'] == 1) {
 			echo '<td class="number">' . locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces) . '</td>';
 		} else {
 			echo '<td><input type="text" required="required" class="number" name="OutputQty' . $i . '" value="' . locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces) . '" size="10" maxlength="10" title="' . _('The input format must be positive numeric') . '" /></td>';
 		}
-		echo '<td class="number">' .
-				locale_number_format($WorkOrderItem->QuantityReceived, $WorkOrderItem->DecimalPlaces) . '
+		echo '<td class="number">' . locale_number_format($WorkOrderItem->QuantityReceived, $WorkOrderItem->DecimalPlaces) . '
 			</td>';
-		echo '<td class="number">' .
-				locale_number_format(($WorkOrderItem->QuantityRequired - $WorkOrderItem->QuantityReceived), $WorkOrderItem->DecimalPlaces) . '
+		echo '<td class="number">' . locale_number_format(($WorkOrderItem->QuantityRequired - $WorkOrderItem->QuantityReceived), $WorkOrderItem->DecimalPlaces) . '
 			</td>';
 		if ($_POST['Controlled' . $i] == 1) {
 			echo '<td><input type="text" name="NextLotSNRef' . $i . '" value="' . $WorkOrderItem->NextLotSerialNumbers . '" /></td>';
@@ -518,7 +511,6 @@ if (isset($_POST['Search']) or isset($_POST['Prev']) or isset($_POST['Next'])) {
 		$ListPageMax = 1;
 	}
 
-
 	if (isset($_POST['Next'])) {
 		$Offset = $_POST['CurrPage'] + 1;
 	}
@@ -549,7 +541,6 @@ if (isset($_POST['Search']) or isset($_POST['Prev']) or isset($_POST['Next'])) {
 	}
 
 } //end of if search
-
 $SQL = "SELECT categoryid,
 			categorydescription
 		FROM stockcategory
@@ -612,22 +603,22 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 		$j = 1;
-		$k = 0; //row colour counter
+
 		$ItemCodes = array();
-		for ($i = 1; $i <= $NumberOfOutputs; $i++) {
+		for ($i = 1;$i <= $NumberOfOutputs;$i++) {
 			$ItemCodes[] = $_POST['OutputItem' . $i];
 		}
-		echo'<tbody>';
+		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
 
 			if (!in_array($MyRow['stockid'], $ItemCodes)) {
 
-				$SupportedImgExt = array('png','jpg','jpeg');
+				$SupportedImgExt = array('png', 'jpg', 'jpeg');
 				$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 				$ImageFile = reset($ImageFileArray);
 				if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 					$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
-				} else if (file_exists ($ImageFile)) {
+				} else if (file_exists($ImageFile)) {
 					$ImageSource = '<img src="' . $ImageFile . '" height="64" width="64" />';
 				} else {
 					$ImageSource = _('No Image');
@@ -644,13 +635,14 @@ if (isset($SearchResult)) {
 
 				++$j;
 			} //end if not already on work order
+			
 		} //end of while loop
+		
 	} //end if more than 1 row to show
 	echo '</tbody>
 		</table>';
 
 } //end if SearchResults to show
-
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

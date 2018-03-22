@@ -1,32 +1,19 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Supplier Login Configuration');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/LanguagesArray.php');
-
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/LanguagesArray.php');
 
 if (!isset($_SESSION['SupplierID'])) {
 	echo '<br />
 		<br />';
 	prnMsg(_('A supplier must first be selected before logins can be defined for it') . '<br /><br /><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select A Supplier') . '</a>', 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
-$ModuleList = array(
-	_('Orders'),
-	_('Receivables'),
-	_('Payables'),
-	_('Purchasing'),
-	_('Inventory'),
-	_('Manufacturing'),
-	_('General Ledger'),
-	_('Asset Manager'),
-	_('Petty Cash'),
-	_('Setup')
-);
+$ModuleList = array(_('Orders'), _('Receivables'), _('Payables'), _('Purchasing'), _('Inventory'), _('Manufacturing'), _('General Ledger'), _('Asset Manager'), _('Petty Cash'), _('Setup'));
 
 echo '<div class="toplink">
 		<a href="' . $RootPath . '/SelectSupplier.php">' . _('Back to Suppliers') . '</a>
@@ -40,7 +27,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['UserID']) < 4) {
@@ -95,21 +82,19 @@ if (isset($_POST['submit'])) {
 		$DbgMsg = _('The SQL that was used to insert the new user and failed was');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 		prnMsg(_('A new supplier login has been created'), 'success');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 echo '<table>
 		<tr>
 			<td>' . _('User Login') . ':</td>
 			<td><input type="text" autofocus="autofocus" name="UserID" size="22" required="required" maxlength="20" /></td>
 		</tr>';
-
 
 if (!isset($_POST['Password'])) {
 	$_POST['Password'] = '';
@@ -140,15 +125,9 @@ echo '<tr>
 		<td><input type="email" name="Email" value="' . $_POST['Email'] . '" size="32" maxlength="55" /></td>
 	</tr>';
 
-
-
-
-
 //Make an array of the security roles where only one role is active and is ID 1
-
 //For the security role selection box, we will only show roles that have:
 //- Only one entry in securitygroups AND the tokenid of this entry == 9
-
 //First get all available security role ID's'
 $RolesResult = DB_query("SELECT secroleid FROM securityroles");
 $FoundTheSupplierRole = false;
@@ -171,10 +150,9 @@ if (!$FoundTheSupplierRole) {
 	echo '</table>
 		  </form>';
 	prnMsg(_('The supplier login role is expected to contain just one token - number 9. There is no such role currently defined - so a supplier login cannot be set up until this role is defined'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
-
 
 echo '<tr>
 		<td>' . _('Default Location') . ':</td>
@@ -185,7 +163,7 @@ $SQL = "SELECT locations.loccode,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1";
 $Result = DB_query($SQL);
 
@@ -251,7 +229,6 @@ echo '<tr>
 
 $ThemeDirectory = dir('css/');
 
-
 while (false != ($ThemeName = $ThemeDirectory->read())) {
 
 	if (is_dir('css/' . $ThemeName) and $ThemeName != '.' and $ThemeName != '..' and $ThemeName != '.svn') {
@@ -290,5 +267,5 @@ echo '</select></td>
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

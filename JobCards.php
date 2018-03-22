@@ -1,21 +1,18 @@
 <?php
-
 if (!isset($_GET['DebtorNo'])) {
 	// Show Message Box
 	echo "<script type='text/javascript'>";
 	echo "location.href = 'index.php'";
 	echo "</script>";
 } //!isset($_GET['DebtorNo'])
-
 if (isset($_POST['BranchNo'])) {
 	$_GET['BranchNo'] = $_POST['BranchNo'];
 } //isset($_POST['BranchNo'])
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Job Cards');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/JobCards.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/JobCards.php');
 
 if (!isset($_POST['JobCPrint'])) {
 	$SQL = "SELECT name FROM debtorsmaster WHERE debtorno='" . $_GET['DebtorNo'] . "'";
@@ -47,7 +44,7 @@ if (!isset($_POST['SaveUpdateJob'])) {
 				</tr>';
 		echo GetJobCards($RootPath);
 		echo '</table>';
-		echo '<form action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1" method="post">';
+		echo '<form action="' . basename(__FILE__) . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<div class="centre">';
 		echo '<br><input type=submit name="AddJob" value="' . _('Add Job Card') . '">';
@@ -88,10 +85,10 @@ if (!isset($_POST['SaveUpdateJob'])) {
 		} //(isset($_POST["SaveJob"])) and (!isset($_POST['UpdateJob']))
 		else {
 			if (isset($_POST['UpdateJob'])) {
-				echo '<form action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&JobCardNo=' . $_POST['JobCardNo'] . '&SaveUpdateJob=1" method="post">';
+				echo '<form action="' . basename(__FILE__) . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&JobCardNo=' . $_POST['JobCardNo'] . '&SaveUpdateJob=1" method="post">';
 			} //isset($_POST['UpdateJob'])
 			else {
-				echo '<form action="' . $_SERVER['PHP_SELF'] . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1&SaveJob=1" method="post">';
+				echo '<form action="' . basename(__FILE__) . '?DebtorNo=' . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . '&AddJob=1&SaveJob=1" method="post">';
 			}
 			echo '<table cellpadding=4 width=99% style ="outline-style:solid;outline-width:1px;' . $printbk . '">';
 			echo '<tr>';
@@ -281,6 +278,6 @@ if (!isset($_POST['SaveUpdateJob'])) {
 	echo "location.href = 'JobCards.php?DebtorNo=" . $_SESSION['CustomerID'] . '&BranchNo=' . $_GET['BranchNo'] . "'";
 	echo "</script>";
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

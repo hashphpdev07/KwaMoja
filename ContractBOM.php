@@ -1,15 +1,14 @@
 <?php
+include ('includes/DefineContractClass.php');
 
-include('includes/DefineContractClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Contract Bill of Materials');
 
 $Identifier = $_GET['identifier'];
 
 /* If a contract header doesn't exist, then go to
  * Contracts.php to create one
- */
+*/
 
 if (!isset($_SESSION['Contract' . $Identifier])) {
 	header('Location:' . $RootPath . '/Contracts.php');
@@ -17,7 +16,7 @@ if (!isset($_SESSION['Contract' . $Identifier])) {
 }
 $ViewTopic = 'Contracts';
 $BookMark = 'AddToContract';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 	if ($_SESSION['Contract' . $Identifier]->Status != 2) { //dont do anything if the customer has committed to the contract
@@ -29,7 +28,9 @@ if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 				$_SESSION['Contract' . $Identifier]->ContractBOM[$ContractComponent->ComponentID]->Quantity = filter_number_format($_POST['Qty' . $ContractComponent->ComponentID]);
 			}
 		} // end loop around the items on the contract BOM
+		
 	} // end if the contract is not currently committed to by the customer
+	
 } // end if the user has hit the update lines or back to header buttons
 
 
@@ -37,7 +38,7 @@ if (isset($_POST['BackToHeader'])) {
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/Contracts.php?identifier=' . $Identifier . '" />';
 	echo '<br />';
 	prnMsg(_('You should automatically be forwarded to the Contract page. If this does not happen perhaps the browser does not support META Refresh') . '<a href="' . $RootPath . '/Contracts.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -163,7 +164,7 @@ if (isset($_GET['Delete'])) {
 
 if (isset($_POST['NewItem'])) {
 	/* NewItem is set from the part selection list as the part code selected */
-	for ($i = 0; $i < $_POST['CountOfItems']; $i++) {
+	for ($i = 0;$i < $_POST['CountOfItems'];$i++) {
 		$AlreadyOnThisBOM = 0;
 		if (filter_number_format($_POST['Qty' . $i]) > 0) {
 			if (count($_SESSION['Contract' . $Identifier]->ContractBOM) != 0) {
@@ -171,7 +172,7 @@ if (isset($_POST['NewItem'])) {
 				foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $Component) {
 
 					/* do a loop round the items on the order to see that the item
-					is not already on this order */
+					 is not already on this order */
 					if ($Component->StockID == trim($_POST['StockID' . $i])) {
 						$AlreadyOnThisBOM = 1;
 						prnMsg(_('The item') . ' ' . trim($_POST['StockID' . $i]) . ' ' . _('is already in the bill of material for this contract. The system will not allow the same item on the contract more than once. However you can change the quantity required for the item.'), 'error');
@@ -199,13 +200,14 @@ if (isset($_POST['NewItem'])) {
 
 				if ($MyRow = DB_fetch_array($Result1)) {
 
-					$_SESSION['Contract' . $Identifier]->Add_To_ContractBOM(trim($_POST['StockID' . $i]), $MyRow['description'], '', filter_number_format($_POST['Qty' . $i]), /* Qty */ $MyRow['unitcost'], $MyRow['units'], $MyRow['decimalplaces']);
+					$_SESSION['Contract' . $Identifier]->Add_To_ContractBOM(trim($_POST['StockID' . $i]), $MyRow['description'], '', filter_number_format($_POST['Qty' . $i]), /* Qty */
+					$MyRow['unitcost'], $MyRow['units'], $MyRow['decimalplaces']);
 				} else {
 					prnMsg(_('The item code') . ' ' . trim($_POST['StockID' . $i]) . ' ' . _('does not exist in the database and therefore cannot be added to the contract BOM'), 'error');
 					if ($Debug == 1) {
 						echo '<br />' . $SQL;
 					}
-					include('includes/footer.php');
+					include ('includes/footer.php');
 					exit;
 				}
 			}
@@ -218,7 +220,7 @@ if (isset($_POST['NewItem'])) {
 
 /* This is where the order as selected should be displayed  reflecting any deletions or insertions*/
 
-echo '<form id="ContractBOMForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form id="ContractBOMForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
@@ -244,7 +246,7 @@ if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
 		</tr>';
 
 	$_SESSION['Contract' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $ContractComponent) {
 
@@ -259,9 +261,9 @@ if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
 				<td>' . $ContractComponent->UOM . '</td>
 				<td class="number">' . locale_number_format($ContractComponent->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . $DisplayLineTotal . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ContractComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
-		$TotalCost += $LineTotal;
+		$TotalCost+= $LineTotal;
 	}
 
 	$DisplayTotal = locale_number_format($TotalCost, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -348,16 +350,15 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
 
 		$SupportedImgExt = array('png', 'jpg', 'jpeg');
 		$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 		$ImageFile = reset($ImageFileArray);
-		if (extension_loaded('gd') and function_exists('gd_info') and file_exists ($ImageFile)) {
-			$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID='. urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
-		} else if (file_exists ($ImageFile)) {
+		if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
+			$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
+		} else if (file_exists($ImageFile)) {
 			$ImageSource = '<img src="' . $ImageFile . '" height="100" width="100" />';
 		} else {
 			$ImageSource = _('No Image');
@@ -377,6 +378,7 @@ if (isset($SearchResult)) {
 			break;
 		}
 		#end of page full new headings if
+		
 	}
 
 	#end of while loop
@@ -391,7 +393,6 @@ if (isset($SearchResult)) {
 			<input type="submit" name="NewItem" value="' . _('Add to Contract Bill Of Material') . '" />
 		</div>';
 } #end if SearchResults to show
-
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

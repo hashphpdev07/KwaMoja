@@ -1,17 +1,16 @@
 <?php
-
 /* $Id: PickingLists.php 1 2014-08-29 15:19:14Z agaluski $*/
 
 /* Session started in session.php for password checking and authorisation level check */
-include('includes/DefineCartClass.php');
-include('includes/DefineSerialItems.php');
-include('includes/session.php');
+include ('includes/DefineCartClass.php');
+include ('includes/DefineSerialItems.php');
+include ('includes/session.php');
 $Title = _('Picking List Maintenance');
 
 $ARSecurity = 3;
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (empty($_GET['identifier'])) {
 	/*unique session identifier to ensure that there is no conflict with other order entry sessions on the same machine  */
@@ -28,15 +27,15 @@ if (!isset($_GET['Prid']) and !isset($_SESSION['ProcessingPick'])) {
 		<br />
 		<br />';
 	prnMsg(_('This page can only be opened if a pick list has been selected Please select a pick list first'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } elseif (isset($_GET['Prid']) and $_GET['Prid'] > 0) {
 
 	unset($_SESSION['Items' . $Identifier]->LineItems);
 	unset($_SESSION['Items' . $Identifier]);
 
-	$_SESSION['ProcessingPick'] = (int) $_GET['Prid'];
-	$_GET['Prid'] = (int) $_GET['Prid'];
+	$_SESSION['ProcessingPick'] = (int)$_GET['Prid'];
+	$_GET['Prid'] = (int)$_GET['Prid'];
 	$_SESSION['Items' . $Identifier] = new cart;
 
 	/*read in all the guff from the selected order into the Items cart  */
@@ -90,7 +89,7 @@ if (!isset($_GET['Prid']) and !isset($_SESSION['ProcessingPick'])) {
 						AND pickreq.closed=0";
 
 	if ($_SESSION['SalesmanLogin'] != '') {
-		$OrderHeaderSQL .= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+		$OrderHeaderSQL.= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 	}
 
 	$ErrMsg = _('The pick list cannot be retrieved because');
@@ -229,7 +228,7 @@ if (!isset($_GET['Prid']) and !isset($_SESSION['ProcessingPick'])) {
 					<a href="' . $RootPath . '/SelectPickingLists.php">' . _('Select a Pick List') . '</a>
 				</div>';
 			prnMsg(_('There are no ordered items with a quantity left to deliver. There is nothing left to invoice'));
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 
 		} //end of checks on returned data set
@@ -242,13 +241,14 @@ if (!isset($_GET['Prid']) and !isset($_SESSION['ProcessingPick'])) {
 				<a href="' . $RootPath . '/SelectPickingLists.php">' . _('Select a Pick List') . '</a>
 			</div>';
 		prnMsg(_('This pick list item could not be retrieved. Please select another pick list'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} //valid order returned from the entered pick number
+	
 } else {
 
 	/* if processing, a dispatch page has been called and ${$StkItm->LineNumber} would have been set from the post
-	set all the necessary session variables changed by the POST  */
+	 set all the necessary session variables changed by the POST  */
 	if (isset($_POST['ShipVia'])) {
 		$_SESSION['Items' . $Identifier]->ShipVia = $_POST['ShipVia'];
 	}
@@ -265,7 +265,7 @@ if (!isset($_GET['Prid']) and !isset($_SESSION['ProcessingPick'])) {
 		if (sizeOf($Itm->SerialItems) > 0) {
 			$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched = 0; //initialise QtyDispatched
 			foreach ($Itm->SerialItems as $SerialItem) { //calculate QtyDispatched from bundle quantities
-				$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched += $SerialItem->BundleQty;
+				$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched+= $SerialItem->BundleQty;
 			}
 		} else if (isset($_POST[$Itm->LineNumber . '_QtyDispatched'])) {
 			if (is_numeric(filter_number_format($_POST[$Itm->LineNumber . '_QtyDispatched'])) and filter_number_format($_POST[$Itm->LineNumber . '_QtyDispatched']) <= ($_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Quantity - $_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyInv)) {
@@ -274,7 +274,7 @@ if (!isset($_GET['Prid']) and !isset($_SESSION['ProcessingPick'])) {
 			}
 		}
 	} //end foreach lineitem
-
+	
 }
 
 if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
@@ -292,7 +292,7 @@ echo '<table>
 			</tr>
 			</table>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /***************************************************************
@@ -310,14 +310,13 @@ echo '<table width="90%" cellpadding="2">
 
 /*show the line items on the order with the quantity being dispatched available for modification */
 
-$k = 0; //row colour counter
 $j = 0;
 foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	++$j;
 	if (sizeOf($LnItm->SerialItems) > 0) {
 		$_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyDispatched = 0; //initialise QtyDispatched
 		foreach ($LnItm->SerialItems as $SerialItem) { //calculate QtyDispatched from bundle quantities
-			$_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyDispatched += $SerialItem->BundleQty;
+			$_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyDispatched+= $SerialItem->BundleQty;
 		}
 	} else if (isset($_POST[$LnItm->LineNumber . '_QtyDispatched'])) {
 		if (is_numeric(filter_number_format($_POST[$LnItm->LineNumber . '_QtyDispatched'])) and filter_number_format($_POST[$LnItm->LineNumber . '_QtyDispatched']) <= ($_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->Quantity - $_SESSION['Items' . $Identifier]->LineItems[$LnItm->LineNumber]->QtyInv)) {
@@ -367,7 +366,6 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 		echo $RowStarter . '<td colspan="6">' . stripslashes($Narrative) . '</td></tr>';
 	}
 } //end foreach ($line)
-
 if (!isset($_POST['DispatchDate']) or !is_date($_POST['DispatchDate'])) {
 	$DefaultDispatchDate = Date($_SESSION['DefaultDateFormat'], CalcEarliestDispatchDate());
 } else {
@@ -422,22 +420,23 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 						prnMsg(_('Invoicing the selected order would result in negative stock for a component of an assembly item on the order. The system parameters are set to prohibit negative stocks from occurring. This invoice cannot be created until the stock on hand is corrected.'), 'error', $NegRow['component'] . ' ' . $NegRow['description'] . ' - ' . _('Negative Stock Prohibited'));
 						$NegativesFound = true;
 					} // end if negative would result
+					
 				} //loop around the components of an assembly item
+				
 			} //end if its an assembly item - check component stock
-
+			
 		} //end of loop around items on the order for negative check
-
 		if ($NegativesFound) {
 			echo '</form>';
 			echo '<div class="centre">
 					<input type="submit" name="Update" value="' . _('Update') . '" />
 				</div>';
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 	} //end of testing for negative stocks
-
+	
 
 	/* Now Get the area where the sale is to from the branches table */
 
@@ -459,7 +458,7 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 	if ($_SESSION['CompanyRecord'] == 0) {
 		/*The company data and preferences could not be retrieved for some reason */
 		prnMsg(_('The company information and preferences could not be retrieved') . ' - ' . _('see your system administrator'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -496,12 +495,12 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 		unset($_SESSION['Items' . $Identifier]->LineItems);
 		unset($_SESSION['Items' . $Identifier]);
 		unset($_SESSION['ProcessingPick']);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		$TotalQtyInv += $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyDispatched; //need total qty later to distribute freight equally
+		$TotalQtyInv+= $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyDispatched; //need total qty later to distribute freight equally
 		if ($_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->Quantity != $MyRow['quantity'] or $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyInv != $MyRow['qtyinvoiced']) {
 
 			echo '<br />' . _('Orig order for') . ' ' . $MyRow['orderlineno'] . ' ' . _('has a quantity of') . ' ' . $MyRow['quantity'] . ' ' . _('and an invoiced qty of') . ' ' . $MyRow['qtyinvoiced'] . ' ' . _('the session shows quantity of') . ' ' . $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->Quantity . ' ' . _('and quantity invoice of') . ' ' . $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyInv;
@@ -513,26 +512,24 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 			unset($_SESSION['Items' . $Identifier]->LineItems);
 			unset($_SESSION['Items' . $Identifier]);
 			unset($_SESSION['ProcessingPick']);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
 	/*loop through all line items of the order to ensure none have been invoiced since started looking at this order*/
-
 
 	DB_free_result($Result);
 
 	// *************************************************************************
 	//   S T A R T   O F   S Q L   P R O C E S S I N G
 	// *************************************************************************
-
 	/*Start an SQL transaction */
 
 	DB_Txn_Begin();
 
 	$DefaultDispatchDate = FormatDateForSQL($DefaultDispatchDate);
 
-/*remove existing pickserialdetails records*/
+	/*remove existing pickserialdetails records*/
 	$SQL = "DELETE pickserialdetails
 				FROM pickserialdetails
 				INNER JOIN pickreqdetails
@@ -554,7 +551,7 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 		$ExtraLineSQL = ",shipqty=0";
 	}
 	if ($_POST['Status'] == 'Cancelled') {
-		$ExtraUpdSQL .= ",closed='1'";
+		$ExtraUpdSQL.= ",closed='1'";
 	}
 	$SQL = "UPDATE salesorders, pickreq
 			SET internalcomment = '" . $_POST['InternalComments'] . "',
@@ -593,7 +590,7 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 		if ($OrderLine->Controlled == 1) {
-			foreach($OrderLine->SerialItems as $Item) {
+			foreach ($OrderLine->SerialItems as $Item) {
 				/* now insert the serial records */
 				$SQL = "INSERT INTO pickserialdetails (detailno,
 													stockid,
@@ -607,7 +604,7 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The serial stock movement record could not be inserted because');
 				$DbgMsg = _('The following SQL to insert the serial stock movement records was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-			}/* foreach controlled item in the serialitems array */
+			} /* foreach controlled item in the serialitems array */
 		} /*end if the orderline is a controlled item */
 
 	}
@@ -637,7 +634,6 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 
 	echo '<a href="' . $RootPath . '/SelectPickingLists.php">' . _('Select another pick list for processing') . '</a><br /><br />';
 	/*end of process invoice */
-
 
 } else {
 	/*Process Invoice not set so allow input of invoice data */
@@ -723,5 +719,5 @@ if (isset($_POST['ProcessPickList']) and $_POST['ProcessPickList'] != '') {
 }
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

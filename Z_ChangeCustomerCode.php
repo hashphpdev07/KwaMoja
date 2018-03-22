@@ -1,36 +1,34 @@
 <?php
-
 /*Script to change a customer code throughout the database*/
 
-include('includes/session.php');
-$Title = _('UTILITY PAGE To Changes A Customer Code In All Tables');// Screen identificator.
+include ('includes/session.php');
+$Title = _('UTILITY PAGE To Changes A Customer Code In All Tables'); // Screen identificator.
 $ViewTopic = 'SpecialUtilities'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'Z_ChangeCustomerCode'; // Anchor's id in the manual's html document.
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text">
 		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Change A Customer Code') . '" />' . _('Change A Customer Code') . '
-	</p>';// Page title.
+	</p>'; // Page title.
 if (isset($_POST['ProcessCustomerChange'])) {
 
 	/*First check the customer code exists */
 	$Result = DB_query("SELECT debtorno FROM debtorsmaster WHERE debtorno='" . $_POST['OldDebtorNo'] . "'");
 	if (DB_num_rows($Result) == 0) {
 		prnMsg('<br /><br />' . _('The customer code') . ': ' . $_POST['OldDebtorNo'] . ' ' . _('does not currently exist as a customer code in the system'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-
 	if ($_POST['NewDebtorNo'] == '') {
 		prnMsg(_('The new customer code to change the old code to must be entered as well'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	/*Now check that the new code doesn't already exist */
 	$Result = DB_query("SELECT debtorno FROM debtorsmaster WHERE debtorno='" . $_POST['NewDebtorNo'] . "'");
 	if (DB_num_rows($Result) != 0) {
 		prnMsg(_('The replacement customer code') . ': ' . $_POST['NewDebtorNo'] . ' ' . _('already exists as a customer code in the system') . ' - ' . _('a unique customer code must be entered for the new code'), 'error');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -177,7 +175,6 @@ if (isset($_POST['ProcessCustomerChange'])) {
 	$ErrMsg = _('The SQL to update order delivery differences records failed');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-
 	prnMsg(_('Changing pricing records'), 'info');
 	$SQL = "UPDATE prices SET debtorno='" . $_POST['NewDebtorNo'] . "' WHERE debtorno='" . $_POST['OldDebtorNo'] . "'";
 
@@ -214,20 +211,18 @@ if (isset($_POST['ProcessCustomerChange'])) {
 	$ErrMsg = _('The SQL to delete the old CustBranch records for the old debtor record failed');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-
 	prnMsg(_('Deleting the customer code from the DebtorsMaster table'), 'info');
 	$SQL = "DELETE FROM debtorsmaster WHERE debtorno='" . $_POST['OldDebtorNo'] . "'";
 
 	$ErrMsg = _('The SQL to delete the old debtor record failed');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-
 	$Result = DB_Txn_Commit();
 	$Result = DB_ReinstateForeignKeys();
 
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -247,6 +242,6 @@ echo '<br />
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

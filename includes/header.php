@@ -4,7 +4,7 @@
 //  $RootPath
 //  $Title - should be defined in the page this file is included with
 if (!isset($RootPath)) {
-	$RootPath = dirname(htmlspecialchars($_SERVER['PHP_SELF']));
+	$RootPath = dirname(htmlspecialchars(basename(__FILE__)));
 	if ($RootPath == '/' or $RootPath == "\\") {
 		$RootPath = '';
 	}
@@ -27,6 +27,7 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/tables.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/messages.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
 			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
 			<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -205,5 +206,6 @@ echo '</div>'; // Headerdiv
 //echo '<div id="HiddenOutput" style="display: none"></div>';
 echo '<div id="BodyDiv">';
 echo '<div id="BodyWrapDiv">';
+echo '<div id="MessageContainerHead"></div>';
 
 ?>

@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Recurring Sales Orders');
 /* Manual links before header.php */
 $ViewTopic = 'SalesOrders';
 $BookMark = 'RecurringSalesOrders';
 
-include('includes/header.php');
+include ('includes/header.php');
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Inventory Items') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -22,7 +21,7 @@ $SQL = "SELECT locations.loccode,
 			FROM locations
 			INNER JOIN locationusers
 				ON locationusers.loccode=locations.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1";
 
 $ResultStkLocs = DB_query($SQL);
@@ -98,7 +97,6 @@ SUM(recurrsalesorderdetails.unitprice*recurrsalesorderdetails.quantity*(1-recurr
 				<th>' . _('Order Total') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
 
 		$ModifyPage = $RootPath . '/RecurringSalesOrders.php?ModifyRecurringSalesOrder=' . $MyRow['recurrorderno'];
@@ -118,12 +116,12 @@ SUM(recurrsalesorderdetails.unitprice*recurrsalesorderdetails.quantity*(1-recurr
 				</tr>', $ModifyPage, $MyRow['recurrorderno'], $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedLastRecurrence, $FormatedStopDate, $MyRow['frequency'], $FormatedOrderValue);
 
 		//end of page full new headings if
+		
 	}
 	//end of while loop
-
 	echo '</table>';
 }
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

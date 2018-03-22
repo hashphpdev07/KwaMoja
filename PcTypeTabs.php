@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Maintenance Of Petty Cash Type of Tabs');
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'PCTabTypes';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
@@ -20,7 +19,7 @@ if (isset($_POST['SelectedTab'])) {
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$InputError = 0;
@@ -49,7 +48,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$checkSql = "SELECT count(*)
 				 FROM pctypetabs
 				 WHERE typetabcode = '" . $_POST['TypeTabCode'] . "'";
@@ -63,7 +61,6 @@ if (isset($_POST['submit'])) {
 		} else {
 
 			// Add new record on submit
-
 			$SQL = "INSERT INTO pctypetabs
 						(typetabcode,
 			 			 typetabdescription)
@@ -88,7 +85,6 @@ if (isset($_POST['submit'])) {
 } elseif (isset($_GET['delete'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'PcTabExpenses'
-
 	$SQLPcTabExpenses = "SELECT COUNT(*)
 		FROM pctabexpenses
 		WHERE typetabcode='" . $SelectedTab . "'";
@@ -108,11 +104,11 @@ if (isset($_POST['submit'])) {
 	$MyRowPcTabs = DB_fetch_row($ResultPcTabs);
 	if ($MyRowPcTabExpenses[0] > 0 or $MyRowPcTabs[0] > 0) {
 		prnMsg(_('Cannot delete this tab type because tabs have been created using this tab type'), 'error');
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<div class="centre"><input type="submit" name="Return" value="', _('Return to list of tab types'), '" /></div>';
 		echo '</form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 
@@ -123,8 +119,8 @@ if (isset($_POST['submit'])) {
 		unset($SelectedTab);
 		unset($_GET['delete']);
 
-
 	} //end if tab type used in transactions
+	
 }
 
 if (!isset($SelectedTab)) {
@@ -145,14 +141,12 @@ if (!isset($SelectedTab)) {
 				<th>', _('Description'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr class="striped_row">
 				<td>', $MyRow['typetabcode'], '</td>
 				<td>', $MyRow['typetabdescription'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTab=', $MyRow['typetabcode'], '">' . _('Edit') . '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedTab=', $MyRow['typetabcode'], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and all the description it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTab=', $MyRow['typetabcode'], '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTab=', $MyRow['typetabcode'], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and all the description it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -163,12 +157,12 @@ if (!isset($SelectedTab)) {
 if (isset($SelectedTab)) {
 
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show All Types Tabs Defined'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Types Tabs Defined'), '</a>
 		</div>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedTab) and $SelectedTab != '') {
@@ -193,13 +187,12 @@ if (!isset($_GET['delete'])) {
 				</tr>';
 
 		// We dont allow the user to change an existing type code
+		
 
-
-
+		
 	} else {
 
 		// This is a new type so the user may volunteer a type code
-
 		echo '<table>
 				<tr>
 					<td>', _('Code Of Type Of Tab'), ':</td>
@@ -217,7 +210,6 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -225,6 +217,5 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

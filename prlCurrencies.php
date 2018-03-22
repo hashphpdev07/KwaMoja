@@ -1,14 +1,13 @@
 <?php
-
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Currency Maintenance Section');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
 if (isset($_GET['SelectedCurrency'])) {
 	$SelectedCurrency = $_GET['SelectedCurrency'];
@@ -17,21 +16,20 @@ if (isset($_GET['SelectedCurrency'])) {
 }
 
 $ForceConfigReload = true;
-include('includes/GetConfig.php');
+include ('includes/GetConfig.php');
 
 $FunctionalCurrency = $_SESSION['CompanyRecord']['currencydefault'];
 ?>
 <a href="prlUserSettings.php">Back to User Settings
     </a>
 	<?php
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs are sensible
 	$i = 1;
@@ -69,12 +67,12 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 		prnMsg(_('The functional currency cannot be modified or deleted'), 'error');
 	}
-	if (strstr($_POST['Abbreviation'], "'") OR strstr($_POST['Abbreviation'], '+') OR strstr($_POST['Abbreviation'], "\"") OR strstr($_POST['Abbreviation'], '&') OR strstr($_POST['Abbreviation'], ' ') OR strstr($_POST['Abbreviation'], "\\") OR strstr($_POST['Abbreviation'], '.') OR strstr($_POST['Abbreviation'], '"')) {
+	if (strstr($_POST['Abbreviation'], "'") or strstr($_POST['Abbreviation'], '+') or strstr($_POST['Abbreviation'], "\"") or strstr($_POST['Abbreviation'], '&') or strstr($_POST['Abbreviation'], ' ') or strstr($_POST['Abbreviation'], "\\") or strstr($_POST['Abbreviation'], '.') or strstr($_POST['Abbreviation'], '"')) {
 		$InputError = 1;
 		prnMsg(_('The currency code cannot contain any of the following characters') . " . - ' & + \" " . _('or a space'), 'error');
 	}
 
-	if (isset($SelectedCurrency) AND $InputError != 1) {
+	if (isset($SelectedCurrency) and $InputError != 1) {
 
 		/*SelectedCurrency could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
 		$SQL = "UPDATE currencies SET
@@ -130,7 +128,6 @@ if (isset($_POST['submit'])) {
 }
 //end if currency used in customer or supplier accounts
 //}
-
 if (!isset($SelectedCurrency)) {
 
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedCurrency will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
@@ -152,7 +149,6 @@ if (!isset($SelectedCurrency)) {
 		<th>" . _('Ex Rate - ECB') . "</td>
 		</tr></font>";
 
-	$k = 0; //row colour counter
 	/*Get published currency rates from Eurpoean Central Bank */
 	if (isset($_SESSION['UpdateCurrencyRatesDaily']) != '0') {
 		$CurrencyRatesArray = GetECBCurrencyRates();
@@ -179,7 +175,7 @@ if (!isset($SelectedCurrency)) {
 						<td class=number>%s</td>
 						<td><a href=\"%s&SelectedCurrency=%s\">%s</a></td>
 						<td><a href=\"%s&SelectedCurrency=%s&delete=1\">%s</a></td>
-					</tr>', $ImageFile, $MyRow[1], $MyRow[0], $MyRow[2], $MyRow[3], number_format($MyRow[4], 5), number_format(GetCurrencyRate($MyRow[1], $CurrencyRatesArray), 5), $_SERVER['PHP_SELF'], $MyRow[1], _('Edit'), $_SERVER['PHP_SELF'], $MyRow[1], _('Delete'), $RootPath, '&CurrencyToShow=' . $MyRow[1]);
+					</tr>', $ImageFile, $MyRow[1], $MyRow[0], $MyRow[2], $MyRow[3], number_format($MyRow[4], 5), number_format(GetCurrencyRate($MyRow[1], $CurrencyRatesArray), 5), basename(__FILE__), $MyRow[1], _('Edit'), basename(__FILE__), $MyRow[1], _('Delete'), $RootPath, '&CurrencyToShow=' . $MyRow[1]);
 		} else {
 			printf('<tr class="striped_row">
 						<td><img src=\"%s\"></td>
@@ -198,18 +194,17 @@ if (!isset($SelectedCurrency)) {
 
 
 if (isset($SelectedCurrency)) {
-	echo '<div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '">' . _('Show all currency definitions') . '</a></div>';
+	echo '<div class="centre"><a href="' . basename(__FILE__) . '">' . _('Show all currency definitions') . '</a></div>';
 }
 
 echo '<br>';
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
-	if (isset($SelectedCurrency) AND $SelectedCurrency != '') {
+	if (isset($SelectedCurrency) and $SelectedCurrency != '') {
 		//editing an existing payment terms
-
 		$SQL = "SELECT currencyname,
 				currabrev,
 				country,
@@ -228,8 +223,6 @@ if (!isset($_GET['delete'])) {
 		$_POST['Country'] = $MyRow['country'];
 		$_POST['HundredsName'] = $MyRow['hundredsname'];
 		$_POST['ExchangeRate'] = $MyRow['rate'];
-
-
 
 		echo '<input type="hidden" name="SelectedCurrency" value="' . $SelectedCurrency . '">';
 		echo '<input type="hidden" name="Abbreviation" value="' . $_POST['Abbreviation'] . '">';
@@ -282,6 +275,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

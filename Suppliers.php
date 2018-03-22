@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Supplier Maintenance');
 /* Manual links before header.php */
 $ViewTopic = 'AccountsPayable';
 $BookMark = 'NewSupplier';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/CountriesArray.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/CountriesArray.php');
 
 function Is_ValidAccount($ActNo) {
 
@@ -17,13 +16,13 @@ function Is_ValidAccount($ActNo) {
 		return False;
 	}
 
-	if (!Is_double((double) $ActNo)) {
+	if (!Is_double((double)$ActNo)) {
 		echo _('NZ account numbers entered must use all numeric characters in it');
 		return False;
 	}
 
 	$BankPrefix = mb_substr($ActNo, 0, 2);
-	$BranchNumber = (int) (mb_substr($ActNo, 3, 4));
+	$BranchNumber = (int)(mb_substr($ActNo, 3, 4));
 
 	if ($BankPrefix == '29') {
 		echo _('NZ Accounts codes with the United Bank are not verified') . ', ' . _('be careful to enter the correct account number');
@@ -31,7 +30,6 @@ function Is_ValidAccount($ActNo) {
 	}
 
 	//Verify correct branch details
-
 	switch ($BankPrefix) {
 
 		case '01':
@@ -39,21 +37,21 @@ function Is_ValidAccount($ActNo) {
 				echo _('ANZ branches must be between 0001 and 0999 or between 1100 and 1199') . '. ' . _('The branch number used is invalid');
 				return False;
 			}
-			break;
+		break;
 		case '02':
 			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1200 and $BranchNumber <= 1299))) {
 				echo _('Bank Of New Zealand branches must be between 0001 and 0999 or between 1200 and 1299') . '. ' . _('The branch number used is invalid');
 				return False;
 				exit;
 			}
-			break;
+		break;
 		case '03':
 			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1300 and $BranchNumber <= 1399))) {
 				echo _('Westpac Trust branches must be between 0001 and 0999 or between 1300 and 1399') . '. ' . _('The branch number used is invalid');
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '06':
 			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1400 and $BranchNumber <= 1499))) {
@@ -61,7 +59,7 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '08':
 			if (!($BranchNumber >= 6500 and $BranchNumber <= 6599)) {
@@ -69,24 +67,23 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 		case '09':
 			if ($BranchNumber != 0) {
 				echo _('The Reserve Bank branch should be 0000') . '. ' . _('The branch number used is invalid');
 				return False;
 				exit;
 			}
-			break;
+		break;
 		case '12':
 
 			//"13" "14" "15", "16", "17", "18", "19", "20", "21", "22", "23", "24":
-
 			if (!($BranchNumber >= 3000 and $BranchNumber <= 4999)) {
 				echo _('Trust Bank and Regional Bank branches must be between 3000 and 4999') . '. ' . _('The branch number used is invalid');
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '11':
 			if (!($BranchNumber >= 5000 and $BranchNumber <= 6499)) {
@@ -94,7 +91,7 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '25':
 			if (!($BranchNumber >= 2500 and $BranchNumber <= 2599)) {
@@ -102,14 +99,14 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 		case '29':
 			if (!($BranchNumber >= 2150 and $BranchNumber <= 2299)) {
 				echo _('United Bank branches must be between 2150 and 2299') . '. ' . _('The branch number used is invalid');
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '30':
 			if (!($BranchNumber >= 2900 and $BranchNumber <= 2949)) {
@@ -117,7 +114,7 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '31':
 			if (!($BranchNumber >= 2800 and $BranchNumber <= 2849)) {
@@ -125,7 +122,7 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		case '33':
 			if (!($BranchNumber >= 6700 and $BranchNumber <= 6799)) {
@@ -133,7 +130,7 @@ function Is_ValidAccount($ActNo) {
 				return False;
 				exit;
 			}
-			break;
+		break;
 
 		default:
 			echo _('The prefix') . ' - ' . $BankPrefix . ' ' . _('is not a valid New Zealand Bank') . '.<br />' . _('if you are outside New Zealand error trapping relevant to your country should be used');
@@ -141,10 +138,9 @@ function Is_ValidAccount($ActNo) {
 			exit;
 
 	} // end of first Bank prefix switch
+	for ($i = 3;$i <= 14;$i++) {
 
-	for ($i = 3; $i <= 14; $i++) {
-
-		$DigitVal = (double) (mb_substr($ActNo, $i, 1));
+		$DigitVal = (double)(mb_substr($ActNo, $i, 1));
 
 		switch ($i) {
 			case 3:
@@ -153,7 +149,7 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + ($DigitVal * 6);
 				}
-				break;
+			break;
 
 			case 4:
 				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
@@ -161,7 +157,7 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + ($DigitVal * 3);
 				}
-				break;
+			break;
 
 			case 5:
 				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
@@ -169,7 +165,7 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + ($DigitVal * 7);
 				}
-				break;
+			break;
 
 			case 6:
 				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
@@ -177,15 +173,15 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + ($DigitVal * 9);
 				}
-				break;
+			break;
 
 			case 7:
 				if ($BankPrefix == '08') {
 					$CheckSum = $CheckSum + $DigitVal * 7;
-				} elseif ($BankPrefix == '25' Or $BankPrefix == '33') {
+				} elseif ($BankPrefix == '25' or $BankPrefix == '33') {
 					$CheckSum = $CheckSum + $DigitVal * 1;
 				}
-				break;
+			break;
 
 			case 8:
 				if ($BankPrefix == '08') {
@@ -197,7 +193,7 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + $DigitVal * 10;
 				}
-				break;
+			break;
 
 			case 9:
 				if ($BankPrefix == '09') {
@@ -207,14 +203,14 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + $DigitVal * 5;
 				}
-				break;
+			break;
 
 			case 10:
 				if ($BankPrefix == '08') {
 					$CheckSum = $CheckSum + $DigitVal * 4;
 				} elseif ($BankPrefix == '09') {
 					if (($DigitVal * 5) > 9) {
-						$CheckSum = $CheckSum + (int) mb_substr((string) ($DigitVal * 5), 0, 1) + (int) mb_substr((string) ($DigitVal * 5), mb_strlen((string) ($DigitVal * 5)) - 1, 1);
+						$CheckSum = $CheckSum + (int)mb_substr((string)($DigitVal * 5), 0, 1) + (int)mb_substr((string)($DigitVal * 5), mb_strlen((string)($DigitVal * 5)) - 1, 1);
 					} else {
 						$CheckSum = $CheckSum + $DigitVal * 5;
 					}
@@ -223,14 +219,14 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + $DigitVal * 8;
 				}
-				break;
+			break;
 
 			case 11:
 				if ($BankPrefix == '08') {
 					$CheckSum = $CheckSum + $DigitVal * 3;
 				} elseif ($BankPrefix == '09') {
 					if (($DigitVal * 4) > 9) {
-						$CheckSum = $CheckSum + (int) mb_substr(($DigitVal * 4), 0, 1) + (int) mb_substr(($DigitVal * 4), mb_strlen($DigitVal * 4) - 1, 1);
+						$CheckSum = $CheckSum + (int)mb_substr(($DigitVal * 4), 0, 1) + (int)mb_substr(($DigitVal * 4), mb_strlen($DigitVal * 4) - 1, 1);
 					} else {
 						$CheckSum = $CheckSum + $DigitVal * 4;
 					}
@@ -239,50 +235,49 @@ function Is_ValidAccount($ActNo) {
 				} else {
 					$CheckSum = $CheckSum + $DigitVal * 4;
 				}
-				break;
+			break;
 
 			case 12:
 				if ($BankPrefix == '25' or $BankPrefix == '33') {
 					$CheckSum = $CheckSum + $DigitVal * 3;
 				} elseif ($BankPrefix == '09') {
 					if (($DigitVal * 3) > 9) {
-						$CheckSum = $CheckSum + (int) mb_substr(($DigitVal * 3), 0, 1) + (int) mb_substr(($DigitVal * 3), mb_strlen($DigitVal * 3) - 1, 1);
+						$CheckSum = $CheckSum + (int)mb_substr(($DigitVal * 3), 0, 1) + (int)mb_substr(($DigitVal * 3), mb_strlen($DigitVal * 3) - 1, 1);
 					} else {
 						$CheckSum = $CheckSum + $DigitVal * 3;
 					}
 				} else {
 					$CheckSum = $CheckSum + $DigitVal * 2;
 				}
-				break;
+			break;
 
 			case 13:
 				if ($BankPrefix == '09') {
 					if (($DigitVal * 2) > 9) {
-						$CheckSum = $CheckSum + (int) mb_substr(($DigitVal * 2), 0, 1) + (int) mb_substr(($DigitVal * 2), mb_strlen($DigitVal * 2) - 1, 1);
+						$CheckSum = $CheckSum + (int)mb_substr(($DigitVal * 2), 0, 1) + (int)mb_substr(($DigitVal * 2), mb_strlen($DigitVal * 2) - 1, 1);
 					} else {
 						$CheckSum = $CheckSum + $DigitVal * 2;
 					}
 				} else {
 					$CheckSum = $CheckSum + $DigitVal;
 				}
-				break;
+			break;
 
 			case 14:
 				if ($BankPrefix == '09') {
 					$CheckSum = $CheckSum + $DigitVal;
 				}
-				break;
+			break;
 		} //end switch
-
+		
 	} //end for loop
-
 	if ($BankPrefix == '25' or $BankPrefix == '33') {
-		if ($CheckSum / 10 - (int) ($CheckSum / 10) != 0) {
+		if ($CheckSum / 10 - (int)($CheckSum / 10) != 0) {
 			echo '<p>' . _('The account number entered does not meet the banking check sum requirement and cannot be a valid account number');
 			return False;
 		}
 	} else {
-		if ($CheckSum / 11 - (int) ($CheckSum / 11) != 0) {
+		if ($CheckSum / 11 - (int)($CheckSum / 11) != 0) {
 			echo '<p>' . _('The account number entered does not meet the banking check sum requirement and cannot be a valid account number');
 			return False;
 		}
@@ -314,7 +309,7 @@ if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$i = 1;
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	if ($_SESSION['AutoSupplierNo'] == 0) {
 		//first off validate inputs sensible
@@ -406,7 +401,6 @@ if (isset($_POST['submit'])) {
 
 				$xml = simplexml_load_string(utf8_encode(file_get_contents($request_url))) or die("url not loading");
 				//			$xml = simplexml_load_file($request_url) or die("url not loading");
-
 				$status = $xml->status;
 				if (strcmp($status, 'OK') == 0) {
 					// Successful geocode
@@ -505,7 +499,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The supplier master record for') . ' ' . $SupplierID . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new supplier
-
 			if ($_SESSION['AutoSupplierNo'] == 1) {
 				/* system assigned, sequential, numeric */
 				/* $SupplierID = GetNextTransNo(600); */
@@ -618,11 +611,9 @@ if (isset($_POST['submit'])) {
 } elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
-
 	$SQL = "SELECT COUNT(*) FROM supptrans WHERE supplierno='" . $SupplierID . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -659,10 +650,10 @@ if (isset($_POST['submit'])) {
 		unset($SupplierID);
 		unset($_SESSION['SupplierID']);
 	} //end if Delete supplier
+	
 }
 
-
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>';
@@ -706,7 +697,6 @@ if (!isset($SupplierID)) {
 } else {
 
 	//SupplierID exists - either passed when calling the form or from the form itself
-
 	if (!isset($_POST['New'])) {
 		$SQL = "SELECT supplierid,
 						suppname,
@@ -940,7 +930,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['currabrev'] . '">' . $MyRow['currency'] . '</option>';
 	}
 } //end while loop
-
 echo '</select></td></tr>
 		<tr><td>' . _('Remittance Advice') . ':</td>
 			<td><select name="Remittance">';
@@ -999,7 +988,6 @@ while ($MyRow = DB_fetch_row($Result)) {
 		echo '<option value="' . $MyRow[0] . '">' . htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8') . ' (' . $MyRow[0] . ')</option>';
 	}
 } //end while loop
-
 echo '</select>
 		</td>
 	</tr>';
@@ -1019,7 +1007,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 
 } //end while loop
-
 echo '</select>
 				</td>
 			</tr>
@@ -1040,6 +1027,5 @@ if (isset($_POST['New'])) {
 }
 echo '</form>';
 // end of main ifs
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

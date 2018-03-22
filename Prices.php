@@ -1,15 +1,14 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Item Prices');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 $ViewTopic = 'Prices';
 /*$BookMark = '';// Anchor's id in the manual's html document.*/
 
-include('includes/SQL_CommonFunctions.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<div class="toplink">
 		<a href="' . $RootPath . '/SelectProduct.php">' . _('Back to Items') . '</a>
@@ -48,7 +47,7 @@ if (DB_num_rows($Result) == 0) {
 if (!isset($Item)) {
 	echo '<p>';
 	prnMsg(_('An item must first be selected before this page is called') . '. ' . _('The product selection page should call this page with a valid product code'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -62,11 +61,10 @@ if ($MyRow[1] == 'K') {
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	// This gives some date in 1999?? $ZeroDate = Date($_SESSION['DefaultDateFormat'],Mktime(0,0,0,0,0,0));
-
 	if (!is_numeric(filter_number_format($_POST['Price'])) or $_POST['Price'] == '') {
 		$InputError = 1;
 		prnMsg(_('The price entered must be numeric'), 'error');
@@ -167,7 +165,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$SQL = "DELETE FROM prices
 			WHERE prices.stockid = '" . $Item . "'
 			AND prices.typeabbrev='" . $_GET['TypeAbbrev'] . "'
@@ -182,7 +179,6 @@ if (isset($_POST['submit'])) {
 }
 
 //Always do this stuff
-
 $SQL = "SELECT currencies.currency,
 			salestypes.sales_type,
 		prices.price,
@@ -206,7 +202,7 @@ $SQL = "SELECT currencies.currency,
 $Result = DB_query($SQL);
 
 if (DB_num_rows($Result) > 0) {
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<table>
 			<thead>
 				<tr>
@@ -228,7 +224,6 @@ if (DB_num_rows($Result) > 0) {
 	echo '</tr>
 		</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['enddate'] == '9999-12-31') {
@@ -245,9 +240,9 @@ if (DB_num_rows($Result) > 0) {
 				<td>' . $EndDateDisplay . '</td>';
 		/*Only allow access to modify prices if securiy token 1000 is allowed */
 		if (in_array(5, $_SESSION['AllowedPageSecurityTokens'])) {
-			echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?Item=' . $MyRow['stockid'] . '&amp;TypeAbbrev=' . $MyRow['typeabbrev'] . '&amp;CurrAbrev=' . $MyRow['currabrev'] . '&amp;Price=' . locale_number_format($MyRow['price'],$MyRow['currdecimalplaces']) . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?Item=' . $MyRow['stockid'] . '&amp;TypeAbbrev=' . $MyRow['typeabbrev'] . '&amp;CurrAbrev=' . $MyRow['currabrev'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
- 		}
+			echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $MyRow['stockid'] . '&amp;TypeAbbrev=' . $MyRow['typeabbrev'] . '&amp;CurrAbrev=' . $MyRow['currabrev'] . '&amp;Price=' . locale_number_format($MyRow['price'], $MyRow['currdecimalplaces']) . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $MyRow['stockid'] . '&amp;TypeAbbrev=' . $MyRow['typeabbrev'] . '&amp;CurrAbrev=' . $MyRow['currabrev'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
+		}
 		echo '</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -258,7 +253,7 @@ if (DB_num_rows($Result) > 0) {
 	prnMsg(_('There are no prices set up for this part'), 'warn');
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_GET['Edit'])) {
 	echo '<input type="hidden" name="OldTypeAbbrev" value="' . $_GET['TypeAbbrev'] . '" />';
@@ -297,7 +292,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 	echo $MyRow['currabrev'] . '">' . $MyRow['currency'] . '</option>';
 } //end while loop
-
 DB_free_result($Result);
 
 echo '</select>
@@ -353,7 +347,7 @@ echo '<tr>
 </div>';
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 
 function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 
@@ -392,6 +386,7 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 					$UpdateResult = DB_query($SQL);
 				}
 			} //end of if startdate  after NextStartDate - we have a new NextStartDate
+			
 		} //end of if set NextStartDate
 		else {
 			$NextStartDate = ConvertSQLDate($MyRow['startdate']);
@@ -399,7 +394,6 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 		$StartDate = $MyRow['startdate'];
 		$EndDate = $MyRow['enddate'];
 	} // end of loop around all prices
-
 	//Now look for duplicate prices with no end
 	$SQL = "SELECT price,
 						startdate,
@@ -428,7 +422,7 @@ function ReSequenceEffectiveDates($Item, $PriceList, $CurrAbbrev) {
 		}
 		$OldStartDate = $MyRow['startdate'];
 	} // end of loop around duplicate no end date prices
-
+	
 } // end function ReSequenceEffectiveDates
 
 ?>

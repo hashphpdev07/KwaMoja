@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer EDI Set Up');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<a href="' . $RootPath . '/SelectCustomer.php">' . _('Back to Customers') . '</a><br />';
 
@@ -13,11 +12,10 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
-	if (ContainsIllegalCharacters($_POST['EDIReference']) OR mb_strstr($_POST['EDIReference'], ' ')) {
+	if (ContainsIllegalCharacters($_POST['EDIReference']) or mb_strstr($_POST['EDIReference'], ' ')) {
 		$InputError = 1;
 		prnMsg(_('The customers EDI reference code cannot contain any of the following characters') . ' - \' &amp; + \" ' . _('or a space'), 'warn');
 	}
@@ -30,9 +28,7 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The customers EDI email address or FTP server address must be entered if EDI Invoices are to be sent'), 'warn');
 	}
 
-
 	if ($InputError == 0) { //ie no input errors
-
 		if (!isset($_POST['EDIServerUser'])) {
 			$_POST['EDIServerUser'] = '';
 		}
@@ -56,7 +52,7 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -155,5 +151,5 @@ echo '</table>
 		</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

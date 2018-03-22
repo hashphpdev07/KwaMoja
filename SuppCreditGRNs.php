@@ -1,17 +1,15 @@
 <?php
-
 /*The supplier transaction uses the SuppTrans class to hold the information about the credit note
 the SuppTrans class contains an array of GRNs objects - containing details of GRNs for invoicing and also
 an array of GLCodes objects - only used if the AP - GL link is effective */
 
-
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 /* Session started in header.php for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Enter Supplier Credit Note Against Goods Received');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . $Title . '
@@ -21,7 +19,7 @@ if (!isset($_SESSION['SuppTrans'])) {
 	prnMsg(_('To enter a supplier transactions the supplier must first be selected from the supplier selection screen') . ', ' . _('then the link to enter a supplier credit note must be clicked on'), 'info');
 	echo '<br />
 		<a href="' . $RootPath . '/SelectSupplier.php">' . _('Select A Supplier to Enter a Transaction For') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 	/*It all stops here if there aint no supplier selected and credit note initiated ie $_SESSION['SuppTrans'] started off*/
 }
@@ -91,7 +89,7 @@ foreach ($_SESSION['SuppTrans']->GRNs as $EnteredGRN) {
 			<td class="number">' . locale_number_format($EnteredGRN->This_QuantityInv, $EnteredGRN->DecimalPlaces) . '</td>
 			<td class="number">' . $DisplayPrice . '</td>
 			<td class="number">' . locale_number_format($EnteredGRN->ChgPrice * $EnteredGRN->This_QuantityInv, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredGRN->GRNNo . '">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredGRN->GRNNo . '">' . _('Delete') . '</a></td>
 		</tr>';
 
 	$TotalValueCharged = $TotalValueCharged + ($EnteredGRN->ChgPrice * $EnteredGRN->This_QuantityInv);
@@ -109,7 +107,7 @@ echo '</table>
 	</div>';
 
 /* Now get all the GRNs for this supplier from the database
-after the date entered */
+ after the date entered */
 if (!isset($_POST['Show_Since'])) {
 	$_POST['Show_Since'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 2, Date('d'), Date('Y')));
 }
@@ -141,9 +139,8 @@ if (DB_num_rows($GRNResults) == 0) {
 	<a href="' . $RootPath . '/PO_SelectOSPurchOrder.php?SupplierID=' . urlencode($_SESSION['SuppTrans']->SupplierID) . '">' . _('Select Purchase Orders to Receive') . '</a>';
 }
 
-
 /*Set up a table to show the GRNs outstanding for selection */
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -315,5 +312,5 @@ else {
 	echo '</table>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

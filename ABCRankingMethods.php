@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Maintain ABC ranking methods');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
@@ -18,9 +17,9 @@ if (isset($_GET['Delete'])) {
 		$Result = DB_query($SQL);
 		prnMsg(_('ABC Ranking method number') . ' ' . $_GET['SelectedMethodID'] . ' ' . _('has been deleted'), 'success');
 		echo '<div class="centre">
-				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking methods'), '</a>
+				<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking methods'), '</a>
 			</div>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		prnMsg(_('ABC Ranking method number') . ' ' . $_GET['SelectedMethodID'] . ' ' . _('cannot be deleted as it is used ABC groups'), 'error');
@@ -43,9 +42,9 @@ if (isset($_POST['Submit'])) {
 	}
 	prnMsg(_('The ranking method has been successfully saved to the database'), 'success');
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking methods'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('View all the ranking methods'), '</a>
 		</div>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	$SQL = "SELECT methodid,
@@ -70,13 +69,13 @@ if (isset($_POST['Submit'])) {
 		echo '<tr class="striped_row">
 				<td>', $MyRow['methodid'], '</td>
 				<td>', $MyRow['methodname'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedMethodID=', $MyRow['methodid'], '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedMethodID=', $MyRow['methodid'], '&amp;Delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this ranking method?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedMethodID=', $MyRow['methodid'], '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedMethodID=', $MyRow['methodid'], '&amp;Delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this ranking method?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 	}
 	echo '</table>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCMethods">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCMethods">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($_GET['SelectedMethodID'])) {
@@ -115,6 +114,6 @@ if (isset($_POST['Submit'])) {
 	echo '</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

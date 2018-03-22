@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Basic Pay Section');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['Bracket'])) {
 	$Bracket = $_GET['Bracket'];
@@ -20,14 +19,12 @@ echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_
 if (isset($_POST['Submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (strlen($Bracket) == 0) {
 		$InputError = 1;
 		prnMsg(_('The Salary Bracket cannot be empty'), 'error');
@@ -82,10 +79,9 @@ if (isset($_POST['Submit'])) {
 	} else {
 		prnMsg(_('Validation failed') . _('no updates or deletes took place'), 'warn');
 	}
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -96,13 +92,13 @@ if (isset($_POST['Submit'])) {
 		unset($Bracket);
 		unset($_SESSION['Bracket']);
 	} //end if Delete paypayperiod
+	
 }
 
 /*If the page was called without $SupplierID passed to page then assume a new supplier is to be entered show a form with a Supplier Code field other wise the form showing the fields with the existing entries against the supplier will show for editing with only a hidden SupplierID field*/
 
 //Bracket exists - either passed when calling the form or from the form itself
-
-echo '<form method="post" class="noPrint" id="BasicPay" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" class="noPrint" id="BasicPay" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST["New"]) and isset($Bracket)) {
@@ -186,7 +182,6 @@ if (isset($_POST["New"])) {
 echo '</form>';
 
 // end of main ifs
-
 $SQL = "SELECT bracket,
 				rangefrom,
 				rangeto,
@@ -211,7 +206,6 @@ echo '<table>
 			<th>' . _('Total') . '</th>
 		</tr>';
 
-$k = 0; //row colour counter
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr class="striped_row">
 			<td>' . $MyRow['bracket'] . '</td>
@@ -221,11 +215,11 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td>' . $MyRow['employerbasicpay'] . '</td>
 			<td>' . $MyRow['employeebasicpay'] . '</td>
 			<td>' . $MyRow['total'] . '</td>
-			<td><a href="' . $_SERVER['PHP_SELF'] . '?Bracket=' . $MyRow['bracket'] . '">' . _('Edit') . '</a></td>
-			<td><a href="' . $_SERVER['PHP_SELF'] . '?Bracket=' . $MyRow['bracket'] . '&delete=1">' . _('Delete') . '</a></td>
+			<td><a href="' . basename(__FILE__) . '?Bracket=' . $MyRow['bracket'] . '">' . _('Edit') . '</a></td>
+			<td><a href="' . basename(__FILE__) . '?Bracket=' . $MyRow['bracket'] . '&delete=1">' . _('Delete') . '</a></td>
 		</tr>';
 } //END WHILE LIST LOOP
 echo '</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

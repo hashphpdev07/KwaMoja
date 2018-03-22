@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Location Maintenance');
-$ViewTopic = 'Inventory';// Filename in ManualContents.php's TOC.
-$BookMark = 'Locations';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'Inventory'; // Filename in ManualContents.php's TOC.
+$BookMark = 'Locations'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 if (isset($_GET['SelectedLocation'])) {
 	$SelectedLocation = $_GET['SelectedLocation'];
@@ -19,7 +18,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	$_POST['LocCode'] = mb_strtoupper($_POST['LocCode']);
 	if (trim($_POST['LocCode']) == '') {
@@ -170,7 +169,7 @@ if (isset($_POST['submit'])) {
 
 		$ErrMsg = _('The users/locations that need user location records created cannot be retrieved because');
 		$Result = DB_query($SQL, $ErrMsg);
-		prnMsg(_('Existing users have been authorized for this location'),'success');
+		prnMsg(_('Existing users have been authorized for this location'), 'success');
 
 		/* Also need to create a container for the whole of the warehouse */
 
@@ -230,7 +229,6 @@ if (isset($_POST['submit'])) {
 		unset($_POST['AllowInvoicing']);
 	}
 
-
 	/* Go through the tax authorities for all Locations deleting or adding TaxAuthRates records as necessary */
 
 	$Result = DB_query("SELECT COUNT(taxid) FROM taxauthorities");
@@ -239,7 +237,6 @@ if (isset($_POST['submit'])) {
 	$DispTaxProvincesResult = DB_query("SELECT taxprovinceid FROM locations");
 	$TaxCatsResult = DB_query("SELECT taxcatid FROM taxcategories");
 	if (DB_num_rows($TaxCatsResult) > 0) { // This will only work if there are levels else we get an error on seek.
-
 		while ($MyRow = DB_fetch_row($DispTaxProvincesResult)) {
 			/*Check to see there are TaxAuthRates records set up for this TaxProvince */
 			$NoTaxRates = DB_query("SELECT taxauthority FROM taxauthrates WHERE dispatchtaxprovince='" . $MyRow[0] . "'");
@@ -266,10 +263,8 @@ if (isset($_POST['submit'])) {
 		}
 	}
 
-
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS
@@ -403,7 +398,7 @@ if (!isset($SelectedLocation)) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 					AND locationusers.canupd=1
 				INNER JOIN taxprovinces
@@ -413,8 +408,7 @@ if (!isset($SelectedLocation)) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 
 	if (DB_num_rows($Result) == 0) {
-		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a location.') .
-				'<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
+		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a location.') . '<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
 	}
 
 	if (DB_num_rows($Result) != 0) {
@@ -431,8 +425,8 @@ if (!isset($SelectedLocation)) {
 					</tr>
 				</thead>';
 
-		echo'<tbody>';
-		$k = 0; //row colour counter
+		echo '<tbody>';
+
 		while ($MyRow = DB_fetch_array($Result)) {
 			/* warehouse management not implemented ... yet
 			if($MyRow['managed'] == 1) {
@@ -450,18 +444,8 @@ if (!isset($SelectedLocation)) {
 						<td><a href="%sSelectedLocation=%s">' . _('Edit') . '</a></td>
 						<td><a href="%sLocation=%s">' . _('Define') . '</a></td>
 						<td><a href="%sSelectedLocation=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this inventory location?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-					</tr>',
-					$MyRow['loccode'],
-					$MyRow['locationname'],
-					$MyRow['description'],
-					($MyRow['glaccountcode'] != '' ? $MyRow['glaccountcode'] : '&nbsp;'),// Use a non-breaking space to avoid an empty cell in a HTML table.
-					($MyRow['allowinvoicing'] == 1 ? _('Yes') : _('No')),
-					htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?',
-					$MyRow['loccode'],
-					'DefineWarehouse.php?',
-					$MyRow['loccode'],
-					htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?',
-					$MyRow['loccode']);
+					</tr>', $MyRow['loccode'], $MyRow['locationname'], $MyRow['description'], ($MyRow['glaccountcode'] != '' ? $MyRow['glaccountcode'] : '&nbsp;'), // Use a non-breaking space to avoid an empty cell in a HTML table.
+			($MyRow['allowinvoicing'] == 1 ? _('Yes') : _('No')), htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['loccode'], 'DefineWarehouse.php?', $MyRow['loccode'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['loccode']);
 		}
 	}
 	//END WHILE LIST LOOP
@@ -472,14 +456,14 @@ if (!isset($SelectedLocation)) {
 //end of ifs and buts!
 if (isset($SelectedLocation)) {
 	echo '<div class="toplink">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Records') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Records') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	include('includes/CountriesArray.php');
-	echo '<form id="Locations" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	include ('includes/CountriesArray.php');
+	echo '<form id="Locations" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedLocation)) {
@@ -588,8 +572,9 @@ if (!isset($_GET['delete'])) {
 	if (!isset($_POST['Managed'])) {
 		$_POST['Managed'] = 0;
 	}
-	if(!isset($_POST['AllowInvoicing'])) {
-		$_POST['AllowInvoicing'] = 1;// If not set, set value to "Yes".
+	if (!isset($_POST['AllowInvoicing'])) {
+		$_POST['AllowInvoicing'] = 1; // If not set, set value to "Yes".
+		
 	}
 	if (!isset($_POST['GLAccountCode'])) {
 		$_POST['GLAccountCode'] = '';
@@ -625,16 +610,16 @@ if (!isset($_GET['delete'])) {
 		</tr>
 			<td>' . _('Country') . ':</td>
 			<td><select name="DelAdd6">';
-		foreach ($CountriesArray as $CountryEntry => $CountryName) {
-			if (isset($_POST['DelAdd6']) and (strtoupper($_POST['DelAdd6']) == strtoupper($CountryName))) {
-				echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
-			} elseif (!isset($_POST['Address6']) and $CountryName == "") {
-				echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
-			} else {
-				echo '<option value="' . $CountryName . '">' . $CountryName . '</option>';
-			}
+	foreach ($CountriesArray as $CountryEntry => $CountryName) {
+		if (isset($_POST['DelAdd6']) and (strtoupper($_POST['DelAdd6']) == strtoupper($CountryName))) {
+			echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
+		} elseif (!isset($_POST['Address6']) and $CountryName == "") {
+			echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
+		} else {
+			echo '<option value="' . $CountryName . '">' . $CountryName . '</option>';
 		}
-		echo '</select></td>
+	}
+	echo '</select></td>
  		</tr>
 		<tr>
 			<td>' . _('Telephone No') . ':' . '</td>
@@ -664,7 +649,6 @@ if (!isset($_GET['delete'])) {
 	echo '</select></td>
 		</tr>';
 	// Location's ledger account:
-
 	//SQL to poulate account selection boxes
 	$SQL = "SELECT accountcode,
 					accountname
@@ -747,6 +731,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

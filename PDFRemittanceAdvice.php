@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen($_POST['FromCriteria']) >= 1 and isset($_POST['ToCriteria']) and mb_strlen($_POST['ToCriteria']) >= 1) {
 	/*Now figure out the invoice less credits due for the Supplier range under review */
@@ -12,10 +11,10 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 
-	if ($_POST['FromCriteria']=='') {
+	if ($_POST['FromCriteria'] == '') {
 		$_POST['FromCriteria'] = $MyRow['fromcriteria'];
 	}
-	if ($_POST['ToCriteria']=='') {
+	if ($_POST['ToCriteria'] == '') {
 		$_POST['Toriteria'] = $MyRow['tocriteria'];
 	}
 
@@ -45,15 +44,15 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 	if (DB_num_rows($SuppliersResult) == 0) {
 		//then there aint awt to print
 		$Title = _('Print Remittance Advices Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no remittance advices to print out for the supplier range and payment date specified'), 'warn');
-		echo '<br /><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '</a>';
-		include('includes/footer.php');
+		echo '<br /><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '</a>';
+		include ('includes/footer.php');
 		exit;
 	}
 	/*then print the report */
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Remittance Advice'));
 	$PDF->addInfo('Subject', _('Remittance Advice') . ' - ' . _('suppliers from') . ' ' . $_POST['FromCriteria'] . ' ' . _('to') . ' ' . $_POST['ToCriteria'] . ' ' . _('and Paid On') . ' ' . $_POST['PaymentDate']);
 
@@ -85,20 +84,18 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 				ORDER BY supptrans.type,
 						 supptrans.transno";
 
-
 		$TransResult = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() != 0) {
 			$Title = _('Remittance Advice Problem Report');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The details of the payment to the supplier could not be retrieved because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . _('The SQL that failed was') . ' ' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
-
 
 		while ($DetailTrans = DB_fetch_array($TransResult)) {
 
@@ -109,30 +106,29 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 			$LeftOvers = $PDF->addTextWrap($Left_Margin + 175, $YPos, 80, $FontSize, $DetailTrans['suppreference'], 'left');
 			$LeftOvers = $PDF->addTextWrap($Left_Margin + 255, $YPos, 80, $FontSize, locale_number_format($DetailTrans['trantotal'], $SuppliersPaid['currdecimalplaces']), 'right');
 			$LeftOvers = $PDF->addTextWrap($Left_Margin + 355, $YPos, 80, $FontSize, locale_number_format($DetailTrans['amt'], $SuppliersPaid['currdecimalplaces']), 'right');
-			$AccumBalance += $DetailTrans['amt'];
+			$AccumBalance+= $DetailTrans['amt'];
 
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			if ($YPos < $Bottom_Margin + $line_height) {
 				$PageNumber++;
 				PageHeader();
 			}
 		}
 		/*end while there are detail transactions to show */
-		$YPos -= (0.5 * $line_height);
+		$YPos-= (0.5 * $line_height);
 		$PDF->line($Left_Margin, $YPos + $line_height, $Page_Width - $Right_Margin, $YPos + $line_height);
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 280, $YPos, 75, $FontSize, _('Total Payment') . ': ', 'right');
 
-		$TotalPayments += $AccumBalance;
+		$TotalPayments+= $AccumBalance;
 
 		$LeftOvers = $PDF->addTextWrap($Left_Margin + 355, $YPos, 80, $FontSize, locale_number_format($AccumBalance, $SuppliersPaid['currdecimalplaces']), 'right');
 
-		$YPos -= (1.5 * $line_height);
+		$YPos-= (1.5 * $line_height);
 		$PDF->line($Left_Margin, $YPos + $line_height, $Page_Width - $Right_Margin, $YPos + $line_height);
 
 	}
 	/* end while there are supplier payments to retrieve allocations for */
-
 
 	$FileName = $_SESSION['DatabaseName'] . '_' . _('Remittance_Advices') . '_' . date('Y-m-d') . '.pdf';
 	$PDF->OutputD($FileName);
@@ -142,12 +138,12 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 	/*The option to print PDF was not hit */
 
 	$Title = _('Remittance Advices');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" alt="" />', ' ', $Title, '</p>';
 	/* show form to allow input	*/
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>';
 
@@ -185,7 +181,7 @@ if ((isset($_POST['PrintPDF'])) and isset($_POST['FromCriteria']) and mb_strlen(
 
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 
@@ -240,24 +236,24 @@ function PageHeader() {
 	$LineHeight = 10;
 
 	if ($_SESSION['CompanyRecord']['regoffice1'] <> '') {
-		$LineCount += 1;
+		$LineCount+= 1;
 		$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, $_SESSION['CompanyRecord']['regoffice1']);
 	}
 	if ($_SESSION['CompanyRecord']['regoffice2'] <> '') {
-		$LineCount += 1;
+		$LineCount+= 1;
 		$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, $_SESSION['CompanyRecord']['regoffice2']);
 	}
 	if (($_SESSION['CompanyRecord']['regoffice3'] <> '') or ($_SESSION['CompanyRecord']['regoffice4'] <> '') or ($_SESSION['CompanyRecord']['regoffice5'] <> '')) {
-		$LineCount += 1;
+		$LineCount+= 1;
 		$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, $_SESSION['CompanyRecord']['regoffice3'] . ' ' . $_SESSION['CompanyRecord']['regoffice4'] . ' ' . $_SESSION['CompanyRecord']['regoffice5']); // country in 6 not printed
+		
 	}
-	$LineCount += 1;
+	$LineCount+= 1;
 	$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, _('Phone') . ':' . $_SESSION['CompanyRecord']['telephone']);
-	$LineCount += 1;
+	$LineCount+= 1;
 	$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, _('Fax') . ': ' . $_SESSION['CompanyRecord']['fax']);
-	$LineCount += 1;
+	$LineCount+= 1;
 	$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, _('Email') . ': ' . $_SESSION['CompanyRecord']['email']);
-
 
 	/*Now the supplier details and remittance advice address */
 
@@ -273,7 +269,7 @@ function PageHeader() {
 	$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, $SuppliersPaid['address2']);
 	$LineCount++;
 	$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, $SuppliersPaid['address3'] . ' ' . $SuppliersPaid['address4'] . ' ' . $SuppliersPaid['address5'] . ' ' . $SuppliersPaid['address6']);
-	$LineCount += 2;
+	$LineCount+= 2;
 	$PDF->addText($XPos, $YPos - $LineCount * $LineHeight, $FontSize, _('Our Code') . ': ' . $SuppliersPaid['supplierid']);
 
 	$YPos = $Page_Height - $Top_Margin - 120;
@@ -281,7 +277,7 @@ function PageHeader() {
 	$FontSize = 8;
 	$XPos = $Page_Width / 2 - 60;
 	$PDF->addText($XPos, $YPos, $FontSize, _('All amounts stated in') . ' - ' . $SuppliersPaid['currcode']);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addText($XPos, $YPos, $FontSize, $SuppliersPaid['paymentterms']);
 
 	$YPos = $Page_Height - $Top_Margin - 180;
@@ -309,7 +305,7 @@ function PageHeader() {
 	/*Finally join up to the top right corner where started */
 	$PDF->line($Page_Width - $Right_Margin, $Bottom_Margin + 10, $Page_Width - $Right_Margin, $YPos - 10);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$FontSize = 10;
 	/*Set up headings */
 	$PDF->addText($Left_Margin + 10, $YPos, $FontSize, _('Trans Type'));
@@ -318,11 +314,11 @@ function PageHeader() {
 	$PDF->addText($Left_Margin + 310, $YPos, $FontSize, _('Total'));
 	$PDF->addText($Left_Margin + 390, $YPos, $FontSize, _('This Payment'));
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	/*draw a line */
 	$PDF->line($Page_Width - $Right_Margin, $YPos, $XPos, $YPos);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$XPos = $Left_Margin;
 
 }

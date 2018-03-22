@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Schedule tasks to run periodically');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -23,17 +22,17 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 					AND frequency='" . $_POST['Frequency'] . "'";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) > 0) {
-		prnMsg( _('This script is already scheduled to run at this frequency'), 'error');
+		prnMsg(_('This script is already scheduled to run at this frequency'), 'error');
 		$InputError = 1;
 	}
 
 	if (!in_array($_POST['Frequency'], array('h', 'd', 'w'))) {
-		prnMsg( _('You must select a frequency for this job to happen'), 'error');
+		prnMsg(_('You must select a frequency for this job to happen'), 'error');
 		$InputError = 1;
 	}
 
 	if ($_POST['Script'] == '') {
-		prnMsg( _('You must select a script to run'), 'error');
+		prnMsg(_('You must select a script to run'), 'error');
 		$InputError = 1;
 	}
 
@@ -50,7 +49,7 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 		$DbgMsg = _('The SQL that was used to insert the job schedule was');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 		if (DB_error_no() == 0) {
-			prnMsg ( _('The job has been correctly scheduled'), 'success');
+			prnMsg(_('The job has been correctly scheduled'), 'success');
 		}
 	} elseif ($InputError == 0 and isset($_POST['Update'])) {
 		$SQL = "UPDATE schedule SET script='" . $_POST['Script'] . "',
@@ -61,7 +60,7 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 		$DbgMsg = _('The SQL that was used to update the job schedule was');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 		if (DB_error_no() == 0) {
-			prnMsg ( _('The job has been correctly updated'), 'success');
+			prnMsg(_('The job has been correctly updated'), 'success');
 		}
 	}
 }
@@ -81,28 +80,28 @@ $SQL = "SELECT jobnumber,
 			FROM schedule";
 $Result = DB_query($SQL);
 
-while ( $MyRow = DB_fetch_array($Result)) {
+while ($MyRow = DB_fetch_array($Result)) {
 	switch ($MyRow['frequency']) {
 
 		case 'd':
 			$Frequency = 'Daily';
-			break;
+		break;
 
 		case 'h':
 			$Frequency = 'Hourly';
-			break;
+		break;
 
 		case 'w':
 			$Frequency = 'Weekly';
-			break;
+		break;
 	}
 
 	echo '<tr>
 			<td>' . $MyRow['script'] . '</td>
 			<td>' . $Frequency . '</td>
 			<td>' . ConvertSQLDateTime($MyRow['nextrun']) . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?JobNumber=' . urlencode($MyRow['jobnumber']), ENT_QUOTES, 'UTF-8') . '&amp;Edit=1">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?JobNumber=' . urlencode($MyRow['jobnumber']), ENT_QUOTES, 'UTF-8') . '&amp;Delete=1">' . _('Remove') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__) . '?JobNumber=' . urlencode($MyRow['jobnumber']), ENT_QUOTES, 'UTF-8') . '&amp;Edit=1">' . _('Edit') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__) . '?JobNumber=' . urlencode($MyRow['jobnumber']), ENT_QUOTES, 'UTF-8') . '&amp;Delete=1">' . _('Remove') . '</a></td>
 		</tr>';
 }
 echo '</table>';
@@ -116,12 +115,12 @@ if (isset($_GET['Edit'])) {
 	$MyRow = DB_fetch_array($Result);
 	$_POST['Script'] = $MyRow['script'];
 	$_POST['Frequency'] = $MyRow['frequency'];
-} elseif (!isset($_POST['Insert']) and !isset($_POST['Update']))  {
+} elseif (!isset($_POST['Insert']) and !isset($_POST['Update'])) {
 	$_POST['Script'] = '';
 	$_POST['Frequency'] = '';
 }
 
-echo '<form method="post" id="JobScheduler" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" id="JobScheduler" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 $Files = glob('*.php');
@@ -135,7 +134,7 @@ echo '<tr>
 			<select name="Script">
 				<option value=""></option>';
 foreach ($Files as $File) {
-	if( strpos(file_get_contents($File),"include_once('includes/session.php')") !== false and $File != 'JobScheduler.php') {
+	if (strpos(file_get_contents($File), "include_once('includes/session.php')") !== false and $File != 'JobScheduler.php') {
 		if ($_POST['Script'] == $File) {
 			echo '<option selected="selected" value="' . $File . '">' . $File . '</option>';
 		} else {
@@ -152,22 +151,22 @@ switch ($_POST['Frequency']) {
 		$Daily = 'selected="selected"';
 		$Weekly = '';
 		$Hourly = '';
-		break;
+	break;
 	case 'h':
 		$Daily = '';
 		$Hourly = 'selected="selected"';
 		$Weekly = '';
-		break;
+	break;
 	case 'w':
 		$Weekly = 'selected="selected"';
 		$Daily = '';
 		$Hourly = '';
-		break;
+	break;
 	default:
 		$Weekly = '';
 		$Daily = '';
 		$Hourly = '';
-		break;
+	break;
 }
 
 echo '<tr>
@@ -197,6 +196,6 @@ if (isset($_GET['Edit'])) {
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

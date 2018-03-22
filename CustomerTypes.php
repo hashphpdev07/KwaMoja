@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Types') . ' / ' . _('Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -10,7 +9,9 @@ if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_GET['SelectedType']);
 }
 
-echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Customer Types'), '" alt="" />', _('Customer Type Setup'), '
+	</p>';
 echo '<div class="page_help_text">', _('Add/edit/delete Customer Types'), '</div>';
 
 if (isset($_POST['submit'])) {
@@ -19,7 +20,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['TypeName']) > 100) {
@@ -54,7 +55,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$CheckSql = "SELECT count(*)
 				 FROM debtortype
 				 WHERE typename = '" . $_POST['TypeName'] . "'";
@@ -64,15 +64,13 @@ if (isset($_POST['submit'])) {
 
 		if ($CheckRow[0] > 0) {
 			$InputError = 1;
-			prnMsg( _('The customer type') . ' ' . $_POST['typeid'] . _(' already exist.'),'error');
+			prnMsg(_('The customer type') . ' ' . $_POST['typeid'] . _(' already exist.'), 'error');
 		} else {
 
 			// Add new record on submit
-
 			$SQL = "INSERT INTO debtortype
 						(typename)
 					VALUES ('" . $_POST['TypeName'] . "')";
-
 
 			$Msg = _('Customer type') . ' ' . $_POST["TypeName"] . ' ' . _('has been created');
 			$CheckSql = "SELECT count(typeid)
@@ -86,7 +84,6 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 		//run the SQL from either of the above possibilites
 		$Result = DB_query($SQL);
-
 
 		// Fetch the default price list.
 		$DefaultCustomerType = $_SESSION['DefaultCustomerType'];
@@ -118,7 +115,6 @@ if (isset($_POST['submit'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
 	// Prevent delete if saletype exist in customer transactions
-
 	$SQL = "SELECT COUNT(*)
 			FROM debtortrans
 			INNER JOIN debtorsmaster
@@ -158,6 +154,7 @@ if (isset($_POST['submit'])) {
 
 		}
 	} //end if sales type used in debtor transactions or in customers set up
+	
 }
 
 if (!isset($SelectedType)) {
@@ -180,15 +177,14 @@ if (!isset($SelectedType)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
 				<td>', $MyRow['typeid'], '</td>
 				<td>', $MyRow['typename'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeid']), '">' . _('Edit') . '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeid']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Customer Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeid']), '">' . _('Edit') . '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeid']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Customer Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -198,7 +194,7 @@ if (!isset($SelectedType)) {
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type
@@ -215,36 +211,36 @@ if (!isset($_GET['delete'])) {
 		$_POST['TypeName'] = $MyRow['typename'];
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
-		echo '<table>';
+		echo '<fieldset>
+				<legend>', _('Edit Customer Type Details'), '</legend>';
 
 		// We dont allow the user to change an existing type code
-
-		echo '<tr>
-				<td>', _('Type ID'), ': </td>
-				<td>', $SelectedType, '</td>
-			</tr>';
+		echo '<field>
+				<label for="TypeID">', _('Type ID'), ': </label>
+				<div class="fieldtext">', $SelectedType, '</div>
+			</field>';
 
 	} else {
 		// This is a new type so the user may volunteer a type code
-		echo '<table>';
+		echo '<fieldset>
+				<legend>', _('New Customer Type Details'), '</legend>';
 	}
 
 	if (!isset($_POST['TypeName'])) {
 		$_POST['TypeName'] = '';
 	}
-	echo '<tr>
-			<td>', _('Type Name'), ':</td>
-			<td><input type="text" name="TypeName" required="required" maxlength="100" value="', $_POST['TypeName'], '" /></td>
-		</tr>';
+	echo '<field>
+			<label for="TypeName">', _('Type Name'), ':</label>
+			<input type="text" name="TypeName" required="required" autofocus="autofocus" maxlength="100" value="', $_POST['TypeName'], '" />
+			<fieldhelp>', _('Description of this customer type.'), '</fieldhelp>
+		</field>';
 
-	echo '</table>'; // close main table
-
+	echo '</fieldset>'; // close main table
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="', _('Accept'), '" />
 		</div>';
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

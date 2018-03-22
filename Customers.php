@@ -1,5 +1,4 @@
 <?php
-
 include ('includes/session.php');
 
 $Title = _('Customer Maintenance');
@@ -256,7 +255,7 @@ if (isset($_POST['submit'])) {
 						echo '<br />' . _('There are') . ' ' . $MyRow[0] . ' ' . _('contracts referring to this customer');
 					}
 				} //$MyRow[0] > 0
-
+				
 			}
 		}
 	}
@@ -272,9 +271,8 @@ if (isset($_POST['submit'])) {
 		unset($_SESSION['CustomerID']);
 		exit;
 	} //end if Delete Customer
-
+	
 } //isset($_POST['delete'])
-
 if (isset($_POST['Reset'])) {
 	unset($_POST['CustName']);
 	unset($_POST['Address1']);
@@ -298,16 +296,16 @@ if (isset($_POST['Reset'])) {
 	unset($_POST['LanguageID']);
 	// Leave Type ID set so as to faciltate fast customer setup
 	//	unset($_POST['typeid']);
-
+	
 } //isset($_POST['Reset'])
-
 /*DebtorNo could be set from a post or a get when passed as a parameter to this page */
 
 if (isset($_POST['DebtorNo'])) {
 	$DebtorNo = stripslashes($_POST['DebtorNo']);
 } elseif (isset($_GET['DebtorNo'])) {
 	$DebtorNo = stripslashes($_GET['DebtorNo']);
-} if (isset($_POST['ID'])) {
+}
+if (isset($_POST['ID'])) {
 	$ID = $_POST['ID'];
 } elseif (isset($_GET['ID'])) {
 	$ID = $_GET['ID'];
@@ -332,7 +330,7 @@ if (isset($_POST['AddContact']) and (isset($_POST['AddContact']) != '')) {
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/AddCustomerContacts.php?DebtorNo=' . $DebtorNo . '">';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /*If the page was called without $_POST['DebtorNo'] passed to page then assume a new customer is to be entered show a form with a Debtor Code field other wise the form showing the fields with the existing entries against the customer will show for editing with only a hidden DebtorNo field*/
@@ -356,13 +354,11 @@ if ($MyRow[0] == 0) {
 	prnMsg(_('In order to create a new customer you must first set up at least one customer type') . '<br />' . _('Click') . ' ' . '<a target="_blank" href="' . $RootPath . '/CustomerTypes.php">' . _('here') . ' ' . '</a>' . _('to set up your customer types'), 'warning');
 	$SetupErrors+= 1;
 } //$MyRow[0] == 0
-
 if ($SetupErrors > 0) {
-	echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" >' . _('Click here to continue') . '</a></div>';
+	echo '<br /><div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" >' . _('Click here to continue') . '</a></div>';
 	include ('includes/footer.php');
 	exit;
 } //$SetupErrors > 0
-
 $DataError = 0;
 
 //Main Table
@@ -466,7 +462,7 @@ if (!isset($DebtorNo)) {
 					<td>' . stripslashes($DebtorNo) . '</td>
 				</tr>';
 	} //$_SESSION['AutoDebtorNo'] == 0
-
+	
 }
 
 echo '<tr>
@@ -687,7 +683,6 @@ if (isset($_GET['delete'])) { //User hit delete link on customer contacts
 								AND contid='" . $ID . "'");
 	prnMsg(_('Contact Deleted'), 'success');
 } //isset($_GET['delete'])
-
 $SQL = "SELECT contid,
 					debtorno,
 					contactname,
@@ -720,7 +715,6 @@ if (isset($_GET['Modify'])) {
 				<th colspan="2"><input type="submit" name="AddContact" value="' . _('Add Contact') . '" /></th>
 			</tr>';
 }
-$k = 0; //row colour counter
 
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr class="striped_row">
@@ -730,7 +724,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td><a href="mailto:' . $MyRow['email'] . '">' . $MyRow['email'] . '</a></td>
 			<td>' . $MyRow['notes'] . '</td>
 			<td><a href="AddCustomerContacts.php?Id=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?ID=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer contact?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?ID=' . urlencode($MyRow['contid']) . '&amp;DebtorNo=' . urlencode($MyRow['debtorno']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer contact?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 		</tr>';
 } //END WHILE LIST LOOP
 echo '</table>';
@@ -749,7 +743,6 @@ if (isset($_POST['New']) and $_POST['New']) {
 				<input type="submit" name="delete" value="' . _('Delete Customer') . '" onclick="return MakeConfirm(\'' . _('Are You Sure?') . '\');" />
 			</div>';
 } //!isset($_GET['Modify'])
-
 echo '</form>';
 
 include ('includes/footer.php');

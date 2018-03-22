@@ -1,20 +1,17 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Debtors Control Integrity');
-include('includes/header.php');
-
+include ('includes/header.php');
 
 //
 //========[ SHOW OUR FORM ]===========
 //
-
 // Context Navigation and Title
 echo '<a href="' . $RootPath . '/index.php?Application=AR">' . _('Back to Customers') . '</a>';
 echo '<div class="centre"><h3>' . $Title . '</h3></div>';
 
 // Page Border
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -47,7 +44,7 @@ while ($perRow = DB_fetch_array($perResult)) {
 	echo '<option ' . $FromSelected . ' value="' . $perRow['periodno'] . '">' . MonthAndYearFromSQLDate($perRow['lastdate_in_period']) . '</option>';
 
 	$ToSelected = ($perRow['periodno'] == $DefaultToPeriod) ? 'selected="selected"' : '';
-	$ToSelect .= '<option ' . $ToSelected . ' value="' . $perRow['periodno'] . '">' . MonthAndYearFromSQLDate($perRow['lastdate_in_period']) . '</option>';
+	$ToSelect.= '<option ' . $ToSelected . ' value="' . $perRow['periodno'] . '">' . MonthAndYearFromSQLDate($perRow['lastdate_in_period']) . '</option>';
 }
 DB_free_result($perResult);
 echo '</select></td></tr>';
@@ -58,7 +55,6 @@ echo '</table>';
 
 echo '<br /><input type="submit" name="Show" value="' . _('Accept') . '" />';
 echo '<input type="submit" value="' . _('Cancel') . '" />';
-
 
 if (isset($_POST['Show'])) {
 	//
@@ -89,7 +85,7 @@ if (isset($_POST['Show'])) {
 		$dtRow = DB_fetch_array($dtResult);
 		DB_free_result($dtResult);
 
-		$GLOpening += $dtRow['bfwd'];
+		$GLOpening+= $dtRow['bfwd'];
 		$glMovement = $dtRow['bfwd'] + $dtRow['actual'];
 
 		echo '<tr class="striped_row">
@@ -104,7 +100,7 @@ if (isset($_POST['Show'])) {
 		$invRow = DB_fetch_array($invResult);
 		DB_free_result($invResult);
 
-		$invTotal += $invRow['totinvnetcrds'];
+		$invTotal+= $invRow['totinvnetcrds'];
 
 		echo '<td class="number">' . locale_number_format($invRow['totinvnetcrds'], 2) . '</td>';
 
@@ -116,17 +112,17 @@ if (isset($_POST['Show'])) {
 		$recRow = DB_fetch_array($recResult);
 		DB_free_result($recResult);
 
-		$RecTotal += $recRow['totreceipts'];
+		$RecTotal+= $recRow['totreceipts'];
 		$CalcMovement = $dtRow['bfwd'] + $invRow['totinvnetcrds'] + $recRow['totreceipts'];
 
 		echo '<td class="number">' . locale_number_format($recRow['totreceipts'], 2) . '</td>';
 
-		$GLClosing += $glMovement;
-		$CalcTotal += $CalcMovement;
-		$DiffTotal += $diff;
+		$GLClosing+= $glMovement;
+		$CalcTotal+= $CalcMovement;
+		$DiffTotal+= $diff;
 
 		$diff = ($dtRow['bfwd'] == 0) ? 0 : round($glMovement, 2) - round($CalcMovement, 2);
-		$color = ($diff == 0 OR $dtRow['bfwd'] == 0) ? 'green' : 'red';
+		$color = ($diff == 0 or $dtRow['bfwd'] == 0) ? 'green' : 'red';
 
 		echo '<td class="number">' . locale_number_format($glMovement, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format(($CalcMovement), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
@@ -151,6 +147,6 @@ if (isset($_POST['Show'])) {
 echo '</div>
 		  </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

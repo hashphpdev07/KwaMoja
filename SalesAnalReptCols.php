@@ -1,11 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Sales Analysis Report Columns');
 
-include('includes/header.php');
-
+include ('includes/header.php');
 
 function DataOptions($DataX) {
 
@@ -54,14 +52,11 @@ if (isset($_GET['SelectedCol'])) {
 	$SelectedCol = $_POST['SelectedCol'];
 }
 
-
 if (isset($_GET['ReportID'])) {
 	$ReportID = $_GET['ReportID'];
 } elseif (isset($_POST['ReportID'])) {
 	$ReportID = $_POST['ReportID'];
 }
-
-
 
 if (isset($_POST['submit'])) {
 
@@ -100,9 +95,7 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The Period From must be before the Period To, otherwise the column will always have no value'), 'error');
 	}
 
-
 	if (isset($SelectedCol) and $InputError != 1) {
-
 
 		$SQL = "UPDATE reportcolumns SET heading1='" . $_POST['Heading1'] . "',
 									 heading2='" . $_POST['Heading2'] . "',
@@ -138,7 +131,6 @@ if (isset($_POST['submit'])) {
 		unset($_POST['CalcOperator']);
 		unset($_POST['Constant']);
 		unset($_POST['BudgetOrActual']);
-
 
 	} elseif ($InputError != 1 and (($_POST['Calculation'] == 1 and (($_POST['ColNumerator'] > 0 and $_POST['Constant'] != 0) or ($_POST['ColNumerator'] > 0 and $_POST['ColDenominator'] > 0)) or $_POST['Calculation'] == 0))) {
 
@@ -197,10 +189,8 @@ if (isset($_POST['submit'])) {
 
 	}
 
-
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$SQL = "DELETE FROM reportcolumns WHERE reportid='" . $ReportID . "' AND colno='" . $SelectedCol . "'";
 
 	$ErrMsg = _('The deletion of the column failed because');
@@ -212,7 +202,7 @@ if (isset($_POST['submit'])) {
 }
 
 /* List of Columns will be displayed with links to delete or edit each.
-These will call the same page again and allow update/input or deletion of the records*/
+ These will call the same page again and allow update/input or deletion of the records*/
 
 $SQL = "SELECT reportheaders.reportheading,
 			   reportcolumns.colno,
@@ -258,7 +248,6 @@ if (DB_num_rows($Result) != 0) {
 			<th>' . _('Operator') . '</th>
 			<th>' . _('Budget') . '<br />' . _('Or Actual') . '</th>
 		</tr>';
-	$k = 0; //row colour counter
 
 	do {
 		if ($MyRow[11] == 1) {
@@ -286,10 +275,11 @@ if (DB_num_rows($Result) != 0) {
 					<td>%s</td>
 					<td>%s</td>
 					<td><a href="%sReportID=%s&amp;SelectedCol=%s&amp;delete=1">' . _('Delete') . '</a></td>
-				</tr>', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1], $MyRow[1], $MyRow[2], $MyRow[3], $Calc, $MyRow[5], $MyRow[6], $MyRow[7], $MyRow[8], $MyRow[9], $MyRow[10], $BudOrAct, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1]);
+				</tr>', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1], $MyRow[1], $MyRow[2], $MyRow[3], $Calc, $MyRow[5], $MyRow[6], $MyRow[7], $MyRow[8], $MyRow[9], $MyRow[10], $BudOrAct, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $ReportID, $MyRow[1]);
 
 	} while ($MyRow = DB_fetch_array($Result));
 	//END WHILE LIST LOOP
+	
 }
 
 echo '</table><br />
@@ -306,13 +296,12 @@ if (!isset($_GET['delete'])) {
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$ReportHeading = $MyRow['reportheading'];
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="hidden" name="ReportHeading" value="' . $ReportHeading . '" />';
 	echo '<input type="hidden" name="ReportID" value="' . $ReportID . '" />';
 	if (isset($SelectedCol)) {
 		//editing an existing Column
-
 		$SQL = "SELECT reportid,
 				   	colno,
 				   	heading1,
@@ -332,7 +321,6 @@ if (!isset($_GET['delete'])) {
 				   	WHERE
 				   	reportcolumns.reportid='" . $ReportID . "' AND
 				   	reportcolumns.colno='" . $SelectedCol . "'";
-
 
 		$ErrMsg = _('The column') . ' ' . $SelectedCol . ' ' . _('could not be retrieved because');
 		$DbgMsg = _('The SQL used to retrieve the this column was');
@@ -527,6 +515,5 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,13 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('No Sales Items Searching');
-include('includes/header.php');
+include ('includes/header.php');
 if (!(isset($_POST['Search']))) {
 	echo '<div class="centre"><p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('No Sales Items') . '" alt="" />' . ' ' . _('No Sales Items') . '</p></div>';
 	echo '<div class="page_help_text">' . _('List of items with stock available during the last X days at the selected locations but did not sell any quantity during these X days.') . '<br />' . _('This list gets the no selling items, items at the location just wasting space, or need a price reduction, etc.') . '<br />' . _('Stock available during the last X days means there was a stock movement that produced that item into that location before that day, and no other positive stock movement has been created afterwards.  No sell any quantity means, there is no sales order for that item from that location.') . '</div>';
 	echo '<br />';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 
@@ -22,7 +21,7 @@ if (!(isset($_POST['Search']))) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				ORDER BY locationname";
 	echo '<option value="All" selected="selected">' . _('All') . '</option>';
@@ -112,7 +111,7 @@ if (!(isset($_POST['Search']))) {
 						ON stockmaster.stockid = locstock.stockid
 					INNER JOIN locationusers
 						ON locationusers.loccode=locstock.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canview=1
 				WHERE (locstock.quantity > 0)
 					" . $WhereStockCat . "
@@ -123,7 +122,7 @@ if (!(isset($_POST['Search']))) {
 								ON salesorderdetails.orderno = salesorders.orderno
 							INNER JOIN locationusers
 								ON locationusers.loccode=salesorders.fromstkloc
-								AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+								AND locationusers.userid='" . $_SESSION['UserID'] . "'
 								AND locationusers.canview=1
 							WHERE 	stockmaster.stockid = salesorderdetails.stkcode
 									AND salesorderdetails.actualdispatchdate > '" . $FromDate . "')
@@ -132,7 +131,7 @@ if (!(isset($_POST['Search']))) {
 							FROM stockmoves
 							INNER JOIN locationusers
 								ON locationusers.loccode=stockmoves.loccode
-								AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+								AND locationusers.userid='" . $_SESSION['UserID'] . "'
 								AND locationusers.canview=1
 							WHERE stockmoves.stockid = stockmaster.stockid
 								AND stockmoves.trandate >= '" . $FromDate . "')
@@ -141,7 +140,7 @@ if (!(isset($_POST['Search']))) {
 							FROM stockmoves
 							INNER JOIN locationusers
 								ON locationusers.loccode=stockmoves.loccode
-								AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+								AND locationusers.userid='" . $_SESSION['UserID'] . "'
 								AND locationusers.canview=1
 							WHERE stockmoves.stockid = stockmaster.stockid
 								AND stockmoves.trandate < '" . $FromDate . "'
@@ -156,13 +155,14 @@ if (!(isset($_POST['Search']))) {
 			$WhereLocation = " AND locstock.loccode IN(";
 			$commactr = 0;
 			foreach ($_POST['Location'] as $Key => $Value) {
-				$WhereLocation .= "'" . $Value . "'";
+				$WhereLocation.= "'" . $Value . "'";
 				$commactr++;
 				if ($commactr < sizeof($_POST['Location'])) {
-					$WhereLocation .= " ";
+					$WhereLocation.= " ";
 				} // End of if
+				
 			} // End of foreach
-			$WhereLocation .= ')';
+			$WhereLocation.= ')';
 		}
 		$SQL = "SELECT stockmaster.stockid,
 						stockmaster.description,
@@ -176,7 +176,7 @@ if (!(isset($_POST['Search']))) {
 					ON locstock.loccode = locations.loccode
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE (locstock.quantity > 0)
 						" . $WhereLocation . $WhereStockCat . "
@@ -219,16 +219,15 @@ if (!(isset($_POST['Search']))) {
 	echo '<input type="hidden" value="' . $_POST['Location'] . '" name="Location" />
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfDays']) . '" name="NumberOfDays" />
 			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 		$QOHResult = DB_query("SELECT sum(quantity)
 				FROM locstock
 				INNER JOIN locationusers
 					ON locationusers.loccode=locstock.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
-				WHERE stockid = '" . $MyRow['stockid'] . "'" .
-				$WhereLocation);
+				WHERE stockid = '" . $MyRow['stockid'] . "'" . $WhereLocation);
 		$QOHRow = DB_fetch_row($QOHResult);
 		$QOH = $QOHRow[0];
 
@@ -243,9 +242,9 @@ if (!(isset($_POST['Search']))) {
 						<td class="number">%s</td>
 						<td>%s</td>
 					</tr>', $i, 'All', $CodeLink, $MyRow['description'], $QOH, //on hand on ALL locations
-				$QOH, // total on hand
-				$MyRow['units'] //unit
-				);
+			$QOH, // total on hand
+			$MyRow['units'] //unit
+			);
 		} else {
 			printf('<tr class="striped_row">
 						<td class="number">%s</td>
@@ -256,13 +255,13 @@ if (!(isset($_POST['Search']))) {
 						<td class="number">%s</td>
 						<td>%s</td>
 					</tr>', $i, $MyRow['locationname'], $CodeLink, $MyRow['description'], $MyRow['quantity'], //on hand on location selected only
-				$QOH, // total on hand
-				$MyRow['units'] //unit
-				);
+			$QOH, // total on hand
+			$MyRow['units'] //unit
+			);
 		}
 	}
 	echo '</table>';
 	echo '</form>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

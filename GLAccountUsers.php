@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('GL Account Authorised Users');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountUsers';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedGLAccount']) and $_POST['SelectedGLAccount'] <> '') { //If POST not empty:
 	$SelectedGLAccount = mb_strtoupper($_POST['SelectedGLAccount']);
@@ -31,29 +30,27 @@ if (isset($_POST['Cancel']) or isset($_GET['Cancel'])) {
 	unset($SelectedUser);
 }
 
-
 if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
-
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedUser will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
 
 	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', _('GL Account Authorised Users'), '" /> ', _('GL Account Authorised Users'), '</p>'; // Page title.
 	if (isset($_POST['Process'])) {
 		prnMsg(_('You have not selected any GL Account'), 'error');
 	}
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
 		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
 	echo '<table>
 			<tr>
 				<td>', _('Select GL Account'), ':</td>
 				<td>
 					<select name="SelectedGLAccount" onchange="this.form.submit()">', // Submit when the value of the select is changed.
-						'<option value="">', _('Not Yet Selected'), '</option>';
-	$SQL ="SELECT accountcode,
+	'<option value="">', _('Not Yet Selected'), '</option>';
+	$SQL = "SELECT accountcode,
 					accountname
 				FROM chartmaster
 				WHERE language='" . $_SESSION['ChartLanguage'] . "'
 				ORDER BY accountcode";
-	$Result =DB_query($SQL);
+	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($SelectedGLAccount) and $MyRow['accountcode'] == $SelectedGLAccount) {
 			echo '<option selected="selected" value="', $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' - ' . $MyRow['accountname'] . '</option>';
@@ -77,8 +74,7 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$SelectedGLAccountName = $MyRow['accountname'];
-	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('GL Account Authorised Users'), '" /> ', _('Authorised Users for'), ' ', $SelectedGLAccount, ' - ',$SelectedGLAccountName, '</p>'; // Page title.
-
+	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('GL Account Authorised Users'), '" /> ', _('Authorised Users for'), ' ', $SelectedGLAccount, ' - ', $SelectedGLAccountName, '</p>'; // Page title.
 	// BEGIN: Needs $SelectedGLAccount, $SelectedUser.
 	if (isset($_POST['submit'])) {
 		if (!isset($SelectedUser)) {
@@ -137,7 +133,6 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 		}
 	}
 	// END: Needs $SelectedGLAccount, $SelectedUser.
-
 	echo '<table>
 			<thead>
 				<tr>
@@ -164,7 +159,6 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 
 	echo '<tbody>';
 	if (DB_num_rows($Result) > 0) { // If the GL account has access permissions for one or more users:
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
 					<td class="text">', $MyRow['userid'], '</td>
@@ -178,7 +172,7 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 			echo '</td>
 				<td class="centre">';
 
-			$ScriptName = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8');
+			$ScriptName = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8');
 			if ($MyRow['canupd'] == 1) {
 				echo _('Yes'), '</td>', '<td class="noPrint"><a href="', $ScriptName, '?SelectedGLAccount=', $SelectedGLAccount, '&amp;SelectedUser=', $MyRow['userid'], '&amp;ToggleUpdate=0" onclick="return confirm(\'', _('Are you sure you wish to remove Update for this user?'), '\');">', _('Remove Update');
 			} else {
@@ -186,6 +180,7 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 			}
 			echo '</a></td>', '<td class="noPrint"><a href="', $ScriptName, '?SelectedGLAccount=', $SelectedGLAccount, '&amp;SelectedUser=', $MyRow['userid'], '&amp;delete=yes" onclick="return confirm(\'', _('Are you sure you wish to un-authorise this user?'), '\');">', _('Un-authorise'), '</a></td>', '</tr>';
 		} // End while list loop.
+		
 	} else { // If the GL account does not have access permissions for users:
 		echo '<tr>
 				<td class="centre" colspan="6">', _('GL account does not have access permissions for users'), '</td>
@@ -194,7 +189,7 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 	echo '</tbody>
 	</table>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
 			<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />
 			<input name="SelectedGLAccount" type="hidden" value="', $SelectedGLAccount, '" />';
 
@@ -237,10 +232,10 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 		</table>';
 
 	echo '<div class="centre noPrint">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" /> ', _('Select A Different GL account'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" /> ', _('Select A Different GL account'), '</a>
 		</div>'; // "Select A Different User" button.
 	echo '</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

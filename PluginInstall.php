@@ -1,15 +1,14 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $_SESSION['Updates']['Errors'] = 0;
 $_SESSION['Updates']['Successes'] = 0;
 $_SESSION['Updates']['Warnings'] = 0;
 
-include('includes/UpgradeDB_' . $DBType . '.php');
+include ('includes/UpgradeDB_' . $DBType . '.php');
 $Title = _('Install a Plugin');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/plugin.png" width="24px" title="' . _('Install Plugin') . '" alt="" />' . _('Install Plugin') . '</p>';
 
@@ -43,7 +42,7 @@ if (isset($_POST['Install'])) {
 			fwrite($handle, $Menus);
 			RemoveLine('includes/PluginMenuLinksArray.php');
 			$Text = $Menus . "\n";
-			$Text .= '?>';
+			$Text.= '?>';
 			$fp = fopen('includes/PluginMenuLinksArray.php', 'a');
 			fwrite($fp, $Text);
 		}
@@ -60,7 +59,7 @@ if (isset($_POST['Install'])) {
 			$TempDB = tempnam('includes', 'DB');
 			$handle = fopen($TempDB, "w");
 			fwrite($handle, $Updates);
-			include($TempDB);
+			include ($TempDB);
 		}
 	}
 	if ($Menus != '') {
@@ -111,7 +110,7 @@ if (isset($_POST['Install'])) {
 	$ForceConfigReload = True;
 	prnMsg(_('The plugin has been successfully installed. You can now use it from the main menu'), 'success');
 } else {
-	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form enctype="multipart/form-data" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<input type="submit" name="reload" value="Reload" hidden="hidden" />';
 	if (!isset($_POST['reload'])) {
@@ -223,6 +222,6 @@ function executeSQL($SQL, $TrapErrors = False) {
 	return $ErrorNumber;
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

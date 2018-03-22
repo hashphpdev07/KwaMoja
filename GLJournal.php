@@ -1,14 +1,13 @@
 <?php
+include ('includes/DefineJournalClass.php');
 
-include('includes/DefineJournalClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Journal Entry');
 
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLJournals';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['NewJournal']) and $_GET['NewJournal'] == 'Yes' and isset($_SESSION['JournalDetail'])) {
 
@@ -80,7 +79,7 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 		$DbgMsg = _('The SQL that failed to insert the GL Trans record was');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-		foreach($JournalItem->tag as $Tag) {
+		foreach ($JournalItem->tag as $Tag) {
 			$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 												'" . $Tag . "')";
 			$ErrMsg = _('Cannot insert a GL tag for the journal line because');
@@ -109,7 +108,7 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 			$DbgMsg = _('The SQL that failed to insert the GL Trans record was');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-			foreach($JournalItem->tag as $Tag) {
+			foreach ($JournalItem->tag as $Tag) {
 				$SQL = "INSERT INTO gltags VALUES ( LAST_INSERT_ID(),
 													'" . $Tag . "')";
 				$ErrMsg = _('Cannot insert a GL tag for the journal line because');
@@ -118,7 +117,6 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 			}
 		}
 	}
-
 
 	$ErrMsg = _('Cannot commit the changes');
 	$Result = DB_Txn_Commit();
@@ -132,10 +130,10 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 
 	/*Set up a newy in case user wishes to enter another */
 	echo '<br />
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?NewJournal=Yes">' . _('Enter Another General Ledger Journal') . '</a>';
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?NewJournal=Yes">' . _('Enter Another General Ledger Journal') . '</a>';
 	/*And post the journal too */
-	include('includes/GLPostings.php');
-	include('includes/footer.php');
+	include ('includes/GLPostings.php');
+	include ('includes/footer.php');
 	exit;
 
 } elseif (isset($_GET['Delete'])) {
@@ -151,7 +149,7 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 	if ($_POST['Debit'] > 0) {
 		$_POST['GLAmount'] = filter_number_format($_POST['Debit']);
 	} elseif ($_POST['Credit'] > 0) {
-		$_POST['GLAmount'] = -filter_number_format($_POST['Credit']);
+		$_POST['GLAmount'] = - filter_number_format($_POST['Credit']);
 	}
 	if ($_POST['GLManualCode'] != '') {
 		// If a manual code was entered need to check it exists and isnt a bank account
@@ -175,7 +173,7 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 			$SQL = "SELECT accountname
 				FROM chartmaster
 				WHERE accountcode='" . $_POST['GLManualCode'] . "'
-					AND language='" . $_SESSION['ChartLanguage'] ."'";
+					AND language='" . $_SESSION['ChartLanguage'] . "'";
 			$Result = DB_query($SQL);
 
 			if (DB_num_rows($Result) == 0) {
@@ -217,7 +215,7 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 			$SQL = "SELECT accountname
 						FROM chartmaster
 						WHERE accountcode='" . $_POST['GLCode'] . "'
-							AND language='" . $_SESSION['ChartLanguage'] ."'";
+							AND language='" . $_SESSION['ChartLanguage'] . "'";
 			$Result = DB_query($SQL);
 			$MyRow = DB_fetch_array($Result);
 			$_SESSION['JournalDetail']->add_to_glanalysis($_POST['GLAmount'], $_POST['GLNarrative'], $_POST['GLCode'], $MyRow['accountname'], $_POST['tag']);
@@ -242,8 +240,7 @@ if (isset($Cancel)) {
 	unset($_POST['GLManualCode']);
 }
 
-
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="form">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" >
@@ -251,7 +248,6 @@ echo '<p class="page_title_text" >
 	</p>';
 
 // A new table in the first column of the main table
-
 if (!is_date($_SESSION['JournalDetail']->JnlDate)) {
 	// Default the date to the last day of the previous month
 	$_SESSION['JournalDetail']->JnlDate = Date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, date('m'), 0, date('Y')));
@@ -324,7 +320,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 }
 echo '</select></td>';
 // End select tag
-
 if (!isset($_POST['GLManualCode'])) {
 	$_POST['GLManualCode'] = '';
 }
@@ -335,12 +330,12 @@ if (!isset($_GET['NewJournal']) or $_GET['NewJournal'] == '') {
 	echo '<td><input type="text" name="GLManualCode" maxlength="12" size="12" onchange="inArray(this, GLCode.options,' . "'" . 'The account code ' . "'" . '+ this.value+ ' . "'" . ' doesnt exist' . "'" . ')" value="' . $_POST['GLManualCode'] . '"  /></td>';
 }
 
-$SQL="SELECT chartmaster.accountcode,
+$SQL = "SELECT chartmaster.accountcode,
 			chartmaster.accountname
 		FROM chartmaster
 		INNER JOIN glaccountusers
 			ON glaccountusers.accountcode=chartmaster.accountcode
-			AND glaccountusers.userid='" .  $_SESSION['UserID'] . "'
+			AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
 			AND glaccountusers.canupd=1
 		WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 		ORDER BY chartmaster.accountcode";
@@ -429,7 +424,7 @@ foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
 	if ($JournalItem->Amount > 0) {
 		echo '<td class="number">' . locale_number_format($JournalItem->Amount, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td></td>';
-		$DebitTotal += $JournalItem->Amount;
+		$DebitTotal+= $JournalItem->Amount;
 	} elseif ($JournalItem->Amount < 0) {
 		$Credit = (-1 * $JournalItem->Amount);
 		echo '<td></td>
@@ -438,7 +433,7 @@ foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
 	}
 
 	echo '<td>' . $JournalItem->Narrative . '</td>
-		<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $JournalItem->ID . '">' . _('Delete') . '</a></td>
+		<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $JournalItem->ID . '">' . _('Delete') . '</a></td>
 	</tr>';
 }
 
@@ -469,5 +464,5 @@ if (abs($_SESSION['JournalDetail']->JournalTotal) < 0.001 and $_SESSION['Journal
 }
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

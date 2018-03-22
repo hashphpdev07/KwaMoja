@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['FromTransNo'])) {
 	$FromTransNo = filter_number_format($_GET['FromTransNo']);
@@ -32,8 +31,7 @@ $FirstTrans = $FromTransNo;
 
 if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvOrCredit) and $FromTransNo != '') {
 
-	include('includes/class.pdf.php');
-
+	include ('includes/class.pdf.php');
 
 	$Page_Width = 595;
 	$Page_Height = 842;
@@ -93,7 +91,6 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			$DefaultBankAccountCode = '';
 		}
 		// gather the invoice data
-
 		if ($InvOrCredit == 'Invoice') {
 			$SQL = "SELECT debtortrans.trandate,
 							debtortrans.ovamount,
@@ -162,7 +159,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							ON salesorders.fromstkloc=locations.loccode
 						INNER JOIN locationusers
 							ON locationusers.loccode=locations.loccode
-							AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+							AND locationusers.userid='" . $_SESSION['UserID'] . "'
 							AND locationusers.canview=1
 						INNER JOIN paymentterms
 							ON debtorsmaster.paymentterms=paymentterms.termsindicator
@@ -233,19 +230,18 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 				$SQL = $SQL . " AND debtorsmaster.ediinvoices=0";
 			}
 		} // end else
-
 		$Result = DB_query($SQL, '', '', false, false);
 
 		if (DB_error_no() != 0) {
 
 			$Title = _('Transaction Print Error Report');
-			include('includes/header.php');
+			include ('includes/header.php');
 
 			prnMsg(_('There was a problem retrieving the invoice or credit note details for note number') . ' ' . $InvoiceToPrint . ' ' . _('from the database') . '. ' . _('To print an invoice, the sales order record, the customer transaction record and the branch record for the customer must not have been purged') . '. ' . _('To print a credit note only requires the customer, transaction, salesman and branch records be available'), 'error');
 			if ($Debug == 1) {
 				prnMsg(_('The SQL used to get this information that failed was') . '<br />' . $SQL, 'error');
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		if (DB_num_rows($Result) == 1) {
@@ -253,21 +249,21 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 			if ($_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']) {
 				prnMsg(_('Your account is set up to see only a specific salespersons orders. You are not authorised to view transaction for this order'), 'error');
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 
 			if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
 				/* If it's a customer login and the invoice is for a different customer the do not print */
 				prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
-				include('includes/header.php');
+				include ('includes/header.php');
 				exit;
 			}
 
 			$ExchRate = $MyRow['rate'];
 			//Change the language to the customer's language
 			$_SESSION['Language'] = $MyRow['language_id'];
-			include('includes/LanguageSetup.php');
+			include ('includes/LanguageSetup.php');
 
 			if ($InvOrCredit == 'Invoice') {
 				$SQL = "SELECT stockmoves.stockid,
@@ -307,26 +303,24 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 					AND stockmoves.transno='" . $FromTransNo . "'
 					AND stockmoves.show_on_inv_crds=1";
 			} // end else
-
 			$Result = DB_query($SQL);
 			if (DB_error_no() != 0) {
 				$Title = _('Transaction Print Error Report');
-				include('includes/header.php');
+				include ('includes/header.php');
 				echo '<br />' . _('There was a problem retrieving the invoice or credit note stock movement details for invoice number') . ' ' . $FromTransNo . ' ' . _('from the database');
 				if ($Debug == 1) {
 					echo '<br />' . _('The SQL used to get this information that failed was') . '<br />' . $SQL;
 				}
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
-
 
 			if (DB_num_rows($Result) > 0) {
 
 				$FontSize = 10;
 				$PageNumber = 1;
 
-				include('includes/PDFTransPageHeaderPortrait.php');
+				include ('includes/PDFTransPageHeaderPortrait.php');
 				$FirstPage = False;
 
 				while ($MyRow2 = DB_fetch_array($Result)) {
@@ -364,7 +358,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 					$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 36, $FontSize, $DisplayQty, 'right');
 					$LeftOvers = $PDF->addTextWrap($Left_Margin + 390, $YPos, 26, $FontSize, $MyRow2['units'], 'center');
 					$LeftOvers = $PDF->addTextWrap($Left_Margin + 420, $YPos, 26, $FontSize, $DisplayDiscount, 'right');
-					$LeftOvers = $PDF->addTextWrap($Page_Width - $Left_Margin-72, $YPos, 72, $FontSize, $DisplayNet, 'right');
+					$LeftOvers = $PDF->addTextWrap($Page_Width - $Left_Margin - 72, $YPos, 72, $FontSize, $DisplayNet, 'right');
 
 					if ($MyRow2['controlled'] == 1) {
 
@@ -375,45 +369,47 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 						if ($MyRow2['serialised'] == 1) {
 							while ($ControlledMovtRow = DB_fetch_array($GetControlMovts)) {
-								$YPos -= (10 * $lines);
+								$YPos-= (10 * $lines);
 								$LeftOvers = $PDF->addTextWrap($Left_Margin + 82, $YPos, 100, $FontSize, $ControlledMovtRow['serialno'], 'left');
 								if ($YPos - $line_height <= $Bottom_Margin) {
 									/* head up a new invoice/credit note page */
 									/*draw the vertical column lines right to the bottom */
 									PrintLinesToBottom();
-									include('includes/PDFTransPageHeaderPortrait.php');
+									include ('includes/PDFTransPageHeaderPortrait.php');
 								} //end if need a new page headed up
+								
 							}
 						} else {
 							while ($ControlledMovtRow = DB_fetch_array($GetControlMovts)) {
-								$YPos -= (10 * $lines);
+								$YPos-= (10 * $lines);
 								$LeftOvers = $PDF->addTextWrap($Left_Margin + 82, $YPos, 100, $FontSize, (-$ControlledMovtRow['moveqty']) . ' x ' . $ControlledMovtRow['serialno'], 'left');
 								if ($YPos - $line_height <= $Bottom_Margin) {
 									/* head up a new invoice/credit note page */
 									/*draw the vertical column lines right to the bottom */
 									PrintLinesToBottom();
-									include('includes/PDFTransPageHeaderPortrait.php');
+									include ('includes/PDFTransPageHeaderPortrait.php');
 								} //end if need a new page headed up
+								
 							}
 						}
 					}
-					$YPos -= ($FontSize * $lines);
+					$YPos-= ($FontSize * $lines);
 
 					$lines = explode("\r\n", htmlspecialchars_decode($MyRow2['narrative']));
 					$SizeOfLines = sizeOf($lines);
-					for ($i = 0; $i < $SizeOfLines; $i++) {
+					for ($i = 0;$i < $SizeOfLines;$i++) {
 						while (mb_strlen($lines[$i]) > 1) {
 							if ($YPos - $line_height <= $Bottom_Margin) {
 								/* head up a new invoice/credit note page */
 								/*draw the vertical column lines right to the bottom */
 								PrintLinesToBottom();
-								include('includes/PDFTransPageHeaderPortrait.php');
+								include ('includes/PDFTransPageHeaderPortrait.php');
 							} //end if need a new page headed up
 							/*increment a line down for the next line item */
 							if (mb_strlen($lines[$i]) > 1) {
 								$lines[$i] = $PDF->addTextWrap($Left_Margin + 85, $YPos, 181, $FontSize, stripslashes($lines[$i]));
 							}
-							$YPos -= ($line_height);
+							$YPos-= ($line_height);
 						}
 					}
 					if ($YPos <= $Bottom_Margin) {
@@ -421,24 +417,25 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 						/* head up a new invoice/credit note page */
 						/*draw the vertical column lines right to the bottom */
 						PrintLinesToBottom();
-						include('includes/PDFTransPageHeaderPortrait.php');
+						include ('includes/PDFTransPageHeaderPortrait.php');
 					} //end if need a new page headed up
+					
 				}
 				/*end while there are line items to print out*/
 
 			}
 			/*end if there are stock movements to show on the invoice or credit note*/
 
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 
 			/* check to see enough space left to print the 4 lines for the totals/footer */
 			if (($YPos - $Bottom_Margin) < (2 * $line_height)) {
 				PrintLinesToBottom();
-				include('includes/PDFTransPageHeaderPortrait.php');
+				include ('includes/PDFTransPageHeaderPortrait.php');
 			}
 			/*Print a column vertical line  with enough space for the footer*/
 			/*draw the vertical column lines to 4 lines shy of the bottom
-			to leave space for invoice footer info ie totals etc*/
+			 to leave space for invoice footer info ie totals etc*/
 			$PDF->line($Left_Margin + 78, $TopOfColHeadings + 12, $Left_Margin + 78, $Bottom_Margin + (4 * $line_height));
 
 			/*Print a column vertical line */
@@ -476,12 +473,12 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			$YPos = $Bottom_Margin + (3 * $line_height);
 			/* Print out the payment terms */
 
-			$PDF->addTextWrap($Left_Margin, $YPos + 3, 280, $FontSize,_('Payment Terms') . ': ' . $MyRow['terms']);
+			$PDF->addTextWrap($Left_Margin, $YPos + 3, 280, $FontSize, _('Payment Terms') . ': ' . $MyRow['terms']);
 
 			$FontSize = 8;
 			$LeftOvers = explode("\r\n", $MyRow['invtext']);
 			$SizeOfLeftOvers = sizeOf($LeftOvers);
-			for ($i = 0; $i < $SizeOfLeftOvers; $i++) {
+			for ($i = 0;$i < $SizeOfLeftOvers;$i++) {
 				$PDF->addText($Left_Margin, $YPos - 8 - ($i * 8), $FontSize, $LeftOvers[$i]);
 			}
 			$FontSize = 10;
@@ -501,13 +498,13 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			/*vertical to separate totals from comments and ROMALPA */
 			$PDF->line($Page_Width - $Right_Margin - 222, $YPos + $line_height, $Page_Width - $Right_Margin - 222, $Bottom_Margin);
 
-			$YPos += 10;
+			$YPos+= 10;
 			if ($InvOrCredit == 'Invoice') {
 				$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 220, $Bottom_Margin + 5, 144, $FontSize, _('TOTAL INVOICE'));
 				$FontSize = 8;
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 18, 280, $FontSize, $_SESSION['RomalpaClause']);
 				while (mb_strlen($LeftOvers) > 0 and $YPos > $Bottom_Margin) {
-					$YPos -= 10;
+					$YPos-= 10;
 					$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 18, 280, $FontSize, $LeftOvers);
 				}
 				/* Add Images for Visa / Mastercard / Paypal */
@@ -533,8 +530,8 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 	if (isset($_GET['Email'])) { //email the invoice to address supplied
 		$Title = _('Emailing') . ' ' . $InvOrCredit . ' ' . _('Number') . ' ' . $FromTransNo;
-		include('includes/header.php');
-		include('includes/PHPMailer/PHPMailerAutoload.php');
+		include ('includes/header.php');
+		include ('includes/PHPMailer/PHPMailerAutoload.php');
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
 		$mail->CharSet = 'UTF-8';
@@ -545,31 +542,29 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		$SenderName = $MyUserRow['realname'];
 
 		$mail->Host = $_SESSION['SMTPSettings']['host']; // SMTP server example
-		$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
-		$mail->SMTPAuth   = $_SESSION['SMTPSettings']['auth'];
-		$mail->SMTPSecure = $_SESSION['SMTPSettings']['security'];                 // enable SMTP authentication
-		$mail->Port       = $_SESSION['SMTPSettings']['port'];                    // set the SMTP port for the mail server
-		$mail->Username   = html_entity_decode($_SESSION['SMTPSettings']['username']); // SMTP account username example
-		$mail->Password   = html_entity_decode($_SESSION['SMTPSettings']['password']);        // SMTP account password example
-		$mail->From =  $_SESSION['CompanyRecord']['email'];
+		$mail->SMTPDebug = 0; // enables SMTP debug information (for testing)
+		$mail->SMTPAuth = $_SESSION['SMTPSettings']['auth'];
+		$mail->SMTPSecure = $_SESSION['SMTPSettings']['security']; // enable SMTP authentication
+		$mail->Port = $_SESSION['SMTPSettings']['port']; // set the SMTP port for the mail server
+		$mail->Username = html_entity_decode($_SESSION['SMTPSettings']['username']); // SMTP account username example
+		$mail->Password = html_entity_decode($_SESSION['SMTPSettings']['password']); // SMTP account password example
+		$mail->From = $_SESSION['CompanyRecord']['email'];
 		$mail->FromName = $SenderName;
-		$mail->addAddress($_GET['Email']);     // Add a recipient
-
+		$mail->addAddress($_GET['Email']); // Add a recipient
 		$FileName = $_SESSION['reports_dir'] . '/' . $_SESSION['DatabaseName'] . '_' . $InvOrCredit . '_' . $FromTransNo . '.pdf';
 		$PDF->Output($FileName, 'F');
 
-		$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-		$mail->addAttachment($FileName);         // Add attachments
-		$mail->isHTML(true);                                  // Set email format to HTML
-
+		$mail->WordWrap = 50; // Set word wrap to 50 characters
+		$mail->addAttachment($FileName); // Add attachments
+		$mail->isHTML(true); // Set email format to HTML
 		if (isset($_GET['Subject']) and $_GET['Subject'] != '') {
 			$mail->Subject = $_GET['Subject'];
 		} else {
 			$mail->Subject = _('Please find attached') . ': ' . $InvOrCredit . ' ' . $FromTransNo;
 		}
-		$mail->Body    = $InvOrCredit . ' ' . $FromTransNo;
+		$mail->Body = $InvOrCredit . ' ' . $FromTransNo;
 
-		if(!$mail->send()) {
+		if (!$mail->send()) {
 			echo 'Message could not be sent.';
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
@@ -577,7 +572,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		}
 
 		unlink($FileName); //delete the temporary file
-		include('includes/footer.php');
+		include ('includes/footer.php');
 
 		exit;
 
@@ -588,7 +583,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 	$PDF->__destruct();
 	//Change the language back to the user's language
 	$_SESSION['Language'] = $UserLanguage;
-	include('includes/LanguageSetup.php');
+	include ('includes/LanguageSetup.php');
 
 } else {
 	/*The option to print PDF was not hit */
@@ -597,13 +592,13 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 	/* Manual links before header.php */
 	$ViewTopic = 'ARReports';
 	$BookMark = 'PrintInvoicesCredits';
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	if (!isset($FromTransNo) or $FromTransNo == '') {
 
 		/*if FromTransNo is not set then show a form to allow input of either a single invoice number or a range of invoices to be printed. Also get the last invoice number created to show the user where the current range is up to */
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Invoices or Credit Notes (Portrait Mode)') . '</p>';
@@ -670,7 +665,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 			echo $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
 
 		} //end while loop
-
+		
 
 		echo '</select></td>
 			</tr>';
@@ -769,7 +764,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							ON salesorders.fromstkloc=locations.loccode
 						INNER JOIN locationusers
 							ON locationusers.loccode=locations.loccode
-							AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+							AND locationusers.userid='" . $_SESSION['UserID'] . "'
 							AND locationusers.canview=1
 						INNER JOIN paymentterms
 							ON debtorsmaster.paymentterms=paymentterms.termsindicator
@@ -778,7 +773,6 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 						WHERE debtortrans.type=10
 							AND debtortrans.transno='" . $FromTransNo . "'";
 			} else { //its a credit note
-
 				$SQL = "SELECT debtortrans.trandate,
 					   		debtortrans.ovamount,
 							debtortrans.ovdiscount,
@@ -828,7 +822,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 					prnMsg(_('The SQL used to get this information that failed was') . '<br />' . $SQL, 'warn');
 				}
 				break;
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			} elseif (DB_num_rows($Result) == 1) {
 
@@ -836,14 +830,14 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 				if ($_SESSION['SalesmanLogin'] != '' and $_SESSION['SalesmanLogin'] != $MyRow['salesman']) {
 					prnMsg(_('Your account is set up to see only a specific salespersons orders. You are not authorised to view transaction for this order'), 'error');
-					include('includes/footer.php');
+					include ('includes/footer.php');
 					exit;
 				}
 
 				if (($_SESSION['CustomerID'] != '') and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
 					/* If it's a customer login and the invoice is for a different customer the do not print */
 					prnMsg(_('This transaction is addressed to another customer and cannot be printed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company'), 'error');
-					include('includes/header.php');
+					include ('includes/header.php');
 					exit;
 				}
 
@@ -981,7 +975,6 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 						</tr>
 						</table>';
 
-
 					$SQL = "SELECT stockmoves.stockid,
 						   		stockmaster.description,
 								stockmoves.qty as quantity,
@@ -1022,7 +1015,6 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							</tr>';
 
 					$LineCounter = 17;
-					$k = 0; //row colour counter
 
 					while ($MyRow2 = DB_fetch_array($Result)) {
 
@@ -1105,6 +1097,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							$LineCounter = 10;
 
 						} //end if need a new page headed up
+						
 					} //end while there are line items to print out
 					echo '</table>';
 				}
@@ -1210,12 +1203,10 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 		/* end loop to print invoices */
 	}
 	/*end of if FromTransNo exists */
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
-
-
 
 function PrintLinesToBottom() {
 

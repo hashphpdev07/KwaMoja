@@ -1,7 +1,6 @@
 <?php
-
 $PricesSecurity = 1000;
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Outstanding Sales Orders');
 
 if (isset($_GET['download'])) {
@@ -22,8 +21,8 @@ if (isset($_GET['download'])) {
 /* Manual links before header.php */
 $ViewTopic = 'SalesOrders';
 $BookMark = 'SelectSalesOrder';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['Reset'])) {
 	unset($_POST);
@@ -47,7 +46,7 @@ if (isset($_GET['SelectedCustomer'])) {
 
 if (isset($_GET['Quotations'])) {
 	$_POST['Quotations'] = $_GET['Quotations'];
-} else if (!isset($_POST['Quotations']) ) {
+} else if (!isset($_POST['Quotations'])) {
 	$_POST['Quotations'] = '';
 }
 
@@ -56,11 +55,11 @@ if (isset($_POST['PlacePO'])) {
 
 	/*Note the button would not have been displayed if the user had no authority to create purchase orders */
 	$OrdersToPlacePOFor = '';
-	for ($i = 0; $i <= count($_POST['PlacePO_']); $i++) {
+	for ($i = 0;$i <= count($_POST['PlacePO_']);$i++) {
 		if ($OrdersToPlacePOFor == '') {
-			$OrdersToPlacePOFor .= " orderno='" . $_POST['PlacePO_'][$i] . "'";
+			$OrdersToPlacePOFor.= " orderno='" . $_POST['PlacePO_'][$i] . "'";
 		} else {
-			$OrdersToPlacePOFor .= " OR orderno='" . $_POST['PlacePO_'][$i] . "'";
+			$OrdersToPlacePOFor.= " OR orderno='" . $_POST['PlacePO_'][$i] . "'";
 		}
 	}
 	if (mb_strlen($OrdersToPlacePOFor) == '') {
@@ -165,16 +164,15 @@ if (isset($_POST['PlacePO'])) {
 		while ($MyRow = DB_fetch_array($ItemResult)) {
 			if (isset($ItemArray[$MyRow['stockid']])) {
 				/* if the item is already in the ItemArray then just add the quantity to the existing item */
-				$ItemArray[$MyRow['stockid']]['orderqty'] += $MyRow['orderqty'];
+				$ItemArray[$MyRow['stockid']]['orderqty']+= $MyRow['orderqty'];
 			} else {
 				/*it is not already in the ItemArray so add it */
 				$ItemArray[$MyRow['stockid']] = $MyRow;
 			}
 		}
 
-
 		/* We need the items to order to be in supplier order so that only a single order is created for a supplier - so need to sort the multi-dimensional array to ensure it is listed by supplier sequence. To use array_multisort we need to get arrays of supplier with the same keys as the main array of rows
-		 */
+		*/
 		$SupplierArray = array();
 		foreach ($ItemArray as $Key => $row) {
 			//to make the Supplier array with the keys of the $ItemArray
@@ -256,7 +254,6 @@ if (isset($_POST['PlacePO'])) {
 							prnMsg(_('You do not have permission to authorise this purchase order') . '.<br />' . _('This order is for') . ' ' . $SuppRow['currcode'] . ' ' . $Order_Value . '. ' . $AuthMessage . _('if you think this is a mistake please contact the systems administrator') . '<br />' . _('The order has been created with a status of pending and will require authorisation'), 'warn');
 						}
 					} //end of authorisation status settings
-
 					if ($SupplierID != '') { //then we have just added a purchase order
 						echo '<br />';
 						prnMsg(_('Purchase Order') . ' ' . $PO_OrderNo . ' ' . _('on') . ' ' . $SupplierID . ' ' . _('has been created'), 'success');
@@ -267,7 +264,6 @@ if (isset($_POST['PlacePO'])) {
 					$Result = DB_Txn_Begin();
 
 					$PO_OrderNo = GetNextTransNo(18); //get the next PO number
-
 					$SupplierID = $ItemRow['supplierno'];
 					$Order_Value = 0;
 					/*Now get all the required details for the supplier */
@@ -354,7 +350,6 @@ if (isset($_POST['PlacePO'])) {
 					$DbgMsg = _('The SQL statement used to insert the purchase order header record and failed was');
 					$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				} //end if it's a new supplier and PO to create
-
 				/*reminder we are in a loop of the total of each item to place a purchase order for based on a selection of sales orders */
 				$DeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $ItemRow['leadtime']);
 				$SQL = "INSERT INTO purchorderdetails ( orderno,
@@ -381,10 +376,9 @@ if (isset($_POST['PlacePO'])) {
 				$DbgMsg = _('The SQL statement used to insert the purchase order detail record and failed was');
 
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-				$Order_Value  += ($ItemRow['price'] * $ItemRow['orderqty'] / $ItemRow['conversionfactor']);
+				$Order_Value+= ($ItemRow['price'] * $ItemRow['orderqty'] / $ItemRow['conversionfactor']);
 			}
 			/* end of the loop round the items on the sales order  that we wish to place purchase orders for */
-
 
 			/* The last line to be purchase ordered was reach so there will be an order which is not yet completed in progress now to completed it */
 
@@ -419,7 +413,6 @@ if (isset($_POST['PlacePO'])) {
 					prnMsg(_('You do not have permission to authorise this purchase order') . '.<br />' . _('This order is for') . ' ' . $SuppRow['currcode'] . ' ' . $Order_Value . '. ' . $AuthMessage . _('if you think this is a mistake please contact the systems administrator') . '<br />' . _('The order has been created with a status of pending and will require authorisation'), 'warn');
 				}
 			} //end of authorisation status settings
-
 			if ($SupplierID != '') { //then we have just added a purchase order irrespective of autoauthorise status
 				echo '<br />';
 				prnMsg(_('Purchase Order') . ' ' . $PO_OrderNo . ' ' . _('on') . ' ' . $SupplierID . ' ' . _('has been created'), 'success');
@@ -443,7 +436,7 @@ echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/sales.png" title="', _('Sales'), '" alt="" />', '&nbsp;', _('Outstanding Sales Orders'), '
 	</p> ';
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($_POST['ResetPart'])) {
@@ -467,7 +460,7 @@ if (isset($OrderNumber) and $OrderNumber != '') {
 	if (!is_numeric($OrderNumber)) {
 		prnMsg(_('The Order Number entered MUST be numeric'), 'error');
 		unset($OrderNumber);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		echo _('Order Number'), '&nbsp;-&nbsp;', $OrderNumber;
@@ -505,7 +498,6 @@ if (isset($_POST['SearchParts'])) {
 				stockmaster.decimalplaces,
 				stockmaster.units
 			ORDER BY stockmaster.stockid";
-
 
 	$ErrMsg = _('No stock items were returned by the SQL because');
 	$DbgMsg = _('The SQL used to retrieve the searched parts was');
@@ -680,7 +672,6 @@ if (!isset($StockId)) {
 					</tr>
 				</thead>';
 
-		$k = 0; //row colour counter
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
@@ -691,9 +682,9 @@ if (!isset($StockId)) {
 					<td>', $MyRow['units'], '</td>
 				</tr>';
 			//end of page full new headings if
+			
 		}
 		//end of while loop
-
 		echo '</tbody>';
 		echo '</table>';
 
@@ -773,7 +764,7 @@ if (!isset($StockId)) {
 					ON pickreq.orderno=salesorders.orderno
 					AND pickreq.closed=0
 				WHERE salesorderdetails.completed=0 ";
-			$SQL .= $OrderDateFrom . $OrderDateTo;
+			$SQL.= $OrderDateFrom . $OrderDateTo;
 		} else {
 			if ($Quotations !== 0 and $Quotations !== 1) { //overdue inquiry only
 				$SQL = "SELECT salesorders.orderno,
@@ -828,10 +819,9 @@ if (!isset($StockId)) {
 							 THEN salesorderdetails.unitprice*(salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*(1-salesorderdetails.discountpercent)/currencies.rate
 							 ELSE 0 END) as ordervalue";
 			} //end of due date inquiry
-			$SQL .= $OrderDateFrom . $OrderDateTo;
+			$SQL.= $OrderDateFrom . $OrderDateTo;
 
-
-			$SQL .= " FROM salesorders INNER JOIN salesorderdetails
+			$SQL.= " FROM salesorders INNER JOIN salesorderdetails
 						ON salesorders.orderno = salesorderdetails.orderno
 						INNER JOIN debtorsmaster
 						ON salesorders.debtorno = debtorsmaster.debtorno
@@ -845,16 +835,16 @@ if (!isset($StockId)) {
 
 		//Add salesman role control
 		if ($_SESSION['SalesmanLogin'] != '') {
-			$SQL .= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+			$SQL.= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 		}
 
-		if (isset($OrderNumber) AND $OrderNumber != '') {
+		if (isset($OrderNumber) and $OrderNumber != '') {
 
-			$SQL .= "AND salesorders.orderno=" . $OrderNumber . "
+			$SQL.= "AND salesorders.orderno=" . $OrderNumber . "
 					AND salesorders.quotation=" . $Quotations;
 
-		} elseif (isset($CustomerRef) AND $CustomerRef != '') {
-			$SQL .= "AND salesorders.customerref='" . $CustomerRef . "'
+		} elseif (isset($CustomerRef) and $CustomerRef != '') {
+			$SQL.= "AND salesorders.customerref='" . $CustomerRef . "'
 					AND salesorders.quotation=" . $Quotations;
 
 		} else {
@@ -863,31 +853,31 @@ if (!isset($StockId)) {
 			if (isset($SelectedCustomer)) {
 
 				if (isset($SelectedStockItem)) {
-					$SQL .= "AND salesorders.quotation =" . $Quotations . "
+					$SQL.= "AND salesorders.quotation =" . $Quotations . "
 							AND salesorderdetails.stkcode='" . $SelectedStockItem . "'
 							AND salesorders.debtorno='" . $SelectedCustomer . "'
 							AND salesorders.fromstkloc = '" . $_POST['StockLocation'] . "'";
 
 				} else {
-					$SQL .= "AND  salesorders.quotation =" . $Quotations . "
+					$SQL.= "AND  salesorders.quotation =" . $Quotations . "
 							AND salesorders.debtorno='" . $SelectedCustomer . "'
 							AND salesorders.fromstkloc = '" . $_POST['StockLocation'] . "'";
 
 				}
 			} else { //no customer selected
 				if (isset($SelectedStockItem)) {
-					$SQL .= "AND salesorders.quotation =" . $Quotations . "
+					$SQL.= "AND salesorders.quotation =" . $Quotations . "
 								AND salesorderdetails.stkcode='" . $SelectedStockItem . "'
 								AND salesorders.fromstkloc = '" . $_POST['StockLocation'] . "'";
 				} else {
-					$SQL .= "AND salesorders.quotation =" . $Quotations . "
+					$SQL.= "AND salesorders.quotation =" . $Quotations . "
 								AND salesorders.fromstkloc = '" . $_POST['StockLocation'] . "'";
 				}
 
 			} //end selected customer
-			$SQL .= $DueDateFrom . $DueDateTo;
+			$SQL.= $DueDateFrom . $DueDateTo;
 
-			$SQL .= " GROUP BY salesorders.orderno,
+			$SQL.= " GROUP BY salesorders.orderno,
 							debtorsmaster.name,
 							custbranch.brname,
 							salesorders.customerref,
@@ -898,7 +888,6 @@ if (!isset($StockId)) {
 							salesorders.poplaced
 							ORDER BY salesorders.orderno";
 		} //end not order number selected
-
 		$ErrMsg = _('No orders or quotations were returned by the SQL because');
 		$SalesOrdersResult = DB_query($SQL, $ErrMsg);
 
@@ -964,7 +953,7 @@ if (!isset($StockId)) {
 			}
 			echo '</thead>';
 			$i = 0;
-			$k = 0; //row colour counter
+
 			$OrdersTotal = 0;
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
@@ -1001,7 +990,7 @@ if (!isset($StockId)) {
 				} else {
 					$CustomerRef = '';
 				}
-				$OrdersTotal += $MyRow['ordervalue'];
+				$OrdersTotal+= $MyRow['ordervalue'];
 				$PrintAck = $RootPath . '/PDFAck.php?AcknowledgementNo=' . $MyRow['orderno'];
 
 				if (!isset($PricesSecurity) or !in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
@@ -1023,7 +1012,7 @@ if (!isset($StockId)) {
 
 				if (DB_num_rows($AttachmentResult) > 0) {
 					$AttachmentRow = DB_fetch_array($AttachmentResult);
-					$AttachmentText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&order=' . urlencode($MyRow['orderno']) . '&name=' . urlencode($AttachmentRow['name']) . '">' . _('View attachment') . '</a>';
+					$AttachmentText = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?download=yes&order=' . urlencode($MyRow['orderno']) . '&name=' . urlencode($AttachmentRow['name']) . '">' . _('View attachment') . '</a>';
 				} else {
 					$AttachmentText = _('No attachment');
 				}
@@ -1085,6 +1074,7 @@ if (!isset($StockId)) {
 				}
 				++$i;
 				//end of page full new headings if
+				
 			} //end while loop through orders to display
 			echo '</tbody>';
 
@@ -1101,7 +1091,6 @@ if (!isset($StockId)) {
 			echo ' ' . $_SESSION['CompanyRecord']['currencydefault'] . ' :</b></td>
 			<td class="number"><b>' . locale_number_format($OrdersTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>';
 			if ($_POST['Quotations'] == 'Orders_Only' and $AuthRow['cancreate'] == 0) { //cancreate==0 means can create POs
-
 				echo '<td class="number">
 							<input type="submit" name="PlacePO" value="' . _('Place') . " " . _('PO') . '" onclick="return MakeConfirm(\'' . _('This will create purchase orders for all the items on the checked sales orders above, based on the preferred supplier purchasing data held in the system. Are You Absolutely Sure?') . '\');" />
 						</td>
@@ -1109,11 +1098,11 @@ if (!isset($StockId)) {
 			}
 			echo '</table>';
 		} //end if there are some orders to show
+		
 	}
 
 	echo '</form>';
 
 } //end StockID already selected
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -5,7 +5,7 @@ $Title = _('All Stock Movements By Location');
 
 include ('includes/header.php');
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text">
@@ -108,7 +108,6 @@ if (DB_num_rows($MovtsResult) > 0) {
 				<th>', _('Serial No.'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
 		$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);

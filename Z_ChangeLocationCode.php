@@ -1,16 +1,14 @@
 <?php
-
-include('includes/session.php');
-$Title = _('UTILITY PAGE Change A Location Code');// Screen identificator.
+include ('includes/session.php');
+$Title = _('UTILITY PAGE Change A Location Code'); // Screen identificator.
 $ViewTopic = 'SpecialUtilities'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'Z_ChangeLocationCode'; // Anchor's id in the manual's html document.
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Change A Location Code') . '" /> ' . _('Change A Location Code') . '
-	</p>';// Page title.
-
-include('includes/SQL_CommonFunctions.php');
+	</p>'; // Page title.
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['ProcessLocationChange'])) {
 
@@ -139,7 +137,7 @@ if (isset($_POST['ProcessLocationChange'])) {
 		echo '<br />' . _('Changing the locationusers table records');
 		$SQL = "UPDATE locationusers SET loccode='" . $_POST['NewLocationID'] . "' WHERE loccode='" . $_POST['OldLocationID'] . "'";
 		$ErrMsg = _('The SQL to update users records failed');
-		$result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		echo ' ... ' . _('completed');
 
 		echo '<br />' . _('Changing stock location records');
@@ -161,7 +159,6 @@ if (isset($_POST['ProcessLocationChange'])) {
 		echo ' ... ' . _('completed');
 
 		//check if MRP tables exist before assuming
-
 		$Result = DB_query("SELECT COUNT(*) FROM mrpparameters", '', '', false, false);
 		if (DB_error_no() == 0) {
 			echo '<br />' . _('Changing MRP parameters information');
@@ -253,12 +250,12 @@ if (isset($_POST['ProcessLocationChange'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 		echo ' ... ' . _('completed');
 
-
 		echo '<p>' . _('Location code') . ': ' . $_POST['OldLocationID'] . ' ' . _('was successfully changed to') . ' : ' . $_POST['NewLocationID'];
 	} //only do the stuff above if  $InputError==0
+	
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<div class="centre">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
@@ -282,5 +279,5 @@ echo '<br />
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

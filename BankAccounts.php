@@ -1,11 +1,10 @@
 <?php
+include ('includes/session.php');
 
-include('includes/session.php');
-
-$Title = _('Bank Accounts');// Screen identificator.
-$ViewTopic= 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'BankAccounts';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$Title = _('Bank Accounts'); // Screen identificator.
+$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'BankAccounts'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Bank'), '" alt="" />', ' ', $Title, '
@@ -27,7 +26,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
@@ -134,14 +133,11 @@ if (isset($_POST['submit'])) {
 		unset($SelectedBankAccount);
 	}
 
-
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'BankTrans'
-
 	$SQL = "SELECT COUNT(bankact) AS accounts FROM banktrans WHERE banktrans.bankact='" . $SelectedBankAccount . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
@@ -156,7 +152,6 @@ if (isset($_POST['submit'])) {
 		$Result = DB_query($SQL);
 		prnMsg(_('Bank account deleted'), 'success');
 	} //end if Delete bank account
-
 	unset($_GET['delete']);
 	unset($SelectedBankAccount);
 }
@@ -196,7 +191,6 @@ if (!isset($SelectedBankAccount)) {
 				<th colspan="2"></th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['invoice'] == 0) {
 			$DefaultBankAccount = _('No');
@@ -213,10 +207,10 @@ if (!isset($SelectedBankAccount)) {
 		switch ($MyRow['importformat']) {
 			case 'MT940-ING':
 				$ImportFormat = 'ING MT940';
-				break;
+			break;
 			case 'MT940-SCB':
 				$ImportFormat = 'SCB MT940';
-				break;
+			break;
 			default:
 				$ImportFormat = '';
 		}
@@ -231,8 +225,8 @@ if (!isset($SelectedBankAccount)) {
 				<td>', $MyRow['currcode'], '</td>
 				<td>', $DefaultBankAccount, '</td>
 				<td>', $PettyCash, '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedBankAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedBankAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this bank account?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedBankAccount=', urlencode($MyRow['accountcode']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedBankAccount=', urlencode($MyRow['accountcode']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this bank account?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -241,16 +235,15 @@ if (!isset($SelectedBankAccount)) {
 
 if (isset($SelectedBankAccount)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show All Bank Accounts Defined'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Bank Accounts Defined'), '</a>
 		</div>';
 }
 
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($SelectedBankAccount) and !isset($_GET['delete'])) {
 	//editing an existing bank account  - not deleting
-
 	$SQL = "SELECT accountcode,
 					bankaccountname,
 					bankaccountcode,
@@ -378,7 +371,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="' . $MyRow['currabrev'] . '">' . $MyRow['currabrev'] . '</option>';
 	}
 } //end while loop
-
 echo '</select>
 	<fieldhelp>', _('The currecy of the bank account.'), '</fieldhelp>
 </field>';
@@ -409,6 +401,7 @@ if (isset($SelectedBankAccount)) {
 					<option value="1">' . _('Fall Back Default') . '</option>';
 		}
 	} //end while loop
+	
 } else {
 	echo '<option value="1">' . _('Fall Back Default') . '</option>
 			<option  value="2">' . _('Currency Default') . '</option>
@@ -419,7 +412,6 @@ echo '</select>
 	<fieldhelp>', _('Is this the account that will be printed on invoices.'), '</fieldhelp>
 </field>';
 
-
 if (!isset($_POST['PettyCash'])) {
 	$_POST['PettyCash'] = 0;
 }
@@ -428,7 +420,7 @@ echo '<field>
 		<select name="PettyCash">';
 $BankOrCash[0] = _('Bank');
 $BankOrCash[1] = _('Cash');
-foreach ($BankOrCash as $Code=>$Type) {
+foreach ($BankOrCash as $Code => $Type) {
 	if ($Code == $_POST['PettyCash']) {
 		echo '<option value="' . $Code . '" selected="selected">' . $Type . '</option>';
 	} else {
@@ -444,5 +436,5 @@ echo '<div class="centre">
 		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 	</div>';
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Inventory Location Authorised Users Maintenance');
-$ViewTopic = 'Inventory';// Filename in ManualContents.php's TOC.
-$BookMark = 'LocationUsers';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'Inventory'; // Filename in ManualContents.php's TOC.
+$BookMark = 'LocationUsers'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Location Authorised Users') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -50,7 +49,6 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 
 		// First check the user is not being duplicated
-
 		$CheckSql = "SELECT count(*)
 			     FROM locationusers
 			     WHERE loccode= '" . $_POST['SelectedLocation'] . "'
@@ -103,8 +101,8 @@ if (isset($_POST['submit'])) {
 if (!isset($SelectedLocation)) {
 
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedUser will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
-	then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	 then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table>
 			<tr>
@@ -126,7 +124,6 @@ if (!isset($SelectedLocation)) {
 		echo $MyRow['loccode'] . '">' . $MyRow['loccode'] . ' - ' . $MyRow['locationname'] . '</option>';
 
 	} //end while loop
-
 	echo '</select></td></tr>';
 
 	echo '</table>'; // close main table
@@ -150,8 +147,8 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 	$MyRow = DB_fetch_array($Result);
 	$SelectedLocationName = $MyRow['locationname'];
 
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Authorised users for') . ' ' . $SelectedLocationName . ' ' . _('Location') . '</a></div>';
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Authorised users for') . ' ' . $SelectedLocationName . ' ' . _('Location') . '</a></div>';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<input type="hidden" name="SelectedLocation" value="' . $SelectedLocation . '" />';
@@ -178,8 +175,6 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 			<th>' . _('Update') . '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['canupd'] == 1) {
@@ -192,27 +187,16 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 					<td>%s</td>
 					<td>%s</td>
 					<td>%s</td>
-					<td>%s</td>' .
-					$ToggleText . '
+					<td>%s</td>' . $ToggleText . '
 					<td><a href="%s?SelectedUser=%s&amp;delete=yes&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorise this user?') . '\');">' . _('Un-authorise') . '</a></td>
-				</tr>',
-				$MyRow['userid'],
-				$MyRow['realname'],
-				$MyRow['canview'],
-				$MyRow['canupd'],
-				htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'),
-				$MyRow['userid'],
-				htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'),
-				$MyRow['userid']);
+				</tr>', $MyRow['userid'], $MyRow['realname'], $MyRow['canview'], $MyRow['canupd'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow['userid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow['userid']);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
 
 	if (!isset($_GET['delete'])) {
 
-
 		echo '<table >'; //Main table
-
 		echo '<tr>
 				<td>' . _('Select User') . ':</td>
 				<td><select name="SelectedUser">';
@@ -238,7 +222,6 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 			echo $MyRow['userid'] . '">' . $MyRow['userid'] . ' - ' . $MyRow['realname'] . '</option>';
 
 		} //end while loop
-
 		echo '</select>
 					</td>
 				</tr>';
@@ -254,7 +237,8 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 		echo '</form>';
 
 	} // end if user wish to delete
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

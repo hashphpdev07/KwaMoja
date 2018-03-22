@@ -1,15 +1,14 @@
 <?php
+include ('includes/DefineProjectClass.php');
 
-include('includes/DefineProjectClass.php');
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Project Bill of Materials');
 
 $Identifier = $_GET['identifier'];
 
 /* If a contract header doesn't exist, then go to
  * Projects.php to create one
- */
+*/
 
 if (!isset($_SESSION['Project' . $Identifier])) {
 	header('Location:' . $RootPath . '/Projects.php');
@@ -17,7 +16,7 @@ if (!isset($_SESSION['Project' . $Identifier])) {
 }
 $ViewTopic = 'Projects';
 $BookMark = 'AddToProject';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 	if ($_SESSION['Project' . $Identifier]->Status != 2) { //dont do anything if the customer has committed to the contract
@@ -30,7 +29,9 @@ if (isset($_POST['UpdateLines']) or isset($_POST['BackToHeader'])) {
 				$_SESSION['Project' . $Identifier]->ProjectBOM[$ProjectComponent->ComponentID]->RequiredBy = $_POST['RequiredBy' . $ProjectComponent->ComponentID];
 			}
 		} // end loop around the items on the contract BOM
+		
 	} // end if the contract is not currently committed to by the customer
+	
 } // end if the user has hit the update lines or back to header buttons
 
 
@@ -38,7 +39,7 @@ if (isset($_POST['BackToHeader'])) {
 	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/Projects.php?identifier=' . $Identifier . '" />';
 	echo '<br />';
 	prnMsg(_('You should automatically be forwarded to the Project page. If this does not happen perhaps the browser does not support META Refresh') . '<a href="' . $RootPath . '/Projects.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -93,7 +94,7 @@ if (isset($_GET['Delete'])) {
 
 if (isset($_POST['NewItem'])) {
 	/* NewItem is set from the part selection list as the part code selected */
-	for ($i = 0; $i < $_POST['CountOfItems']; $i++) {
+	for ($i = 0;$i < $_POST['CountOfItems'];$i++) {
 
 		if (filter_number_format($_POST['Qty' . $i]) > 0) {
 
@@ -120,7 +121,7 @@ if (isset($_POST['NewItem'])) {
 				if ($Debug == 1) {
 					echo '<br />' . $SQL;
 				}
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 			/* end of if not already on the contract BOM */
@@ -132,7 +133,7 @@ if (isset($_POST['NewItem'])) {
 
 /* This is where the order as selected should be displayed  reflecting any deletions or insertions*/
 
-echo '<form id="ProjectBOMForm" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form id="ProjectBOMForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (count($_SESSION['Project' . $Identifier]->ProjectBOM) > 0) {
@@ -159,7 +160,7 @@ if (count($_SESSION['Project' . $Identifier]->ProjectBOM) > 0) {
 		</tr>';
 
 	$_SESSION['Project' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Project' . $Identifier]->ProjectBOM as $ProjectComponent) {
 
@@ -175,9 +176,9 @@ if (count($_SESSION['Project' . $Identifier]->ProjectBOM) > 0) {
 				<td class="number">' . locale_number_format($ProjectComponent->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . $DisplayLineTotal . '</td>
 				<td><input type="text" class="date" name="RequiredBy' . $ProjectComponent->ComponentID . '" size="11" value="' . $ProjectComponent->RequiredBy . '" />
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $ProjectComponent->ComponentID . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this item from the contract BOM?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
-		$TotalCost += $LineTotal;
+		$TotalCost+= $LineTotal;
 	}
 
 	$DisplayTotal = locale_number_format($TotalCost, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -265,7 +266,6 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	$i = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
@@ -291,6 +291,7 @@ if (isset($SearchResult)) {
 			break;
 		}
 		#end of page full new headings if
+		
 	}
 
 	#end of while loop
@@ -306,7 +307,6 @@ if (isset($SearchResult)) {
 			<input type="submit" name="NewItem" value="' . _('Add to Project Bill Of Material') . '" />
 		</div>';
 } #end if SearchResults to show
-
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

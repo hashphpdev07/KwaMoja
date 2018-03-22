@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Setup regular payments');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'RegularPayments';
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
@@ -65,6 +64,7 @@ if (isset($_POST['Add']) or isset($_POST['Update'])) {
 	}
 	if (isset($_POST['Frequency']) and $_POST['Frequency'] == 'D') {
 		$_POST['Days'] = 0; // If its a Daily payment then Days must be zero
+		
 	}
 	if (isset($_POST['Frequency']) and $_POST['Frequency'] == 'W' and $_POST['Days'] > 6) {
 		prnMsg(_('If the payment is to be made weekly then the days field must be an integer between 0 and 6'), 'error');
@@ -156,7 +156,7 @@ if (isset($_POST['Add']) or isset($_POST['Update'])) {
 	}
 }
 
-echo '<form method="post" id="RegularPaymentsSetup" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" id="RegularPaymentsSetup" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>';
@@ -244,7 +244,7 @@ if (DB_num_rows($AccountsResults) == 0) {
 		</tr>
 		</table>';
 	prnMsg(_('Bank Accounts have not yet been defined. You must first') . ' <a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a> ' . _('and general ledger accounts to be affected'), 'warn');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	echo '<option value=""></option>';
@@ -303,12 +303,10 @@ echo '</select>
 		</td>
 	</tr>';
 // End select Tag
-
 echo '<tr>
 		<td>' . _('Enter GL Account Manually') . ':</td>
 		<td><input type="text" name="GLManualCode" maxlength="12" size="12" onchange="return inArray(this, GLCode.options,' . "'" . 'The account code ' . "'" . '+ this.value+ ' . "'" . ' doesnt exist' . "'" . ')"' . ' value="' . $_POST['GLManualCode'] . '"   /></td>
 	</tr>';
-
 
 echo '<tr>
 		<td>' . _('Select GL Group') . ':</td>
@@ -461,14 +459,14 @@ if (DB_num_rows($Result) > 0 and !isset($_GET['Edit'])) {
 				<td>' . ConvertSQLDate($MyRow['firstpayment']) . '</td>
 				<td>' . ConvertSQLDate($MyRow['nextpayment']) . '</td>
 				<td>' . ConvertSQLDate($MyRow['finalpayment']) . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?Payment=' . $MyRow['id']) . '&Edit=True">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?Payment=' . $MyRow['id']) . '&Complete=True">' . _('Complete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__) . '?Payment=' . $MyRow['id']) . '&Edit=True">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__) . '?Payment=' . $MyRow['id']) . '&Complete=True">' . _('Complete') . '</a></td>
 			</tr>';
 	}
 	echo '</table>';
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

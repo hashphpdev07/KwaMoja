@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Chart of Accounts');
-include('includes/header.php');
-include('xmlrpc/lib/xmlrpc.php');
-include('api/api_errorcodes.php');
+include ('includes/header.php');
+include ('xmlrpc/lib/xmlrpc.php');
+include ('api/api_errorcodes.php');
 
 $user = $_SESSION['UserID'];
 $SQL = 'SELECT password FROM www_users WHERE userid="' . $user . '"';
@@ -35,7 +34,7 @@ if (isset($_POST['update'])) {
 		$FieldValues = explode(',', $buffer);
 		if ($FieldValues[0] != '') {
 			$SizeOfFieldValues = sizeOf($FieldValues);
-			for ($i = 0; $i < $SizeOfFieldValues; $i++) {
+			for ($i = 0;$i < $SizeOfFieldValues;$i++) {
 				if (mb_substr($FieldNames[$i], 0, 6) == 'group_' or $FieldNames[$i] == 'group_') {
 					$FieldNames[$i] = mb_substr($FieldNames[$i], 0, 6);
 					$FieldValues[$i] = mb_substr($FieldValues[$i], 0, mb_strlen($FieldValues[$i]) - 1);
@@ -47,11 +46,7 @@ if (isset($_POST['update'])) {
 			$user = new xmlrpcval($user);
 			$password = new xmlrpcval($password);
 
-			$Msg = new xmlrpcmsg($APIServer . ".xmlrpc_InsertGLAccount", array(
-				$account,
-				$user,
-				$password
-			));
+			$Msg = new xmlrpcmsg($APIServer . ".xmlrpc_InsertGLAccount", array($account, $user, $password));
 
 			$client = new xmlrpc_client($ServerURL);
 			$client->setDebug($DebugLevel);
@@ -64,7 +59,7 @@ if (isset($_POST['update'])) {
 			} else {
 				echo '<tr ' . $FailureStyle . '><td>' . $AccountDetails['accountcode'] . '</td><td>' . 'Failure' . '</td><td>';
 				$SizeOfAnswer = sizeOf($answer);
-				for ($i = 0; $i < $SizeOfAnswer; $i++) {
+				for ($i = 0;$i < $SizeOfAnswer;$i++) {
 					echo 'Error no ' . $answer[$i] . ' - ' . $ErrorDescription[$answer[$i]] . '<br />';
 				}
 				echo '</td></tr>';
@@ -83,13 +78,13 @@ if (isset($_POST['update'])) {
 	fclose($fp);
 } else {
 	prnMsg(_('Select a csv file containing the details of the account codes that you wish to import') . '. ' . '<br />' . _('The first line must contain the field names that you wish to import. ') . '<a href ="Z_DescribeTable.php?table=chartmaster">' . _('The field names can be found here') . '</a>', 'info');
-	echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form id="ItemForm" enctype="multipart/form-data" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table><tr><td>' . _('File to import') . '</td>' . '<td><input type="file" id="ImportFile" name="ImportFile" /></td></tr></table>';
 	echo '<div class="centre"><input type="submit" name="update" value="Process" /></div>';
 	echo '</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

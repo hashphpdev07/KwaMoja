@@ -1,12 +1,12 @@
 <?php
 /* $Id: SelectQASamples.php 1 2014-09-08 10:42:50Z agaluski $*/
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Select QA Samples');
-$ViewTopic = 'QualityAssurance';// Filename in ManualContents.php's TOC.
-$BookMark = 'QA_Samples';// Anchor's id in the manual's html document.
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+$ViewTopic = 'QualityAssurance'; // Filename in ManualContents.php's TOC.
+$BookMark = 'QA_Samples'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['SelectedSampleID'])) {
 	$SelectedSampleID = mb_strtoupper($_GET['SelectedSampleID']);
@@ -47,7 +47,6 @@ echo '<p class="page_title_text">
 if (isset($_POST['submit'])) {
 
 	//first off validate inputs sensible
-
 	if (isset($SelectedSampleID) and $InputError != 1) {
 		//check to see all values are in spec or at least entered
 		$Result = DB_query("SELECT count(sampleid) FROM sampleresults
@@ -113,9 +112,7 @@ if (isset($_POST['submit'])) {
 	unset($_POST['Cert']);
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS
-
 	$SQL = "SELECT COUNT(*) FROM sampleresults WHERE sampleresults.sampleid='" . $SelectedSampleID . "'
 											AND sampleresults.testvalue>''";
 	$Result = DB_query($SQL);
@@ -138,7 +135,7 @@ if (isset($_POST['submit'])) {
 
 if (!isset($SelectedSampleID)) {
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	if (isset($_POST['ResetPart'])) {
 		unset($SelectedStockItem);
@@ -228,7 +225,6 @@ if (!isset($SelectedSampleID)) {
 	}
 
 	if (true or !isset($LotNumber) or $LotNumber == '') { //revisit later, right now always show all inputs
-
 		if (!isset($LotNumber)) {
 			$LotNumber = '';
 		}
@@ -295,7 +291,7 @@ if (!isset($SelectedSampleID)) {
 					</tr>
 				</thead>';
 		echo '<tbody>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 			echo '<tr class="striped_row">
 					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
@@ -370,6 +366,7 @@ if (!isset($SelectedSampleID)) {
 						WHERE sampledate>='" . $FromDate . "'
 							AND sampledate <='" . $ToDate . "'";
 			} //no stock item selected
+			
 		} //end no sample id selected
 		$ErrMsg = _('No QA samples were returned by the SQL because');
 		$SampleResult = DB_query($SQL, $ErrMsg);
@@ -389,15 +386,15 @@ if (!isset($SelectedSampleID)) {
 							<th class="SortedColumn">', _('Cert Allowed'), '</th>
 						</tr>
 					</thead>';
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SampleResult)) {
 				$ModifySampleID = $RootPath . '/TestPlanResults.php?SelectedSampleID=' . $MyRow['sampleid'];
-				$Edit = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSampleID=' . urlencode($MyRow['sampleid']) . '">' . _('Edit') . '</a>';
-				$Delete = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?delete=yes&amp;SelectedSampleID=' . urlencode($MyRow['sampleid']) . '" onclick="return confirm(\'' . _('Are you sure you wish to delete this Sample ID ?') . '\');">' . _('Delete') . '</a>';
+				$Edit = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedSampleID=' . urlencode($MyRow['sampleid']) . '">' . _('Edit') . '</a>';
+				$Delete = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?delete=yes&amp;SelectedSampleID=' . urlencode($MyRow['sampleid']) . '" onclick="return confirm(\'' . _('Are you sure you wish to delete this Sample ID ?') . '\');">' . _('Delete') . '</a>';
 				$FormatedSampleDate = ConvertSQLDate($MyRow['sampledate']);
 
-				//echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '?CopyTest=yes&amp;SelectedSampleID=' .$SelectedSampleID .'">' . _('Copy These Results') . '</a></div>';
+				//echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__),ENT_QUOTES,'UTF-8') . '?CopyTest=yes&amp;SelectedSampleID=' .$SelectedSampleID .'">' . _('Copy These Results') . '</a></div>';
 				//echo '<div class="centre"><a target="_blank" href="'. $RootPath . '/PDFTestPlan.php?SelectedSampleID=' .$SelectedSampleID .'">' . _('Print Testing Worksheet') . '</a></div>';
 				if ($MyRow['cert'] == 1) {
 					$CertAllowed = '<a target="_blank" href="' . $RootPath . '/PDFCOA.php?LotKey=' . urlencode($MyRow['lotkey']) . '&ProdSpec=' . urlencode($MyRow['prodspeckey']) . '">' . _('Yes') . '</a>';
@@ -419,16 +416,17 @@ if (!isset($SelectedSampleID)) {
 						<td>', $Delete, '</td>
 					</tr>';
 				//end of page full new headings if
+				
 			} //end of while loop
 			echo '</tbody>';
 			echo '</table>';
 		} // end if Pick Lists to show
+		
 	}
 } //end of ifs and buts!
-
 if (isset($SelectedSampleID)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show All Samples'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Samples'), '</a>
 		</div>';
 }
 
@@ -455,7 +453,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['SampleDate'] = ConvertSQLDate($MyRow['sampledate']);
 		$_POST['Cert'] = $MyRow['cert'];
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<input type="hidden" name="SelectedSampleID" value="', $SelectedSampleID, '" />';
 		echo '<table>
@@ -514,7 +512,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['Cert'] = 0;
 		$_POST['DuplicateOK'] = 1;
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table>';
 
@@ -586,6 +584,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 	}
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

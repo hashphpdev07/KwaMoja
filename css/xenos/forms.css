@@ -12,15 +12,19 @@ margin:auto;
 padding-top:7px;
 margin-bottom:4px;
 border-radius:7px;
+box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+width:51%;
+text-align:left;
 }
 
 form legend {
 background-color:transparent;
 padding:3px;
 border: 1px solid;
-border-radius:3px;
+border-radius:9px;
 font-size:150%;
 margin-top:3px;
+box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
 }
 
 legend.search {

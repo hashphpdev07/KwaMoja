@@ -1,14 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Work Orders');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<div class="toplink"><a href="' . $RootPath . '/WorkOrderEntry.php?New=True">' . _('New Work Order') . '</a></div>';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 if (isset($_GET['WO'])) {
 	$SelectedWO = $_GET['WO'];
@@ -26,7 +24,6 @@ if (isset($_GET['SelectedStockItem'])) {
 	unset($SelectedStockItem);
 }
 
-
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
 }
@@ -36,7 +33,7 @@ if (isset($SelectedWO) and $SelectedWO != '') {
 	if (!is_numeric($SelectedWO)) {
 		prnMsg(_('The work order number entered MUST be numeric'), 'warn');
 		unset($SelectedWO);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		echo _('Work Order Number') . ' - ' . $SelectedWO;
@@ -135,7 +132,7 @@ if (!isset($StockId)) {
 					FROM locations
 					INNER JOIN locationusers
 						ON locationusers.loccode=locations.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canview=1
 					WHERE locations.usedforwo=1";
 
@@ -219,8 +216,6 @@ if (!isset($StockId)) {
 					<th>' . _('Units') . '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
 			printf('<tr class="striped_row">
@@ -232,7 +227,6 @@ if (!isset($StockId)) {
 
 		}
 		//end of while loop
-
 		echo '</table>';
 
 	}
@@ -270,7 +264,7 @@ if (!isset($StockId)) {
 							ON woitems.stockid=stockmaster.stockid
 						INNER JOIN locationusers
 							ON locationusers.loccode=workorders.loccode
-							AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+							AND locationusers.userid='" . $_SESSION['UserID'] . "'
 							AND locationusers.canview=1
 						WHERE workorders.closed='" . $ClosedOrOpen . "'
 							AND workorders.wo='" . $SelectedWO . "'
@@ -300,7 +294,7 @@ if (!isset($StockId)) {
 								ON woitems.stockid=stockmaster.stockid
 							INNER JOIN locationusers
 								ON locationusers.loccode=workorders.loccode
-								AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+								AND locationusers.userid='" . $_SESSION['UserID'] . "'
 								AND locationusers.canview=1
 							WHERE workorders.closed='" . $ClosedOrOpen . "'
 							AND woitems.stockid='" . $SelectedStockItem . "'
@@ -328,7 +322,7 @@ if (!isset($StockId)) {
 								ON woitems.stockid=stockmaster.stockid
 							INNER JOIN locationusers
 								ON locationusers.loccode=workorders.loccode
-								AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+								AND locationusers.userid='" . $_SESSION['UserID'] . "'
 								AND locationusers.canview=1
 							WHERE workorders.closed='" . $ClosedOrOpen . "'
 							AND workorders.loccode='" . $_POST['StockLocation'] . "'
@@ -336,7 +330,6 @@ if (!isset($StockId)) {
 									 woitems.stockid";
 			}
 		} //end not order number selected
-
 		$ErrMsg = _('No works orders were returned by the SQL because');
 		$WorkOrdersResult = DB_query($SQL, $ErrMsg);
 
@@ -362,7 +355,7 @@ if (!isset($StockId)) {
 					</thead>';
 
 			echo '<tbody>';
-			$k = 0; //row colour counter
+
 			while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
 
 				$ModifyPage = $RootPath . '/WorkOrderEntry.php?WO=' . urlencode($MyRow['wo']);
@@ -375,12 +368,11 @@ if (!isset($StockId)) {
 				$FormatedRequiredByDate = ConvertSQLDate($MyRow['requiredby']);
 				$FormatedStartDate = ConvertSQLDate($MyRow['startdate']);
 
-
 				echo '<tr class="striped_row">
 						<td><a href="', $ModifyPage, '">', $MyRow['wo'], ' - ', $MyRow['reference'], '</a></td>
 						<td><a href="', $Status_WO, '">' . _('Status') . '</a></td>
 						<td><a href="', $Issue_WO, '">' . _('Issue To') . '</a></td>
-						<td><a href="',$Receive_WO, '">' . _('Receive') . '</a></td>
+						<td><a href="', $Receive_WO, '">' . _('Receive') . '</a></td>
 						<td><a href="', $Costing_WO, '">' . _('Costing') . '</a></td>
 						<td><a href="', $Printing_WO, '">' . _('Print W/O') . '</a></td>
 						<td>', $MyRow['loccode'], ' - ', $MyRow['locationname'], '</td>
@@ -394,7 +386,6 @@ if (!isset($StockId)) {
 
 			}
 			//end of while loop
-
 			echo '</tbody>
 			</table>';
 		}
@@ -402,5 +393,5 @@ if (!isset($StockId)) {
 	echo '</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

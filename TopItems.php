@@ -1,18 +1,17 @@
 <?php
-
 /* Session started in session.php for password checking and authorisation level check
-config.php is in turn included in session.php*/
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+ config.php is in turn included in session.php*/
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 $Title = _('Top Items Searching');
-include('includes/header.php');
+include ('includes/header.php');
 //check if input already
 if (!(isset($_POST['Search']))) {
 
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Top Sales Order Search') . '" alt="" />' . ' ' . _('Top Sales Order Search') . '
 		</p>';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	//to view store location
@@ -25,7 +24,7 @@ if (!(isset($_POST['Search']))) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				ORDER BY locations.locationname";
 	echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
@@ -142,7 +141,7 @@ if (!(isset($_POST['Search']))) {
 					ON debtorsmaster.currcode = currencies.currabrev
 				INNER JOIN locationusers
 					ON locationusers.loccode=salesorders.fromstkloc
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE salesorderdetails.actualdispatchdate >= '" . $FromDate . "'";
 
@@ -186,7 +185,7 @@ if (!(isset($_POST['Search']))) {
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfDays']) . '" name="NumberOfDays" />
 			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfTopItems']) . '" name="NumberOfTopItems" />';
-	$k = 0; //row colour counter
+
 	$i = 1;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -198,14 +197,14 @@ if (!(isset($_POST['Search']))) {
 			case 'K':
 				$QOH = _('N/A');
 				$QOO = _('N/A');
-				break;
+			break;
 			case 'M':
 			case 'B':
 				$QohSql = "SELECT sum(quantity)
 								FROM locstock
 								INNER JOIN locationusers
 									ON locationusers.loccode=locstock.loccode
-									AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+									AND locationusers.userid='" . $_SESSION['UserID'] . "'
 									AND locationusers.canview=1
 								WHERE stockid = '" . DB_escape_string($MyRow['stkcode']) . "'";
 				$QohResult = DB_query($QohSql);
@@ -214,8 +213,8 @@ if (!(isset($_POST['Search']))) {
 				// Get the QOO due to Purchase orders for all locations. Function defined in SQL_CommonFunctions.php
 				$QOO = GetQuantityOnOrderDueToPurchaseOrders($MyRow['stkcode']);
 				// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
-				$QOO += GetQuantityOnOrderDueToWorkOrders($MyRow['stkcode']);
-				break;
+				$QOO+= GetQuantityOnOrderDueToWorkOrders($MyRow['stkcode']);
+			break;
 		}
 		if (is_numeric($QOH) and is_numeric($QOO)) {
 			$DaysOfStock = ($QOH + $QOO) / ($MyRow['totalinvoiced'] / $_POST['NumberOfDays']);
@@ -246,12 +245,12 @@ if (!(isset($_POST['Search']))) {
 						<td class="number">%s</td>
 						<td class="number">%s</td>
 					</tr>', $i, $CodeLink, $MyRow['description'], locale_number_format($MyRow['totalinvoiced'], $MyRow['decimalplaces']), //total invoice here
-				$MyRow['units'], //unit
-				locale_number_format($MyRow['valuesales'], $_SESSION['CompanyRecord']['decimalplaces']), //value sales here
-				$QOH, //on hand
-				$QOO, //on order
-				locale_number_format($DaysOfStock, 0) //days of available stock
-				);
+			$MyRow['units'], //unit
+			locale_number_format($MyRow['valuesales'], $_SESSION['CompanyRecord']['decimalplaces']), //value sales here
+			$QOH, //on hand
+			$QOO, //on order
+			locale_number_format($DaysOfStock, 0) //days of available stock
+			);
 		}
 		++$i;
 	}
@@ -262,5 +261,5 @@ if (!(isset($_POST['Search']))) {
 			</div>
 		</form>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,9 +1,8 @@
 <?php
-
 /* $Id: PDFWOPrint.php 6146 $*/
 
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 if (isset($_GET['WO'])) {
 	$SelectedWO = $_GET['WO'];
 } elseif (isset($_POST['WO'])) {
@@ -105,10 +104,9 @@ if (isset($_GET['LabelLot'])) {
 	$LabelLot = '';
 }
 
-
 if (!isset($_GET['WO']) and !isset($_POST['WO'])) {
 	$Title = _('Select a Work Order');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('Select a Work Order Number to Print before calling this page'), 'error');
 	echo '<table class="table_index">
 				<tr>
@@ -117,7 +115,7 @@ if (!isset($_GET['WO']) and !isset($_POST['WO'])) {
 					</td>
 				</tr>
 			</table>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit();
 
 	echo '<div class="centre">' . _('This page must be called with a Work order number to print');
@@ -132,9 +130,9 @@ if (isset($_GET['WO'])) {
 $Title = _('Print Work Order Number') . ' ' . $SelectedWO;
 if (isset($_POST['PrintOrEmail']) and isset($_POST['EmailTo'])) {
 	if ($_POST['PrintOrEmail'] == 'Email' and !IsEmailAddress($_POST['EmailTo'])) {
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The email address entered does not appear to be valid. No emails have been sent.'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -144,7 +142,6 @@ if ($SelectedWO == 'Preview') { //WO is set to 'Preview' when just looking at th
 	$_POST['PrintOrEmail'] = 'Print';
 	$MakePDFThenDisplayIt = True;
 } //$SelectedWO == 'Preview'
-
 if (isset($_POST['DoIt']) and ($_POST['PrintOrEmail'] == 'Print' or $ViewingOnly == 1)) {
 	$MakePDFThenDisplayIt = True;
 	$MakePDFThenEmailIt = False;
@@ -194,7 +191,7 @@ if (isset($SelectedWO) and $SelectedWO != '' and $SelectedWO > 0 and $SelectedWO
 	if (DB_num_rows($Result) == 0) {
 		/*There is no order header returned */
 		$Title = _('Print Work Order Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<div class="centre">';
 		prnMsg(_('Unable to Locate Work Order Number') . ' : ' . $SelectedWO . ' ', 'error');
 		echo '<table class="table_index">
@@ -204,7 +201,7 @@ if (isset($SelectedWO) and $SelectedWO != '' and $SelectedWO > 0 and $SelectedWO
 				</tr>
 			</table>
 			</div>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit();
 	} elseif (DB_num_rows($Result) == 1) {
 		/*There is only one order header returned  (as it should be!)*/
@@ -236,9 +233,9 @@ if (isset($SelectedWO) and $SelectedWO != '' and $SelectedWO > 0 and $SelectedWO
 			$PackQty = 1;
 		}
 	} // 1 valid record
+	
 } //if there is a valid order number
 else if ($SelectedWO == 'Preview') { // We are previewing the order
-
 	/* Fill the order header details with dummy data */
 	$WOHeader['comments'] = str_pad('', 1050, 'x');
 	$WOHeader['locationname'] = str_pad('', 35, 'y');
@@ -257,10 +254,9 @@ else if ($SelectedWO == 'Preview') { // We are previewing the order
 	$WOHeader['stockid'] = str_pad('', 15, 'x');
 	$WOHeader['description'] = str_pad('', 50, 'x');
 	$WOHeader['wo'] = '99999999';
-	$WOHeader['loccode'] = str_pad('',5,'x');
+	$WOHeader['loccode'] = str_pad('', 5, 'x');
 
 } // end of If we are previewing the order
-
 /* Load the relevant xml file */
 if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 	if ($SelectedWO == 'Preview') {
@@ -270,7 +266,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 	}
 	// Set the paper size/orintation
 	$PaperSize = $FormDesign->PaperSize;
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Work Order'));
 	$PDF->addInfo('Subject', _('Work Order Number') . ' ' . $SelectedWO);
 	$line_height = $FormDesign->LineHeight;
@@ -317,7 +313,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			$WOLine[$i]['qtyreqd'] = $WOHeader['qtyreqd'] * $RequirementsRow['qtypu'];
 			$WOLine[$i]['issued'] = $Issued;
 			$WOLine[$i]['decimalplaces'] = $RequirementsRow['decimalplaces'];
-			$i += 1;
+			$i+= 1;
 		}
 		/* Now do any additional issues of items not in the BOM */
 		if (count($IssuedAlreadyRow) > 0) {
@@ -337,14 +333,14 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 				$WOLine[$i]['qtyreqd'] = 0;
 				$WOLine[$i]['issued'] = $IssuedAlreadyRow[$MyRow['stockid']];
 				$WOLine[$i]['decimalplaces'] = $RequirementsRow['decimalplaces'];
-				$i += 1;
+				$i+= 1;
 			}
 		}
 
 	}
 	if ($SelectedWO == 'Preview' or $i > 0) {
 		/*Yes there are line items to start the ball rolling with a page header */
-		include('includes/PDFWOPageHeader.php');
+		include ('includes/PDFWOPageHeader.php');
 		$YPos = $Page_Height - $FormDesign->Data->y;
 		$i = 0;
 		while ((isset($SelectedWO) and $SelectedWO == 'Preview') or (count($WOLine) > $i)) {
@@ -367,11 +363,11 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column4->x, $YPos, $FormDesign->Data->Column4->Length, $FormDesign->Data->Column4->FontSize, locale_number_format($WOLine[$i]['qtyreqd'], $WOLine[$i]['decimalplaces']), 'right');
 			$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column5->x, $YPos, $FormDesign->Data->Column5->Length, $FormDesign->Data->Column5->FontSize, locale_number_format($WOLine[$i]['issued'], $WOLine[$i]['decimalplaces']), 'right');
 
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			if ($YPos - (2 * $line_height) <= $Page_Height - $FormDesign->Comments->y) {
 				$PageNumber++;
 				$YPos = $Page_Height - $FormDesign->Data->y;
-				include('includes/PDFWOPageHeader.php');
+				include ('includes/PDFWOPageHeader.php');
 			}
 
 			/*display already issued and available qty and lots where applicable*/
@@ -392,18 +388,18 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			while ($IssuedRow = DB_fetch_array($IssuedAlreadyDetail)) {
 				if ($WOLine[$i]['controlled']) {
 					$CurLot = $IssuedRow['serialno'];
-					$CurQty = -$IssuedRow['moveqty'];
+					$CurQty = - $IssuedRow['moveqty'];
 				} else {
 					$CurLot = $IssuedRow['locationname'];
-					$CurQty = -$IssuedRow['qty'];
+					$CurQty = - $IssuedRow['qty'];
 				}
 				$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column3->x, $YPos, $FormDesign->Data->Column3->Length, $FormDesign->Data->Column3->FontSize, $CurLot, 'left');
 				$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column5->x, $YPos, $FormDesign->Data->Column5->Length, $FormDesign->Data->Column5->FontSize, $CurQty, 'right');
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 				if ($YPos - (2 * $line_height) <= $Page_Height - $FormDesign->Comments->y) {
 					$PageNumber++;
 					$YPos = $Page_Height - $FormDesign->Data->y;
-					include('includes/PDFWOPageHeader.php');
+					include ('includes/PDFWOPageHeader.php');
 				}
 			}
 
@@ -432,11 +428,11 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 						$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column3->x, $YPos, $FormDesign->Data->Column3->Length, $FormDesign->Data->Column3->FontSize, $CurLot, 'left');
 						$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column3->x, $YPos, $FormDesign->Data->Column3->Length, $FormDesign->Data->Column3->FontSize, $CurQty, 'right');
 						$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column5->x, $YPos, $FormDesign->Data->Column5->Length, $FormDesign->Data->Column5->FontSize, '________', 'right');
-						$YPos -= $line_height;
+						$YPos-= $line_height;
 						if ($YPos - (2 * $line_height) <= $Page_Height - $FormDesign->Comments->y) {
 							$PageNumber++;
 							$YPos = $Page_Height - $FormDesign->Data->y;
-							include('includes/PDFWOPageHeader.php');
+							include ('includes/PDFWOPageHeader.php');
 						}
 					}
 				}
@@ -444,20 +440,20 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			if ($SelectedWO == 'Preview') {
 				$SelectedWO = 'Preview_WorkOrder';
 			} //$SelectedWO == 'Preview'
-			$i += 1;
-			$YPos -= $line_height;
+			$i+= 1;
+			$YPos-= $line_height;
 			/*extra line*/
 			if ($YPos - (2 * $line_height) <= $Page_Height - $FormDesign->Comments->y) {
 				$PageNumber++;
 				$YPos = $Page_Height - $FormDesign->Data->y;
-				include('includes/PDFWOPageHeader.php');
+				include ('includes/PDFWOPageHeader.php');
 			}
 		} //end while there are line items to print out
-
 		if ($YPos - (2 * $line_height) <= $Page_Height - $FormDesign->Comments->y) { // need to ensure space for totals
 			$PageNumber++;
-			include('includes/PDFWOPageHeader.php');
+			include ('includes/PDFWOPageHeader.php');
 		} //end if need a new page headed up
+		
 	}
 	/*end if there are order details to show on the order - or its a preview*/
 	if ($FooterPrintedInPage == 0) {
@@ -479,11 +475,11 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 	$LeftOvers = $PDF->addTextWrap($FormDesign->Comments->x, $Page_Height - $FormDesign->Comments->y, $FormDesign->Comments->Length, $FormDesign->Comments->FontSize, $WOHeader['comments'], 'left');
 	$YPos = $Page_Height - $FormDesign->Comments->y;
 	while (mb_strlen($LeftOvers) > 1) {
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 		if ($YPos - $line_height <= $Bottom_Margin) {
 			$PageNumber++;
 			$YPos = $Page_Height - $FormDesign->Headings->Column1->y;
-			include('includes/PDFWOPageHeader.php');
+			include ('includes/PDFWOPageHeader.php');
 		}
 		$LeftOvers = $PDF->addTextWrap($FormDesign->Comments->x, $YPos, $FormDesign->Comments->Length, $FormDesign->Comments->FontSize, $LeftOvers, 'left');
 	}
@@ -496,7 +492,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 		$PdfFileName = $_SESSION['DatabaseName'] . '_WorkOrder_' . $SelectedWO . '_' . date('Y-m-d') . '.pdf';
 		$PDF->Output($_SESSION['reports_dir'] . '/' . $PdfFileName, 'F');
 		$PDF->__destruct();
-		include('includes/htmlMimeMail.php');
+		include ('includes/htmlMimeMail.php');
 		$Mail = new htmlMimeMail();
 		$attachment = $Mail->getFile($_SESSION['reports_dir'] . '/' . $PdfFileName);
 		$Mail->setText(_('Please Process this Work order number') . ' ' . $SelectedWO);
@@ -505,38 +501,34 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 		//since sometime the mail server required to verify the users, so must set this information.
 		if ($_SESSION['SmtpSetting'] == 0) { //use the mail service provice by the server.
 			$Mail->setFrom($_SESSION['CompanyRecord']['coyname'] . '<' . $_SESSION['CompanyRecord']['email'] . '>');
-			$Success = $Mail->send(array(
-				$_POST['EmailTo']
-			));
+			$Success = $Mail->send(array($_POST['EmailTo']));
 		} else if ($_SESSION['SmtpSetting'] == 1) {
-			$Success = SendmailBySmtp($Mail, array(
-				$_POST['EmailTo']
-			));
+			$Success = SendmailBySmtp($Mail, array($_POST['EmailTo']));
 
 		} else {
 			prnMsg(_('The SMTP settings are wrong, please ask administrator for help'), 'error');
 			exit;
-			include('includes/footer.php');
+			include ('includes/footer.php');
 		}
 
 		if ($Success == 1) {
 			$Title = _('Email a Work Order');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('Work Order') . ' ' . $SelectedWO . ' ' . _('has been emailed to') . ' ' . $_POST['EmailTo'] . ' ' . _('as directed'), 'success');
 		} else { //email failed
 			$Title = _('Email a Work Order');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('Emailing Work order') . ' ' . $SelectedWO . ' ' . _('to') . ' ' . $_POST['EmailTo'] . ' ' . _('failed'), 'error');
 		}
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 } //isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)
-
 /* There was enough info to either print or email the Work order */
 else {
 	/**
-	/*the user has just gone into the page need to ask the question whether to print the order or email it */
-	include('includes/header.php');
+	 /*the user has just gone into the page need to ask the question whether to print the order or email it
+	 */
+	include ('includes/header.php');
 
 	if (!isset($LabelItem)) {
 		$SQL = "SELECT workorders.wo,
@@ -571,7 +563,7 @@ else {
 		if ($QtyPerBox == 0) {
 			$QtyPerBox = 1;
 		}
-		$NoOfBoxes = (int) ($Labels['qtyreqd'] / $QtyPerBox);
+		$NoOfBoxes = (int)($Labels['qtyreqd'] / $QtyPerBox);
 		$LeftOverQty = $Labels['qtyreqd'] % $QtyPerBox;
 		$LabelsPerBox = 1;
 		$QtyPerBox = locale_number_format($QtyPerBox, $Labels['decimalplaces']);
@@ -589,9 +581,10 @@ else {
 				$LabelLot = $WOHeader['nextlotsnref'];
 			}
 		} //controlled
+		
 	} //not set yet
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . $Title . '</p>';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if ($ViewingOnly == 1) {
 		echo '<input type="hidden" name="ViewingOnly" value="1" />';
@@ -747,6 +740,6 @@ else {
 			</div>
 			</form>';
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

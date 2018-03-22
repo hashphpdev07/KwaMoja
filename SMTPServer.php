@@ -1,14 +1,12 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('SMTP Server details');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/email.png" title="' . _('SMTP Server') . '" alt="" />' . ' ' . _('SMTP Server Settings') . '</p>';
 // First check if there are smtp server data or not
-
 $SecurityOptions = array('', 'ssl', 'tls');
 
 if ((isset($_POST['submit']) or isset($_POST['reload'])) and $_POST['MailServerSetting'] == 1) { //if there are already data setup, Update the table
@@ -59,7 +57,6 @@ if ((isset($_POST['submit']) or isset($_POST['reload'])) and $_POST['MailServerS
 }
 
 // Check the mail server setting status
-
 $SQL = "SELECT id,
 				host,
 				port,
@@ -90,8 +87,7 @@ if (DB_num_rows($Result) != 0) {
 	$MyRow['security'] = '';
 }
 
-
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="MailServerSetting" value="' . $MailServerSetting . '" />';
 echo '<table>';
@@ -158,6 +154,6 @@ echo '<input type="submit" name="reload" value="Reload" hidden="hidden" />';
 echo '</table>
 	  </form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

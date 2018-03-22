@@ -1,19 +1,18 @@
 <?php
-
 /*The supplier transaction uses the SuppTrans class to hold the information about the invoice
 the SuppTrans class contains an array of Shipts objects - containing details of all shipment charges for invoicing
 Shipment charges are posted to the debit of GRN suspense if the Creditors - GL link is on
 This is cleared against credits to the GRN suspense when the products are received into stock and any
 purchase price variance calculated when the shipment is closed */
 
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 
 /* Session started here for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Shipment Charges or Credits');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 	echo '<a href="' . $RootPath . '/SupplierInvoice.php">' . _('Back to Invoice Entry') . '</a>';
@@ -86,7 +85,7 @@ foreach ($_SESSION['SuppTrans']->Shipts as $EnteredShiptRef) {
 	echo '<tr>
 			<td>' . $EnteredShiptRef->ShiptRef . '</td>
 			<td class="number">' . locale_number_format($EnteredShiptRef->Amount, 2) . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredShiptRef->Counter . '">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredShiptRef->Counter . '">' . _('Delete') . '</a></td>
 		</tr>';
 
 	$TotalShiptValue = $TotalShiptValue + $EnteredShiptRef->Amount;
@@ -100,7 +99,7 @@ echo '<tr>
 </table><br />';
 
 /*Set up a form to allow input of new Shipment charges */
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['ShiptRef'])) {
@@ -154,5 +153,5 @@ echo '<br />
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

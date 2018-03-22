@@ -1,18 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Purchase Order Authorisation Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/group_add.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
-
 
 /*Note: If CanCreate==0 then this means the user can create orders
  *	 Also if OffHold==0 then the user can release purchase invocies
  *	 This logic confused me a bit to start with
- */
-
+*/
 
 if (isset($_POST['Submit'])) {
 	if (isset($_POST['CanCreate']) and $_POST['CanCreate'] == 'on') {
@@ -161,7 +158,7 @@ if (!isset($_GET['Edit'])) {
 	$AuthLevel = 0;
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>';
 
@@ -267,5 +264,5 @@ if (isset($_GET['Edit'])) {
 		</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Internal Stock Categories Requests By Security Role Maintenance ');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -52,7 +51,6 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$checkSql = "SELECT count(*)
 				 FROM internalstockcatrole
 				 WHERE secroleid= '" . $_POST['SelectedRole'] . "'
@@ -105,10 +103,9 @@ if (!isset($SelectedRole)) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('Select a user role'), '" alt="" />', ' ', _('Select a user role') . '
 		</p>';
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>'; //Main table
-
 	$SQL = "SELECT secroleid,
 					secrolename
 			FROM securityroles";
@@ -125,13 +122,11 @@ if (!isset($SelectedRole)) {
 			echo '<option value="', $MyRow['secroleid'], '">', $MyRow['secroleid'], ' - ', $MyRow['secrolename'], '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
 
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="Process" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -144,17 +139,16 @@ if (!isset($SelectedRole)) {
 //end of ifs and buts!
 if (isset($_POST['process']) or isset($SelectedRole)) {
 
-	echo '<div class="toplink"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another role'), '</a></div>';
+	echo '<div class="toplink"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select another role'), '</a></div>';
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Select a stock category'), '" alt="" />', _('Select a stock category'), '
 		</p>';
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table>'; //Main table
-
 		echo '<tr>
 				<td>', _('Select Stock Category Code'), ':</td>
 				<td><select name="SelectedCategory">';
@@ -174,13 +168,11 @@ if (isset($_POST['process']) or isset($SelectedRole)) {
 				echo '<option value="', $MyRow['categoryid'], '">', $MyRow['categoryid'], ' - ', $MyRow['categorydescription'], '</option>';
 			}
 		} //end while loop
-
 		echo '</select>
 				</td>
 			</tr>';
 
 		echo '</table>'; // close main table
-
 		echo '<div class="centre">
 				<input type="submit" name="submit" value="', _('Accept'), '" />
 				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -208,20 +200,19 @@ if (isset($_POST['process']) or isset($SelectedRole)) {
 					<th>', _('Description'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
 					<td>', $MyRow['categoryid'], '</td>
 					<td>', $MyRow['categorydescription'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['categoryid']), '&amp;delete=yes&amp;SelectedRole=', urlencode($SelectedRole), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this internal stock category code?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['categoryid']), '&amp;delete=yes&amp;SelectedRole=', urlencode($SelectedRole), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this internal stock category code?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr>';
 		}
 		//END WHILE LIST LOOP
 		echo '</table>';
 	} // end if user wish to delete
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

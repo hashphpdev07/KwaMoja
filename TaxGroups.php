@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Tax Group Maintenance');
-$ViewTopic = 'Tax';// Filename in ManualContents.php's TOC.
-$BookMark = 'TaxGroups';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'Tax'; // Filename in ManualContents.php's TOC.
+$BookMark = 'TaxGroups'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 if (isset($_GET['SelectedGroup'])) {
 	$SelectedGroup = $_GET['SelectedGroup'];
@@ -21,7 +20,7 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	//first off validate inputs sensible
 	if (isset($_POST['GroupName']) and mb_strlen($_POST['GroupName']) < 4) {
 		$InputError = 1;
@@ -42,7 +41,6 @@ if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {
 			}
 			unset($SelectedGroup);
 		} else { // Add new tax group
-
 			$GroupResult = DB_query("SELECT taxgroupid
 								FROM taxgroups
 								WHERE taxgroupdescription='" . $_POST['GroupName'] . "'");
@@ -174,9 +172,7 @@ if (!isset($SelectedGroup)) {
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) == 0) {
-		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax group.') .
-				'<br />' . _('For help, click on the help icon in the top right') .
-				'<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
+		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax group.') . '<br />' . _('For help, click on the help icon in the top right') . '<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
 	}
 
 	if (DB_num_rows($Result) == 0) {
@@ -193,13 +189,13 @@ if (!isset($SelectedGroup)) {
 				</thead>';
 
 		echo '<tbody>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
 					<td>', $MyRow['taxgroupdescription'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '">' . _('Edit') . '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '&amp;Delete=1&amp;GroupID=', urlencode($MyRow['taxgroupdescription']), '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax group?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '">' . _('Edit') . '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', '&amp;SelectedGroup=', $MyRow['taxgroupid'], '&amp;Delete=1&amp;GroupID=', urlencode($MyRow['taxgroupdescription']), '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this tax group?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
 
 		} //END WHILE LIST LOOP
 		echo '</tbody>';
@@ -210,13 +206,12 @@ if (!isset($SelectedGroup)) {
 
 if (isset($SelectedGroup)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Groups') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Existing Groups') . '</a>
 		</div>';
 }
 
 if (isset($SelectedGroup)) {
 	//editing an existing role
-
 	$SQL = "SELECT taxgroupid,
 					taxgroupdescription
 			FROM taxgroups
@@ -231,7 +226,7 @@ if (isset($SelectedGroup)) {
 	}
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_POST['SelectedGroup'])) {
 	echo '<input type="hidden" name="SelectedGroup" value="' . $_POST['SelectedGroup'] . '" />';
@@ -248,7 +243,6 @@ echo '<td><input type="submit" name="submit" value="' . _('Enter Group') . '" />
 	</tr>
 	</table>
 	</form>';
-
 
 if (isset($SelectedGroup)) {
 
@@ -281,7 +275,7 @@ if (isset($SelectedGroup)) {
 
 	/* the order and tax on tax will only be an issue if more than one tax authority in the group */
 	if (count($TaxAuthsUsed) > 0) {
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 				<input type="hidden" name="SelectedGroup" value="' . $SelectedGroup . '" />';
 		echo '<table>
@@ -295,9 +289,9 @@ if (isset($SelectedGroup)) {
 						<th>' . _('Tax on Prior Taxes') . '</th>
 					</tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
-		for ($i = 1; $i < count($TaxAuthRow) + 1; $i++) {
+		for ($i = 1;$i < count($TaxAuthRow) + 1;$i++) {
 
 			if ($TaxAuthRow[$i]['calculationorder'] == 0) {
 				$TaxAuthRow[$i]['calculationorder'] = $i;
@@ -329,9 +323,7 @@ if (isset($SelectedGroup)) {
 	echo '</form>';
 
 	if (DB_num_rows($UsedResult) == 0) {
-		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax group.') .
-				'<br />' . _('For help, click on the help icon in the top right') .
-				'<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
+		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a tax group.') . '<br />' . _('For help, click on the help icon in the top right') . '<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
 	} elseif (DB_num_rows($UsedResult) == 1 and isset($_SESSION['FirstStart'])) {
 		echo '<meta http-equiv="refresh" content="0; url=' . $RootPath . '/TaxProvinces.php">';
 		exit;
@@ -362,7 +354,7 @@ if (isset($SelectedGroup)) {
 	}
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($AvailRow = DB_fetch_array($Result)) {
 		$TaxAuthUsedPointer = array_search($AvailRow['taxid'], $TaxAuthsUsed);
 
@@ -381,7 +373,7 @@ if (isset($SelectedGroup)) {
 				<td>%s</td>
 				<td><a href="%sSelectedGroup=%s&amp;remove=1&amp;TaxAuthority=%s" onclick="return MakeConfirm(\'' . _('Are you sure you wish to remove this tax authority from the group?') . '\', \'Confirm Delete\', this);">' . _('Remove') . '</a></td>
 				<td>&nbsp;</td>
-				<td>&nbsp;</td>', $AvailRow['taxid'], $AvailRow['taxname'], $TaxAuthRow[$TaxAuthUsedPointer]['calculationorder'], $TaxOnTax, htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $SelectedGroup, $AvailRow['taxid']);
+				<td>&nbsp;</td>', $AvailRow['taxid'], $AvailRow['taxname'], $TaxAuthRow[$TaxAuthUsedPointer]['calculationorder'], $TaxOnTax, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $SelectedGroup, $AvailRow['taxid']);
 
 		} else {
 			printf('<tr class="striped_row">
@@ -392,7 +384,7 @@ if (isset($SelectedGroup)) {
 				<td>&nbsp;</td>
 				<td>%s</td>
 				<td>%s</td>
-				<td><a href="%sSelectedGroup=%s&amp;add=1&amp;TaxAuthority=%s">' . _('Add') . '</a></td>', $AvailRow['taxid'], $AvailRow['taxname'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $SelectedGroup, $AvailRow['taxid']);
+				<td><a href="%sSelectedGroup=%s&amp;add=1&amp;TaxAuthority=%s">' . _('Add') . '</a></td>', $AvailRow['taxid'], $AvailRow['taxname'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $SelectedGroup, $AvailRow['taxid']);
 		}
 		echo '</tr>';
 	}
@@ -402,11 +394,11 @@ if (isset($SelectedGroup)) {
 }
 
 echo '<div class="centre">
-		<a href="', $RootPath, '/TaxAuthorities.php">', _('Tax Authorities and Rates Maintenance'),  '</a>
-		<a href="', $RootPath, '/TaxProvinces.php">', _('Dispatch Tax Province Maintenance'),  '</a>
+		<a href="', $RootPath, '/TaxAuthorities.php">', _('Tax Authorities and Rates Maintenance'), '</a>
+		<a href="', $RootPath, '/TaxProvinces.php">', _('Dispatch Tax Province Maintenance'), '</a>
 		<a href="', $RootPath, '/TaxCategories.php">', _('Tax Category Maintenance'), '</a>
 	</div>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

@@ -1,19 +1,18 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import General Ledger Transactions');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Import GL Payments Receipts Or Journals From CSV') . '" />' . ' ' . _('Import GL Payments Receipts Or Journals From CSV') . '</p>';
 
-$FieldHeadings = array(
-	'Date', //  0 'Transaction Date',
-	'Account', //  1 'GL Account Code,
-	'ChequeNo', //  2 'Cheque/Voucher Number',
-	'Amount', //  3 'Amount',
-	'Narrative', //  4 'Narrative'
-	'Tag' //  5 'Tag reference'
+$FieldHeadings = array('Date', //  0 'Transaction Date',
+'Account', //  1 'GL Account Code,
+'ChequeNo', //  2 'Cheque/Voucher Number',
+'Amount', //  3 'Amount',
+'Narrative', //  4 'Narrative'
+'Tag'
+//  5 'Tag reference'
 );
 
 if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file processing
@@ -34,7 +33,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	if (count($HeadRow) != count($FieldHeadings)) {
 		prnMsg(_('File contains ' . count($HeadRow) . ' columns, expected ' . count($FieldHeadings) . '. Try downloading a new template.'), 'error');
 		fclose($FileHandle);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -44,7 +43,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		if (trim(mb_strtoupper($HeadField)) != trim(mb_strtoupper($FieldHeadings[$head]))) {
 			prnMsg(_('File contains incorrect headers ' . mb_strtoupper($HeadField) . ' != ' . mb_strtoupper($FieldHeadings[$head]) . '. Try downloading a new template.'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		$head++;
@@ -67,19 +66,19 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 	//loop through file rows
 	$row = 1;
-	while (($MyRow = fgetcsv($FileHandle, 10000, ",")) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ",")) !== false) {
 
 		//check for correct number of fields
 		$FieldCount = count($MyRow);
 		if ($FieldCount != $FieldTarget) {
 			prnMsg(_($FieldTarget . ' fields required, ' . $FieldCount . ' fields received'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		// cleanup the data (csv files often import with empty strings and such)
-		foreach ($MyRow as &$Value) {
+		foreach ($MyRow as & $Value) {
 			$Value = trim($Value);
 			$Value = str_replace('"', '', $Value);
 		}
@@ -120,7 +119,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		}
 
 		//Finally force the amount to be a double
-		$MyRow[3] = (double) $MyRow[3];
+		$MyRow[3] = (double)$MyRow[3];
 		if ($InputError != 1) {
 
 			//Firstly add the line to the gltrans table
@@ -213,11 +212,10 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	}
 
 	fclose($FileHandle);
-	include('includes/GLPostings.php');
+	include ('includes/GLPostings.php');
 
 } else { //show file upload form
-
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
 	echo '<div class="centre">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="page_help_text">' . _('This function loads a set of general ledger transactions from a comma separated variable (csv) file.') . '<br />' . _('The file must contain six columns, and the first row should be the following headers') . ':' . '<br />' . $FieldHeadings[0] . ', ' . $FieldHeadings[1] . ', ' . $FieldHeadings[2] . ', ' . $FieldHeadings[3] . ', ' . $FieldHeadings[4] . ', ' . $FieldHeadings[5] . '<br />' . _('followed by rows containing these six fields for each price to be uploaded.') . '<br />' . _('The total of the transactions must come back to zero. Debits are positive, credits are negative.') . '<br />' . _('All the transactions must be within the same accounting period.') . '<br />' . _('The Account field must have a corresponding entry in the chartmaster table.') . '</div>';
@@ -254,7 +252,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 function IsBankAccount($Account) {
 

@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Notes');
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_GET['Id'])) {
-	$Id = (int) $_GET['Id'];
+	$Id = (int)$_GET['Id'];
 } else if (isset($_POST['Id'])) {
-	$Id = (int) $_POST['Id'];
+	$Id = (int)$_POST['Id'];
 }
 if (isset($_POST['DebtorNo'])) {
 	$DebtorNo = $_POST['DebtorNo'];
@@ -25,10 +24,10 @@ if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-	if (!is_long((integer) $_POST['Priority'])) {
+	if (!is_long((integer)$_POST['Priority'])) {
 		$InputError = 1;
 		prnMsg(_('The contact priority must be an integer.'), 'error');
 	} elseif (mb_strlen($_POST['Note']) > 200) {
@@ -76,9 +75,7 @@ if (isset($_POST['submit'])) {
 	}
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SalesOrders'
-
 	$SQL = "DELETE FROM custnotes
 			WHERE noteid='" . $Id . "'
 			AND debtorno='" . $DebtorNo . "'";
@@ -119,37 +116,34 @@ if (!isset($Id)) {
 					<th colspan="2"></th>
 				</tr>';
 
-		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
 					<td>', ConvertSQLDate($MyRow['date']), '</td>
 					<td>', $MyRow['note'], '</td>
 					<td><a href="', $MyRow['href'], '">', $MyRow['href'], '</a></td>
 					<td>', $MyRow['priority'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">', _('Edit'), ' </td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '">', _('Edit'), ' </td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Id=', urlencode($MyRow['noteid']), '&DebtorNo=', urlencode($MyRow['debtorno']), '&delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this customer note?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</td>
 				</tr>';
 		}
-			//END WHILE LIST LOOP
+		//END WHILE LIST LOOP
 		echo '</table>';
 	}
 }
 if (isset($Id)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">', _('Review all notes for this Customer'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">', _('Review all notes for this Customer'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?DebtorNo=', urlencode($DebtorNo), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<input type="hidden" name="DebtorNo" value="', stripslashes(stripslashes($DebtorNo)), '" />';
 
 	if (isset($Id)) {
 		//editing an existing
-
 		$SQL = "SELECT noteid,
 						debtorno,
 						href,
@@ -221,6 +215,5 @@ if (!isset($_GET['delete'])) {
 	</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

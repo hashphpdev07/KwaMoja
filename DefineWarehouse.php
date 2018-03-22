@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (!isset($_POST['Parent'])) {
 	$_POST['Parent'] = '';
@@ -9,21 +8,21 @@ if (!isset($_POST['Parent'])) {
 if (isset($_GET['Location'])) {
 	/* If the location code is sent as part of the
 	 * $_GET array
-	 */
+	*/
 	$LocationCode = $_GET['Location'];
 } else if (isset($_POST['Location'])) {
 	/* If the location code is sent as part of the
 	 * $_POST array
-	 */
+	*/
 	$LocationCode = $_POST['Location'];
 } else {
 	/* If no stock location has been chosen then
 	 * show a selection form for the user to choose one
-	 */
+	*/
 	$Title = _('Select Warehouse to Define');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	$SQL = "SELECT loccode,
@@ -44,7 +43,7 @@ if (isset($_GET['Location'])) {
 		</div>';
 
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -92,8 +91,8 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 
 	if ($Errors == 0 and isset($_POST['Insert'])) {
 		$k = 0;
-		for ($i = 1; $i <= $_POST['NoWide']; $i++) {
-			for ($j = 1; $j <= $_POST['NoLong']; $j++) {
+		for ($i = 1;$i <= $_POST['NoWide'];$i++) {
+			for ($j = 1;$j <= $_POST['NoLong'];$j++) {
 				$InsertSQL = "INSERT INTO container (id,
 													name,
 													location,
@@ -114,8 +113,8 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 													'" . $_POST['Description'] . $i . 'x' . $j . "',
 													'" . $LocationCode . "',
 													'" . $_POST['Parent'] . "',
-													'" . ($_POST['X'] +($_POST['Width']*$i)) . "',
-													'" . ($_POST['Y'] +($_POST['Length']*$j)) . "',
+													'" . ($_POST['X'] + ($_POST['Width'] * $i)) . "',
+													'" . ($_POST['Y'] + ($_POST['Length'] * $j)) . "',
 													'" . $_POST['Z'] . "',
 													'" . $_POST['Width'] . "',
 													'" . $_POST['Length'] . "',
@@ -165,12 +164,12 @@ $LocationRow = DB_fetch_array($Result);
 
 $Title = _('Define Warehouse at') . ' ' . $LocationRow['locationname'];
 
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
 if (!isset($_GET['Edit'])) {
-function display_children($parent, $level, $LocationCode) {
-    // retrieve all children of $parent
-	$ContainerSQL = "SELECT id,
+	function display_children($parent, $level, $LocationCode) {
+		// retrieve all children of $parent
+		$ContainerSQL = "SELECT id,
 							name,
 							parentid,
 							sequence,
@@ -188,70 +187,70 @@ function display_children($parent, $level, $LocationCode) {
 						WHERE location='" . $LocationCode . "'
 							AND parentid='" . $parent . "'
 						ORDER BY parentid, sequence";
-	$ContainerResult = DB_query($ContainerSQL);
+		$ContainerResult = DB_query($ContainerSQL);
 
-    // display each child
-    while ($ContainerRow = DB_fetch_array($ContainerResult)) {
-        // indent and display the title of this child
-		if ($ContainerRow['putaway'] == 1) {
-			$ContainerRow['putaway'] = _('Yes');
-		} else {
-			$ContainerRow['putaway'] = _('No');
-		}
-		if ($ContainerRow['picking'] == 1) {
-			$ContainerRow['picking'] = _('Yes');
-		} else {
-			$ContainerRow['picking'] = _('No');
-		}
-		if ($ContainerRow['replenishment'] == 1) {
-			$ContainerRow['replenishment'] = _('Yes');
-		} else {
-			$ContainerRow['replenishment'] = _('No');
-		}
-		if ($ContainerRow['quarantine'] == 1) {
-			$ContainerRow['quarantine'] = _('Yes');
-		} else {
-			$ContainerRow['quarantine'] = _('No');
-		}
-		$ChildrenSQL = "SELECT COUNT(id) as children
+		// display each child
+		while ($ContainerRow = DB_fetch_array($ContainerResult)) {
+			// indent and display the title of this child
+			if ($ContainerRow['putaway'] == 1) {
+				$ContainerRow['putaway'] = _('Yes');
+			} else {
+				$ContainerRow['putaway'] = _('No');
+			}
+			if ($ContainerRow['picking'] == 1) {
+				$ContainerRow['picking'] = _('Yes');
+			} else {
+				$ContainerRow['picking'] = _('No');
+			}
+			if ($ContainerRow['replenishment'] == 1) {
+				$ContainerRow['replenishment'] = _('Yes');
+			} else {
+				$ContainerRow['replenishment'] = _('No');
+			}
+			if ($ContainerRow['quarantine'] == 1) {
+				$ContainerRow['quarantine'] = _('Yes');
+			} else {
+				$ContainerRow['quarantine'] = _('No');
+			}
+			$ChildrenSQL = "SELECT COUNT(id) as children
 								FROM container
 								WHERE parentid='" . $ContainerRow['id'] . "'";
-		$ChildrenResult = DB_query($ChildrenSQL);
-		$ChildrenRow = DB_fetch_array($ChildrenResult);
-		$NumberOfChildren = $ChildrenRow['children'];
-		if ($NumberOfChildren > 0) {
-			$Style = ' onClick="expandTable(this)" style="cursor:pointer" ';
-		} else {
-			$Style ='';
-		}
-		if ($ContainerRow['parentid'] == '') {
-			echo '<tr class="visible" ' . $Style . '><td style="display:none">' . $ContainerRow['id'] . '</td>';
-		} else {
-			echo '<tr class="invisible" ' . $Style . '><td style="display:none">' . $ContainerRow['id'] . '</td>';
-		}
-        echo '<td>'.str_repeat('&nbsp;&nbsp;&nbsp;',$level).$ContainerRow['id'].'</td>
-				<td>'.$ContainerRow['name'].'</td>
-				<td>'.$ContainerRow['parentid'].'</td>
-				<td class="number">'.$ContainerRow['sequence'].'</td>
-				<td>'.$ContainerRow['putaway'].'</td>
-				<td>'.$ContainerRow['picking'].'</td>
-				<td>'.$ContainerRow['replenishment'].'</td>
-				<td>'.$ContainerRow['quarantine'].'</td>
+			$ChildrenResult = DB_query($ChildrenSQL);
+			$ChildrenRow = DB_fetch_array($ChildrenResult);
+			$NumberOfChildren = $ChildrenRow['children'];
+			if ($NumberOfChildren > 0) {
+				$Style = ' onClick="expandTable(this)" style="cursor:pointer" ';
+			} else {
+				$Style = '';
+			}
+			if ($ContainerRow['parentid'] == '') {
+				echo '<tr class="visible" ' . $Style . '><td style="display:none">' . $ContainerRow['id'] . '</td>';
+			} else {
+				echo '<tr class="invisible" ' . $Style . '><td style="display:none">' . $ContainerRow['id'] . '</td>';
+			}
+			echo '<td>' . str_repeat('&nbsp;&nbsp;&nbsp;', $level) . $ContainerRow['id'] . '</td>
+				<td>' . $ContainerRow['name'] . '</td>
+				<td>' . $ContainerRow['parentid'] . '</td>
+				<td class="number">' . $ContainerRow['sequence'] . '</td>
+				<td>' . $ContainerRow['putaway'] . '</td>
+				<td>' . $ContainerRow['picking'] . '</td>
+				<td>' . $ContainerRow['replenishment'] . '</td>
+				<td>' . $ContainerRow['quarantine'] . '</td>
 				<td class="number">' . $ContainerRow['xcoord'] . '</td>
 				<td class="number">' . $ContainerRow['ycoord'] . '</td>
 				<td class="number">' . $ContainerRow['zcoord'] . '</td>
 				<td class="number">' . $ContainerRow['width'] . '</td>
 				<td class="number">' . $ContainerRow['length'] . '</td>
 				<td class="number">' . $ContainerRow['height'] . '</td>
-				<td><a onclick="return true" href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Edit=' . $ContainerRow['id'] . '&Location=' . $LocationCode . '">' . _('Edit') . '</a></td>
+				<td><a onclick="return true" href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Edit=' . $ContainerRow['id'] . '&Location=' . $LocationCode . '">' . _('Edit') . '</a></td>
 			</tr>';
-        // call this function again to display this
-        // child's children
-        display_children($ContainerRow['id'], $level+1, $LocationCode);
-    }
-}
+			// call this function again to display this
+			// child's children
+			display_children($ContainerRow['id'], $level + 1, $LocationCode);
+		}
+	}
 
-echo '<table id="Containers">
+	echo '<table id="Containers">
 		<tr>
 			<th>' . _('Container') . '</th>
 			<th>' . _('Name') . '</th>
@@ -280,8 +279,8 @@ echo '<table id="Containers">
 			<th>' . _('Height') . '</th>
 		</tr>';
 
-display_children('', 0, $LocationCode);
-echo '</table>';
+	display_children('', 0, $LocationCode);
+	echo '</table>';
 }
 if (isset($_GET['Edit'])) {
 	$SQL = "SELECT id,
@@ -336,7 +335,7 @@ if (DB_num_rows($Result) != 0) {
 	$_POST['Quarantine'] = 0;
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<input type="hidden" name="Location" value="' . $LocationCode . '" />';
 echo '<table>';
@@ -483,6 +482,6 @@ if (!isset($_GET['Edit'])) {
 
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

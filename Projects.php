@@ -1,7 +1,6 @@
 <?php
-
-include('includes/DefineProjectClass.php');
-include('includes/session.php');
+include ('includes/DefineProjectClass.php');
+include ('includes/session.php');
 
 if (isset($_GET['ModifyProjectNo'])) {
 	$Title = _('Modify Project') . ' ' . $_GET['ModifyProjectNo'];
@@ -22,8 +21,8 @@ foreach ($_POST as $Name => $Value) {
 
 $ViewTopic = 'Projects';
 $BookMark = 'CreateProject';
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /*If the page is called is called without an identifier being set then
  * it must be either a new project, or the start of a modification of an
@@ -31,7 +30,7 @@ include('includes/SQL_CommonFunctions.php');
  *
  * The identifier only needs to be unique for this php session, so a
  * unix timestamp will be sufficient.
- */
+*/
 
 if (!isset($_GET['identifier'])) {
 	$Identifier = date('U');
@@ -47,7 +46,7 @@ if (isset($_GET['NewProject']) and isset($_SESSION['Project' . $Identifier])) {
 if (isset($_GET['NewProject']) and isset($_GET['SelectedDonor'])) {
 	/*
 	 * initialize a new project
-	 */
+	*/
 	$_SESSION['ExistingProject'] = 0;
 	unset($_SESSION['Project' . $Identifier]->ProjectBOM);
 	unset($_SESSION['Project' . $Identifier]->ProjectReqts);
@@ -73,9 +72,8 @@ if (isset($_SESSION['Project' . $Identifier]) and (isset($_POST['EnterProjectBOM
 	$_SESSION['Project' . $Identifier]->DonorRef = $_POST['DonorRef'];
 	$_SESSION['Project' . $Identifier]->ExRate = filter_number_format($_POST['ExRate']);
 
-
 	/*User hit the button to enter line items -
-	then meta refresh to Project_Items.php*/
+	 then meta refresh to Project_Items.php*/
 	$InputError = false;
 	if (mb_strlen($_SESSION['Project' . $Identifier]->ProjectRef) < 5) {
 		prnMsg(_('The project reference must be entered (and be longer than 5 characters) before the requirements of the project can be setup'), 'warn');
@@ -86,14 +84,14 @@ if (isset($_SESSION['Project' . $Identifier]) and (isset($_POST['EnterProjectBOM
 		echo '<meta http-equiv="refresh" content="0; url=' . $RootPath . '/ProjectBOM.php?identifier=' . $Identifier . '" />';
 		echo '<br />';
 		prnMsg(_('You should automatically be forwarded to the entry of the Project line items page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/ProjectBOM.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (isset($_POST['EnterProjectRequirements']) and !$InputError) {
 		echo '<meta http-equiv="refresh" content="0; url=' . $RootPath . '/ProjectOtherReqts.php?identifier=' . $Identifier . '" />';
 		echo '<br />';
 		prnMsg(_('You should automatically be forwarded to the entry of the Project requirements page') . '. ' . _('If this does not happen') . ' (' . _('if the browser does not support META Refresh') . ') ' . '<a href="' . $RootPath . '/ProjectOtherReqts.php?identifier=' . urlencode($Identifier) . '">' . _('click here') . '</a> ' . _('to continue'), 'info');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -135,7 +133,6 @@ if (isset($_FILES['Drawing']) and $_FILES['Drawing']['name'] != '' and $_SESSION
 	}
 }
 
-
 /*The page can be called with ModifyProjectRef=x where x is a project
  * reference. The page then looks up the details of project x and allows
  * these details to be modified */
@@ -154,10 +151,9 @@ if (isset($_GET['ModifyProjectRef'])) {
 
 	/*read in all the guff from the selected project into the project Class variable  */
 	$ProjectRef = $_GET['ModifyProjectRef'];
-	include('includes/Project_Readin.php');
+	include ('includes/Project_Readin.php');
 
 } // its an existing project to readin
-
 if (isset($_POST['CancelProject'])) {
 	/*The cancel button on the header screen - to delete the project */
 	$OK_to_delete = true; //assume this in the first instance
@@ -221,7 +217,6 @@ if (isset($_POST['CommitProject']) or isset($_POST['CreateBudget'])) {
 	/*This is the bit where the project object is commited to the database after a bit of error checking */
 
 	//First update the session['Project'.$Identifier] variable with all inputs from the form
-
 	$InputError = False; //assume no errors on input then test for errors
 	if (mb_strlen($_POST['ProjectRef']) < 2) {
 		prnMsg(_('The project reference is expected to be more than 2 characters long. Please alter the project reference before proceeding.'), 'error');
@@ -337,11 +332,11 @@ if (isset($_POST['CommitProject']) or isset($_POST['CreateBudget'])) {
 			//then the budget will need to be updated with the revised project cost if necessary
 			$ProjectBOMCost = 0;
 			foreach ($_SESSION['Project' . $Identifier]->ProjectBOM as $Component) {
-				$ProjectBOMCost += ($Component->ItemCost * $Component->Quantity);
+				$ProjectBOMCost+= ($Component->ItemCost * $Component->Quantity);
 			}
 			$ProjectReqtsCost = 0;
 			foreach ($_SESSION['Project' . $Identifier]->ProjectReqts as $Requirement) {
-				$ProjectReqtsCost += ($Requirement->CostPerUnit * $Requirement->Quantity);
+				$ProjectReqtsCost+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 			}
 			$ProjectCost = $ProjectReqtsCost + $ProjectBOMCost;
 			$ProjectPrice = ($ProjectBOMCost + $ProjectReqtsCost) / ((100 - $_SESSION['Project' . $Identifier]->Margin) / 100);
@@ -381,8 +376,7 @@ if (isset($_POST['CommitProject']) or isset($_POST['CreateBudget'])) {
 			/*we are updating the status on the project to a quotation so we need to
 			 * add a new item for the project into the stockmaster
 			 * add a salesorder header and detail as a quotation for the item
-			 */
-
+			*/
 
 		}
 	} elseif (!$InputError) {
@@ -438,20 +432,19 @@ if (isset($_POST['CommitProject']) or isset($_POST['CreateBudget'])) {
 		prnMsg(_('The new project has been added to the database'), 'success');
 
 	} //end of adding a new project
+	
 } //end of commital to database
-
 if (isset($_POST['CreateBudget']) and !$InputError) {
 	//Create a quotation for the project as entered
 	//First need to create the item in stockmaster
-
 	//calculate the item's project cost
 	$ProjectBOMCost = 0;
 	foreach ($_SESSION['Project' . $Identifier]->ProjectBOM as $Component) {
-		$ProjectBOMCost += ($Component->ItemCost * $Component->Quantity);
+		$ProjectBOMCost+= ($Component->ItemCost * $Component->Quantity);
 	}
 	$ProjectReqtsCost = 0;
 	foreach ($_SESSION['Project' . $Identifier]->ProjectReqts as $Requirement) {
-		$ProjectReqtsCost += ($Requirement->CostPerUnit * $Requirement->Quantity);
+		$ProjectReqtsCost+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 	}
 	$ProjectCost = $ProjectReqtsCost + $ProjectBOMCost;
 	$ProjectPrice = ($ProjectBOMCost + $ProjectReqtsCost) / ((100 - $_SESSION['Project' . $Identifier]->Margin) / 100);
@@ -462,7 +455,6 @@ if (isset($_POST['CreateBudget']) and !$InputError) {
 	$DbgMsg = _('The SQL that was used to find the item failed was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 	if (DB_num_rows($Result) == 0) { //then the item doesn't currently exist so add it
-
 		$SQL = "INSERT INTO stockmaster (stockid,
 										description,
 										longdescription,
@@ -500,7 +492,6 @@ if (isset($_POST['CreateBudget']) and !$InputError) {
 		$InsLocnsResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 	}
 	//now add the quotation for the item
-
 	//first need to get some more details from the customer/branch record
 	$SQL = "SELECT name,
 					address1,
@@ -572,7 +563,6 @@ if (isset($_POST['CreateBudget']) and !$InputError) {
 	$ErrMsg = _('Unable to add the quotation line');
 	$Ins_LineItemResult = DB_query($LineItemSQL, $ErrMsg, $DbgMsg, true);
 	//end of adding the quotation to projectbudgets/details
-
 	//make the status of the project 1 - to indicate that it is now quoted
 	$SQL = "UPDATE projects SET budgetno='" . $OrderNo . "',
 								status='" . 1 . "'
@@ -586,7 +576,6 @@ if (isset($_POST['CreateBudget']) and !$InputError) {
 	echo '<br /><a href="' . $RootPath . '/SelectSalesOrder.php?OrderNumber=' . urlencode($OrderNo) . '&amp;Quotations=Quotes_Only">' . _('Go to quotation number') . ': ' . $OrderNo . '</a>';
 
 } //end of if making a quotation
-
 if (isset($_POST['SearchDonors'])) {
 
 	$_POST['DonorKeywords'] = mb_strtoupper(trim($_POST['DonorKeywords']));
@@ -598,7 +587,6 @@ if (isset($_POST['SearchDonors'])) {
 				WHERE name " . LIKE . " '" . $SearchString . "'
 					AND donorno " . LIKE . " '%" . $_POST['DonorCode'] . "%'
 				ORDER BY name";
-
 
 	$ErrMsg = _('The donor records requested cannot be retrieved because');
 	$Result_DonorSelect = DB_query($SQL, $ErrMsg);
@@ -643,18 +631,19 @@ if (isset($_POST['SelectedDonor'])) {
 				prnMsg(_('The') . ' ' . $_SESSION['Project' . $Identifier]->DonorName . ' ' . _('account is currently at or over their credit limit'), 'warn');
 			} elseif ($_SESSION['CheckCreditLimits'] == 2 and $CreditAvailable <= 0) {
 				prnMsg(_('No more orders can be placed by') . ' ' . $MyRow[0] . ' ' . _(' their account is currently at or over their credit limit'), 'warn');
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 		}
 	} //a customer was retrieved ok
+	
 } //end if a customer has just been selected
 
 
 if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' . $Identifier]->DonorNo == '') {
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Project') . '" alt="" />' . ' ' . _('Project: Select Donor') . '</p>';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="DonorSelection" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="DonorSelection" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table cellpadding="3">
@@ -700,19 +689,19 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 			$LastDonor = $MyRow['name'];
 			++$j;
 			//end of page full new headings if
+			
 		}
 		//end of while loop
-
 		echo '</tbody>
 			</table>
 		</form>';
 	} //end if results to show
-
 	//end if RequireDonorSelection
+	
 } else {
 	/*A customer is already selected so get into the project setup proper */
 
-	echo '<form name="ProjectEntry" enctype="multipart/form-data" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+	echo '<form name="ProjectEntry" enctype="multipart/form-data" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<p class="page_title_text" >
@@ -746,7 +735,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1";
 	$ErrMsg = _('The stock locations could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve stock locations and failed was');
@@ -772,8 +761,8 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 			<td><textarea name="ProjectDescription" required="required" style="width:100%" rows="5" cols="40">' . $_SESSION['Project' . $Identifier]->ProjectDescription . '</textarea></td>
 		</tr>';
 
-    if (!isset($_SESSION['Project' . $Identifier]->RequiredDate)) {
-            $_SESSION['Project' . $Identifier]->RequiredDate = DateAdd(date($_SESSION['DefaultDateFormat']), 'm', 1);
+	if (!isset($_SESSION['Project' . $Identifier]->RequiredDate)) {
+		$_SESSION['Project' . $Identifier]->RequiredDate = DateAdd(date($_SESSION['DefaultDateFormat']), 'm', 1);
 	}
 
 	echo '<tr>
@@ -863,7 +852,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 					<td class="number">' . locale_number_format($Component->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format(($Component->ItemCost * $Component->Quantity), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				</tr>';
-			$ProjectBOMCost += ($Component->ItemCost * $Component->Quantity);
+			$ProjectBOMCost+= ($Component->ItemCost * $Component->Quantity);
 		}
 		echo '<tr>
 				<th colspan="5"><b>' . _('Total stock cost') . '</b></th>
@@ -895,7 +884,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 					<td class="number">' . locale_number_format($Requirement->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 					<td class="number">' . locale_number_format(($Requirement->CostPerUnit * $Requirement->Quantity), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				</tr>';
-			$ProjectReqtsCost += ($Requirement->CostPerUnit * $Requirement->Quantity);
+			$ProjectReqtsCost+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 		}
 		echo '<tr>
 				<th colspan="3"><b>' . _('Total other costs') . '</b></th>
@@ -930,5 +919,5 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 }
 /*end of if customer selected  and entering project header*/
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

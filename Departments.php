@@ -1,35 +1,29 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Departments');
 
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Departments') . '" alt="" />' . ' ' . $Title . '</p>';
 
-if (isset($_GET['SelectedDepartmentID']))
-	$SelectedDepartmentID = $_GET['SelectedDepartmentID'];
-elseif (isset($_POST['SelectedDepartmentID']))
-	$SelectedDepartmentID = $_POST['SelectedDepartmentID'];
+if (isset($_GET['SelectedDepartmentID'])) $SelectedDepartmentID = $_GET['SelectedDepartmentID'];
+elseif (isset($_POST['SelectedDepartmentID'])) $SelectedDepartmentID = $_POST['SelectedDepartmentID'];
 
 if (isset($_POST['Submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if (trim($_POST['DepartmentName']) == '') {
 		$InputError = 1;
 		prnMsg(_('The Name of the Department should not be empty'), 'error');
 	}
 
-	if (isset($_POST['SelectedDepartmentID']) AND $_POST['SelectedDepartmentID'] != '' AND $InputError != 1) {
-
+	if (isset($_POST['SelectedDepartmentID']) and $_POST['SelectedDepartmentID'] != '' and $InputError != 1) {
 
 		/*SelectedDepartmentID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
 		// Check the name does not clash
@@ -43,7 +37,6 @@ if (isset($_POST['Submit'])) {
 			prnMsg(_('This department name already exists.'), 'error');
 		} else {
 			// Get the old name and check that the record still exist neet to be very careful here
-
 			$SQL = "SELECT description
 					FROM departments
 					WHERE departmentid = '" . $SelectedDepartmentID . "'";
@@ -111,7 +104,7 @@ if (isset($_POST['Submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
+	
 
 	$SQL = "SELECT description
 			FROM departments
@@ -162,14 +155,13 @@ if (!isset($SelectedDepartmentID)) {
 				<th>' . _('Authoriser') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
 				<td>' . $MyRow['description'] . '</td>
 				<td>' . $MyRow['authoriser'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this department?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this department?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
@@ -179,18 +171,17 @@ if (!isset($SelectedDepartmentID)) {
 
 if (isset($SelectedDepartmentID)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('View all Departments') . '</a>
+			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('View all Departments') . '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedDepartmentID)) {
 		//editing an existing section
-
 		$SQL = "SELECT departmentid,
 						description,
 						authoriser
@@ -242,6 +233,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

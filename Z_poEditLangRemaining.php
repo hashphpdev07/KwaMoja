@@ -1,15 +1,14 @@
 <?php
-
 /* Steve Kitchen */
 
 /* This code is really ugly ... */
 
-include('includes/session.php');
+include ('includes/session.php');
 
-$Title = _('Edit Remaining Items');// _('Edit Remaining Strings For This Language')
+$Title = _('Edit Remaining Items'); // _('Edit Remaining Strings For This Language')
 $ViewTopic = 'SpecialUtilities';
-$BookMark = 'Z_poEditLangRemaining';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$BookMark = 'Z_poEditLangRemaining'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 echo '<div class="toplink">
 		<a href="' . $RootPath . '/Z_poAdmin.php">' . _('Back to the translation menu') . '</a>
@@ -18,7 +17,7 @@ echo '<div class="toplink">
 echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Edit Remaining Strings For This Language') . '" />' . ' ' . _('Edit Remaining Strings For This Language') . '</p>';
 
 /* Your webserver user MUST have read/write access to here,
-otherwise you'll be wasting your time */
+ otherwise you'll be wasting your time */
 
 if ($_SESSION['Language'] == 'en_GB.utf8') {
 	$PathToLanguage = './locale/' . $_SESSION['Language'] . '/LC_MESSAGES/messages.pot';
@@ -27,10 +26,7 @@ if ($_SESSION['Language'] == 'en_GB.utf8') {
 }
 $PathToNewLanguage = './locale/' . $_SESSION['Language'] . '/LC_MESSAGES/messages.po.new';
 
-echo '<div class="page_help_text">' .
-		_('Utility to edit a language file module') . _('Current language is') . ' ' . $_SESSION['Language'] .
-		_('When finished modifying you must click on Modify at the bottom in order to save changes') .
-	'</div>';
+echo '<div class="page_help_text">' . _('Utility to edit a language file module') . _('Current language is') . ' ' . $_SESSION['Language'] . _('When finished modifying you must click on Modify at the bottom in order to save changes') . '</div>';
 
 $PathToLanguage_mo = mb_substr($PathToLanguage, 0, strrpos($PathToLanguage, '.')) . '.mo';
 
@@ -41,22 +37,21 @@ $LangFileEntries = sizeof($LangFile);
 
 if (isset($_POST['submit'])) {
 	// save the modifications
-
 	echo '<table><tr><td>';
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	/* write the new language file */
 
 	prnMsg(_('Writing the language file') . '.....<br />', 'info', ' ');
 
-	for ($i = 17; $i <= $LangFileEntries; $i++) {
+	for ($i = 17;$i <= $LangFileEntries;$i++) {
 		if (isset($_POST['msgstr_' . $i])) {
 			$LangFile[$i] = 'msgstr "' . $_POST['moduletext_' . $i] . '"' . "\n";
 		}
 	}
 	$fpOut = fopen($PathToNewLanguage, 'w');
-	for ($i = 0; $i <= $LangFileEntries; $i++) {
+	for ($i = 0;$i <= $LangFileEntries;$i++) {
 		$Result = fputs($fpOut, $LangFile[$i]);
 	}
 	$Result = fclose($fpOut);
@@ -90,7 +85,7 @@ if (isset($_POST['submit'])) {
 	$AlsoIn = array();
 	$DefaultText = array();
 	$ModuleText = array();
-	for ($i = 17; $i < $LangFileEntries; $i++) {
+	for ($i = 17;$i < $LangFileEntries;$i++) {
 		/* start at line 18 to skip the header */
 		if (mb_substr($LangFile[$i], 0, 2) == '#:') {
 			/* it's a module reference */
@@ -105,10 +100,9 @@ if (isset($_POST['submit'])) {
 	}
 	$TotalLines = $j - 1;
 
-
 	/* stick it on the screen */
 	prnMsg(_('Your existing translation file (messages.po) will be saved as messages.po.old') . '<br />', 'info', _('PLEASE NOTE'));
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<table>
@@ -127,7 +121,7 @@ if (isset($_POST['submit'])) {
 							<th>' . _('Exists in') . '</th>
 						</tr>' . "\n";
 
-	for ($i = 1; $i <= $TotalLines; $i++) {
+	for ($i = 1;$i <= $TotalLines;$i++) {
 		if ($ModuleText[$i] == "") {
 			echo '<tr>
 					<td valign="top"><i>' . $DefaultText[$i] . '</i></td>
@@ -152,8 +146,6 @@ if (isset($_POST['submit'])) {
 	echo '</form>';
 }
 
-
-
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

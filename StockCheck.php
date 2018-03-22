@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST['Categories']) > 0) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	$PDF->addInfo('Title', _('Stock Count Sheets'));
 	$PDF->addInfo('Subject', _('Stock Count Sheets'));
 	$FontSize = 10;
@@ -27,7 +26,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 							stockmaster
 						WHERE locstock.stockid=stockmaster.stockid
 							AND locstock.loccode='" . $_POST['Location'] . "'
-							AND stockmaster.categoryid IN ('". implode("','",$_POST['Categories'])."')
+							AND stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 							AND stockmaster.mbflag!='A'
 							AND stockmaster.mbflag!='K'
 							AND stockmaster.mbflag!='D'";
@@ -35,13 +34,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		$Result = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() != 0) {
 			$Title = _('Stock Count Sheets - Problem Report');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The inventory quantities could not be added to the freeze file because') . ' ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -51,19 +50,19 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 				FROM stockcheckfreeze
 				INNER JOIN stockmaster
 					ON stockcheckfreeze.stockid=stockmaster.stockid
-				WHERE stockmaster.categoryid IN ('". implode("','",$_POST['Categories'])."')
+				WHERE stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 					AND stockcheckfreeze.loccode='" . $_POST['Location'] . "'";
 
 		$Result = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() != 0) {
 			$Title = _('Stock Freeze') . ' - ' . _('Problem Report') . '.... ';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The old quantities could not be deleted from the freeze file because') . ' ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -79,7 +78,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 				INNER JOIN stockmaster
 					ON locstock.stockid=stockmaster.stockid
 				WHERE locstock.loccode='" . $_POST['Location'] . "'
-					AND stockmaster.categoryid IN ('". implode("','",$_POST['Categories'])."')
+					AND stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 					AND stockmaster.mbflag!='A'
 					AND stockmaster.mbflag!='K'
 					AND stockmaster.mbflag!='G'
@@ -88,24 +87,23 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		$Result = DB_query($SQL, '', '', false, false);
 		if (DB_error_no() != 0) {
 			$Title = _('Stock Freeze - Problem Report');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The inventory quantities could not be added to the freeze file because') . ' ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		} else {
 			$Title = _('Stock Check Freeze Update');
-			include('includes/header.php');
-			echo '<p><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Print Check Sheets') . '</a>';
+			include ('includes/header.php');
+			echo '<p><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Print Check Sheets') . '</a>';
 			prnMsg(_('Added to the stock check file successfully'), 'success');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
-
 
 	$SQL = "SELECT stockmaster.categoryid,
 				 stockcheckfreeze.stockid,
@@ -118,38 +116,38 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 				ON stockcheckfreeze.stockid=stockmaster.stockid
 			INNER JOIN stockcategory
 				ON stockmaster.categoryid=stockcategory.categoryid
-			WHERE stockmaster.categoryid IN ('". implode("','",$_POST['Categories'])."')
+			WHERE stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 				AND (stockmaster.mbflag='B' OR mbflag='M')
 				AND stockcheckfreeze.loccode = '" . $_POST['Location'] . "'";
 	if (isset($_POST['NonZerosOnly']) and $_POST['NonZerosOnly'] == true) {
-		$SQL .= " AND stockcheckfreeze.qoh<>0";
+		$SQL.= " AND stockcheckfreeze.qoh<>0";
 	}
 
-	$SQL .= " ORDER BY stockmaster.categoryid, stockmaster.stockid";
+	$SQL.= " ORDER BY stockmaster.categoryid, stockmaster.stockid";
 
 	$InventoryResult = DB_query($SQL, '', '', false, false);
 
 	if (DB_error_no() != 0) {
 		$Title = _('Stock Sheets') . ' - ' . _('Problem Report') . '.... ';
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The inventory quantities could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($InventoryResult) == 0) {
 		$Title = _('Stock Count Sheets - Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('Before stock count sheets can be printed, a copy of the stock quantities needs to be taken - the stock check freeze. Make a stock check data file first'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
-	include('includes/PDFStockCheckPageHeader.php');
+	include ('includes/PDFStockCheckPageHeader.php');
 
 	$Category = '';
 
@@ -161,7 +159,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 				/*Then it's NOT the first time round */
 				/*draw a line under the CATEGORY TOTAL*/
 				$PDF->line($Left_Margin, $YPos - 2, $Page_Width - $Right_Margin, $YPos - 2);
-				$YPos -= (2 * $line_height);
+				$YPos-= (2 * $line_height);
 			}
 
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 260 - $Left_Margin, $FontSize, $InventoryCheckRow['categoryid'] . ' - ' . $InventoryCheckRow['categorydescription'], 'left');
@@ -169,7 +167,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		}
 
 		$FontSize = 10;
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 		if (isset($_POST['ShowInfo']) and $_POST['ShowInfo'] == true) {
 
@@ -185,13 +183,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 			if (DB_error_no() != 0) {
 				$Title = _('Stock Check Sheets - Problem Report');
-				include('includes/header.php');
+				include ('includes/header.php');
 				prnMsg(_('The sales order demand quantities could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 				echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 				if ($Debug == 1) {
 					echo '<br />' . $SQL;
 				}
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 
@@ -223,7 +221,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 			if (DB_num_rows($DemandResult) == 1) {
 				$DemandRow = DB_fetch_row($DemandResult);
-				$DemandQty += $DemandRow[0];
+				$DemandQty+= $DemandRow[0];
 			}
 
 			$LeftOvers = $PDF->addTextWrap(350, $YPos, 60, $FontSize, locale_number_format($InventoryCheckRow['qoh'], $InventoryCheckRow['decimalplaces']), 'right');
@@ -236,12 +234,11 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 
 		$LeftOvers = $PDF->addTextWrap(150, $YPos, 200, $FontSize, $InventoryCheckRow['description'], 'left');
 
-
 		$PDF->line($Left_Margin, $YPos - 2, $Page_Width - $Right_Margin, $YPos - 2);
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			$PageNumber++;
-			include('includes/PDFStockCheckPageHeader.php');
+			include ('includes/PDFStockCheckPageHeader.php');
 		}
 
 	}
@@ -253,12 +250,12 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	/*The option to print PDF was not hit */
 
 	$Title = _('Stock Check Sheets');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	/*if $FromCriteria is not set then show a form to allow input	*/
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('print') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>
 			<tr>
@@ -270,7 +267,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	$CatResult = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($CatResult)) {
 		if (isset($_POST['Categories']) and in_array($MyRow['categoryid'], $_POST['Categories'])) {
-			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] .'</option>';
+			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 		}
@@ -288,7 +285,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 				ORDER BY locationname";
 	$LocnResult = DB_query($SQL);
@@ -353,7 +350,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		<input type="submit" name="PrintPDF" value="' . _('Print and Process') . '" />
 	</div>
 	</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */

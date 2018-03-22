@@ -1,7 +1,7 @@
 <?php
 $PageSecurity = 0;
 $PathPrefix = '../';
-include('../includes/session.php');
+include ('../includes/session.php');
 
 $RootPath = '../';
 
@@ -26,19 +26,18 @@ echo '<style media="screen">
 			.yesPrint{ display: block !important; }
 		</style>';
 
-
 echo '</head><body style="background:transparent;">';
 
 switch ($_SESSION['ScreenFontSize']) {
 	case 0:
 		$FontSize = '8pt';
-		break;
+	break;
 	case 1:
 		$FontSize = '10pt';
-		break;
+	break;
 	case 2:
 		$FontSize = '12pt';
-		break;
+	break;
 	default:
 		$FontSize = '10pt';
 }
@@ -48,7 +47,7 @@ echo '<style>
 				}
 			</style>';
 
-$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename($_SERVER['PHP_SELF']) . "'";
+$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
 $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 
@@ -98,7 +97,6 @@ while ($row = DB_fetch_array($Result)) {
 							sum(unitprice*quantityord) as total
 						FROM purchorderdetails
 						GROUP BY orderno";
-
 
 	$OrderValueResult = DB_query($OrderValueSQL);
 	$MyOrderValueRow = DB_fetch_array($OrderValueResult);

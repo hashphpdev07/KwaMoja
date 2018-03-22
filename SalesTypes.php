@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales Types') . ' / ' . _('Price List Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -16,8 +15,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
-
+	 ie the page has called itself with some user input */
 
 	if (mb_strlen(stripslashes($_POST['TypeAbbrev'])) > 2) {
 		$InputError = 1;
@@ -46,7 +44,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$CheckSql = "SELECT count(*)
 				 FROM salestypes
 				 WHERE typeabbrev = '" . $_POST['TypeAbbrev'] . "'";
@@ -60,7 +57,6 @@ if (isset($_POST['submit'])) {
 		} else {
 
 			// Add new record on submit
-
 			$SQL = "INSERT INTO salestypes (typeabbrev,
 											sales_type)
 							VALUES ('" . str_replace(' ', '', $_POST['TypeAbbrev']) . "',
@@ -100,7 +96,6 @@ if (isset($_POST['submit'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
 	// Prevent delete if saletype exist in customer transactions
-
 	$SQL = "SELECT COUNT(*)
 		   FROM debtortrans
 		   WHERE debtortrans.tpe='" . $SelectedType . "'";
@@ -138,8 +133,8 @@ if (isset($_POST['submit'])) {
 
 		}
 	} //end if sales type used in debtor transactions or in customers set up
+	
 }
-
 
 if (isset($_POST['Cancel'])) {
 	unset($SelectedType);
@@ -162,8 +157,7 @@ if (!isset($SelectedType)) {
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) == 0) {
-		echo '<div class="page_help_text">', _('As this is the first time that the system has been used, you must first create a sales type.') ,
-				'<br />', _('Once you have filled in all the details, click on the button at the bottom of the screen'), '</div>';
+		echo '<div class="page_help_text">', _('As this is the first time that the system has been used, you must first create a sales type.'), '<br />', _('Once you have filled in all the details, click on the button at the bottom of the screen'), '</div>';
 		$_SESSION['RestrictLocations'] = 0;
 	}
 
@@ -175,15 +169,14 @@ if (!isset($SelectedType)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
 				<td>', $MyRow['typeabbrev'], '</td>
 				<td>', $MyRow['sales_type'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeabbrev']), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeabbrev']), '&delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this price list and all the prices it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeabbrev']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeabbrev']), '&delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this price list and all the prices it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -194,13 +187,13 @@ if (!isset($SelectedType)) {
 //end of ifs and buts!
 if (isset($SelectedType)) {
 	echo '<div class="toplink">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">', _('Show All Sales Types Defined'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">', _('Show All Sales Types Defined'), '</a>
 		</div>';
 	echo '<p class="page_title_text" ><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '</p>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form name="SalesTypesForm" method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" >';
+	echo '<form name="SalesTypesForm" method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" >';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type
@@ -213,8 +206,7 @@ if (!isset($_GET['delete'])) {
 		$Result = DB_query($SQL);
 
 		if (DB_num_rows($Result) == 0) {
-			echo '<div class="page_help_text">', _('As this is the first time that the system has been used, you must first create a default price list.'),
-					'<br />', _('Once you have filled in all the details, click on the button at the bottom of the screen'), '</div>';
+			echo '<div class="page_help_text">', _('As this is the first time that the system has been used, you must first create a default price list.'), '<br />', _('Once you have filled in all the details, click on the button at the bottom of the screen'), '</div>';
 		}
 
 		$Result = DB_query($SQL);
@@ -225,38 +217,35 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
 		echo '<input type="hidden" name="TypeAbbrev" value="', $_POST['TypeAbbrev'], '" />';
-		echo '<table>
-				<tr>
-					<th colspan="4"><b>', _('Sales Type/Price List Setup'), '</b></th>
-				</tr>';
-		echo '<tr>
-				<td>', _('Type Code'), ':</td>
-				<td>', $_POST['TypeAbbrev'], '</td>
-			</tr>';
+		echo '<fieldset>
+				<legend>', _('Edit Sales Type/Price List'), '</legend>
+				<field>
+					<label for="TypeAbbrev">', _('Type Code'), ':</label>
+					<div class="fieldtext">', $_POST['TypeAbbrev'], '</div>
+				</field>';
 
 	} else {
 
 		// This is a new type so the user may volunteer a type code
-
-		echo '<table>
-				<tr>
-					<th colspan="4"><b>', _('Sales Type/Price List Setup'), '</b></th>
-				</tr>
-				<tr>
-					<td>' . _('Type Code') . ':</td>
-					<td><input type="text" class="AlphaNumeric" size="3" required="required" maxlength="2" name="TypeAbbrev" /></td>
-				</tr>';
+		echo '<fieldset>
+				<legend>', _('Sales Type/Price List Setup'), '</legend>
+				<field>
+					<label for="TypeAbbrev">', _('Type Code'), ':</label>
+					<input type="text" class="AlphaNumeric" size="3" required="required" autofocus="autofocus" maxlength="2" name="TypeAbbrev" />
+					<fieldhelp>', _('The code for this sales type.'), '</fieldhelp>
+				</field>';
 	}
 
 	if (!isset($_POST['Sales_Type'])) {
 		$_POST['Sales_Type'] = '';
 	}
-	echo '<tr>
-			<td>', _('Sales Type Name'), ':</td>
-			<td><input type="text" required="required" maxlength="40" name="Sales_Type" value="', $_POST['Sales_Type'], '" /></td></tr>';
+	echo '<field>
+			<label for="Sales_Type">', _('Sales Type Name'), ':</label>
+			<input type="text" required="required" autofocus="autofocus" maxlength="40" name="Sales_Type" value="', $_POST['Sales_Type'], '" />
+			<fieldhelp>', _('Description this sales type.'), '</fieldhelp>
+		</field>';
 
-	echo '</table>'; // close main table
-
+	echo '</fieldset>'; // close main table
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -265,6 +254,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

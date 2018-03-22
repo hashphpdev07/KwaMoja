@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Multi-Level Bill Of Materials Maintenance');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 function display_children($Parent, $Level, &$BOMTree) {
 	global $i;
@@ -34,18 +33,17 @@ function display_children($Parent, $Level, &$BOMTree) {
 			} else {
 				prnMsg(_('The component and the parent is the same'), 'error');
 				echo $MyRow['component'], '<br/>';
-				include('includes/footer.inc');
+				include ('includes/footer.inc');
 				exit;
 			}
 		}
 	}
 }
 
-
 function CheckForRecursiveBOM($UltimateParent, $ComponentToCheck) {
 
 	/* returns true ie 1 if the BOM contains the parent part as a component
-	ie the BOM is recursive otherwise false ie 0 */
+	 ie the BOM is recursive otherwise false ie 0 */
 
 	$SQL = "SELECT component FROM bom WHERE parent='" . $ComponentToCheck . "'";
 	$ErrMsg = _('An error occurred in retrieving the components of the BOM during the check for recursion');
@@ -61,12 +59,11 @@ function CheckForRecursiveBOM($UltimateParent, $ComponentToCheck) {
 				return 1;
 			}
 		} //(while loop)
+		
 	} //end if $Result is true
-
 	return 0;
 
 } //end of function CheckForRecursiveBOM
-
 function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 
 	global $ParentMBflag;
@@ -128,9 +125,9 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 		}
 
 		if ($MyRow['mbflag'] == 'D' //dummy orservice
-			or $MyRow['mbflag'] == 'K' //kit-set
-			or $MyRow['mbflag'] == 'A' // assembly
-			or $MyRow['mbflag'] == 'G') /* ghost */ {
+		 or $MyRow['mbflag'] == 'K' //kit-set
+		 or $MyRow['mbflag'] == 'A' // assembly
+		 or $MyRow['mbflag'] == 'G') /* ghost */ {
 
 			$QuantityOnHand = _('N/A');
 		} else {
@@ -156,7 +153,7 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 				<td class="noPrint">', ConvertSQLDate($MyRow['effectiveto']), '</td>
 				<td class="noPrint">', $AutoIssue, '</td>
 				<td class="number noPrint">', $QuantityOnHand, '</td>
-				<td class="noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $Parent, '&SelectedComponent=', $MyRow['component'], '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '&Edit=Yes">', _('Edit'), '</a></td>';
+				<td class="noPrint"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $Parent, '&SelectedComponent=', $MyRow['component'], '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '&Edit=Yes">', _('Edit'), '</a></td>';
 
 		if ($MyRow['mbflag'] == 'B' or $MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'D') {
 			echo '<td class="noPrint">
@@ -164,18 +161,18 @@ function DisplayBOMItems($UltimateParent, $Parent, $Component, $Level) {
 				</td>';
 		} else {
 			echo '<td class="noPrint">
-					<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['component'], '">' . _('Drill Down') . '</a>
+					<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['component'], '">' . _('Drill Down') . '</a>
 				</td>';
 		}
 
 		echo '<td class="noPrint">
-				<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedParent=', $Parent, '&SelectedComponent=', $MyRow['component'], '&delete=1&ReSelect=', $UltimateParent, '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this component from this bill of materials?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedParent=', $Parent, '&SelectedComponent=', $MyRow['component'], '&delete=1&ReSelect=', $UltimateParent, '&Location=', $MyRow['loccode'], '&WorkCentre=', $MyRow['workcentrecode'], '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this component from this bill of materials?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr><tr><td colspan="11" style="text-indent:', $TextIndent, ';">', $MyRow['comment'], '</td>
 			 </tr>';
 
 	} //END WHILE LIST LOOP
+	
 } //end of function DisplayBOMItems
-
 /* SelectedParent could come from a post or a get */
 if (isset($_GET['SelectedParent'])) {
 	$SelectedParent = $_GET['SelectedParent'];
@@ -197,7 +194,7 @@ if (isset($_POST['ComponentSearch']) or isset($_POST['Next']) or isset($_POST['P
 		$_POST['Offset'] = $_POST['Offset'] + 1;
 	}
 
-	echo '<div class="toplink noPrint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">', _('Return to main BOM screen'), '</a></div>';
+	echo '<div class="toplink noPrint"><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">', _('Return to main BOM screen'), '</a></div>';
 	echo '<p class="page_title_text noPrint"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" /> ', _('Select component to add to BOM'), '</p>';
 	//DisplayBOMItems($SelectedParent);
 	$SQL = "SELECT stockmaster.description,
@@ -257,7 +254,7 @@ if (isset($_POST['ComponentSearch']) or isset($_POST['Next']) or isset($_POST['P
 	$DbgMsg = _('The SQL used to retrieve the list of potential components part was');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>
 			<tr>
@@ -275,7 +272,7 @@ if (isset($_POST['ComponentSearch']) or isset($_POST['Next']) or isset($_POST['P
 		echo '<tr>
 				<td>', $MyRow['stockid'], '</td>
 				<td>', $MyRow['description'], '</td>
-				<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '&SelectedComponent=', $MyRow['stockid'], '&Add=Yes">', _('Add to the BOM'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '&SelectedComponent=', $MyRow['stockid'], '&Add=Yes">', _('Add to the BOM'), '</a></td>
 			</tr>';
 	}
 	echo '</table>';
@@ -284,7 +281,7 @@ if (isset($_POST['ComponentSearch']) or isset($_POST['Next']) or isset($_POST['P
 	echo '<input type="hidden" name="Keywords" value="', $_POST['Keywords'], '" />';
 	echo '<input type="hidden" name="StockCat" value="', $_POST['StockCat'], '" />';
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -316,7 +313,6 @@ if (isset($_POST['Cancel'])) {
 }
 
 //---------------------------------------------------------------------------------
-
 if (isset($_POST['renumber'])) {
 	$SQL = "SELECT parent,
 					sequence,
@@ -348,7 +344,7 @@ $InputError = 0;
 if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 	//editing a selected component from the link to the line item
 	/* We do want to show the new component entry form in any case - it is a lot of work to get back to it otherwise if we need to add */
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $SelectedParent, '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	$SQL = "SELECT stockmaster.description,
 					stockmaster.mbflag
@@ -435,7 +431,7 @@ if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 		</field>';
 
 	/* echo "Enter the details of a new component in the fields below. <br />Click on 'Enter Information' to add the new component, once all fields are completed.";
-	 */
+	*/
 
 	$SQL = "SELECT locationname,
 					locations.loccode
@@ -457,7 +453,6 @@ if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 			echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 		}
 	} //end while loop
-
 	DB_free_result($Result);
 
 	echo '</select>
@@ -477,7 +472,7 @@ if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 	if (DB_num_rows($Result) == 0) {
 		prnMsg(_('There are no work centres set up yet') . '. ' . _('Please use the link below to set up work centres') . '.', 'warn');
 		echo '<a href="', $RootPath, '/WorkCentres.php">', _('Work Centre Maintenance'), '</a></field></fieldset>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	echo '<field>
@@ -492,7 +487,6 @@ if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 			echo '<option value="', $MyRow['code'], '">', $MyRow['description'], '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 		<fieldhelp>', _('Enter the work centre where this component is to be included.'), '</fieldhelp>
 	</field>';
@@ -549,14 +543,13 @@ if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 			</div>
 		</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edit Component
-
 	echo '<div class="toplink noPrint">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select a Different BOM'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select a Different BOM'), '</a>
 		</div>';
 
 	echo '<p class="page_title_text noPrint">
@@ -566,7 +559,6 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	if (isset($SelectedParent) and isset($_POST['Submit'])) {
 
 		//editing a component need to do some validation of inputs
-
 		if (!is_date($_POST['EffectiveAfter'])) {
 			$InputError = 1;
 			prnMsg(_('The effective after date field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
@@ -634,7 +626,6 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 			/*Selected component is null cos no item selected on first time round so must be adding a record must be Submitting new entries in the new component form */
 
 			//need to check not recursive BOM component of itself!
-
 			if (!CheckForRecursiveBOM($SelectedParent, $_POST['SelectedComponent'])) {
 
 				/*Now check to see that the component is not already on the BOM */
@@ -690,7 +681,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 				}
 
 			} //end of if its not a recursive BOM
-
+			
 		} //end of if no input errors
 		unset($SelectedComponent);
 		if ($Msg != '') {
@@ -700,7 +691,6 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	} elseif (isset($_GET['delete']) and isset($SelectedComponent) and isset($SelectedParent)) {
 
 		//the link to delete a selected record was clicked instead of the Submit button
-
 		$SQL = "DELETE FROM bom
 				WHERE parent='" . $SelectedParent . "'
 				AND component='" . $SelectedComponent . "'
@@ -726,9 +716,9 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 
 		/* It could still be the second time the page has been run and a record has been selected	for modification - SelectedParent will exist because it was sent with the new call. if		its the first time the page has been displayed with no parameters then none of the above		are true and the list of components will be displayed with links to delete or edit each.		These will call the same page again and allow update/input or deletion of the records*/
 		//DisplayBOMItems($SelectedParent);
-
+		
 	} //BOM editing/insertion ifs
-
+	
 
 	if (isset($_GET['ReSelect'])) {
 		$SelectedParent = $_GET['ReSelect'];
@@ -751,19 +741,19 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	switch ($ParentMBflag) {
 		case 'A':
 			$MBdesc = _('Assembly');
-			break;
+		break;
 		case 'B':
 			$MBdesc = _('Purchased');
-			break;
+		break;
 		case 'M':
 			$MBdesc = _('Manufactured');
-			break;
+		break;
 		case 'K':
 			$MBdesc = _('Kit Set');
-			break;
+		break;
 		case 'G':
 			$MBdesc = _('Phantom');
-			break;
+		break;
 	}
 
 	// Display Manufatured Parent Items
@@ -783,7 +773,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 		echo '<table class="selection noPrint">';
 		echo '<tr><td><div class="centre">', _('Manufactured parent items'), ' : ';
 		while ($MyRow = DB_fetch_array($Result)) {
-			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
+			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
 			++$i;
 		} //end while loop
 		echo '</div></td></tr>';
@@ -806,7 +796,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 		echo '<tr><td><div class="centre">', _('Assembly parent items'), ' : ';
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
+			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
 			++$i;
 		} //end while loop
 		echo '</div></td></tr>';
@@ -834,7 +824,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 		echo '<tr><td><div class="centre">', _('Kit sets'), ' : ';
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
+			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
 			++$i;
 		} //end while loop
 		echo '</div></td>
@@ -864,14 +854,14 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 					<td><div class="centre">', _('Phantom'), ' : ';
 		$i = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
-			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
+			echo (($i) ? ', ' : ''), '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedParent=', $MyRow['parent'], '">', $MyRow['description'], '&nbsp;(', $MyRow['parent'], ')</a>';
 			++$i;
 		} //end while loop
 		echo '</div></td></tr>';
 		echo '</table>';
 	}
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<input type="hidden" name="SelectedParent" value="', $SelectedParent, '" />';
@@ -923,13 +913,13 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 	</form>';
 
 	if (!isset($SelectedComponent)) {
-		echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+		echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		echo '<fieldset>
 				<legend class="search">', _('Select new component for BOM'), '</legend>';
 
-		$SQL="SELECT categoryid,
+		$SQL = "SELECT categoryid,
 						categorydescription
 				FROM stockcategory
 				WHERE stocktype='F' OR stocktype='D' OR stocktype='L'
@@ -946,7 +936,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 			echo '<option value="All">', _('All'), '</option>';
 		}
 		while ($MyRow = DB_fetch_array($Result)) {
-			if ($_POST['StockCat']==$MyRow['categoryid']){
+			if ($_POST['StockCat'] == $MyRow['categoryid']) {
 				echo '<option selected="selected" value="', $MyRow['categoryid'], '">', $MyRow['categorydescription'], '</option>';
 			} else {
 				echo '<option value="', $MyRow['categoryid'], '">', $MyRow['categorydescription'], '</option>';
@@ -977,7 +967,7 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 
 	// end of BOM maintenance code - look at the parent selection form if not relevant
 	// ----------------------------------------------------------------------------------
-
+	
 } elseif (isset($_POST['Search'])) {
 	// Work around to auto select
 	if ($_POST['Keywords'] == '' and $_POST['StockCode'] == '') {
@@ -1037,15 +1027,15 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 		$Result = DB_query($SQL, $ErrMsg);
 
 	} //one of keywords or StockCode was more than a zero length string
+	
 } //end of if search
-
 if (!isset($SelectedParent)) {
 
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	echo '<div class="page_help_text">
@@ -1080,7 +1070,6 @@ if (!isset($SelectedParent)) {
 					<th>', _('Units'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		$j = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['mbflag'] == 'A' or $MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'G') {
@@ -1095,14 +1084,13 @@ if (!isset($SelectedParent)) {
 					<td>', $MyRow['units'], '</td>
 				</tr>';
 			//end of page full new headings if
+			
 		}
 		//end of while loop
-
 		echo '</table>';
 
 	}
 	//end if results to show
-
 	echo '</form>';
 
 } //end StockID already selected
@@ -1131,5 +1119,5 @@ function arrayUnique($Array, $PreserveKeys = false) {
 	return $ArrayRewrite;
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

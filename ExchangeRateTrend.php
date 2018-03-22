@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('View Currency Trends');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 $FunctionalCurrency = $_SESSION['CompanyRecord']['currencydefault'];
 
@@ -16,14 +15,12 @@ if (isset($_GET['CurrencyToShow'])) {
 // ************************
 // SHOW OUR MAIN INPUT FORM
 // ************************
-
-echo '<form method="post" id="update" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" id="update" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('View Currency Trend') . '" alt="" />' . ' ' . _('View Currency Trend') . '
 	</p>';
 echo '<table>'; // First column
-
 $SQL = "SELECT currabrev,
 				currency
 			FROM currencies";
@@ -70,5 +67,5 @@ echo '<table>
 		</tr>
 	</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

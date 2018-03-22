@@ -92,7 +92,7 @@ if (!isset($SelectedCOGSPostingID)) {
 					<th>', _('Sales Type'), '</th>
 					<th>', _('COGS Account'), '</th>
 				</tr>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			echo '<tr class="striped_row">
@@ -100,8 +100,8 @@ if (!isset($SelectedCOGSPostingID)) {
 					<td>', $MyRow['stkcat'], '</td>
 					<td>', $MyRow['salestype'], '</td>
 					<td>', $MyRow['accountname'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr>';
 		} //end while
 		echo '</table>';
@@ -163,8 +163,8 @@ if (!isset($SelectedCOGSPostingID)) {
 					<td>', $MyRow['stkcat'], ' - ', $CategoryRow['categorydescription'], '</td>
 					<td>', $MyRow['salestype'], ' - ', $TypeRow['sales_type'], '</td>
 					<td>', $MyRow['accountcode'], ' - ', $MyRow['accountname'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr>';
 
 		} //END WHILE LIST LOOP
@@ -174,11 +174,11 @@ if (!isset($SelectedCOGSPostingID)) {
 //end of ifs and buts!
 if (isset($SelectedCOGSPostingID)) {
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show all cost of sales posting records'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show all cost of sales posting records'), '</a>
 		</div>';
 }
 
-echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($SelectedCOGSPostingID)) {

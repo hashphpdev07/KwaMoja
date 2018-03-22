@@ -1,19 +1,18 @@
 <?php
-
 /*The supplier transaction uses the SuppTrans class to hold the information about the invoice
 the SuppTrans class contains an array of Asset objects called Assets - containing details of all asset additions on a supplier invoice
 Asset additions are posted to the debit of fixed asset category cost account if the creditors GL link is on */
 
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 
 /* Session started here for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Fixed Asset Charges or Credits');
 
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetInvoices';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (!isset($_SESSION['SuppTrans'])) {
 	prnMsg(_('Fixed asset additions or credits are entered against supplier invoices or credit notes respectively') . '. ' . _('To enter supplier transactions the supplier must first be selected from the supplier selection screen') . ', ' . _('then the link to enter a supplier invoice or credit note must be clicked on'), 'info');
@@ -41,6 +40,7 @@ if (isset($_POST['AddAssetToInvoice'])) {
 			$InputError = True;
 			unset($_POST['AssetID']);
 		} //DB_num_rows($Result) == 0
+		
 	}
 
 	if (!is_numeric(filter_number_format($_POST['Amount']))) {
@@ -48,18 +48,16 @@ if (isset($_POST['AddAssetToInvoice'])) {
 		$InputError = True;
 		unset($_POST['Amount']);
 	} //!is_numeric(filter_number_format($_POST['Amount']))
-
 	if ($InputError == False) {
 		$_SESSION['SuppTrans']->Add_Asset_To_Trans($_POST['AssetID'], filter_number_format($_POST['Amount']));
 		unset($_POST['AssetID']);
 		unset($_POST['Amount']);
 	} //$InputError == False
+	
 } //isset($_POST['AddAssetToInvoice'])
-
 if (isset($_GET['Delete'])) {
 	$_SESSION['SuppTrans']->Remove_Asset_From_Trans($_GET['Delete']);
 } //isset($_GET['Delete'])
-
 /*Show all the selected ShiptRefs so far from the SESSION['SuppInv']->Shipts array */
 if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 	echo '<div class="centre"><p class="page_title_text" >' . _('Fixed Assets on Invoice') . ' ';
@@ -85,13 +83,12 @@ foreach ($_SESSION['SuppTrans']->Assets as $EnteredAsset) {
 			<td>' . $EnteredAsset->AssetID . '</td>
 			<td>' . $EnteredAsset->Description . '</td>
 			<td class="number">' . locale_number_format($EnteredAsset->Amount, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '</td>
-			<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredAsset->Counter . '">' . _('Delete') . '</a></td>
+			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredAsset->Counter . '">' . _('Delete') . '</a></td>
 		</tr>';
 
-	$TotalAssetValue += $EnteredAsset->Amount;
+	$TotalAssetValue+= $EnteredAsset->Amount;
 
 } //$_SESSION['SuppTrans']->Assets as $EnteredAsset
-
 echo '</tbody>
 		<tr>
 			<td class="number"><h4>' . _('Total') . ':</h4></td>
@@ -107,13 +104,12 @@ else {
 }
 
 /*Set up a form to allow input of new Shipment charges */
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" />';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" />';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_POST['AssetID'])) {
 	$_POST['AssetID'] = '';
 } //!isset($_POST['AssetID'])
-
 prnMsg(_('If you know the code enter it in the Asset ID input box, otherwise select the asset from the list below. Only  assets with no cost will show in the list'), 'info');
 
 echo '<br /><table>';
@@ -143,7 +139,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 	echo $MyRow['assetid'] . '">' . $MyRow['assetid'] . ' - ' . $MyRow['description'] . '</option>';
 } //$MyRow = DB_fetch_array($Result)
-
 echo '</select></td>
 	</tr>';
 
@@ -162,5 +157,5 @@ echo '<br />
 	</div>';
 
 echo '</form>';
-include('includes/footer.inc');
+include ('includes/footer.inc');
 ?>

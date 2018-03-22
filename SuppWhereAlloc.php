@@ -1,25 +1,23 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Supplier How Paid Inquiry');
 
 $ViewTopic = 'APInquiries';
 $BookMark = 'WhereAllocated';
 
-include('includes/header.php');
+include ('includes/header.php');
 if (isset($_GET['TransNo']) and isset($_GET['TransType'])) {
-	$_POST['TransNo'] = (int) $_GET['TransNo'];
-	$_POST['TransType'] = (int) $_GET['TransType'];
+	$_POST['TransNo'] = (int)$_GET['TransNo'];
+	$_POST['TransType'] = (int)$_GET['TransType'];
 	$_POST['ShowResults'] = true;
 }
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
 	<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text noPrint">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Supplier Where Allocated'), '" alt="" />', $Title, '
 	</p>';
-
 
 if (!isset($_POST['TransType'])) {
 	$_POST['TransType'] = '20';
@@ -63,7 +61,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] == '') {
 
 if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 
-
 	/*First off get the DebtorTransID of the transaction (invoice normally) selected */
 	$SQL = "SELECT supptrans.id,
 				ovamount+ovgst AS totamt,
@@ -77,7 +74,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			AND transno = '" . $_POST['TransNo'] . "'";
 
 	if ($_SESSION['SalesmanLogin'] != '') {
-		$SQL .= " AND supptrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+		$SQL.= " AND supptrans.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 	}
 	$Result = DB_query($SQL);
 
@@ -99,21 +96,21 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 		if ($_POST['TransType'] == 22 or $_POST['TransType'] == 21) {
 
 			$TitleInfo = ($_POST['TransType'] == 22) ? _('Payment') : _('Debit Note');
-			$SQL .= "ON supptrans.id = suppallocs.transid_allocto
+			$SQL.= "ON supptrans.id = suppallocs.transid_allocto
 				WHERE suppallocs.transid_allocfrom = '" . $AllocToID . "'";
 		} else {
 			$TitleInfo = _('invoice');
-			$SQL .= "ON supptrans.id = suppallocs.transid_allocfrom
+			$SQL.= "ON supptrans.id = suppallocs.transid_allocfrom
 				WHERE suppallocs.transid_allocto = '" . $AllocToID . "'";
 		}
-		$SQL .= " ORDER BY transno ";
+		$SQL.= " ORDER BY transno ";
 
 		$ErrMsg = _('The customer transactions for the selected criteria could not be retrieved because');
 		$TransResult = DB_query($SQL, $ErrMsg);
 
 		if (DB_num_rows($TransResult) == 0) {
 
-			if ($MyRow['totamt'] > 0 AND ($_POST['TransType'] == 22 OR $_POST['TransType'] == 21)) {
+			if ($MyRow['totamt'] > 0 and ($_POST['TransType'] == 22 or $_POST['TransType'] == 21)) {
 				prnMsg(_('This transaction was a receipt of funds and there can be no allocations of receipts or credits to a receipt. This inquiry is meant to be used to see how a payment which is entered as a negative receipt is settled against credit notes or receipts'), 'info');
 			} else {
 				prnMsg(_('There are no allocations made against this transaction'), 'info');
@@ -141,7 +138,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 					<th>', _('Alloc'), '</th>
 				</tr>';
 
-			$k = 0; //row colour counter
 			$AllocsTotal = 0;
 
 			while ($MyRow = DB_fetch_array($TransResult)) {
@@ -164,7 +160,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 					</tr>';
 
 				//end of page full new headings if
-				$AllocsTotal += $MyRow['amt'];
+				$AllocsTotal+= $MyRow['amt'];
 			}
 			//end of while loop
 			echo '<tr>
@@ -174,12 +170,13 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 			</table>
 		</div>';
 		} // end if there are allocations against the transaction
+		
 	} else {
-		prnMsg( _('This transaction does not exist as yet'), 'info');
+		prnMsg(_('This transaction does not exist as yet'), 'info');
 	}
 }
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

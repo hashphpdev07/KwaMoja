@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Supplier Transactions Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
 	</p>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -86,9 +85,9 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 
 	$SQL = $SQL . "trandate >='" . $SQL_FromDate . "' AND trandate <= '" . $SQL_ToDate . "'";
 	if ($_POST['TransType'] != 'All') {
-		$SQL .= " AND type = " . $_POST['TransType'];
+		$SQL.= " AND type = " . $_POST['TransType'];
 	}
-	$SQL .= " ORDER BY id";
+	$SQL.= " ORDER BY id";
 
 	$TransResult = DB_query($SQL);
 	$ErrMsg = _('The supplier transactions for the selected criteria could not be retrieved because') . ' - ' . DB_error_msg();
@@ -108,8 +107,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 				<th>' . _('Currency') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($TransResult)) {
 
 		printf('<tr class="striped_row">
@@ -124,7 +121,6 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 				<td class="number">%s</td>
 				<td>%s</td>
 				</tr>', $MyRow['typename'], $MyRow['transno'], $MyRow['suppreference'], ConvertSQLDate($MyRow['trandate']), $MyRow['supplierno'] . ' - ' . $MyRow['suppname'], $MyRow['transtext'], ConvertSQLDate($MyRow['duedate']), locale_number_format($MyRow['rate'], 'Variable'), locale_number_format($MyRow['totalamt'], $MyRow['currdecimalplaces']), $MyRow['currcode']);
-
 
 		$GLTransResult = DB_query("SELECT account,
 										accountname,
@@ -161,7 +157,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 						<td>%s</td>
 						</tr>', $GLTransRow['account'], $GLTransRow['accountname'], locale_number_format($GLTransRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']), $GLTransRow['narrative']);
 
-				$CheckGLTransBalance += $GLTransRow['amount'];
+				$CheckGLTransBalance+= $GLTransRow['amount'];
 			}
 			if (round($CheckGLTransBalance, 5) != 0) {
 				echo '<tr>
@@ -172,10 +168,10 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 		}
 
 		//end of page full new headings if
+		
 	}
 	//end of while loop
-
 	echo '</table>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,33 +1,32 @@
 <?php
-
 /* $Id: GeneratePickingList.php 1 2014-08-26 11:54:03Z agaluski $*/
 
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /* Check that the config variable is set for
  * picking notes and get out if not.
- */
+*/
 if ($_SESSION['RequirePickingNote'] == 0) {
 	$Title = _('Picking Lists Not Enabled');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<br />';
 	prnMsg(_('The system is not configured for picking lists. A configuration parameter is required where picking slips are required. Please consult your system administrator.'), 'info');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 /* Show selection screen if we have no orders to work with */
 if ((!isset($_GET['TransNo']) or $_GET['TransNo'] == '') and !isset($_POST['TransDate'])) {
 	$Title = _('Select Picking Lists');
-	include('includes/header.php');
+	include ('includes/header.php');
 	$SQL = "SELECT locations.loccode,
 				locationname
 			FROM locations
 			INNER JOIN locationusers ON locationusers.loccode=locations.loccode AND locationusers.userid='" . $_SESSION['UserID'] . "' AND locationusers.canupd=1";
 	$Result = DB_query($SQL);
 	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" name="form">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" name="form">
 		<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 		<table>
 		<tr>
@@ -47,7 +46,7 @@ if ((!isset($_GET['TransNo']) or $_GET['TransNo'] == '') and !isset($_POST['Tran
 			<input type="submit" name="Process" value="' . _('Print Picking Lists') . '" />
 		</div>
 		</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit();
 }
 
@@ -135,7 +134,7 @@ if (!isset($_POST['TransDate']) and $_GET['TransNo'] != 'Preview') {
 }
 
 if ($_SESSION['SalesmanLogin'] != '') {
-	$SQL .= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
+	$SQL.= " AND salesorders.salesperson='" . $_SESSION['SalesmanLogin'] . "'";
 }
 
 if (isset($_POST['TransDate']) or (isset($_GET['TransNo']) and $_GET['TransNo'] != 'Preview')) {
@@ -144,17 +143,17 @@ if (isset($_POST['TransDate']) or (isset($_GET['TransNo']) and $_GET['TransNo'] 
 	/*if there are no rows, there's a problem. */
 	if (DB_num_rows($Result) == 0) {
 		$Title = _('Print Picking List Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<br />';
 		prnMsg(_('Unable to Locate any orders for this criteria '), 'info');
 		echo '<br />
 				<table>
 				<tr>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Enter Another Date') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Enter Another Date') . '</a></td>
 				</tr>
 				</table>
 				<br />';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit();
 	}
 
@@ -202,7 +201,7 @@ if ($OrdersToPick[0]['orderno'] == 'Preview') {
 }
 
 $PaperSize = $FormDesign->PaperSize;
-include('includes/PDFStarter.php');
+include ('includes/PDFStarter.php');
 $PDF->addInfo('Title', _('Picking List'));
 $PDF->addInfo('Subject', _('Laser Picking List'));
 $FontSize = 12;
@@ -211,7 +210,7 @@ $Copy = '';
 
 $line_height = $FormDesign->LineHeight;
 
-for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
+for ($i = 0;$i < sizeof($OrdersToPick);$i++) {
 	/*Cycle through each of the orders to pick */
 	if ($i > 0) {
 		$PDF->newPage();
@@ -234,7 +233,7 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 		$CountResult = DB_query($SQL);
 		$Count = DB_fetch_row($CountResult);
 		if (!isset($Count[2]) or $Count[2] == '') {
-			$Count[2]='Please pick order. Generate packing slip. Apply shipment labels and ship in system.';
+			$Count[2] = 'Please pick order. Generate packing slip. Apply shipment labels and ship in system.';
 		}
 		if ($Count[0] == 0) {
 			$SQL = "SELECT salesorderdetails.stkcode,
@@ -329,12 +328,13 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 							'" . $OrdersToPick[$i]['orderno'] . "');";
 				$HeaderResult = DB_query($SQL);
 				$PickReqID = DB_Last_Insert_ID('pickreq', 'prid');
-				$Count[1]=$PickReqID;
+				$Count[1] = $PickReqID;
 			} //create pickreq
+			
 		} else {
 			$LinesToShow = 1;
 		}
-		include('includes/GenPickingListHeader.php');
+		include ('includes/GenPickingListHeader.php');
 		$YPos = $FormDesign->Data->y;
 		$Lines = 0;
 
@@ -388,22 +388,22 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 			if ($Page_Height - $YPos - $line_height <= 60) {
 				/* We reached the end of the page so finish off the page and start a new */
 				$PageNumber++;
-				include('includes/GenPickingListHeader.php');
+				include ('includes/GenPickingListHeader.php');
 			} //end if need a new page headed up
 			else {
 				/*increment a line down for the next line item */
-				$YPos += ($line_height);
+				$YPos+= ($line_height);
 			}
 			if ($MyRow2['cust_part'] > '') {
 				$LeftOvers = $PDF->addTextWrap($FormDesign->Headings->Column2->x, $Page_Height - $YPos, $FormDesign->Headings->Column2->Length, $FormDesign->Headings->Column2->FontSize, $MyRow2['cust_part'] . ' ' . $MyRow2['cust_description']);
 				if ($Page_Height - $YPos - $line_height <= 60) {
 					/* We reached the end of the page so finish off the page and start a new */
 					$PageNumber++;
-					include('includes/GenPickingListHeader.php');
+					include ('includes/GenPickingListHeader.php');
 				} //end if need a new page headed up
 				else {
 					/*increment a line down for the next line item */
-					$YPos += ($line_height);
+					$YPos+= ($line_height);
 				}
 			}
 			if ($MyRow2['narrative'] > '') {
@@ -411,11 +411,11 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 				if ($Page_Height - $YPos - $line_height <= 60) {
 					/* We reached the end of the page so finish off the page and start a new */
 					$PageNumber++;
-					include('includes/GenPickingListHeader.php');
+					include ('includes/GenPickingListHeader.php');
 				} //end if need a new page headed up
 				else {
 					/*increment a line down for the next line item */
-					$YPos += ($line_height);
+					$YPos+= ($line_height);
 				}
 			}
 			if ($MyRow2['controlled'] == 1) {
@@ -449,7 +449,7 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 
 				$ErrMsg = '<br />' . _('Could not retrieve the items for') . ' ' . $MyRow2['stkcode'];
 				$Bundles = DB_query($SQL, $ErrMsg);
-				$YPos += ($line_height);
+				$YPos+= ($line_height);
 				while ($mybundles = DB_fetch_array($Bundles)) {
 					if ($mybundles['qtypickedthisorder'] == 0 or is_null($mybundles['qtypickedthisorder'])) {
 						$mybundles['qtypickedthisorder'] = '____________';
@@ -461,16 +461,17 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 					if ($Page_Height - $YPos - $line_height <= 60) {
 						/* We reached the end of the page so finish off the page and start a new */
 						$PageNumber++;
-						include('includes/GenPickingListHeader.php');
+						include ('includes/GenPickingListHeader.php');
 					} //end if need a new page headed up
 					else {
 						/*increment a line down for the next line item */
-						$YPos += ($line_height);
+						$YPos+= ($line_height);
 					}
 				} //while
+				
 			} //controlled
 			++$Lines;
-			$YPos += ($line_height);
+			$YPos+= ($line_height);
 		} //end while there are line items to print out
 		$YPos = $Page_Height - 45;
 		$PDF->setFont('', 'B');
@@ -485,9 +486,9 @@ for ($i = 0; $i < sizeof($OrdersToPick); $i++) {
 
 if ($ListCount == 0) {
 	$Title = _('Print Picking List Error');
-	include('includes/header.php');
-	prnMsg( _('There are no picking lists to print'), 'error');
-	include('includes/footer.php');
+	include ('includes/header.php');
+	prnMsg(_('There are no picking lists to print'), 'error');
+	include ('includes/footer.php');
 	exit;
 } else {
 	$PDF->OutputD($_SESSION['DatabaseName'] . '_PickingLists_' . date('Y-m-d') . '.pdf');

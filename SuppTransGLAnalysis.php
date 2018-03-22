@@ -1,24 +1,23 @@
 <?php
-
 /*The supplier transaction uses the SuppTrans class to hold the information about the invoice or credit note
 the SuppTrans class contains an array of GRNs objects - containing details of GRNs for invoicing/crediting and also
 an array of GLCodes objects - only used if the AP - GL link is effective */
 
-include('includes/DefineSuppTransClass.php');
+include ('includes/DefineSuppTransClass.php');
 
 /* Session started in header.php for password checking and authorisation level check */
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Supplier Transaction General Ledger Analysis');
 
 $ViewTopic = 'AccountsPayable';
 $BookMark = 'SuppTransGLAnalysis';
-include('includes/header.php');
+include ('includes/header.php');
 
 if (!isset($_SESSION['SuppTrans'])) {
 	prnMsg(_('To enter a supplier invoice or credit note the supplier must first be selected from the supplier selection screen') . ', ' . _('then the link to enter a supplier invoice or supplier credit note must be clicked on'), 'info');
 	echo '<br /><a href="' . $RootPath . '/SelectSupplier.php">' . _('Select A Supplier') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 	/*It all stops here if there aint no supplier selected and transaction initiated ie $_SESSION['SuppTrans'] started off*/
 }
@@ -69,7 +68,7 @@ if (isset($_POST['AddGLCodeToTrans']) and $_POST['AddGLCodeToTrans'] == _('Enter
 		$_SESSION['SuppTrans']->GetTaxes();
 		$TotalTax = 0;
 		foreach ($_SESSION['SuppTrans']->Taxes as $Taxes) {
-			$TotalTax += $_POST['Tax' . $Taxes->TaxCalculationOrder];
+			$TotalTax+= $_POST['Tax' . $Taxes->TaxCalculationOrder];
 			$GLTaxes[$Taxes->TaxCalculationOrder] = $_POST['Tax' . $Taxes->TaxCalculationOrder];
 			$GLTaxNames[$Taxes->TaxCalculationOrder] = $Taxes->TaxAuthDescription;
 		}
@@ -92,7 +91,7 @@ if (isset($_GET['Edit'])) {
 	$_POST['GLCode'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->GLCode;
 	$_POST['AcctSelection'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->GLCode;
 	$_POST['Amount'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Amount;
-//	$_POST['JobRef'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->JobRef;
+	//	$_POST['JobRef'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->JobRef;
 	$_POST['Narrative'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Narrative;
 	$_POST['Tag'] = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Tag;
 	$GLTaxAmounts = $_SESSION['SuppTrans']->GLCodes[$_GET['Edit']]->Tax;
@@ -141,19 +140,19 @@ foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
 		$TagResult = DB_query($TagSQL);
 		$TagRow = DB_fetch_array($TagResult);
 		if ($Tag == 0) {
-			$TagDescription .= '0 - None<br />';
+			$TagDescription.= '0 - None<br />';
 		} else {
-			$TagDescription .= $Tag . ' - ' . $TagRow['tagdescription'] . '<br />';
+			$TagDescription.= $Tag . ' - ' . $TagRow['tagdescription'] . '<br />';
 		}
 	}
 
 	$TaxDescription = '';
-	foreach ($EnteredGLCode->Tax as $ID=>$Tax) {
+	foreach ($EnteredGLCode->Tax as $ID => $Tax) {
 		if (!isset($TotalTaxes[$ID])) {
 			$TotalTaxes[$ID] = 0;
 		}
-		$TaxDescription .= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
-		$TotalTaxes[$ID] += $Tax;
+		$TaxDescription.= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
+		$TotalTaxes[$ID]+= $Tax;
 	}
 
 	echo '<tr>
@@ -163,18 +162,18 @@ foreach ($_SESSION['SuppTrans']->GLCodes as $EnteredGLCode) {
 			<td valign="top" class="number">' . $TaxDescription . '</td>
 			<td valign="top" class="text">' . $EnteredGLCode->Narrative . '</td>
 			<td valign="top" class="text">' . $TagDescription . '</td>
-			<td valign="top"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Edit=' . $EnteredGLCode->Counter . '">' . _('Edit') . '</a></td>
-			<td valign="top"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredGLCode->Counter . '">' . _('Delete') . '</a></td>
+			<td valign="top"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Edit=' . $EnteredGLCode->Counter . '">' . _('Edit') . '</a></td>
+			<td valign="top"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $EnteredGLCode->Counter . '">' . _('Delete') . '</a></td>
 		</tr>';
 
-	$TotalGLValue += $EnteredGLCode->Amount;
+	$TotalGLValue+= $EnteredGLCode->Amount;
 
 }
 echo '</tbody>';
 
 $TotalTaxDescription = '';
-foreach ($TotalTaxes as $ID=>$Tax) {
-	$TotalTaxDescription .= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
+foreach ($TotalTaxes as $ID => $Tax) {
+	$TotalTaxDescription.= $EnteredGLCode->TaxDescriptions[$ID] . ' - ' . locale_number_format($Tax, $_SESSION['SuppTrans']->CurrDecimalPlaces) . '<br />';
 }
 
 echo '<tr>
@@ -198,7 +197,7 @@ if ($_SESSION['SuppTrans']->InvoiceOrCredit == 'Invoice') {
 }
 
 /*Set up a form to allow input of new GL entries */
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<br />
@@ -226,7 +225,7 @@ $SQL = "SELECT chartmaster.accountcode,
 		FROM chartmaster
 		INNER JOIN glaccountusers
 			ON glaccountusers.accountcode=chartmaster.accountcode
-			AND glaccountusers.userid='" .  $_SESSION['UserID'] . "' AND glaccountusers.canupd=1
+			AND glaccountusers.userid='" . $_SESSION['UserID'] . "' AND glaccountusers.canupd=1
 		WHERE language='" . $_SESSION['ChartLanguage'] . "'
 		ORDER BY accountcode";
 $Result = DB_query($SQL);
@@ -299,5 +298,5 @@ echo '<div class="centre">
 	</div>';
 
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,13 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('GLAccount - Users Authority Copy Authority'); // Screen identificator.
-include('includes/header.php');
+include ('includes/header.php');
 echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', // Icon image.
-	_('Copy Authority of GL Accounts from one user to another'), '" /> ', // Icon title.
-	_('Copy Authority of GL Accounts from one user to another'), '</p>'; // Page title.
-
-include('includes/SQL_CommonFunctions.php');
+_('Copy Authority of GL Accounts from one user to another'), '" /> ', // Icon title.
+_('Copy Authority of GL Accounts from one user to another'), '</p>'; // Page title.
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['ProcessCopyAuthority'])) {
 
@@ -42,9 +40,10 @@ if (isset($_POST['ProcessCopyAuthority'])) {
 		$Result = DB_Txn_Commit();
 
 	} //only do the stuff above if  $InputError==0
+	
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -85,5 +84,5 @@ echo '</table>';
 echo '<input type="submit" name="ProcessCopyAuthority" value="' . _('Process Copy of Authority') . '" />
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -119,7 +119,7 @@ if (isset($_POST['ProcessSalesmanChange'])) {
 
 }
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 echo '<fieldset>
 		<legend>', _('Details of the Sales Person code change'), ' </legend>

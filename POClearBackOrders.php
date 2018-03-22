@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Clear purchase orders with quantity on back order');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_POST['ClearSupplierBackOrders'])) {
 	$SQL = "UPDATE purchorderdetails
@@ -14,10 +13,10 @@ if (isset($_POST['ClearSupplierBackOrders'])) {
 						AND supplierno>= '" . $_POST['FromSupplierNo'] . "'
 						AND supplierno <= '" . $_POST['ToSupplierNo'] . "'";
 	$Result = DB_query($SQL);
-	prnMsg( _('All back order quantities have been cleared'), 'success');
+	prnMsg(_('All back order quantities have been cleared'), 'success');
 
 }
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
@@ -44,5 +43,5 @@ echo '<table>
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

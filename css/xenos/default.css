@@ -51,7 +51,7 @@ img {
 	border:none;
 	vertical-align:middle;
 }
-p.page_title_text {
+.page_title_text {
 	padding-top:2px;
 	padding-bottom:2px;
 	font-size:18px;
@@ -59,6 +59,8 @@ p.page_title_text {
 	width:60%;
 	text-align:center;
 	margin:10px auto;
+	border: 1px black solid;
+	border-radius:16px;
 }
 p.good {
     font-weight:bold;
@@ -356,7 +358,7 @@ select.selecterror {
     color:white;
     font-weight:bold;
     padding:11px 24px;
-    background:#686868;
+    background:transparent;
     border-right:thin inset #5D5D5D;
     border-left:thin outset #737373;
 	border-bottom:thin solid #7C7C7C;
@@ -462,8 +464,8 @@ select.selecterror {
 }
 #MainMenuDiv li a:hover{ /* link as button!!! pressed state */
 	text-decoration:none;
-	background:#444444;
-	border-bottom:thin solid #444444;
+	background:transparent;
+	border-bottom:thin solid transparent;
 }
 #MainMenuDiv .main_menu_selected a{ /* the selected button */
 	/*border:thin inset #191919;*/

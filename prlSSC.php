@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Social Security Companies Section');
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/prlFunctions.php');
 
 if (isset($_GET['CompanyID'])) {
 	$CompanyID = $_GET['CompanyID'];
@@ -20,18 +19,16 @@ if (isset($_GET['CompanyID'])) {
 <a href="prlUserSettings.php">Back to User Settings
     </a>
 	<?php
-
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
-
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
+	
 
 	if (strlen(isset($_POST['companyid'])) > 10) {
 		$InputError = 1;
@@ -56,7 +53,6 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The Social Security Company master record for') . ' ' . $CompanyID . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new social security company
-
 			$SQL = "INSERT INTO prlssc (
 					companyid,
 					companyname,
@@ -80,7 +76,6 @@ if (isset($_POST['submit'])) {
 
 			prnMsg(_('A new Social Security Company has been added to the database'), 'success');
 
-
 			unset($CompanyID);
 			unset($_POST['companyname']);
 			unset($_POST['country']);
@@ -97,10 +92,9 @@ if (isset($_POST['submit'])) {
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -111,12 +105,12 @@ if (isset($_POST['submit'])) {
 		unset($CompanyID);
 		unset($_SESSION['CompanyID']);
 	} //end if Delete paypayperiod
+	
 }
-
 
 if (!isset($CompanyID)) {
 
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 
 	echo '<input type="hidden" name="New" value="Yes">';
 
@@ -159,8 +153,6 @@ if (!isset($CompanyID)) {
 		<th>" . _('Employer %') . "</td>
 	</tr>";
 
-
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
@@ -178,18 +170,16 @@ if (!isset($CompanyID)) {
 		echo '<td>' . $MyRow[5] . '</td>';
 		echo '<td>' . $MyRow[6] . '</td>';
 		echo '<td>' . $MyRow[7] . '</td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&CompanyID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . $_SERVER['PHP_SELF'] . '?&CompanyID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&CompanyID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
+		echo '<td><a href="' . basename(__FILE__) . '?&CompanyID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><p>';
 
-
 } else {
 	//Companyid exists - either passed when calling the form or from the form itself
-
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
 
 	//if (!isset($_POST["New"])) {
@@ -242,5 +232,5 @@ if (!isset($CompanyID)) {
 	}
 
 } // end of main ifs
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

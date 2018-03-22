@@ -1,73 +1,68 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Payroll Records Maintenance');
 
-include('includes/header.php');
-include('includes/prlFunctions.php');
+include ('includes/header.php');
+include ('includes/prlFunctions.php');
 
-if (isset($_GET['PayrollID'])){
+if (isset($_GET['PayrollID'])) {
 	$PayrollID = $_GET['PayrollID'];
-} elseif (isset($_POST['PayrollID'])){
+} elseif (isset($_POST['PayrollID'])) {
 	$PayrollID = $_POST['PayrollID'];
 } else {
 	unset($PayrollID);
 }
 
-
 if (isset($_POST['submit'])) {
 	//initialise no input errors assumed initially before we test
 	$InputError = 0;
-		// Checking if Employee ID is set
-       if ($PayrollID=="")
-       {
-           $InputError=1;
-  	       prnMsg(_('Payroll ID must not be empty.') ,'error');
-       }
-	   if ($_POST['PayPeriodID']=="")
-       {
-           $InputError=1;
-		   prnMsg(_('PayPeriod ID must not be empty.') ,'error');
-       }
+	// Checking if Employee ID is set
+	if ($PayrollID == "") {
+		$InputError = 1;
+		prnMsg(_('Payroll ID must not be empty.'), 'error');
+	}
+	if ($_POST['PayPeriodID'] == "") {
+		$InputError = 1;
+		prnMsg(_('PayPeriod ID must not be empty.'), 'error');
+	}
 	if (!is_date($_POST['StartDate'])) {
 		$InputError = 1;
-		prnMsg(_('The field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'],'error');
+		prnMsg(_('The field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
 	}
 	if (!is_date($_POST['EndDate'])) {
 		$InputError = 1;
-		prnMsg(_('The field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'],'error');
+		prnMsg(_('The field must be a date in the format') . ' ' . $_SESSION['DefaultDateFormat'], 'error');
 	}
-	if ($_POST['submit']!=_('Update Payroll Period')) {
-       if (isset($_POST['FSMonth']) and ($_POST['FSMonth']) =="")
-       {
-             echo "<ul><li>FS Month is a Mandatory Field.</li></ul>";
-             $InputError=1;
-       }
+	if ($_POST['submit'] != _('Update Payroll Period')) {
+		if (isset($_POST['FSMonth']) and ($_POST['FSMonth']) == "") {
+			echo "<ul><li>FS Month is a Mandatory Field.</li></ul>";
+			$InputError = 1;
+		}
 	}
 
-	if ($InputError != 1){
+	if ($InputError != 1) {
 
-	    $SQL_StartDate = FormatDateForSQL($_POST['StartDate']);
+		$SQL_StartDate = FormatDateForSQL($_POST['StartDate']);
 		$SQL_EndDate = FormatDateForSQL($_POST['EndDate']);
 
 		if (!isset($_POST["New"])) {
 			$SQL = "UPDATE prlpayrollperiod SET
-					payrolldesc='" . DB_escape_string($_POST['Description']) ."',
-					payperiodid='" . DB_escape_string($_POST['PayPeriodID']) ."',
+					payrolldesc='" . DB_escape_string($_POST['Description']) . "',
+					payperiodid='" . DB_escape_string($_POST['PayPeriodID']) . "',
 					startdate='" . $SQL_StartDate . "',
 					enddate='" . $SQL_EndDate . "',
 					deductsss='" . DB_escape_string($_POST['nssf_number']) . "',
 					deductbasicpay='" . DB_escape_string($_POST['basicpay']) . "',
 					deductgrosspay='" . DB_escape_string($_POST['grosspay']) . "'
 					 WHERE payrollid = '$PayrollID'";
-					$ErrMsg = _('The payroll record could not be updated because');
-					$DbgMsg = _('The SQL that was used to update the payroll failed was');
-					$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-					prnMsg(_('The payroll master record for') . ' ' . $PayrollID . ' ' . _('has been updated'),'success');
+			$ErrMsg = _('The payroll record could not be updated because');
+			$DbgMsg = _('The SQL that was used to update the payroll failed was');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+			prnMsg(_('The payroll master record for') . ' ' . $PayrollID . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new payroll
-				$SQL = "INSERT INTO prlpayrollperiod (
+			$SQL = "INSERT INTO prlpayrollperiod (
 					payrollid,
 					payrolldesc,
 					payperiodid,
@@ -80,12 +75,12 @@ if (isset($_POST['submit'])) {
 					deductgrosspay,
 					payclosed)
 				VALUES ('$PayrollID',
-					'" . DB_escape_string($_POST['Description']) ."',
-					'" . DB_escape_string($_POST['PayPeriodID']) ."',
+					'" . DB_escape_string($_POST['Description']) . "',
+					'" . DB_escape_string($_POST['PayPeriodID']) . "',
 					'" . $SQL_StartDate . "',
 					'" . $SQL_EndDate . "',
-					'" .isset( $_POST['fsMonth']) . "',
-					'" .isset ($_POST['fsYear']) . "',
+					'" . isset($_POST['fsMonth']) . "',
+					'" . isset($_POST['fsYear']) . "',
 					'" . DB_escape_string($_POST['nssf_number']) . "',
 					'" . DB_escape_string($_POST['basicpay']) . "',
 					'" . DB_escape_string($_POST['grosspay']) . "',
@@ -95,9 +90,9 @@ if (isset($_POST['submit'])) {
 			$DbgMsg = _('The SQL that was used to insert the payroll period but failed was');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-			prnMsg(_('A new payroll period for') . ' ' . $_POST['Description'] . ' ' . _('has been added to the database'),'success');
+			prnMsg(_('A new payroll period for') . ' ' . $_POST['Description'] . ' ' . _('has been added to the database'), 'success');
 
-			unset ($PayrollID);
+			unset($PayrollID);
 			unset($_POST['Description']);
 			unset($_POST['PayPeriodID']);
 			unset($SQL_StartDate);
@@ -111,49 +106,46 @@ if (isset($_POST['submit'])) {
 
 	} else {
 
-		prnMsg(_('Validation failed') . _('no updates or deletes took place'),'warn');
+		prnMsg(_('Validation failed') . _('no updates or deletes took place'), 'warn');
 
 	}
 
-} elseif (isset($_POST['delete']) AND $_POST['delete'] != '') {
-//the link to delete a selected record was clicked instead of the submit button
-
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
+	//the link to delete a selected record was clicked instead of the submit button
 	$CancelDelete = 0;
-		$SQL = "SELECT counterindex,payrollid,employeeid,basicpay,absent,late,otpay,fsmonth,fsyear
+	$SQL = "SELECT counterindex,payrollid,employeeid,basicpay,absent,late,otpay,fsmonth,fsyear
 				FROM prlpayrolltrans
 				WHERE prlpayrolltrans.payrollid='" . $PayrollID . "'";
-		$PayDetails = DB_query($SQL);
-		if(DB_num_rows($PayDetails)>0)
-		{
-		  $CancelDelete = 1;
-		  exit("Payroll can not be deleted. Payroll records found...");
-		}
+	$PayDetails = DB_query($SQL);
+	if (DB_num_rows($PayDetails) > 0) {
+		$CancelDelete = 1;
+		exit("Payroll can not be deleted. Payroll records found...");
+	}
 
-// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
-
+	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
 	if ($CancelDelete == 0) {
-		$SQL="DELETE FROM prlpayrollperiod WHERE payrollid='$PayrollID'";
+		$SQL = "DELETE FROM prlpayrollperiod WHERE payrollid='$PayrollID'";
 		$Result = DB_query($SQL);
-		prnMsg(_('Payroll record for') . ' ' . $Description . ' ' . _('has been deleted'),'success');
+		prnMsg(_('Payroll record for') . ' ' . $Description . ' ' . _('has been deleted'), 'success');
 		unset($PayrollID);
 		unset($_SESSION['PayrollID']);
 	} //end if Delete payroll
+	
 } //end of (isset($_POST['submit']))
-
 if (!isset($PayrollID)) {
-/*If the page was called without $PayrollID passed to page then assume a new payroll is to be entered*/
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	/*If the page was called without $PayrollID passed to page then assume a new payroll is to be entered*/
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<input type="hidden" name="New" value="Yes">';
 	echo '<table>';
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('Payroll ID') . ":</td><td><input type='text' name='PayrollID'  SIZE=11 MAXLENGTH=10></td>";
-	     //'<td><align=right><b>Accept Alpha Numeric Character</b></td>'</tr>";
+	//'<td><align=right><b>Accept Alpha Numeric Character</b></td>'</tr>";
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('Description') . ":</td><td><input type='Text' name='Description' SIZE=42 MAXLENGTH=40></td></tr>";
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('Pay Period') . ":</td><td><select name='PayPeriodID'>";
 	DB_data_seek($Result, 0);
 	$SQL = 'SELECT payperiodid, payperioddesc FROM prlpayperiod';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		if (isset($_POST['PayPeriodID']) and $_POST['PayPeriodID'] == $MyRow['payperiodid']){
+		if (isset($_POST['PayPeriodID']) and $_POST['PayPeriodID'] == $MyRow['payperiodid']) {
 			echo '<option selected="selected" value=' . $MyRow['payperiodid'] . '>' . $MyRow['payperioddesc'];
 		} else {
 			echo '<option value=' . $MyRow['payperiodid'] . '>' . $MyRow['payperioddesc'];
@@ -186,25 +178,23 @@ if (!isset($PayrollID)) {
               <select name="FSYear">
               <option value="" Selected>Year</option>
               <?php
+	for ($yy = 2006;$yy <= 2015;$yy++) {
+		echo "<option value=$yy>$yy</option>\n";
 
-                    for ($yy=2006;$yy<=2015;$yy++)
-                    {
-                        echo "<option value=$yy>$yy</option>\n";
-
-                    }
-              ?>
+	}
+?>
               </select>
               </td>
           </tr>
 	<?php
-    echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct NSSF') . ":</td><td><select name='nssf_number'>";
+	echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct NSSF') . ":</td><td><select name='nssf_number'>";
 	echo '<option value=0>' . _('Yes');
 	echo '<option value=1>' . _('No');
 	echo '</select></td></tr>';
-    echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct Gross Pay') . ":</td><td><select name='grosspay'>";
+	echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct Gross Pay') . ":</td><td><select name='grosspay'>";
 	echo '<option value=0>' . _('Yes');
 	echo '<option value=1>' . _('No');
-    echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct Basic Pay') . ":</td><td><select name='basicpay'>";
+	echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct Basic Pay') . ":</td><td><select name='basicpay'>";
 	echo '<option value=0>' . _('Yes');
 	echo '<option value=1>' . _('No');
 	echo '</select></td></tr>';
@@ -212,10 +202,10 @@ if (!isset($PayrollID)) {
 	echo '</form>';
 
 } else {
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
+	echo '<form method="post" action="' . basename(__FILE__) . '">';
 	echo '<table>';
-		if (!isset($_POST["New"])) {
-				$SQL = "SELECT payrollid,
+	if (!isset($_POST["New"])) {
+		$SQL = "SELECT payrollid,
 					payrolldesc,
 					payperiodid,
 					startdate,
@@ -226,22 +216,22 @@ if (!isset($PayrollID)) {
 					payclosed
 			FROM prlpayrollperiod
 			WHERE payrollid = '$PayrollID'";
-			$Result = DB_query($SQL);
-			$MyRow = DB_fetch_array($Result);
+		$Result = DB_query($SQL);
+		$MyRow = DB_fetch_array($Result);
 		$_POST['Description'] = $MyRow['payrolldesc'];
 		$_POST['PayPeriodID'] = $MyRow['payperiodid'];
-		$_POST['StartDate']  = ConvertSQLDate($MyRow['startdate']);
-		$_POST['EndDate']  = ConvertSQLDate($MyRow['enddate']);
-		$_POST['SSS']  = $MyRow['deductsss'];
-		$_POST['HDMF']  = $MyRow['deducthdmf'];
-		$_POST['grosspay']  = $MyRow['deductgrosspay'];
-		$_POST['Status']  = $MyRow['payclosed'];
+		$_POST['StartDate'] = ConvertSQLDate($MyRow['startdate']);
+		$_POST['EndDate'] = ConvertSQLDate($MyRow['enddate']);
+		$_POST['SSS'] = $MyRow['deductsss'];
+		$_POST['HDMF'] = $MyRow['deducthdmf'];
+		$_POST['grosspay'] = $MyRow['deductgrosspay'];
+		$_POST['Status'] = $MyRow['payclosed'];
 		echo '<input type="hidden" name="PayrollID" value="' . $PayrollID . '">';
-		} else {
+	} else {
 		// its a new employee  being added
 		echo '<input type="hidden" name="New" value="Yes">';
 		echo '<tr><td><div align="right"><b>' . _('Payroll ID') . ":</td><td><input type='text' name='PayrollID' value='$PayrollID' SIZE=12 MAXLENGTH=10></td></tr>";
-		}
+	}
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('Description') . ":</td><td><input type='Text' name='Description' value='" . $_POST['Description'] . "' SIZE=42 MAXLENGTH=40></td></tr>";
 	echo '</select></td></tr>';
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('Pay Period') . ":</td><td><select name='PayPeriodID'>";
@@ -249,7 +239,7 @@ if (!isset($PayrollID)) {
 	$SQL = 'SELECT payperiodid, payperioddesc FROM prlpayperiod';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($MyRow['payperiodid'] == $_POST['PayPeriodID']){
+		if ($MyRow['payperiodid'] == $_POST['PayPeriodID']) {
 			echo '<option selected="selected" value=';
 		} else {
 			echo '<option value=';
@@ -259,7 +249,7 @@ if (!isset($PayrollID)) {
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('Start Date') . ":</td><td><input type='Text' name='StartDate' value='" . $_POST['StartDate'] . "' SIZE=22 MAXLENGTH=20></td></tr>";
 	echo '<tr><td width=200 height=20><div align="right"><b>' . _('End Date') . ":</td><td><input type='Text' name='EndDate' value='" . $_POST['EndDate'] . "' SIZE=22 MAXLENGTH=20></td></tr>";
 	echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct NSSF') . ":</td><td><select name='SSS'>";
-	if ($_POST['SSS'] == 0){
+	if ($_POST['SSS'] == 0) {
 		echo '<option selected="selected" value=0>' . _('Yes');
 		echo '<option value=1>' . _('No');
 	} else {
@@ -267,16 +257,16 @@ if (!isset($PayrollID)) {
 		echo '<option selected="selected" value=1>' . _('No');
 	}
 
-    echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct HDMF') . ":</td><td><select name='HDMF'>";
-	if ($_POST['HDMF'] == 0){
+	echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct HDMF') . ":</td><td><select name='HDMF'>";
+	if ($_POST['HDMF'] == 0) {
 		echo '<option selected="selected" value=0>' . _('Yes');
 		echo '<option value=1>' . _('No');
 	} else {
 		echo '<option value=0>' . _('Yes');
 		echo '<option selected="selected" value=1>' . _('No');
 	}
-    echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct PhilHealt') . ":</td><td><select name='grosspay'>";
-	if ($_POST['grosspay'] == 0){
+	echo '</select></td></tr><tr><td width=200 height=20><div align="right"><b>' . _('Deduct PhilHealt') . ":</td><td><select name='grosspay'>";
+	if ($_POST['grosspay'] == 0) {
 		echo '<option selected="selected" value=0>' . _('Yes');
 		echo '<option value=1>' . _('No');
 	} else {
@@ -294,5 +284,5 @@ if (!isset($PayrollID)) {
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

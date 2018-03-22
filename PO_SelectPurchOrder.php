@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Purchase Orders');
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedStockItem'])) {
 	$SelectedStockItem = stripslashes($_GET['SelectedStockItem']);
@@ -34,7 +33,7 @@ if (isset($SelectedStockItem)) {
 } //isset($SelectedStockItem)
 echo '</p>';
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 if (isset($_POST['ResetPart'])) {
 	unset($SelectedStockItem);
@@ -55,7 +54,7 @@ if (isset($_POST['SearchParts'])) {
 	if ($_POST['Keywords'] and $_POST['StockCode']) {
 		prnMsg(_('Stock description keywords have been used in preference to the Stock code extract entered'), 'info');
 	}
-		//insert wildcard characters in spaces
+	//insert wildcard characters in spaces
 	$SearchString = '%' . str_replace(' ', '%', $_POST['Keywords']) . '%';
 
 	$SQL = "SELECT stockmaster.stockid,
@@ -84,7 +83,7 @@ if (isset($_POST['SearchParts'])) {
 /* Not appropriate really to restrict search by date since user may miss older
  * ouststanding orders
  * $OrdersAfterDate = Date("d/m/Y",Mktime(0,0,0,Date("m")-2,Date("d"),Date("Y")));
- */
+*/
 if (!isset($OrderNumber) or $OrderNumber == "") {
 	echo '<table><tr><td>';
 	echo _('Order Number') . ': <input type="text" class="integer" name="OrderNumber" autofocus="autofocus" maxlength="8" size="9" /> ' . _('Into Stock Location') . ':<select name="StockLocation"> ';
@@ -93,7 +92,7 @@ if (!isset($OrderNumber) or $OrderNumber == "") {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$ResultStkLocs = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($ResultStkLocs)) {
@@ -196,7 +195,7 @@ if (isset($StockItemsResult)) {
 					<th>' . _('Units') . '</th>
 				</tr>
 			</thead>';
-	$k = 0; //row colour counter
+
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		echo '<tr class="striped_row">
@@ -305,7 +304,7 @@ if (isset($StockItemsResult)) {
 						<th>' . _('Status') . '</th>
 					</tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PurchOrdersResult)) {
 			$ViewPurchOrder = $RootPath . '/PO_OrderDetails.php?OrderNo=' . $MyRow['orderno'];
@@ -325,13 +324,14 @@ if (isset($StockItemsResult)) {
 					<td>' . _($MyRow['status']) . '</td>
 					</tr>';
 			//$MyRow['status'] is a string which has gettext translations from PO_Header.php script
-
+			
 		}
 		//end of while loop
 		echo '</tbody>';
 		echo '</table>';
 	} // end if purchase orders to show
+	
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

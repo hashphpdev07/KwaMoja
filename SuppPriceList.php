@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['SelectedSupplier'])) {
 	$_POST['supplierid'] = $_GET['SelectedSupplier'];
@@ -8,7 +7,7 @@ if (isset($_GET['SelectedSupplier'])) {
 
 if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 
 	$FontSize = 9;
 	$PDF->addInfo('Title', _('Supplier Price List'));
@@ -42,7 +41,6 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 	} else {
 		$Categoryname = 'ALL';
 	}
-
 
 	//get date price
 	if ($_POST['price'] == 'all') {
@@ -134,23 +132,23 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
 	if (DB_error_no() != 0) {
 		$Title = _('Price List') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The Price List could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br />
 				<a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	if (DB_num_rows($Result) == 0) {
 
 		$Title = _('Supplier Price List') . '-' . _('Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There are no result so the PDF is empty'));
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -160,7 +158,7 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 		$FontSize = 8;
 		$code = '';
 		while ($MyRow = DB_fetch_array($Result)) {
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 
 			$PriceDated = ConvertSQLDate($MyRow[4]);
 
@@ -181,26 +179,22 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 				$PDF->addTextWrap(470, $YPos, 90, $FontSize, $MyRow['suppliers_partno'], 'left');
 			}
 
-
 			if ($YPos < $Bottom_Margin + $line_height) {
 
 				PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
 			}
 
-
 		}
 		/*end while loop  */
-
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices);
 		}
 
-
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_SupplierPriceList_' . Date('Y-m-d') . '.pdf');
 	} else {
 		$Title = _('View supplier price');
-		include('includes/header.php');
+		include ('includes/header.php');
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
 		echo '<p class="page_title_text">', _('Supplier Price List for'), ' : ', $CurrentOrAllPrices, '<br/>', _('Supplier'), ' : ', $SupplierName, ' <br/>', _('Category'), ' : ', $Categoryname, '</p>';
 
@@ -226,18 +220,18 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 
 		}
 		echo '</table>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 	}
 
 } else {
 	/*The option to print PDF was not hit so display form */
 
 	$Title = _('Supplier Price List');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Purchase') . '" alt="" />' . ' ' . _('Supplier Price List') . '</p>';
 	echo '<div class="page_help_text">' . _('View the Price List from supplier') . '</div><br />';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	$SQL = "SELECT supplierid,suppname FROM `suppliers`";
@@ -281,7 +275,6 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 			</td>
 		</tr>';
 
-
 	echo '</table>
 			<br/>
 			<div class="centre">
@@ -290,15 +283,12 @@ if (isset($_POST['PrintPDF']) or isset($_POST['View'])) {
 			</div>';
 
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 }
 /*end of else not PrintPDF */
 
-
-
 function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $SupplierName, $Categoryname, $CurrCode, $CurrentOrAllPrices) {
-
 
 	/*PDF page header for Supplier price list */
 	if ($PageNumber > 1) {
@@ -307,26 +297,26 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$line_height = 12;
 	$FontSize = 9;
 	$YPos = $Page_Height - $Top_Margin;
-	$YPos -= (3 * $line_height);
+	$YPos-= (3 * $line_height);
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize + 2, $_SESSION['CompanyRecord']['coyname']);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Supplier Price List for') . ' ' . $CurrentOrAllPrices);
 
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Supplier') . '   ');
 	$PDF->addTextWrap(95, $YPos, 150, $FontSize, ': ' . $SupplierName);
 
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Category') . ' ');
 
 	$PDF->addTextWrap(95, $YPos, 150, $FontSize, ': ' . $Categoryname);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 	$PDF->addTextWrap($Left_Margin, $YPos, 50, $FontSize, _('Currency') . '  ');
 	$PDF->addTextWrap(95, $YPos, 50, $FontSize, ': ' . $CurrCode);
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 	/*set up the headings */
 
 	$PDF->addTextWrap(30, $YPos, 80, $FontSize, _('Code'), 'left');
@@ -339,4 +329,5 @@ function PrintHeader(&$PDF, &$YPos, &$PageNumber, $Page_Height, $Top_Margin, $Le
 	$FontSize = 8;
 	$PageNumber++;
 } // End of PrintHeader() function
+
 ?>

@@ -13,8 +13,8 @@ include ('includes/Add_SerialItemsOut.php');
 
 global $tableheader;
 /* Link to clear the list and start from scratch */
-$EditLink = '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?EditControlled=true&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Edit') . '</a> | ';
-$RemoveLink = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?DELETEALL=YES&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Remove All') . '</a><br /></div>';
+$EditLink = '<br /><div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?EditControlled=true&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Edit') . '</a> | ';
+$RemoveLink = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?DELETEALL=YES&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Remove All') . '</a><br /></div>';
 $SQL = "SELECT perishable
 		FROM stockmaster
 		WHERE stockid='" . $StockId . "'";
@@ -84,7 +84,7 @@ foreach ($LineItem->SerialItems as $Bundle) {
 		echo '<td class="number">' . $Bundle->ExpiryDate . '</td>';
 	}
 
-	echo '<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=' . $Bundle->BundleRef . '&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Delete') . '</a></td></tr>';
+	echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=' . $Bundle->BundleRef . '&StockID=' . $LineItem->StockID . '&LineNo=' . $LineNo . '">' . _('Delete') . '</a></td></tr>';
 
 	$TotalQuantity+= $Bundle->BundleQty;
 }
@@ -110,7 +110,7 @@ $TransferQuantity = $TotalQuantity;
 echo '<table>';
 echo $tableheader;
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" name="Ga6uF5Wa" method="post" class="noPrint">
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" name="Ga6uF5Wa" method="post" class="noPrint">
 	  <input type="hidden" name="LineNo" value="' . $LineNo . '" />
 	  <input type="hidden" name="StockID" value="' . $StockId . '" />
 	  <input type="hidden" name="EntryType" value="KEYED" />';

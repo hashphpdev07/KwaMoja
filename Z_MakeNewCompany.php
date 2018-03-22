@@ -1,7 +1,6 @@
 <?php
-
-include('includes/session.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 /* Was the Cancel button pressed the last time through ? */
 
@@ -13,29 +12,28 @@ if (isset($_POST['EnterCompanyDetails'])) {
 
 $Title = _('Make New Company Database Utility');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 /* Your webserver user MUST have read/write access to here,
-otherwise you'll be wasting your time */
+ otherwise you'll be wasting your time */
 if (!is_writeable('./companies/')) {
 	prnMsg(_('The web-server does not appear to be able to write to the companies directory to create the required directories for the new company and to upload the logo to. The system administrator will need to modify the permissions on your installation before a new company can be created'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
-
 if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 
-	if (mb_strlen($_POST['NewCompany']) > 32 OR ContainsIllegalCharacters($_POST['NewCompany'])) {
+	if (mb_strlen($_POST['NewCompany']) > 32 or ContainsIllegalCharacters($_POST['NewCompany'])) {
 		prnMsg(_('Company abbreviations must not contain spaces,') . ' \& ' . _('or') . ' " ' . _('or') . ' \'', 'error');
 	} else {
 
 		$_POST['NewCompany'] = strtolower($_POST['NewCompany']);
-		echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+		echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 		echo '<div class="centre">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		/* check for directory existence */
-		if (!file_exists('./companies/' . $_POST['NewCompany']) AND (isset($_FILES['LogoFile']) AND $_FILES['LogoFile']['name'] != '')) {
+		if (!file_exists('./companies/' . $_POST['NewCompany']) and (isset($_FILES['LogoFile']) and $_FILES['LogoFile']['name'] != '')) {
 
 			$Result = $_FILES['LogoFile']['error'];
 			$UploadTheLogo = 'Yes'; //Assume all is well to start off with
@@ -60,7 +58,7 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 				}
 			}
 
-			if ($_POST['CreateDB'] == TRUE) {
+			if ($_POST['CreateDB'] == true) {
 				/* Need to read in the sql script and process the queries to initate a new DB */
 
 				$Result = DB_query('CREATE DATABASE ' . $_POST['NewCompany']);
@@ -71,13 +69,13 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 				$SQL = '';
 				$InAFunction = false;
 
-				for ($i = 0; $i <= $ScriptFileEntries; $i++) {
+				for ($i = 0;$i <= $ScriptFileEntries;$i++) {
 
 					$SQLScriptFile[$i] = trim($SQLScriptFile[$i]);
 
-					if (mb_substr($SQLScriptFile[$i], 0, 2) != '--' AND mb_substr($SQLScriptFile[$i], 0, 3) != 'USE' AND mb_strstr($SQLScriptFile[$i], '/*') == FALSE AND mb_strlen($SQLScriptFile[$i]) > 1) {
+					if (mb_substr($SQLScriptFile[$i], 0, 2) != '--' and mb_substr($SQLScriptFile[$i], 0, 3) != 'USE' and mb_strstr($SQLScriptFile[$i], '/*') == false and mb_strlen($SQLScriptFile[$i]) > 1) {
 
-						$SQL .= ' ' . $SQLScriptFile[$i];
+						$SQL.= ' ' . $SQLScriptFile[$i];
 
 						//check if this line kicks off a function definition - pg chokes otherwise
 						if (mb_substr($SQLScriptFile[$i], 0, 15) == 'CREATE FUNCTION') {
@@ -94,9 +92,10 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 						}
 
 					} //end if its a valid sql line not a comment
+					
 				} //end of for loop around the lines of the sql script
+				
 			} //end if CreateDB was checked
-
 			prnMsg(_('Attempting to create the new company directories') . '.....<br />', 'info');
 			$Result = mkdir('./companies/' . $_POST['NewCompany']);
 			$Result = mkdir('./companies/' . $_POST['NewCompany'] . '/part_pics');
@@ -135,7 +134,7 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 
 			echo '</div>';
 			echo '</form>';
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -159,7 +158,7 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 		$Result = DB_query($SQL);
 
 		$ForceConfigReload = true;
-		include('includes/GetConfig.php');
+		include ('includes/GetConfig.php');
 
 		prnMsg(_('The new company database has been created for') . ' ' . $_POST['NewCompany'] . '. ' . _('The company details and parameters should now be set up for the new company. NB: Only a single user admin is defined with the password') . $DefaultDatabase . _(' in the new company database. A new system administrator user should be defined for the new company and this account deleted immediately.'), 'info');
 
@@ -169,7 +168,7 @@ if (isset($_POST['submit']) and isset($_POST['NewCompany'])) {
 
 		echo '</div>';
 		echo '</form>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 }
@@ -178,7 +177,7 @@ echo '<div class="centre">';
 echo '<br />';
 prnMsg(_('This utility will create a new company') . '<br /><br />' . _('If the company name already exists then you cannot recreate it'), 'info', _('PLEASE NOTE'));
 echo '<br /></div>';
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" enctype="multipart/form-data">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" enctype="multipart/form-data">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 echo '<table>
@@ -198,5 +197,5 @@ echo '<table>
 echo '<input type="submit" name="submit" value="' . _('Proceed') . '" />';
 echo '</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

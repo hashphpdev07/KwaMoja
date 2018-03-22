@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Update of Prices By A Multiple Of Cost');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . _('Update Price By Cost') . '</p>';
 
@@ -60,7 +59,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 			 * 1. If the price at the same start and end date already exists then do nowt!!
 			 * 2. If not then check if a price with the start date of today already exists - then we should be updating it
 			 * 3. If not either of the above then insert the new price
-			 */
+			*/
 			$SQLTestExists = "SELECT price FROM prices
 								WHERE stockid = '" . $_POST['StockID_' . $PriceCounter] . "'
 								AND prices.typeabbrev ='" . $_POST['SalesType'] . "'
@@ -73,7 +72,6 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 			$TestExistsResult = DB_query($SQLTestExists);
 			if (DB_num_rows($TestExistsResult) == 0) { //the price doesn't currently exist
 				//now check to see if a new price has already been created from start date of today
-
 				$SQLTestExists = "SELECT price FROM prices
 									WHERE stockid = '" . $_POST['StockID_' . $PriceCounter] . "'
 									AND prices.typeabbrev ='" . $_POST['SalesType'] . "'
@@ -129,6 +127,7 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 		DB_free_result($Result); //clear the old result
 		$Result = DB_query($SQL); //re-run the query with the updated prices
 		$numrow = DB_num_rows($Result); // get the new number - should be the same!!
+		
 	}
 
 	$SQLcat = "SELECT categorydescription
@@ -168,8 +167,8 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 						<th>' . _('List Price') . '</th>
 					<tr>
 				</thead>';
-		$k = 0; //row colour counter
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post" id="update">';
+
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="update">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" value="' . $_POST['StockCat'] . '" name="StockCat" />
 			<input type="hidden" value="' . $_POST['Margin'] . '" name="Margin" />
@@ -227,19 +226,19 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 						<input type="submit" name="submit" value="' . _('Update') . '" onclick="return MakeConfirm(\'' . _('If the prices above do not have a commencement date as today, this will create new prices with commencement date of today at the entered figures and update the existing prices with historical start dates to have an end date of yesterday. Are You Sure?') . '\');" />
 					</td>
 					<td style="text-align:left" colspan="3">
-						<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '"><input type="submit" value="' . _('Back') . '" /></a>
+						<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '"><input type="submit" value="' . _('Back') . '" /></a>
 					</td>
 				</tr>
 			</table>
 		</form>';
 	} else {
 		prnMsg(_('There were no prices meeting the criteria specified to review'), 'info');
-		echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '<a/></div>';
+		echo '<br /><div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Back') . '<a/></div>';
 	}
 } else {
 	/*The option to submit was not hit so display form */
 	echo '<div class="page_help_text">' . _('Prices can be displayed based on their relation to cost') . '</div><br />';
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 
@@ -303,5 +302,5 @@ if (isset($_POST['submit']) or isset($_POST['update'])) {
 	echo '</form>';
 }
 /*end of else not submit */
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

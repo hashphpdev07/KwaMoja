@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
-$Title = _('Bank Matching');// Screen identificator.
-$ViewTopic = 'GeneralLedger';// Filename's id in ManualContents.php's TOC.
-$BookMark = 'BankMatching';// Filename's id in ManualContents.php's TOC.
-include('includes/header.php');
+include ('includes/session.php');
+$Title = _('Bank Matching'); // Screen identificator.
+$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
+$BookMark = 'BankMatching'; // Filename's id in ManualContents.php's TOC.
+include ('includes/header.php');
 
 if ((isset($_GET['Type']) and $_GET['Type'] == 'Receipts') or (isset($_POST['Type']) and $_POST['Type'] == 'Receipts')) {
 
@@ -25,7 +24,7 @@ if ((isset($_GET['Type']) and $_GET['Type'] == 'Receipts') or (isset($_POST['Typ
 } else {
 
 	prnMsg(_('This page must be called with a bank transaction type') . '. ' . _('It should not be called directly'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -37,7 +36,7 @@ if (isset($_GET['Account'])) {
 }
 
 if (isset($_POST['Update']) and $_POST['RowCounter'] > 1) {
-	for ($Counter = 1; $Counter <= $_POST['RowCounter']; $Counter++) {
+	for ($Counter = 1;$Counter <= $_POST['RowCounter'];$Counter++) {
 		if (isset($_POST['Clear_' . $Counter]) and $_POST['Clear_' . $Counter] == True) {
 			/*Get amount to be cleared */
 			$SQL = "SELECT amount,
@@ -78,7 +77,7 @@ if (isset($_POST['Update']) and $_POST['RowCounter'] > 1) {
 
 echo '<div class="page_help_text">', _('Use this screen to match Receipts and Payments to your Bank Statement.  Check your bank statement and click the check-box when you find the matching transaction.'), '</div>';
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<input type="hidden" name="Type" value="', $Type, '" />';
@@ -322,5 +321,5 @@ if ($InputError != 1 and isset($_POST['BankAccount']) and $_POST['BankAccount'] 
 		</div>';
 }
 echo '</form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

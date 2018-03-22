@@ -1,17 +1,15 @@
 <?php
-
 /* $Id$ */
 
 include ('includes/session.php');
-$Title = _('UTILITY PAGE Change A Stock Category');// Screen identificator.
+$Title = _('UTILITY PAGE Change A Stock Category'); // Screen identificator.
 $ViewTopic = 'SpecialUtilities'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'Z_ChangeStockCategory'; // Anchor's id in the manual's html document
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Change A Stock Category Code') . '" /> ' . _('Change A Stock Category Code') . '
-	</p>';// Page title.
-
+	</p>'; // Page title.
 include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['ProcessStockChange'])) {
@@ -108,7 +106,7 @@ if (isset($_POST['ProcessStockChange'])) {
 	echo '<p>' . _('Stock Category') . ': ' . $_POST['OldStockCategory'] . ' ' . _('was successfully changed to') . ' : ' . $_POST['NewStockCategory'];
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'],ENT_QUOTES,'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>
 		<tr>

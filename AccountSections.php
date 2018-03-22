@@ -156,13 +156,13 @@ if (!isset($_GET['SelectedSectionID']) and !isset($_POST['SelectedSectionID'])) 
 			</thead>';
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr class="striped_row">
 				<td class="number">', $MyRow['sectionid'], '</td>
 				<td>', $MyRow['sectionname'], '</td>
-				<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '">', _('Edit'), '</a></td>
-				<td class="noPrint"><a href="', $_SERVER['PHP_SELF'], '?SelectedSectionID=', urlencode($MyRow['sectionid']), '&delete=1', '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account section?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td class="noPrint"><a href="', basename(__FILE__), '?SelectedSectionID=', urlencode($MyRow['sectionid']), '">', _('Edit'), '</a></td>
+				<td class="noPrint"><a href="', basename(__FILE__), '?SelectedSectionID=', urlencode($MyRow['sectionid']), '&delete=1', '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this account section?') . '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 	} //END WHILE LIST LOOP
 	echo '</tbody>';
@@ -179,7 +179,7 @@ if (isset($_POST['SelectedSectionID']) or isset($_GET['SelectedSectionID'])) {
 if (!isset($_GET['delete'])) {
 	include ('includes/LanguagesArray.php');
 
-	echo '<form method="post" class="noPrint" id="AccountSections" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" class="noPrint" id="AccountSections" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($_GET['SelectedSectionID'])) {

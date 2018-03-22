@@ -1,8 +1,7 @@
 <?php
-
-include('includes/DefineTenderClass.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/session.php');
+include ('includes/DefineTenderClass.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
 
 if (empty($_GET['identifier'])) {
 	/*unique session identifier to ensure that there is no conflict with other supplier tender sessions on the same machine  */
@@ -17,19 +16,19 @@ if (isset($_GET['New']) and isset($_SESSION['tender' . $Identifier])) {
 
 if (isset($_GET['New']) and $_SESSION['CanCreateTender'] == 0) {
 	$Title = _('Authorisation Problem');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . $Title . '" alt="" />  ' . $Title . '</p>';
 	prnMsg(_('You do not have authority to create supplier tenders for this company.') . '<br />' . _('Please see your system administrator'), 'warn');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 if (isset($_GET['Edit']) and $_SESSION['CanCreateTender'] == 0) {
 	$Title = _('Authorisation Problem');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . $Title . '" alt="" />  ' . $Title . '</p>';
 	prnMsg(_('You do not have authority to amend supplier tenders for this company.') . '<br />' . _('Please see your system administrator'), 'warn');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -56,7 +55,7 @@ if (isset($_GET['ID'])) {
 				FROM tenders
 				INNER JOIN locationusers
 					ON locationusers.loccode=tenders.location
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE tenderid='" . $_GET['ID'] . "'";
 	$Result = DB_query($SQL);
@@ -107,7 +106,7 @@ if (isset($_GET['ID'])) {
 
 if (isset($_GET['Edit'])) {
 	$Title = _('Edit an Existing Supplier Tender Request');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order Tendering') . '" alt="" />  ' . $Title . '</p>';
 	$SQL = "SELECT tenderid,
 					location,
@@ -121,7 +120,7 @@ if (isset($_GET['Edit'])) {
 				FROM tenders
 				INNER JOIN locationusers
 					ON locationusers.loccode=tenders.location
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canupd=1
 				WHERE closed=0
 					AND requiredbydate >= CURRENT_DATE";
@@ -153,20 +152,20 @@ if (isset($_GET['Edit'])) {
 				<td>' . $MyRow['address5'] . '</td>
 				<td>' . $MyRow['address6'] . '</td>
 				<td>' . $MyRow['telephone'] . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;ID=' . $MyRow['tenderid'] . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;ID=' . $MyRow['tenderid'] . '">' . _('Edit') . '</a></td>
 			</tr>';
 	}
 	echo '</tbody>';
 	echo '</table>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else if (isset($_GET['ID']) or (isset($_SESSION['tender' . $Identifier]->TenderId))) {
 	$Title = _('Edit an Existing Supplier Tender Request');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order Tendering') . '" alt="" />' . $Title . '</p>';
 } else {
 	$Title = _('Create a New Supplier Tender Request');
-	include('includes/header.php');
+	include ('includes/header.php');
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Purchase Order Tendering') . '" alt="" />' . $Title . '</p>';
 }
 
@@ -175,7 +174,7 @@ if (isset($_POST['Save'])) {
 	$_SESSION['tender' . $Identifier]->save();
 	$_SESSION['tender' . $Identifier]->EmailSuppliers();
 	prnMsg(_('The tender has been successfully saved'), 'success');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -233,7 +232,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	if (!isset($_SESSION['tender' . $Identifier]->RequiredByDate)) {
 		$_SESSION['tender' . $Identifier]->RequiredByDate = FormatDateForSQL(date($_SESSION['DefaultDateFormat']));
 	}
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 	echo '<tr>
@@ -261,7 +260,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 					FROM locations
 					INNER JOIN locationusers
 						ON locationusers.loccode=.locations.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canupd=1
 					WHERE locations.loccode='" . $_POST['StkLocation'] . "'";
 
@@ -292,7 +291,6 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 			prnMsg(_('The default stock location set up for this user is not a currently defined stock location') . '. ' . _('Your system administrator needs to amend your user record'), 'error');
 		}
 
-
 	} elseif (isset($_POST['LookupDeliveryAddress'])) {
 
 		$SQL = "SELECT deladd1,
@@ -306,7 +304,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 					FROM locations
 					INNER JOIN locationusers
 						ON locationusers.loccode=.locations.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canupd=1
 					WHERE locations.loccode='" . $_POST['StkLocation'] . "'";
 
@@ -342,7 +340,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 					FROM locations
 					INNER JOIN locationusers
 						ON locationusers.loccode=.locations.loccode
-						AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+						AND locationusers.userid='" . $_SESSION['UserID'] . "'
 						AND locationusers.canupd=1";
 
 	$LocnResult = DB_query($SQL);
@@ -360,7 +358,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 		</tr>';
 
 	/* Display the details of the delivery location
-	 */
+	*/
 	echo '<tr>
 			<td>' . _('Delivery Contact') . ':</td>
 			<td><input type="text" name="Contact" size="41"  value="' . $_SESSION['tender' . $Identifier]->Contact . '" /></td>
@@ -396,11 +394,11 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 	echo '</table>';
 
 	/* Display the supplier/item details
-	 */
+	*/
 	echo '<table>';
 
 	/* Supplier Details
-	 */
+	*/
 	echo '<tr>
 			<td valign="top">
 			<table>';
@@ -417,12 +415,12 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 				<td>' . stripslashes($Supplier->SupplierCode) . '</td>
 				<td>' . $Supplier->SupplierName . '</td>
 				<td>' . $Supplier->EmailAddress . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteSupplier=' . $Supplier->SupplierCode . '">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteSupplier=' . $Supplier->SupplierCode . '">' . _('Delete') . '</a></td>
 			</tr>';
 	}
 	echo '</table></td>';
 	/* Item Details
-	 */
+	*/
 	echo '<td valign="top"><table>';
 	echo '<tr>
 			<th colspan="6"><h3>' . _('Items in Tender') . '</h3></th>
@@ -441,7 +439,7 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 					<td>' . $LineItems->ItemDescription . '</td>
 					<td class="number">' . locale_number_format($LineItems->Quantity, $LineItems->DecimalPlaces) . '</td>
 					<td>' . $LineItems->Units . '</td>
-					<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteItem=' . $LineItems->LineNo . '">' . _('Delete') . '</a></td>
+					<td><a href="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '&amp;DeleteItem=' . $LineItems->LineNo . '">' . _('Delete') . '</a></td>
 				</tr>';
 		}
 	}
@@ -461,12 +459,12 @@ if (!isset($_SESSION['tender' . $Identifier]) or isset($_POST['LookupDeliveryAdd
 			</div>';
 	}
 	echo '</form>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
 if (isset($_POST['Suppliers'])) {
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
 		<table cellpadding="3">
@@ -489,7 +487,7 @@ if (isset($_POST['Suppliers'])) {
 }
 
 if (isset($_POST['SearchSupplier']) or isset($_POST['Go']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . urlencode($Identifier), ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . urlencode($Identifier), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	if (!isset($_POST['PageOffset'])) {
 		$_POST['PageOffset'] = 0;
@@ -523,7 +521,6 @@ if (isset($_POST['SearchSupplier']) or isset($_POST['Go']) or isset($_POST['Next
 
 	$Result = DB_query($SQL);
 } //end of if search
-
 if (isset($_POST['SearchSupplier'])) {
 	$ListCount = DB_num_rows($Result);
 	if ($ListCount == $_SESSION['DisplayRecordsMax']) {
@@ -577,6 +574,7 @@ if (isset($_POST['SearchSupplier'])) {
 			</tr>';
 		$RowIndex = $RowIndex + 1;
 		//end of page full new headings if
+		
 	}
 	//end of while loop
 	echo '</tbody>';
@@ -585,9 +583,9 @@ if (isset($_POST['SearchSupplier'])) {
 }
 
 /*The supplier has chosen option 2
- */
+*/
 if (isset($_POST['Items'])) {
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Inventory Items') . '</p>';
 	$SQL = "SELECT categoryid,
@@ -648,7 +646,7 @@ if (isset($_POST['Items'])) {
 
 if (isset($_POST['Search'])) {
 	/*ie seach for stock items */
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'] . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__) . '?identifier=' . $Identifier, ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Tenders') . '" alt="" />' . ' ' . _('Select items required on this tender') . '</p>';
 
@@ -699,7 +697,7 @@ if (isset($_POST['Search'])) {
 				</thead>';
 
 		$i = 0;
-		$k = 0; //row colour counter
+
 		$PartsDisplayed = 0;
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($SearchResult)) {
@@ -709,11 +707,11 @@ if (isset($_POST['Search'])) {
 			$ImageFile = reset($ImageFileArray);
 			if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 				$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
-			} else if (file_exists ($ImageFile)) {
+			} else if (file_exists($ImageFile)) {
 				$ImageSource = '<img src="' . $ImageFile . '" height="64" width="64" />';
- 			} else {
+			} else {
 				$ImageSource = _('No Image');
- 			}
+			}
 
 			echo '<tr class="striped_row">
 					<td>' . $MyRow['stockid'] . '</td>
@@ -727,6 +725,7 @@ if (isset($_POST['Search'])) {
 
 			++$i;
 			#end of page full new headings if
+			
 		}
 		#end of while loop
 		echo '</tbody>';
@@ -737,11 +736,9 @@ if (isset($_POST['Search'])) {
 				<input type="submit" name="NewItem" value="' . _('Add to Tender') . '" />
 			</div>';
 	} #end if SearchResults to show
-
 	echo '</form>';
 
 } //end of if search
-
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

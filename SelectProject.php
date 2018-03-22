@@ -1,16 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Select Project');
 $ViewTopic = 'Projects';
 $BookMark = 'SelectProject';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<div class="toplink">
 		<a href="' . $RootPath . '/Projects.php">' . _('Create a New Project') . '</a>
 	</div>';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Projects') . '" alt="" />' . ' ' . _('Select A Project') . '</p> ';
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($_GET['ProjectRef'])) {
@@ -19,7 +18,6 @@ if (isset($_GET['ProjectRef'])) {
 if (isset($_GET['SelectedDonor'])) {
 	$_POST['SelectedDonor'] = $_GET['SelectedDonor'];
 }
-
 
 if (isset($_POST['ProjectRef']) and $_POST['ProjectRef'] != '') {
 	$_POST['ProjectRef'] = trim($_POST['ProjectRef']);
@@ -51,7 +49,7 @@ if (!isset($_POST['ProjectRef']) or $_POST['ProjectRef'] == '') {
 
 	$StatusCount = count($Statuses);
 
-	for ($i = 0; $i < $StatusCount; $i++) {
+	for ($i = 0;$i < $StatusCount;$i++) {
 		if ($i == $_POST['Status']) {
 			echo '<option selected="selected" value="' . $i . '">' . $Statuses[$i] . '</option>';
 		} else {
@@ -64,7 +62,6 @@ if (!isset($_POST['ProjectRef']) or $_POST['ProjectRef'] == '') {
 echo '<input type="submit" name="SearchProjects" value="' . _('Search') . '" />';
 
 //figure out the SQL required from the inputs available
-
 if (isset($_POST['ProjectRef']) and $_POST['ProjectRef'] != '') {
 	$SQL = "SELECT projectref,
 				   projectdescription,
@@ -80,7 +77,7 @@ if (isset($_POST['ProjectRef']) and $_POST['ProjectRef'] != '') {
 					ON projects.donorno = donors.donorno
 				INNER JOIN locationusers
 					ON locationusers.loccode=projects.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE projectref " . LIKE . " '%" . $_POST['ProjectRef'] . "%'";
 
@@ -101,11 +98,11 @@ if (isset($_POST['ProjectRef']) and $_POST['ProjectRef'] != '') {
 					ON projects.donorno = donors.donorno
 				INNER JOIN locationusers
 					ON locationusers.loccode=projects.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE donorno='" . $_POST['SelectedDonor'] . "'";
 		if ($_POST['Status'] != 4) {
-			$SQL .= " AND status='" . $_POST['Status'] . "'";
+			$SQL.= " AND status='" . $_POST['Status'] . "'";
 		}
 	} else { //no customer selected
 		$SQL = "SELECT projectref,
@@ -122,14 +119,13 @@ if (isset($_POST['ProjectRef']) and $_POST['ProjectRef'] != '') {
 					ON projects.donorno = donors.donorno
 				INNER JOIN locationusers
 					ON locationusers.loccode=projects.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 		if ($_POST['Status'] != 4) {
-			$SQL .= " AND status='" . $_POST['Status'] . "'";
+			$SQL.= " AND status='" . $_POST['Status'] . "'";
 		}
 	}
 } //end not project ref selected
-
 $ErrMsg = _('No projects were returned by the SQL because');
 $ProjectsResult = DB_query($SQL, $ErrMsg);
 
@@ -149,7 +145,6 @@ echo '<table cellpadding="2" width="98%">
 			</tr>
 		</thead>';
 
-$k = 0; //row colour counter
 echo '<tbody>';
 while ($MyRow = DB_fetch_array($ProjectsResult)) {
 
@@ -187,9 +182,8 @@ while ($MyRow = DB_fetch_array($ProjectsResult)) {
 
 }
 //end of while loop
-
 echo '</tbody>
 	</table>
 </form>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

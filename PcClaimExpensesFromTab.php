@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Claim Petty Cash Expenses From Tab');
 
 if (isset($_GET['download'])) {
@@ -22,8 +21,7 @@ if (isset($_GET['download'])) {
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'ExpenseClaim';
-include('includes/header.php');
-
+include ('includes/header.php');
 
 if (isset($_POST['SelectedTabs'])) {
 	$SelectedTabs = $_POST['SelectedTabs'];
@@ -56,7 +54,6 @@ if (isset($_POST['Cancel'])) {
 	unset($_POST['Receipt']);
 }
 
-
 if (isset($_POST['Process'])) {
 
 	if ($_POST['SelectedTabs'] == '') {
@@ -77,10 +74,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if ($_POST['SelectedExpense'] == '') {
 		$InputError = 1;
 		prnMsg(_('You have not selected an expense to claim on this tab'), 'error');
@@ -129,14 +125,13 @@ if (isset($_POST['submit'])) {
 													taxontax='" . $_POST['TaxOnTax' . $Index] . "',
 													taxrate='" . $_POST['TaxRate' . $Index] . "',
 													amount='" . $_POST['TaxAmount' . $Index] . "'
-												WHERE counterindex='" . $Index ."'";
+												WHERE counterindex='" . $Index . "'";
 				$Result = DB_query($SQL);
 			}
 		}
 		if (isset($_FILES['Receipt']) and $_FILES['Receipt']['name'] != '') {
 
 			$UploadTheFile = 'Yes'; //Assume all is well to start off with
-
 			//But check for the worst
 			if ($_FILES['Receipt']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
 				prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
@@ -144,9 +139,9 @@ if (isset($_POST['submit'])) {
 			} elseif ($_FILES['Receipt']['type'] != 'image/jpeg' and $_FILES['Receipt']['type'] != 'image/png') { //File Type Check
 				prnMsg(_('Only jpg or png files can be uploaded'), 'warn');
 				$UploadTheFile = 'No';
-			} elseif ($_FILES['Receipt']['error'] == 6 ) {  //upload temp directory check
-				prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
-				$UploadTheFile ='No';
+			} elseif ($_FILES['Receipt']['error'] == 6) { //upload temp directory check
+				prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+				$UploadTheFile = 'No';
 			}
 
 			if ($UploadTheFile == 'Yes') {
@@ -173,7 +168,6 @@ if (isset($_POST['submit'])) {
 
 		// First check the type is not being duplicated
 		// Add new record on submit
-
 		$SQL = "INSERT INTO pcashdetails (counterindex,
 										tabcode,
 										date,
@@ -235,7 +229,6 @@ if (isset($_POST['submit'])) {
 		if (isset($_FILES['Receipt']) and $_FILES['Receipt']['name'] != '') {
 
 			$UploadTheFile = 'Yes'; //Assume all is well to start off with
-
 			if ($_FILES['Receipt']['error'] !== 0) {
 			}
 
@@ -246,9 +239,9 @@ if (isset($_POST['submit'])) {
 			} elseif ($_FILES['Receipt']['type'] != 'image/jpeg' and $_FILES['Receipt']['type'] != 'image/png') { //File Type Check
 				prnMsg(_('Only jpg or png files can be uploaded'), 'warn');
 				$UploadTheFile = 'No';
-			} elseif ($_FILES['Receipt']['error'] == 6 ) {  //upload temp directory check
-				prnMsg( _('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
-				$UploadTheFile ='No';
+			} elseif ($_FILES['Receipt']['error'] == 6) { //upload temp directory check
+				prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+				$UploadTheFile = 'No';
 			}
 
 			if ($UploadTheFile == 'Yes') {
@@ -301,7 +294,6 @@ if (isset($_POST['submit'])) {
 	unset($_GET['delete']);
 
 } //end of get delete
-
 if (!isset($SelectedTabs)) {
 
 	/* It could still be the first time the page has been run and a record has been selected for modification - SelectedTabs will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
@@ -312,7 +304,7 @@ if (!isset($SelectedTabs)) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 	echo '<table>
 			<tr>
@@ -332,12 +324,10 @@ if (!isset($SelectedTabs)) {
 			echo '<option value="', $MyRow['tabcode'], '">', $MyRow['tabcode'], '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="Process" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -345,9 +335,8 @@ if (!isset($SelectedTabs)) {
 	echo '</form>';
 
 } else { // isset($SelectedTabs)
-
 	echo '<div class="toplink">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Select another tab'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select another tab'), '</a>
 		</div>';
 
 	echo '<p class="page_title_text">
@@ -368,7 +357,7 @@ if (!isset($SelectedTabs)) {
 		$MyRow = DB_fetch_array($Result);
 		$CurrDecimalPlaces = $MyRow['decimalplaces'];
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<table>
 				<tr>
@@ -420,8 +409,6 @@ if (!isset($SelectedTabs)) {
 				<th>', _('Receipt'), '</th>
 			</tr>';
 
-		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			$SQLTags = "SELECT pctags.tag,
@@ -433,7 +420,7 @@ if (!isset($SelectedTabs)) {
 			$TagsResult = DB_query($SQLTags);
 			$TagString = '';
 			while ($TagRow = DB_fetch_array($TagsResult)) {
-				$TagString .= $TagRow['tag'] . ' - ' . $TagRow['tagdescription'] . '<br />';
+				$TagString.= $TagRow['tag'] . ' - ' . $TagRow['tagdescription'] . '<br />';
 			}
 
 			$SQLDes = "SELECT description
@@ -459,7 +446,7 @@ if (!isset($SelectedTabs)) {
 
 			if (DB_num_rows($ReceiptResult) > 0) {
 				$ReceiptRow = DB_fetch_array($ReceiptResult);
-				$ReceiptText = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($ReceiptRow['name']) . '">' . _('View receipt') . '</a>';
+				$ReceiptText = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?download=yes&receipt=' . urlencode($MyRow['counterindex']) . '&name=' . urlencode($ReceiptRow['name']) . '">' . _('View receipt') . '</a>';
 			} else {
 				$ReceiptText = _('No receipt');
 			}
@@ -479,8 +466,8 @@ if (!isset($SelectedTabs)) {
 							WHERE pccashdetail='" . $MyRow['counterindex'] . "'";
 			$TaxResult = DB_query($TaxSQL);
 			while ($MyTaxRow = DB_fetch_array($TaxResult)) {
-				$TaxesDescription .= $MyTaxRow['description'] . '<br />';
-				$TaxesTaxAmount .= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
+				$TaxesDescription.= $MyTaxRow['description'] . '<br />';
+				$TaxesTaxAmount.= locale_number_format($MyTaxRow['amount'], $CurrDecimalPlaces) . '<br />';
 			}
 
 			if (($MyRow['authorized'] == '0000-00-00') and ($Description['0'] != 'ASSIGNCASH')) {
@@ -495,8 +482,8 @@ if (!isset($SelectedTabs)) {
 						<td>', $TagString, '</td>
 						<td>', $MyRow['notes'], '</td>
 						<td>', $ReceiptText, '</td>
-						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;edit=yes">' . _('Edit') . '</a></td>
-						<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+						<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;edit=yes">' . _('Edit') . '</a></td>
+						<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedIndex=', $MyRow['counterindex'], '&amp;SelectedTabs=' . $SelectedTabs . '&amp;Days=' . $Days . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this code and the expenses it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 					</tr>';
 			} else {
 				echo '<tr class="striped_row">
@@ -514,7 +501,6 @@ if (!isset($SelectedTabs)) {
 
 		}
 		//END WHILE LIST LOOP
-
 		$SQLAmount = "SELECT sum(amount)
 					FROM pcashdetails
 					WHERE tabcode='" . $SelectedTabs . "'";
@@ -531,14 +517,13 @@ if (!isset($SelectedTabs)) {
 				<td class="number">', locale_number_format($Amount['0'], $CurrDecimalPlaces), '</td>
 			</tr>';
 
-
 		echo '</table>';
 		echo '</form>';
 	}
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
+		echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" enctype="multipart/form-data">';
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 		if (isset($_GET['edit'])) {
@@ -559,7 +544,7 @@ if (!isset($SelectedTabs)) {
 
 			$_POST['Date'] = ConvertSQLDate($MyRow['date']);
 			$_POST['SelectedExpense'] = $MyRow['codeexpense'];
-			$_POST['Amount'] = -$MyRow['amount'];
+			$_POST['Amount'] = - $MyRow['amount'];
 			$_POST['Notes'] = $MyRow['notes'];
 			$_POST['Receipt'] = $MyRow['receipt'];
 
@@ -576,7 +561,6 @@ if (!isset($SelectedTabs)) {
 			echo '<input type="hidden" name="Days" value="', $Days, '" />';
 
 		} //end of Get Edit
-
 		if (!isset($_POST['Date'])) {
 			$_POST['Date'] = Date($_SESSION['DefaultDateFormat']);
 		}
@@ -624,7 +608,6 @@ if (!isset($SelectedTabs)) {
 			$DefaultTag = $MyRow['defaulttag'];
 
 		} //end while loop
-
 		echo '</select>
 				</td>
 			</tr>';
@@ -653,7 +636,6 @@ if (!isset($SelectedTabs)) {
 				</td>
 			</tr>';
 		// 	End select tag
-
 		if (!isset($_POST['Amount'])) {
 			$_POST['Amount'] = 0;
 		}
@@ -749,7 +731,6 @@ if (!isset($SelectedTabs)) {
 				<td><input type="file" name="Receipt" id="Receipt" /></td>
 			</tr>';
 		echo '</table>'; // close main table
-
 		echo '<input type="hidden" name="SelectedTabs" value="', $SelectedTabs, '" />';
 		echo '<input type="hidden" name="Days" value="', $Days, '" />';
 
@@ -760,8 +741,8 @@ if (!isset($SelectedTabs)) {
 		echo '</form>';
 
 	} // end if user wish to delete
-
+	
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

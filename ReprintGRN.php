@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Reprint a GRN');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -10,7 +9,7 @@ if (!isset($_POST['PONumber'])) {
 	$_POST['PONumber'] = '';
 }
 
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<table>
 		<tr>
@@ -30,7 +29,7 @@ if (isset($_POST['Show'])) {
 	if ($_POST['PONumber'] == '') {
 		echo '<br />';
 		prnMsg(_('You must enter a purchase order number in the box above'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	$SQL = "SELECT count(orderno)
@@ -41,7 +40,7 @@ if (isset($_POST['Show'])) {
 	if ($MyRow[0] == 0) {
 		echo '<br />';
 		prnMsg(_('This purchase order does not exist on the system. Please try again.'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	$SQL = "SELECT grnbatch,
@@ -64,14 +63,14 @@ if (isset($_POST['Show'])) {
 				ON grns.itemcode=stockmaster.stockid
 			INNER JOIN locationusers
 				ON locationusers.loccode=purchorders.intostocklocation
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canview=1
-			WHERE purchorderdetails.orderno='" . $_POST['PONumber'] ."'";
+			WHERE purchorderdetails.orderno='" . $_POST['PONumber'] . "'";
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) == 0) {
 		echo '<br />';
 		prnMsg(_('There are no GRNs for this purchase order that can be reprinted.'), 'warn');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	$k = 0;
@@ -99,12 +98,12 @@ if (isset($_POST['Show'])) {
 				<td>' . $MyRow['deliverydate'] . '</td>
 				<td class="number">' . locale_number_format($MyRow['qtyrecd'], $MyRow['decimalplaces']) . '</td>
 				<td><a href="PDFGrn.php?GRNNo=' . urlencode($MyRow['grnbatch']) . '&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint GRN ') . '</a></td>
-				<td><a href="PDFQALabel.php?GRNNo=' . urlencode($MyRow['grnbatch']) .'&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint QA Label') . '</a></td>
+				<td><a href="PDFQALabel.php?GRNNo=' . urlencode($MyRow['grnbatch']) . '&PONo=' . urlencode($_POST['PONumber']) . '">' . _('Reprint QA Label') . '</a></td>
 			</tr>';
 	}
 	echo '</table>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

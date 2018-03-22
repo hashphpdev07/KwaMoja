@@ -1,10 +1,10 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('View Overtime');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['Counter'])) {
 	$Counter = $_GET['Counter'];
@@ -16,7 +16,6 @@ if (isset($_GET['Counter'])) {
 
 if (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -27,6 +26,7 @@ if (isset($_GET['delete'])) {
 		unset($Counter);
 		unset($_SESSION['Counter']);
 	} //end if Delete paypayperiod
+	
 }
 
 if (!isset($Counter)) {
@@ -34,7 +34,7 @@ if (!isset($Counter)) {
 	then none of the above are true and the list of ChartMaster will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '>';
+	echo '<form method="post" action="' . basename(__FILE__) . '>';
 	echo '<input type="hidden" name="New" value="Yes">';
 	$SQL = "SELECT counterindex,
 					payrollid,
@@ -63,8 +63,6 @@ if (!isset($Counter)) {
 			<th>' . _('Amount ') . '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		echo '<tr class="striped_row">
@@ -77,17 +75,16 @@ if (!isset($Counter)) {
 				<td>' . $MyRow[6] . '</td>
 				<td>' . $MyRow[7] . '</td>
 				<td>' . $MyRow[8] . '</td>
-				<td><a href="' . $_SERVER['PHP_SELF'] . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>
+				<td><a href="' . basename(__FILE__) . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
-
 	//END WHILE LIST LOOP
+	
 } //END IF selected="selected" ACCOUNT
 
 
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

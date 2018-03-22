@@ -1,12 +1,11 @@
 <?php
-
-include('includes/DefineSerialItems.php');
-include('includes/SQL_CommonFunctions.php');
-include('includes/session.php');
+include ('includes/DefineSerialItems.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/session.php');
 
 $Title = _('Reverse Goods Received');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if ((isset($_SESSION['SupplierID']) and $_SESSION['SupplierID'] != '') or (!isset($_POST['SupplierID']) or $_POST['SupplierID']) == '') {
 
@@ -66,14 +65,13 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	if ($QtyToReverse == 0) {
 		echo '<br />
 				<br />' . _('The GRN') . ' ' . $_GET['GRNNo'] . ' ' . _('has already been reversed or fully invoiced by the supplier - it cannot be reversed - stock quantities must be corrected by stock adjustments - the stock is paid for');
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
 	/*If the item is a stock item then need to check for Controlled or not ...
 	if its controlled then need to check existence of the controlled items
 	that came in with this GRN */
-
 
 	$SQL = "SELECT stockmaster.controlled
 			FROM stockmaster WHERE stockid ='" . $GRN['itemcode'] . "'";
@@ -104,9 +102,9 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 			$GetQOH = DB_fetch_row($GetQOHResult);
 			if ($GetQOH[0] < $SerialStockMoves['moveqty']) {
 				/*Then some of the original goods received must have been sold
-				or transfered so cannot reverse the GRN */
+				 or transfered so cannot reverse the GRN */
 				prnMsg(_('Unfortunately, of the original number') . ' (' . $SerialStockMoves['moveqty'] . ') ' . _('that were received on serial number') . ' ' . $SerialStockMoves['serialno'] . ' ' . _('only') . ' ' . $GetQOH[0] . ' ' . _('remain') . '. ' . _('The GRN can only be reversed if all the original serial number items are still in stock in the location they were received into'), 'error');
-				include('includes/footer.php');
+				include ('includes/footer.php');
 				exit;
 			}
 		}
@@ -133,7 +131,6 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	$DbgMsg = _('The following SQL to update the purchase order detail record was used');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-
 	/*Now the purchorder header status in case it was completed  - now incomplete - just printed */
 	$SQL = "UPDATE purchorders
 			SET status = 'Printed',
@@ -143,7 +140,6 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The purchase order statusand status comment could not be changed because');
 	$DbgMsg = _('The following SQL to update the purchase order header record was used');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-
 
 	/*Need to update or delete the existing GRN item */
 	if ($QtyToReverse == $GRN['qtyrecd']) { //then ok to delete the whole thing
@@ -192,7 +188,6 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 	} //end of if it is an asset
-
 	$SQL = "SELECT stockmaster.controlled
 			FROM stockmaster
 			WHERE stockmaster.stockid = '" . $GRN['itemcode'] . "'";
@@ -294,7 +289,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 
 		/*GLCode is set to 0 when the GLLink is not activated
 		this covers a situation where the GLLink is now active  but it wasn't when this PO was entered
-
+		
 		First the credit using the GLCode in the PO detail record entry*/
 
 		$SQL = "INSERT INTO gltrans (type,
@@ -340,16 +335,15 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 	}
 	/* end of if GL and stock integrated*/
 
-
 	$Result = DB_Txn_Commit();
 
 	echo '<br />' . _('GRN number') . ' ' . $_GET['GRNNo'] . ' ' . _('for') . ' ' . $QtyToReverse . ' x ' . $GRN['itemcode'] . ' - ' . $GRN['itemdescription'] . ' ' . _('has been reversed') . '<br />';
 	unset($_GET['GRNNo']); // to ensure it cant be done again!!
-	echo '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Select another GRN to Reverse') . '</a>';
+	echo '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Select another GRN to Reverse') . '</a>';
 	/*end of Process Goods Received Reversal entry */
 
 } else {
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (!isset($_POST['RecdAfterDate']) or !is_date($_POST['RecdAfterDate'])) {
@@ -399,7 +393,6 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 		if (DB_num_rows($Result) == 0) {
 			prnMsg(_('There are no outstanding goods received yet to be invoiced for') . ' ' . $_POST['SuppName'] . '.<br />' . _('To reverse a GRN that has been invoiced first it must be credited'), 'warn');
 		} else { //there are GRNs to show
-
 			echo '<table cellpadding="2">
 					<tr>
 						<th>' . _('GRN') . ' #</th>
@@ -421,7 +414,7 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 				$DisplayQtyInv = locale_number_format($MyRow['quantityinv'], 'Variable');
 				$DisplayQtyRev = locale_number_format($MyRow['qtytoreverse'], 'Variable');
 				$DisplayDateDel = ConvertSQLDate($MyRow['deliverydate']);
-				$LinkToRevGRN = '<a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?GRNNo=' . $MyRow['grnno'] . '">' . _('Reverse') . '</a>';
+				$LinkToRevGRN = '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?GRNNo=' . $MyRow['grnno'] . '">' . _('Reverse') . '</a>';
 
 				printf('<tr class="striped_row">
 							<td>%s</td>
@@ -443,5 +436,5 @@ if (isset($_GET['GRNNo']) and isset($_POST['SupplierID'])) {
 		}
 	}
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

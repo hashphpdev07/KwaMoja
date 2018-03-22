@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Maintenance Of Petty Cash Tabs');
 /* Manual links before header.php */
 $ViewTopic = 'PettyCash';
 $BookMark = 'PCTabSetup';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Entry'), '" alt="" />', ' ', $Title, '
@@ -37,10 +36,9 @@ if (isset($_POST['Submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if ($_POST['TabCode'] == '' or $_POST['TabCode'] == ' ' or $_POST['TabCode'] == '  ') {
 		$InputError = 1;
 		prnMsg('<br />' . _('The Tab code cannot be an empty string or spaces'), 'error');
@@ -89,7 +87,6 @@ if (isset($_POST['Submit'])) {
 	} elseif ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$CheckSQL = "SELECT count(*)
 					 FROM pctabs
 					 WHERE tabcode = '" . $_POST['TabCode'] . "'";
@@ -103,7 +100,6 @@ if (isset($_POST['Submit'])) {
 		} else {
 
 			// Add new record on submit
-
 			$SQL = "INSERT INTO pctabs	(tabcode,
 							 			 usercode,
 										 typetabcode,
@@ -216,8 +212,6 @@ if (!isset($SelectedTab)) {
 					<th>', _('Tax Group'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
-
 		while ($MyRow = DB_fetch_array($Result)) {
 			$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['defaulttag'] . "'";
 			$TagResult = DB_query($TagSQL);
@@ -236,25 +230,26 @@ if (!isset($SelectedTab)) {
 					<td>', $MyRow['glaccountpcash'] . ' - ' . $MyRow['glactpcashname'], '</td>
 					<td>', $TagRow['tagdescription'], '</td>
 					<td>', $MyRow['taxgroupdescription'], '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedTab=', $MyRow['tabcode'], '">' . _('Edit') . '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedTab=', $MyRow['tabcode'], '&amp;delete=yes" onclick=\' return MakeConfirm("' . _('Are you sure you wish to delete this tab code?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTab=', $MyRow['tabcode'], '">' . _('Edit') . '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTab=', $MyRow['tabcode'], '&amp;delete=yes" onclick=\' return MakeConfirm("' . _('Are you sure you wish to delete this tab code?') . '", \'Confirm Delete\', this);\'>' . _('Delete') . '</a></td>
 				</tr>';
 		}
 		//END WHILE LIST LOOP
 		echo '</table>';
 	} //if there are tabs to show
+	
 }
 
 //end of ifs and buts!
 if (isset($SelectedTab)) {
 
 	echo '<div class="centre">
-			<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Show All Tabs Defined'), '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Tabs Defined'), '</a>
 		</div>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedTab) and $SelectedTab != '') {
@@ -289,7 +284,6 @@ if (!isset($_GET['delete'])) {
 		$_POST['GLAccountPcashTab'] = $MyRow['glaccountpcash'];
 		$_POST['DefaultTag'] = $MyRow['defaulttag'];
 		$_POST['TaxGroup'] = $MyRow['taxgroupid'];
-
 
 		echo '<input type="hidden" name="SelectedTab" value="', $SelectedTab, '" />';
 		echo '<input type="hidden" name="TabCode" value="', $_POST['TabCode'], '" />';
@@ -329,7 +323,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['userid'], '">', $MyRow['userid'], ' - ', $MyRow['realname'], '</option>';
 		}
 	} //end while loop get user
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -352,7 +345,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['typetabcode'], '">', $MyRow['typetabcode'], ' - ', $MyRow['typetabdescription'], '</option>';
 		}
 	} //end while loop get type of tab
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -372,7 +364,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['currabrev'], '">', $MyRow['currency'], '</option>';
 		}
 	} //end while loop get type of tab
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -406,7 +397,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['userid'], '">', $MyRow['userid'], ' - ', $MyRow['realname'], '</option>';
 		}
 	} //end while loop get assigner
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -429,7 +419,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['userid'], '">', $MyRow['userid'], ' - ', $MyRow['realname'], '</option>';
 		}
 	} //end while loop get authoriser
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -452,7 +441,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['userid'], '">', $MyRow['userid'], ' - ', $MyRow['realname'], '</option>';
 		}
 	} //end while loop get authoriser
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -478,7 +466,6 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
@@ -502,13 +489,11 @@ if (!isset($_GET['delete'])) {
 			echo '<option value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 		}
 	} //end while loop
-
 	echo '</select>
 			</td>
 		</tr>';
 
 	//Select the tag
-
 	$SQL = "SELECT tagref,
 					tagdescription
 			FROM tags
@@ -529,7 +514,6 @@ if (!isset($_GET['delete'])) {
 			</td>
 		</tr>';
 	// End select tag
-
 	$SQL = "SELECT taxgroupid,
 					taxgroupdescription
 			FROM taxgroups
@@ -551,7 +535,6 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 	// End select tag
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="Submit" value="', _('Accept'), '" />
 			<input type="submit" name="Cancel" value="', _('Cancel'), '" />
@@ -560,6 +543,5 @@ if (!isset($_GET['delete'])) {
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

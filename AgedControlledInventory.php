@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $PricesSecurity = 1000; //don't show pricing info unless security token 1000 available to user
-$Today =  time();
-$Title = _('Aged Controlled Inventory') . ' ' . _('as of') . ' ' . Date(($_SESSION['DefaultDateFormat']), $Today );
-include('includes/header.php');
+$Today = time();
+$Title = _('Aged Controlled Inventory') . ' ' . _('as of') . ' ' . Date(($_SESSION['DefaultDateFormat']), $Today);
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" />', $Title, '
@@ -40,7 +39,7 @@ $NumRows = DB_num_rows($LocStockResult);
 
 $TotalQty = 0;
 $TotalVal = 0;
-$k = 0; //row colour counter
+
 echo '<table>
 		<thead>
 			<tr>
@@ -58,11 +57,11 @@ echo '<tbody>';
 while ($LocQtyRow = DB_fetch_array($LocStockResult)) {
 
 	$DaysOld = floor(($Today - strtotime($LocQtyRow['createdate'])) / (60 * 60 * 24));
-	$TotalQty += $LocQtyRow['quantity'];
+	$TotalQty+= $LocQtyRow['quantity'];
 	$DispVal = '-----------';
 	if (in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens']) or !isset($PricesSecurity)) {
 		$DispVal = locale_number_format(($LocQtyRow['quantity'] * $LocQtyRow['cost']), $LocQtyRow['decimalplaces']);
-		$TotalVal += ($LocQtyRow['quantity'] * $LocQtyRow['cost']);
+		$TotalVal+= ($LocQtyRow['quantity'] * $LocQtyRow['cost']);
 	}
 	echo '<tr class="striped_row">
 			<td>', mb_strtoupper($LocQtyRow['stockid']), '</td>
@@ -73,7 +72,6 @@ while ($LocQtyRow = DB_fetch_array($LocStockResult)) {
 			<td>', ConvertSQLDate($LocQtyRow['createdate']), '</td>
 			<td class="number">', $DaysOld, '</td>
 		</tr>';
-
 
 } //while
 echo '</tbody>';
@@ -87,5 +85,5 @@ echo '<tfoot>
 	</tfoot>';
 echo '</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

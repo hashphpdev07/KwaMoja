@@ -1,5 +1,4 @@
 <?php
-
 /* Input Serial Items - used for inputing serial numbers or batch/roll/bundle
  * referencesfor controlled items - used in:
  * - ConfirmDispatchControlledInvoice.php
@@ -7,12 +6,12 @@
  * - StockAdjustments.php
  * - StockTransfers.php
  * - CreditItemsControlled.php
- */
+*/
 
 /* If the User has selected Keyed Entry, show them this special select list...
  * it is just in the way if they are doing file imports it also would not
  * be applicable in a PO and possible other situations...
- */
+*/
 
 if ($_POST['EntryType'] == 'KEYED') {
 	/*Also a multi select box for adding bundles to the dispatch without keying */
@@ -55,7 +54,7 @@ if ($_POST['EntryType'] == 'KEYED') {
 
 		echo '<td valign="top"><b>' . _('Select Existing Items') . '</b><br />';
 
-		echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
+		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" class="noPrint">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<input type="hidden" name="LineNo" value="' . $LineNo . '">
 			<input type="hidden" name="StockID" value="' . $StockId . '">
@@ -84,10 +83,10 @@ if ($_POST['EntryType'] == 'KEYED') {
 					if (isset($AllSerials[$MyRow['serialno']])) {
 						$RecvQty = $MyRow['quantity'] - $InOutModifier * $AllSerials[$MyRow['serialno']];
 					} else {
-							$RecvQty = $MyRow['quantity'];
+						$RecvQty = $MyRow['quantity'];
 					}
 					echo '<option value="' . $MyRow['serialno'] . '/|/' . $RecvQty . '">' . $MyRow['serialno'] . ' - ' . _('Qty left') . ': ' . $RecvQty . '</option>';
-					$ItemsAvailable += $RecvQty;
+					$ItemsAvailable+= $RecvQty;
 				}
 			}
 		}

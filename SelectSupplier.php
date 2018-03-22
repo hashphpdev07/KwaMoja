@@ -1,16 +1,15 @@
 <?php
-
 /* Selects a supplier. A supplier is required to be selected before any AP transactions and before any maintenance or inquiry of the supplier */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Search Suppliers');
 
 /* Manual links before header.php */
 $ViewTopic = 'AccountsPayable';
 $BookMark = 'SelectSupplier';
 
-include('includes/header.php');
-include('includes/SQL_CommonFunctions.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 if (!isset($_SESSION['SupplierID'])) {
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Suppliers') . '</p>';
 }
@@ -202,17 +201,11 @@ if (isset($_SESSION['SupplierID'])) {
 	echo '<table width="90%" cellpadding="4">
 			<tr>
 				<th style="width:33%">
-					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Supplier Inquiries'), '" />',
-					_('Supplier Inquiries'),
-				'</th>
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Supplier Inquiries'), '" />', _('Supplier Inquiries'), '</th>
 				<th style="width:33%">
-					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Supplier Transactions'), '" />',
-					_('Supplier Transactions'),
-				'</th>
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Supplier Transactions'), '" />', _('Supplier Transactions'), '</th>
 				<th style="width:33%">
-					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Supplier Maintenance'), '" />',
-					_('Supplier Maintenance'),
-				'</th>
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Supplier Maintenance'), '" />', _('Supplier Maintenance'), '</th>
 			</tr>';
 	echo '<tr>
 			<td valign="top" class="select">';
@@ -247,7 +240,7 @@ if (isset($_SESSION['SupplierID'])) {
 		</table>';
 
 }
-echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Search for Suppliers') . '</p>
 	<table cellpadding="3">
@@ -340,6 +333,7 @@ if (isset($_POST['Search'])) {
 				</tr>';
 			$RowIndex = $RowIndex + 1;
 			//end of page full new headings if
+			
 		}
 		//end of while loop
 		echo '</tbody>';
@@ -386,7 +380,7 @@ if (isset($_SESSION['SupplierID']) and $_SESSION['SupplierID'] != '') {
 						</tr>
 						<tr>
 							<td class="centre">', // Mapping:
-								'<div class="centre" id="map" style="width: ', $MapWidth, 'px; height: ', $MapHeight, 'px"></div>
+			'<div class="centre" id="map" style="width: ', $MapWidth, 'px; height: ', $MapHeight, 'px"></div>
 							</td>
 						</tr>
 					<tbody>
@@ -395,5 +389,5 @@ if (isset($_SESSION['SupplierID']) and $_SESSION['SupplierID'] != '') {
 	}
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

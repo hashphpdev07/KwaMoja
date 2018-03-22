@@ -1,16 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Sales People Maintenance');
 $ViewTopic = 'SalesPeople';
 $BookMark = 'SalesPeople';
 if (isset($_GET['SelectedSalesPerson'])) {
 	$BookMark = 'SalespeopleEdit';
-}// For Edit's screen.
+} // For Edit's screen.
 if (isset($_GET['delete'])) {
 	$BookMark = 'SalespeopleDelete';
-}// For Delete's ERROR Message Report.
-include('includes/header.php');
+} // For Delete's ERROR Message Report.
+include ('includes/header.php');
 
 if (isset($_GET['SelectedSalesPerson'])) {
 	$SelectedSalesPerson = mb_strtoupper($_GET['SelectedSalesPerson']);
@@ -26,11 +25,10 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 	$i = 1;
 
 	//first off validate inputs sensible
-
 	if (mb_strlen(stripslashes($_POST['SalesmanCode'])) > 3) {
 		$InputError = 1;
 		prnMsg(_('The salesperson code must be three characters or less long'), 'error');
@@ -51,7 +49,7 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 		prnMsg(_('The salesperson telephone number must be twenty characters or less long'), 'error');
 
-	} elseif (!is_numeric(filter_number_format($_POST['CommissionRate1'])) OR !is_numeric(filter_number_format($_POST['CommissionRate2']))) {
+	} elseif (!is_numeric(filter_number_format($_POST['CommissionRate1'])) or !is_numeric(filter_number_format($_POST['CommissionRate2']))) {
 		$InputError = 1;
 		prnMsg(_('The commission rates must be a floating point number'), 'error');
 	} elseif (!is_numeric(filter_number_format($_POST['Breakpoint']))) {
@@ -161,7 +159,6 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorsMaster'
 	$SQL = "SELECT COUNT(*) FROM custbranch WHERE  custbranch.salesman='" . $SelectedSalesPerson . "'";
 	$Result = DB_query($SQL);
@@ -193,7 +190,7 @@ if (isset($_POST['submit'])) {
 			}
 		}
 	} //end if Sales-person used in GL accounts
-
+	
 }
 
 if (!isset($SelectedSalesPerson)) {
@@ -259,26 +256,24 @@ if (!isset($SelectedSalesPerson)) {
 				<td class="number">' . locale_number_format($MyRow['breakpoint'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($MyRow['commissionrate2'], 2) . '</td>
 				<td>' . $ActiveText . '</td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales person?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '">' . _('Edit') . '</a></td>
+				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedSalesPerson=' . urlencode($MyRow['salesmancode']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales person?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</table><br />';
 } //end of ifs and buts!
-
 if (isset($SelectedSalesPerson)) {
-	echo '<div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Sales People') . '</a></div>';
+	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Sales People') . '</a></div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 	if (isset($SelectedSalesPerson)) {
 		//editing an existing Sales-person
-
 		$SQL = "SELECT salesmancode,
 					salesmanname,
 					salesarea,
@@ -306,7 +301,6 @@ if (!isset($_GET['delete'])) {
 		$_POST['CommissionRate2'] = locale_number_format($MyRow['commissionrate2'], 'Variable');
 		$_POST['Current'] = $MyRow['current'];
 
-
 		echo '<input type="hidden" name="SelectedSalesPerson" value="' . $SelectedSalesPerson . '" />';
 		echo '<input type="hidden" name="SalesmanCode" value="' . $_POST['SalesmanCode'] . '" />';
 		echo '<table>
@@ -316,7 +310,6 @@ if (!isset($_GET['delete'])) {
 				</tr>';
 
 	} else { //end of if $SelectedSalesPerson only do the else when a new record is being entered
-
 		echo '<table>
 				<tr>
 					<td>' . _('Salesperson code') . ':</td>
@@ -432,6 +425,5 @@ if (!isset($_GET['delete'])) {
 		</form>';
 
 } //end if record deleted no point displaying form to add record
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

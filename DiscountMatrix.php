@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Discount Matrix Maintenance');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
@@ -24,13 +23,13 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The discount rate must be entered as a positive number'), 'warn');
 		$InputError = 1;
 	}
-	if (filter_number_format($_POST['DiscountRate']) <= 0 OR filter_number_format($_POST['DiscountRate']) > 100) {
+	if (filter_number_format($_POST['DiscountRate']) <= 0 or filter_number_format($_POST['DiscountRate']) > 100) {
 		prnMsg(_('The discount rate applicable for this record is either less than 0% or greater than 100%') . '. ' . _('Numbers between 1 and 100 are expected'), 'warn');
 		$InputError = 1;
 	}
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	if ($InputError != 1) {
 
@@ -44,7 +43,8 @@ if (isset($_POST['submit'])) {
 						'" . (filter_number_format($_POST['DiscountRate']) / 100) . "')";
 
 		$Result = DB_query($SQL);
-		prnMsg(_('The discount matrix record has been added'), 'success');		unset($_POST['DiscountCategory']);
+		prnMsg(_('The discount matrix record has been added'), 'success');
+		unset($_POST['DiscountCategory']);
 		unset($_POST['SalesType']);
 		unset($_POST['QuantityBreak']);
 		unset($_POST['DiscountRate']);
@@ -62,9 +62,8 @@ if (isset($_POST['submit'])) {
 	echo '<br />';
 }
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
 
 echo '<table>';
 
@@ -87,7 +86,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 }
 
 echo '</select></td></tr>';
-
 
 $SQL = "SELECT DISTINCT discountcategory FROM stockmaster WHERE discountcategory <>''";
 $Result = DB_query($SQL);
@@ -142,10 +140,8 @@ echo '<tr>
 		<th>' . _('Discount Rate') . ' %' . '</th>
 	</tr>';
 
-$k = 0; //row colour counter
-
 while ($MyRow = DB_fetch_array($Result)) {
-	$DeleteURL = htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;SalesType=' . urlencode($MyRow['salestype']) . '&amp;DiscountCategory=' . urlencode($MyRow['discountcategory']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']);
+	$DeleteURL = htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Delete=yes&amp;SalesType=' . urlencode($MyRow['salestype']) . '&amp;DiscountCategory=' . urlencode($MyRow['discountcategory']) . '&amp;QuantityBreak=' . urlencode($MyRow['quantitybreak']);
 
 	printf('<tr class="striped_row">
 				<td>%s</td>
@@ -160,5 +156,5 @@ while ($MyRow = DB_fetch_array($Result)) {
 echo '</table>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

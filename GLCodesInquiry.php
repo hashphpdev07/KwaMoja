@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('GL Codes Inquiry');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 $SQL = "SELECT group_,
 			accountcode ,
@@ -30,7 +29,7 @@ echo '<table cellpadding="2">
 		</tr>';
 
 $j = 1;
-$k = 0; //row colour counter
+
 $ActGrp = '';
 
 while ($MyRow = DB_fetch_array($AccountsResult)) {
@@ -51,7 +50,6 @@ while ($MyRow = DB_fetch_array($AccountsResult)) {
 	}
 }
 //end of while loop
-
 echo '</table>';
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

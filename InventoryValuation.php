@@ -1,17 +1,15 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Categories']) and sizeOf($_POST['Categories']) > 0) {
 
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 
 	$PDF->addInfo('Title', _('Inventory Valuation Report'));
 	$PDF->addInfo('Subject', _('Inventory Valuation'));
 	$FontSize = 9;
 	$PageNumber = 1;
 	$line_height = 12;
-
 
 	/*Now figure out the inventory data to report for the category range under review */
 	if ($_POST['Location'] == 'All') {
@@ -34,7 +32,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 					ON stockmaster.stockid=locstock.stockid
 				INNER JOIN locationusers
 					ON locationusers.loccode=locstock.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				GROUP BY stockmaster.categoryid,
 					stockcategory.categorydescription,
@@ -47,7 +45,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 					stockmaster.stockid,
 					stockmaster.description
 				HAVING SUM(locstock.quantity)!=0
-				AND stockmaster.categoryid IN ('". implode("','",$_POST['Categories'])."')
+				AND stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 				ORDER BY stockcategory.categorydescription,
 					stockmaster.stockid";
 	} else {
@@ -70,10 +68,10 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 					ON stockmaster.stockid=locstock.stockid
 				INNER JOIN locationusers
 					ON locationusers.loccode=locstock.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE locstock.quantity!=0
-					AND stockmaster.categoryid IN ('". implode("','",$_POST['Categories'])."')
+					AND stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
 					AND locstock.loccode = '" . $_POST['Location'] . "'
 				ORDER BY stockcategory.categorydescription,
 					stockmaster.stockid";
@@ -83,25 +81,25 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 
 	if (DB_error_no() != 0) {
 		$Title = _('Inventory Valuation') . ' - ' . _('Problem Report');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The inventory valuation could not be retrieved by the SQL because') . ' ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (DB_num_rows($InventoryResult) == 0) {
 		$Title = _('Print Inventory Valuation Error');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items with any value to print out for the location specified'), 'info');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 	if (isset($_POST['PrintPDF'])) {
-		include('includes/PDFInventoryValnPageHeader.php');
+		include ('includes/PDFInventoryValnPageHeader.php');
 
 		$Tot_Val = 0;
 		$Category = '';
@@ -117,9 +115,9 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 
 					/* need to print the total of previous category */
 					if ($_POST['DetailedReport'] == 'Yes') {
-						$YPos -= (2 * $line_height);
+						$YPos-= (2 * $line_height);
 						if ($YPos < $Bottom_Margin + (3 * $line_height)) {
-							include('includes/PDFInventoryValnPageHeader.php');
+							include ('includes/PDFInventoryValnPageHeader.php');
 						}
 						$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 260 - $Left_Margin, $FontSize, _('Total for') . ' ' . $Category . ' - ' . $CategoryName);
 					}
@@ -128,12 +126,12 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 					$DisplayCatTotQty = locale_number_format($CatTot_Qty, 2);
 					$LeftOvers = $PDF->addTextWrap(480, $YPos, 80, $FontSize, $DisplayCatTotVal, 'right');
 					$LeftOvers = $PDF->addTextWrap(360, $YPos, 60, $FontSize, $DisplayCatTotQty, 'right');
-					$YPos -= $line_height;
+					$YPos-= $line_height;
 
 					if ($_POST['DetailedReport'] == 'Yes') {
 						/*draw a line under the CATEGORY TOTAL*/
 						$PDF->line($Left_Margin, $YPos + $line_height - 2, $Page_Width - $Right_Margin, $YPos + $line_height - 2);
-						$YPos -= (2 * $line_height);
+						$YPos-= (2 * $line_height);
 					}
 					$CatTot_Val = 0;
 					$CatTot_Qty = 0;
@@ -144,7 +142,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 			}
 
 			if ($_POST['DetailedReport'] == 'Yes') {
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 				$FontSize = 8;
 
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 100, $FontSize, $InventoryValn['stockid']);
@@ -159,12 +157,12 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 
 				$LeftOvers = $PDF->addTextWrap(500, $YPos, 60, $FontSize, $DisplayItemTotal, 'right');
 			}
-			$Tot_Val += $InventoryValn['itemtotal'];
-			$CatTot_Val += $InventoryValn['itemtotal'];
-			$CatTot_Qty += $InventoryValn['qtyonhand'];
+			$Tot_Val+= $InventoryValn['itemtotal'];
+			$CatTot_Val+= $InventoryValn['itemtotal'];
+			$CatTot_Qty+= $InventoryValn['qtyonhand'];
 
 			if ($YPos < $Bottom_Margin + $line_height) {
-				include('includes/PDFInventoryValnPageHeader.php');
+				include ('includes/PDFInventoryValnPageHeader.php');
 			}
 
 		}
@@ -173,7 +171,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 		$FontSize = 10;
 		/*Print out the category totals */
 		if ($_POST['DetailedReport'] == 'Yes') {
-			$YPos -= (2 * $line_height);
+			$YPos-= (2 * $line_height);
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200 - $Left_Margin, $FontSize, _('Total for') . ' ' . $Category . ' - ' . $CategoryName, 'left');
 		}
 		$DisplayCatTotVal = locale_number_format($CatTot_Val, $_SESSION['CompanyRecord']['decimalplaces']);
@@ -184,14 +182,14 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 
 		if ($_POST['DetailedReport'] == 'Yes') {
 			/*draw a line under the CATEGORY TOTAL*/
-			$YPos -= ($line_height);
+			$YPos-= ($line_height);
 			$PDF->line($Left_Margin, $YPos + $line_height - 2, $Page_Width - $Right_Margin, $YPos + $line_height - 2);
 		}
 
-		$YPos -= (2 * $line_height);
+		$YPos-= (2 * $line_height);
 
 		if ($YPos < $Bottom_Margin + $line_height) {
-			include('includes/PDFInventoryValnPageHeader.php');
+			include ('includes/PDFInventoryValnPageHeader.php');
 		}
 		/*Print out the grand totals */
 		$LeftOvers = $PDF->addTextWrap(80, $YPos, 260 - $Left_Margin, $FontSize, _('Grand Total Value'), 'right');
@@ -201,14 +199,14 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_Inventory_Valuation_' . Date('Y-m-d') . '.pdf');
 		$PDF->__destruct();
 	} elseif (isset($_POST['CSV'])) {
-		$CSVListing = _('Category ID') .','. _('Category Description') .','. _('Stock ID') .','. _('Description') .','. _('Decimal Places') .','. _('Qty On Hand') .','. _('Units') .','. _('Unit Cost') .','. _('Total') . "\n";
+		$CSVListing = _('Category ID') . ',' . _('Category Description') . ',' . _('Stock ID') . ',' . _('Description') . ',' . _('Decimal Places') . ',' . _('Qty On Hand') . ',' . _('Units') . ',' . _('Unit Cost') . ',' . _('Total') . "\n";
 		while ($InventoryValn = DB_fetch_row($InventoryResult)) {
-			$CSVListing .= '"';
-			$CSVListing .= implode('","', $InventoryValn) . '"' . "\n";
+			$CSVListing.= '"';
+			$CSVListing.= implode('","', $InventoryValn) . '"' . "\n";
 		}
 		header('Content-Encoding: UTF-8');
 		header('Content-type: text/csv; charset=UTF-8');
-		header("Content-disposition: attachment; filename=InventoryValuation_Categories_" .  $_POST['FromCriteria']  . '-' .  $_POST['ToCriteria']  .'.csv');
+		header("Content-disposition: attachment; filename=InventoryValuation_Categories_" . $_POST['FromCriteria'] . '-' . $_POST['ToCriteria'] . '.csv');
 		header("Pragma: public");
 		header("Expires: 0");
 		echo "\xEF\xBB\xBF"; // UTF-8 BOM
@@ -220,13 +218,13 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 	/*The option to print PDF was not hit */
 
 	$Title = _('Inventory Valuation Reporting');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" >
 			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '
 		</p>';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">
 			<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
 			<table>
 			<tr>
@@ -239,7 +237,7 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 	$CatResult = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($CatResult)) {
 		if (isset($_POST['Categories']) and in_array($MyRow['categoryid'], $_POST['Categories'])) {
-			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] .'</option>';
+			echo '<option selected="selected" value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
 		}
@@ -257,10 +255,10 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "' AND locationusers.canview=1
+					AND locationusers.userid='" . $_SESSION['UserID'] . "' AND locationusers.canview=1
 				ORDER BY locationname";
 
-	$LocnResult=DB_query($SQL);
+	$LocnResult = DB_query($SQL);
 
 	echo '<option value="All">' . _('All Locations') . '</option>';
 
@@ -286,6 +284,6 @@ if ((isset($_POST['PrintPDF']) or isset($_POST['CSV'])) and isset($_POST['Catego
 		</div>';
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 } /*end of else not PrintPDF */

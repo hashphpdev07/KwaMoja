@@ -1,17 +1,16 @@
 <?php
-
 function standard_deviation($Data) {
 	$Total = 0;
 	$Counter = 0;
 	foreach ($Data as $Element) {
-		$Total += $Element;
+		$Total+= $Element;
 		$Counter++;
 	}
 	$Average = $Total / $Counter;
 
 	$TotalDifferenceSquared = 0;
 	foreach ($Data as $Element) {
-		$TotalDifferenceSquared += (($Element - $Average) * ($Element - $Average));
+		$TotalDifferenceSquared+= (($Element - $Average) * ($Element - $Average));
 	}
 	return sqrt($TotalDifferenceSquared / $Counter);
 }
@@ -30,7 +29,7 @@ function NewPageHeader() {
 
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 
-	$YPos -= $LineHeight;
+	$YPos-= $LineHeight;
 
 	$FontSize = 10;
 
@@ -45,7 +44,7 @@ function NewPageHeader() {
 	$FontSize = 8;
 	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 120, $YPos, 120, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber);
 
-	$YPos -= (2 * $LineHeight);
+	$YPos-= (2 * $LineHeight);
 
 	/*Draw a rectangle to put the headings in     */
 
@@ -68,7 +67,6 @@ function NewPageHeader() {
 	$LeftOvers = $PDF->addTextWrap(378, $YPos, 50, $FontSize, _('Standard'), 'centre');
 	$LeftOvers = $PDF->addTextWrap(378, $YPos - 10, 50, $FontSize, _('Deviation'), 'centre');
 
-
 	$LeftOvers = $PDF->addTextWrap(429, $YPos, 50, $FontSize, _('Lead Time'), 'centre');
 	$LeftOvers = $PDF->addTextWrap(429, $YPos - 10, 50, $FontSize, _('in months'), 'centre');
 
@@ -84,12 +82,12 @@ function NewPageHeader() {
 	$FontSize = 8;
 }
 
-include('includes/session.php');
+include ('includes/session.php');
 include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['PrintPDF'])) {
 
-	include('includes/class.pdf.php');
+	include ('includes/class.pdf.php');
 
 	/* A4_Landscape */
 
@@ -102,7 +100,6 @@ if (isset($_POST['PrintPDF'])) {
 
 	// Javier: now I use the native constructor
 	//	$PageSize = array(0,0,$Page_Width,$Page_Height);
-
 	/* Standard PDF file creation header stuff */
 
 	// Javier: better to not use references
@@ -125,12 +122,11 @@ if (isset($_POST['PrintPDF'])) {
 	$PDF->cMargin = 0; // Javier: needs check.
 	/* END Brought from class.pdf.php constructor */
 
-
 	$PageNumber = 1;
 	$LineHeight = 12;
 
 	/*Now figure out the inventory data to report for the category range under review
-	need QOH, QOO, QDem, Sales Mth -1, Sales Mth -2, Sales Mth -3, Sales Mth -4*/
+	 need QOH, QOO, QDem, Sales Mth -1, Sales Mth -2, Sales Mth -3, Sales Mth -4*/
 	$SQL = "SELECT stockmaster.description,
 				stockmaster.eoq,
 				locstock.stockid,
@@ -141,7 +137,7 @@ if (isset($_POST['PrintPDF'])) {
 			FROM locstock
 			INNER JOIN locationusers
 				ON locationusers.loccode=locstock.loccode
-				AND locationusers.userid='" .  $_SESSION['UserID'] . "' AND locationusers.canview=1
+				AND locationusers.userid='" . $_SESSION['UserID'] . "' AND locationusers.canview=1
 			INNER JOIN stockmaster
 				ON locstock.stockid=stockmaster.stockid
 			INNER JOIN purchdata
@@ -153,7 +149,7 @@ if (isset($_POST['PrintPDF'])) {
 
 	if ($_POST['Location'] == 'All') {
 
-		$SQL .= " GROUP BY
+		$SQL.= " GROUP BY
 					purchdata.supplierno,
 					stockmaster.description,
 					stockmaster.eoq,
@@ -162,22 +158,22 @@ if (isset($_POST['PrintPDF'])) {
 						stockmaster.stockid";
 
 	} else {
-		$SQL .= " AND locstock.loccode = '" . $_POST['Location'] . "'
+		$SQL.= " AND locstock.loccode = '" . $_POST['Location'] . "'
 				ORDER BY purchdata.supplierno,
 				stockmaster.stockid";
- 	}
+	}
 	$InventoryResult = DB_query($SQL, '', '', false, false);
 	$ListCount = DB_num_rows($InventoryResult);
 
 	if (DB_error_no() != 0) {
 		$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('The inventory quantities could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -191,7 +187,6 @@ if (isset($_POST['PrintPDF'])) {
 	$Period_3 = $CurrentPeriod - 3;
 	$Period_4 = $CurrentPeriod - 4;
 
-
 	while ($InventoryPlan = DB_fetch_array($InventoryResult)) {
 
 		if ($SupplierID != $InventoryPlan['supplierno']) {
@@ -199,16 +194,16 @@ if (isset($_POST['PrintPDF'])) {
 			if ($SupplierID != '') {
 				/*Then it's NOT the first time round */
 				/*draw a line under the supplier*/
-				$YPos -= $LineHeight;
+				$YPos-= $LineHeight;
 				$PDF->line($Left_Margin, $YPos, $Page_Width - $Right_Margin, $YPos);
-				$YPos -= (2 * $LineHeight);
+				$YPos-= (2 * $LineHeight);
 			}
 			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 260 - $Left_Margin, $FontSize, $InventoryPlan['supplierno'] . ' - ' . $InventoryPlan['suppname'], 'left');
 			$SupplierID = $InventoryPlan['supplierno'];
 			$FontSize = 8;
 		}
 
-		$YPos -= $LineHeight;
+		$YPos-= $LineHeight;
 
 		$SQL = "SELECT SUM(CASE WHEN (prd>='" . $Period_1 . "' OR prd<='" . $Period_4 . "') THEN -qty ELSE 0 END) AS 4mthtotal,
 					SUM(CASE WHEN prd='" . $Period_1 . "' THEN -qty ELSE 0 END) AS prd1,
@@ -218,26 +213,26 @@ if (isset($_POST['PrintPDF'])) {
 					FROM stockmoves
 					INNER JOIN locationusers
 						ON locationusers.loccode=stockmoves.loccode
-							AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+							AND locationusers.userid='" . $_SESSION['UserID'] . "'
 							AND locationusers.canview=1
 					WHERE stockid='" . $InventoryPlan['stockid'] . "'
 					AND (stockmoves.type=10 OR stockmoves.type=11)
 					AND stockmoves.hidemovt=0";
 		if ($_POST['Location'] != 'All') {
-   		   $SQL .= "	AND stockmoves.loccode ='" . $_POST['Location'] . "'";
- 		}
+			$SQL.= "	AND stockmoves.loccode ='" . $_POST['Location'] . "'";
+		}
 
-		$SalesResult = DB_query($SQL, '', '', FALSE, FALSE);
+		$SalesResult = DB_query($SQL, '', '', false, false);
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The sales quantities could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -249,31 +244,30 @@ if (isset($_POST['PrintPDF'])) {
 					ON salesorderdetails.orderno=salesorders.orderno
 				INNER JOIN locationusers
 					ON locationusers.loccode=salesorders.fromstkloc
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE salesorderdetails.stkcode = '" . $InventoryPlan['stockid'] . "'
 					AND salesorderdetails.completed = 0
 					AND salesorders.quotation=0";
 		if ($_POST['Location'] != 'All') {
-			$SQL .= " AND salesorders.fromstkloc='" . $_POST['Location'] . "'";
- 		}
+			$SQL.= " AND salesorders.fromstkloc='" . $_POST['Location'] . "'";
+		}
 
 		$DemandResult = DB_query($SQL, '', '', false, false);
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The sales order demand quantities could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		// Also need to add in the demand as a component of an assembly items if this items has any assembly parents.
-
 		$SQL = "SELECT SUM((salesorderdetails.quantity-salesorderdetails.qtyinvoiced)*bom.quantity) AS dem
 				FROM salesorderdetails
 				INNER JOIN bom
@@ -283,7 +277,7 @@ if (isset($_POST['PrintPDF'])) {
 				INNER JOIN salesorders
 					ON salesorders.orderno = salesorderdetails.orderno
 				INNER JOIN locationusers
-					ON locationusers.loccode=salesorders.fromstkloc AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					ON locationusers.loccode=salesorders.fromstkloc AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				WHERE salesorderdetails.quantity-salesorderdetails.qtyinvoiced > 0
 					AND bom.component='" . $InventoryPlan['stockid'] . "'
@@ -291,20 +285,20 @@ if (isset($_POST['PrintPDF'])) {
 					AND salesorderdetails.completed=0
 					AND salesorders.quotation=0";
 		if ($_POST['Location'] != 'All') {
-			$SQL .= " AND salesorders.fromstkloc ='" . $_POST['Location'] . "'";
- 		}
+			$SQL.= " AND salesorders.fromstkloc ='" . $_POST['Location'] . "'";
+		}
 
 		$BOMDemandResult = DB_query($SQL, '', '', false, false);
 
 		if (DB_error_no() != 0) {
 			$Title = _('Inventory Planning') . ' - ' . _('Problem Report') . '....';
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('The sales order demand quantities from parent assemblies could not be retrieved by the SQL because') . ' - ' . DB_error_msg(), 'error');
 			echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
 			if ($Debug == 1) {
 				echo '<br />' . $SQL;
 			}
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
@@ -312,10 +306,10 @@ if (isset($_POST['PrintPDF'])) {
 		// Get the QOO dues to Work Orders for all locations. Function defined in SQL_CommonFunctions.php
 		if ($_POST['Location'] == 'All') {
 			$QOO = GetQuantityOnOrderDueToPurchaseOrders($InventoryPlan['stockid']);
-			$QOO += GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid']);
+			$QOO+= GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid']);
 		} else {
 			$QOO = GetQuantityOnOrderDueToPurchaseOrders($InventoryPlan['stockid'], $_POST['Location']);
-			$QOO += GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid'], $_POST['Location']);
+			$QOO+= GetQuantityOnOrderDueToWorkOrders($InventoryPlan['stockid'], $_POST['Location']);
 		}
 
 		$DemandRow = DB_fetch_array($DemandResult);
@@ -330,12 +324,7 @@ if (isset($_POST['PrintPDF'])) {
 		$MaxMthSales = Max($SalesRow['prd1'], $SalesRow['prd2'], $SalesRow['prd3'], $SalesRow['prd4']);
 		$LeftOvers = $PDF->addTextWrap(309, $YPos, 50, $FontSize, locale_number_format($MaxMthSales, 0), 'right');
 
-		$Quantities = array(
-			$SalesRow['prd1'],
-			$SalesRow['prd2'],
-			$SalesRow['prd3'],
-			$SalesRow['prd4']
-		);
+		$Quantities = array($SalesRow['prd1'], $SalesRow['prd2'], $SalesRow['prd3'], $SalesRow['prd4']);
 		$StandardDeviation = standard_deviation($Quantities);
 		$LeftOvers = $PDF->addTextWrap(359, $YPos, 50, $FontSize, locale_number_format($StandardDeviation, 2), 'right');
 
@@ -366,32 +355,32 @@ if (isset($_POST['PrintPDF'])) {
 	}
 	/*end inventory valn while loop */
 
-	$YPos -= (2 * $LineHeight);
+	$YPos-= (2 * $LineHeight);
 
 	$PDF->line($Left_Margin, $YPos + $LineHeight, $Page_Width - $Right_Margin, $YPos + $LineHeight);
 
 	if ($ListCount == 0) {
 		$Title = _('Print Inventory Planning Report Empty');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items in the range and location specified'), 'error');
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_Inventory_Planning_PrefSupplier_' . Date('Y-m-d') . '.pdf');
 		$PDF->__destruct();
 	}
 	exit; // Javier: needs check
-
+	
 } else {
 	/*The option to print PDF was not hit */
 
 	$Title = _('Preferred Supplier Inventory Planning');
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
-	echo '<form action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '" method="post">';
+	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';
 
@@ -402,7 +391,7 @@ if (isset($_POST['PrintPDF'])) {
 				FROM locations
 				INNER JOIN locationusers
 					ON locationusers.loccode=locations.loccode
-					AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$LocnResult = DB_query($SQL);
 
@@ -447,7 +436,7 @@ if (isset($_POST['PrintPDF'])) {
 			</div>';
 	echo '</form>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Audit Trail');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
@@ -34,7 +33,7 @@ $TableResult = DB_show_tables();
 // Get list of users
 $UserResult = DB_query("SELECT userid FROM www_users ORDER BY userid");
 
-echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 echo '<fieldset>
 		<legend>', _('Search Critetia for Audit Trail'), '</legend>';
@@ -92,7 +91,6 @@ echo '<field>
 		<fieldhelp>', _('Any text that may be in the entry you are looking for, or leave blank to search all text.'), '</fieldhelp>
 	</field>';
 
-
 echo '</fieldset>';
 echo '<div class="centre">
 		<input type="submit" name="View" value="', _('View'), '" />
@@ -135,7 +133,7 @@ if (isset($_POST['View'])) {
 		$SQLString = str_replace('AND', ',', $SQLString);
 		$FieldArray = preg_split("/[[:space:]]*([[:alnum:].]+[[:space:]]*=[[:space:]]*(?:'[^']*'|[[:digit:].]+))[[:space:]]*,/", $SQLString, 0, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 		$SizeOfFieldArray = sizeOf($FieldArray);
-		for ($i = 0; $i < $SizeOfFieldArray; $i++) {
+		for ($i = 0;$i < $SizeOfFieldArray;$i++) {
 			$Assigment = explode('=', $FieldArray[$i]);
 			$_SESSION['SQLString']['fields'][$i] = $Assigment[0];
 			if (sizeof($Assigment) > 1) {
@@ -224,7 +222,7 @@ if (isset($_POST['View'])) {
 					<td>', trim(str_replace("'", "", $_SESSION['SQLString']['values'][0])), '</td>
 				</tr>';
 			$SizeOfFields = sizeOf($_SESSION['SQLString']['fields']);
-			for ($i = 1; $i < $SizeOfFields; $i++) {
+			for ($i = 1;$i < $SizeOfFields;$i++) {
 				if (isset($_SESSION['SQLString']['values'][$i]) and (trim(str_replace("'", "", $_SESSION['SQLString']['values'][$i])) != "") & (trim($_SESSION['SQLString']['fields'][$i]) != 'password') & (trim($_SESSION['SQLString']['fields'][$i]) != 'www_users.password')) {
 					echo '<tr style="background-color:', $RowColour, ';color:', $RowText, ';">
 							<td></td>
@@ -244,6 +242,6 @@ if (isset($_POST['View'])) {
 	echo '</tbody>
 		</table>';
 }
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

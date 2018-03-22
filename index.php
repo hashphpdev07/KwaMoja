@@ -1,7 +1,7 @@
 <?php
 $PageSecurity = 0;
 
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_SESSION['FirstLogIn']) and $_SESSION['FirstLogIn'] == '1' and isset($_SESSION['DatabaseName'])) {
 	$_SESSION['FirstRun'] = true;
@@ -20,34 +20,30 @@ if (isset($_GET['Application']) and ($_GET['Application'] != '')) {
 }
 
 if ($_SESSION['Theme'] == 'mobile') {
-	include('includes/header.php');
+	include ('includes/header.php');
 	if (!isset($_GET['Application']) or $_GET['Application'] == '') {
 		echo '<table id="MainMenuTable">
 				<tr>
 					<td id="MainMenuCell">
 						<a href="' . $RootPath . '/index.php?Application=orders">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" /><br />' .
-							_('Sales') . '
+							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/sales.png" /><br />' . _('Sales') . '
 						</a>
 					</td>
 					<td id="MainMenuCell">
 						<a href="' . $RootPath . '/index.php?Application=purchases">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/purchases.png" /><br />' .
-							_('Purchases') . '
+							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/purchases.png" /><br />' . _('Purchases') . '
 						</a>
 					</td>
 				</tr>
 				<tr>
 					<td id="MainMenuCell">
 						<a href="' . $RootPath . '/index.php?Application=stock">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" /><br />' .
-							_('Manage Stock') . '
+							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" /><br />' . _('Manage Stock') . '
 						</a>
 					</td>
 					<td id="MainMenuCell">
 						<a href="' . $RootPath . '/index.php?Application=reports">
-							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" /><br />' .
-							_('Reports') . '
+							<img id="MainMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" /><br />' . _('Reports') . '
 						</a>
 					</td>
 				</tr>
@@ -58,34 +54,29 @@ if ($_SESSION['Theme'] == 'mobile') {
 				<tr>
 					<td id="SubMenuCell">
 						<a id="SubMenuLink" href="' . $RootPath . '/Customers.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' .
-							_('New Client') . '
+							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' . _('New Client') . '
 						</a>
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' .
-						_('Cash Sale') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' . _('Cash Sale') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" />' .
-						_('Invoice Client') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" />' . _('Invoice Client') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" />' .
-						_('Receive Money') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" />' . _('Receive Money') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
 						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return') . '
+							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' . _('Return') . '
 						</a>
 					</td>
 				</tr>
@@ -95,33 +86,28 @@ if ($_SESSION['Theme'] == 'mobile') {
 		echo '<table id="SubMenuTable">
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' .
-						_('New Supplier') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' . _('New Supplier') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' .
-						_('Order Goods') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' . _('Order Goods') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" />' .
-						_('Post Invoice') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" />' . _('Post Invoice') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" />' .
-						_('Pay A Supplier') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" />' . _('Pay A Supplier') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
 						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return to Menu') . '
+							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' . _('Return to Menu') . '
 						</a>
 					</td>
 				</tr>
@@ -131,21 +117,18 @@ if ($_SESSION['Theme'] == 'mobile') {
 		echo '<table id="SubMenuTable">
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' .
-						_('Create New item') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" />' . _('Create New item') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
-					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' .
-						_('Receive Goods') . '
+					<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/currency.png" />' . _('Receive Goods') . '
 					</td>
 				</tr>
 				<tr>
 					<td id="SubMenuCell">
 						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return to Menu') . '
+							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' . _('Return to Menu') . '
 						</a>
 					</td>
 				</tr>
@@ -156,18 +139,17 @@ if ($_SESSION['Theme'] == 'mobile') {
 				<tr>
 					<td id="SubMenuCell">
 						<a id="SubMenuLink" href="' . $RootPath . '/index.php">
-							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' .
-							_('Return to Menu') . '
+							<img id="SubMenuIcon" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/previous.png" />' . _('Return to Menu') . '
 						</a>
 					</td>
 				</tr>
 			</table>';
 	}
 } else {
-	include('includes/header.php');
+	include ('includes/header.php');
 
 	if (!isset($_SESSION['MenuItems'])) {
-		include('includes/MainMenuLinksArray.php');
+		include ('includes/MainMenuLinksArray.php');
 	}
 
 	if (isset($SupplierLogin) and $SupplierLogin == 1) {
@@ -188,7 +170,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 			</td>
 			</tr>
 		</table><br />';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	} elseif (isset($SupplierLogin) and $SupplierLogin == 0) {
 		echo '<br /><table class="table_index">
@@ -209,7 +191,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 			</tr>
 		</table><br />';
 
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -231,19 +213,18 @@ if ($_SESSION['Theme'] == 'mobile') {
 				echo '<li class="main_menu_unselected">';
 
 			}
-			echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?Application=', urlencode($_SESSION['ModuleLink'][$i]), '">', $_SESSION['ModuleList'][$i], '</a></li>';
+			echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Application=', urlencode($_SESSION['ModuleLink'][$i]), '">', $_SESSION['ModuleList'][$i], '</a></li>';
 		}
 		++$i;
 	}
 	echo '</ul></div>'; // MainMenuDiv ===HJ===
-
+	
 
 	//=== SubMenuDiv (wrapper) ==============================================================================
 	echo '<div id="SubMenuDiv">'; //===HJ===
-
+	
 
 	echo '<div id="TransactionsDiv"><ul>'; //=== TransactionsDiv ===
-
 	echo '<li class="menu_group_headers">'; //=== SubMenuHeader ===
 	if ($_SESSION['Module'] == 'system') {
 		echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" title="', _('General Setup Options'), '" alt="', _('General Setup Options'), '" /><b>', _('General Setup Options'), '</b>';
@@ -252,7 +233,6 @@ if ($_SESSION['Theme'] == 'mobile') {
 	}
 
 	echo '</li>'; // SubMenuHeader
-
 	//=== SubMenu Items ===
 	$i = 0;
 	foreach ($_SESSION['MenuItems'][$_SESSION['Module']]['Transactions']['Caption'] as $Caption) {
@@ -269,10 +249,9 @@ if ($_SESSION['Theme'] == 'mobile') {
 		++$i;
 	}
 	echo '</ul></div>'; //=== TransactionsDiv ===
-
+	
 
 	echo '<div id="InquiriesDiv"><ul>'; //=== InquiriesDiv ===
-
 	echo '<li class="menu_group_headers">';
 	if ($_SESSION['Module'] == 'system') {
 		$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" title="' . _('Receivables/Payables Setup') . '" alt="' . _('Receivables/Payables Setup') . '" /><b>' . _('Receivables/Payables Setup') . '</b>';
@@ -281,7 +260,6 @@ if ($_SESSION['Theme'] == 'mobile') {
 	}
 	echo $Header;
 	echo '</li>';
-
 
 	$i = 0;
 	if (isset($_SESSION['MenuItems'][$_SESSION['Module']]['Reports'])) {
@@ -300,9 +278,7 @@ if ($_SESSION['Theme'] == 'mobile') {
 
 	echo GetRptLinks($_SESSION['Module']); //=== GetRptLinks() must be modified!!! ===
 	echo '</ul></div>'; //=== InquiriesDiv ===
-
 	echo '<div id="MaintenanceDiv"><ul>'; //=== MaintenanceDive ===
-
 	echo '<li class="menu_group_headers">';
 	if ($_SESSION['Module'] == 'system') {
 		$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory Setup') . '" alt="' . _('Inventory Setup') . '" /><b>' . _('Inventory Setup') . '</b>';
@@ -330,10 +306,8 @@ if ($_SESSION['Theme'] == 'mobile') {
 	}
 	echo '</ul></div>'; // MaintenanceDive ===HJ===
 	echo '</div>'; // SubMenuDiv ===HJ===
-
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
-
 
 function GetRptLinks($GroupID) {
 	/*
@@ -344,28 +318,14 @@ function GetRptLinks($GroupID) {
 	*/
 	global $RootPath;
 	if (!isset($_SESSION['FormGroups'])) {
-		$_SESSION['FormGroups'] = array(
-			'gl:chk' => _('Bank Checks'), // Bank checks grouped with the gl report group
-			'ar:col' => _('Collection Letters'),
-			'ar:cust' => _('Customer Statements'),
-			'gl:deps' => _('Bank Deposit Slips'),
-			'ar:inv' => _('Invoices and Packing Slips'),
-			'ar:lblc' => _('Labels - Customer'),
-			'prch:lblv' => _('Labels - Vendor'),
-			'prch:po' => _('Purchase Orders'),
-			'ord:quot' => _('Customer Quotes'),
-			'ar:rcpt' => _('Sales Receipts'),
-			'ord:so' => _('Sales Orders'),
-			'misc:misc' => _('Miscellaneous')
-		); // do not delete misc category
+		$_SESSION['FormGroups'] = array('gl:chk' => _('Bank Checks'), // Bank checks grouped with the gl report group
+		'ar:col' => _('Collection Letters'), 'ar:cust' => _('Customer Statements'), 'gl:deps' => _('Bank Deposit Slips'), 'ar:inv' => _('Invoices and Packing Slips'), 'ar:lblc' => _('Labels - Customer'), 'prch:lblv' => _('Labels - Vendor'), 'prch:po' => _('Purchase Orders'), 'ord:quot' => _('Customer Quotes'), 'ar:rcpt' => _('Sales Receipts'), 'ord:so' => _('Sales Orders'), 'misc:misc' => _('Miscellaneous')); // do not delete misc category
+		
 	}
 	if (isset($_SESSION['ReportList'][$GroupID])) {
 		$GroupID = $_SESSION['ReportList'][$GroupID];
 	}
-	$Title = array(
-		_('Custom Reports'),
-		_('Standard Reports and Forms')
-	);
+	$Title = array(_('Custom Reports'), _('Standard Reports and Forms'));
 
 	if (!isset($_SESSION['ReportList'])) {
 		$SQL = "SELECT id,
@@ -383,17 +343,17 @@ function GetRptLinks($GroupID) {
 		}
 	}
 	$RptLinks = '';
-	for ($Def = 1; $Def >= 0; $Def--) {
-		$RptLinks .= '<li class="menu_group_headers">';
-		$RptLinks .= '<b>' . $Title[$Def] . '</b>';
-		$RptLinks .= '</li>';
+	for ($Def = 1;$Def >= 0;$Def--) {
+		$RptLinks.= '<li class="menu_group_headers">';
+		$RptLinks.= '<b>' . $Title[$Def] . '</b>';
+		$RptLinks.= '</li>';
 		$NoEntries = true;
 		if (isset($_SESSION['ReportList']['groupname']) and count($_SESSION['ReportList']['groupname']) > 0) { // then there are reports to show, show by grouping
 			foreach ($_SESSION['ReportList'] as $Report) {
 				if (isset($Report['groupname']) and $Report['groupname'] == $GroupID and $Report['defaultreport'] == $Def) {
-					$RptLinks .= '<li class="menu_group_item">';
-					$RptLinks .= '<p><a href="' . $RootPath . '/reportwriter/ReportMaker.php?action=go&amp;reportid=' . urlencode($Report['id']) . '">&bull; ' . _($Report['reportname']) . '</a></p>';
-					$RptLinks .= '</li>';
+					$RptLinks.= '<li class="menu_group_item">';
+					$RptLinks.= '<p><a href="' . $RootPath . '/reportwriter/ReportMaker.php?action=go&amp;reportid=' . urlencode($Report['id']) . '">&bull; ' . _($Report['reportname']) . '</a></p>';
+					$RptLinks.= '</li>';
 					$NoEntries = false;
 				}
 			}
@@ -402,18 +362,17 @@ function GetRptLinks($GroupID) {
 			foreach ($_SESSION['ReportList'] as $Report) {
 				$Group = explode(':', $Report['groupname']); // break into main group and form group array
 				if ($NoForms and $Group[0] == $GroupID and $Report['reporttype'] == 'frm' and $Report['defaultreport'] == $Def) {
-					$RptLinks .= '<li class="menu_group_item">';
-					$RptLinks .= '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/folders.gif" width="16" height="13" alt="" />&nbsp;';
-					$RptLinks .= '<a href="' . $RootPath . '/reportwriter/FormMaker.php?id=' . urlencode($Report['groupname']) . '">&bull; ';
-					$RptLinks .= $_SESSION['FormGroups'][$Report['groupname']] . '</a>';
-					$RptLinks .= '</li>';
+					$RptLinks.= '<li class="menu_group_item">';
+					$RptLinks.= '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/folders.gif" width="16" height="13" alt="" />&nbsp;';
+					$RptLinks.= '<a href="' . $RootPath . '/reportwriter/FormMaker.php?id=' . urlencode($Report['groupname']) . '">&bull; ';
+					$RptLinks.= $_SESSION['FormGroups'][$Report['groupname']] . '</a>';
+					$RptLinks.= '</li>';
 					$NoForms = false;
 					$NoEntries = false;
 				}
 			}
 		}
-		if ($NoEntries)
-			$RptLinks .= '<li class="menu_group_item">' . _('There are no reports to show!') . '</li>';
+		if ($NoEntries) $RptLinks.= '<li class="menu_group_item">' . _('There are no reports to show!') . '</li>';
 	}
 	return $RptLinks;
 }

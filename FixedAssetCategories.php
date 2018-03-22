@@ -1,12 +1,11 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Fixed Asset Category Maintenance');
 
 $ViewTopic = 'FixedAssets';
 $BookMark = 'AssetCategories';
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Fixed Asset Categories') . '" alt="" />' . ' ' . $Title . '
@@ -24,10 +23,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	$_POST['CategoryID'] = mb_strtoupper($_POST['CategoryID']);
 
 	if (mb_strlen($_POST['CategoryID']) > 6) {
@@ -106,7 +104,6 @@ if (isset($_POST['submit'])) {
 
 	}
 	//run the SQL from either of the above possibilites
-
 	unset($_POST['CategoryID']);
 	unset($_POST['CategoryDescription']);
 	unset($_POST['CostAct']);
@@ -116,9 +113,7 @@ if (isset($_POST['submit'])) {
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'fixedassets'
-
 	$SQL = "SELECT COUNT(*) FROM fixedassets WHERE fixedassets.assetcategoryid='" . $SelectedCategory . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -131,6 +126,7 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The fixed asset category') . ' ' . $SelectedCategory . ' ' . _('has been deleted'), 'success');
 		unset($SelectedCategory);
 	} //end if stock category used in debtor transactions
+	
 }
 
 if (!isset($SelectedCategory) or isset($_POST['submit'])) {
@@ -160,8 +156,6 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 			<th>' . _('Accum Depn GL') . '</th>
 		  </tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 		printf('<tr class="striped_row">
 					<td>%s</td>
@@ -172,7 +166,7 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 					<td class="number">%s</td>
 					<td><a href="%sSelectedCategory=%s">' . _('Edit') . '</a></td>
 					<td><a href="%sSelectedCategory=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this fixed asset category? Additional checks will be performed before actual deletion to ensure data integrity is not compromised.') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>', $MyRow['categoryid'], $MyRow['categorydescription'], $MyRow['costact'], $MyRow['depnact'], $MyRow['disposalact'], $MyRow['accumdepnact'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid'], htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid']);
+				</tr>', $MyRow['categoryid'], $MyRow['categorydescription'], $MyRow['costact'], $MyRow['depnact'], $MyRow['disposalact'], $MyRow['accumdepnact'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['categoryid']);
 	}
 	//END WHILE LIST LOOP
 	echo '</table>
@@ -180,12 +174,11 @@ if (!isset($SelectedCategory) or isset($_POST['submit'])) {
 }
 
 //end of ifs and buts!
-
 if (isset($SelectedCategory)) {
-	echo '<br /><div class="centre"><a href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">' . _('Show All Fixed Asset Categories') . '</a></div>';
+	echo '<br /><div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Fixed Asset Categories') . '</a></div>';
 }
 
-echo '<form id="CategoryForm" method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">';
+echo '<form id="CategoryForm" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (isset($SelectedCategory) and !isset($_POST['submit'])) {
@@ -331,5 +324,5 @@ echo '<div class="centre">
 	</div>
 	</form>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/DefineContractClass.php');
-include('includes/session.php');
+include ('includes/DefineContractClass.php');
+include ('includes/session.php');
 $Title = _('Contract Costing');
 /* Session started in header.php for password checking and authorisation level check */
-include('includes/header.php');
+include ('includes/header.php');
 
 if (empty($_GET['identifier'])) {
 	$Identifier = date('U');
@@ -15,12 +14,12 @@ if (empty($_GET['identifier'])) {
 if (!isset($_GET['SelectedContract'])) {
 	echo '<br />';
 	prnMsg(_('This page is expected to be called with the contract reference to show the costing for'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 } else {
 	$ContractRef = $_GET['SelectedContract'];
 	$_SESSION['Contract' . $Identifier] = new Contract;
-	include('includes/Contract_Readin.php');
+	include ('includes/Contract_Readin.php');
 }
 
 /*Now read in actual usage of stock */
@@ -99,7 +98,7 @@ foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $Component) {
 			<td class="number">' . locale_number_format($Component->ItemCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			<td class="number">' . locale_number_format(($Component->ItemCost * $Component->Quantity), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>';
 
-	$ContractBOMBudget += ($Component->ItemCost * $Component->Quantity);
+	$ContractBOMBudget+= ($Component->ItemCost * $Component->Quantity);
 
 	if (isset($InventoryIssues[$Component->StockID])) {
 		$InventoryIssues[$Component->StockID]->Matched = 1;
@@ -116,7 +115,7 @@ foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $Component) {
 }
 
 foreach ($InventoryIssues as $Component) { //actual inventory components used
-	$ContractBOMActual -= $Component->TotalCost;
+	$ContractBOMActual-= $Component->TotalCost;
 	if ($Component->Matched == 0) { //then its a component that wasn't budget for
 		echo '<tr>
 				<td colspan="6"></td>
@@ -128,6 +127,7 @@ foreach ($InventoryIssues as $Component) { //actual inventory components used
 				<td class="number">' . locale_number_format(-$Component->TotalCost, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			</tr>';
 	} //end if its a component not originally budget for
+	
 }
 
 echo '<tr>
@@ -158,7 +158,7 @@ foreach ($_SESSION['Contract' . $Identifier]->ContractReqts as $Requirement) {
 			<td class="number">' . locale_number_format($Requirement->CostPerUnit, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			<td class="number">' . locale_number_format(($Requirement->CostPerUnit * $Requirement->Quantity), $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 		</tr>';
-	$OtherReqtsBudget += ($Requirement->CostPerUnit * $Requirement->Quantity);
+	$OtherReqtsBudget+= ($Requirement->CostPerUnit * $Requirement->Quantity);
 }
 echo '<tr>
 		<th colspan="3" align="right"><b>' . _('Budgeted Other Costs') . '</b></th>
@@ -207,7 +207,7 @@ while ($OtherChargesRow = DB_fetch_array($OtherChargesResult)) {
 			<td class="number">' . locale_number_format($OtherChargesRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 			<td>' . $Anticipated . '</td>
 		</tr>';
-	$OtherReqtsActual += $OtherChargesRow['amount'];
+	$OtherReqtsActual+= $OtherChargesRow['amount'];
 }
 echo '<tr>
 		<th colspan="4" align="right"><b>' . _('Actual Other Costs') . '</b></th>
@@ -223,11 +223,10 @@ echo '<tr>
 
 echo '</table>';
 
-
 //Do the processing here after the variances are all calculated above
 if (isset($_POST['CloseContract']) and $_SESSION['Contract' . $Identifier]->Status == 2) {
 
-	include('includes/SQL_CommonFunctions.php');
+	include ('includes/SQL_CommonFunctions.php');
 
 	$GLCodes = GetStockGLCode($_SESSION['Contract' . $Identifier]->ContractRef);
 	//Compare actual costs to original budgeted contract costs - if actual > budgeted - CR WIP and DR usage variance
@@ -294,11 +293,10 @@ if (isset($_POST['CloseContract']) and $_SESSION['Contract' . $Identifier]->Stat
 									SET closed=1
 									WHERE wo='" . $_SESSION['Contract' . $Identifier]->WO . "'", _('Could not update the work order to closed because') . ': ', _('The SQL used to close the work order was') . ': ', true);
 
-
 		/* Check if the contract BOM has received the contract item manually
 		 * If not then process this as by closing the contract the user is saying it is complete
 		 *  If work done on the contract is a write off then the user must also write off the stock of the contract item as a separate job
-		 */
+		*/
 
 		$Result = DB_query("SELECT qtyrecd FROM woitems
 							WHERE stockid='" . $_SESSION['Contract' . $Identifier]->ContractRef . "'
@@ -306,7 +304,6 @@ if (isset($_POST['CloseContract']) and $_SESSION['Contract' . $Identifier]->Stat
 		if (DB_num_rows($Result) == 1) {
 			$MyRow = DB_fetch_row($Result);
 			if ($MyRow[0] == 0) { //then the contract wo has not been received (it will only ever be for 1 item)
-
 				$WOReceiptNo = GetNextTransNo(26);
 
 				/* Need to get the current location quantity will need it later for the stock movement */
@@ -424,19 +421,18 @@ if (isset($_POST['CloseContract']) and $_SESSION['Contract' . $Identifier]->Stat
 										WHERE wo='" . $_SESSION['Contract' . $Identifier]->WO . "'
 										AND stockid='" . $_SESSION['Contract' . $Identifier]->ContractRef . "'", $ErrMsg, $DbgMsg, true);
 			} //end if the contract wo was not received - work order item received/processed above if not
+			
 		} //end if there was a row returned from the woitems query
+		
 	} //end if the work order was still open (so end of closing it and processing receipt if necessary)
-
 	DB_Txn_Commit();
 
 	$_SESSION['Contract' . $Identifier]->Status = 3;
 	prnMsg(_('The contract has been closed. No further charges can be posted against this contract.'), 'success');
 
 } //end if Closing the contract Close Contract button hit
-
 if ($_SESSION['Contract' . $Identifier]->Status == 2) { //the contract is an order being processed now
-
-	echo '<form  method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?SelectedContract=' . $_SESSION['Contract' . $Identifier]->ContractRef . '&amp;identifier=' . $Identifier . '">';
+	echo '<form  method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedContract=' . $_SESSION['Contract' . $Identifier]->ContractRef . '&amp;identifier=' . $Identifier . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<div class="centre">
 			<input type="submit" name="CloseContract" value="' . _('Close Contract') . '" onclick="return MakeConfirm(\'' . _('Closing the contract will prevent further stock being issued to it and charges being made against it. Variances will be taken to the profit and loss account. Are You Sure?') . '\');" />
@@ -444,5 +440,5 @@ if ($_SESSION['Contract' . $Identifier]->Status == 2) { //the contract is an ord
 	</form>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

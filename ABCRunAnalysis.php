@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('Run stock ranking analysis');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" >
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/rank.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
@@ -12,10 +11,10 @@ echo '<p class="page_title_text" >
 
 if (isset($_POST['Submit'])) {
 
-	if (!isset($_POST['GroupID']) or $_POST['GroupID']=='') {
-		prnMsg( _('You must select an analysis group to use'), 'error');
-		echo '<a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '">', _('Return to selection criteria'), '</a>';
-		include('includes/footer.php');
+	if (!isset($_POST['GroupID']) or $_POST['GroupID'] == '') {
+		prnMsg(_('You must select an analysis group to use'), 'error');
+		echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Return to selection criteria'), '</a>';
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -80,7 +79,7 @@ if (isset($_POST['Submit'])) {
 															'A'
 														)";
 				$InsertResult = DB_query($InsertSQL);
-				break;
+			break;
 			case ($i > $AItems and $i <= ($AItems + $BItems)):
 				$InsertSQL = "INSERT INTO abcstock VALUES(
 															'" . $_POST['GroupID'] . "',
@@ -88,7 +87,7 @@ if (isset($_POST['Submit'])) {
 															'B'
 														)";
 				$InsertResult = DB_query($InsertSQL);
-				break;
+			break;
 			default:
 				$InsertSQL = "INSERT INTO abcstock VALUES(
 															'" . $_POST['GroupID'] . "',
@@ -120,7 +119,7 @@ if (isset($_POST['Submit'])) {
 	prnMsg(_('The ABC analysis has been successfully run'), 'success');
 } else {
 
-	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCAnalysis">';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="ABCAnalysis">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<fieldset>
@@ -151,6 +150,6 @@ if (isset($_POST['Submit'])) {
 	prnMsg(_('Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one'), 'warn');
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>
