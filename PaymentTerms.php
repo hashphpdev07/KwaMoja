@@ -6,7 +6,8 @@ $Title = _('Payment Terms Maintenance');
 include ('includes/header.php');
 
 echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Payment Terms') . '" alt="" />' . ' ' . $Title . '</p>';
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Payment Terms'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_GET['SelectedTerms'])) {
 	$SelectedTerms = $_GET['SelectedTerms'];
@@ -142,17 +143,21 @@ if (!isset($SelectedTerms)) {
 	$SQL = "SELECT termsindicator, terms, daysbeforedue, dayinfollowingmonth FROM paymentterms";
 	$Result = DB_query($SQL);
 
-	echo '<table>';
+	echo '<table>
+			<thead>';
 	echo '<tr>
-			<th colspan="6"><h3>' . _('Payment Terms.') . '</h3></th>
+			<th colspan="6"><h3>', _('Payment Terms.'), '</h3></th>
 		</tr>';
 	echo '<tr>
-			<th>' . _('Term Code') . '</th>
-			<th>' . _('Description') . '</th>
-			<th>' . _('Following Month On') . '</th>
-			<th>' . _('Due After (Days)') . '</th>
-		</tr>';
+			<th class="SortedColumn">', _('Term Code'), '</th>
+			<th class="SortedColumn">', _('Description'), '</th>
+			<th>', _('Following Month On'), '</th>
+			<th>', _('Due After (Days)'), '</th>
+			<th colspan="2"></th>
+		</tr>
+	</thead>';
 
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['dayinfollowingmonth'] == 0) {
@@ -167,28 +172,29 @@ if (!isset($SelectedTerms)) {
 			$DueAfterText = $MyRow['daysbeforedue'] . ' ' . _('days');
 		}
 
-		echo '<tr>
-				<td>' . $MyRow['termsindicator'] . '</td>
-				<td>' . $MyRow['terms'] . '</td>
-				<td>' . $FollMthText . '</td>
-				<td>' . $DueAfterText . '</td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTerms=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTerms=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this payment term?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['termsindicator'], '</td>
+				<td>', $MyRow['terms'], '</td>
+				<td>', $FollMthText, '</td>
+				<td>', $DueAfterText, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTerms=', urlencode($MyRow[0]), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTerms=', urlencode($MyRow[0]), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this payment term?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
-	echo '</table>';
+	echo '</tbody>
+		</table>';
 } //end of ifs and buts!
 if (isset($SelectedTerms)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show all Payment Terms Definitions') . '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show all Payment Terms Definitions'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedTerms)) {
 		//editing an existing payment terms
@@ -207,15 +213,14 @@ if (!isset($_GET['delete'])) {
 		$DaysBeforeDue = $MyRow['daysbeforedue'];
 		$DayInFollowingMonth = $MyRow['dayinfollowingmonth'];
 
-		echo '<input type="hidden" name="SelectedTerms" value="' . $SelectedTerms . '" />';
-		echo '<input type="hidden" name="TermsIndicator" value="' . $_POST['TermsIndicator'] . '" />';
-		echo '<table>';
-		echo '<tr>
-				<th colspan="6"><h3>' . _('Update Payment Terms.') . '</h3></th>
-			</tr>';
-		echo '<tr>
-				<td>' . _('Term Code') . ':</td>
-				<td>' . $_POST['TermsIndicator'] . '</td></tr>';
+		echo '<input type="hidden" name="SelectedTerms" value="', $SelectedTerms, '" />';
+		echo '<input type="hidden" name="TermsIndicator" value="', $_POST['TermsIndicator'], '" />';
+		echo '<fieldset>
+				<legend>', _('Edit Payment Terms.'), '</legend>
+				<field>
+					<label for="TermsIndicator">', _('Term Code'), ':</label>
+					<div class="fieldtext">', $_POST['TermsIndicator'], '</fieldtext>
+				</field>';
 
 	} else { //end of if $SelectedTerms only do the else when a new record is being entered
 		if (!isset($_POST['TermsIndicator'])) $_POST['TermsIndicator'] = '';
@@ -228,42 +233,49 @@ if (!isset($_GET['delete'])) {
 			$_POST['Terms'] = '';
 		}
 
-		echo '<table>';
-		echo '<tr>
-				<th colspan="6"><h3>' . _('New Payment Terms.') . '</h3></th>
-			</tr>';
-		echo '<tr>
-				<td>' . _('Term Code') . ':</td>
-				<td><input type="text" class="AlphaNumeric" name="TermsIndicator" value="' . $_POST['TermsIndicator'] . '" size="3" autofocus="autofocus" required="required" maxlength="2" /></td>
-			</tr>';
+		echo '<fieldset>
+				<legend>', _('New Payment Terms.'), '</legend>
+				<field>
+					<label for="TermsIndicator">', _('Term Code'), ':</label>
+					<input type="text" name="TermsIndicator" value="', $_POST['TermsIndicator'], '" size="3" autofocus="autofocus" required="required" maxlength="2" />
+					<fieldhelp>', _('Enter the two character code for this payment terms definition'), '</fieldhelp>
+				</field>';
 	}
 
-	echo '<tr>
-			<td>' . _('Terms Description') . ':</td>
-			<td><input type="text" name="Terms" value="' . $_POST['Terms'] . '" size="35" required="required" maxlength="40" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Due After A Given No. Of Days') . ':</td>
-			<td><input type="checkbox" name="DaysOrFoll" ';
+	echo '<field>
+			<label for="Terms">', _('Terms Description'), ':</label>
+			<input type="text" name="Terms" autofocus="autofocus" value="', $_POST['Terms'], '" size="35" required="required" maxlength="40" />
+			<fieldhelp>', _('Enter a description by which this payment terms definition will be known.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="DaysOrFoll">', _('Due After A Given No. Of Days'), ':</label>';
 	if (isset($DayInFollowingMonth) and !$DayInFollowingMonth) {
-		echo 'checked';
+		echo '<input type="checkbox" name="DaysOrFoll" checked=="checked  />';
+	} else {
+		echo '<input type="checkbox" name="DaysOrFoll"  />';
 	}
-	echo '  /></td>
-		</tr>
-		<tr><td>' . _('Days (Or Day In Following Month)') . ':</td>
-			<td><input type="text" name="DayNumber" maxvalue="30" class="integer" size="3" maxlength="3" value="';
+
+	echo '<fieldhelp>', _('If payment is to be due after a certain number of days then tick this box.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="DayNumber">', _('Days (Or Day In Following Month)'), ':</label>';;
 	if ($DaysBeforeDue != 0) {
-		echo locale_number_format($DaysBeforeDue, 0);
+		echo '<input type="text" name="DayNumber" maxvalue="30" class="integer" size="3" maxlength="3" value="', locale_number_format($DaysBeforeDue, 0), '" />';
 	} else {
 		if (isset($DayInFollowingMonth)) {
-			echo locale_number_format($DayInFollowingMonth, 0);
+			echo '<input type="text" name="DayNumber" maxvalue="30" class="integer" size="3" maxlength="3" value="', locale_number_format($DayInFollowingMonth, 0), '" />';
+		} else {
+			echo '<input type="text" name="DayNumber" maxvalue="30" class="integer" size="3" maxlength="3" value="0" />';
 		}
 	}
-	echo '" /></td>
-		</tr>
-		</table>
-		<div class="centre">
-			<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+	echo '<fieldhelp>', _('The number of days credit, or the day of the appropriate month when payment is due.'), '</fieldhelp>
+		</field>';
+
+	echo '</fieldset>';
+	echo '<div class="centre">
+			<input type="submit" name="submit" value="', _('Enter Information'), '" />
 		</div>';
 	echo '</form>';
 } //end if record deleted no point displaying form to add record
