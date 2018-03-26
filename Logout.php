@@ -21,6 +21,8 @@ setcookie($Name, '', 1, $CookieInfo['path']);
 setcookie($Name, false);
 unset($_COOKIE[$Name]);
 
+header('Location: index.php');
+
 /////////////////// END OWASP
 /*
     Testing the cookie destroy handling with the three calls above appears to be
