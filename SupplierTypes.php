@@ -9,8 +9,10 @@ if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_GET['SelectedType']);
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . _('Supplier Type Setup') . '</p>';
-echo '<div class="page_help_text">' . _('Add/edit/delete Supplier Types') . '</div>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Supplier Types'), '" alt="" />', _('Supplier Type Setup'), '
+	</p>';
+echo '<div class="page_help_text">', _('Add/edit/delete Supplier Types'), '</div>';
 
 if (isset($_POST['insert']) or isset($_POST['update'])) {
 
@@ -69,6 +71,12 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		//run the SQL from either of the above possibilites
 		$Result = DB_query($SQL);
 
+		if (DB_error_no($Result) == 0) {
+			prnMsg($Msg, 'success');
+		} else {
+			prnMsg(_('There was a problem updating the database'), 'error');
+		}
+
 		// Does it exist
 		$CheckSql = "SELECT count(*)
 				 FROM suppliertype
@@ -126,20 +134,21 @@ if (!isset($SelectedType)) {
 	echo '<table>
 			<thead>
 				<tr>
-					<th class="SortedColumn">' . _('Type ID') . '</th>
-					<th class="SortedColumn">' . _('Type Name') . '</th>
-					<th class="SortedColumn">' . _('Last Supplier No') . '</th>
+					<th class="SortedColumn">', _('Type ID'), '</th>
+					<th class="SortedColumn">', _('Type Name'), '</th>
+					<th class="SortedColumn">', _('Last Supplier No'), '</th>
+					<th colspan="2"></th>
 				</tr>
 			</thead>';
 
 	echo '<tbody>';
-	while ($MyRow = DB_fetch_row($Result)) {
+	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<tr class="striped_row">
-				<td>' . $MyRow[0] . '</td>
-				<td>' . $MyRow[1] . '</td>
-				<td>' . $MyRow[2] . '</td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&Edit=Yes">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedType=' . urlencode($MyRow[0]) . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Supplier Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td>', $MyRow['typeid'], '</td>
+				<td>', $MyRow['typename'], '</td>
+				<td>', $MyRow['nextsupplierno'], '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeid']), '&Edit=Yes">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['typeid']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this Supplier Type?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 	}
 	//END WHILE LIST LOOP
@@ -151,14 +160,14 @@ if (!isset($SelectedType)) {
 if (isset($SelectedType)) {
 
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Types Defined') . '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Types Defined'), '</a>
 		</div>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>'; //Main table
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<fieldset>'; //Main table
 	// The user wish to EDIT an existing type
 	if (isset($SelectedType) and $SelectedType != '') {
 
@@ -175,13 +184,17 @@ if (!isset($_GET['delete'])) {
 		$_POST['TypeName'] = $MyRow['typename'];
 		$_POST['NextNumber'] = $MyRow['nextsupplierno'];
 
-		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
+		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
+
+		echo '<legend>', _('Edit Supplier Type Details'), '</legend>';
 
 		// We dont allow the user to change an existing type code
-		echo '<tr>
-				<td>' . _('Type ID') . ': </td>
-				<td>' . $_POST['TypeID'] . '</td>
-			</tr>';
+		echo '<field>
+				<label>', _('Type ID'), ': </label>
+				<div class="fieldtext">', $_POST['TypeID'], '</div>
+			</field>';
+	} else {
+		echo '<legend>', _('Insert Supplier Type Details'), '</legend>';
 	}
 
 	if (!isset($_POST['TypeName'])) {
@@ -190,15 +203,17 @@ if (!isset($_GET['delete'])) {
 	if (!isset($_POST['NextNumber'])) {
 		$_POST['NextNumber'] = '';
 	}
-	echo '<tr>
-			<td>' . _('Type Name') . ':</td>
-			<td><input type="text" autofocus="autofocus" required="required" maxlength="100" name="TypeName" value="' . $_POST['TypeName'] . '" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Last Supplier Number') . ':</td>
-			<td><input type="text" autofocus="autofocus" maxlength="100" name="NextNumber" value="' . $_POST['NextNumber'] . '" /></td>
-		</tr>
-	</table>';
+	echo '<field>
+			<label for="TypeName">', _('Type Name'), ':</label>
+			<input type="text" autofocus="autofocus" required="required" maxlength="100" name="TypeName" value="', $_POST['TypeName'], '" />
+			<fieldhelp>', _('Enter a name by which this supplier type will be known.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="NextNumber">', _('Last Supplier Number'), ':</label>
+			<input type="text" autofocus="autofocus" maxlength="100" name="NextNumber" value="', $_POST['NextNumber'], '" />
+			<fieldhelp>', _('If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type.'), '</fieldhelp>
+		</field>
+	</fieldset>';
 
 	if (isset($_GET['Edit'])) {
 		echo '<div class="centre">

@@ -52,22 +52,22 @@ if (isset($_POST['submit'])) {
 	}
 	//run the SQL from either of the above possibilites
 	$Result = DB_query($SQL);
-	prnMsg($Msg, 'info');
+	prnMsg($Msg, 'success');
 	unset($SelectedCOGSPostingID);
+	unset($_POST['GLCode']);
+	unset($_POST['Area']);
+	unset($_POST['StkCat']);
+	unset($_POST['SalesType']);
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
 	$SQL = "DELETE FROM cogsglpostings WHERE id='" . $SelectedCOGSPostingID . "'";
 	$Result = DB_query($SQL);
-	prnMsg(_('The cost of sales posting code record has been deleted'), 'info');
+	prnMsg(_('The cost of sales posting code record has been deleted'), 'success');
 	unset($SelectedCOGSPostingID);
 }
 
-if (!isset($SelectedCOGSPostingID)) {
-
-	$ShowLivePostingRecords = true;
-
-	$SQL = "SELECT cogsglpostings.id,
+$SQL = "SELECT cogsglpostings.id,
 				cogsglpostings.area,
 				cogsglpostings.stkcat,
 				cogsglpostings.salestype,
@@ -75,27 +75,27 @@ if (!isset($SelectedCOGSPostingID)) {
 			FROM cogsglpostings
 			LEFT JOIN chartmaster
 				ON cogsglpostings.glcode = chartmaster.accountcode
-			WHERE chartmaster.accountcode IS NULL
-				AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+			WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 			ORDER BY cogsglpostings.area,
 				cogsglpostings.stkcat,
 				cogsglpostings.salestype";
 
-	$Result = DB_query($SQL);
-	if (DB_num_rows($Result) > 0) {
-		$ShowLivePostingRecords = false;
-		prnMsg(_('The following cost of sales posting records that do not have valid general ledger code specified - these records must be amended.'), 'error');
-		echo '<table>
-				<tr>
-					<th>', _('Area'), '</th>
-					<th>', _('Stock Category'), '</th>
-					<th>', _('Sales Type'), '</th>
-					<th>', _('COGS Account'), '</th>
-				</tr>';
+$Result = DB_query($SQL);
+if (DB_num_rows($Result) > 0) {
+	echo '<table>
+				<thead>
+					<tr>
+						<th class="SortedColumn">', _('Area'), '</th>
+						<th class="SortedColumn">', _('Stock Category'), '</th>
+						<th class="SortedColumn">', _('Sales Type'), '</th>
+						<th class="SortedColumn">', _('COGS Account'), '</th>
+						<th colspan="2"></th>
+					</tr>
+				</thead>';
 
-		while ($MyRow = DB_fetch_array($Result)) {
-
-			echo '<tr class="striped_row">
+	echo '<tbody>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		echo '<tr class="striped_row">
 					<td>', $MyRow['area'], '</td>
 					<td>', $MyRow['stkcat'], '</td>
 					<td>', $MyRow['salestype'], '</td>
@@ -103,79 +103,9 @@ if (!isset($SelectedCOGSPostingID)) {
 					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
 					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr>';
-		} //end while
-		echo '</table>';
-	}
-
-	if ($ShowLivePostingRecords) {
-		$SQL = "SELECT cogsglpostings.id,
-					cogsglpostings.area,
-					cogsglpostings.stkcat,
-					cogsglpostings.salestype,
-					chartmaster.accountname,
-					chartmaster.accountcode
-				FROM cogsglpostings
-				INNER JOIN chartmaster
-					ON cogsglpostings.glcode = chartmaster.accountcode
-					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
-				ORDER BY cogsglpostings.area,
-						cogsglpostings.stkcat,
-						cogsglpostings.salestype";
-
-		$Result = DB_query($SQL);
-
-		echo '<table>
-				<tr>
-					<th>', _('Area'), '</th>
-					<th>', _('Stock Category'), '</th>
-					<th>', _('Sales Type'), '</th>
-					<th>', _('GL Account'), '</th>
-					<th colspan="2"></th>
-				</tr>';
-		$k = 0;
-		while ($MyRow = DB_fetch_array($Result)) {
-			if ($MyRow['area'] != 'AN') {
-				$AreaSQL = "SELECT areadescription FROM areas WHERE areacode='" . $MyRow['area'] . "'";
-				$AreaResult = DB_query($AreaSQL);
-				$AreaRow = DB_fetch_array($AreaResult);
-			} else {
-				$AreaRow['areadescription'] = _('All Other Areas');
-			}
-
-			if ($MyRow['stkcat'] != 'ANY') {
-				$CategorySQL = "SELECT categorydescription FROM stockcategory WHERE categoryid='" . $MyRow['stkcat'] . "'";
-				$CategoryResult = DB_query($CategorySQL);
-				$CategoryRow = DB_fetch_array($CategoryResult);
-			} else {
-				$CategoryRow['categorydescription'] = _('All Other Categories');
-			}
-
-			if ($MyRow['salestype'] != 'AN') {
-				$TypeSQL = "SELECT sales_type FROM salestypes WHERE typeabbrev='" . $MyRow['salestype'] . "'";
-				$TypeResult = DB_query($TypeSQL);
-				$TypeRow = DB_fetch_array($TypeResult);
-			} else {
-				$TypeRow['sales_type'] = _('All Other Types');
-			}
-
-			echo '<tr class="striped_row">
-					<td>', $MyRow['area'], ' - ', $AreaRow['areadescription'], '</td>
-					<td>', $MyRow['stkcat'], ' - ', $CategoryRow['categorydescription'], '</td>
-					<td>', $MyRow['salestype'], ' - ', $TypeRow['sales_type'], '</td>
-					<td>', $MyRow['accountcode'], ' - ', $MyRow['accountname'], '</td>
-					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
-					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedCOGSPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this COGS GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
-				</tr>';
-
-		} //END WHILE LIST LOOP
-		echo '</table>';
-	}
-}
-//end of ifs and buts!
-if (isset($SelectedCOGSPostingID)) {
-	echo '<div class="centre">
-			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show all cost of sales posting records'), '</a>
-		</div>';
+	} //end while
+	echo '</tbody>
+			</table>';
 }
 
 echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';

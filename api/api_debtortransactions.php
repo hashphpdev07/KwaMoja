@@ -1195,7 +1195,7 @@ function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 	unset($InvoiceDetails['partcode']);
 	$SalesArea = $InvoiceDetails['salesarea'];
 	unset($InvoiceDetails['salesarea']);
-	$InvoiceDetails['transno'] = GetNextTransactionNo(10);
+	$InvoiceDetails['transno'] = GetNextTransNo(10);
 	$InvoiceDetails['type'] = 10;
 	$Errors = VerifyDebtorExists($InvoiceDetails['debtorno'], sizeof($Errors), $Errors);
 	$Errors = VerifyBranchNoExists($InvoiceDetails['debtorno'], $InvoiceDetails['branchcode'], sizeof($Errors), $Errors);
@@ -1259,13 +1259,13 @@ function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 		$SQL = "INSERT INTO debtortrans (" . mb_substr($FieldNames, 0, -2) . ")
 									VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
 		$Result = api_DB_query($SQL);
-		$SQL = "UPDATE systypes SET typeno='" . GetNextTransactionNo(10) . "' WHERE typeid=10";
+		$SQL = "UPDATE systypes SET typeno='" . GetNextTransNo(10) . "' WHERE typeid=10";
 		$Result = api_DB_query($SQL);
 		$SalesGLCode = GetSalesGLCode($SalesArea, $PartCode);
 		$DebtorsGLCode = GetDebtorsGLCode($db);
 		$SQL = "INSERT INTO gltrans VALUES(null,
 											10,
-											'" . GetNextTransactionNo(10) . "',
+											'" . GetNextTransNo(10) . "',
 											0,
 											'" . $InvoiceDetails['trandate'] . "',
 											'" . $InvoiceDetails['prd'] . "',
@@ -1278,7 +1278,7 @@ function InsertSalesInvoice($InvoiceDetails, $user, $password) {
 		$Result = api_DB_query($SQL);
 		$SQL = "INSERT INTO gltrans VALUES(null,
 											10,
-											'" . GetNextTransactionNo(10) . "',
+											'" . GetNextTransNo(10) . "',
 											0,
 											'" . $InvoiceDetails['trandate'] . "',
 											'" . $InvoiceDetails['prd'] . "',
@@ -1495,7 +1495,7 @@ function InsertSalesCredit($CreditDetails, $user, $password) {
 	unset($CreditDetails['partcode']);
 	$SalesArea = $CreditDetails['salesarea'];
 	unset($CreditDetails['salesarea']);
-	$CreditDetails['transno'] = GetNextTransactionNo(11);
+	$CreditDetails['transno'] = GetNextTransNo(11);
 	$CreditDetails['type'] = 10;
 	$Errors = VerifyDebtorExists($CreditDetails['debtorno'], sizeof($Errors), $Errors);
 	$Errors = VerifyBranchNoExists($CreditDetails['debtorno'], $CreditDetails['branchcode'], sizeof($Errors), $Errors);
@@ -1559,13 +1559,13 @@ function InsertSalesCredit($CreditDetails, $user, $password) {
 		$SQL = "INSERT INTO debtortrans (" . mb_substr($FieldNames, 0, -2) . ")
 						VALUES ('" . mb_substr($FieldValues, 0, -2) . "') ";
 		$Result = api_DB_query($SQL);
-		$SQL = "UPDATE systypes SET typeno='" . GetNextTransactionNo(11) . "' WHERE typeid=10";
+		$SQL = "UPDATE systypes SET typeno='" . GetNextTransNo(11) . "' WHERE typeid=10";
 		$Result = api_DB_query($SQL);
 		$SalesGLCode = GetSalesGLCode($SalesArea, $PartCode);
 		$DebtorsGLCode = GetDebtorsGLCode($db);
 		$SQL = "INSERT INTO gltrans VALUES(null,
 											10,
-											'" . GetNextTransactionNo(11) . "',
+											'" . GetNextTransNo(11) . "',
 											0,
 											'" . $CreditDetails['trandate'] . "',
 											'" . $CreditDetails['prd'] . "',
@@ -1577,7 +1577,7 @@ function InsertSalesCredit($CreditDetails, $user, $password) {
 		$Result = api_DB_query($SQL);
 		$SQL = "INSERT INTO gltrans VALUES(null,
 											10,
-											'" . GetNextTransactionNo(11) . "',
+											'" . GetNextTransNo(11) . "',
 											0,
 											'" . $CreditDetails['trandate'] . "',
 											'" . $CreditDetails['prd'] . "',
