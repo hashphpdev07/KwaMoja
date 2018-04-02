@@ -13,7 +13,9 @@ if (isset($_GET['SelectedSalesPostingID'])) {
 
 $InputError = false;
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['submit'])) {
 
@@ -121,24 +123,51 @@ if (!isset($SelectedSalesPostingID)) {
 		$Result = DB_query($SQL);
 
 		echo '<table>
-				<tr>
-				<th>' . _('Area') . '</th>
-				<th>' . _('Stock Category') . '</th>
-				<th>' . _('Sales Type') . '</th>
-				<th>' . _('Sales Account') . '</th>
-				<th>' . _('Discount Account') . '</th>
-			</tr>';
+				<thead>
+					<tr>
+						<th>', _('Area'), '</th>
+						<th>', _('Stock Category'), '</th>
+						<th>', _('Sales Type'), '</th>
+						<th>', _('Sales Account'), '</th>
+						<th>', _('Discount Account'), '</th>
+						<th colspan="2"></th>
+					</tr>
+				</thead>';
 
-		while ($MyRow = DB_fetch_row($Result)) {
+		while ($MyRow = DB_fetch_array($Result)) {
+
+			if ($MyRow['area'] != 'AN') {
+				$SQL = "SELECT areadescription FROM areas WHERE areacode='" . $MyRow['area'] . "'";
+				$AreaResult = DB_query($SQL);
+				$AreaRow = DB_fetch_array($AreaResult);
+			} else {
+				$AreaRow['areadescription'] = _('Any Other Area');
+			}
+
+			if ($MyRow['stkcat'] != 'ANY') {
+				$SQL = "SELECT categorydescription FROM stockcategory WHERE categoryid='" . $MyRow['stkcat'] . "'";
+				$CategoryResult = DB_query($SQL);
+				$CategoryRow = DB_fetch_array($CategoryResult);
+			} else {
+				$CategoryRow['categorydescription'] = _('Any Other Category');
+			}
+
+			if ($MyRow['salestype'] != 'AN') {
+				$SQL = "SELECT sales_type FROM salestypes WHERE typeabbrev='" . $MyRow['salestype'] . "'";
+				$TypeResult = DB_query($SQL);
+				$TypeRow = DB_fetch_array($TypeResult);
+			} else {
+				$TypeRow['sales_type'] = _('Any Other Sales Type');
+			}
 
 			echo '<tr class="striped_row">
-					<td>', $MyRow[1], '</td>
-					<td>', $MyRow[2], '</td>
-					<td>', $MyRow[3], '</td>
-					<td>', htmlspecialchars($PossibleGLCodes[$MyRow[4]], ENT_QUOTES, 'UTF-8'), '</td>
-					<td>', htmlspecialchars($PossibleGLCodes[$MyRow[5]], ENT_QUOTES, 'UTF-8'), '</td>
-					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '">' . _('Edit') . '</a></td>
-					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', 'SelectedSalesPostingID=', $MyRow[0], '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this sales GL posting record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td>', $AreaRow['areadescription'], ' (', $MyRow['area'], ')</td>
+					<td>', $CategoryRow['categorydescription'], ' (', $MyRow['stkcat'], ')</td>
+					<td>', $TypeRow['sales_type'], ' (', $MyRow['salestype'], ')</td>
+					<td>', htmlspecialchars($PossibleGLCodes[$MyRow['salesglcode']], ENT_QUOTES, 'UTF-8'), '</td>
+					<td>', htmlspecialchars($PossibleGLCodes[$MyRow['discountglcode']], ENT_QUOTES, 'UTF-8'), '</td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedSalesPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedSalesPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this sales GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr>';
 		}
 		//END WHILE LIST LOOP
@@ -148,17 +177,19 @@ if (!isset($SelectedSalesPostingID)) {
 
 //end of ifs and buts!
 if (isset($SelectedSalesPostingID)) {
-	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Sales Posting Codes Defined') . '</a></div>';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Sales Posting Codes Defined'), '</a>
+		</div>';
 }
 
-if (!isset($_GET['delete'])) {
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<fieldset>';
 
-	if (isset($SelectedSalesPostingID)) {
-		//editing an existing sales posting record
-		$SQL = "SELECT salesglpostings.stkcat,
+if (isset($SelectedSalesPostingID)) {
+	//editing an existing sales posting record
+	$SQL = "SELECT salesglpostings.stkcat,
 				salesglpostings.salesglcode,
 				salesglpostings.discountglcode,
 				salesglpostings.area,
@@ -166,125 +197,120 @@ if (!isset($_GET['delete'])) {
 			FROM salesglpostings
 			WHERE salesglpostings.id='" . $SelectedSalesPostingID . "'";
 
-		$Result = DB_query($SQL);
-		$MyRow = DB_fetch_array($Result);
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
 
-		$_POST['SalesGLCode'] = $MyRow['salesglcode'];
-		$_POST['DiscountGLCode'] = $MyRow['discountglcode'];
-		$_POST['Area'] = $MyRow['area'];
-		$_POST['StkCat'] = $MyRow['stkcat'];
-		$_POST['SalesType'] = $MyRow['salestype'];
-		DB_free_result($Result);
+	$_POST['SalesGLCode'] = $MyRow['salesglcode'];
+	$_POST['DiscountGLCode'] = $MyRow['discountglcode'];
+	$_POST['Area'] = $MyRow['area'];
+	$_POST['StkCat'] = $MyRow['stkcat'];
+	$_POST['SalesType'] = $MyRow['salestype'];
+	DB_free_result($Result);
 
-		echo '<input type="hidden" name="SelectedSalesPostingID" value="' . $SelectedSalesPostingID . '" />';
+	echo '<input type="hidden" name="SelectedSalesPostingID" value="', $SelectedSalesPostingID, '" />';
+	echo '<legend>', _('Edit Sales GL details'), '</legend>';
 
-	}
-	/*end of if $SelectedSalesPostingID only do the else when a new record is being entered */
+} else {
+	echo '<legend>', _('Create New Sales GL details'), '</legend>';
+}
 
-	$SQL = "SELECT areacode,
+$SQL = "SELECT areacode,
 			areadescription FROM areas";
-	$Result = DB_query($SQL);
+$AreaResult = DB_query($SQL);
 
-	echo '<br /><table>
-		<tr>
-			<td>' . _('Area') . ':</td>
-			<td>
-				<select required="required" name="Area">
-					<option value="AN">' . _('Any Other') . '</option>';
+echo '<field>
+			<label for="Area">', _('Area'), ':</label>
+			<select required="required" autofocus="autofocus" name="Area">
+				<option value="AN">', _('Any Other'), '</option>';
 
-	while ($MyRow = DB_fetch_array($Result)) {
-		if (isset($_POST['Area']) and $MyRow['areacode'] == $_POST['Area']) {
-			echo '<option selected="selected" value="';
-		} else {
-			echo '<option value="';
-		}
-		echo $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
+while ($AreaRow = DB_fetch_array($AreaResult)) {
+	if (isset($_POST['Area']) and $AreaRow['areacode'] == $_POST['Area']) {
+		echo '<option selected="selected" value="', $AreaRow['areacode'], '">', $AreaRow['areadescription'], '</option>';
+	} else {
+		echo '<option value="', $AreaRow['areacode'], '">', $AreaRow['areadescription'], '</option>';
+	}
+} //end while loop
+echo '</select>
+		<fieldhelp>', _('Select an Area here. If this record is to refer to all areas that do not have a specific record then select "Any Other".'), '</fieldhelp>
+	</field>';
 
-	} //end while loop
-	DB_free_result($Result);
+$SQL = "SELECT categoryid, categorydescription FROM stockcategory";
+$CategoryResult = DB_query($SQL);
 
-	$SQL = "SELECT categoryid, categorydescription FROM stockcategory";
-	$Result = DB_query($SQL);
+echo '<field>
+			<label for="StkCat">', _('Stock Category'), ':</label>
+			<select required="required" name="StkCat">
+				<option value="ANY">', _('Any Other'), '</option>';
 
-	echo '</select></td></tr>';
+while ($CategoryRow = DB_fetch_array($CategoryResult)) {
 
-	echo '<tr>
-			<td>' . _('Stock Category') . ':</td>
-			<td>
-				<select required="required" name="StkCat">
-					<option value="ANY">' . _('Any Other') . '</option>';
+	if (isset($_POST['StkCat']) and ($CategoryRow['categoryid'] == $_POST['StkCat'])) {
+		echo '<option selected="selected" value="', $CategoryRow['categoryid'], '">', $CategoryRow['categorydescription'], '</option>';
+	} else {
+		echo '<option value="', $CategoryRow['categoryid'], '">', $CategoryRow['categorydescription'], '</option>';
+	}
+} //end while loop
+echo '</select>
+		<fieldhelp>', _('Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select "Any Other".'), '</fieldhelp>
+	</field>';
 
-	while ($MyRow = DB_fetch_array($Result)) {
-
-		if (isset($_POST['StkCat']) and $MyRow['categoryid'] == $_POST['StkCat']) {
-			echo '<option selected="selected" value="';
-		} else {
-			echo '<option value="';
-		}
-		echo $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
-
-	} //end while loop
-	echo '</select></td></tr>';
-
-	DB_free_result($Result);
-
-	$SQL = "SELECT typeabbrev,
+$SQL = "SELECT typeabbrev,
 					sales_type
 			FROM salestypes";
-	$Result = DB_query($SQL);
+$Result = DB_query($SQL);
 
-	echo '<tr>
-			<td>' . _('Sales Type') . ' / ' . _('Price List') . ':</td>
-			<td><select required="required" name="SalesType">';
-	echo '<option value="AN">' . _('Any Other') . '</option>';
+echo '<field>
+			<label for="SalesType">', _('Sales Type'), ' / ', _('Price List'), ':</label>
+			<select required="required" name="SalesType">
+				<option value="AN">', _('Any Other'), '</option>';
 
-	while ($MyRow = DB_fetch_array($Result)) {
-		if (isset($_POST['SalesType']) and $MyRow['typeabbrev'] == $_POST['SalesType']) {
-			echo '<option selected="selected" value="';
-		} else {
-			echo '<option value="';
-		}
-		echo $MyRow['typeabbrev'] . '">' . $MyRow['sales_type'] . '</option>';
+while ($MyRow = DB_fetch_array($Result)) {
+	if (isset($_POST['SalesType']) and $MyRow['typeabbrev'] == $_POST['SalesType']) {
+		echo '<option selected="selected" value="', $MyRow['typeabbrev'], '">', $MyRow['sales_type'], '</option>';
+	} else {
+		echo '<option value="', $MyRow['typeabbrev'], '">', $MyRow['sales_type'], '</option>';
+	}
+} //end while loop
+echo '</select>
+		<fieldhelp>', _('Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select "Any Other".'), '</fieldhelp>
+	</field>';
 
-	} //end while loop
-	echo '</select></td></tr>';
+echo '<field>
+			<label for="SalesGLCode">', _('Post Sales to GL Account'), ':</label>
+			<select required="required" name="SalesGLCode">';
+foreach ($PossibleGLCodes as $AccountCode => $AccountName) {
+	if (isset($_POST['SalesGLCode']) and $AccountCode == $_POST['SalesGLCode']) {
+		echo '<option selected="selected" value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
+	} else {
+		echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
+	}
+} //end while loop
+echo '</select>
+		<fieldhelp>', _('Select the GL code to which sales should be posted for this criteria.'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>' . _('Post Sales to GL Account') . ':</td>
-			<td><select required="required" name="SalesGLCode">';
+echo '<field>
+			<label for="DiscountGLCode">', _('Post Discount to GL Account'), ':</label>
+			<select required="required" name="DiscountGLCode">';
 
-	foreach ($PossibleGLCodes as $AccountCode => $AccountName) {
-		if (isset($_POST['SalesGLCode']) and $AccountCode == $_POST['SalesGLCode']) {
-			echo '<option selected="selected" value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-		} else {
-			echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-		}
-	} //end while loop
-	DB_data_seek($Result, 0);
+foreach ($PossibleGLCodes as $AccountCode => $AccountName) {
+	if (isset($_POST['DiscountGLCode']) and $AccountCode == $_POST['DiscountGLCode']) {
+		echo '<option selected="selected" value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
+	} else {
+		echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
+	}
+} //end while loop
+echo '</select>
+		<fieldhelp>', _('Select the GL code to which sales discount should be posted for this criteria.'), '</fieldhelp>
+	</field>';
 
-	echo '</select></td></tr>
-		<tr>
-			<td>' . _('Post Discount to GL Account') . ':</td>
-			<td>
-				<select required="required" name="DiscountGLCode">';
+echo '</fieldset>';
 
-	foreach ($PossibleGLCodes as $AccountCode => $AccountName) {
-		if (isset($_POST['DiscountGLCode']) and $AccountCode == $_POST['DiscountGLCode']) {
-			echo '<option selected="selected" value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-		} else {
-			echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-		}
-	} //end while loop
-	echo '</select></td>
-		</tr>
-		</table>';
+echo '<div class="centre">
+			<input type="submit" name="submit" value="', _('Enter Information'), '" />
+		</div>';
 
-	echo '<div class="centre"><input type="submit" name="submit" value="' . _('Enter Information') . '" /></div>';
-
-	echo '</form>';
-
-} //end if record deleted no point displaying form to add record
-
+echo '</form>';
 
 include ('includes/footer.php');
 ?>
