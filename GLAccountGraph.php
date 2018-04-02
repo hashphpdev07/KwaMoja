@@ -34,67 +34,72 @@ if (isset($_POST['FromPeriod']) and isset($_POST['ToPeriod'])) {
 
 if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADifferentPeriod == _('Select A Different Period')) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<p class="page_title_text">
-			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
-	echo '<table class="selection">
-			<tr>
-				<td>' . _('Select GL Account') . ':</td>
-				<td><select name="Account">';
+	echo '<fieldset>
+			<legend>', _('Select Report Criteria'), '</legend>
+			<field>
+				<label for="Account">', _('Select GL Account'), ':</label>
+				<select name="Account" autofocus="autofocus">';
 
 	$SQL = "SELECT chartmaster.accountcode,
 				bankaccounts.accountcode AS bankact,
 				bankaccounts.currcode,
 				chartmaster.accountname
-			FROM chartmaster LEFT JOIN bankaccounts
-			ON chartmaster.accountcode=bankaccounts.accountcode
-			INNER JOIN glaccountusers ON glaccountusers.accountcode=chartmaster.accountcode AND glaccountusers.userid='" . $_SESSION['UserID'] . "' AND glaccountusers.canview=1
+			FROM chartmaster
+			LEFT JOIN bankaccounts
+				ON chartmaster.accountcode=bankaccounts.accountcode
+			INNER JOIN glaccountusers
+				ON glaccountusers.accountcode=chartmaster.accountcode
+				AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
+				AND glaccountusers.canview=1
 			ORDER BY chartmaster.accountcode";
 	$Account = DB_query($SQL);
-	while ($MyRow = DB_fetch_array($Account, $db)) {
+	while ($MyRow = DB_fetch_array($Account)) {
 		if ($MyRow['accountcode'] == $SelectedAccount) {
 			if (!is_null($MyRow['bankact'])) {
 				$BankAccount = true;
 			}
-			echo '<option selected="selected" value="' . $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' ' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
+			echo '<option selected="selected" value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 		} else {
-			echo '<option value="' . $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' ' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
+			echo '<option value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 		}
 	}
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Select the GL account for this graph.'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>' . _('Graph Type') . '</td>
-			<td><select name="GraphType">
-					<option value="bars">' . _('Bar Graph') . '</option>
-					<option value="stackedbars">' . _('Stacked Bar Graph') . '</option>
-					<option value="lines">' . _('Line Graph') . '</option>
-					<option value="linepoints">' . _('Line Point Graph') . '</option>
-					<option value="area">' . _('Area Graph') . '</option>
-					<option value="points">' . _('Points Graph') . '</option>
-					<option value="pie">' . _('Pie Graph') . '</option>
-					<option value="thinbarline">' . _('Thin Bar Line Graph') . '</option>
-					<option value="squared">' . _('Squared Graph') . '</option>
-					<option value="stackedarea">' . _('Stacked Area Graph') . '</option>
-				</select>
-			</td>
-		</tr>';
+	echo '<field>
+			<label for="GraphType">', _('Graph Type'), '</label>
+			<select name="GraphType">
+				<option value="bars">' . _('Bar Graph') . '</option>
+				<option value="stackedbars">' . _('Stacked Bar Graph') . '</option>
+				<option value="lines">' . _('Line Graph') . '</option>
+				<option value="linepoints">' . _('Line Point Graph') . '</option>
+				<option value="area">' . _('Area Graph') . '</option>
+				<option value="points">' . _('Points Graph') . '</option>
+				<option value="pie">' . _('Pie Graph') . '</option>
+				<option value="thinbarline">' . _('Thin Bar Line Graph') . '</option>
+				<option value="squared">' . _('Squared Graph') . '</option>
+				<option value="stackedarea">' . _('Stacked Area Graph') . '</option>
+			</select>
+			<fieldhelp>', _('Select the type of graph to show.'), '</fieldhelp>
+		</field>';
 
-	echo '<tr>
-			<td>', _('Invert Graph'), '</td>
+	echo '<field>
+			<label for="InvertGraph">', _('Invert Graph'), '</label>
 			<td><input type="checkbox" name="InvertGraph" /></td>
 			<td><fieldhelp>', _('If the selected account is normally a credit balance then select this to show the graph with credits as positive values'), '</fieldhelp>
-		</tr>';
+		</field>';
 
-	echo '<tr>
-			<td>' . _('Select Period From') . ':</td>
-			<td><select name="FromPeriod">';
+	echo '<field>
+			<label for="FromPeriod">', _('Select Period From'), ':</label>
+			<select name="FromPeriod">';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
 		/*Dates in SQL format */
@@ -105,67 +110,66 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	$SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno";
 	$Periods = DB_query($SQL);
 
-	while ($MyRow = DB_fetch_array($Periods, $db)) {
+	while ($MyRow = DB_fetch_array($Periods)) {
 		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] != '') {
 			if ($_POST['FromPeriod'] == $MyRow['periodno']) {
-				echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
-				echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			}
 		} else {
 			if ($MyRow['lastdate_in_period'] == $DefaultFromDate) {
-				echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
-				echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			}
 		}
 	}
-
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Select the starting period for this report'), '</fieldhelp>
+	</field>';
+
 	if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
-		$DefaultToPeriod = GetPeriod(DateAdd(ConvertSQLDate($DefaultFromDate), 'm', 11), $db);
+		$DefaultToPeriod = GetPeriod(DateAdd(ConvertSQLDate($DefaultFromDate), 'm', 11));
 	} else {
 		$DefaultToPeriod = $_POST['ToPeriod'];
 	}
 
-	echo '<tr>
-			<td>' . _('Select Period To') . ':</td>
-			<td><select name="ToPeriod">';
+	echo '<field>
+			<label for="ToPeriod">', _('Select Period To'), ':</label>
+			<select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
-	while ($MyRow = DB_fetch_array($Periods, $db)) {
+	while ($MyRow = DB_fetch_array($Periods)) {
 
 		if ($MyRow['periodno'] == $DefaultToPeriod) {
-			echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+			echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		} else {
-			echo '<option value ="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+			echo '<option value ="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		}
 	}
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Select the end period for this report'), '</fieldhelp>
+	</field>';
 
 	if (!isset($_POST['Period'])) {
 		$_POST['Period'] = '';
 	}
 
-	echo '<tr>
-			<td colspan="2">
+	echo '<field>
 				<h3>', _('OR'), '</h3>
-			</td>
-		</tr>';
+		</field>';
 
-	echo '<tr>
-			<td>' . _('Select Period') . ':</td>
-			<td>' . ReportPeriodList($_POST['Period']) . '</td>
-		</tr>';
+	echo '<field>
+			<label for="Period">', _('Select Period'), ':</label>
+			', ReportPeriodList($_POST['Period']), '
+			<fieldhelp>', _('Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above.'), '</fieldhelp>
+		</field>';
 
-	echo '</table>
+	echo '</fieldset>
 			<div class="centre">
-				<input type="submit" name="ShowGraph" value="' . _('Show Account Graph') . '" />
+				<input type="submit" name="ShowGraph" value="', _('Show Account Graph'), '" />
 			</div>
         </form>';
 	include ('includes/footer.php');
@@ -261,7 +265,7 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	$Graph->DrawGraph();
 	echo '<table class="selection">
 			<tr>
-				<td><p><img src="companies/' . $_SESSION['DatabaseName'] . '/reports/glaccountgraph.png" alt="Sales Report Graph"></img></p></td>
+				<td><p><img src="companies/', $_SESSION['DatabaseName'], '/reports/glaccountgraph.png" alt="Sales Report Graph"></img></p></td>
 			</tr>
 		  </table>';
 
