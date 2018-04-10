@@ -136,7 +136,6 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 	$_SESSION['PO' . $Identifier]->Total = 0;
 }
 
-$k = 0; //row colour counter
 if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['ProcessGoodsReceived'])) {
 
 	foreach ($_SESSION['PO' . $Identifier]->LineItems as $LnItm) {

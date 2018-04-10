@@ -191,7 +191,6 @@ if (!isset($SelectedBankAccount)) {
 				<th colspan="2"></th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['invoice'] == 0) {
 			$DefaultBankAccount = _('No');

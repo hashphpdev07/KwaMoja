@@ -132,7 +132,6 @@ if (!isset($OverTimeID)) {
 		<th>" . _('Overtime Rate') . "</td>
 	</tr>";
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {

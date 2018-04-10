@@ -67,7 +67,6 @@ echo '<tr>
 		<th>' . _('Revised?') . '</th>
 	</tr>';
 
-$k = 0; //row colour counter
 $i = 1;
 while ($MyRow = DB_fetch_array($Result)) {
 

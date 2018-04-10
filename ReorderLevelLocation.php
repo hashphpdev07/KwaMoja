@@ -62,7 +62,7 @@ if (isset($_POST['submit']) or isset($_POST['Update'])) {
 
 	echo '<p class="page_title_text" ><strong>' . _('Location : ') . '' . $Location['locationname'] . ' </strong></p>';
 	echo '<p class="page_title_text" ><strong>' . _('Number Of Days Sales : ') . '' . locale_number_format($_POST['NumberOfDays'], 0) . '' . _(' Days ') . ' </strong></p>';
-	$k = 0; //row colour counter
+
 	echo '<form action="ReorderLevelLocation.php" method="post" id="Update">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 	echo '<table>';

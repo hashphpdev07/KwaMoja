@@ -715,7 +715,7 @@ if (isset($_GET['Modify'])) {
 				<th colspan="2"><input type="submit" name="AddContact" value="' . _('Add Contact') . '" /></th>
 			</tr>';
 }
-$k = 0; //row colour counter
+
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr class="striped_row">
 			<td>' . $MyRow['contactname'] . '</td>

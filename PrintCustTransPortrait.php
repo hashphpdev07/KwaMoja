@@ -1015,7 +1015,7 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 							</tr>';
 
 					$LineCounter = 17;
-					$k = 0; //row colour counter
+
 					while ($MyRow2 = DB_fetch_array($Result)) {
 
 						$DisplayPrice = locale_number_format($MyRow2['fxprice'], $MyRow['decimalplaces']);

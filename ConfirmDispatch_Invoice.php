@@ -349,7 +349,6 @@ $TaxTotal = 0;
 
 /*show the line items on the order with the quantity being dispatched available for modification */
 
-$k = 0; //row colour counter
 $j = 0;
 echo '<tbody>';
 foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {

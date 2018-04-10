@@ -814,7 +814,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 			</thead>';
 
 	$_SESSION['PO' . $Identifier]->Total = 0;
-	$k = 0; //row colour counter
+
 	echo '<tbody>';
 	foreach ($_SESSION['PO' . $Identifier]->LineItems as $POLine) {
 		if ($POLine->Deleted == False) {
@@ -1276,7 +1276,6 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	$j = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {

@@ -765,7 +765,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	$TaxTotals = array();
 	$TaxGLCodes = array();
 	$TaxTotal = 0;
-	$k = 0; //row colour counter
+
 	foreach ($_SESSION['Items' . $Identifier]->LineItems as $OrderLine) {
 
 		$SubTotal = round($OrderLine->Quantity * $OrderLine->Price * (1 - $OrderLine->DiscountPercent), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
@@ -2153,7 +2153,7 @@ if (!isset($_POST['ProcessSale'])) {
 						</tr>
 					</thead>';
 			$i = 0;
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result2)) {
 				// This code needs sorting out, but until then :
@@ -2315,7 +2315,7 @@ if (!isset($_POST['ProcessSale'])) {
 						</tr>
 					</thead>';
 			$i = 0;
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SearchResult)) {
 

@@ -145,7 +145,6 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 				<th>', _('Authorised'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($TabDetail)) {
 		$ReceiptSQL = "SELECT name
 							FROM pcreceipts

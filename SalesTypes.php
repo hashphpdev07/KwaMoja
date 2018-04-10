@@ -169,7 +169,6 @@ if (!isset($SelectedType)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 

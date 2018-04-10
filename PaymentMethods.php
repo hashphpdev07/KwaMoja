@@ -15,10 +15,14 @@ if (isset($_GET['SelectedPaymentID'])) {
 }
 
 if (isset($SelectedPaymentID)) {
-	echo '<div class="toplink"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Payment Methods') . '</a></div>';
+	echo '<div class="toplink">
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review Payment Methods'), '</a>
+		</div>';
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Payments') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Payments'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['submit'])) {
 
@@ -34,14 +38,15 @@ if (isset($_POST['submit'])) {
 		prnMsg(_('The payment method may not be empty.'), 'error');
 	} else if (!is_numeric(filter_number_format($_POST['DiscountPercent']))) {
 		$InputError = 1;
-		prnMsg(_('The discount percentage must be a number less than 1'), 'error');
-	} else if (filter_number_format($_POST['DiscountPercent']) > 1) {
+		prnMsg(_('The discount percentage must be a number less than 100'), 'error');
+	} else if (filter_number_format($_POST['DiscountPercent']) > 100) {
 		$InputError = 1;
-		prnMsg(_('The discount percentage must be a number less than 1'), 'error');
+		prnMsg(_('The discount percentage must be a number less than 100'), 'error');
 	} else if (filter_number_format($_POST['DiscountPercent']) < 0) {
 		$InputError = 1;
 		prnMsg(_('The discount percentage must be either zero or less than 1'), 'error');
 	}
+	$_POST['DiscountPercent'] = $_POST['DiscountPercent'] / 100;
 	if (isset($_POST['SelectedPaymentID']) and $InputError != 1) {
 
 		/*SelectedPaymentID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
@@ -189,11 +194,12 @@ if (!isset($SelectedPaymentID)) {
 					<th class="SortedColumn">', _('Use Pre-printed Stationery'), '</th>
 					<th>', _('Open POS Cash Drawer for Sale'), '</th>
 					<th class="SortedColumn">', _('Payment discount'), ' %</th>
+					<th colspan="2"></th>
 				</tr>
 			</thead>';
 
 	echo '<tbody>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
@@ -213,8 +219,8 @@ if (!isset($SelectedPaymentID)) {
 } //end of ifs and buts!
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedPaymentID)) {
 		//editing an existing section
@@ -243,8 +249,9 @@ if (!isset($_GET['delete'])) {
 			$_POST['OpenCashDrawer'] = $MyRow['opencashdrawer'];
 			$_POST['DiscountPercent'] = $MyRow['percentdiscount'];
 
-			echo '<input type="hidden" name="SelectedPaymentID" value="' . $_POST['MethodID'] . '" />';
-			echo '<table>';
+			echo '<input type="hidden" name="SelectedPaymentID" value="', $_POST['MethodID'], '" />';
+			echo '<fieldset>
+					<legend>', _('Edit Payment Method Details'), '</legend>';
 		}
 
 	} else {
@@ -254,48 +261,55 @@ if (!isset($_GET['delete'])) {
 		$_POST['UsePrePrintedStationery'] = 0; // Default is use for receipts
 		$_POST['OpenCashDrawer'] = 0; //Default is not to open cash drawer
 		$_POST['DiscountPercent'] = 0;
-		echo '<table>';
+		echo '<fieldset>
+				<legend>', _('Create New Payment Method Details'), '</legend>';
 	}
-	echo '<tr>
-			<td>' . _('Payment Method') . ':' . '</td>
-			<td><input type="text" name="MethodName" size="15" autofocus="autofocus" required="required" maxlength="15" value="' . $_POST['MethodName'] . '" /></td>
-		</tr>';
-	echo '<tr>
-		<td>' . _('Use For Payments') . ':' . '</td>
-		<td><select name="ForPayment">
-			<option' . ($_POST['ForPayment'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
-			<option' . ($_POST['ForPayment'] ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
-			</select></td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('Use For Receipts') . ':' . '</td>
-			<td><select name="ForReceipt">
-				<option' . ($_POST['ForReceipt'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
-				<option' . ($_POST['ForReceipt'] ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
-			</select></td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('Use Pre-printed Stationery') . ':' . '</td>
-			<td><select name="UsePrePrintedStationery">
-				<option' . ($_POST['UsePrePrintedStationery'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
-				<option' . ($_POST['UsePrePrintedStationery'] == 1 ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
-				</select></td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('Open POS Cash Drawer for Sale') . ':' . '</td>
-			<td><select name="OpenCashDrawer">
-				<option' . ($_POST['OpenCashDrawer'] ? ' selected="selected"' : '') . ' value="1">' . _('Yes') . '</option>
-				<option' . ($_POST['OpenCashDrawer'] ? '' : ' selected="selected"') . ' value="0">' . _('No') . '</option>
-			</select></td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('Payment Discount Percent on Receipts') . ':' . '</td>
-			<td><input type="text" class="number" min="0" max="1" name="DiscountPercent" value="' . locale_number_format($_POST['DiscountPercent'], 2) . '" /></td>
-		</tr>';
-	echo '</table>';
+	echo '<field>
+			<label for="MethodName">', _('Payment Method'), ':</label>
+			<input type="text" name="MethodName" size="15" autofocus="autofocus" required="required" maxlength="15" value="', $_POST['MethodName'], '" />
+			<fieldhelp>', _('Enter a name by which this payment method will be known.'), '</fieldhelp>
+		</field>';
+	echo '<field>
+			<label for="ForPayment">', _('Use For Payments'), ':</label>
+			<select name="ForPayment">
+				<option', ($_POST['ForPayment'] ? ' selected="selected"' : ''), ' value="1">', _('Yes'), '</option>
+				<option', ($_POST['ForPayment'] ? '' : ' selected="selected"'), ' value="0">', _('No'), '</option>
+			</select>
+			<fieldhelp>', _('If this payment method can be used for payments select Yes here, otherwise select No.'), '</fieldhelp>
+		</field>';
+	echo '<field>
+			<label for="ForReceipt">', _('Use For Receipts'), ':</label>
+			<select name="ForReceipt">
+				<option', ($_POST['ForReceipt'] ? ' selected="selected"' : ''), ' value="1">', _('Yes'), '</option>
+				<option', ($_POST['ForReceipt'] ? '' : ' selected="selected"'), ' value="0">', _('No'), '</option>
+			</select>
+			<fieldhelp>', _('If this payment method can be used for receipts select Yes here, otherwise select No.'), '</fieldhelp>
+		</field>';
+	echo '<field>
+			<label for="UsePrePrintedStationery">', _('Use Pre-printed Stationery'), ':</label>
+			<select name="UsePrePrintedStationery">
+				<option', ($_POST['UsePrePrintedStationery'] ? ' selected="selected"' : ''), ' value="1">', _('Yes'), '</option>
+				<option', ($_POST['UsePrePrintedStationery'] == 1 ? '' : ' selected="selected"'), ' value="0">', _('No'), '</option>
+			</select>
+			<fieldhelp>', _('If this payment method uses pre-printed stationery such as pre-printed cheques then select Yes here, otherwise select No.'), '</fieldhelp>
+		</field>';
+	echo '<field>
+			<label for="OpenCashDrawer">', _('Open POS Cash Drawer for Sale'), ':</label>
+			<select name="OpenCashDrawer">
+				<option', ($_POST['OpenCashDrawer'] ? ' selected="selected"' : ''), ' value="1">', _('Yes'), '</option>
+				<option', ($_POST['OpenCashDrawer'] ? '' : ' selected="selected"'), ' value="0">', _('No'), '</option>
+			</select>
+			<fieldhelp>', _('For use with point of sales application. Does the POS need to open the cash drawer for this payment method.'), '</fieldhelp>
+		</field>';
+	echo '<field>
+			<label for="DiscountPercent">', _('Payment Discount Percent on Receipts'), ':</label>
+			<input type="text" class="number" min="0" max="1" name="DiscountPercent" value="', locale_number_format($_POST['DiscountPercent'] * 100, 2), '" />
+			<fieldhelp>', _('The percentage payment discount to apply if this method is for use with receipts.'), '</fieldhelp>
+		</field>';
+	echo '</fieldset>';
 
 	echo '<div class="centre">
-			<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+			<input type="submit" name="submit" value="', _('Enter Information'), '" />
 		</div>';
 	echo '</form>';
 

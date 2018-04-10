@@ -127,7 +127,6 @@ if (isset($_POST['ShowStatus']) and is_date($_POST['OnHandDate'])) {
 
 		$NumRows = DB_num_rows($LocStockResult);
 
-		$k = 0; //row colour counter
 		while ($LocQtyRow = DB_fetch_array($LocStockResult)) {
 
 			$CostSQL = "SELECT stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS cost

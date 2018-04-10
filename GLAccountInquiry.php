@@ -36,6 +36,14 @@ if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
 }
 
+if (isset($_GET['Show'])) {
+	$_POST['Show'] = $_GET['Show'];
+}
+
+if (!isset($_POST['tag'])) {
+	$_POST['tag'] = 0;
+}
+
 if (isset($SelectedAccount) and $_SESSION['CompanyRecord']['retainedearnings'] == $SelectedAccount) {
 	prnMsg(_('The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details'), 'info');
 	echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Select another account'), '</a>';
@@ -55,6 +63,8 @@ if (isset($SelectedPeriod)) { //If it was called from itself (in other words an 
 } elseif (isset($_GET['FromPeriod'])) { //If it was called from the Trial Balance/P&L or Balance sheet
 	$FirstPeriodSelected = $_GET['FromPeriod'];
 	$LastPeriodSelected = $_GET['ToPeriod'];
+	$SelectedPeriod[0] = $_GET['FromPeriod'];
+	$SelectedPeriod[1] = $_GET['ToPeriod'];
 } else { // Otherwise just highlight the current period
 	$FirstPeriodSelected = GetPeriod(date($_SESSION['DefaultDateFormat']));
 	$LastPeriodSelected = GetPeriod(date($_SESSION['DefaultDateFormat']));
@@ -76,10 +86,11 @@ $SQL = "SELECT chartmaster.accountcode,
 		ORDER BY chartmaster.accountcode";
 $Account = DB_query($SQL);
 
-echo '<table summary="', _('Inquiry Selection Criteria'), '">
-		<tr>
-			<td>', _('Account'), ':</td>
-			<td><select name="Account">';
+echo '<fieldset>
+		<legend>', _('Inquiry Selection Criteria'), '</legend>
+		<field>
+			<label for="Account">', _('Account'), ':</label>
+			<select name="Account" autofocus="autofocus">';
 while ($MyRow = DB_fetch_array($Account)) {
 	if (isset($SelectedAccount) and $MyRow['accountcode'] == $SelectedAccount) {
 		echo '<option selected="selected" value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
@@ -88,8 +99,8 @@ while ($MyRow = DB_fetch_array($Account)) {
 	}
 }
 echo '</select>
-		</td>
-	</tr>';
+	<fieldhelp>', _('Select a General Ledger account to report on.'), '</fieldhelp>
+</field>';
 
 //Select the tag
 $SQL = "SELECT tagref,
@@ -98,9 +109,9 @@ $SQL = "SELECT tagref,
 		ORDER BY tagdescription";
 $Result = DB_query($SQL);
 
-echo '<tr>
-		<td>', _('Select Tag'), ':</td>
-		<td><select name="tag">';
+echo '<field>
+		<label for="tag">', _('Select Tag'), ':</label>
+		<select name="tag">';
 echo '<option value="0">0 - ', _('All tags'), '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['tag']) and $_POST['tag'] == $MyRow['tagref']) {
@@ -110,15 +121,15 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 }
 echo '</select>
-			</td>
-		</tr>';
+	<fieldhelp>', _('Select a tag to filter the report on.'), '</fieldhelp>
+</field>';
 
 $SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno DESC";
 $Periods = DB_query($SQL);
 $id = 0;
-echo '<tr>
-		<td>', _('For Period range'), ':</td>
-		<td><select name="Period[]" size="12" multiple="multiple">';
+echo '<field>
+		<label for="Period">', _('For Period range'), ':</label>
+		<select name="Period[]" size="12" multiple="multiple">';
 while ($MyRow = DB_fetch_array($Periods)) {
 	if (isset($FirstPeriodSelected) and $MyRow['periodno'] >= $FirstPeriodSelected and $MyRow['periodno'] <= $LastPeriodSelected) {
 		echo '<option selected="selected" value="', $MyRow['periodno'], '">', _(MonthAndYearFromSQLDate($MyRow['lastdate_in_period'])), '</option>';
@@ -128,9 +139,10 @@ while ($MyRow = DB_fetch_array($Periods)) {
 	}
 }
 echo '</select>
-			</td>
-		</tr>
-	</table>';
+	<fieldhelp>', _('Select one or more financial periods to report on.'), '</fieldhelp>
+</field>';
+
+echo '</fieldset>';
 
 echo '<div class="centre">
 		<input type="submit" name="Show" value="', _('Show Account Transactions'), '" />
@@ -267,7 +279,7 @@ if (isset($_POST['Show'])) {
 	$PeriodNo = - 9999;
 	$ShowIntegrityReport = False;
 	$j = 1;
-	$k = 0; //row colour counter
+
 	$IntegrityReport = '';
 	while ($MyRow = DB_fetch_array($TransResult)) {
 		if ($MyRow['periodno'] != $PeriodNo) {

@@ -1,10 +1,10 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Payroll Master Maintenance');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<div class="toplink"><a href="' . $RootPath . '/prlEditPayroll.php?SelectedAccountr=">' . _('Create Payroll Period') . '</a></div>';
 
@@ -15,7 +15,6 @@ if (isset($_GET['PayrollID'])) {
 } elseif (isset($_POST['PayrollID'])) {
 	$PayrollID = $_POST['PayrollID'];
 }
-
 
 if (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
@@ -60,8 +59,6 @@ if (!isset($PayrollID)) {
 				<th>' . _('Pay Period ') . '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
@@ -76,12 +73,10 @@ if (!isset($PayrollID)) {
 			</tr>';
 
 	} //END WHILE LIST LOOP
-
 	//END WHILE LIST LOOP
+	
 } //END IF selected="selected" ACCOUNT
-
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

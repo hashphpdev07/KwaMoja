@@ -291,7 +291,7 @@ if (!isset($SelectedSampleID)) {
 					</tr>
 				</thead>';
 		echo '<tbody>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 			echo '<tr class="striped_row">
 					<td><input type="submit" name="SelectedStockItem" value="', $MyRow['stockid'], '"</td>
@@ -386,7 +386,7 @@ if (!isset($SelectedSampleID)) {
 							<th class="SortedColumn">', _('Cert Allowed'), '</th>
 						</tr>
 					</thead>';
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SampleResult)) {
 				$ModifySampleID = $RootPath . '/TestPlanResults.php?SelectedSampleID=' . $MyRow['sampleid'];

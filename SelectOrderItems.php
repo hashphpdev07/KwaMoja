@@ -1316,7 +1316,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		$_SESSION['Items' . $Identifier]->total = 0;
 		$_SESSION['Items' . $Identifier]->totalVolume = 0;
 		$_SESSION['Items' . $Identifier]->totalWeight = 0;
-		$k = 0; //row colour counter
+
 		foreach ($_SESSION['Items' . $Identifier]->LineItems as $OrderLine) {
 			$LineTotal = $OrderLine->Quantity * $OrderLine->Price * (1 - $OrderLine->DiscountPercent);
 			$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
@@ -1459,7 +1459,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 						</thead>';
 			$i = 0;
 			$j = 1;
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($Result2)) {
 				// This code needs sorting out, but until then :
@@ -1620,7 +1620,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 					</thead>';
 			$ImageSource = _('No Image');
 			$i = 0;
-			$k = 0; //row colour counter
+
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SearchResult)) {
 				// Find the quantity in stock at location

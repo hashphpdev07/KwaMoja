@@ -518,7 +518,7 @@ if (isset($_POST['AllocTrans'])) {
 	/* set up table of TransType - Supplier - Trans No - Date - Total - Left to alloc  */
 
 	$RowCounter = 0;
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		printf('<tr class="striped_row">
@@ -578,7 +578,6 @@ if (isset($_POST['AllocTrans'])) {
 
 	/* set up table of Tran Type - Supplier - Trans No - Date - Total - Left to alloc  */
 
-	$k = 0; //row colour counter
 	$RowCounter = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
 

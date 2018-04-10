@@ -94,7 +94,7 @@ if (count($_SESSION['Contract' . $Identifier]->ContractReqts) > 0) {
 		</tr>';
 
 	$_SESSION['Contract' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Contract' . $Identifier]->ContractReqts as $ContractReqtID => $ContractComponent) {
 

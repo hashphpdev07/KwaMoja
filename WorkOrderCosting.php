@@ -303,7 +303,7 @@ if (isset($_POST['Close'])) {
 							INNER JOIN stockcategory
 								ON stockmaster.categoryid=stockcategory.categoryid
 							LEFT JOIN stockcosts
-								ON stockmaster.stockid=stockcosts.categoryid
+								ON stockmaster.stockid=stockcosts.stockid
 								AND stockcosts.succeeded=0
 							WHERE woitems.wo='" . $_POST['WO'] . "'", $ErrMsg);
 	$NoItemsOnWO = DB_num_rows($WOItemsResult);

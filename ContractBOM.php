@@ -246,7 +246,7 @@ if (count($_SESSION['Contract' . $Identifier]->ContractBOM) > 0) {
 		</tr>';
 
 	$_SESSION['Contract' . $Identifier]->total = 0;
-	$k = 0; //row colour counter
+
 	$TotalCost = 0;
 	foreach ($_SESSION['Contract' . $Identifier]->ContractBOM as $ContractComponent) {
 
@@ -350,7 +350,6 @@ if (isset($SearchResult)) {
 				</tr>
 			</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {
 

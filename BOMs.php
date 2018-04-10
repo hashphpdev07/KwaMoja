@@ -1070,7 +1070,6 @@ if (!isset($SelectedParent)) {
 					<th>', _('Units'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		$j = 0;
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($MyRow['mbflag'] == 'A' or $MyRow['mbflag'] == 'K' or $MyRow['mbflag'] == 'G') {

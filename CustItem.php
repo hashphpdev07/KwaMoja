@@ -153,7 +153,7 @@ if ($Edit == false) {
 				</thead>';
 
 		$CountPreferreds = 0;
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($custitemResult)) {
 

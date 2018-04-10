@@ -228,7 +228,6 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 			<th>', _('Outstanding'), '</th>
 		</tr>';
 
-	$k = 0; //row colour counter
 	$TotalUnpresentedCheques = 0;
 
 	while ($MyRow = DB_fetch_array($UPChequesResult)) {

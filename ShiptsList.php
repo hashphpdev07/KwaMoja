@@ -1,15 +1,14 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Shipments Open Inquiry');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Supplier') . '" alt="" />' . ' ' . _('Open Shipments for') . ' ' . $_GET['SupplierName'] . '.</p>';
 
 if (!isset($_GET['SupplierID']) or !isset($_GET['SupplierName'])) {
 	echo '<br />';
 	prnMsg(_('This page must be given the supplier code to look for shipments for'), 'error');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -24,7 +23,7 @@ $ShiptsResult = DB_query($SQL, $ErrMsg);
 
 if (DB_num_rows($ShiptsResult) == 0) {
 	prnMsg(_('There are no open shipments currently set up for') . ' ' . $_GET['SupplierName'], 'warn');
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 /*show a table of the shipments returned by the SQL */
@@ -37,8 +36,6 @@ echo '<table cellpadding="2">
 			<th>' . _('ETA') . '</th>
 		</tr>';
 
-$k = 0; //row colour counter
-
 while ($MyRow = DB_fetch_array($ShiptsResult)) {
 	echo '<tr class="striped_row">
 			<td><a href="' . $RootPath . '/Shipments.php?SelectedShipment=' . urlencode($MyRow['shiptref']) . '">' . $MyRow['shiptref'] . '</a></td>
@@ -49,9 +46,8 @@ while ($MyRow = DB_fetch_array($ShiptsResult)) {
 
 }
 //end of while loop
-
 echo '</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

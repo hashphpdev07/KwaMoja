@@ -43,7 +43,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 	$EmpListResult = DB_query($SQL, _('Could not test to see that all detail records properly initiated'));
 	if (DB_num_rows($EmpListResult) > 0) {
 		while ($emprow = DB_fetch_array($EmpListResult)) {
-			$k = 0; //row colour counter
+
 			$SQL = "SELECT sum(basicpay) AS Basic,sum(othincome) AS OthInc,sum(absent) as Absent,
 					          sum(late) AS Late,sum(otpay) AS OT,sum(grosspay) AS GrossPay,
 							  sum(loandeduction) AS LoanDed,sum(sss) AS SSS,sum(hdmf) AS HDMF,sum(philhealth) AS PH,

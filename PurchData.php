@@ -296,7 +296,7 @@ if (!isset($_GET['Edit'])) {
 					</tr>
 				</thead>';
 		$CountPreferreds = 0;
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($PurchDataResult)) {
 			if ($MyRow['preferred'] == 1) {

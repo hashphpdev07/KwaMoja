@@ -169,7 +169,7 @@ if (isset($_POST['ShowStatus'])) {
 				<th>' . _('On Order') . '</th>
 				<th>' . _('Need To Order(ROL)') . '</th>
 			</tr>';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($LocStockResult)) {
 
 		$StockId = $MyRow['stockid'];

@@ -149,7 +149,6 @@ if (!isset($SelectedCurrency)) {
 		<th>" . _('Ex Rate - ECB') . "</td>
 		</tr></font>";
 
-	$k = 0; //row colour counter
 	/*Get published currency rates from Eurpoean Central Bank */
 	if (isset($_SESSION['UpdateCurrencyRatesDaily']) != '0') {
 		$CurrencyRatesArray = GetECBCurrencyRates();

@@ -159,7 +159,6 @@ if (!isset($SelectedGLAccount)) { // If is NOT set a GL account for users.
 
 	echo '<tbody>';
 	if (DB_num_rows($Result) > 0) { // If the GL account has access permissions for one or more users:
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
 					<td class="text">', $MyRow['userid'], '</td>

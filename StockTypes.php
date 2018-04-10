@@ -9,7 +9,9 @@ if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_GET['SelectedType']);
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['submit'])) {
 
@@ -138,13 +140,15 @@ if (!isset($SelectedType)) {
 	$Result = DB_query($SQL);
 
 	echo '<table>
-			<tr>
-				<th>' . _('Type Code') . '</th>
-				<th>' . _('Type Name') . '</th>
-				<th>' . _('Physical Items?') . '</th>
-			</tr>';
-
-	$k = 0; //row colour counter
+			<thead>
+				<tr>
+					<th class="SortedColumn">', _('Type Code'), '</th>
+					<th class="SortedColumn">', _('Type Name'), '</th>
+					<th>', _('Physical Items?'), '</th>
+					<th colspan="2"></th>
+				</tr>
+			</thead>';
+	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['physicalitem'] == 0) {
@@ -153,27 +157,30 @@ if (!isset($SelectedType)) {
 			$PhysicalItem = _('Yes');
 		}
 
-		printf('<tr class="striped_row">
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td><a href="%sSelectedType=%s">' . _('Edit') . '</a></td>
-				<td><a href="%sSelectedType=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price list and all the prices it may have set up?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-			</tr>', $MyRow['type'], $MyRow['name'], $PhysicalItem, htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['type'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['type']);
+		echo '<tr class="striped_row">
+				<td>', $MyRow['type'], '</td>
+				<td>', $MyRow['name'], '</td>
+				<td>', $PhysicalItem, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this price list and all the prices it may have set up?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 	}
 	//END WHILE LIST LOOP
-	echo '</table>';
+	echo '</tbody>
+		</table>';
 }
 
 //end of ifs and buts!
 if (isset($SelectedType)) {
 
-	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show All Stock Types Defined') . '</a></div>';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show All Stock Types Defined'), '</a>
+		</div>';
 }
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" >';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" >';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	// The user wish to EDIT an existing type
 	if (isset($SelectedType) and $SelectedType != '') {
@@ -191,49 +198,47 @@ if (!isset($_GET['delete'])) {
 		$_POST['StockType'] = $MyRow['name'];
 		$_POST['PhysicalItem'] = $MyRow['physicalitem'];
 
-		echo '<input type="hidden" name="SelectedType" value="' . $SelectedType . '" />';
-		echo '<input type="hidden" name="TypeAbbrev" value="' . $_POST['TypeAbbrev'] . '" />';
-		echo '<table>
-				<tr>
-					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
-				</tr>';
-		echo '<tr>
-				<td>' . _('Type Code') . ':</td>
-				<td>' . $_POST['TypeAbbrev'] . '</td>
-			</tr>';
+		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
+		echo '<input type="hidden" name="TypeAbbrev" value="', $_POST['TypeAbbrev'], '" />';
+		echo '<fieldset>
+				<legend>', _('Edit Stock Type Setup'), '</legend>
+				<field>
+					<label for="TypeAbbrev">', _('Type Code'), ':</label>
+					<div class="fieldtext">', $_POST['TypeAbbrev'], '</div>
+				</field>';
 
 	} else {
-
-		// This is a new type so the user may volunteer a type code
-		echo '<table>
-				<tr>
-					<th colspan="4"><b>' . _('Stock Type Setup') . '</b></th>
-				</tr>
-				<tr>
-					<td>' . _('Type Code') . ':</td>
-					<td><input type="text" size="3" required="required" maxlength="2" name="TypeAbbrev" /></td>
-				</tr>';
-	}
-
-	if (!isset($_POST['StockType'])) {
 		$_POST['StockType'] = '';
+		// This is a new type so the user may volunteer a type code
+		echo '<fieldset>
+				<legend>', _('New Stock Type Setup'), '</legend>
+				<field>
+					<label for="TypeAbbrev">', _('Type Code'), ':</label>
+					<input type="text" size="3" required="required" autofocus="autofocus" maxlength="1" name="TypeAbbrev" />
+					<fieldhelp>', _('Enter a one character code used to identify this stock type.'), '<fieldhelp>
+				</field>';
 	}
+
 	if (isset($_POST['PhysicalItem']) and $_POST['PhysicalItem'] == 1) {
 		$PhysicalItem = ' checked="checked" ';
 	} else {
 		$PhysicalItem = '';
 	}
-	echo '<tr>
-			<td>' . _('Stock Type Name') . ':</td>
-			<td><input type="text" required="required" maxlength="40" name="StockType" value="' . $_POST['StockType'] . '" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Physical Items') . '</td>
-			<td><input type="checkbox" name="PhysicalItem"' . $PhysicalItem . '/></td>
-		</tr>';
+	echo '<field>
+			<label for="StockType">', _('Stock Type Name'), ':</label>
+			<input type="text" required="required" autofocus="autofocus" maxlength="40" name="StockType" value="', $_POST['StockType'], '" />
+			<fieldhelp>', _('The name by which this stock type will be known.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="PhysicalItem">', _('Physical Items'), '</label>
+			<input type="checkbox" name="PhysicalItem"', $PhysicalItem, '/>
+			<fieldhelp>', _('Tick this box if items of this type are physical objects, leave unticked if they are service/labour etc. items'), '</fieldhelp>
+		</field>';
 
-	echo '</table>'; // close main table
-	echo '<div class="centre"><input type="submit" name="submit" value="' . _('Accept') . '" /></div>';
+	echo '</fieldset>'; // close main table
+	echo '<div class="centre">
+			<input type="submit" name="submit" value="', _('Accept'), '" />
+		</div>';
 
 	echo '</form>';
 

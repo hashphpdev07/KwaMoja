@@ -91,7 +91,6 @@ if (!isset($SelectedStatusID)) {
 					<th>' . _('Employment Status') . '</td>
 				</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			if ($k == 1) {

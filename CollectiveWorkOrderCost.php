@@ -353,7 +353,7 @@ if (!isset($StockID)) {
 						<th>', _('Units'), '</th>
 					</tr>
 				</thead>';
-		$k = 0; //row colour counter
+
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($StockItemsResult)) {
 
@@ -494,7 +494,7 @@ if (!isset($StockID)) {
 				</thead>';
 
 			echo '<tbody>';
-			$k = 0; //row colour counter
+
 			while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
 
 				$ModifyPage = $RootPath . '/WorkOrderEntry.php?WO=' . urlencode($MyRow['wo']);

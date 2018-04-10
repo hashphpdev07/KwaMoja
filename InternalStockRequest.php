@@ -795,7 +795,6 @@ if (isset($SearchResult)) {
 			</thead>';
 	$ImageSource = _('No Image');
 
-	$k = 0; //row colour counter
 	$i = 0;
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($SearchResult)) {

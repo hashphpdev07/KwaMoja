@@ -116,7 +116,6 @@ if (!isset($Id)) {
 					<th colspan="2"></th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
 					<td>', ConvertSQLDate($MyRow['date']), '</td>

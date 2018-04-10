@@ -804,7 +804,7 @@ function StockAdjustment($StockId, $Location, $Quantity, $TranDate, $user, $pass
 											   newqoh)
 							   VALUES ('" . $StockId . "',
 									   '17',
-									   '" . GetNextTransactionNo(17) . "',
+									   '" . GetNextTransNo(17) . "',
 									   '" . $Location . "',
 									   '" . $TranDate . "',
 									   '" . GetPeriodFromTransactionDate($TranDate, sizeof($Errors), $Errors) . "',
@@ -822,7 +822,7 @@ function StockAdjustment($StockId, $Location, $Quantity, $TranDate, $user, $pass
 											amount,
 											narrative)
 									VALUES ('17',
-										   '" . GetNextTransactionNo(17) . "',
+										   '" . GetNextTransNo(17) . "',
 										   '" . $TranDate . "',
 										   '" . GetPeriodFromTransactionDate($TranDate, sizeof($Errors), $Errors) . "',
 										   '" . $adjglact . "',
@@ -836,13 +836,13 @@ function StockAdjustment($StockId, $Location, $Quantity, $TranDate, $user, $pass
 											amount,
 											narrative)
 						VALUES ('17',
-						'" . GetNextTransactionNo(17) . "',
+						'" . GetNextTransNo(17) . "',
 						'" . $TranDate . "',
 						'" . GetPeriodFromTransactionDate($TranDate, sizeof($Errors), $Errors) . "',
 						'" . $stockact . "',
 						'" . $itemdetails['materialcost'] * $Quantity . "',
 						'" . $StockId . ' x ' . $Quantity . ' @ ' . $itemdetails['materialcost'] . "')";
-	$systypessql = "UPDATE systypes set typeno='" . GetNextTransactionNo(17) . "' where typeid='17'";
+	$systypessql = "UPDATE systypes set typeno='" . GetNextTransNo(17) . "' where typeid='17'";
 
 	DB_Txn_Begin();
 	api_DB_query($stockmovesql);

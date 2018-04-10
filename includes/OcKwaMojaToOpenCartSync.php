@@ -1,5 +1,4 @@
 <?php
-
 function KwaMojaToOpenCartDailySync($ShowMessages, $oc_tableprefix, $EmailText = '') {
 	$begintime = time_start();
 	DB_Txn_Begin();
@@ -17,9 +16,8 @@ function KwaMojaToOpenCartDailySync($ShowMessages, $oc_tableprefix, $EmailText =
 	// maintain outlet category in KwaMoja
 	// Not needed because now in KwaMoja one item only belongs to 1 sales category, so no chance to have more than one to clean up
 	//	$EmailText = MaintainKwaMojaOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText);
-
 	// do all hourly maintenance as well...
-	$EmailText = KwaMojaToOpenCartHourlySync($ShowMessages, $oc_tableprefix, FALSE, $EmailText);
+	$EmailText = KwaMojaToOpenCartHourlySync($ShowMessages, $oc_tableprefix, false, $EmailText);
 
 	// recreate the list of featured in OpenCart
 	$EmailText = SyncFeaturedList($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText);
@@ -49,8 +47,8 @@ function KwaMojaToOpenCartDailySync($ShowMessages, $oc_tableprefix, $EmailText =
 	return $EmailText;
 }
 
-function KwaMojaToOpenCartHourlySync($ShowMessages, $oc_tableprefix, $ControlTx = TRUE, $EmailText = '') {
-//	$begintime = time_start();
+function KwaMojaToOpenCartHourlySync($ShowMessages, $oc_tableprefix, $ControlTx = true, $EmailText = '') {
+	//	$begintime = time_start();
 	if ($ControlTx) {
 		DB_Txn_Begin();
 	}
@@ -84,7 +82,8 @@ function KwaMojaToOpenCartHourlySync($ShowMessages, $oc_tableprefix, $ControlTx 
 		DB_Txn_Commit();
 	}
 	if ($ShowMessages) {
-//		time_finish($begintime);
+		//		time_finish($begintime);
+		
 	}
 
 	return $EmailText;
@@ -139,7 +138,6 @@ function SyncProductBasicInformation($ShowMessages, $LastTimeRun, $oc_tableprefi
 		$UpdateErrMsg = _('The SQL to update Basic Product Information in Opencart failed');
 		$InsertErrMsg = _('The SQL to insert Basic Product Information in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			/* Field Matching */
 			$Model = $MyRow['stockid'];
@@ -378,7 +376,7 @@ function SyncProductBasicInformation($ShowMessages, $LastTimeRun, $oc_tableprefi
 				$DescriptionRow = DB_fetch_array($DescriptionResult);
 				$LongDescription = $DescriptionRow['longdescriptiontranslation'];
 				if (DataExistsInOpenCart($oc_tableprefix . 'product_description', 'model', $MyRow['stockid'])) {
-					$UpdateSQL = "UPDATE " . $oc_tableprefix . "product_description SET name='" . $ShortDescription. "',
+					$UpdateSQL = "UPDATE " . $oc_tableprefix . "product_description SET name='" . $ShortDescription . "',
 																						description='" . $LongDescription . "'
 																					WHERE product_id='" . $ProductId . "'
 																						AND language_id='" . $LanguageRow['language_id'] . "'";
@@ -461,7 +459,6 @@ function SyncProductSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix
 		$UpdateErrMsg = _('The SQL to update Product - Sales Categories in Opencart failed');
 		$InsertErrMsg = _('The SQL to insert Product - Sales Categories in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* Field Matching */
@@ -560,7 +557,6 @@ function SyncProductPrices($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailT
 		$DbgMsg = _('The SQL statement that failed was');
 		$UpdateErrMsg = _('The SQL to update Product Prices in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* Field Matching */
@@ -644,7 +640,6 @@ function SyncProductQOH($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText
 		$DbgMsg = _('The SQL statement that failed was');
 		$UpdateErrMsg = _('The SQL to update Product QOH in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* Field Matching */
@@ -711,10 +706,10 @@ function CleanDuplicatedUrlAlias($ShowMessages, $LastTimeRun, $oc_tableprefix, $
 	$Result = DB_query_oc($SQL);
 	$i = 0;
 	if (DB_num_rows($Result) != 0) {
-		$k = 0; //row colour counter
+
 		$PreviousQuery = "";
 		$PreviousKeyword = "";
-		$ShowHeader = TRUE;
+		$ShowHeader = true;
 		while ($MyRow = DB_fetch_array($Result)) {
 			if ($PreviousQuery == $MyRow['query']) {
 				// we have a duplicated
@@ -731,7 +726,7 @@ function CleanDuplicatedUrlAlias($ShowMessages, $LastTimeRun, $oc_tableprefix, $
 									<th>' . _('Keyword') . '</th>
 								</tr>';
 					}
-					$ShowHeader = FALSE;
+					$ShowHeader = false;
 				}
 				// we delete the duplicated
 				$SQLDelete = "DELETE FROM " . $oc_tableprefix . "url_alias
@@ -821,7 +816,6 @@ function SyncSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix, $Emai
 		$UpdateErrMsg = _('The SQL to update sales categories in Opencart failed');
 		$InsertErrMsg = _('The SQL to insert sales categories in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* FIELD MATCHING */
@@ -953,7 +947,7 @@ function SyncSalesCategories($ShowMessages, $LastTimeRun, $oc_tableprefix, $Emai
 function SyncFeaturedList($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailText = '') {
 
 	/* Let's get the ID for the list of featured products for featured module
-	we will need it later on to save the results in the appropiate setting */
+	 we will need it later on to save the results in the appropiate setting */
 	$SettingId = GetOpenCartSettingId(0, "featured", "featured_product", $oc_tableprefix);
 	$ListFeaturedOpenCart = "";
 
@@ -977,7 +971,7 @@ function SyncFeaturedList($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 					</tr>';
 		}
 		$Action = "Added";
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($Result)) {
 			/* Field Matching */
 			$Model = $MyRow['stockid'];
@@ -1047,7 +1041,6 @@ function ActivateCategoryDependingOnQOH($ShowMessages, $LastTimeRun, $oc_tablepr
 		$DbgMsg = _('The SQL statement that failed was');
 		$UpdateErrMsg = _('The SQL to Activate Categories depending QOH in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* Field Matching */
@@ -1126,7 +1119,6 @@ function MaintainOpenCartOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_
 		$DbgMsg = _('The SQL statement that failed was');
 		$UpdateErrMsg = _('The SQL to update Product QOH in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			$ProductId = $MyRow['product_id'];
@@ -1180,7 +1172,6 @@ function MaintainKwaMojaOutletSalesCategories($ShowMessages, $LastTimeRun, $oc_t
 		$DbgMsg = _('The SQL statement that failed was');
 		$UpdateErrMsg = _('The SQL to update outlet sales category in KwaMoja failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			$ProductId = $MyRow['stockid'];
@@ -1227,13 +1218,12 @@ function SyncMultipleImages($ShowMessages, $LastTimeRun, $oc_tableprefix, $Email
 	$SQLTruncate = "TRUNCATE " . $oc_tableprefix . "product_image";
 	$ResultSQLTruncate = DB_query_oc($SQLTruncate);
 
-	$k = 0; //row colour counter
 	$i = 0;
 	// get all images in part_pics folder (ideally should be OpenCart images folder...)
 	$imagefiles = getDirectoryTree($_SESSION['part_pics_dir'], 'jpg');
 	foreach ($imagefiles as $file) {
 		$multipleimage = 1;
-		$exist_multiple = TRUE;
+		$exist_multiple = true;
 		while ($multipleimage <= 5) {
 			$suffix = "." . $multipleimage;
 			if (strpos($file, $suffix) > 0) {
@@ -1302,7 +1292,6 @@ function SyncRelatedItems($ShowMessages, $LastTimeRun, $oc_tableprefix, $EmailTe
 		$UpdateErrMsg = _('The SQL to update related items in Opencart failed');
 		$InsertErrMsg = _('The SQL to insert related items in Opencart failed');
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 
 			/* FIELD MATCHING */

@@ -903,7 +903,7 @@ if (in_array(2, $_SESSION['AllowedPageSecurityTokens'])) {
 	$_SESSION['Items' . $Identifier]->total = 0;
 	$_SESSION['Items' . $Identifier]->totalVolume = 0;
 	$_SESSION['Items' . $Identifier]->totalWeight = 0;
-	$k = 0; //row colour counter
+
 	foreach ($_SESSION['Items' . $Identifier]->LineItems as $StockItem) {
 		$LineTotal = $StockItem->Quantity * $StockItem->Price * (1 - $StockItem->DiscountPercent);
 		$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);

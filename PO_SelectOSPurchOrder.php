@@ -248,7 +248,7 @@ if (isset($StockItemsResult)) {
 					<th>' . _('Units') . '</th>
 				</tr>
 			</thead>';
-	$k = 0; //row colour counter
+
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($StockItemsResult)) {
 		$QuantitySQL = "SELECT sum(quantity) AS qoh FROM locstock WHERE stockid='" . $MyRow['stockid'] . "'";
@@ -378,7 +378,6 @@ if (isset($StockItemsResult)) {
 		</tr>
 	</thead>';
 
-	$k = 0; //row colour counter
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($PurchOrdersResult)) {
 		$Balance = '';

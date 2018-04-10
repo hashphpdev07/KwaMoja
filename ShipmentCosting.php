@@ -152,7 +152,6 @@ if (DB_num_rows($LineItemsResult) > 0) {
 
 	/*show the line items on the shipment with the value invoiced and shipt cost */
 
-	$k = 0; //row colour counter
 	$TotalShiptVariance = 0;
 	$RowCounter = 0;
 
@@ -553,7 +552,6 @@ echo '<table cellpadding="2">
 
 /*show the line items on the shipment with the value invoiced and shipt cost */
 
-$k = 0; //row colour counter
 $RowCounter = 0;
 $TotalItemShipmentChgs = 0;
 
@@ -617,7 +615,6 @@ echo '<table cellpadding="2">
 
 /*show the line items on the shipment with the value invoiced and shipt cost */
 
-$k = 0; //row colour counter
 $RowCounter = 0;
 $TotalGeneralShipmentChgs = 0;
 

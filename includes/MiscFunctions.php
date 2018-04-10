@@ -1,38 +1,16 @@
 <?php
-
 /*  ******************************************  */
 /** STANDARD MESSAGE HANDLING & FORMATTING **/
 /*  ******************************************  */
 
 function prnMsg($Msg, $Type = 'info', $Prefix = '') {
 	global $Messages;
-	$Messages[] = array(
-		$Msg,
-		$Type,
-		$Prefix
-	);
+	$Messages[] = array($Msg, $Type, $Prefix);
 
 } //prnMsg
-
 function reverse_escape($str) {
-	$search = array(
-		"\\\\",
-		"\\0",
-		"\\n",
-		"\\r",
-		"\Z",
-		"\'",
-		'\"'
-	);
-	$replace = array(
-		"\\",
-		"\0",
-		"\n",
-		"\r",
-		"\x1a",
-		"'",
-		'"'
-	);
+	$search = array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"');
+	$replace = array("\\", "\0", "\n", "\r", "\x1a", "'", '"');
 	return str_replace($search, $replace, $str);
 }
 
@@ -48,7 +26,7 @@ function getMsg($Msg, $Type = 'info', $Prefix = '') {
 			if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 0) {
 				fwrite($LogFile, date('Y-m-d H:i:s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim(str_replace("<br />", " ", $Msg), ',') . "\n");
 			}
-			break;
+		break;
 		case 'warn':
 		case 'warning':
 			$Class = 'warn';
@@ -56,14 +34,14 @@ function getMsg($Msg, $Type = 'info', $Prefix = '') {
 			if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 1) {
 				fwrite($LogFile, date('Y-m-d H:i:s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim(str_replace("<br />", " ", $Msg), ',') . "\n");
 			}
-			break;
+		break;
 		case 'success':
 			$Class = 'success';
 			$Prefix = $Prefix ? $Prefix : _('SUCCESS') . ' ' . _('Report');
 			if (isset($_SESSION['LogSeverity']) and $_SESSION['LogSeverity'] > 3) {
 				fwrite($LogFile, date('Y-m-d H:i:s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim(str_replace("<br />", " ", $Msg), ',') . "\n");
 			}
-			break;
+		break;
 		case 'info':
 		default:
 			$Prefix = $Prefix ? $Prefix : _('INFORMATION') . ' ' . _('Message');
@@ -74,16 +52,17 @@ function getMsg($Msg, $Type = 'info', $Prefix = '') {
 	}
 	return '<div class="' . $Class . '"><b>' . $Prefix . '</b> : ' . $Msg . '</div>';
 } //getMsg
-
 function IsEmailAddress($Email) {
 
 	$AtIndex = strrpos($Email, "@");
 	if ($AtIndex == false) {
 		return false; // No @ sign is not acceptable.
+		
 	}
 
 	if (preg_match('/\\.\\./', $Email)) {
 		return false; // > 1 consecutive dot is not allowed.
+		
 	}
 	//  Check component length limits
 	$Domain = mb_substr($Email, $AtIndex + 1);
@@ -125,7 +104,6 @@ function IsEmailAddress($Email) {
 	return $Ret;
 }
 
-
 function ContainsIllegalCharacters($CheckVariable) {
 
 	if (mb_strstr($CheckVariable, "'") or mb_strstr($CheckVariable, '+') or mb_strstr($CheckVariable, '?') or mb_strstr($CheckVariable, '.') or mb_strstr($CheckVariable, "\"") or mb_strstr($CheckVariable, '&') or mb_strstr($CheckVariable, "\\") or mb_strstr($CheckVariable, '"') or mb_strstr($CheckVariable, '>') or mb_strstr($CheckVariable, '<')) {
@@ -136,14 +114,11 @@ function ContainsIllegalCharacters($CheckVariable) {
 	}
 }
 
-
 function pre_var_dump(&$var) {
 	echo '<div align=left><pre>';
 	var_dump($var);
 	echo '</pre></div>';
 }
-
-
 
 class XmlElement {
 	var $name;
@@ -154,7 +129,7 @@ class XmlElement {
 
 function GetECBCurrencyRates() {
 	/* See http://www.ecb.int/stats/exchange/eurofxref/html/index.en.html
-	for detail of the European Central Bank rates - published daily */
+	 for detail of the European Central Bank rates - published daily */
 	if (http_file_exists('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml')) {
 		$xml = file_get_contents('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml');
 		$parser = xml_parser_create();
@@ -178,16 +153,15 @@ function GetECBCurrencyRates() {
 				}
 				if ($tag['type'] == 'open') { // push
 					$elements[$index]->children = array();
-					$stack[count($stack)] =& $elements;
-					$elements =& $elements[$index]->children;
+					$stack[count($stack) ] = & $elements;
+					$elements = & $elements[$index]->children;
 				}
 			}
 			if ($tag['type'] == 'close') { // pop
-				$elements =& $stack[count($stack) - 1];
+				$elements = & $stack[count($stack) - 1];
 				unset($stack[count($stack) - 1]);
 			}
 		}
-
 
 		$Currencies = array();
 		foreach ($elements[0]->children[2]->children[0]->children as $CurrencyDetails) {
@@ -202,7 +176,7 @@ function GetECBCurrencyRates() {
 }
 
 function GetCurrencyRate($CurrCode, $CurrencyRates) {
-	if ((!isset($CurrenciesArray[$CurrCode]) or !isset($CurrenciesArray[$_SESSION['CompanyRecord']['currencydefault']])) and $_SESSION['UpdateCurrencyRatesDaily'] != '0'){
+	if ((!isset($CurrenciesArray[$CurrCode]) or !isset($CurrenciesArray[$_SESSION['CompanyRecord']['currencydefault']])) and $_SESSION['UpdateCurrencyRatesDaily'] != '0') {
 		$CurrencyRates = yahoo_currency_rate($CurrCode);
 		if (isset($CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']])) {
 			return $CurrencyRates[$CurrCode] / $CurrencyRates[$_SESSION['CompanyRecord']['currencydefault']];
@@ -248,12 +222,12 @@ function yahoo_currency_rate($CurrCode) {
 				}
 				if ($tag['type'] == 'open') { // push
 					$elements[$index]->children = array();
-					$stack[count($stack)] =& $elements;
-					$elements =& $elements[$index]->children;
+					$stack[count($stack) ] = & $elements;
+					$elements = & $elements[$index]->children;
 				}
 			}
 			if ($tag['type'] == 'close') { // pop
-				$elements =& $stack[count($stack) - 1];
+				$elements = & $stack[count($stack) - 1];
 				unset($stack[count($stack) - 1]);
 			}
 		}
@@ -262,7 +236,7 @@ function yahoo_currency_rate($CurrCode) {
 			foreach ($elements[0]->children[1]->children as $CurrencyDetails) {
 				foreach ($CurrencyDetails as $CurrencyDetail) {
 					if (is_array($CurrencyDetail) and isset($CurrencyDetail[0])) {
-						$Currencies[mb_substr($CurrencyDetail[0]->content, 4)] = $CurrencyDetail[1]->content;
+						$Currencies[mb_substr($CurrencyDetail[0]->content, 4) ] = $CurrencyDetail[1]->content;
 					}
 				}
 			}
@@ -305,7 +279,6 @@ function AddCarriageReturns($str) {
 	return str_replace('\r\n', chr(10), $str);
 }
 
-
 function wikiLink($WikiType, $WikiPageID) {
 	if (strstr($_SESSION['WikiPath'], 'http:')) {
 		$WikiPath = $_SESSION['WikiPath'];
@@ -321,66 +294,64 @@ function wikiLink($WikiType, $WikiPageID) {
 	}
 }
 
-
 //  Lindsay debug stuff
-function LogBackTrace($dest = 0) {
-	error_log("***BEGIN STACK BACKTRACE***", $dest);
+function LogBackTrace($DateEndst = 0) {
+	error_log("***BEGIN STACK BACKTRACE***", $DateEndst);
 
 	$stack = debug_backtrace();
 	//  Leave out our frame and the topmost - huge for xmlrpc!
-	for ($ii = 1; $ii < count($stack) - 3; $ii++) {
+	for ($ii = 1;$ii < count($stack) - 3;$ii++) {
 		$frame = $stack[$ii];
 		$Msg = "FRAME " . $ii . ": ";
 		if (isset($frame['file'])) {
-			$Msg .= "; file=" . $frame['file'];
+			$Msg.= "; file=" . $frame['file'];
 		}
 		if (isset($frame['line'])) {
-			$Msg .= "; line=" . $frame['line'];
+			$Msg.= "; line=" . $frame['line'];
 		}
 		if (isset($frame['function'])) {
-			$Msg .= "; function=" . $frame['function'];
+			$Msg.= "; function=" . $frame['function'];
 		}
 		if (isset($frame['args'])) {
 			// Either function args, or included file name(s)
-			$Msg .= ' (';
+			$Msg.= ' (';
 			foreach ($frame['args'] as $val) {
 
 				$typ = gettype($val);
 				switch ($typ) {
 					case 'array':
-						$Msg .= '[ ';
+						$Msg.= '[ ';
 						foreach ($val as $v2) {
 							if (gettype($v2) == 'array') {
-								$Msg .= '[ ';
-								foreach ($v2 as $v3)
-									$Msg .= $v3;
-								$Msg .= ' ]';
+								$Msg.= '[ ';
+								foreach ($v2 as $v3) $Msg.= $v3;
+								$Msg.= ' ]';
 							} else {
-								$Msg .= $v2 . ', ';
+								$Msg.= $v2 . ', ';
 							}
-							$Msg .= ' ]';
+							$Msg.= ' ]';
 							break;
 						}
 					case 'string':
-						$Msg .= $val . ', ';
+						$Msg.= $val . ', ';
 						break;
 
 					case 'integer':
-						$Msg .= sprintf("%d, ", $val);
+						$Msg.= sprintf("%d, ", $val);
 						break;
 
 					default:
-						$Msg .= '<' . gettype($val) . '>, ';
+						$Msg.= '<' . gettype($val) . '>, ';
 						break;
 
-				}
-				$Msg .= ' )';
+					}
+					$Msg.= ' )';
 			}
 		}
-		error_log($Msg, $dest);
+		error_log($Msg, $DateEndst);
 	}
 
-	error_log('++++END STACK BACKTRACE++++', $dest);
+	error_log('++++END STACK BACKTRACE++++', $DateEndst);
 
 	return;
 }
@@ -399,7 +370,7 @@ function http_file_exists($url) {
 function locale_number_format($Number, $DecimalPlaces = 0) {
 	global $DecimalPoint;
 	global $ThousandsSeparator;
-	if(substr($_SESSION['Language'], 3, 2) == 'IN') {
+	if (substr($_SESSION['Language'], 3, 2) == 'IN') {
 		return indian_number_format(floatval($Number), $DecimalPlaces);
 	} else {
 		if (!is_numeric($DecimalPlaces) and $DecimalPlaces == 'Variable') {
@@ -429,7 +400,6 @@ function filter_number_format($Number) {
 	}
 }
 
-
 function indian_number_format($Number, $DecimalPlaces) {
 	$IntegerNumber = intval($Number);
 	$DecimalValue = $Number - $IntegerNumber;
@@ -454,15 +424,16 @@ function indian_number_format($Number, $DecimalPlaces) {
 	if (strlen($IntegerNumber) > 3) {
 		$LastThreeNumbers = substr($IntegerNumber, strlen($IntegerNumber) - 3, strlen($IntegerNumber));
 		$RestUnits = substr($IntegerNumber, 0, strlen($IntegerNumber) - 3); // extracts the last three digits
-		$RestUnits = ((strlen($RestUnits) % 2) == 1)?'0' . $RestUnits:$RestUnits; // explodes the remaining digits in 2's formats, adds a zero in the beginning to maintain the 2's grouping.
+		$RestUnits = ((strlen($RestUnits) % 2) == 1) ? '0' . $RestUnits : $RestUnits; // explodes the remaining digits in 2's formats, adds a zero in the beginning to maintain the 2's grouping.
 		$FirstPart = '';
 		$ExplodedUnits = str_split($RestUnits, 2);
 		$SizeOfExplodedUnits = sizeOf($ExplodedUnits);
-		for ($i = 0; $i < $SizeOfExplodedUnits; $i++) {
+		for ($i = 0;$i < $SizeOfExplodedUnits;$i++) {
 			if ($i == 0) {
-				$FirstPart .= intval($ExplodedUnits[$i]) . ','; // creates each of the 2's group and adds a comma to the end
+				$FirstPart.= intval($ExplodedUnits[$i]) . ','; // creates each of the 2's group and adds a comma to the end
+				
 			} else {
-				$FirstPart .= $ExplodedUnits[$i] . ',';
+				$FirstPart.= $ExplodedUnits[$i] . ',';
 			}
 		}
 		return $FirstPart . $LastThreeNumbers . $DecimalValue;
@@ -506,7 +477,7 @@ function GetMailList($Recipients) {
 
 function ChangeFieldInTable($TableName, $FieldName, $OldValue, $NewValue) {
 	/* Used in Z_ scripts to change one field across the table.
-	 */
+	*/
 	echo '<br />' . _('Changing') . ' ' . $TableName . ' ' . _('records');
 	$SQL = "UPDATE " . $TableName . " SET " . $FieldName . " ='" . $NewValue . "' WHERE " . $FieldName . "='" . $OldValue . "'";
 	$DbgMsg = _('The SQL statement that failed was');
@@ -534,9 +505,9 @@ function ShowStockTypes($StockType) {
 
 function GetChartLanguage() {
 
-/* Need to pick the language that the account sections will
- * be shown in
- */
+	/* Need to pick the language that the account sections will
+	 * be shown in
+	*/
 
 	$Language = '';
 
@@ -569,9 +540,9 @@ function GetChartLanguage() {
 
 function GetInventoryLanguage() {
 
-/* Need to pick the language that the account sections will
- * be shown in
- */
+	/* Need to pick the language that the account sections will
+	 * be shown in
+	*/
 
 	$Language = '';
 	$InventoryLanguages = array();
@@ -603,4 +574,154 @@ function GetInventoryLanguage() {
 	}
 	return $Language;
 }
+
+/* Used in report scripts for standard periods.
+ * Parameter $Choice is from the 'Period' combobox value.
+*/
+function ReportPeriodList($Choice, $Options = array('t', 'l', 'n')) {
+	$Periods = array();
+
+	if (in_array('t', $Options)) {
+		$Periods[] = _('This Month');
+		$Periods[] = _('This Year');
+		$Periods[] = _('This Financial Year');
+	}
+
+	if (in_array('l', $Options)) {
+		$Periods[] = _('Last Month');
+		$Periods[] = _('Last Year');
+		$Periods[] = _('Last Financial Year');
+	}
+
+	if (in_array('n', $Options)) {
+		$Periods[] = _('Next Month');
+		$Periods[] = _('Next Year');
+		$Periods[] = _('Next Financial Year');
+	}
+
+	$Count = count($Periods);
+
+	$HTML = '<select name="Period">
+				<option value=""></option>';
+
+	for ($x = 0;$x < $Count;++$x) {
+		if (!empty($Choice) && $Choice == $Periods[$x]) {
+			$HTML.= '<option value="' . $Periods[$x] . '" selected>' . $Periods[$x] . '</option>';
+		} else {
+			$HTML.= '<option value="' . $Periods[$x] . '">' . $Periods[$x] . '</option>';
+		}
+	}
+
+	$HTML.= '</select>';
+
+	return $HTML;
+}
+
+function ReportPeriod($PeriodName, $FromOrTo) {
+	/* Used in report scripts to determine period.
+	*/
+	$ThisMonth = date('m');
+	$ThisYear = date('Y');
+	$LastMonth = $ThisMonth - 1;
+	$LastYear = $ThisYear - 1;
+	$NextMonth = $ThisMonth + 1;
+	$NextYear = $ThisYear + 1;
+	// Find total number of days in this month:
+	$TotalDays = cal_days_in_month(CAL_GREGORIAN, $ThisMonth, $ThisYear);
+	// Find total number of days in last month:
+	$TotalDaysLast = cal_days_in_month(CAL_GREGORIAN, $LastMonth, $ThisYear);
+	// Find total number of days in next month:
+	$TotalDaysNext = cal_days_in_month(CAL_GREGORIAN, $NextMonth, $ThisYear);
+	switch ($PeriodName) {
+
+		case _('This Month'):
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $ThisMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $ThisMonth, $TotalDays, $ThisYear));
+		break;
+		case _('This Quarter'):
+			$QtrStrt = intval(($ThisMonth - 1) / 3) * 3 + 1;
+			$QtrEnd = intval(($ThisMonth - 1) / 3) * 3 + 3;
+			if ($QtrEnd == 4 or $QtrEnd == 6 or $QtrEnd == 9 or $QtrEnd == 11) {
+				$TotalDays = 30;
+			}
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
+		break;
+		case _('This Year'):
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 1, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 12, 31, $ThisYear));
+		break;
+		case _('This Financial Year'):
+			if (Date('m') > $_SESSION['YearEnd']) {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y')));
+			} else {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 1));
+			}
+			$DateEnd = date($_SESSION['DefaultDateFormat'], YearEndDate($_SESSION['YearEnd'], 0));
+		break;
+		case _('Last Month'):
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, $TotalDaysLast, $ThisYear));
+		break;
+		case _('Last Quarter'):
+			$QtrStrt = intval(($ThisMonth - 1) / 3) * 3 - 2;
+			$QtrEnd = intval(($ThisMonth - 1) / 3) * 3 + 0;
+			if ($QtrEnd == 4 or $QtrEnd == 6 or $QtrEnd == 9 or $QtrEnd == 11) {
+				$TotalDays = 30;
+			}
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
+		break;
+		case _('Last Year'):
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 1, 1, $LastYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 12, 31, $LastYear));
+		break;
+		case _('Last Financial Year'):
+			if (Date('m') > $_SESSION['YearEnd']) {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 1));
+			} else {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 2));
+			}
+			$DateEnd = date($_SESSION['DefaultDateFormat'], YearEndDate($_SESSION['YearEnd'], -1));
+		break;
+		case _('Next Month'):
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $NextMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $NextMonth, $TotalDaysNext, $ThisYear));
+		break;
+		case _('Next Quarter'):
+			$QtrStrt = intval(($ThisMonth - 1) / 3) * 3 + 4;
+			$QtrEnd = intval(($ThisMonth - 1) / 3) * 3 + 6;
+			if ($QtrEnd == 4 or $QtrEnd == 6 or $QtrEnd == 9 or $QtrEnd == 11) {
+				$TotalDays = 30;
+			}
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrStrt, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $QtrEnd, $TotalDays, $ThisYear));
+		break;
+		case _('Next Year'):
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 1, 1, $NextYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, 12, 31, $NextYear));
+		break;
+		case _('Next Financial Year'):
+			if (Date('m') > $_SESSION['YearEnd']) {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') + 1));
+			} else {
+				$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y')));
+			}
+			$DateEnd = date($_SESSION['DefaultDateFormat'], YearEndDate($_SESSION['YearEnd'], 1));
+		break;
+		default:
+			$DateStart = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, 1, $ThisYear));
+			$DateEnd = date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, $LastMonth, $TotalDaysLast, $ThisYear));
+		break;
+	}
+
+	if ($FromOrTo == 'From') {
+		$Period = GetPeriod($DateStart);
+	} else {
+		$Period = GetPeriod($DateEnd);
+	}
+
+	return $Period;
+}
+
 ?>

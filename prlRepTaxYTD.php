@@ -43,7 +43,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 	$EmpListResult = DB_query($SQL, _('Could not test to see that all detail records properly initiated'));
 	if (DB_num_rows($EmpListResult) > 0) {
 		while ($emprow = DB_fetch_array($EmpListResult)) {
-			$k = 0; //row colour counter
+
 			$SQL = "SELECT sum(taxableincome) AS Gross,sum(tax) AS Tax
 					FROM prlemptaxfile
 					WHERE prlemptaxfile.employeeid='" . $emprow['employeeid'] . "'

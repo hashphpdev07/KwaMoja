@@ -237,7 +237,7 @@ echo '<table>
 			<th>' . _('Bank name') . '</th>
 			<th>' . _('Bank branch') . '</th>
 		</tr>';
-$k = 0; //row colour counter
+
 //while loop
 while ($MyRow = DB_fetch_array($Result)) {
 	echo '<tr class="striped_row">

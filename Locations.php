@@ -426,7 +426,7 @@ if (!isset($SelectedLocation)) {
 				</thead>';
 
 		echo '<tbody>';
-		$k = 0; //row colour counter
+
 		while ($MyRow = DB_fetch_array($Result)) {
 			/* warehouse management not implemented ... yet
 			if($MyRow['managed'] == 1) {

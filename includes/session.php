@@ -40,6 +40,8 @@ if (!ini_get('safe_mode')) {
 	ini_set('max_execution_time', $MaximumExecutionTime);
 } //!ini_get('safe_mode')
 session_write_close(); //in case a previous session is not closed
+ini_set('session.cookie_httponly', 1); // you might not yet have this line
+session_name('PHPSESSIDERP'); // add this line, only appends 'ERP'
 session_start();
 
 include ($PathPrefix . 'includes/ConnectDB.php');

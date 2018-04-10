@@ -212,7 +212,6 @@ if (!isset($SelectedTab)) {
 					<th>', _('Tax Group'), '</th>
 				</tr>';
 
-		$k = 0; //row colour counter
 		while ($MyRow = DB_fetch_array($Result)) {
 			$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['defaulttag'] . "'";
 			$TagResult = DB_query($TagSQL);

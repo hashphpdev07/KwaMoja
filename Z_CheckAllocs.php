@@ -1,10 +1,9 @@
 <?php
-
 /*This page adds the total of allocation records and compares this to the recorded allocation total in DebtorTrans table */
 
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Customer Allocations != DebtorTrans.Alloc');
-include('includes/header.php');
+include ('includes/header.php');
 
 /*First off get the DebtorTransID of all invoices where allocations dont agree to the recorded allocation */
 $SQL = "SELECT debtortrans.id,
@@ -31,10 +30,10 @@ if (DB_num_rows($Result) == 0) {
 while ($MyRow = DB_fetch_array($Result)) {
 	$AllocToID = $MyRow['id'];
 
-	echo '<br />' . _('Allocations made against') . ' ' . $MyRow['debtorno'] . ' ' . _('Invoice Number') . ': ' . $MyRow['transno'];
-	echo '<br />' . _('Original Invoice Total') . ': ' . $MyRow['totamt'];
-	echo '<br />' . _('Total amount recorded as allocated against it') . ': ' . $MyRow['alloc'];
-	echo '<br />' . _('Total of allocation records') . ': ' . $MyRow['totalalloc'];
+	echo '<br />', _('Allocations made against'), ' ', $MyRow['debtorno'], ' ', _('Invoice Number'), ': ', $MyRow['transno'];
+	echo '<br />', _('Original Invoice Total'), ': ', $MyRow['totamt'];
+	echo '<br />', _('Total amount recorded as allocated against it'), ': ', $MyRow['alloc'];
+	echo '<br />', _('Total of allocation records'), ': ', $MyRow['totalalloc'];
 
 	$SQL = "SELECT type,
 				transno,
@@ -58,14 +57,14 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 	echo '<table>
 			<tr>
-				<th>' . _('Type') . '</th>
-				<th>' . _('Number') . '</th>
-				<th>' . _('Reference') . '</th>
-				<th>' . _('Ex Rate') . '</th>
-				<th>' . _('Amount') . '</th>
-				<th>' . _('Alloc') . '</th></tr>';
+				<th>', _('Type'), '</th>
+				<th>', _('Number'), '</th>
+				<th>', _('Reference'), '</th>
+				<th>', _('Ex Rate'), '</th>
+				<th>', _('Amount'), '</th>
+				<th>', _('Alloc'), '</th>
+			</tr>';
 
-	$k = 0; //row colour counter
 	$AllocsTotal = 0;
 
 	while ($MyRow1 = DB_fetch_array($TransResult)) {
@@ -77,24 +76,25 @@ while ($MyRow = DB_fetch_array($Result)) {
 		}
 		$CurrDecimalPlaces = $MyRow1['currdecimalplaces'];
 
-		printf('<tr class="striped_row">
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td>%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				</tr>', $TransType, $MyRow1['transno'], $MyRow1['reference'], locale_number_format($MyRow1['exrate'], 4), locale_number_format($MyRow1['totalamt'], $CurrDecimalPlaces), locale_number_format($MyRow1['amt'], $CurrDecimalPlaces));
+		echo '<tr class="striped_row">
+				<td>', $TransType, '</td>
+				<td>', $MyRow1['transno'], '</td>
+				<td>', $MyRow1['reference'], '</td>
+				<td>', locale_number_format($MyRow1['exrate'], 4), '</td>
+				<td class="number">', locale_number_format($MyRow1['totalamt'], $CurrDecimalPlaces), '</td>
+				<td class="number">', locale_number_format($MyRow1['amt'], $CurrDecimalPlaces), '</td>
+			</tr>';
 
 		//end of page full new headings if
-		$AllocsTotal += $MyRow1['amt'];
+		$AllocsTotal+= $MyRow1['amt'];
 	}
 	//end of while loop
-	echo '<tr><td colspan="6" class="number">' . locale_number_format($AllocsTotal, $CurrDecimalPlaces) . '</td></tr>';
-	echo '</table>
-		<br />';
+	echo '<tr>
+			<td colspan="6" class="number">', locale_number_format($AllocsTotal, $CurrDecimalPlaces), '</td>
+		</tr>';
+	echo '</table>';
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

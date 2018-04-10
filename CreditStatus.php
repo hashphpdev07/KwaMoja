@@ -11,7 +11,7 @@ if (isset($_GET['SelectedReason'])) {
 
 $InputError = 0;
 echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 if (isset($_POST['submit'])) {
@@ -131,13 +131,13 @@ if (!isset($SelectedReason)) {
 	$Result = DB_query($SQL);
 
 	echo '<table>
-		<tr>
-			<th>' . _('Status Code') . '</th>
-			<th>' . _('Description') . '</th>
-			<th>' . _('Disallow Invoices') . '</th>
-		</tr>';
+			<tr>
+				<th>', _('Status Code'), '</th>
+				<th>', _('Description'), '</th>
+				<th>', _('Disallow Invoices'), '</th>
+				<th colspan="2"></th>
+			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['dissallowinvoices'] == 0) {
@@ -147,11 +147,11 @@ if (!isset($SelectedReason)) {
 		}
 
 		echo '<tr class="striped_row">
-				<td>' . $MyRow['reasoncode'] . '</td>
-				<td>' . $MyRow['reasondescription'] . '</td>
-				<td>' . $DissallowText . '</td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedReason=' . urlencode($MyRow['reasoncode']) . '&delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this credit status record?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td>', $MyRow['reasoncode'], '</td>
+				<td>', $MyRow['reasondescription'], '</td>
+				<td>', $DissallowText, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedReason=', urlencode($MyRow['reasoncode']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedReason=', urlencode($MyRow['reasoncode']), '&delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this credit status record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
@@ -160,14 +160,14 @@ if (!isset($SelectedReason)) {
 } //end of ifs and buts!
 if (isset($SelectedReason)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show Defined Credit Status Codes') . '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show Defined Credit Status Codes'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedReason) and ($InputError != 1)) {
 		//editing an existing status code
@@ -184,46 +184,53 @@ if (!isset($_GET['delete'])) {
 		$_POST['ReasonDescription'] = $MyRow['reasondescription'];
 		$_POST['DisallowInvoices'] = $MyRow['dissallowinvoices'];
 
-		echo '<input type="hidden" name="SelectedReason" value="' . $SelectedReason . '" />';
-		echo '<input type="hidden" name="ReasonCode" value="' . $_POST['ReasonCode'] . '" />';
-		echo '<table>
-				<tr>
-					<td>' . _('Status Code') . ':</td>
-					<td>' . $_POST['ReasonCode'] . '</td>
-				</tr>';
+		echo '<input type="hidden" name="SelectedReason" value="', $SelectedReason, '" />';
+		echo '<input type="hidden" name="ReasonCode" value="', $_POST['ReasonCode'], '" />';
+		echo '<fieldset>
+				<legend>', _('Edit Credit Status'), '</legend>
+				<field>
+					<label for="ReasonCode">', _('Status Code'), ':</label>
+					<div class="fieldtext">', $_POST['ReasonCode'], '</div>
+				</field>';
 
 	} else { //end of if $SelectedReason only do the else when a new record is being entered
 		if (!isset($_POST['ReasonCode'])) {
 			$_POST['ReasonCode'] = '';
 		}
-		echo '<table>
-			<tr>
-				<td>' . _('Status Code') . ':</td>
-				<td><input class="integer" type="text" name="ReasonCode" value="' . $_POST['ReasonCode'] . '" size="3" autofocus="autofocus" required="required" maxlength="2" /></td>
-			</tr>';
+		echo '<fieldset>
+				<legend>', _('Insert New Credit Status'), '</legend>
+				<field>
+					<label for="ReasonCode">', _('Status Code'), ':</label>
+					<input class="integer" type="text" name="ReasonCode" value="', $_POST['ReasonCode'], '" size="3" autofocus="autofocus" required="required" maxlength="2" />
+					<fieldhelp>', _('Code for this credit status'), '</fieldhelp>
+				</field>';
 	}
 
 	if (!isset($_POST['ReasonDescription'])) {
 		$_POST['ReasonDescription'] = '';
 	}
-	echo '<tr>
-			<td>' . _('Description') . ':</td>
-			<td><input type="text" name="ReasonDescription" value="' . $_POST['ReasonDescription'] . '" size="28" required="required" maxlength="30" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Disallow Invoices') . '</td>';
+	echo '<field>
+			<label for="ReasonDescription">', _('Description'), ':</label>
+			<input type="text" name="ReasonDescription" value="', $_POST['ReasonDescription'], '" size="28" required="required" maxlength="30" />
+			<fieldhelp>', _('Choose a description by which this credit status will be known.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="DisallowInvoices">', _('Disallow Invoices'), '</label>';
 	if (isset($_POST['DisallowInvoices']) and $_POST['DisallowInvoices'] == 1) {
-		echo '<td><input type="checkbox" checked="checked" name="DisallowInvoices" /></td>
-			</tr>';
+		echo '<input type="checkbox" checked="checked" name="DisallowInvoices" />';
 	} else {
-		echo '<td><input tabindex="3" type="checkbox" name="DisallowInvoices" /></td>
-			</tr>';
+		echo '<input type="checkbox" name="DisallowInvoices" />';
 	}
-	echo '</table>
-			<div class="centre">
-				<input type="submit" name="submit" value="' . _('Enter Information') . '" />
-			</div>
-			</form>';
+	echo '<fieldhelp>', _('If customers with this status should be prevented from having invoices raised, then tick this box.'), '</fieldhelp>
+	</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="submit" value="', _('Enter Information'), '" />
+		</div>
+	</form>';
 } //end if record deleted no point displaying form to add record
 include ('includes/footer.php');
 ?>

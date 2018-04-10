@@ -170,7 +170,6 @@ if (!isset($SelectedExpense)) {
 				<th>', _('Tax Category'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		$SQLdesc = "SELECT accountname

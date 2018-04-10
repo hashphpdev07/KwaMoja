@@ -1,14 +1,13 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['OrderNo'])) {
 	$Title = _('Reviewing Purchase Order Number') . ' ' . $_GET['OrderNo'];
-	$_GET['OrderNo'] = (int) $_GET['OrderNo'];
+	$_GET['OrderNo'] = (int)$_GET['OrderNo'];
 } else {
 	$Title = _('Reviewing A Purchase Order');
 }
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['FromGRNNo'])) {
 
@@ -37,7 +36,7 @@ if (!isset($_GET['OrderNo'])) {
 				</td>
 			</tr>
 		</table>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -51,7 +50,7 @@ $OrderHeaderSQL = "SELECT purchorders.*,
 						FROM purchorders
 						INNER JOIN locationusers
 							ON locationusers.loccode=purchorders.intostocklocation
-							AND locationusers.userid='" .  $_SESSION['UserID'] . "'
+							AND locationusers.userid='" . $_SESSION['UserID'] . "'
 							AND locationusers.canview=1
 						INNER JOIN locations
 							ON locations.loccode=purchorders.intostocklocation
@@ -77,11 +76,10 @@ if (DB_num_rows($GetOrdHdrResult) != 1) {
 			</tr>
 		</table>';
 
-	include('includes/footer.php');
+	include ('includes/footer.php');
 	exit;
 }
 // the checks all good get the order now
-
 $MyRow = DB_fetch_array($GetOrdHdrResult);
 
 if (!isset($MyRow['realname'])) {
@@ -184,7 +182,6 @@ $LineItemsSQL = "SELECT purchorderdetails.*,
 
 $LineItemsResult = DB_query($LineItemsSQL, $ErrMsg);
 
-
 echo '<table cellpadding="0">';
 echo '<tr>
 		<th colspan="8"><b>' . _('Order Line Details') . '</b></th>
@@ -200,14 +197,13 @@ echo '<tr>
 		<th>' . _('Reqd Date') . '</th>
 	</tr>';
 
-$k = 0; //row colour counter
 $OrderTotal = 0;
 $RecdTotal = 0;
 
 while ($MyRow = DB_fetch_array($LineItemsResult)) {
 
-	$OrderTotal += ($MyRow['quantityord'] * $MyRow['unitprice']);
-	$RecdTotal += ($MyRow['quantityrecd'] * $MyRow['unitprice']);
+	$OrderTotal+= ($MyRow['quantityord'] * $MyRow['unitprice']);
+	$RecdTotal+= ($MyRow['quantityrecd'] * $MyRow['unitprice']);
 
 	$DisplayReqdDate = ConvertSQLDate($MyRow['deliverydate']);
 	if ($MyRow['decimalplaces'] != NULL) {
@@ -240,5 +236,5 @@ echo '</table>';
 
 echo '<br />';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

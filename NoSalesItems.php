@@ -219,7 +219,7 @@ if (!(isset($_POST['Search']))) {
 	echo '<input type="hidden" value="' . $_POST['Location'] . '" name="Location" />
 			<input type="hidden" value="' . filter_number_format($_POST['NumberOfDays']) . '" name="NumberOfDays" />
 			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />';
-	$k = 0; //row colour counter
+
 	while ($MyRow = DB_fetch_array($Result)) {
 		$QOHResult = DB_query("SELECT sum(quantity)
 				FROM locstock

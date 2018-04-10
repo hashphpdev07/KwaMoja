@@ -280,7 +280,7 @@ echo '<table>
 		</thead>';
 
 echo '<tbody>';
-$k = 0; //row colour counter
+
 $OutstandingOrSettled = '';
 $PrintCustomerTransactionScript = 'PrintInvoice.php';
 

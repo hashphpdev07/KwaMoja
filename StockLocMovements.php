@@ -108,7 +108,6 @@ if (DB_num_rows($MovtsResult) > 0) {
 				<th>', _('Serial No.'), '</th>
 			</tr>';
 
-	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_array($MovtsResult)) {
 
 		$DisplayTranDate = ConvertSQLDate($MyRow['trandate']);

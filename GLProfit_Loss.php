@@ -10,17 +10,22 @@ if (isset($_POST['FromPeriod']) and ($_POST['FromPeriod'] > $_POST['ToPeriod']))
 	$_POST['SelectADifferentPeriod'] = 'Select A Different Period';
 }
 
+if (isset($_POST['Period']) and $_POST['Period'] != '') {
+	$_POST['FromPeriod'] = ReportPeriod($_POST['Period'], 'From');
+	$_POST['ToPeriod'] = ReportPeriod($_POST['Period'], 'To');
+}
+
 if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POST['SelectADifferentPeriod'])) {
 
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" />' . _('Print Profit and Loss Report') . '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" />', _('Print Profit and Loss Report'), '
 		</p>'; // Page title.
-	echo '<div class="page_help_text">' . _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line).') . '<br />' . _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.') . '<br />' . _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
+	echo '<div class="page_help_text">', _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line).'), '<br />', _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.'), '<br />', _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.'), '<br />', $ProjectName, _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
 		/*Dates in SQL format */
@@ -32,10 +37,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	}
 
 	/*Show a form to allow input of criteria for profit and loss to show */
-	echo '<table summary="' . _('Criteria for report') . '">
-			<tr>
-				<td>' . _('Select Period From') . ':</td>
-				<td><select name="FromPeriod">';
+	echo '<fieldset>
+			<legend>', _('Criteria for report'), '</legend>
+			<field>
+				<label for="FromPeriod">', _('Select Period From'), ':</label>
+				<select name="FromPeriod" autofocus="autofocus">';
 
 	$SQL = "SELECT periodno,
 					lastdate_in_period
@@ -46,21 +52,22 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	while ($MyRow = DB_fetch_array($Periods)) {
 		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] != '') {
 			if ($_POST['FromPeriod'] == $MyRow['periodno']) {
-				echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
-				echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			}
 		} else {
 			if ($MyRow['lastdate_in_period'] == $DefaultFromDate) {
 				echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
 			} else {
-				echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
+				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			}
 		}
 	}
+	echo '</select>
+		<fieldhelp>', _('Select the starting period for this report'), '</fieldhelp>
+	</field>';
 
-	echo '</select></td>
-		</tr>';
 	if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
 		$LastDate = date('Y-m-d', mktime(0, 0, 0, Date('m') + 1, 0, Date('Y')));
 		$SQL = "SELECT periodno FROM periods where lastdate_in_period = '" . $LastDate . "'";
@@ -72,9 +79,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$DefaultToPeriod = $_POST['ToPeriod'];
 	}
 
-	echo '<tr>
-			<td>' . _('Select Period To') . ':</td>
-			<td><select name="ToPeriod">';
+	echo '<field>
+			<label for="ToPeriod">', _('Select Period To'), ':</label>
+			<select name="ToPeriod">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
@@ -86,29 +93,43 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
 		}
 	}
-	echo '</select></td></tr>';
+	echo '</select>
+		<fieldhelp>', _('Select the end period for this report'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>' . _('Detail Or Summary') . ':</td>
-			<td>
-				<select name="Detail">
-					<option value="Summary">' . _('Summary') . '</option>
-					<option selected="selected" value="Detailed">' . _('All Accounts') . '</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>' . _('Show all Accounts including zero balances') . '</td>
-			<td><input type="checkbox" checked="checked" title="' . _('Check this box to display all accounts including those accounts with no balance') . '" name="ShowZeroBalances"></td>
- 		</tr>
-		</table>
-		<div class="centre">
-			<input type="submit" name="ShowPL" value="' . _('Show on Screen (HTML)') . '" />
-		</div>
-		<div class="centre">
-			<input type="submit" name="PrintPDF" value="' . _('Produce PDF Report') . '" />
-		</div>
-	</form>';
+	if (!isset($_POST['Period'])) {
+		$_POST['Period'] = '';
+	}
+
+	echo '<h3>', _('OR'), '</h3>';
+
+	echo '<field>
+			<label for="Period">', _('Select Period'), ':</label>
+			', ReportPeriodList($_POST['Period'], array('l', 't')), '
+			<fieldhelp>', _('Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="Detail">', _('Detail Or Summary'), ':</label>
+			<select name="Detail">
+				<option value="Summary">', _('Summary'), '</option>
+				<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
+			</select>
+			<fieldhelp>', _('Show report for all accounts, or just show summary report.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="ShowZeroBalances">', _('Show all Accounts including zero balances'), '</label>
+			<input type="checkbox" checked="checked" title="', _('Check this box to display all accounts including those accounts with no balance'), '" name="ShowZeroBalances">
+			<fieldhelp>', _('Show all accounts, or just accounts with balances.'), '</fieldhelp>
+ 		</field>
+	</fieldset>
+	<div class="centre">
+		<input type="submit" name="ShowPL" value="', _('Show on Screen (HTML)'), '" />
+	</div>
+	<div class="centre">
+		<input type="submit" name="PrintPDF" value="', _('Produce PDF Report'), '" />
+	</div>
+</form>';
 
 	/*Now do the posting while the user is thinking about the period to select */
 
@@ -672,7 +693,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	}
 
 	$j = 1;
-	$k = 0; //row colour counter
+
 	$Section = '';
 	$SectionPrdActual = 0;
 	$SectionPrdLY = 0;
