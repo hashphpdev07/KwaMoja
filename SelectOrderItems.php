@@ -1619,7 +1619,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 						</tr>
 					</thead>';
 			$ImageSource = _('No Image');
-			$i = 0;
 
 			echo '<tbody>';
 			while ($MyRow = DB_fetch_array($SearchResult)) {
