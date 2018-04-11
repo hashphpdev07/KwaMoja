@@ -71,10 +71,12 @@ color:#FFF;
 
 tr.striped_row:nth-of-type(even) {
 background-color:#DCDCDC;
+color:#000000;
 }
 
 tr.striped_row:nth-of-type(odd) {
 background-color:#F5F5F5;
+color:#000000;
 }
 
 tr.success_row {
