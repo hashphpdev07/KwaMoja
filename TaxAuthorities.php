@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
 		unset($SelectedTaxID);
 	}
 
-	prnMsg($Msg);
+	prnMsg($Msg, 'success');
 
 } elseif (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
@@ -157,19 +157,19 @@ if (!isset($SelectedTaxAuthID)) {
 			</thead>';
 	$k = 0;
 	echo '<tbody>';
-	while ($MyRow = DB_fetch_row($Result)) {
+	while ($MyRow = DB_fetch_array($Result)) {
 
 		echo '<tr class="striped_row">
-				<td>', $MyRow[1] . '</td>
-				<td>', $MyRow[3], '</td>
-				<td>', $MyRow[2], '</td>
-				<td>', $MyRow[4], '</td>
-				<td>', $MyRow[5], '</td>
-				<td>', $MyRow[6], '</td>
-				<td>', $MyRow[7], '</td>
-				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow[0]), '">', _('Edit'), '</a></td>
-				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow[0]), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this tax authority?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
-				<td><a href="', $RootPath, '/TaxAuthorityRates.php?TaxAuthority=', urlencode($MyRow[0]), '">', _('Edit Rates'), '</a></td>
+				<td>', $MyRow['description'] . '</td>
+				<td>', $MyRow['purchtaxglaccount'], '</td>
+				<td>', $MyRow['taxglcode'], '</td>
+				<td>', $MyRow['bank'], '</td>
+				<td>', $MyRow['bankacc'], '</td>
+				<td>', $MyRow['bankacctype'], '</td>
+				<td>', $MyRow['bankswift'], '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow['taxid']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTaxAuthID=', urlencode($MyRow['taxid']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this tax authority?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				<td><a href="', $RootPath, '/TaxAuthorityRates.php?TaxAuthority=', urlencode($MyRow['taxid']), '">', _('Edit Rates'), '</a></td>
 			</tr>';
 
 	}
@@ -212,33 +212,44 @@ if (isset($SelectedTaxAuthID)) {
 	$_POST['BankSwift'] = $MyRow['bankswift'];
 
 	echo '<input type="hidden" name="SelectedTaxAuthID" value="', $SelectedTaxAuthID, '" />';
+	echo '<fieldset>
+			<legend>', _('Update Tax Authority details for'), ' ', $_POST['Description'], '</legend>';
+} else {
+	$_POST['TaxGLCode'] = '1';
+	$_POST['PurchTaxGLCode'] = '1';
+	$_POST['Description'] = '';
+	$_POST['Bank'] = '';
+	$_POST['BankAccType'] = '';
+	$_POST['BankAcc'] = '';
+	$_POST['BankSwift'] = '';
+	echo '<fieldset>
+			<legend>', _('Create New Tax Authority details'), '</legend>';
+}
 
-} //end of if $SelectedTaxAuthID only do the else when a new record is being entered
 $SQL = "SELECT accountcode,
 				accountname
 		FROM chartmaster
 		INNER JOIN accountgroups
-		ON chartmaster.groupcode=accountgroups.groupcode
-		AND chartmaster.language=accountgroups.language
+			ON chartmaster.groupcode=accountgroups.groupcode
+			AND chartmaster.language=accountgroups.language
 		WHERE accountgroups.pandl=0
 			AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 		ORDER BY accountcode";
 $Result = DB_query($SQL);
+
 while ($MyRow = DB_fetch_array($Result)) {
 	$GLAccounts[$MyRow['accountcode']] = $MyRow['accountname'];
 }
 
-if (!isset($_POST['Description'])) {
-	$_POST['Description'] = '';
-}
-echo '<table>
-		<tr>
-			<td>', _('Tax Type Description'), ':</td>
-			<td><input type="text" name="Description" size="21" required="required" maxlength="40" value="', $_POST['Description'], '" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Input tax GL Account') . ':</td>
-			<td><select required="required" name="PurchTaxGLCode">';
+echo '<field>
+		<label for="Description">', _('Tax Type Description'), ':</label>
+		<input type="text" name="Description" size="21" required="required" autofocus="autofocus" maxlength="40" value="', $_POST['Description'], '" />
+		<fieldhelp>', _('Enter a description by which this tax authority will be known.'), '</fieldhelp>
+	</field>';
+
+echo '<field>
+		<label for="PurchTaxGLCode">', _('Input tax GL Account'), ':</label>
+		<select required="required" name="PurchTaxGLCode">';
 
 foreach ($GLAccounts as $Code => $Name) {
 	if (isset($_POST['PurchTaxGLCode']) and $Code == $_POST['PurchTaxGLCode']) {
@@ -248,12 +259,12 @@ foreach ($GLAccounts as $Code => $Name) {
 	}
 } //end while loop
 echo '</select>
-		</td>
-	</tr>';
+	<fieldhelp>', _('Select a GL account where the purchase (input) tax will be posted to.'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td>', _('Output tax GL Account'), ':</td>
-		<td><select required="required" name="TaxGLCode">';
+echo '<field>
+		<label for="TaxGLCode">', _('Output tax GL Account'), ':</label>
+		<select required="required" name="TaxGLCode">';
 
 foreach ($GLAccounts as $Code => $Name) {
 	if (isset($_POST['TaxGLCode']) and $Code == $_POST['TaxGLCode']) {
@@ -262,38 +273,31 @@ foreach ($GLAccounts as $Code => $Name) {
 		echo '<option value="', $Code, '">', $Name, ' (', $Code, ')</option>';
 	}
 } //end while loop
-if (!isset($_POST['Bank'])) {
-	$_POST['Bank'] = '';
-}
-if (!isset($_POST['BankAccType'])) {
-	$_POST['BankAccType'] = '';
-}
-if (!isset($_POST['BankAcc'])) {
-	$_POST['BankAcc'] = '';
-}
-if (!isset($_POST['BankSwift'])) {
-	$_POST['BankSwift'] = '';
-}
+echo '</select>
+	<fieldhelp>', _('Select a GL account where the sales (output) tax will be posted to.'), '</fieldhelp>
+</field>';
 
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>', _('Bank Name'), ':</td>
-		<td><input type="text" name="Bank" size="41" maxlength="40" value="', $_POST['Bank'], '" /></td>
-	</tr>
-	<tr>
-		<td>', _('Bank Account Type'), ':</td>
-		<td><input type="text" name="BankAccType" size="15" maxlength="20" value="', $_POST['BankAccType'], '" /></td>
-	</tr>
-	<tr>
-		<td>', _('Bank Account'), ':</td>
-		<td><input type="text" name="BankAcc" size="21" maxlength="20" value="', $_POST['BankAcc'], '" /></td>
-	</tr>
-	<tr>
-		<td>', _('Bank Swift No'), ':</td>
-		<td><input type="text" name="BankSwift" size="15" maxlength="14" value="', $_POST['BankSwift'], '" /></td>
-	</tr>
-</table>';
+echo '<field>
+		<label>', _('Bank Name'), ':</label>
+		<input type="text" name="Bank" size="41" maxlength="40" value="', $_POST['Bank'], '" />
+		<fieldhelp>', _('The name of the bank for this tax authority.'), '</fieldhelp>
+	</field>
+	<field>
+		<label>', _('Bank Account Type'), ':</label>
+		<input type="text" name="BankAccType" size="15" maxlength="20" value="', $_POST['BankAccType'], '" />
+		<fieldhelp>', _('The type of the bank account for this tax authority.'), '</fieldhelp>
+	</field>
+	<field>
+		<label>', _('Bank Account'), ':</label>
+		<input type="text" name="BankAcc" size="21" maxlength="20" value="', $_POST['BankAcc'], '" />
+		<fieldhelp>', _('The bank account number for this tax authority.'), '</fieldhelp>
+	</field>
+	<field>
+		<label>', _('Bank Swift No'), ':</label>
+		<input type="text" name="BankSwift" size="15" maxlength="14" value="', $_POST['BankSwift'], '" />
+		<fieldhelp>', _('The swift code of the bank for this tax authority.'), '</fieldhelp>
+	</field>
+</fieldset>';
 
 echo '<div class="centre">
 			<input type="submit" name="submit" value="', _('Enter Information'), '" />

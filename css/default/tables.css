@@ -4,6 +4,7 @@ width:auto;
 max-width:90%;
 padding-bottom:5px;
 margin:0 auto;
+table-layout: fixed;
 }
 
 th {

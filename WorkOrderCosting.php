@@ -147,14 +147,41 @@ $RequirementsResult = DB_query("SELECT worequirements.stockid,
 								GROUP BY worequirements.stockid,
 										stockmaster.description,
 										stockmaster.decimalplaces,
-										worequirements.stdcost");
-
+										worequirements.stdcost
+								ORDER BY worequirements.stockid");
 $k = 0;
 $TotalUsageVar = 0;
 $TotalCostVar = 0;
 $TotalIssuedCost = 0;
 $TotalReqdCost = 0;
 $RequiredItems = array();
+$RequiredQty = array();
+$RequiredStocks = array();
+$CostVariedStocks = array();
+$CurrStock = '';
+$CurrQty = 0;
+
+while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
+	if ($CurrStock == '') {
+		$CurrStock = $RequirementsRow['stockid'];
+	}
+	if ($CurrStock == $RequirementsRow['stockid']) {
+		if (in_array($RequirementsRow['stockid'], $RequiredStocks)) {
+			$CurrQty+= $RequirementsRow['requiredqty'];
+		} else {
+			$CurrQty = $RequirementsRow['requiredqty'];
+		}
+
+	} else { //stock changed
+		$CostVariedStocks[] = array('stockid' => $CurrStock, 'totalreqqty' => $CurrQty);
+		$CurrStock = $RequirementsRow['stockid'];
+		$CurrQty = $RequirementsRow['requiredqty'];
+
+	}
+	$RequiredStocks[] = $RequirementsRow['stockid'];
+}
+
+DB_data_seek($RequirementsResult, 0);
 
 while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 	$RequiredItems[] = $RequirementsRow['stockid'];
@@ -192,7 +219,22 @@ while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 	}
 
 	if ($IssueQty != 0) {
-		$CostVar = $IssueQty * (($RequirementsRow['stdcost']) - ($IssueCost / $IssueQty));
+		$MultiCost = false;
+		foreach ($CostVariedStocks as $Key => $Value) {
+			if ($Value['stockid'] == $RequirementsRow['stockid']) {
+				if ($Value['totalreqqty'] != 0) {
+					$CostVar = $IssueQty * $RequirementsRow['requiredqty'] / $Value['totalreqqty'] * (($RequirementsRow['stdcost']) - ($IssueCost / $IssueQty));
+				} else {
+					$CostVar = 0;
+				}
+				$MultiCost = true;
+				break;
+
+			}
+		}
+		if (!$MultiCost) {
+			$CostVar = $IssueQty * (($RequirementsRow['stdcost']) - ($IssueCost / $IssueQty));
+		}
 	} else {
 		$CostVar = 0;
 	}
@@ -303,7 +345,7 @@ if (isset($_POST['Close'])) {
 							INNER JOIN stockcategory
 								ON stockmaster.categoryid=stockcategory.categoryid
 							LEFT JOIN stockcosts
-								ON stockmaster.stockid=stockcosts.categoryid
+								ON stockmaster.stockid=stockcosts.stockid
 								AND stockcosts.succeeded=0
 							WHERE woitems.wo='" . $_POST['WO'] . "'", $ErrMsg);
 	$NoItemsOnWO = DB_num_rows($WOItemsResult);
@@ -356,7 +398,7 @@ if (isset($_POST['Close'])) {
 										'" . $PeriodNo . "',
 										'" . $WORow['materialuseagevarac'] . "',
 										'" . $_POST['WO'] . ' - ' . $WORow['stockid'] . ' ' . _('share of variance') . "',
-										'" . round((-$TotalVariance * $ShareProportion * (1 - $ProportionOnHand)), $_SESSION['CompanyRecord']['decimalplaces']) . "')";
+										'" . round((-$TotalCostVar * $ShareProportion * (1 - $ProportionOnHand)), $_SESSION['CompanyRecord']['decimalplaces']) . "')";
 
 					$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The GL posting for the work order variance could not be inserted because');
 					$DbgMsg = _('The following SQL to insert the GLTrans record was used');
@@ -376,7 +418,7 @@ if (isset($_POST['Close'])) {
 							'" . $PeriodNo . "',
 							'" . $WORow['stockact'] . "',
 							'" . $_POST['WO'] . ' - ' . $WORow['stockid'] . ' ' . _('share of variance') . "',
-							'" . round((-$TotalVariance * $ShareProportion * $ProportionOnHand), $_SESSION['CompanyRecord']['decimalplaces']) . "')";
+							'" . round((-$TotalCostVar * $ShareProportion * $ProportionOnHand), $_SESSION['CompanyRecord']['decimalplaces']) . "')";
 
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The GL posting for the work order variance could not be inserted because');
 				$DbgMsg = _('The following SQL to insert the GLTrans record was used');
@@ -395,7 +437,7 @@ if (isset($_POST['Close'])) {
 							'" . $PeriodNo . "',
 							'" . $WORow['wipact'] . "',
 							'" . $_POST['WO'] . ' - ' . $WORow['stockid'] . ' ' . _('share of variance') . "',
-							'" . round(($TotalVariance * $ShareProportion), $_SESSION['CompanyRecord']['decimalplaces']) . "')";
++							'" . round(($TotalCostVar * $ShareProportion), $_SESSION['CompanyRecord']['decimalplaces']) . "')";
 
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The GL posting for the WIP side of the work order variance posting could not be inserted because');
 				$DbgMsg = _('The following SQL to insert the GLTrans record was used');
@@ -404,7 +446,7 @@ if (isset($_POST['Close'])) {
 			}
 
 			if ($TotalOnHand > 0) { //to avoid negative quantity make cost data abnormal
-				$NewCost = $WORow['currcost'] + (-$TotalVariance * $ShareProportion * $ProportionOnHand) / $TotalOnHand;
+				$NewCost = $WORow['currcost'] + (-$TotalCostVar * $ShareProportion * $ProportionOnHand) / $TotalOnHand;
 			} else {
 				$NewCost = $WORow['currcost'];
 			}

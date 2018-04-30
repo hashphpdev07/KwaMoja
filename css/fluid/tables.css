@@ -2,6 +2,7 @@
 table {
 width:auto;
 margin:0 auto 5px;
+table-layout: fixed;
 }
 
 th {
