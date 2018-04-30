@@ -1,7 +1,6 @@
 <?php
 // Systems can temporarily force a reload by setting the variable
 // $ForceConfigReload to true
-
 if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION['CompanyDefaultsLoaded']) or isset($_SESSION['FirstStart'])) {
 
 	//purge the audit trail if necessary
@@ -17,7 +16,7 @@ if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION
 	while ($MyRow = DB_fetch_array($ConfigResult)) {
 		if (is_numeric($MyRow['confvalue']) and $MyRow['confname'] != 'DefaultPriceList' and $MyRow['confname'] != 'VersionNumber') {
 			//the variable name is given by $MyRow[0]
-			$_SESSION[$MyRow['confname']] = (double) $MyRow['confvalue'];
+			$_SESSION[$MyRow['confname']] = (double)$MyRow['confvalue'];
 		} else {
 			$_SESSION[$MyRow['confname']] = $MyRow['confvalue'];
 		}
@@ -42,10 +41,10 @@ if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION
 	}
 
 	if (!isset($_SESSION['DBUpdateNumber'])) { // the config record for VersionNumber is not yet added
-		$_SESSION['DBUpdateNumber'] = -1;
+		$_SESSION['DBUpdateNumber'] = - 1;
 		header('Location: Z_UpgradeDatabase.php'); //divert to the db upgrade if the VersionNumber is not in the config table
+		
 	}
-
 
 	if ($_SESSION['DBUpdateNumber'] > 143) {
 		$_SESSION['ChartLanguage'] = GetChartLanguage();
@@ -53,31 +52,7 @@ if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION
 	}
 
 	/* Also reads all the company data set up in the company record and returns an array */
-	$SQL = "SELECT SQL_CACHE coyname,
-					gstno,
-					regoffice1,
-					regoffice2,
-					regoffice3,
-					regoffice4,
-					regoffice5,
-					regoffice6,
-					telephone,
-					fax,
-					email,
-					currencydefault,
-					debtorsact,
-					pytdiscountact,
-					creditorsact,
-					payrollact,
-					grnact,
-					exchangediffact,
-					purchasesexchangediffact,
-					retainedearnings,
-					freightact,
-					gllink_debtors,
-					gllink_creditors,
-					gllink_stock,
-					decimalplaces
+	$SQL = "SELECT SQL_CACHE *
 				FROM companies
 				INNER JOIN currencies ON companies.currencydefault=currencies.currabrev
 				WHERE coycode=1";
@@ -110,7 +85,7 @@ if (isset($ForceConfigReload) and $ForceConfigReload == true or !isset($_SESSION
 	if (DB_error_no() == 0) {
 		/*test to ensure that the emailsettings table exists!!
 		 * if it doesn't exist then we are into an UpgradeDatabase scenario anyway
-		 */
+		*/
 		$MyRow = DB_fetch_array($Result);
 
 		$_SESSION['SMTPSettings']['host'] = $MyRow['host'];
