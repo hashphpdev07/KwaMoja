@@ -1,6 +1,11 @@
 <?php
+/* Search Pick Lists */
+
 include ('includes/session.php');
-$Title = _('Search Pick Lists ');
+$Title = _('Search Pick Lists');
+
+$ViewTopic = 'orders';
+$BookMark = 'SelectPickingLists';
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
