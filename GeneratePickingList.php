@@ -1,5 +1,5 @@
 <?php
-/* $Id: GeneratePickingList.php 1 2014-08-26 11:54:03Z agaluski $*/
+/* Generate Picking List */
 
 include ('includes/session.php');
 include ('includes/SQL_CommonFunctions.php');
