@@ -4,7 +4,7 @@
 include ('includes/session.php');
 $Title = _('Search Pick Lists');
 
-$ViewTopic = 'orders';
+$ViewTopic = 'Sales';
 $BookMark = 'SelectPickingLists';
 include ('includes/header.php');
 
