@@ -399,11 +399,11 @@ if (isset($_POST['AllocTrans'])) {
 	/*Show the transaction being allocated and the potential trans it could be allocated to
 	 and those where there is already an existing allocation */
 
-	echo '<div class="centre">
-				<font color="blue">' . _('Allocation of supplier') . ' ' . $_SESSION['Alloc']->TransTypeName . ' ' . _('number') . ' ' . $_SESSION['Alloc']->TransNo . ' ' . _('from') . ' ' . $_SESSION['Alloc']->SupplierID . ' - <b>' . $_SESSION['Alloc']->SuppName . '</b>, ' . _('dated') . ' ' . $_SESSION['Alloc']->TransDate;
+	echo '<div class="centre page_help_text">
+			' . _('Allocation of supplier') . ' ' . $_SESSION['Alloc']->TransTypeName . ' ' . _('number') . ' ' . $_SESSION['Alloc']->TransNo . ' ' . _('from') . ' ' . $_SESSION['Alloc']->SupplierID . ' - <b>' . $_SESSION['Alloc']->SuppName . '</b>, ' . _('dated') . ' ' . $_SESSION['Alloc']->TransDate;
 
 	if ($_SESSION['Alloc']->TransExRate != 1) {
-		echo '<br />' . _('Amount in supplier currency') . ' <b>' . locale_number_format(-$_SESSION['Alloc']->TransAmt, $_SESSION['Alloc']->CurrDecimalPlaces) . '</b><i> (' . _('converted into local currency at an exchange rate of') . ' ' . $_SESSION['Alloc']->TransExRate . ')</i><p>';
+		echo '<br />' . _('Amount in supplier currency') . ' <b>' . locale_number_format(-$_SESSION['Alloc']->TransAmt, $_SESSION['Alloc']->CurrDecimalPlaces) . '</b><i> (' . _('converted into local currency at an exchange rate of') . ' ' . $_SESSION['Alloc']->TransExRate . ')</i></div>';
 
 	} else {
 		echo '<br />' . _('Transaction total') . ': <b>' . locale_number_format(-$_SESSION['Alloc']->TransAmt, $_SESSION['Alloc']->CurrDecimalPlaces) . '</b></div>';
