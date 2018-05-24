@@ -13,9 +13,9 @@ margin:10px;
 }
 
 button img {
-	/* Describes how button image should be displayed. */
-	height:24px;
-	width:24px;
+/* Describes how button image should be displayed. */
+height:24px;
+width:24px;
 }
 
 div.toplink {
@@ -163,13 +163,13 @@ margin:5px;
 }
 
 .number {
- 	text-align:right;
- 	/* Class selector to horizontal align a number (right) in an element. */
+ text-align:right;
+ /* Class selector to horizontal align a number (right) in an element. */
 }
 
 .text {
- 	text-align:left;
- 	/* Class selector to horizontal align text (left) in an element. */
+ text-align:left;
+ /* Class selector to horizontal align text (left) in an element. */
 }
 
 input.image {
@@ -602,4 +602,18 @@ text-shadow: 1px 1px #0E0C6D;
 
 #CloseButton:hover {
 box-shadow:2px 2px 3px #86C3D7, -2px -2px 3px #383878;
+}
+DIV.page_hint_text {
+background:#D3D3D3;
+border:#a52a2a 1px solid;
+z-index:1;
+float:none;
+visibility:visible;
+position:static;
+color:#000;
+text-align:center;
+box-shadow:3px 3px 4px;
+width:80%;
+margin:0 auto 10px;
+padding:10px;
 }

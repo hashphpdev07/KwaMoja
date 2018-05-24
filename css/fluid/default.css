@@ -13,9 +13,9 @@ padding:0;
 }
 
 button img {
-	/* Describes how button image should be displayed. */
-	height:21px;
-	width:21px;
+/* Describes how button image should be displayed. */
+height:21px;
+width:21px;
 }
 
 .toplink {
@@ -158,13 +158,13 @@ margin:0 auto 5px;
 }
 
 .number {
- 	text-align:right;
- 	/* Class selector to horizontal align a number (right) in an element. */
+ text-align:right;
+ /* Class selector to horizontal align a number (right) in an element. */
 }
 
 .text {
- 	text-align:left;
- 	/* Class selector to horizontal align text (left) in an element. */
+ text-align:left;
+ /* Class selector to horizontal align text (left) in an element. */
 }
 
 input.image {
@@ -499,4 +499,19 @@ text-shadow: 1px 1px #0E0C6D;
 
 #CloseButton:hover {
 box-shadow:2px 2px 3px #86C3D7, -2px -2px 3px #383878;
+}
+DIV.page_hint_text {
+background:#D3D3D3 url(images/help.png) top left no-repeat;
+border:#a52a2a 1px solid;
+padding-top:2px;
+padding-bottom:2px;
+padding-left:10px;
+z-index:1;
+width:80%;
+float:none;
+visibility:visible;
+position:static;
+color:#000;
+text-align:center;
+margin:0 auto;
 }
