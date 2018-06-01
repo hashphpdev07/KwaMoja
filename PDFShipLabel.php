@@ -1,8 +1,7 @@
 <?php
+/* Prints a ship label */
 
-/* $Id: PDFShipLabel.php agaluski $*/
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['ORD'])) {
 	$SelectedORD = $_GET['ORD'];
@@ -19,7 +18,6 @@ if (isset($_GET['StockID'])) {
 } else {
 	unset($StockId);
 }
-
 
 if (isset($_GET['LabelItem'])) {
 	$LabelItem = $_GET['LabelItem'];
@@ -90,7 +88,6 @@ if ($SelectedORD == 'Preview') { //ORD is set to 'Preview' when just looking at 
 	$_POST['PrintOrEmail'] = 'Print';
 	$MakePDFThenDisplayIt = True;
 } //$SelectedORD == 'Preview'
-
 if (isset($_POST['PrintOrEmail']) and $_POST['PrintOrEmail'] == 'Print') {
 	$MakePDFThenDisplayIt = True;
 	$MakePDFThenEmailIt = False;
@@ -107,7 +104,7 @@ $FormDesign = simplexml_load_file($PathPrefix . 'companies/' . $_SESSION['Databa
 // Set the paper size/orintation
 $PaperSize = $FormDesign->PaperSize;
 $line_height = $FormDesign->LineHeight;
-include('includes/PDFStarter.php');
+include ('includes/PDFStarter.php');
 $PageNumber = 1;
 $PDF->addInfo('Title', _('FG Label'));
 
@@ -206,7 +203,7 @@ if ($SelectedORD == 'Preview') {
 			if ($QtyPerBox == 0) {
 				$QtyPerBox = 1;
 			}
-			$NoOfBoxes = (int) ($MyRow['shipqty'] / $QtyPerBox);
+			$NoOfBoxes = (int)($MyRow['shipqty'] / $QtyPerBox);
 			$LeftOverQty = $MyRow['shipqty'] % $QtyPerBox;
 			$NoOfLabelsLine = $LabelsPerBox * $NoOfBoxes;
 			$QtyPerBox = locale_number_format($QtyPerBox, $MyRow['decimalplaces']);
@@ -245,14 +242,16 @@ if ($SelectedORD == 'Preview') {
 					++$i;
 					++$j;
 					//$NoOfLabels++;
+					
 				}
 			}
 		}
 	} // get data to print
+	
 } //
 //echo $LeftOverQty . ' ' . $NoOfLabels ;
 if ($NoOfLabels > 0) {
-	for ($i = 1; $i < $NoOfLabels; $i++) {
+	for ($i = 1;$i < $NoOfLabels;$i++) {
 		if ($PageNumber > 1) {
 			$PDF->newPage();
 		}
@@ -267,7 +266,7 @@ if ($NoOfLabels > 0) {
 		++$AddressLine;
 		if ($_SESSION['CompanyRecord']['regoffice2'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice2']);
-			$AddressLine += 1;
+			$AddressLine+= 1;
 		}
 		if ($_SESSION['CompanyRecord']['regoffice3'] > '') {
 			$PDF->addText($FormDesign->CompanyAddress->Address->x, $Page_Height - $FormDesign->CompanyAddress->Address->y - ($AddressLine * $FormDesign->CompanyAddress->Address->FontSize), $FormDesign->CompanyAddress->Address->FontSize, $_SESSION['CompanyRecord']['regoffice3']);
@@ -319,7 +318,6 @@ if ($NoOfLabels > 0) {
 		$PDF->addText($FormDesign->CustItem->x, $Page_Height - $FormDesign->CustItem->y, $FormDesign->CustItem->FontSize, _('Customer Item') . ': ' . $MyArray[$i]['custitem']);
 
 	} //end of loop labels
-
 	$Success = 1; //assume the best and email goes - has to be set to 1 to allow update status
 	if ($MakePDFThenDisplayIt) {
 		$PDF->OutputD($_SESSION['DatabaseName'] . '_FGLABEL_' . $SelectedORD . '_' . date('Y-m-d') . '.pdf');
@@ -328,7 +326,7 @@ if ($NoOfLabels > 0) {
 		$PdfFileName = $_SESSION['DatabaseName'] . '__FGLABEL_' . $SelectedORD . '_' . date('Y-m-d') . '.pdf';
 		$PDF->Output($_SESSION['reports_dir'] . '/' . $PdfFileName, 'F');
 		$PDF->__destruct();
-		include('includes/htmlMimeMail.php');
+		include ('includes/htmlMimeMail.php');
 		$Mail = new htmlMimeMail();
 		$Attachment = $Mail->getFile($_SESSION['reports_dir'] . '/' . $PdfFileName);
 		$Mail->setText(_('Please Process this Work order number') . ' ' . $SelectedORD);
@@ -337,38 +335,34 @@ if ($NoOfLabels > 0) {
 		//since sometime the mail server required to verify the users, so must set this information.
 		if ($_SESSION['SmtpSetting'] == 0) { //use the mail service provice by the server.
 			$Mail->setFrom($_SESSION['CompanyRecord']['coyname'] . '<' . $_SESSION['CompanyRecord']['email'] . '>');
-			$Success = $Mail->send(array(
-				$_POST['EmailTo']
-			));
+			$Success = $Mail->send(array($_POST['EmailTo']));
 		} else if ($_SESSION['SmtpSetting'] == 1) {
-			$Success = SendmailBySmtp($Mail, array(
-				$_POST['EmailTo']
-			));
+			$Success = SendmailBySmtp($Mail, array($_POST['EmailTo']));
 
 		} else {
 			prnMsg(_('The SMTP settings are wrong, please ask administrator for help'), 'error');
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		if ($Success == 1) {
 			$Title = _('Email a Work Order');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('Work Order') . ' ' . $SelectedORD . ' ' . _('has been emailed to') . ' ' . $_POST['EmailTo'] . ' ' . _('as directed'), 'success');
 
 		} else { //email failed
 			$Title = _('Email a Work Order');
-			include('includes/header.php');
+			include ('includes/header.php');
 			prnMsg(_('Emailing Work order') . ' ' . $SelectedORD . ' ' . _('to') . ' ' . $_POST['EmailTo'] . ' ' . _('failed'), 'error');
 		}
 	}
-	include('includes/footer.php');
+	include ('includes/footer.php');
 
 } else { //there were not labels to print
 	$Title = _('Label Error');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('There were no labels to print'), 'warn');
 	echo '<a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

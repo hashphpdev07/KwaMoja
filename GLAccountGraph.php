@@ -1,11 +1,12 @@
 <?php
 /* By Paul Becker */
+/* Shows a graph of GL account transactions */
 
 include ('includes/session.php');
 include ('includes/phplot/phplot.php');
 $Title = _('GL Account Graph');
 
-$ViewTopic = 'GLInquiries';
+$ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountGraph';
 
 include ('includes/header.php');
