@@ -145,6 +145,7 @@ if (isset($_POST['submit'])) {
 						phone='" . $_POST['Phone'] . "',
 						email='" . $_POST['Email'] . "',
 						" . $UpdatePassword . "
+						changepassword='" . $_POST['ChangePassword'] . "',
 						branchcode='" . $_POST['BranchCode'] . "',
 						supplierid='" . $_POST['SupplierID'] . "',
 						salesman='" . $_POST['Salesman'] . "',
@@ -205,6 +206,7 @@ if (isset($_POST['submit'])) {
 						supplierid,
 						salesman,
 						password,
+						changepassword,
 						phone,
 						email,
 						pagesize,
@@ -229,6 +231,7 @@ if (isset($_POST['submit'])) {
 						'" . $_POST['SupplierID'] . "',
 						'" . $_POST['Salesman'] . "',
 						'" . CryptPass($_POST['Password']) . "',
+						'" . $_POST['ChangePassword'] . "',
 						'" . $_POST['Phone'] . "',
 						'" . $_POST['Email'] . "',
 						'" . $_POST['PageSize'] . "',
@@ -271,6 +274,7 @@ if (isset($_POST['submit'])) {
 		unset($_POST['Phone']);
 		unset($_POST['Email']);
 		unset($_POST['Password']);
+		unset($_POST['ChangePassword']);
 		unset($_POST['PageSize']);
 		unset($_POST['Access']);
 		unset($_POST['CanCreateTender']);
@@ -439,6 +443,7 @@ if (isset($SelectedUser)) {
 			email,
 			customerid,
 			password,
+			changepassword,
 			branchcode,
 			supplierid,
 			salesman,
@@ -465,6 +470,7 @@ if (isset($SelectedUser)) {
 
 	$_POST['UserID'] = $MyRow['userid'];
 	$_POST['RealName'] = $MyRow['realname'];
+	$_POST['ChangePassword'] = $MyRow['changepassword'];
 	$_POST['Phone'] = $MyRow['phone'];
 	$_POST['Email'] = $MyRow['email'];
 	$_POST['Cust'] = $MyRow['customerid'];
@@ -536,6 +542,9 @@ if (isset($SelectedUser)) {
 if (!isset($_POST['Password'])) {
 	$_POST['Password'] = '';
 }
+if (!isset($_POST['ChangePassword'])) {
+	$_POST['ChangePassword'] = 0;
+}
 if (!isset($_POST['RealName'])) {
 	$_POST['RealName'] = '';
 }
@@ -545,6 +554,21 @@ if (!isset($_POST['Phone'])) {
 if (!isset($_POST['Email'])) {
 	$_POST['Email'] = '';
 }
+
+echo '<field>
+		<label for="ChangePassword">', _('User Must Change their Password at next Login'), ':</label>
+		<select name="ChangePassword">';
+
+if (isset($_POST['ChangePassword']) and $_POST['ChangePassword'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>';
+}
+echo '</select>
+	<fieldhelp>', _('If set to Yes then the user must change their password at next Login.'), '</fieldhelp>
+</field>';
 
 echo '<field>
 		<label for="RealName">', _('Full Name'), ':</label>
