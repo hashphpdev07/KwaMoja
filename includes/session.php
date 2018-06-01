@@ -96,6 +96,20 @@ if (!isset($AllowAnyone) or !isset($_SESSION['CompanyDefaultsLoaded'])) {
 
 	include $PathPrefix . 'includes/UserLogin.php';
 	/* Login checking and setup */
+	if (isset($_SESSION['UserID']) or (isset($_POST['UserNameEntryField']))) {
+		if (isset($_POST['UserNameEntryField'])) {
+			$_SESSION['UserID'] = $_POST['UserNameEntryField'];
+		}
+		$SQL = "SELECT changepassword FROM www_users
+				WHERE www_users.userid='" . $_SESSION['UserID'] . "'";
+		$Result = DB_query($SQL);
+		$MyRow = DB_fetch_array($Result);
+
+		if ($MyRow['changepassword'] == 1 and (basename($_SERVER['SCRIPT_NAME']) != 'ChangePassword.php')) {
+			header('Location: ChangePassword.php');
+		}
+
+	}
 
 	if (isset($_POST['UserNameEntryField']) and isset($_POST['Password'])) {
 		$rc = userLogin($_POST['UserNameEntryField'], $_POST['Password'], $SysAdminEmail);
