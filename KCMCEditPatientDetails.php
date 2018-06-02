@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.inc');
-include('includes/SQL_CommonFunctions.inc');
-include('includes/CustomerSearch.php');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/CustomerSearch.php');
 $Title = _('Update Patient Details');
-include('includes/header.inc');
+include ('includes/header.php');
 
 if (isset($_GET['PatientNumber'])) {
 	$Patient[0] = $_GET['PatientNumber'];
@@ -13,7 +12,7 @@ if (isset($_GET['PatientNumber'])) {
 
 if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previous']) and !isset($_POST['Go1']) and !isset($_POST['Go2']) and isset($_POST['JustSelectedACustomer']) and empty($_POST['Patient'])) {
 	/*Need to figure out the number of the form variable that the user clicked on */
-	for ($i = 0; $i < count($_POST); $i++) { //loop through the returned customers
+	for ($i = 0;$i < count($_POST);$i++) { //loop through the returned customers
 		if (isset($_POST['SubmitCustomerSelection' . $i])) {
 			break;
 		}
@@ -26,7 +25,6 @@ if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previ
 		unset($_POST['Search']);
 	}
 } //end of if search
-
 if (!isset($Patient)) {
 	ShowCustomerSearchFields($RootPath, $_SESSION['Theme']);
 }
@@ -39,7 +37,6 @@ if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or i
 		echo '<br />';
 	}
 } //end of if search
-
 if (isset($PatientResult)) {
 	ShowReturnedCustomers($PatientResult);
 }
@@ -230,7 +227,7 @@ if (isset($Patient)) {
 			<td>' . _('Sex') . ':</td>
 			<td><select name="Sex">';
 	echo '<option value=""></option>';
-	foreach ($Gender as $Code=>$Name) {
+	foreach ($Gender as $Code => $Name) {
 		if ($MyRow['gender'] == $Code) {
 			echo '<option selected="selected" value="' . $Code . '">' . $Name . '</option>';
 		} else {
@@ -285,5 +282,5 @@ if (isset($Patient)) {
 	echo '</form>';
 }
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

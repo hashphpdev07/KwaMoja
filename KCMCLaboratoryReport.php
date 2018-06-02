@@ -1,10 +1,9 @@
 <?php
-
 /* $Id$*/
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Financial Report for Laboratory Department');
 
-include('includes/header.inc');
+include ('includes/header.php');
 
 if (!isset($_POST['ReportDate'])) {
 	$_POST['ReportDate'] = date($_SESSION['DefaultDateFormat']);
@@ -79,8 +78,8 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<td>' . _('Total For') . ' ' . $MyRow['sales_type'] . '</td>';
 		echo '<td class="number">' . $SubTotalQuantity . '</td>';
 		echo '<td class="number">' . locale_number_format($SubTotalValue, $DecimalPlaces) . '</td></tr>';
-		$TotalQuantity += $SubTotalQuantity;
-		$TotalValue += $SubTotalValue;
+		$TotalQuantity+= $SubTotalQuantity;
+		$TotalValue+= $SubTotalValue;
 		$SubTotalQuantity = 0;
 		$SubTotalValue = 0;
 		$LastDate = $MyRow['trandate'];
@@ -95,8 +94,8 @@ while ($MyRow = DB_fetch_array($Result)) {
 			<td class="number">' . $MyRow['quantity'] . '</td>
 			<td class="number">' . number_format($MyRow['value'], $DecimalPlaces) . '</td>
 		</tr>';
-	$SubTotalQuantity += $MyRow['quantity'];
-	$SubTotalValue += $MyRow['value'];
+	$SubTotalQuantity+= $MyRow['quantity'];
+	$SubTotalValue+= $MyRow['value'];
 }
 echo '</td></tr></table>';
 
@@ -117,7 +116,6 @@ $SQL = "SELECT stockmoves.trandate,
 $Result = DB_query($SQL);
 echo '</td><td width="33%" style="text-align: left;">';
 echo '<table width="100%" class="selection">';
-
 
 echo '<tr><th colspan="5"><font color="navy" size="2">';
 echo _('Income for the previous week');
@@ -145,8 +143,8 @@ while ($MyRow = DB_fetch_array($Result)) {
 			echo '<td>' . _('Total For') . ' ' . GetWeekDayText(DayOfWeekFromSQLDate(FormatDateForSQL(DateAdd(ConvertSQLDate($MyRow['trandate']), 'd', 1)))) . ' ' . DateAdd(ConvertSQLDate($MyRow['trandate']), 'd', 1) . '</td>';
 			echo '<td class="number">' . $SubTotalQuantity . '</td>';
 			echo '<td class="number">' . number_format($SubTotalValue, $_SESSION['Currencies'][$_SESSION['CompanyRecord']['currencydefault']]['DecimalPlaces']) . '</td></tr>';
-			$TotalQuantity += $SubTotalQuantity;
-			$TotalValue += $SubTotalValue;
+			$TotalQuantity+= $SubTotalQuantity;
+			$TotalValue+= $SubTotalValue;
 			$SubTotalQuantity = 0;
 			$SubTotalValue = 0;
 			$LastDate = $MyRow['trandate'];
@@ -160,8 +158,8 @@ while ($MyRow = DB_fetch_array($Result)) {
 				<td class="number">' . $MyRow['quantity'] . '</td>
 				<td class="number">' . number_format($MyRow['value'], $DecimalPlaces) . '</td>
 			</tr>';
-		$SubTotalQuantity += $MyRow['quantity'];
-		$SubTotalValue += $MyRow['value'];
+		$SubTotalQuantity+= $MyRow['quantity'];
+		$SubTotalValue+= $MyRow['value'];
 	}
 }
 
@@ -185,7 +183,6 @@ echo '</td>';
 echo '<td></td></tr>';
 echo '</table>';
 
-
-include('includes/footer.inc');
+include ('includes/footer.php');
 
 ?>

@@ -1,8 +1,8 @@
 <?php
-include ('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Billing For Radiology Tests');
-include ('includes/header.inc');
-include ('includes/SQL_CommonFunctions.inc');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 include ('includes/GetSalesTransGLCodes.inc');
 include ('includes/CustomerSearch.php');
 
@@ -460,14 +460,14 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 			DB_Txn_Commit();
 			unset($_SESSION['Items']);
 			echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/PDFPatientReceipt.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">';
-			include ('includes/footer.inc');
+			include ('includes/footer.php');
 			$_SESSION['DefaultCashPoint'] = $_POST['BankAccount'];
 			exit;
 		} elseif (isset($_POST['SubmitInsurance'])) {
 			prnMsg(_('The transaction has been successfully posted'), 'success');
 			echo '<br /><div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '?New=True">' . _('Enter another receipt') . '</a>';
 			DB_Txn_Commit();
-			include ('includes/footer.inc');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -659,7 +659,7 @@ if (isset($Patient)) {
 		if (DB_num_rows($AccountsResults) == 0) {
 			echo '</select></td></tr></table><p>';
 			prnMsg(_('Bank Accounts have not yet been defined. You must first') . ' <a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a> ' . _('and general ledger accounts to be affected'), 'warn');
-			include ('includes/footer.inc');
+			include ('includes/footer.php');
 			exit;
 		} else {
 			echo '<option value=""></option>';
@@ -690,5 +690,5 @@ if (isset($Patient)) {
 	echo '</form>';
 }
 
-include ('includes/footer.inc');
+include ('includes/footer.php');
 ?>

@@ -1,14 +1,13 @@
 <?php
-
 /* $Id$ */
 
-include('includes/session.inc');
+include ('includes/session.php');
 
 $Title = _('Create or Modify Insurance Company Details');
 
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
-include('includes/CountriesArray.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/CountriesArray.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . $Title . '</p>';
 
@@ -25,7 +24,7 @@ $Errors = array();
 if (isset($_POST['submit'])) {
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$InputError = 0;
@@ -67,7 +66,7 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 
 		if (!isset($_POST['New'])) {
-				$SQL = "UPDATE insuranceco SET
+			$SQL = "UPDATE insuranceco SET
 					name='" . $_POST['Name'] . "',
 					address1='" . $_POST['Address1'] . "',
 					address2='" . $_POST['Address2'] . "',
@@ -89,7 +88,7 @@ if (isset($_POST['submit'])) {
 			$Result = DB_query($SQL, $ErrMsg);
 			prnMsg(_('Company updated'), 'success');
 		} else { //it is a new customer
-			$_POST['ID'] =  GetNextTransNo(520);
+			$_POST['ID'] = GetNextTransNo(520);
 
 			$SQL = "INSERT INTO insuranceco (id,
 											name,
@@ -131,7 +130,7 @@ if (isset($_POST['submit'])) {
 
 			prnMsg(_('The Insurance Company has been successfully created'), 'success');
 
-			include('includes/footer.inc');
+			include ('includes/footer.php');
 			exit;
 		}
 	} else {
@@ -156,11 +155,9 @@ if (isset($_POST['submit'])) {
 } elseif (isset($_POST['delete'])) {
 
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
-
 	$SQL = "SELECT COUNT(*) FROM debtortrans WHERE debtorno='" . $_POST['ID'] . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_row($Result);
@@ -204,10 +201,11 @@ if (isset($_POST['submit'])) {
 		$SQL = "DELETE FROM debtorsmaster WHERE debtorno='" . $_POST['ID'] . "'";
 		$Result = DB_query($SQL);
 		prnMsg(_('company') . ' ' . $_POST['DebtorNo'] . ' ' . _('has been deleted - together with all the associated contacts') . ' !', 'success');
-		include('includes/footer.inc');
+		include ('includes/footer.php');
 		unset($_SESSION['CustomerID']);
 		exit;
 	} //end if Delete Customer
+	
 }
 
 if (isset($reset)) {
@@ -521,5 +519,5 @@ if (!isset($_GET['Edit'])) {
 	}
 }
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

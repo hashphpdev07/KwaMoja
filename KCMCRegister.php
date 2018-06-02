@@ -1,9 +1,8 @@
 <?php
-
-include('includes/session.inc');
-include('includes/SQL_CommonFunctions.inc');
+include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 $Title = _('Register a Patient');
-include('includes/header.inc');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/PatientData.png" title="' . _('Search') . '" alt="" />' . $Title . '</p>';
 
@@ -13,7 +12,7 @@ if (isset($_POST['Create'])) {
 
 	$SQL = "SELECT debtorno FROM debtorsmaster WHERE debtorno='" . $_POST['FileNumber'] . "'";
 	$Result = DB_query($SQL);
-	if (DB_num_rows($result) != 0) {
+	if (DB_num_rows($Result) != 0) {
 		$InputError = 1;
 		$msg[] = _('That file number has already been used for another patient. Please select another file number.');
 	}
@@ -252,7 +251,7 @@ echo '<tr>
 		<td>' . _('Sex') . ':</td>
 		<td><select name="Sex">';
 echo '<option value=""></option>';
-foreach ($Gender as $Code=>$Name) {
+foreach ($Gender as $Code => $Name) {
 	if (isset($_POST['Sex']) and $_POST['Sex'] == $Code) {
 		echo '<option selected="selected" value="' . $Code . '">' . $Name . '</option>';
 	} else {
@@ -312,5 +311,5 @@ echo '<div class="centre">
 	</div>';
 echo '</form>';
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

@@ -1,6 +1,6 @@
 <?php
 $PageSecurity = 1;
-require_once('includes/session.inc');
+require_once ('includes/session.php');
 
 $SearchAnswers = array();
 $i = 0;
@@ -24,7 +24,7 @@ if ($_POST['Telephone'] != '') {
 		$SearchAnswers[$i]['MiddleName'] = $MyRow['name_middle'];
 		$SearchAnswers[$i]['LastName'] = $MyRow['name_last'];
 		$SearchAnswers[$i]['Telephone'] = $MyRow['phone_1_nr'];
-		if ($MyRow['sex'] == 'm' ) {
+		if ($MyRow['sex'] == 'm') {
 			$SearchAnswers[$i]['Gender'] = _('Male');
 		} else {
 			$SearchAnswers[$i]['Gender'] = _('Female');
@@ -69,7 +69,7 @@ if ($TotalRows == 0 and strlen($_POST['FirstName']) > 2) {
 		$SearchAnswers[$i]['MiddleName'] = $MyRow['name_middle'];
 		$SearchAnswers[$i]['LastName'] = $MyRow['name_last'];
 		$SearchAnswers[$i]['Telephone'] = $MyRow['phone_1_nr'];
-		if ($MyRow['sex'] == 'm' ) {
+		if ($MyRow['sex'] == 'm') {
 			$SearchAnswers[$i]['Gender'] = _('Male');
 		} else {
 			$SearchAnswers[$i]['Gender'] = _('Female');

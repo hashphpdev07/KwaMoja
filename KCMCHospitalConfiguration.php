@@ -1,13 +1,11 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 
 $Title = _('Hospital Configuration');
 
-include('includes/header.inc');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/Hospital.png" title="' . _('Hospital Configuration') . '" alt="" />' . $Title . '</p>';
-
 
 if (isset($_POST['submit'])) {
 
@@ -15,10 +13,9 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
-
 	if ($InputError != 1) {
 
 		$SQL = array();
@@ -29,10 +26,10 @@ if (isset($_POST['submit'])) {
 		if ($_SESSION['CanAmendBill'] != $_POST['X_CanAmendBill']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_CanAmendBill'] . "' WHERE confname = 'CanAmendBill'";
 		}
-		if ($_SESSION['DefaultArea'] != $_POST['X_DefaultArea']){
+		if ($_SESSION['DefaultArea'] != $_POST['X_DefaultArea']) {
 			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_DefaultArea'] . "' WHERE confname='DefaultArea'";
 		}
-		if ($_SESSION['DefaultSalesPerson'] != $_POST['X_DefaultSalesPerson']){
+		if ($_SESSION['DefaultSalesPerson'] != $_POST['X_DefaultSalesPerson']) {
 			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_DefaultSalesPerson'] . "' WHERE confname='DefaultSalesPerson'";
 		}
 		$ErrMsg = _('The hospital configuration could not be updated because');
@@ -46,7 +43,7 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('Hospital configuration updated'), 'success');
 
 			$ForceConfigReload = True; // Required to force a load even if stored in the session vars
-			include($PathPrefix . 'includes/GetConfig.php');
+			include ($PathPrefix . 'includes/GetConfig.php');
 			$ForceConfigReload = False;
 		}
 	} else {
@@ -139,5 +136,5 @@ echo '</table>
 		<div class="centre"><input type="submit" name="submit" value="' . _('Update') . '" /></div>
 	</form>';
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

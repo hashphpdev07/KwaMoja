@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Insurance Company Types');
-include('includes/header.inc');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -23,7 +22,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	$i = 1;
@@ -62,7 +61,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($InputError != 1) {
 
 		// First check the type is not being duplicated
-
 		$checkSql = "SELECT count(*)
 				 FROM debtortype
 				 WHERE typename = 'Insurance - " . $_POST['TypeName'] . "'";
@@ -76,11 +74,9 @@ if (isset($_POST['submit'])) {
 		} else {
 
 			// Add new record on submit
-
 			$SQL = "INSERT INTO debtortype
 						(typename)
 					VALUES ('Insurance - " . $_POST['TypeName'] . "')";
-
 
 			$msg = _('Insurance company type') . ' Insurance - ' . $_POST["TypeName"] . ' ' . _('has been created');
 			$checkSql = "SELECT count(typeid) FROM debtortype";
@@ -93,7 +89,6 @@ if (isset($_POST['submit'])) {
 	if ($InputError != 1) {
 		//run the SQL from either of the above possibilites
 		$Result = DB_query($SQL);
-
 
 		// Fetch the default price list.
 		$DefaultCustomerType = $_SESSION['DefaultCustomerType'];
@@ -125,7 +120,6 @@ if (isset($_POST['submit'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
 	// Prevent delete if saletype exist in customer transactions
-
 	$SQL = "SELECT COUNT(*)
 		   FROM debtortrans
 		   WHERE debtortrans.type='" . $SelectedType . "'";
@@ -163,6 +157,7 @@ if (isset($_POST['submit'])) {
 
 		}
 	} //end if sales type used in debtor transactions or in customers set up
+	
 }
 
 if (!isset($SelectedType)) {
@@ -185,7 +180,6 @@ if (!isset($SelectedType)) {
 		</tr>';
 
 	$k = 0; //row colour counter
-
 	while ($MyRow = DB_fetch_row($Result)) {
 		if ($k == 1) {
 			echo '<tr class="EvenTableRows">';
@@ -229,7 +223,6 @@ if (!isset($_GET['delete'])) {
 		echo '<table class="selection">';
 
 		// We dont allow the user to change an existing type code
-
 		echo '<tr>
 				<td>' . _('Type ID') . ': ' . $_POST['typeid'] . '</td>
 			</tr>';
@@ -248,13 +241,11 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="' . _('Accept') . '" />
 		</div>';
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

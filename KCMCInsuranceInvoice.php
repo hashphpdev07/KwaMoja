@@ -1,16 +1,16 @@
 <?php
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Monthly Insurance Company Billing');
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
 
 if (isset($_POST['Process'])) {
 	foreach ($_POST as $key => $value) {
 		if (substr($key, 0, 2) == 'ID') {
-			if (isset($_POST['include' . substr($key, 2)])) {
-				$InvoiceID[substr($key, 2)] = $_POST['include' . substr($key, 2)];
+			if (isset($_POST['include' . substr($key, 2) ])) {
+				$InvoiceID[substr($key, 2) ] = $_POST['include' . substr($key, 2) ];
 			} else {
-				$InvoiceID[substr($key, 2)] = 'off';
+				$InvoiceID[substr($key, 2) ] = 'off';
 			}
 		}
 	}
@@ -19,7 +19,7 @@ if (isset($_POST['Process'])) {
 		echo '<br />';
 		prnMsg(_('There are no invoices for this company in this period'), 'info');
 		echo '<br /><div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '">' . _('Return to selection screen') . '</a></div>';
-		include('includes/footer.inc');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -155,7 +155,6 @@ if (isset($_POST['Process'])) {
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 			//Then add line to Company Invoice
-
 			$LineItemSQL = "INSERT INTO salesorderdetails (orderlineno,
 													orderno,
 													stkcode,
@@ -270,7 +269,7 @@ if (isset($_POST['Process'])) {
 	DB_Txn_Commit();
 	prnMsg(_('The insurance company invoice for') . ' ' . $_POST['Company'] . ' ' . _('Hasbeen succesfuly raised'), 'success');
 	echo '<br /><div class="centre"><a href="PrintInsuranceInvoice.php?FromTransNo=' . $MainInvoiceNo . '&InvOrCredit=Invoice&PrintPDF=True">' . _('Print the invoice') . '</a></div><br />';
-	include('includes/footer.inc');
+	include ('includes/footer.php');
 	exit;
 }
 
@@ -301,7 +300,7 @@ if (!isset($_POST['Submit'])) {
 
 	if (DB_num_rows($BranchResults) == 0) {
 		echo '</select></td></tr></table><p>';
-		include('includes/footer.inc');
+		include ('includes/footer.php');
 		exit;
 	} else {
 		echo '<option value=""></option>';
@@ -343,7 +342,7 @@ if (!isset($_POST['Submit'])) {
 		echo '<br />';
 		prnMsg(_('You must select a company from the drop down list'), 'info');
 		echo '<br /><div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '">' . _('Return to selection screen') . '</a></div>';
-		include('includes/footer.inc');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -353,7 +352,7 @@ if (!isset($_POST['Submit'])) {
 	$Result = DB_query($SQL);
 	if (DB_num_rows($Result) == 0) {
 		prnMsg($_POST['Company'] . ' ' . _('is not set up as a customer in webERP and so an invoice cannot be created for them'), 'warn');
-		include('includes/footer.inc');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -414,6 +413,6 @@ if (!isset($_POST['Submit'])) {
 	echo '</form>';
 }
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 
 ?>

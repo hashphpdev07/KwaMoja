@@ -1,13 +1,12 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Synchronise with Care2x Item Table');
-include('includes/header.inc');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/Vial-Pills.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 
 if (isset($_POST['UpdateLink'])) {
-	for ($i = 0; $i < $_POST['TotalItems']; $i++) {
+	for ($i = 0;$i < $_POST['TotalItems'];$i++) {
 		$SQL = "UPDATE care_tz_drugsandservices
 				SET partcode='" . $_POST['StockID' . $i] . "'
 				WHERE item_id='" . $_POST['Care2xItem' . $i] . "'";
@@ -93,8 +92,6 @@ if (!isset($_POST['CategoryID'])) {
 	echo '</table></form>';
 }
 
-
-
-include('includes/footer.inc');
+include ('includes/footer.php');
 
 ?>

@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('View Patient History');
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
-include('includes/CustomerSearch.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/CustomerSearch.php');
 
 if (isset($_POST['DebtorNo'])) {
 	$Patient[0] = $_POST['DebtorNo'];
@@ -14,7 +13,7 @@ if (isset($_POST['DebtorNo'])) {
 
 if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previous']) and !isset($_POST['Go1']) and !isset($_POST['Go2']) and isset($_POST['JustSelectedACustomer']) and empty($_POST['Patient'])) {
 	/*Need to figure out the number of the form variable that the user clicked on */
-	for ($i = 0; $i < count($_POST); $i++) { //loop through the returned customers
+	for ($i = 0;$i < count($_POST);$i++) { //loop through the returned customers
 		if (isset($_POST['SubmitCustomerSelection' . $i])) {
 			break;
 		}
@@ -40,7 +39,6 @@ if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or i
 		echo '<br />';
 	}
 } //end of if search
-
 if (isset($PatientResult)) {
 	ShowReturnedCustomers($PatientResult);
 }
@@ -73,7 +71,7 @@ if (isset($Patient)) {
 		$PatientHistory[$i][1] = $MyRow['trandate'];
 		$PatientHistory[$i][2] = $MyRow['stockid'];
 		$PatientHistory[$i][3] = $MyRow['description'];
-		$PatientHistory[$i][4] = -$MyRow['qty'];
+		$PatientHistory[$i][4] = - $MyRow['qty'];
 		++$i;
 	}
 
@@ -108,19 +106,19 @@ if (isset($Patient)) {
 		switch ($Record[0]) {
 			case 'Z':
 				$Style = 'background: #90EE90';
-				break;
+			break;
 			case 'X':
 				$Style = 'background: #FDFDCD';
-				break;
+			break;
 			case 'T':
 				$Style = 'background: #BFBFBF';
-				break;
+			break;
 			case 'P':
 				$Style = 'background: #ADD8E6';
-				break;
+			break;
 			case 'S':
 				$Style = 'background: #FFE9ED';
-				break;
+			break;
 			default:
 				$Style = 'background: #ffffff';
 		}
@@ -147,6 +145,6 @@ function CompareTransactionDates($Array1, $Array2) {
 } // sort by date
 
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 
 ?>

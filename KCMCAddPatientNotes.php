@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Patient Records');
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
-include('includes/CustomerSearch.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/CustomerSearch.php');
 
 if (isset($_POST['DebtorNo'])) {
 	$Patient[0] = $_POST['DebtorNo'];
@@ -24,7 +23,6 @@ if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or i
 		echo '<br />';
 	}
 } //end of if search
-
 if (isset($PatientResult)) {
 	ShowReturnedCustomers($PatientResult);
 }
@@ -37,10 +35,10 @@ if (isset($Patient)) {
 		//initialise no input errors assumed initially before we test
 		$InputError = 0;
 		/* actions to take once the user has clicked the submit button
-		ie the page has called itself with some user input */
+		 ie the page has called itself with some user input */
 
 		//first off validate inputs sensible
-		if (!is_long((integer) $_POST['Priority'])) {
+		if (!is_long((integer)$_POST['Priority'])) {
 			$InputError = 1;
 			prnMsg(_('The contact priority must be an integer.'), 'error');
 		} elseif (mb_strlen($_POST['Note']) > 200) {
@@ -87,9 +85,7 @@ if (isset($Patient)) {
 		}
 	} elseif (isset($_GET['delete'])) {
 		//the link to delete a selected record was clicked instead of the submit button
-
 		// PREVENT DELETES IF DEPENDENT RECORDS IN 'SalesOrders'
-
 		$SQL = "DELETE FROM custnotes
 			WHERE noteid='" . $Id . "'
 			AND debtorno='" . $Patient[0] . "'";
@@ -134,13 +130,9 @@ if (isset($Patient)) {
 			}
 			echo '</table>';
 		} else {
-			echo '<div class="centre">' .
-					_('There are no records setup for this patient.') .
-				'</div>';
+			echo '<div class="centre">' . _('There are no records setup for this patient.') . '</div>';
 		}
-		echo '<div class="centre">' .
-				_('Click') . '&nbsp;' . '<a class="ButtonLink" href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?New=Yes&Debtor=' . $Patient[0] . '">' . _('here') . '</a>' . ' ' . _('to create a new record') .
-			'</div>';
+		echo '<div class="centre">' . _('Click') . '&nbsp;' . '<a class="ButtonLink" href="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '?New=Yes&Debtor=' . $Patient[0] . '">' . _('here') . '</a>' . ' ' . _('to create a new record') . '</div>';
 	} else {
 		echo '<table style="width:95%;">
 				<tr>';
@@ -214,5 +206,5 @@ if (isset($Patient)) {
 		</table>';
 	}
 }
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

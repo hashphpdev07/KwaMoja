@@ -1,6 +1,6 @@
 <?php
 /* $Id$ */
-include('includes/session.inc');
+include ('includes/session.php');
 if (isset($_GET['FromTransNo'])) {
 	$FromTransNo = trim($_GET['FromTransNo']);
 } elseif (isset($_POST['FromTransNo'])) {
@@ -8,15 +8,16 @@ if (isset($_GET['FromTransNo'])) {
 } else {
 	$FromTransNo = '';
 }
+
 if (isset($_GET['InvOrCredit'])) {
 	$InvOrCredit = $_GET['InvOrCredit'];
 } elseif (isset($_POST['InvOrCredit'])) {
 	$InvOrCredit = $_POST['InvOrCredit'];
 }
 if (isset($_GET['PrintPDF'])) {
-	$PrintPDF = TRUE;
+	$PrintPDF = true;
 } elseif (isset($_POST['PrintPDF'])) {
-	$PrintPDF = TRUE;
+	$PrintPDF = true;
 }
 if (!isset($_POST['ToTransNo']) or trim($_POST['ToTransNo']) == '' or $_POST['ToTransNo'] < $FromTransNo) {
 	$_POST['ToTransNo'] = $FromTransNo;
@@ -30,20 +31,20 @@ if ($FromTransNo == 'Preview') {
 }
 if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTransNo) and isset($InvOrCredit) and $FromTransNo != '') {
 	$PaperSize = $FormDesign->PaperSize;
-	include('includes/PDFStarter.php');
+	include ('includes/PDFStarter.php');
 	// Javier: now I use the native constructor, better to not use references
 	if ($InvOrCredit == 'Invoice') {
-		$pdf->addInfo('Title', _('Sales Invoice') . ' ' . $FromTransNo . ' to ' . $_POST['ToTransNo']);
-		$pdf->addInfo('Subject', _('Invoices from') . ' ' . $FromTransNo . ' ' . _('to') . ' ' . $_POST['ToTransNo']);
+		$PDF->addInfo('Title', _('Sales Invoice') . ' ' . $FromTransNo . ' to ' . $_POST['ToTransNo']);
+		$PDF->addInfo('Subject', _('Invoices from') . ' ' . $FromTransNo . ' ' . _('to') . ' ' . $_POST['ToTransNo']);
 	} else {
-		$pdf->addInfo('Title', _('Sales Credit Note'));
-		$pdf->addInfo('Subject', _('Credit Notes from') . ' ' . $FromTransNo . ' ' . _('to') . ' ' . $_POST['ToTransNo']);
+		$PDF->addInfo('Title', _('Sales Credit Note'));
+		$PDF->addInfo('Subject', _('Credit Notes from') . ' ' . $FromTransNo . ' ' . _('to') . ' ' . $_POST['ToTransNo']);
 	}
 	/* Javier: I have brought this piece from the pdf class constructor to get it closer to the admin/user,
 	I corrected it to match TCPDF, but it still needs some check, after which,
 	I think it should be moved to each report to provide flexible Document Header and Margins in a per-report basis. */
 	/* END Brought from class.pdf.php constructor */
-	//	$pdf->selectFont('helvetica');
+	//	$PDF->selectFont('helvetica');
 	$FirstPage = true;
 	$line_height = $FormDesign->LineHeight;
 	while ($FromTransNo <= $_POST['ToTransNo']) {
@@ -174,12 +175,12 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 			$Result = DB_query($SQL, '', '', false, false);
 			if (DB_error_no() != 0) {
 				$Title = _('Transaction Print Error Report');
-				include('includes/header.inc');
+				include ('includes/header.php');
 				prnMsg(_('There was a problem retrieving the invoice or credit note details for note number') . ' ' . $InvoiceToPrint . ' ' . _('from the database') . '. ' . _('To print an invoice, the sales order record, the customer transaction record and the branch record for the customer must not have been purged') . '. ' . _('To print a credit note only requires the customer, transaction, salesman and branch records be available'), 'error');
 				if ($debug == 1) {
 					prnMsg(_('The SQL used to get this information that failed was') . "<br />" . $SQL, 'error');
 				}
-				include('includes/footer.inc');
+				include ('includes/footer.php');
 				exit;
 			}
 		}
@@ -231,17 +232,17 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 			}
 			if (DB_error_no() != 0) {
 				$Title = _('Transaction Print Error Report');
-				include('includes/header.inc');
+				include ('includes/header.php');
 				echo '<br />' . _('There was a problem retrieving the invoice or credit note stock movement details for invoice number') . ' ' . $FromTransNo . ' ' . _('from the database');
 				if ($debug == 1) {
 					echo '<br />' . _('The SQL used to get this information that failed was') . "<br />$SQL";
 				}
-				include('includes/footer.inc');
+				include ('includes/footer.php');
 				exit;
 			}
 			if ($FromTransNo == 'Preview' or DB_num_rows($Result) > 0) {
 				$PageNumber = 1;
-				include('includes/PDFTransPageHeader.inc');
+				include ('includes/PDFTransPageHeader.inc');
 				$FirstPage = False;
 				$YPos = $Page_Height - $FormDesign->Data->y;
 				$Line = 1;
@@ -255,62 +256,62 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 					$DisplayNet = number_format($MyRow2['fxnet'], 2);
 					$DisplayPrice = $MyRow2['fxprice'];
 					$DisplayQty = $MyRow2['quantity'];
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column1->x, $YPos, $FormDesign->Data->Column1->Length, $FormDesign->Data->Column1->FontSize, $MyRow2['stockid']);
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column2->x, $YPos, $FormDesign->Data->Column2->Length, $FormDesign->Data->Column2->FontSize, $MyRow2['description']);
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column3->x, $YPos, $FormDesign->Data->Column3->Length, $FormDesign->Data->Column3->FontSize, number_format($DisplayPrice, 4), 'right');
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column4->x, $YPos, $FormDesign->Data->Column4->Length, $FormDesign->Data->Column4->FontSize, number_format($DisplayQty, $MyRow2['decimalplaces']), 'right');
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column5->x, $YPos, $FormDesign->Data->Column5->Length, $FormDesign->Data->Column5->FontSize, $MyRow2['units'], 'centre');
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column6->x, $YPos, $FormDesign->Data->Column6->Length, $FormDesign->Data->Column6->FontSize, $DisplayDiscount, 'right');
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Data->Column7->x, $YPos, $FormDesign->Data->Column7->Length, $FormDesign->Data->Column7->FontSize, $DisplayNet, 'right');
-					$YPos -= ($line_height);
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column1->x, $YPos, $FormDesign->Data->Column1->Length, $FormDesign->Data->Column1->FontSize, $MyRow2['stockid']);
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column2->x, $YPos, $FormDesign->Data->Column2->Length, $FormDesign->Data->Column2->FontSize, $MyRow2['description']);
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column3->x, $YPos, $FormDesign->Data->Column3->Length, $FormDesign->Data->Column3->FontSize, number_format($DisplayPrice, 4), 'right');
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column4->x, $YPos, $FormDesign->Data->Column4->Length, $FormDesign->Data->Column4->FontSize, number_format($DisplayQty, $MyRow2['decimalplaces']), 'right');
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column5->x, $YPos, $FormDesign->Data->Column5->Length, $FormDesign->Data->Column5->FontSize, $MyRow2['units'], 'centre');
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column6->x, $YPos, $FormDesign->Data->Column6->Length, $FormDesign->Data->Column6->FontSize, $DisplayDiscount, 'right');
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column7->x, $YPos, $FormDesign->Data->Column7->Length, $FormDesign->Data->Column7->FontSize, $DisplayNet, 'right');
+					$YPos-= ($line_height);
 					$lines = explode('\r\n', htmlspecialchars_decode($MyRow2['narrative']));
-					for ($i = 0; $i < sizeOf($lines); $i++) {
+					for ($i = 0;$i < sizeOf($lines);$i++) {
 						while (strlen($lines[$i]) > 1) {
 							if ($YPos - $line_height <= $Bottom_Margin) {
 								/* head up a new invoice/credit note page */
 								/* draw the vertical column lines right to the bottom */
-								PrintLinesToBottom($pdf, $Page_Height, $PageNumber, $FormDesign);
-								include('includes/PDFTransPageHeaderPortrait.inc');
+								PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign);
+								include ('includes/PDFTransPageHeaderPortrait.inc');
 							} //end if need a new page headed up
 							/* increment a line down for the next line item */
 							if (strlen($lines[$i]) > 1) {
-								$lines[$i] = $pdf->addTextWrap($Left_Margin + 100, $YPos, 245, $FontSize, stripslashes($lines[$i]));
+								$lines[$i] = $PDF->addTextWrap($Left_Margin + 100, $YPos, 245, $FontSize, stripslashes($lines[$i]));
 							}
-							$YPos -= ($line_height);
+							$YPos-= ($line_height);
 						}
 					}
 					if ($YPos <= $Bottom_Margin) {
 						/* head up a new invoice/credit note page */
 						/*draw the vertical column lines right to the bottom */
-						PrintLinesToBottom($pdf, $Page_Height, $PageNumber, $FormDesign);
-						include('includes/PDFTransPageHeader.inc');
+						PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign);
+						include ('includes/PDFTransPageHeader.inc');
 					} //end if need a new page headed up
 					$Line++;
 
 				} //end while there are line items to print out
-
+				
 			}
 			/*end if there are stock movements to show on the invoice or credit note*/
-			$YPos -= $line_height;
+			$YPos-= $line_height;
 			/* check to see enough space left to print the 4 lines for the totals/footer */
 			if (($YPos - $Bottom_Margin) < (2 * $line_height)) {
-				PrintLinesToBottom($pdf, $Page_Height, $PageNumber, $FormDesign);
-				include('includes/PDFTransPageHeader.inc');
+				PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign);
+				include ('includes/PDFTransPageHeader.inc');
 			}
 			/* Print a column vertical line  with enough space for the footer */
 			/* draw the vertical column lines to 4 lines shy of the bottom to leave space for invoice footer info ie totals etc */
-			$pdf->line($FormDesign->DataLines->Line1->startx, $Page_Height - $FormDesign->DataLines->Line1->starty, $FormDesign->DataLines->Line1->endx, $Page_Height - $FormDesign->DataLines->Line1->endy);
+			$PDF->line($FormDesign->DataLines->Line1->startx, $Page_Height - $FormDesign->DataLines->Line1->starty, $FormDesign->DataLines->Line1->endx, $Page_Height - $FormDesign->DataLines->Line1->endy);
 			/* Print a column vertical line */
-			$pdf->line($FormDesign->DataLines->Line2->startx, $Page_Height - $FormDesign->DataLines->Line2->starty, $FormDesign->DataLines->Line2->endx, $Page_Height - $FormDesign->DataLines->Line2->endy);
+			$PDF->line($FormDesign->DataLines->Line2->startx, $Page_Height - $FormDesign->DataLines->Line2->starty, $FormDesign->DataLines->Line2->endx, $Page_Height - $FormDesign->DataLines->Line2->endy);
 			/* Print a column vertical line */
-			$pdf->line($FormDesign->DataLines->Line3->startx, $Page_Height - $FormDesign->DataLines->Line3->starty, $FormDesign->DataLines->Line3->endx, $Page_Height - $FormDesign->DataLines->Line3->endy);
+			$PDF->line($FormDesign->DataLines->Line3->startx, $Page_Height - $FormDesign->DataLines->Line3->starty, $FormDesign->DataLines->Line3->endx, $Page_Height - $FormDesign->DataLines->Line3->endy);
 			/* Print a column vertical line */
-			$pdf->line($FormDesign->DataLines->Line4->startx, $Page_Height - $FormDesign->DataLines->Line4->starty, $FormDesign->DataLines->Line4->endx, $Page_Height - $FormDesign->DataLines->Line4->endy);
+			$PDF->line($FormDesign->DataLines->Line4->startx, $Page_Height - $FormDesign->DataLines->Line4->starty, $FormDesign->DataLines->Line4->endx, $Page_Height - $FormDesign->DataLines->Line4->endy);
 			/* Print a column vertical line */
-			$pdf->line($FormDesign->DataLines->Line5->startx, $Page_Height - $FormDesign->DataLines->Line5->starty, $FormDesign->DataLines->Line5->endx, $Page_Height - $FormDesign->DataLines->Line5->endy);
-			$pdf->line($FormDesign->DataLines->Line6->startx, $Page_Height - $FormDesign->DataLines->Line6->starty, $FormDesign->DataLines->Line6->endx, $Page_Height - $FormDesign->DataLines->Line6->endy);
+			$PDF->line($FormDesign->DataLines->Line5->startx, $Page_Height - $FormDesign->DataLines->Line5->starty, $FormDesign->DataLines->Line5->endx, $Page_Height - $FormDesign->DataLines->Line5->endy);
+			$PDF->line($FormDesign->DataLines->Line6->startx, $Page_Height - $FormDesign->DataLines->Line6->starty, $FormDesign->DataLines->Line6->endx, $Page_Height - $FormDesign->DataLines->Line6->endy);
 			/* Rule off at bottom of the vertical lines */
-			$pdf->line($FormDesign->LineAboveFooter->startx, $Page_Height - $FormDesign->LineAboveFooter->starty, $FormDesign->LineAboveFooter->endx, $Page_Height - $FormDesign->LineAboveFooter->endy);
+			$PDF->line($FormDesign->LineAboveFooter->startx, $Page_Height - $FormDesign->LineAboveFooter->starty, $FormDesign->LineAboveFooter->endx, $Page_Height - $FormDesign->LineAboveFooter->endy);
 			/* Now print out the footer and totals */
 			if ($InvOrCredit == 'Invoice') {
 				$DisplaySubTot = number_format($MyRow['ovamount'], 2);
@@ -324,40 +325,41 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 				$DisplayTotal = number_format(-$MyRow['ovfreight'] - $MyRow['ovgst'] - $MyRow['ovamount'], 2);
 			}
 			/* Print out the payment terms */
-			$pdf->addTextWrap($FormDesign->PaymentTerms->x, $Page_Height - $FormDesign->PaymentTerms->y, $FormDesign->PaymentTerms->Length, $FormDesign->PaymentTerms->FontSize, _('Payment Terms') . ': ' . $MyRow['terms']);
-			//      $pdf->addText($Page_Width-$Right_Margin-392, $YPos - ($line_height*3)+22,$FontSize, _('Bank Code:***** Bank Account:*****'));
+			$PDF->addTextWrap($FormDesign->PaymentTerms->x, $Page_Height - $FormDesign->PaymentTerms->y, $FormDesign->PaymentTerms->Length, $FormDesign->PaymentTerms->FontSize, _('Payment Terms') . ': ' . $MyRow['terms']);
+			//      $PDF->addText($Page_Width-$Right_Margin-392, $YPos - ($line_height*3)+22,$FontSize, _('Bank Code:***** Bank Account:*****'));
 			//	$FontSize=10;
 			$LeftOvers = explode('\r\n', DB_escape_string($MyRow['invtext']));
-			for ($i = 0; $i < sizeOf($LeftOvers); $i++) {
-				$pdf->addText($FormDesign->InvoiceText->x, $Page_Height - $FormDesign->InvoiceText->y - ($i * 10), $FormDesign->InvoiceText->FontSize, $LeftOvers[$i]);
+			for ($i = 0;$i < sizeOf($LeftOvers);$i++) {
+				$PDF->addText($FormDesign->InvoiceText->x, $Page_Height - $FormDesign->InvoiceText->y - ($i * 10), $FormDesign->InvoiceText->FontSize, $LeftOvers[$i]);
 			}
-			$pdf->addText($FormDesign->SubTotalCaption->x, $Page_Height - $FormDesign->SubTotalCaption->y, $FormDesign->SubTotalCaption->FontSize, _('Sub Total'));
-			$LeftOvers = $pdf->addTextWrap($FormDesign->SubTotal->x, $Page_Height - $FormDesign->SubTotal->y, $FormDesign->SubTotal->Length, $FormDesign->SubTotal->FontSize, $DisplaySubTot, 'right');
-			$pdf->addText($FormDesign->FreightCaption->x, $Page_Height - $FormDesign->FreightCaption->y, $FormDesign->FreightCaption->FontSize, _('Freight'));
-			$LeftOvers = $pdf->addTextWrap($FormDesign->Freight->x, $Page_Height - $FormDesign->Freight->y, $FormDesign->Freight->Length, $FormDesign->Freight->FontSize, $DisplayFreight, 'right');
-			$pdf->addText($FormDesign->TaxCaption->x, $Page_Height - $FormDesign->TaxCaption->y, $FormDesign->TaxCaption->FontSize, _('Tax'));
-			$LeftOvers = $pdf->addTextWrap($FormDesign->Tax->x, $Page_Height - $FormDesign->Tax->y, $FormDesign->Tax->Length, $FormDesign->Tax->FontSize, $DisplayTax, 'right');
+			$PDF->addText($FormDesign->SubTotalCaption->x, $Page_Height - $FormDesign->SubTotalCaption->y, $FormDesign->SubTotalCaption->FontSize, _('Sub Total'));
+			$LeftOvers = $PDF->addTextWrap($FormDesign->SubTotal->x, $Page_Height - $FormDesign->SubTotal->y, $FormDesign->SubTotal->Length, $FormDesign->SubTotal->FontSize, $DisplaySubTot, 'right');
+			$PDF->addText($FormDesign->FreightCaption->x, $Page_Height - $FormDesign->FreightCaption->y, $FormDesign->FreightCaption->FontSize, _('Freight'));
+			$LeftOvers = $PDF->addTextWrap($FormDesign->Freight->x, $Page_Height - $FormDesign->Freight->y, $FormDesign->Freight->Length, $FormDesign->Freight->FontSize, $DisplayFreight, 'right');
+			$PDF->addText($FormDesign->TaxCaption->x, $Page_Height - $FormDesign->TaxCaption->y, $FormDesign->TaxCaption->FontSize, _('Tax'));
+			$LeftOvers = $PDF->addTextWrap($FormDesign->Tax->x, $Page_Height - $FormDesign->Tax->y, $FormDesign->Tax->Length, $FormDesign->Tax->FontSize, $DisplayTax, 'right');
 			/*rule off for total */
-			$pdf->line($FormDesign->TotalLine->startx, $Page_Height - $FormDesign->TotalLine->starty, $FormDesign->TotalLine->endx, $Page_Height - $FormDesign->TotalLine->endy);
+			$PDF->line($FormDesign->TotalLine->startx, $Page_Height - $FormDesign->TotalLine->starty, $FormDesign->TotalLine->endx, $Page_Height - $FormDesign->TotalLine->endy);
 			/*vertical to separate totals from comments and ROMALPA */
-			$pdf->line($FormDesign->RomalpaLine->startx, $Page_Height - $FormDesign->RomalpaLine->starty, $FormDesign->RomalpaLine->endx, $Page_Height - $FormDesign->RomalpaLine->endy);
+			$PDF->line($FormDesign->RomalpaLine->startx, $Page_Height - $FormDesign->RomalpaLine->starty, $FormDesign->RomalpaLine->endx, $Page_Height - $FormDesign->RomalpaLine->endy);
 			if ($InvOrCredit == 'Invoice') {
-				$pdf->addText($FormDesign->TotalCaption->x, $Page_Height - $FormDesign->TotalCaption->y, $FormDesign->TotalCaption->FontSize, _('TOTAL INVOICE'));
+				$PDF->addText($FormDesign->TotalCaption->x, $Page_Height - $FormDesign->TotalCaption->y, $FormDesign->TotalCaption->FontSize, _('TOTAL INVOICE'));
 				$YPos = $FormDesign->Romalpa->y;
-				$LeftOvers = $pdf->addTextWrap($FormDesign->Romalpa->x, $Page_Height - $YPos, $FormDesign->Romalpa->Length, $FormDesign->Romalpa->FontSize, $_SESSION['RomalpaClause']);
-				while (strlen($LeftOvers) > 0 AND ($Page_Height - $YPos) > $Bottom_Margin) {
-					$YPos += $FormDesign->Romalpa->FontSize + 1;
-					$LeftOvers = $pdf->addTextWrap($FormDesign->Romalpa->x, $Page_Height - $YPos, $FormDesign->Romalpa->Length, $FormDesign->Romalpa->FontSize, $LeftOvers);
+				$LeftOvers = $PDF->addTextWrap($FormDesign->Romalpa->x, $Page_Height - $YPos, $FormDesign->Romalpa->Length, $FormDesign->Romalpa->FontSize, $_SESSION['RomalpaClause']);
+				while (strlen($LeftOvers) > 0 and ($Page_Height - $YPos) > $Bottom_Margin) {
+					$YPos+= $FormDesign->Romalpa->FontSize + 1;
+					$LeftOvers = $PDF->addTextWrap($FormDesign->Romalpa->x, $Page_Height - $YPos, $FormDesign->Romalpa->Length, $FormDesign->Romalpa->FontSize, $LeftOvers);
 				}
 				/* Add Images for Visa / Mastercard / Paypal */
 				if (file_exists('companies/' . $_SESSION['DatabaseName'] . '/payment.jpg')) {
-					$pdf->addJpegFromFile('companies/' . $_SESSION['DatabaseName'] . '/payment.jpg', $FormDesign->CreditCardLogo->x, $Page_Height - $FormDesign->CreditCardLogo->y, $FormDesign->CreditCardLogo->width, $FormDesign->CreditCardLogo->height);
+					$PDF->addJpegFromFile('companies/' . $_SESSION['DatabaseName'] . '/payment.jpg', $FormDesign->CreditCardLogo->x, $Page_Height - $FormDesign->CreditCardLogo->y, $FormDesign->CreditCardLogo->width, $FormDesign->CreditCardLogo->height);
 				}
-				//				$pdf->addText($Page_Width - $Right_Margin - 472, $YPos - ($line_height * 3) + 32, $FontSize, '');
+				//				$PDF->addText($Page_Width - $Right_Margin - 472, $YPos - ($line_height * 3) + 32, $FontSize, '');
+				
 			} else {
-				$pdf->addText($FormDesign->TotalCaption->x, $Page_Height - $FormDesign->TotalCaption->y, $FormDesign->TotalCaption->FontSize, _('TOTAL CREDIT'));
+				$PDF->addText($FormDesign->TotalCaption->x, $Page_Height - $FormDesign->TotalCaption->y, $FormDesign->TotalCaption->FontSize, _('TOTAL CREDIT'));
 			}
-			$LeftOvers = $pdf->addTextWrap($FormDesign->Total->x, $Page_Height - $FormDesign->Total->y, $FormDesign->Total->Length, $FormDesign->Total->FontSize, $DisplayTotal, 'right');
+			$LeftOvers = $PDF->addTextWrap($FormDesign->Total->x, $Page_Height - $FormDesign->Total->y, $FormDesign->Total->Length, $FormDesign->Total->FontSize, $DisplayTotal, 'right');
 		}
 		/* end of check to see that there was an invoice record to print */
 		$FromTransNo++;
@@ -368,40 +370,38 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)) {
 
 	if (isset($_GET['Email'])) { //email the invoice to address supplied
-		include('includes/header.inc');
-		include('includes/htmlMimeMail.php');
+		include ('includes/header.php');
+		include ('includes/htmlMimeMail.php');
 		$mail = new htmlMimeMail();
 		$FileName = $_SESSION['reports_dir'] . '/' . $_SESSION['DatabaseName'] . '_' . $InvOrCredit . '_' . $_GET['FromTransNo'] . '.pdf';
-		$pdf->Output($FileName, 'F');
+		$PDF->Output($FileName, 'F');
 		$Attachment = $mail->getFile($FileName);
 		$mail->setText(_('Please find attached') . ' ' . $InvOrCredit . ' ' . $_GET['FromTransNo']);
 		$mail->SetSubject($InvOrCredit . ' ' . $_GET['FromTransNo']);
 		$mail->addAttachment($Attachment, $FileName, 'application/pdf');
 		$mail->setFrom($_SESSION['CompanyRecord']['coyname'] . ' <' . $_SESSION['CompanyRecord']['email'] . '>');
-		$Result = $mail->send(array(
-			$_GET['Email']
-		));
+		$Result = $mail->send(array($_GET['Email']));
 		unlink($FileName); //delete the temporary file
 		$Title = _('Emailing') . ' ' . $InvOrCredit . ' ' . _('Number') . ' ' . $FromTransNo;
-		include('includes/header.inc');
+		include ('includes/header.php');
 		echo '<br />' . $InvOrCredit . ' ' . _('number') . ' ' . $_GET['FromTransNo'] . ' ' . _('has been emailed to') . ' ' . $_GET['Email'];
-		include('includes/footer.inc');
+		include ('includes/footer.php');
 		exit;
 	} else {
-		$pdf->OutputD($_SESSION['DatabaseName'] . '_' . $InvOrCredit . '_' . $_GET['FromTransNo'] . '.pdf');
+		$PDF->OutputD($_SESSION['DatabaseName'] . '_' . $InvOrCredit . '_' . $_GET['FromTransNo'] . '.pdf');
 	}
-	$pdf->__destruct();
+	$PDF->__destruct();
 } else {
 	/*The option to print PDF was not hit */
 	$Title = _('Select Invoices/Credit Notes To Print');
-	include('includes/header.inc');
-	if (!isset($FromTransNo) OR $FromTransNo == '') {
+	include ('includes/header.php');
+	if (!isset($FromTransNo) or $FromTransNo == '') {
 		/* if FromTransNo is not set then show a form to allow input of either a single invoice number or a range of invoices to be printed. Also get the last invoice number created to show the user where the current range is up to */
 		echo '<form action="' . $_SERVER['PHP_SELF'] . '" method="POST"><table class="selection">';
 		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Invoices or Credit Notes (Landscape Mode)') . '</p>';
 		echo '<tr><td>' . _('Print Invoices or Credit Notes') . '</td><td><select name=InvOrCredit>';
-		if ($InvOrCredit == 'Invoice' OR !isset($InvOrCredit)) {
+		if ($InvOrCredit == 'Invoice' or !isset($InvOrCredit)) {
 			echo '<option selected value="Invoice">' . _('Invoices') . '</option>';
 			echo '<option value="Credit">' . _('Credit Notes') . '</option>';
 		} else {
@@ -410,7 +410,7 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 		}
 		echo '</select></td></tr>';
 		echo '<tr><td>' . _('Print EDI Transactions') . '</td><td><select name=PrintEDI>';
-		if ($InvOrCredit == 'Invoice' OR !isset($InvOrCredit)) {
+		if ($InvOrCredit == 'Invoice' or !isset($InvOrCredit)) {
 			echo '<option selected value="No">' . _('Do not Print PDF EDI Transactions') . '</option>';
 			echo '<option value="Yes">' . _('Print PDF EDI Transactions Too') . '</option>';
 		} else {
@@ -524,18 +524,18 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 					AND custbranch.salesman=salesman.salesmancode";
 			}
 			$Result = DB_query($SQL);
-			if (DB_num_rows($Result) == 0 OR DB_error_no() != 0) {
+			if (DB_num_rows($Result) == 0 or DB_error_no() != 0) {
 				echo '<div class="page_help_text">' . _('There was a problem retrieving the invoice or credit note details for note number') . ' ' . $FromTransNo . ' ' . _('from the database') . '. ' . _('To print an invoice, the sales order record, the customer transaction record and the branch record for the customer must not have been purged') . '. ' . _('To print a credit note only requires the customer, transaction, salesman and branch records be available') . '</div>';
 				if ($debug == 1) {
 					echo _('The SQL used to get this information that failed was') . "<br />$SQL";
 				}
 				break;
-				include('includes/footer.inc');
+				include ('includes/footer.php');
 				exit;
 			} elseif (DB_num_rows($Result) == 1) {
 				$MyRow = DB_fetch_array($Result);
 				/* Then there's an invoice (or credit note) to print. So print out the invoice header and GST Number from the company record */
-				if (count($_SESSION['AllowedPageSecurityTokens']) == 1 AND in_array(1, $_SESSION['AllowedPageSecurityTokens']) AND $MyRow['debtorno'] != $_SESSION['CustomerID']) {
+				if (count($_SESSION['AllowedPageSecurityTokens']) == 1 and in_array(1, $_SESSION['AllowedPageSecurityTokens']) and $MyRow['debtorno'] != $_SESSION['CustomerID']) {
 					echo '<p><font color=RED size=4>' . _('This transaction is addressed to another customer and cannot be displayed for privacy reasons') . '. ' . _('Please select only transactions relevant to your company') . '</font></p>';
 					exit;
 				}
@@ -729,7 +729,7 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 							<th>' . _('Net') . '</th></tr>';
 							$LineCounter = 10;
 						} //end if need a new page headed up
-
+						
 					} //end while there are line items to print out
 					echo '</table>';
 				}
@@ -810,22 +810,22 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 		/* end loop to print invoices */
 	}
 	/*end of if FromTransNo exists */
-	include('includes/footer.inc');
+	include ('includes/footer.php');
 }
 /*end of else not PrintPDF */
-function PrintLinesToBottom($pdf, $Page_Height, $PageNumber, $FormDesign) {
+function PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign) {
 	/* draw the vertical column lines right to the bottom */
-	$pdf->line($FormDesign->DataLines->Line1->startx, $Page_Height - $FormDesign->DataLines->Line1->starty, $FormDesign->DataLines->Line1->endx, $Page_Height - $FormDesign->DataLines->Line1->endy);
+	$PDF->line($FormDesign->DataLines->Line1->startx, $Page_Height - $FormDesign->DataLines->Line1->starty, $FormDesign->DataLines->Line1->endx, $Page_Height - $FormDesign->DataLines->Line1->endy);
 	/* Print a column vertical line */
-	$pdf->line($FormDesign->DataLines->Line2->startx, $Page_Height - $FormDesign->DataLines->Line2->starty, $FormDesign->DataLines->Line2->endx, $Page_Height - $FormDesign->DataLines->Line2->endy);
+	$PDF->line($FormDesign->DataLines->Line2->startx, $Page_Height - $FormDesign->DataLines->Line2->starty, $FormDesign->DataLines->Line2->endx, $Page_Height - $FormDesign->DataLines->Line2->endy);
 	/* Print a column vertical line */
-	$pdf->line($FormDesign->DataLines->Line3->startx, $Page_Height - $FormDesign->DataLines->Line3->starty, $FormDesign->DataLines->Line3->endx, $Page_Height - $FormDesign->DataLines->Line3->endy);
+	$PDF->line($FormDesign->DataLines->Line3->startx, $Page_Height - $FormDesign->DataLines->Line3->starty, $FormDesign->DataLines->Line3->endx, $Page_Height - $FormDesign->DataLines->Line3->endy);
 	/* Print a column vertical line */
-	$pdf->line($FormDesign->DataLines->Line4->startx, $Page_Height - $FormDesign->DataLines->Line4->starty, $FormDesign->DataLines->Line4->endx, $Page_Height - $FormDesign->DataLines->Line4->endy);
+	$PDF->line($FormDesign->DataLines->Line4->startx, $Page_Height - $FormDesign->DataLines->Line4->starty, $FormDesign->DataLines->Line4->endx, $Page_Height - $FormDesign->DataLines->Line4->endy);
 	/* Print a column vertical line */
-	$pdf->line($FormDesign->DataLines->Line5->startx, $Page_Height - $FormDesign->DataLines->Line5->starty, $FormDesign->DataLines->Line5->endx, $Page_Height - $FormDesign->DataLines->Line5->endy);
-	$pdf->line($FormDesign->DataLines->Line6->startx, $Page_Height - $FormDesign->DataLines->Line6->starty, $FormDesign->DataLines->Line6->endx, $Page_Height - $FormDesign->DataLines->Line6->endy);
-	//	$pdf->newPage();
+	$PDF->line($FormDesign->DataLines->Line5->startx, $Page_Height - $FormDesign->DataLines->Line5->starty, $FormDesign->DataLines->Line5->endx, $Page_Height - $FormDesign->DataLines->Line5->endy);
+	$PDF->line($FormDesign->DataLines->Line6->startx, $Page_Height - $FormDesign->DataLines->Line6->starty, $FormDesign->DataLines->Line6->endx, $Page_Height - $FormDesign->DataLines->Line6->endy);
+	//	$PDF->newPage();
 	$PageNumber++;
 }
 ?>

@@ -1,11 +1,10 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Billing Patient Registrations');
-include('includes/header.inc');
-include('includes/SQL_CommonFunctions.inc');
-include('includes/GetSalesTransGLCodes.inc');
-include('includes/CustomerSearch.php');
+include ('includes/header.php');
+include ('includes/SQL_CommonFunctions.php');
+include ('includes/GetSalesTransGLCodes.inc');
+include ('includes/CustomerSearch.php');
 
 if (!isset($_POST['BankAccount']) or isset($_POST['Cancel'])) {
 	unset($_POST['SubmitCash']);
@@ -32,7 +31,7 @@ if (isset($_POST['BankAccount'])) {
 
 if (!isset($_POST['Search']) and !isset($_POST['Next']) and !isset($_POST['Previous']) and !isset($_POST['Go1']) and !isset($_POST['Go2']) and isset($_POST['JustSelectedACustomer']) and empty($_POST['Patient'])) {
 	/*Need to figure out the number of the form variable that the user clicked on */
-	for ($i = 0; $i < count($_POST); $i++) { //loop through the returned customers
+	for ($i = 0;$i < count($_POST);$i++) { //loop through the returned customers
 		if (isset($_POST['SubmitCustomerSelection' . $i])) {
 			break;
 		}
@@ -76,7 +75,7 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 		DB_Txn_Begin();
 		/*First off create the sales order
 		 * entries in the database
-		 */
+		*/
 		$OrderNo = GetNextTransNo(30);
 
 		$HeaderSQL = "INSERT INTO salesorders (	orderno,
@@ -364,14 +363,14 @@ if (isset($_POST['SubmitCash']) or isset($_POST['SubmitInsurance'])) {
 
 			DB_Txn_Commit();
 			echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/PDFPatientReceipt.php?FromTransNo=' . $InvoiceNo . '&amp;InvOrCredit=Invoice&amp;PrintPDF=True">';
-			include('includes/footer.inc');
+			include ('includes/footer.php');
 			$_SESSION['DefaultCashPoint'] = $_POST['BankAccount'];
 			exit;
 		} elseif (isset($_POST['SubmitInsurance'])) {
 			prnMsg(_('The transaction has been successfully posted'), 'success');
 			echo '<br /><div class="centre"><a href="' . $_SERVER['PHP_SELF'] . '?New=True">' . _('Enter another receipt') . '</a>';
 			DB_Txn_Commit();
-			include('includes/footer.inc');
+			include ('includes/footer.php');
 			exit;
 		}
 	}
@@ -389,7 +388,6 @@ if (isset($_POST['Search']) or isset($_POST['Go1']) or isset($_POST['Go2']) or i
 		echo '<br />';
 	}
 } //end of if search
-
 if (isset($PatientResult)) {
 	ShowReturnedCustomers($PatientResult);
 }
@@ -488,7 +486,7 @@ if (isset($Patient)) {
 		if (DB_num_rows($AccountsResults) == 0) {
 			echo '</select></td></tr></table><p>';
 			prnMsg(_('Bank Accounts have not yet been defined. You must first') . ' <a href="' . $RootPath . '/BankAccounts.php">' . _('define the bank accounts') . '</a> ' . _('and general ledger accounts to be affected'), 'warn');
-			include('includes/footer.inc');
+			include ('includes/footer.php');
 			exit;
 		} else {
 			echo '<option value=""></option>';
@@ -527,5 +525,5 @@ if (isset($Patient)) {
 	echo '</form>';
 }
 
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>

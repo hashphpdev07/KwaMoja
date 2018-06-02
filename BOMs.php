@@ -33,7 +33,7 @@ function display_children($Parent, $Level, &$BOMTree) {
 			} else {
 				prnMsg(_('The component and the parent is the same'), 'error');
 				echo $MyRow['component'], '<br/>';
-				include ('includes/footer.inc');
+				include ('includes/footer.php');
 				exit;
 			}
 		}

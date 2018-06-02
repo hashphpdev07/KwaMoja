@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.inc');
+include ('includes/session.php');
 $Title = _('Insurance Types') . ' / ' . _('Maintenance');
-include('includes/header.inc');
+include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
 	$SelectedType = mb_strtoupper($_POST['SelectedType']);
@@ -25,7 +24,7 @@ if (isset($_POST['submit'])) {
 	$InputError = 0;
 
 	/* actions to take once the user has clicked the submit button
-	ie the page has called itself with some user input */
+	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['TypeName']) > 100) {
@@ -59,7 +58,6 @@ if (isset($_POST['submit'])) {
 	} elseif ($InputError != 1) {
 
 		// Add new record on submit
-
 		$SQL = "INSERT INTO insurancetypes VALUES (NULL, '" . $_POST['TypeName'] . "')";
 		$Msg = _('Customer type') . ' ' . $_POST["TypeName"] . ' ' . _('has been created');
 
@@ -79,7 +77,6 @@ if (isset($_POST['submit'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
 	// Prevent delete if saletype exist in customer transactions
-
 	$SQL = "SELECT COUNT(*)
 			FROM insuranceco
 			WHERE insurancetype='" . $SelectedType . "'";
@@ -96,7 +93,7 @@ if (isset($_POST['submit'])) {
 		$ErrMsg = _('The Type record could not be deleted because');
 		$Result = DB_query($SQL, $ErrMsg);
 		echo '<br />';
-		prnMsg( _('The insurance type has been deleted'), 'success');
+		prnMsg(_('The insurance type has been deleted'), 'success');
 
 		unset($SelectedType);
 		unset($_GET['delete']);
@@ -182,13 +179,11 @@ if (!isset($_GET['delete'])) {
 		</tr>';
 
 	echo '</table>'; // close main table
-
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="', _('Accept'), '" />
 		</div>';
 	echo '</form>';
 
 } // end if user wish to delete
-
-include('includes/footer.inc');
+include ('includes/footer.php');
 ?>
