@@ -26,17 +26,20 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />
 			<title>', $Title, '</title>
 			<link rel="icon" href="', $RootPath, '/favicon.ico" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/dashboard.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/messages.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/dialogs.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/tables.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/main.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/footer.css" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/ModalWindow.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
-			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" /
-			<link href="http://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet" type="text/css">
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/header_index.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/side_bar.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/index.css" rel="stylesheet" type="text/css" media="screen" />
+			<script type="text/javascript" src = "', $RootPath, '/javascripts/Dashboard.js"></script>
 			<script type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>
-			<script type="text/javascript" src = "', $RootPath, '/javascripts/ModalWindow.js"></script>';
+			<script type="text/javascript" src = "', $RootPath, '/javascripts/ModalWindow.js"></script>
+			<script type="text/javascript" src = "', $RootPath, '/javascripts/Menu.js"></script>';
 
 if ($Debug === 0) {
 	echo '</head>';
