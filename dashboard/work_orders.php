@@ -3,63 +3,21 @@ $PageSecurity = 0;
 $PathPrefix = '../';
 include ('../includes/session.php');
 
-$RootPath = '../';
-
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-
-echo '<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Dashboard</title>';
-echo '<link rel="shortcut icon" href="' . $RootPath . '/favicon.ico" />';
-echo '<link rel="icon" href="' . $RootPath . '/favicon.ico" />';
-
-echo '<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />';
-echo '<meta http-equiv="refresh" content="600">';
-
-echo '<link href="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/default.css" rel="stylesheet" type="text/css" />';
-echo '<script type="text/javascript" src = "' . $RootPath . '/javascripts/MiscFunctions.js"></script>';
-echo '<style media="screen">
-			.noPrint{ display: block; }
-			.yesPrint{ display: block !important; }
-		</style>
-		<style media="print">
-			.noPrint{ display: none; }
-			.yesPrint{ display: block !important; }
-		</style>';
-
-echo '</head><body style="background:transparent;">';
-
-switch ($_SESSION['ScreenFontSize']) {
-	case 0:
-		$FontSize = '8pt';
-	break;
-	case 1:
-		$FontSize = '10pt';
-	break;
-	case 2:
-		$FontSize = '12pt';
-	break;
-	default:
-		$FontSize = '10pt';
-}
-echo '<style>
-			body {
-					font-size: ' . $FontSize . ';
-				}
-			</style>';
-
-$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
+$SQL = "SELECT id, description FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
 $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 
-echo '<div align="center">
-<table border="0" cellspacing="0" cellpadding="0"  style="max-width:100%;width:99%;">
-      <tr>
-        <th colspan="3" style="margin:0px;padding:0px;background: transparent;">
-			<div class="CanvasTitle">' . _('Work orders') . '
-				<a href="' . $RootPath . 'Dashboard.php?Remove=' . urlencode($MyRow['id']) . '" target="_parent" id="CloseButton">X</a>
-			</div>
-		</th>
-      </tr>';
+$Title = $MyRow['description'];
+
+echo '<table class="dashboard_table">
+		<tr class="dashboard_row">
+			<th colspan="6" class="dashboard_th">
+				<div class="CanvasTitle">', _('Work Orders'), '
+					<img title="', _('Remove From Your Dashboard'), '" class="menu_exit_icon" src="css/new/images/cross.png" onclick="RemoveApplet(', $MyRow['id'], ', \'', $Title, '\'); return false;" />
+				</div>
+			</th>
+		</tr>';
+
 $SQL = "SELECT workorders.wo,
 				woitems.stockid,
 				stockmaster.
@@ -77,25 +35,24 @@ $SQL = "SELECT workorders.wo,
 			ORDER BY workorders.wo LIMIT 5";
 $WorkOrdersResult = DB_query($SQL);
 
-echo '<tbody>
-		<tr>
-			<th>' . _('Item') . '</th>
-			<th>' . _('Quantity Required') . '</th>
-			<th>' . _('Quantity Outstanding') . '</th>
-		</tr>';
-$k = 0;
-while ($row = DB_fetch_array($WorkOrdersResult)) {
-	$StockId = $row['stockid'];
-	$FormatedRequiredByDate = ConvertSQLDate($row['requiredby']);
-	$FormatedStartDate = ConvertSQLDate($row['startdate']);
-	$qreq = locale_number_format($row['qtyreqd'], $row['decimalplaces']);
-	$qout = locale_number_format($row['qtyreqd'] - $row['qtyrecd'], $row['decimalplaces']);
+echo '<tr>
+		<th class="dashboard_column_head">', _('Item'), '</th>
+		<th class="dashboard_column_head">', _('Quantity Required'), '</th>
+		<th class="dashboard_column_head">', _('Quantity Outstanding'), '</th>
+	</tr>';
 
-	echo '<tr class="striped_row">
-			<td><a href="' . $RootPath . '/StockStatus.php?StockID=' . urlencode($StockId) . '" target="_blank">' . $row['stockid'] . ' -' . $row['description'] . '</td>
-			<td class="number">' . $qreq . '</td>
-			<td class="number">' . $qout . '</td>
-		</tbody>';
+while ($MyRow = DB_fetch_array($WorkOrdersResult)) {
+	$StockId = $MyRow['stockid'];
+	$FormatedRequiredByDate = ConvertSQLDate($MyRow['requiredby']);
+	$FormatedStartDate = ConvertSQLDate($MyRow['startdate']);
+	$QuantityRequired = locale_number_format($MyRow['qtyreqd'], $MyRow['decimalplaces']);
+	$QuantityReceived = locale_number_format($MyRow['qtyreqd'] - $MyRow['qtyrecd'], $MyRow['decimalplaces']);
+
+	echo '<tr class="dashboard_striped_row">
+			<td><a href="#" onclick="Show(1, \'StockStatus.php?StockID=', urlencode($StockId), '\', \'', _('Stock Status Inquiry'), '\'); return false;">', $MyRow['stockid'], '</td>
+			<td class="number">', $QuantityRequired, '</td>
+			<td class="number">', $QuantityReceived, '</td>
+		</tr>';
 
 }
 

@@ -3,63 +3,22 @@ $PageSecurity = 0;
 $PathPrefix = '../';
 include ('../includes/session.php');
 
-$RootPath = '../';
-
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-
-echo '<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Dashboard</title>';
-echo '<link rel="shortcut icon" href="' . $RootPath . '/favicon.ico" />';
-echo '<link rel="icon" href="' . $RootPath . '/favicon.ico" />';
-
-echo '<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />';
-
-echo '<link href="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/default.css" rel="stylesheet" type="text/css" />';
-echo '<script type="text/javascript" src = "' . $RootPath . '/javascripts/MiscFunctions.js"></script>';
-echo '<style media="screen">
-			.noPrint{ display: block; }
-			.yesPrint{ display: block !important; }
-		</style>
-		<style media="print">
-			.noPrint{ display: none; }
-			.yesPrint{ display: block !important; }
-		</style>';
-
-echo '</head>
-			<body  style="background:transparent;">';
-
-switch ($_SESSION['ScreenFontSize']) {
-	case 0:
-		$FontSize = '8pt';
-	break;
-	case 1:
-		$FontSize = '10pt';
-	break;
-	case 2:
-		$FontSize = '12pt';
-	break;
-	default:
-		$FontSize = '10pt';
-}
-echo '<style>
-			body {
-					font-size: ' . $FontSize . ';
-				}
-			</style>';
-
-$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
+$SQL = "SELECT id, description FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
 $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 
-echo '<table  style="max-width:100%;width:99%;" border="0" cellspacing="0" cellpadding="2">
-      <tr>
-        <th colspan="6" style="margin:0px;padding:0px;background: transparent;">
-			<div class="CanvasTitle">' . _('Latest customer orders') . '
-				<a href="' . $RootPath . 'Dashboard.php?Remove=' . urlencode($MyRow['id']) . '" target="_parent" id="CloseButton">X</a>
-			</div>
-        </th>
-      </tr>';
-$SQL = 'SELECT salesorders.orderno,
+$Title = $MyRow['description'];
+
+echo '<table class="dashboard_table">
+		<tr class="dashboard_row">
+			<th colspan="6" class="dashboard_th">
+				<div class="CanvasTitle">', _('Latest Customer Orders'), '
+					<img title="', _('Remove From Your Dashboard'), '" class="menu_exit_icon" src="css/new/images/cross.png" onclick="RemoveApplet(', $MyRow['id'], ', \'', $Title, '\'); return false;" />
+				</div>
+			</th>
+		</tr>';
+
+$SQL = "SELECT salesorders.orderno,
 				debtorsmaster.name,
 				debtorsmaster.currcode,
 				salesorders.orddate,
@@ -83,38 +42,38 @@ $SQL = 'SELECT salesorders.orderno,
 					custbranch.brname,
 					salesorders.customerref,
 					salesorders.orddate
-			ORDER BY salesorders.orderno LIMIT 5';
+			ORDER BY salesorders.orderno LIMIT 5";
 
 $SalesOrdersResult = DB_query($SQL);
 
 $TotalSalesOrders = 0;
 echo '<tr>
-		<th>' . _('Order number') . '</th>
-		<th>' . _('Customer') . '</th>
-		<th>' . _('Order Date') . '</th>
-		<th>' . _('Delivery Date') . '</th>
-		<th>' . _('Order Amount') . '</th>
-		<th>' . _('Currency') . '</th>
+		<th class="dashboard_column_head">', _('Order number'), '</th>
+		<th class="dashboard_column_head">', _('Customer'), '</th>
+		<th class="dashboard_column_head">', _('Order Date'), '</th>
+		<th class="dashboard_column_head">', _('Delivery Date'), '</th>
+		<th class="dashboard_column_head">', _('Order Amount'), '</th>
+		<th class="dashboard_column_head">', _('Currency'), '</th>
 	</tr> ';
-$k = 0;
-while ($row = DB_fetch_array($SalesOrdersResult)) {
 
-	$FormatedOrderValue = locale_number_format($row['ordervalue'], $row['currdecimalplaces']);
-	$OrderDate = ConvertSQLDate($row['orddate']);
-	$DelDate = ConvertSQLDate($row['deliverydate']);
-	$TotalSalesOrders+= $row['ordervalue'];
-	echo '<tr class="striped_row">
-			<td> ' . $row['orderno'] . ' </td>
-			<td> ' . $row['name'] . ' </td>
-			<td>' . $OrderDate . '</td>
-			<td>' . $DelDate . '</td>
-			<td class="number">' . $FormatedOrderValue . '</td>
-			<td>' . $row['currcode'] . '</td>
+while ($MyRow = DB_fetch_array($SalesOrdersResult)) {
+
+	$FormatedOrderValue = locale_number_format($MyRow['ordervalue'], $MyRow['currdecimalplaces']);
+	$OrderDate = ConvertSQLDate($MyRow['orddate']);
+	$DelDate = ConvertSQLDate($MyRow['deliverydate']);
+	$TotalSalesOrders+= $MyRow['ordervalue'];
+	echo '<tr class="dashboard_striped_row">
+			<td>', $MyRow['orderno'], ' </td>
+			<td>', $MyRow['name'], ' </td>
+			<td>', $OrderDate, '</td>
+			<td>', $DelDate, '</td>
+			<td class="number">', $FormatedOrderValue, '</td>
+			<td>', $MyRow['currcode'], '</td>
 		</tr>';
 }
 echo '<tr>
-		<td colspan=3>' . _('Total') . '</td>
-		<td colspan=3 class="number">' . locale_number_format($TotalSalesOrders, $row['currdecimalplaces']) . '</td>
+		<td colspan=3>', _('Total'), '</td>
+		<td colspan=3 class="number">', locale_number_format($TotalSalesOrders, $MyRow['currdecimalplaces']), '</td>
 	</tr>';
 
 echo '</table>';

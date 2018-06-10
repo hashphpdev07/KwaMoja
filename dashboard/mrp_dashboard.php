@@ -3,62 +3,21 @@ $PageSecurity = 0;
 $PathPrefix = '../';
 include ('../includes/session.php');
 
-$RootPath = '../';
-
-echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-			"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
-
-echo '<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Dashboard</title>';
-echo '<link rel="shortcut icon" href="' . $RootPath . '/favicon.ico" />';
-echo '<link rel="icon" href="' . $RootPath . '/favicon.ico" />';
-
-echo '<meta http-equiv="Content-Type" content="application/html; charset=utf-8" />';
-echo '<meta http-equiv="refresh" content="600">';
-
-echo '<link href="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/default.css" rel="stylesheet" type="text/css" />';
-echo '<script type="text/javascript" src = "' . $RootPath . '/javascripts/MiscFunctions.js"></script>';
-echo '<style media="screen">
-			.noPrint{ display: block; }
-			.yesPrint{ display: block !important; }
-		</style>
-		<style media="print">
-			.noPrint{ display: none; }
-			.yesPrint{ display: block !important; }
-		</style>';
-
-echo '</head><body style="background:transparent;">';
-
-switch ($_SESSION['ScreenFontSize']) {
-	case 0:
-		$FontSize = '8pt';
-	break;
-	case 1:
-		$FontSize = '10pt';
-	break;
-	case 2:
-		$FontSize = '12pt';
-	break;
-	default:
-		$FontSize = '10pt';
-}
-echo '<style>
-			body {
-					font-size: ' . $FontSize . ';
-				}
-			</style>';
-
-$SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
+$SQL = "SELECT id, description FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
 $Result = DB_query($SQL);
 $MyRow = DB_fetch_array($Result);
 
-echo '<table border="0" cellspacing="0" cellpadding="2" style="max-width:100%;width:99%;">
-		<tr>
-			<th colspan="4" style="margin:0px;padding:0px;background: transparent;">
-				<div class="CanvasTitle">' . _('MRP') . '
-					<a href="' . $RootPath . 'Dashboard.php?Remove=' . urlencode($MyRow['id']) . '" target="_parent" id="CloseButton">X</a>
+$Title = $MyRow['description'];
+
+echo '<table class="dashboard_table">
+		<tr class="dashboard_row">
+			<th colspan="6" class="dashboard_th">
+				<div class="CanvasTitle">', _('Purchase Orders to Authorise'), '
+					<img title="', _('Remove From Your Dashboard'), '" class="menu_exit_icon" src="css/new/images/cross.png" onclick="RemoveApplet(', $MyRow['id'], ', \'', $Title, '\'); return false;" />
 				</div>
 			</th>
 		</tr>';
+
 $SQL = "SELECT stockmaster.stockid,
 				stockmaster.description,
 				stockmaster.mbflag,
@@ -73,31 +32,29 @@ $SQL = "SELECT stockmaster.stockid,
 					stockmaster.units,
 					stockmaster.mbflag,
 					stockmaster.decimalplaces
-			ORDER BY stockmaster.stockid LIMIT 5";
+			ORDER BY qoh DESC LIMIT 5";
 
-$searchresult = DB_query($SQL);
-echo '<tbody>
-		<tr>
-			<th>' . _('Code') . '</th>
-			<th>' . _('Description') . '</th>
-			<th>' . _('Total QTY on Hand') . '</th>
-			<th>' . _('Units') . '</th>
+$SearchResult = DB_query($SQL);
+
+echo '<tr class="dashboard_row">
+		<th class="dashboard_column_head">', _('Code'), '</th>
+		<th class="dashboard_column_head">', _('Description'), '</th>
+		<th class="dashboard_column_head">', _('Total QTY on Hand'), '</th>
+		<th class="dashboard_column_head">', _('Units'), '</th>
+	</tr>';
+
+while ($MyRow = DB_fetch_array($SearchResult)) {
+	$StockId = $MyRow['stockid'];
+	$qoh = locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']);
+
+	echo '<tr class="dashboard_striped_row dashboard_row">
+			<td><a href="#" onclick="Show(1, \'StockStatus.php?StockID=', urlencode($StockId), '\', \'', _('Stock Status Inquiry'), '\'); return false;">', $MyRow['stockid'], '</td>
+			<td>', $MyRow['description'], '</td>
+			<td class="number">', $qoh, '</td>
+			<td>', $MyRow['units'], '</td>
 		</tr>';
-$k = 0;
-while ($row = DB_fetch_array($searchresult)) {
-	$StockId = $row['stockid'];
-	$qoh = locale_number_format($row['qoh'], $row['decimalplaces']);
-
-	echo '<tr class="striped_row">
-			<td><a href="' . $RootPath . '/StockStatus.php?StockID=' . urlencode($StockId) . '" target="_blank">' . $row['stockid'] . '</td>
-			<td>' . $row['description'] . '</td>
-			<td class="number">' . $qoh . '</td>
-			<td>' . $row['units'] . '</td>
-		</tr>';
-
 }
 
-echo '</tbody>
-	</table>';
+echo '</table>';
 
 ?>

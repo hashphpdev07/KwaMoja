@@ -3,7 +3,7 @@ $PageSecurity = 0;
 
 include ('includes/session.php');
 $Title = _('Dashboard');
-include ('includes/header.php');
+//include ('includes/header.php');
 include ('includes/MainMenuLinksArray.php');
 
 $SQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserID'] . "' ";
@@ -11,7 +11,24 @@ $SQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserI
 $Result = DB_query($SQL);
 
 $MyRow = DB_fetch_array($Result);
-$ScriptArray = explode(',', $MyRow["scripts"]);
+$ScriptArray = explode(',', $MyRow['scripts']);
+
+if (isset($_GET['Update'])) {
+	if (in_array($_GET['ID'], $ScriptArray)) {
+		$Index = array_search($_GET['ID'], $ScriptArray);
+		unset($ScriptArray[$Index]);
+	} else {
+		$ScriptArray[] = $_GET['ID'];
+		$SQL = "SELECT scripts FROM dashboard_scripts WHERE id='" . $_GET['ID'] . "'";
+		$Result = DB_query($SQL);
+		$MyRow = DB_fetch_array($Result);
+		echo $MyRow['scripts'];
+	}
+	asort($ScriptArray);
+	$UpdateSQL = "UPDATE dashboard_users SET scripts='" . implode(',', $ScriptArray) . "' WHERE userid = '" . $_SESSION['UserID'] . "'";
+	$UpdateResult = DB_query($UpdateSQL);
+	exit;
+}
 
 $UserSQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserID'] . "' ";
 $Result = DB_query($UserSQL);
