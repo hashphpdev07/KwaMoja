@@ -1,0 +1,141 @@
+div.mask {
+position: absolute;
+border: 0px solid #ffffff;
+top: 0px;
+right: 0px;
+bottom: 0px;
+left: 0px;
+background: #000000;
+opacity: 0.7;
+z-index: 1002;
+}
+
+div.modal_window {
+font-family: Ubuntu, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana, sans-serif;
+font-size:10px;
+border: 1px solid #ffffff;
+border-radius: 27px;
+position: absolute;
+display: none;
+top: 50%;
+right: 50%;
+bottom: 50%;
+left: 50%;
+background: #000000;
+color: #FFFFFF;
+opacity: 0.95;
+z-index: 1003;
+overflow:auto;
+}
+
+div.modal_header {
+font-weight: bold;
+background: transparent;
+border: solid #FFFFFF 2px;
+border-radius: 7px;
+margin: 1%;
+padding: 3px;
+font-size: 150%;
+color: #FFFFFF;
+text-align: center;
+vertical-align: middle;
+display: none;
+}
+
+div.modal_exit {
+border: 0px solid #ffffff;
+float: right;
+padding-top:0px;
+padding-right:10px;
+height: 100%;
+color: #FFFFFF;
+cursor: pointer;
+}
+
+div.modal_contents {
+font-size:130%;
+margin-right:1%;
+position: absolute;
+display: none;
+top: 9%;
+right: 1%;
+bottom: 8%;
+left: 1%;
+overflow:auto;
+}
+
+div.modal_footer {
+position: absolute;
+bottom:1px;
+width: 97%;
+font-weight: bold;
+background: transparent;
+border: solid #FFFFFF 2px;
+border-radius: 7px;
+margin: 1%;
+padding: 3px;
+font-size: 150%;
+color: #FFFFFF;
+text-align: left;
+vertical-align: bottom;
+display: none;
+}
+
+div.modal_clock {
+border: 0px solid #ffffff;
+float: right;
+padding-top:0px;
+padding-right:10px;
+height: 100%;
+color: #FFFFFF;
+}
+
+div.success {
+position:absolute;
+margin-top: 5px;
+background-color:#7FFFD4;
+width:20%;
+color:green;
+border:2px solid green;
+border-radius:13px;
+top:5%;
+margin-left:75%;
+min-height:10%;
+padding:2%;
+opacity: 1;
+transition: opacity 1.25s ease-in-out;
+font-size:150%;
+}
+
+div.info {
+position:absolute;
+margin-top: 5px;
+background-color:#87CEFA;
+width:20%;
+color:navy;
+border:2px solid navy;
+border-radius:13px;
+top:5%;
+margin-left:75%;
+min-height:10%;
+padding:2%;
+opacity: 1;
+transition: opacity 1.25s ease-in-out;
+font-size:150%;
+}
+
+div.warn {
+margin-top: 5px;
+background-color:#FFC0CB;
+width:98%;
+color:maroon;
+border:1px solid maroon;
+border-radius:13px;
+top:5%;
+margin-left:75%;
+min-height:10%;
+padding:2%;
+opacity: 1;
+transition: opacity 1.25s ease-in-out;
+font-size:150%;
+}

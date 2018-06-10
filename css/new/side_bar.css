@@ -1,0 +1,36 @@
+#module_menu {
+position:absolute;
+top:64px;
+left:0px;
+list-style-type: none;
+margin: 0;
+padding: 0;
+width: 20%;
+background-color: #1A1A1A;
+position: fixed;
+height: 100%;
+overflow: auto;
+font-size:11pt;
+z-index:99;
+}
+
+li a {
+display: block;
+color: white;
+padding: 4px 8px;
+text-decoration: none;
+}
+
+li a.active {
+background-color: #4CAF50;
+color: #C7C0C0;
+}
+
+li a:hover:not(.active) {
+background-color: #555;
+color: white;
+}
+
+.ModuleIcon {
+width:24px;
+}

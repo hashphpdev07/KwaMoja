@@ -1,0 +1,54 @@
+header {
+position:absolute;
+top:0px;
+left:0px;
+min-height:64px;
+width:100%;
+background:#1A1A1A;
+color:#C7C0C0;
+font-size:10pt;
+}
+
+#AppInfo {
+float:left;
+}
+
+#AppInfoCompany {
+display:table-cell;
+}
+
+#AppInfoUser {
+display:table-cell;
+padding-left:5px;
+}
+
+.header {
+border:none;
+vertical-align:middle;
+width:48px;
+}
+
+.header_link {
+color:#C7C0C0;
+}
+
+.DashboardSelector {
+float:right;
+margin-right:16px;
+}
+
+.DashboardSelectBox {
+font-size:100%;
+margin-top:10px;
+margin-bottom:0px;
+border: 1px solid white;
+border-radius:15px;
+padding:5px;
+margin-left:10px;
+}
+
+#exit_image {
+margin-top:8px;
+width:32px;
+vertical-align:middle;
+}

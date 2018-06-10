@@ -1,0 +1,68 @@
+.dashboard {
+position:absolute;
+top:64px;
+left:20%;
+background:white;
+}
+
+#CloseButton {
+width:16px;
+float:right;
+cursor:pointer;
+}
+
+#CloseButton:hover {
+}
+
+.CanvasTitle {
+border:0px solid black;
+border-top-left-radius:5px;
+border-top-right-radius:5px;
+padding: 10px;
+color:white;
+background:black;
+}
+
+.dashboard_table {
+border:0px;
+height:50px;
+color:black;
+font-family: Futura,Trebuchet MS,Arial,sans-serif;
+font-size:9pt;
+outline:1px solid black;
+}
+
+.dashboard_header_row {
+border:0px solid black;
+}
+
+.dashboard_placeholder {
+background:white;
+width:32%;
+height:50px;
+}
+
+.dashboard_row {
+border:0px;
+padding:0px;
+}
+
+.dashboard_th {
+border:0px solid black;
+padding:0px;
+margin:0px;
+}
+
+.dashboard_column_head {
+border:1px solid #7F7F7F;
+text-align:center;
+color:#1A1A1A;
+}
+
+tr.dashboard_striped_row:nth-of-type(even) {
+background-color:#BFBFBF;
+}
+
+tr.dashboard_striped_row:nth-of-type(odd) {
+background-color:#989898;
+}
