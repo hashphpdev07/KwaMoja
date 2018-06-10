@@ -14,7 +14,7 @@ background-size: cover;
 
 #container {
 border:solid #A49999 1px;
-background:#BFBFBF;
+background:#C4FBC4;
 opacity:0.8;
 border-radius:15px;
 margin:90px auto 0;
@@ -37,7 +37,7 @@ padding-left: 0%;
 }
 
 #login_box {
-background:#BFBFBF;
+background:#C4FBC4;
 color:#1A1A1A;
 border:solid #A49999 1px;
 border-radius:15px;
@@ -116,10 +116,10 @@ box-shadow:0 0 5px #7E7575
 }
 
 button {
-background:#BFBFBF;
+background:#000000;
 border:solid gray 1px;
 border-radius:7px;
-color:#1A1A1A;
+color:#FFFFFF;
 font-size:100%;
 font-weight:700;
 margin:10px 10px 10px 50px;

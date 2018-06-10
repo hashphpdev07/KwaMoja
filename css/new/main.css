@@ -4,3 +4,10 @@ font-family:"Ubuntu", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Gen
 font-weight:400;
 font-size:24pt;
 }
+
+p.page_title_text {
+font-weight:bold;
+text-align:center;
+margin:0 auto;
+padding:5px;
+}
