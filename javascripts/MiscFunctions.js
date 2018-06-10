@@ -553,6 +553,7 @@ function initial() {
 		}
 	}
 	version=document.getElementById("FooterVersionDiv").innerHTML;
+	InitialiseDashboard();
 }
 days = new Array("Su", "Mo", "Tu", "We", "Th", "Fr", "Sa");
 longdays = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
