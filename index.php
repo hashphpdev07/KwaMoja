@@ -1,7 +1,7 @@
 <?php
 $PageSecurity = 0;
 
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_SESSION['FirstLogIn']) and $_SESSION['FirstLogIn'] == '1' and isset($_SESSION['DatabaseName'])) {
 	$_SESSION['FirstRun'] = true;
@@ -18,7 +18,49 @@ if ($_SESSION['Theme'] == 'mobile') {
 } else {
 
 	$Title = _('KwaMoja Medical');
-	include('includes/header_main.inc');
+	include ('includes/header_main.inc');
+
+	echo '<header>';
+
+	echo '<div id="AppInfo">', //===HJ===
+	'<div id="AppInfoCompany">
+				<img class="header" alt="', _('Company'), '" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" title="', _('Company'), '" />
+				<a href="#" class="header_link" onclick="Show(1, \'CompanyPreferences.php\', \'', stripslashes($_SESSION['CompanyRecord']['coyname']), '\'); return false;">', stripslashes($_SESSION['CompanyRecord']['coyname']), '</a>
+			</div>', '<div id="AppInfoUser">
+				<img class="header" alt="', _('User'), '" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User'), '" />
+				<a href="#" class="header_link" onclick="Show(1, \'UserSettings.php\', \'', stripslashes($_SESSION['UsersRealName']), '\'); return false;">', stripslashes($_SESSION['UsersRealName']), '</a>
+			</div>', '</div>'; // AppInfo
+	echo '<div style="float:right;">
+			<a title="Log out of KwaMoja" id="exit" href="' . $RootPath . '/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);">
+				<img id="exit_image" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/quit.png" /></a>
+		</div>';
+
+	$SQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserID'] . "' ";
+
+	$Result = DB_query($SQL);
+
+	$MyRow = DB_fetch_array($Result);
+	$ScriptArray = explode(',', $MyRow['scripts']);
+
+	$SQL = "SELECT id,
+				scripts,
+				pagesecurity,
+				description
+			FROM dashboard_scripts";
+	$Result = DB_query($SQL);
+
+	echo '<div class="DashboardSelector">', _('Add reports to your dashboard'), ' :
+			<select name="Reports" class="DashboardSelectBox" id="dashboard_options" onchange="AddApplet()">';
+	echo '<option value=""></option>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		if (!in_array($MyRow['id'], $ScriptArray) and in_array($MyRow['pagesecurity'], $_SESSION['AllowedPageSecurityTokens'])) {
+			echo '<option value="', $MyRow['id'], '">', $MyRow['description'], '</option>';
+		}
+	}
+	echo '</select>
+		</div>';
+
+	echo '</header>';
 
 	$SQL = "SELECT modulename,
 					modulelink,
@@ -34,76 +76,98 @@ if ($_SESSION['Theme'] == 'mobile') {
 
 	$ModuleResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	echo '<nav id="menu-wrap">
-	<ul id="menu">';
+	echo '<nav>
+			<ul id="module_menu">';
 
 	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
-		echo '<li>
-				<a href="">
-					<img title="' . $ModuleRow['modulename'] . '" style="width:32px;" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
+		echo '<li name="module_link" id="', $ModuleRow['modulelink'], '">
+				<a href="#" onclick="SetClickedModuleLink(\'', $ModuleRow['modulelink'], '\');return false;">
+					<img title="', _($ModuleRow['modulename']), '" class="ModuleIcon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/modules/', $ModuleRow['modulelink'], '.png" />
+					', _($ModuleRow['modulename']), '
 				</a>
-				<ul>';
-		$SQL = "SELECT DISTINCT menusection FROM menuitems WHERE modulelink='" . $ModuleRow['modulelink'] . "'";
-		$SectionResult = DB_query($SQL);
-		echo '<li id="menu_title">' . $ModuleRow['modulename'] . '</li>';
-		while ($SectionRow = DB_fetch_array($SectionResult)) {
-			echo '<li>
-						<a href="">
-							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . strtolower($SectionRow['menusection']) . '.png" />
-							' . $SectionRow['menusection'] . '
-						</a>
-						<ul class="sub_menu">';
-			$SQL = "SELECT menuitems.url,
-							caption
-						FROM menuitems
-						WHERE modulelink='" . $ModuleRow['modulelink'] . "'
-							AND menusection='" . $SectionRow['menusection'] . "'
-							AND secroleid='" . $ModuleRow['secroleid'] . "'
-						ORDER BY sequence";
-			$DbgMsg = _('The SQL that was used to retrieve the information was');
-			$ErrMsg = _('Could not retrieve the scripts associated with this account');
-			$ScriptResult = DB_query($SQL, $ErrMsg, $DbgMsg);
-
-			while ($ScriptRow = DB_fetch_array($ScriptResult)) {
-				echo '<li class="auto-width">
-					<a href="#" onclick="Show(1, \'' . substr($ScriptRow['url'], 1) . '\', \'' . $ScriptRow['caption'] . '\'); return false;">' . $ScriptRow['caption'] . '</a>
-				</li>';
-			}
-			echo '</ul>
-					</li>';
-		}
-		echo '</ul>
 			</li>';
 	}
-	echo '<li style="float:right;">
-			<a title="Log out of KwaMoja" id="exit" href="'.$RootPath.'/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);">
-				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/quit.png" /></a></li>';
 
 	echo '</ul>
 		</nav>';
-	echo '<div id="site_title">' . _('KwaMoja') . '<br />' . _('Medical') . '</div>';
-/*
 
-	echo '<div id="footer">';
-	echo '<ul id="footer_menu">';
+	DB_data_seek($ModuleResult, 0);
 
 	while ($ModuleRow = DB_fetch_array($ModuleResult)) {
-		echo '<li>
-				<a href="#">
-					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/' . $ModuleRow['modulelink'] . '.png" />
-				</a>';
-		echo '<div class="one_column_layout">
-			<div class="col_1">';
-			echo '<a href="#" class="listLinks" >
-				</a>';
+		echo '<nav class="item_menu" name="item_menu" id="item_', $ModuleRow['modulelink'], '">
+				<nav class="item_menu_header">', _($ModuleRow['modulename']), '<img title="', _('Close Menu'), '" class="menu_exit_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/cross.png" onclick="CloseMenu(); return false;" />
+				</nav>
+				<nav class="menu_tab_bar">';
+		$SQL = "SELECT DISTINCT menusection
+					FROM menuitems
+					WHERE secroleid='" . $_SESSION['AccessLevel'] . "'
+						AND modulelink='" . $ModuleRow['modulelink'] . "'
+					ORDER BY menusection DESC";
+		$SectionResult = DB_query($SQL);
+		$i = 0;
+		while ($SectionRow = DB_fetch_array($SectionResult)) {
+			if ($i == 0) {
+				echo '<button class="menu_button_active" name="', $ModuleRow['modulelink'], 'tab_button" id="', $ModuleRow['modulelink'], $SectionRow['menusection'], '" onclick="ChangeTab(\'', $ModuleRow['modulelink'], '\', \'', $ModuleRow['modulelink'], $SectionRow['menusection'], '\'); return false;">', _($SectionRow['menusection']), '</button>';
+			} else {
+				echo '<button class="menu_button_inactive" name="', $ModuleRow['modulelink'], 'tab_button" id="', $ModuleRow['modulelink'], $SectionRow['menusection'], '" onclick="ChangeTab(\'', $ModuleRow['modulelink'], '\', \'', $ModuleRow['modulelink'], $SectionRow['menusection'], '\'); return false;">', _($SectionRow['menusection']), '</button>';
+			}
+			++$i;
 		}
-		echo '</div>
-			</div>';
-		echo '</li>';
+		echo '</nav>'; //Button bar
+		DB_data_seek($SectionResult, 0);
+		$i = 0;
+		$j = 0;
+		while ($SectionRow = DB_fetch_array($SectionResult)) {
+			$SQL = "SELECT menusection,
+							caption,
+							url,
+							sequence
+						FROM menuitems
+						WHERE secroleid='" . $_SESSION['AccessLevel'] . "'
+							AND modulelink='" . $ModuleRow['modulelink'] . "'
+							AND menusection='" . $SectionRow['menusection'] . "'
+						ORDER BY sequence ASC";
+			$MenuResult = DB_query($SQL);
+			if ($i == 0) {
+				echo '<ul class="menu_container" name="', $ModuleRow['modulelink'], 'menu_container" style="display:inline-block" id="', $ModuleRow['modulelink'], $SectionRow['menusection'], 'menu_container">';
+			} else {
+				echo '<ul class="menu_container" name="', $ModuleRow['modulelink'], 'menu_container" id="', $ModuleRow['modulelink'], $SectionRow['menusection'], 'menu_container">';
+			}
+			while ($MenuRow = DB_fetch_array($MenuResult)) {
+				echo '<li  class="menu_link_box">
+						<a href="#" class="menu_link" onclick="Show(', $j, ', \'', substr($MenuRow['url'], 1), '\', \'', _($MenuRow['caption']), '\'); return false;">', _($MenuRow['caption']), '</a>
+					</li>';
+				++$j;
+			}
+			echo '</ul>'; //menu_container
+			++$i;
+		}
+		echo '</nav>'; //menu
+		
 	}
-	echo '</ul>';
 
-	echo'</div>';*/
+	$SQL = "SELECT id,
+				scripts,
+				pagesecurity,
+				description
+			FROM dashboard_scripts";
+
+	$Result = DB_query($SQL);
+
+	echo '<script>
+		function InitialiseDashboard() {
+			sessionStorage.clear();';
+
+	while ($MyRow = DB_fetch_array($Result)) {
+		if (in_array($MyRow['id'], $ScriptArray) and in_array($MyRow['pagesecurity'], $_SESSION['AllowedPageSecurityTokens'])) {
+			echo 'sessionStorage.dashboard', $MyRow['id'], '=\'', $MyRow['scripts'], '\';';
+		}
+		echo 'sessionStorage.scripts', $MyRow['id'], '=\'', $MyRow['scripts'], '\';';
+	}
+	echo 'ShowDashboard();
+			}
+		</script>';
+
 	echo '<div id="mask" name="mask"></div>';
 	echo '<div id="dialog" name="dialog"></div>';
 	echo '<input type="hidden" name="Theme" id="Theme" value="', $_SESSION['Theme'], '" />';
@@ -111,89 +175,5 @@ if ($_SESSION['Theme'] == 'mobile') {
 	echo '</body>
 	</html>';
 
-}
-
-
-function GetRptLinks($GroupID) {
-	/*
-	This function retrieves the reports given a certain group id as defined in /reports/admin/defaults.php
-	in the acssociative array $ReportGroups[]. It will fetch the reports belonging solely to the group
-	specified to create a list of links for insertion into a table to choose a report. Two table sections will
-	be generated, one for standard reports and the other for custom reports.
-	*/
-	global $RootPath;
-	if (!isset($_SESSION['FormGroups'])) {
-		$_SESSION['FormGroups'] = array(
-			'gl:chk' => _('Bank Checks'), // Bank checks grouped with the gl report group
-			'ar:col' => _('Collection Letters'),
-			'ar:cust' => _('Customer Statements'),
-			'gl:deps' => _('Bank Deposit Slips'),
-			'ar:inv' => _('Invoices and Packing Slips'),
-			'ar:lblc' => _('Labels - Customer'),
-			'prch:lblv' => _('Labels - Vendor'),
-			'prch:po' => _('Purchase Orders'),
-			'ord:quot' => _('Customer Quotes'),
-			'ar:rcpt' => _('Sales Receipts'),
-			'ord:so' => _('Sales Orders'),
-			'misc:misc' => _('Miscellaneous')
-		); // do not delete misc category
-	}
-	if (isset($_SESSION['ReportList'][$GroupID])) {
-		$GroupID = $_SESSION['ReportList'][$GroupID];
-	}
-	$Title = array(
-		_('Custom Reports'),
-		_('Standard Reports and Forms')
-	);
-
-	if (!isset($_SESSION['ReportList'])) {
-		$SQL = "SELECT id,
-						reporttype,
-						defaultreport,
-						groupname,
-						reportname
-					FROM reports
-					ORDER BY groupname,
-							reportname";
-		$Result = DB_query($SQL, '', '', false, true);
-		$_SESSION['ReportList'] = array();
-		while ($Temp = DB_fetch_array($Result)) {
-			$_SESSION['ReportList'][] = $Temp;
-		}
-	}
-	$RptLinks = '';
-	for ($Def = 1; $Def >= 0; $Def--) {
-		$RptLinks .= '<li class="menu_group_headers">';
-		$RptLinks .= '<b>' . $Title[$Def] . '</b>';
-		$RptLinks .= '</li>';
-		$NoEntries = true;
-		if (isset($_SESSION['ReportList']['groupname']) and count($_SESSION['ReportList']['groupname']) > 0) { // then there are reports to show, show by grouping
-			foreach ($_SESSION['ReportList'] as $Report) {
-				if (isset($Report['groupname']) and $Report['groupname'] == $GroupID and $Report['defaultreport'] == $Def) {
-					$RptLinks .= '<li class="menu_group_item">';
-					$RptLinks .= '<p><a href="' . $RootPath . '/reportwriter/ReportMaker.php?action=go&amp;reportid=' . urlencode($Report['id']) . '">&bull; ' . _($Report['reportname']) . '</a></p>';
-					$RptLinks .= '</li>';
-					$NoEntries = false;
-				}
-			}
-			// now fetch the form groups that are a part of this group (List after reports)
-			$NoForms = true;
-			foreach ($_SESSION['ReportList'] as $Report) {
-				$Group = explode(':', $Report['groupname']); // break into main group and form group array
-				if ($NoForms and $Group[0] == $GroupID and $Report['reporttype'] == 'frm' and $Report['defaultreport'] == $Def) {
-					$RptLinks .= '<li class="menu_group_item">';
-					$RptLinks .= '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/folders.gif" width="16" height="13" alt="" />&nbsp;';
-					$RptLinks .= '<a href="' . $RootPath . '/reportwriter/FormMaker.php?id=' . urlencode($Report['groupname']) . '">&bull; ';
-					$RptLinks .= $_SESSION['FormGroups'][$Report['groupname']] . '</a>';
-					$RptLinks .= '</li>';
-					$NoForms = false;
-					$NoEntries = false;
-				}
-			}
-		}
-		if ($NoEntries)
-			$RptLinks .= '<li class="menu_group_item">' . _('There are no reports to show!') . '</li>';
-	}
-	return $RptLinks;
 }
 ?>
