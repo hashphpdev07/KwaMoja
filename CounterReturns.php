@@ -7,7 +7,8 @@ include ('includes/DefineCartClass.php');
 include ('includes/session.php');
 
 $Title = _('Counter Returns');
-
+$ViewTopic = 'SalesOrders';
+$BookMark = 'CounterReturns';
 include ('includes/header.php');
 include ('includes/GetPrice.php');
 include ('includes/SQL_CommonFunctions.php');

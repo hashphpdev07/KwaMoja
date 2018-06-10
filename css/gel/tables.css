@@ -4,6 +4,7 @@ background-color:#eee;
 border:0 0 2px 2px #222 solid;
 background:#eee;
 width:100%;
+table-layout: fixed;
 }
 
 th {

@@ -3,6 +3,7 @@ table {
 width:auto;
 max-width:90%;
 margin:0 auto 10px;
+table-layout: fixed;
 }
 
 th {

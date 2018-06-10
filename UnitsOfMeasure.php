@@ -4,10 +4,15 @@ include ('includes/session.php');
 $Title = _('Units Of Measure');
 
 include ('includes/header.php');
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
-if (isset($_GET['SelectedMeasureID'])) $SelectedMeasureID = $_GET['SelectedMeasureID'];
-elseif (isset($_POST['SelectedMeasureID'])) $SelectedMeasureID = $_POST['SelectedMeasureID'];
+if (isset($_GET['SelectedMeasureID'])) {
+	$SelectedMeasureID = $_GET['SelectedMeasureID'];
+} elseif (isset($_POST['SelectedMeasureID'])) {
+	$SelectedMeasureID = $_POST['SelectedMeasureID'];
+}
 
 if (isset($_POST['Submit'])) {
 
@@ -156,7 +161,8 @@ if (!isset($SelectedMeasureID)) {
 	echo '<table>
 			<thead>
 				<tr>
-					<th class="SortedColumn">' . _('Units of Measure') . '</th>
+					<th class="SortedColumn">', _('Units of Measure'), '</th>
+					<th colspan="2"></th>
 				</tr>
 			</thead>';
 	echo '<tbody>';
@@ -164,10 +170,10 @@ if (!isset($SelectedMeasureID)) {
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		echo '<tr class="striped_row">
-				<td>' . $MyRow[1] . '</td>';
-		echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedMeasureID=' . urlencode($MyRow[0]) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this unit of measure?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>';
-		echo '</tr>';
+				<td>', $MyRow[1], '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedMeasureID=', urlencode($MyRow[0]), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedMeasureID=', urlencode($MyRow[0]), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this unit of measure?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
 	} //END WHILE LIST LOOP
 	echo '</tbody>';
@@ -177,14 +183,14 @@ if (!isset($SelectedMeasureID)) {
 
 if (isset($SelectedMeasureID)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Units of Measure') . '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review Units of Measure'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedMeasureID)) {
 		//editing an existing section
@@ -203,22 +209,24 @@ if (!isset($_GET['delete'])) {
 			$_POST['MeasureID'] = $MyRow['unitid'];
 			$_POST['MeasureName'] = $MyRow['unitname'];
 
-			echo '<input type="hidden" name="SelectedMeasureID" value="' . $_POST['MeasureID'] . '" />';
-			echo '<table>';
+			echo '<input type="hidden" name="SelectedMeasureID" value="', $_POST['MeasureID'], '" />';
+			echo '<fieldset>
+					<legend>', _('Edit Unit of Measure'), ' - ', $_POST['MeasureName'], '</legend>';
 		}
 
 	} else {
 		$_POST['MeasureName'] = '';
-		echo '<table>';
+		echo '<fieldset>
+				<legend>', _('Create New Unit of Measure'), '</legend>';
 	}
-	echo '<tr>
-		<td>' . _('Unit of Measure') . ':' . '</td>
-		<td><input type="text" name="MeasureName" size="15" required="required" maxlength="15" value="' . $_POST['MeasureName'] . '" /></td>
-		</tr>';
-	echo '</table>';
+	echo '<field>
+			<label for="MeasureName">', _('Unit of Measure'), ':</label>
+			<input type="text" name="MeasureName" size="15" required="required" autofocus="autofocus" maxlength="15" value="', $_POST['MeasureName'], '" />
+		</field>';
+	echo '</fieldset>';
 
 	echo '<div class="centre">
-			<input type="submit" name="Submit" value="' . _('Enter Information') . '" />
+			<input type="submit" name="Submit" value="', _('Enter Information'), '" />
 		</div>';
 
 	echo '</form>';

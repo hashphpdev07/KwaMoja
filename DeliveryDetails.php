@@ -1096,7 +1096,7 @@ echo '<tr>
 	</tr>
 	<tr>
 		<td>' . _('Customer Reference') . ':</td>
-		<td><input type="text" size="25" maxlength="25" name="CustRef" value="' . $_SESSION['Items' . $Identifier]->CustRef . '" /></td>
+		<td><input type="text" size="25" maxlength="50" name="CustRef" value="' . $_SESSION['Items' . $Identifier]->CustRef . '" /></td>
 	</tr>
 	<tr>
 		<td>' . _('Comments') . ':</td>

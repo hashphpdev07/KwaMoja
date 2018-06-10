@@ -14,9 +14,9 @@ padding:0;
 }
 
 button img {
-	/* Describes how button image should be displayed. */
-	height:32px;
-	width:32px;
+/* Describes how button image should be displayed. */
+height:32px;
+width:32px;
 }
 
 div.toplink {
@@ -126,13 +126,13 @@ td.select {
 }
 
 .number {
- 	text-align:right;
- 	/* Class selector to horizontal align a number (right) in an element. */
+ text-align:right;
+ /* Class selector to horizontal align a number (right) in an element. */
 }
 
 .text {
- 	text-align:left;
- 	/* Class selector to horizontal align text (left) in an element. */
+ text-align:left;
+ /* Class selector to horizontal align text (left) in an element. */
 }
 
 input.image {

@@ -1,15 +1,15 @@
 <?php
+/* Shows bank accounts authorised for with balances */
 
-include('includes/session.php');
+include ('includes/session.php');
 
 $Title = _('List of bank account balances');
 /* Manual links before header.php */
 $ViewTopic = 'GeneralLedger';
-$BookMark = '';
-include('includes/header.php');
+$BookMark = 'BankAccountBalances';
+include ('includes/header.php');
 
-echo '<p class="page_title_text"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Account Balances'), '" alt="" /> ',
-		_('Bank Account Balances'), '
+echo '<p class="page_title_text"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/bank.png" title="', _('Bank Account Balances'), '" alt="" /> ', _('Bank Account Balances'), '
 	</p>';
 
 echo '<table>
@@ -54,6 +54,6 @@ while ($MyBankRow = DB_fetch_array($Result)) {
 
 echo '</table>';
 
-include('includes/footer.php');
+include ('includes/footer.php');
 
 ?>

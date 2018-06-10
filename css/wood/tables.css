@@ -7,6 +7,7 @@ width:auto;
 max-width:90%;
 margin:5px auto;
 padding:3px;
+table-layout: fixed;
 }
 
 th {

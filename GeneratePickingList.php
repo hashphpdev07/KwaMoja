@@ -1,7 +1,10 @@
 <?php
-/* $Id: GeneratePickingList.php 1 2014-08-26 11:54:03Z agaluski $*/
+/* Generate Picking List */
 
 include ('includes/session.php');
+/* $Title is set in several parts of this script. */
+$ViewTopic = 'Sales';
+$BookMark = 'GeneratePickingList';
 include ('includes/SQL_CommonFunctions.php');
 
 /* Check that the config variable is set for
