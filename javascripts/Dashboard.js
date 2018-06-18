@@ -1,5 +1,23 @@
 var ScriptName='';
 
+function DrawApplet(Data, Cell) {
+	TableApplet=document.createElement("table");
+	TableApplet.className="daashboard_table";
+	TargetCell=document.getElementById(Cell);
+	TargetCell.appendChild(TableApplet);
+	TableTitleRow=document.createElement("tr");
+	TableApplet.appendChild(TableTitleRow);
+	TableTitleCell=document.createElement("th");
+	TableTitleCell.colSpan="6";
+	TableTitleCell.className="dashboard_th";
+	TableTitleRow.appendChild(TableTitleCell);
+	TableTitleDiv=document.createElement("div");
+	TableTitleDiv.className="CanvasTitle";
+	TableTitleDiv.id="TitleCell";
+	TableTitleCell.appendChild(TableTitleDiv);
+	document.getElementById("TitleCell").innerHTML = (Data.Title);
+}
+
 function ShowDashboard() {
 	var TableRow = new Array();
 	var Column = 1;
@@ -13,11 +31,11 @@ function ShowDashboard() {
 	j = 0;
 	for (var i = 0; i < sessionStorage.length; i++){
 		if (sessionStorage.key(i).substr(0,4) == 'dash') {
-			TableCell[i] = document.createElement("td");
-			TableCell[i].className = "dashboard_placeholder";
-			TableCell[i].id=sessionStorage.key(i);
-			TableRow[Column].appendChild(TableCell[i]);
-			UpdateApplet(sessionStorage.getItem(sessionStorage.key(i)), TableCell[i])
+			TableCell[j] = document.createElement("td");
+			TableCell[j].className = "dashboard_placeholder";
+			TableCell[j].id=sessionStorage.key(i);
+			TableRow[Column].appendChild(TableCell[j]);
+			UpdateApplet(sessionStorage.getItem(sessionStorage.key(i)), TableCell[j].id);
 			if ((j == 2) || (j == 5)) {
 				Column++;
 				TableRow[Column] = document.createElement("tr");
@@ -26,28 +44,15 @@ function ShowDashboard() {
 			j++;
 		}
 	}
-	setInterval(UpdateDashboard, 30000)
 }
 
-function UpdateApplet(Target, Element) {
-	var PostData='';
-	Target='dashboard/'+Target;
-	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	} else {// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function() {
-		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			Element.innerHTML=xmlhttp.responseText;
-		}
-	}
-	xmlhttp.open("POST",Target,false);
-	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	xmlhttp.setRequestHeader("Cache-Control","no-store, no-cache, must-revalidate");
-	xmlhttp.setRequestHeader("Pragma","no-cache");
-	xmlhttp.send(PostData);
-	return false;
+function UpdateApplet(Target, ElementID) {
+	var source = new EventSource("dashboard/"+Target);
+	source.onmessage = function(event) {
+		response=event.data;
+		data=JSON.parse(response);
+//		DrawApplet(data, ElementID);
+	};
 }
 
 function UpdateDashboard() {

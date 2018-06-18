@@ -1,4 +1,8 @@
 <?php
+header('Content-Type: text/event-stream' . "\n\n");
+header('Cache-Control: no-cache');
+header('Connection: keep-alive');
+
 $PageSecurity = 0;
 $PathPrefix = '../';
 include ('../includes/session.php');
@@ -9,11 +13,28 @@ $MyRow = DB_fetch_array($Result);
 
 $Title = $MyRow['description'];
 
-echo '<table class="dashboard_table">
+$ColumnHeadings = array(_('Amount'), _('Trans Type'), _('Trans Date'), _('Account Name'));
+
+$echo = "data: {\n";
+$echo.= "data: \"Title\": \"" . $Title . "\" \n";
+
+$i = 1;
+
+foreach ($ColumnHeadings as $Value) {
+	$echo.= "data: ,\"heading" . $i . "\": \"" . $Value . "\" \n";
+	++$i;
+}
+
+$echo.= "data: }\n"; // JSON
+$echo.= PHP_EOL; // Important!
+echo $echo;
+flush();
+
+$TitleBar = '<table class="dashboard_table">
 		<tr class="dashboard_row">
 			<th colspan="5" class="dashboard_th">
-				<div class="CanvasTitle">', _('Latest Bank Transactions'), '
-					<img title="', _('Remove From Your Dashboard'), '" class="menu_exit_icon" src="css/new/images/cross.png" onclick="RemoveApplet(', $MyRow['id'], ', \'', $Title, '\'); return false;" />
+				<div class="CanvasTitle">' . _('Latest Bank Transactions') . '
+					<img title="' . _('Remove From Your Dashboard') . '" class="menu_exit_icon" src="css/new/images/cross.png" onclick="RemoveApplet(' . $MyRow['id'] . ', \'' . $Title . '\'); return false;" />
 				</div>
 			</th>
 		</tr>';
@@ -59,5 +80,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 		</tr>';
 }
 echo '</table>';
+
+//flush();
 
 ?>
