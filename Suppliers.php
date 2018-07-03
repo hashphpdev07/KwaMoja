@@ -9,283 +9,6 @@ include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
 include ('includes/CountriesArray.php');
 
-function Is_ValidAccount($ActNo) {
-
-	if (mb_strlen($ActNo) < 16) {
-		echo _('NZ account numbers must have 16 numeric characters in it');
-		return False;
-	}
-
-	if (!Is_double((double)$ActNo)) {
-		echo _('NZ account numbers entered must use all numeric characters in it');
-		return False;
-	}
-
-	$BankPrefix = mb_substr($ActNo, 0, 2);
-	$BranchNumber = (int)(mb_substr($ActNo, 3, 4));
-
-	if ($BankPrefix == '29') {
-		echo _('NZ Accounts codes with the United Bank are not verified') . ', ' . _('be careful to enter the correct account number');
-		exit;
-	}
-
-	//Verify correct branch details
-	switch ($BankPrefix) {
-
-		case '01':
-			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1100 and $BranchNumber <= 1199))) {
-				echo _('ANZ branches must be between 0001 and 0999 or between 1100 and 1199') . '. ' . _('The branch number used is invalid');
-				return False;
-			}
-		break;
-		case '02':
-			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1200 and $BranchNumber <= 1299))) {
-				echo _('Bank Of New Zealand branches must be between 0001 and 0999 or between 1200 and 1299') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-		case '03':
-			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1300 and $BranchNumber <= 1399))) {
-				echo _('Westpac Trust branches must be between 0001 and 0999 or between 1300 and 1399') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '06':
-			if (!(($BranchNumber >= 1 and $BranchNumber <= 999) or ($BranchNumber >= 1400 and $BranchNumber <= 1499))) {
-				echo _('National Bank branches must be between 0001 and 0999 or between 1400 and 1499') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '08':
-			if (!($BranchNumber >= 6500 and $BranchNumber <= 6599)) {
-				echo _('National Australia branches must be between 6500 and 6599') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-		case '09':
-			if ($BranchNumber != 0) {
-				echo _('The Reserve Bank branch should be 0000') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-		case '12':
-
-			//"13" "14" "15", "16", "17", "18", "19", "20", "21", "22", "23", "24":
-			if (!($BranchNumber >= 3000 and $BranchNumber <= 4999)) {
-				echo _('Trust Bank and Regional Bank branches must be between 3000 and 4999') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '11':
-			if (!($BranchNumber >= 5000 and $BranchNumber <= 6499)) {
-				echo _('Post Office Bank branches must be between 5000 and 6499') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '25':
-			if (!($BranchNumber >= 2500 and $BranchNumber <= 2599)) {
-				echo _('Countrywide Bank branches must be between 2500 and 2599') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-		case '29':
-			if (!($BranchNumber >= 2150 and $BranchNumber <= 2299)) {
-				echo _('United Bank branches must be between 2150 and 2299') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '30':
-			if (!($BranchNumber >= 2900 and $BranchNumber <= 2949)) {
-				echo _('Hong Kong and Shanghai branches must be between 2900 and 2949') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '31':
-			if (!($BranchNumber >= 2800 and $BranchNumber <= 2849)) {
-				echo _('Citibank NA branches must be between 2800 and 2849') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		case '33':
-			if (!($BranchNumber >= 6700 and $BranchNumber <= 6799)) {
-				echo _('Rural Bank branches must be between 6700 and 6799') . '. ' . _('The branch number used is invalid');
-				return False;
-				exit;
-			}
-		break;
-
-		default:
-			echo _('The prefix') . ' - ' . $BankPrefix . ' ' . _('is not a valid New Zealand Bank') . '.<br />' . _('if you are outside New Zealand error trapping relevant to your country should be used');
-			return False;
-			exit;
-
-	} // end of first Bank prefix switch
-	for ($i = 3;$i <= 14;$i++) {
-
-		$DigitVal = (double)(mb_substr($ActNo, $i, 1));
-
-		switch ($i) {
-			case 3:
-				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = 0;
-				} else {
-					$CheckSum = $CheckSum + ($DigitVal * 6);
-				}
-			break;
-
-			case 4:
-				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = 0;
-				} else {
-					$CheckSum = $CheckSum + ($DigitVal * 3);
-				}
-			break;
-
-			case 5:
-				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = 0;
-				} else {
-					$CheckSum = $CheckSum + ($DigitVal * 7);
-				}
-			break;
-
-			case 6:
-				if ($BankPrefix == '08' or $BankPrefix == '09' or $BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = 0;
-				} else {
-					$CheckSum = $CheckSum + ($DigitVal * 9);
-				}
-			break;
-
-			case 7:
-				if ($BankPrefix == '08') {
-					$CheckSum = $CheckSum + $DigitVal * 7;
-				} elseif ($BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = $CheckSum + $DigitVal * 1;
-				}
-			break;
-
-			case 8:
-				if ($BankPrefix == '08') {
-					$CheckSum = $CheckSum + ($DigitVal * 6);
-				} elseif ($BankPrefix == '09') {
-					$CheckSum = 0;
-				} elseif ($BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = $CheckSum + $DigitVal * 7;
-				} else {
-					$CheckSum = $CheckSum + $DigitVal * 10;
-				}
-			break;
-
-			case 9:
-				if ($BankPrefix == '09') {
-					$CheckSum = 0;
-				} elseif ($BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = $CheckSum + $DigitVal * 3;
-				} else {
-					$CheckSum = $CheckSum + $DigitVal * 5;
-				}
-			break;
-
-			case 10:
-				if ($BankPrefix == '08') {
-					$CheckSum = $CheckSum + $DigitVal * 4;
-				} elseif ($BankPrefix == '09') {
-					if (($DigitVal * 5) > 9) {
-						$CheckSum = $CheckSum + (int)mb_substr((string)($DigitVal * 5), 0, 1) + (int)mb_substr((string)($DigitVal * 5), mb_strlen((string)($DigitVal * 5)) - 1, 1);
-					} else {
-						$CheckSum = $CheckSum + $DigitVal * 5;
-					}
-				} elseif ($BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = $CheckSum + $DigitVal;
-				} else {
-					$CheckSum = $CheckSum + $DigitVal * 8;
-				}
-			break;
-
-			case 11:
-				if ($BankPrefix == '08') {
-					$CheckSum = $CheckSum + $DigitVal * 3;
-				} elseif ($BankPrefix == '09') {
-					if (($DigitVal * 4) > 9) {
-						$CheckSum = $CheckSum + (int)mb_substr(($DigitVal * 4), 0, 1) + (int)mb_substr(($DigitVal * 4), mb_strlen($DigitVal * 4) - 1, 1);
-					} else {
-						$CheckSum = $CheckSum + $DigitVal * 4;
-					}
-				} elseif ($BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = $CheckSum + $DigitVal * 7;
-				} else {
-					$CheckSum = $CheckSum + $DigitVal * 4;
-				}
-			break;
-
-			case 12:
-				if ($BankPrefix == '25' or $BankPrefix == '33') {
-					$CheckSum = $CheckSum + $DigitVal * 3;
-				} elseif ($BankPrefix == '09') {
-					if (($DigitVal * 3) > 9) {
-						$CheckSum = $CheckSum + (int)mb_substr(($DigitVal * 3), 0, 1) + (int)mb_substr(($DigitVal * 3), mb_strlen($DigitVal * 3) - 1, 1);
-					} else {
-						$CheckSum = $CheckSum + $DigitVal * 3;
-					}
-				} else {
-					$CheckSum = $CheckSum + $DigitVal * 2;
-				}
-			break;
-
-			case 13:
-				if ($BankPrefix == '09') {
-					if (($DigitVal * 2) > 9) {
-						$CheckSum = $CheckSum + (int)mb_substr(($DigitVal * 2), 0, 1) + (int)mb_substr(($DigitVal * 2), mb_strlen($DigitVal * 2) - 1, 1);
-					} else {
-						$CheckSum = $CheckSum + $DigitVal * 2;
-					}
-				} else {
-					$CheckSum = $CheckSum + $DigitVal;
-				}
-			break;
-
-			case 14:
-				if ($BankPrefix == '09') {
-					$CheckSum = $CheckSum + $DigitVal;
-				}
-			break;
-		} //end switch
-		
-	} //end for loop
-	if ($BankPrefix == '25' or $BankPrefix == '33') {
-		if ($CheckSum / 10 - (int)($CheckSum / 10) != 0) {
-			echo '<p>' . _('The account number entered does not meet the banking check sum requirement and cannot be a valid account number');
-			return False;
-		}
-	} else {
-		if ($CheckSum / 11 - (int)($CheckSum / 11) != 0) {
-			echo '<p>' . _('The account number entered does not meet the banking check sum requirement and cannot be a valid account number');
-			return False;
-		}
-	}
-
-} //End function
-
-
 if (isset($_GET['SupplierID'])) {
 	$SupplierID = mb_strtoupper(stripslashes($_GET['SupplierID']));
 } elseif (isset($_POST['SupplierID'])) {
@@ -294,11 +17,13 @@ if (isset($_GET['SupplierID'])) {
 	unset($SupplierID);
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Suppliers') . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Search'), '" alt="" />', ' ', _('Suppliers'), '
+	</p>';
 
 if (isset($SupplierID)) {
 	echo '<p>
-			<a href="' . $RootPath . '/SupplierContacts.php?SupplierID=' . urlencode(stripslashes($SupplierID)) . '">' . _('Review Supplier Contact Details') . '</a>
+			<a href="', $RootPath, '/SupplierContacts.php?SupplierID=', urlencode(stripslashes($SupplierID)), '">', _('Review Supplier Contact Details'), '</a>
 		</p>';
 }
 
@@ -330,10 +55,6 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		$InputError = 1;
 		prnMsg(_('The Supplier Code cannot be empty'), 'error');
 	}
-	//	if (ContainsIllegalCharacters($SupplierID)) {
-	//		$InputError = 1;
-	//		prnMsg(_('The supplier code cannot contain any of the illegal characters') ,'error');
-	//	}
 	if (mb_strlen($_POST['Phone']) > 25) {
 		$InputError = 1;
 		prnMsg(_('The telephone number must be 25 characters or less long'), 'error');
@@ -367,71 +88,63 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		prnMsg(_('You mst select a default shipper for tos supplier'), 'error');
 	}
 
-	/*
-	elseif (mb_strlen($_POST['BankAct']) > 1 ) {
-	if (!Is_ValidAccount($_POST['BankAct'])) {
-	prnMsg(_('The bank account entry is not a valid New Zealand bank account number. This is (of course) no concern if the business operates outside of New Zealand'),'warn');
-	}
-	}
-	*/
-
 	if ($InputError != 1) {
 
 		$SQL_SupplierSince = FormatDateForSQL($_POST['SupplierSince']);
 
-		$latitude = 0;
-		$longitude = 0;
+		$Latitude = 0;
+		$Longitude = 0;
 		if ($_SESSION['geocode_integration'] == 1) {
 			// Get the lat/long from our geocoding host
 			$SQL = "SELECT * FROM geocode_param WHERE 1";
 			$ErrMsg = _('An error occurred in retrieving the information');
-			$Resultgeo = DB_query($SQL, $ErrMsg);
-			$row = DB_fetch_array($Resultgeo);
-			$api_key = $row['geocode_key'];
-			$map_host = $row['map_host'];
-			define('MAPS_HOST', $map_host);
-			define('KEY', $api_key);
+			$ResultGeo = DB_query($SQL, $ErrMsg);
+			$Row = DB_fetch_array($ResultGeo);
+			$ApiKey = $Row['geocode_key'];
+			$MapHost = $Row['map_host'];
+			define('MAPS_HOST', $MapHost);
+			define('KEY', $ApiKey);
 			// check that some sane values are setup already in geocode tables, if not skip the geocoding but add the record anyway.
-			if ($map_host == "") {
-				echo '<div class="warn">' . _('Warning - Geocode Integration is enabled, but no hosts are setup.  Go to Geocode Setup') . '</div>';
+			if ($MapHost == "") {
+				echo '<div class="warn">', _('Warning - Geocode Integration is enabled, but no hosts are setup.  Go to Geocode Setup'), '</div>';
 			} else {
-				$address = urlencode($_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . ', ' . $_POST['Address6']);
+				$Address = urlencode($_POST['Address1'] . ', ' . $_POST['Address2'] . ', ' . $_POST['Address3'] . ', ' . $_POST['Address4'] . ', ' . $_POST['Address5'] . ', ' . $_POST['Address6']);
 
-				$base_url = "http://" . MAPS_HOST . "/maps/api/geocode/xml?address=";
-				$request_url = $base_url . $address . ',&sensor=true';
+				$BaseURL = "http://" . MAPS_HOST . "/maps/api/geocode/xml?address=";
+				$RequestURL = $BaseURL . $Address . ',&sensor=true';
 
-				$xml = simplexml_load_string(utf8_encode(file_get_contents($request_url))) or die("url not loading");
-				//			$xml = simplexml_load_file($request_url) or die("url not loading");
-				$status = $xml->status;
-				if (strcmp($status, 'OK') == 0) {
+				$xml = simplexml_load_string(utf8_encode(file_get_contents($RequestURL))) or die("url not loading");
+				//			$xml = simplexml_load_file($RequestURL) or die("url not loading");
+				$Status = $xml->status;
+				if (strcmp($Status, 'OK') == 0) {
 					// Successful geocode
-					$geocode_pending = false;
+					$GeoCodePending = false;
 					// Format: Longitude, Latitude, Altitude
-					$latitude = $xml->result->geometry->location->lat;
-					$longitude = $xml->result->geometry->location->lng;
+					$Latitude = $xml->result->geometry->location->lat;
+					$Longitude = $xml->result->geometry->location->lng;
 				} else {
 					// failure to geocode
-					$geocode_pending = false;
-					echo '<p>' . _('Address') . ': ' . $address . ' ' . _('failed to geocode') . "\n";
-					echo _('Received status') . ' ' . $status . "\n" . '</p>';
+					$GeoCodePending = false;
+					echo '<p>', _('Address'), ': ', $Address, ' ', _('failed to geocode'), "\n";
+					echo _('Received status'), ' ', $Status, "\n", '</p>';
 				}
 			}
 		}
 		if (isset($_POST['update'])) {
 
-			$supptranssql = "SELECT supplierno
+			$SuppTransSQL = "SELECT supplierno
 							FROM supptrans
 							WHERE supplierno='" . DB_escape_string($SupplierID) . "'";
-			$suppresult = DB_query($supptranssql);
-			$supptrans = DB_num_rows($suppresult);
+			$SuppResult = DB_query($SuppTransSQL);
+			$SuppTrans = DB_num_rows($SuppResult);
 
-			$suppcurrssql = "SELECT currcode
+			$SuppCurrSQL = "SELECT currcode
 							FROM suppliers
 							WHERE supplierid='" . DB_escape_string($SupplierID) . "'";
-			$currresult = DB_query($suppcurrssql);
-			$suppcurr = DB_fetch_row($currresult);
+			$CurrResult = DB_query($SuppCurrSQL);
+			$SuppCurr = DB_fetch_row($CurrResult);
 
-			if ($supptrans == 0) {
+			if ($SuppTrans == 0) {
 				$SQL = "UPDATE suppliers SET suppname='" . $_POST['SuppName'] . "',
 							address1='" . $_POST['Address1'] . "',
 							address2='" . $_POST['Address2'] . "',
@@ -454,14 +167,15 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 							taxgroupid='" . $_POST['TaxGroup'] . "',
 							factorcompanyid='" . $_POST['FactorID'] . "',
 							suppliergroupid='" . $_POST['GroupID'] . "',
-							lat='" . $latitude . "',
-							lng='" . $longitude . "',
+							salespersonid='" . $_POST['SalesPersonID'] . "',
+							lat='" . $Latitude . "',
+							lng='" . $Longitude . "',
 							defaultshipper='" . $_POST['DefaultShipper'] . "',
 							defaultgl='" . $_POST['DefaultGL'] . "',
 							taxref='" . $_POST['TaxRef'] . "'
 						WHERE supplierid = '" . DB_escape_string($SupplierID) . "'";
 			} else {
-				if ($suppcurr[0] != $_POST['CurrCode']) {
+				if ($SuppCurr[0] != $_POST['CurrCode']) {
 					prnMsg(_('Cannot change currency code as transactions already exist'), 'info');
 				}
 				$SQL = "UPDATE suppliers SET suppname='" . $_POST['SuppName'] . "',
@@ -485,8 +199,9 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 							taxgroupid='" . $_POST['TaxGroup'] . "',
 							factorcompanyid='" . $_POST['FactorID'] . "',
 							suppliergroupid='" . $_POST['GroupID'] . "',
-							lat='" . $latitude . "',
-							lng='" . $longitude . "',
+							salespersonid='" . $_POST['SalesPersonID'] . "',
+							lat='" . $Latitude . "',
+							lng='" . $Longitude . "',
 							defaultshipper='" . $_POST['DefaultShipper'] . "',
 							defaultgl='" . $_POST['DefaultGL'] . "',
 							taxref='" . $_POST['TaxRef'] . "'
@@ -529,6 +244,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 										taxgroupid,
 										factorcompanyid,
 										suppliergroupid,
+										salespersonid,
 										lat,
 										lng,
 										defaultshipper,
@@ -557,8 +273,9 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 									'" . $_POST['TaxGroup'] . "',
 									'" . $_POST['FactorID'] . "',
 									'" . $_POST['GroupID'] . "',
-									'" . $latitude . "',
-									'" . $longitude . "',
+									'" . $_POST['SalesPersonID'] . "',
+									'" . $Latitude . "',
+									'" . $Longitude . "',
 									'" . $_POST['DefaultShipper'] . "',
 									'" . $_POST['DefaultGL'] . "',
 									'" . $_POST['TaxRef'] . "')";
@@ -571,7 +288,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 			prnMsg(_('A new supplier for') . ' ' . $_POST['SuppName'] . ' ' . _('has been added to the database'), 'success');
 
 			echo '<p>
-					<a href="' . $RootPath . '/SupplierContacts.php?SupplierID=' . urlencode($SupplierID) . '">' . _('Review Supplier Contact Details') . '</a>
+					<a href="', $RootPath, '/SupplierContacts.php?SupplierID=', urlencode($SupplierID), '">', _('Review Supplier Contact Details'), '</a>
 				  </p>';
 
 			unset($SupplierID);
@@ -597,6 +314,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 			unset($_POST['TaxGroup']);
 			unset($_POST['FactorID']);
 			unset($_POST['GroupID']);
+			unset($_POST['SalesPersonID']);
 			unset($_POST['DefaultShipper']);
 			unset($_POST['DefaultGL']);
 			unset($_POST['TaxRef']);
@@ -654,8 +372,8 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 	
 }
 
-echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<fieldset>';
 
@@ -667,6 +385,7 @@ if (!isset($SupplierID)) {
 				<label for="SupplierID">', _('Supplier Code'), ':</label>
 				<input type="text" autofocus="autofocus" required="required" name="SupplierID" size="11" maxlength="10" />
 				<fieldhelp>', _('The supplier id should not be more than 10 legal characters long, and cannot be blank'), '</fieldhelp>
+
 			</field>';
 	}
 	$_POST['SuppName'] = '';
@@ -691,6 +410,7 @@ if (!isset($SupplierID)) {
 	$_POST['TaxGroup'] = '';
 	$_POST['FactorID'] = '';
 	$_POST['GroupID'] = '';
+	$_POST['SalesPersonID'] = '';
 	$_POST['DefaultShipper'] = $_SESSION['Default_Shipper'];
 	$_POST['TaxRef'] = '';
 } elseif (isset($DuplicateSupplierNo)) {
@@ -884,7 +604,6 @@ $Result = DB_query("SELECT terms, termsindicator FROM paymentterms");
 echo '<field>
 		<label for="PaymentTerms">', _('Payment Terms'), ':</label>
 		<select required="required" name="PaymentTerms">';
-
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($_POST['PaymentTerms'] == $MyRow['termsindicator']) {
 		echo '<option selected="selected" value="', $MyRow['termsindicator'], '">', $MyRow['terms'], '</option>';
@@ -934,6 +653,30 @@ echo '<field>
 		<label for="TaxRef">', _('Tax Reference'), ':</label>
 		<input type="text" name="TaxRef" size="21" maxlength="20" value="', $_POST['TaxRef'], '" />
 		<fieldhelp>', _('The tax reference for this supplier'), '</fieldhelp>
+	<fieldhelp>', _('Select the supplier group that this supplier belongs to.'), '</fieldhelp>
+</field>';
+
+$Result = DB_query("SELECT salesmancode, salesmanname FROM salesman");
+
+echo '<field>
+		<label for="SalesPersonID">', _('Sales Person'), ':</label>
+		<select name="SalesPersonID">';
+echo '<option value="">', _('None'), '</option>';
+while ($MyRow = DB_fetch_array($Result)) {
+	if ($_POST['SalesPersonID'] == $MyRow['salesmancode']) {
+		echo '<option selected="selected" value="', $MyRow['salesmancode'], '">', $MyRow['salesmanname'], '</option>';
+	} else {
+		echo '<option value="', $MyRow['salesmancode'], '">', $MyRow['salesmanname'], '</option>';
+	}
+} //end while loop
+echo '</select>
+	<fieldhelp>', _('Select the sales person that this supplier refers to. If this supplier is not a sales person then select "None".'), '</fieldhelp>
+</field>';
+
+echo '<field>
+		<label for="TaxRef">', _('Tax Reference'), ':</label>
+		<input type="text" name="TaxRef" size="21" maxlength="20" value="', $_POST['TaxRef'], '" />
+		<fieldhelp>', _('The tax reference for this supplier.'), '</fieldhelp>
 	</field>';
 
 $Result = DB_query("SELECT currency, currabrev FROM currencies");
@@ -973,7 +716,6 @@ $Result = DB_query($SQL, $ErrMsg);
 echo '<field>
 		<label for="DefaultShipper">', _('Default Shipper'), ':</label>
 		<select required="required" name="DefaultShipper">';
-
 while ($MyRow = DB_fetch_array($Result)) {
 	if ($_POST['DefaultShipper'] == $MyRow['shipper_id']) {
 		echo '<option selected="selected" value="', $MyRow['shipper_id'], '">', $MyRow['shippername'], '</option>';
@@ -981,7 +723,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="', $MyRow['shipper_id'], '">', $MyRow['shippername'], '</option>';
 	}
 }
-
 echo '</select>
 	<fieldhelp>', _('If the supplier has a default shipper that they normally use then select it here, and it will appear by default when you create a purchase order for this supplier.'), '</fieldhelp>
 </field>';
@@ -1038,10 +779,11 @@ if (!isset($SupplierID) or isset($DuplicateSupplierNo)) {
 	echo '<div class="centre">
 					<input type="submit" name="update" value="' . _('Update Supplier') . '" />
 				</div>';
+
 	prnMsg(_('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure there are no outstanding purchase orders or existing accounts payable transactions before the deletion is processed'), 'Warn');
 	echo '<div class="centre">
-				<input type="submit" name="delete" value="' . _('Delete Supplier') . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this supplier?') . '\');" />
-			</div>';
+			<input type="submit" name="delete" value="', _('Delete Supplier'), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this supplier?'), '\');" />
+		</div>';
 }
 echo '</form>';
 // end of main ifs
