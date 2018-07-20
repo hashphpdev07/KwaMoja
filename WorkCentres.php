@@ -2,6 +2,7 @@
 /* Defines the various centres of work within a manufacturing company. Also the overhead and labour rates applicable to the work centre and its standard capacity */
 
 include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 $Title = _('Work Centres');
 $ViewTopic = 'Manufacturing';
 $BookMark = 'WorkCentres';
@@ -22,6 +23,10 @@ if (isset($_POST['submit'])) {
 	 ie the page has called itself with some user input */
 
 	//first off validate inputs sensible
+	if (RecordExists('workcentres', 'code', $_POST['Code']) and !isset($SelectedWC)) {
+		$InputError = 1;
+		prnMsg(_('This work centre already exists in the database. Please use a different code.'), 'error');
+	}
 	if (mb_strlen($_POST['Code']) < 2) {
 		$InputError = 1;
 		prnMsg(_('The Work Centre code must be at least 2 characters long'), 'error');
@@ -135,20 +140,21 @@ if (!isset($SelectedWC)) {
 					<th class="SortedColumn">', _('Location'), '</th>
 					<th>', _('Overhead GL Account'), '</th>
 					<th>', _('Overhead Per Hour'), '</th>
+					<th colspan="2"></th>
 				</tr>
 			</thead>';
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
 
-		printf('<tr>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td><a href="%s&amp;SelectedWC=%s">' . _('Edit') . '</a></td>
-					<td><a href="%s&amp;SelectedWC=%s&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this work centre?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>', $MyRow['code'], $MyRow['description'], $MyRow['locationname'], $MyRow['overheadrecoveryact'] . ' - ' . $MyRow['accountname'], $MyRow['overheadperhour'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['code'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['code']);
+		echo '<tr class="striped_row">
+				<td>', $MyRow['code'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td>', $MyRow['locationname'], '</td>
+				<td>', $MyRow['overheadrecoveryact'], ' - ', $MyRow['accountname'], '</td>
+				<td class="number">', $MyRow['overheadperhour'], '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedWC=', urlencode($MyRow['code']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedWC=', urlencode($MyRow['code']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this work centre?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 	}
 	echo '</tbody>';
 	//END WHILE LIST LOOP
@@ -157,12 +163,16 @@ if (!isset($SelectedWC)) {
 
 //end of ifs and buts!
 if (isset($SelectedWC)) {
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
-	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Show all Work Centres') . '</a></div>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		</p>';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Show all Work Centres'), '</a>
+		</div>';
 }
 
-echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (isset($SelectedWC)) {
 	//editing an existing work centre
@@ -187,24 +197,36 @@ if (isset($SelectedWC)) {
 	$_POST['OverheadRecoveryAct'] = $MyRow['overheadrecoveryact'];
 	$_POST['OverheadPerHour'] = $MyRow['overheadperhour'];
 
-	echo '<input type="hidden" name="SelectedWC" value="' . $SelectedWC . '" />
-		<input type="hidden" name="Code" value="' . $_POST['Code'] . '" />
-		<table>
-			<tr>
-				<td>' . _('Work Centre Code') . ':</td>
-				<td>' . $_POST['Code'] . '</td>
-			</tr>';
+	echo '<input type="hidden" name="SelectedWC" value="', $SelectedWC, '" />
+		<input type="hidden" name="Code" value="', $_POST['Code'], '" />
+		<fieldset>
+			<legend>', _('Edit Work Centre'), ' - ', $_POST['Description'], ' ', '(', $SelectedWC, ')</legend>
+			<field>
+				<label for="Code">', _('Work Centre Code'), ':</label>
+				<div class="fieldtext">', $_POST['Code'], '</div>
+			</field>';
 
 } else { //end of if $SelectedWC only do the else when a new record is being entered
 	if (!isset($_POST['Code'])) {
 		$_POST['Code'] = '';
 	}
-	echo '<table>
-			<tr>
-				<td>' . _('Work Centre Code') . ':</td>
-				<td><input type="text" class="AlphaNumeric" name="Code" size="6" autofocus="autofocus" required="required" maxlength="5" value="' . $_POST['Code'] . '" /></td>
-			</tr>';
+	echo '<fieldset>
+			<legend>', _('Create New Work Centre'), '</legend>
+			<field>
+				<label for="Code">', _('Work Centre Code'), ':</label>
+				<input type="text" class="AlphaNumeric" name="Code" size="6" autofocus="autofocus" required="required" maxlength="5" value="', $_POST['Code'], '" />
+				<fieldhelp>', _('The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used.'), '</fieldhelp>
+			</field>';
 }
+
+if (!isset($_POST['Description'])) {
+	$_POST['Description'] = '';
+}
+echo '<field>
+		<label for="Description">', _('Work Centre Description'), ':</label>
+		<input type="text" name="Description" size="21" required="required" autofocus="autofocus" maxlength="20" value="', $_POST['Description'], '" />
+		<fieldhelp>', _('A description that helps the user identify this work centre'), '</fieldhelp>
+	</field>';
 
 $SQL = "SELECT locationname,
 				locations.loccode
@@ -214,33 +236,19 @@ $SQL = "SELECT locationname,
 				AND locationusers.userid='" . $_SESSION['UserID'] . "'
 				AND locationusers.canupd=1";
 $Result = DB_query($SQL);
-
-if (!isset($_POST['Description'])) {
-	$_POST['Description'] = '';
-}
-echo '<tr>
-		<td>' . _('Work Centre Description') . ':</td>
-		<td><input type="text" name="Description" size="21" required="required" maxlength="20" value="' . $_POST['Description'] . '" /></td>
-	</tr>
-	<tr><td>' . _('Location') . ':</td>
-		<td><select required="required" name="Location">';
-
+echo '<field>
+		<label for="Location">', _('Location'), ':</label>
+		<select required="required" name="Location">';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['Location']) and $MyRow['loccode'] == $_POST['Location']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 	}
-	echo $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
-
 } //end while loop
-DB_free_result($Result);
-
-echo '</select></td>
-	</tr>
-	<tr>
-		<td>' . _('Overhead Recovery GL Account') . ':</td>
-		<td><select required="required" name="OverheadRecoveryAct">';
+echo '</select>
+	<fieldhelp>', _('The location of this work centre'), '</fieldhelp>
+</field>';
 
 //SQL to poulate account selection boxes
 $SQL = "SELECT accountcode,
@@ -254,31 +262,32 @@ $SQL = "SELECT accountcode,
 		ORDER BY accountcode";
 
 $Result = DB_query($SQL);
-
+echo '<field>
+		<label for="OverheadRecoveryAct">', _('Overhead Recovery GL Account'), ':</label>
+		<select required="required" name="OverheadRecoveryAct">';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['OverheadRecoveryAct']) and $MyRow['accountcode'] == $_POST['OverheadRecoveryAct']) {
-		echo '<option selected="selected" value="' . $MyRow['accountcode'] . '">' . htmlspecialchars($MyRow['accountcode'] . ' - ' . $MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
+		echo '<option selected="selected" value="', $MyRow['accountcode'], '">', htmlspecialchars($MyRow['accountcode'] . ' - ' . $MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 	} else {
-		echo '<option value="' . $MyRow['accountcode'] . '">' . htmlspecialchars($MyRow['accountcode'] . ' - ' . $MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
+		echo '<option value="', $MyRow['accountcode'], '">', htmlspecialchars($MyRow['accountcode'] . ' - ' . $MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 	}
 } //end while loop
-DB_free_result($Result);
+echo '</select>
+	<fieldhelp>', _('The general ledger expense code where any overheads absorbed into the costings at this work centre will be posted.'), '</fieldhelp>
+</field>';
 
 if (!isset($_POST['OverheadPerHour'])) {
 	$_POST['OverheadPerHour'] = 0;
 }
-
-echo '</select></td></tr>';
-echo '<tr>
-		<td>' . _('Overhead Per Hour') . ':</td>
-		<td><input type="text" class="number" name="OverheadPerHour" size="6" required="required" maxlength="6" value="' . $_POST['OverheadPerHour'] . '" />';
-
-echo '</td>
-	</tr>
-	</table>';
+echo '<field>
+		<label for="OverheadPerHour">', _('Overhead Per Hour'), ':</label>
+		<input type="text" class="number" name="OverheadPerHour" size="6" required="required" maxlength="6" value="', $_POST['OverheadPerHour'], '" />
+		<fieldhelp>', _('The hourly raate at which to absorb overhead costs at this work centre'), '</fieldhelp>
+	</field>
+</fieldset>';
 
 echo '<div class="centre">
-		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="', _('Enter Information'), '" />
 	</div>';
 
 echo '</form>';

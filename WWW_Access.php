@@ -132,6 +132,7 @@ if (!isset($SelectedRole)) {
 	echo '<table>
 			<tr>
 				<th>', _('Role'), '</th>
+				<th colspan="2"></th>
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -176,7 +177,8 @@ echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 if (isset($_POST['SelectedRole'])) {
 	echo '<input type="hidden" name="SelectedRole" value="', $_POST['SelectedRole'], '" />';
 }
-echo '<fieldset>';
+echo '<fieldset>
+		<legend>', _('Security Role Name'), '</legend>';
 if (!isset($_POST['SecRoleName'])) {
 	$_POST['SecRoleName'] = '';
 }

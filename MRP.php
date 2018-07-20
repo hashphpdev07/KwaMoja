@@ -316,7 +316,7 @@ if (isset($_POST['submit'])) {
 											 whererequired)
 								   SELECT locstock.stockid,
 										  CURRENT_DATE,
-										  (locstock.reorderlevel - locstock.quantity) AS reordqty,
+										  locstock.reorderlevel AS reordqty,
 										  'REORD',
 										  '1',
 										  '1',
