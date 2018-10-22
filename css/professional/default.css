@@ -576,3 +576,9 @@ color:#000;
 text-align:center;
 margin:0 auto;
 }
+
+.gallery {
+	margin: 5px;
+	float: left;
+	/* Class selector to let an element float to the left. */
+}

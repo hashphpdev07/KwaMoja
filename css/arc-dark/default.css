@@ -584,3 +584,9 @@ min-height:26px;
 margin:0 auto;
 margin-bottom:4px;
 }
+
+.gallery {
+	margin: 5px;
+	float: left;
+	/* Class selector to let an element float to the left. */
+}
