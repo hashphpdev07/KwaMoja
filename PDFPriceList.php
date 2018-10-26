@@ -412,9 +412,9 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 		// Option to select the order of the items in the report:
 		echo '<field>
 				<label for="ItemOrder">', _('Sort items by'), ':</label>
-				<input checked="checked" name="ItemOrder" type="radio" value="Code">Currency, category and code<br>
+				<input checked="checked" name="ItemOrder" type="radio" value="Code">', _('Currency, category and code'), '<br>
 				<label>&nbsp;</label>
-				<input name="ItemOrder" type="radio" value="Description">Currency, category and description
+				<input name="ItemOrder" type="radio" value="Description">', _('Currency, category and description'), '
 				<fieldhelp>', _('Select the order of the items in the report'), '</fieldhelp>
 			</field>';
 
