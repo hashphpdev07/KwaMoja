@@ -21,6 +21,10 @@ if (isset($_GET['ShowObsolete'])) { // Show obsolete items.
 	$_POST['ShowObsolete'] = $_GET['ShowObsolete'];
 }
 
+if (isset($_GET['ItemOrder'])) { // Option to select the order of the items in the report.
+	$_POST['ItemOrder'] = $_GET['ItemOrder'];
+}
+
 if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST['Categories']) > 0) {
 
 	/*	if ($_POST['CustomerSpecials']=='Customer Special Prices Only') {
@@ -43,6 +47,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	$ShowObsolete = " AND `stockmaster`.`discontinued` != 1 "; // Query element to exclude obsolete items.
 	if ($_POST['ShowObsolete']) {
 		$ShowObsolete = ''; // Cleans the query element to exclude obsolete items.
+		
+	}
+
+	// Option to select the order of the items in the report:
+	$ItemOrder = 'stockmaster.stockid'; // Query element to sort by currency, item_stock_category, and item_code.
+	if ($_POST['ItemOrder'] == 'Description') {
+		$ItemOrder = 'stockmaster.description'; // Query element to sort by currency, item_stock_category, and item_description.
 		
 	}
 
@@ -110,7 +121,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 					prices.currabrev,
 					stockcategory.categorydescription,
 					stockmaster.stockid,
-					prices.startdate";
+					prices.startdate," . $ItemOrder;
 
 	} else {
 		/* the sales type list only */
@@ -146,7 +157,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 					prices.currabrev,
 					stockcategory.categorydescription,
 					stockmaster.stockid,
-					prices.startdate";
+					prices.startdate" . $ItemOrder;
 	}
 
 	$PricesResult = DB_query($SQL, '', '', false, false);
@@ -283,6 +294,17 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	}
 	/*end inventory valn while loop */
 
+	// Warns if obsolete items are included:
+	if ($_POST['ShowObsolete']) {
+		$FontSize = 8;
+		$YPos-= $FontSize; // Jumps additional line.
+		if ($YPos < $Bottom_Margin + $FontSize) {
+			PageHeader();
+		}
+		$PDF->addText($Left_Margin, $YPos, $FontSize, _('* Obsolete items included.')); // Warning text.
+		
+	}
+
 	$FontSize = 10;
 	$FileName = $_SESSION['DatabaseName'] . '_' . _('Price_List') . '_' . date('Y-m-d') . '.pdf';
 	ob_clean();
@@ -385,6 +407,15 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 				<label for="ShowObsolete">', _('Show obsolete items'), ':</label>
 				<input', $Checked, 'id="ShowObsolete" name="ShowObsolete" type="checkbox" />
 				<fieldhelp>', _('Check this box to show the obsolete items'), ':</fieldhelp>
+			</field>';
+
+		// Option to select the order of the items in the report:
+		echo '<field>
+				<label for="ItemOrder">', _('Sort items by'), ':</label>
+				<input checked="checked" name="ItemOrder" type="radio" value="Code">Currency, category and code<br>
+				<label>&nbsp;</label>
+				<input name="ItemOrder" type="radio" value="Description">Currency, category and description
+				<fieldhelp>', _('Select the order of the items in the report'), '</fieldhelp>
 			</field>';
 
 		echo '</fieldset>';
