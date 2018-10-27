@@ -275,6 +275,11 @@ color:#000;
 text-align:center;
 }
 
+.page_title_icon {
+padding-right:7px;
+width:32px;
+}
+
 .menu_group_items a:hover {
 color:#00a;
 text-decoration:underline;
@@ -570,4 +575,10 @@ position:static;
 color:#000;
 text-align:center;
 margin:0 auto;
+}
+
+.gallery {
+	margin: 5px;
+	float: left;
+	/* Class selector to let an element float to the left. */
 }

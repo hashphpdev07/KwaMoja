@@ -1,8 +1,7 @@
 <?php
-
 /* $Id: PDFQALabel.php agaluski $*/
 
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['GRNNo'])) {
 	$GRNNo = $_GET['GRNNo'];
@@ -15,7 +14,7 @@ $FormDesign = simplexml_load_file($PathPrefix . 'companies/' . $_SESSION['Databa
 // Set the paper size/orintation
 $PaperSize = $FormDesign->PaperSize;
 $line_height = $FormDesign->LineHeight;
-include('includes/PDFStarter.php');
+include ('includes/PDFStarter.php');
 $PageNumber = 1;
 $PDF->addInfo('Title', _('QA Label'));
 
@@ -29,7 +28,6 @@ if ($GRNNo == 'Preview') {
 	$MyRow['orderno'] = '0000000000';
 	$NoOfGRNs = 1;
 } else { //NOT PREVIEW
-
 	$SQL = "SELECT grns.itemcode,
 				grns.grnno,
 				grns.deliverydate,
@@ -45,7 +43,6 @@ if ($GRNNo == 'Preview') {
 	$GRNResult = DB_query($SQL);
 	$NoOfGRNs = DB_num_rows($GRNResult);
 	if ($NoOfGRNs > 0) { //there are GRNs to print
-
 		$SQL = "SELECT suppliers.suppname
 				FROM grns INNER JOIN suppliers
 				ON grns.supplierid=suppliers.supplierid
@@ -56,7 +53,7 @@ if ($GRNNo == 'Preview') {
 } // get data to print
 if ($NoOfGRNs > 0) {
 
-	for ($i = 1; $i <= $NoOfGRNs; $i++) {
+	for ($i = 1;$i <= $NoOfGRNs;$i++) {
 		if ($GRNNo != 'Preview') {
 			$MyRow = DB_fetch_array($GRNResult);
 		}
@@ -89,7 +86,7 @@ if ($NoOfGRNs > 0) {
 				$LeftOvers = $PDF->addText($FormDesign->OrderNumber->x, $Page_Height - $FormDesign->OrderNumber->y, $FormDesign->OrderNumber->FontSize, 'P/O: ' . $MyRow['orderno']);
 				$PageNumber++;
 			} //while SerialStockMoves
-
+			
 		} //controlled item*/
 		else {
 			if ($PageNumber > 1) {
@@ -105,16 +102,17 @@ if ($NoOfGRNs > 0) {
 			$LeftOvers = $PDF->addText($FormDesign->OrderNumber->x, $Page_Height - $FormDesign->OrderNumber->y, $FormDesign->OrderNumber->FontSize, 'P/O: ' . $MyRow['orderno']);
 			$PageNumber++;
 		} //else not controlled
+		
 	} //end of loop around GRNs to print
+	
 
-
-	$PDF->OutputD($_SESSION['DatabaseName'] . '_GRN_' . $GRNNo . '_' . date('Y-m-d') . '.pdf');
+	$PDF->OutputD($_SESSION['DatabaseName'] . '_QALabel_' . $GRNNo . '_' . date('Y-m-d') . '.pdf');
 	$PDF->__destruct();
 } else { //there were not GRNs to print
 	$Title = _('GRN Error');
-	include('includes/header.php');
+	include ('includes/header.php');
 	prnMsg(_('There were no GRNs to print'), 'warn');
 	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-	include('includes/footer.php');
+	include ('includes/footer.php');
 }
 ?>

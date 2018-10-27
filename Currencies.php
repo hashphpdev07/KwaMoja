@@ -1,7 +1,9 @@
 <?php
+/* Currencies.php */
+/* Defines the currencies available. Each customer and supplier must be defined as transacting in one of the currencies defined here. */
 include ('includes/session.php');
 $Title = _('Currencies Maintenance');
-$ViewTopic = 'Currencies';
+$ViewTopic = 'Setup';
 $BookMark = 'Currencies';
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');

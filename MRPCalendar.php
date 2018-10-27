@@ -5,6 +5,8 @@
 
 include ('includes/session.php');
 $Title = _('MRP Calendar');
+$ViewTopic = 'MRP';
+$BookMark = 'MRP_Calendar';
 include ('includes/header.php');
 
 if (isset($_POST['ChangeDate'])) {

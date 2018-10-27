@@ -17,6 +17,7 @@ include ('includes/CommissionFunctions.php');
 include ('includes/CountriesArray.php');
 include ('includes/FreightCalculation.php');
 include ('includes/GetSalesTransGLCodes.php');
+include ('includes/CurrenciesArray.php');
 
 if (empty($_GET['identifier'])) {
 	/*unique session identifier to ensure that there is no conflict with other order entry sessions on the same machine  */
@@ -307,14 +308,19 @@ if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
 }
 echo '<p class="page_title_text "><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
 echo '<table>
-			<tr>
-				<th><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/customer.png" title="' . _('Customer') . '" alt="" />' . ' ' . _('Customer Code') . ' :<b> ' . $_SESSION['Items' . $Identifier]->DebtorNo . '</b></th>
-				<th>' . _('Customer Name') . ' :<b> ' . $_SESSION['Items' . $Identifier]->CustomerName . '</b></th>
-			</tr>
-			<tr>
-				<th colspan ="2"><b>' . _('Invoice amounts stated in') . ' ' . $_SESSION['Items' . $Identifier]->DefaultCurrency . '</b></th>
-			</tr>
-		</table>';
+		<tr class="striped_row">
+			<td>', _('Customer Code'), '</td>
+			<td class="text">', $_SESSION['Items' . $Identifier]->DebtorNo, '</td>
+		</tr>
+		<tr class="striped_row">
+			<td>', _('Customer Name'), '</td>
+			<td class="text">', $_SESSION['Items' . $Identifier]->CustomerName, '</td>
+		</tr>
+		<tr class="striped_row">
+			<td>', _('Invoice amounts stated in'), '</td>
+			<td class="text">', $_SESSION['Items' . $Identifier]->DefaultCurrency, ' - ', $CurrencyName[$_SESSION['Items' . $Identifier]->DefaultCurrency], '</td>
+		</tr>
+	</table>';
 
 echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
