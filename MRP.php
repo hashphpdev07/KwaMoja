@@ -2,6 +2,8 @@
 /* $Id: MRP.php 6986 2014-11-15 09:19:14Z exsonqu $*/
 
 include ('includes/session.php');
+$ViewTopic = 'MRP';
+$BookMark = 'MRP_Overview';
 $Title = _('Run MRP Calculation');
 include ('includes/header.php');
 if (isset($_POST['submit'])) {

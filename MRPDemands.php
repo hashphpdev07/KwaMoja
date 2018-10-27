@@ -6,6 +6,8 @@
 */
 
 include ('includes/session.php');
+$ViewTopic = 'MRP';
+$BookMark = 'MRP_MasterSchedule';
 $Title = _('MRP Demands');
 include ('includes/header.php');
 
