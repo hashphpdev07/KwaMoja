@@ -1,7 +1,6 @@
 <?php
-
 /* mysqli specific functions for the database upgrade script
- */
+*/
 
 function CharacterSet($Table) {
 	$SQL = "SELECT TABLE_COLLATION
@@ -241,10 +240,10 @@ function AddIndex($Columns, $Table, $Name) {
 		if (DB_num_rows($Result) == 0) {
 			$SQL = "ALTER TABLE `" . $Table . "` ADD INDEX `" . $Name . "` (`" . $Columns[0] . "`";
 			$SizeOfColumns = sizeOf($Columns);
-			for ($i = 1; $i < $SizeOfColumns; $i++) {
-				$SQL .= "," . $Columns[$i];
+			for ($i = 1;$i < $SizeOfColumns;$i++) {
+				$SQL.= "," . $Columns[$i];
 			}
-			$SQL .= ")";
+			$SQL.= ")";
 			$Response = executeSQL($SQL, False);
 			if ($Response == 0) {
 				OutputResult(_('The index has been inserted'), 'success');
@@ -622,9 +621,8 @@ function InsertRecord($Table, $CheckFields, $CheckValues, $Fields, $Values) {
 	if (DB_table_exists($Table)) {
 		$SQL = "SELECT * FROM " . $Table . " WHERE ";
 		$SizeOfCheckFields = sizeOf($CheckFields);
-		for($i = 0; $i < $SizeOfCheckFields; $i++) {
-			$SQL = $SQL . $CheckFields[$i] . "='" .
-					 mysqli_real_escape_string($db, $CheckValues[$i]) . "' AND ";
+		for ($i = 0;$i < $SizeOfCheckFields;$i++) {
+			$SQL = $SQL . $CheckFields[$i] . "='" . DB_escape_string($CheckValues[$i]) . "' AND ";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 5);
 		$Result = DB_query($SQL);
@@ -632,13 +630,13 @@ function InsertRecord($Table, $CheckFields, $CheckValues, $Fields, $Values) {
 	if (DB_num_rows($Result) == 0 or isset($SQLFile)) {
 		$SQL = "INSERT INTO " . $Table . " (";
 		$SizeOfFields = sizeOf($Fields);
-		for($i = 0; $i < $SizeOfFields; $i++) {
+		for ($i = 0;$i < $SizeOfFields;$i++) {
 			$SQL = $SQL . $Fields[$i] . ",";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1) . ") VALUES (";
 		$SizeOfValues = sizeOf($Values);
-		for($i = 0; $i < $SizeOfValues; $i++) {
-			$SQL = $SQL . "'" . mysqli_real_escape_string($db, $Values[$i]) . "',";
+		for ($i = 0;$i < $SizeOfValues;$i++) {
+			$SQL = $SQL . "'" . DB_escape_string($Values[$i]) . "',";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1) . ")";
 		$Response = executeSQL($SQL);

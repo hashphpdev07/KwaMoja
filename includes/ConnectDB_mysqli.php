@@ -1,5 +1,4 @@
 <?php
-
 /* PeterMoulding.com
 20071102 Change from mysql to mysqli;
 20071102 Add $db to DB_escape_string();
@@ -11,13 +10,12 @@ if (!isset($DBPort)) {
 	$DBPort = 3306;
 }
 global $db; // Make sure it IS global, regardless of our context
-
 if ($Debug == 1) {
 	$Result = DB_query('SET sql_mode = ANSI');
 }
 
 if (!isset($db)) {
-	$db = mysqli_connect('p:'.$Host, $DBUser, $DBPassword, $_SESSION['DatabaseName'], $DBPort);
+	$db = mysqli_connect('p:' . $Host, $DBUser, $DBPassword, $_SESSION['DatabaseName'], $DBPort);
 
 	//this statement sets the charset to be used for sending data to and from the db server
 	//if not set, both mysqli server and mysqli client/library may assume otherwise
@@ -40,7 +38,6 @@ if (!$db) {
 }
 
 //DB wrapper functions to change only once for whole application
-
 function DB_connect($Host, $DBUser, $DBPassword, $DBPort) {
 	return mysqli_connect($Host, $DBUser, $DBPassword, $_SESSION['DatabaseName'], $DBPort);
 }
@@ -62,9 +59,7 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 	}
 
 	if (DB_error_no() != 0 and $TrapErrors == true) {
-		if ($TrapErrors) {
-			require_once($PathPrefix . 'includes/header.php');
-		}
+		require_once ($PathPrefix . 'includes/header.php');
 		prnMsg($ErrorMessage . '<br />' . DB_error_msg(), 'error', _('Database Error') . ' ' . DB_error_no());
 		if ($Debug == 1) {
 			prnMsg($DebugMessage . '<br />' . $SQL . '<br />', 'error', _('Database SQL Failure'));
@@ -78,10 +73,8 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 				prnMsg(_('Rolling Back Transaction OK'), 'error', _('Database Rollback Due to Error Above'));
 			}
 		}
-		if ($TrapErrors) {
-			include($PathPrefix . 'includes/footer.php');
-			exit;
-		}
+		include ($PathPrefix . 'includes/footer.php');
+		exit;
 	} elseif (isset($_SESSION['MonthsAuditTrail']) and (DB_error_no() == 0 and $_SESSION['MonthsAuditTrail'] > 0) and (DB_affected_rows($Result) > 0)) {
 
 		$SQLArray = explode(' ', $SQL);
@@ -252,7 +245,7 @@ function DB_set_timezone() {
 	$Sign = ($Minutes < 0 ? -1 : 1);
 	$Minutes = abs($Minutes);
 	$Hours = floor($Minutes / 60);
-	$Minutes -= $Hours * 60;
+	$Minutes-= $Hours * 60;
 	$Offset = sprintf('%+d:%02d', $Hours * $Sign, $Minutes);
 	$Result = DB_query("SET time_zone='" . $Offset . "'");
 }

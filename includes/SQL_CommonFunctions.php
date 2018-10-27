@@ -1,11 +1,10 @@
 <?php
-
 /* Common SQL Functions */
 
 function GetNextTransNo($TransType) {
 	/* SQL to get the next transaction number these are maintained in the table SysTypes - Transaction Types
 	Also updates the transaction number
-
+	
 	10 sales invoice
 	11 sales credit note
 	12 sales receipt
@@ -13,11 +12,11 @@ function GetNextTransNo($TransType) {
 	*
 	*/
 
-	DB_query("SELECT typeno FROM systypes WHERE typeid='" . $TransType ."' FOR UPDATE");
+	DB_query("SELECT typeno FROM systypes WHERE typeid='" . $TransType . "' FOR UPDATE");
 	$SQL = "UPDATE systypes SET typeno = typeno + 1 WHERE typeid = '" . $TransType . "'";
 	$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The transaction number could not be incremented');
-	$DbgMsg =  _('The following SQL to increment the transaction number was used');
-	$UpdTransNoResult = DB_query($SQL,$ErrMsg,$DbgMsg);
+	$DbgMsg = _('The following SQL to increment the transaction number was used');
+	$UpdTransNoResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 	$SQL = "SELECT typeno FROM systypes WHERE typeid= '" . $TransType . "'";
 
 	$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': <BR>' . _('The next transaction number could not be retrieved from the database because');
@@ -100,7 +99,6 @@ function GetTaxes($TaxGroup, $DispatchTaxProvince, $TaxCategory) {
 			AND taxauthrates.taxcatid = '" . $TaxCategory . "'
 			ORDER BY taxgrouptaxes.calculationorder";
 
-
 	$ErrMsg = _('The taxes and rate for this tax group could not be retrieved because');
 	$GetTaxesResult = DB_query($SQL, $ErrMsg);
 
@@ -111,8 +109,6 @@ function GetTaxes($TaxGroup, $DispatchTaxProvince, $TaxCategory) {
 		return 0;
 	}
 }
-
-
 
 function GetCreditAvailable($DebtorNo) {
 
@@ -154,7 +150,7 @@ function GetCreditAvailable($DebtorNo) {
 	$GetOSOrdersResult = DB_query($SQL, $ErrMsg);
 
 	$MyRow = DB_fetch_array($GetOSOrdersResult);
-	$CreditAvailable -= $MyRow['ordervalue'];
+	$CreditAvailable-= $MyRow['ordervalue'];
 
 	return $CreditAvailable;
 }
@@ -192,10 +188,7 @@ function ItemCostUpdateGL($StockID, $NewCost) {
 	}
 	DB_free_result($OldResult);
 
-
-	if ($_SESSION['CompanyRecord']['gllink_stock'] == 1
-		and $QOH != 0
-		and (abs($NewCost - $OldCost) > pow(10, -($_SESSION['StandardCostDecimalPlaces'] + 1)))) {
+	if ($_SESSION['CompanyRecord']['gllink_stock'] == 1 and $QOH != 0 and (abs($NewCost - $OldCost) > pow(10, -($_SESSION['StandardCostDecimalPlaces'] + 1)))) {
 		$CostUpdateNo = GetNextTransNo(35);
 		$PeriodNo = GetPeriod(date($_SESSION['DefaultDateFormat']));
 		$StockGLCode = GetStockGLCode($StockID);
@@ -233,7 +226,7 @@ function ItemCostUpdateGL($StockID, $NewCost) {
 									CURRENT_DATE,
 									'" . $PeriodNo . "',
 									'" . $StockGLCode['adjglact'] . "',
-									'" . $StockID . ' ' . _('cost was') . ' ' . $OldCost . ' ' . _('changed to') .' ' . $NewCost . ' x ' . _('Quantity on hand of') . ' ' . $QOH . "',
+									'" . $StockID . ' ' . _('cost was') . ' ' . $OldCost . ' ' . _('changed to') . ' ' . $NewCost . ' x ' . _('Quantity on hand of') . ' ' . $QOH . "',
 									'" . -$ValueOfChange . "')";
 
 		$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The GL debit for stock cost adjustment posting could not be inserted because');
@@ -309,7 +302,6 @@ function UpdateCost($Item) {
 function WoRealRequirements($WO, $LocCode, $StockId, $Qty = 1, $ParentID = '') {
 
 	// remember, 'G' is for ghost (phantom part type)
-
 	// all components should be referenced to the initial parent
 	if ($ParentID == '') {
 		$ParentID = $StockId;
@@ -508,7 +500,7 @@ function GetQuantityOnOrderDueToWorkOrders($StockId, $Location = '') {
 }
 
 /*Creates sample and testresults */
-function CreateQASample ($ProdSpecKey, $LotKey, $Identifier, $Comments, $Cert, $DuplicateOK) {
+function CreateQASample($ProdSpecKey, $LotKey, $Identifier, $Comments, $Cert, $DuplicateOK) {
 	$Result = DB_query("SELECT COUNT(testid) FROM prodspecs
 							WHERE keyval='" . $ProdSpecKey . "'
 							AND active='1'");
@@ -517,7 +509,7 @@ function CreateQASample ($ProdSpecKey, $LotKey, $Identifier, $Comments, $Cert, $
 		if ($DuplicateOK == 0) {
 			$Result = DB_query("SELECT COUNT(sampleid) FROM qasamples
 								WHERE prodspeckey='" . $ProdSpecKey . "'
-								AND lotkey='" . $LotKey ."'");
+								AND lotkey='" . $LotKey . "'");
 			$MyRow2 = DB_fetch_row($Result);
 		} else {
 			$MyRow2[0] = 0;
@@ -531,16 +523,16 @@ function CreateQASample ($ProdSpecKey, $LotKey, $Identifier, $Comments, $Cert, $
 											createdby,
 											sampledate)
 								VALUES('" . $ProdSpecKey . "',
-										'" . $LotKey  . "',
-										'" . $Identifier  . "',
-										'" . $Comments  . "',
-										'" . $Cert  . "',
+										'" . $LotKey . "',
+										'" . $Identifier . "',
+										'" . $Comments . "',
+										'" . $Cert . "',
 										'" . $_SESSION['UserID'] . "',
 										CURRENT_DATE)";
 			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The create of the qasamples record failed');
 			$DbgMsg = _('The following SQL to create the qasamples was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
-			$SampleID=DB_Last_Insert_ID('qasamples', 'sampleid');
+			$SampleID = DB_Last_Insert_ID('qasamples', 'sampleid');
 			$SQL = "INSERT INTO sampleresults (sampleid,
 											testid,
 											defaultvalue,
@@ -557,14 +549,22 @@ function CreateQASample ($ProdSpecKey, $LotKey, $Identifier, $Comments, $Cert, $
 											rangemax,
 											showoncert,
 											showontestplan
-											FROM prodspecs WHERE keyval='" .$ProdSpecKey. "'
+											FROM prodspecs WHERE keyval='" . $ProdSpecKey . "'
 											AND prodspecs.active='1'";
 			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The create of the sampleresults record failed');
 			$DbgMsg = _('The following SQL to create the sampleresults was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
 		} //$MyRow2[0]=0
+		
 	} //$MyRow[0]>0
+	
+}
+
+function RecordExists($Table, $Field, $Value) {
+	$SQL = "SELECT " . $Field . " FROM " . $Table . " WHERE " . $Field . "='" . $Value . "'";
+	$Result = DB_query($SQL);
+	return DB_num_rows($Result);
 }
 
 ?>

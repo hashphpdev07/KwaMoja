@@ -17,6 +17,8 @@ if (empty($_GET['identifier'])) {
 	$Identifier = $_GET['identifier'];
 }
 $Title = _('Receive Purchase Orders');
+$ViewTopic = 'Inventory';
+$BookMark = 'GoodsReceived';
 include ('includes/header.php');
 
 echo '<div class="toplink">
@@ -26,9 +28,9 @@ echo '<div class="toplink">
 if (isset($_GET['PONumber']) and $_GET['PONumber'] <= 0 and !isset($_SESSION['PO' . $Identifier])) {
 	/* This page can only be called with a purchase order number for invoicing*/
 	echo '<div class="centre">
-			<a href= "' . $RootPath . '/PO_SelectOSPurchOrder.php">' . _('Select a purchase order to receive') . '</a>
+			<a href= "', $RootPath, '/PO_SelectOSPurchOrder.php">', _('Select a purchase order to receive'), '</a>
 		</div>
-		<br />' . _('This page can only be opened if a purchase order has been selected. Please select a purchase order first');
+		<br />', _('This page can only be opened if a purchase order has been selected. Please select a purchase order first');
 
 	include ('includes/footer.php');
 	exit;
@@ -65,10 +67,11 @@ if ($_SESSION['PO' . $Identifier]->Status != 'Printed') {
 
 /* Always display quantities received and recalc balance for all items on the order */
 
-echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Receive') . '" alt="" />' . ' ' . _('Receive Purchase Order') . ' : ' . $_SESSION['PO' . $Identifier]->OrderNo . ' ' . _('from') . ' ' . $_SESSION['PO' . $Identifier]->SupplierName . '</p>';
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" id="form1" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<p class="page_title_text">
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Receive'), '" alt="" />', _('Receive Purchase Order'), ' : ', $_SESSION['PO' . $Identifier]->OrderNo, ' ', _('from'), ' ', $_SESSION['PO' . $Identifier]->SupplierName, '
+	</p>';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', $Identifier, '" id="form1" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_POST['ProcessGoodsReceived'])) {
 	if (!isset($_POST['DefaultReceivedDate']) and !isset($_SESSION['PO' . $Identifier]->DefaultReceivedDate)) {
@@ -95,42 +98,46 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 
 	echo '<table>
 			<tr>
-				<td>' . _('Date Goods/Service Received') . ':</td>
-				<td><input type="text" class="date" name="DefaultReceivedDate" value="' . $_SESSION['PO' . $Identifier]->DefaultReceivedDate . '" /></td>
-				<td>' . _('Supplier Reference') . ':</td>
-				<td><input type="text" name="SupplierReference" value="' . $_SESSION['PO' . $Identifier]->SupplierRef . '" maxlength="30" size="20"  onchange="ReloadForm(form1.Update)"/></td>
+				<td>', _('Date Goods/Service Received'), ':</td>
+				<td><input type="text" class="date" size="10" name="DefaultReceivedDate" value="', $_SESSION['PO' . $Identifier]->DefaultReceivedDate, '" /></td>
+				<td>', _('Supplier Reference'), ':</td>
+				<td><input type="text" name="SupplierReference" value="', $_SESSION['PO' . $Identifier]->SupplierRef, '" maxlength="30" size="20"  onchange="ReloadForm(form1.Update)"/></td>
 			</tr>
 		</table>';
 
 	echo '<table cellpadding="2">
 			<tr>
 				<th colspan="2"></th>
-				<th align="center" colspan="3"><b>' . _('Supplier Units') . '</b></th>
+				<th align="center" colspan="4"><b>', _('Supplier Units'), '</b></th>
 				<th></th>
-				<th align="center" colspan="5"><b>' . _('Our Receiving Units') . '</b></th>
-			</tr>
-			<tr>
-				<th>' . _('Item Code') . '</th>
-				<th>' . _('Supplier') . '<br />' . _('Item') . '</th>
-				<th>' . _('Description') . '</th>
-				<th>' . _('Quantity') . '<br />' . _('Ordered') . '</th>
-				<th>' . _('Units') . '</th>
-				<th>' . _('Already') . '<br />' . _('Received') . '</th>
-				<th>' . _('Delivery') . '<br />' . _('Date') . '</th>
-				<th>' . _('Conversion') . '<br />' . _('Factor') . '</th>
-				<th>' . _('Quantity') . '<br />' . _('Ordered') . '</th>
-				<th>' . _('Units') . '</th>
-				<th>' . _('Already') . '<br />' . _('Received') . '</th>
-				<th>' . _('This Delivery') . '<br />' . _('Quantity') . '</th>
-				<th>' . _('Completed') . '</th>';
+				<th align="center" colspan="6"><b>', _('Our Receiving Units'), '</b></th>';
 
 	if ($_SESSION['ShowValueOnGRN'] == 1) {
-		echo '<th>' . _('Price') . '</th>
-				<th>' . _('Total Value') . '<br />' . _('Received') . '</th>';
+		echo '<th colspan="3">&nbsp;</th>';
 	}
-	echo '<th>' . _('Reference') . '</th>';
-	echo '<td>&nbsp;</td>
-		</tr>';
+	echo '</tr>
+			</tr>
+			<tr>
+				<th>', _('Item Code'), '</th>
+				<th>', _('Supplier'), '<br />', _('Item'), '</th>
+				<th>', _('Description'), '</th>
+				<th>', _('Quantity'), '<br />', _('Ordered'), '</th>
+				<th>', _('Units'), '</th>
+				<th>', _('Already'), '<br />', _('Received'), '</th>
+				<th>', _('Delivery'), '<br />', _('Date'), '</th>
+				<th>', _('Conversion'), '<br />', _('Factor'), '</th>
+				<th>', _('Quantity'), '<br />', _('Ordered'), '</th>
+				<th>', _('Units'), '</th>
+				<th>', _('Already'), '<br />', _('Received'), '</th>
+				<th>', _('This Delivery'), '<br />', _('Quantity'), '</th>
+				<th>', _('Completed'), '</th>';
+
+	if ($_SESSION['ShowValueOnGRN'] == 1) {
+		echo '<th>', _('Price'), '</th>
+				<th>', _('Total Value'), '<br />', _('Received'), '</th>';
+	}
+	echo '<th>', _('Reference'), '</th>';
+	echo '</tr>';
 	/*show the line items on the order with the quantity being received for modification */
 
 	$_SESSION['PO' . $Identifier]->Total = 0;
@@ -173,58 +180,58 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 		}
 
 		echo '<tr class="striped_row">
-				<td>' . $ImageLink . '</td>
-				<td>' . $LnItm->Suppliers_PartNo . '</td>
-				<td>' . $LnItm->ItemDescription . '</td>
-				<td class="number">' . $DisplaySupplierQtyOrd . '</td>
-				<td>' . $LnItm->SuppliersUnit . '</td>
-				<td class="number">' . $DisplaySupplierQtyRec . '</td>
-				<td class="number">' . $LnItm->ConversionFactor . '</td>
-				<td class="number">' . $DisplayQtyOrd . '</td>
-				<td>' . $LnItm->Units . '</td>
-				<td class="number">' . $DisplayQtyRec . '</td>
-				<td>' . $LnItm->ReqDelDate . '</td>
+				<td>', $ImageLink, '</td>
+				<td>', $LnItm->Suppliers_PartNo, '</td>
+				<td>', $LnItm->ItemDescription, '</td>
+				<td class="number">', $DisplaySupplierQtyOrd, '</td>
+				<td>', $LnItm->SuppliersUnit, '</td>
+				<td class="number">', $DisplaySupplierQtyRec, '</td>
+				<td class="number">', $LnItm->ConversionFactor, '</td>
+				<td class="number">', $DisplayQtyOrd, '</td>
+				<td>', $LnItm->Units, '</td>
+				<td class="number">', $DisplayQtyRec, '</td>
+				<td>', $LnItm->ReqDelDate, '</td>
 				<td class="number">';
 
 		if ($LnItm->Controlled == 1) {
 
-			echo '<input type="hidden" name="RecvQty_' . $LnItm->LineNo . '" value="' . locale_number_format($LnItm->ReceiveQty, $LnItm->DecimalPlaces) . '" /><a href="GoodsReceivedControlled.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNo) . '">' . locale_number_format($LnItm->ReceiveQty, $LnItm->DecimalPlaces) . '</a></td>';
+			echo '<input type="hidden" name="RecvQty_', $LnItm->LineNo, '" value="', locale_number_format($LnItm->ReceiveQty, $LnItm->DecimalPlaces), '" /><a href="GoodsReceivedControlled.php?identifier=', urlencode($Identifier), '&amp;LineNo=', urlencode($LnItm->LineNo), '">', locale_number_format($LnItm->ReceiveQty, $LnItm->DecimalPlaces), '</a></td>';
 
 		} else {
 			if ($LnItm->LineNo == 1) {
-				echo '<input type="text" class="number" name="RecvQty_' . $LnItm->LineNo . '" autofocus="autofocus" required="required" maxlength="10" size="10" value="' . locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces) . '" /></td>';
+				echo '<input type="text" class="number" name="RecvQty_', $LnItm->LineNo, '" autofocus="autofocus" required="required" maxlength="10" size="10" value="', locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces), '" /></td>';
 			} else {
-				echo '<input type="text" class="number" name="RecvQty_' . $LnItm->LineNo . '" required="required" maxlength="10" size="10" value="' . locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces) . '" /></td>';
+				echo '<input type="text" class="number" name="RecvQty_', $LnItm->LineNo, '" required="required" maxlength="10" size="10" value="', locale_number_format(round($LnItm->ReceiveQty, $LnItm->DecimalPlaces), $LnItm->DecimalPlaces), '" /></td>';
 			}
 		}
-		echo '<td><input type="checkbox" name="Complete_' . $LnItm->LineNo . '"';
+		echo '<td><input type="checkbox" name="Complete_', $LnItm->LineNo, '"';
 		if ($LnItm->Completed == 1) {
 			echo ' checked';
 		}
 		echo ' /></td>';
 
 		if ($_SESSION['ShowValueOnGRN'] == 1) {
-			echo '<td class="number">' . $DisplayPrice . '</td>';
-			echo '<td class="number">' . $DisplayLineTotal . '</td>';
+			echo '<td class="number">', $DisplayPrice, '</td>';
+			echo '<td class="number">', $DisplayLineTotal, '</td>';
 		}
 
 		if ($LnItm->Controlled == 1) {
 			if ($LnItm->Serialised == 1) {
-				echo '<td><a href="GoodsReceivedControlled.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNo) . '">' . _('Enter Serial Nos') . '</a></td>';
+				echo '<td><a href="GoodsReceivedControlled.php?identifier=', urlencode($Identifier), '&amp;LineNo=', urlencode($LnItm->LineNo), '">', _('Enter Serial Nos'), '</a></td>';
 			} else {
-				echo '<td><a href="GoodsReceivedControlled.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNo) . '">' . _('Enter Batches') . '</a></td>';
+				echo '<td><a href="GoodsReceivedControlled.php?identifier=', urlencode($Identifier), '&amp;LineNo=', urlencode($LnItm->LineNo), '">', _('Enter Batches') . '</a></td>';
 			}
 		}
 		echo '<td>
-				<input type="text" name="Reference_' . $LnItm->LineNo . '" maxlength="50" size="25" value="' . $LnItm->GRNReference . '" />
+				<input type="text" name="Reference_', $LnItm->LineNo, '" maxlength="50" size="25" value="', $LnItm->GRNReference, '" />
 			</td>';
 		echo '</tr>';
 	} //foreach(LineItem)
 	$DisplayTotal = locale_number_format($_SESSION['PO' . $Identifier]->Total, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces);
 	if ($_SESSION['ShowValueOnGRN'] == 1) {
 		echo '<tr>
-				<td colspan="12" class="number"><b>' . _('Total value of goods received') . '</b></td>
-				<td class="number"><b>' . $DisplayTotal . '</b></td>
+				<td colspan="14" class="number"><b>', _('Total value of goods received'), '</b></td>
+				<td class="number"><b>', $DisplayTotal, '</b></td>
 			</tr>
 		</table>';
 	} else {
@@ -285,20 +292,20 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 	/*Then dont bother proceeding cos nothing to do ! */
 
 	prnMsg(_('There is nothing to process') . '. ' . _('Please enter valid quantities greater than zero'), 'warn');
-	echo '<div class="centre"><input type="submit" name="Update" value="' . _('Update') . '" /></div>';
+	echo '<div class="centre"><input type="submit" name="Update" value="', _('Update'), '" /></div>';
 
 } elseif ($NegativesFound) {
 
 	prnMsg(_('Negative stocks would result by processing a negative delivery - quantities must be changed or the stock quantity of the item going negative corrected before this delivery will be processed.'), 'error');
 
-	echo '<div class="centre"><input type="submit" name="Update" value="' . _('Update') . '" />';
+	echo '<div class="centre"><input type="submit" name="Update" value="', _('Update'), '" />';
 
 } elseif ($DeliveryQuantityTooLarge == 1 and isset($_POST['ProcessGoodsReceived'])) {
 
 	prnMsg(_('Entered quantities cannot be greater than the quantity entered on the purchase invoice including the allowed over-receive percentage') . ' ' . '(' . $_SESSION['OverReceiveProportion'] . '%)', 'error');
 	echo '<br />';
 	prnMsg(_('Modify the ordered items on the purchase invoice if you wish to increase the quantities'), 'info');
-	echo '<div class="centre"><input type="submit" name="Update" value="' . _('Update') . '" />';
+	echo '<div class="centre"><input type="submit" name="Update" value="', _('Update'), '" />';
 
 } elseif (isset($_POST['ProcessGoodsReceived']) and $_SESSION['PO' . $Identifier]->SomethingReceived() == 1 and $InputError == false) {
 
@@ -336,7 +343,7 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 
 	if (DB_num_rows($Result) == 0) { //Those goods must have been received by another user. So should destroy the session data and show warning to users
 		prnMsg(_('This order has been changed or invoiced since this delivery was started to be actioned') . ' . ' . _('Processing halted'), 'error');
-		echo '<div class="centre"><a href="' . $RootPath . '/PO_SelectOSPurchOrder.php">' . _('Select a different purchase order for receiving goods against') . '</a></div>';
+		echo '<div class="centre"><a href="', $RootPath, '/PO_SelectOSPurchOrder.php">', _('Select a different purchase order for receiving goods against'), '</a></div>';
 		unset($_SESSION['PO' . $Identifier]->LineItems);
 		unset($_SESSION['PO' . $Identifier]);
 		unset($_POST['ProcessGoodsReceived']);
@@ -354,44 +361,44 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 			if ($Debug == 1) {
 				echo '<table>
 					<tr>
-						<td>' . _('GL Code of the Line Item') . ':</td>
-						<td>' . $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->GLCode . '</td>
-						<td>' . $MyRow['glcode'] . '</td>
+						<td>', _('GL Code of the Line Item'), ':</td>
+						<td>', $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->GLCode, '</td>
+						<td>', $MyRow['glcode'], '</td>
 					</tr>
 					<tr>
-						<td>' . _('ShiptRef of the Line Item') . ':</td>
-						<td>' . $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->ShiptRef . '</td>
-						<td>' . $MyRow['shiptref'] . '</td>
+						<td>', _('ShiptRef of the Line Item'), ':</td>
+						<td>', $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->ShiptRef, '</td>
+						<td>', $MyRow['shiptref'], '</td>
 					</tr>
 					<tr>
-						<td>' . _('Contract Reference of the Line Item') . ':</td>
-						<td>' . $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->JobRef . '</td>
-						<td>' . $MyRow['jobref'] . '</td>
+						<td>', _('Contract Reference of the Line Item'), ':</td>
+						<td>', $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->JobRef, '</td>
+						<td>', $MyRow['jobref'], '</td>
 					</tr>
 					<tr>
-						<td>' . _('Quantity Invoiced of the Line Item') . ':</td>
-						<td>' . locale_number_format($_SESSION['PO' . $Identifier]->LineItems[$LineNo]->QtyInv, $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces) . '</td>
-						<td>' . $MyRow['qtyinvoiced'] . '</td>
+						<td>', _('Quantity Invoiced of the Line Item'), ':</td>
+						<td>', locale_number_format($_SESSION['PO' . $Identifier]->LineItems[$LineNo]->QtyInv, $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces), '</td>
+						<td>', $MyRow['qtyinvoiced'], '</td>
 					</tr>
 					<tr>
-						<td>' . _('Stock Code of the Line Item') . ':</td>
-						<td>' . $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->StockID . '</td>
-						<td>' . $MyRow['itemcode'] . '</td>
+						<td>', _('Stock Code of the Line Item'), ':</td>
+						<td>', $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->StockID, '</td>
+						<td>', $MyRow['itemcode'], '</td>
 					</tr>
 					<tr>
-						<td>' . _('Order Quantity of the Line Item') . ':</td>
-						<td>' . locale_number_format($_SESSION['PO' . $Identifier]->LineItems[$LineNo]->Quantity, $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces) . '</td>
-						<td>' . $MyRow['quantityord'] . '</td>
+						<td>', _('Order Quantity of the Line Item'), ':</td>
+						<td>', locale_number_format($_SESSION['PO' . $Identifier]->LineItems[$LineNo]->Quantity, $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces), '</td>
+						<td>', $MyRow['quantityord'], '</td>
 					</tr>
 					<tr>
-						<td>' . _('Quantity of the Line Item Already Received') . ':</td>
-						<td>' . locale_number_format($_SESSION['PO' . $Identifier]->LineItems[$LineNo]->QtyReceived, $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces) . '</td>
-						<td>' . locale_number_format($MyRow['quantityrecd'], $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces) . '</td>
+						<td>', _('Quantity of the Line Item Already Received'), ':</td>
+						<td>', locale_number_format($_SESSION['PO' . $Identifier]->LineItems[$LineNo]->QtyReceived, $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces), '</td>
+						<td>', locale_number_format($MyRow['quantityrecd'], $_SESSION['PO' . $Identifier]->LineItems[$LineNo]->DecimalPlaces), '</td>
 					</tr>
 					</table>';
 			}
-			echo '<div class="centre"><a href="' . $RootPath . '/PO_SelectOSPurchOrder.php">' . _('Select a different purchase order for receiving goods against') . '</a></div>';
-			echo '<div class="centre"><a href="' . $RootPath . '/GoodsReceived.php?PONumber=' . urlencode($_SESSION['PO' . $Identifier]->OrderNo) . '">' . _('Re-read the updated purchase order for receiving goods against') . '</a></div>';
+			echo '<div class="centre"><a href="', $RootPath, '/PO_SelectOSPurchOrder.php">', _('Select a different purchase order for receiving goods against'), '</a></div>';
+			echo '<div class="centre"><a href="', $RootPath, '/GoodsReceived.php?PONumber=', urlencode($_SESSION['PO' . $Identifier]->OrderNo), '">', _('Re-read the updated purchase order for receiving goods against'), '</a></div>';
 			unset($_SESSION['PO' . $Identifier]->LineItems);
 			unset($_SESSION['PO' . $Identifier]);
 			unset($_POST['ProcessGoodsReceived']);
@@ -795,9 +802,9 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 	unset($_POST['ProcessGoodsReceived']);
 
 	echo '<div class="centre">
-			' . prnMsg(_('GRN number') . ' ' . $GRN . ' ' . _('has been processed'), 'success') . '
-			<a href="PDFGrn.php?GRNNo=' . urlencode($GRN) . '&amp;PONo=' . urlencode($PONo) . '">' . _('Print this Goods Received Note (GRN)') . '</a>
-			<a href="' . $RootPath . '/PO_SelectOSPurchOrder.php">' . _('Select a different purchase order for receiving goods against') . '</a>
+			', prnMsg(_('GRN number') . ' ' . $GRN . ' ' . _('has been processed'), 'success') . '
+			<a href="PDFGrn.php?GRNNo=', urlencode($GRN), '&amp;PONo=', urlencode($PONo), '">', _('Print this Goods Received Note (GRN)'), '</a>
+			<a href="', $RootPath, '/PO_SelectOSPurchOrder.php">', _('Select a different purchase order for receiving goods against'), '</a>
 		</div>';
 	/*end of process goods received entry */
 	echo '</form>';
@@ -808,13 +815,13 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 	/*Process Goods received not set so show a link to allow mod of line items on order and allow input of date goods received*/
 
 	echo '<div class="centre">
-			<a href="' . $RootPath . '/PO_Header.php?ModifyOrderNumber=' . urlencode($_SESSION['PO' . $Identifier]->OrderNo) . '">' . _('Modify Order Items') . '</a>
-			<a href="' . $RootPath . '/PO_SelectOSPurchOrder.php">' . _('Select a different purchase order for receiving goods against') . '</a>
+			<a href="', $RootPath, '/PO_Header.php?ModifyOrderNumber=', urlencode($_SESSION['PO' . $Identifier]->OrderNo), '">', _('Modify Order Items'), '</a>
+			<a href="', $RootPath, '/PO_SelectOSPurchOrder.php">', _('Select a different purchase order for receiving goods against'), '</a>
 		</div>
 		<div class="centre">
-			<input type="submit" name="Update" value="' . _('Update') . '" />
+			<input type="submit" name="Update" value="', _('Update'), '" />
 			<br />
-			<input type="submit" name="ProcessGoodsReceived" value="' . _('Process Goods Received') . '" />
+			<input type="submit" name="ProcessGoodsReceived" value="', _('Process Goods Received'), '" />
 		</div>';
 }
 echo '</form>';

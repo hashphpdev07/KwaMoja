@@ -333,7 +333,7 @@ if ($ListCount == 0) {
 	include ('includes/footer.php');
 	exit;
 } else {
-	$PDF->OutputD($_SESSION['DatabaseName'] . '_PackingSlip_' . date('Y-m-d') . '.pdf');
+	$PDF->OutputD($_SESSION['DatabaseName'] . '_PackingSlip_' . $_GET['TransNo'] . '_' . date('Y-m-d') . '.pdf');
 	$PDF->__destruct();
 	$SQL = "UPDATE salesorders SET printedpackingslip=1,
 									datepackingslipprinted=CURRENT_DATE

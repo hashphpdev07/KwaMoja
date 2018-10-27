@@ -1,5 +1,4 @@
 <?php
-
 /* Define error codes that are returned by api functions*/
 Define('NoAuthorisation', 1);
 Define('IncorrectDebtorNumberLength', 1000);
@@ -65,7 +64,6 @@ Define('IncorrectBarCodeLength', 1059);
 Define('IncorrectDiscountCategory', 1060);
 Define('TaxCategoriesDoesntExist', 1061);
 Define('InvalidSerialised', 1062);
-Define('IncorrectAppendFile', 1063);
 Define('InvalidPerishable', 1064);
 Define('InvalidDecmalPlaces', 1065);
 Define('IncorrectLongStockDescriptionLength', 1066);
@@ -169,7 +167,6 @@ Define('NoReadItem', 1164);
 Define('MustBeReceiptOrCreditNote', 1165);
 Define('NoTransactionToAllocate', 1166);
 Define('InvalidQtyGreaterThan', 1167);
-
 
 /* Array of Descriptions of errors */
 $ErrorDescription['1'] = _('No Authorisation');

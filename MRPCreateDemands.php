@@ -1,6 +1,8 @@
 <?php
 // MRPCreateDemands.php - Create mrpdemands based on sales order history
 include ('includes/session.php');
+$ViewTopic = 'MRP';
+$BookMark = 'MRP_MasterSchedule';
 $Title = _('MRP Create Demands');
 include ('includes/header.php');
 

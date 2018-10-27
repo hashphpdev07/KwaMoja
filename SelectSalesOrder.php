@@ -1078,12 +1078,14 @@ if (!isset($StockId)) {
 			} //end while loop through orders to display
 			echo '</tbody>';
 
-			echo '<tr>
-					<td colspan="12" class="number">';
 			if ($_POST['Quotations'] == 'Orders_Only') {
-				echo '<b>' . _('Total Order(s) Value in');
+				echo '<tr>
+						<td colspan="12" class="number">
+						<b>' . _('Total Order(s) Value in');
 			} else {
-				echo '<b>' . _('Total Quotation(s) Value in');
+				echo '<tr>
+						<td colspan="8" class="number">
+						<b>' . _('Total Quotation(s) Value in');
 			}
 			if (!isset($PricesSecurity) or !in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
 				$OrdersTotal = '---------';

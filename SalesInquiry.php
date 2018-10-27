@@ -96,6 +96,12 @@ function submit($PartNumber, $PartNumberOp, $DebtorNo, $DebtorNoOp, $DebtorName,
 		prnMsg(_('Cannot sort by transaction number with a date type of Order Date'), 'error');
 		return;
 	} //$_POST['ReportType'] == 'Detail' and $_POST['DateType'] == 'Order' and $_POST['SortBy'] == 'tempstockmoves.transno,salesorderdetails.stkcode'
+	if (!in_array($_POST['SortBy'], array('salesorderdetails.orderno', 'salesorderdetails.stkcode', 'debtorsmaster.debtorno,salesorderdetails.orderno', 'debtorsmaster.name,debtorsmaster.debtorno,salesorderdetails.orderno', 'tempstockmoves.transno,salesorderdetails.stkcode', 'salesorderdetails.itemdue,salesorderdetails.orderno'))) {
+		$InputError = 1;
+		prnMsg(_('The sorting order is not defined'), 'error');
+		return;
+	}
+
 	// TempStockmoves function creates a temporary table of stockmoves that is used when the DateType
 	// is Invoice Date
 	if ($_POST['DateType'] == 'Invoice') {

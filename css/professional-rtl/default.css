@@ -487,6 +487,12 @@ padding-top:2px;
 text-align:center;
 /* Class selector for page title. */
 }
+
+.page_title_icon {
+padding-right:7px;
+width:32px;
+}
+
 DIV.page_hint_text {
 background:#D3D3D3;
 border:#a52a2a 1px solid;
@@ -501,5 +507,11 @@ position:static;
 color:#000;
 text-align:center;
 margin:0 auto;
+}
+
+.gallery {
+	margin: 5px;
+	float: left;
+	/* Class selector to let an element float to the left. */
 }
 /* END Style for all. ********************************************************/
