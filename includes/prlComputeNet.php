@@ -14,21 +14,22 @@ if ($Status == 'Closed') {
 if (isset($_POST['submit'])) {
 	exit("Contact Administrator...");
 } else {
-	$SQL = "UPDATE prlpayrolltrans SET	grosspay=0
+	$SQL = "UPDATE prlpayrolltrans SET	netpay=0
 				WHERE payrollid ='" . $PayrollID . "'";
-	$RePostGPay = DB_query($SQL);
+	$RePostNPay = DB_query($SQL);
 
-	$SQL = "SELECT counterindex,payrollid,employeeid,basicpay,othincome,absent,late,otpay
+	$SQL = "SELECT counterindex,payrollid,employeeid,grosspay,loandeduction,sss,hdmf,philhealth,tax
 			FROM prlpayrolltrans
 			WHERE prlpayrolltrans.payrollid='" . $PayrollID . "'";
 	$PayDetails = DB_query($SQL);
 	if (DB_num_rows($PayDetails) > 0) {
 		while ($MyRow = DB_fetch_array($PayDetails)) {
-			$GrossPay = $MyRow['basicpay'] + $MyRow['otpay'] + $MyRow['othincome'] - $MyRow['absent'] - $MyRow['late'];
-			$SQL = 'UPDATE prlpayrolltrans SET grosspay=' . $GrossPay . '
+			$NetPay = $MyRow['grosspay'] - $MyRow['loandeduction'] - $MyRow['sss'] - $MyRow['hdmf'] - $MyRow['philhealth'] - $MyRow['tax'];
+			$SQL = 'UPDATE prlpayrolltrans SET netpay=' . $NetPay . '
 						WHERE counterindex = ' . $MyRow['counterindex'];
-			$PostGPay = DB_query($SQL);
+			$PostNPay = DB_query($SQL);
 		}
 	}
+	echo "Finished processing payroll...";
 }
 ?>

@@ -2,7 +2,7 @@
 /* $Revision: 1.3 $ */
 /* definition of the Journal class */
 
-Class OverTime {
+class OverTime {
 
 	var $RTEntries; /*array of objects of JournalGLAnalysis class - id is the pointer */
 	var $RTDate; /*Date the journal to be processed */
@@ -10,50 +10,49 @@ Class OverTime {
 	var $RTItemID;
 	var $RTTotal; /*Running total for the journal */
 
-	function OverTime(){
-	/*Constructor function initialises a new journal */
+	function OverTime() {
+		/*Constructor function initialises a new journal */
 		$this->RTEntries = array();
-		$this->RTItemCounter=0;
-		$this->RTTotal=0;
-		$this->RTItemID=0;
+		$this->RTItemCounter = 0;
+		$this->RTTotal = 0;
+		$this->RTItemID = 0;
 	}
-	function Add_RTEntry($RTHours, $EmployeeID, $LastName, $FirstName, $RTDesc){
-		if (isset($EmployeeID) AND $RTHours!=0){
-			$this->RTEntries[$this->RTItemID] = new RTAnalysis($this->RTItemID,$RTHours, $EmployeeID, $LastName, $FirstName, $RTDesc);
+	function Add_RTEntry($RTHours, $EmployeeID, $LastName, $FirstName, $RTDesc) {
+		if (isset($EmployeeID) and $RTHours != 0) {
+			$this->RTEntries[$this->RTItemID] = new RTAnalysis($this->RTItemID, $RTHours, $EmployeeID, $LastName, $FirstName, $OverTimeDesc);
 			$this->RTItemCounter++;
 			$this->RTItemID++;
-			$this->RTTotal += $RTHours;
-			Return 1;
+			$this->RTTotal+= $RTHours;
+			return 1;
 		}
-		Return 0;
+		return 0;
 	}
 
-	function remove_RTEntry($GL_ID){
-		$this->RTTotal -= $this->RTEntries[$GL_ID]->RTHours;
+	function remove_RTEntry($GL_ID) {
+		$this->RTTotal-= $this->RTEntries[$GL_ID]->RTHours;
 		unset($this->RTEntries[$GL_ID]);
 		$this->RTItemCounter--;
 	}
 
 } /* end of class defintion */
-Class RTAnalysis {
-	Var $RTHours;
-	Var $EmployeeID;
-	Var $LastName;
+class RTAnalysis {
+	var $RTHours;
+	var $EmployeeID;
+	var $LastName;
 	var $FirstName;
 	var $RegTimeDesc;
-	Var $ID;
+	var $ID;
 
-	function RTAnalysis ($id, $Oth, $Empcode, $Last, $First, $RTDesc){
+	function RTAnalysis($id, $Oth, $Empcode, $Last, $First, $RTDesc) {
 
-/* Constructor function to add a new  object with passed params */
-		$this->RTHours =$Oth;
+		/* Constructor function to add a new  object with passed params */
+		$this->RTHours = $Oth;
 		$this->EmployeeID = $Empcode;
 		$this->LastName = $Last;
 		$this->FirstName = $First;
 		$this->OverTimeDesc = $RTDesc;
 		$this->ID = $id;
-    }
+	}
 }
-
 
 ?>

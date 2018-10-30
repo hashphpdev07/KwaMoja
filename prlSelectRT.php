@@ -1,4 +1,7 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 10;
 include ('includes/session.php');
 $Title = _('View Regular Time - Hourly Employees Only');
 
@@ -32,8 +35,8 @@ if (!isset($Counter)) {
 	then none of the above are true and the list of ChartMaster will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
-	echo '<input type="hidden" name="New" value="Yes">';
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
+	echo "<input type='hidden' name='New' value='Yes'>";
 	echo '<table>';
 
 	$SQL = "SELECT  	counterindex,
@@ -49,21 +52,22 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Index') . "</td>
-		<th>" . _('Ref ') . "</td>
-		<th>" . _('Desc') . "</td>
-		<th>" . _('Date ') . "</td>
-		<th>" . _('EE ID ') . "</td>
-		<th>" . _('Hours') . "</td>
+		<td class='tableheader'>" . _('Index') . "</td>
+		<td class='tableheader'>" . _('Ref ') . "</td>
+		<td class='tableheader'>" . _('Desc') . "</td>
+		<td class='tableheader'>" . _('Date ') . "</td>
+		<td class='tableheader'>" . _('EE ID ') . "</td>
+		<td class='tableheader'>" . _('Hours') . "</td>
 	</tr>";
 
+	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 
@@ -73,13 +77,13 @@ if (!isset($Counter)) {
 		echo '<td>' . $MyRow[3] . '</td>';
 		echo '<td>' . $MyRow[4] . '</td>';
 		echo '<td>' . $MyRow[5] . '</td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</A></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	//END WHILE LIST LOOP
 	
-} //END IF selected="selected" ACCOUNT
+} //END IF SELECTED ACCOUNT
 
 
 echo '</table>';

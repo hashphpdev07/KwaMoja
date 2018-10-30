@@ -12,14 +12,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 	include ('includes/prlFunctions.php');
 
 	$FontSize = 12;
-	$PDF->addinfo('Title', _('Tax Return'));
-	$PDF->addinfo('Subject', _('Tax Return'));
+	$PDF->addinfo('Title', _('PhilHealth Monthly Premium'));
+	$PDF->addinfo('Subject', _('PhilHealth Monthly Premium'));
 
 	$PageNumber = 0;
 	$line_height = 12;
 
 	if ($_POST['FSMonth'] == 0) {
-		$Title = _('Monthly Tax Return Listing') . ' - ' . _('Problem Report');
+		$Title = _('PhilHealth Monthly Premuim Listing') . ' - ' . _('Problem Report');
 		include ('includes/header.php');
 		prnMsg(_('Month not selected'), 'error');
 		echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
@@ -27,69 +27,67 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 		exit;
 	}
 	if ($_POST['FSYear'] == 0) {
-		$Title = _('Monthly Tax Return Listing') . ' - ' . _('Problem Report');
+		$Title = _('PhilHealth Monthly Premuim Listing') . ' - ' . _('Problem Report');
 		include ('includes/header.php');
 		prnMsg(_('Year not selected'), 'error');
 		echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 		include ('includes/footer.php');
 		exit;
 	}
-	$TaxMonth = $_POST['FSMonth'];
-	$TaxYear = $_POST['FSYear'];
-	$TaxMonthStr = GetMonthStr($TaxMonth);
+	$PhilHealthMonth = $_POST['FSMonth'];
+	$PhilHealthYear = $_POST['FSYear'];
+	$PhilHealthMonthStr = GetMonthStr($PhilHealthMonth);
 	$PageNumber = 0;
 	$FontSize = 10;
 	$line_height = 12;
 	$FullName = '';
-	$TIN = '';
-	$TaxStatus = 0;
-	$TaxTotal = 0;
+	$PhilHealthNumber = '';
+	$PhilHealthER = 0;
+	$PhilHealthEC = 0;
+	$PhilHealthEE = 0;
+	$PhilHealthTotal = 0;
 
-	include ('includes/PDFTaxPageHeader.php');
-	$SQL = "SELECT employeeid,taxactnumber,taxstatusid
-			FROM prlemployeemaster
-			WHERE prlemployeemaster.taxstatusid <>''";
-	$TaxDetails = DB_query($SQL);
-	if (DB_num_rows($TaxDetails) > 0) {
-		while ($taxrow = DB_fetch_array($TaxDetails)) {
-			$EmpID = $taxrow['employeeid'];
+	include ('includes/PDFPhilHealthPageHeader.php');
+
+	$SQL = "SELECT employeeid,employerph,employeeph,total
+			FROM prlempphfile
+			WHERE prlempphfile.fsmonth='" . $PhilHealthMonth . "'
+			AND prlempphfile.fsyear='" . $PhilHealthYear . "'";
+	$PhilHealthDetails = DB_query($SQL);
+	if (DB_num_rows($PhilHealthDetails) > 0) {
+		//although it is assume that PhilHealth deduction once only every month but who knows
+		while ($phrow = DB_fetch_array($PhilHealthDetails)) {
+			$EmpID = $phrow['employeeid'];
 			$FullName = GetName($EmpID);
-			$TaxNumber = GetEmpRow($EmpID, 23);
-			$TaxID = GetEmpRow($EmpID, 35);
-
-			$SQL = "SELECT sum(tax) AS Tax
-							FROM prlpayrolltrans
-							WHERE prlpayrolltrans.employeeid='" . $taxrow['employeeid'] . "'
-							AND prlpayrolltrans.fsmonth='" . $TaxMonth . "'
-							AND prlpayrolltrans.fsyear='" . $TaxYear . "'";
-			$TaxMonthly = DB_query($SQL);
-			if (DB_num_rows($TaxMonthly) > 0) {
-				//although it is assume that hdmf deduction once only every month but who knows
-				while ($taxmonthlyrow = DB_fetch_array($TaxMonthly)) {
-					$TaxEE = $taxmonthlyrow['Tax'];
-					//$YPos -= (2 * $line_height);  //double spacing
-					if ($TaxEE > 0) {
-						$GTTaxEE+= $TaxEE;
-						$FontSize = 8;
-						$PDF->selectFont('./fonts/Helvetica.afm');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, $FullName);
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 200, $YPos, 50, $FontSize, $TaxNumber, 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 290, $YPos, 50, $FontSize, $TaxID, 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($TaxEE, 2), 'right');
-						$YPos-= $line_height;
-						if ($YPos < ($Bottom_Margin)) {
-							include ('includes/PDFTaxPremiumPageHeader.php');
-						}
-					}
+			$PhilHealthNumber = GetEmpRow($EmpID, 21);
+			$PhilHealthER = $phrow['employerph'];
+			$PhilHealthEE = $phrow['employeeph'];
+			$PhilHealthTotal = $phrow['total'];
+			$GTPhilHealthER+= $PhilHealthER;
+			$GTPhilHealthEE+= $PhilHealthEE;
+			$GTPhilHealthTotal+= $PhilHealthTotal;
+			//$YPos -= (2 * $line_height);  //double spacing
+			if ($PhilHealthTotal > 0) {
+				$FontSize = 8;
+				$PDF->selectFont('./fonts/Helvetica.afm');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, $FullName);
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 200, $YPos, 50, $FontSize, $PhilHealthNumber, 'right');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 50, $FontSize, number_format($PhilHealthER, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($PhilHealthEE, 2), 'right');
+				$LeftOvers = $PDF->addTextWrap($Left_Margin + 460, $YPos, 50, $FontSize, number_format($PhilHealthTotal, 2), 'right');
+				$YPos-= $line_height;
+				if ($YPos < ($Bottom_Margin)) {
+					include ('includes/PDFPhilHealthPageHeader.php');
 				}
 			}
 		}
 	}
-
 	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
 	$YPos-= (2 * $line_height);
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, 'Grand Total');
-	$LeftOvers = $PDF->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($GTTaxEE, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 350, $YPos, 50, $FontSize, number_format($GTPhilHealthER, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 410, $YPos, 50, $FontSize, number_format($GTPhilHealthEE, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 460, $YPos, 50, $FontSize, number_format($GTPhilHealthTotal, 2), 'right');
 	$LeftOvers = $PDF->line($Page_Width - $Right_Margin, $YPos, $Left_Margin, $YPos);
 
 	$buf = $PDF->output();
@@ -97,7 +95,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 
 	header('Content-type: application/pdf');
 	header("Content-Length: $len");
-	header('Content-Disposition: inline; filename=TAXListing.pdf');
+	header('Content-Disposition: inline; filename=PHListing.pdf');
 	header('Expires: 0');
 	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 	header('Pragma: public');
@@ -106,7 +104,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 
 } elseif (isset($_POST['ShowPR'])) {
 	include ('includes/session.php');
-	$Title = _('Tax Monthly Return Listing');
+	$Title = _('PhilHealth Monthly Premium Listing');
 	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
 	echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
@@ -115,7 +113,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 } else { /*The option to print PDF was not hit */
 
 	include ('includes/session.php');
-	$Title = _('Tax Monthly Return Listing');
+	$Title = _('PhilHealth Monthly Premium Listing');
 	include ('includes/header.php');
 
 	echo "<form method='post' action='" . basename(__FILE__) . '?' . SID . "'>";
@@ -143,7 +141,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 	}
 	echo '</select></td></tr>';
 
-	echo '</table><P><input type="submit" name="ShowPR" value="' . _('Show SSS Premium') . '">';
+	echo '</table><P><input type="submit" name="ShowPR" value="' . _('Show PhilHealth Premium') . '">';
 	echo '<P><input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '">';
 
 	include ('includes/footer.php');;

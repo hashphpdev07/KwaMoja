@@ -12,16 +12,12 @@ $FSYearRow = GetPayrollRow($PayrollID, 6);
 $DeductSSS = GetYesNoStr(GetPayrollRow($PayrollID, 7));
 $Status = GetOpenCloseStr(GetPayrollRow($PayrollID, 11));
 if ($Status == 'Closed') {
-	prnMsg(_('Payroll is Closed. Re-open first...'), 'error');
-	include('includes/footer.php');
-	exit;
+	exit("Payroll is Closed. Re-open first...");
 }
 if (isset($_POST['submit'])) {
-	prnMsg(_('Contact Administrator...'), 'error');
-	include('includes/footer.php');
-	exit;
+	exit("Contact Administrator...");
 } else {
-	$SQL = "DELETE FROM prlempnssffile WHERE payrollid ='" . $PayrollID . "'";
+	$SQL = "DELETE FROM prlempsssfile WHERE payrollid ='" . $PayrollID . "'";
 	$Postdelsss = DB_query($SQL);
 
 	$SQL = "UPDATE prlpayrolltrans SET	sss=0
@@ -50,7 +46,7 @@ if (isset($_POST['submit'])) {
 						}
 						if ($SSSGP > 0 or $SSSGP <> null) {
 							$myssrow = GetSSSRow($SSSGP);
-							$SQL = "INSERT INTO prlempnssffile (
+							$SQL = "INSERT INTO prlempsssfile (
 												payrollid,
 												employeeid,
 												grosspay,
@@ -76,11 +72,14 @@ if (isset($_POST['submit'])) {
 													'" . $MyRow['fsmonth'] . "',
 													'" . $MyRow['fsyear'] . "'
 													)";
-							$ErrMsg = _('Inserting NSSF File failed.');
+							$ErrMsg = _('Inserting SSS File failed.');
 							$InsSSSRecords = DB_query($SQL, $ErrMsg);
 						} //if sssgp>0
+						
 					} //dbnumross sssdetials>0
+					
 				} //end of while
+				
 			} else {
 				//every payroll
 				while ($MyRow = DB_fetch_array($PayDetails)) {
@@ -91,7 +90,7 @@ if (isset($_POST['submit'])) {
 							$SSSGP = 7500;
 						}
 						$myssrow = GetSSSRow($SSSGP);
-						$SQL = "INSERT INTO prlempnssffile (
+						$SQL = "INSERT INTO prlempsssfile (
 												payrollid,
 												employeeid,
 												grosspay,
@@ -120,11 +119,14 @@ if (isset($_POST['submit'])) {
 						$ErrMsg = _('Inserting SSS File failed.');
 						$InsSSSRecords = DB_query($SQL, $ErrMsg);
 					} //if sssgp>0
+					
 				} //end of while
+				
 			} //end of if ($HowFrequent==2) {
+			
 		} //dbnumrows paydetails > 0
+		
 	} //deduct sss=yes
-
 	//posting to payroll trans for sss
 	if ($DeductSSS == 'Yes') {
 		$SQL = "SELECT counterindex,payrollid,employeeid,fsmonth,fsyear
@@ -134,9 +136,9 @@ if (isset($_POST['submit'])) {
 		if (DB_num_rows($PayDetails) > 0) {
 			while ($MyRow = DB_fetch_array($PayDetails)) {
 				$SQL = "SELECT employeess
-					FROM prlempnssffile
-			        WHERE prlempnssffile.employeeid='" . $MyRow['employeeid'] . "'
-					AND prlempnssffile.payrollid='" . $PayrollID . "'";
+					FROM prlempsssfile
+			        WHERE prlempsssfile.employeeid='" . $MyRow['employeeid'] . "'
+					AND prlempsssfile.payrollid='" . $PayrollID . "'";
 				$SSSDetails = DB_query($SQL);
 				if (DB_num_rows($SSSDetails) > 0) {
 					$sssrow = DB_fetch_array($SSSDetails);
@@ -149,4 +151,5 @@ if (isset($_POST['submit'])) {
 		}
 	}
 } //isset post submit
+
 ?>

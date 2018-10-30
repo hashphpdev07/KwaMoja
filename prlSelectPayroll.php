@@ -1,14 +1,17 @@
 <?php
 /* $Revision: 1.0 $ */
 
+$PageSecurity = 10;
 include ('includes/session.php');
 $Title = _('Payroll Master Maintenance');
 
 include ('includes/header.php');
 
-echo '<div class="toplink"><a href="' . $RootPath . '/prlEditPayroll.php?SelectedAccountr=">' . _('Create Payroll Period') . '</a></div>';
-
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/payrol.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
+echo "<table WIDTH=30% BORDER=2><tr></tr>";
+echo '<tr><td WIDTH=100%>';
+echo '<a href="' . $RootPath . '/prlEditPayroll.php?SelectedAccountr=' . $_SESSION[''] . '">' . _('Create Payroll Period') . '</a><BR>';
+echo '</td><td WIDTH=100%>';
+echo '</td></tr></table><BR>';
 
 if (isset($_GET['PayrollID'])) {
 	$PayrollID = $_GET['PayrollID'];
@@ -37,45 +40,55 @@ if (!isset($PayrollID)) {
 	or deletion of the records*/
 
 	$SQL = "SELECT payrollid,
-					payrolldesc,
-					fsmonth,
-					fsyear,
-					startdate,
-					enddate,
-					payperiodid
-				FROM prlpayrollperiod
-				ORDER BY payrollid";
+            payrolldesc,
+			fsmonth,
+			fsyear,
+			startdate,
+			enddate,
+			payperiodid
+		FROM prlpayrollperiod
+		ORDER BY payrollid";
 	$ErrMsg = _('The payroll record could not be retrieved because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table>
-			<tr>
-				<th>' . _('Payroll ID') . '</th>
-				<th>' . _('Desciption') . '</th>
-				<th>' . _('FS Month') . '</th>
-				<th>' . _('FS Year') . '</th>
-				<th>' . _('Start Date') . '</th>
-				<th>' . _('End Date') . '</th>
-				<th>' . _('Pay Period ') . '</th>
-			</tr>';
+	echo '<table border=1>';
+	echo "<tr>
+		<td class='tableheader'>" . _('Payroll ID') . "</td>
+		<td class='tableheader'>" . _('Desciption') . "</td>
+		<td class='tableheader'>" . _('FS Month') . "</td>
+		<td class='tableheader'>" . _('FS Year') . "</td>
+		<td class='tableheader'>" . _('Start Date') . "</td>
+		<td class='tableheader'>" . _('End Date') . "</td>
+		<td class='tableheader'>" . _('Pay Period ') . "</td>
+	</tr>";
 
-	while ($MyRow = DB_fetch_array($Result)) {
+	$k = 0; //row colour counter
+	while ($MyRow = DB_fetch_row($Result)) {
 
-		echo '<tr class="striped_row">
-				<td>' . $MyRow['payrollid'] . '</td>
-				<td>' . $MyRow['payrolldesc'] . '</td>
-				<td>' . $MyRow['fsmonth'] . '</td>
-				<td>' . $MyRow['fsyear'] . '</td>
-				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
-				<td>' . ConvertSQLDate($MyRow['enddate']) . '</td>
-				<td>' . $MyRow['payperiodid'] . '</td>
-				<td><a href="' . $RootPath . '/prlCreatePayroll.php?PayrollID=' . $MyRow['payrollid'] . '">' . _('Select') . '</a></td>
-			</tr>';
+		if ($k == 1) {
+			echo "<TR BGCOLOR='#CCCCCC'>";
+			$k = 0;
+		} else {
+			echo "<TR BGCOLOR='#EEEEEE'>";
+			$k++;
+		}
+
+		echo '<td>' . $MyRow[0] . '</td>';
+		echo '<td>' . $MyRow[1] . '</td>';
+		echo '<td>' . $MyRow[2] . '</td>';
+		echo '<td>' . $MyRow[3] . '</td>';
+		echo '<td>' . $MyRow[4] . '</td>';
+		echo '<td>' . $MyRow[5] . '</td>';
+		echo '<td>' . $MyRow[6] . '</td>';
+		echo '<td><A HREF="' . $RootPath . '/prlCreatePayroll.php?' . SID . '&PayrollID=' . $MyRow[0] . '">' . _('Select') . '</A></td>';
+		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	//END WHILE LIST LOOP
 	
-} //END IF selected="selected" ACCOUNT
+} //END IF SELECTED ACCOUNT
+
+
 echo '</table>';
 //end of ifs and buts!
 include ('includes/footer.php');
