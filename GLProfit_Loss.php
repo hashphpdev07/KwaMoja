@@ -1,6 +1,7 @@
 <?php
 include ('includes/session.php');
 $Title = _('Profit and Loss'); // Screen identification.
+$Title2 = _('Statement of Comprehensive Income'); // Name as IAS
 $ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'ProfitAndLoss'; // Anchor's id in the manual's html document.
 include ('includes/SQL_CommonFunctions.php');
@@ -20,7 +21,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" />', _('Print Profit and Loss Report'), '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line).'), '<br />', _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.'), '<br />', _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.'), '<br />', $ProjectName, _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 
@@ -193,10 +194,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$AccountsResult = DB_query($SQL);
 
 	if (DB_error_no() != 0) {
-		$title = _('Profit and Loss') . ' - ' . _('Problem Report') . '....';
+		$Title = _('Profit and Loss') . ' - ' . _('Problem Report') . '....';
 		include ('includes/header.php');
 		prnMsg(_('No general ledger accounts were returned by the SQL because') . ' - ' . DB_error_msg());
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 		if ($Debug == 1) {
 			echo '<br />' . $SQL;
 		}
@@ -204,11 +205,11 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		exit;
 	}
 	if (DB_num_rows($AccountsResult) == 0) {
-		$title = _('Print Profit and Loss Error');
+		$Title = _('Print Profit and Loss Error');
 		include ('includes/header.php');
 		echo '<br />';
 		prnMsg(_('There were no entries to print out for the selections specified'), 'warn');
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 		include ('includes/footer.php');
 		exit;
 	}
@@ -608,9 +609,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$BookMark = 'ProfitAndLoss';
 	include ('includes/header.php');
 	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<input type="hidden" name="FromPeriod" value="' . $_POST['FromPeriod'] . '" />
-			<input type="hidden" name="ToPeriod" value="' . $_POST['ToPeriod'] . '" />';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<input type="hidden" name="FromPeriod" value="', $_POST['FromPeriod'], '" />';
+	echo '<input type="hidden" name="ToPeriod" value="', $_POST['ToPeriod'], '" />';
 
 	$NumberOfMonths = $_POST['ToPeriod'] - $_POST['FromPeriod'] + 1;
 
@@ -658,17 +659,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was'));
 
 	echo '<p class="page_title_text">
-			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Profit Loss Inquiry') . '" />
-			' . _('Statement of Profit and Loss for the') . ' ' . $NumberOfMonths . ' ' . _('months to') . ' and including ' . $PeriodToDate . '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title2, '" />
+			', $Title, ' ', _('For'), ' ', $NumberOfMonths, ' ', _('months to'), ' and including ', $PeriodToDate, '
 		</p>'; // Page title.
 	/*show a table of the accounts info returned by the SQL
 	 Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
-	echo '<table summary="' . _('General Ledger Profit Loss Inquiry') . '">
+	echo '<table summary="', _('General Ledger Profit Loss Inquiry'), '">
 			<tr>
 				<th colspan="10">
-					<b>' . _('General Ledger Profit Loss Inquiry') . '</b>
-					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<b>', _('General Ledger Profit Loss Inquiry'), '</b>
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
 				</th>
 			</tr>';
 
@@ -730,31 +731,31 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					}
 					if ($Section == 1) {
 						/*Income */
-						printf('<tr>
-								<td colspan="2"><h4><i>%s</i></h4></td>
+						echo '<tr>
+								<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format(-$GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								<td class="number">%s</td>
-								</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+								<td class="number">', locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+								</tr>';
 					} else {
 						/*Costs */
-						printf('<tr>
-								<td colspan="3"><h4><i>%s </i></h4></td>
+						echo '<tr>
+								<td colspan="3"><h4><i>', $ActGrpLabel, '</i></h4></td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								<td class="number">%s</td>
+								<td class="number">', locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 								<td></td>
-								</tr>', $ActGrpLabel, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+							</tr>';
 					}
 
 					$GrpPrdLY[$Level] = 0;
@@ -776,31 +777,31 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 				if ($Section == 1) {
 					/*Income */
-					printf('<tr>
-							<td colspan="2"><h4><i>%s </i></h4></td>
+					echo '<tr>
+							<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
-							</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+							<td class="number">', locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							</tr>';
 				} else {
 					/*Costs */
-					printf('<tr>
-							<td colspan="2"><h4><i>%s </i></h4></td>
+					echo '<tr>
+							<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							</tr>', $ActGrpLabel, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+						</tr>';
 				}
 				$GrpPrdLY[$Level] = 0;
 				$GrpPrdActual[$Level] = 0;
@@ -827,17 +828,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td><hr /></td>
 						</tr>';
 
-					printf('<tr>
-							<td colspan="2"><h2>%s</td>
+					echo '<tr>
+							<td colspan="2"><h2>', $Sections[$Section], '</h2></td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format(-$SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format(-$SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($SectionPrdBudget - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
-							</tr>', $Sections[$Section], locale_number_format(-$SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdBudget - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']));
+							<td class="number">', locale_number_format(-$SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						</tr>';
 					$TotalIncome = - $SectionPrdActual;
 					$TotalBudgetIncome = - $SectionPrdBudget;
 					$TotalLYIncome = - $SectionPrdLY;
@@ -851,18 +852,18 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td><hr /></td>
 							<td></td>
 							<td><hr /></td>
-							</tr>';
-					printf('<tr>
-							<td colspan="2"><h2>%s</h2></td>
+						</tr>';
+					echo '<tr>
+							<td colspan="2"><h2>', $Sections[$Section], '</h2></td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($SectionPrdBudget - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
-							</tr>', $Sections[$Section], locale_number_format($SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdBudget - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']));
+							<td class="number">', locale_number_format($SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						</tr>';
 				}
 				if ($Section == 2) {
 					/*Cost of Sales - need sub total for Gross Profit*/
@@ -870,17 +871,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td colspan="2"></td>
 							<td colspan="8"><hr /></td>
 						</tr>';
-					printf('<tr>
-							<td colspan="2"><h2>' . _('Gross Profit') . '</h2></td>
+					echo '<tr>
+							<td colspan="2"><h2>', _('Gross Profit'), '</h2></td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($TotalIncome - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format($TotalBudgetIncome - $SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
+							<td class="number">', locale_number_format(($TotalBudgetIncome - $SectionPrdBudget) - ($TotalIncome - $SectionPrdActual), $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 							<td></td>
-							<td class="number">%s</td>
-							</tr>', locale_number_format($TotalIncome - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($TotalBudgetIncome - $SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(($TotalBudgetIncome - $SectionPrdBudget) - ($TotalIncome - $SectionPrdActual), $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($TotalLYIncome - $SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']));
+							<td class="number">', locale_number_format($TotalLYIncome - $SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						</tr>';
 
 					if ($TotalIncome != 0) {
 						$PrdGPPercent = 100 * ($TotalIncome - $SectionPrdActual) / $TotalIncome;
@@ -901,17 +902,20 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td colspan="2"></td>
 							<td colspan="8"><hr /></td>
 						</tr>';
-					printf('<tr>
-							<td colspan="2"><h4><i>' . _('Gross Profit Percent') . '</i></h4></td>
+					echo '<tr>
+							<td colspan="2"><h4><i>', _('Gross Profit Percent'), '</i></h4></td>
 							<td></td>
-							<td class="number"><i>%s</i></td>
+							<td class="number"><i>', locale_number_format($PrdGPPercent, 1), '%</i></td>
 							<td></td>
-							<td class="number"><i>%s</i></td>
+							<td class="number"><i>', locale_number_format($BudgetGPPercent, 1), '%</i></td>
 							<td></td>
-							<td class="number"><i>%s</i></td>
+							<td class="number"><i>', locale_number_format($BudgetGPPercent, 1), '%</i></td>
 							<td></td>
-							<td class="number"><i>%s</i></td>
-							</tr><tr><td colspan="6"> </td></tr>', locale_number_format($PrdGPPercent, 1) . '%', locale_number_format($BudgetGPPercent, 1) . '%', locale_number_format($BudgetGPPercent, 1) . '%', locale_number_format($LYGPPercent, 1) . '%');
+							<td class="number"><i>', locale_number_format($LYGPPercent, 1), '%</i></td>
+						</tr>
+						<tr>
+							<td colspan="6"></td>
+						</tr>';
 					++$j;
 				}
 
@@ -921,17 +925,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 							<td colspan="8"><hr /></td>
 						</tr>';
 
-					printf('<tr>
-								<td colspan="2"><h4><b>' . _('Profit') . ' - ' . _('Loss') . ' ' . _('after') . ' ' . $Sections[$Section] . '</b></h2></td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-							</tr>', locale_number_format(-$PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$PeriodBudgetProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$PeriodBudgetProfitLoss - $PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$PeriodLYProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']));
+					echo '<tr>
+							<td colspan="2"><h4><b>', _('Profit'), ' - ', _('Loss'), ' ', _('after'), ' ', $Sections[$Section], '</b></h2></td>
+							<td></td>
+							<td class="number">', locale_number_format(-$PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$PeriodBudgetProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$PeriodBudgetProfitLoss - $PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$PeriodLYProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						</tr>';
 
 					if ($TotalIncome != 0) {
 						$PrdNPPercent = 100 * (-$PeriodProfitLoss) / $TotalIncome;
@@ -948,18 +952,20 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					} else {
 						$LYNPPercent = 0;
 					}
-					printf('<tr>
-								<td colspan="2"><h4><i>' . _('P/L Percent after') . ' ' . $Sections[$Section] . '</i></h4></td>
-								<td></td>
-								<td class="number"><i>%s</i></td>
-								<td></td>
-								<td class="number"><i>%s</i></td>
-								<td></td>
-								<td class="number"><i>%s</i></td>
-								<td></td>
-								<td class="number"><i>%s</i></td>
-								</tr><tr><td colspan="6"> </td>
-							</tr>', locale_number_format($PrdNPPercent, 1) . '%', locale_number_format($BudgetNPPercent, 1) . '%', locale_number_format($BudgetNPPercent, 1) . '%', locale_number_format($LYNPPercent, 1) . '%');
+					echo '<tr>
+							<td colspan="2"><h4><i>', _('P/L Percent after'), ' ', $Sections[$Section], '</i></h4></td>
+							<td></td>
+							<td class="number"><i>', locale_number_format($PrdNPPercent, 1), '%</i></td>
+							<td></td>
+							<td class="number"><i>', locale_number_format($BudgetNPPercent, 1), '%</i></td>
+							<td></td>
+							<td class="number"><i>', locale_number_format($BudgetNPPercent, 1), '%</i></td>
+							<td></td>
+							<td class="number"><i>', locale_number_format($LYNPPercent, 1), '%</i></td>
+						</tr>
+						<tr>
+							<td colspan="6"> </td>
+						</tr>';
 
 					echo '<tr>
 							<td colspan="2"></td>
@@ -975,9 +981,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			$Section = $MyRow['sectioninaccounts'];
 
 			if ($_POST['Detail'] == 'Detailed') {
-				printf('<tr>
-					<td colspan="8"><h2><b>%s</b></h2></td>
-					</tr>', $Sections[$MyRow['sectioninaccounts']]);
+				echo '<tr>
+						<td colspan="8"><h2><b>', $Sections[$MyRow['sectioninaccounts']], '</b></h2></td>
+					</tr>';
 			}
 			++$j;
 
@@ -992,9 +998,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			$ParentGroups[$Level] = $MyRow['groupname'];
 			$ActGrp = $MyRow['groupname'];
 			if ($_POST['Detail'] == 'Detailed') {
-				printf('<tr>
-					<th colspan="11"><b>%s</b></th>
-					</tr>', $MyRow['groupname']);
+				echo '<tr>
+						<th colspan="11"><b>', $MyRow['groupname'], '</b></th>
+					</tr>';
 				echo $TableHeader;
 			}
 		}
@@ -1030,32 +1036,32 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?Period=' . $_POST['ToPeriod'] . '&amp;Account=' . $MyRow['accountcode'] . '&amp;Show=Yes">' . $MyRow['accountcode'] . '</a>';
 
 				if ($Section == 1) {
-					printf('<tr class="striped_row">
-								<td>%s</td>
-								<td>%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-							</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodBudget - $AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$AccountPeriodLY, $_SESSION['CompanyRecord']['decimalplaces']));
+					echo '<tr class="striped_row">
+							<td>', $ActEnquiryURL, '</td>
+							<td>', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($AccountPeriodBudget - $AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$AccountPeriodLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						</tr>';
 				} else {
-					printf('<tr class="striped_row">
-								<td>%s</td>
-								<td>%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-							</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format($AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodBudget - $AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodLY, $_SESSION['CompanyRecord']['decimalplaces']));
+					echo '<tr class="striped_row">
+							<td>', $ActEnquiryURL, '</td>
+							<td>', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($AccountPeriodBudget - $AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($AccountPeriodLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+						</tr>';
 				}
 				++$j;
 			}
@@ -1078,30 +1084,30 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				}
 				if ($Section == 1) {
 					/*Income */
-					printf('<tr>
-								<td colspan="2"><h4><i>%s </i></h4></td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-							</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdLY[$Level]), $_SESSION['CompanyRecord']['decimalplaces']);
+					echo '<tr>
+							<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
+							<td></td>
+							<td class="number">', locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						</tr>';
 				} else {
 					/*Costs */
-					printf('<tr>
-								<td colspan="2"><h4><i>%s </i></h4></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-								<td class="number">%s</td>
-								<td></td>
-							</tr>', $ActGrpLabel, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+					echo '<tr>
+							<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
+							<td class="number">', locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td class="number">', locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+						</tr>';
 				}
 				$GrpPrdLY[$Level] = 0;
 				$GrpPrdActual[$Level] = 0;
@@ -1112,9 +1118,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			//still need to print out the old group totals
 			if ($_POST['Detail'] == 'Detailed') {
 				echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="8"><hr /></td>
-						</tr>';
+						<td colspan="2"></td>
+						<td colspan="8"><hr /></td>
+					</tr>';
 				$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');
 			} else {
 				$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level];
@@ -1122,31 +1128,31 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 			if ($Section == 1) {
 				/*Income */
-				printf('<tr>
-							<td colspan="2"><h4><i>%s </i></h4></td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-							<td class="number">%s</td>
-						</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+				echo '<tr>
+						<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
+						<td></td>
+						<td class="number">', locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+						<td class="number">', locale_number_format(-$GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+						<td class="number">', locale_number_format(-$GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+						<td class="number">', locale_number_format(-$GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					</tr>';
 			} else {
 				/*Costs */
-				printf('<tr>
-							<td colspan="2"><h4><i>%s </i></h4></td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-							<td class="number">%s</td>
-							<td></td>
-						</tr>', $ActGrpLabel, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
+				echo '<tr>
+						<td colspan="2"><h4><i>', $ActGrpLabel, '</i></h4></td>
+						<td></td>
+						<td class="number">', locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+						<td class="number">', locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+						<td class="number">', locale_number_format($GrpPrdBudget[$Level] - $GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+						<td class="number">', locale_number_format($GrpPrdLY[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+						<td></td>
+					</tr>';
 			}
 			$GrpPrdLY[$Level] = 0;
 			$GrpPrdActual[$Level] = 0;
@@ -1172,15 +1178,15 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					<td><hr /></td>
 				</tr>';
 
-			printf('<tr>
-						<td colspan="2"><h2>%s</h2></td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-					</tr>', $Sections[$Section], locale_number_format(-$SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']));
+			echo '<tr>
+					<td colspan="2"><h2>', $Sections[$Section], '</h2></td>
+					<td></td>
+					<td class="number">', locale_number_format(-$SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format(-$SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format(-$SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>';
 			$TotalIncome = - $SectionPrdActual;
 			$TotalBudgetIncome = - $SectionPrdBudget;
 			$TotalLYIncome = - $SectionPrdLY;
@@ -1195,17 +1201,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					<td></td>
 					<td><hr /></td>
 				</tr>';
-			printf('<tr>
-						<td colspan="2"><h2>%s</h2></td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-					</tr>', $Sections[$Section], locale_number_format($SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdBudget - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']));
+			echo '<tr>
+					<td colspan="2"><h2>', $Sections[$Section], '</h2></td>
+					<td></td>
+					<td class="number">', locale_number_format($SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format($SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format($SectionPrdBudget - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format($SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>';
 		}
 		if ($Section == 2) {
 			/*Cost of Sales - need sub total for Gross Profit*/
@@ -1213,15 +1219,15 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					<td colspan="2"></td>
 					<td colspan="8"><hr /></td>
 				</tr>';
-			printf('<tr>
-						<td colspan="2"><h2>' . _('Gross Profit') . '</h2></td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-						<td></td>
-						<td class="number">%s</td>
-					</tr>', locale_number_format($TotalIncome - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($TotalBudgetIncome - $SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($TotalLYIncome - $SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']));
+			echo '<tr>
+					<td colspan="2"><h2>', _('Gross Profit'), '</h2></td>
+					<td></td>
+					<td class="number">', locale_number_format($TotalIncome - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format($TotalBudgetIncome - $SectionPrdBudget, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td></td>
+					<td class="number">', locale_number_format($TotalLYIncome - $SectionPrdLY, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>';
 
 			if ($TotalIncome != 0) {
 				$PrdGPPercent = 100 * ($TotalIncome - $SectionPrdActual) / $TotalIncome;
@@ -1242,15 +1248,18 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					<td colspan="2"></td>
 					<td colspan="8"><hr /></td>
 				</tr>';
-			printf('<tr>
-					<td colspan="2"><h4><i>' . _('Gross Profit Percent') . '</i></h4></td>
+			echo '<tr>
+					<td colspan="2"><h4><i>', _('Gross Profit Percent'), '</i></h4></td>
 					<td></td>
-					<td class="number"><i>%s</i></td>
+					<td class="number"><i>', locale_number_format($PrdGPPercent, 1), '%</i></td>
 					<td></td>
-					<td class="number"><i>%s</i></td>
+					<td class="number"><i>', locale_number_format($BudgetGPPercent, 1), '%</i></td>
 					<td></td>
-					<td class="number"><i>%s</i></td>
-					</tr><tr><td colspan="6"> </td></tr>', locale_number_format($PrdGPPercent, 1) . '%', locale_number_format($BudgetGPPercent, 1) . '%', locale_number_format($LYGPPercent, 1) . '%');
+					<td class="number"><i>', locale_number_format($LYGPPercent, 1), '%</i></td>
+				</tr>
+				<tr>
+					<td colspan="6"></td>
+				</tr>';
 			++$j;
 		}
 
@@ -1261,9 +1270,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$Section = $MyRow['sectioninaccounts'];
 
 		if ($_POST['Detail'] == 'Detailed' and isset($Sections[$MyRow['sectioninaccounts']])) {
-			printf('<tr>
-				<td colspan="6"><h2><b>%s</b></h2></td>
-				</tr>', $Sections[$MyRow['sectioninaccounts']]);
+			echo '<tr>
+					<td colspan="6"><h2><b>', $Sections[$MyRow['sectioninaccounts']], '</b></h2></td>
+				</tr>';
 		}
 
 		++$j;
@@ -1275,17 +1284,17 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<td colspan="8"><hr /></td>
 		</tr>';
 
-	printf('<tr>
-				<td colspan="2"><h2><b>' . _('Profit') . ' - ' . _('Loss') . '</b></h2></td>
-				<td></td>
-				<td class="number">%s</td>
-				<td></td>
-				<td class="number">%s</td>
-				<td></td>
-				<td class="number">%s</td>
-				<td></td>
-				<td class="number">%s</td>
-			</tr>', locale_number_format(-$PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$PeriodBudgetProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($PeriodBudgetProfitLoss - $PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format(-$PeriodLYProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']));
+	echo '<tr>
+			<td colspan="2"><h2><b>', _('Profit'), ' - ', _('Loss'), '</b></h2></td>
+			<td></td>
+			<td class="number">', locale_number_format(-$PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td></td>
+			<td class="number">', locale_number_format(-$PeriodBudgetProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td></td>
+			<td class="number">', locale_number_format($PeriodBudgetProfitLoss - $PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td></td>
+			<td class="number">', locale_number_format(-$PeriodLYProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+		</tr>';
 
 	if ($TotalIncome != 0) {
 		$PrdNPPercent = 100 * (-$PeriodProfitLoss) / $TotalIncome;
@@ -1307,25 +1316,27 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			<td colspan="8"><hr /></td>
 		</tr>';
 
-	printf('<tr>
-				<td colspan="2"><h4><i>' . _('Net Profit Percent') . '</i></h4></td>
-				<td></td>
-				<td class="number"><i>%s</i></td>
-				<td></td>
-				<td class="number"><i>%s</i></td>
-				<td></td>
-				<td class="number"><i>%s</i></td>
-				<td></td>
-				<td class="number"><i>%s</i></td>
-				</tr><tr><td colspan="6"> </td>
-			</tr>', locale_number_format($PrdNPPercent, 1) . '%', locale_number_format($BudgetNPPercent, 1) . '%', locale_number_format($BudgetNPPercent, 1) . '%', locale_number_format($LYNPPercent, 1) . '%');
+	echo '<tr>
+			<td colspan="2"><h4><i>', _('Net Profit Percent'), '</i></h4></td>
+			<td></td>
+			<td class="number"><i>', locale_number_format($PrdNPPercent, 1), '%</i></td>
+			<td></td>
+			<td class="number"><i>', locale_number_format($BudgetNPPercent, 1), '%</i></td>
+			<td></td>
+			<td class="number"><i>', locale_number_format($BudgetNPPercent, 1), '%</i></td>
+			<td></td>
+			<td class="number"><i>', locale_number_format($LYNPPercent, 1), '%</i></td>
+			</tr><tr><td colspan="6"> </td>
+		</tr>';
 
 	echo '<tr>
 			<td colspan="2"></td>
 			<td colspan="8"><hr /></td>
 		</tr>';
 	echo '</table>';
-	echo '<br /><div class="centre"><input type="submit" name="SelectADifferentPeriod" value="' . _('Select A Different Period') . '" /></div>';
+	echo '<div class="centre">
+			<input type="submit" name="SelectADifferentPeriod" value="', _('Select A Different Period'), '" />
+		</div>';
 }
 echo '</form>';
 include ('includes/footer.php');
