@@ -92,7 +92,7 @@ if ($_POST['PeriodFrom'] > $_POST['PeriodTo']) {
 
 // Main code:
 if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates the report:
-	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', // Icon image.
+	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', // Icon image.
 	$Title, '" /> ', // Icon title.
 	$Title, '<br />', // Page title, reporting statement.
 	stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />'; // Page title, reporting entity.
@@ -623,7 +623,7 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 	echo '</div>';
 } else { // If one or more parameters are NOT set or NOT valid, shows a parameters input form:
 	echo '<p class="page_title_text">
-			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', $Title, '" /> ', $Title, '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" /> ', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('The statement of cash flows, also known as the successor of the old source and application of funds statement, reports how changes in balance sheet accounts and income affect cash and cash equivalents, and breaks the analysis down to operating, investing and financing activities.'), '<br />', _('The purpose of the statement of cash flows is to show where the company got their money from and how it was spent during the period being reported for a user selectable range of periods.'), '<br />', _('The statement of cash flows represents a period of time. This contrasts with the statement of financial position, which represents a single moment in time.'), '<br />', _('KwaMoja is an accrual based system (not a cash based system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
 		</div>';
