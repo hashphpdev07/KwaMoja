@@ -17,7 +17,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print Statement of Financial Position') . '" />
+			<img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Statement of Financial Position') . '" />
 			' . _('Balance Sheet') . '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">' . _('Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time.') . '<br />' . _('The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities.') . '<br />' . $ProjectName . _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.') . '</div>';
@@ -29,8 +29,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 				<td>' . _('Select the balance date') . ':</td>
 				<td><select name="BalancePeriodEnd">';
 
-	$periodno = GetPeriod(Date($_SESSION['DefaultDateFormat']));
-	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $periodno . "'";
+	$PeriodNo = GetPeriod(Date($_SESSION['DefaultDateFormat']));
+	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	$lastdate_in_period = $MyRow[0];
@@ -39,7 +39,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	$Periods = DB_query($SQL);
 
 	while ($MyRow = DB_fetch_array($Periods)) {
-		if ($MyRow['periodno'] == $periodno) {
+		if ($MyRow['periodno'] == $PeriodNo) {
 			echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . ConvertSQLDate($lastdate_in_period) . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['periodno'] . '">' . ConvertSQLDate($MyRow['lastdate_in_period']) . '</option>';
