@@ -1389,7 +1389,7 @@ echo '<tr>
 	</tr>
 	 <tr>
 		<td>' . _('Shrinkage Factor') . ':</td>
-		<td><input type="text" class="number" name="ShrinkFactor" size="6" maxlength="6" value="' . locale_number_format($_POST['ShrinkFactor'], 0) . '" /></td>
+		<td><input type="text" class="number" name="ShrinkFactor" size="6" maxlength="6" value="' . locale_number_format($_POST['ShrinkFactor'], 'Variable') . '" /></td>
 	</tr>';
 
 if (in_array($_SESSION['PageSecurityArray']['StockCostUpdate.php'], $_SESSION['AllowedPageSecurityTokens'])) {
