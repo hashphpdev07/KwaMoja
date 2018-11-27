@@ -23,7 +23,7 @@ if ($WOHeader['deladd2'] == '') {
 	$AddressLineOffset = $FormDesign->FactoryAddress->Line2->FontSize;
 }
 if ($WOHeader['deladd3'] == '') {
-	$AddressLineOffset += $FormDesign->FactoryAddress->Line2->FontSize;
+	$AddressLineOffset+= $FormDesign->FactoryAddress->Line2->FontSize;
 }
 
 $PDF->addText($FormDesign->FactoryAddress->Caption->x, $Page_Height - $FormDesign->FactoryAddress->Caption->y, $FormDesign->FactoryAddress->Caption->FontSize, _('Produced At') . ': ');
@@ -34,10 +34,8 @@ $PDF->addText($FormDesign->FactoryAddress->Line3->x, $Page_Height - $FormDesign-
 $PDF->addText($FormDesign->FactoryAddress->Line4->x, $Page_Height - $FormDesign->FactoryAddress->Line4->y + $AddressLineOffset, $FormDesign->FactoryAddress->Line4->FontSize, $WOHeader['deladd4']);
 $PDF->addText($FormDesign->FactoryAddress->Line5->x, $Page_Height - $FormDesign->FactoryAddress->Line5->y + $AddressLineOffset, $FormDesign->FactoryAddress->Line5->FontSize, $WOHeader['deladd5'] . $WOHeader['deladd6']); // Includes delivery postal code and country.
 //$PDF->addText($FormDesign->FactoryAddress->WorkCenter->x,$Page_Height - $FormDesign->FactoryAddress->WorkCenter->y+$AddressLineOffset, $FormDesign->FactoryAddress->WorkCenter->FontSize, $WOHeader['workcenter']);
-
 $PDF->RoundRectangle($FormDesign->WOAddressBox->x, $Page_Height - $FormDesign->WOAddressBox->y, $FormDesign->WOAddressBox->width, $FormDesign->WOAddressBox->height, $FormDesign->WOAddressBox->radius, $FormDesign->WOAddressBox->radius); // Function RoundRectangle from includes/class.pdf.php
 //$PDF->RoundRectangle($FormDesign->WOHeaderBox->x, $Page_Height - $FormDesign->WOHeaderBox->y,$FormDesign->WOHeaderBox->width, $FormDesign->WOHeaderBox->height, $FormDesign->WOHeaderBox->radius, $FormDesign->WOHeaderBox->radius);// Function RoundRectangle from includes/class.pdf.php
-
 $PDF->setFont('', 'B');
 $PDF->addText($FormDesign->ItemNumberLab->x, $Page_Height - $FormDesign->ItemNumberLab->y, $FormDesign->ItemNumberLab->FontSize, _('Item Number') . ':');
 $PDF->addText($FormDesign->ItemDescLab->x, $Page_Height - $FormDesign->ItemDescLab->y, $FormDesign->ItemDescLab->FontSize, _('Item Description') . ':');
@@ -48,7 +46,6 @@ $PDF->addText($FormDesign->ReceivedQtyLab->x, $Page_Height - $FormDesign->Receiv
 $PDF->addText($FormDesign->PackageQtyLab->x, $Page_Height - $FormDesign->PackageQtyLab->y, $FormDesign->PackageQtyLab->FontSize, _('Packing Qty') . ':');
 
 //$PDF->Line($FormDesign->HeaderLine->startx, $Page_Height - $FormDesign->HeaderLine->starty, $FormDesign->HeaderLine->endx,$Page_Height - $FormDesign->HeaderLine->endy);
-
 $PDF->addText($FormDesign->ItemNumber->x, $Page_Height - $FormDesign->ItemNumber->y, $FormDesign->ItemNumber->FontSize, $WOHeader['stockid']);
 $PDF->addText($FormDesign->ItemDesc->x, $Page_Height - $FormDesign->ItemDesc->y, $FormDesign->ItemDesc->FontSize, $WOHeader['description']);
 $PDF->addText($FormDesign->RequiredDate->x, $Page_Height - $FormDesign->RequiredDate->y, $FormDesign->RequiredDate->FontSize, ConvertSQLDate($WOHeader['requiredby']));
@@ -68,8 +65,9 @@ $PDF->Rectangle($FormDesign->HeaderRectangle->x, $Page_Height - $FormDesign->Hea
 $PDF->addText($FormDesign->Headings->Column1->x, $Page_Height - $FormDesign->Headings->Column1->y, $FormDesign->Headings->Column1->FontSize, _('Action'));
 $PDF->addText($FormDesign->Headings->Column2->x, $Page_Height - $FormDesign->Headings->Column2->y, $FormDesign->Headings->Column2->FontSize, _('Item'));
 $PDF->addText($FormDesign->Headings->Column3->x, $Page_Height - $FormDesign->Headings->Column3->y, $FormDesign->Headings->Column3->FontSize, _('Item Description'));
-$PDF->addText($FormDesign->Headings->Column4->x, $Page_Height - $FormDesign->Headings->Column4->y, $FormDesign->Headings->Column4->FontSize, _('Quantity Reqd'));
+$PDF->addText($FormDesign->Headings->Column4->x, $Page_Height - $FormDesign->Headings->Column4->y, $FormDesign->Headings->Column4->FontSize, _('Qty Reqd'));
 $PDF->addText($FormDesign->Headings->Column5->x, $Page_Height - $FormDesign->Headings->Column5->y, $FormDesign->Headings->Column5->FontSize, _('Qty Issued'));
+$PDF->addText($FormDesign->Headings->Column6->x, $Page_Height - $FormDesign->Headings->Column6->y, $FormDesign->Headings->Column6->FontSize, _('Units'));
 /*draw a rectangle to hold the data lines */
 $PDF->Rectangle($FormDesign->DataRectangle->x, $Page_Height - $FormDesign->DataRectangle->y, $FormDesign->DataRectangle->width, $FormDesign->DataRectangle->height);
 ?>

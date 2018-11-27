@@ -280,7 +280,8 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 										stockmaster.decimalplaces,
 										autoissue,
 										qtypu,
-										controlled
+										controlled,
+										units
 									FROM worequirements INNER JOIN stockmaster
 									ON worequirements.stockid=stockmaster.stockid
 									WHERE wo='" . $SelectedWO . "'
@@ -311,6 +312,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			$WOLine[$i]['item'] = $RequirementsRow['stockid'];
 			$WOLine[$i]['description'] = $RequirementsRow['description'];
 			$WOLine[$i]['controlled'] = $RequirementsRow['controlled'];
+			$WOLine[$i]['units'] = $RequirementsRow['units'];
 			$WOLine[$i]['qtyreqd'] = $WOHeader['qtyreqd'] * $RequirementsRow['qtypu'];
 			$WOLine[$i]['issued'] = $Issued;
 			$WOLine[$i]['decimalplaces'] = $RequirementsRow['decimalplaces'];
@@ -322,7 +324,8 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			$RequirementsSQL = "SELECT stockid,
 							description,
 							decimalplaces,
-							controlled
+							controlled,
+							units
 					FROM stockmaster WHERE stockid IN ('" . $AdditionalStocks . "')";
 			$RequirementsResult = DB_query($RequirementsSQL);
 			$AdditionalStocks = array();
@@ -334,6 +337,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 				$WOLine[$i]['qtyreqd'] = 0;
 				$WOLine[$i]['issued'] = $IssuedAlreadyRow[$MyRow['stockid']];
 				$WOLine[$i]['decimalplaces'] = $RequirementsRow['decimalplaces'];
+				$WOLine[$i]['units'] = $RequirementsRow['units'];
 				$i+= 1;
 			}
 		}
@@ -352,6 +356,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 				$WOLine[$i]['qtyreqd'] = 9999999.99;
 				$WOLine[$i]['issued'] = 9999999.99;
 				$WOLine[$i]['decimalplaces'] = 2;
+				$WOLine[$i]['units'] = 'ea';
 			}
 			if ($WOLine[$i]['decimalplaces'] != NULL) {
 				$DecimalPlaces = $WOLine[$i]['decimalplaces'];
@@ -363,6 +368,7 @@ if (isset($MakePDFThenDisplayIt) or isset($MakePDFThenEmailIt)) {
 			$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column3->x, $YPos, $FormDesign->Data->Column3->Length, $FormDesign->Data->Column3->FontSize, $WOLine[$i]['description'], 'left');
 			$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column4->x, $YPos, $FormDesign->Data->Column4->Length, $FormDesign->Data->Column4->FontSize, locale_number_format($WOLine[$i]['qtyreqd'], $WOLine[$i]['decimalplaces']), 'right');
 			$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column5->x, $YPos, $FormDesign->Data->Column5->Length, $FormDesign->Data->Column5->FontSize, locale_number_format($WOLine[$i]['issued'], $WOLine[$i]['decimalplaces']), 'right');
+			$LeftOvers = $PDF->addTextWrap($FormDesign->Data->Column6->x, $YPos, $FormDesign->Data->Column6->Length, $FormDesign->Data->Column6->FontSize, $WOLine[$i]['units'], 'left');
 
 			$YPos-= $line_height;
 			if ($YPos - (2 * $line_height) <= $Page_Height - $FormDesign->Comments->y) {
