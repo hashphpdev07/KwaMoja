@@ -145,7 +145,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 							trandate,
 							settled,
 							rate,
-							ovamount,
+							SUM(ovamount) AS ovamount,
 							ovgst
 				 	FROM debtortrans WHERE order_ = '" . $MyRow['orderno'] . "'";
 		$invResult = DB_query($invSQL);
