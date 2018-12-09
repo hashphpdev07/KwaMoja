@@ -800,9 +800,9 @@ if (isset($_POST['UploadFile'])) {
 				$AlreadyOnThisOrder = 0;
 
 				if ($_SESSION['PO_AllowSameItemMultipleTimes'] == false) {
-					if (count($_SESSION['PO' . $identifier]->LineItems) != 0) {
+					if (count($_SESSION['PO' . $Identifier]->LineItems) != 0) {
 
-						foreach ($_SESSION['PO' . $identifier]->LineItems as $OrderItem) {
+						foreach ($_SESSION['PO' . $Identifier]->LineItems as $OrderItem) {
 
 							/* do a loop round the items on the order to see that the item is not already on this order */
 							if (($OrderItem->StockID == $ItemCode) and ($OrderItem->Deleted == false)) {
@@ -839,7 +839,7 @@ if (isset($_POST['UploadFile'])) {
 									leadtime,
 									MAX(purchdata.effectivefrom) AS latesteffectivefrom
 								FROM purchdata
-								WHERE purchdata.supplierno = '" . $_SESSION['PO' . $identifier]->SupplierID . "'
+								WHERE purchdata.supplierno = '" . $_SESSION['PO' . $Identifier]->SupplierID . "'
 								AND purchdata.effectivefrom <='" . Date('Y-m-d') . "'
 								AND purchdata.stockid = '" . $ItemCode . "'
 								GROUP BY purchdata.price,
@@ -860,7 +860,7 @@ if (isset($_POST['UploadFile'])) {
 							$SQL = "SELECT discountpercent,
 											discountamount
 									FROM supplierdiscounts
-									WHERE supplierno= '" . $_SESSION['PO' . $identifier]->SupplierID . "'
+									WHERE supplierno= '" . $_SESSION['PO' . $Identifier]->SupplierID . "'
 									AND effectivefrom <='" . Date('Y-m-d') . "'
 									AND effectiveto >='" . Date('Y-m-d') . "'
 									AND stockid = '" . $ItemCode . "'";
@@ -878,7 +878,7 @@ if (isset($_POST['UploadFile'])) {
 								prnMsg(_('Taken accumulated supplier percentage discounts of') . ' ' . locale_number_format($ItemDiscountPercent * 100, 2) . '%', 'info');
 							}
 							if ($ItemDiscountAmount != 0) {
-								prnMsg(_('Taken accumulated round sum supplier discount of') . ' ' . $_SESSION['PO' . $identifier]->CurrCode . ' ' . locale_number_format($ItemDiscountAmount, $_SESSION['PO' . $identifier]->CurrDecimalPlaces) . ' (' . _('per supplier unit') . ')', 'info');
+								prnMsg(_('Taken accumulated round sum supplier discount of') . ' ' . $_SESSION['PO' . $Identifier]->CurrCode . ' ' . locale_number_format($ItemDiscountAmount, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces) . ' (' . _('per supplier unit') . ')', 'info');
 							}
 							$PurchPrice = ($PurchRow['price'] * (1 - $ItemDiscountPercent) - $ItemDiscountAmount) / $PurchRow['conversionfactor'];
 							$ConversionFactor = $PurchRow['conversionfactor'];
@@ -894,8 +894,8 @@ if (isset($_POST['UploadFile'])) {
 							 * if > header DeliveryDate then set DeliveryDate to today + leadtime
 							*/
 							$DeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $LeadTime);
-							if (Date1GreaterThanDate2($_SESSION['PO' . $identifier]->DeliveryDate, $DeliveryDate)) {
-								$DeliveryDate = $_SESSION['PO' . $identifier]->DeliveryDate;
+							if (Date1GreaterThanDate2($_SESSION['PO' . $Identifier]->DeliveryDate, $DeliveryDate)) {
+								$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
 							}
 						} else { // no purchasing data setup
 							$PurchPrice = 0;
@@ -904,10 +904,10 @@ if (isset($_POST['UploadFile'])) {
 							$SuppliersUnitOfMeasure = $ItemRow['units'];
 							$SuppliersPartNo = '';
 							$LeadTime = 1;
-							$DeliveryDate = $_SESSION['PO' . $identifier]->DeliveryDate;
+							$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
 						}
 
-						$_SESSION['PO' . $identifier]->add_to_order($_SESSION['PO' . $identifier]->LinesOnOrder + 1, $ItemCode, 0, /*Serialised */
+						$_SESSION['PO' . $Identifier]->add_to_order($_SESSION['PO' . $Identifier]->LinesOnOrder + 1, $ItemCode, 0, /*Serialised */
 						0, /*Controlled */
 						filter_number_format($Quantity) * $ConversionFactor, /* Qty */
 						$SupplierDescription, $PurchPrice, $ItemRow['units'], $ItemRow['stockact'], $DeliveryDate, 0, 0, 0, 0, 0, $ItemRow['accountname'], $ItemRow['decimalplaces'], $SuppliersUnitOfMeasure, $ConversionFactor, $LeadTime, $SuppliersPartNo);
@@ -922,7 +922,7 @@ if (isset($_POST['UploadFile'])) {
 			} /* end if the $_POST has NewQty in the variable name */
 		}
 	}
-	$_SESSION['PO_ItemsResubmitForm' . $identifier]++; //change the $_SESSION VALUE
+	$_SESSION['PO_ItemsResubmitForm' . $Identifier]++; //change the $_SESSION VALUE
 	prnMsg($InsertNum . ' ' . _('of') . ' ' . $Row . ' ' . _('rows have been added to the order'), 'info');
 } /* end of if its items uploaded from csv */
 
