@@ -666,14 +666,6 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 					$LineCounter = 17;
 					$k = 0; //row colour counter
 					while ($MyRow2 = DB_fetch_array($Result)) {
-						if ($k == 1) {
-							$RowStarter = '<tr class="EvenTableRows">';
-							$k = 0;
-						} else {
-							$RowStarter = '<tr class="OddTableRows">';
-							$k = 1;
-						}
-						echo $RowStarter;
 						$DisplayPrice = number_format($MyRow2['fxprice'], 2);
 						$DisplayQty = number_format($MyRow2['quantity'], 2);
 						$DisplayNet = number_format($MyRow2['fxnet'], 2);
@@ -682,16 +674,20 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 						} else {
 							$DisplayDiscount = number_format($MyRow2['discountpercent'] * 100, 2) . '%';
 						}
-						printf('<td>%s</td>
-								<td>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							</tr>', $MyRow2['stockid'], $MyRow2['description'], $DisplayQty, $MyRow2['units'], $DisplayPrice, $DisplayDiscount, $DisplayNet);
+						echo '<tr class="striped_row">
+								<td>', $MyRow2['stockid'], '</td>
+								<td>', $MyRow2['description'], '</td>
+								<td class=number>', $DisplayQty, '</td>
+								<td class=number>', $MyRow2['units'], '</td>
+								<td class=number>', $DisplayPrice, '</td>
+								<td class=number>', $DisplayDiscount, '</td>
+								<td class=number>', $DisplayNet, '</td>
+							</tr>';
 						if (strlen($MyRow2['narrative']) > 1) {
-							echo $RowStarter . '<td></td><td colspan=6>' . $MyRow2['narrative'] . '</td></tr>';
+							echo '<tr class="striped_row">
+									<td></td>
+									<td colspan=6>', $MyRow2['narrative'], '</td>
+								</tr>';
 							$LineCounter++;
 						}
 						$LineCounter++;
