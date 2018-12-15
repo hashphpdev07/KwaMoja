@@ -32,7 +32,8 @@ if (!isset($_POST['Show'])) {
 				INNER JOIN bankaccountusers
 					ON bankaccounts.accountcode=bankaccountusers.accountcode
 				WHERE bankaccountusers.userid = '" . $_SESSION['UserID'] . "'
-					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
+					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+				ORDER BY bankaccountname";
 
 	$ErrMsg = _('The bank accounts could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve the bank accounts was');
