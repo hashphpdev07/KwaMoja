@@ -22,7 +22,8 @@ if (!isset($_FILES['ImportFile']) and !isset($_SESSION['Statement'])) {
 				INNER JOIN bankaccountusers
 					ON bankaccounts.accountcode=bankaccountusers.accountcode
 					AND bankaccountusers.userid = '" . $_SESSION['UserID'] . "'
-				WHERE importformat<>''";
+				WHERE importformat<>''
+				ORDER BY bankaccountname";
 
 	$ErrMsg = _('The bank accounts set up could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve the bank accounts was') . '<br />' . $SQL;

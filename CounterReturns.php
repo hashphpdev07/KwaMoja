@@ -834,7 +834,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 				</td>
 			</tr>';
 
-	$BankAccountsResult = DB_query("SELECT bankaccountname, accountcode FROM bankaccounts");
+	$BankAccountsResult = DB_query("SELECT bankaccountname, accountcode FROM bankaccounts ORDER BY bankaccountname");
 
 	echo '<tr>
 			<td style="color:red">', _('Bank Account'), ':</td>

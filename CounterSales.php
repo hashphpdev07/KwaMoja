@@ -919,7 +919,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	}
 	echo '</select></td></tr>';
 
-	$BankAccountsResult = DB_query("SELECT bankaccountname, accountcode FROM bankaccounts");
+	$BankAccountsResult = DB_query("SELECT bankaccountname, accountcode FROM bankaccounts ORDER BY bankaccountname");
 
 	echo '<tr>
 			<td>' . _('Banked to') . ':</td>
