@@ -528,7 +528,7 @@ if (!isset($SelectedEmployee) and $_SESSION['CanEnterTimesheets'] == 1) {
 				<td>', $MyRow['managerfirstname'], ' ', $MyRow['managersurname'], '</td>
 				<td><a href="mailto:', $MyRow['email1'], '">', $MyRow['email1'], '</a></td>
 				<td class="noprint"><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedEmployee=', urlencode($MyRow['employeeid']), '">', _('Select'), '</a></td>
-				<td class="noprint"><a href="Employees.php?SelectedEmployee=', urlencode($MyRow['employeeid']), '">', _('Edit'), '</a></td>
+				<td class="noprint"><a href="prlEmployeeMaster.php?EmployeeID=', urlencode($MyRow['employeeid']), '">', _('Edit'), '</a></td>
 			</tr>';
 		}
 		//END WHILE LIST LOOP
