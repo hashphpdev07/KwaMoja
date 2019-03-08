@@ -3,22 +3,46 @@
  * as at the end of any period selected - so first off need to show the input
  * of criteria screen while the user is selecting the period end of the balance
  * date meanwhile the system is posting any unposted transactions
+
+Parameters:
+{	PeriodFrom: Select the beginning of the reporting period. Not used in this script.}
+	PeriodTo: Select the end of the reporting period.
+{	Period: Select a period instead of using the beginning and end of the reporting period. Not used in this script.}
+{	ShowBudget: Check this box to show the budget for the period. Not used in this script.}
+	ShowDetail: Check this box to show all accounts instead a summary.
+	ShowZeroBalance: Check this box to show all accounts including those with zero balance.
+	NewReport: Click this button to start a new report.
+	IsIncluded: Parameter to indicate that a script is included within another.
 */
 
-include ('includes/session.php');
+if (!isset($IsIncluded)) { // Runs normally if this script is NOT included in another.
+	include ('includes/session.php');
+}
+
 $Title = _('Balance Sheet'); // Screen identification.
 $Title2 = _('Statement of Financial Position'); // Name as IAS.
 $ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'BalanceSheet'; // Anchor's id in the manual's html document.
-include ('includes/SQL_CommonFunctions.php');
-include ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
-if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod'])) {
+include_once ('includes/SQL_CommonFunctions.php');
+include_once ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
+// Merges GETs into POSTs:
+if (isset($_GET['PeriodTo'])) {
+	$_POST['PeriodTo'] = $_GET['PeriodTo'];
+}
+if (isset($_GET['ShowDetail'])) { // Select period from.
+	$_POST['ShowDetail'] = $_GET['ShowDetail'];
+}
+if (isset($_GET['ShowZeroBalance'])) { // Select period from.
+	$_POST['ShowZeroBalance'] = $_GET['ShowZeroBalance'];
+}
+
+if (!isset($_POST['PeriodTo']) or isset($_POST['SelectADifferentPeriod'])) {
 
 	/*Show a form to allow input of criteria for Balance Sheet to show */
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
+			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time.'), '<br />', _('The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities.'), '<br />', $ProjectName, _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 
@@ -27,10 +51,14 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	echo '<fieldset>
 			<legend>', _('Criteria for report'), '</legend>
 			<field>
-				<label for="BalancePeriodEnd">', _('Select the balance date'), ':</label>
-				<select name="BalancePeriodEnd" autofocus="autofocus">';
+				<label for="PeriodTo">', _('Select the balance date'), ':</label>
+				<select name="PeriodTo" autofocus="autofocus">';
 
-	$PeriodNo = GetPeriod(Date($_SESSION['DefaultDateFormat']));
+	if (isset($_POST['PeriodTo'])) {
+		$PeriodNo = $_POST['PeriodTo'];
+	} else {
+		$PeriodNo = GetPeriod(Date($_SESSION['DefaultDateFormat']));
+	}
 	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
@@ -52,15 +80,15 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	</field>';
 
 	echo '<field>
-			<label for="Detail">', _('Detail Or Summary'), ':</label>
-			<select name="Detail">
+			<label for="ShowDetail">', _('Detail Or Summary'), ':</label>
+			<select name="ShowDetail">
 				<option value="Summary">', _('Summary'), '</option>
 				<option selected="selected" value="Detailed">', _('All Accounts'), '</option>
 			</select>
 			<fieldhelp>', _('Show a summary report, or show all accounts.'), '</fieldhelp>
-		</field>
+		</field>';
 
-		<field>
+	echo '<field>
 			<label for="ShowZeroBalances">', _('Show all Accounts including zero balances'), '</label>
 			<input type="checkbox" checked="checked" name="ShowZeroBalances">
 			<fieldhelp>', _('Check this box to display all accounts including those accounts with no balance'), '</fieldhelp>
@@ -89,15 +117,15 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 
 	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
 
-	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['BalancePeriodEnd'] . "'";
+	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['PeriodTo'] . "'";
 	$PrdResult = DB_query($SQL);
 	$MyRow = DB_fetch_row($PrdResult);
 	$BalanceDate = ConvertSQLDate($MyRow[0]);
 
 	/*Calculate B/Fwd retained earnings */
 
-	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
-			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lyaccumprofitbfwd
+	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
+			Sum(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lyaccumprofitbfwd
 		FROM chartmaster
 		INNER JOIN accountgroups
 			ON chartmaster.groupcode = accountgroups.groupcode
@@ -129,8 +157,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			accountgroups.parentgroupname,
 			chartdetails.accountcode ,
 			chartmaster.accountname,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
-			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lybalancecfwd
+			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
+			Sum(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lybalancecfwd
 		FROM chartmaster
 			INNER JOIN accountgroups
 				ON chartmaster.groupcode = accountgroups.groupcode
@@ -241,7 +269,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			$SectionBalance = 0;
 
 			$Section = $MyRow['sectioninaccounts'];
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, $Sections[$MyRow['sectioninaccounts']]);
 				$YPos-= (2 * $line_height);
@@ -262,7 +290,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			}
 			$ActGrp = $MyRow['groupname'];
 			$ParentGroups[$Level] = $ActGrp;
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, $MyRow['groupname']);
 				$YPos-= $line_height;
 			}
@@ -280,7 +308,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		$LYCheckTotal+= $LYAccountBalance;
 		$CheckTotal+= $AccountBalance;
 
-		if ($_POST['Detail'] == 'Detailed') {
+		if ($_POST['ShowDetail'] == 'Detailed') {
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and (round($AccountBalance, $_SESSION['CompanyRecord']['decimalplaces']) <> 0 or round($LYAccountBalance, $_SESSION['CompanyRecord']['decimalplaces']) <> 0))) {
 				$FontSize = 8;
 				$PDF->setFont('', '');
@@ -341,24 +369,31 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	}
 	exit;
 } else {
-	$ViewTopic = 'GeneralLedger';
-	$BookMark = 'BalanceSheet';
-	include ('includes/header.php');
+
+	if (!isset($IsIncluded)) { // Runs normally if this script is NOT included in another.
+		$ViewTopic = 'GeneralLedger';
+		$BookMark = 'BalanceSheet';
+		include ('includes/header.php');
+		echo '<p class="page_title_text">
+				<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/preview.png" title="', _('HTML View'), '" alt="', _('HTML View'), '" /> ', _('HTML View'), '
+			</p>';
+	}
+
 	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<input type="hidden" name="BalancePeriodEnd" value="', $_POST['BalancePeriodEnd'], '" />';
+	echo '<input type="hidden" name="PeriodTo" value="', $_POST['PeriodTo'], '" />';
 
 	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
 
-	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['BalancePeriodEnd'] . "'";
+	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['PeriodTo'] . "'";
 	$PrdResult = DB_query($SQL);
 	$MyRow = DB_fetch_row($PrdResult);
 	$BalanceDate = ConvertSQLDate($MyRow[0]);
 
 	/*Calculate B/Fwd retained earnings */
 
-	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
-			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lyaccumprofitbfwd
+	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
+			Sum(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lyaccumprofitbfwd
 		FROM chartmaster
 		INNER JOIN accountgroups
 			ON chartmaster.groupcode = accountgroups.groupcode
@@ -378,8 +413,8 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			accountgroups.parentgroupname,
 			chartdetails.accountcode,
 			chartmaster.accountname,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
-			Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lybalancecfwd
+			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
+			Sum(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lybalancecfwd
 		FROM chartmaster
 			INNER JOIN accountgroups
 				ON chartmaster.groupcode = accountgroups.groupcode
@@ -404,9 +439,6 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			chartdetails.accountcode";
 
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'));
-	echo '<p class="page_title_text">
-			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/preview.png" title="', _('HTML View'), '" alt="', _('HTML View'), '" /> ', _('HTML View'), '
-		</p>';
 
 	echo '<table summary="', _('HTML View'), '">
 			<thead>
@@ -418,7 +450,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 					</th>
 				</tr>';
 
-	if ($_POST['Detail'] == 'Detailed') {
+	if ($_POST['ShowDetail'] == 'Detailed') {
 		$TableHeader = '<tr>
 							<th>' . _('Account') . '</th>
 							<th>' . _('Account Name') . '</th>
@@ -463,7 +495,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		if ($MyRow['groupname'] != $ActGrp and $ActGrp != '') {
 			if ($MyRow['parentgroupname'] != $ActGrp) {
 				while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
-					if ($_POST['Detail'] == 'Detailed') {
+					if ($_POST['ShowDetail'] == 'Detailed') {
 						echo '<tr>
 								<td colspan="2"></td>
 	  							<td><hr /></td>
@@ -484,7 +516,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 					$Level--;
 					++$j;
 				}
-				if ($_POST['Detail'] == 'Detailed') {
+				if ($_POST['ShowDetail'] == 'Detailed') {
 					echo '<tr>
 							<td colspan="2"></td>
 							<td><hr /></td>
@@ -510,7 +542,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		if ($MyRow['sectioninaccounts'] != $Section) {
 
 			if ($Section != '') {
-				if ($_POST['Detail'] == 'Detailed') {
+				if ($_POST['ShowDetail'] == 'Detailed') {
 					echo '<tr>
 							<td colspan="2"></td>
 							<td><hr /></td>
@@ -539,7 +571,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			$SectionBalance = 0;
 			$Section = $MyRow['sectioninaccounts'];
 
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				echo '<tr>
 						<td colspan="6"><h1>', $Sections[$MyRow['sectioninaccounts']], '</h1></td>
 					</tr>';
@@ -552,7 +584,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 				$Level++;
 			}
 
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				$ActGrp = $MyRow['groupname'];
 				echo '<tr>
 						<td colspan="6"><h3>', $MyRow['groupname'], '</h3></td>
@@ -575,10 +607,10 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		$LYCheckTotal+= $LYAccountBalance;
 		$CheckTotal+= $AccountBalance;
 
-		if ($_POST['Detail'] == 'Detailed') {
+		if ($_POST['ShowDetail'] == 'Detailed') {
 
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and ($AccountBalance <> 0 or $LYAccountBalance <> 0))) {
-				$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?FromPeriod=' . urlencode(FYStartPeriod($_POST['BalancePeriodEnd'])) . '&ToPeriod=' . urlencode($_POST['BalancePeriodEnd']) . '&amp;Account=' . urlencode($MyRow['accountcode']) . '">' . $MyRow['accountcode'] . '</a>';
+				$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?FromPeriod=' . urlencode(FYStartPeriod($_POST['PeriodTo'])) . '&ToPeriod=' . urlencode($_POST['PeriodTo']) . '&amp;Account=' . urlencode($MyRow['accountcode']) . '">' . $MyRow['accountcode'] . '</a>';
 
 				echo '<tr class="striped_row">
 						<td>', $ActEnquiryURL, '</td>
@@ -594,7 +626,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	}
 	//end of loop
 	while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
-		if ($_POST['Detail'] == 'Detailed') {
+		if ($_POST['ShowDetail'] == 'Detailed') {
 			echo '<tr>
 					<td colspan="2"></td>
 					<td><hr /></td>
@@ -611,7 +643,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			</tr>';
 		$Level--;
 	}
-	if ($_POST['Detail'] == 'Detailed') {
+	if ($_POST['ShowDetail'] == 'Detailed') {
 		echo '<tr>
 				<td colspan="2"></td>
 				<td><hr /></td>
@@ -628,7 +660,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			<td class="number">', locale_number_format($LYGroupTotal[$Level], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 		</tr>';
 
-	if ($_POST['Detail'] == 'Detailed') {
+	if ($_POST['ShowDetail'] == 'Detailed') {
 		echo '<tr>
 				<td colspan="2"></td>
 				<td><hr /></td>
@@ -654,7 +686,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 
 	$Section = $MyRow['sectioninaccounts'];
 
-	if (isset($MyRow['sectioninaccounts']) and $_POST['Detail'] == 'Detailed') {
+	if (isset($MyRow['sectioninaccounts']) and $_POST['ShowDetail'] == 'Detailed') {
 		echo '<tr>
 				<td colspan="6"><h1>', $Sections[$MyRow['sectioninaccounts']], '</h1></td>
 			</tr>';
@@ -687,6 +719,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 		</div>';
 	echo '</form>';
 }
-
-include ('includes/footer.php');
+if (!isset($IsIncluded)) { // Runs normally if this script is NOT included in another.
+	include ('includes/footer.php');
+}
 ?>

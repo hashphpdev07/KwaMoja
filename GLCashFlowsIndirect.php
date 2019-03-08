@@ -103,7 +103,8 @@ if ($_POST['PeriodFrom'] > $_POST['PeriodTo']) {
 
 // Main code:
 if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates the report:
-	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', // Icon image.
+	echo '<p class="page_title_text">
+			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', // Icon image.
 	$Title, '" /> ', // Icon title.
 	$Title, '<br />', // Page title, reporting statement.
 	stripslashes($_SESSION['CompanyRecord']['coyname']), '<br />'; // Page title, reporting entity.
@@ -625,16 +626,19 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 		<input name="ShowBudget" type="hidden" value="', $_POST['ShowBudget'], '" />
 		<input name="ShowCash" type="hidden" value="', $_POST['ShowCash'], '" />';
 
-	echo '<div class="centre noPrint">';
-	echo '<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '"><br />';
-	if ($NeedSetup) {
-		echo '<a href="GLCashFlowsSetup.php"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" /> ', _('Run Setup'), '</a>'; // "Run Setup" button.
-		
+	if (!isset($IsIncluded)) {
+		echo '<div class="centre noPrint">';
+		echo '<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '"><br />';
+		if ($NeedSetup) {
+			echo '<a href="GLCashFlowsSetup.php"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" /> ', _('Run Setup'), '</a>'; // "Run Setup" button.
+			
+		}
+		echo '</div>';
 	}
-	echo '</div>';
+
 } else { // If one or more parameters are NOT set or NOT valid, shows a parameters input form:
 	echo '<p class="page_title_text">
-			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" /> ', $Title, '
+			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" /> ', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('The statement of cash flows, also known as the successor of the old source and application of funds statement, reports how changes in balance sheet accounts and income affect cash and cash equivalents, and breaks the analysis down to operating, investing and financing activities.'), '<br />', _('The purpose of the statement of cash flows is to show where the company got their money from and how it was spent during the period being reported for a user selectable range of periods.'), '<br />', _('The statement of cash flows represents a period of time. This contrasts with the statement of financial position, which represents a single moment in time.'), '<br />', _('KwaMoja is an accrual based system (not a cash based system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '
 		</div>';
@@ -748,5 +752,9 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 	}
 	echo '</form>';
 }
-include ('includes/footer.php');
+
+if (!isset($IsIncluded)) {
+	include ('includes/footer.php');
+}
+
 ?>

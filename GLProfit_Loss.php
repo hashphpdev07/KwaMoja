@@ -1,27 +1,50 @@
 <?php
-include ('includes/session.php');
+/*
+Info about financial statements: IAS 1 - Presentation of Financial Statements.
+Parameters:
+	PeriodFrom: Select the beginning of the reporting period.
+	PeriodTo: Select the end of the reporting period.
+	Period: Select a period instead of using the beginning and end of the reporting period.
+{	ShowBudget: Check this box to show the budget for the period. Not used in this script.}
+	ShowDetail: Check this box to show all accounts instead a summary.
+	ShowZeroBalance: Check this box to show all accounts including those with zero balance.
+	NewReport: Click this button to start a new report.
+	IsIncluded: Parameter to indicate that a script is included within another.
+*/
+
 $Title = _('Profit and Loss'); // Screen identification.
 $Title2 = _('Statement of Comprehensive Income'); // Name as IAS
 $ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'ProfitAndLoss'; // Anchor's id in the manual's html document.
-include ('includes/SQL_CommonFunctions.php');
-include ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
-if (isset($_POST['FromPeriod']) and ($_POST['FromPeriod'] > $_POST['ToPeriod'])) {
+// BEGIN: Procedure division ===================================================
+if (!isset($IsIncluded)) { // Runs normally if this script is NOT included in another.
+	include ('includes/session.php');
+}
+include_once ('includes/SQL_CommonFunctions.php');
+include_once ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
+if (isset($_POST['PeriodFrom']) and ($_POST['PeriodFrom'] > $_POST['PeriodTo'])) {
 	prnMsg(_('The selected period from is actually after the period to') . '! ' . _('Please reselect the reporting period'), 'error');
 	$_POST['SelectADifferentPeriod'] = 'Select A Different Period';
 }
 
-if (isset($_POST['Period']) and $_POST['Period'] != '') {
-	$_POST['FromPeriod'] = ReportPeriod($_POST['Period'], 'From');
-	$_POST['ToPeriod'] = ReportPeriod($_POST['Period'], 'To');
+if (isset($_GET['PeriodFrom'])) {
+	$_POST['PeriodFrom'] = $_GET['PeriodFrom'];
+}
+if (isset($_GET['PeriodTo'])) {
+	$_POST['PeriodTo'] = $_GET['PeriodTo'];
 }
 
-if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POST['SelectADifferentPeriod'])) {
+if (isset($_POST['Period']) and $_POST['Period'] != '') {
+	$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
+	$_POST['PeriodTo'] = ReportPeriod($_POST['Period'], 'To');
+}
+
+if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POST['SelectADifferentPeriod'])) {
 
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
+			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line).'), '<br />', _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.'), '<br />', _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.'), '<br />', $ProjectName, _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 
@@ -41,8 +64,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	echo '<fieldset>
 			<legend>', _('Criteria for report'), '</legend>
 			<field>
-				<label for="FromPeriod">', _('Select Period From'), ':</label>
-				<select name="FromPeriod" autofocus="autofocus">';
+				<label for="PeriodFrom">', _('Select Period From'), ':</label>
+				<select name="PeriodFrom" autofocus="autofocus">';
 
 	$SQL = "SELECT periodno,
 					lastdate_in_period
@@ -51,8 +74,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$Periods = DB_query($SQL);
 
 	while ($MyRow = DB_fetch_array($Periods)) {
-		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] != '') {
-			if ($_POST['FromPeriod'] == $MyRow['periodno']) {
+		if (isset($_POST['PeriodFrom']) and $_POST['PeriodFrom'] != '') {
+			if ($_POST['PeriodFrom'] == $MyRow['periodno']) {
 				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
 				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
@@ -69,26 +92,26 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		<fieldhelp>', _('Select the starting period for this report'), '</fieldhelp>
 	</field>';
 
-	if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
+	if (!isset($_POST['PeriodTo']) or $_POST['PeriodTo'] == '') {
 		$LastDate = date('Y-m-d', mktime(0, 0, 0, Date('m') + 1, 0, Date('Y')));
 		$SQL = "SELECT periodno FROM periods where lastdate_in_period = '" . $LastDate . "'";
 		$MaxPrd = DB_query($SQL);
 		$MaxPrdrow = DB_fetch_row($MaxPrd);
-		$DefaultToPeriod = (int)($MaxPrdrow[0]);
+		$DefaultPeriodTo = (int)($MaxPrdrow[0]);
 
 	} else {
-		$DefaultToPeriod = $_POST['ToPeriod'];
+		$DefaultPeriodTo = $_POST['PeriodTo'];
 	}
 
 	echo '<field>
-			<label for="ToPeriod">', _('Select Period To'), ':</label>
-			<select name="ToPeriod">';
+			<label for="PeriodTo">', _('Select Period To'), ':</label>
+			<select name="PeriodTo">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
 	while ($MyRow = DB_fetch_array($Periods)) {
 
-		if ($MyRow['periodno'] == $DefaultToPeriod) {
+		if ($MyRow['periodno'] == $DefaultPeriodTo) {
 			echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
 		} else {
 			echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
@@ -146,7 +169,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	$FontSize = 8;
 	$line_height = 12;
 
-	$NumberOfMonths = $_POST['ToPeriod'] - $_POST['FromPeriod'] + 1;
+	$NumberOfMonths = $_POST['PeriodTo'] - $_POST['PeriodFrom'] + 1;
 
 	if ($NumberOfMonths > 12) {
 		include ('includes/header.php');
@@ -156,7 +179,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		exit;
 	}
 
-	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['ToPeriod'] . "'";
+	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['PeriodTo'] . "'";
 	$PrdResult = DB_query($SQL);
 	$MyRow = DB_fetch_row($PrdResult);
 	$PeriodToDate = MonthAndYearFromSQLDate($MyRow[0]);
@@ -166,12 +189,12 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					accountgroups.parentgroupname,
 					chartdetails.accountcode ,
 					chartmaster.accountname,
-					Sum(CASE WHEN chartdetails.period='" . $_POST['FromPeriod'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
-					Sum(CASE WHEN chartdetails.period='" . $_POST['FromPeriod'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
-					Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
-					Sum(CASE WHEN chartdetails.period='" . ($_POST['FromPeriod'] - 12) . "' THEN chartdetails.bfwd ELSE 0 END) AS lyfirstprdbfwd,
-					Sum(CASE WHEN chartdetails.period='" . ($_POST['ToPeriod'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lylastprdcfwd,
-					Sum(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
+					Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
+					Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
+					Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
+					Sum(CASE WHEN chartdetails.period='" . ($_POST['PeriodFrom'] - 12) . "' THEN chartdetails.bfwd ELSE 0 END) AS lyfirstprdbfwd,
+					Sum(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lylastprdcfwd,
+					Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
 				FROM chartmaster
 				INNER JOIN accountgroups
 					ON chartmaster.groupcode = accountgroups.groupcode
@@ -246,7 +269,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			if ($ActGrp != '') {
 				if ($MyRow['parentgroupname'] != $ActGrp) {
 					while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
-						if ($_POST['Detail'] == 'Detailed') {
+						if ($_POST['ShowDetail'] == 'Detailed') {
 							$ActGrpLabel = $ParentGroups[$Level] . ' ' . _('total');
 						} else {
 							$ActGrpLabel = $ParentGroups[$Level];
@@ -279,7 +302,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 						}
 					} //end of loop
 					//still need to print out the group total for the same level
-					if ($_POST['Detail'] == 'Detailed') {
+					if ($_POST['ShowDetail'] == 'Detailed') {
 						$ActGrpLabel = $ParentGroups[$Level] . ' ' . _('total');
 					} else {
 						$ActGrpLabel = $ParentGroups[$Level];
@@ -381,7 +404,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 			$Section = $MyRow['sectioninaccounts'];
 
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, $Sections[$MyRow['sectioninaccounts']]);
 				$YPos-= (2 * $line_height);
 			}
@@ -396,7 +419,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 			}
 			$ActGrp = $MyRow['groupname'];
 			$ParentGroups[$Level] = $ActGrp;
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				$FontSize = 8;
 				//				$PDF->setFont('', 'B');
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, $MyRow['groupname']);
@@ -432,7 +455,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$SectionPrdActual+= $AccountPeriodActual;
 		$SectionPrdBudget+= $AccountPeriodBudget;
 
-		if ($_POST['Detail'] == 'Detailed') {
+		if ($_POST['ShowDetail'] == 'Detailed') {
 
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and ($AccountPeriodActual <> 0 or $AccountPeriodBudget <> 0 or $AccountPeriodLY <> 0))) { //condition for pdf
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, $MyRow['accountcode']);
@@ -460,7 +483,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		if ($MyRow['parentgroupname'] != $ActGrp) {
 
 			while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
-				if ($_POST['Detail'] == 'Detailed') {
+				if ($_POST['ShowDetail'] == 'Detailed') {
 					$ActGrpLabel = $ParentGroups[$Level] . ' ' . _('total');
 				} else {
 					$ActGrpLabel = $ParentGroups[$Level];
@@ -493,7 +516,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				}
 			}
 			//still need to print out the group total for the same level
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				$ActGrpLabel = $ParentGroups[$Level] . ' ' . _('total');
 			} else {
 				$ActGrpLabel = $ParentGroups[$Level];
@@ -605,15 +628,22 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 } else {
 
-	$ViewTopic = 'GeneralLedger';
-	$BookMark = 'ProfitAndLoss';
-	include ('includes/header.php');
+	if (!isset($IsIncluded)) {
+		$ViewTopic = 'GeneralLedger';
+		$BookMark = 'ProfitAndLoss';
+		include ('includes/header.php');
+		echo '<p class="page_title_text">
+				<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title2, '" />
+				', $Title, ' ', _('For'), ' ', $NumberOfMonths, ' ', _('months to'), ' and including ', $PeriodToDate, '
+			</p>'; // Page title.
+		
+	}
 	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
-	echo '<input type="hidden" name="FromPeriod" value="', $_POST['FromPeriod'], '" />';
-	echo '<input type="hidden" name="ToPeriod" value="', $_POST['ToPeriod'], '" />';
+	echo '<input type="hidden" name="PeriodFrom" value="', $_POST['PeriodFrom'], '" />';
+	echo '<input type="hidden" name="PeriodTo" value="', $_POST['PeriodTo'], '" />';
 
-	$NumberOfMonths = $_POST['ToPeriod'] - $_POST['FromPeriod'] + 1;
+	$NumberOfMonths = $_POST['PeriodTo'] - $_POST['PeriodFrom'] + 1;
 
 	if ($NumberOfMonths > 12) {
 		echo '<br />';
@@ -622,7 +652,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		exit;
 	}
 
-	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['ToPeriod'] . "'";
+	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $_POST['PeriodTo'] . "'";
 	$PrdResult = DB_query($SQL);
 	$MyRow = DB_fetch_row($PrdResult);
 	$PeriodToDate = MonthAndYearFromSQLDate($MyRow[0]);
@@ -632,12 +662,12 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					accountgroups.groupname,
 					chartdetails.accountcode,
 					chartmaster.accountname,
-					SUM(CASE WHEN chartdetails.period='" . $_POST['FromPeriod'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
-					SUM(CASE WHEN chartdetails.period='" . $_POST['FromPeriod'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
-					SUM(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
-					SUM(CASE WHEN chartdetails.period='" . ($_POST['FromPeriod'] - 12) . "' THEN chartdetails.bfwd ELSE 0 END) AS lyfirstprdbfwd,
-					SUM(CASE WHEN chartdetails.period='" . ($_POST['ToPeriod'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lylastprdcfwd,
-					SUM(CASE WHEN chartdetails.period='" . $_POST['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
+					SUM(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
+					SUM(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
+					SUM(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
+					SUM(CASE WHEN chartdetails.period='" . ($_POST['PeriodFrom'] - 12) . "' THEN chartdetails.bfwd ELSE 0 END) AS lyfirstprdbfwd,
+					SUM(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lylastprdcfwd,
+					SUM(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
 			FROM chartmaster
 			INNER JOIN accountgroups
 				ON chartmaster.groupcode = accountgroups.groupcode
@@ -658,10 +688,6 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was'));
 
-	echo '<p class="page_title_text">
-			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title2, '" />
-			', $Title, ' ', _('For'), ' ', $NumberOfMonths, ' ', _('months to'), ' and including ', $PeriodToDate, '
-		</p>'; // Page title.
 	/*show a table of the accounts info returned by the SQL
 	 Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
 
@@ -673,7 +699,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				</th>
 			</tr>';
 
-	if ($_POST['Detail'] == 'Detailed') {
+	if ($_POST['ShowDetail'] == 'Detailed') {
 		$TableHeader = '<tr>
 							<th>' . _('Account') . '</th>
 							<th>' . _('Account Name') . '</th>
@@ -720,7 +746,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		if ($MyRow['groupname'] != $ActGrp) {
 			if ($MyRow['parentgroupname'] != $ActGrp and $ActGrp != '') {
 				while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
-					if ($_POST['Detail'] == 'Detailed') {
+					if ($_POST['ShowDetail'] == 'Detailed') {
 						echo '<tr>
 								<td colspan="3"></td>
 								<td colspan="8"><hr /></td>
@@ -765,7 +791,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 					$Level--;
 				} //end while
 				//still need to print out the old group totals
-				if ($_POST['Detail'] == 'Detailed') {
+				if ($_POST['ShowDetail'] == 'Detailed') {
 					echo '<tr>
 							<td colspan="3"></td>
 							<td colspan="8"><hr /></td>
@@ -980,7 +1006,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 			$Section = $MyRow['sectioninaccounts'];
 
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				echo '<tr>
 						<td colspan="8"><h2><b>', $Sections[$MyRow['sectioninaccounts']], '</b></h2></td>
 					</tr>';
@@ -997,7 +1023,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 			$ParentGroups[$Level] = $MyRow['groupname'];
 			$ActGrp = $MyRow['groupname'];
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				echo '<tr>
 						<th colspan="11"><b>', $MyRow['groupname'], '</b></th>
 					</tr>';
@@ -1030,10 +1056,10 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		$SectionPrdActual+= $AccountPeriodActual;
 		$SectionPrdBudget+= $AccountPeriodBudget;
 
-		if ($_POST['Detail'] == 'Detailed') {
+		if ($_POST['ShowDetail'] == 'Detailed') {
 
 			if (isset($_POST['ShowZeroBalances']) or (!isset($_POST['ShowZeroBalances']) and ($AccountPeriodActual <> 0 or $AccountPeriodBudget <> 0 or $AccountPeriodLY <> 0))) {
-				$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?Period=' . $_POST['ToPeriod'] . '&amp;Account=' . $MyRow['accountcode'] . '&amp;Show=Yes">' . $MyRow['accountcode'] . '</a>';
+				$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?Period=' . $_POST['PeriodTo'] . '&amp;Account=' . $MyRow['accountcode'] . '&amp;Show=Yes">' . $MyRow['accountcode'] . '</a>';
 
 				if ($Section == 1) {
 					echo '<tr class="striped_row">
@@ -1073,7 +1099,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 	if ($MyRow['groupname'] != $ActGrp) {
 		if ($MyRow['parentgroupname'] != $ActGrp and $ActGrp != '') {
 			while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
-				if ($_POST['Detail'] == 'Detailed') {
+				if ($_POST['ShowDetail'] == 'Detailed') {
 					echo '<tr>
 						<td colspan="2"></td>
 						<td colspan="6"><hr /></td>
@@ -1116,7 +1142,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				$Level--;
 			} //end while
 			//still need to print out the old group totals
-			if ($_POST['Detail'] == 'Detailed') {
+			if ($_POST['ShowDetail'] == 'Detailed') {
 				echo '<tr>
 						<td colspan="2"></td>
 						<td colspan="8"><hr /></td>
@@ -1269,7 +1295,7 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 		$Section = $MyRow['sectioninaccounts'];
 
-		if ($_POST['Detail'] == 'Detailed' and isset($Sections[$MyRow['sectioninaccounts']])) {
+		if ($_POST['ShowDetail'] == 'Detailed' and isset($Sections[$MyRow['sectioninaccounts']])) {
 			echo '<tr>
 					<td colspan="6"><h2><b>', $Sections[$MyRow['sectioninaccounts']], '</b></h2></td>
 				</tr>';
@@ -1339,6 +1365,9 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 		</div>';
 }
 echo '</form>';
-include ('includes/footer.php');
+
+if (!isset($IsIncluded)) {
+	include ('includes/footer.php');
+}
 
 ?>
