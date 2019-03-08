@@ -478,7 +478,7 @@ for ($i = 0;$i < sizeof($OrdersToPick);$i++) {
 		} //end while there are line items to print out
 		$YPos = $Page_Height - 45;
 		$PDF->setFont('', 'B');
-		$LeftOvers = $PDF->addTextWrap($FormDesign->Headings->Column2->x, $Page_Height - $YPos, $FormDesign->Headings->Column2->Length, $FormDesign->Headings->Column2->FontSize, _('Signed for: ') . '______________________________');
+		$LeftOvers = $PDF->addTextWrap($FormDesign->Headings->Column2->x, $Page_Height - $YPos, $FormDesign->Headings->Column2->Length, $FormDesign->Headings->Column2->FontSize, _('Signed for') . ':______________________________');
 		$LeftOvers = $PDF->addTextWrap($FormDesign->Headings->Column3->x, $Page_Height - $YPos, $FormDesign->Headings->Column3->Length, $FormDesign->Headings->Column3->FontSize, _('Date : ') . '__________');
 		$PDF->setFont('', '');
 
