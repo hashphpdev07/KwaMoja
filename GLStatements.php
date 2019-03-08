@@ -9,13 +9,13 @@ Parameters:
 	PeriodFrom: Select the beginning of the reporting period.
 	PeriodTo: Select the end of the reporting period.
 	Period: Select a period instead of using the beginning and end of the reporting period.
-	ShowBudget: Check this box to show the budget for the period.
+	ShowBudget: Check this box to show the budget.
 	ShowDetail: Check this box to show all accounts instead a summary.
-	ShowZeroBalance: Check this box to show all accounts including those with zero balance.
+	ShowZeroBalance: Check this box to include accounts with zero balance.
 	ShowFinancialPosition: Check this box to show the statement of financial position as at the end and at the beginning of the period;
-	ShowComprehensiveIncome: Check this box to show the statement of comprehensive income for the period;
-	ShowChangesInEquity: Check this box to show the statement of changes in equity for the period;
-	ShowCashFlows: Check this box to show the statement of cash flows for the period; and
+	ShowComprehensiveIncome: Check this box to show the statement of comprehensive income;
+	ShowChangesInEquity: Check this box to show the statement of changes in equity;
+	ShowCashFlows: Check this box to show the statement of cash flows;
 	ShowNotes: Check this box to show the notes that summarize the significant accounting policies and other explanatory information.
 	NewReport: Click this button to start a new report.
 	IsIncluded: Parameter to indicate that a script is included within another.
@@ -243,7 +243,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	echo '<field>
 			<label for="ShowBudget">', _('Show the budget'), ':</label>
 			<input', $Checked, ' id="ShowBudget" name="ShowBudget" type="checkbox" />
-			<fieldhelp>', _('Check this box to show the budget for the period'), '</fieldhelp>
+			<fieldhelp>', _('Check this box to show the budget.'), '</fieldhelp>
 		</field>';
 
 	// Show accounts with zero balance:
@@ -255,7 +255,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	echo '<field>
 			<label for="ShowZeroBalance">', _('Show accounts with zero balance'), '</label>
 			<td><input', $Checked, ' id="ShowZeroBalance" name="ShowZeroBalance" type="checkbox" />
-			<fieldhelp>', _('Check this box to show all accounts including those with zero balance'), '</fieldhelp>
+			<fieldhelp>', _('Check this box to include accounts with zero balance'), '</fieldhelp>
 		</field>';
 
 	// Show the statement of financial position:
@@ -267,7 +267,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	echo '<field>
 			<label for="ShowFinancialPosition">', _('Show the statement of financial position'), '</label>
 			<input', $Checked, ' id="ShowFinancialPosition" name="ShowFinancialPosition" type="checkbox" />
-			<fieldhelp>', _('Check this box to show the statement of financial position as at the end and at the beginning of the period'), '</fieldhelp>
+			<fieldhelp>', _('Check this box to show the statement of financial position.'), '</fieldhelp>
 		</field>';
 
 	// Show the statement of comprehensive income:
@@ -279,7 +279,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	echo '<field>
 			<label for="ShowComprehensiveIncome">', _('Show the statement of comprehensive income'), '</label>
 			<input', $Checked, ' id="ShowComprehensiveIncome" name="ShowComprehensiveIncome" type="checkbox" />
-			<fieldhelp>', _('Check this box to show the statement of comprehensive income for the period'), '</fieldhelp>
+			<fieldhelp>', _('Check this box to show the statement of comprehensive income.'), '</fieldhelp>
 		</field>';
 
 	// Show the statement of changes in equity:
@@ -291,7 +291,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	echo '<field>
 			<label for="ShowChangesInEquity">', _('Show the statement of changes in equity'), '</label>
 			<input', $Checked, ' id="ShowChangesInEquity" name="ShowChangesInEquity" type="checkbox" />
-			<fieldhelp>', _('Check this box to show the statement of changes in equity for the period'), '</fieldhelp>
+			<fieldhelp>', _('Check this box to show the statement of changes in equity.'), '</fieldhelp>
 		</field>';
 
 	// Show the statement of cash flows:
@@ -303,7 +303,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	echo '<field>
 			<label for="ShowCashFlows">', _('Show the statement of cash flows'), '</label>
 			<input', $Checked, ' id="ShowCashFlows" name="ShowCashFlows" type="checkbox" />
-			<fieldhelp>', _('Check this box to show the statement of cash flows for the period'), '</fieldhelp>
+			<fieldhelp>', _('Check this box to show the statement of cash flows.'), '</fieldhelp>
 		</field>';
 
 	// Show the notes:
