@@ -13,3 +13,8 @@ div.page_help_text {
 	text-align:center;
 	margin-bottom:5px;
 }
+
+@media only screen and (max-device-width:767px) {
+	/* Style for new browser in a device with a rendering width less than 768px (xs - Extra small devices - Phones). */
+	.page_help_text {display:none;/* Hides field help text. */}
+}
