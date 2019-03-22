@@ -5,17 +5,17 @@
  * the input of criteria screen while the user is selecting the criteria the
  * system is posting any unposted transactions
  *
- * Needs to have FromPeriod and ToPeriod sent with URL
+ * Needs to have PeriodFrom and PeriodTo sent with URL
  * also need to work on authentication with username and password sent too
 */
 
-//Page must be called with GLTrialBalance_csv.php?CompanyName=XXXXX&FromPeriod=Y&ToPeriod=Z
-//htmlspecialchars(basename(__FILE__),ENT_QUOTES,'UTF-8') = dirname(htmlspecialchars(basename(__FILE__),ENT_QUOTES,'UTF-8')) .'/GLTrialBalance_csv.php?ToPeriod=' . $_GET['ToPeriod'] . '&FromPeriod=' . $_GET['FromPeriod'];
+//Page must be called with GLTrialBalance_csv.php?CompanyName=XXXXX&PeriodFrom=Y&PeriodTo=Z
+//htmlspecialchars(basename(__FILE__),ENT_QUOTES,'UTF-8') = dirname(htmlspecialchars(basename(__FILE__),ENT_QUOTES,'UTF-8')) .'/GLTrialBalance_csv.php?PeriodTo=' . $_GET['PeriodTo'] . '&PeriodFrom=' . $_GET['PeriodFrom'];
 include ('includes/session.php');
 include ('includes/SQL_CommonFunctions.php');
 
 include ('includes/GLPostings.php'); //do any outstanding posting
-$NumberOfMonths = $_GET['ToPeriod'] - $_GET['FromPeriod'] + 1;
+$NumberOfMonths = $_GET['PeriodTo'] - $_GET['PeriodFrom'] + 1;
 
 $RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
 
@@ -24,12 +24,12 @@ $SQL = "SELECT accountgroups.groupname,
 			accountgroups.pandl,
 			chartdetails.accountcode ,
 			chartmaster.accountname,
-			Sum(CASE WHEN chartdetails.period='" . $_GET['FromPeriod'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_GET['FromPeriod'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_GET['ToPeriod'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_GET['ToPeriod'] . "' THEN chartdetails.actual ELSE 0 END) AS monthactual,
-			Sum(CASE WHEN chartdetails.period='" . $_GET['ToPeriod'] . "' THEN chartdetails.budget ELSE 0 END) AS monthbudget,
-			Sum(CASE WHEN chartdetails.period='" . $_GET['ToPeriod'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
+			Sum(CASE WHEN chartdetails.period='" . $_GET['PeriodFrom'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
+			Sum(CASE WHEN chartdetails.period='" . $_GET['PeriodFrom'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
+			Sum(CASE WHEN chartdetails.period='" . $_GET['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
+			Sum(CASE WHEN chartdetails.period='" . $_GET['PeriodTo'] . "' THEN chartdetails.actual ELSE 0 END) AS monthactual,
+			Sum(CASE WHEN chartdetails.period='" . $_GET['PeriodTo'] . "' THEN chartdetails.budget ELSE 0 END) AS monthbudget,
+			Sum(CASE WHEN chartdetails.period='" . $_GET['PeriodTo'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
 		FROM chartmaster
 		INNER JOIN accountgroups
 			ON chartmaster.groupcode=accountgroups.groupcode
@@ -84,7 +84,7 @@ function stripcomma($str) { //because we're using comma as a delimiter
 }
 header('Content-Encoding: UTF-8');
 header('Content-type: text/csv; charset=UTF-8');
-header("Content-disposition: attachment; filename=GL_Trial_Balance_" . $_GET['FromPeriod'] . '-' . $_GET['ToPeriod'] . '.csv');
+header("Content-disposition: attachment; filename=GL_Trial_Balance_" . $_GET['PeriodFrom'] . '-' . $_GET['PeriodTo'] . '.csv');
 header("Pragma: public");
 header("Expires: 0");
 echo "\xEF\xBB\xBF"; // UTF-8 BOM

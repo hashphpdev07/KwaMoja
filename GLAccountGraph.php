@@ -1,4 +1,5 @@
 <?php
+// GLAccountGraph.php
 /* By Paul Becker */
 /* Shows a graph of GL account transactions */
 
@@ -11,7 +12,7 @@ $BookMark = 'GLAccountGraph';
 
 include ('includes/header.php');
 
-$SelectADifferentPeriod = '';
+$NewReport = '';
 
 if (isset($_POST['Account'])) {
 	$SelectedAccount = $_POST['Account'];
@@ -20,26 +21,26 @@ if (isset($_POST['Account'])) {
 }
 
 if (isset($_POST['Period']) and $_POST['Period'] != '') {
-	$_POST['FromPeriod'] = ReportPeriod($_POST['Period'], 'From');
-	$_POST['ToPeriod'] = ReportPeriod($_POST['Period'], 'To');
+	$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
+	$_POST['PeriodTo'] = ReportPeriod($_POST['Period'], 'To');
 }
 
-if (isset($_POST['FromPeriod']) and isset($_POST['ToPeriod'])) {
+if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo'])) {
 
-	if ($_POST['FromPeriod'] > $_POST['ToPeriod']) {
+	if ($_POST['PeriodFrom'] > $_POST['PeriodTo']) {
 		prnMsg(_('The selected period from is actually after the period to! Please re-select the reporting period'), 'error');
-		$SelectADifferentPeriod = _('Select A Different Period');
+		$NewReport = 'on';
 	}
 
 }
 
-if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADifferentPeriod == _('Select A Different Period')) {
+if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport = 'on') {
 
 	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<p class="page_title_text">
-			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
 	echo '<fieldset>
@@ -99,8 +100,8 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 		</field>';
 
 	echo '<field>
-			<label for="FromPeriod">', _('Select Period From'), ':</label>
-			<select name="FromPeriod">';
+			<label for="PeriodFrom">', _('Select Period From'), ':</label>
+			<select name="PeriodFrom">';
 
 	if (Date('m') > $_SESSION['YearEnd']) {
 		/*Dates in SQL format */
@@ -112,8 +113,8 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	$Periods = DB_query($SQL);
 
 	while ($MyRow = DB_fetch_array($Periods)) {
-		if (isset($_POST['FromPeriod']) and $_POST['FromPeriod'] != '') {
-			if ($_POST['FromPeriod'] == $MyRow['periodno']) {
+		if (isset($_POST['PeriodFrom']) and $_POST['PeriodFrom'] != '') {
+			if ($_POST['PeriodFrom'] == $MyRow['periodno']) {
 				echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 			} else {
 				echo '<option value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
@@ -130,21 +131,21 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 		<fieldhelp>', _('Select the starting period for this report'), '</fieldhelp>
 	</field>';
 
-	if (!isset($_POST['ToPeriod']) or $_POST['ToPeriod'] == '') {
-		$DefaultToPeriod = GetPeriod(DateAdd(ConvertSQLDate($DefaultFromDate), 'm', 11));
+	if (!isset($_POST['PeriodTo']) or $_POST['PeriodTo'] == '') {
+		$DefaultPeriodTo = GetPeriod(DateAdd(ConvertSQLDate($DefaultFromDate), 'm', 11));
 	} else {
-		$DefaultToPeriod = $_POST['ToPeriod'];
+		$DefaultPeriodTo = $_POST['PeriodTo'];
 	}
 
 	echo '<field>
-			<label for="ToPeriod">', _('Select Period To'), ':</label>
-			<select name="ToPeriod">';
+			<label for="PeriodTo">', _('Select Period To'), ':</label>
+			<select name="PeriodTo">';
 
 	$RetResult = DB_data_seek($Periods, 0);
 
 	while ($MyRow = DB_fetch_array($Periods)) {
 
-		if ($MyRow['periodno'] == $DefaultToPeriod) {
+		if ($MyRow['periodno'] == $DefaultPeriodTo) {
 			echo '<option selected="selected" value="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
 		} else {
 			echo '<option value ="', $MyRow['periodno'], '">', MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), '</option>';
@@ -185,19 +186,19 @@ if ((!isset($_POST['FromPeriod']) or !isset($_POST['ToPeriod'])) or $SelectADiff
 	//$GraphTitle .= $SelectedAccount . " - " . $SelectedAccountName . "\n\r";
 	$SQL = "SELECT YEAR(`lastdate_in_period`) AS year, MONTHNAME(`lastdate_in_period`) AS month
 			  FROM `periods`
-			 WHERE `periodno`='" . $_POST['FromPeriod'] . "' OR periodno='" . $_POST['ToPeriod'] . "'";
+			 WHERE `periodno`='" . $_POST['PeriodFrom'] . "' OR periodno='" . $_POST['PeriodTo'] . "'";
 
 	$Result = DB_query($SQL);
 
-	$FromPeriod = DB_fetch_array($Result);
-	$Starting = $FromPeriod['month'] . ' ' . $FromPeriod['year'];
+	$PeriodFrom = DB_fetch_array($Result);
+	$Starting = $PeriodFrom['month'] . ' ' . $PeriodFrom['year'];
 
-	$ToPeriod = DB_fetch_array($Result);
-	$Ending = $ToPeriod['month'] . ' ' . $ToPeriod['year'];
+	$PeriodTo = DB_fetch_array($Result);
+	$Ending = $PeriodTo['month'] . ' ' . $PeriodTo['year'];
 
 	$GraphTitle.= ' ' . _('From Period') . ' ' . $Starting . ' ' . _('to') . ' ' . $Ending . "\n\r";
 
-	$WhereClause = "WHERE " . $WhereClause . " periods.periodno>='" . $_POST['FromPeriod'] . "' AND periods.periodno <= '" . $_POST['ToPeriod'] . "'";
+	$WhereClause = "WHERE " . $WhereClause . " periods.periodno>='" . $_POST['PeriodFrom'] . "' AND periods.periodno <= '" . $_POST['PeriodTo'] . "'";
 
 	$SQL = "SELECT periods.periodno,
 				periods.lastdate_in_period,

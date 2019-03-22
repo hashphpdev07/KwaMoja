@@ -36,7 +36,7 @@ if (isset($_GET['ShowZeroBalance'])) { // Select period from.
 	$_POST['ShowZeroBalance'] = $_GET['ShowZeroBalance'];
 }
 
-if (!isset($_POST['PeriodTo']) or isset($_POST['SelectADifferentPeriod'])) {
+if (!isset($_POST['PeriodTo']) or isset($_POST['NewReport'])) {
 
 	/*Show a form to allow input of criteria for Balance Sheet to show */
 	include ('includes/header.php');
@@ -715,7 +715,7 @@ if (!isset($_POST['PeriodTo']) or isset($_POST['SelectADifferentPeriod'])) {
 
 	echo '</table>';
 	echo '<div class="centre">
-			<input type="submit" name="SelectADifferentPeriod" value="', _('Select A Different Balance Date'), '" />
+			<input type="submit" name="NewReport" value="', _('Select A Different Balance Date'), '" />
 		</div>';
 	echo '</form>';
 }

@@ -75,8 +75,8 @@ if (isset($_GET['ShowCash'])) { // Show cash and cash equivalents accounts.
 }
 
 if (isset($_POST['Period']) and $_POST['Period'] != '') {
-	$_POST['FromPeriod'] = ReportPeriod($_POST['Period'], 'From');
-	$_POST['ToPeriod'] = ReportPeriod($_POST['Period'], 'To');
+	$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
+	$_POST['PeriodTo'] = ReportPeriod($_POST['Period'], 'To');
 }
 
 if (isset($_POST['PeriodTo']) and ($_POST['PeriodTo'] - $_POST['PeriodFrom'] + 1 > 12)) {
@@ -272,7 +272,7 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 			}
 			if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
 				echo '<tr class="striped_row">
-						<td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
+						<td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?PeriodFrom=', $_POST['PeriodFrom'], '&amp;PeriodTo=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
 				$ActualSection+= $MyRow['ActualAmount'];
 				$ActualTotal+= $MyRow['ActualAmount'];
 				$BudgetSection+= $MyRow['BudgetAmount'];
@@ -384,7 +384,7 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 			$Result = DB_query($SQL);
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['BudgetAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
-					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
+					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?PeriodFrom=', $_POST['PeriodFrom'], '&amp;PeriodTo=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['BudgetAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
 					$ActualCash+= $MyRow['ActualAmount'];
 					$BudgetCash+= $MyRow['BudgetAmount'];
 					$LastCash+= $MyRow['LastAmount'];
@@ -495,7 +495,7 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 					</tr>';
 			}
 			if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
-				echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
+				echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?PeriodFrom=', $_POST['PeriodFrom'], '&amp;PeriodTo=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
 				$ActualSection+= $MyRow['ActualAmount'];
 				$ActualTotal+= $MyRow['ActualAmount'];
 				$LastSection+= $MyRow['LastAmount'];
@@ -600,7 +600,7 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 			$Result = DB_query($SQL);
 			while ($MyRow = DB_fetch_array($Result)) {
 				if ($MyRow['ActualAmount'] <> 0 or $MyRow['LastAmount'] <> 0 or isset($_POST['ShowZeroBalance'])) {
-					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?FromPeriod=', $_POST['PeriodFrom'], '&amp;ToPeriod=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
+					echo '<tr class="striped_row"><td class="text"><a href="', $RootPath, '/GLAccountInquiry.php?PeriodFrom=', $_POST['PeriodFrom'], '&amp;PeriodTo=', $_POST['PeriodTo'], '&amp;Account=', $MyRow['accountcode'], '">', $MyRow['accountcode'], '</a></td>', '<td class="text">', $MyRow['accountname'], '</td>', colDebitCredit($MyRow['ActualAmount']), colDebitCredit($MyRow['LastAmount']), '</tr>';
 					$ActualCash+= $MyRow['ActualAmount'];
 					$LastCash+= $MyRow['LastAmount'];
 				}
@@ -628,7 +628,7 @@ if (isset($_POST['Submit'])) { // If all parameters are set and valid, generates
 
 	if (!isset($IsIncluded)) {
 		echo '<div class="centre noPrint">';
-		echo '<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '"><br />';
+		echo '<input name="NewReport" type="submit" value="', _('Select A Different Period'), '"><br />';
 		if ($NeedSetup) {
 			echo '<a href="GLCashFlowsSetup.php"><img alt="" src="', $RootPath, '/css/', $Theme, '/images/maintenance.png" /> ', _('Run Setup'), '</a>'; // "Run Setup" button.
 			
