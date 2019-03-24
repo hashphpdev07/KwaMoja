@@ -133,10 +133,10 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 	/*resmart ends*/
 }
-$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 70, 300 - $Left_Margin, $FontSize, _('Date of transfer: ') . $Date);
+$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 70, 300 - $Left_Margin, $FontSize, _('Date of transfer') . ':' . $Date);
 
-$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 120, 300 - $Left_Margin, $FontSize, _('Signed for ') . $From . '______________________');
-$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 160, 300 - $Left_Margin, $FontSize, _('Signed for ') . $To . '______________________');
+$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 120, 300 - $Left_Margin, $FontSize, _('Signed for') . $From . '______________________');
+$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos - 160, 300 - $Left_Margin, $FontSize, _('Signed for') . $To . '______________________');
 
 $PDF->OutputD($_SESSION['DatabaseName'] . '_StockTransfer_' . date('Y-m-d') . '.pdf');
 $PDF->__destruct();
