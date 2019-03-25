@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
 
 		if ($CheckRow[0] > 0) {
 			$InputError = 1;
-			prnMsg(_('The Expense type ') . $_POST['CodeExpense'] . _(' already exists.'), 'error');
+			prnMsg(_('The Expense type') . ' ' . $_POST['CodeExpense'] . ' ' . _('already exists.'), 'error');
 		} else {
 
 			// Add new record on submit
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
 						'" . $_POST['TaxCategory'] . "'
 						)";
 
-			$Msg = _('Expense ') . ' ' . $_POST['CodeExpense'] . ' ' . _('has been created');
+			$Msg = _('Expense') . ' ' . $_POST['CodeExpense'] . ' ' . _('has been created');
 			$CheckSQL = "SELECT count(codeexpense)
 						FROM pcexpenses";
 			$Result = DB_query($CheckSQL);

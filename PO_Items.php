@@ -939,7 +939,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 	if (isset($_SESSION['PO' . $Identifier]->OrderNo)) {
 		echo ' ' . _('Purchase Order') . ' ' . $_SESSION['PO' . $Identifier]->OrderNo;
 	} //isset($_SESSION['PO' . $Identifier]->OrderNo)
-	echo '<b>&nbsp;-&nbsp' . _(' Order Summary') . '</b></p>';
+	echo '<b>&nbsp;-&nbsp', _('Order Summary'), '</b></p>';
 	echo '<table cellpadding="2">
 			<thead>
 				<tr>
