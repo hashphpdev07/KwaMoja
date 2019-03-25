@@ -63,6 +63,7 @@ $CountriesArray['EG'] = _('Egypt');
 $CountriesArray['ER'] = _('Eritrea');
 $CountriesArray['ES'] = _('Spain');
 $CountriesArray['ET'] = _('Ethiopia');
+$CountriesArray['EU'] = _('European Union');
 $CountriesArray['FI'] = _('Finland');
 $CountriesArray['FJ'] = _('Fiji');
 $CountriesArray['FK'] = _('Falkland Islands');
