@@ -1006,7 +1006,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 	echo '</tbody>';
 	$DisplayTotal = locale_number_format($_SESSION['PO' . $Identifier]->Total, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces);
 	echo '<tr>
-			<td colspan="9" class="number">', _('TOTAL'), _(' excluding Tax'), '</td>
+			<td colspan="9" class="number">', _('Total excluding tax'), '</td>
 			<td class="number"><b>', $DisplayTotal, '</b></td>
 		</tr>
 	</table>';
