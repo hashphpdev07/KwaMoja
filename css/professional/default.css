@@ -339,7 +339,7 @@ list-style:none;
 }
 
 #QuickMenuDiv li {
-display:inline;
+display:inline-block;
 }
 
 #QuickMenuDiv li a {

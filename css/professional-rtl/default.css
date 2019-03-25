@@ -306,7 +306,7 @@ margin-top:3px;
 list-style:none; /* hide the bullets */
 }
 #QuickMenuDiv li{
-    display:inline; /* items are inline */
+display:inline-block;
 float:right; /* right to left */
 }
 
