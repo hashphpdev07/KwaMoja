@@ -1,10 +1,9 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('General Ledger Transaction Inquiry');
-$ViewTopic = 'GeneralLedger';// Filename in ManualContents.php's TOC.
-$BookMark = 'GLTransInquiry';// Anchor's id in the manual's html document.
-include('includes/header.php');
+$ViewTopic = 'GeneralLedger'; // Filename in ManualContents.php's TOC.
+$BookMark = 'GLTransInquiry'; // Anchor's id in the manual's html document.
+include ('includes/header.php');
 
 $MenuURL = '<div class="toplink"><a href="' . $RootPath . '/index.php?&amp;Application=GL">' . _('General Ledger Menu') . '</a></div>';
 
@@ -78,11 +77,11 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 
 			if ($TransRow['amount'] > 0) {
 				$DebitAmount = locale_number_format($TransRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']);
-				$DebitTotal += $TransRow['amount'];
+				$DebitTotal+= $TransRow['amount'];
 				$CreditAmount = '&nbsp;';
 			} else {
 				$CreditAmount = locale_number_format(-$TransRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']);
-				$CreditTotal += $TransRow['amount'];
+				$CreditTotal+= $TransRow['amount'];
 				$DebitAmount = '&nbsp;';
 			}
 			if ($TransRow['posted'] == 0) {
@@ -90,7 +89,7 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 			}
 			if ($TransRow['account'] == $_SESSION['CompanyRecord']['debtorsact'] and $AnalysisCompleted == 'Not Yet') {
 				$URL = $RootPath . '/CustomerInquiry.php?CustomerID=';
-				$FromDate = '&amp;TransAfterDate=' . $TranDate;
+				$FromDate = '&amp;TransAfterDate=' . urlencode($TranDate);
 
 				$DetailSQL = "SELECT debtortrans.debtorno AS otherpartycode,
 										debtortrans.ovamount,
@@ -107,7 +106,7 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 
 			} elseif ($TransRow['account'] == $_SESSION['CompanyRecord']['creditorsact'] and $AnalysisCompleted == 'Not Yet') {
 				$URL = $RootPath . '/SupplierInquiry.php?SupplierID=';
-				$FromDate = '&amp;FromDate=' . $TranDate;
+				$FromDate = '&amp;FromDate=' . urlencode($TranDate);
 
 				$DetailSQL = "SELECT supptrans.supplierno AS otherpartycode,
 										supptrans.ovamount,
@@ -133,7 +132,7 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 
 				if ($CheckRow[0] > 0) {
 					$AccountName = $TransRow['accountname'];
-					$URL = $RootPath . '/GLAccountInquiry.php?Account=' . $TransRow['account'];
+					$URL = $RootPath . '/GLAccountInquiry.php?Account=' . urlencode($TransRow['account']);
 				} else {
 					$AccountName = _('Other GL Accounts');
 					$URL = "";
@@ -146,7 +145,7 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 						<td>', MonthAndYearFromSQLDate($TransRow['lastdate_in_period']), '</td>
 						<td>', $TranDate, '</td>';
 
-				if ($URL == ""){
+				if ($URL == "") {
 					// User is not allowed to see this GL account, don't show the details
 					echo '	<td>', $AccountName, '</td>
 							<td>', $AccountName, '</td>';
@@ -207,5 +206,5 @@ if (!isset($_GET['TypeID']) or !isset($_GET['TransNo'])) {
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>
