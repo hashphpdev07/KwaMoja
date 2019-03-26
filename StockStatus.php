@@ -38,7 +38,9 @@ $DecimalPlaces = $MyRow['decimalplaces'];
 $Serialised = $MyRow['serialised'];
 $Controlled = $MyRow['controlled'];
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Inventory') . '" alt="" /><b>' . ' ' . $StockId . ' - ' . $MyRow['description'] . ' : ' . _('in units of') . ' : ' . $MyRow['units'] . '</b></p>';
+echo '<p class="page_title_text">
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" /><b>', ' ', $StockId, ' - ', $MyRow['description'], ' : ', _('in units of'), ' : ', $MyRow['units'], '</b>
+	</p>';
 
 $Its_A_KitSet_Assembly_Or_Dummy = False;
 if ($MyRow[2] == 'K') {
@@ -52,11 +54,11 @@ if ($MyRow[2] == 'K') {
 	prnMsg(_('This is an dummy part and cannot have a stock holding') . ', ' . _('only the total quantity on outstanding sales orders is shown'), 'info');
 }
 
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo _('Stock Code') . ':<input type="text" name="StockID" size="21" value="' . $StockId . '" required="required" maxlength="20" />';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+echo _('Stock Code'), ':<input type="text" name="StockID" size="21" value="', $StockId, '" required="required" maxlength="20" />';
 
-echo ' <input type="submit" name="ShowStatus" value="' . _('Show Stock Status') . '" />';
+echo ' <input type="submit" name="ShowStatus" value="', _('Show Stock Status'), '" />';
 
 $SQL = "SELECT locstock.loccode,
 				locations.locationname,
@@ -80,23 +82,23 @@ $DbgMsg = _('The SQL that was used to fetch the location details and failed was'
 $LocStockResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 echo '<table>
-			<thead>';
+		<thead>';
 
 if ($Its_A_KitSet_Assembly_Or_Dummy == True) {
 	echo '<tr>
-			<th class="SortedColumn">' . _('Location') . '</th>
-			<th>' . _('Demand') . '</th>
+			<th class="SortedColumn">', _('Location'), '</th>
+			<th>', _('Demand'), '</th>
 		</tr>';
 } else {
 	echo '<tr>
-			<th class="SortedColumn">' . _('Location') . '</th>
-			<th class="SortedColumn">' . _('Bin Location') . '</th>
-			<th>' . _('Quantity On Hand') . '</th>
-			<th>' . _('Re-Order Level') . '</th>
-			<th>' . _('Demand') . '</th>
-			<th>' . _('In Transit') . '</th>
-			<th>' . _('Available') . '</th>
-			<th>' . _('On Order') . '</th>
+			<th class="SortedColumn">', _('Location'), '</th>
+			<th class="SortedColumn">', _('Bin Location'), '</th>
+			<th>', _('Quantity On Hand'), '</th>
+			<th>', _('Re-Order Level'), '</th>
+			<th>', _('Demand'), '</th>
+			<th>', _('In Transit'), '</th>
+			<th>', _('Available'), '</th>
+			<th>', _('On Order'), '</th>
 		</tr>';
 }
 echo '</thead>';
@@ -201,27 +203,32 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 		}
 		if ($MyRow['canupd'] == 1) {
 			echo '<tr class="striped_row">
-					<td>' . $MyRow['locationname'] . '</td>
-					<td><input type="text" name="BinLocation' . $MyRow['loccode'] . '" value="' . $MyRow['bin'] . '" maxlength="10" size="11" onchange="ReloadForm(UpdateBinLocations)"/></td>';
+					<td>', $MyRow['locationname'], '</td>
+					<td><input type="text" name="BinLocation', $MyRow['loccode'], '" value="', $MyRow['bin'], '" maxlength="10" size="11" onchange="ReloadForm(UpdateBinLocations)"/></td>';
 		} else {
 			echo '<tr class="striped_row">
-					<td>' . $MyRow['locationname'] . '</td>
-					<td> ' . $MyRow['bin'] . '</td>';
+					<td>', $MyRow['locationname'], '</td>
+					<td>', $MyRow['bin'], '</td>';
 		}
 
-		printf('<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>', locale_number_format($MyRow['quantity'], $DecimalPlaces), locale_number_format($MyRow['reorderlevel'], $DecimalPlaces), locale_number_format($DemandQty, $DecimalPlaces), locale_number_format($InTransitQuantityIn + $InTransitQuantityOut, $DecimalPlaces), locale_number_format($Available, $DecimalPlaces), locale_number_format($QOO, $DecimalPlaces));
+		echo '<td class="number">', locale_number_format($MyRow['quantity'], $DecimalPlaces), '</td>
+				<td class="number">', locale_number_format($MyRow['reorderlevel'], $DecimalPlaces), '</td>
+				<td class="number">', locale_number_format($DemandQty, $DecimalPlaces), '</td>
+				<td class="number">', locale_number_format($InTransitQuantityIn + $InTransitQuantityOut, $DecimalPlaces), '</td>
+				<td class="number">', locale_number_format($Available, $DecimalPlaces), '</td>
+				<td class="number">', locale_number_format($QOO, $DecimalPlaces), '</td>';
 
 		if ($Serialised == 1) {
 			/*The line is a serialised item*/
-
-			echo '<td><a target="_blank" href="' . $RootPath . '/StockSerialItems.php?Serialised=Yes&Location=' . $MyRow['loccode'] . '&amp;StockID=' . $StockId . '">' . _('Serial Numbers') . '</a></td></tr>';
+			echo '<td>
+					<a target="_blank" href="', $RootPath, '/StockSerialItems.php?Serialised=Yes&Location=', urlencode($MyRow['loccode']), '&amp;StockID=', urlencode($StockId), '">', _('Serial Numbers'), '</a>
+				</td>
+			</tr>';
 		} elseif ($Controlled == 1) {
-			echo '<td><a target="_blank" href="' . $RootPath . '/StockSerialItems.php?Location=' . $MyRow['loccode'] . '&amp;StockID=' . $StockId . '">' . _('Batches') . '</a></td></tr>';
+			echo '<td>
+					<a target="_blank" href="', $RootPath, '/StockSerialItems.php?Location=', urlencode($MyRow['loccode']), '&amp;StockID=', urlencode($StockId), '">', _('Batches'), '</a>
+				</td>
+			</tr>';
 		} else {
 			echo '</tr>';
 		}
@@ -229,10 +236,10 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 	} else {
 		/* It must be a dummy, assembly or kitset part */
 
-		printf('<tr class="striped_row">
-					<td>%s</td>
-					<td class="number">%s</td>
-				</tr>', $MyRow['locationname'], locale_number_format($DemandQty, $DecimalPlaces));
+		echo '<tr class="striped_row">
+				<td>', $MyRow['locationname'], '</td>
+					<td class="number">', locale_number_format($DemandQty, $DecimalPlaces), '</td>
+				</tr>';
 	}
 	//end of page full new headings if
 	
@@ -241,7 +248,7 @@ while ($MyRow = DB_fetch_array($LocStockResult)) {
 echo '</tbody>
 		<tr>
 			<td></td>
-			<td><input type="submit" name="UpdateBinLocations" value="' . _('Update Bins') . '" /></td>
+			<td><input type="submit" name="UpdateBinLocations" value="', _('Update Bins'), '" /></td>
 		</tr>
 	</table>';
 
@@ -314,24 +321,24 @@ if ($DebtorNo) {
 		echo '<table>
 				<thead>
 					<tr>
-						<th colspan="4"><font color="navy" size="2">' . _('Pricing history for sales of') . ' ' . $StockId . ' ' . _('to') . ' ' . $DebtorNo . '</font></th>
+						<th colspan="4"><font color="navy" size="2">', _('Pricing history for sales of'), ' ', $StockId, ' ', _('to'), ' ', $DebtorNo, '</font></th>
 					</tr>
 					<tr>
-						<th class="SortedColumn">' . _('Date Range') . '</th>
-						<th>' . _('Quantity') . '</th>
-						<th>' . _('Price') . '</th>
-						<th>' . _('Discount') . '</th>
+						<th class="SortedColumn">', _('Date Range'), '</th>
+						<th>', _('Quantity'), '</th>
+						<th>', _('Price'), '</th>
+						<th>', _('Discount'), '</th>
 					</tr>
 				</thead>';
 
 		echo '<tbody>';
 		foreach ($PriceHistory as $PreviousPrice) {
-			printf('<tr class="striped_row">
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s%%</td>
-					</tr>', $PreviousPrice[0], locale_number_format($PreviousPrice[1], $DecimalPlaces), locale_number_format($PreviousPrice[2], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($PreviousPrice[3] * 100, 2));
+			echo '<tr class="striped_row">
+					<td>', $PreviousPrice[0], '</td>
+					<td class="number">', locale_number_format($PreviousPrice[1], $DecimalPlaces), '</td>
+					<td class="number">', locale_number_format($PreviousPrice[2], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($PreviousPrice[3] * 100, 2), '%</td>
+				</tr>';
 		}
 		echo '</tbody>
 			</table>';
@@ -341,12 +348,12 @@ if ($DebtorNo) {
 		echo '<p>' . _('No history of sales of') . ' ' . $StockId . ' ' . _('to') . ' ' . $DebtorNo;
 	}
 } //end of displaying price history for a debtor
-echo '<a href="' . $RootPath . '/StockMovements.php?StockID=' . urlencode($StockId) . '">' . _('Show Movements') . '</a>
-		<a href="' . $RootPath . '/StockUsage.php?StockID=' . urlencode($StockId) . '">' . _('Show Usage') . '</a>
-		<a href="' . $RootPath . '/SelectSalesOrder.php?SelectedStockItem=' . urlencode($StockId) . '">' . _('Search Outstanding Sales Orders') . '</a>
-		<a href="' . $RootPath . '/SelectCompletedOrder.php?SelectedStockItem=' . urlencode($StockId) . '">' . _('Search Completed Sales Orders') . '</a>';
+echo '<a href="', $RootPath, '/StockMovements.php?StockID=', urlencode($StockId), '">', _('Show Movements'), '</a>
+		<a href="', $RootPath, '/StockUsage.php?StockID=', urlencode($StockId), '">', _('Show Usage'), '</a>
+		<a href="', $RootPath, '/SelectSalesOrder.php?SelectedStockItem=', urlencode($StockId), '">', _('Search Outstanding Sales Orders'), '</a>
+		<a href="', $RootPath, '/SelectCompletedOrder.php?SelectedStockItem=', urlencode($StockId), '">', _('Search Completed Sales Orders'), '</a>';
 if ($Its_A_KitSet_Assembly_Or_Dummy == False) {
-	echo '<a href="' . $RootPath . '/PO_SelectOSPurchOrder.php?SelectedStockItem=' . urlencode($StockId) . '">' . _('Search Outstanding Purchase Orders') . '</a>';
+	echo '<a href="', $RootPath, '/PO_SelectOSPurchOrder.php?SelectedStockItem=', urlencode($StockId), '">', _('Search Outstanding Purchase Orders'), '</a>';
 }
 
 echo '</form>';
