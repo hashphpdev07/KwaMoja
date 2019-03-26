@@ -1,4 +1,8 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 15;
+
 include ('includes/session.php');
 
 $Title = _('Other Income Section');
@@ -13,10 +17,7 @@ if (isset($_GET['OthIncID'])) {
 } else {
 	unset($OthIncID);
 }
-?>
-<a href="prlUserSettings.php">Back to User Settings
-    </a>
-	<?php
+
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -42,7 +43,7 @@ if (isset($_POST['submit'])) {
 
 	if ($InputError != 1) {
 
-		if (!isset($_POST["New"])) {
+		if (!isset($_POST['New'])) {
 
 			$SQL = "UPDATE prlothinctable SET othincdesc='" . DB_escape_string($_POST['OthIncDesc']) . "',
 							taxable='" . DB_escape_string($_POST['Taxable']) . "'
@@ -56,10 +57,9 @@ if (isset($_POST['submit'])) {
 		} else { //its a new other income
 			$SQL = "INSERT INTO prlothinctable (othincid,
 							othincdesc,
-							taxable,
-							percentage)
+							taxable)
 					 VALUES ('$OthIncID',
-					 	'" . DB_escape_string($_POST['OthIncDesc']) . "',
+						'" . DB_escape_string($_POST['OthIncDesc']) . "',
 						'" . DB_escape_string($_POST['Taxable']) . "')";
 
 			$ErrMsg = _('The other income') . ' ' . $_POST['OthIncDesc'] . ' ' . _('could not be added because');
@@ -100,27 +100,25 @@ if (!isset($OthIncID)) {
 
 	/*If the page was called without $SupplierID passed to page then assume a new supplier is to be entered show a form with a Supplier Code field other wise the form showing the fields with the existing entries against the supplier will show for editing with only a hidden SupplierID field*/
 
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
 
-	echo '<input type="hidden" name="New" value="Yes">';
+	echo "<input type='hidden' name='New' value='Yes'>";
 
 	echo '<table>';
-	echo '<tr><td>' . _('Other Income ID') . ":</td><td><input type='text' name='OthIncID' SIZE=5 MAXLENGTH=4></td></tr>";
-	echo '<tr><td>' . _('Other Income Description') . ":</td><td><input type='text' name='OthIncDesc' SIZE=41 MAXLENGTH=40></td></tr>";
-	echo '</select></td></tr><tr><td width=200 height=20>' . _('Taxable Income ') . ":</td><td><select name='Taxable'>";
+	echo '<tr><td>' . _('Other Income ID') . ':</td><td><input type="text" name="OthIncID" size=5 maxlength=4></td></tr>';
+	echo '<tr><td>' . _('Other Income Description') . ':</td><td><input type="text" name="OthIncDesc" size=41 maxlength=40></td></tr>';
+	echo '</select></td></tr><tr><td width=200 height=20>' . _('Taxable Income ?') . ":</td><td><select name='Taxable'>";
 	echo '<option value="Taxable">' . _('Taxable');
 	echo '<option value="Non-Tax">' . _('Non-Taxable');
-	echo '<tr><td>' . _('Taxable Percentange') . ":</td><td><input type='text' name='percentage' SIZE=5 MAXLENGTH=4></td></tr>";
 	echo '</select></td></tr>';
 
 	//	echo '</select></td></tr>';
-	echo "</select></td></tr></table><p><input type='Submit' name='submit' value='" . _('Insert New other income') . "'>";
+	echo '</select></td></tr></table><p><input type="submit" name="submit" value="' . _('Insert New other income') . '">';
 	echo '</form>';
 
 	$SQL = "SELECT othincid,
 			othincdesc,
-			taxable,
-			percentage
+			taxable
 			FROM prlothinctable
 			ORDER BY othincid";
 
@@ -129,27 +127,26 @@ if (!isset($OthIncID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Other Income ID') . "</td>
-		<th>" . _('Other Income Description') . "</td>
-		<th>" . _('Taxable Income') . "</td>
-		<th>" . _('Taxable Percentange') . "</td>
+		<td class='tableheader'>" . _('Other Income ID') . "</td>
+		<td class='tableheader'>" . _('Other Income Description') . "</td>
+		<td class='tableheader'>" . _('Taxable Income') . "</td>
 	</tr>";
 
+	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 		echo '<td>' . $MyRow[0] . '</td>';
 		echo '<td>' . $MyRow[1] . '</td>';
 		echo '<td>' . $MyRow[2] . '</td>';
-		echo '<td>' . $MyRow[3] . '</td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&OthIncID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&OthIncID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&OthIncID=' . $MyRow[0] . '">' . _('Edit') . '</A></td>';
+		echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&OthIncID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</A></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
@@ -157,15 +154,14 @@ if (!isset($OthIncID)) {
 
 } else {
 	//OthIncID exists - either passed when calling the form or from the form itself
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
 	echo '<table>';
 
-	//if (!isset($_POST["New"])) {
-	if (!isset($_POST["New"])) {
+	//if (!isset($_POST['New'])) {
+	if (!isset($_POST['New'])) {
 		$SQL = "SELECT othincid,
 				othincdesc,
-				taxable,
-				percentage
+				taxable
 			FROM prlothinctable
 			WHERE othincid = '$OthIncID'";
 
@@ -174,14 +170,14 @@ if (!isset($OthIncID)) {
 
 		$_POST['OthIncDesc'] = $MyRow['othincdesc'];
 		$_POST['Taxable'] = $MyRow['taxable'];
-		echo '<input type="hidden" name="OthIncID" value="' . $OthIncID . '">';
+		echo "<input type=HIDDEN name='OthIncID' value='$OthIncID'>";
 
 	} else {
 		// its a new other income being added
-		echo '<input type="hidden" name="New" value="Yes">';
-		echo '<tr><td>' . _('Other Income Code') . ":</td><td><input type='text' name='OthIncID' value='$OthIncID' SIZE=5 MAXLENGTH=4></td></tr>";
+		echo "<input type=HIDDEN name='New' value='Yes'>";
+		echo '<tr><td>' . _('Other Income Code') . ':</td><td><input type="text" name="OthIncID" value="', $OthIncID, '" size=5 maxlength=4></td></tr>';
 	}
-	echo "<tr><td>" . _('Other Income Description') . ':' . "</td><td><input type='Text' name='OthIncDesc' SIZE=41 MAXLENGTH=40 value='" . $_POST['OthIncDesc'] . "'></td></tr>";
+	echo "<tr><td>" . _('Other Income Description') . ':' . '</td><td><input type="text" name="OthIncDesc" size=41 maxlength=40 value="' . $_POST['OthIncDesc'] . '"></td></tr>';
 	echo '</select></td></tr><tr><td width=200 height=20>' . _('Taxable Income ?') . ":</td><td><select name='Taxable'>";
 	if ($_POST['Taxable'] == 'Taxable') {
 		echo '<option selected="selected" value="Taxable">' . _('Taxable');
@@ -190,14 +186,13 @@ if (!isset($OthIncID)) {
 		echo '<option value="Taxable">' . _('Taxable');
 		echo '<option selected="selected" value="Non-Tax">' . _('Non-Taxable');
 	}
-	echo "<tr><td>" . _('Taxable Percentange') . ':' . "</td><td><input type='Text' name='percentage' SIZE=41 MAXLENGTH=40 value='" . $_POST['percentage'] . "'></td></tr>";
 	echo '</select></td></tr>';
-	if (isset($_POST["New"])) {
-		echo "</table><p><input type='Submit' name='submit' value='" . _('Add These New Other Income Record') . "'></form>";
+	if (isset($_POST['New'])) {
+		echo '</table><P><input type="submit" name="submit" value="' . _('Add These New Other Income Record') . '"></form>';
 	} else {
-		echo "</table><p><input type='Submit' name='submit' value='" . _('Update Other Income Record') . "'>";
-		echo '<p><font color=red><B>' . _('WARNING') . ': ' . _('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure before the deletion is processed') . '<br /></FONT></B>';
-		echo '<input type="Submit" name="delete" value="' . _('Delete this record') . '" onclick="return confirm("' . _('Are you sure you wish to delete this other income record?') . '"");\"></form>';
+		echo '</table><P><input type="submit" name="submit" value="' . _('Update Other Income Record') . '">';
+		echo '<P><FONT COLOR=red><B>' . _('WARNING') . ': ' . _('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure before the deletion is processed') . '<BR></FONT></B>';
+		echo '<input type="submit" name="delete" value="' . _('Delete this record') . '" onclick=\"return confirm("' . _('Are you sure you wish to delete this other income record?') . '\");\"></form>';
 	}
 
 } // end of main ifs

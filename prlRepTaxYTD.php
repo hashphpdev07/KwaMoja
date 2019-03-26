@@ -1,4 +1,6 @@
 <?php
+$PageSecurity = 2;
+
 if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 
 	include ('config.php');
@@ -43,7 +45,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 	$EmpListResult = DB_query($SQL, _('Could not test to see that all detail records properly initiated'));
 	if (DB_num_rows($EmpListResult) > 0) {
 		while ($emprow = DB_fetch_array($EmpListResult)) {
-
+			$k = 0; //row colour counter
 			$SQL = "SELECT sum(taxableincome) AS Gross,sum(tax) AS Tax
 					FROM prlemptaxfile
 					WHERE prlemptaxfile.employeeid='" . $emprow['employeeid'] . "'
@@ -55,7 +57,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 				$TaxNumber = GetEmpRow($EmpID, 23);
 				$TaxID = GetEmpRow($EmpID, 35);
 				$FullName = GetName($EmpID);
-				$MyExemption = GetTaxStatusRow(GetEmpRow($EmpID, 35), 4);
+				$MyExemption = GetTaxStatusRow(GetEmpRow($EmpID, $db, 35), $db, 4);
 				$Gross = $MyRow['Gross'];
 				$NetTaxable = $MyRow['Gross'] - $MyExemption;
 				$TaxWithheld = $MyRow['Tax'];
@@ -101,7 +103,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There were no entries to print out for the selections specified'));
-		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
+		echo '<BR><A HREF="' . $RootPath . '/index.php?' . SID . '">' . _('Back to the menu') . '</A>';
 		include ('includes/footer.php');
 		exit;
 	} else {
@@ -122,15 +124,14 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 	$Title = _('Alphalist');
 	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
-	echo "<br /><a href='" . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 	include ('includes/footer.php');
 	exit;
-} else {
-	/*The option to print PDF was not hit */
+} else { /*The option to print PDF was not hit */
 	include ('includes/session.php');
 	$Title = _('Alphalist');
 	include ('includes/header.php');
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
+	echo "<form method='post' action='" . basename(__FILE__) . '?' . SID . "'>";
 	echo '<table>';
 	echo '</select></td></tr>';
 	echo '<tr><td><align="centert"><b>' . _('FS Year') . ":<select name='FSYear'>";
@@ -139,11 +140,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSYear'])) {
 		echo "<option value=$yy>$yy</option>\n";
 	}
 	echo '</select></td></tr>';
-	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show Alpalist') . "'>";
-	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
-	include ('includes/footer.php');
+	echo '</table><P><input type="submit" name="ShowPR" value="' . _('Show Alpalist') . '">';
+	echo '<P><input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '">';
+	include ('includes/footer.php');;
 
-}
-/*end of else not PrintPDF */
+} /*end of else not PrintPDF */
 
 ?>

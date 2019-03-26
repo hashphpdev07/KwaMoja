@@ -1,5 +1,4 @@
 <?php
-
 /*  Performs login checks and $_SESSION initialisation */
 
 define('UL_OK', 0);
@@ -18,7 +17,7 @@ define('UL_MAINTENANCE', 5);
  *  $_SESSION data.
  *  Returns:
  *	See define() statements above.
- */
+*/
 
 function userLogin($Name, $Password, $SysAdminEmail = '') {
 
@@ -53,36 +52,35 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 			$MyRow = DB_fetch_array($AuthResult);
 			if (VerifyPass($Password, $MyRow['password'])) {
 				$PasswordVerified = true;
-		    } elseif (isset($GLOBALS['CryptFunction'])) {
+			} elseif (isset($GLOBALS['CryptFunction'])) {
 				/*if the password stored in the DB was compiled the old way,
 				 * the previous comparison will fail,
 				 * try again with the old hashing algorithm,
 				 * then re-hash the password using the new algorithm.
 				 * The next version should not have $CryptFunction anymore for new installs.
-				 */
+				*/
 				switch ($GLOBALS['CryptFunction']) {
 					case 'sha1':
 						if ($MyRow['password'] == sha1($Password)) {
 							$PasswordVerified = true;
 						}
-						break;
+					break;
 					case 'md5':
 						if ($MyRow['password'] == md5($Password)) {
 							$PasswordVerified = true;
 						}
-						break;
+					break;
 					default:
 						if ($MyRow['password'] == $Password) {
 							$PasswordVerified = true;
 						}
 				}
 				if ($PasswordVerified) {
-					$SQL = "UPDATE www_users SET password = '" . CryptPass($Password) . "'"
-							. " WHERE userid = '" . $Name . "'";
+					$SQL = "UPDATE www_users SET password = '" . CryptPass($Password) . "'" . " WHERE userid = '" . $Name . "'";
 					DB_query($SQL);
 				}
 
-		    }
+			}
 		}
 
 		// Populate session variables with data base results
@@ -111,11 +109,13 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 			require_once 'MobileDetect.php';
 			$MobileDetect = new Mobile_Detect;
 			if ($MobileDetect->isMobile()) {
-//				$_SESSION['Theme'] = 'mobile';
+				//				$_SESSION['Theme'] = 'mobile';
+				
 			}
 			$_SESSION['Language'] = $MyRow['language'];
 			$_SESSION['SalesmanLogin'] = $MyRow['salesman'];
 			$_SESSION['CanCreateTender'] = $MyRow['cancreatetender'];
+			$_SESSION['CanEnterTimesheets'] = $MyRow['canentertimesheets'];
 			$_SESSION['AllowedDepartment'] = $MyRow['department'];
 			$_SESSION['ShowFieldHelp'] = $MyRow['showfieldhelp'];
 			$_SESSION['ShowPageHelp'] = $MyRow['showpagehelp'];
@@ -123,13 +123,13 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 				switch ($MyRow['fontsize']) {
 					case 0:
 						$_SESSION['ScreenFontSize'] = '8pt';
-						break;
+					break;
 					case 1:
 						$_SESSION['ScreenFontSize'] = '10pt';
-						break;
+					break;
 					case 2:
 						$_SESSION['ScreenFontSize'] = '12pt';
-						break;
+					break;
 					default:
 						$_SESSION['ScreenFontSize'] = '10pt';
 				}
@@ -146,12 +146,14 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 				$_SESSION['PDFLanguage'] = $MyRow['pdflanguage'];
 			} else {
 				$_SESSION['PDFLanguage'] = '0'; //default to latin western languages
+				
 			}
 
 			if ($MyRow['displayrecordsmax'] > 0) {
 				$_SESSION['DisplayRecordsMax'] = $MyRow['displayrecordsmax'];
 			} else {
 				$_SESSION['DisplayRecordsMax'] = $_SESSION['DefaultDisplayRecordsMax']; // default comes from config.php
+				
 			}
 
 			$SQL = "UPDATE www_users SET lastvisitdate='" . date('Y-m-d H:i:s') . "'
@@ -167,10 +169,10 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 				return UL_CONFIGERR;
 			} else {
 				$i = 0;
-				$UserIsSysAdmin = FALSE;
+				$UserIsSysAdmin = false;
 				while ($MyRow = DB_fetch_row($SecResult)) {
 					if ($MyRow[0] == 15) {
-						$UserIsSysAdmin = TRUE;
+						$UserIsSysAdmin = true;
 					}
 					$_SESSION['AllowedPageSecurityTokens'][$i] = $MyRow[0];
 					++$i;
@@ -183,7 +185,7 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 				return UL_CONFIGERR;
 			} else {
 				$MyMaintenanceRow = DB_fetch_row($MaintenanceResult);
-				if (($MyMaintenanceRow[0] == -1) and ($UserIsSysAdmin == FALSE)) {
+				if (($MyMaintenanceRow[0] == - 1) and ($UserIsSysAdmin == false)) {
 					// the configuration setting has been set to -1 ==> Allow SysAdmin Access Only
 					// the user is NOT a SysAdmin
 					return UL_MAINTENANCE;
@@ -206,13 +208,11 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 						mail($SysAdminEmail, $EmailSubject, $EmailText);
 
 					} else {
-						include('includes/htmlMimeMail.php');
+						include ('includes/htmlMimeMail.php');
 						$Mail = new htmlMimeMail();
 						$Mail->setSubject($EmailSubject);
 						$Mail->setText($EmailText);
-						$Result = SendmailBySmtp($Mail, array(
-							$SysAdminEmail
-						));
+						$Result = SendmailBySmtp($Mail, array($SysAdminEmail));
 					}
 
 				}
@@ -223,7 +223,6 @@ function userLogin($Name, $Password, $SysAdminEmail = '') {
 		}
 	} // End of userid/password check
 	// Run with debugging messages for the system administrator(s) but not anyone else
-
 	return UL_OK;
 	/* All is well */
 }

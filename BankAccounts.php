@@ -171,7 +171,8 @@ if (!isset($SelectedBankAccount)) {
 				FROM bankaccounts
 				INNER JOIN chartmaster
 					ON bankaccounts.accountcode = chartmaster.accountcode
-				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
+				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+				ORDER BY bankaccounts.bankaccountname";
 
 	$ErrMsg = _('The bank accounts set up could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve the bank account details was') . '<br />' . $SQL;

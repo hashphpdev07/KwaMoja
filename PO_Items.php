@@ -782,9 +782,153 @@ if (isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and
 } //isset($_POST['NewItem']) and !empty($_POST['PO_ItemsResubmitFormValue']) and $_SESSION['PO_ItemsResubmitForm' . $Identifier] == $_POST['PO_ItemsResubmitFormValue']
 /* end of if its a new item */
 
+if (isset($_POST['UploadFile'])) {
+	if (isset($_FILES['CSVFile']) and $_FILES['CSVFile']['name']) {
+		//check file info
+		$FileName = $_FILES['CSVFile']['name'];
+		$TempName = $_FILES['CSVFile']['tmp_name'];
+		$FileSize = $_FILES['CSVFile']['size'];
+		//get file handle
+		$FileHandle = fopen($TempName, 'r');
+		$Row = 0;
+		$InsertNum = 0;
+		while (($FileRow = fgetcsv($FileHandle, 10000, ",")) !== False) {
+			++$Row;
+			if (filter_number_format($FileRow[1]) != 0) { //if the form variable represents a Qty to add to the order
+				$ItemCode = $FileRow[0];
+				$Quantity = $FileRow[1];
+				$AlreadyOnThisOrder = 0;
+
+				if ($_SESSION['PO_AllowSameItemMultipleTimes'] == false) {
+					if (count($_SESSION['PO' . $Identifier]->LineItems) != 0) {
+
+						foreach ($_SESSION['PO' . $Identifier]->LineItems as $OrderItem) {
+
+							/* do a loop round the items on the order to see that the item is not already on this order */
+							if (($OrderItem->StockID == $ItemCode) and ($OrderItem->Deleted == false)) {
+								$AlreadyOnThisOrder = 1;
+								prnMsg(_('The item') . ' ' . $ItemCode . ' ' . _('is already on this order') . '. ' . _('The system will not allow the same item on the order more than once') . '. ' . _('However you can change the quantity ordered of the existing line if necessary'), 'error');
+							}
+						} /* end of the foreach loop to look for preexisting items of the same code */
+					}
+				}
+				if ($AlreadyOnThisOrder != 1 and filter_number_format($Quantity) > 0) {
+					$SQL = "SELECT description,
+								longdescription,
+								stockid,
+								units,
+								decimalplaces,
+								stockact,
+								accountname
+							FROM stockmaster INNER JOIN stockcategory
+							ON stockcategory.categoryid = stockmaster.categoryid
+							INNER JOIN chartmaster
+							ON chartmaster.accountcode = stockcategory.stockact
+							WHERE  stockmaster.stockid = '" . $ItemCode . "'";
+					$ErrMsg = _('The item details for') . ' ' . $ItemCode . ' ' . _('could not be retrieved because');
+					$DbgMsg = _('The SQL used to retrieve the item details but failed was');
+					$ItemResult = DB_query($SQL, $ErrMsg, $DbgMsg);
+					if (DB_num_rows($ItemResult) == 1) {
+						$ItemRow = DB_fetch_array($ItemResult);
+
+						$SQL = "SELECT price,
+									conversionfactor,
+									supplierdescription,
+									suppliersuom,
+									suppliers_partno,
+									leadtime,
+									MAX(purchdata.effectivefrom) AS latesteffectivefrom
+								FROM purchdata
+								WHERE purchdata.supplierno = '" . $_SESSION['PO' . $Identifier]->SupplierID . "'
+								AND purchdata.effectivefrom <='" . Date('Y-m-d') . "'
+								AND purchdata.stockid = '" . $ItemCode . "'
+								GROUP BY purchdata.price,
+										purchdata.conversionfactor,
+										purchdata.supplierdescription,
+										purchdata.suppliersuom,
+										purchdata.suppliers_partno,
+										purchdata.leadtime
+								ORDER BY latesteffectivefrom DESC";
+
+						$ErrMsg = _('The purchasing data for') . ' ' . $ItemCode . ' ' . _('could not be retrieved because');
+						$DbgMsg = _('The SQL used to retrieve the purchasing data but failed was');
+						$PurchDataResult = DB_query($SQL, $ErrMsg, $DbgMsg);
+						if (DB_num_rows($PurchDataResult) > 0) { //the purchasing data is set up
+							$PurchRow = DB_fetch_array($PurchDataResult);
+
+							/* Now to get the applicable discounts */
+							$SQL = "SELECT discountpercent,
+											discountamount
+									FROM supplierdiscounts
+									WHERE supplierno= '" . $_SESSION['PO' . $Identifier]->SupplierID . "'
+									AND effectivefrom <='" . Date('Y-m-d') . "'
+									AND effectiveto >='" . Date('Y-m-d') . "'
+									AND stockid = '" . $ItemCode . "'";
+
+							$ItemDiscountPercent = 0;
+							$ItemDiscountAmount = 0;
+							$ErrMsg = _('Could not retrieve the supplier discounts applicable to the item');
+							$DbgMsg = _('The SQL used to retrive the supplier discounts that failed was');
+							$DiscountResult = DB_query($SQL, $ErrMsg, $DbgMsg);
+							while ($DiscountRow = DB_fetch_array($DiscountResult)) {
+								$ItemDiscountPercent+= $DiscountRow['discountpercent'];
+								$ItemDiscountAmount+= $DiscountRow['discountamount'];
+							}
+							if ($ItemDiscountPercent != 0) {
+								prnMsg(_('Taken accumulated supplier percentage discounts of') . ' ' . locale_number_format($ItemDiscountPercent * 100, 2) . '%', 'info');
+							}
+							if ($ItemDiscountAmount != 0) {
+								prnMsg(_('Taken accumulated round sum supplier discount of') . ' ' . $_SESSION['PO' . $Identifier]->CurrCode . ' ' . locale_number_format($ItemDiscountAmount, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces) . ' (' . _('per supplier unit') . ')', 'info');
+							}
+							$PurchPrice = ($PurchRow['price'] * (1 - $ItemDiscountPercent) - $ItemDiscountAmount) / $PurchRow['conversionfactor'];
+							$ConversionFactor = $PurchRow['conversionfactor'];
+							if (mb_strlen($PurchRow['supplierdescription']) > 2) {
+								$SupplierDescription = $PurchRow['supplierdescription'];
+							} else {
+								$SupplierDescription = $ItemRow['description'];
+							}
+							$SuppliersUnitOfMeasure = $PurchRow['suppliersuom'];
+							$SuppliersPartNo = $PurchRow['suppliers_partno'];
+							$LeadTime = $PurchRow['leadtime'];
+							/* Work out the delivery date based on today + lead time
+							 * if > header DeliveryDate then set DeliveryDate to today + leadtime
+							*/
+							$DeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $LeadTime);
+							if (Date1GreaterThanDate2($_SESSION['PO' . $Identifier]->DeliveryDate, $DeliveryDate)) {
+								$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
+							}
+						} else { // no purchasing data setup
+							$PurchPrice = 0;
+							$ConversionFactor = 1;
+							$SupplierDescription = $ItemRow['description'];
+							$SuppliersUnitOfMeasure = $ItemRow['units'];
+							$SuppliersPartNo = '';
+							$LeadTime = 1;
+							$DeliveryDate = $_SESSION['PO' . $Identifier]->DeliveryDate;
+						}
+
+						$_SESSION['PO' . $Identifier]->add_to_order($_SESSION['PO' . $Identifier]->LinesOnOrder + 1, $ItemCode, 0, /*Serialised */
+						0, /*Controlled */
+						filter_number_format($Quantity) * $ConversionFactor, /* Qty */
+						$SupplierDescription, $PurchPrice, $ItemRow['units'], $ItemRow['stockact'], $DeliveryDate, 0, 0, 0, 0, 0, $ItemRow['accountname'], $ItemRow['decimalplaces'], $SuppliersUnitOfMeasure, $ConversionFactor, $LeadTime, $SuppliersPartNo);
+						++$InsertNum;
+					} else { //no rows returned by the SQL to get the item
+						prnMsg(_('The item code') . ' ' . $ItemCode . ' ' . _('does not exist in the database and therefore cannot be added to the order'), 'error');
+						if ($debug == 1) {
+							echo '<br />' . $SQL;
+						}
+					}
+				} /* end of if not already on the order */
+			} /* end if the $_POST has NewQty in the variable name */
+		}
+	}
+	$_SESSION['PO_ItemsResubmitForm' . $Identifier]++; //change the $_SESSION VALUE
+	prnMsg($InsertNum . ' ' . _('of') . ' ' . $Row . ' ' . _('rows have been added to the order'), 'info');
+} /* end of if its items uploaded from csv */
+
 /* This is where the order as selected should be displayed  reflecting any deletions or insertions*/
 
-echo '<form id="form1" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
+echo '<form id="form1" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post" enctype="multipart/form-data">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 /*need to set up entry for item description where not a stock item and GL Codes */
@@ -795,7 +939,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 	if (isset($_SESSION['PO' . $Identifier]->OrderNo)) {
 		echo ' ' . _('Purchase Order') . ' ' . $_SESSION['PO' . $Identifier]->OrderNo;
 	} //isset($_SESSION['PO' . $Identifier]->OrderNo)
-	echo '<b>&nbsp;-&nbsp' . _(' Order Summary') . '</b></p>';
+	echo '<b>&nbsp;-&nbsp', _('Order Summary'), '</b></p>';
 	echo '<table cellpadding="2">
 			<thead>
 				<tr>
@@ -862,7 +1006,7 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_GET['Edit']
 	echo '</tbody>';
 	$DisplayTotal = locale_number_format($_SESSION['PO' . $Identifier]->Total, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces);
 	echo '<tr>
-			<td colspan="9" class="number">', _('TOTAL'), _(' excluding Tax'), '</td>
+			<td colspan="9" class="number">', _('Total excluding tax'), '</td>
 			<td class="number"><b>', $DisplayTotal, '</b></td>
 		</tr>
 	</table>';
@@ -1241,6 +1385,15 @@ if (!isset($_GET['Edit'])) {
 			<td></td>
 			<td><b>', _('OR'), '</b>&nbsp;&nbsp;
 			<a class="FontSize" target="_blank" href="', $RootPath, '/Stocks.php">', _('Insert New Item'), '</a></td>
+		</tr>
+		<tr>
+			<td colspan="10">
+				<div class="centre">
+					<h2>', _('Or'), '</h2>
+					', _('Upload items from csv file'), '<input type="file" name="CSVFile" />
+					<input type="submit" name="UploadFile" value="', _('Upload File'), '" />
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td>' . _('Only items defined as from this Supplier');

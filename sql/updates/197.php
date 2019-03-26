@@ -61,6 +61,7 @@ NewScript('prlOthIncTable.php', 12);
 NewMenuItem('HR', 'Maintenance', _('Add/Update Other Income Table'), '/prlOthIncTable.php', 8);
 NewScript('prlCostCenter.php', 12);
 NewMenuItem('HR', 'Maintenance', _('Add/Update Cost Center'), '/prlCostCenter.php', 9);
+NewMenuItem('HR', 'Maintenance', _('Create New Employee Details'), '/prlEmployeeMaster.php', 1);
 
 UpdateDBNo(basename(__FILE__, '.php'));
 

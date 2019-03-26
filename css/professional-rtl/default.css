@@ -306,7 +306,7 @@ margin-top:3px;
 list-style:none; /* hide the bullets */
 }
 #QuickMenuDiv li{
-    display:inline; /* items are inline */
+display:inline-block;
 float:right; /* right to left */
 }
 
@@ -510,8 +510,8 @@ margin:0 auto;
 }
 
 .gallery {
-	margin: 5px;
-	float: left;
-	/* Class selector to let an element float to the left. */
+margin: 5px;
+float: left;
+/* Class selector to let an element float to the left. */
 }
 /* END Style for all. ********************************************************/

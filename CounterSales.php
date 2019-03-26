@@ -919,7 +919,7 @@ if (count($_SESSION['Items' . $Identifier]->LineItems) > 0) {
 	}
 	echo '</select></td></tr>';
 
-	$BankAccountsResult = DB_query("SELECT bankaccountname, accountcode FROM bankaccounts");
+	$BankAccountsResult = DB_query("SELECT bankaccountname, accountcode FROM bankaccounts ORDER BY bankaccountname");
 
 	echo '<tr>
 			<td>' . _('Banked to') . ':</td>
@@ -2422,7 +2422,7 @@ if (!isset($_POST['ProcessSale'])) {
 		$DefaultDeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $_SESSION['Items' . $Identifier]->DeliveryDays);
 		for ($i = 1;$i <= $_SESSION['QuickEntries'];$i++) {
 
-			echo '<tr class="OddTableRow">';
+			echo '<tr class="striped_row">';
 			/* Do not display colum unless customer requires po line number by sales order line*/
 			if ($i == 1) {
 				echo '<td><input type="text" autofocus="autofocus" name="part_', $i, '" size="21" maxlength="20" /></td>';

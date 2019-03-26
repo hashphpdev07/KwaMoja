@@ -1,7 +1,11 @@
 <?php
+/* $Revision: 1.16 $ */
+
+$PageSecurity = 5;
+
 include ('includes/session.php');
 
-$Title = _('Tax Status Maintenance');
+$Title = _('Employee Maintenance');
 
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
@@ -14,59 +18,63 @@ if (isset($_GET['TaxStatusID'])) {
 	unset($TaxStatusID);
 }
 
-//initialise no input errors assumed initially before we test
-$InputError = 0;
+if (isset($_POST['submit'])) {
 
-/* actions to take once the user has clicked the submit button
- ie the page has called itself with some user input */
+	//initialise no input errors assumed initially before we test
+	$InputError = 0;
 
-//first off validate inputs sensible
+	/* actions to take once the user has clicked the submit button
+	 ie the page has called itself with some user input */
 
+	//first off validate inputs sensible
+	if ($InputError != 1) {
 
-if ($InputError != 1 and (isset($_POST['update']) or isset($_POST['insert']))) {
+		if (!isset($_POST['New'])) {
 
-	if (isset($_POST['update'])) {
+			$SQL = "UPDATE prltaxstatus SET
+					taxstatusdescription='" . DB_escape_string($_POST['TaxStatusDescription']) . "',
+					personalexemption='" . DB_escape_string($_POST['PersonalExemption']) . "',
+					additionalexemption='" . DB_escape_string($_POST['AdditionalExemption']) . "',
+					totalexemption='" . DB_escape_string($_POST['TotalExemption']) . "'
+                WHERE taxstatusid = '$TaxStatusID'";
+			$ErrMsg = _('The tax status could not be updated because');
+			$DbgMsg = _('The SQL that was used to update the tax status but failed was');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+			prnMsg(_('The tax status master record for') . ' ' . $TaxStatusID . ' ' . _('has been updated'), 'success');
 
-		$SQL = "UPDATE prltaxstatus SET taxstatusdescription='" . $_POST['TaxStatusDescription'] . "',
-											personalexemption='" . $_POST['PersonalExemption'] . "',
-											additionalexemption='" . $_POST['AdditionalExemption'] . "',
-											totalexemption='" . $_POST['TotalExemption'] . "'
-										WHERE taxstatusid = '" . $TaxStatusID . "'";
-		$ErrMsg = _('The tax status could not be updated because');
-		$DbgMsg = _('The SQL that was used to update the tax status but failed was');
-		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-		prnMsg(_('The tax status master record for') . ' ' . $TaxStatusID . ' ' . _('has been updated'), 'success');
+		} else { //its a new tax status
+			$SQL = "INSERT INTO prltaxstatus (
+					taxstatusid,
+					taxstatusdescription,
+					personalexemption,
+					additionalexemption,
+					totalexemption)
+				VALUES ('$TaxStatusID',
+					'" . DB_escape_string($_POST['TaxStatusDescription']) . "',
+					'" . DB_escape_string($_POST['PersonalExemption']) . "',
+					'" . DB_escape_string($_POST['AdditionalExemption']) . "',
+					'" . DB_escape_string($_POST['TotalExemption']) . "'
+					)";
+			$ErrMsg = _('The tax status') . ' ' . $_POST['TaxStatusDescription'] . ' ' . _('could not be added because');
+			$DbgMsg = _('The SQL that was used to insert the tax status but failed was');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-	} elseif (isset($_POST['insert'])) { //its a new tax status
-		$SQL = "INSERT INTO prltaxstatus (taxstatusid,
-												taxstatusdescription,
-												personalexemption,
-												additionalexemption,
-												totalexemption
-											) VALUES ('" . $_POST['TaxStatusID'] . "',
-												'" . $_POST['TaxStatusDescription'] . "',
-												'" . $_POST['PersonalExemption'] . "',
-												'" . $_POST['AdditionalExemption'] . "',
-												'" . $_POST['TotalExemption'] . "'
-											)";
-		$ErrMsg = _('The tax status') . ' ' . $_POST['TaxStatusDescription'] . ' ' . _('could not be added because');
-		$DbgMsg = _('The SQL that was used to insert the tax status but failed was');
-		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+			prnMsg(_('A new tax status for') . ' ' . $_POST['TaxStatusDescription'] . ' ' . _('has been added to the database'), 'success');
 
-		prnMsg(_('A new tax status for') . ' ' . $_POST['TaxStatusDescription'] . ' ' . _('has been added to the database'), 'success');
+			unset($TaxStatusID);
+			unset($_POST['TaxStatusDescription']);
+			unset($_POST['PersonalExemption']);
+			unset($_POST['AdditionalExemption']);
+			unset($_POST['TotalExemption']);
+		}
+
+	} else {
+
+		prnMsg(_('Validation failed') . _('no updates or deletes took place'), 'warn');
 
 	}
-	unset($TaxStatusID);
-	unset($_POST['TaxStatusDescription']);
-	unset($_POST['PersonalExemption']);
-	unset($_POST['AdditionalExemption']);
-	unset($_POST['TotalExemption']);
 
-} elseif ($InputError > 0) {
-	prnMsg(_('Validation failed') . _('no updates or deletes took place'), 'warn');
-}
-
-if (isset($_POST['delete']) and $_POST['delete'] != '') {
+} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
 	$CancelDelete = 0;
@@ -83,110 +91,74 @@ if (isset($_POST['delete']) and $_POST['delete'] != '') {
 } //end of (isset($_POST['submit']))
 
 
-//SupplierID exists - either passed when calling the form or from the form itself
-echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<p class="page_title_text noPrint" >
-			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '
-		</p>';
+if (!isset($TaxStatusID)) {
+	/*If the page was called without $EmployeeID passed to page then assume a new employee is to be entered show a form
+	with a Employee Code field other wise the form showing the fields with the existing entries against the employee will
+	show for editing with only a hidden EmployeeID field*/
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
+	echo "<input type='hidden' name='New' value='Yes'>";
+	echo '<table>';
+	//echo "me her";
+	echo '<tr><td>' . _('Tax Status ID') . ':</td>
+	     <td><input type="text" name="TaxStatusID" size=11 maxlength=10></td></tr>';
+	echo '<tr><td>' . _('Tax Status Description') . ':</td>
+		<td><input type="text" name="TaxStatusDescription" size=41 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Personal Exemption') . ':</td>
+		<td><input type="text" name="PersonalExemption" size=13 maxlength=12></td></tr>';
+	echo '<tr><td>' . _('Additional Exemption') . ':</td>
+		<td><input type="TotalExemptionText" name="AdditionalExemption" size=13 maxlength=12></td></tr>';
+	echo '<tr><td>' . _('Total Exemption') . ':</td>
+		<td><input type="text" name="TotalExemption" size=13 maxlength=12></td></tr>';
+	//echo'</table>';
+	echo '</select></td></tr></table><p><input type="submit" name="submit" value="' . _('Insert New Tax Status') . '">';
+	echo '</form>';
 
-$SQL = "SELECT  taxstatusid,
-				taxstatusdescription,
-				personalexemption,
-				additionalexemption,
-				totalexemption
-			FROM prltaxstatus";
-$Result = DB_query($SQL);
+} else {
+	//SupplierID exists - either passed when calling the form or from the form itself
+	echo "<form method='post' action='" . basename(__FILE__) . '?' . SID . "'>";
+	echo '<table>';
 
-if (DB_num_rows($Result)) {
-	echo '<table>
-			<tr>
-				<th>' . _('Status ID') . '<th>
-				<th>' . _('Description') . '<th>
-				<th>' . _('Personal Excemption') . '<th>
-				<th>' . _('Additional Excemption') . '<th>
-				<th>' . _('Total Excemption') . '<th>
-			</tr>';
-	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr>
-				<td>' . $MyRow['taxstatusid'] . '<td>
-				<td>' . $MyRow['taxstatusdescription'] . '<td>
-				<td class="number">' . locale_number_format($MyRow['personalexemption'], $_SESSION['CompanyRecord']['decimalplaces']) . '<td>
-				<td class="number">' . locale_number_format($MyRow['additionalexemption'], $_SESSION['CompanyRecord']['decimalplaces']) . '<td>
-				<td class="number">' . locale_number_format($MyRow['totalexemption'], $_SESSION['CompanyRecord']['decimalplaces']) . '<td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?TaxStatusID=' . $MyRow['taxstatusid'] . '">' . _('Edit') . '</a></td>
-			</tr>';
-	}
-	echo '</table>';
-}
+	if (!isset($_POST['New'])) {
 
-if (isset($TaxStatusID)) {
-
-	$SQL = "SELECT  taxstatusid,
+		$SQL = "SELECT  taxstatusid,
 						taxstatusdescription,
 						personalexemption,
 						additionalexemption,
 						totalexemption
 			FROM prltaxstatus
-			WHERE taxstatusid = '" . $TaxStatusID . "'";
-	$Result = DB_query($SQL);
-	$MyRow = DB_fetch_array($Result);
-	$_POST['TaxStatusDescription'] = $MyRow['taxstatusdescription'];
-	$_POST['PersonalExemption'] = $MyRow['personalexemption'];
-	$_POST['AdditionalExemption'] = $MyRow['additionalexemption'];
-	$_POST['TotalExemption'] = $MyRow['totalexemption'];
+			WHERE taxstatusid = '$TaxStatusID'";
+		$Result = DB_query($SQL);
+		$MyRow = DB_fetch_array($Result);
+		$_POST['TaxStatusDescription'] = $MyRow['taxstatusdescription'];
+		$_POST['PersonalExemption'] = $MyRow['personalexemption'];
+		$_POST['AdditionalExemption'] = $MyRow['additionalexemption'];
+		$_POST['TotalExemption'] = $MyRow['totalexemption'];
 
-	echo '<table>';
-	echo '<input type="hidden" name="TaxStatusID" value="' . $TaxStatusID . '" />';
-	echo '<tr>
-			<td>' . _('Tax Status ID') . ':</td>
-			<td>' . $TaxStatusID . '</td>
-		</tr>';
-} else {
-	// its a new status being added
-	echo '<table>';
-	echo '<tr>
-			<td>' . _('Tax Status ID') . ':</td>
-			<td><input type="text" name="TaxStatusID" value="" size="12" maxlength="10" /></td>
-		</tr>';
-	$_POST['TaxStatusDescription'] = '';
-	$_POST['PersonalExemption'] = 0;
-	$_POST['AdditionalExemption'] = 0;
-	$_POST['TotalExemption'] = 0;
-}
-echo '<tr>
-		<td>' . _('Tax Status Description') . ':</td>
-		<td><input type="text" name="TaxStatusDescription" value="' . $_POST['TaxStatusDescription'] . '" size="42" maxlength="40" //></td>
-	</tr>';
-echo '<tr>
-		<td>' . _('Personal Exemption') . ':</td>
-		<td><input type="text" class="number" name="PersonalExemption" value="' . $_POST['PersonalExemption'] . '" size="13" maxlength="12" /></td>
-	</tr>';
-echo '<tr>
-		<td>' . _('Additional Exemption') . ':</td>
-		<td><input type="text" class="number" name="AdditionalExemption" size="13" maxlength="12" value="' . $_POST['AdditionalExemption'] . '" /></td>
-	</tr>';
-echo '<tr>
-		<td>' . _('Total Exemption') . ':</td>
-		<td><input type="text" class="number" name="TotalExemption" size="13" maxlength="12" value="' . $_POST['TotalExemption'] . '" /></td>
-	</tr>';
+		echo "<input type=HIDDEN name='TaxStatusID' value='$TaxStatusID'>";
+	} else {
+		// its a new supplier being added
+		echo "<input type=HIDDEN name='New' value='Yes'>";
+		echo '<tr><td>' . _('Tax Status ID') . ':</td><td><input type="text" name="TaxStatusID" value="', $TaxStatusID, '" size=12 maxlength=10></td></tr>';
+	}
+	echo '<tr><td>' . _('Tax Status Description') . ':</td>
+		<td><input type="text" name="TaxStatusDescription" value="' . $_POST['TaxStatusDescription'] . '" size=42 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Personal Exemption') . ':</td>
+		<td><input type="text" name="PersonalExemption" value="' . $_POST['PersonalExemption'] . '" size=13 maxlength=12></td></tr>';
+	echo '<tr><td>' . _('Additional Exemption') . ':</td>
+		<td><input type="text" name="AdditionalExemption" size=13 maxlength=12 value="' . $_POST['AdditionalExemption'] . '"></td></tr>';
+	echo '<tr><td>' . _('Total Exemption') . ':</td>
+		<td><input type="text" name="TotalExemption" size=13 maxlength=12 value="' . $_POST['TotalExemption'] . '"></td></tr>';
 
-if (!isset($TaxStatusID)) {
-	echo '</table>
-			<div class="centre">
-				<input type="submit" name="insert" value="' . _('Add These New Tax Status Details') . '" />
-			</div>
-		</form>';
-} else {
-	echo '</table>
-			<div class="centre">
-				<input type="submit" name="update" value="' . _('Update Tax Status') . '" />
-			</div>';
-	echo '<div class="centre">
-			<input type="Submit" name="delete" value="' . _('Delete Employee') . '" onclick="return confirm("' . _('Are you sure you wish to delete this tax status?') . '");" />
-		</div>
-	</form>';
-}
+	if (isset($_POST['New'])) {
+		echo '</table><P><input type="submit" name="submit" value="' . _('Add These New Tax Status Details') . '"></form>';
+	} else {
+		echo '</table><P><input type="submit" name="submit" value="' . _('Update Tax Status') . '">';
+		echo '<P><FONT COLOR=red><B>' . _('WARNING') . ': ' . _('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure there are no outstanding purchase orders or existing accounts payable transactions before the deletion is processed') . '<BR></FONT></B>';
+		echo '<input type="submit" name="delete" value="' . _('Delete Employee') . '" onclick=\"return confirm("' . _('Are you sure you wish to delete this tax status?') . '");\"></form>';
+		//echo "<BR><A HREF='$RootPath/SupplierContacts.php?" . SID . "SupplierID=$SupplierID'>" . _('Review Contact Details') . '</A>';
+		
+	}
 
+} // end of main ifs
 include ('includes/footer.php');
 ?>

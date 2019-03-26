@@ -8,9 +8,7 @@ if (isset($_GET['PayrollID'])) {
 }
 
 if (isset($_POST['submit'])) {
-	prnMsg(_('Contact Administrator...'), 'error');
-	include('includes/footer.php');
-	exit;
+	exit("Contact Administrator...");
 } else {
 	$FromPeriod = GetPayrollRow($PayrollID, 3);
 	$ToPeriod = GetPayrollRow($PayrollID, 4);
@@ -26,7 +24,7 @@ if (isset($_POST['submit'])) {
 		while ($MyRow = DB_fetch_array($PayDetails)) {
 			$SQL = "SELECT sum(othincamount) AS OTHPay
 					FROM prlothincfile
-			        WHERE prlothincfile.employeeid='" . $MyRow['employeeid'] . "'
+					WHERE prlothincfile.employeeid='" . $MyRow['employeeid'] . "'
 					AND prlothincfile.othdate>='$FromPeriod'
 					AND  prlothincfile.othdate<='$ToPeriod'
 					ORDER BY OthDate";
@@ -34,11 +32,11 @@ if (isset($_POST['submit'])) {
 			if (DB_num_rows($OIDetails) > 0) {
 				$oirow = DB_fetch_array($OIDetails);
 				$OTHPayment = $oirow['OTHPay'];
-				//if ($OTHPayment>0 or $OTPayment<>null) {
-				//	$SQL = 'UPDATE prlpayrolltrans SET othincome='.$OTHPayment.'
-				//	WHERE counterindex = ' . $MyRow['counterindex'];
-				//$PostOTPay = DB_query($SQL);
-				//}
+				if ($OTHPayment > 0 or $OTPayment <> null) {
+					$SQL = 'UPDATE prlpayrolltrans SET othincome=' . $OTHPayment . '
+								WHERE counterindex = ' . $MyRow['counterindex'];
+					$PostOTPay = DB_query($SQL);
+				}
 			}
 		}
 	}

@@ -32,7 +32,8 @@ if (!isset($_POST['Show'])) {
 				INNER JOIN bankaccountusers
 					ON bankaccounts.accountcode=bankaccountusers.accountcode
 				WHERE bankaccountusers.userid = '" . $_SESSION['UserID'] . "'
-					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
+					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+				ORDER BY bankaccountname";
 
 	$ErrMsg = _('The bank accounts could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve the bank accounts was');
@@ -82,7 +83,7 @@ if (!isset($_POST['Show'])) {
 			<td><input type="text" name="ToTransDate" class="date" required="required" maxlength="10" size="11" onchange="isDate(this, this.value, ', "'", $_SESSION['DefaultDateFormat'], "'", ')" value="', date($_SESSION['DefaultDateFormat']), '" /></td>
 		</tr>
 		<tr>
-			<td>', _('Show Transactions'), '</td>
+			<td>', _('Show transactions'), '</td>
 			<td>
 				<select name="ShowType">
 					<option value="All">', _('All'), '</option>

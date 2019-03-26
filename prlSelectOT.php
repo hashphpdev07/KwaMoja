@@ -1,6 +1,7 @@
 <?php
 /* $Revision: 1.0 $ */
 
+$PageSecurity = 10;
 include ('includes/session.php');
 $Title = _('View Overtime');
 
@@ -34,54 +35,64 @@ if (!isset($Counter)) {
 	then none of the above are true and the list of ChartMaster will be displayed with
 	links to delete or edit each. These will call the same page again and allow update/input
 	or deletion of the records*/
-	echo '<form method="post" action="' . basename(__FILE__) . '>';
-	echo '<input type="hidden" name="New" value="Yes">';
-	$SQL = "SELECT counterindex,
-					payrollid,
-					otref,
-					otdesc,
-					otdate,
-					overtimeid,
-					employeeid,
-					othours,
-					otamount
-				FROM prlottrans
-				ORDER BY counterindex";
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
+	echo "<input type='hidden' name='New' value='Yes'>";
+	echo '<table>';
+
+	$SQL = "SELECT  	counterindex,
+						payrollid,
+						otref,
+						otdesc,
+						otdate,
+						overtimeid,
+						employeeid,
+						othours,
+						otamount
+		FROM prlottrans
+		ORDER BY counterindex";
 	$ErrMsg = _('The ot could not be retrieved because');
 	$Result = DB_query($SQL, $ErrMsg);
 
-	echo '<table>';
-	echo '<tr>
-			<th>' . _('Index') . '</th>
-			<th>' . _('Pay ID') . '</th>
-			<th>' . _('OTRef ') . '</th>
-			<th>' . _('OTDesc') . '</th>
-			<th>' . _('OTDate ') . '</th>
-			<th>' . _('OT ID') . '</th>
-			<th>' . _('EE ID ') . '</th>
-			<th>' . _('OT Hours') . '</th>
-			<th>' . _('Amount ') . '</th>
-		</tr>';
+	echo '<table border=1>';
+	echo "<tr>
+		<td class='tableheader'>" . _('Index') . "</td>
+		<td class='tableheader'>" . _('Pay ID') . "</td>
+		<td class='tableheader'>" . _('OTRef ') . "</td>
+		<td class='tableheader'>" . _('OTDesc') . "</td>
+		<td class='tableheader'>" . _('OTDate ') . "</td>
+		<td class='tableheader'>" . _('OT ID') . "</td>
+		<td class='tableheader'>" . _('EE ID ') . "</td>
+		<td class='tableheader'>" . _('OT Hours') . "</td>
+		<td class='tableheader'>" . _('Amount ') . "</td>
+	</tr>";
 
+	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
-		echo '<tr class="striped_row">
-				<td>' . $MyRow[0] . '</td>
-				<td>' . $MyRow[1] . '</td>
-				<td>' . $MyRow[2] . '</td>
-				<td>' . $MyRow[3] . '</td>
-				<td>' . $MyRow[4] . '</td>
-				<td>' . $MyRow[5] . '</td>
-				<td>' . $MyRow[6] . '</td>
-				<td>' . $MyRow[7] . '</td>
-				<td>' . $MyRow[8] . '</td>
-				<td><a href="' . basename(__FILE__) . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>
-			</tr>';
+		if ($k == 1) {
+			echo "<TR BGCOLOR='#CCCCCC'>";
+			$k = 0;
+		} else {
+			echo "<TR BGCOLOR='#EEEEEE'>";
+			$k++;
+		}
+
+		echo '<td>' . $MyRow[0] . '</td>';
+		echo '<td>' . $MyRow[1] . '</td>';
+		echo '<td>' . $MyRow[2] . '</td>';
+		echo '<td>' . $MyRow[3] . '</td>';
+		echo '<td>' . $MyRow[4] . '</td>';
+		echo '<td>' . $MyRow[5] . '</td>';
+		echo '<td>' . $MyRow[6] . '</td>';
+		echo '<td>' . $MyRow[7] . '</td>';
+		echo '<td>' . $MyRow[8] . '</td>';
+		echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</A></td>';
+		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	//END WHILE LIST LOOP
 	
-} //END IF selected="selected" ACCOUNT
+} //END IF SELECTED ACCOUNT
 
 
 echo '</table>';

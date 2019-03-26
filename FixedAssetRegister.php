@@ -11,7 +11,7 @@ if (isset($_POST['submit']) or isset($_POST['pdf']) or isset($_POST['csv'])) {
 		include ('includes/PDFStarter.php');
 	} else if (empty($_POST['csv'])) {
 		include ('includes/header.php');
-		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
 	}
 	$DateFrom = FormatDateForSQL($_POST['FromDate']);
 	$DateTo = FormatDateForSQL($_POST['ToDate']);
@@ -318,8 +318,8 @@ function PDFPageHeader() {
 	$PDF->addJpegFromFile($_SESSION['LogoFile'], $XPos + 20, $YPos - 50, 0, 60);
 
 	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos, 240, $FontSize, $_SESSION['CompanyRecord']['coyname']);
-	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 1), 240, $FontSize, _('Asset Category ') . ' ' . $AssetCategory);
-	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 2), 240, $FontSize, _('Asset Location ') . ' ' . $_POST['AssetLocation']);
+	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 1), 240, $FontSize, _('Asset Category') . ' ' . $AssetCategory);
+	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 2), 240, $FontSize, _('Asset Location') . ' ' . $_POST['AssetLocation']);
 	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 3), 240, $FontSize, _('Asset ID') . ': ' . $AssetDescription);
 	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 4), 240, $FontSize, _('From') . ': ' . $_POST['FromDate']);
 	$LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 240, $YPos - ($line_height * 5), 240, $FontSize, _('To') . ': ' . $_POST['ToDate']);

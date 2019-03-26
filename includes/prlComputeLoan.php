@@ -9,28 +9,24 @@ if (isset($_GET['PayrollID'])) {
 
 $Status = GetOpenCloseStr(GetPayrollRow($PayrollID, 11));
 if ($Status == 'Closed') {
-	prnMsg(_('Payroll is Closed. Re-open first...'), 'warn');
-	include('includes/footer.php');
-	exit;
+	exit("Payroll is Closed. Re-open first...");
 }
 if (isset($_POST['submit'])) {
-	prnMsg(_('Contact Administrator...'), 'error');
-	include('includes/footer.php');
-	exit;
+	exit("Contact Administrator...");
 } else {
 	$FromPeriod = GetPayrollRow($PayrollID, 3);
 	$ToPeriod = GetPayrollRow($PayrollID, 4);
 
 	//update/delete any previous posting for the same payrollid
 	$SQL = "SELECT counterindex,payrollid,refid,employeeid,amount
-	        FROM prlloandeduction
+			FROM prlloandeduction
 			WHERE prlloandeduction.payrollid='" . $PayrollID . "'";
 	$OthDetails = DB_query($SQL);
 	if (DB_num_rows($OthDetails) > 0) {
 		while ($MyRow = DB_fetch_array($OthDetails)) {
 			$SQL = "SELECT counterindex,loanfileid,employeeid,amortization,loanbalance
 					FROM prlloanfile
-			        WHERE prlloanfile.counterindex='" . $MyRow['refid'] . "'
+					WHERE prlloanfile.counterindex='" . $MyRow['refid'] . "'
 					ORDER BY counterindex";
 			$IncDetails = DB_query($SQL);
 			if (DB_num_rows($IncDetails) > 0) {
@@ -49,19 +45,16 @@ if (isset($_POST['submit'])) {
 		$Postdelloan = DB_query($SQL);
 	}
 
-
-
-
 	$SQL = "SELECT counterindex,payrollid,employeeid,loandeduction
 			FROM prlpayrolltrans
 			WHERE prlpayrolltrans.payrollid='" . $PayrollID . "'";
 	$PayDetails = DB_query($SQL);
 	if (DB_num_rows($PayDetails) > 0) {
 		while ($MyRow = DB_fetch_array($PayDetails)) {
-			$SQL = "SELECT counterindex,loanfileid,loantableid,employeeid,amortization,nextdeduction,loanbalance
+			$SQL = "SELECT counterindex,loanfileid,loantableid,employeeid,amortization,startdeduction,loanbalance
 					FROM prlloanfile
 			        WHERE prlloanfile.employeeid='" . $MyRow['employeeid'] . "'
-					AND nextdeduction<='$ToPeriod'
+					AND startdeduction<='$ToPeriod'
 					ORDER BY counterindex";
 			$LoanDetails = DB_query($SQL);
 			if (DB_num_rows($LoanDetails) > 0) {
@@ -106,8 +99,15 @@ if (isset($_POST['submit'])) {
 			}
 
 		}
+		//							$SQL = "UPDATE prlloandeduction SET
+		//									payrollid='" . $PayrollID . "'
+		//									WHERE payrollid = ''";
+		//									$PostPrd = DB_query($SQL);
+		
+	} else {
+		//exit("No Loan Deduction..");
+		
 	}
-
 
 	$SQL = "SELECT counterindex,payrollid,employeeid,loandeduction
 			FROM prlpayrolltrans
@@ -126,7 +126,6 @@ if (isset($_POST['submit'])) {
 				//$SQL = 'UPDATE prlpayrolltrans SET otpay='.$OTPayment.'
 				//			WHERE counterindex = ' . $MyRow['counterindex'];
 				//$PostOTPay = DB_query($SQL);
-
 				$loanrow = DB_fetch_array($LoanDetails);
 				$LoanPayment = $loanrow['loanded'];
 				if ($LoanPayment > 0 or $LoanPayment <> null) {
@@ -138,6 +137,7 @@ if (isset($_POST['submit'])) {
 		}
 	} else {
 		//echo "No Loan Deduction..";
+		
 	}
 
 }

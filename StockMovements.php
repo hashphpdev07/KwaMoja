@@ -88,6 +88,7 @@ $SQL = "SELECT stockmoves.stockid,
 				stockmoves.price,
 				stockmoves.discountpercent,
 				stockmoves.newqoh,
+				stockmoves.narrative,
 				stockmaster.decimalplaces,
 				stockmaster.controlled,
 				stockmaster.serialised
@@ -118,7 +119,8 @@ echo '<tr>
 		<th>', _('Reference'), '</th>
 		<th>', _('Cost'), '</th>
 		<th>', _('Discount'), '</th>
-		<th>', _('New Qty'), '</th>';
+		<th>', _('New Qty'), '</th>
+		<th>', _('Narrative'), '</th>';
 if ($MyRow['controlled'] == 1) {
 	echo '<th>', _('Serial No.'), '</th>';
 }
@@ -156,7 +158,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td>', $MyRow['reference'], '</td>
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%%</td>
-				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['narrative'], '</td>';
 		if ($MyRow['controlled'] == 1) {
 			echo '<td>', $SerialText, '</td>';
 		}
@@ -175,7 +178,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td>', $MyRow['reference'], '</td>
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%%</td>
-				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['narrative'], '</td>';
 		if ($MyRow['controlled'] == 1) {
 			echo '<td>', $SerialText, '</td>';
 		}
@@ -194,7 +198,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td>', $MyRow['reference'], '</td>
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%</td>
-				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['narrative'], '</td>';
 		if ($MyRow['controlled'] == 1) {
 			echo '<td>', $SerialText, '</td>';
 		}

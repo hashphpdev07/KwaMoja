@@ -363,7 +363,7 @@ if (isset($_GET['Add']) or isset($_GET['Edit'])) {
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" /> ', _('Component Details'), '
 		</p>';
 
-	echo '<fieldset>';
+	echo '<fieldset class="noPrint">';
 	if (isset($_GET['Edit'])) {
 		$SQL = "SELECT bom.loccode,
 						effectiveafter,
@@ -599,86 +599,59 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 		$EffectiveAfterSQL = FormatDateForSQL($_POST['EffectiveAfter']);
 		$EffectiveToSQL = FormatDateForSQL($_POST['EffectiveTo']);
 
-		if (isset($SelectedParent) and isset($SelectedComponent) and isset($_POST['Edit']) and $InputError != 1) {
-
-			$SQL = "UPDATE bom SET workcentreadded='" . $_POST['WorkCentreAdded'] . "',
-						loccode='" . $_POST['LocCode'] . "',
-						effectiveafter='" . $EffectiveAfterSQL . "',
-						effectiveto='" . $EffectiveToSQL . "',
-						sequence='" . $_POST['Sequence'] . "',
-						quantity= '" . filter_number_format($_POST['Quantity']) . "',
-						autoissue='" . $_POST['AutoIssue'] . "',
-						comment='" . $_POST['Comment'] . "'
-					WHERE bom.parent='" . $SelectedParent . "'
-						AND bom.component='" . $SelectedComponent . "'
-						AND workcentreadded='" . $_POST['WorkCentreAdded'] . "'
-						AND loccode='" . $_POST['LocCode'] . "'";
-
-			$ErrMsg = _('Could not update this BOM component because');
-			$DbgMsg = _('The SQL used to update the component was');
-
-			$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-			$Msg = _('Details for') . ' - ' . $SelectedComponent . ' ' . _('have been updated') . '.';
-			UpdateCost($SelectedComponent);
-
-		} elseif ($InputError != 1 and isset($SelectedComponent) and isset($SelectedParent) and isset($_POST['Add'])) {
-
-			/*Selected component is null cos no item selected on first time round so must be adding a record must be Submitting new entries in the new component form */
-
-			//need to check not recursive BOM component of itself!
-			if (!CheckForRecursiveBOM($SelectedParent, $_POST['SelectedComponent'])) {
-
-				/*Now check to see that the component is not already on the BOM */
-				$SQL = "SELECT component
-						FROM bom
-						WHERE parent='" . $SelectedParent . "'
+		/*Now check to see that the component is not already on the BOM */
+		$SQL = "SELECT component
+					FROM bom
+					WHERE parent='" . $SelectedParent . "'
 						AND component='" . $_POST['SelectedComponent'] . "'
 						AND workcentreadded='" . $_POST['WorkCentreAdded'] . "'
 						AND loccode='" . $_POST['LocCode'] . "'";
 
-				$ErrMsg = _('An error occurred in checking the component is not already on the BOM');
-				$DbgMsg = _('The SQL that was used to check the component was not already on the BOM and that failed in the process was');
+		$ErrMsg = _('Could not update this BOM component because');
+		$DbgMsg = _('The SQL used to update the component was');
+
+		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
+
+		if (DB_num_rows($Result) != 0) {
+			/*The component must already be on the BOM */
+
+			prnMsg(_('The component') . ' ' . $_POST['Component'] . ' ' . _('is already recorded as a component of') . ' ' . $SelectedParent . '.' . '<br />' . _('Whilst the quantity of the component required can be modified it is inappropriate for a component to appear more than once in a bill of material'), 'error');
+			$Errors[$i] = 'ComponentCode';
+
+		} else {
+
+			//need to check not recursive BOM component of itself!
+			if (!CheckForRecursiveBOM($SelectedParent, $_POST['SelectedComponent'])) {
+
+				$SQL = "INSERT INTO bom (parent,
+										component,
+										workcentreadded,
+										loccode,
+										quantity,
+										sequence,
+										effectiveafter,
+										effectiveto,
+										autoissue,
+										comment)
+						VALUES ('" . $SelectedParent . "',
+							'" . $_POST['SelectedComponent'] . "',
+							'" . $_POST['WorkCentreAdded'] . "',
+							'" . $_POST['LocCode'] . "',
+							" . filter_number_format($_POST['Quantity']) . ",
+							" . $_POST['Sequence'] . ",
+							'" . $EffectiveAfterSQL . "',
+							'" . $EffectiveToSQL . "',
+							" . $_POST['AutoIssue'] . ",
+							'" . $_POST['Comment'] . "'
+							)";
+
+				$ErrMsg = _('Could not insert the BOM component because');
+				$DbgMsg = _('The SQL used to insert the component was');
 
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-				if (DB_num_rows($Result) == 0) {
-
-					$SQL = "INSERT INTO bom (parent,
-											component,
-											workcentreadded,
-											loccode,
-											quantity,
-											sequence,
-											effectiveafter,
-											effectiveto,
-											autoissue,
-											comment)
-							VALUES ('" . $SelectedParent . "',
-								'" . $_POST['SelectedComponent'] . "',
-								'" . $_POST['WorkCentreAdded'] . "',
-								'" . $_POST['LocCode'] . "',
-								" . filter_number_format($_POST['Quantity']) . ",
-								" . $_POST['Sequence'] . ",
-								'" . $EffectiveAfterSQL . "',
-								'" . $EffectiveToSQL . "',
-								" . $_POST['AutoIssue'] . ",
-								'" . $_POST['Comment'] . "'
-								)";
-
-					$ErrMsg = _('Could not insert the BOM component because');
-					$DbgMsg = _('The SQL used to insert the component was');
-
-					$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-
-					UpdateCost($_POST['SelectedComponent']);
-					$Msg = _('A new component part') . ' ' . $_POST['SelectedComponent'] . ' ' . _('has been added to the bill of material for part') . ' - ' . $SelectedParent . '.';
-
-				} else {
-
-					/*The component must already be on the BOM */
-
-					prnMsg(_('The component') . ' ' . $_POST['Component'] . ' ' . _('is already recorded as a component of') . ' ' . $SelectedParent . '.' . '<br />' . _('Whilst the quantity of the component required can be modified it is inappropriate for a component to appear more than once in a bill of material'), 'error');
-				}
+				UpdateCost($_POST['SelectedComponent']);
+				$Msg = _('A new component part') . ' ' . $_POST['SelectedComponent'] . ' ' . _('has been added to the bill of material for part') . ' - ' . $SelectedParent . '.';
 
 			} //end of if its not a recursive BOM
 			
@@ -922,7 +895,6 @@ if (isset($SelectedParent)) { //Parent Stock Item selected so display BOM or edi
 		$SQL = "SELECT categoryid,
 						categorydescription
 				FROM stockcategory
-				WHERE stocktype='F' OR stocktype='D' OR stocktype='L'
 				ORDER BY categorydescription";
 
 		$Result = DB_query($SQL);

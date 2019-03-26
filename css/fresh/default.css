@@ -315,7 +315,7 @@ list-style:none;
 }
 
 #QuickMenuDiv li {
-display:inline;
+display:inline-block;
 }
 
 #QuickMenuDiv li a {
@@ -568,7 +568,7 @@ margin:0 auto;
 }
 
 .gallery {
-	margin: 5px;
-	float: left;
-	/* Class selector to let an element float to the left. */
+margin: 5px;
+float: left;
+/* Class selector to let an element float to the left. */
 }

@@ -1,4 +1,6 @@
 <?php
+$PageSecurity = 2;
+
 if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 
 	include ('config.php');
@@ -52,8 +54,8 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 	$Tax = 0;
 	$Net = 0;
 	include ('includes/PDFPayRegisterPageHeader.php');
-
-	$SQL = "SELECT employeeid,basicpay,othincome,absent,late,otpay,grosspay,loandeduction,sss,hdmf,grosspay,tax,netpay
+	$k = 0; //row colour counter
+	$SQL = "SELECT employeeid,basicpay,othincome,absent,late,otpay,grosspay,loandeduction,sss,hdmf,philhealth,tax,netpay
 			FROM prlpayrolltrans
 			WHERE prlpayrolltrans.payrollid='" . $_POST['PayrollID'] . "'";
 	$PayResult = DB_query($SQL);
@@ -67,7 +69,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 			$Gross = $MyRow['grosspay'];
 			$SSS = $MyRow['sss'];
 			$HDMF = $MyRow['hdmf'];
-			$grosspay = $MyRow['grosspay'];
+			$PhilHealth = $MyRow['philhealth'];
 			$Loan = $MyRow['loandeduction'];
 			$Tax = $MyRow['tax'];
 			$Net = $MyRow['netpay'];
@@ -78,7 +80,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 			$GTGross+= $MyRow['grosspay'];
 			$GTSSS+= $MyRow['sss'];
 			$GTHDMF+= $MyRow['hdmf'];
-			$GTgrosspay+= $MyRow['grosspay'];
+			$GTPhilHealth+= $MyRow['philhealth'];
 			$GTLoan+= $MyRow['loandeduction'];
 			$GTTax+= $MyRow['tax'];
 			$GTNet+= $MyRow['netpay'];
@@ -96,7 +98,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 			$LeftOvers = $PDF->addTextWrap(446, $YPos, 50, $FontSize, number_format($Gross, 2), 'right');
 			$LeftOvers = $PDF->addTextWrap(487, $YPos, 50, $FontSize, number_format($SSS, 2), 'right');
 			$LeftOvers = $PDF->addTextWrap(528, $YPos, 50, $FontSize, number_format($HDMF, 2), 'right');
-			$LeftOvers = $PDF->addTextWrap(569, $YPos, 50, $FontSize, number_format($grosspay, 2), 'right');
+			$LeftOvers = $PDF->addTextWrap(569, $YPos, 50, $FontSize, number_format($PhilHealth, 2), 'right');
 			$LeftOvers = $PDF->addTextWrap(610, $YPos, 50, $FontSize, number_format($Loan, 2), 'right');
 			$LeftOvers = $PDF->addTextWrap(671, $YPos, 50, $FontSize, number_format($Tax, 2), 'right');
 			$LeftOvers = $PDF->addTextWrap(722, $YPos, 50, $FontSize, number_format($Net, 2), 'right');
@@ -119,7 +121,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 	$LeftOvers = $PDF->addTextWrap(446, $YPos, 50, $FontSize, number_format($GTGross, 2), 'right');
 	$LeftOvers = $PDF->addTextWrap(487, $YPos, 50, $FontSize, number_format($GTSSS, 2), 'right');
 	$LeftOvers = $PDF->addTextWrap(528, $YPos, 50, $FontSize, number_format($GTHDMF, 2), 'right');
-	$LeftOvers = $PDF->addTextWrap(569, $YPos, 50, $FontSize, number_format($GTgrosspay, 2), 'right');
+	$LeftOvers = $PDF->addTextWrap(569, $YPos, 50, $FontSize, number_format($GTPhilHealth, 2), 'right');
 	$LeftOvers = $PDF->addTextWrap(610, $YPos, 50, $FontSize, number_format($GTLoan, 2), 'right');
 	$LeftOvers = $PDF->addTextWrap(671, $YPos, 50, $FontSize, number_format($GTTax, 2), 'right');
 	$LeftOvers = $PDF->addTextWrap(722, $YPos, 50, $FontSize, number_format($GTNet, 2), 'right');
@@ -133,7 +135,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There were no entries to print out for the selections specified'));
-		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
+		echo '<BR><A HREF="' . $RootPath . '/index.php?' . SID . '">' . _('Back to the menu') . '</A>';
 		include ('includes/footer.php');
 		exit;
 	} else {
@@ -151,26 +153,25 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 
 } elseif (isset($_POST['ShowPR'])) {
 	include ('includes/session.php');
-	$Title = _('grosspay Monthly Premium Listing');
+	$Title = _('PhilHealth Monthly Premium Listing');
 	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
-	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 	include ('includes/footer.php');
 	exit;
-} else {
-	/*The option to print PDF was not hit */
+} else { /*The option to print PDF was not hit */
 
 	include ('includes/session.php');
 	$Title = _('Payroll Register');
 	include ('includes/header.php');
 
-	echo '<form method="POST" action="' . basename(__FILE__) . '?">';
+	echo '<form method="POST" ACTION="' . basename(__FILE__) . '?' . SID . '">';
 	echo '<table><tr><td>' . _('Select Payroll:') . '</td><td><select Name="PayrollID">';
 	DB_data_seek($Result, 0);
 	$SQL = 'SELECT payrollid, payrolldesc FROM prlpayrollperiod';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($MyRow['payrollid'] == isset($_POST['PayrollID'])) {
+		if ($MyRow['payrollid'] == $_POST['PayrollID']) {
 			echo '<option selected="selected" value=';
 		} else {
 			echo '<option value=';
@@ -178,11 +179,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 		echo $MyRow['payrollid'] . '>' . $MyRow['payrolldesc'];
 	} //end while loop
 	echo '</select></td></tr>';
-	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show Payroll Register') . "'>";
-	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
+	echo '</table><P><input type="submit" name="ShowPR" value="' . _('Show Payroll Register') . '">';
+	echo '<P><input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '">';
 
-	include ('includes/footer.php');
-}
-/*end of else not PrintPDF */
+	include ('includes/footer.php');;
+} /*end of else not PrintPDF */
 
 ?>

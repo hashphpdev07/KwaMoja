@@ -55,7 +55,7 @@ echo '<td>' . _('From') . ':</td>
 	</tr>
 	</table>
 	<div class="centre">
-		<input type="submit" name="ShowResults" value="' . _('Show Transactions') . '" />
+		<input type="submit" name="ShowResults" value="' . _('Show transactions') . '" />
 	</div>
 	</form>';
 
