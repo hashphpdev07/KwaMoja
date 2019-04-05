@@ -82,7 +82,7 @@ if (!isset($_POST['Show'])) {
 				</th>
 			</tr>
 			<tr>
-				<th>' . ('Date') . '</th>
+				<th>' . _('Date') . '</th>
 				<th>' . _('Journal Number') . '</th>
 				<th>' . _('Account Code') . '</th>
 				<th>' . _('Account Description') . '</th>

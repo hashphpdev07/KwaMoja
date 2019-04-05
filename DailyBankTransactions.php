@@ -157,7 +157,7 @@ if (!isset($_POST['Show'])) {
 		echo '<table>
 				<thead>
 					<tr>
-						<th>' . ('Date') . '</th>
+						<th>' . _('Date') . '</th>
 						<th>' . _('Transaction type') . '</th>
 						<th>' . _('Number') . '</th>
 						<th>' . _('Type') . '</th>

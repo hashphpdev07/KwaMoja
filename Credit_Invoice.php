@@ -487,7 +487,7 @@ if (isset($_POST['CreditType']) and ($_POST['CreditType'] == 'WriteOff' or $_POS
 		$DuplicateCreditResult = DB_query($SQL, $ErrMsg);
 		$MyRow1 = DB_fetch_row($DuplicateCreditResult);
 		if ($MyRow1[0] === 0) {
-			prnMsg(_('The credit quantity for the line for') . ' ' . $CreditLine->StockID . ' ' . ('is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated.'), 'error');
+			prnMsg(_('The credit quantity for the line for') . ' ' . $CreditLine->StockID . ' ' . _('is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated.'), 'error');
 			$OKToProcess = false;
 			include ('includes/footer.php');
 			exit;
