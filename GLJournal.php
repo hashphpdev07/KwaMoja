@@ -121,57 +121,65 @@ if (isset($_POST['SaveTemplate'])) {
 		$_POST['ConfimSave'] = 'ConfirmSave';
 		prnMsg(_('You must enter a description of between 1 and 50 characters for this template.'), 'error');
 	} else {
-		//Save the header
-		$TemplateNo = GetNextTransNo(4);
-		if ($_SESSION['JournalDetail']->JournalType == 'Reversing') {
-			$JournalType = 1;
-		} else {
-			$JournalType = 0;
-		}
-		$SQL = "INSERT INTO jnltmplheader (templateid,
-											templatedescription,
-											journaltype
-										) VALUES (
-											'" . $TemplateNo . "',
-											'" . $_POST['Description'] . "',
-											'" . $JournalType . "'
-										)";
+		// Check if duplicate description
+		$SQL = "SELECT templateid AS templates FROM jnltmplheader WHERE templatedescription='" . $_POST['Description'] . "'";
 		$Result = DB_query($SQL);
-		if (DB_error_no() != 0) {
-			prnMsg(_('The journal template header info could not be saved'), 'error');
-			include ('includes/footer.php');
-			exit;
-		}
-		$LineNumber = 0;
-		foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
-			$TagList = '';
-			foreach ($JournalItem->tag as $Tag) {
-				$TagList.= $Tag . ',';
+		if (DB_num_rows($Result) == 0) {
+			//Save the header
+			$TemplateNo = GetNextTransNo(4);
+			if ($_SESSION['JournalDetail']->JournalType == 'Reversing') {
+				$JournalType = 1;
+			} else {
+				$JournalType = 0;
 			}
-			$NewTaglist = rtrim($TagList, ',');
-			$SQL = "INSERT INTO jnltmpldetails (linenumber,
-												templateid,
-												tags,
-												accountcode,
-												amount,
-												narrative
+			$SQL = "INSERT INTO jnltmplheader (templateid,
+												templatedescription,
+												journaltype
 											) VALUES (
-												'" . $LineNumber . "',
 												'" . $TemplateNo . "',
-												'" . $NewTaglist . "',
-												'" . $JournalItem->GLCode . "',
-												'" . $JournalItem->Amount . "',
-												'" . $JournalItem->Narrative . "'
+												'" . $_POST['Description'] . "',
+												'" . $JournalType . "'
 											)";
 			$Result = DB_query($SQL);
-			++$LineNumber;
 			if (DB_error_no() != 0) {
-				prnMsg(_('The journal template line info could not be saved'), 'error');
+				prnMsg(_('The journal template header info could not be saved'), 'error');
 				include ('includes/footer.php');
 				exit;
 			}
+			$LineNumber = 0;
+			foreach ($_SESSION['JournalDetail']->GLEntries as $JournalItem) {
+				$TagList = '';
+				foreach ($JournalItem->tag as $Tag) {
+					$TagList.= $Tag . ',';
+				}
+				$NewTaglist = rtrim($TagList, ',');
+				$SQL = "INSERT INTO jnltmpldetails (linenumber,
+													templateid,
+													tags,
+													accountcode,
+													amount,
+													narrative
+												) VALUES (
+													'" . $LineNumber . "',
+													'" . $TemplateNo . "',
+													'" . $NewTaglist . "',
+													'" . $JournalItem->GLCode . "',
+													'" . $JournalItem->Amount . "',
+													'" . $JournalItem->Narrative . "'
+												)";
+				$Result = DB_query($SQL);
+				++$LineNumber;
+				if (DB_error_no() != 0) {
+					prnMsg(_('The journal template line info could not be saved'), 'error');
+					include ('includes/footer.php');
+					exit;
+				}
+			}
+			prnMsg(_('The template has been successfully saved'), 'success');
+		} else {
+			$_POST['ConfimSave'] = 'ConfirmSave';
+			prnMsg(_('A template with this description already exists. You must use a unique description'), 'info');
 		}
-		prnMsg(_('The template has been successfully saved'), 'success');
 	}
 }
 
