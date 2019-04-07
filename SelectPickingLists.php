@@ -12,6 +12,18 @@ echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Pick Lists'), '" alt=""  />', ' ', _('Pick Lists'), '
 	</p>';
 
+/* Check that the config variable is set for
+ * picking notes and get out if not.
+*/
+if ($_SESSION['RequirePickingNote'] == 0) {
+	$Title = _('Picking Lists Not Enabled');
+	include ('includes/header.php');
+	echo '<br />';
+	prnMsg(_('The system is not configured for picking lists. A configuration parameter is required where picking slips are required. Please consult your system administrator.'), 'info');
+	include ('includes/footer.php');
+	exit;
+}
+
 if (isset($_GET['SelectedStockItem'])) {
 	$SelectedStockItem = $_GET['SelectedStockItem'];
 } elseif (isset($_POST['SelectedStockItem'])) {
