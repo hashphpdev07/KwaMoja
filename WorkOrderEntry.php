@@ -400,7 +400,7 @@ echo '<field>
 
 echo '<field>
 		<label for="Remark">', _('Comments'), ':</label>
-		<textarea name="Remark" >', $_SESSION['WorkOrder' . $Identifier]->Remark, '</textarea>
+		<textarea spellcheck="true" name="Remark" >', $_SESSION['WorkOrder' . $Identifier]->Remark, '</textarea>
 		<fieldhelp>', _('Any comments to appear on this work order.'), '</fieldhelp>
 	</field>';
 
@@ -435,7 +435,7 @@ if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems) and $_SESSION['Wo
 		echo '<input type="hidden" name="OutputStockId', $i, '" value="', $WorkOrderItem->StockId, '" />';
 		echo '<tr class="striped_row">
 				<td>', $WorkOrderItem->StockId, ' - ', $DescriptionRow['description'], '</td>
-				<td><textarea style="width:100%" rows="2" cols="50" name="WOComments', $i, '" >', $WorkOrderItem->Comments, '</textarea></td>';
+				<td><textarea spellcheck="true" style="width:100%" rows="2" cols="50" name="WOComments', $i, '" >', $WorkOrderItem->Comments, '</textarea></td>';
 
 		if ($WorkOrderItem->Controlled == 1 and $_SESSION['DefineControlledOnWOEntry'] == 1) {
 			echo '<td class="number">', locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces), '</td>';
