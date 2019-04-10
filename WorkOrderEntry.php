@@ -6,7 +6,7 @@ include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text">
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 /*unique session identifier to ensure that there is no conflict with other order entry sessions on the same machine  */
@@ -72,6 +72,7 @@ if (isset($_POST['AddToOrder'])) {
 		if (substr($Key, 0, 7) == 'StockID') {
 			$Index = substr($Key, -1);
 			if ($_POST['Quantity' . $Index] > 0) {
+				$InputError = 0;
 				$CheckItemResult = DB_query("SELECT mbflag,
 													eoq,
 													controlled
@@ -113,7 +114,7 @@ if (isset($_POST['Save'])) {
 	foreach ($_POST as $Key => $Value) {
 		if (substr($Key, 0, 13) == 'OutputStockId') {
 			$Index = substr($Key, -1);
-			$_SESSION['WorkOrder' . $Identifier]->UpdateItem($Value, '', $_POST['OutputQty' . $Index], '');
+			$_SESSION['WorkOrder' . $Identifier]->UpdateItem($Value, $_POST['WOComments' . $Index], $_POST['OutputQty' . $Index], '');
 		}
 	}
 	$InputError = false;
@@ -123,8 +124,7 @@ if (isset($_POST['Save'])) {
 			$EOQ = 1;
 		}
 
-		$Result = DB_Txn_Begin();
-
+		//		$Result = DB_Txn_Begin();
 		$CheckSQL = "SELECT wo
 						FROM workorders
 						WHERE wo='" . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . "'";
@@ -186,27 +186,31 @@ if (isset($_POST['Save'])) {
 				$SQL = "INSERT INTO woitems (wo,
 											stockid,
 											qtyreqd,
-											stdcost)
+											stdcost,
+											comments)
 										VALUES (
 											'" . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . "',
 											'" . $Item->StockId . "',
 											'" . $Item->QuantityRequired . "',
-											'" . $Cost . "'
+											'" . $Cost . "',
+											'" . $Item->Comments . "'
 										)";
 				$ErrMsg = _('The work order item could not be added');
 			} else {
-				$SQL = "UPDATE woitems SET qtyreqd='" . $Item->QuantityRequired . "'
+				$SQL = "UPDATE woitems SET qtyreqd='" . $Item->QuantityRequired . "',
+											comments='" . $Item->Comments . "'
 								WHERE wo='" . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . "'
 									AND stockid='" . $Item->StockId . "'";
 				$ErrMsg = _('The work order item could not be updated');
 			}
+
 			$Result = DB_query($SQL, $ErrMsg);
 			//Recursively insert real component requirements - see includes/SQL_CommonFunctions.in for function WoRealRequirements
 			WoRealRequirements($_SESSION['WorkOrder' . $Identifier]->OrderNumber, $_SESSION['WorkOrder' . $Identifier]->LocationCode, $Item->StockId);
 
 		}
 
-		$Result = DB_Txn_Commit();
+		//		$Result = DB_Txn_Commit();
 		prnMsg(_('The work order has been saved correctly'), 'success');
 
 		unset($NewItem);
@@ -263,13 +267,9 @@ if (isset($_POST['delete'])) {
 	}
 }
 
-echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" name="form1">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-
-echo '<table>';
-
 if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 	/* It's anexisting work order so read it in from DB */
+	$NumberOfOutputs = 0;
 	$SQL = "SELECT workorders.loccode,
 					requiredby,
 					startdate,
@@ -338,32 +338,31 @@ if (isset($_POST['WO']) and $_POST['WO'] != _('Not yet allocated')) {
 			}
 			$i++;
 		}
-	} else {
-		if ($EditingExisting == true) {
-			prnMsg(_('Your location security settings do not allow you to Update this Work Order'), 'error');
-			echo '<br /><a href="' . $RootPath . '/SelectWorkOrder.php">' . _('Select an existing work order') . '</a>';
-			include ('includes/footer.php');
-			exit;
-		}
 	}
 }
-echo '<input type="hidden" name="WO" value="' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '" />';
+
+echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '" name="form1">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+echo '<input type="hidden" name="WO" value="', $_SESSION['WorkOrder' . $Identifier]->OrderNumber, '" />';
+
+echo '<fieldset>
+		<legend>', _('Work Order Header Information'), '</legend>';
 
 if ($_SESSION['WorkOrder' . $Identifier]->OrderNumber === 0) {
-	echo '<tr>
-			<td class="label">' . _('Work Order Reference') . ':</td>
-			<td>' . _('Not Yet Allocated') . '</td>
-		</tr>';
+	echo '<field>
+			<label for="WO">', _('Work Order Reference'), ':</label>
+			<div class="fieldtext">', _('Not Yet Allocated'), '</div>
+		</field>';
 } else {
-	echo '<tr>
-			<td class="label">' . _('Work Order Reference') . ':</td>
-			<td>' . $_SESSION['WorkOrder' . $Identifier]->OrderNumber . '</td>
-		</tr>';
+	echo '<field>
+			<label for="WO">', _('Work Order Reference'), ':</label>
+			<div class="fieldtext">', $_SESSION['WorkOrder' . $Identifier]->OrderNumber, '</div>
+		</field>';
 }
 
-echo '<tr>
-		<td class="label">' . _('Factory Location') . ':</td>
-		<td><select name="StockLocation" onChange="ReloadForm(form1.submit)">';
+echo '<field>
+		<label for="StockLocation">', _('Factory Location'), ':</label>
+		<select name="StockLocation" autofocus="autofocus" onChange="ReloadForm(form1.submit)">';
 $LocResult = DB_query("SELECT locations.loccode,locationname
 						FROM locations
 						INNER JOIN locationusers
@@ -372,52 +371,60 @@ $LocResult = DB_query("SELECT locations.loccode,locationname
 						WHERE locations.usedforwo = 1");
 while ($LocRow = DB_fetch_array($LocResult)) {
 	if ($_SESSION['WorkOrder' . $Identifier]->LocationCode == $LocRow['loccode']) {
-		echo '<option selected="True" value="' . $LocRow['loccode'] . '">' . $LocRow['locationname'] . '</option>';
+		echo '<option selected="True" value="', $LocRow['loccode'], '">', $LocRow['locationname'], '</option>';
 	} else {
-		echo '<option value="' . $LocRow['loccode'] . '">' . $LocRow['locationname'] . '</option>';
+		echo '<option value="', $LocRow['loccode'], '">', $LocRow['locationname'], '</option>';
 	}
 }
-echo '</select></td></tr>';
+echo '</select>
+	<fieldhelp>', _('Select the factory location where this work order will be placed.'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td class="label">' . _('Start Date') . ':</td>
-		<td><input type="text" name="StartDate" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->StartDate . '" class="date" /></td>
-	</tr>';
+echo '<field>
+		<label for="StartDate">', _('Start Date'), ':</label>
+		<input type="text" name="StartDate" size="12" maxlength="12" value="', $_SESSION['WorkOrder' . $Identifier]->StartDate, '" class="date" />
+		<fieldhelp>', _('The date manufacturing is planned to start.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td class="label">' . _('Required By') . ':</td>
-		<td><input type="text" name="RequiredBy" size="12" maxlength="12" value="' . $_SESSION['WorkOrder' . $Identifier]->RequiredBy . '" class="date" /></td>
-	</tr>';
+echo '<field>
+		<label for="RequiredBy">', _('Required By'), ':</label>
+		<input type="text" name="RequiredBy" size="12" maxlength="12" value="', $_SESSION['WorkOrder' . $Identifier]->RequiredBy, '" class="date" />
+		<fieldhelp>', _('The date manufacturing should be completed by.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td class="label">' . _('Reference') . ':</td>
-		<td><input type="text" name="Reference"  value="' . $_SESSION['WorkOrder' . $Identifier]->Reference . '" size="12" maxlength="40" /><td>
-	</tr>';
+echo '<field>
+		<label for="Reference">', _('Reference'), ':</label>
+		<input type="text" name="Reference"  value="', $_SESSION['WorkOrder' . $Identifier]->Reference, '" size="12" maxlength="40" />
+		<fieldhelp>', _('An internal reference for this work order.'), '</fieldhelp>
+	</field>';
 
-echo '<tr>
-		<td class="label">' . _('Remark') . ':</td>
-		<td><textarea name="Remark" >' . $_SESSION['WorkOrder' . $Identifier]->Remark . '</textarea></td>
-		</tr>';
+echo '<field>
+		<label for="Remark">', _('Comments'), ':</label>
+		<textarea name="Remark" >', $_SESSION['WorkOrder' . $Identifier]->Remark, '</textarea>
+		<fieldhelp>', _('Any comments to appear on this work order.'), '</fieldhelp>
+	</field>';
 
-if (isset($WOResult)) {
-	echo '<tr><td class="label">' . _('Accumulated Costs') . ':</td>
-			  <td class="number">' . locale_number_format($MyRow['costissued'], $_SESSION['CompanyRecord']['decimalplaces']) . '</td></tr>';
+if (isset($WOItemsResult)) {
+	echo '<field>
+			<label>', _('Accumulated Costs'), ':</label>
+			<div class="fieldtext">', locale_number_format($MyRow['costissued'], $_SESSION['CompanyRecord']['decimalplaces']), '</div>
+		</field>';
 }
-echo '</table>';
+echo '</fieldset>';
 
-echo '<table>
-		<tr>
-			<th>' . _('Output Item') . '</th>
-			<th>' . _('Comments') . '</th>
-			<th>' . _('Qty Required') . '</th>
-			<th>' . _('Qty Received') . '</th>
-			<th>' . _('Balance Remaining') . '</th>
-			<th>' . _('Next Lot/SN Ref') . '</th>
-		</tr>';
-
-$j = 0;
-if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems)) {
+if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems) and $_SESSION['WorkOrder' . $Identifier]->NumberOfItems > 0) {
 	$i = 0;
+
+	echo '<table>
+			<tr>
+				<th>', _('Output Item'), '</th>
+				<th>', _('Comments'), '</th>
+				<th>', _('Qty Required'), '</th>
+				<th>', _('Qty Received'), '</th>
+				<th>', _('Balance Remaining'), '</th>
+				<th>', _('Next Lot/SN Ref'), '</th>
+			</tr>';
+
 	foreach ($_SESSION['WorkOrder' . $Identifier]->Items as $WorkOrderItem) {
 		$DescriptionSQL = "SELECT descriptiontranslation AS description
 							FROM stockdescriptiontranslations
@@ -425,28 +432,36 @@ if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems)) {
 								AND language_id='" . $_SESSION['InventoryLanguage'] . "'";
 		$DescriptionResult = DB_query($DescriptionSQL);
 		$DescriptionRow = DB_fetch_array($DescriptionResult);
+		echo '<input type="hidden" name="OutputStockId', $i, '" value="', $WorkOrderItem->StockId, '" />';
 		echo '<tr class="striped_row">
-				<td>' . $WorkOrderItem->StockId . ' - ' . $DescriptionRow['description'] . '</td>';
-		echo '<input type="hidden" name="OutputStockId' . $i . '" value="' . $WorkOrderItem->StockId . '" />';
-		echo '<td><textarea style="width:100%" rows="2" cols="50" name="WOComments' . $i . '" >' . $WorkOrderItem->Comments . '</textarea></td>';
+				<td>', $WorkOrderItem->StockId, ' - ', $DescriptionRow['description'], '</td>
+				<td><textarea style="width:100%" rows="2" cols="50" name="WOComments', $i, '" >', $WorkOrderItem->Comments, '</textarea></td>';
+
 		if ($WorkOrderItem->Controlled == 1 and $_SESSION['DefineControlledOnWOEntry'] == 1) {
-			echo '<td class="number">' . locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces) . '</td>';
+			echo '<td class="number">', locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces), '</td>';
 		} else {
-			echo '<td><input type="text" required="required" class="number" name="OutputQty' . $i . '" value="' . locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces) . '" size="10" maxlength="10" title="' . _('The input format must be positive numeric') . '" /></td>';
+			echo '<td class="number">
+					<input type="text" required="required" class="number" name="OutputQty', $i, '" value="', locale_number_format($WorkOrderItem->QuantityRequired, $WorkOrderItem->DecimalPlaces), '" size="8" maxlength="10" title="', _('The input format must be positive numeric'), '" />
+				</td>';
 		}
-		echo '<td class="number">' . locale_number_format($WorkOrderItem->QuantityReceived, $WorkOrderItem->DecimalPlaces) . '
-			</td>';
-		echo '<td class="number">' . locale_number_format(($WorkOrderItem->QuantityRequired - $WorkOrderItem->QuantityReceived), $WorkOrderItem->DecimalPlaces) . '
-			</td>';
-		if ($_POST['Controlled' . $i] == 1) {
-			echo '<td><input type="text" name="NextLotSNRef' . $i . '" value="' . $WorkOrderItem->NextLotSerialNumbers . '" /></td>';
+
+		echo '<td class="number">', locale_number_format($WorkOrderItem->QuantityReceived, $WorkOrderItem->DecimalPlaces), '</td>';
+
+		echo '<td class="number">', locale_number_format(($WorkOrderItem->QuantityRequired - $WorkOrderItem->QuantityReceived), $WorkOrderItem->DecimalPlaces), '</td>';
+
+		if (isset($_POST['Controlled' . $i]) and $_POST['Controlled' . $i] == 1) {
+			echo '<td>
+					<input type="text" name="NextLotSNRef', $i, '" value="', $WorkOrderItem->NextLotSerialNumbers, '" />
+				</td>';
 			if ($_SESSION['DefineControlledOnWOEntry'] == 1) {
 				if ($WorkOrderItem->Serialised == 1) {
 					$LotOrSN = _('S/Ns');
 				} else {
 					$LotOrSN = _('Batches');
 				}
-				echo '<td><a href="' . $RootPath . '/WOSerialNos.php?WO=' . $_POST['WO'] . '&StockID=' . urlencode($WorkOrderItem->StockId) . '&Description=' . urlencode($DescriptionRow['description']) . '&Serialised=' . urlencode($WorkOrderItem->Serialised) . '&NextSerialNo=' . urlencode($WorkOrderItem->NextLotSerialNumbers) . '">' . $LotOrSN . '</a></td>';
+				echo '<td>
+						<a href="', $RootPath, '/WOSerialNos.php?WO=', urlencode($_POST['WO']), '&StockID=', urlencode($WorkOrderItem->StockId), '&Description=', urlencode($DescriptionRow['description']), '&Serialised=', urlencode($WorkOrderItem->Serialised), '&NextSerialNo=', urlencode($WorkOrderItem->NextLotSerialNumbers), '">', $LotOrSN, '</a>
+					</td>';
 			}
 		}
 		echo '<td>';
@@ -457,12 +472,12 @@ if (isset($_SESSION['WorkOrder' . $Identifier]->NumberOfItems)) {
 		</tr>';
 		++$i;
 	}
+	echo '</table>';
 }
-echo '</table>';
 
 echo '<div class="centre">
-		<input type="submit" name="Save" value="' . _('Save') . '" />
-		<input type="submit" name="delete" value="' . _('Cancel This Work Order') . '" />
+		<input type="submit" name="Save" value="', _('Save'), '" />
+		<input type="submit" name="delete" value="', _('Cancel This Work Order'), '" />
 	</div>';
 
 if (isset($_POST['Search']) or isset($_POST['Prev']) or isset($_POST['Next'])) {
@@ -479,27 +494,22 @@ if (isset($_POST['Search']) or isset($_POST['Prev']) or isset($_POST['Next'])) {
 		$_POST['StockCat'] = '%';
 	}
 	$SQL = "SELECT  stockmaster.stockid,
-					stockdescriptiontranslations.descriptiontranslation AS description,
+					description,
 					stockmaster.units
 				FROM stockmaster
 				INNER JOIN stockcategory
 					ON stockmaster.categoryid=stockcategory.categoryid
-				INNER JOIN stockdescriptiontranslations
-					ON stockmaster.stockid=stockdescriptiontranslations.stockid
-					AND stockdescriptiontranslations.language_id='" . $_SESSION['InventoryLanguage'] . "'
 				WHERE (stockcategory.stocktype='F' OR stockcategory.stocktype='M')
 					AND stockmaster.description " . LIKE . " '" . $SearchString . "'
 					AND stockmaster.categoryid " . LIKE . " '" . $_POST['StockCat'] . "'
 					AND stockmaster.stockid " . LIKE . " '" . $SearchCode . "'
 					AND stockmaster.discontinued=0
 					AND mbflag='M'
+					AND (SELECT COUNT(bom.parent) FROM bom WHERE bom.parent=stockmaster.stockid)>0
 				ORDER BY stockmaster.stockid";
 
 	$ErrMsg = _('There was an error retrieving the stock item details');
-	$SQLCount = substr($SQL, strpos($SQL, "FROM"));
-	$SQLCount = substr($SQLCount, 0, strpos($SQLCount, "ORDER"));
-	$SQLCount = 'SELECT COUNT(*) ' . $SQLCount;
-	$SearchResult = DB_query($SQLCount, $ErrMsg);
+	$SearchResult = DB_query($SQL, $ErrMsg);
 
 	$MyRow = DB_fetch_array($SearchResult);
 	DB_free_result($SearchResult);
@@ -541,52 +551,65 @@ if (isset($_POST['Search']) or isset($_POST['Prev']) or isset($_POST['Next'])) {
 	}
 
 } //end of if search
-$SQL = "SELECT categoryid,
-			categorydescription
-		FROM stockcategory
-		WHERE stocktype='F' OR stocktype='M'
-		ORDER BY categorydescription";
-$Result1 = DB_query($SQL);
+if ($_SESSION['WorkOrder' . $Identifier]->OrderNumber != 0) {
+	$SQL = "SELECT categoryid,
+					categorydescription
+				FROM stockcategory
+				WHERE stocktype='F' OR stocktype='M'
+				ORDER BY categorydescription";
+	$Result1 = DB_query($SQL);
 
-echo '<table><tr><td>' . _('Select a stock category') . ':<select name="StockCat">';
+	echo '<fieldset>
+			<legend class="search">', _('Select Stock Items'), '</legend>';
 
-if (!isset($_POST['StockCat'])) {
-	echo '<option selected="True" value="All">' . _('All') . '</option>';
-	$_POST['StockCat'] = 'All';
-} else {
-	echo '<option value="All">' . _('All') . '</option>';
-}
+	echo '<field>
+			<label for="StockCat">', _('Select a stock category'), ':</label>
+			<select name="StockCat">';
 
-while ($MyRow1 = DB_fetch_array($Result1)) {
-
-	if ($_POST['StockCat'] == $MyRow1['categoryid']) {
-		echo '<option selected="True" value=' . $MyRow1['categoryid'] . '>' . $MyRow1['categorydescription'] . '</option>';
+	if (!isset($_POST['StockCat'])) {
+		echo '<option selected="True" value="All">', _('All'), '</option>';
+		$_POST['StockCat'] = 'All';
 	} else {
-		echo '<option value=' . $MyRow1['categoryid'] . '>' . $MyRow1['categorydescription'] . '</option>';
+		echo '<option value="All">', _('All'), '</option>';
 	}
-}
 
-if (!isset($_POST['Keywords'])) {
-	$_POST['Keywords'] = '';
-}
+	while ($MyRow1 = DB_fetch_array($Result1)) {
 
-if (!isset($_POST['StockCode'])) {
-	$_POST['StockCode'] = '';
-}
+		if ($_POST['StockCat'] == $MyRow1['categoryid']) {
+			echo '<option selected="True" value=', $MyRow1['categoryid'], '>', $MyRow1['categorydescription'], '</option>';
+		} else {
+			echo '<option value=', $MyRow1['categoryid'], '>', $MyRow1['categorydescription'], '</option>';
+		}
+	}
 
-echo '</select>
-		<td>' . _('Enter text extracts in the') . ' <b>' . _('description') . '</b>:</td>
-		<td><input type="text" name="Keywords" size="20" maxlength="25" value="' . $_POST['Keywords'] . '" /></td>
-	</tr>
-    <tr>
-		<td>&nbsp;</td>
-		<td><font size="3"><b>' . _('OR') . ' </b></font>' . _('Enter extract of the') . ' <b>' . _('Stock Code') . '</b>:</td>
-		<td><input type="text" name="StockCode" autofocus="autofocus" size="15" maxlength="18" value="' . $_POST['StockCode'] . '" /></td>
-	</tr>
-	</table>
-	<div class="centre">
-		<input type="submit" name="Search" value="' . _('Search Now') . '" />
-	</div>';
+	if (!isset($_POST['Keywords'])) {
+		$_POST['Keywords'] = '';
+	}
+
+	if (!isset($_POST['StockCode'])) {
+		$_POST['StockCode'] = '';
+	}
+
+	echo '</select>
+		<fieldhelp>', _('Select the stock category to search in. To search in all categories, choose "All".'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+			<label for="Keywords">', _('Enter text extracts in the'), ' <b>', _('description'), '</b>:</label>
+			<input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
+		</field>';
+
+	echo '<div style="padding-bottom:8px;"><font size="3"><b>', _('OR'), ' </b></font></div>';
+
+	echo '<field>
+			<label for="StockCode">', _('Enter extract of the'), ' <b>', _('Stock Code'), '</b>:</label>
+			<input type="text" name="StockCode" autofocus="autofocus" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+		</field>
+		</fieldset>
+		<div class="centre">
+			<input type="submit" name="Search" value="', _('Search Now'), '" />
+		</div>';
+}
 
 if (isset($SearchResult)) {
 
@@ -596,10 +619,10 @@ if (isset($SearchResult)) {
 
 		echo '<thead>
 				<tr>
-					<th class="SortedColumn">' . _('Code') . '</th>
-					<th class="SortedColumn">' . _('Description') . '</th>
-					<th>' . _('Units') . '</th>
-					<th colspan="2"><input type="submit" name="AddToOrder" value="' . _('Add to Work Order') . '" /></th>
+					<th class="SortedColumn">', _('Code'), '</th>
+					<th class="SortedColumn">', _('Description'), '</th>
+					<th>', _('Units'), '</th>
+					<th colspan="2"><input type="submit" name="AddToOrder" value="', _('Add to Work Order'), '" /></th>
 				</tr>
 			</thead>';
 		$j = 1;
@@ -629,8 +652,8 @@ if (isset($SearchResult)) {
 						<td>', $MyRow['description'], '</td>
 						<td>', $MyRow['units'], '</td>
 						<td>', $ImageSource, '</td>
-						<input type="hidden" value="' . $MyRow['stockid'] . '" name="StockID' . $j . '"" />', '
-						<td><input type="text" size="10" class="number" value="0" name="Quantity' . $j . '" />', '</td>
+						<input type="hidden" value="', $MyRow['stockid'], '" name="StockID', $j, '"" />', '
+						<td><input type="text" size="10" class="number" value="0" name="Quantity', $j, '" />', '</td>
 					</tr>';
 
 				++$j;

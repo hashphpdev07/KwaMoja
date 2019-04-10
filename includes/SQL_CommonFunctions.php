@@ -311,12 +311,14 @@ function WoRealRequirements($WO, $LocCode, $StockId, $Qty = 1, $ParentID = '') {
 	$SQL = "INSERT INTO worequirements (wo,
 				parentstockid,
 				stockid,
+				workcentre,
 				qtypu,
 				stdcost,
 				autoissue)
 			SELECT '" . $WO . "',
 				'" . $ParentID . "',
 				bom.component,
+				bom.workcentreadded,
 				bom.quantity*" . $Qty . ",
 				stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost,
 				bom.autoissue
