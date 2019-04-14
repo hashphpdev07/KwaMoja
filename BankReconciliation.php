@@ -184,7 +184,7 @@ if (isset($_POST['ShowRec']) or isset($_POST['DoExchangeDifference'])) {
 	if ($_SESSION['CompanyRecord']['currencydefault'] != $CurrencyRow['currcode']) {
 		echo ' (', $CurrencyRow['currcode'], ' @ ', $CurrencyRow['rate'], ')';
 	}
-	echo '/td>';
+	echo '</td>';
 	echo '<td valign="bottom" class="number">
 			<b>', locale_number_format($Balance * $CurrencyRow['rate'], $CurrencyRow['currdecimalplaces']), '</b>
 		</td>
