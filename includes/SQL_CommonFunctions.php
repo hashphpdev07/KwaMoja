@@ -298,6 +298,21 @@ function UpdateCost($Item) {
 	return 0;
 }
 
+function UpdateItemCost($Item, $MaterialCost, $LabourCost, $OverheadCost) {
+
+	$SQL = "UPDATE stockcosts SET succeeded=1
+							WHERE stockid='" . $Item . "'";
+	$Result = DB_query($SQL);
+
+	$SQL = "INSERT INTO stockcosts VALUES ('" . $Item . "',
+										'" . $MaterialCost . "',
+										'" . $LabourCost . "',
+										'" . $OverheadCost . "',
+										CURRENT_TIME,
+										0)";
+	$Result = DB_query($SQL);
+}
+
 /* Accepts work order information and iterates through the bom, inserting real components (dissolving phantom assemblies) */
 function WoRealRequirements($WO, $LocCode, $StockId, $Qty = 1, $ParentID = '') {
 
