@@ -3,7 +3,7 @@ include ('includes/session.php');
 $Title = _('In Patient Deposit Payments');
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
-include ('includes/GetSalesTransGLCodes.inc');
+include ('includes/GetSalesTransGLCodes.php');
 include ('includes/CustomerSearch.php');
 
 if (isset($_GET['New']) or isset($_POST['Cancel'])) {

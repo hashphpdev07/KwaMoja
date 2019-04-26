@@ -27,7 +27,8 @@ $SQL = "SELECT bankaccounts.accountcode,
 			FROM bankaccounts
 			INNER JOIN bankaccountusers
 				ON bankaccounts.accountcode=bankaccountusers.accountcode
-				AND userid='" . $_SESSION['UserID'] . "'";
+				AND userid='" . $_SESSION['UserID'] . "'
+			ORDER BY bankaccounts.bankaccountname";
 $Result = DB_query($SQL);
 
 while ($MyBankRow = DB_fetch_array($Result)) {

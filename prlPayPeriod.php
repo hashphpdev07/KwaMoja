@@ -13,7 +13,9 @@ if (isset($_GET['PayPeriodID'])) {
 	unset($PayPeriodID);
 }
 
-echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text noPrint">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['insert']) or isset($_POST['update'])) {
 
@@ -86,7 +88,7 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 		prnMsg(_('Validation failed') . _('no updates or deletes took place'), 'warn');
 	}
 
-} elseif (isset($_POST['delete']) and $_POST['delete'] != '') {
+} elseif (isset($_GET['delete']) and $_GET['delete'] != '') {
 
 	//the link to delete a selected record was clicked instead of the submit button
 	$CancelDelete = 0;
@@ -112,38 +114,31 @@ $SQL = "SELECT payperiodid,
 $ErrMsg = _('Could not get pay period because');
 $Result = DB_query($SQL, $ErrMsg);
 
-if (DB_num_rows($Result)) {
-	echo '<table>';
-	echo '<tr>
-			<th>' . _('Pay Code') . '</td>
-			<th>' . _('Pay Description') . '</td>
-			<th>' . _('Number of Payday') . '</td>
-			<th>' . _('Day in Peiod to Pay') . '</td>
-		</tr>';
+if (DB_num_rows($Result) > 0) {
+	echo '<table>
+			<tr>
+				<th>', _('Pay Code'), '</th>
+				<th>', _('Pay Description'), '</th>
+				<th>', _('Number of Payday'), '</th>
+				<th>', _('Day in Peiod to Pay'), '</th>
+				<th colspan="2"></th>
+			</tr>';
 
-	while ($MyRow = DB_fetch_row($Result)) {
-
-		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
-			$k = 0;
-		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
-			$k++;
-		}
-		echo '<td>' . $MyRow[0] . '</td>';
-		echo '<td>' . $MyRow[1] . '</td>';
-		echo '<td class="number">' . $MyRow[2] . '</td>';
-		echo '<td class="number">' . $MyRow[3] . '</td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&PayPeriodID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&PayPeriodID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
-		echo '</tr>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		echo '<tr class="striped_row">
+				<td>', $MyRow['payperiodid'], '</td>
+				<td>', $MyRow['payperioddesc'], '</td>
+				<td class="number">', $MyRow['numberofpayday'], '</td>
+				<td class="number">', $MyRow['dayofpay'], '</td>
+				<td><a href="', basename(__FILE__), '?PayPeriodID=', urlencode($MyRow['payperiodid']), '">', _('Edit'), '</a></td>
+				<td><a href="', basename(__FILE__), '?PayPeriodID=', urlencode($MyRow['payperiodid']), '&delete=1">', _('Delete'), '</a></td
+			</tr>';
 	}
 	echo '</table>';
 }
 //PayPeriodID exists - either passed when calling the form or from the form itself
-echo '<form method="post" class="noPrint" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table>';
+echo '<form method="post" class="noPrint" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 //if (!isset($_POST["New"])) {
 if (isset($PayPeriodID)) {
@@ -159,45 +154,49 @@ if (isset($PayPeriodID)) {
 	$_POST['PayPeriodName'] = $MyRow['payperioddesc'];
 	$_POST['NumberOfPayday'] = $MyRow['numberofpayday'];
 	echo '<input type="hidden" name="PayPeriodID" value="' . $PayPeriodID . '">';
-	echo '<tr>
-			<td>' . _('Pay Period Code') . ':</td>
-			<td>' . $PayPeriodID . '</td>
-		</tr>';
+	echo '<fieldset>
+			<legend>', _('Edit payroll period'), '</legend>
+			<field>
+				<label for="PayPeriodID">', _('Pay Period Code'), ':</label>
+				<div class="fieldtext">', $PayPeriodID, '</div>
+			</field>';
 } else {
 	// its a new supplier being added
-	echo '<tr>
-			<td>' . _('Pay Period Code') . ':</td>
-			<td><input type="text" name="PayPeriodID" value="" size="5" maxlength="4" /></td>
-		</tr>';
+	echo '<fieldset>
+			<legend>', _('Create payroll period'), '</legend>
+			<field>
+				<label for="PayPeriodID">', _('Pay Period Code'), ':</label>
+				<input type="text" class="number" name="PayPeriodID" value="" autofocus="autofocus" required="required" size="5" maxlength="4" />
+				<fieldhelp>', _('The ID by which this pay period will be known. This must be an integer.'), '</fieldhelp>
+			</field>';
 	$_POST['PayPeriodName'] = '';
 	$_POST['NumberOfPayday'] = 0;
 }
-echo '<tr>
-		<td>' . _('Pay Description') . ':</td>
-		<td><input type="text" name="PayPeriodName" size="16" maxlength="15" value="' . $_POST['PayPeriodName'] . '" /></td>
-	</tr>';
-echo '<tr>
-		<td>' . _('Number of Pay Day') . ':</td>
-		<td><input type="text" class="number" name="NumberOfPayday" size="12" maxlength="11" value="' . $_POST['NumberOfPayday'] . '" /></td>
-	</tr>';
-echo '<tr>
-		<td>' . _('Day in Peiod to Pay') . ':</td>
-		<td><input type="text" class="number" name="DayOfPay" size="12" maxlength="11" value="' . $_POST['NumberOfPayday'] . '" /></td>
-	</tr>';
+echo '<field>
+		<label for="PayPeriodName">', _('Pay Description'), ':</label>
+		<input type="text" name="PayPeriodName" size="16" maxlength="15" value="', $_POST['PayPeriodName'], '" />
+		<fieldhelp>', _('A short description of this pay period.'), '</fieldhelp>
+	</field>';
+echo '<field>
+		<label for="NumberOfPayday">', _('Number of Pay Day'), ':</label>
+		<input type="text" class="number" name="NumberOfPayday" size="12" maxlength="11" value="', $_POST['NumberOfPayday'], '" />
+	</field>';
+echo '<field>
+		<label for="DayOfPay">', _('Day in Period to Pay'), ':</label>
+		<input type="text" class="number" name="DayOfPay" size="12" maxlength="11" value="', $_POST['NumberOfPayday'], '" />
+	</field>
+</fieldset>';
 
 if (!isset($PayPeriodID)) {
-	echo '</table>
-			<div class="centre">
-				<input type="submit" name="insert" value="' . _('Add These New Pay Period Details') . '" />
-			</div>
-		</form>';
+	echo '<div class="centre">
+			<input type="submit" name="insert" value="', _('Add These New Pay Period Details'), '" />
+		</div>
+	</form>';
 } else {
-	echo '</table>
-			<div class="centre">
-				<input type="submit" name="update" value="' . _('Update Pay Period') . '">
-				<input type="submit" name="delete" value="' . _('Delete Pay Period') . '" onclick="return confirm("' . _('Are you sure you wish to delete this pay period?') . '");\" />
-			</div>
-		</form>';
+	echo '<div class="centre">
+			<input type="submit" name="update" value="', _('Update Pay Period'), '">
+		</div>
+	</form>';
 }
 
 include ('includes/footer.php');

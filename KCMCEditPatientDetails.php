@@ -208,7 +208,7 @@ if (isset($Patient)) {
 		echo '<tr><td colspan=2>' . prnMsg(_('No sales types/price lists defined'), 'error') . '</td></tr>';
 	} else {
 		echo '<tr><td>' . _('Price List') . ':</td>
-				<td><select tabindex="9" name="SalesType">';
+				<td><select name="SalesType">';
 		echo '<option value=""></option>';
 
 		while ($TypeRow = DB_fetch_array($TypeResult)) {

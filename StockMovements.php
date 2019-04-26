@@ -83,24 +83,30 @@ $SQL = "SELECT stockmoves.stockid,
 				stockmoves.userid,
 				stockmoves.debtorno,
 				stockmoves.branchcode,
+				custbranch.brname,
 				stockmoves.qty,
 				stockmoves.reference,
 				stockmoves.price,
 				stockmoves.discountpercent,
 				stockmoves.newqoh,
+				stockmoves.narrative,
 				stockmaster.decimalplaces,
 				stockmaster.controlled,
 				stockmaster.serialised
 		FROM stockmoves
-		INNER JOIN systypes ON stockmoves.type=systypes.typeid
-		INNER JOIN stockmaster ON stockmoves.stockid=stockmaster.stockid
+		INNER JOIN systypes
+			ON stockmoves.type=systypes.typeid
+		INNER JOIN stockmaster
+			ON stockmoves.stockid=stockmaster.stockid
+		INNER JOIN custbranch
+			ON stockmoves.debtorno=custbranch.debtorno
+			AND stockmoves.branchcode = custbranch.branchcode
 		WHERE  stockmoves.loccode='" . $_POST['StockLocation'] . "'
-		AND stockmoves.trandate >= '" . $SQLAfterDate . "'
-		AND stockmoves.stockid = '" . $StockId . "'
-		AND stockmoves.trandate <= '" . $SQLBeforeDate . "'
-		AND hidemovt=0
+			AND stockmoves.trandate >= '" . $SQLAfterDate . "'
+			AND stockmoves.stockid = '" . $StockId . "'
+			AND stockmoves.trandate <= '" . $SQLBeforeDate . "'
+			AND hidemovt=0
 		ORDER BY stkmoveno DESC";
-
 $ErrMsg = _('The stock movements for the selected criteria could not be retrieved because') . ' - ';
 $DbgMsg = _('The SQL that failed was') . ' ';
 
@@ -118,7 +124,8 @@ echo '<tr>
 		<th>', _('Reference'), '</th>
 		<th>', _('Cost'), '</th>
 		<th>', _('Discount'), '</th>
-		<th>', _('New Qty'), '</th>';
+		<th>', _('New Qty'), '</th>
+		<th>', _('Narrative'), '</th>';
 if ($MyRow['controlled'] == 1) {
 	echo '<th>', _('Serial No.'), '</th>';
 }
@@ -151,12 +158,13 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td>', $DisplayTranDate, '</td>
 				<td>', $MyRow['userid'], '</td>
 				<td>', $MyRow['debtorno'], '</td>
-				<td>', $MyRow['branchcode'], '</td>
+				<td>', $MyRow['branchcode'], ' - ', $MyRow['brname'], '</td>
 				<td class="number">', locale_number_format($MyRow['qty'], $MyRow['decimalplaces']), '</td>
 				<td>', $MyRow['reference'], '</td>
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%%</td>
-				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['narrative'], '</td>';
 		if ($MyRow['controlled'] == 1) {
 			echo '<td>', $SerialText, '</td>';
 		}
@@ -175,7 +183,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td>', $MyRow['reference'], '</td>
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%%</td>
-				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['narrative'], '</td>';
 		if ($MyRow['controlled'] == 1) {
 			echo '<td>', $SerialText, '</td>';
 		}
@@ -194,7 +203,8 @@ while ($MyRow = DB_fetch_array($MovtsResult)) {
 				<td>', $MyRow['reference'], '</td>
 				<td class="number">', locale_number_format($MyRow['price'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($MyRow['discountpercent'] * 100, 2), '%</td>
-				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>';
+				<td class="number">', locale_number_format($MyRow['newqoh'], $MyRow['decimalplaces']), '</td>
+				<td>', $MyRow['narrative'], '</td>';
 		if ($MyRow['controlled'] == 1) {
 			echo '<td>', $SerialText, '</td>';
 		}

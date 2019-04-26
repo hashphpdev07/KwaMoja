@@ -5,7 +5,7 @@ include ('includes/session.php');
 $Title = _('Dispense drugs to patients');
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
-include ('includes/GetSalesTransGLCodes.inc');
+include ('includes/GetSalesTransGLCodes.php');
 include ('includes/CustomerSearch.php');
 
 if ($_SESSION['DispenseOnBill'] == 1) {

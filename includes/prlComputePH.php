@@ -12,16 +12,12 @@ $FSYearRow = GetPayrollRow($PayrollID, 6);
 $DeductPH = GetYesNoStr(GetPayrollRow($PayrollID, 9));
 $Status = GetOpenCloseStr(GetPayrollRow($PayrollID, 11));
 if ($Status == 'Closed') {
-	prnMsg(_('Payroll is Closed. Re-open first...'), 'warn');
-	include('includes/footer.php');
-	exit;
+	exit("Payroll is Closed. Re-open first...");
 }
 if (isset($_POST['submit'])) {
-	prnMsg(_('Contact Administrator...'), 'error');
-	include('includes/footer.php');
-	exit;
+	exit("Contact Administrator...");
 } else {
-	$SQL = "DELETE FROM prlempbasicpayfile WHERE payrollid ='" . $PayrollID . "'";
+	$SQL = "DELETE FROM prlempphfile WHERE payrollid ='" . $PayrollID . "'";
 	$Postdelph = DB_query($SQL);
 
 	$SQL = "UPDATE prlpayrolltrans SET	philhealth=0
@@ -49,38 +45,41 @@ if (isset($_POST['submit'])) {
 							$PHGP = 30000;
 						}
 						if ($PHGP > 0 or $PHGP <> null) {
-							$MyPhRow = GetPHRow($PHGP);
-							$SQL = "INSERT INTO prlempbasicpayfile (
+							$myphrow = GetPHRow($PHGP);
+							$SQL = "INSERT INTO prlempphfile (
 												payrollid,
 												employeeid,
 												grosspay,
 												rangefrom,
-												salarycredit,
 												rangeto,
-												employerbasicpay,
+												salarycredit,
+												employerph,
 												employerec,
-												employeebasicpay,
+												employeeph,
 												total,
 												fsmonth,
 												fsyear)
 												VALUES ('$PayrollID',
 													'" . $MyRow['employeeid'] . "',
 													'$PHGP',
-													'" . $MyPhRow['rangefrom'] . "',
-													'" . $MyPhRow['rangeto'] . "',
-													'" . $MyPhRow['salarycredit'] . "',
-													'" . $MyPhRow['employerbasicpay'] . "',
-													'" . $MyPhRow['employerec'] . "',
-													'" . $MyPhRow['employeebasicpay'] . "',
-													'" . $MyPhRow['total'] . "',
+													'" . $myphrow['rangefrom'] . "',
+													'" . $myphrow['rangeto'] . "',
+													'" . $myphrow['salarycredit'] . "',
+													'" . $myphrow['employerph'] . "',
+													'" . $myphrow['employerec'] . "',
+													'" . $myphrow['employeeph'] . "',
+													'" . $myphrow['total'] . "',
 													'" . $MyRow['fsmonth'] . "',
 													'" . $MyRow['fsyear'] . "'
 													)";
-							$ErrMsg = _('Inserting Basic Pay File failed.');
+							$ErrMsg = _('Inserting PhilHealth File failed.');
 							$InsPHRecords = DB_query($SQL, $ErrMsg);
 						} //if sssgp>0
+						
 					} //dbnumross sssdetials>0
+					
 				} //end of while
+				
 			} else {
 				while ($MyRow = DB_fetch_array($PayDetails)) {
 					$PHGP = $MyRow['basicpay'];
@@ -88,41 +87,44 @@ if (isset($_POST['submit'])) {
 						$PHGP = 15000;
 					}
 					if ($PHGP > 0 or $PHGP <> null) {
-						$MyPhRow = GetPHRow($PHGP);
-						$SQL = "INSERT INTO prlempbasicpayfile (
+						$myphrow = GetPHRow($PHGP);
+						$SQL = "INSERT INTO prlempphfile (
 												payrollid,
 												employeeid,
 												grosspay,
 												rangefrom,
 												rangeto,
 												salarycredit,
-												employerbasicpay,
+												employerph,
 												employerec,
-												employeebasicpay,
+												employeeph,
 												total,
 												fsmonth,
 												fsyear)
 												VALUES ('$PayrollID',
 													'" . $MyRow['employeeid'] . "',
 													'$PHGP',
-													'" . $MyPhRow['rangefrom'] . "',
-													'" . $MyPhRow['rangeto'] . "',
-													'" . isset($MyPhRow['salarycredit']) . "',
-													'" . $MyPhRow['employerbasicpay'] . "',
-													'" . $MyPhRow['employerec'] . "',
-													'" . $MyPhRow['employeebasicpay'] . "',
-													'" . $MyPhRow['total'] . "',
+													'" . $myphrow['rangefrom'] . "',
+													'" . $myphrow['rangeto'] . "',
+													'" . $myphrow['salarycredit'] . "',
+													'" . $myphrow['employerph'] . "',
+													'" . $myphrow['employerec'] . "',
+													'" . $myphrow['employeeph'] . "',
+													'" . $myphrow['total'] . "',
 													'" . $MyRow['fsmonth'] . "',
 													'" . $MyRow['fsyear'] . "'
 													)";
-						$ErrMsg = _('Inserting Basic Pay File failed.');
+						$ErrMsg = _('Inserting PhilHealth File failed.');
 						$InsPHRecords = DB_query($SQL, $ErrMsg);
 					} //if sssgp>0
+					
 				} //end of while
+				
 			} //end of if ($HowFrequent==2) {
+			
 		} //dbnumrows paydetails > 0
+		
 	} //deduct sss=yes
-
 	//posting to payroll trans for sss
 	if ($DeductPH == 'Yes') {
 		$SQL = "SELECT counterindex,payrollid,employeeid,otpay,fsmonth,fsyear
@@ -131,14 +133,14 @@ if (isset($_POST['submit'])) {
 		$PayDetails = DB_query($SQL);
 		if (DB_num_rows($PayDetails) > 0) {
 			while ($MyRow = DB_fetch_array($PayDetails)) {
-				$SQL = "SELECT employeebasicpay
-					FROM prlempbasicpayfile
-			        WHERE prlempbasicpayfile.employeeid='" . $MyRow['employeeid'] . "'
-					AND prlempbasicpayfile.payrollid='" . $PayrollID . "'";
+				$SQL = "SELECT employeeph
+					FROM prlempphfile
+			        WHERE prlempphfile.employeeid='" . $MyRow['employeeid'] . "'
+					AND prlempphfile.payrollid='" . $PayrollID . "'";
 				$PHDetails = DB_query($SQL);
 				if (DB_num_rows($PHDetails) > 0) {
 					$phrow = DB_fetch_array($PHDetails);
-					$PHPayment = $phrow['employeebasicpay'];
+					$PHPayment = $phrow['employeeph'];
 					$SQL = 'UPDATE prlpayrolltrans SET philhealth=' . $PHPayment . '
 					     WHERE counterindex = ' . $MyRow['counterindex'];
 					$PostPHPay = DB_query($SQL);
@@ -147,4 +149,5 @@ if (isset($_POST['submit'])) {
 		}
 	}
 } //isset post submit
+
 ?>

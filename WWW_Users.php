@@ -152,6 +152,7 @@ if (isset($_POST['submit'])) {
 						pagesize='" . $_POST['PageSize'] . "',
 						fullaccess='" . $_POST['Access'] . "',
 						cancreatetender='" . $_POST['CanCreateTender'] . "',
+						canentertimesheets='" . $_POST['CanEnterTimesheets'] . "',
 						theme='" . $_POST['Theme'] . "',
 						language ='" . $_POST['UserLanguage'] . "',
 						defaultlocation='" . $_POST['DefaultLocation'] . "',
@@ -212,6 +213,7 @@ if (isset($_POST['submit'])) {
 						pagesize,
 						fullaccess,
 						cancreatetender,
+						canentertimesheets,
 						defaultlocation,
 						restrictlocations,
 						modulesallowed,
@@ -237,6 +239,7 @@ if (isset($_POST['submit'])) {
 						'" . $_POST['PageSize'] . "',
 						'" . $_POST['Access'] . "',
 						'" . $_POST['CanCreateTender'] . "',
+						'" . $_POST['CanEnterTimesheets'] . "',
 						'" . $_POST['DefaultLocation'] . "',
 						'" . $_POST['RestrictLocations'] . "',
 						'" . $ModulesAllowed . "',
@@ -278,6 +281,7 @@ if (isset($_POST['submit'])) {
 		unset($_POST['PageSize']);
 		unset($_POST['Access']);
 		unset($_POST['CanCreateTender']);
+		unset($_POST['CanEnterTimesheets']);
 		unset($_POST['DefaultLocation']);
 		unset($_POST['ModulesAllowed']);
 		unset($_POST['Blocked']);
@@ -345,6 +349,7 @@ if (!isset($SelectedUser)) {
 					lastvisitdate,
 					fullaccess,
 					cancreatetender,
+					canentertimesheets,
 					pagesize,
 					theme,
 					language,
@@ -450,6 +455,7 @@ if (isset($SelectedUser)) {
 			pagesize,
 			fullaccess,
 			cancreatetender,
+			canentertimesheets,
 			defaultlocation,
 			restrictlocations,
 			modulesallowed,
@@ -480,6 +486,7 @@ if (isset($SelectedUser)) {
 	$_POST['PageSize'] = $MyRow['pagesize'];
 	$_POST['Access'] = $MyRow['fullaccess'];
 	$_POST['CanCreateTender'] = $MyRow['cancreatetender'];
+	$_POST['CanEnterTimesheets'] = $MyRow['canentertimesheets'];
 	$_POST['DefaultLocation'] = $MyRow['defaultlocation'];
 	$_POST['RestrictLocations'] = $MyRow['restrictlocations'];
 	$_POST['ModulesAllowed'] = $MyRow['modulesallowed'];
@@ -613,6 +620,21 @@ if (isset($_POST['CanCreateTender']) and $_POST['CanCreateTender'] == 0) {
 }
 echo '</select>
 	<fieldhelp>', _('If the user is authorised to create supplier tenders then select Yes otherwise select No.'), '</fieldhelp>
+</field>';
+
+echo '<field>
+		<label for="CanEnterTimesheets">', _('User Can Enter Timesheets'), ':</label>
+		<select name="CanEnterTimesheets">';
+
+if (isset($_POST['CanEnterTimesheets']) and $_POST['CanEnterTimesheets'] == 0) {
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+	echo '<option value="0">', _('No'), '</option>';
+}
+echo '</select>
+	<fieldhelp>', _('If the user is authorised to enter timesheets then select Yes otherwise select No.'), '</fieldhelp>
 </field>';
 
 echo '<field>

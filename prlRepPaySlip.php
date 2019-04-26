@@ -1,14 +1,16 @@
 <?php
+$PageSecurity = 2;
 //include_once('includes/printerrmsg.php');
 if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 	//printerr($_POST['PayrollID']);
 	include ('config.php');
-	include ('includes/session.php');
 	include ('includes/PDFStarter.php');
 	include ('includes/ConnectDB.php');
+	include ('includes/DateFunctions.php');
 	include ('includes/prlFunctions.php');
 
-	//	$PDF->setFont('./fonts/Helvetica.afm');
+	$PDF->selectFont('./fonts/Helvetica.afm');
+
 	/* Standard PDF file creation header stuff */
 	$PDF->addinfo('Title', _('Pay Slip'));
 	$PDF->addinfo('Subject', _('Pay Slip'));
@@ -86,12 +88,12 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 
 			if ($PaySlip == 1) {
 				$FontSize = 10;
-				//				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
+				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
 				$HeadPos1 = $YPos;
 				$LeftOvers = $PDF->addText($Left_Margin, $YPos, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 				$YPos-= (1 * $line_height);
 				$FontSize = 10;
-				//				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
+				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
 				$FullName = _('Name : ') . $FullName;
 				$LeftOvers = $PDF->addText($Left_Margin, $YPos, $FontSize, $FullName);
 				$FontSize = 8;
@@ -117,7 +119,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 				//$YPos -= (2 * $line_height);  //double spacing
 				$OldYPos1 = $YPos;
 				$FontSize = 8;
-				//				$PDF->selectFont('./fonts/Helvetica.afm');
+				$PDF->selectFont('./fonts/Helvetica.afm');
 				$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 55, $FontSize, 'Basic : ', 'right');
 				$LeftOvers = $PDF->addTextWrap(110, $YPos, 40, $FontSize, number_format($Basic, 2), 'right');
 				$YPos-= $line_height;
@@ -138,7 +140,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 				$OldYPos2 = $OldYPos1;
 				$YPos = $OldYPos1;
 				$FontSize = 8;
-				//				$PDF->selectFont('./fonts/Helvetica.afm');
+				$PDF->selectFont('./fonts/Helvetica.afm');
 				$LeftOvers = $PDF->addTextWrap(155, $YPos, 65, $FontSize, 'SSS : ', 'right');
 				$LeftOvers = $PDF->addTextWrap(221, $YPos, 40, $FontSize, number_format($SSS, 2), 'right');
 				$YPos-= $line_height;
@@ -188,12 +190,12 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 			} elseif ($PaySlip == 2) {
 				//header
 				$FontSize = 10;
-				//				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
+				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
 				$YPos = $HeadPos1;
 				$LeftOvers = $PDF->addText(322, $YPos, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 				$YPos-= (1 * $line_height);
 				$FontSize = 10;
-				//				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
+				$PDF->selectFont('./fonts/Helvetica-Bold.afm');
 				$FullName = _('Name : ') . $FullName;
 				$LeftOvers = $PDF->addText(322, $YPos, $FontSize, $FullName);
 				$FontSize = 10;
@@ -219,7 +221,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 				//$YPos -= (2 * $line_height);  //double spacing
 				$YPos = $OldYPos1;
 				$FontSize = 8;
-				//				$PDF->selectFont('./fonts/Helvetica.afm');
+				$PDF->selectFont('./fonts/Helvetica.afm');
 				$LeftOvers = $PDF->addTextWrap(322, $YPos, 65, $FontSize, 'Basic : ', 'right');
 				$LeftOvers = $PDF->addTextWrap(387, $YPos, 40, $FontSize, number_format($Basic, 2), 'right');
 				$YPos-= $line_height;
@@ -239,7 +241,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 				//2nd column
 				$YPos = $OldYPos2;
 				$FontSize = 8;
-				//				$PDF->selectFont('./fonts/Helvetica.afm');
+				$PDF->selectFont('./fonts/Helvetica.afm');
 				$LeftOvers = $PDF->addTextWrap(432, $YPos, 65, $FontSize, 'SSS : ', 'right');
 				$LeftOvers = $PDF->addTextWrap(498, $YPos, 40, $FontSize, number_format($SSS, 2), 'right');
 				$YPos-= $line_height;
@@ -304,7 +306,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('There were no entries to print out for the selections specified'));
-		echo '<br /><a href="' . $RootPath . '/index.php?">' . _('Back to the menu') . '</a>';
+		echo '<BR><A HREF="' . $RootPath . '/index.php?' . SID . '">' . _('Back to the menu') . '</A>';
 		include ('includes/footer.php');
 		exit;
 	} else {
@@ -325,41 +327,32 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 	$Title = _('Pay Slip');
 	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
-	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 	include ('includes/footer.php');
 	exit;
-} else {
-	/*The option to print PDF was not hit */
+} else { /*The option to print PDF was not hit */
 
 	include ('includes/session.php');
 	$Title = _('Pay Slip');
 	include ('includes/header.php');
-	echo '<p class="page_title_text noPrint" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/employees.png" title="' . $Title . '" alt="" />' . ' ' . $Title . '</p>';
 
-	echo '<form method="post" class="noPrint" id="PaySlip" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<fieldset class="centre">';
-	echo '<legend>Hello</legend>';
-	echo '<ul>
-			<li>
-				<label for="PayrollID">' . _('Select Payroll') . '</label>
-					<select name="PayrollID">';
+	echo '<form method="POST" ACTION="prlRepPaySlip.php"';
+	echo '<table><tr><td>' . _('Select Payroll:') . '</td><td><select Name="PayrollID">';
+	DB_data_seek($Result, 0);
 	$SQL = 'SELECT payrollid, payrolldesc FROM prlpayrollperiod';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($MyRow['payrollid'] == isset($_POST['PayrollID'])) {
-			echo '<option selected value="' . $MyRow['payrollid'] . '">' . $MyRow['payrolldesc'] . '</option>';
+		if ($MyRow['payrollid'] == $_POST['PayrollID']) {
+			echo '<option selected="selected" value=';
 		} else {
-			echo '<option value="' . $MyRow['payrollid'] . '">' . $MyRow['payrolldesc'] . '</option>';
+			echo "<option value=";
 		}
 		//$pn = $MyRow['payrollid'] . $MyRow['payrolldesc'];
-		
+		echo $MyRow['payrollid'] . '>' . $MyRow['payrolldesc'];
 	} //end while loop
-	echo '</select>
-			</li>';
-	echo "</ul><input type='submit' name='PrintPDF' value='" . _('PrintPDF') . "' /></fieldset></form>";
-	include ('includes/footer.php');
-}
-/*end of else not PrintPDF */
+	echo '</select></td></tr>';
+	echo '</table><P><input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '">';
+	include ('includes/footer.php');;
+} /*end of else not PrintPDF */
 
 ?>

@@ -1,5 +1,4 @@
 <?php
-
 if ($PageNumber > 1) {
 	$PDF->newPage();
 }
@@ -17,12 +16,10 @@ $PDF->addText($XPos, $YPos, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 $FontSize = 10;
 $PDF->addText($XPos, $YPos - 12, $FontSize, $_SESSION['CompanyRecord']['regoffice1']);
 $PDF->addText($XPos, $YPos - 21, $FontSize, $_SESSION['CompanyRecord']['regoffice2']);
-$PDF->addText($XPos, $YPos - 30, $FontSize, $_SESSION['CompanyRecord']['regoffice3']);
-$PDF->addText($XPos, $YPos - 39, $FontSize, $_SESSION['CompanyRecord']['regoffice4']);
+$PDF->addText($XPos, $YPos - 30, $FontSize, $_SESSION['CompanyRecord']['regoffice3'] . ', ' . $_SESSION['CompanyRecord']['regoffice4'] . ' ' . $_SESSION['CompanyRecord']['regoffice5']);
 $PDF->addText($XPos, $YPos - 48, $FontSize, _('Ph') . ': ' . $_SESSION['CompanyRecord']['telephone']);
 $PDF->addText($XPos, $YPos - 57, $FontSize, _('Fax') . ': ' . $_SESSION['CompanyRecord']['fax']);
 $PDF->addText($XPos, $YPos - 66, $FontSize, $_SESSION['CompanyRecord']['email']);
-
 
 $XPos = 46;
 $YPos = 760;
@@ -33,19 +30,18 @@ $PDF->addText($XPos, $YPos + 10, $FontSize, _('Delivery To') . ':');
 $PDF->addText($XPos, $YPos - 3, $FontSize, $MyRow['deliverto']);
 $PDF->addText($XPos, $YPos - 15, $FontSize, $MyRow['deladd1']);
 $PDF->addText($XPos, $YPos - 30, $FontSize, $MyRow['deladd2']);
-$PDF->addText($XPos, $YPos - 45, $FontSize, $MyRow['deladd3'] . ' ' . $MyRow['deladd4'] . ' ' . $MyRow['deladd5']);
+$PDF->addText($XPos, $YPos - 45, $FontSize, $MyRow['deladd3'] . ', ' . $MyRow['deladd4'] . ' ' . $MyRow['deladd5']);
 
-$YPos -= 80;
+$YPos-= 80;
 
 $PDF->addText($XPos, $YPos, $FontSize, _('Bill To') . ':');
 $PDF->addText($XPos, $YPos - 15, $FontSize, $MyRow['name']);
 $PDF->addText($XPos, $YPos - 30, $FontSize, $MyRow['address1']);
 $PDF->addText($XPos, $YPos - 45, $FontSize, $MyRow['address2']);
-$PDF->addText($XPos, $YPos - 60, $FontSize, $MyRow['address3'] . ' ' . $MyRow['address4'] . ' ' . $MyRow['address5']);
-
+$PDF->addText($XPos, $YPos - 60, $FontSize, $MyRow['address3'] . ', ' . $MyRow['address4'] . ' ' . $MyRow['address5']);
 
 $XPos = 50;
-$YPos += 25;
+$YPos+= 25;
 /*draw a nice curved corner box around the delivery details */
 /*from the top right */
 $PDF->partEllipse($XPos + 200, $YPos + 60, 0, 90, 10, 10);
@@ -64,8 +60,7 @@ $PDF->partEllipse($XPos + 200, $YPos, 270, 360, 10, 10);
 /*Finally join up to the top right corner where started */
 $PDF->line($XPos + 210, $YPos, $XPos + 210, $YPos + 60);
 
-
-$YPos -= 90;
+$YPos-= 90;
 /*draw a nice curved corner box around the billing details */
 /*from the top right */
 $PDF->partEllipse($XPos + 200, $YPos + 60, 0, 90, 10, 10);
@@ -90,17 +85,17 @@ $PDF->addTextWrap($Page_Width - $Right_Margin - 200, $Page_Height - $Top_Margin 
 
 $PDF->addText($Page_Width / 2 - 10, $YPos + 15, $FontSize, _('All amounts stated in') . ' - ' . $MyRow['currcode']);
 
-$YPos -= 45;
+$YPos-= 45;
 $XPos = 40;
 
 $FontSize = 10;
 $LeftOvers = $PDF->addTextWrap($XPos + 2, $YPos, 100, $FontSize, _('Item Code'), 'left');
 $LeftOvers = $PDF->addTextWrap(120, $YPos, 235, $FontSize, _('Item Description'), 'left');
 $LeftOvers = $PDF->addTextWrap(270, $YPos, 85, $FontSize, _('Ship Date'), 'right');
-$LeftOvers = $PDF->addTextWrap(350, $YPos, 85, $FontSize, _('Quantity'), 'right');
-$LeftOvers = $PDF->addTextWrap(400, $YPos, 85, $FontSize, _('Price'), 'right');
+$LeftOvers = $PDF->addTextWrap(340, $YPos, 85, $FontSize, _('Quantity'), 'right');
+$LeftOvers = $PDF->addTextWrap(420, $YPos, 85, $FontSize, _('Units'), 'left');
+$LeftOvers = $PDF->addTextWrap(420, $YPos, 85, $FontSize, _('Price'), 'right');
 $LeftOvers = $PDF->addTextWrap($Page_Width - $Right_Margin - 90, $YPos, 90, $FontSize, _('Total'), 'right');
-
 
 /*draw a box with nice round corner for entering line items */
 /*90 degree arc at top right of box 0 degrees starts a bottom */
@@ -110,7 +105,6 @@ $PDF->line($Page_Width - $Right_Margin - 0, $Bottom_Margin + 550, $Left_Margin +
 
 /*line under headings to top left */
 $PDF->line($Page_Width - $Right_Margin + 10, $Bottom_Margin + 525, $Left_Margin, $Bottom_Margin + 525);
-
 
 /*Dow top left corner */
 $PDF->partEllipse($Left_Margin + 10, $Bottom_Margin + 540, 90, 180, 10, 10);
@@ -125,7 +119,7 @@ $PDF->partEllipse($Page_Width - $Right_Margin - 0, $Bottom_Margin + 10, 270, 360
 /*Finally join up to the top right corner where started */
 $PDF->line($Page_Width - $Right_Margin + 10, $Bottom_Margin + 10, $Page_Width - $Right_Margin + 10, $Bottom_Margin + 540);
 
-$YPos -= $line_height * 2;
+$YPos-= $line_height * 2;
 
 $FontSize = 12;
 

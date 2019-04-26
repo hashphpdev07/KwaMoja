@@ -5,7 +5,9 @@ $Title = _('Hospital Configuration');
 
 include ('includes/header.php');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/Hospital.png" title="' . _('Hospital Configuration') . '" alt="" />' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/hospital.png" title="', _('Hospital Configuration'), '" alt="" />', $Title, '
+	</p>';
 
 if (isset($_POST['submit'])) {
 
@@ -32,6 +34,13 @@ if (isset($_POST['submit'])) {
 		if ($_SESSION['DefaultSalesPerson'] != $_POST['X_DefaultSalesPerson']) {
 			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_DefaultSalesPerson'] . "' WHERE confname='DefaultSalesPerson'";
 		}
+		if ($_SESSION['AutoPatientNo'] != $_POST['X_AutoPatientNo']) {
+			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_AutoPatientNo'] . "' WHERE confname='AutoPatientNo'";
+		}
+		if ($_SESSION['InsuranceDebtorType'] != $_POST['X_InsuranceDebtorType']) {
+			$SQL[] = "UPDATE config SET confvalue='" . $_POST['X_InsuranceDebtorType'] . "' WHERE confname='InsuranceDebtorType'";
+		}
+
 		$ErrMsg = _('The hospital configuration could not be updated because');
 		$DbgMsg = _('The SQL that failed was') . ':';
 		if (sizeof($SQL) > 0) {
@@ -52,89 +61,110 @@ if (isset($_POST['submit'])) {
 
 }
 /* end of if submit */
+echo '<form method="post" action="', htmlspecialchars(htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<form method="post" action="' . htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8') . '">
-	<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-	<table cellpadding="2" class="selection" width="98%">
-		<tr>
-			<th>' . _('Hospital Configuration Parameter') . '</th>
-			<th>' . _('Value') . '</th>
-			<th>' . _('Notes') . '</th>
-		</tr>';
+echo '<fieldset>
+		<legend>', _('General Settings'), '</legend>';
 
-echo '<tr>
-		<th colspan="3">' . _('General Settings') . '</th>
-	</tr>';
-
-echo '<tr>
-		<td>' . _('Dispense on Bill') . ':</td>
-		<td><select name="X_DispenseOnBill">';
+echo '<field>
+		<label for="X_DispenseOnBill">', _('Dispense on Bill'), ':</label>
+		<select name="X_DispenseOnBill" autofocus="autofocus">';
 if ($_SESSION['DispenseOnBill'] == '0') {
-	echo '<option selected="selected" value="0">' . _('No') . '</option>
-			<option value="1">' . _('Yes') . '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option value="0">' . _('No') . '</option>
-			<option selected="selected" value="1">' . _('Yes') . '</option>';
+	echo '<option value="0">', _('No'), '</option>';
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
-echo '</select></td>
-		<td>' . _('Should items be deducted from stock automatically on production of the bill, or on actual dispensing?') . '</td>
-	</tr>';
+echo '</select>
+	<fieldhelp>', _('Should items be deducted from stock automatically on production of the bill, or on actual dispensing?'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td>' . _('Cashiers can Amend Bills') . ':</td>
-		<td><select name="X_CanAmendBill">';
+echo '<field>
+		<label for="X_CanAmendBill">', _('Cashiers can Amend Bills'), ':</label>
+		<select name="X_CanAmendBill">';
 if ($_SESSION['CanAmendBill'] == '0') {
-	echo '<option selected="selected" value="0">' . _('No') . '</option>
-			<option value="1">' . _('Yes') . '</option>';
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
 } else {
-	echo '<option value="0">' . _('No') . '</option>
-			<option selected="selected" value="1">' . _('Yes') . '</option>';
+	echo '<option value="0">', _('No'), '</option>';
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
 }
-echo '</select></td>
-		<td>' . _('Can the cashiers delete and insert lines in patients bills?') . '</td>
-	</tr>';
+echo '</select>
+	<fieldhelp>' . _('Can the cashiers delete and insert lines in patients bills?') . '</fieldhelp>
+</field>';
 
 $SQL = "SELECT salesmancode, salesmanname FROM salesman";
 $Result = DB_query($SQL);
-echo '<tr>
-		<td>' . _('Default Sales Person for Patients') . ':</td>
-		<td><select required="required" minlength="1" tabindex="14" name="X_DefaultSalesPerson">
-				<option value=""></option>';
+echo '<field>
+		<label for="X_DefaultSalesPerson">', _('Default Sales Person for Patients'), ':</label>
+		<select required="required" minlength="1" name="X_DefaultSalesPerson">
+			<option value=""></option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_SESSION['DefaultSalesPerson']) and $MyRow['salesmancode'] == $_SESSION['DefaultSalesPerson']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['salesmancode'], '">', $MyRow['salesmanname'], '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['salesmancode'], '">', $MyRow['salesmanname'], '</option>';
 	}
-	echo $MyRow['salesmancode'] . '">' . $MyRow['salesmanname'] . '</option>';
 } //end while loop
 echo '</select>
-			</td>
-			<td>' . _('The default sales person that will be used when patients are transferred from care2x') . '</td>
-		</tr>';
+	<fieldhelp>' . _('The default sales person that will be used when patients are transferred from care2x') . '</fieldhelp>
+</field>';
 
 $SQL = "SELECT areacode, areadescription FROM areas";
 $Result = DB_query($SQL);
-echo '<tr>
-		<td>' . _('Default Sales Area for Patients') . ':</td>
-		<td><select required="required" minlength="1" tabindex="14" name="X_DefaultArea">
-				<option value=""></option>';
+echo '<field>
+		<label for="X_DefaultArea">', _('Default Sales Area for Patients'), ':</label>
+		<select required="required" minlength="1" name="X_DefaultArea">
+			<option value=""></option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_SESSION['DefaultArea']) and $MyRow['areacode'] == $_SESSION['DefaultArea']) {
-		echo '<option selected="selected" value="';
+		echo '<option selected="selected" value="', $MyRow['areacode'], '">', $MyRow['areadescription'], '</option>';
 	} else {
-		echo '<option value="';
+		echo '<option value="', $MyRow['areacode'], '">', $MyRow['areadescription'], '</option>';
 	}
-	echo $MyRow['areacode'] . '">' . $MyRow['areadescription'] . '</option>';
 } //end while loop
 echo '</select>
-			</td>
-			<td>' . _('The default sales area that will be used when patients are transferred from care2x') . '</td>
-		</tr>';
+	<fieldhelp>' . _('The default sales area that will be used when patients are transferred from care2x') . '</fieldhelp>
+</field>';
 
-echo '</table>
-		<div class="centre"><input type="submit" name="submit" value="' . _('Update') . '" /></div>
-	</form>';
+echo '<field>
+		<label for="X_AutoPatientNo">', _('New Patient numbers Automatically Generated'), ':</label>
+		<select name="X_AutoPatientNo">';
+if ($_SESSION['AutoPatientNo'] == '0') {
+	echo '<option selected="selected" value="0">', _('No'), '</option>';
+	echo '<option value="1">', _('Yes'), '</option>';
+} else {
+	echo '<option value="0">', _('No'), '</option>';
+	echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+}
+echo '</select>
+	<fieldhelp>' . _('If new patient numbers are to be automatically allocated select "Yes" here.') . '</fieldhelp>
+</field>';
+
+$SQL = "SELECT typeid, typename FROM debtortype";
+$Result = DB_query($SQL);
+echo '<field>
+		<label for="X_InsuranceDebtorType">', _('Debtor type to use for Insurance companies'), '</label>
+		<select name="X_InsuranceDebtorType">';
+while ($MyRow = DB_fetch_array($Result)) {
+	if (isset($_SESSION['InsuranceDebtorType']) and $MyRow['typeid'] == $_SESSION['InsuranceDebtorType']) {
+		echo '<option selected="selected" value="', $MyRow['typeid'], '">', $MyRow['typename'], '</option>';
+	} else {
+		echo '<option value="', $MyRow['typeid'], '">', $MyRow['typename'], '</option>';
+	}
+} //end while loop
+echo '</select>
+	<fieldhelp>' . _('The debtor type that is used for insurance companies. All Insurancecompanies must be of this type.') . '</fieldhelp>
+</field>';
+
+echo '</fieldset>';
+
+echo '<div class="centre">
+		<input type="submit" name="submit" value="', _('Update'), '" />
+	</div>
+</form>';
 
 include ('includes/footer.php');
 ?>

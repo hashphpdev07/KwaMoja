@@ -34,19 +34,19 @@ echo '<table>
 include ('includes/footer.php');
 exit();
 
-function ProcessSupplier($oldCode, $newCode) {
+function ProcessSupplier($OldCode, $NewCode) {
 	$TableKey = array('grns' => 'supplierid', 'offers' => 'supplierid', 'purchdata' => 'supplierno', 'purchorders' => 'supplierno', 'shipments' => 'supplierid', 'suppliercontacts' => 'supplierid', 'supptrans' => 'supplierno', 'www_users' => 'supplierid');
 
 	// First check the Supplier code exists
-	if (!checkSupplierExist($oldCode)) {
-		prnMsg('<br /><br />' . _('The Supplier code') . ': ' . $oldCode . ' ' . _('does not currently exist as a supplier code in the system'), 'error');
+	if (!checkSupplierExist($OldCode)) {
+		prnMsg('<br /><br />' . _('The Supplier code') . ': ' . $OldCode . ' ' . _('does not currently exist as a supplier code in the system'), 'error');
 		return;
 	}
-	$newCode = trim($newCode);
-	if (checkNewCode($newCode)) {
+	$NewCode = trim($NewCode);
+	if (checkNewCode($NewCode)) {
 		// Now check that the new code doesn't already exist
-		if (checkSupplierExist($newCode)) {
-			prnMsg(_('The replacement supplier code') . ': ' . $newCode . ' ' . _('already exists as a supplier code in the system') . ' - ' . _('a unique supplier code must be entered for the new code'), 'error');
+		if (checkSupplierExist($NewCode)) {
+			prnMsg(_('The replacement supplier code') . ': ' . $NewCode . ' ' . _('already exists as a supplier code in the system') . ' - ' . _('a unique supplier code must be entered for the new code'), 'error');
 			return;
 		}
 	} else {
@@ -57,20 +57,69 @@ function ProcessSupplier($oldCode, $newCode) {
 
 	prnMsg(_('Inserting the new supplier record'), 'info');
 	$SQL = "INSERT INTO suppliers (`supplierid`,
-		`suppname`,  `address1`, `address2`, `address3`,
-		`address4`,  `address5`,  `address6`, `supptype`, `lat`, `lng`,
-		`currcode`,  `suppliersince`, `paymentterms`, `lastpaid`,
-		`lastpaiddate`, `bankact`, `bankref`, `bankpartics`,
-		`remittance`, `taxgroupid`, `factorcompanyid`, `taxref`,
-		`phn`, `port`, `email`, `fax`, `telephone`)
-	SELECT '" . $newCode . "',
-		`suppname`,  `address1`, `address2`, `address3`,
-		`address4`,  `address5`,  `address6`, `supptype`, `lat`, `lng`,
-		`currcode`,  `suppliersince`, `paymentterms`, `lastpaid`,
-		`lastpaiddate`, `bankact`, `bankref`, `bankpartics`,
-		`remittance`, `taxgroupid`, `factorcompanyid`, `taxref`,
-		`phn`, `port`, `email`, `fax`, `telephone`
-		FROM suppliers WHERE supplierid='" . $oldCode . "'";
+								   `suppname`,
+								   `address1`,
+								   `address2`,
+								   `address3`,
+								   `address4`,
+								   `address5`,
+								   `address6`,
+								   `supptype`,
+								   `lat`,
+								   `lng`,
+								   `currcode`,
+								   `suppliersince`,
+								   `paymentterms`,
+								   `lastpaid`,
+								   `lastpaiddate`,
+								   `bankact`,
+								   `bankref`,
+								   `bankpartics`,
+								   `remittance`,
+								   `taxgroupid`,
+								   `factorcompanyid`,
+								   `taxref`,
+								   `phn`,
+								   `port`,
+								   `email`,
+								   `fax`,
+								   `telephone`,
+								   `url`,
+								   `defaultshipper`,
+								   `defaultgl`)
+							SELECT '" . $NewCode . "',
+								   `suppname`,
+								   `address1`,
+								   `address2`,
+								   `address3`,
+								   `address4`,
+								   `address5`,
+								   `address6`,
+								   `supptype`,
+								   `lat`,
+								   `lng`,
+								   `currcode`,
+								   `suppliersince`,
+								   `paymentterms`,
+								   `lastpaid`,
+								   `lastpaiddate`,
+								   `bankact`,
+								   `bankref`,
+								   `bankpartics`,
+								   `remittance`,
+								   `taxgroupid`,
+								   `factorcompanyid`,
+								   `taxref`,
+								   `phn`,
+								   `port`,
+								   `email`,
+								   `fax`,
+								   `telephone`,
+								   `url`,
+								   `defaultshipper`,
+								   `defaultgl`
+								FROM suppliers
+								WHERE supplierid='" . $OldCode . "'";
 
 	$DbgMsg = _('The SQL that failed was');
 	$ErrMsg = _('The SQL to insert the new suppliers master record failed') . ', ' . _('the SQL statement was');
@@ -78,13 +127,13 @@ function ProcessSupplier($oldCode, $newCode) {
 
 	foreach ($TableKey as $Table => $Key) {
 		prnMsg(_('Changing') . ' ' . $Table . ' ' . _('records'), 'info');
-		$SQL = "UPDATE " . $Table . " SET $Key='" . $newCode . "' WHERE $Key='" . $oldCode . "'";
+		$SQL = "UPDATE " . $Table . " SET $Key='" . $NewCode . "' WHERE $Key='" . $OldCode . "'";
 		$ErrMsg = _('The SQL to update') . ' ' . $Table . ' ' . _('records failed');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 	}
 
 	prnMsg(_('Deleting the supplier code from the suppliers master table'), 'info');
-	$SQL = "DELETE FROM suppliers WHERE supplierid='" . $oldCode . "'";
+	$SQL = "DELETE FROM suppliers WHERE supplierid='" . $OldCode . "'";
 
 	$ErrMsg = _('The SQL to delete the old supplier record failed');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);

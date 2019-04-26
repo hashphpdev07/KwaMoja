@@ -2,7 +2,9 @@
 /* $Id$*/
 include ('includes/session.php');
 $Title = _('Income and Expenditure by Functional Unit');
+
 include ('includes/SQL_CommonFunctions.php');
+
 include ('includes/AccountSectionsDef.inc'); // This loads the $Sections variable
 
 
@@ -631,7 +633,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 					echo '<tr>
 						<td colspan=3></td>
-      						<td colspan=4><hr></td>
+
+						<td colspan=4><hr></td>
 					</tr>';
 
 					printf('<tr>
@@ -644,7 +647,8 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 				} else {
 					echo '<tr>
 					<td colspan=2></td>
-      					<td colspan=4><hr></td>
+
+					<td colspan=4><hr></td>
 					<td></td>
 					</tr>';
 					printf('<tr>
@@ -735,29 +739,23 @@ if ((!isset($_POST['FromPeriod']) and !isset($_POST['ToPeriod'])) or isset($_POS
 
 		if ($_POST['Detail'] == _('Detailed')) {
 
-			if ($k == 1) {
-				echo '<tr class="EvenTableRows">';
-				$k = 0;
-			} else {
-				echo '<tr class="OddTableRows">';
-				$k++;
-			}
-
 			$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?Period=' . $_POST['ToPeriod'] . '&Account=' . $MyRow['account'] . '&Show=Yes">' . $MyRow['account'] . '</a>';
 
 			if ($Section == 4) {
-				printf('<td>%s</td>
-					<td>%s</td>
-					<td></td>
-					<td class=number>%s</td>
-					<td class=number>%s</td>
-					</tr>', $ActEnquiryURL, $MyRow['accountname'], number_format(-$AccountThisPeriodActual), number_format(-$AccountPeriodActual));
+				echo '<tr class="striped_row">
+						<td>', $ActEnquiryURL, '</td>
+						<td>', $MyRow['accountname'], '</td>
+						<td></td>
+						<td class=number>', number_format(-$AccountThisPeriodActual), '</td>
+						<td class=number>', number_format(-$AccountPeriodActual), '</td>
+					</tr>';
 			} else {
-				printf('<td>%s</td>
-					<td>%s</td>
-					<td class=number colspan=2>%s</td>
-					<td class=number colspan=2>%s</td>
-					</tr>', $ActEnquiryURL, $MyRow['accountname'], number_format(-$AccountThisPeriodActual), number_format(-$AccountPeriodActual));
+				echo '<tr class="striped_row">
+						<td>', $ActEnquiryURL, '</td>
+						<td>', $MyRow['accountname'], 's</td>
+						<td class=number colspan=2>', number_format(-$AccountThisPeriodActual), '</td>
+						<td class=number colspan=2>', number_format(-$AccountPeriodActual), '</td>
+					</tr>';
 			}
 
 			$j++;

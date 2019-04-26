@@ -55,7 +55,7 @@ echo '<td>' . _('From') . ':</td>
 	</tr>
 	</table>
 	<div class="centre">
-		<input type="submit" name="ShowResults" value="' . _('Show Transactions') . '" />
+		<input type="submit" name="ShowResults" value="' . _('Show transactions') . '" />
 	</div>
 	</form>';
 
@@ -86,6 +86,10 @@ if (isset($_POST['ShowResults']) and $_POST['TransType'] != '') {
 	$SQL = $SQL . "trandate >='" . $SQL_FromDate . "' AND trandate <= '" . $SQL_ToDate . "'";
 	if ($_POST['TransType'] != 'All') {
 		$SQL.= " AND type = " . $_POST['TransType'];
+	}
+
+	if ($_POST['SupplierNo'] != '') {
+		$SQL.= " AND supptrans.supplierno LIKE '%" . $_POST['SupplierNo'] . "%'";
 	}
 	$SQL.= " ORDER BY id";
 

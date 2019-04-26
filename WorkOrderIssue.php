@@ -698,7 +698,7 @@ echo '<table>
 			<td>' . ConvertSQLDate($WOHeaderRow['requiredby']) . '</td>
 		</tr>
 		<tr>
-			<td class="label">' . ('Item') . '</td>
+			<td class="label">' . _('Item') . '</td>
 			<td class="label">' . _('Quantity Ordered') . ':</td>
 			<td class="label">' . _('Already Received') . ':</td>
 			<td class="label">' . _('Unit') . ':</td>
@@ -784,9 +784,10 @@ echo '</td>
 if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 	//set up options for selection of the item to be issued to the WO
 	echo '<tr>
-			<th colspan="5">' . _('Material Requirements For this Work Order') . '</th>
+			<th colspan="7">' . _('Material Requirements For this Work Order') . '</th>
 		</tr>';
 	echo '<tr>
+			<th>' . _('Parent Item') . '</th>
 			<th colspan="2">' . _('Item') . '</th>
 			<th>' . _('Qty Required') . '</th>
 			<th>' . _('Qty Issued') . '</th>
@@ -795,6 +796,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 
 	$IssuedAlreadyRow = array();
 	$RequirementsResult = DB_query("SELECT worequirements.stockid,
+										worequirements.parentstockid,
 										stockmaster.description,
 										stockmaster.decimalplaces,
 										stockmaster.controlled,
@@ -811,6 +813,7 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 											stockmaster.decimalplaces,
 											autoissue");
 
+	$IssuedAlreadyRow = array();
 	$IssuedAlreadyResult = DB_query("SELECT stockid,
 											SUM(-qty) as total
 										FROM stockmoves
@@ -824,29 +827,25 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 	while ($RequirementsRow = DB_fetch_array($RequirementsResult)) {
 		if ($RequirementsRow['autoissue'] == 0) {
 			echo '<tr>
+					<td>' . $RequirementsRow['parentstockid'] . '</td>
 					<td><input type="submit" name="IssueItem" value="' . $RequirementsRow['stockid'] . '" /></td>
 					<td>' . $RequirementsRow['stockid'] . ' - ' . $RequirementsRow['description'] . '</td>';
 		} else {
 			echo '<tr>
+					<td>' . $RequirementsRow['parentstockid'] . '</td>
 					<td class="notavailable">' . _('Auto Issue') . '</td>
 					<td class="notavailable">' . $RequirementsRow['stockid'] . ' - ' . $RequirementsRow['description'] . '</td>';
 		}
-		if (isset($IssuedAlreadyRow[$RequirementsRow['stockid']])) {
-			$Issued = $IssuedAlreadyRow[$RequirementsRow['stockid']];
-			unset($IssuedAlreadyRow[$RequirementsRow['stockid']]);
-		} else {
-			$Issued = 0;
+		if (isset($IssuedMaterials[$RequirementsRow['stockid']])) {
+			$IssuedAlreadyRow = $IssuedMaterials[$RequirementsRow['stockid']];
+			unset($IssuedMaterials[$RequirementsRow['stockid']]);
 		}
 
 		echo '<td class="number">' . locale_number_format($RequirementsRow['quantityrequired'], $RequirementsRow['decimalplaces']) . '</td>
 			<td class="number">' . locale_number_format($IssuedAlreadyRow, $RequirementsRow['decimalplaces']) . '</td>';
 		if ($RequirementsRow['controlled'] == 0) {
-			echo '<td>
-					<input type="text" class="number" name="IssueQty' . $i . '" id="IssueQty' . $i . '" />
-				</td>
-				<td>
-					<input type="checkbox" name="CheckQty' . $i . '" value="' . locale_number_format($RequirementsRow['quantityrequired'], $RequirementsRow['decimalplaces']) . '" onclick="AddAmount(this,\'IssueQty' . $i . '\')" />
-				</td>
+			echo '<td><input type="text" name="IssueQty' . $i . '" id="IssueQty' . $i . '" /></td>
+				<td><input type="checkbox" name="CheckQty' . $i . '" value="' . locale_number_format($RequirementsRow['quantityrequired'], $RequirementsRow['decimalplaces']) . '" onclick="AddAmount(this,\'IssueQty' . $i . '\')" /></td>
 				<input type="hidden" name="Item' . $i . '" value="' . $RequirementsRow['stockid'] . '" />';
 		}
 
@@ -855,20 +854,22 @@ if (!isset($_POST['IssueItem'])) { //no item selected to issue yet
 	}
 
 	/* Now do any additional issues of items not in the BOM */
-	foreach ($IssuedAlreadyRow as $StockId => $Issued) {
-		$RequirementsSQL = "SELECT stockmaster.description,
-									stockmaster.decimalplaces,
-									stockmaster.controlled
-								FROM stockmaster
-							WHERE stockid='" . $StockId . "'";
-		$RequirementsResult = DB_query($RequirementsSQL);
-		$RequirementsRow = DB_fetch_array($RequirementsResult);
-		echo '<tr>
-				<td>' . _('Additional Issue') . '</td>
-				<td>' . $StockId . ' - ' . $RequirementsRow['description'] . '</td>';
-		echo '<td class="number">0</td>
-				<td class="number">' . locale_number_format($Issued, $RequirementsRow['decimalplaces']) . '</td>
-			</tr>';
+	if (isset($IssuedAlreadyRow) > 0) {
+		foreach ($IssuedAlreadyRow as $StockId => $Issued) {
+			$RequirementsSQL = "SELECT stockmaster.description,
+										stockmaster.decimalplaces,
+										stockmaster.controlled
+									FROM stockmaster
+								WHERE stockid='" . $StockId . "'";
+			$RequirementsResult = DB_query($RequirementsSQL);
+			$RequirementsRow = DB_fetch_array($RequirementsResult);
+			echo '<tr>
+					<td>' . _('Additional Issue') . '</td>
+					<td>' . $StockId . ' - ' . $RequirementsRow['description'] . '</td>';
+			echo '<td class="number">0</td>
+					<td class="number">' . locale_number_format($Issued, $RequirementsRow['decimalplaces']) . '</td>
+				</tr>';
+		}
 	}
 
 	echo '</table>

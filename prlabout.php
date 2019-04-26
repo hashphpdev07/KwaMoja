@@ -1,9 +1,10 @@
 <?php
-include('includes/session.php');
+$PageSecurity = 5;
+include ('includes/session.php');
 $Title = _('About Anahaw Open Payroll System');
-include('includes/header.php');
+include ('includes/header.php');
 ?>
-<table width="75%"><tr><td>
+<center><table width="75%"><tr><td>
 <br><br>
 <h2><font face="Verdana, Arial, Helvetica, sans-serif" color="#000066">About Anahaw Open Payroll System</font></h2>
 Anahaw Open Payroll System, was developed as an addon module for <a href="http://www.weberp.org">webERP</a><br><br>
@@ -34,4 +35,6 @@ FEATURES:<br>
 ·	Monitor different types of loans<br>
 ·	Standard and Customized Report<br>
 
-</td></tr></table>
+</td></tr></table></center>
+<?
+?>

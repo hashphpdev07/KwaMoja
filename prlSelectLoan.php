@@ -1,8 +1,11 @@
 <?php
-include('includes/session.php');
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 10;
+include ('includes/session.php');
 $Title = _('View Employee Loan Master File');
 
-include('includes/header.php');
+include ('includes/header.php');
 
 if (isset($_GET['SelectedID'])) {
 	$SelectedID = $_GET['SelectedID'];
@@ -18,7 +21,7 @@ if (!isset($SelectedID)) {
 			prlloanfile.loantableid,
 			prlloanfile.loanamount,
 			prlloanfile.amortization,
-			prlloanfile.nextdeduction,
+			prlloanfile.startdeduction,
 			prlloantable.loantableid,
 			prlloantable.loantabledesc,
 			prlemployeemaster.employeeid,
@@ -33,41 +36,41 @@ if (!isset($SelectedID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Index ') . "</td>
-		<th>" . _('Ref ID') . "</td>
-		<th>" . _('Loan Description ') . "</td>
-		<th>" . _('Start of Deduction') . "</td>
-		<th>" . _('Employee Name') . "</td>
-		<th>" . _('Loan Type') . "</td>
-		<th>" . _('Loan Amount') . "</td>
-		<th>" . _('Amortization') . "</td>
+		<td class='tableheader'>" . _('Index ') . "</td>
+		<td class='tableheader'>" . _('Ref ID') . "</td>
+		<td class='tableheader'>" . _('Loan Description ') . "</td>
+		<td class='tableheader'>" . _('Start of Deduction') . "</td>
+		<td class='tableheader'>" . _('Employee Name') . "</td>
+		<td class='tableheader'>" . _('Loan Type') . "</td>
+		<td class='tableheader'>" . _('Loan Amount') . "</td>
+		<td class='tableheader'>" . _('Amortization') . "</td>
 	</tr>";
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		//alternateTableRowColor($k);
 		if ($k == 1) {
-			echo "<TR bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<TR bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 		echo "<td>" . $MyRow["counterindex"] . "</td>
 				<td>" . $MyRow["loanfileid"] . "</td>
-    			<td>" . $MyRow["loanfiledesc"] . "</td>
-				<td>" . $MyRow["nextdeduction"] . "</td>
+				<td>" . $MyRow["loanfiledesc"] . "</td>
+				<td>" . $MyRow["startdeduction"] . "</td>
 				<td>" . $MyRow["employeeid"] . " - " . $MyRow["lastname"] . ", " . $MyRow["firstname"] . "</td>
 				<td>" . $MyRow["loantabledesc"] . "</td>
-    			<td>" . $MyRow["loanamount"] . "</td>
+				<td>" . $MyRow["loanamount"] . "</td>
 				<td>" . $MyRow["amortization"] . "</td>
-				<td><a href=" . $RootPath . '/prlLoanFile.php?&SelectedID=' . $MyRow[0] . '>' . _('Edit') . "</td>
-				<td><a href=" . $RootPath . '/prlLoanFile.php??&SelectedID=' . $MyRow[0] . '"&delete=1">' . _('Delete') . "</td></tr>";
+				<td><a href=" . $RootPath . '/prlLoanFile.php?' . SID . '&SelectedID=' . $MyRow[0] . '>' . _('Edit') . "</td>
+				<td><a href=" . $RootPath . '/prlLoanFile.php??' . SID . '&SelectedID=' . $MyRow[0] . '"&delete=1">' . _('Delete') . "</td></tr>";
 	} //END WHILE LIST LOOP
+	
 }
 
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

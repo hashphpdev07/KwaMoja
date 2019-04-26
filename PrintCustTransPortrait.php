@@ -1,6 +1,10 @@
 <?php
 include ('includes/session.php');
 
+$Title = _('Print Invoices or Credit Notes (Portrait Mode)');
+$ViewTopic = 'ARReports';
+$BookMark = 'PrintInvoicesCredits';
+
 if (isset($_GET['FromTransNo'])) {
 	$FromTransNo = filter_number_format($_GET['FromTransNo']);
 } elseif (isset($_POST['FromTransNo'])) {
@@ -598,54 +602,58 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		/*if FromTransNo is not set then show a form to allow input of either a single invoice number or a range of invoices to be printed. Also get the last invoice number created to show the user where the current range is up to */
 
-		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+		echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . _('Print Invoices or Credit Notes (Portrait Mode)') . '</p>';
+		echo '<p class="page_title_text">
+				<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', _('Print Invoices or Credit Notes (Portrait Mode)'), '
+			</p>';
 
-		echo '<table>
-				<tr>
-					<td>' . _('Print Invoices or Credit Notes') . '</td>
-					<td><select name="InvOrCredit">';
-
-		if (!isset($InvOrCredit) or $InvOrCredit == 'Invoice') {
-
-			echo '<option selected="selected" value="Invoice">' . _('Invoices') . '</option>';
-			echo '<option value="Credit">' . _('Credit Notes') . '</option>';
-		} else {
-			echo '<option selected="selected" value="Credit">' . _('Credit Notes') . '</option>';
-			echo '<option value="Invoice">' . _('Invoices') . '</option>';
-		}
-		echo '</select></td>
-			</tr>';
-
-		echo '<tr>
-				<td>' . _('Print EDI Transactions') . '</td>
-				<td><select name="PrintEDI">';
+		echo '<fieldset>
+				<legend>', _('Select criteria to print'), '</legend>
+				<field>
+					<label for="InvOrCredit">', _('Print Invoices or Credit Notes'), '</label>
+					<select name="InvOrCredit" autofocus="autofocus">';
 
 		if (!isset($InvOrCredit) or $InvOrCredit == 'Invoice') {
 
-			echo '<option selected="selected" value="No">' . _('Do not Print PDF EDI Transactions') . '</option>';
-			echo '<option value="Yes">' . _('Print PDF EDI Transactions Too') . '</option>';
+			echo '<option selected="selected" value="Invoice">', _('Invoices'), '</option>';
+			echo '<option value="Credit">', _('Credit Notes'), '</option>';
+		} else {
+			echo '<option selected="selected" value="Credit">', _('Credit Notes'), '</option>';
+			echo '<option value="Invoice">', _('Invoices'), '</option>';
+		}
+		echo '</select>
+			<fieldhelp>', _('Select invoices or credits to print.'), '</fieldhelp>
+		</field>';
+
+		echo '<field>
+				<label for="PrintEDI">', _('Print EDI Transactions'), '</label>
+				<select name="PrintEDI">';
+
+		if (!isset($InvOrCredit) or $InvOrCredit == 'Invoice') {
+
+			echo '<option selected="selected" value="No">', _('Do not Print PDF EDI Transactions'), '</option>';
+			echo '<option value="Yes">', _('Print PDF EDI Transactions Too'), '</option>';
 
 		} else {
 
-			echo '<option value="No">' . _('Do not Print PDF EDI Transactions') . '</option>';
-			echo '<option selected="selected" value="Yes">' . _('Print PDF EDI Transactions Too') . '</option>';
+			echo '<option value="No">', _('Do not Print PDF EDI Transactions'), '</option>';
+			echo '<option selected="selected" value="Yes">', _('Print PDF EDI Transactions Too'), '</option>';
 
 		}
+		echo '</select>
+			<fieldhelp>', _('Should EDI transactions be printed?'), '</fieldhelp>
+		</field>';
 
-		echo '</select></td>
-			</tr>';
-		echo '<tr>
-				<td>' . _('Despatch Location') . ': </td>
-				<td><select name="LocCode">';
-
+		echo '<field>
+				<label for="LocCode">', _('Despatch Location'), ': </label>
+				<select name="LocCode">';
 		if ($_SESSION['RestrictLocations'] == 0) {
 			$SQL = "SELECT locationname,
 							loccode
 						FROM locations";
-			echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
+			echo '<option selected="selected" value="All">', _('All Locations'), '</option>';
 		} else {
 			$SQL = "SELECT locationname,
 							loccode
@@ -658,28 +666,29 @@ if (isset($PrintPDF) and $PrintPDF != '' and isset($FromTransNo) and isset($InvO
 
 		while ($MyRow = DB_fetch_array($Result)) {
 			if (isset($_POST['LocCode']) and $MyRow['loccode'] == $_POST['LocCode']) {
-				echo '<option selected="selected" value="';
+				echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 			} else {
-				echo '<option value="';
+				echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 			}
-			echo $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
-
 		} //end while loop
-		
+		echo '</select>
+			<fieldhelp>', _('What despatch location to use to select transactions to print?'), '</fieldhelp>
+		</field>';
 
-		echo '</select></td>
-			</tr>';
-		echo '<tr>
-				<td>' . _('Start invoice/credit note number to print') . '</td>
-				<td><input class="number" type="text" required="required" maxlength="6" size="7" name="FromTransNo" /></td>
-			</tr>';
-		echo '<tr>
-				<td>' . _('End invoice/credit note number to print') . '</td>
-				<td><input class="number" type="text" required="required" maxlength="6" size="7" name="ToTransNo" /></td>
-			</tr>
-			</table>';
+		echo '<field>
+				<label for="FromTransNo">', _('Start invoice/credit note number to print'), '</label>
+				<input class="number" type="text" required="required" maxlength="6" size="7" name="FromTransNo" />
+				<fieldhelp>', _('The starting number to print from'), '</fieldhelp>
+			</field>';
+
+		echo '<field>
+				<label for="ToTransNo">', _('End invoice/credit note number to print'), '</label>
+				<input class="number" type="text" required="required" maxlength="6" size="7" name="ToTransNo" />
+				<fieldhelp>', _('The final number to print to'), '</fieldhelp>
+			</field>
+		</fieldset>';
+
 		echo '<div class="centre">
-				<br />
 				<input type="submit" name="Print" value="' . _('Print Preview') . '" />
 				<br />
 				<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />

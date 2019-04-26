@@ -186,6 +186,11 @@ margin:0 auto;
 padding:5px;
 }
 
+.page_title_icon {
+padding-right:7px;
+width:32px;
+}
+
 p.good {
 font-weight:700;
 color:green;
@@ -578,4 +583,10 @@ padding-left:24px;
 min-height:26px;
 margin:0 auto;
 margin-bottom:4px;
+}
+
+.gallery {
+margin: 5px;
+float: left;
+/* Class selector to let an element float to the left. */
 }

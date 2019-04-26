@@ -1,6 +1,5 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 
 if (isset($_GET['WO'])) {
 	$WO = filter_number_format($_GET['WO']);
@@ -38,7 +37,7 @@ if (isset($WO) and isset($StockId) and $WO != '') {
 	$ResultItems = DB_query($SQL, $ErrMsg);
 
 	if (DB_num_rows($ResultItems) != 0) {
-		include('includes/PDFStarter.php');
+		include ('includes/PDFStarter.php');
 
 		$YPos = $Page_Height - $Top_Margin;
 
@@ -88,27 +87,26 @@ if (isset($WO) and isset($StockId) and $WO != '') {
 				$Xpos = $Left_Margin + 1;
 
 				$PDF->addTextWrap($Xpos, $YPos, 150, $FontSize, $MyComponent['component'], 'left');
-				$PDF->addTextWrap(150, $YPos, 50, $FontSize, locale_number_format($MyComponent['bomqty'], $MyComponent['decimalplaces']), 'right');
+				$PDF->addTextWrap(150, $YPos, 50, $FontSize, locale_number_format($MyComponent['bomqty'], 'Variable'), 'right');
 				$PDF->addTextWrap(200, $YPos, 30, $FontSize, $MyComponent['units'], 'left');
 				$PDF->addTextWrap(230, $YPos, 50, $FontSize, locale_number_format($ComponentNeeded, $MyComponent['decimalplaces']), 'right');
 				$PDF->addTextWrap(280, $YPos, 30, $FontSize, $MyComponent['units'], 'left');
 				$PDF->addTextWrap(310, $YPos, 50, $FontSize, locale_number_format($PrevisionShrinkage, $MyComponent['decimalplaces']), 'right');
 				$PDF->addTextWrap(360, $YPos, 30, $FontSize, $MyComponent['units'], 'left');
 
-				$YPos -= $line_height;
+				$YPos-= $line_height;
 
 				if ($YPos < $Bottom_Margin + $line_height) {
 					PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $WO, $Stockid, $myItem['description'], $QtyPending, $myItem['units'], $myItem['decimalplaces'], $ReportDate);
 				}
 			}
 		}
-		$YPos -= $line_height;
+		$YPos-= $line_height;
 
 		// Production Notes
 		$PDF->addTextWrap($Xpos, $YPos - 50, 100, $FontSize, _('Incidences / Production Notes') . ' :', 'left');
-		$YPos -= (8 * $line_height);
+		$YPos-= (8 * $line_height);
 		PrintFooterSlip($PDF, _('Components Ready By'), _('Item Produced By'), _('Quality Control By'), $YPos, $FontSize, false);
-
 
 		if ($YPos < $Bottom_Margin + $line_height) {
 			PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_Margin, $Page_Width, $Right_Margin, $WO, $Stockid, $myItem['description'], $QtyPending, $myItem['units'], $myItem['decimalplaces'], $ReportDate);
@@ -118,11 +116,11 @@ if (isset($WO) and isset($StockId) and $WO != '') {
 		$PDF->__destruct();
 	} else {
 		$Title = _('WO Item production Slip');
-		include('includes/header.php');
+		include ('includes/header.php');
 		prnMsg(_('There were no items with ready to produce'), 'info');
 		prnMsg($SQL);
 		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 
 	}
@@ -140,26 +138,25 @@ function PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_
 	$PDF->addTextWrap($Left_Margin, $YPos, 300, $FontSize, $_SESSION['CompanyRecord']['coyname']);
 	$PDF->addTextWrap(190, $YPos, 100, $FontSize, $ReportDate);
 	$PDF->addTextWrap($Page_Width - $Right_Margin - 150, $YPos, 160, $FontSize, _('Printed') . ': ' . Date($_SESSION['DefaultDateFormat']) . '   ' . _('Page') . ' ' . $PageNumber, 'left');
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Work Order Item Production Slip'));
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('WO') . ': ' . $WO);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 500, $FontSize, _('Item Code') . ': ' . $StockId . ' --> ' . $Description);
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PDF->addTextWrap($Left_Margin, $YPos, 150, $FontSize, _('Quantity') . ': ' . locale_number_format($Qty, $DecimalPlaces) . ' ' . $UOM);
-	$YPos -= (2 * $line_height);
+	$YPos-= (2 * $line_height);
 
 	if (file_exists($_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg')) {
 		$PDF->Image($_SESSION['part_pics_dir'] . '/' . $StockId . '.jpg', 135, $Page_Height - $Top_Margin - $YPos + 10, 200, 200);
-		$YPos -= (16 * $line_height);
+		$YPos-= (16 * $line_height);
 	}
 	/*end checked file exist*/
-
 
 	/*set up the headings */
 	$Xpos = $Left_Margin + 1;
@@ -170,7 +167,7 @@ function PrintHeader($PDF, $YPos, $PageNumber, $Page_Height, $Top_Margin, $Left_
 	$PDF->addTextWrap(310, $YPos, 50, $FontSize, _('Shrinkage'), 'right');
 
 	$FontSize = 10;
-	$YPos -= $line_height;
+	$YPos-= $line_height;
 
 	$PageNumber++;
 }

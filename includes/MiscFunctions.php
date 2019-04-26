@@ -132,7 +132,12 @@ function GetECBCurrencyRates() {
 	 for detail of the European Central Bank rates - published daily */
 	if (http_file_exists('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml')) {
 		$xml = file_get_contents('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml');
-		$parser = xml_parser_create();
+		try {
+			$parser = xml_parser_create();
+		}
+		catch(Exception $e) {
+			exit;
+		}
 		xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
 		xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
 		xml_parse_into_struct($parser, $xml, $tags);
@@ -489,7 +494,7 @@ function ChangeFieldInTable($TableName, $FieldName, $OldValue, $NewValue) {
 function ShowStockTypes($StockType) {
 	$SQL = "SELECT type, name FROM stocktypes";
 	$Result = DB_query($SQL);
-    echo '<td>
+	echo '<td>
 			<select name="StockType" onChange="ReloadForm(UpdateItems)" >';
 	echo '<option value=""></option>';
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -583,18 +588,21 @@ function ReportPeriodList($Choice, $Options = array('t', 'l', 'n')) {
 
 	if (in_array('t', $Options)) {
 		$Periods[] = _('This Month');
+		$Periods[] = _('This Quarter');
 		$Periods[] = _('This Year');
 		$Periods[] = _('This Financial Year');
 	}
 
 	if (in_array('l', $Options)) {
 		$Periods[] = _('Last Month');
+		$Periods[] = _('Last Quarter');
 		$Periods[] = _('Last Year');
 		$Periods[] = _('Last Financial Year');
 	}
 
 	if (in_array('n', $Options)) {
 		$Periods[] = _('Next Month');
+		$Periods[] = _('Next Quarter');
 		$Periods[] = _('Next Year');
 		$Periods[] = _('Next Financial Year');
 	}
@@ -623,8 +631,14 @@ function ReportPeriod($PeriodName, $FromOrTo) {
 	$ThisMonth = date('m');
 	$ThisYear = date('Y');
 	$LastMonth = $ThisMonth - 1;
+	if ($LastMonth == 0) {
+		$LastMonth = 12;
+	}
 	$LastYear = $ThisYear - 1;
 	$NextMonth = $ThisMonth + 1;
+	if ($NextMonth == 13) {
+		$NextMonth = 1;
+	}
 	$NextYear = $ThisYear + 1;
 	// Find total number of days in this month:
 	$TotalDays = cal_days_in_month(CAL_GREGORIAN, $ThisMonth, $ThisYear);
@@ -722,6 +736,20 @@ function ReportPeriod($PeriodName, $FromOrTo) {
 	}
 
 	return $Period;
+}
+
+function FYStartPeriod($PeriodNumber) {
+	$SQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNumber . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	$DateArray = explode('-', $MyRow['lastdate_in_period']);
+	if ($DateArray[1] > $_SESSION['YearEnd']) {
+		$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, $DateArray[0]));
+	} else {
+		$DateStart = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, $DateArray[0] - 1));
+	}
+	$StartPeriod = GetPeriod($DateStart);
+	return $StartPeriod;
 }
 
 ?>

@@ -1,7 +1,9 @@
 <?php
+/* Currencies.php */
+/* Defines the currencies available. Each customer and supplier must be defined as transacting in one of the currencies defined here. */
 include ('includes/session.php');
 $Title = _('Currencies Maintenance');
-$ViewTopic = 'Currencies';
+$ViewTopic = 'Setup';
 $BookMark = 'Currencies';
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
@@ -292,9 +294,9 @@ if (!isset($SelectedCurrency)) {
 	echo '<thead>
 			<tr>
 				<td></td>
+				<th class="SortedColumn">', _('Country'), '</th>
 				<th class="SortedColumn">', _('ISO4217 Code'), '</th>
 				<th class="SortedColumn">', _('Currency Name'), '</th>
-				<th class="SortedColumn">', _('Country'), '</th>
 				<th>', _('Hundredths Name'), '</th>
 				<th>', _('Currency Symbol'), '</th>
 				<th>', _('Symbol before Amount'), '</th>
@@ -335,9 +337,9 @@ if (!isset($SelectedCurrency)) {
 		if ($MyRow['currabrev'] != $FunctionalCurrency) {
 			echo '<tr class="striped_row">
 					<td><img src="', $ImageFile, '" alt="" /></td>
+					<td>', $MyRow['country'], '</td>
 					<td>', $MyRow['currabrev'], '</td>
 					<td>', _($MyRow['currency']), '</td>
-					<td>', $MyRow['country'], '</td>
 					<td>', $MyRow['hundredsname'], '</td>
 					<td>', $MyRow['symbol'], '</td>
 					<td>', $MyRow['symbolbefore'], '</td>
@@ -353,9 +355,9 @@ if (!isset($SelectedCurrency)) {
 		} else {
 			echo '<tr class="success_row">
 					<td><img src="', $ImageFile, '" alt="" /></td>
+					<td>', $MyRow['country'], '</td>
 					<td>', $MyRow['currabrev'], '</td>
 					<td>', $MyRow['currency'], '</td>
-					<td>', $MyRow['country'], '</td>
 					<td>', $MyRow['hundredsname'], '</td>
 					<td>', $MyRow['symbol'], '</td>
 					<td>', $MyRow['symbolbefore'], '</td>

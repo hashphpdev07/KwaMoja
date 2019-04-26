@@ -17,6 +17,11 @@ if (isset($_GET['SelectedSalesPerson'])) {
 	$SelectedSalesPerson = mb_strtoupper($_POST['SelectedSalesPerson']);
 }
 
+$CommissionPeriods[0] = _('No Commission');
+$CommissionPeriods[1] = _('Monthly');
+$CommissionPeriods[2] = _('Quarterly');
+$CommissionPeriods[3] = _('Annually');
+
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
@@ -46,12 +51,6 @@ if (isset($_POST['submit'])) {
 	} elseif (mb_strlen($_POST['SManFax']) > 20) {
 		$InputError = 1;
 		prnMsg(_('The salesperson telephone number must be twenty characters or less long'), 'error');
-	} elseif (!is_numeric(filter_number_format($_POST['CommissionRate1'])) or !is_numeric(filter_number_format($_POST['CommissionRate2']))) {
-		$InputError = 1;
-		prnMsg(_('The commission rates must be a floating point number'), 'error');
-	} elseif (!is_numeric(filter_number_format($_POST['Breakpoint']))) {
-		$InputError = 1;
-		prnMsg(_('The breakpoint should be a floating point number'), 'error');
 	}
 
 	if (isset($SelectedSalesPerson) and $InputError != 1) {
@@ -60,13 +59,13 @@ if (isset($_POST['submit'])) {
 
 		$SQL = "UPDATE salesman SET salesmanname='" . $_POST['SalesmanName'] . "',
 									salesarea='" . $_POST['SalesArea'] . "',
-									commissionrate1='" . filter_number_format($_POST['CommissionRate1']) . "',
 									smantel='" . $_POST['SManTel'] . "',
 									smanfax='" . $_POST['SManFax'] . "',
-									breakpoint='" . filter_number_format($_POST['Breakpoint']) . "',
-									commissionrate2='" . filter_number_format($_POST['CommissionRate2']) . "',
 									manager='" . $_POST['Manager'] . "',
-									current='" . $_POST['Current'] . "'
+									current='" . $_POST['Current'] . "',
+									commissionperiod='" . $_POST['CommissionPeriod'] . "',
+									commissiontypeid='" . $_POST['CommissionTypeID'] . "',
+									glaccount='" . $_POST['GLAccount'] . "'
 								WHERE salesmancode = '" . stripslashes($SelectedSalesPerson) . "'";
 
 		$Msg = _('Salesperson record for') . ' ' . stripslashes($_POST['SalesmanName']) . ' ' . _('has been updated');
@@ -78,22 +77,22 @@ if (isset($_POST['submit'])) {
 						salesmanname,
 						salesarea,
 						manager,
-						commissionrate1,
-						commissionrate2,
-						breakpoint,
 						smantel,
 						smanfax,
-						current)
+						current,
+						commissionperiod,
+						commissiontypeid,
+						glaccount)
 				VALUES ('" . $_POST['SalesmanCode'] . "',
 						'" . $_POST['SalesmanName'] . "',
 						'" . $_POST['SalesArea'] . "',
 						'" . $_POST['Manager'] . "',
-						'" . filter_number_format($_POST['CommissionRate1']) . "',
-						'" . filter_number_format($_POST['CommissionRate2']) . "',
-						'" . filter_number_format($_POST['Breakpoint']) . "',
 						'" . $_POST['SManTel'] . "',
 						'" . $_POST['SManFax'] . "',
-						'" . $_POST['Current'] . "'
+						'" . $_POST['Current'] . "',
+						'" . $_POST['CommissionPeriod'] . "',
+						'" . $_POST['CommissionTypeID'] . "',
+						'" . $_POST['GLAccount'] . "'
 					)";
 
 		$Msg = _('A new salesperson record has been added for') . ' ' . stripslashes($_POST['SalesmanName']);
@@ -120,12 +119,12 @@ if (isset($_POST['submit'])) {
 		unset($_POST['SalesmanName']);
 		unset($_POST['SalesArea']);
 		unset($_POST['Manager']);
-		unset($_POST['CommissionRate1']);
-		unset($_POST['CommissionRate2']);
-		unset($_POST['Breakpoint']);
 		unset($_POST['SManFax']);
 		unset($_POST['SManTel']);
 		unset($_POST['Current']);
+		unset($_POST['CommissionPeriod']);
+		unset($_POST['CommissionTypeID']);
+		unset($_POST['GLAccount']);
 	}
 
 } elseif (isset($_GET['delete'])) {
@@ -177,10 +176,10 @@ if (!isset($SelectedSalesPerson)) {
 				manager,
 				smantel,
 				smanfax,
-				commissionrate1,
-				breakpoint,
-				commissionrate2,
-				current
+				current,
+				commissionperiod,
+				commissiontypeid,
+				glaccount
 			FROM salesman";
 	$Result = DB_query($SQL);
 
@@ -193,11 +192,13 @@ if (!isset($SelectedSalesPerson)) {
 					<th class="SortedColumn">' . _('Manager'), '</th>
 					<th>', _('Telephone'), '</th>
 					<th>', _('Facsimile'), '</th>
-					<th>', _('Comm Rate 1'), '</th>
-					<th>', _('Break'), '</th>
-					<th>', _('Comm Rate 2'), '</th>
 					<th class="SortedColumn">', _('Current'), '</th>
-					<th colspan="2"></th>
+					<th class="SortedColumn">', _('Commission Period'), '</th>
+					<th class="SortedColumn">', _('Commission Calculation Method'), '</th>
+					<th class="SortedColumn">', _('GL Account'), '</th>
+					<th></th>
+					<th></th>
+					<th></th>
 				</tr>
 			</thead>';
 	$k = 0;
@@ -217,6 +218,21 @@ if (!isset($SelectedSalesPerson)) {
 		$AreaResult = DB_query($SQL);
 		$AreaRow = DB_fetch_array($AreaResult);
 
+		if ($MyRow['commissiontypeid'] == 0) {
+			$TypeRow['commissiontypename'] = _('No Commission');
+		} else {
+			$SQL = "SELECT commissiontypename FROM salescommissiontypes WHERE commissiontypeid='" . $MyRow['commissiontypeid'] . "'";
+			$TypeResult = DB_query($SQL);
+			$TypeRow = DB_fetch_array($TypeResult);
+		}
+
+		$SQL = "SELECT accountname
+					FROM chartmaster
+					WHERE language='" . $_SESSION['ChartLanguage'] . "'
+						AND accountcode='" . $MyRow['glaccount'] . "'";
+		$GLResult = DB_query($SQL);
+		$GLRow = DB_fetch_array($GLResult);
+
 		echo '<tr class="striped_row">
 				<td>', $MyRow['salesmancode'], '</td>
 				<td>', $MyRow['salesmanname'], '</td>
@@ -224,11 +240,12 @@ if (!isset($SelectedSalesPerson)) {
 				<td>', $ManagerText, '</td>
 				<td>', $MyRow['smantel'], '</td>
 				<td>', $MyRow['smanfax'], '</td>
-				<td class="number">', locale_number_format($MyRow['commissionrate1'], 2), '</td>
-				<td class="number">', locale_number_format($MyRow['breakpoint'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
-				<td class="number">', locale_number_format($MyRow['commissionrate2'], 2), '</td>
 				<td>', $ActiveText, '</td>
+				<td>', $CommissionPeriods[$MyRow['commissionperiod']], '</td>
+				<td>', $MyRow['commissiontypeid'], ' - ', $TypeRow['commissiontypename'], '</td>
+				<td>', $MyRow['glaccount'], ' - ', $GLRow['accountname'], '</td>
 				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedSalesPerson=', urlencode($MyRow['salesmancode']), '">', _('Edit'), '</a></td>
+				<td><a href="', $RootPath, '/SalesCommissionRates.php?SelectedSalesPerson=', urlencode($MyRow['salesmancode']), '">', _('Edit Commission Rates'), '</a></td>
 				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedSalesPerson=', urlencode($MyRow['salesmancode']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this sales person?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 
@@ -252,10 +269,10 @@ if (isset($SelectedSalesPerson)) {
 					manager,
 					smantel,
 					smanfax,
-					commissionrate1,
-					breakpoint,
-					commissionrate2,
-					current
+					current,
+					commissionperiod,
+					commissiontypeid,
+					glaccount
 				FROM salesman
 				WHERE salesmancode='" . $SelectedSalesPerson . "'";
 
@@ -268,10 +285,10 @@ if (isset($SelectedSalesPerson)) {
 	$_POST['Manager'] = $MyRow['manager'];
 	$_POST['SManTel'] = $MyRow['smantel'];
 	$_POST['SManFax'] = $MyRow['smanfax'];
-	$_POST['CommissionRate1'] = locale_number_format($MyRow['commissionrate1'], 'Variable');
-	$_POST['Breakpoint'] = locale_number_format($MyRow['breakpoint'], $_SESSION['CompanyRecord']['decimalplaces']);
-	$_POST['CommissionRate2'] = locale_number_format($MyRow['commissionrate2'], 'Variable');
 	$_POST['Current'] = $MyRow['current'];
+	$_POST['CommissionPeriod'] = $MyRow['commissionperiod'];
+	$_POST['CommissionTypeID'] = $MyRow['commissiontypeid'];
+	$_POST['GLAccount'] = $MyRow['glaccount'];
 
 	echo '<input type="hidden" name="SelectedSalesPerson" value="' . $SelectedSalesPerson . '" />';
 	echo '<input type="hidden" name="SalesmanCode" value="' . $_POST['SalesmanCode'] . '" />';
@@ -287,11 +304,11 @@ if (isset($SelectedSalesPerson)) {
 	$_POST['SalesArea'] = '';
 	$_POST['SManTel'] = '';
 	$_POST['SManFax'] = '';
-	$_POST['CommissionRate1'] = 0;
-	$_POST['Breakpoint'] = 0;
-	$_POST['CommissionRate2'] = 0;
 	$_POST['Manager'] = 0;
 	$_POST['Current'] = 1;
+	$_POST['CommissionPeriod'] = 0;
+	$_POST['CommissionTypeID'] = 0;
+	$_POST['GLAccount'] = 0;
 
 	echo '<fieldset>
 				<legend>', _('Create a new sales person record'), '</legend>
@@ -336,21 +353,6 @@ echo '<field>
 		<input type="tel" name="SManFax" size="20" maxlength="20" value="', $_POST['SManFax'], '" />
 		<fieldhelp>', _('Contact fax number for this sales person.'), '</fieldhelp>
 	</field>';
-echo '<field>
-		<label for="CommissionRate1">', _('Commission Rate 1'), ':</label>
-		<input type="text" class="number" name="CommissionRate1" size="5" required="required" maxlength="5" value="', $_POST['CommissionRate1'], '" />
-		<fieldhelp>', _('The initial rate of commission applied to sales for this sales person.'), '</fieldhelp>
-	</field>';
-echo '<field>
-		<label for="Breakpoint">', _('Breakpoint'), ':</label>
-		<input type="text" class="number" name="Breakpoint" size="6" maxlength="6" value="', $_POST['Breakpoint'], '" />
-		<fieldhelp>', _('A breakpoint after which the commission rate goes up.'), '</fieldhelp>
-	</field>';
-echo '<field>
-		<label for="CommissionRate2">', _('Commission Rate 2'), ':</label>
-		<input type="text" class="number" name="CommissionRate2" size="5" required="required" maxlength="5" value="', $_POST['CommissionRate2'], '" />
-		<fieldhelp>', _('The new rate of commission applied to sales over the breakpoint limit for this sales person.'), '</fieldhelp>
-	</field>';
 
 echo '<field>
 		<label for="Manager">', _('Area Manager?'), ':</label>
@@ -384,6 +386,67 @@ if ($_POST['Current'] == 0) {
 }
 echo '</select>
 	<fieldhelp>', _('If this sales person is currently employed, select Yes, otherwise select No.'), '</fieldhelp>
+</field>';
+
+echo '<field>
+		<label for="CommissionPeriod">', _('Commission Period'), ':</label>
+		<select required="required" name="CommissionPeriod">';
+foreach ($CommissionPeriods as $Index => $PeriodName) {
+	if ($Index == $_POST['CommissionPeriod']) {
+		echo '<option selected="selected" value="', $Index, '">', $PeriodName, '</option>';
+	} else {
+		echo '<option value="', $Index, '" />', $PeriodName, '</option>';
+	}
+}
+echo '</select>
+	<fieldhelp>', _('Select the period over which this sales person has there commission calculated.'), '</fieldhelp>
+</field>';
+
+echo '<field>
+			<label for="CommissionTypeID">', _('Commission Calculation Method'), ':</label>
+			<select name="CommissionTypeID">';
+$SQL = "SELECT commissiontypeid, commissiontypename FROM salescommissiontypes ORDER BY commissiontypename";
+$ErrMsg = _('An error occurred in retrieving the sales commission types from the database');
+$DbgMsg = _('The SQL that was used to retrieve the commission type information and that failed in the process was');
+$CommissionTypeResult = DB_query($SQL, $ErrMsg, $DbgMsg);
+if (!isset($_POST['CommissionTypeID']) or $_POST['CommissionTypeID'] == 0) {
+	echo '<option selected="selected" value="0">', _('No Commission'), '</option>';
+} else {
+	echo '<option value="0">', _('No Commission'), '</option>';
+}
+while ($CommissionTypeRow = DB_fetch_array($CommissionTypeResult)) {
+	if ($_POST['CommissionTypeID'] == $CommissionTypeRow['commissiontypeid']) {
+		echo '<option selected="selected" value="', $CommissionTypeRow['commissiontypeid'], '">', $CommissionTypeRow['commissiontypename'], ' (', $CommissionTypeRow['commissiontypeid'], ')</option>';
+	} else {
+		echo '<option value="', $CommissionTypeRow['commissiontypeid'], '">', $CommissionTypeRow['commissiontypename'], ' (', $CommissionTypeRow['commissiontypeid'], ')</option>';
+	}
+}
+echo '</select>
+	<fieldhelp>', _('Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected.'), '</fieldhelp>
+</field>';
+
+$Result = DB_query("SELECT accountcode,
+						accountname
+					FROM chartmaster
+					INNER JOIN accountgroups
+						ON chartmaster.groupcode=accountgroups.groupcode
+						AND chartmaster.language=accountgroups.language
+					WHERE accountgroups.pandl=1
+						AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+					ORDER BY chartmaster.accountcode");
+echo '<field>
+		<label for="GLAccount">', _('GL Commission Account'), ':</label>
+		<select name="GLAccount">';
+
+while ($MyRow = DB_fetch_row($Result)) {
+	if ($_POST['GLAccount'] == $MyRow[0]) {
+		echo '<option selected="selected" value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
+	} else {
+		echo '<option value="', $MyRow[0], '">', htmlspecialchars($MyRow[1], ENT_QUOTES, 'UTF-8'), ' (', $MyRow[0], ')</option>';
+	}
+} //end while loop
+echo '</select>
+	<fieldhelp>', _('Select the general ledger account to post the sales commission for this sales person to.'), '</fieldhelp>
 </field>';
 
 echo '</fieldset>';

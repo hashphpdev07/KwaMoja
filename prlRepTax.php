@@ -1,4 +1,8 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 2;
+
 if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth'] >= 0 and isset($_POST['FSYear']) and $_POST['FSYear'] >= 0) {
 
 	include ('config.php');
@@ -18,7 +22,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 		$Title = _('Monthly Tax Return Listing') . ' - ' . _('Problem Report');
 		include ('includes/header.php');
 		prnMsg(_('Month not selected'), 'error');
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 		include ('includes/footer.php');
 		exit;
 	}
@@ -26,7 +30,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 		$Title = _('Monthly Tax Return Listing') . ' - ' . _('Problem Report');
 		include ('includes/header.php');
 		prnMsg(_('Year not selected'), 'error');
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+		echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 		include ('includes/footer.php');
 		exit;
 	}
@@ -42,7 +46,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 	$TaxTotal = 0;
 
 	include ('includes/PDFTaxPageHeader.php');
-	$SQL = "SELECT employeeid,taxstatusid
+	$SQL = "SELECT employeeid,taxactnumber,taxstatusid
 			FROM prlemployeemaster
 			WHERE prlemployeemaster.taxstatusid <>''";
 	$TaxDetails = DB_query($SQL);
@@ -105,17 +109,16 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 	$Title = _('Tax Monthly Return Listing');
 	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
-	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 	include ('includes/footer.php');
 	exit;
-} else {
-	/*The option to print PDF was not hit */
+} else { /*The option to print PDF was not hit */
 
 	include ('includes/session.php');
 	$Title = _('Tax Monthly Return Listing');
 	include ('includes/header.php');
 
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
+	echo "<form method='post' action='" . basename(__FILE__) . '?' . SID . "'>";
 	echo '<table>';
 	echo '</select></td></tr>';
 	echo '<tr><td><align="centert"><b>' . _('FS Month') . ":<select name='FSMonth'>";
@@ -140,11 +143,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['FSMonth']) and $_POST['FSMonth']
 	}
 	echo '</select></td></tr>';
 
-	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show SSS Premium') . "'>";
-	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
+	echo '</table><P><input type="submit" name="ShowPR" value="' . _('Show SSS Premium') . '">';
+	echo '<P><input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '">';
 
-	include ('includes/footer.php');
-}
-/*end of else not PrintPDF */
+	include ('includes/footer.php');;
+} /*end of else not PrintPDF */
 
 ?>

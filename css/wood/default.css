@@ -147,6 +147,11 @@ margin:5px auto;
 padding:5px;
 }
 
+.page_title_icon {
+padding-right:7px;
+width:32px;
+}
+
 p.good {
 font-weight:700;
 color:green;
@@ -373,7 +378,7 @@ margin-top:3px;
 }
 
 #QuickMenuDiv li {
-display:inline;
+display:inline-block;
 }
 
 #BodyDiv {
@@ -616,4 +621,10 @@ box-shadow:3px 3px 4px;
 width:80%;
 margin:0 auto 10px;
 padding:10px;
+}
+
+.gallery {
+margin: 5px;
+float: left;
+/* Class selector to let an element float to the left. */
 }

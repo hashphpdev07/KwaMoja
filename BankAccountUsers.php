@@ -101,10 +101,11 @@ if (!isset($SelectedBankAccount)) {
 
 	$SQL = "SELECT accountcode,
 					bankaccountname
-			FROM bankaccounts";
+			FROM bankaccounts
+			ORDER BY bankaccounts.bankaccountname";
 
 	$Result = DB_query($SQL);
-	echo '<option value="">' . _('Not Yet Selected') . '</option>';
+	echo '<option value="">', _('Not Yet Selected'), '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($SelectedBankAccount) and $MyRow['accountcode'] == $SelectedBankAccount) {
 			echo '<option selected="selected" value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' - ', $MyRow['bankaccountname'], '</option>';

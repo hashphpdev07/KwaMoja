@@ -242,7 +242,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 			}
 			if ($FromTransNo == 'Preview' or DB_num_rows($Result) > 0) {
 				$PageNumber = 1;
-				include ('includes/PDFTransPageHeader.inc');
+				include ('includes/PDFTransPageHeader.php');
 				$FirstPage = False;
 				$YPos = $Page_Height - $FormDesign->Data->y;
 				$Line = 1;
@@ -271,7 +271,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 								/* head up a new invoice/credit note page */
 								/* draw the vertical column lines right to the bottom */
 								PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign);
-								include ('includes/PDFTransPageHeaderPortrait.inc');
+								include ('includes/PDFTransPageHeaderPortrait.php');
 							} //end if need a new page headed up
 							/* increment a line down for the next line item */
 							if (strlen($lines[$i]) > 1) {
@@ -284,7 +284,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 						/* head up a new invoice/credit note page */
 						/*draw the vertical column lines right to the bottom */
 						PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign);
-						include ('includes/PDFTransPageHeader.inc');
+						include ('includes/PDFTransPageHeader.php');
 					} //end if need a new page headed up
 					$Line++;
 
@@ -296,7 +296,7 @@ if (isset($PrintPDF) or isset($_GET['PrintPDF']) and $PrintPDF and isset($FromTr
 			/* check to see enough space left to print the 4 lines for the totals/footer */
 			if (($YPos - $Bottom_Margin) < (2 * $line_height)) {
 				PrintLinesToBottom($PDF, $Page_Height, $PageNumber, $FormDesign);
-				include ('includes/PDFTransPageHeader.inc');
+				include ('includes/PDFTransPageHeader.php');
 			}
 			/* Print a column vertical line  with enough space for the footer */
 			/* draw the vertical column lines to 4 lines shy of the bottom to leave space for invoice footer info ie totals etc */
@@ -570,17 +570,17 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 				/*end of the main table showing the company name and charge to details */
 				if ($InvOrCredit == 'Invoice') {
 					echo '<table class="table1">
-				   			<tr>
-				   				<td align=left bgcolor="#BBBBBB"><b>' . _('Charge Branch') . ':</b></td>
+							<tr>
+								<td align=left bgcolor="#BBBBBB"><b>' . _('Charge Branch') . ':</b></td>
 								<td align=left bgcolor="#BBBBBB"><b>' . _('Delivered To') . ':</b></td>
 							</tr>';
 					echo '<tr>
-				   		<td bgcolor="#EEEEEE">' . $MyRow['brname'] . '<br />' . $MyRow['braddress1'] . '<br />' . $MyRow['braddress2'] . '<br />' . $MyRow['braddress3'] . '<br />' . $MyRow['braddress4'] . '<br />' . $MyRow['braddress5'] . '<br />' . $MyRow['braddress6'] . '</td>';
+						<td bgcolor="#EEEEEE">' . $MyRow['brname'] . '<br />' . $MyRow['braddress1'] . '<br />' . $MyRow['braddress2'] . '<br />' . $MyRow['braddress3'] . '<br />' . $MyRow['braddress4'] . '<br />' . $MyRow['braddress5'] . '<br />' . $MyRow['braddress6'] . '</td>';
 					echo '<td bgcolor="#EEEEEE">' . $MyRow['deliverto'] . '<br />' . $MyRow['deladd1'] . '<br />' . $MyRow['deladd2'] . '<br />' . $MyRow['deladd3'] . '<br />' . $MyRow['deladd4'] . '<br />' . $MyRow['deladd5'] . '<br />' . $MyRow['deladd6'] . '</td>';
 					echo '</tr>
-				   </table><hr>';
+					</table><hr>';
 					echo '<table class="table1">
-				   		<tr>
+						<tr>
 							<td align=left bgcolor="#BBBBBB"><b>' . _('Your Order Ref') . '</b></td>
 							<td align=left bgcolor="#BBBBBB"><b>' . _('Our Order No') . '</b></td>
 							<td align=left bgcolor="#BBBBBB"><b>' . _('Order Date') . '</b></td>
@@ -600,7 +600,7 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 						</tr>
 					</table>';
 					$SQL = "SELECT stockmoves.stockid,
-				   		stockmaster.description,
+						stockmaster.description,
 						-stockmoves.qty*stockmoves.conversionfactor as quantity,
 						stockmoves.discountpercent,
 						((1 - stockmoves.discountpercent) * stockmoves.price * " . $ExchRate . "* -stockmoves.qty) AS fxnet,
@@ -617,21 +617,21 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 				} else {
 					/* then its a credit note */
 					echo '<table width=50%><tr>
-				   		<td align=left bgcolor="#BBBBBB"><b>' . _('Branch') . ':</b></td>
+						<td align=left bgcolor="#BBBBBB"><b>' . _('Branch') . ':</b></td>
 						</tr>';
 					echo '<tr>
-				   		<td bgcolor="#EEEEEE">' . $MyRow['brname'] . '<br />' . $MyRow['braddress1'] . '<br />' . $MyRow['braddress2'] . '<br />' . $MyRow['braddress3'] . '<br />' . $MyRow['braddress4'] . '<br />' . $MyRow['braddress5'] . '<br />' . $MyRow['braddress6'] . '</td>
+						<td bgcolor="#EEEEEE">' . $MyRow['brname'] . '<br />' . $MyRow['braddress1'] . '<br />' . $MyRow['braddress2'] . '<br />' . $MyRow['braddress3'] . '<br />' . $MyRow['braddress4'] . '<br />' . $MyRow['braddress5'] . '<br />' . $MyRow['braddress6'] . '</td>
 					</tr></table>';
 					echo '<hr><table class="table1"><tr>
-				   		<td align=left bgcolor="#BBBBBB"><b>' . _('Date') . '</b></td>
+						<td align=left bgcolor="#BBBBBB"><b>' . _('Date') . '</b></td>
 						<td align=left bgcolor="#BBBBBB"><b>' . _('Sales Person') . '</font></b></td>
 					</tr>';
 					echo '<tr>
-				   		<td bgcolor="#EEEEEE">' . ConvertSQLDate($MyRow['trandate']) . '</td>
+						<td bgcolor="#EEEEEE">' . ConvertSQLDate($MyRow['trandate']) . '</td>
 						<td bgcolor="#EEEEEE">' . $MyRow['salesmanname'] . '</td>
 					</tr></table>';
 					$SQL = "SELECT stockmoves.stockid,
-				   		stockmaster.description,
+						stockmaster.description,
 						stockmoves.qty*stockmoves.conversionfactor as quantity,
 						stockmoves.discountpercent, ((1 - stockmoves.discountpercent) * stockmoves.price * " . $ExchRate . " * stockmoves.qty) AS fxnet,
 						(stockmoves.price * " . $ExchRate . ") AS fxprice,
@@ -667,14 +667,6 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 					$LineCounter = 17;
 					$k = 0; //row colour counter
 					while ($MyRow2 = DB_fetch_array($Result)) {
-						if ($k == 1) {
-							$RowStarter = '<tr class="EvenTableRows">';
-							$k = 0;
-						} else {
-							$RowStarter = '<tr class="OddTableRows">';
-							$k = 1;
-						}
-						echo $RowStarter;
 						$DisplayPrice = number_format($MyRow2['fxprice'], 2);
 						$DisplayQty = number_format($MyRow2['quantity'], 2);
 						$DisplayNet = number_format($MyRow2['fxnet'], 2);
@@ -683,16 +675,20 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 						} else {
 							$DisplayDiscount = number_format($MyRow2['discountpercent'] * 100, 2) . '%';
 						}
-						printf('<td>%s</td>
-					      		<td>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							<td class=number>%s</td>
-							</tr>', $MyRow2['stockid'], $MyRow2['description'], $DisplayQty, $MyRow2['units'], $DisplayPrice, $DisplayDiscount, $DisplayNet);
+						echo '<tr class="striped_row">
+								<td>', $MyRow2['stockid'], '</td>
+								<td>', $MyRow2['description'], '</td>
+								<td class=number>', $DisplayQty, '</td>
+								<td class=number>', $MyRow2['units'], '</td>
+								<td class=number>', $DisplayPrice, '</td>
+								<td class=number>', $DisplayDiscount, '</td>
+								<td class=number>', $DisplayNet, '</td>
+							</tr>';
 						if (strlen($MyRow2['narrative']) > 1) {
-							echo $RowStarter . '<td></td><td colspan=6>' . $MyRow2['narrative'] . '</td></tr>';
+							echo '<tr class="striped_row">
+									<td></td>
+									<td colspan=6>', $MyRow2['narrative'], '</td>
+								</tr>';
 							$LineCounter++;
 						}
 						$LineCounter++;
@@ -708,7 +704,7 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 							echo '</b>' . _('Number') . ' ' . $FromTransNo . '</font><br /><font size=1>' . _('GST Number') . ' - ' . $_SESSION['CompanyRecord']['gstno'] . '</td></tr></table>';
 							/*Now print out company name and address */
 							echo '<table class="table1"><tr>
-						    	<td><font size=4 color="#333333"><b>' . $_SESSION['CompanyRecord']['coyname'] . '</b></font><br />';
+								<td><font size=4 color="#333333"><b>' . $_SESSION['CompanyRecord']['coyname'] . '</b></font><br />';
 							echo $_SESSION['CompanyRecord']['regoffice1'] . '<br />';
 							echo $_SESSION['CompanyRecord']['regoffice2'] . '<br />';
 							echo $_SESSION['CompanyRecord']['regoffice3'] . '<br />';
@@ -720,7 +716,7 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 							echo _('Email') . ': ' . $_SESSION['CompanyRecord']['email'] . '<br />';
 							echo '</td><td class=number>' . _('Page') . ': ' . $PageNumber . '</td></tr></table>';
 							echo '<table class="table1"><tr>
-						    	<th>' . _('Item Code') . '</th>
+							<th>' . _('Item Code') . '</th>
 							<th>' . _('Item Description') . '</th>
 							<th>' . _('Quantity') . '</th>
 							<th>' . _('Unit') . '</th>
@@ -797,10 +793,10 @@ if (($InvOrCredit == 'Invoice' or $InvOrCredit == 'Credit') and isset($PrintPDF)
 					<td class=number bgcolor="#EEEEEE">' . $DisplayTax . '</td></tr>';
 				if ($InvOrCredit == 'Invoice') {
 					echo '<tr><td class=number><b>' . _('TOTAL INVOICE') . '</b></td>
-				     	<td class=number bgcolor="#EEEEEE"><U><b>' . $DisplayTotal . '</b></U></td></tr>';
+						<td class=number bgcolor="#EEEEEE"><U><b>' . $DisplayTotal . '</b></U></td></tr>';
 				} else {
 					echo '<tr><td class=number><font color=RED><b>' . _('TOTAL CREDIT') . '</b></font></td>
-				     		<td class=number bgcolor="#EEEEEE"><font color=RED><U><b>' . $DisplayTotal . '</b></U></font></td></tr>';
+							<td class=number bgcolor="#EEEEEE"><font color=RED><U><b>' . $DisplayTotal . '</b></U></font></td></tr>';
 				}
 				echo '</table>';
 			}

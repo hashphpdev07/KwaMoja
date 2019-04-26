@@ -288,39 +288,39 @@ if (!isset($_POST['ID'])) {
 
 echo '<tr>
 		<td>' . _('Company Name') . ':</td>
-		<td><input tabindex=2 type="text" name="Name" size="42" maxlength="40" value="' . $_POST['Name'] . '"></td>
+		<td><input type="text" name="Name" size="42" maxlength="40" value="' . $_POST['Name'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Telephone') . ':</td>
-		<td><input tabindex=2 type="tel" name="Phone" size="30" maxlength="40" value="' . $_POST['Phone'] . '"></td>
+		<td><input type="tel" name="Phone" size="30" maxlength="40" value="' . $_POST['Phone'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Facsimile') . ':</td>
-		<td><input tabindex=2 type="tel" name="Fax" size="30" maxlength="40" value="' . $_POST['Fax'] . '"></td>
+		<td><input type="tel" name="Fax" size="30" maxlength="40" value="' . $_POST['Fax'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Email Address') . ':</td>
-		<td><input tabindex=2 type="email" name="Email" size="30" maxlength="40" value="' . $_POST['Email'] . '"></td>
+		<td><input type="email" name="Email" size="30" maxlength="40" value="' . $_POST['Email'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Address Line 1') . ':</td>
-		<td><input tabindex=3 type="text" name="Address1" size="42" maxlength="40" value="' . $_POST['Address1'] . '"></td>
+		<td><input type="text" name="Address1" size="42" maxlength="40" value="' . $_POST['Address1'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Address Line 2') . ':</td>
-		<td><input tabindex=4 type="text" name="Address2" size="42" maxlength="40" value="' . $_POST['Address2'] . '"></td>
+		<td><input type="text" name="Address2" size="42" maxlength="40" value="' . $_POST['Address2'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Address Line 3') . ':</td>
-		<td><input tabindex=5 type="text" name="Address3" size="42" maxlength="40" value="' . $_POST['Address3'] . '"></td>
+		<td><input type="text" name="Address3" size="42" maxlength="40" value="' . $_POST['Address3'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Address Line 4') . ':</td>
-		<td><input tabindex=6 type="text" name="Address4" size="42" maxlength="40" value="' . $_POST['Address4'] . '"></td>
+		<td><input type="text" name="Address4" size="42" maxlength="40" value="' . $_POST['Address4'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Address Line 5') . ':</td>
-		<td><input tabindex=7 type="text" name="Address5" size="22" maxlength="20" value="' . $_POST['Address5'] . '"></td>
+		<td><input type="text" name="Address5" size="22" maxlength="20" value="' . $_POST['Address5'] . '"></td>
 	</tr>';
 echo '<tr>
 		<td>' . _('Country') . ':</td>
@@ -340,7 +340,7 @@ echo '</select>
 
 echo '<tr>
 		<td>' . _('Contact Name') . ':</td>
-		<td><input tabindex=7 type="text" name="ContactName" size="22" maxlength="30" value="' . $_POST['ContactName'] . '"></td>
+		<td><input type="text" name="ContactName" size="22" maxlength="30" value="' . $_POST['ContactName'] . '"></td>
 	</tr>';
 
 // Show Sales Type drop down list
@@ -355,7 +355,7 @@ if (DB_num_rows($TypeResult) == 0) {
 } else {
 	echo '<tr>
 			<td>' . _('Insurance Type') . ':</td>
-			<td><select tabindex="9" name="InsuranceType">';
+			<td><select name="InsuranceType">';
 	echo '<option value=""></option>';
 	while ($MyTypeRow = DB_fetch_array($TypeResult)) {
 		if (isset($_POST['InsuranceType']) and $_POST['InsuranceType'] == $MyTypeRow['typeid']) {
@@ -380,7 +380,7 @@ if (DB_num_rows($Result) == 0) {
 
 	echo '<tr>
 			<td>' . _('Payment Terms') . ':</td>
-			<td><select tabindex=15 name="PaymentTerms">';
+			<td><select name="PaymentTerms">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['termsindicator'] == $_POST['PaymentTerms']) {
@@ -439,7 +439,7 @@ if (DB_num_rows($Result) == 0) {
 	}
 	echo '<tr>
 			<td>' . _('Customer Currency') . ':</td>
-			<td><select tabindex=17 name="CurrCode">';
+			<td><select name="CurrCode">';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($_POST['CurrCode'] == $MyRow['currabrev']) {
 			echo '<option selected value=' . $MyRow['currabrev'] . '>' . $MyRow['currency'] . '</option>';

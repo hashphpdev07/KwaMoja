@@ -1,5 +1,4 @@
 <?php
-
 if (isset($Messages) and count($Messages) > 0) {
 	foreach ($Messages as $Message) {
 		$Prefix = '';
@@ -11,7 +10,7 @@ if (isset($Messages) and count($Messages) > 0) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
 				echo '<div name="error" class="' . $Class . ' noPrint"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
-				break;
+			break;
 			case 'warn':
 				$Class = 'warn';
 				$Prefix = $Prefix ? $Prefix : _('WARNING') . ' ' . _('Report');
@@ -19,7 +18,7 @@ if (isset($Messages) and count($Messages) > 0) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
 				echo '<br /><div name="warn" style="display:none;"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
-				break;
+			break;
 			case 'success':
 				$Class = 'success';
 				$Prefix = $Prefix ? $Prefix : _('SUCCESS') . ' ' . _('Report');
@@ -27,7 +26,7 @@ if (isset($Messages) and count($Messages) > 0) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
 				echo '<div name="success" style="display:none;"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
-				break;
+			break;
 			case 'info':
 			default:
 				$Prefix = $Prefix ? $Prefix : _('INFORMATION') . ' ' . _('Message');
@@ -37,6 +36,9 @@ if (isset($Messages) and count($Messages) > 0) {
 				}
 				echo '<div name="info" style="display:none;"><b>' . $Prefix . '</b> : ' . $Message[0] . '</div>';
 		}
+		echo '<div class="Message ', $Class, ' noPrint">
+				<span class="MessageCloseButton">&times;</span>
+				<b>', $Message[2], '</b> : ', $Message[0], '</div>';
 	}
 }
 

@@ -11,7 +11,7 @@ if (isset($_GET['SelectedTag'])) {
 		//first off test there are no transactions created with this tag
 		$Result = DB_query("SELECT counterindex
 							FROM gltags
-							WHERE tag='" . $_GET['SelectedTag'] . "'");
+							WHERE tagref='" . $_GET['SelectedTag'] . "'");
 		if (DB_num_rows($Result) > 0) {
 			prnMsg(_('This tag cannot be deleted since there are already general ledger transactions created using it.'), 'error');
 		} else {
@@ -49,23 +49,22 @@ if (isset($_POST['update'])) {
 	$Result = DB_query($SQL);
 	unset($_POST['Department']);
 }
-echo '<p class="page_title_text" >
-		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Print') . '" alt="' . $Title . '" />' . ' ' . $Title . '
+echo '<p class="page_title_text">
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Print'), '" alt="', $Title, '" />', $Title, '
 	</p>';
 
 echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" id="form">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<table summary="' . _('Description of tag') . '">
-		<tr>
-			<td>' . _('Description') . '</td>
-			<td><input type="text" size="30" autofocus="autofocus" required="required" maxlength="30" name="Description" value="' . $Description . '" /></td>
-			<td><input type="hidden" name="reference" value="' . $_GET['SelectedTag'] . '" /></td>
-		</tr>';
+echo '<input type="hidden" name="reference" value="', $_GET['SelectedTag'], '" />';
+echo '<fieldset>
+		<legend>', _('Enter details of tag'), '</legend>
+		<field>
+			<label for="Description">', _('Description'), '</label>
+			<input type="text" size="30" autofocus="autofocus" required="required" maxlength="30" name="Description" value="', $Description, '" />
+			<fieldhelp>', _('Enter description of the tag in up to 30 characters'), '</fieldhelp>
+		</field>';
 
 /* Department for tag */
-
-echo '<tr>
-		<td>' . _('Department') . ':</td>';
 
 $SQL = "SELECT departmentid,
 			description
@@ -73,41 +72,44 @@ $SQL = "SELECT departmentid,
 		ORDER BY description";
 
 $Result = DB_query($SQL);
-echo '<td>
-		<select name="Department">';
+
+echo '<field>
+		<label for="Department">', _('Department'), ':</label>';
+
+echo '<select name="Department">';
 if ((isset($_POST['Department']) and $_POST['Department'] == '0') or !isset($_POST['Department'])) {
-	echo '<option selected="selected" value="0">' . _('No Department') . '</option>';
+	echo '<option selected="selected" value="0">', _('No Department'), '</option>';
 } else {
-	echo '<option value="">' . _('No Department') . '</option>';
+	echo '<option value="">', _('No Department'), '</option>';
 }
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['Department']) and $MyRow['departmentid'] == $_POST['Department']) {
-		echo '<option selected="selected" value="' . $MyRow['departmentid'] . '">' . $MyRow['description'] . '</option>';
+		echo '<option selected="selected" value="', $MyRow['departmentid'], '">', $MyRow['description'], '</option>';
 	} else {
-		echo '<option value="' . $MyRow['departmentid'] . '">' . $MyRow['description'] . '</option>';
+		echo '<option value="', $MyRow['departmentid'], '">', $MyRow['description'], '</option>';
 	}
 }
 echo '</select>
-		</td>
-	</tr>';
+	<fieldhelp>', _('Select the department that this tag refers to, or if it can refer to any tag select "No Department"'), '</fieldhelp>
+</field>';
 
-echo '<tr>
-		<td colspan="2" class="centre">';
+echo '</fieldset>';
+
+echo '<div class="centre">';
 if (isset($_GET['Action']) and $_GET['Action'] == 'edit') {
 	echo '<input type="submit" name="update" value="' . _('Update') . '" />';
 } else {
 	echo '<input type="submit" name="submit" value="' . _('Insert') . '" />';
 }
-echo '</td>
-	</tr>';
-echo '</table>
-	</form>';
+echo '</div>';
 
-echo '<table summary="' . _('List of existing tags') . '">
+echo '</form>';
+
+echo '<table summary="', _('List of existing tags'), '">
 		<tr>
-			<th>' . _('Tag ID') . '</th>
-			<th>' . _('Department') . '</th>
-			<th>' . _('Description') . '</th>
+			<th>', _('Tag ID'), '</th>
+			<th>', _('Department'), '</th>
+			<th>', _('Description'), '</th>
 		</tr>';
 
 $SQL = "SELECT tagref,
@@ -125,12 +127,12 @@ while ($MyRow = DB_fetch_array($Result)) {
 	if ($MyRow['department'] == 0) {
 		$MyRow['description'] = _('No Department');
 	}
-	echo '<tr>
-			<td>' . $MyRow['tagref'] . '</td>
-			<td>' . $MyRow['description'] . '</td>
-			<td>' . $MyRow['tagdescription'] . '</td>
-			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTag=' . $MyRow['tagref'] . '&amp;Action=edit">' . _('Edit') . '</a></td>
-			<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedTag=' . $MyRow['tagref'] . '&amp;Action=delete" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this GL tag?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+	echo '<tr class="striped_row">
+			<td>', $MyRow['tagref'], '</td>
+			<td>', $MyRow['description'], '</td>
+			<td>', $MyRow['tagdescription'], '</td>
+			<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTag=', urlencode($MyRow['tagref']), '&amp;Action=edit">', _('Edit'), '</a></td>
+			<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedTag=', urlencode($MyRow['tagref']), '&amp;Action=delete" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this GL tag?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 		</tr>';
 }
 

@@ -4,7 +4,7 @@ include ('includes/SQL_CommonFunctions.php');
 include ('includes/DefinePOClass.php');
 
 if (!isset($_GET['OrderNo']) and !isset($_POST['OrderNo'])) {
-	$Title = _('Select a Purchase Order');
+	$Title = _('Select a purchase order');
 	include ('includes/header.php');
 	prnMsg(_('Select a Purchase Order Number to Print before calling this page'), 'error');
 	echo '<table class="table_index">

@@ -220,7 +220,7 @@ if (isset($_POST['submit'])) {
 
 		echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 		echo '<input type="hidden" name="OriginalAccountGroup" value="', $_GET['SelectedAccountGroup'], '" />';
-		echo '<fiieldset>';
+		echo '<fieldset>';
 		echo '<field>
 				<label for="DestinyAccountGroup">', _('Parent Group'), ':', '</label>
 				<select name="DestinyAccountGroup">';

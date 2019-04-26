@@ -1,4 +1,8 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 15;
+
 include ('includes/session.php');
 
 $Title = _('Overtime Section');
@@ -14,10 +18,6 @@ if (isset($_GET['OverTimeID'])) {
 	unset($OverTimeID);
 }
 
-?>
-<a href="prlUserSettings.php">Back to User Settings
-    </a>
-	<?php
 if (isset($_POST['submit'])) {
 
 	//initialise no input errors assumed initially before we test
@@ -35,10 +35,6 @@ if (isset($_POST['submit'])) {
 		$InputError = 1;
 		prnMsg(_('The overtime description may not be empty'), 'error');
 	}
-	if (is_numeric($_POST['OverTimeDesc'])) /* Check if the bank code is numeric */ {
-		prnMsg(_('Over Time Description must be Character'), 'error');
-		$InputError = 1;
-	}
 
 	if (strlen($OverTimeID) == 0) {
 		$InputError = 1;
@@ -47,11 +43,11 @@ if (isset($_POST['submit'])) {
 
 	if ($InputError != 1) {
 
-		if (!isset($_POST["New"])) {
+		if (!isset($_POST['New'])) {
 
 			$SQL = "UPDATE prlovertimetable SET overtimedesc='" . DB_escape_string($_POST['OverTimeDesc']) . "',
 							overtimerate='" . DB_escape_string($_POST['OverTimeRate']) . "'
-						WHERE OverTimeID = '$OverTimeID'";
+						WHERE overtimeid = '$OverTimeID'";
 
 			$ErrMsg = _('The overtime could not be updated because');
 			$DbgMsg = _('The SQL that was used to update the overtime but failed was');
@@ -59,11 +55,11 @@ if (isset($_POST['submit'])) {
 			prnMsg(_('The overtime master record for') . ' ' . $OverTimeID . ' ' . _('has been updated'), 'success');
 
 		} else { //its a new overtime
-			$SQL = "INSERT INTO prlovertimetable (OverTimeID,
+			$SQL = "INSERT INTO prlovertimetable (overtimeid,
 							overtimedesc,
 							overtimerate)
 					 VALUES ('$OverTimeID',
-					 	'" . DB_escape_string($_POST['OverTimeDesc']) . "',
+						'" . DB_escape_string($_POST['OverTimeDesc']) . "',
 						'" . DB_escape_string($_POST['OverTimeRate']) . "')";
 
 			$ErrMsg = _('The overtime') . ' ' . $_POST['OverTimeDesc'] . ' ' . _('could not be added because');
@@ -91,7 +87,7 @@ if (isset($_POST['submit'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
 	if ($CancelDelete == 0) {
-		$SQL = "DELETE FROM prlovertimetable WHERE OverTimeID='$OverTimeID'";
+		$SQL = "DELETE FROM prlovertimetable WHERE overtimeid='$OverTimeID'";
 		$Result = DB_query($SQL);
 		prnMsg(_('Overtime record for') . ' ' . $OverTimeID . ' ' . _('has been deleted'), 'success');
 		unset($OverTimeID);
@@ -104,48 +100,49 @@ if (!isset($OverTimeID)) {
 
 	/*If the page was called without $SupplierID passed to page then assume a new supplier is to be entered show a form with a Supplier Code field other wise the form showing the fields with the existing entries against the supplier will show for editing with only a hidden SupplierID field*/
 
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
 
-	echo '<input type="hidden" name="New" value="Yes">';
+	echo "<input type='hidden' name='New' value='Yes'>";
 
 	echo '<table>';
-	echo '<tr><td>' . _('Overtime Code') . ":</td><td><input type='text' name='OverTimeID' SIZE=5 MAXLENGTH=4></td></tr>";
-	echo '<tr><td>' . _('Pay Description') . ":</td><td><input type='text' name='OverTimeDesc' SIZE=41 MAXLENGTH=40></td></tr>";
-	echo '<tr><td>' . _('Overtime Rate') . ":</td><td><input type='text' name='OverTimeRate' SIZE=7 MAXLENGTH=6></td></tr>";
+	echo '<tr><td>' . _('Overtime Code') . ':</td><td><input type="text" name="OverTimeID" size=5 maxlength=4></td></tr>';
+	echo '<tr><td>' . _('Pay Description') . ':</td><td><input type="text" name="OverTimeDesc" size=41 maxlength=40></td></tr>';
+	echo '<tr><td>' . _('Overtime Rate') . ':</td><td><input type="text" name="OverTimeRate" size=7 maxlength=6></td></tr>';
 	//	echo '</select></td></tr>';
-	echo "</select></td></tr></table><p><input type='Submit' name='submit' value='" . _('Insert New Overtime') . "'>";
+	echo '</select></td></tr></table><p><input type="submit" name="submit" value="' . _('Insert New Overtime') . '">';
 	echo '</form>';
 
-	$SQL = "SELECT OverTimeID,
+	$SQL = "SELECT overtimeid,
 			overtimedesc,
 			overtimerate
 			FROM prlovertimetable
-			ORDER BY OverTimeID";
+			ORDER BY overtimeid";
 
 	$ErrMsg = _('Could not get overtime because');
 	$Result = DB_query($SQL, $ErrMsg);
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Overtime Code') . "</td>
-		<th>" . _('Overtime Description') . "</td>
-		<th>" . _('Overtime Rate') . "</td>
+		<td class='tableheader'>" . _('Overtime Code') . "</td>
+		<td class='tableheader'>" . _('Overtime Description') . "</td>
+		<td class='tableheader'>" . _('Overtime Rate') . "</td>
 	</tr>";
 
+	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 		echo '<td>' . $MyRow[0] . '</td>';
 		echo '<td>' . $MyRow[1] . '</td>';
 		echo '<td>' . $MyRow[2] . '</td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&OverTimeID=' . $MyRow[0] . '">' . _('Edit') . '</a></td>';
-		echo '<td><a href="' . basename(__FILE__) . '?&OverTimeID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</a></td>';
+		echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&OverTimeID=' . $MyRow[0] . '">' . _('Edit') . '</A></td>';
+		echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&OverTimeID=' . $MyRow[0] . '&delete=1">' . _('Delete') . '</A></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
@@ -153,39 +150,39 @@ if (!isset($OverTimeID)) {
 
 } else {
 	//OverTimeID exists - either passed when calling the form or from the form itself
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
 	echo '<table>';
 
-	//if (!isset($_POST["New"])) {
-	if (!isset($_POST["New"])) {
-		$SQL = "SELECT OverTimeID,
+	//if (!isset($_POST['New'])) {
+	if (!isset($_POST['New'])) {
+		$SQL = "SELECT overtimeid,
 				overtimedesc,
 				overtimerate
 			FROM prlovertimetable
-			WHERE OverTimeID = '$OverTimeID'";
+			WHERE overtimeid = '$OverTimeID'";
 
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
 		$_POST['OverTimeDesc'] = $MyRow['overtimedesc'];
 		$_POST['OverTimeRate'] = $MyRow['overtimerate'];
-		echo '<input type="hidden" name="OverTimeID" value="' . $OverTimeID . '">';
+		echo "<input type=HIDDEN name='OverTimeID' value='$OverTimeID'>";
 
 	} else {
 		// its a new overtime being added
-		echo '<input type="hidden" name="New" value="Yes">';
-		echo '<tr><td>' . _('Overtime Code') . ":</td><td><input type='text' name='OverTimeID' value='$OverTimeID' SIZE=5 MAXLENGTH=4></td></tr>";
+		echo "<input type=HIDDEN name='New' value='Yes'>";
+		echo '<tr><td>' . _('Overtime Code') . ':</td><td><input type="text" name="OverTimeID" value="', $OverTimeID, '" size=5 maxlength=4></td></tr>';
 	}
-	echo "<tr><td>" . _('Overtime Description') . ':' . "</td><td><input type='Text' name='OverTimeDesc' SIZE=41 MAXLENGTH=40 value='" . $_POST['OverTimeDesc'] . "'></td></tr>";
-	echo "<tr><td>" . _('Overtime Rate') . ':' . "</td><td><input type='Text' name='OverTimeRate' SIZE=4 MAXLENGTH=6 value='" . $_POST['OverTimeRate'] . "'></td></tr>";
+	echo "<tr><td>" . _('Overtime Description') . ':' . '</td><td><input type="text" name="OverTimeDesc" size=41 maxlength=40 value="' . $_POST['OverTimeDesc'] . '"></td></tr>';
+	echo "<tr><td>" . _('Overtime Rate') . ':' . '</td><td><input type="text" name="OverTimeRate" size=4 maxlength=6 value="' . $_POST['OverTimeRate'] . '"></td></tr>';
 	echo '</select></td></tr>';
 
-	if (isset($_POST["New"])) {
-		echo "</table><p><input type='Submit' name='submit' value='" . _('Add These New overtime Details') . "'></form>";
+	if (isset($_POST['New'])) {
+		echo '</table><P><input type="submit" name="submit" value="' . _('Add These New overtime Details') . '"></form>';
 	} else {
-		echo "</table><p><input type='Submit' name='submit' value='" . _('Update overtime') . "'>";
-		echo '<p><font color=red><b>' . _('WARNING') . ': ' . _('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure before the deletion is processed') . '<br /></FONT></B>';
-		echo '<input type="Submit" name="delete" value="' . _('Delete overtime') . '" onclick="return confirm("' . _('Are you sure you wish to delete this overtime?') . '"");\"></form>';
+		echo '</table><P><input type="submit" name="submit" value="' . _('Update overtime') . '">';
+		echo '<P><FONT COLOR=red><B>' . _('WARNING') . ': ' . _('There is no second warning if you hit the delete button below') . '. ' . _('However checks will be made to ensure before the deletion is processed') . '<BR></FONT></B>';
+		echo '<input type="submit" name="delete" value="' . _('Delete overtime') . '" onclick=\"return confirm("' . _('Are you sure you wish to delete this overtime?') . '");\"></form>';
 	}
 
 } // end of main ifs

@@ -1,12 +1,11 @@
 <?php
 /* $Revision: 1.0 $ */
 
-include('includes/session.php');
+$PageSecurity = 10;
+include ('includes/session.php');
 $Title = _('View Payroll Deductions');
 
-include('includes/header.php');
-
-
+include ('includes/header.php');
 
 if (isset($_GET['Counter'])) {
 	$Counter = $_GET['Counter'];
@@ -16,11 +15,8 @@ if (isset($_GET['Counter'])) {
 	unset($Counter);
 }
 
-
-
 if (isset($_GET['delete'])) {
 	//the link to delete a selected record was clicked instead of the submit button
-
 	$CancelDelete = 0;
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'SuppTrans' , PurchOrders, SupplierContacts
@@ -31,8 +27,8 @@ if (isset($_GET['delete'])) {
 		unset($Counter);
 		unset($_SESSION['Counter']);
 	} //end if Delete paypayperiod
+	
 }
-
 
 if (!isset($Counter)) {
 	$SQL = "SELECT  	prlloandeduction.counterindex,
@@ -55,33 +51,32 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Index') . "</td>
-		<th>" . _('Pay ID ') . "</td>
-		<th>" . _('Employee Name') . "</td>
-		<th>" . _('Loan Type') . "</td>
-		<th>" . _('Amount') . "</td>
+		<td class='tableheader'>" . _('Index') . "</td>
+		<td class='tableheader'>" . _('Pay ID ') . "</td>
+		<td class='tableheader'>" . _('Employee Name') . "</td>
+		<td class='tableheader'>" . _('Loan Type') . "</td>
+		<td class='tableheader'>" . _('Amount') . "</td>
 	</tr>";
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		//alternateTableRowColor($k);
 		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 		echo "<td>" . $MyRow["counterindex"] . "</td>
 				<td>" . $MyRow["payrollid"] . "</td>
 				<td>" . $MyRow["employeeid"] . " - " . $MyRow["lastname"] . ", " . $MyRow["firstname"] . "</td>
 				<td>" . $MyRow["loantableid"] . " - " . $MyRow["loantabledesc"] . "</td>
-    			<td>" . $MyRow["amount"] . "</td></tr>";
-
+				<td>" . $MyRow["amount"] . "</td></tr>";
 	} //END WHILE LIST LOOP
+	
 }
 echo '</table>';
 //end of ifs and buts!
-
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

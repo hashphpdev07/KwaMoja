@@ -1,13 +1,19 @@
 <?php
 include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 $Title = _('Departments');
 
 include ('includes/header.php');
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Departments') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Departments'), '" alt="" />', ' ', $Title, '
+	</p>';
 
-if (isset($_GET['SelectedDepartmentID'])) $SelectedDepartmentID = $_GET['SelectedDepartmentID'];
-elseif (isset($_POST['SelectedDepartmentID'])) $SelectedDepartmentID = $_POST['SelectedDepartmentID'];
+if (isset($_GET['SelectedDepartmentID'])) {
+	$SelectedDepartmentID = $_GET['SelectedDepartmentID'];
+} elseif (isset($_POST['SelectedDepartmentID'])) {
+	$SelectedDepartmentID = $_POST['SelectedDepartmentID'];
+}
 
 if (isset($_POST['Submit'])) {
 
@@ -23,6 +29,11 @@ if (isset($_POST['Submit'])) {
 		prnMsg(_('The Name of the Department should not be empty'), 'error');
 	}
 
+	if (RecordExists('departments', 'description', $_POST['DepartmentName']) and !isset($SelectedDepartmentID)) {
+		$InputError = 1;
+		prnMsg(_('A department with this name already exists. Please choose a new name'), 'error');
+	}
+
 	if (isset($_POST['SelectedDepartmentID']) and $_POST['SelectedDepartmentID'] != '' and $InputError != 1) {
 
 		/*SelectedDepartmentID could also exist if submit had not been clicked this code would not run in this case cos submit is false of course  see the delete code below*/
@@ -32,7 +43,7 @@ if (isset($_POST['Submit'])) {
 				AND description " . LIKE . " '" . $_POST['DepartmentName'] . "'";
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_row($Result);
-		if ($MyRow[0] > 0) {
+		if (RecordExists('departments', 'description', $_POST['DepartmentName'])) {
 			$InputError = 1;
 			prnMsg(_('This department name already exists.'), 'error');
 		} else {
@@ -48,7 +59,8 @@ if (isset($_POST['Submit'])) {
 				$SQL = array();
 				$SQL[] = "UPDATE departments
 							SET description='" . $_POST['DepartmentName'] . "',
-								authoriser='" . $_POST['Authoriser'] . "'
+								authoriser='" . $_POST['Authoriser'] . "',
+								medical='" . $_POST['Medical'] . "'
 							WHERE description " . LIKE . " '" . $OldDepartmentName . "'";
 			} else {
 				$InputError = 1;
@@ -67,9 +79,12 @@ if (isset($_POST['Submit'])) {
 			prnMsg(_('There is already a department with the specified name.'), 'error');
 		} else {
 			$SQL = "INSERT INTO departments (description,
-											 authoriser )
+											 authoriser,
+											 medical )
 					VALUES ('" . $_POST['DepartmentName'] . "',
-							'" . $_POST['Authoriser'] . "')";
+							'" . $_POST['Authoriser'] . "',
+							'" . $_POST['Medical'] . "'
+							)";
 		}
 		$Msg = _('The new department has been created');
 	}
@@ -142,7 +157,8 @@ if (!isset($SelectedDepartmentID)) {
 
 	$SQL = "SELECT departmentid,
 					description,
-					authoriser
+					authoriser,
+					medical
 			FROM departments
 			ORDER BY description";
 
@@ -151,17 +167,25 @@ if (!isset($SelectedDepartmentID)) {
 
 	echo '<table>
 			<tr>
-				<th>' . _('Department Name') . '</th>
-				<th>' . _('Authoriser') . '</th>
+				<th>', _('Department Name'), '</th>
+				<th>', _('Authoriser'), '</th>
+				<th>', _('Medical Departemnt'), '</th>
+				<th colspan="2"></th>
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 
+		if ($MyRow['medical'] == 0) {
+			$Medical = _('No');
+		} else {
+			$Medical = _('Yes');
+		}
 		echo '<tr class="striped_row">
-				<td>' . $MyRow['description'] . '</td>
-				<td>' . $MyRow['authoriser'] . '</td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedDepartmentID=' . urlencode($MyRow['departmentid']) . '&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this department?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+				<td>', $MyRow['description'], '</td>
+				<td>', $MyRow['authoriser'], '</td>
+				<td>', $Medical, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedDepartmentID=', urlencode($MyRow['departmentid']), '">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedDepartmentID=', urlencode($MyRow['departmentid']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this department?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
 
 	} //END WHILE LIST LOOP
@@ -171,14 +195,14 @@ if (!isset($SelectedDepartmentID)) {
 
 if (isset($SelectedDepartmentID)) {
 	echo '<div class="centre">
-			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('View all Departments') . '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('View all Departments'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedDepartmentID)) {
 		//editing an existing section
@@ -199,38 +223,59 @@ if (!isset($_GET['delete'])) {
 			$_POST['DepartmentName'] = $MyRow['description'];
 			$AuthoriserID = $MyRow['authoriser'];
 
-			echo '<input type="hidden" name="SelectedDepartmentID" value="' . $_POST['DepartmentID'] . '" />';
-			echo '<table>';
+			echo '<input type="hidden" name="SelectedDepartmentID" value="', $_POST['DepartmentID'], '" />';
+			echo '<fieldset>
+					<legend>', _('Edit details for department'), ' - ', $_POST['DepartmentName'], '  (', $_POST['DepartmentID'], ')</legend>';
 		}
 
 	} else {
 		$_POST['DepartmentName'] = '';
 		$AuthoriserID = '';
-		echo '<table>';
+		echo '<fieldset>
+				<legend>', _('Create new department'), '</legend>';
 	}
-	echo '<tr>
-			<td>' . _('Department Name') . ':' . '</td>
-			<td><input type="text" name="DepartmentName" size="50" required="required" maxlength="100" value="' . $_POST['DepartmentName'] . '" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Authoriser') . '</td>
-			<td><select name="Authoriser">';
+	echo '<field>
+			<label for="DepartmentName">', _('Department Name'), ':</label>
+			<input type="text" name="DepartmentName" size="50" required="required" autofocus="autofocus" maxlength="100" value="', $_POST['DepartmentName'], '" />
+			<fieldhelp>', _('The unique name by which this department is known'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="Authoriser">', _('Authoriser'), '</label>
+			<select name="Authoriser">';
 	$UserSQL = "SELECT userid FROM www_users";
 	$UserResult = DB_query($UserSQL);
 	while ($MyRow = DB_fetch_array($UserResult)) {
 		if ($MyRow['userid'] == $AuthoriserID) {
-			echo '<option selected="True" value="' . $MyRow['userid'] . '">' . $MyRow['userid'] . '</option>';
+			echo '<option selected="True" value="', $MyRow['userid'], '">', $MyRow['userid'], '</option>';
 		} else {
-			echo '<option value="' . $MyRow['userid'] . '">' . $MyRow['userid'] . '</option>';
+			echo '<option value="', $MyRow['userid'], '">', $MyRow['userid'], '</option>';
 		}
 	}
-	echo '</select></td>
-		</tr>
-		</table>
-		<div class="centre">
-			<input type="submit" name="Submit" value="' . _('Enter Information') . '" />
+	echo '</select>
+		<fieldhelp>', _('The user who has permission to authorise transactions for this department'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+			<label for="Medical">', _('Medical Department?'), '</label>
+			<select name="Medical">';
+	if ($_POST['Medical'] == 0) {
+		echo '<option selected="selected" value="0">', _('No'), '</option>';
+		echo '<option value="1">', _('Yes'), '</option>';
+	} else {
+		echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+		echo '<option value="0">', _('No'), '</option>';
+	}
+	echo '<select>
+		<fieldhelp>', _('If this department is a medical department then select "Yes" otherwise select "No"'), '</fieldhelp
+	<field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="Submit" value="', _('Enter Information'), '" />
 		</div>
-		</form>';
+	</form>';
 
 } //end if record deleted no point displaying form to add record
 include ('includes/footer.php');

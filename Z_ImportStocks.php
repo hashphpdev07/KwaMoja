@@ -1,8 +1,7 @@
 <?php
-
-include('includes/session.php');
+include ('includes/session.php');
 $Title = _('Import Items');
-include('includes/header.php');
+include ('includes/header.php');
 
 echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Import Stock Items from .csv') . '" />' . ' ' . _('Import Stock Items from .csv') . '</p>';
 
@@ -10,28 +9,26 @@ echo '<p class="page_title_text"><img alt="" src="' . $RootPath . '/css/' . $_SE
 // If this script is called with the gettemplate flag, then a template file is served
 // Otherwise, a file upload form is displayed
 // The CSV file must be saved in a format like the template in the import module I.E. "RECVALUE","RECVALUE2". The CSV file needs ANSI encoding for the import to work properly.
-
-$ItemDescriptionLanguagesArray = explode(',',$_SESSION['ItemDescriptionLanguages']);//WARNING: if the last character is a ",", there are n+1 languages.
-
-$FieldHeadings = array(
-	'StockID', //  0 'STOCKID',
-	'Description', //  1 'DESCRIPTION',
-	'LongDescription', //  2 'LONGDESCRIPTION',
-	'CategoryID', //  3 'CATEGORYID',
-	'Units', //  4 'UNITS',
-	'MBFlag', //  5 'MBFLAG',
-	'EOQ', //  6 'EOQ',
-	'Discontinued', //  7 'DISCONTINUED',
-	'Controlled', //  8 'CONTROLLED',
-	'Serialised', //  9 'SERIALISED',
-	'Perishable', // 10 'PERISHABLE',
-	'Volume', // 11 'VOLUME',
-	'GrossWeight', // 12 'KGS',
-	'BarCode', // 13 'BARCODE',
-	'DiscountCategory', // 14 'DISCOUNTCATEGORY',
-	'TaxCat', // 15 'TAXCAT',
-	'DecimalPlaces', // 16 'DECIMALPLACES',
-	'ItemPDF' // 17 'ITEMPDF'
+$ItemDescriptionLanguagesArray = explode(',', $_SESSION['ItemDescriptionLanguages']); //WARNING: if the last character is a ",", there are n+1 languages.
+$FieldHeadings = array('StockID', //  0 'STOCKID',
+'Description', //  1 'DESCRIPTION',
+'LongDescription', //  2 'LONGDESCRIPTION',
+'CategoryID', //  3 'CATEGORYID',
+'Units', //  4 'UNITS',
+'MBFlag', //  5 'MBFLAG',
+'EOQ', //  6 'EOQ',
+'Discontinued', //  7 'DISCONTINUED',
+'Controlled', //  8 'CONTROLLED',
+'Serialised', //  9 'SERIALISED',
+'Perishable', // 10 'PERISHABLE',
+'Volume', // 11 'VOLUME',
+'GrossWeight', // 12 'KGS',
+'BarCode', // 13 'BARCODE',
+'DiscountCategory', // 14 'DISCOUNTCATEGORY',
+'TaxCat', // 15 'TAXCAT',
+'DecimalPlaces', // 16 'DECIMALPLACES',
+'ItemPDF'
+// 17 'ITEMPDF'
 );
 
 if (count($ItemDescriptionLanguagesArray) > 1) {
@@ -43,25 +40,25 @@ if (count($ItemDescriptionLanguagesArray) > 1) {
 	}
 }
 
-$Defaults = array(
-	'', //  0 'STOCKID',
-	'', //  1 'DESCRIPTION',
-	'', //  2 'LONGDESCRIPTION',
-	'', //  3 'CATEGORYID',
-	'each', //  4 'UNITS',
-	'B', //  5 'MBFLAG',
-	'0', //  6 'EOQ',
-	'0', //  7 'DISCONTINUED',
-	'0', //  8 'CONTROLLED',
-	'0', //  9 'SERIALISED',
-	'0', // 10 'PERISHABLE',
-	'0', // 11 'VOLUME',
-	'0', // 12 'KGS',
-	'', // 13 'BARCODE',
-	'', // 14 'DISCOUNTCATEGORY',
-	'1', // 15 'TAXCAT',
-	'0', // 16 'DECIMALPLACES',
-	'none' // 17 'ITEMPDF'
+$Defaults = array('', //  0 'STOCKID',
+'', //  1 'DESCRIPTION',
+'', //  2 'LONGDESCRIPTION',
+'', //  3 'CATEGORYID',
+'each', //  4 'UNITS',
+'B', //  5 'MBFLAG',
+'0', //  6 'EOQ',
+'0', //  7 'DISCONTINUED',
+'0', //  8 'CONTROLLED',
+'0', //  9 'SERIALISED',
+'0', // 10 'PERISHABLE',
+'0', // 11 'VOLUME',
+'0', // 12 'KGS',
+'', // 13 'BARCODE',
+'', // 14 'DISCOUNTCATEGORY',
+'1', // 15 'TAXCAT',
+'0', // 16 'DECIMALPLACES',
+'none'
+// 17 'ITEMPDF'
 );
 
 if (count($ItemDescriptionLanguagesArray) > 1) {
@@ -74,7 +71,6 @@ if (count($ItemDescriptionLanguagesArray) > 1) {
 }
 
 if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file processing
-
 	//initialize
 	$FieldTarget = 16 + (count($ItemDescriptionLanguagesArray) * 2);
 	$InputError = 0;
@@ -88,13 +84,12 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	$FileHandle = fopen($TempName, 'r');
 
 	//get the header row
-	$HeadRow = fgetcsv($FileHandle, 10000, ",",'"');  // Modified to handle " "" " enclosed csv - useful if you need to include commas in your text descriptions
-
+	$HeadRow = fgetcsv($FileHandle, 10000, ",", '"'); // Modified to handle " "" " enclosed csv - useful if you need to include commas in your text descriptions
 	//check for correct number of fields
 	if (count($HeadRow) != count($FieldHeadings)) {
 		prnMsg(_('File contains ' . count($HeadRow) . ' columns, expected ' . count($FieldHeadings) . '. Try downloading a new template.'), 'error');
 		fclose($FileHandle);
-		include('includes/footer.php');
+		include ('includes/footer.php');
 		exit;
 	}
 
@@ -104,7 +99,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		if (mb_strtoupper($HeadField) != mb_strtoupper($FieldHeadings[$head])) {
 			prnMsg(_('File contains incorrect headers (' . mb_strtoupper($HeadField) . ' != ' . mb_strtoupper($FieldHeadings[$head]) . '. Try downloading a new template.'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 		$head++;
@@ -115,9 +110,9 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 	//loop through file rows
 	$row = 1;
-	while (($MyRow = fgetcsv($FileHandle, 10000, ",")) !== FALSE) {
+	while (($MyRow = fgetcsv($FileHandle, 10000, ",")) !== false) {
 		$NumberOfFields = sizeOf($MyRow);
-		for ($i = 0; $i < $NumberOfFields; $i++) {
+		for ($i = 0;$i < $NumberOfFields;$i++) {
 			if ($MyRow[$i] == '') {
 				$MyRow[$i] = $Defaults[$i];
 			}
@@ -128,13 +123,13 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 		if ($FieldCount != $FieldTarget) {
 			prnMsg(_($FieldTarget . ' fields required, ' . $FieldCount . ' fields received'), 'error');
 			fclose($FileHandle);
-			include('includes/footer.php');
+			include ('includes/footer.php');
 			exit;
 		}
 
 		// cleanup the data (csv files often import with empty strings and such)
 		$StockId = mb_strtoupper($MyRow[0]);
-		foreach ($MyRow as &$Value) {
+		foreach ($MyRow as & $Value) {
 			$Value = trim($Value);
 		}
 
@@ -247,8 +242,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 											barcode,
 											discountcategory,
 											taxcatid,
-											decimalplaces,
-											appendfile
+											decimalplaces
 										) VALUES (
 											'" . $StockId . "',
 											'" . $MyRow[1] . "',
@@ -266,8 +260,7 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 											'" . $MyRow[13] . "',
 											'" . $MyRow[14] . "',
 											" . $MyRow[15] . ",
-											" . $MyRow[16] . ",
-											'" . $MyRow[17] . "'
+											" . $MyRow[16] . "'" . $MyRow[17] . "'
 										)";
 
 			$ErrMsg = _('The item could not be added because');
@@ -287,7 +280,6 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 			}
 
 			if (DB_error_no() == 0) { //the insert of the new code worked so bang in the stock location records too
-
 				$SQL = "INSERT INTO locstock (loccode,
 												stockid)
 									SELECT locations.loccode,
@@ -331,11 +323,9 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	fclose($FileHandle);
 
 } elseif (isset($_POST['gettemplate']) or isset($_GET['gettemplate'])) { //download an import template
-
 	echo '<br /><br /><br />"' . implode('","', $FieldHeadings) . '"<br /><br /><br />';
 
 } else { //show file upload form
-
 	echo '
 		<br />
 		<a href="Z_ImportStocks.php?gettemplate=1">Get Import Template</a>
@@ -352,5 +342,5 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 
 }
 
-include('includes/footer.php');
+include ('includes/footer.php');
 ?>

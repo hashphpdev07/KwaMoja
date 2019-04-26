@@ -22,21 +22,21 @@
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
-<h3>session.inc</h3>
+<h3>session.php</h3>
 <p>This page must be included and has the following functons:</p>
 <ul>
 	<li>Establishes a session if none already exists and checks that an authorised user is logged in - if so it checks that the user is authorised for the specific page being called, based on the value of $PageSecurity.</li>
 	<li>It in turn includes the scripts:</li>
 	<li>config.php - this script contains the details required to connect to the datbase.</li>
 	<li>The GetConfig.php script ensures that all system variables defined and stored in the database are retrieved and available to the system as SESSION variables. The GetConfig.php reads the companies table in the database that contains just a single company record. It also reads the config table in the database - which contains all the system configuration parameters - these are stored in session variables to avoid round trips to the database with every page. The developer needs to study these parameters which are explained in the SystemParameters.php page from Setup --&gt; Configuration Settings</li>
-	<li>ConnectDB.inc - this script (which in turn include includes/ConnectDB_mysql.inc or includes/ConnectDB_mysqli.inc - historically includes/ConnectDB_Postgres.inc was also an option) initiates a connection to the database and contains all the database abstraction functions. When interacting with the database, only functions defined in this script are used, not the mysql specific functions, since a change in database would be otherwise be difficult to effect. By using this file, only the functions in this script need to be modified for any other database to be used.</li>
+	<li>ConnectDB.php - this script (which in turn include includes/ConnectDB_mysql.php or includes/ConnectDB_mysqli.php - historically includes/ConnectDB_Postgres.php was also an option) initiates a connection to the database and contains all the database abstraction functions. When interacting with the database, only functions defined in this script are used, not the mysql specific functions, since a change in database would be otherwise be difficult to effect. By using this file, only the functions in this script need to be modified for any other database to be used.</li>
 	<li>LanguageSetup.php - this sets the locale and handles the fall-back to php-gettext if the local gettext libraries are not available on the web-server</li>
 </ul>
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
-<h3>header.inc</h3>
-<p>This file should be included after the variable $Title has been set to the name of the page. This file relies on config.php being already loaded, so session.inc (which in turn includes config.php) must be included before header.inc. The code in this script has the following functions:</p>
+<h3>header.php</h3>
+<p>This file should be included after the variable $Title has been set to the name of the page. This file relies on config.php being already loaded, so session.php (which in turn includes config.php) must be included before header.php. The code in this script has the following functions:</p>
 <ul>
 	<li>Includes the javascript functions used in scripts from the file javascripts/MiscFunctions.js</li>
 	<li>Sets up the normal system banner with the links to the menu, item selection, customer and supplier selection pages.</li>
@@ -45,30 +45,30 @@
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
-<h3>footer.inc</h3>
+<h3>footer.php</h3>
 <p>This file contains the small logo, company name and copyright notice with the closing "" tags.</p>
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
 <h3>config.php</h3>
-<p>The variables in config.php are available to all of tcripts that have included session.inc. There are not many now most of the configuration is stored in the database using the config table. However, the variables that give the software the information to connect to the database such as datbase user, password and host, together with the database type - dbtype - in fact only mysql is supported but there are two libraries that can be used the mysqli and the old mysql functions. There are a couple of other variables including the timezone, $RootPath which is the directory where the web server holds the system files. Also the php error_reporting code.</p>
-<p>Having started the page with session.inc and header.inc - and then finishing with footer.inc much of the work to ensure a consistent look and feel is already done.</p>
+<p>The variables in config.php are available to all of tcripts that have included session.php. There are not many now most of the configuration is stored in the database using the config table. However, the variables that give the software the information to connect to the database such as datbase user, password and host, together with the database type - dbtype - in fact only mysql is supported but there are two libraries that can be used the mysqli and the old mysql functions. There are a couple of other variables including the timezone, $RootPath which is the directory where the web server holds the system files. Also the php error_reporting code.</p>
+<p>Having started the page with session.php and header.php - and then finishing with footer.php much of the work to ensure a consistent look and feel is already done.</p>
 
 <h3>An Example KwaMoja Script Template</h3>
 <p>Following from the discussion of the key component scripts of KwaMoja, the general form of a KwaMoja script would look like the following:</p>
 <pre>
 &lt;?php
 
-/* session.inc is the script that brings in session
+/* session.php is the script that brings in session
  * management, database management, and performs
  * any other housekeeping tasks related to the running
  * of KwaMoja. and so should be included right at the
  * top of every script.
  */
-include(&apos;includes/session.inc&apos;);
+include(&apos;includes/session.php&apos;);
 
 /* A title for the script must be assigned prior to
- * including the header.inc script
+ * including the header.php script
  */
 $Title = _(&apos;Simple KwaMoja Script&apos;);
 
@@ -80,13 +80,13 @@ $Title = _(&apos;Simple KwaMoja Script&apos;);
 $ViewTopic = &apos;SimpleScript&apos;;
 $BookMark = &apos;GeneralTopics&apos;;
 
-/* The header.inc file sends all the http headers needed,
+/* The header.php file sends all the http headers needed,
  * links in the style sheets and downloads any javascript
  * files that are needed. It also draws the header on the
  * screen. Muse be included before any output is sent to
  * the browser.
  */
-include(&apos;includes/header.inc&apos;);
+include(&apos;includes/header.php&apos;);
 
 if (!isset($_POST[&apos;Submit&apos;])) {
 /* In this section should go the code to validate the data
@@ -105,34 +105,34 @@ if (!isset($_POST[&apos;Submit&apos;])) {
  * and a form for entry of new details.
  */
 
-/* Finally we must include footer.inc to draw the footer on
+/* Finally we must include footer.php to draw the footer on
  * the screen, display any error messages, and close off the
  * html tags in the page.
  */
-include(&apos;includes/footer.inc&apos;);
+include(&apos;includes/footer.php&apos;);
 ?&gt;
 </pre>
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
 <h3>PDFStarter.php</h3>
-<p>The only time when it is not appropriate to include session.inc or header.inc is when a pdf script is to be created. Here the file PDFStarter.php contains the initiation of the session and the check for proper user authentication and authorisation for the specific page using the $PageSecurity variable which must be defined before PDFStarter.php is included. Normally, config.php and ConnectDB.inc are included seperately (and before PDF_starter_ros.inc) in PDF scripts. PDF report scripts all make use of the FPDF class by Olivier Plathey but previously a differnt class was used so there is an extension to this which translates the calls to the old pdf class to the FPDF class. Probably better to write new scripts using the FPDF syntax.</p>
+<p>The only time when it is not appropriate to include session.php or header.php is when a pdf script is to be created. Here the file PDFStarter.php contains the initiation of the session and the check for proper user authentication and authorisation for the specific page using the $PageSecurity variable which must be defined before PDFStarter.php is included. Normally, config.php and ConnectDB.php are included seperately (and before PDF_starter_ros.php) in PDF scripts. PDF report scripts all make use of the FPDF class by Olivier Plathey but previously a differnt class was used so there is an extension to this which translates the calls to the old pdf class to the FPDF class. Probably better to write new scripts using the FPDF syntax.</p>
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
-<h3>Database Abstraction - ConnectDB.inc</h3>
-<p>Whilst the system has been developed using MySql it has always been envisaged that users should not be forced to use Mysql - in keeping with open source principles. For this reason all requests of the database are made via abstraction functions in ConnectDB.inc. This policy has been rigorously maintained and developing extensions to the system which do not conform to this scheme would destroy the portability currently available between databases. Instead of using the PHP database specific functions then the functions defined in ConnectDB_mysql.inc should be used</p>
+<h3>Database Abstraction - ConnectDB.php</h3>
+<p>Whilst the system has been developed using MySql it has always been envisaged that users should not be forced to use Mysql - in keeping with open source principles. For this reason all requests of the database are made via abstraction functions in ConnectDB.php. This policy has been rigorously maintained and developing extensions to the system which do not conform to this scheme would destroy the portability currently available between databases. Instead of using the PHP database specific functions then the functions defined in ConnectDB_mysql.php should be used</p>
 <ul>
 	<li>$DB_result_handle = DB_query(<i>$SQL,$ErrorMessage='',$DebugMesage='',$InsideATransaction=0</i>)</li>
 	<li>$NumberOfRowsReturned = DB_num_rows(<i>$DB_result_handle</i>)</li>
 	<li>$QueryResultNamedElementArray = DB_fetch_array(<i>$DB_result_handle</i>)</li>
 	<li>$QueryResultArray = DB_fetch_row(<i>$DB_result_handle</i>)</li>
 </ul>
-<p>The full list of functions should be reviewed from the file includes/ConnectDB_mysql.inc - which contains the mysql specific abstraction functions. Only these functions should be used in other scripts. Care has been taken to ensure that standards compliant SQL is used throughout, to ensure any database conversion issues are minimal. SQL specific to any RDBMS even mysql should be avoided in favour of generic standards compliant SQL. There are instances where mysql specific SQL has been used such as INTERVAL and SHOW TABLES - these are historical.</p>
+<p>The full list of functions should be reviewed from the file includes/ConnectDB_mysql.php - which contains the mysql specific abstraction functions. Only these functions should be used in other scripts. Care has been taken to ensure that standards compliant SQL is used throughout, to ensure any database conversion issues are minimal. SQL specific to any RDBMS even mysql should be avoided in favour of generic standards compliant SQL. There are instances where mysql specific SQL has been used such as INTERVAL and SHOW TABLES - these are historical.</p>
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
-<h3>DateFunctions.inc</h3>
+<h3>DateFunctions.php</h3>
 <p>This script holds a number of functions for manipulating dates used throughout the system - these functions all depend upon the system configuration for SESSION['DefaultDateFormat']. Amongst the most useful:</p>
 <ul>
 	<li><i>DateDiff</i> - calculates the difference between two dates has parameters for the number of days, weeks or months.</li>
@@ -143,7 +143,7 @@ include(&apos;includes/footer.inc&apos;);
 <div class="floatright">
 	<a class="minitext" href="#top">⬆ Top</a>
 </div>
-<h3>SQL_CommonFuctions.inc</h3>
+<h3>SQL_CommonFuctions.php</h3>
 <p>This script has some common functions used throughout the system - in particular:</p>
 <ul>
 	<li><i>GetNextTransNo</i> - that retrieves the next transaction number for a given transaction type - see the table systypes for a list of the valid transaction type codes.</li>
