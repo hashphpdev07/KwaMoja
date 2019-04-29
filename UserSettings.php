@@ -120,7 +120,7 @@ if (isset($_POST['Modify'])) {
 	$_SESSION['InventoryLanguage'] = GetInventoryLanguage();
 }
 
-echo '<form method="post" class="centre" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<form method="post" class="centre" name="UserSettings" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<div class="page_help_text">', _('This page contains the users settings than can be changed by the user.'), '<br />', _('For help, click on the help icon in the top right'), '<br />', _('Once you have filled in the details, click on the button at the bottom of the screen'), '

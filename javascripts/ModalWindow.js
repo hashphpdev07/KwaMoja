@@ -83,6 +83,16 @@ function OverRideClicks() {
 	ShowMessages();
 }
 
+function AddIconClass() {
+	var x = document.getElementsByClassName("page_title_text");
+	for (i = 0; i < x.length; i++) {
+		var children = x[i].children;
+		for (j = 0; j < children.length; j++) {
+			children[j].className = "page_title_icon";
+		}
+	}
+}
+
 function GetContent(id, section) {
 	if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();
@@ -94,6 +104,7 @@ function GetContent(id, section) {
 //			data=JSON.parse(xmlhttp.responseText);
 //			modalHeader.innerHTML=document.getElementById('title').innerHTML;
 			modalContents.innerHTML=xmlhttp.responseText;
+//			AddIconClass();
 			OverRideClicks();
 		}
 	}

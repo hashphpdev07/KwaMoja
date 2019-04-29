@@ -370,17 +370,7 @@ if (isset($_POST['CommitContract']) or isset($_POST['CreateQuotation'])) {
 			$DbgMsg = _('The SQL that was used to update the contract item failed was');
 			$InsertNewItemResult = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-			$SQL = "UPDATE stockcosts SET succeeded=1
-									WHERE stockid='" . $_SESSION['Contract' . $Identifier]->ContractRef . "'
-										AND succeeded=0";
-			$Result = DB_query($SQL);
-			$SQL = "INSERT INTO stockcosts VALUES ('" . $_SESSION['Contract' . $Identifier]->ContractRef . "',
-												'" . $ContractCost . "',
-												0,
-												0,
-												CURRENT_TIME,
-												0)";
-			$Result = DB_query($SQL);
+			UpdateItemCost($_SESSION['Contract' . $Identifier]->ContractRef, $ContractCost, 0, 0);
 
 			//update the quotation
 			$SQL = "UPDATE salesorderdetails
