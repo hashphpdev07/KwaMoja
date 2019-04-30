@@ -21,7 +21,7 @@ if (isset($_POST['FontSize'])) {
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
-		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', _('User Settings'), '" alt="" />', ' ', _('User Settings'), '
 	</p>';
 
 $PDFLanguages = array(_('Latin Western Languages - Times'), _('Eastern European Russian Japanese Korean Hebrew Arabic Thai'), _('Chinese'), _('Free Serif'));

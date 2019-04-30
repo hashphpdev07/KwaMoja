@@ -132,7 +132,12 @@ function GetECBCurrencyRates() {
 	 for detail of the European Central Bank rates - published daily */
 	if (http_file_exists('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml')) {
 		$xml = file_get_contents('http://www.ecb.int/stats/eurofxref/eurofxref-daily.xml');
-		$parser = xml_parser_create();
+		try {
+			$parser = xml_parser_create();
+		}
+		catch(Exception $e) {
+			exit;
+		}
 		xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
 		xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
 		xml_parse_into_struct($parser, $xml, $tags);

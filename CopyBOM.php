@@ -98,8 +98,7 @@ if (isset($_POST['Submit'])) {
 		} else {
 
 			$SQL = "UPDATE stockcosts SET succeeded=1
-									WHERE stockid='" . $NewStockID . "'
-										AND succeeded=0";
+									WHERE stockid='" . $NewStockID . "'";
 			$Result = DB_query($SQL);
 
 			$SQL = "INSERT INTO stockcosts SELECT  '" . $NewStockID . "' AS stockid,
