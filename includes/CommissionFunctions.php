@@ -301,7 +301,7 @@ function TimeAsCommission($SalesPerson, $Debtor, $Branch, $StockID, $Currency, $
 function CalculateCommission($SalesPerson, $Debtor, $Branch, $StockID, $Currency, $Value, $Period) {
 	/* Get the commission calculation method for this sales person */
 	$SQL = "SELECT commissiontypeid
-				FROM salesperson
+				FROM salesman
 				WHERE salesmancode='" . $SalesPerson . "'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
