@@ -594,6 +594,10 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 				$DbgMsg = _('The following SQL to update the location stock record was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
+				if (empty($_POST['Container_' . $OrderLine->LineNo])) {
+					$_POST['Container_' . $OrderLine->LineNo] = $_SESSION['PO' . $Identifier]->Location;
+				}
+
 				/* Insert stock movements - with unit cost */
 
 				$SQL = "INSERT INTO stockmoves (stockid,
