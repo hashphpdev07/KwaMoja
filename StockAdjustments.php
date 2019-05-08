@@ -120,22 +120,46 @@ if (isset($_GET['OldIdentifier'])) {
 	$_SESSION['Adjustment' . $Identifier]->StockLocation = $_SESSION['Adjustment' . $_GET['OldIdentifier']]->StockLocation;
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory Adjustment') . '" alt="" />' . ' ' . _('Inventory Adjustment') . '</p>';
+if (isset($_SESSION['Adjustment' . $Identifier]->StockLocation)) {
+	$SQL = "SELECT id FROM container WHERE parentid='" . $_SESSION['Adjustment' . $Identifier]->StockLocation . "'";
+	$Result = DB_query($SQL);
+	if (DB_num_rows($Result) > 0) {
+		$WarehouseDefined = true;
+	} else {
+		$WarehouseDefined = false;
+	}
+}
+
+echo '<p class="page_title_text">
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory Adjustment'), '" alt="" />', _('Inventory Adjustment'), '
+	</p>';
 
 if (isset($_POST['CheckCode'])) {
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . _('Select Item to Adjust') . '</p>';
+	echo '<p class="page_title_text">
+			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Dispatch'), '" alt="" />', _('Select Item to Adjust'), '
+		</p>';
 
 	if (mb_strlen($_POST['StockText']) > 0) {
 		$SQL = "SELECT stockid,
 					description
 				FROM stockmaster
-				WHERE description " . LIKE . " '%" . $_POST['StockText'] . "%'";
+				INNER JOIN stockcategory
+					ON stockcategory.categoryid=stockmaster.categoryid
+				INNER JOIN stocktypes
+					ON stockcategory.stocktype=stocktypes.type
+				WHERE description " . LIKE . " '%" . $_POST['StockText'] . "%'
+					AND stocktypes.physicalitem=1";
 	} else {
 		$SQL = "SELECT stockid,
 					description
 				FROM stockmaster
-				WHERE stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'";
+				INNER JOIN stockcategory
+					ON stockcategory.categoryid=stockmaster.categoryid
+				INNER JOIN stocktypes
+					ON stockcategory.stocktype=stocktypes.type
+				WHERE stockid " . LIKE . " '%" . $_POST['StockCode'] . "%'
+					AND stocktypes.physicalitem=1";
 	}
 	$ErrMsg = _('The stock information cannot be retrieved because');
 	$DbgMsg = _('The SQL to get the stock description was');
@@ -143,17 +167,17 @@ if (isset($_POST['CheckCode'])) {
 	echo '<table>
 			<thead>
 				<tr>
-					<th class="SortedColumn">' . _('Stock Code') . '</th>
-					<th class="SortedColumn">' . _('Stock Description') . '</th>
+					<th class="SortedColumn">', _('Stock Code'), '</th>
+					<th class="SortedColumn">', _('Stock Description'), '</th>
 				</tr>
 			</thead>';
 
 	echo '<tbody>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr>
-				<td>' . $MyRow['stockid'] . '</td>
-				<td>' . $MyRow['description'] . '</td>
-				<td><a href="StockAdjustments.php?StockID=' . urlencode($MyRow[0]) . '&amp;Description=' . urlencode($MyRow[1]) . '&amp;OldIdentifier=' . urlencode($Identifier) . '">' . _('Adjust') . '</a>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['stockid'], '</td>
+				<td>', $MyRow['description'], '</td>
+				<td><a href="StockAdjustments.php?StockID=', urlencode($MyRow[0]), '&amp;Description=', urlencode($MyRow[1]), '&amp;OldIdentifier=', urlencode($Identifier), '">', _('Adjust'), '</a>
 			</tr>';
 	}
 	echo '</tbody>';
@@ -221,10 +245,15 @@ if (isset($_POST['EnterAdjustment']) and $_POST['EnterAdjustment'] != '') {
 			$QtyOnHandPrior = 0;
 		}
 
+		if (empty($_POST['Container'])) {
+			$_POST['Container'] = $_SESSION['Adjustment' . $Identifier]->StockLocation;
+		}
+
 		$SQL = "INSERT INTO stockmoves (stockid,
 										type,
 										transno,
 										loccode,
+										container,
 										trandate,
 										userid,
 										prd,
@@ -237,6 +266,7 @@ if (isset($_POST['EnterAdjustment']) and $_POST['EnterAdjustment'] != '') {
 										17,
 										'" . $AdjustmentNumber . "',
 										'" . $_SESSION['Adjustment' . $Identifier]->StockLocation . "',
+										'" . $_POST['Container'] . "',
 										'" . $SQLAdjustmentDate . "',
 										'" . $_SESSION['UserID'] . "',
 										'" . $PeriodNo . "',
@@ -417,14 +447,12 @@ if (isset($_POST['EnterAdjustment']) and $_POST['EnterAdjustment'] != '') {
 		}
 		$StockId = $_SESSION['Adjustment' . $Identifier]->StockID;
 		unset($_SESSION['Adjustment' . $Identifier]);
+		unset($StockId);
 	}
 	/* end if there was no input error */
 
 }
 /* end if the user hit enter the adjustment */
-
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
 
 if (!isset($_SESSION['Adjustment' . $Identifier])) {
 	$Controlled = 0;
@@ -467,134 +495,183 @@ if (isset($_SESSION['Adjustment' . $Identifier]->StockID) and $_SESSION['Adjustm
 	$Result = DB_query($SQL);
 	echo '<table>
 			<tr>
-				<th colspan="2"><h3>' . _('Current Stock Balances') . '</h3></th>
+				<th colspan="2">', _('Current Stock Balances'), '</th>
 			</tr>
 			<tr>
-				<th><h4>' . _('Location') . '</h4></th>
-				<th><h4>' . _('Quantity') . '</h4></th>
+				<th>', _('Location'), '</th>
+				<th>', _('Quantity'), '</th>
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<tr>
-				<td>' . $MyRow['locationname'] . '</td>
-				<td class="number">' . $MyRow['quantity'] . '</td>
+		echo '<tr class="striped_row">
+				<td>', $MyRow['locationname'], '</td>
+				<td class="number">', locale_number_format($MyRow['quantity'], $DecimalPlaces), '</td>
 			</tr>';
 	}
 	echo '</table>';
 }
 
-echo '<table>
-		<tr>
-			<th colspan="4"><h3>' . _('Adjustment Details') . '</h3></th>
-		</tr>';
-if (!isset($_GET['Description'])) {
-	$_GET['Description'] = '';
-}
-echo '<tr>
-		<td>' . _('Stock Code') . ':</td>
-		<td>';
-if (isset($StockId)) {
-	echo '<input type="text" name="StockID" size="21" value="' . $StockId . '" maxlength="20" /></td></tr>';
-} else {
-	echo '<input type="text" name="StockID" size="21" value="" maxlength="20" /></td></tr>';
-}
-echo '<tr>
-		<td>' . _('Partial Description') . ':</td>
-		<td><input type="text" name="StockText" size="21" value="' . stripslashes($_GET['Description']) . '" />&nbsp; &nbsp;' . _('Partial Stock Code') . ':</td>
-		<td>';
-if (isset($StockId)) {
-	echo '<input type="text" name="StockCode" size="21" value="' . $StockId . '" maxlength="20" />';
-} else {
-	echo '<input type="text" name="StockCode" size="21" value="" maxlength="20" />';
-}
-echo '</td>
-		<td><input type="submit" name="CheckCode" value="' . _('Check Part') . '" /></td>
-	</tr>';
-if (isset($_SESSION['Adjustment' . $Identifier]) and mb_strlen($_SESSION['Adjustment' . $Identifier]->ItemDescription) > 1) {
-	echo '<tr>
-			<td colspan="3"><h3>' . $_SESSION['Adjustment' . $Identifier]->ItemDescription . ' (' . _('In Units of') . ' ' . $_SESSION['Adjustment' . $Identifier]->PartUnit . ' ) - ' . _('Unit Cost') . ' = ' . locale_number_format($_SESSION['Adjustment' . $Identifier]->StandardCost, 4) . '</h3></td>
-		</tr>';
+if (!isset($StockId) or $StockId == '') {
+
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', $Identifier, '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+
+	echo '<fieldset>
+			<legend>', _('Adjustment Details'), '</legend>';
+	if (!isset($_GET['Description'])) {
+		$_GET['Description'] = '';
+	}
+
+	echo '<field>
+			<label for="StockText">', _('Partial Description'), ':</label>
+			<input type="text" autofocus="autofocus" name="StockText" size="21" value="', stripslashes($_GET['Description']), '" />
+			<fieldhelp>', _('Enter all or part of a description for a stock item.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="StockCode">', _('Partial Stock Code'), ':</label>
+			<input type="text" name="StockCode" size="21" value="" maxlength="20" />
+			<fieldhelp>', _('Enter all or part of a code for a stock item.'), '</fieldhelp>
+		</field>';
+
+	echo '<h1>', _('AND'), '</h1>';
+
+	echo '<field>
+			<label for="StockLocation">', _('Adjustment to Stock At Location'), ':</label>
+			<select name="StockLocation" required="required"> ';
+	foreach ($LocationList as $Loccode => $Locationname) {
+		if ($Loccode == $_SESSION['Adjustment' . $Identifier]->StockLocation) {
+			echo '<option selected="selected" value="', $Loccode, '">', $Locationname, '</option>';
+		} else {
+			echo '<option value="', $Loccode, '">', $Locationname, '</option>';
+		}
+	}
+	echo '</select>
+		<fieldhelp>', _('Select the location where this stock adjustment will take place'), '</fieldhelp>
+	</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="CheckCode" value="', _('Find Part'), '" />
+		</div>
+	</form>';
 }
 
-echo '<tr>
-		<td>' . _('Adjustment to Stock At Location') . ':</td>
-		<td><select name="StockLocation" onchange="submit();"> ';
-foreach ($LocationList as $Loccode => $Locationname) {
-	if ($Loccode == $_SESSION['Adjustment' . $Identifier]->StockLocation) {
-		echo '<option selected="selected" value="' . $Loccode . '">' . $Locationname . '</option>';
+if (isset($StockId) and $StockId != '') {
+
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', $Identifier, '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+
+	echo '<fieldset>
+			<legend>', _('Stock Adjustment Details'), '</legend>';
+	if (isset($_SESSION['Adjustment' . $Identifier]) and mb_strlen($_SESSION['Adjustment' . $Identifier]->ItemDescription) > 1) {
+		echo '<h3>', $_SESSION['Adjustment' . $Identifier]->ItemDescription, ' (', _('In Units of'), ' ', $_SESSION['Adjustment' . $Identifier]->PartUnit, ' ) - ', _('Unit Cost'), ' = ', locale_number_format($_SESSION['Adjustment' . $Identifier]->StandardCost, 4), '</h3>';
+	}
+	if (isset($_SESSION['Adjustment' . $Identifier]) and !isset($_SESSION['Adjustment' . $Identifier]->Narrative)) {
+		$_SESSION['Adjustment' . $Identifier]->Narrative = '';
+		$Narrative = '';
+	} elseif (isset($_SESSION['Adjustment' . $Identifier]->Narrative)) {
+		$Narrative = $_SESSION['Adjustment' . $Identifier]->Narrative;
 	} else {
-		echo '<option value="' . $Loccode . '">' . $Locationname . '</option>';
+		$Narrative = '';
 	}
-}
 
-echo '</select></td></tr>';
-if (isset($_SESSION['Adjustment' . $Identifier]) and !isset($_SESSION['Adjustment' . $Identifier]->Narrative)) {
-	$_SESSION['Adjustment' . $Identifier]->Narrative = '';
-	$Narrative = '';
-} elseif (isset($_SESSION['Adjustment' . $Identifier]->Narrative)) {
-	$Narrative = $_SESSION['Adjustment' . $Identifier]->Narrative;
-} else {
-	$Narrative = '';
-}
+	echo '<field>
+			<label for="Location">', _('Stock Code'), '</label>
+			<div class="fieldtext">', $StockId, '</div>
+		</field>';
 
-echo '<tr>
-		<td>' . _('Comments On Why') . ':</td>
-		<td><input type="text" name="Narrative" size="32" maxlength="30" value="' . $Narrative . '" /></td>
-	</tr>';
+	echo '<field>
+			<label for="Description">', _('Description'), '</label>
+			<div class="fieldtext">', $_SESSION['Adjustment' . $Identifier]->ItemDescription, '</div>
+		</field>';
 
-echo '<tr>
-		<td>' . _('Adjustment Quantity') . ':</td>';
+	echo '<field>
+			<label for="Location">', _('In Location'), '</label>
+			<div class="fieldtext">', $_SESSION['Adjustment' . $Identifier]->StockLocation, '</div>
+		</field>';
 
-echo '<td>';
-
-if ($Controlled == 1) {
-	if ($_SESSION['Adjustment' . $Identifier]->StockLocation == '') {
-		$_SESSION['Adjustment' . $Identifier]->StockLocation = $_SESSION['UserStockLocation'];
+	if ($WarehouseDefined) {
+		$ContainerSQL = "SELECT id, name FROM container WHERE location='" . $_SESSION['Adjustment' . $Identifier]->StockLocation . "' AND putaway=1";
+		$ContainerResult = DB_query($ContainerSQL);
+		echo '<field>
+				<label for="Container">', _('Select warehouse container'), '</label>
+				<select name="Container">';
+		while ($MyContainerRow = DB_fetch_array($ContainerResult)) {
+			if (isset($_POST['Container']) and $_POST['Container'] == $MyContainerRow['id']) {
+				echo '<option selected="selected" value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+			} else {
+				echo '<option value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+			}
+		}
+		echo '</select>
+			<fieldhelp>', _('Select the container within the warehouse where the stock to be adjusted is situated.'), '</fieldhelp>
+		</field>';
 	}
-	echo '<input type="hidden" name="Quantity" value="' . $_SESSION['Adjustment' . $Identifier]->Quantity . '" />
-				' . locale_number_format($_SESSION['Adjustment' . $Identifier]->Quantity, $DecimalPlaces) . ' &nbsp; &nbsp; &nbsp; &nbsp;
-				[<a class="FontSize" href="' . $RootPath . '/StockAdjustmentsControlled.php?AdjType=REMOVE&identifier=' . urlencode($Identifier) . '">' . _('Remove') . '</a>]
-				[<a class="FontSize" href="' . $RootPath . '/StockAdjustmentsControlled.php?AdjType=ADD&identifier=' . urlencode($Identifier) . '">' . _('Add') . '</a>]';
-} else {
-	echo '<input type="text" class="number" name="Quantity" size="12" required="required" maxlength="12" value="' . locale_number_format($Quantity, $DecimalPlaces) . '" />';
-}
-echo '</td></tr>';
-//Select the tag
-echo '<tr>
-		<td>' . _('Select Tag') . '</td>
-		<td><select name="tag[]" multiple="multiple">';
 
-$SQL = "SELECT tagref,
+	echo '<field>
+			<label for="Narrative">', _('Comments On Why'), ':</label>
+			<input type="text" spellcheck="true" name="Narrative" size="32" maxlength="30" value="', $Narrative, '" />
+			<fieldhelp>', _('Add a narrative explaining the resons for the stock adjustment.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="Quantity">', _('Adjustment Quantity'), ':</label>';
+	if ($Controlled == 1) {
+		if ($_SESSION['Adjustment' . $Identifier]->StockLocation == '') {
+			$_SESSION['Adjustment' . $Identifier]->StockLocation = $_SESSION['UserStockLocation'];
+		}
+		echo '<input type="hidden" name="Quantity" value="', $_SESSION['Adjustment' . $Identifier]->Quantity, '" />
+					' . locale_number_format($_SESSION['Adjustment' . $Identifier]->Quantity, $DecimalPlaces), ' &nbsp; &nbsp; &nbsp; &nbsp;
+					[<a class="FontSize" href="', $RootPath, '/StockAdjustmentsControlled.php?AdjType=REMOVE&identifier=', urlencode($Identifier), '">', _('Remove'), '</a>]
+					[<a class="FontSize" href="', $RootPath, '/StockAdjustmentsControlled.php?AdjType=ADD&identifier=', urlencode($Identifier), '">', _('Add'), '</a>]';
+	} else {
+		echo '<input type="text" class="number" name="Quantity" size="12" required="required" maxlength="12" value="', locale_number_format($Quantity, $DecimalPlaces), '" />';
+	}
+	echo '<fieldhelp>', _('The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it.'), '</fieldhelp>
+		</field>';
+	//Select the tag
+	echo '<field>
+			<label for="tag[]">', _('Select Tag'), '</label>
+			<select name="tag[]" multiple="multiple">';
+
+	$SQL = "SELECT tagref,
 				tagdescription
-		FROM tags
-		ORDER BY tagref";
+			FROM tags
+			ORDER BY tagref";
 
-$Result = DB_query($SQL);
-echo '<option value="0">0 - ' . _('None') . '</option>';
-while ($MyRow = DB_fetch_array($Result)) {
-	if (isset($_SESSION['Adjustment' . $Identifier]->tag) and $_SESSION['Adjustment' . $Identifier]->tag == $MyRow['tagref']) {
-		echo '<option selected="selected" value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
-	} else {
-		echo '<option value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
+	$Result = DB_query($SQL);
+	echo '<option value="0">0 - ', _('None'), '</option>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		if (isset($_SESSION['Adjustment' . $Identifier]->tag) and $_SESSION['Adjustment' . $Identifier]->tag == $MyRow['tagref']) {
+			echo '<option selected="selected" value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
+		} else {
+			echo '<option value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
+		}
 	}
+	echo '</select>
+		<fieldhelp>', _('Select one or more tags from the list. Use the CTL button to select multiple tags'), '</fieldhelp>
+	</field>';
+	// End select tag
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="EnterAdjustment" value="', _('Enter Stock Adjustment'), '" />';
+
+	if (!isset($_POST['StockLocation'])) {
+		$_POST['StockLocation'] = '';
+	}
+
+	echo '<a href="', $RootPath, '/StockStatus.php?StockID=', urlencode($StockId), '">', _('Show Stock Status'), '</a>';
+	echo '<a href="', $RootPath, '/StockMovements.php?StockID=', urlencode($StockId), '">', _('Show Movements'), '</a>';
+	echo '<a href="', $RootPath, '/StockUsage.php?StockID=', urlencode($StockId), '&amp;StockLocation=', urlencode($_POST['StockLocation']), '">', _('Show Stock Usage'), '</a>';
+	echo '<a href="', $RootPath, '/SelectSalesOrder.php?SelectedStockItem=', urlencode($StockId), '&amp;StockLocation=', urlencode($_POST['StockLocation']), '">', _('Search Outstanding Sales Orders'), '</a>';
+	echo '<a href="', $RootPath, '/SelectCompletedOrder.php?SelectedStockItem=', urlencode($StockId), '">', _('Search Completed Sales Orders'), '</a>';
+
+	echo '</div>
+		</form>';
 }
-echo '</select></td></tr>';
-// End select tag
-echo '</table>
-	<div class="centre">
-		<input type="submit" name="EnterAdjustment" value="' . _('Enter Stock Adjustment') . '" />';
 
-if (!isset($_POST['StockLocation'])) {
-	$_POST['StockLocation'] = '';
-}
-
-echo '<a href="' . $RootPath . '/StockStatus.php?StockID=' . urlencode($StockId) . '">' . _('Show Stock Status') . '</a>';
-echo '<a href="' . $RootPath . '/StockMovements.php?StockID=' . urlencode($StockId) . '">' . _('Show Movements') . '</a>';
-echo '<a href="' . $RootPath . '/StockUsage.php?StockID=' . urlencode($StockId) . '&amp;StockLocation=' . urlencode($_POST['StockLocation']) . '">' . _('Show Stock Usage') . '</a>';
-echo '<a href="' . $RootPath . '/SelectSalesOrder.php?SelectedStockItem=' . urlencode($StockId) . '&amp;StockLocation=' . urlencode($_POST['StockLocation']) . '">' . _('Search Outstanding Sales Orders') . '</a>';
-echo '<a href="' . $RootPath . '/SelectCompletedOrder.php?SelectedStockItem=' . urlencode($StockId) . '">' . _('Search Completed Sales Orders') . '</a>';
-
-echo '</div>
-	  </form>';
 include ('includes/footer.php');
 ?>
