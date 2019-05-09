@@ -29,7 +29,7 @@ if (empty($_GET['identifier'])) {
 if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 	/* This page can only be called with an order number for invoicing*/
 	echo '<div class="centre">
-			<a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Select a sales order to invoice') . '</a>
+			<a href="', $RootPath, '/SelectSalesOrder.php">', _('Select a sales order to invoice'), '</a>
 		</div>';
 	prnMsg(_('This page can only be opened if an order has been selected Please select an order first from the delivery details screen click on Confirm for invoicing'), 'error');
 	include ('includes/footer.php');
@@ -151,6 +151,14 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 
 		DB_free_result($GetOrdHdrResult);
 
+		$SQL = "SELECT id FROM container WHERE parentid='" . $_SESSION['Items' . $Identifier]->Location . "'";
+		$Result = DB_query($SQL);
+		if (DB_num_rows($Result) > 0) {
+			$_SESSION['Items' . $Identifier]->WarehouseDefined = true;
+		} else {
+			$_SESSION['Items' . $Identifier]->WarehouseDefined = false;
+		}
+
 		/*now populate the line items array with the sales order details records */
 
 		$LineItemsSQL = "SELECT stkcode,
@@ -244,7 +252,7 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 	} else {
 		/*end if the order was returned sucessfully */
 
-		echo '<br />' . prnMsg(_('This order item could not be retrieved. Please select another order'), 'warn');
+		prnMsg(_('This order item could not be retrieved. Please select another order'), 'warn');
 		include ('includes/footer.php');
 		exit;
 	} //valid order returned from the entered order number
@@ -290,6 +298,11 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 				$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->QtyDispatched = round(filter_number_format($_POST[$Itm->LineNumber . '_QtyDispatched']), $Itm->DecimalPlaces);
 			}
 		}
+		if (isset($_POST['Container_' . $Itm->LineNumber])) {
+			$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Container = $_POST['Container_' . $Itm->LineNumber];
+		} else {
+			$_SESSION['Items' . $Identifier]->LineItems[$Itm->LineNumber]->Container = $_SESSION['Items' . $Identifier]->Location;
+		}
 		$i = 1;
 		foreach ($Itm->Taxes as $TaxLine) {
 			if (isset($_POST[$Itm->LineNumber . $i . '_TaxRate'])) {
@@ -306,7 +319,10 @@ if (!isset($_GET['OrderNumber']) and !isset($_SESSION['ProcessingOrder'])) {
 if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
 	prnMsg($_SESSION['Items' . $Identifier]->SpecialInstructions, 'warn');
 }
-echo '<p class="page_title_text "><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" title="' . _('Confirm Invoice') . '" alt="" />' . ' ' . _('Confirm Dispatch and Invoice') . '</p>';
+echo '<p class="page_title_text">
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Confirm Invoice'), '" alt="" />', _('Confirm Dispatch and Invoice'), '
+	</p>';
+
 echo '<table>
 		<tr class="striped_row">
 			<td>', _('Customer Code'), '</td>
@@ -322,8 +338,8 @@ echo '<table>
 		</tr>
 	</table>';
 
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', $Identifier, '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 /***************************************************************
 Line Item Display
@@ -343,9 +359,12 @@ echo '<table>
 				<th>', _('Tax Authority'), '</th>
 				<th>', _('Tax %'), '</th>
 				<th>', _('Tax'), '<br />', _('Amount'), '</th>
-				<th>', _('Total'), '<br />', _('Incl Tax'), '</th>
-			</tr>
-		</thead>';
+				<th>', _('Total'), '<br />', _('Incl Tax'), '</th>';
+if ($_SESSION['Items' . $Identifier]->WarehouseDefined) {
+	echo '<th>', _('Container'), '</th>';
+}
+echo '</tr>
+	</thead>';
 
 $_SESSION['Items' . $Identifier]->total = 0;
 $_SESSION['Items' . $Identifier]->totalVolume = 0;
@@ -380,32 +399,32 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 	$_SESSION['Items' . $Identifier]->totalWeight+= ($LnItm->QtyDispatched * $LnItm->Weight);
 
 	echo '<tr class="striped_row">
-			<td>' . $LnItm->StockID . '</td>
-			<td title="' . $LnItm->LongDescription . '">' . $LnItm->ItemDescription . '</td>
-			<td class="number">' . locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces) . '</td>
-			<td>' . $LnItm->Units . '</td>
-			<td class="number">' . locale_number_format($LnItm->QtyInv, $LnItm->DecimalPlaces) . '</td>';
+			<td>', $LnItm->StockID, '</td>
+			<td title="', $LnItm->LongDescription, '">', $LnItm->ItemDescription, '</td>
+			<td class="number">', locale_number_format($LnItm->Quantity, $LnItm->DecimalPlaces), '</td>
+			<td>', $LnItm->Units, '</td>
+			<td class="number">', locale_number_format($LnItm->QtyInv, $LnItm->DecimalPlaces), '</td>';
 
 	if ($LnItm->Controlled == 1) {
 
 		if (isset($_POST['ProcessInvoice'])) {
-			echo '<td class="number">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</td>';
+			echo '<td class="number">', locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces), '</td>';
 		} else {
-			echo '<td class="number"><input type="hidden" name="' . $LnItm->LineNumber . '_QtyDispatched" required="required" maxlength="11"  value="' . $LnItm->QtyDispatched . '" /><a href="' . $RootPath . '/ConfirmDispatchControlled_Invoice.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNumber) . '">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</a></td>';
+			echo '<td class="number"><input type="hidden" name="', $LnItm->LineNumber, '_QtyDispatched" required="required" maxlength="11" value="', $LnItm->QtyDispatched, '" /><a href="', $RootPath, '/ConfirmDispatchControlled_Invoice.php?identifier=', urlencode($Identifier), '&amp;LineNo=', urlencode($LnItm->LineNumber), '">', locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces), '</a></td>';
 		}
 	} else {
 		if (isset($_POST['ProcessInvoice'])) {
-			echo '<td class="number">' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '</td>';
+			echo '<td class="number">', locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces), '</td>';
 		} else {
-			echo '<td class="number"><input type="text" class="number" name="' . $LnItm->LineNumber . '_QtyDispatched" required="required" maxlength="12" size="12" value="' . locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces) . '" /></td>';
+			echo '<td class="number"><input type="text" class="number" name="', $LnItm->LineNumber, '_QtyDispatched" required="required" maxlength="12" size="12" value="', locale_number_format($LnItm->QtyDispatched, $LnItm->DecimalPlaces), '" /></td>';
 		}
 	}
 	$DisplayDiscountPercent = locale_number_format($LnItm->DiscountPercent * 100, 2) . '%';
 	$DisplayLineNetTotal = locale_number_format($LineTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 	$DisplayPrice = locale_number_format($LnItm->Price, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
-	echo '<td class="number">' . $DisplayPrice . '</td>
-		<td class="number">' . $DisplayDiscountPercent . '</td>
-		<td class="number">' . $DisplayLineNetTotal . '</td>';
+	echo '<td class="number">', $DisplayPrice, '</td>
+		<td class="number">', $DisplayDiscountPercent, '</td>
+		<td class="number">', $DisplayLineNetTotal, '</td>';
 
 	/*Need to list the taxes applicable to this line */
 	echo '<td>';
@@ -434,7 +453,7 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 		if (isset($_POST['ProcessInvoice'])) {
 			echo $Tax->TaxRate * 100;
 		} else {
-			echo '<input type="text" class="number" required="required" title="' . _('Enter the tax rate applicable as a number') . '" name="' . $LnItm->LineNumber . $i . '_TaxRate" maxlength="4" size="4" value="' . $Tax->TaxRate * 100 . '" />';
+			echo '<input type="text" class="number" required="required" title="', _('Enter the tax rate applicable as a number'), '" name="', $LnItm->LineNumber, $i, '_TaxRate" maxlength="4" size="4" value="', $Tax->TaxRate * 100, '" />';
 		}
 		++$i;
 		if ($Tax->TaxOnTax == 1) {
@@ -454,12 +473,12 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 
 	$DisplayGrossLineTotal = locale_number_format($LineTotal + $TaxLineTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 
-	echo '<td class="number">' . $DisplayTaxAmount . '</td>
-			<td class="number">' . $DisplayGrossLineTotal . '</td>';
+	echo '<td class="number">', $DisplayTaxAmount, '</td>
+			<td class="number">', $DisplayGrossLineTotal, '</td>';
 
 	if ($LnItm->Controlled == 1) {
 		if (!isset($_POST['ProcessInvoice'])) {
-			echo '<td><a href="' . $RootPath . '/ConfirmDispatchControlled_Invoice.php?identifier=' . urlencode($Identifier) . '&amp;LineNo=' . urlencode($LnItm->LineNumber) . '">';
+			echo '<td><a href="', $RootPath, '/ConfirmDispatchControlled_Invoice.php?identifier=', urlencode($Identifier), '&amp;LineNo=', urlencode($LnItm->LineNumber), '">';
 			if ($LnItm->Serialised == 1) {
 				echo _('Enter Serial Numbers');
 			} else {
@@ -469,10 +488,34 @@ foreach ($_SESSION['Items' . $Identifier]->LineItems as $LnItm) {
 			echo '</a></td>';
 		}
 	}
+
+	if ($_SESSION['Items' . $Identifier]->WarehouseDefined) {
+		$ContainerSQL = "SELECT id, name FROM container WHERE location='" . $_SESSION['Items' . $Identifier]->Location . "' AND picking=1";
+		$ContainerResult = DB_query($ContainerSQL);
+		echo '<td>';
+		if (!isset($_POST['ProcessInvoice'])) {
+			echo '<select name="Container_', $LnItm->LineNumber, '">';
+			while ($MyContainerRow = DB_fetch_array($ContainerResult)) {
+				if (isset($_POST['Container_' . $LnItm->LineNumber]) and $_POST['Container_' . $LnItm->LineNumber] == $MyContainerRow['id']) {
+					echo '<option selected="selected" value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+				} else {
+					echo '<option value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+				}
+			}
+			echo '</select>';
+		} else {
+			$ContainerSQL = "SELECT name FROM container WHERE location='" . $_SESSION['Items' . $Identifier]->Location . "' AND id='" . $LnItm->Container . "'";
+			$ContainerResult = DB_query($ContainerSQL);
+			$MyContainerRow = DB_fetch_array($ContainerResult);
+			echo $MyContainerRow['name'];
+		}
+		echo '</td>';
+	}
+
 	echo '</tr>';
 	if (mb_strlen($LnItm->Narrative) > 1) {
 		$Narrative = str_replace('\r\n', '<br />', $LnItm->Narrative);
-		echo $RowStarter . '<td colspan="12">' . stripslashes($Narrative) . '</td></tr>';
+		echo '<td colspan="12">', stripslashes($Narrative), '</td></tr>';
 	}
 } //end foreach ($line)
 /*Don't re-calculate freight if some of the order has already been delivered -
@@ -490,7 +533,7 @@ if (!isset($_SESSION['Items' . $Identifier]->FreightCost) or $_SESSION['Items' .
 	} else {
 		$FreightCost = 0;
 	}
-	if (!is_numeric($BestShipper)) {
+	if (isset($BestShipper) and !is_numeric($BestShipper)) {
 		$SQL = "SELECT shipper_id FROM shippers WHERE shipper_id='" . $_SESSION['Default_Shipper'] . "'";
 		$ErrMsg = _('There was a problem testing for a default shipper because');
 		$TestShipperExists = DB_query($SQL, $ErrMsg);
@@ -505,7 +548,7 @@ if (!isset($_SESSION['Items' . $Identifier]->FreightCost) or $_SESSION['Items' .
 				$BestShipper = $ShipperReturned[0];
 			} else {
 				prnMsg(_('There are no shippers defined') . '. ' . _('Please use the link below to set up shipping freight companies, the system expects the shipping company to be selected or a default freight company to be used'), 'error');
-				echo '<a href="' . $RootPath . 'Shippers.php">' . _('Enter') . '/' . _('Amend Freight Companies') . '</a>';
+				echo '<a href="', $RootPath, 'Shippers.php">', _('Enter'), '/', _('Amend Freight Companies'), '</a>';
 			}
 		}
 	}
@@ -516,12 +559,12 @@ if (isset($_POST['ChargeFreightCost']) and !is_numeric(filter_number_format($_PO
 }
 
 echo '<tr>
-	<td colspan="5" class="number">' . _('Order Freight Cost') . '</td>
-	<td class="number">' . locale_number_format($_SESSION['Old_FreightCost'], $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</td>';
+		<td colspan="5" class="number">', _('Order Freight Cost'), '</td>
+		<td class="number">', locale_number_format($_SESSION['Old_FreightCost'], $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>';
 
 if ($_SESSION['DoFreightCalc'] == True) {
-	echo '<td colspan="2" class="number">' . _('Recalculated Freight Cost') . '</td>
-		<td class="number">' . locale_number_format($FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</td>';
+	echo '<td colspan="2" class="number">', _('Recalculated Freight Cost'), '</td>
+		<td class="number">', locale_number_format($FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>';
 } else {
 	//	echo '<td colspan="1"></td>';
 	
@@ -531,16 +574,19 @@ if (!isset($_POST['ChargeFreightCost'])) {
 	$_POST['ChargeFreightCost'] = 0;
 }
 if ($_SESSION['Items' . $Identifier]->Any_Already_Delivered() == 1 and (!isset($_SESSION['Items' . $Identifier]->FreightCost) or $_POST['ChargeFreightCost'] == 0)) {
-
-	echo '<td colspan="2" class="number">' . _('Charge Freight Cost ex Tax') . '</td>
-		<td><input type="text" class="number" size="10" required="required" maxlength="12" name="ChargeFreightCost" value="0" /></td>';
+	echo '<td colspan="2" class="number">', _('Charge Freight Cost ex Tax'), '</td>';
+	if (isset($_POST['ProcessInvoice'])) {
+		echo '<td class="number">', locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>';
+	} else {
+		echo '<td class="number"><input type="text" class="number" size="10" required="required" maxlength="12" name="ChargeFreightCost" value="0" /></td>';
+	}
 	$_SESSION['Items' . $Identifier]->FreightCost = 0;
 } else {
-	echo '<td colspan="2" class="number">' . _('Charge Freight Cost ex Tax') . '</td>';
+	echo '<td colspan="2" class="number">', _('Charge Freight Cost ex Tax'), '</td>';
 	if (isset($_POST['ProcessInvoice'])) {
-		echo '<td class="number">' . locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</td>';
+		echo '<td class="number">', locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>';
 	} else {
-		echo '<td class="number"><input type="text" class="number" size="10" required="required" maxlength="12" name="ChargeFreightCost" value="' . locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '" /></td>';
+		echo '<td class="number"><input type="text" class="number" size="10" required="required" maxlength="12" name="ChargeFreightCost" value="', locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '" /></td>';
 	}
 	$_POST['ChargeFreightCost'] = locale_number_format($_SESSION['Items' . $Identifier]->FreightCost, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 }
@@ -568,7 +614,7 @@ foreach ($_SESSION['Items' . $Identifier]->FreightTaxes as $FreightTaxLine) {
 	if (isset($_POST['ProcessInvoice'])) {
 		echo $FreightTaxLine->TaxRate * 100;
 	} else {
-		echo '<input type="text" class="number" name="FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder . '" required="required" maxlength="4" size="4" value="' . locale_number_format($FreightTaxLine->TaxRate * 100, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '" />';
+		echo '<input type="text" class="number" name="FreightTaxRate', $FreightTaxLine->TaxCalculationOrder, '" required="required" maxlength="4" size="4" value="', locale_number_format($FreightTaxLine->TaxRate * 100, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '" />';
 	}
 
 	if ($FreightTaxLine->TaxOnTax == 1) {
@@ -583,21 +629,21 @@ foreach ($_SESSION['Items' . $Identifier]->FreightTaxes as $FreightTaxLine) {
 }
 echo '</td>';
 
-echo '<td class="number">' . locale_number_format($FreightTaxTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</td>
-	<td class="number">' . locale_number_format($FreightTaxTotal + filter_number_format($_POST['ChargeFreightCost']), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</td>
-	</tr>';
+echo '<td class="number">', locale_number_format($FreightTaxTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
+	<td class="number">', locale_number_format($FreightTaxTotal + filter_number_format($_POST['ChargeFreightCost']), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</td>
+</tr>';
 
 $TaxTotal+= $FreightTaxTotal;
 
 $DisplaySubTotal = locale_number_format(($_SESSION['Items' . $Identifier]->total + filter_number_format($_POST['ChargeFreightCost'])), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces);
 
 echo '<tr>
-	<td colspan="8" class="number">' . _('Invoice Totals') . '</td>
-	<td class="number"><hr /><b>' . $DisplaySubTotal . '</b><hr /></td>
-	<td colspan="2"></td>
-	<td class="number"><hr /><b>' . locale_number_format($TaxTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</b><hr /></td>
-	<td class="number"><hr /><b>' . locale_number_format($TaxTotal + ($_SESSION['Items' . $Identifier]->total + $_POST['ChargeFreightCost']), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces) . '</b><hr /></td>
-</tr>';
+		<td colspan="8" class="number">', _('Invoice Totals'), '</td>
+		<td class="number"><hr /><b>', $DisplaySubTotal, '</b><hr /></td>
+		<td colspan="2"></td>
+		<td class="number"><hr /><b>', locale_number_format($TaxTotal, $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</b><hr /></td>
+		<td class="number"><hr /><b>', locale_number_format($TaxTotal + ($_SESSION['Items' . $Identifier]->total + $_POST['ChargeFreightCost']), $_SESSION['Items' . $Identifier]->CurrDecimalPlaces), '</b><hr /></td>
+	</tr>';
 
 if (!isset($_POST['DispatchDate']) or !is_date($_POST['DispatchDate'])) {
 	$DefaultDispatchDate = Date($_SESSION['DefaultDateFormat'], CalcEarliestDispatchDate());
@@ -679,10 +725,10 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 			
 		} //end of loop around items on the order for negative check
 		if ($NegativesFound) {
-			echo '</div>';
 			echo '</form>';
 			echo '<div class="centre">
-					<input type="submit" name="Update" value="' . _('Update') . '" /></div>';
+					<input type="submit" name="Update" value="', _('Update'), '" />
+				</div>';
 			include ('includes/footer.php');
 			exit;
 		}
@@ -731,9 +777,9 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 		/*there should be the same number of items returned from this query as there are lines on the invoice - if  not 	then someone has already invoiced or credited some lines */
 
 		if ($Debug == 1) {
-			echo '<br />' . $SQL;
-			echo '<br />' . _('Number of rows returned by SQL') . ':' . DB_num_rows($Result);
-			echo '<br />' . _('Count of items in the session') . ' ' . count($_SESSION['Items' . $Identifier]->LineItems);
+			echo '<br />', $SQL;
+			echo '<br />', _('Number of rows returned by SQL'), ':', DB_num_rows($Result);
+			echo '<br />', _('Count of items in the session'), ' ', count($_SESSION['Items' . $Identifier]->LineItems);
 		}
 
 		prnMsg(_('This order has been changed or invoiced since this delivery was started to be confirmed') . '. ' . _('Processing halted') . '. ' . _('To enter and confirm this dispatch') . '/' . _('invoice the order must be re-selected and re-read again to update the changes made by the other user'), 'error');
@@ -750,13 +796,15 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->Quantity != $MyRow['quantity'] or $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyInv != $MyRow['qtyinvoiced']) {
 
-			echo '<br />' . _('Orig order for') . ' ' . $MyRow['orderlineno'] . ' ' . _('has a quantity of') . ' ' . $MyRow['quantity'] . ' ' . _('and an invoiced qty of') . ' ' . $MyRow['qtyinvoiced'] . ' ' . _('the session shows quantity of') . ' ' . $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->Quantity . ' ' . _('and quantity invoice of') . ' ' . $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyInv;
+			echo '<br />', _('Orig order for'), ' ', $MyRow['orderlineno'], ' ', _('has a quantity of'), ' ', $MyRow['quantity'], ' ', _('and an invoiced qty of'), ' ', $MyRow['qtyinvoiced'], ' ', _('the session shows quantity of'), ' ', $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->Quantity, ' ', _('and quantity invoice of'), ' ', $_SESSION['Items' . $Identifier]->LineItems[$MyRow['orderlineno']]->QtyInv;
 
 			prnMsg(_('This order has been changed or invoiced since this delivery was started to be confirmed') . ' ' . _('Processing halted.') . ' ' . _('To enter and confirm this dispatch, it must be re-selected and re-read again to update the changes made by the other user'), 'error');
 
 			echo '<br />';
 
-			echo '<div class="centre"><a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Select a sales order for confirming deliveries and invoicing') . '</a></div>';
+			echo '<div class="centre">
+					<a href="', $RootPath, '/SelectSalesOrder.php">', _('Select a sales order for confirming deliveries and invoicing'), '</a>
+				</div>';
 
 			unset($_SESSION['Items' . $Identifier]->LineItems);
 			unset($_SESSION['Items' . $Identifier]);
@@ -1140,6 +1188,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 														type,
 														transno,
 														loccode,
+														container,
 														trandate,
 														userid,
 														debtorno,
@@ -1156,6 +1205,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 														10,
 														'" . $InvoiceNo . "',
 														'" . $_SESSION['Items' . $Identifier]->Location . "',
+														'" . $OrderLine->Container . "',
 														'" . $DefaultDispatchDate . "',
 														'" . $_SESSION['UserID'] . "',
 														'" . $_SESSION['Items' . $Identifier]->DebtorNo . "',
@@ -1177,6 +1227,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 												type,
 												transno,
 												loccode,
+												container,
 												trandate,
 												userid,
 												debtorno,
@@ -1192,6 +1243,7 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 												10,
 												'" . $InvoiceNo . "',
 												'" . $_SESSION['Items' . $Identifier]->Location . "',
+												'" . $OrderLine->Container . "',
 												'" . $DefaultDispatchDate . "',
 												'" . $_SESSION['UserID'] . "',
 												'" . $_SESSION['Items' . $Identifier]->DebtorNo . "',
@@ -1782,13 +1834,13 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	unset($_SESSION['Items' . $Identifier]);
 	unset($_SESSION['ProcessingOrder']);
 
-	echo prnMsg(_('Invoice number') . ' ' . $InvoiceNo . ' ' . _('processed'), 'success');
+	prnMsg(_('Invoice number') . ' ' . $InvoiceNo . ' ' . _('processed'), 'success');
 
 	echo '<div class="centre">';
 
-	echo '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" title="' . _('Print') . '" alt="" />' . ' ' . '<a target="_blank" href="' . $RootPath . '/PrintInvoice.php?FromTransNo=' . $InvoiceNo . '">' . _('Print this invoice') . '</a><br />';
-	echo '<a href="' . $RootPath . '/SelectSalesOrder.php">' . _('Select another order for invoicing') . '</a><br />';
-	echo '<a href="' . $RootPath . '/SelectOrderItems.php?NewOrder=Yes">' . _('Sales Order Entry') . '</a></div>';
+	echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print'), '" alt="" />', ' ', '<a target="_blank" href="', $RootPath, '/PrintInvoice.php?FromTransNo=', $InvoiceNo, '">', _('Print this invoice'), '</a><br />';
+	echo '<a href="', $RootPath, '/SelectSalesOrder.php">', _('Select another order for invoicing'), '</a><br />';
+	echo '<a href="', $RootPath, '/SelectOrderItems.php?NewOrder=Yes">', _('Sales Order Entry'), '</a></div>';
 	/*end of process invoice */
 
 } else {
@@ -1813,44 +1865,45 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	}
 	echo '<table>
 		<tr>
-			<td>' . _('Date On Invoice') . ':</td>
-			<td><input type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="' . $DefaultDispatchDate . '" id="datepicker" class="date" /></td>
+			<td>', _('Date On Invoice'), ':</td>
+			<td><input type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="', $DefaultDispatchDate, '" id="datepicker" class="date" /></td>
 		</tr>';
 	echo '<tr>
-			<td>' . _('Consignment Note Ref') . ':</td>
-			<td><input type="text" maxlength="20" size="20" name="Consignment" value="' . $_POST['Consignment'] . '" /></td>
+			<td>', _('Consignment Note Ref'), ':</td>
+			<td><input type="text" maxlength="20" size="20" name="Consignment" value="', $_POST['Consignment'], '" /></td>
 		</tr>';
 	echo '<tr>
-			<td>' . _('No Of Packages in Delivery') . ':</td>
-			<td><input type="text" maxlength="6" size="6" class="number" name="Packages" value="' . $_POST['Packages'] . '" /></td>
+			<td>', _('No Of Packages in Delivery'), ':</td>
+			<td><input type="text" maxlength="6" size="6" class="number" name="Packages" value="', $_POST['Packages'], '" /></td>
 		</tr>';
 
 	echo '<tr>
-			<td>' . _('Action For Balance') . ':</td>
+			<td>', _('Action For Balance'), ':</td>
 			 <td>
 				<select required="required" name="BOPolicy">
-					<option selected="selected" value="BO">' . _('Automatically put balance on back order') . '</option>
-					<option value="CAN">' . _('Cancel any quantities not delivered') . '</option>
+					<option selected="selected" value="BO">', _('Automatically put balance on back order'), '</option>
+					<option value="CAN">', _('Cancel any quantities not delivered'), '</option>
 				</select>
 			</td>
 		</tr>';
 	echo '<tr>
-			<td>' . _('Invoice Text') . ':</td>
-			<td><textarea name="InvoiceText" cols="31" rows="5">' . reverse_escape($_POST['InvoiceText']) . '</textarea></td>
+			<td>', _('Invoice Text'), ':</td>
+			<td><textarea spellcheck="true" name="InvoiceText" cols="31" rows="5">', reverse_escape($_POST['InvoiceText']), '</textarea></td>
 		</tr>';
 
 	echo '<tr>
-			<td>' . _('Internal Comments') . ':</td>
-			<td><textarea name="InternalComments" pattern=".{0,20}" cols="31" rows="5">' . reverse_escape($_SESSION['Items' . $Identifier]->InternalComments) . '</textarea></td>
+			<td>', _('Internal Comments'), ':</td>
+			<td><textarea spellcheck="true" name="InternalComments" pattern=".{0,20}" cols="31" rows="5">', reverse_escape($_SESSION['Items' . $Identifier]->InternalComments), '</textarea></td>
 		</tr>';
 
-	echo '</table>
-		<div class="centre">
-			<input type="submit" name="Update" value="' . _('Update') . '" />';
+	echo '</table>';
 
-	echo '<input type="submit" name="ProcessInvoice" value="' . _('Process Invoice') . '" />
-		</div>
-		<input type="hidden" name="ShipVia" value="' . $_SESSION['Items' . $Identifier]->ShipVia . '" />';
+	echo '<div class="centre">
+			<input type="submit" name="Update" value="', _('Update'), '" />
+			<input type="submit" name="ProcessInvoice" value="', _('Process Invoice'), '" />
+		</div>';
+
+	echo '<input type="hidden" name="ShipVia" value="', $_SESSION['Items' . $Identifier]->ShipVia, '" />';
 }
 echo '</form>';
 
