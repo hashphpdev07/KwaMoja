@@ -601,6 +601,7 @@ content: attr(data-title);
 background-color: #ADD8E6;
 color: #404552;
 font-size: 100%;
+font-weight:bold;
 position: absolute;
 padding: 1px 5px 2px 5px;
 bottom: -1.9em;
