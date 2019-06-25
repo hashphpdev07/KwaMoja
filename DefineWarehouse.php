@@ -237,7 +237,7 @@ if (!isset($_GET['Edit'])) {
 				$Style = '';
 			}
 			if ($ContainerRow['parentid'] == '') {
-				echo '<tr class="visible striped_row" ', $Style, '><td style="display:none">', $ContainerRow['id'], '</td>';
+				echo '<tr class="visible striped_row" ', $Style, ' data-title="Click here to view the sub-containers"><td style="display:none">', $ContainerRow['id'], '</td>';
 			} else {
 				echo '<tr class="invisible" ', $Style, '><td style="display:none">', $ContainerRow['id'], '</td>';
 			}
