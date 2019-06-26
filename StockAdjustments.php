@@ -564,7 +564,7 @@ if (isset($StockId) and $StockId != '') {
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<fieldset>
-			<legend>', _('Stock Adjustment Details'), '</legend>';
+			<legend>', _('Adjustment Details'), '</legend>';
 	if (isset($_SESSION['Adjustment' . $Identifier]) and mb_strlen($_SESSION['Adjustment' . $Identifier]->ItemDescription) > 1) {
 		echo '<h3>', $_SESSION['Adjustment' . $Identifier]->ItemDescription, ' (', _('In Units of'), ' ', $_SESSION['Adjustment' . $Identifier]->PartUnit, ' ) - ', _('Unit Cost'), ' = ', locale_number_format($_SESSION['Adjustment' . $Identifier]->StandardCost, 4), '</h3>';
 	}
@@ -613,7 +613,7 @@ if (isset($StockId) and $StockId != '') {
 	echo '<field>
 			<label for="Narrative">', _('Comments On Why'), ':</label>
 			<input type="text" spellcheck="true" name="Narrative" size="32" maxlength="30" value="', $Narrative, '" />
-			<fieldhelp>', _('Add a narrative explaining the resons for the stock adjustment.'), '</fieldhelp>
+			<fieldhelp>', _('Add a narrative explaining the reasons for the stock adjustment.'), '</fieldhelp>
 		</field>';
 
 	echo '<field>
