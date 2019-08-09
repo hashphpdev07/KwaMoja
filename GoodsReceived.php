@@ -59,6 +59,19 @@ if (isset($_GET['PONumber']) and $_GET['PONumber'] <= 0 and !isset($_SESSION['PO
 	}
 }
 
+$SQL = "SELECT id FROM container WHERE parentid='" . $_SESSION['PO' . $Identifier]->Location . "'";
+$Result = DB_query($SQL);
+if (DB_num_rows($Result) > 0) {
+	$WarehouseDefined = true;
+} else {
+	$WarehouseDefined = false;
+}
+
+$SQL = "SELECT locationname FROM locations WHERE loccode='" . $_SESSION['PO' . $Identifier]->Location . "'";
+$Result = DB_query($SQL);
+$MyRow = DB_fetch_array($Result);
+$LocationName = $MyRow['locationname'];
+
 if ($_SESSION['PO' . $Identifier]->Status != 'Printed') {
 	prnMsg(_('Purchase orders must have a status of Printed before they can be received') . '.<br />' . _('Order number') . ' ' . $_GET['PONumber'] . ' ' . _('has a status of') . ' ' . _($_SESSION['PO' . $Identifier]->Status), 'warn');
 	include ('includes/footer.php');
@@ -68,7 +81,7 @@ if ($_SESSION['PO' . $Identifier]->Status != 'Printed') {
 /* Always display quantities received and recalc balance for all items on the order */
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Receive'), '" alt="" />', _('Receive Purchase Order'), ' : ', $_SESSION['PO' . $Identifier]->OrderNo, ' ', _('from'), ' ', $_SESSION['PO' . $Identifier]->SupplierName, '
+		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Receive'), '" alt="" />', _('Receive Purchase Order'), ' : ', $_SESSION['PO' . $Identifier]->OrderNo, ' ', _('from'), ' ', $_SESSION['PO' . $Identifier]->SupplierName, ' ', _('into'), ' ', $LocationName, '
 	</p>';
 echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', $Identifier, '" id="form1" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
@@ -113,7 +126,7 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 				<th align="center" colspan="6"><b>', _('Our Receiving Units'), '</b></th>';
 
 	if ($_SESSION['ShowValueOnGRN'] == 1) {
-		echo '<th colspan="3">&nbsp;</th>';
+		echo '<th colspan="4">&nbsp;</th>';
 	}
 	echo '</tr>
 			</tr>
@@ -137,6 +150,9 @@ if (!isset($_POST['ProcessGoodsReceived'])) {
 				<th>', _('Total Value'), '<br />', _('Received'), '</th>';
 	}
 	echo '<th>', _('Reference'), '</th>';
+	if ($WarehouseDefined) {
+		echo '<th>', _('Container'), '</th>';
+	}
 	echo '</tr>';
 	/*show the line items on the order with the quantity being received for modification */
 
@@ -225,6 +241,21 @@ if (count($_SESSION['PO' . $Identifier]->LineItems) > 0 and !isset($_POST['Proce
 		echo '<td>
 				<input type="text" name="Reference_', $LnItm->LineNo, '" maxlength="50" size="25" value="', $LnItm->GRNReference, '" />
 			</td>';
+
+		if ($WarehouseDefined) {
+			$ContainerSQL = "SELECT id, name FROM container WHERE location='" . $_SESSION['PO' . $Identifier]->Location . "' AND putaway=1";
+			$ContainerResult = DB_query($ContainerSQL);
+			echo '<td>
+				<select name="Container_', $LnItm->LineNo, '">';
+			while ($MyContainerRow = DB_fetch_array($ContainerResult)) {
+				if (isset($_POST['Container_' . $LnItm->LineNo]) and $_POST['Container_' . $LnItm->LineNo] == $MyContainerRow['id']) {
+					echo '<option selected="selected" value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+				} else {
+					echo '<option value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+				}
+			}
+		}
+
 		echo '</tr>';
 	} //foreach(LineItem)
 	$DisplayTotal = locale_number_format($_SESSION['PO' . $Identifier]->Total, $_SESSION['PO' . $Identifier]->CurrDecimalPlaces);
@@ -563,12 +594,17 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 				$DbgMsg = _('The following SQL to update the location stock record was used');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
+				if (empty($_POST['Container_' . $OrderLine->LineNo])) {
+					$_POST['Container_' . $OrderLine->LineNo] = $_SESSION['PO' . $Identifier]->Location;
+				}
+
 				/* Insert stock movements - with unit cost */
 
 				$SQL = "INSERT INTO stockmoves (stockid,
 												type,
 												transno,
 												loccode,
+												container,
 												trandate,
 												userid,
 												price,
@@ -582,6 +618,7 @@ if ($_SESSION['PO' . $Identifier]->SomethingReceived() == 0 and isset($_POST['Pr
 										25,
 										'" . $GRN . "',
 										'" . $_SESSION['PO' . $Identifier]->Location . "',
+										'" . $_POST['Container_' . $OrderLine->LineNo] . "',
 										'" . $_POST['DefaultReceivedDate'] . "',
 										'" . $_SESSION['UserID'] . "',
 										'" . $LocalCurrencyPrice . "',

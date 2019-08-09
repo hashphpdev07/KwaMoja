@@ -108,7 +108,8 @@ $SQL = "SELECT debtorsmaster.name,
 			paymentterms.dayinfollowingmonth,
 			debtorsmaster.creditlimit,
 			holdreasons.dissallowinvoices,
-			holdreasons.reasondescription";
+			holdreasons.reasondescription,
+			currencies.decimalplaces";
 
 $ErrMsg = _('The customer details could not be retrieved by the SQL because');
 $CustomerResult = DB_query($SQL, $ErrMsg);

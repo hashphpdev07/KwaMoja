@@ -1,5 +1,4 @@
 <?php
-
 /*Class to hold stock transfer records */
 
 class StockTransfer {
@@ -36,6 +35,8 @@ class LineItem {
 	var $ShipQty;
 	var $PrevRecvQty;
 	var $Quantity;
+	var $ContainerFrom;
+	var $ContainerTo;
 	var $PartUnit;
 	var $Controlled;
 	var $Serialised;

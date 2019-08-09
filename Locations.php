@@ -391,6 +391,12 @@ if (!isset($SelectedLocation)) {
 
 	$SQL = "SELECT locations.loccode,
 					locationname,
+					deladd1,
+					deladd2,
+					deladd3,
+					deladd4,
+					deladd5,
+					deladd6,
 					taxprovinces.taxprovincename as description,
 					glaccountcode,
 					allowinvoicing,
@@ -405,10 +411,12 @@ if (!isset($SelectedLocation)) {
 					ON locations.taxprovinceid=taxprovinces.taxprovinceid";
 	$Result = DB_query($SQL);
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Locations'), '" alt="" />', $Title, '
+		</p>';
 
 	if (DB_num_rows($Result) == 0) {
-		echo '<div class="page_help_text">' . _('As this is the first time that the system has been used, you must first create a location.') . '<br />' . _('Once you have filled in all the details, click on the button at the bottom of the screen') . '</div>';
+		echo '<div class="page_help_text">', _('As this is the first time that the system has been used, you must first create a location.'), '<br />', _('Once you have filled in all the details, click on the button at the bottom of the screen'), '</div>';
 	}
 
 	if (DB_num_rows($Result) != 0) {
@@ -418,10 +426,11 @@ if (!isset($SelectedLocation)) {
 					<tr>
 						<th class="SortedColumn">', _('Location Code'), '</th>
 						<th class="SortedColumn">', _('Location Name'), '</th>
+						<th>', _('Location Address'), '</th>
 						<th class="SortedColumn">', _('Tax Province'), '</th>
 						<th class="SortedColumn">', _('GL Account Code'), '</th>
 						<th class="SortedColumn">', _('Allow Invoicing'), '</th>
-						<th class="noPrint" colspan="2">&nbsp;</th>
+						<th class="noPrint" colspan="3">&nbsp;</th>
 					</tr>
 				</thead>';
 
@@ -435,17 +444,39 @@ if (!isset($SelectedLocation)) {
 			$MyRow['managed'] = _('No');
 			}
 			*/
-			printf('<tr class="striped_row">
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="centre">%s</td>
-						<td>%s</td>
-						<td><a href="%sSelectedLocation=%s">' . _('Edit') . '</a></td>
-						<td><a href="%sLocation=%s">' . _('Define') . '</a></td>
-						<td><a href="%sSelectedLocation=%s&amp;delete=1" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this inventory location?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-					</tr>', $MyRow['loccode'], $MyRow['locationname'], $MyRow['description'], ($MyRow['glaccountcode'] != '' ? $MyRow['glaccountcode'] : '&nbsp;'), // Use a non-breaking space to avoid an empty cell in a HTML table.
-			($MyRow['allowinvoicing'] == 1 ? _('Yes') : _('No')), htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['loccode'], 'DefineWarehouse.php?', $MyRow['loccode'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?', $MyRow['loccode']);
+			$Address = '';
+			for ($i = 1;$i <= 6;$i++) {
+				if ($MyRow['deladd' . $i] != '') {
+					$Address.= $MyRow['deladd' . $i] . '<br />';
+				}
+			}
+			if ($MyRow['allowinvoicing'] == 1) {
+				$AllowInvoicing = _('Yes');
+			} else {
+				$AllowInvoicing = _('No');
+			}
+			if ($MyRow['glaccountcode'] == '') {
+				$GeneralLedgerCode = _('No General Ledger code selected');
+			} else {
+				$SQL = "SELECT accountname
+							FROM chartmaster
+							WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+								AND accountcode='" . $MyRow['glaccountcode'] . "'";
+				$GLResult = DB_query($SQL);
+				$GLRow = DB_fetch_array($GLResult);
+				$GeneralLedgerCode = $MyRow['glaccountcode'] . ' - ' . $GLRow['accountname'];
+			}
+			echo '<tr class="striped_row">
+					<td>', $MyRow['loccode'], '</td>
+					<td>', $MyRow['locationname'], '</td>
+					<td>', $Address, '</td>
+					<td class="number">', $MyRow['description'], '</td>
+					<td>', $GeneralLedgerCode, '</td>
+					<td>', $AllowInvoicing, '</td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedLocation=', urlencode($MyRow['loccode']), '">', _('Edit'), '</a></td>
+					<td><a href="', $RootPath, '/DefineWarehouse.php?Location=', urlencode($MyRow['loccode']), '">', _('Define Layout'), '</a></td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedLocation=', urlencode($MyRow['loccode']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this inventory location?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+				</tr>';
 		}
 	}
 	//END WHILE LIST LOOP
@@ -456,19 +487,21 @@ if (!isset($SelectedLocation)) {
 //end of ifs and buts!
 if (isset($SelectedLocation)) {
 	echo '<div class="toplink">
-			<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Review Records') . '</a>
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review Records'), '</a>
 		</div>';
 }
 
 if (!isset($_GET['delete'])) {
 
 	include ('includes/CountriesArray.php');
-	echo '<form id="Locations" method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form id="Locations" method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	if (isset($SelectedLocation)) {
 		//editing an existing Location
-		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Inventory') . '" alt="" />' . ' ' . $Title . '</p>';
+		echo '<p class="page_title_text">
+				<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Locations'), '" alt="" />', $Title, '
+			</p>';
 
 		$SQL = "SELECT loccode,
 					locationname,
@@ -513,28 +546,27 @@ if (!isset($_GET['delete'])) {
 		$_POST['GLAccountCode'] = $MyRow['glaccountcode'];
 		$_POST['AllowInvoicing'] = $MyRow['allowinvoicing'];
 
-		echo '<input type="hidden" name="SelectedLocation" value="' . $SelectedLocation . '" />';
-		echo '<input type="hidden" name="LocCode" value="' . $_POST['LocCode'] . '" />';
-		echo '<table>';
-		echo '<tr>
-				<th colspan="2">' . _('Amend Location details') . '</th>
-			</tr>';
-		echo '<tr>
-				<td>' . _('Location Code') . ':</td>
-				<td>' . $_POST['LocCode'] . '</td>
-			</tr>';
+		echo '<input type="hidden" name="SelectedLocation" value="', $SelectedLocation, '" />';
+		echo '<input type="hidden" name="LocCode" value="', $_POST['LocCode'], '" />';
+		echo '<fieldset>
+				<legend>', _('Amend Location details'), '</legend>';
+
+		echo '<field>
+				<label for="LocCode">', _('Location Code'), ':</label>
+				<div class="fieldtext">', $_POST['LocCode'], '</div>
+			</field>';
 	} else { //end of if $SelectedLocation only do the else when a new record is being entered
 		if (!isset($_POST['LocCode'])) {
 			$_POST['LocCode'] = '';
 		}
-		echo '<table>
-				<tr>
-					<th colspan="2"><h3>' . _('New Location details') . '</h3></th>
-				</tr>';
-		echo '<tr>
-				<td>' . _('Location Code') . ':</td>
-				<td><input type="text" name="LocCode" value="' . $_POST['LocCode'] . '" size="5" required="required" maxlength="5" /></td>
-			</tr>';
+		echo '<fieldset>
+				<legend>', _('New Location details'), '</legend>';
+
+		echo '<field>
+				<label for="LocCode">', _('Location Code'), ':</label>
+				<input type="text" autofocus="autofocus" name="LocCode" value="', $_POST['LocCode'], '" size="5" required="required" maxlength="5" />
+				<fieldhelp>', _('Enter the code to use for this location. The code can contain between 1 and 5 characters.'), '</fieldhelp>
+			</field>';
 	}
 	if (!isset($_POST['LocationName'])) {
 		$_POST['LocationName'] = '';
@@ -543,7 +575,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['Contact'] = '';
 	}
 	if (!isset($_POST['DelAdd1'])) {
-		$_POST['DelAdd1'] = ' ';
+		$_POST['DelAdd1'] = '';
 	}
 	if (!isset($_POST['DelAdd2'])) {
 		$_POST['DelAdd2'] = '';
@@ -580,74 +612,88 @@ if (!isset($_GET['delete'])) {
 		$_POST['GLAccountCode'] = '';
 	}
 
-	echo '<tr>
-			<td>' . _('Location Name') . ':' . '</td>
-			<td><input type="text" name="LocationName" value="' . $_POST['LocationName'] . '" size="51" required="required" maxlength="50" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Contact for deliveries') . ':' . '</td>
-			<td><input type="text" name="Contact" value="' . $_POST['Contact'] . '" size="31" required="required" maxlength="30" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Delivery Address 1') . ':' . '</td>
-			<td><input type="text" name="DelAdd1" value="' . $_POST['DelAdd1'] . '" size="41" required="required" maxlength="40" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Delivery Address 2') . ':' . '</td>
-			<td><input type="text" name="DelAdd2" value="' . $_POST['DelAdd2'] . '" size="41" maxlength="40" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Delivery Address 3') . ':' . '</td>
-			<td><input type="text" name="DelAdd3" value="' . $_POST['DelAdd3'] . '" size="41" maxlength="40" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Delivery Address 4') . ':' . '</td>
-			<td><input type="text" name="DelAdd4" value="' . $_POST['DelAdd4'] . '" size="41" maxlength="40" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Delivery Address 5') . ':' . '</td>
-			<td><input type="text" name="DelAdd5" value="' . $_POST['DelAdd5'] . '" size="21" maxlength="20" /></td>
-		</tr>
-			<td>' . _('Country') . ':</td>
-			<td><select name="DelAdd6">';
+	echo '<field>
+			<label for="LocationName">', _('Location Name'), ':</label>
+			<input type="text" autofocus="autofocus" name="LocationName" value="', $_POST['LocationName'], '" size="51" required="required" maxlength="50" />
+			<fieldhelp>', _('A description of this location using up to 50 characters.'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="Contact">', _('Contact for deliveries'), ':</label>
+			<input type="text" name="Contact" value="', $_POST['Contact'], '" size="31" required="required" maxlength="30" />
+			<fieldhelp>', _('Contact name for deliveries to this depot'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="DelAdd1">', _('Delivery Address 1'), ':</label>
+			<input type="text" name="DelAdd1" value="', $_POST['DelAdd1'], '" size="41" maxlength="40" />
+			<fieldhelp>', _('First line of the delivery address'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="DelAdd2">', _('Delivery Address 2'), ':</label>
+			<input type="text" name="DelAdd2" value="', $_POST['DelAdd2'], '" size="41" maxlength="40" />
+			<fieldhelp>', _('Second line of the delivery address'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="DelAdd3">', _('Delivery Address 3'), ':</label>
+			<input type="text" name="DelAdd3" value="', $_POST['DelAdd3'], '" size="41" maxlength="40" />
+			<fieldhelp>', _('Third line of the delivery address'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="DelAdd4">', _('Delivery Address 4'), ':</label>
+			<input type="text" name="DelAdd4" value="', $_POST['DelAdd4'], '" size="41" maxlength="40" />
+			<fieldhelp>', _('Fourth line of the delivery address'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="DelAdd5">', _('Delivery Address 5'), ':</label>
+			<input type="text" name="DelAdd5" value="', $_POST['DelAdd5'], '" size="21" maxlength="20" />
+			<fieldhelp>', _('Fifth line of the delivery address'), '</fieldhelp>
+		</field>
+			<label for="DelAdd6">', _('Country'), ':</label>
+			<select name="DelAdd6">';
 	foreach ($CountriesArray as $CountryEntry => $CountryName) {
 		if (isset($_POST['DelAdd6']) and (strtoupper($_POST['DelAdd6']) == strtoupper($CountryName))) {
-			echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
-		} elseif (!isset($_POST['Address6']) and $CountryName == "") {
-			echo '<option selected="selected" value="' . $CountryName . '">' . $CountryName . '</option>';
+			echo '<option selected="selected" value="', $CountryName, '">', $CountryName, '</option>';
+		} elseif (!isset($_POST['Address6']) and $CountryName == '') {
+			echo '<option selected="selected" value="', $CountryName, '">', $CountryName, '</option>';
 		} else {
-			echo '<option value="' . $CountryName . '">' . $CountryName . '</option>';
+			echo '<option value="', $CountryName, '">', $CountryName, '</option>';
 		}
 	}
-	echo '</select></td>
- 		</tr>
-		<tr>
-			<td>' . _('Telephone No') . ':' . '</td>
-			<td><input type="tel" name="Tel" value="' . $_POST['Tel'] . '" size="31" maxlength="30" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Facsimile No') . ':' . '</td>
-			<td><input type="tel" name="Fax" value="' . $_POST['Fax'] . '" size="31" maxlength="30" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Email') . ':' . '</td>
-			<td><input type="email" name="Email" value="' . $_POST['Email'] . '" size="31" maxlength="55" /></td>
-		</tr>
-		<tr>
-			<td>' . _('Tax Province') . ':' . '</td>
-			<td><select name="TaxProvince">';
+	echo '</select>
+		<fieldhelp>', _('Select the country where this location is based'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+			<label for="">', _('Telephone No'), ':', '</label>
+			<input type="tel" name="Tel" value="', $_POST['Tel'], '" size="31" maxlength="30" />
+			<fieldhelp>', _('Contact telephone number for this location'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="">', _('Facsimile No'), ':', '</label>
+			<input type="tel" name="Fax" value="', $_POST['Fax'], '" size="31" maxlength="30" />
+			<fieldhelp>', _('Contact fax number for this location'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="">', _('Email'), ':', '</label>
+			<input type="email" name="Email" value="', $_POST['Email'], '" size="31" maxlength="55" />
+			<fieldhelp>', _('Contact email address for this location'), '</fieldhelp>
+		</field>
+		<field>
+			<label for="">', _('Tax Province'), ':', '</label>
+			<select name="TaxProvince">';
 
 	$TaxProvinceResult = DB_query("SELECT taxprovinceid, taxprovincename FROM taxprovinces");
 	while ($MyRow = DB_fetch_array($TaxProvinceResult)) {
 		if (isset($_POST['TaxProvince']) and $_POST['TaxProvince'] == $MyRow['taxprovinceid']) {
-			echo '<option selected="selected" value="' . $MyRow['taxprovinceid'] . '">' . $MyRow['taxprovincename'] . '</option>';
+			echo '<option selected="selected" value="', $MyRow['taxprovinceid'], '">', $MyRow['taxprovincename'], '</option>';
 		} else {
-			echo '<option value="' . $MyRow['taxprovinceid'] . '">' . $MyRow['taxprovincename'] . '</option>';
+			echo '<option value="', $MyRow['taxprovinceid'], '">', $MyRow['taxprovincename'], '</option>';
 		}
 	}
 
-	echo '</select></td>
-		</tr>';
+	echo '</select>
+		<fieldhelp>', _('Select the tax province for this location.'), '</fieldhelp>
+	</field>';
+
 	// Location's ledger account:
 	//SQL to poulate account selection boxes
 	$SQL = "SELECT accountcode,
@@ -660,12 +706,12 @@ if (!isset($_GET['delete'])) {
 					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 				ORDER BY accountcode";
 	$BSAccountsResult = DB_query($SQL);
-	echo '<tr title="', _('Enter the GL account for this location, or leave it in blank if not needed'), '">
-			<td><label for="GLAccountCode">', _('GL Account Code'), ':</label></td>
-			<td><select name="GLAccountCode">';
+	echo '<field>
+			<label for="GLAccountCode">', _('GL Account Code'), ':</label>
+			<select name="GLAccountCode">
+				<option value="">', _('No General Ledger Code'), '</option>';
 
 	while ($MyRow = DB_fetch_array($BSAccountsResult)) {
-
 		if (isset($_POST['GLAccountCode']) and $MyRow['accountcode'] == $_POST['GLAccountCode']) {
 			echo '<option selected="selected" value="' . $MyRow['accountcode'] . '">' . $MyRow['accountname'] . ' (' . $MyRow['accountcode'] . ')' . '</option>';
 		} else {
@@ -673,58 +719,59 @@ if (!isset($_GET['delete'])) {
 		}
 	} //end while loop
 	echo '</select>
-			</td>
-		</tr>';
+		<fieldhelp>', _('Select the GL account for this location, or select "No General Ledger Code".'), '</fieldhelp>
+	</field>';
+
 	// Allow or deny the invoicing of items in this location:
-	echo '<tr title="', _('Use this parameter to indicate whether these inventory location allows or denies the invoicing of its items.'), '">
-			<td><label for="AllowInvoicing">', _('Allow Invoicing'), ':</label></td>
-			<td>
-				<select name="AllowInvoicing">
-					<option', ($_POST['AllowInvoicing'] == 1 ? ' selected="selected"' : ''), ' value="1">', _('Yes'), '</option>
-					<option', ($_POST['AllowInvoicing'] == 0 ? ' selected="selected"' : ''), ' value="0">', _('No'), '</option>
-				</select>
-			</td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('Allow internal requests?') . ':</td>
-			<td><select name="InternalRequest">';
+	echo '<field>
+			<label for="AllowInvoicing">', _('Allow Invoicing'), ':</label>
+			<select name="AllowInvoicing">
+				<option', ($_POST['AllowInvoicing'] == 1 ? ' selected="selected"' : ''), ' value="1">', _('Yes'), '</option>
+				<option', ($_POST['AllowInvoicing'] == 0 ? ' selected="selected"' : ''), ' value="0">', _('No'), '</option>
+			</select>
+			<fieldhelp>', _('Use this parameter to indicate whether these inventory location allows or denies the invoicing of its items.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="InternalRequest">', _('Allow internal requests?'), ':</label>
+			<select name="InternalRequest">';
 	if (isset($_POST['InternalRequest']) and $_POST['InternalRequest'] == 1) {
-		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
+		echo '<option selected="selected" value="1">', _('Yes'), '</option>';
 	} else {
-		echo '<option value="1">' . _('Yes') . '</option>';
+		echo '<option value="1">', _('Yes'), '</option>';
 	}
 	if (isset($_POST['InternalRequest']) and $_POST['InternalRequest'] == 0) {
-		echo '<option selected="selected" value="0">' . _('No') . '</option>';
+		echo '<option selected="selected" value="0">', _('No'), '</option>';
 	} else {
-		echo '<option value="0">' . _('No') . '</option>';
+		echo '<option value="0">', _('No'), '</option>';
 	}
 	echo '</select>
-				</td>
-			</tr>';
+		<fieldhelp>', _('If the location can be used for internal stock transfer requests then select "Yes", otherwise select "No"'), '</fieldhelp>
+	</field>';
 
-	echo '<tr>
-			<td>' . _('Use for Work Order Productions?') . ':</td>
-			<td><select name="UsedForWO">';
+	echo '<field>
+			<label for="UsedForWO">', _('Use for Work Order Productions?'), ':</label>
+			<select name="UsedForWO">';
 	if (isset($_POST['UsedForWO']) and $_POST['UsedForWO'] == 1) {
-		echo '<option selected="selected" value="1">' . _('Yes') . '</option>';
+		echo '<option selected="selected" value="1">', _('Yes'), '</option>';
 	} else {
-		echo '<option value="1">' . _('Yes') . '</option>';
+		echo '<option value="1">', _('Yes'), '</option>';
 	}
 	if (isset($_POST['UsedForWO']) and $_POST['UsedForWO'] == 0) {
-		echo '<option selected="selected" value="0">' . _('No') . '</option>';
+		echo '<option selected="selected" value="0">', _('No'), '</option>';
 	} else {
-		echo '<option value="0">' . _('No') . '</option>';
+		echo '<option value="0">', _('No'), '</option>';
 	}
 	echo '</select>
-				</td>
-			</tr>';
+		<fieldhelp>', _('If the location can be used for production of work orders then select "Yes", otherwise select "No"'), '</fieldhelp>
+	</field>';
 
 	/*
 	This functionality is not written yet ...
 	<tr><td><?php echo _('Enable Warehouse Management') . ':'; ?></td>
 	<td><input type='checkbox' name='Managed'<?php if($_POST['Managed'] == 1) echo ' checked';?>></td></tr>
 	*/
-	echo '</table>
+	echo '</fieldset>
 		<div class="centre">
 			<input type="submit" name="submit" value="' . _('Enter Information') . '" />
 		</div>

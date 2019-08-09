@@ -151,7 +151,7 @@ background-color:#595D66;
 
 a {
 text-decoration:none;
-display:block;
+display:inline-block;
 color:inherit;
 }
 
@@ -589,4 +589,30 @@ margin-bottom:4px;
 margin: 5px;
 float: left;
 /* Class selector to let an element float to the left. */
+}
+
+[data-title]:hover:after {
+opacity: 1;
+transition: all 0.1s ease 0.5s;
+visibility: visible;
+}
+[data-title]:after {
+content: attr(data-title);
+background-color: #ADD8E6;
+color: #404552;
+font-size: 100%;
+font-weight:bold;
+position: absolute;
+padding: 1px 5px 2px 5px;
+bottom: -1.9em;
+left: 10%;
+white-space: nowrap;
+box-shadow: 1px 1px 3px #222222;
+opacity: 0;
+border: 1px solid #111111;
+z-index: 99999;
+visibility: hidden;
+}
+[data-title] {
+position: relative;
 }

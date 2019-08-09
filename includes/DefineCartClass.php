@@ -1,5 +1,4 @@
 <?php
-
 /* $Id: DefineCartClass.php 7444 2016-01-13 07:32:36Z daintree $*/
 
 /* Definition of the cart class
@@ -10,7 +9,6 @@ ii)  an invoice
 iii) a credit note
 
 */
-
 
 class Cart {
 
@@ -64,6 +62,7 @@ class Cart {
 	var $TaxGLCodes;
 	var $BuyerName;
 	var $SpecialInstructions;
+	var $WarehouseDefined;
 
 	function __construct() {
 		/*Constructor function initialises a new shopping cart */
@@ -75,9 +74,10 @@ class Cart {
 		$this->FreightCost = 0;
 		$this->FreightTaxes = array();
 		$this->CurrDecimalPlaces = 2; //default
+		
 	}
 
-	function add_to_cart($StockId, $Qty, $Descr, $LongDescr, $Price, $Disc = 0, $UOM, $Volume, $Weight, $QOHatLoc = 0, $MBflag = 'B', $ActDispatchDate = NULL, $QtyInvoiced = 0, $DiscCat = '', $Controlled = 0, $Serialised = 0, $DecimalPlaces = 0, $Narrative = '', $UpdateDB = 'No', $LineNumber = -1, $TaxCategory = 0, $vtigerProductID = '', $ItemDue = '', $POLine = '', $StandardCost = 0, $EOQ = 1, $NextSerialNo = 0, $ExRate = 1, $Identifier = 0) {
+	function add_to_cart($StockId, $Qty, $Descr, $LongDescr, $Price, $Disc = 0, $UOM, $Volume, $Weight, $QOHatLoc = 0, $MBflag = 'B', $ActDispatchDate = NULL, $QtyInvoiced = 0, $DiscCat = '', $Controlled = 0, $Serialised = 0, $DecimalPlaces = 0, $Narrative = '', $UpdateDB = 'No', $LineNumber = - 1, $TaxCategory = 0, $vtigerProductID = '', $ItemDue = '', $POLine = '', $StandardCost = 0, $EOQ = 1, $NextSerialNo = 0, $ExRate = 1, $Identifier = 0) {
 
 		if (isset($StockId) and $StockId != "" and $Qty > 0 and isset($Qty)) {
 
@@ -86,7 +86,7 @@ class Cart {
 				$Price = 0;
 			}
 
-			if ($LineNumber == -1) {
+			if ($LineNumber == - 1) {
 				$LineNumber = $this->LineCounter;
 			}
 
@@ -176,19 +176,18 @@ class Cart {
 			}
 		}
 		/* Since we need to check the LineItem above and might affect the DB, don't unset until after DB is updates occur */
-		$this->CreditAvailable += ($this->LineItems[$LineNumber]->Quantity * $this->LineItems[$LineNumber]->Price * (1 - $this->LineItems[$LineNumber]->DiscountPercent));
+		$this->CreditAvailable+= ($this->LineItems[$LineNumber]->Quantity * $this->LineItems[$LineNumber]->Price * (1 - $this->LineItems[$LineNumber]->DiscountPercent));
 		unset($this->LineItems[$LineNumber]);
 		$this->ItemsOrdered--;
 
 	} //remove_from_cart()
-
 	function Get_StockID_List() {
 		/* Makes a comma seperated list of the stock items ordered
-		for use in SQL expressions */
+		 for use in SQL expressions */
 
 		$StockId_List = '';
 		foreach ($this->LineItems as $StockItem) {
-			$StockId_List .= ",'" . $StockItem->StockID . "'";
+			$StockId_List.= ",'" . $StockItem->StockID . "'";
 		}
 
 		return mb_substr($StockId_List, 1);
@@ -229,7 +228,7 @@ class Cart {
 	function GetExistingTaxes($LineNumber, $stkmoveno) {
 
 		/*Gets the Taxes and rates applicable to this line from the TaxGroup of the branch and TaxCategory of the item
-		and the taxprovince of the dispatch location */
+		 and the taxprovince of the dispatch location */
 
 		$SQL = "SELECT stockmovestaxes.taxauthid,
 						taxauthorities.description,
@@ -252,11 +251,10 @@ class Cart {
 			$i++;
 		}
 	} //end method GetExistingTaxes
-
 	function GetTaxes($LineNumber) {
 
 		/*Gets the Taxes and rates applicable to this line from the TaxGroup of the branch and TaxCategory of the item
-		and the taxprovince of the dispatch location */
+		 and the taxprovince of the dispatch location */
 
 		$SQL = "SELECT taxgrouptaxes.calculationorder,
 						taxauthorities.description,
@@ -285,13 +283,14 @@ class Cart {
 				$this->LineItems[$LineNumber]->Taxes[$i] = new Tax($MyRow['calculationorder'], $MyRow['taxauthid'], $MyRow['description'], $MyRow['taxrate'], $MyRow['taxontax'], $MyRow['taxglcode']);
 				$i++;
 			} //end loop around different taxes
+			
 		} //end if there are some taxes defined
+		
 	} //end method GetTaxes
-
 	function GetFreightTaxes() {
 
 		/*Gets the Taxes and rates applicable to the freight based on the tax group of the branch combined with the tax category for this particular freight
-		and SESSION['FreightTaxCategory'] the taxprovince of the dispatch location */
+		 and SESSION['FreightTaxCategory'] the taxprovince of the dispatch location */
 
 		$SQL = "SELECT freighttaxcatid AS taxcatid FROM taxprovinces WHERE taxprovinceid='" . $this->DispatchTaxProvince . "'"; // This tax category is hardcoded inside the database.
 		$TaxCatQuery = DB_query($SQL);
@@ -328,7 +327,7 @@ class Cart {
 			$i++;
 		}
 	} //end method GetFreightTaxes()
-
+	
 }
 /* end of cart class defintion */
 
@@ -365,6 +364,7 @@ class LineDetails {
 	var $EOQ;
 	var $NextSerialNo;
 	var $GPPercent;
+	var $Container;
 
 	function __construct($LineNumber, $StockItem, $Descr, $LongDescr, $Qty, $Prc, $DiscPercent, $UOM, $Volume, $Weight, $QOHatLoc, $MBflag, $ActDispatchDate, $QtyInvoiced, $DiscCat, $Controlled, $Serialised, $DecimalPlaces, $Narrative, $TaxCategory, $ItemDue, $POLine, $StandardCost, $EOQ, $NextSerialNo, $ExRate) {
 
@@ -413,7 +413,7 @@ class LineDetails {
 			$this->GPPercent = 0;
 		}
 	} //end constructor function for LineDetails
-
+	
 }
 
 class Tax {

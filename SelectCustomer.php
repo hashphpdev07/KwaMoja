@@ -121,14 +121,14 @@ if (isset($_POST['Search']) or isset($_POST['CSV']) or isset($_POST['Go']) or is
 	$SQL.= " ORDER BY debtorsmaster.name";
 	$ErrMsg = _('The searched customer records requested cannot be retrieved because');
 
-	$Result = DB_query($SQL, $ErrMsg);
-	if (DB_num_rows($Result) == 1) {
-		$MyRow = DB_fetch_array($Result);
+	$SearchResult = DB_query($SQL, $ErrMsg);
+	if (DB_num_rows($SearchResult) == 1) {
+		$MyRow = DB_fetch_array($SearchResult);
 		$_SESSION['CustomerID'] = $MyRow['debtorno'];
 		$_SESSION['BranchCode'] = $MyRow['branchcode'];
-		unset($Result);
+		unset($SearchResult);
 		unset($_POST['Search']);
-	} elseif (DB_num_rows($Result) == 0) {
+	} elseif (DB_num_rows($SearchResult) == 0) {
 		prnMsg(_('No customer records contain the selected text') . ' - ' . _('please alter your search criteria and try again'), 'info');
 		echo '<br />';
 	} // DB_num_rows($Result) == 0
@@ -154,13 +154,13 @@ if ($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST
 			AND custbranch.branchcode='" . $_SESSION['BranchCode'] . "'";
 	}
 	$ErrMsg = _('The customer name requested cannot be retrieved because');
-	$Result = DB_query($SQL, $ErrMsg);
-	if ($MyRow = DB_fetch_array($Result)) {
+	$CustomerResult = DB_query($SQL, $ErrMsg);
+	if ($MyRow = DB_fetch_array($CustomerResult)) {
 		$CustomerName = htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false);
 		$PhoneNo = $MyRow['phoneno'];
 		$BranchName = $MyRow['brname'];
 	} // $MyRow = DB_fetch_array($Result)
-	unset($Result);
+	unset($CustomerResult);
 
 	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', // Icon image.
 	_('Customer'), '" /> ', // Icon title.
@@ -369,7 +369,7 @@ echo '<div class="centre">
 if (isset($_SESSION['SalesmanLogin']) and $_SESSION['SalesmanLogin'] != '') {
 	prnMsg(_('Your account enables you to see only customers allocated to you'), 'warn', _('Note: Sales-person Login'));
 } // isset($_SESSION['SalesmanLogin']) and $_SESSION['SalesmanLogin'] != ''
-if (isset($Result)) {
+if (isset($SearchResult)) {
 	unset($_SESSION['CustomerID']);
 	$ListCount = DB_num_rows($Result);
 	$ListPageMax = ceil($ListCount / $_SESSION['DisplayRecordsMax']);
@@ -433,11 +433,11 @@ if (isset($Result)) {
 			
 		} // isset($_POST['CSV'])
 		if (!isset($_POST['CSV'])) {
-			DB_data_seek($Result, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
+			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		} // !isset($_POST['CSV'])
 		$i = 0; // counter for input controls
 		echo '<tbody>';
-		while (($MyRow = DB_fetch_array($Result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
+		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
 			echo '<tr class="striped_row">
 					<td><button type="submit" name="SubmitCustomerSelection[', htmlspecialchars($MyRow['debtorno'], ENT_QUOTES, 'UTF-8', false), ']" value="', htmlspecialchars($MyRow['branchcode'], ENT_QUOTES, 'UTF-8', false), '" >', $MyRow['debtorno'], ' ', $MyRow['branchcode'], '</button></td>
 					<td class="text">', htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false), '</td>

@@ -885,7 +885,8 @@ if (!isset($StockId)) {
 							salesorders.deliverydate,
 							salesorders.deliverto,
 							salesorders.printedpackingslip,
-							salesorders.poplaced
+							salesorders.poplaced,
+							pickreq.prid
 							ORDER BY salesorders.orderno";
 		} //end not order number selected
 		$ErrMsg = _('No orders or quotations were returned by the SQL because');
