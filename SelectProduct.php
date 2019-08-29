@@ -765,8 +765,8 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 					<td>', $ItemStatus, '</td>
 					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
 					<td>', $StockImgLink, '</td>
-					<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
-					<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
+					<td data-title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
+					<td data-title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
 					<td class="number">', $QOH, '</td>
 					<td>', $MyRow['units'], '</td>
 					<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>
