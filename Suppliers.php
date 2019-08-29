@@ -375,7 +375,8 @@ if (isset($_POST['insert']) or isset($_POST['update'])) {
 echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<fieldset>';
+echo '<fieldset>
+		<legend>', _('Supplier Details'), '</legend>';
 
 if (!isset($SupplierID)) {
 
