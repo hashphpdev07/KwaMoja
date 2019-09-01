@@ -5,6 +5,12 @@ include ('includes/header.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/security.png" title="' . _('Page Security Levels') . '" alt="" />' . ' ' . $Title . '</p><br />';
 
+if ($AllowDemoMode == true) {
+	prnMsg(_('The the system is in demo mode and the security model administration is disabled'), 'warn');
+	include ('includes/footer.php');
+	exit;
+}
+
 if (isset($_POST['Update']) and $AllowDemoMode != true) {
 	foreach ($_POST as $ScriptName => $PageSecurityValue) {
 		if ($ScriptName != 'Update' and $ScriptName != 'FormID') {
