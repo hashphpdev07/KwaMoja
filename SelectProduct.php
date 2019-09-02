@@ -450,35 +450,35 @@ echo '<table width="90%">
 echo '<tr>
 			<td valign="top" class="select">';
 /*Stock Inquiry Options */
-echo '<a href="', $RootPath, '/StockMovements.php?StockID=', $UrlEncodedStockId, '">', _('Show Stock Movements'), '</a>';
+echo '<a href="', $RootPath, '/StockMovements.php?StockID=', $UrlEncodedStockId, '">', _('Show Stock Movements'), '</a><br />';
 if ($Its_A_Kitset_Assembly_Or_Dummy == false) {
-	echo '<a href="', $RootPath, '/StockStatus.php?StockID=', $UrlEncodedStockId, '">', _('Show Stock Status'), '</a>';
-	echo '<a href="', $RootPath, '/StockUsage.php?StockID=', $UrlEncodedStockId, '">', _('Show Stock Usage'), '</a>';
+	echo '<a href="', $RootPath, '/StockStatus.php?StockID=', $UrlEncodedStockId, '">', _('Show Stock Status'), '</a><br />';
+	echo '<a href="', $RootPath, '/StockUsage.php?StockID=', $UrlEncodedStockId, '">', _('Show Stock Usage'), '</a><br />';
 }
-echo '<a href="', $RootPath, '/SelectSalesOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Outstanding Sales Orders'), '</a>';
-echo '<a href="', $RootPath, '/SelectCompletedOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Completed Sales Orders'), '</a>';
+echo '<a href="', $RootPath, '/SelectSalesOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Outstanding Sales Orders'), '</a><br />';
+echo '<a href="', $RootPath, '/SelectCompletedOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Completed Sales Orders'), '</a><br />';
 if ($Its_A_Kitset_Assembly_Or_Dummy == false) {
-	echo '<a href="', $RootPath, '/PO_SelectOSPurchOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Outstanding Purchase Orders'), '</a>';
-	echo '<a href="', $RootPath, '/PO_SelectPurchOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search All Purchase Orders'), '</a>';
+	echo '<a href="', $RootPath, '/PO_SelectOSPurchOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search Outstanding Purchase Orders'), '</a><br />';
+	echo '<a href="', $RootPath, '/PO_SelectPurchOrder.php?SelectedStockItem=', $UrlEncodedStockId, '">', _('Search All Purchase Orders'), '</a><br />';
 
 	$SupportedImgExt = array('png', 'jpg', 'jpeg');
 	$ImageFileArray = glob($_SESSION['part_pics_dir'] . '/' . $StockId . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE);
 	$ImageFile = reset($ImageFileArray);
-	echo '<a href="' . $RootPath . '/' . $ImageFile . '" target="_blank">' . _('Show Part Picture (if available)') . '</a>';
+	echo '<a href="' . $RootPath . '/' . $ImageFile . '" target="_blank">' . _('Show Part Picture (if available)') . '</a><br />';
 }
 if ($Its_A_Dummy == false) {
-	echo '<a href="', $RootPath, '/BOMInquiry.php?StockID=', $UrlEncodedStockId . '">', _('View Costed Bill Of Material'), '</a>';
-	echo '<a href="', $RootPath, '/WhereUsedInquiry.php?StockID=', $UrlEncodedStockId, '">', _('Where This Item Is Used'), '</a>';
+	echo '<a href="', $RootPath, '/BOMInquiry.php?StockID=', $UrlEncodedStockId . '">', _('View Costed Bill Of Material'), '</a><br />';
+	echo '<a href="', $RootPath, '/WhereUsedInquiry.php?StockID=', $UrlEncodedStockId, '">', _('Where This Item Is Used'), '</a><br />';
 }
 if ($Its_A_Labour_Item == true) {
-	echo '<a href="', $RootPath, '/WhereUsedInquiry.php?StockID=', $UrlEncodedStockId, '">', _('Where This Labour Item Is Used'), '</a>';
+	echo '<a href="', $RootPath, '/WhereUsedInquiry.php?StockID=', $UrlEncodedStockId, '">', _('Where This Labour Item Is Used'), '</a><br />';
 }
 wikiLink('Product', $StockId);
 echo '</td><td valign="top" class="select">';
 /* Stock Transactions */
 if ($Its_A_Kitset_Assembly_Or_Dummy == false) {
-	echo '<a href="', $RootPath, '/StockAdjustments.php?StockID=', $UrlEncodedStockId, '">', _('Quantity Adjustments'), '</a>';
-	echo '<a href="', $RootPath, '/StockTransfers.php?StockID=', $UrlEncodedStockId, '&amp;NewTransfer=true">', _('Location Transfers'), '</a>';
+	echo '<a href="', $RootPath, '/StockAdjustments.php?StockID=', $UrlEncodedStockId, '">', _('Quantity Adjustments'), '</a><br />';
+	echo '<a href="', $RootPath, '/StockTransfers.php?StockID=', $UrlEncodedStockId, '&amp;NewTransfer=true">', _('Location Transfers'), '</a><br />';
 	//show the item image if it has been uploaded
 	if (extension_loaded('gd') and function_exists('gd_info') and file_exists($ImageFile)) {
 		if ($_SESSION['ShowStockidOnImages'] == '0') {
@@ -517,7 +517,7 @@ if ($Its_A_Kitset_Assembly_Or_Dummy == false) {
 				} else {
 					$EOQ = $MyRow['eoq'];
 				}
-				echo '<a href="', $RootPath, '/PO_Header.php?NewOrder=Yes', '&amp;SelectedSupplier=', urlencode($SuppRow['supplierid']), '&amp;StockID=', $UrlEncodedStockId, '&amp;Quantity=', urlencode($EOQ), '&amp;LeadTime=', urlencode($SuppRow['leadtime']), '">', _('Purchase this Item from'), ' ', $SuppRow['suppname'], '</a>';
+				echo '<a href="', $RootPath, '/PO_Header.php?NewOrder=Yes', '&amp;SelectedSupplier=', urlencode($SuppRow['supplierid']), '&amp;StockID=', $UrlEncodedStockId, '&amp;Quantity=', urlencode($EOQ), '&amp;LeadTime=', urlencode($SuppRow['leadtime']), '">', _('Purchase this Item from'), ' ', $SuppRow['suppname'], '</a><br />';
 				$LastSupplierShown = $SuppRow['supplierid'];
 			}
 			/**/
@@ -531,26 +531,26 @@ echo '</td>';
 
 echo '<td valign="top" class="select">';
 /* Stock Maintenance Options */
-echo '<a href="', $RootPath, '/Stocks.php">', _('Insert New Item'), '</a>';
-echo '<a href="', $RootPath, '/Stocks.php?StockID=', $UrlEncodedStockId, '">', _('Modify Item Details'), '</a>';
+echo '<a href="', $RootPath, '/Stocks.php">', _('Insert New Item'), '</a><br />';
+echo '<a href="', $RootPath, '/Stocks.php?StockID=', $UrlEncodedStockId, '">', _('Modify Item Details'), '</a><br />';
 if ($Its_A_Kitset_Assembly_Or_Dummy == false) {
-	echo '<a href="', $RootPath, '/StockReorderLevel.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Reorder Levels'), '</a>';
-	echo '<a href="', $RootPath, '/StockCostUpdate.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Standard Cost'), '</a>';
-	echo '<a href="', $RootPath, '/PurchData.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Purchasing Data'), '</a>';
-	echo '<a href="', $RootPath, '/CustItem.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Customer Item Data'), '</a>';
+	echo '<a href="', $RootPath, '/StockReorderLevel.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Reorder Levels'), '</a><br />';
+	echo '<a href="', $RootPath, '/StockCostUpdate.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Standard Cost'), '</a><br />';
+	echo '<a href="', $RootPath, '/PurchData.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Purchasing Data'), '</a><br />';
+	echo '<a href="', $RootPath, '/CustItem.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Customer Item Data'), '</a><br />';
 }
 if ($Its_A_Labour_Item == true) {
-	echo '<a href="', $RootPath, '/StockCostUpdate.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Standard Cost'), '</a>';
+	echo '<a href="', $RootPath, '/StockCostUpdate.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Standard Cost'), '</a><br />';
 }
 if (!$Its_A_Kitset) {
-	echo '<a href="', $RootPath, '/Prices.php?Item=', $UrlEncodedStockId, '">', _('Maintain Pricing'), '</a>';
+	echo '<a href="', $RootPath, '/Prices.php?Item=', $UrlEncodedStockId, '">', _('Maintain Pricing'), '</a><br />';
 	if (isset($_SESSION['CustomerID']) and $_SESSION['CustomerID'] != '' and mb_strlen($_SESSION['CustomerID']) > 0) {
-		echo '<a href="', $RootPath, '/Prices_Customer.php?Item=', $UrlEncodedStockId, '">', _('Special Prices for customer'), ' - ', stripslashes($_SESSION['CustomerID']), '</a>';
+		echo '<a href="', $RootPath, '/Prices_Customer.php?Item=', $UrlEncodedStockId, '">', _('Special Prices for customer'), ' - ', stripslashes($_SESSION['CustomerID']), '</a><br />';
 	}
-	echo '<a href="', $RootPath, '/DiscountCategories.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Discount Category'), '</a>';
-	echo '<a href="', $RootPath, '/StockClone.php?OldStockID=', $UrlEncodedStockId . '">', _('Clone This Item'), '</a>';
-	echo '<a href="', $RootPath, '/RelatedItemsUpdate.php?Item=', $UrlEncodedStockId, '">', _('Maintain Related Items'), '</a>';
-	echo '<a href="', $RootPath, '/PriceMatrix.php?StockID=', $UrlEncodedStockId, '">', _('Mantain prices by quantity break and sales types'), '</a>';
+	echo '<a href="', $RootPath, '/DiscountCategories.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Discount Category'), '</a><br />';
+	echo '<a href="', $RootPath, '/StockClone.php?OldStockID=', $UrlEncodedStockId . '">', _('Clone This Item'), '</a><br />';
+	echo '<a href="', $RootPath, '/RelatedItemsUpdate.php?Item=', $UrlEncodedStockId, '">', _('Maintain Related Items'), '</a><br />';
+	echo '<a href="', $RootPath, '/PriceMatrix.php?StockID=', $UrlEncodedStockId, '">', _('Mantain prices by quantity break and sales types'), '</a><br />';
 }
 echo '</td>
 		</tr>
@@ -765,8 +765,8 @@ if (isset($SearchResult) and !isset($_POST['Select'])) {
 					<td>', $ItemStatus, '</td>
 					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
 					<td>', $StockImgLink, '</td>
-					<td title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
-					<td title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
+					<td data-title="', $MyRow['longdescription'], '">', $MyRow['description'], '</td>
+					<td data-title="', $MyRow['suppname'], '">', $MyRow['suppliers_partno'], '</td>
 					<td class="number">', $QOH, '</td>
 					<td>', $MyRow['units'], '</td>
 					<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', $MyRow['stockid'], '">', _('View'), '</a></td>

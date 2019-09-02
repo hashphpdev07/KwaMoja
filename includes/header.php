@@ -24,13 +24,9 @@ echo '<html moznomarginboxes mozdisallowselectionprint>
 			<meta http-equiv="Content-Type" content="application/html; charset=utf-8; cache-control: no-cache, no-store, must-revalidate; Pragma: no-cache" />
 			<title>', $Title, '</title>
 			<link rel="icon" href="', $RootPath, '/favicon.ico" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/tables.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/messages.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/styles.css?v=2" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<script type="text/javascript" defer="defer" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
+			<meta name="viewport" content="width=device-width, initial-scale=1">';
 
 echo '<script>
 		localStorage.setItem("DateFormat", "', $_SESSION['DefaultDateFormat'], '");

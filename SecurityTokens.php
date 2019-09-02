@@ -5,6 +5,12 @@ $ViewTopic = 'SecuritySchema';
 $BookMark = 'SecurityTokens'; // Pending ?
 include ('includes/header.php');
 
+if ($AllowDemoMode == true) {
+	prnMsg(_('The the system is in demo mode and the security model administration is disabled'), 'warn');
+	include ('includes/footer.php');
+	exit;
+}
+
 // Merge gets into posts:
 if (isset($_GET['Action'])) {
 	$_POST['Action'] = $_GET['Action'];

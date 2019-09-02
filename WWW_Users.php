@@ -21,6 +21,12 @@ echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/group_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
+if ($AllowDemoMode == true) {
+	prnMsg(_('The the system is in demo mode and the security model administration is disabled'), 'warn');
+	include ('includes/footer.php');
+	exit;
+}
+
 // Make an array of the security roles
 $SQL = "SELECT secroleid,
 				secrolename

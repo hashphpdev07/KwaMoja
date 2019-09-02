@@ -837,7 +837,7 @@ if (!isset($_GET['delete'])) {
 
 	if (DB_num_rows($Result) == 0) {
 		echo '</table>';
-		prnMsg(_('There are no stock locations defined as yet') . ' - ' . _('customer branches must refer to a default location where stock is normally drawn from') . '. ' . _('Please use the link below to define at least one stock location'), 'error');
+		prnMsg(_('There are no stock locations defined for which this user has access to as yet') . ' - ' . _('customer branches must refer to a default location where stock is normally drawn from') . '. ' . _('Please use the link below to define at least one stock location'), 'error');
 		echo '<br /><a href="' . $RootPath . '/Locations.php">' . _('Define Stock Locations') . '</a>';
 		include ('includes/footer.php');
 		exit;

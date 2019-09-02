@@ -210,31 +210,31 @@ if (isset($_SESSION['SupplierID'])) {
 	echo '<tr>
 			<td valign="top" class="select">';
 	/* Inquiry Options */
-	echo '<a href="' . $RootPath . '/SupplierInquiry.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Account Inquiry') . '</a>';
-	echo '<a href="' . $RootPath . '/SupplierGRNAndInvoiceInquiry.php?SelectedSupplier=' . urlencode($_SESSION['SupplierID']) . '&amp;SupplierName=' . urlencode($SupplierName) . '">' . _('Supplier Delivery Note AND GRN inquiry') . '</a>';
+	echo '<a href="' . $RootPath . '/SupplierInquiry.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Account Inquiry') . '</a><br />';
+	echo '<a href="' . $RootPath . '/SupplierGRNAndInvoiceInquiry.php?SelectedSupplier=' . urlencode($_SESSION['SupplierID']) . '&amp;SupplierName=' . urlencode($SupplierName) . '">' . _('Supplier Delivery Note AND GRN inquiry') . '</a><br />';
 
-	echo '<a href="' . $RootPath . '/PO_SelectOSPurchOrder.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Outstanding Purchase Orders') . '</a>';
-	echo '<a href="' . $RootPath . '/PO_SelectPurchOrder.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('View All Orders') . '</a>';
+	echo '<a href="' . $RootPath . '/PO_SelectOSPurchOrder.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Outstanding Purchase Orders') . '</a><br />';
+	echo '<a href="' . $RootPath . '/PO_SelectPurchOrder.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('View All Orders') . '</a><br />';
 	wikiLink('Supplier', urlencode(stripslashes($_SESSION['SupplierID'])));
-	echo '<a href="' . $RootPath . '/ShiptsList.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '&amp;SupplierName=' . urlencode($SupplierName) . '">' . _('Open shipments') . '</a>';
-	echo '<a href="' . $RootPath . '/Shipt_Select.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Modify/Close Shipments') . '</a>';
-	echo '<a href="' . $RootPath . '/SuppPriceList.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Price List') . '</a>';
+	echo '<a href="' . $RootPath . '/ShiptsList.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '&amp;SupplierName=' . urlencode($SupplierName) . '">' . _('Open shipments') . '</a><br />';
+	echo '<a href="' . $RootPath . '/Shipt_Select.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Modify/Close Shipments') . '</a><br />';
+	echo '<a href="' . $RootPath . '/SuppPriceList.php?SelectedSupplier=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Price List') . '</a><br />';
 	echo '</td><td valign="top" class="select">';
 	/* Supplier Transactions */
-	echo '<a href="' . $RootPath . '/PO_Header.php?NewOrder=Yes&amp;SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Purchase Order') . '</a>';
-	echo '<a href="' . $RootPath . '/SupplierInvoice.php?New=True&SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter an Invoice') . '</a>';
-	echo '<a href="' . $RootPath . '/SupplierCredit.php?New=true&amp;SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Credit Note') . '</a>';
-	echo '<a href="' . $RootPath . '/Payments.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Payment/Receipt') . '</a>';
-	echo '<a href="' . $RootPath . '/ReverseGRN.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Reverse an Outstanding Goods Received Note (GRN)') . '</a>';
+	echo '<a href="' . $RootPath . '/PO_Header.php?NewOrder=Yes&amp;SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Purchase Order') . '</a><br />';
+	echo '<a href="' . $RootPath . '/SupplierInvoice.php?New=True&SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter an Invoice') . '</a><br />';
+	echo '<a href="' . $RootPath . '/SupplierCredit.php?New=true&amp;SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Credit Note') . '</a><br />';
+	echo '<a href="' . $RootPath . '/Payments.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Enter a Payment/Receipt') . '</a><br />';
+	echo '<a href="' . $RootPath . '/ReverseGRN.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Reverse an Outstanding Goods Received Note (GRN)') . '</a><br />';
 	echo '</td><td valign="top" class="select">';
 	/* Supplier Maintenance */
-	echo '<a href="' . $RootPath . '/Suppliers.php">' . _('Add Supplier') . '</a>
-		<a href="' . $RootPath . '/Suppliers.php?Copy=Yes&SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Copy Supplier') . '</a>
-		<a href="' . $RootPath . '/Suppliers.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Modify Supplier') . '</a>
-		<a href="' . $RootPath . '/SupplierContacts.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Contacts') . '</a>
-		<a href="' . $RootPath . '/SellThroughSupport.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Sell Through Support') . '</a>
-		<a href="' . $RootPath . '/Shipments.php?NewShipment=Yes">' . _('Shipments') . '</a>
-		<a href="' . $RootPath . '/SuppLoginSetup.php">' . _('Supplier Login') . '</a>
+	echo '<a href="' . $RootPath . '/Suppliers.php">' . _('Add Supplier') . '</a><br />
+		<a href="' . $RootPath . '/Suppliers.php?Copy=Yes&SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Copy Supplier') . '</a><br />
+		<a href="' . $RootPath . '/Suppliers.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Modify Supplier') . '</a><br />
+		<a href="' . $RootPath . '/SupplierContacts.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Contacts') . '</a><br />
+		<a href="' . $RootPath . '/SellThroughSupport.php?SupplierID=' . urlencode(stripslashes($_SESSION['SupplierID'])) . '">' . _('Sell Through Support') . '</a><br />
+		<a href="' . $RootPath . '/Shipments.php?NewShipment=Yes">' . _('Shipments') . '</a><br />
+		<a href="' . $RootPath . '/SuppLoginSetup.php">' . _('Supplier Login') . '</a><br />
 		</td>
 		</tr>
 		</table>';

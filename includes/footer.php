@@ -57,6 +57,7 @@ echo '<div id="FooterDiv" class="noPrint">
 		</div>
 	</div>'; // FooterDiv
 echo '</div>'; // Canvas
+echo '<script type="text/javascript" defer="defer" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
 echo '</body>';
 echo '</html>';
 
