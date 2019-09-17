@@ -39,8 +39,8 @@ if (isset($_POST['MoveGroup'])) {
 			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Review Account Groups'), '</a>
 		</div>';
 	prnMsg(_('All accounts in the account group') . ': ' . $_POST['OriginalAccountGroup'] . ' ' . _('have been changed to the account group') . ': ' . $_POST['DestinyAccountGroup'], 'success');
-	echo '<p class="page_title_text" >
-			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
+	echo '<p class="page_title_text">
+			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 } //isset($_POST['MoveGroup'])
 if (isset($_POST['submit'])) {
@@ -147,22 +147,53 @@ if (isset($_POST['submit'])) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 				DB_ReinstateForeignKeys();
 			}
-			$SQL = "UPDATE accountgroups SET groupname='" . $GroupName . "',
-											groupcode='" . $_POST['GroupCode'] . "',
-											sectioninaccounts='" . $_POST['SectionInAccounts'] . "',
-											pandl='" . $_POST['PandL'] . "',
-											sequenceintb='" . $_POST['SequenceInTB'] . "',
-											parentgroupcode='" . $_POST['ParentGroup'] . "',
-											parentgroupname='" . DB_escape_string($ParentGroupRow['groupname']) . "'
-										WHERE groupcode = '" . $_POST['SelectedAccountGroup'] . "'
-											AND language='" . $GroupLanguage . "'";
-			$ErrMsg = _('An error occurred in updating the account group');
-			$DbgMsg = _('The SQL that was used to update the account group was');
-			$Result = DB_query($SQL);
-			if (DB_error_no($Result) === 0) {
-				prnMsg(_('Account Group has been updated for language') . ' ' . $GroupLanguage, 'success');
+			$SQL = "SELECT * FROM accountgroups WHERE groupcode='" . $_POST['GroupCode'] . "' AND language='" . $GroupLanguage . "'";
+			$CountResult = DB_query($SQL);
+			if (DB_num_rows($CountResult) > 0) {
+				$SQL = "UPDATE accountgroups SET groupname='" . $GroupName . "',
+												groupcode='" . $_POST['GroupCode'] . "',
+												sectioninaccounts='" . $_POST['SectionInAccounts'] . "',
+												pandl='" . $_POST['PandL'] . "',
+												sequenceintb='" . $_POST['SequenceInTB'] . "',
+												parentgroupcode='" . $_POST['ParentGroup'] . "',
+												parentgroupname='" . DB_escape_string($ParentGroupRow['groupname']) . "'
+											WHERE groupcode = '" . $_POST['SelectedAccountGroup'] . "'
+												AND language='" . $GroupLanguage . "'";
+				$ErrMsg = _('An error occurred in updating the account group');
+				$DbgMsg = _('The SQL that was used to update the account group was');
+				$Result = DB_query($SQL);
+				if (DB_error_no($Result) === 0) {
+					prnMsg(_('Account Group has been updated for language') . ' ' . $GroupLanguage, 'success');
+				} else {
+					prnMsg(_('Account Group could not be updated for language') . ' ' . $GroupLanguage, 'error');
+				}
 			} else {
-				prnMsg(_('Account Group could not be updated for language') . ' ' . $GroupLanguage, 'error');
+				$SQL = "INSERT INTO accountgroups ( groupname,
+													groupcode,
+													language,
+													sectioninaccounts,
+													sequenceintb,
+													pandl,
+													parentgroupcode,
+													parentgroupname
+												) VALUES (
+													'" . $GroupName . "',
+													'" . $_POST['GroupCode'] . "',
+													'" . $GroupLanguage . "',
+													'" . $_POST['SectionInAccounts'] . "',
+													'" . $_POST['SequenceInTB'] . "',
+													'" . $_POST['PandL'] . "',
+													'" . $_POST['ParentGroup'] . "',
+													'" . DB_escape_string($ParentGroupRow['groupname']) . "')";
+				$ErrMsg = _('An error occurred in inserting the account group');
+				$DbgMsg = _('The SQL that was used to insert the account group was');
+
+				$Result = DB_query($SQL);
+				if (DB_error_no($Result) === 0) {
+					prnMsg(_('Account Group has been inserted for language') . ' ' . $GroupLanguage, 'success');
+				} else {
+					prnMsg(_('Account Group could not be inserted for language') . ' ' . $GroupLanguage, 'error');
+				}
 			}
 		}
 	} elseif ($InputError != 1) {
@@ -273,6 +304,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 	$SQL = "SELECT groupname,
 					groupcode,
 					sectionname,
+					accountgroups.language,
 					sequenceintb,
 					pandl,
 					parentgroupcode
@@ -280,14 +312,13 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 			LEFT JOIN accountsection
 				ON sectionid = sectioninaccounts
 				AND accountgroups.language=accountsection.language
-			WHERE accountgroups.language='" . $_SESSION['ChartLanguage'] . "'
-			ORDER BY groupcode";
+			ORDER BY language, groupcode";
 
 	$DbgMsg = _('The sql that was used to retrieve the account group information was ');
 	$ErrMsg = _('Could not get account groups because');
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
-	echo '<p class="page_title_text" >
-			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
+	echo '<p class="page_title_text">
+			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 
 	echo '<table>
@@ -295,6 +326,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 				<tr>
 					<th class="SortedColumn">', _('Group Code'), '</th>
 					<th class="SortedColumn">', _('Group Name'), '</th>
+					<th class="SortedColumn">', _('Language'), '</th>
 					<th class="SortedColumn">', _('Section'), '</th>
 					<th class="SortedColumn">', _('Sequence In TB'), '</th>
 					<th>', _('Profit and Loss'), '</th>
@@ -321,7 +353,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 		} //end of switch statement
 		$SQL = "SELECT groupname
 				FROM accountgroups
-				WHERE accountgroups.language='" . $_SESSION['ChartLanguage'] . "'
+				WHERE accountgroups.language='" . $MyRow['language'] . "'
 					AND groupcode='" . $MyRow['parentgroupcode'] . "'";
 		$ParentResult = DB_query($SQL);
 		$ParentRow = DB_fetch_array($ParentResult);
@@ -329,6 +361,7 @@ if (!isset($_GET['SelectedAccountGroup']) and !isset($_POST['SelectedAccountGrou
 		echo '<tr class="striped_row">
 				<td class="number">', $MyRow['groupcode'], '</td>
 				<td>', $MyRow['groupname'], '</td>
+				<td>', $MyRow['language'], '</td>
 				<td>', $MyRow['sectionname'], '</td>
 				<td class="number">', $MyRow['sequenceintb'], '</td>
 				<td>', $PandLText, '</td>
@@ -427,7 +460,7 @@ if (!isset($_GET['delete'])) {
 				<fieldhelp>', _('The integer group code for this account group'), '</fieldhelp>
 			</field>';
 	} //!isset($_POST['MoveGroup'])
-	$SQL = "SELECT DISTINCT language FROM accountgroups";
+	$SQL = "SELECT DISTINCT language FROM accountsection";
 	$LanguageResult = DB_query($SQL);
 	while ($LanguageRow = DB_fetch_array($LanguageResult)) {
 		if (!isset($GroupNames[$LanguageRow['language']])) {
@@ -468,7 +501,7 @@ if (!isset($_GET['delete'])) {
 	echo '<field>
 			<label for="SectionInAccounts">', _('Section In Accounts'), ':</label>
 			<select required="required" name="SectionInAccounts">';
-	echo '<option value=""></option>';
+	echo '<option value="">', _('None Selected'), '</option>';
 	while ($SecRow = DB_fetch_array($SecResult)) {
 		if ($_POST['SectionInAccounts'] == $SecRow['sectionid']) {
 			echo '<option selected="selected" value="', $SecRow['sectionid'], '">', $SecRow['sectionname'], ' (', $SecRow['sectionid'], ')</option>';
