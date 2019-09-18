@@ -1,5 +1,5 @@
 header {
-background:transparent;
+background:#CFCFCF;
 padding:10px;
 }
 #Info {
@@ -29,6 +29,7 @@ padding-right:30px;
 font-weight:bold;
 display:inline;
 padding:3px;
+color:#4D4D4D;
 }
 .ScriptTitle {
 font-weight:bold;

@@ -1,8 +1,13 @@
 footer {
+background:url(images/wood.jpg) #feb;
 clear:both;
 color:#0A0A3F;
 height:53px;
 padding:0;
+margin:5px;
+margin-top:0px;
+border-bottom-left-radius:15px;
+border-bottom-right-radius:15px;
 }
 .FooterLogo {
 background:transparent;

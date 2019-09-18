@@ -7,15 +7,16 @@ border-radius: 7px;
 }
 .ModuleList {
 float:left;
-background:transparent;
+background:#0000FF;
 white-space:nowrap;
 text-align:left;
 padding-left:10px;
 padding-right:10px;
-padding-top:3px;
+padding-top:13px;
+padding-bottom:13px;
 width:11%;
 border:1px solid #8DCDEB;
-border-radius:7px;
+border-radius:17px;
 margin:7px;
 }
 .ModuleList li a,.ModuleList li a:hover,.ModuleList .main_menu_selected a {
@@ -26,6 +27,7 @@ margin-bottom:5px;
 padding:3px;
 border:1px solid #404552;
 padding-left:5px;
+color:white;
 }
 .ModuleList li a:hover {
 border:1px solid #1A1A1A;
@@ -54,6 +56,10 @@ margin-top:5px;
 vertical-align:top;
 margin-right:5px;
 }
+.MenuList legend img {
+padding-right:7px;
+width:16px;
+}
 .MenuItem {
 color:#8DCDEB;
 text-decoration:none;
@@ -63,7 +69,12 @@ padding:2px;
 .MenuItem:hover {
 background:transparent;
 text-align:left;
-color:white;
+color:black;
+}
+.MenuItem:visited {
+background:transparent;
+text-align:left;
+color:black;
 }
 .clearfix {
   overflow: auto;

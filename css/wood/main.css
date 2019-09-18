@@ -1,13 +1,14 @@
 .MainBody {
-background:transparent;
+background:url(images/wood.jpg) #feb;
 margin:5px;
+margin-top:0px;
+margin-bottom:0px;
 padding:10px;
-border: 1px solid #82BCF4;
-border-radius: 7px;
+border: 0px solid #82BCF4;
 }
 .ModuleList {
 float:left;
-background:transparent;
+background:url(images/wood.jpg) #feb;
 white-space:nowrap;
 text-align:left;
 padding-left:10px;
@@ -15,8 +16,7 @@ padding-right:10px;
 padding-top:3px;
 width:11%;
 border:1px solid #8DCDEB;
-border-radius:7px;
-margin:7px;
+margin-left:5px;
 }
 .ModuleList li a,.ModuleList li a:hover,.ModuleList .main_menu_selected a {
 display:block;

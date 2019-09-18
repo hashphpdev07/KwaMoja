@@ -107,13 +107,6 @@ background-color:#B0C4DE;
 
 a {
 text-decoration:none;
-color:blue;
-}
-
-a.FontSize {
-color:blue;
-text-decoration:none;
-display:inline;
 }
 
 a.ButtonLink {
@@ -467,18 +460,9 @@ text-indent:-10px;
 margin:0 0 0 12px;
 }
 
-#SubMenuDiv a:link,a:visited {
-color:blue;
-text-decoration:none;
-}
-
 #SubMenuDiv .menu_group_item {
 padding-top:2px;
 padding-bottom:2px;
-}
-
-#SubMenuDiv .menu_group_item:hover {
-background:#bfd8ff;
 }
 
 #InquiriesDiv div {
@@ -525,11 +509,6 @@ line-height:2.8em;
 text-align:right;
 }
 
-a:hover,#SubMenuDiv a:hover {
-color:blue;
-text-decoration:underline;
-}
-
 td.select,.table_index {
 background-color:#eee;
 }
@@ -552,6 +531,7 @@ border:2px inset #4682B4;
 background:none;
 border-radius:15px;
 padding:3px;
+color:black
 }
 
 #TransactionsDiv,#InquiriesDiv,#MaintenanceDiv {

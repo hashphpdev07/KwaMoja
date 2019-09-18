@@ -1,10 +1,16 @@
 header {
-background:transparent;
+background:#4682B4;
 padding:10px;
+margin:5px;
+margin-bottom:0px;
+border-top-left-radius:30px;
+border-top-right-radius:30px;
 }
 #Info {
 display:inline;
 padding:10px;
+font-weight:bold;
+color:white;
 }
 #Info img {
 padding-right:7px;
@@ -14,6 +20,8 @@ width:32px;
 display:inline;
 float:right;
 padding-left:10px;
+font-weight:bold;
+color:white;
 }
 #ActionIcon img{
 padding-right:7px;

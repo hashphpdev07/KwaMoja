@@ -1,5 +1,5 @@
 .MainBody {
-background:transparent;
+background:white;
 margin:5px;
 padding:10px;
 border: 1px solid #82BCF4;
@@ -7,7 +7,7 @@ border-radius: 7px;
 }
 .ModuleList {
 float:left;
-background:transparent;
+background:white;
 white-space:nowrap;
 text-align:left;
 padding-left:10px;

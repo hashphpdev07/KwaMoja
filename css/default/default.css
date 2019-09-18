@@ -105,13 +105,8 @@ input.okButton:hover {
 background-color:#B06161;
 }
 
-a {
-color:blue;
-text-decoration:none;
-}
-
 a.FontSize {
-color:blue;
+color:Black;
 text-decoration:none;
 display:inline;
 }
@@ -355,10 +350,6 @@ background:#8EDE8D;
 padding:2px;
 }
 
-.main_menu_unselected:hover {
-background:#FFF;
-}
-
 #SubMenuDiv {
 display:table;
 float:right;
@@ -448,11 +439,6 @@ color:#FFF;
 
 #MainMenuDiv li,#SubMenuDiv li {
 list-style:none;
-}
-
-.main_menu_selected,.menu_group_item {
-background-color:#FFF;
-padding:2px;
 }
 
 #favourites {
