@@ -49,7 +49,7 @@ if (isset($_GET['CashFlowsActivity'])) { // Select period from.
 }
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Accounts'), '" alt="" />', ' ', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Accounts'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 if (isset($_POST['submit']) and $_POST['submit'] == _('Enter Information')) {

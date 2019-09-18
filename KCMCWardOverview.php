@@ -7,7 +7,7 @@ include ('includes/SQL_CommonFunctions.php');
 
 if (!isset($_SESSION['WardID'])) {
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', _('Wards'), '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', _('Wards'), '
 		</p>';
 }
 
@@ -34,18 +34,18 @@ if (isset($_SESSION['WardID'])) {
 
 	$Title = _('Details for') . ' ' . $MyRow['name'];
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', $Title, '
 		</p>';
 
 	echo '<div class="page_help_text">' . _('Select a menu option to operate for this ward.') . '</div>';
 	echo '<table width="90%" cellpadding="4">
 			<tr>
 				<th style="width:33%">
-					<img class="page_title_icon" alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Ward Inquiries'), '" />', _('Ward Inquiries'), '</th>
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/reports.png" title="', _('Ward Inquiries'), '" />', _('Ward Inquiries'), '</th>
 				<th style="width:33%">
-					<img class="page_title_icon" alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Ward Transactions'), '" />', _('Ward Transactions'), '</th>
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Ward Transactions'), '" />', _('Ward Transactions'), '</th>
 				<th style="width:33%">
-					<img class="page_title_icon" alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Ward Maintenance'), '" />', _('Ward Maintenance'), '
+					<img alt="" src="', $RootPath . '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Ward Maintenance'), '" />', _('Ward Maintenance'), '
 				</th>
 			</tr>
 			<tr>
@@ -77,7 +77,7 @@ if (isset($_SESSION['WardID'])) {
 }
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', _('Search For Ward'), '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', _('Search For Ward'), '
 	</p>';
 
 echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';

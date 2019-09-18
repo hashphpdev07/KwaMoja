@@ -21,7 +21,7 @@ $BookMark = 'SalesReport';
 // BEGIN Procedure division ====================================================
 include ('includes/header.php');
 echo '<p class="page_title_text">
-		<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', $Title, '" /> ', $Title, '
+		<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', $Title, '" /> ', $Title, '
 	</p>'; // Page title.
 // Merges gets into posts:
 if (isset($_GET['PeriodFrom'])) { // Select period from.

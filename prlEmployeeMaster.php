@@ -11,7 +11,7 @@ include ('includes/SQL_CommonFunctions.php');
 include ('includes/prlFunctions.php');
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', $Title, '" alt="', $Title, '" />', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', $Title, '" alt="', $Title, '" />', $Title, '
 	</p>';
 
 if (isset($_GET['EmployeeID'])) {

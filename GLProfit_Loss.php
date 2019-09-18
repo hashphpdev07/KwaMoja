@@ -44,7 +44,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title2, '" />', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line).'), '<br />', _('The purpose of the income statement is to show whether the company made or lost money during the period being reported.'), '<br />', _('The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time.'), '<br />', $ProjectName, _(' is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 
@@ -633,7 +633,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 		$BookMark = 'ProfitAndLoss';
 		include ('includes/header.php');
 		echo '<p class="page_title_text">
-				<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title2, '" />
+				<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title2, '" />
 				', $Title, ' ', _('For'), ' ', $NumberOfMonths, ' ', _('months to'), ' and including ', $PeriodToDate, '
 			</p>'; // Page title.
 		

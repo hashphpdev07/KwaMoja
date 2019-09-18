@@ -320,7 +320,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', _('Price List'), '" />', ' ', _('Print a price list by inventory category'), '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', _('Price List'), '" />', ' ', _('Print a price list by inventory category'), '
 		</p>';
 
 	if (!isset($_POST['FromCriteria']) or !isset($_POST['ToCriteria'])) {

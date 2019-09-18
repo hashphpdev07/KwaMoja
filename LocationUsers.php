@@ -6,7 +6,7 @@ $BookMark = 'LocationUsers'; // Anchor's id in the manual's html document.
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" data-title="', _('Location Authorised Users'), '" alt="" />', ' ', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" data-title="', _('Location Authorised Users'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 if (isset($_POST['SelectedUser'])) {

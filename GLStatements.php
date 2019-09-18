@@ -102,7 +102,7 @@ if (isset($_POST['Submit']) and !isset($_POST['ShowFinancialPosition']) and !iss
 if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 	// If PeriodFrom and PeriodTo are set and it is not a NewReport, generates the report:
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', $Title, '" /> ', $Title, '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', $Title, '" /> ', $Title, '
 		</p>', // Page title, reporting statement.
 	stripslashes($_SESSION['CompanyRecord']['coyname']); // Page title, reporting entity.
 	$Result = DB_query('SELECT lastdate_in_period FROM `periods` WHERE `periodno`=' . $_POST['PeriodFrom']);
@@ -184,7 +184,7 @@ if (isset($_POST['Submit']) and !isset($_POST['NewReport'])) {
 } else {
 	// If PeriodFrom or PeriodTo are NOT set or it is a NewReport, shows a parameters input form:
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" /> ', $Title, '
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', $Title, '" /> ', $Title, '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">', _('Shows a set of financial statements.') . '<br />' . _('A complete set of financial statements comprises:(a) a statement of financial position as at the end and at the beginning of the period;(b) a statement of comprehensive income for the period;(c) a statement of changes in equity for the period;(d) a statement of cash flows for the period; and(e) notes that summarize the significant accounting policies and other explanatory information.') . '<br />' . _('KwaMoja is an "accrual" based system (not a "cash based" system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date.'), '</div>';
 	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';

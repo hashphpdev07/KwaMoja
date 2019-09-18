@@ -22,7 +22,7 @@ if (isset($_GET['Location'])) {
 	$Title = _('Select Warehouse to Define');
 	include ('includes/header.php');
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Warehouse'), '" alt="" />', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Warehouse'), '" alt="" />', $Title, '
 		</p>';
 
 	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
@@ -176,7 +176,7 @@ $Title = _('Define Warehouse at') . ' ' . $LocationRow['locationname'];
 
 include ('includes/header.php');
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Inventory'), '" alt="" />', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Inventory'), '" alt="" />', $Title, '
 	</p>';
 
 if (!isset($_GET['Edit'])) {

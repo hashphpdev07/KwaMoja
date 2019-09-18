@@ -277,7 +277,7 @@ if (isset($_POST['Submit']) and $InputError == False) {
 } else {
 
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', $Title, '
 		</p>';
 
 	echo '<form enctype="multipart/form-data" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Identifier=', urlencode($Identifier), '" method="post">';

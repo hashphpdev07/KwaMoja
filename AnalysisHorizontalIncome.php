@@ -66,7 +66,7 @@ if (isset($_POST['Period']) and $_POST['Period'] != '') {
 if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POST['NewReport'])) {
 
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print Horizontal Analysis of Statement of Comprehensive Income'), '" /> ', // Icon title.
+			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print Horizontal Analysis of Statement of Comprehensive Income'), '" /> ', // Icon title.
 	_('Horizontal Analysis of Statement of Comprehensive Income'), '
 		</p>'; // Page title.
 	echo '<div class="page_help_text">

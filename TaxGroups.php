@@ -13,7 +13,7 @@ if (isset($_GET['SelectedGroup'])) {
 }
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="" />', ' ', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="" />', ' ', $Title, '
 	</p>';
 
 if (isset($_POST['submit']) or isset($_GET['remove']) or isset($_GET['add'])) {

@@ -320,7 +320,7 @@ if ($_SESSION['Items' . $Identifier]->SpecialInstructions) {
 	prnMsg($_SESSION['Items' . $Identifier]->SpecialInstructions, 'warn');
 }
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Confirm Invoice'), '" alt="" />', _('Confirm Dispatch and Invoice'), '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Confirm Invoice'), '" alt="" />', _('Confirm Dispatch and Invoice'), '
 	</p>';
 
 echo '<table>
