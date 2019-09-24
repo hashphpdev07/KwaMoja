@@ -520,13 +520,16 @@ if (!isset($StockId)) {
 
 	if (!isset($OrderNumber) or $OrderNumber == '') {
 
-		echo '<table>
-				<tr>
-					<td>', _('Order number'), ': </td>
-					<td><input type="text" class="integer" name="OrderNumber" maxlength="8" size="9" /></td>
-					<td>', _('From Stock Location'), ':</td>
-					<td>
-						<select name="StockLocation"> ';
+		echo '<fieldset>
+				<legend class="search">', _('Search Criteria'), '</legend>
+				<field>
+					<label for="OrderNumber">', _('Order number'), ': </label>
+					<input type="text" class="integer" name="OrderNumber" autofocus="autofocus" maxlength="8" size="9" />
+					<fieldhelp>', _('If you know the order number you are looking for, then enter it here, otherwise leave empty.'), '</fieldhelp>
+				</field>
+				<field>
+					<label for="StockLocation">', _('From Stock Location'), ':</label>
+					<select name="StockLocation"> ';
 
 		$SQL = "SELECT locationname,
 						locations.loccode
@@ -552,9 +555,12 @@ if (!isset($StockId)) {
 		}
 
 		echo '</select>
-				</td>
-				<td>
-					<select name="Quotations">';
+			<fieldhelp>', _('Enter the stock location where the goods will be despatched from.'), '</fieldhelp>
+		</field>';
+
+		echo '<field>
+				<label for="Quotations">', _('Type of orders to search for.'), '</label>
+				<select name="Quotations">';
 
 		if ($_POST['Quotations'] == 'Quotes_Only') {
 			echo '<option selected="selected" value="Quotes_Only">', _('Quotations Only'), '</option>';
@@ -569,6 +575,11 @@ if (!isset($StockId)) {
 			echo '<option value="Quotes_Only">', _('Quotations Only'), '</option>';
 			echo '<option value="Overdue_Only">', _('Overdue Only'), '</option>';
 		}
+
+		echo '</select>
+		<fieldhelp>', _('You can search for orders, quotations, or just for overdue orders'), '</fieldhelp>
+	</field>';
+
 		if (!isset($_POST['DueDateFrom'])) {
 			$_POST['DueDateFrom'] = '';
 		}
@@ -585,34 +596,40 @@ if (!isset($StockId)) {
 			$_POST['OrderDateTo'] = '';
 		}
 
-		echo '</select>
-				</td>
-			</tr>
-			<tr>
-				<td>', _('Customer Ref'), '</td>
-				<td><input type="text" name="CustomerRef" value="', $_POST['CustomerRef'], '" size="12" /></td>
-			</tr>
-			<tr>
-				<td>' . _('Due Date From') . '</td>
-				<td><input type="text" class="date" name="DueDateFrom" value="', $_POST['DueDateFrom'], '" size="10" /></td>
-				<td>', _('Due Date To'), '</td>
-				<td><input type="text" class="date" name="DueDateTo" value="', $_POST['DueDateTo'], '" size="10" /></td>
-			</tr>
-			<tr>
-				<td>', _('Order Date From'), '</td>
-				<td><input type="text" name="OrderDateFrom" value="', $_POST['OrderDateFrom'], '" size="10" class="date" /></td>
-				<td>', _('Order Date To'), '</td>
-				<td><input type="text" name="OrderDateTo" value="', $_POST['OrderDateTo'], '" size="10" class="date" /></td>
-			</tr>
-			<tr>
-				<td colspan="6">
-					<div class="centre">
-						<input type="submit" name="SearchOrders" value="', _('Search'), '" />
-						<input type="submit" name="Reset" value="', _('Reset'), '" />
-					</div>
-				</td>
-			</tr>
-		</table>';
+		echo '<field>
+				<label for="CustomerRef">', _('Customer Ref'), '</label>
+				<input type="text" name="CustomerRef" value="', $_POST['CustomerRef'], '" size="12" />
+				<fieldhelp>', _('Enter the customer reference for the order you are searching for, or leave blank.'), '</fieldhelp>
+			</field>';
+
+		echo '<field>
+				<label for="DueDateFrom">', _('Due Date From'), '</label>
+				<input type="text" class="date" name="DueDateFrom" value="', $_POST['DueDateFrom'], '" size="10" />
+				<fieldhelp>', _('Only search for orders due after this date.'), '</fieldhelp>
+			</field>';
+
+		echo '<field>
+				<label for="DueDateTo">', _('Due Date To'), '</label>
+				<input type="text" class="date" name="DueDateTo" value="', $_POST['DueDateTo'], '" size="10" />
+				<fieldhelp>', _('Only search for orders due before this date.'), '</fieldhelp>
+			</field>';
+
+		echo '<field>
+				<label for="OrderDateFrom">', _('Order Date From'), '</label>
+				<input type="text" name="OrderDateFrom" value="', $_POST['OrderDateFrom'], '" size="10" class="date" />
+				<fieldhelp>', _('Only search for orders dated after this date.'), '</fieldhelp>
+			</field>';
+
+		echo '<field>
+				<label for="OrderDateTo">', _('Order Date To'), '</label>
+				<input type="text" name="OrderDateTo" value="', $_POST['OrderDateTo'], '" size="10" class="date" />
+				<fieldhelp>', _('Only search for orders dated before this date.'), '</fieldhelp>
+			</field>
+		</fieldset>
+		<div class="centre">
+			<input type="submit" name="SearchOrders" value="', _('Search'), '" />
+			<input type="submit" name="Reset" value="', _('Reset'), '" />
+		</div>';
 	}
 
 	$SQL = "SELECT categoryid,
@@ -629,15 +646,15 @@ if (!isset($StockId)) {
 		$_POST['StockCode'] = '';
 	}
 
-	echo '<table>
-			<tr>
-				<th colspan="6"><h3>', _('To search for sales orders for a specific part use the part selection facilities below'), '</h3></th>
-			</tr>
-			<tr>
-				<td>', _('Select a stock category'), ':
-						<select name="StockCat">';
+	echo '<div class="page_hint_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
 
-	echo '<option value="">' . _('All') . '</option>';
+	echo '<fieldset>
+			<legend class="search">', _('Item Selection Criteria'), '</legend>
+			<field>
+				<label for="StockCat">', _('Select a stock category'), ':</label>
+				<select name="StockCat">';
+
+	echo '<option value="">', _('All'), '</option>';
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		if (isset($_POST['StockCat']) and $_POST['StockCat'] == $MyRow1['categoryid']) {
 			echo '<option selected="selected" value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
@@ -646,15 +663,25 @@ if (!isset($StockId)) {
 		}
 	}
 
-	echo '</select></td>
-			<td>', _('Enter text extract(s) in the description'), ':</td>
-			<td><input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" /></td>
-		</tr>
-	  	<tr>
-	  		<td colspan="2" class="number"><b>', _('OR'), ' </b>', _('Enter extract of the Stock Code'), ':</td>
-	  		<td><input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" /></td>
-	  	</tr>
-	  </table>';
+	echo '</select>
+		<fieldhelp>', _('Select the stock category to filter by, or choose "All" to select from all categories.'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+			<label for="Keywords">', _('Enter text extract(s) in the description'), ':</label>
+			<input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
+			<fieldhelp>', _('Enter all, or part of the description of the item you are searching for.'), '</fieldhelp>
+		</field>';
+
+	echo '<h1>', _('OR'), '</h1>';
+
+	echo '<field>
+			<label for="StockCode">', _('Enter extract of the Stock Code'), ':</label>
+			<input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+			<fieldhelp>', _('Enter all, or part of the code of the item you are searching for.'), '</fieldhelp>
+		</field>
+	</fieldset>';
+
 	echo '<div class="centre">
 			<input type="submit" name="SearchParts" value="', _('Search Parts Now'), '" />
 			<input type="submit" name="ResetPart" value="', _('Show All'), '" />
@@ -1023,8 +1050,8 @@ if (!isset($StockId)) {
 					if ($AuthRow['cancreate'] == 0 and $MyRow['poplaced'] == 0) { //cancreate==0 if the user can create POs and not already placed
 						echo '<tr class="striped_row">
 								<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
-								<td><a href="', $PrintAck, '">' . _('Acknowledge') . '</a>' . $PrintDummyFlag . '</td>
-								' . $PrintPickLabel . '
+								<td><a href="', $PrintAck, '">', _('Acknowledge'), '</a>', $PrintDummyFlag, '</td>
+								', $PrintPickLabel, '
 								<td><a href="', $Confirm_Invoice, '">' . _('Invoice') . '</a></td>
 								<td><a href="', $PrintDispatchNote, '">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
 								<td><a href="', $PrintLabels, '">' . _('Labels') . '</a></td>
@@ -1040,38 +1067,38 @@ if (!isset($StockId)) {
 							</tr>';
 					} else {
 						/*User is not authorised to create POs so don't even show the option */
-						printf('<tr class="striped_row">
-									<td><a href="%s">%s</a></td>
-									<td><a href="%s">' . _('Acknowledge') . '</a></td>
-									' . $PrintPickLabel . '
-									<td><a href="%s">' . _('Invoice') . '</a></td>
-									<td><a href="%s">' . $PrintText . ' <img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/pdf.png" title="' . _('Click for PDF') . '" alt="" /></a></td>
-									<td><a href="%s">' . _('Labels') . '</a></td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td>%s</td>
-									<td class="number">%s</td>
-									<td></td>
-									<td>' . $AttachmentText . '</td>
-								</tr>', $ModifyPage, $MyRow['orderno'], $PrintAck, $Confirm_Invoice, $PrintDispatchNote, $PrintLabels, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
+						echo '<tr class="striped_row">
+								<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
+								<td><a href="', $PrintAck, '">', _('Acknowledge'), '</a></td>
+								', $PrintPickLabel, '
+								<td><a href="', $Confirm_Invoice, '">', _('Invoice'), '</a></td>
+								<td><a href="', $PrintDispatchNote, '">', $PrintText, ' <img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/pdf.png" title="', _('Click for PDF'), '" alt="" /></a></td>
+								<td><a href="', $PrintLabels, '">', _('Labels'), '</a></td>
+								<td>', $MyRow['name'], '</td>
+								<td>', $MyRow['brname'], '</td>
+								<td>', $MyRow['customerref'], '</td>
+								<td>', $FormatedOrderDate, '</td>
+								<td>', $FormatedDelDate, '</td>
+								<td>', html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), '</td>
+								<td class="number">', $FormatedOrderValue, '</td>
+								<td></td>
+								<td>', $AttachmentText, '</td>
+							</tr>';
 					}
 
 				} else {
 					/*must be quotes only */
-					printf('<tr class="striped_row">
-								<td><a href="%s">%s</a></td>
-								<td><a href="%s">' . _('Landscape') . '</a>&nbsp;&nbsp;<a href="%s">' . _('Portrait') . '</a></td>
-								<td>%s</td>
-								<td>%s</td>
-								<td>%s</td>
-								<td>%s</td>
-								<td>%s</td>
-								<td>%s</td>
-								<td class="number">%s</td>
-							</tr>', $ModifyPage, $MyRow['orderno'], $PrintQuotation, $PrintQuotationPortrait, $MyRow['name'], $MyRow['brname'], $MyRow['customerref'], $FormatedOrderDate, $FormatedDelDate, html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), $FormatedOrderValue);
+					echo '<tr class="striped_row">
+							<td><a href="', $ModifyPage, '">', $MyRow['orderno'], '</a></td>
+							<td><a href="', $PrintQuotation, '">', _('Landscape'), '</a>&nbsp;&nbsp;<a href="', $PrintQuotationPortrait, '">', _('Portrait'), '</a></td>
+							<td>', $MyRow['name'], '</td>
+							<td>', $MyRow['brname'], '</td>
+							<td>', $MyRow['customerref'], '</td>
+							<td>', $FormatedOrderDate, '</td>
+							<td>', $FormatedDelDate, '</td>
+							<td>', html_entity_decode($MyRow['deliverto'], ENT_QUOTES, 'UTF-8'), '</td>
+							<td class="number">', $FormatedOrderValue, '</td>
+						</tr>';
 				}
 				++$i;
 				//end of page full new headings if
@@ -1082,26 +1109,28 @@ if (!isset($StockId)) {
 			if ($_POST['Quotations'] == 'Orders_Only') {
 				echo '<tr>
 						<td colspan="12" class="number">
-						<b>' . _('Total Order(s) Value in');
+						<b>', _('Total Order(s) Value in');
 			} else {
 				echo '<tr>
 						<td colspan="8" class="number">
-						<b>' . _('Total Quotation(s) Value in');
+						<b>', _('Total Quotation(s) Value in');
 			}
 			if (!isset($PricesSecurity) or !in_array($PricesSecurity, $_SESSION['AllowedPageSecurityTokens'])) {
 				$OrdersTotal = '---------';
 			}
-			echo ' ' . $_SESSION['CompanyRecord']['currencydefault'] . ' :</b></td>
+			echo ' ', $_SESSION['CompanyRecord']['currencydefault'], ' :</b></td>
 			<td class="number"><b>' . locale_number_format($OrdersTotal, $_SESSION['CompanyRecord']['decimalplaces']) . '</b></td>';
 			if ($_POST['Quotations'] == 'Orders_Only' and $AuthRow['cancreate'] == 0) { //cancreate==0 means can create POs
 				echo '<td class="number">
-							<input type="submit" name="PlacePO" value="' . _('Place') . " " . _('PO') . '" onclick="return MakeConfirm(\'' . _('This will create purchase orders for all the items on the checked sales orders above, based on the preferred supplier purchasing data held in the system. Are You Absolutely Sure?') . '\');" />
-						</td>
-					</tr>';
+						<input type="submit" name="PlacePO" value="', _('Place'), ' ', _('PO'), '" onclick="return MakeConfirm(\'' . _('This will create purchase orders for all the items on the checked sales orders above, based on the preferred supplier purchasing data held in the system. Are You Absolutely Sure?'), '\');" />
+					</td>
+				</tr>';
 			}
 			echo '</table>';
-		} //end if there are some orders to show
-		
+		} else {
+			prnMsg(_('There are no outstanding sales orders orders meeting this criteria'), 'info');
+		}
+
 	}
 
 	echo '</form>';
