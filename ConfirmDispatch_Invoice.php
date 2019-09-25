@@ -1863,40 +1863,49 @@ if (isset($_POST['ProcessInvoice']) and $_POST['ProcessInvoice'] != '') {
 	if (!isset($_POST['InvoiceText'])) {
 		$_POST['InvoiceText'] = '';
 	}
-	echo '<table>
-		<tr>
-			<td>', _('Date On Invoice'), ':</td>
-			<td><input type="text" required="required" maxlength="10" size="15" name="DispatchDate" value="', $DefaultDispatchDate, '" id="datepicker" class="date" /></td>
-		</tr>';
-	echo '<tr>
-			<td>', _('Consignment Note Ref'), ':</td>
-			<td><input type="text" maxlength="20" size="20" name="Consignment" value="', $_POST['Consignment'], '" /></td>
-		</tr>';
-	echo '<tr>
-			<td>', _('No Of Packages in Delivery'), ':</td>
-			<td><input type="text" maxlength="6" size="6" class="number" name="Packages" value="', $_POST['Packages'], '" /></td>
-		</tr>';
+	echo '<fieldset>
+			<legend>', _('Invoice Details'), '</legend>';
 
-	echo '<tr>
-			<td>', _('Action For Balance'), ':</td>
-			 <td>
-				<select required="required" name="BOPolicy">
-					<option selected="selected" value="BO">', _('Automatically put balance on back order'), '</option>
-					<option value="CAN">', _('Cancel any quantities not delivered'), '</option>
-				</select>
-			</td>
-		</tr>';
-	echo '<tr>
-			<td>', _('Invoice Text'), ':</td>
-			<td><textarea spellcheck="true" name="InvoiceText" cols="31" rows="5">', reverse_escape($_POST['InvoiceText']), '</textarea></td>
-		</tr>';
+	echo '<field>
+			<label for="DispatchDate">', _('Date On Invoice'), ':</label>
+			<input type="text" required="required" autofocus="autofocus" maxlength="10" size="15" name="DispatchDate" value="', $DefaultDispatchDate, '" id="datepicker" class="date" />
+			<fieldhelp>', _('The date the goods/services were sent. This is the date that will appear as the invoice date.'), '</fieldhelp>
+		</field>';
 
-	echo '<tr>
-			<td>', _('Internal Comments'), ':</td>
-			<td><textarea spellcheck="true" name="InternalComments" pattern=".{0,20}" cols="31" rows="5">', reverse_escape($_SESSION['Items' . $Identifier]->InternalComments), '</textarea></td>
-		</tr>';
+	echo '<field>
+			<label for="Consignment">', _('Consignment Note Ref'), ':</label>
+			<input type="text" maxlength="20" size="20" name="Consignment" value="', $_POST['Consignment'], '" />
+			<fieldhelp>', _('The consignment reference for this delivery.'), '</fieldhelp>
+		</field>';
 
-	echo '</table>';
+	echo '<field>
+			<label for="Packages">', _('No Of Packages in Delivery'), ':</label>
+			<input type="text" maxlength="6" size="6" class="number" name="Packages" value="', $_POST['Packages'], '" />
+			<fieldhelp>', _('The number of packages in this delivery.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="BOPolicy">', _('Action For Balance'), ':</label>
+			<select required="required" name="BOPolicy">
+				<option selected="selected" value="BO">', _('Automatically put balance on back order'), '</option>
+				<option value="CAN">', _('Cancel any quantities not delivered'), '</option>
+			</select>
+			<fieldhelp>', _('Action to be taken for any remaining balance on the order.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="InvoiceText">', _('Invoice Text'), ':</label>
+			<textarea spellcheck="true" name="InvoiceText" cols="31" rows="5">', reverse_escape($_POST['InvoiceText']), '</textarea>
+			<fieldhelp>', _('Any text that should appear on the invoice. This text will be visible to the customer.'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="InternalComments">', _('Internal Comments'), ':</label>
+			<textarea spellcheck="true" name="InternalComments" pattern=".{0,20}" cols="31" rows="5">', reverse_escape($_SESSION['Items' . $Identifier]->InternalComments), '</textarea>
+			<fieldhelp>', _('Any internal text for this invoice. This text will not be visible to the customer.'), '</fieldhelp>
+		</field>';
+
+	echo '</fieldset>';
 
 	echo '<div class="centre">
 			<input type="submit" name="Update" value="', _('Update'), '" />
