@@ -1,4 +1,8 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 2;
+
 if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 
 	include ('config.php');
@@ -66,30 +70,29 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 	header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 	header('Pragma: public');
 
-	$PDF->Output('test.pdf');
+	$PDF->stream();
 
 } elseif (isset($_POST['ShowPR'])) {
 	include ('includes/session.php');
 	$Title = _('Bank Transmittal Listing');
 	include ('includes/header.php');
 	echo 'Use PrintPDF instead';
-	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo "<BR><A HREF='" . $RootPath . "/index.php?" . SID . "'>" . _('Back to the menu') . '</A>';
 	include ('includes/footer.php');
 	exit;
-} else {
-	/*The option to print PDF was not hit */
+} else { /*The option to print PDF was not hit */
 
 	include ('includes/session.php');
 	$Title = _('Bank Transmittal Listing');
 	include ('includes/header.php');
 
-	echo '<form method="POST" action="' . basename(__FILE__) . '?">';
+	echo '<form method="POST" ACTION="' . basename(__FILE__) . '?' . SID . '">';
 	echo '<table><tr><td>' . _('Select Payroll:') . '</td><td><select Name="PayrollID">';
 	DB_data_seek($Result, 0);
 	$SQL = 'SELECT payrollid, payrolldesc FROM prlpayrollperiod';
 	$Result = DB_query($SQL);
 	while ($MyRow = DB_fetch_array($Result)) {
-		if ($MyRow['payrollid'] == isset($_POST['PayrollID'])) {
+		if ($MyRow['payrollid'] == $_POST['PayrollID']) {
 			echo '<option selected="selected" value=';
 		} else {
 			echo '<option value=';
@@ -97,11 +100,10 @@ if (isset($_POST['PrintPDF']) and isset($_POST['PayrollID'])) {
 		echo $MyRow['payrollid'] . '>' . $MyRow['payrolldesc'];
 	} //end while loop
 	echo '</select></td></tr>';
-	echo "</table><p><input type='Submit' name='ShowPR' value='" . _('Show Bank Transmittal') . "'>";
-	echo "<p><input type='Submit' name='PrintPDF' value='" . _('PrintPDF') . "'>";
+	echo '</table><P><input type="submit" name="ShowPR" value="' . _('Show Bank Transmittal') . '">';
+	echo '<P><input type="submit" name="PrintPDF" value="' . _('PrintPDF') . '">';
 
-	include ('includes/footer.php');
-}
-/*end of else not PrintPDF */
+	include ('includes/footer.php');;
+} /*end of else not PrintPDF */
 
 ?>

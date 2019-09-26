@@ -306,7 +306,7 @@ margin-top:3px;
 list-style:none; /* hide the bullets */
 }
 #QuickMenuDiv li{
-    display:inline; /* items are inline */
+display:inline-block;
 float:right; /* right to left */
 }
 
@@ -488,11 +488,6 @@ text-align:center;
 /* Class selector for page title. */
 }
 
-.page_title_icon {
-padding-right:7px;
-width:32px;
-}
-
 DIV.page_hint_text {
 background:#D3D3D3;
 border:#a52a2a 1px solid;
@@ -510,8 +505,34 @@ margin:0 auto;
 }
 
 .gallery {
-	margin: 5px;
-	float: left;
-	/* Class selector to let an element float to the left. */
+margin: 5px;
+float: left;
+
+[data-title]:hover:after {
+opacity: 1;
+transition: all 0.1s ease 0.5s;
+visibility: visible;
+}
+[data-title]:after {
+content: attr(data-title);
+background-color: #ADD8E6;
+color: #404552;
+font-size: 100%;
+position: absolute;
+padding: 1px 5px 2px 5px;
+bottom: -1.9em;
+left: 10%;
+white-space: nowrap;
+box-shadow: 1px 1px 3px #222222;
+opacity: 0;
+border: 1px solid #111111;
+border-radius:5px;
+z-index: 99999;
+visibility: hidden;
+}
+[data-title] {
+position: relative;
+}
+/* Class selector to let an element float to the left. */
 }
 /* END Style for all. ********************************************************/

@@ -35,14 +35,24 @@ if (isset($_POST['SelectedAccount'])) {
 	$SelectedAccount = $_GET['SelectedAccount'];
 }
 
+if (isset($_POST['SelectedLanguage'])) {
+	$SelectedLanguage = $_POST['SelectedLanguage'];
+} elseif (isset($_GET['SelectedLanguage'])) {
+	$SelectedLanguage = $_GET['SelectedLanguage'];
+} else {
+	$SelectedLanguage = $_SESSION['ChartLanguage'];
+}
+
 // Merges gets into posts:
 if (isset($_GET['CashFlowsActivity'])) { // Select period from.
 	$_POST['CashFlowsActivity'] = $_GET['CashFlowsActivity'];
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Accounts') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Accounts'), '" alt="" />', ' ', $Title, '
+	</p>';
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit']) and $_POST['submit'] == _('Enter Information')) {
 
 	foreach ($_POST as $Key => $Value) {
 		if (mb_substr($Key, 0, 11) == 'AccountName') {
@@ -53,7 +63,7 @@ if (isset($_POST['submit'])) {
 	$GroupSQL = "SELECT groupname
 					FROM accountgroups
 					WHERE groupcode='" . $_POST['Group'] . "'
-					AND language='" . $_SESSION['ChartLanguage'] . "'";
+					AND language='" . $SelectedLanguage . "'";
 	$GroupResult = DB_query($GroupSQL);
 	$GroupRow = DB_fetch_array($GroupResult);
 	//initialise no input errors assumed initially before we test
@@ -75,22 +85,51 @@ if (isset($_POST['submit'])) {
 	if (isset($SelectedAccount) and $InputError != 1) {
 
 		foreach ($AccountNames as $AccountLanguage => $AccountName) {
-			$GroupNameSQL = "SELECT groupname
-								FROM accountgroups
-								WHERE language='" . $AccountLanguage . "'
-									AND groupcode='" . $_POST['Group'] . "'";
-			$GroupNameResult = DB_query($GroupNameSQL);
-			$GroupNameRow = DB_fetch_array($GroupNameResult);
-			$SQL = "UPDATE chartmaster SET accountname='" . htmlspecialchars($AccountName) . "',
-											group_='" . htmlspecialchars($GroupNameRow['groupname']) . "',
-											groupcode='" . $_POST['Group'] . "',
-											cashflowsactivity='" . $_POST['CashFlowsActivity'] . "'
-										WHERE accountcode ='" . $SelectedAccount . "'
-										AND language='" . $AccountLanguage . "'";
+			$SQL = "SELECT * FROM chartmaster WHERE accountcode ='" . $SelectedAccount . "' AND language='" . $AccountLanguage . "'";
+			$CountResult = DB_query($SQL);
+			if (DB_num_rows($CountResult) > 0) {
+				$GroupNameSQL = "SELECT groupname
+									FROM accountgroups
+									WHERE language='" . $AccountLanguage . "'
+										AND groupcode='" . $_POST['Group'] . "'";
+				$GroupNameResult = DB_query($GroupNameSQL);
+				$GroupNameRow = DB_fetch_array($GroupNameResult);
+				$SQL = "UPDATE chartmaster SET accountname='" . htmlspecialchars($AccountName) . "',
+												group_='" . htmlspecialchars($GroupNameRow['groupname']) . "',
+												groupcode='" . $_POST['Group'] . "',
+												cashflowsactivity='" . $_POST['CashFlowsActivity'] . "'
+											WHERE accountcode ='" . $SelectedAccount . "'
+												AND language='" . $AccountLanguage . "'";
 
-			$ErrMsg = _('Could not update the account because');
-			$Result = DB_query($SQL, $ErrMsg);
-			prnMsg(_('The general ledger account has been updated'), 'success');
+				$ErrMsg = _('Could not update the account because');
+				$Result = DB_query($SQL, $ErrMsg);
+				prnMsg(_('The general ledger account has been updated'), 'success');
+			} else {
+				$GroupNameSQL = "SELECT groupname
+									FROM accountgroups
+									WHERE language='" . $AccountLanguage . "'
+										AND groupcode='" . $_POST['Group'] . "'";
+				$GroupNameResult = DB_query($GroupNameSQL);
+				$GroupNameRow = DB_fetch_array($GroupNameResult);
+				$ErrMsg = _('Could not add the new account code');
+				$SQL = "INSERT INTO chartmaster (accountcode,
+												language,
+												accountname,
+												group_,
+												groupcode,
+												cashflowsactivity)
+											VALUES (
+												'" . $_POST['AccountCode'] . "',
+												'" . $AccountLanguage . "',
+												'" . $AccountName . "',
+												'" . htmlspecialchars($GroupNameRow['groupname']) . "',
+												'" . $_POST['Group'] . "',
+												'" . $_POST['CashFlowsActivity'] . "'
+											)";
+				$Result = DB_query($SQL, $ErrMsg);
+
+				prnMsg(_('The new general ledger account has been added'), 'success');
+			}
 		}
 	} elseif ($InputError != 1) {
 
@@ -294,35 +333,40 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedAccount" value="', $SelectedAccount, '" />';
 		echo '<input type="hidden" name="AccountCode" value="', $_POST['AccountCode'], '" />';
-		echo '<table>
-				<tr>
-					<td>', _('Account Code'), ':</td>
-					<td>', $_POST['AccountCode'], '</td>
-				</tr>';
-		$SQL = "SELECT DISTINCT language FROM chartmaster";
+		echo '<fieldset>
+				<legend>', _('Edit Account Details'), '</legend>
+				<field>
+					<label for="AccountCode">', _('Account Code'), ':</label>
+					<div class="fieldtext">', $_POST['AccountCode'], '</div>
+				</field>';
+		$SQL = "SELECT DISTINCT language FROM accountsection";
 		$LanguageResult = DB_query($SQL);
 		while ($LanguageRow = DB_fetch_array($LanguageResult)) {
 			if (!isset($AccountName[$LanguageRow['language']])) {
 				$AccountName[$LanguageRow['language']] = '';
 			}
-			echo '<tr>
-					<td>', _('Account Name'), ' (', $LanguagesArray[$LanguageRow['language']]['LanguageName'], ') :</td>
-					<td><input type="text" size="51" autofocus="autofocus" required="required" maxlength="150" name="AccountName' . mb_substr($LanguageRow['language'], 0, 5) . '" value="', $AccountName[$LanguageRow['language']], '" /></td>
-				</tr>';
+			echo '<field>
+					<label for="AccountName">', _('Account Name'), ' (', $LanguagesArray[$LanguageRow['language']]['LanguageName'], ') :</label>
+					<input type="text" size="51" autofocus="autofocus" required="required" maxlength="150" name="AccountName' . mb_substr($LanguageRow['language'], 0, 5) . '" value="', $AccountName[$LanguageRow['language']], '" />
+					<fieldhelp>', _('The name of the general ledger account in'), ' ', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</fieldhelp>
+				</field>';
 		}
 	} else {
-		echo '<table>';
-		echo '<tr>
-				<td>', _('Account Code'), ':</td>
-				<td><input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" maxlength="20" /></td>
-			</tr>';
-		$SQL = "SELECT DISTINCT language FROM chartmaster";
+		echo '<fieldset>
+				<legend>', _('New Account Details'), '</legend>
+				<field>
+					<label for="AccountCode">', _('Account Code'), ':</label>
+					<input type="text" name="AccountCode" size="11" autofocus="autofocus" required="required" maxlength="20" />
+					<fieldhelp>', _('The code by which this general ledger code will be known.'), '</fieldhelp>
+				</field>';
+		$SQL = "SELECT DISTINCT language FROM accountsection";
 		$LanguageResult = DB_query($SQL);
 		while ($LanguageRow = DB_fetch_array($LanguageResult)) {
-			echo '<tr>
-					<td>', _('Account Name'), ' (', $LanguagesArray[$LanguageRow['language']]['LanguageName'], ') :</td>
-					<td><input type="text" size="51" autofocus="autofocus" required="required" maxlength="150" name="AccountName' . mb_substr($LanguageRow['language'], 0, 5) . '" value="" /></td>
-				</tr>';
+			echo '<field>
+					<label for="AccountName">', _('Account Name'), ' (', $LanguagesArray[$LanguageRow['language']]['LanguageName'], ') :</label>
+					<td><input type="text" size="51" autofocus="autofocus" required="required" maxlength="150" name="AccountName', mb_substr($LanguageRow['language'], 0, 5), '" value="" />
+					<fieldhelp>', _('The name of the general ledger account in'), ' ', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</fieldhelp>
+				</field>';
 		}
 	}
 
@@ -330,36 +374,36 @@ if (!isset($_GET['delete'])) {
 		$_POST['AccountName'] = '';
 	}
 
-	$SQL = "SELECT groupcode, groupname FROM accountgroups WHERE language='" . $_SESSION['ChartLanguage'] . "' ORDER BY sequenceintb";
+	$SQL = "SELECT groupcode, groupname FROM accountgroups WHERE language='" . $SelectedLanguage . "' ORDER BY sequenceintb";
 	$Result = DB_query($SQL);
 
-	echo '<tr>
-			<td>', _('Account Group'), ':</td>
+	echo '<field>
+			<label for="Group">', _('Account Group'), ':</label>
 			<td><select required="required" name="Group">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($_POST['Group']) and $MyRow['groupcode'] == $_POST['Group']) {
-			echo '<option selected="selected" value="', $MyRow['groupcode'], '">', $MyRow['groupcode'] . ' - ' . $MyRow['groupname'], '</option>';
+			echo '<option selected="selected" value="', $MyRow['groupcode'], '">', $MyRow['groupcode'], ' - ', $MyRow['groupname'], '</option>';
 		} else {
-			echo '<option value="', $MyRow['groupcode'], '">', $MyRow['groupcode'] . ' - ' . $MyRow['groupname'], '</option>';
+			echo '<option value="', $MyRow['groupcode'], '">', $MyRow['groupcode'], ' - ', $MyRow['groupname'], '</option>';
 		}
 	}
 	echo '</select>
-				</td>
-			</tr>
-			<tr>
-				<td><label for="CashFlowsActivity">', _('Cash Flows Activity'), ':</label></td>
-				<td>
-					<select id="CashFlowsActivity" name="CashFlowsActivity" required="required">
-						<option value="0"', ($_POST['CashFlowsActivity'] == 0 ? ' selected="selected"' : ''), '>', _('No effect on cash flow'), '</option>
-						<option value="1"', ($_POST['CashFlowsActivity'] == 1 ? ' selected="selected"' : ''), '>', _('Operating activity'), '</option>
-						<option value="2"', ($_POST['CashFlowsActivity'] == 2 ? ' selected="selected"' : ''), '>', _('Investing activity'), '</option>
-						<option value="3"', ($_POST['CashFlowsActivity'] == 3 ? ' selected="selected"' : ''), '>', _('Financing activity'), '</option>
-						<option value="4"', ($_POST['CashFlowsActivity'] == 4 ? ' selected="selected"' : ''), '>', _('Cash or cash equivalent'), '</option>
-					</select>
-				</td>
-			</tr>
-		</table>';
+		<fieldhelp>', _('Select the Account Group that this account belongs to.'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+				<label for="CashFlowsActivity">', _('Cash Flows Activity'), ':</label>
+				<select id="CashFlowsActivity" name="CashFlowsActivity" required="required">
+					<option value="0"', ($_POST['CashFlowsActivity'] == 0 ? ' selected="selected"' : ''), '>', _('No effect on cash flow'), '</option>
+					<option value="1"', ($_POST['CashFlowsActivity'] == 1 ? ' selected="selected"' : ''), '>', _('Operating activity'), '</option>
+					<option value="2"', ($_POST['CashFlowsActivity'] == 2 ? ' selected="selected"' : ''), '>', _('Investing activity'), '</option>
+					<option value="3"', ($_POST['CashFlowsActivity'] == 3 ? ' selected="selected"' : ''), '>', _('Financing activity'), '</option>
+					<option value="4"', ($_POST['CashFlowsActivity'] == 4 ? ' selected="selected"' : ''), '>', _('Cash or cash equivalent'), '</option>
+				</select>
+				<fieldhelp>', _('Select the cash flow activity (if any) applicable to this account.'), '</fieldhelp>
+			</field>
+		</fieldset>';
 
 	echo '<div class="centre">
 			<input type="submit" name="submit" value="', _('Enter Information'), '" />
@@ -388,12 +432,45 @@ if (!isset($SelectedAccount)) {
 				INNER JOIN accountgroups
 					ON chartmaster.groupcode=accountgroups.groupcode
 					AND chartmaster.language=accountgroups.language
-				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+				WHERE chartmaster.language='" . $SelectedLanguage . "'
 				ORDER BY chartmaster.accountcode";
 
 	$ErrMsg = _('The chart accounts could not be retrieved because');
 
 	$Result = DB_query($SQL, $ErrMsg);
+
+	echo '<form method="post" id="GLAccounts" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+
+	echo '<fieldset>
+			<legend>', _('Language selection'), '</legend>';
+
+	echo '<field>
+			<label for="SelectedLanguage">', _('Language to show'), ':</label>
+			<select name="SelectedLanguage">';
+
+	$SQL = "SELECT DISTINCT language FROM accountsection";
+	$LanguageResult = DB_query($SQL);
+	while ($LanguageRow = DB_fetch_array($LanguageResult)) {
+		if (isset($_POST['SelectedLanguage']) and $_POST['SelectedLanguage'] == $LanguageRow['language']) {
+			echo '<option selected="selected" value="', $LanguageRow['language'], '">', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</option>';
+		} elseif ($LanguageRow['language'] == $SelectedLanguage) {
+			echo '<option selected="selected" value="', $LanguageRow['language'], '">', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</option>';
+		} else {
+			echo '<option value="', $LanguageRow['language'], '">', $LanguagesArray[$LanguageRow['language']]['LanguageName'], '</option>';
+		}
+	}
+	echo '</select>
+		<fieldhelp>', _('Select the language for this account section. Note each language must have all the same account sections setup.'), '</fieldhelp>
+	</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="submit" value="', _('Select Language'), '" />
+		</div>';
+
+	echo '</form>';
 
 	echo '<table>
 			<thead>

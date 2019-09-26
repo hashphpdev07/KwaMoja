@@ -538,13 +538,6 @@ echo '</form>';
 
 if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous'])) {
 
-	if ($_POST['Keywords'] != '' and $_POST['StockCode'] == '') {
-		prnMsg(_('Order Item description has been used in search'), 'warn');
-	} elseif ($_POST['StockCode'] != '' and $_POST['Keywords'] == '') {
-		prnMsg(_('Stock Code has been used in search'), 'warn');
-	} elseif ($_POST['Keywords'] == '' and $_POST['StockCode'] == '') {
-		prnMsg(_('Stock Category has been used in search'), 'warn');
-	}
 	if (isset($_POST['Keywords']) and mb_strlen($_POST['Keywords']) > 0) {
 		//insert wildcard characters in spaces
 		$_POST['Keywords'] = mb_strtoupper($_POST['Keywords']);
@@ -554,6 +547,8 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 			$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units as stockunits,
+							stockmaster.mbflag,
+							stockmaster.discontinued,
 							stockmaster.decimalplaces
 					FROM stockmaster,
 						stockcategory,
@@ -569,6 +564,8 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 			$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units as stockunits,
+							stockmaster.mbflag,
+							stockmaster.discontinued,
 							stockmaster.decimalplaces
 					FROM stockmaster,
 						stockcategory,
@@ -592,6 +589,8 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 			$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units as stockunits,
+							stockmaster.mbflag,
+							stockmaster.discontinued,
 							stockmaster.decimalplaces
 					FROM stockmaster,
 						stockcategory,
@@ -607,6 +606,8 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 			$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units as stockunits,
+							stockmaster.mbflag,
+							stockmaster.discontinued,
 							stockmaster.decimalplaces
 					FROM stockmaster,
 						stockcategory,
@@ -626,6 +627,8 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 			$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units as stockunits,
+							stockmaster.mbflag,
+							stockmaster.discontinued,
 							stockmaster.decimalplaces
 					FROM stockmaster,
 						stockcategory,
@@ -640,6 +643,8 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 			$SQL = "SELECT stockmaster.stockid,
 							stockmaster.description,
 							stockmaster.units as stockunits,
+							stockmaster.mbflag,
+							stockmaster.discontinued,
 							stockmaster.decimalplaces
 					FROM stockmaster,
 						stockcategory,
@@ -673,92 +678,6 @@ if (isset($_POST['Search']) or isset($_POST['Next']) or isset($_POST['Previous']
 	}
 
 } //end of if search
-/* display list if there is more than one record */
-if (isset($SearchResult) and !isset($_POST['Select'])) {
-
-	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	if ($ListCount > 0) {
-
-		// If the user hit the search button and there is more than one item to show
-		$ListPageMax = ceil($ListCount / $_SESSION['DisplayRecordsMax']);
-		if (isset($_POST['Next'])) {
-			if ($_POST['PageOffset'] < $ListPageMax) {
-				$_POST['PageOffset'] = $_POST['PageOffset'] + 1;
-			}
-		}
-		if (isset($_POST['Previous'])) {
-			if ($_POST['PageOffset'] > 1) {
-				$_POST['PageOffset'] = $_POST['PageOffset'] - 1;
-			}
-		}
-		if ($_POST['PageOffset'] > $ListPageMax) {
-			$_POST['PageOffset'] = $ListPageMax;
-		}
-		if ($ListPageMax > 1) {
-			echo '<div class="centre"><br />&nbsp;&nbsp;' . $_POST['PageOffset'] . ' ' . _('of') . ' ' . $ListPageMax . ' ' . _('pages') . '. ' . _('Go to Page') . ': ';
-			echo '<select name="PageOffset">';
-			$ListPage = 1;
-			while ($ListPage <= $ListPageMax) {
-				if ($ListPage == $_POST['PageOffset']) {
-					echo '<option value=' . $ListPage . ' selected>' . $ListPage . '</option>';
-				} else {
-					echo '<option value=' . $ListPage . '>' . $ListPage . '</option>';
-				}
-				$ListPage++;
-			}
-			echo '</select>
-				<input type="submit" name="Go" value="' . _('Go') . '" />
-				<input type="submit" name="Previous" value="' . _('Previous') . '" />
-				<input type="submit" name="Next" value="' . _('Next') . '" />
-				<input type="hidden" name=Keywords value="' . $_POST['Keywords'] . '" />
-				<input type="hidden" name=StockCat value="' . $_POST['StockCat'] . '" />
-				<input type="hidden" name=StockCode value="' . $_POST['StockCode'] . '" />
-			</div>';
-		}
-		echo '<table cellpadding="2">
-				<tr>
-					<th>', _('Code'), '</th>
-					<th>', _('Description'), '</th>
-					<th>', _('Total Qty On Hand'), '</th>
-					<th>', _('Units'), '</th>
-					<th>', _('Stock Status'), '</th>
-				</tr>';
-		$k = 0; //row counter to determine background colour
-		$RowIndex = 0;
-		if (DB_num_rows($SearchResult) <> 0) {
-			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
-		}
-		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
-			if ($MyRow['mbflag'] == 'D') {
-				$qoh = _('N/A');
-			} else {
-				$qoh = locale_number_format($MyRow['qoh'], $MyRow['decimalplaces']);
-			}
-			if ($MyRow['discontinued'] == 1) {
-				$ItemStatus = '<p class="bad">' . _('Obsolete') . '</p>';
-			} else {
-				$ItemStatus = '';
-			}
-
-			echo '<tr class="striped_row">
-					<td><input type="submit" name="Select" value="', $MyRow['stockid'], '" /></td>
-					<td>', $MyRow['description'], '</td>
-					<td class="number">', $qoh, '</td>
-					<td>', $MyRow['units'], '</td>
-					<td><a target="_blank" href="', $RootPath, '/StockStatus.php?StockID=', urlencode($MyRow['stockid']), '">', _('View'), '</a></td>
-					<td>', $ItemStatus, '</td>
-				</tr>';
-			//end of page full new headings if
-			
-		}
-		//end of while loop
-		echo '</table>
-			</form>';
-	}
-}
-/* end display list if there is more than one record */
-
 if (isset($SearchResult)) {
 	echo '<div class="page_help_text">' . _('Select an item by entering the quantity required.  Click Order when ready.') . '</div>';
 	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="orderform" name="orderform">';

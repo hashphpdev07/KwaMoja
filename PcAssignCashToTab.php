@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
 					notes = '" . $_POST['Notes'] . "',
 					receipt = '" . $_POST['Receipt'] . "'
 				WHERE counterindex = '" . $SelectedIndex . "'";
-		$Msg = _('Assignment of cash to PC Tab ') . ' ' . $SelectedTabs . ' ' . _('has been updated');
+		$Msg = _('Assignment of cash to PC Tab') . ' ' . $SelectedTabs . ' ' . _('has been updated');
 
 	} elseif ($InputError != 1) {
 		// Add new record on submit
@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
 					'" . $_POST['Notes'] . "',
 					'" . $_POST['Receipt'] . "'
 					)";
-		$Msg = _('Assignment of cash to PC Tab ') . ' ' . $_POST['SelectedTabs'] . ' ' . _('has been created');
+		$Msg = _('Assignment of cash to PC Tab') . ' ' . $_POST['SelectedTabs'] . ' ' . _('has been created');
 	}
 
 	if ($InputError != 1) {
@@ -144,7 +144,7 @@ if (isset($_POST['submit'])) {
 		WHERE counterindex='" . $SelectedIndex . "'";
 	$ErrMsg = _('The assignment of cash record could not be deleted because');
 	$Result = DB_query($SQL, $ErrMsg);
-	prnMsg(_('Assignment of cash to PC Tab ') . ' ' . $SelectedTabs . ' ' . _('has been deleted'), 'success');
+	prnMsg(_('Assignment of cash to PC Tab') . ' ' . $SelectedTabs . ' ' . _('has been deleted'), 'success');
 	unset($_GET['delete']);
 }
 

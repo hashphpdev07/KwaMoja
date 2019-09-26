@@ -1,5 +1,6 @@
 <?php
 include ('includes/session.php');
+include ('includes/SQL_CommonFunctions.php');
 
 $Title = _('Departments');
 
@@ -58,7 +59,8 @@ if (isset($_POST['Submit'])) {
 				$SQL = array();
 				$SQL[] = "UPDATE departments
 							SET description='" . $_POST['DepartmentName'] . "',
-								authoriser='" . $_POST['Authoriser'] . "'
+								authoriser='" . $_POST['Authoriser'] . "',
+								medical='" . $_POST['Medical'] . "'
 							WHERE description " . LIKE . " '" . $OldDepartmentName . "'";
 			} else {
 				$InputError = 1;
@@ -77,9 +79,12 @@ if (isset($_POST['Submit'])) {
 			prnMsg(_('There is already a department with the specified name.'), 'error');
 		} else {
 			$SQL = "INSERT INTO departments (description,
-											 authoriser )
+											 authoriser,
+											 medical )
 					VALUES ('" . $_POST['DepartmentName'] . "',
-							'" . $_POST['Authoriser'] . "')";
+							'" . $_POST['Authoriser'] . "',
+							'" . $_POST['Medical'] . "'
+							)";
 		}
 		$Msg = _('The new department has been created');
 	}
@@ -152,7 +157,8 @@ if (!isset($SelectedDepartmentID)) {
 
 	$SQL = "SELECT departmentid,
 					description,
-					authoriser
+					authoriser,
+					medical
 			FROM departments
 			ORDER BY description";
 
@@ -163,14 +169,21 @@ if (!isset($SelectedDepartmentID)) {
 			<tr>
 				<th>', _('Department Name'), '</th>
 				<th>', _('Authoriser'), '</th>
+				<th>', _('Medical Departemnt'), '</th>
 				<th colspan="2"></th>
 			</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 
+		if ($MyRow['medical'] == 0) {
+			$Medical = _('No');
+		} else {
+			$Medical = _('Yes');
+		}
 		echo '<tr class="striped_row">
 				<td>', $MyRow['description'], '</td>
 				<td>', $MyRow['authoriser'], '</td>
+				<td>', $Medical, '</td>
 				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedDepartmentID=', urlencode($MyRow['departmentid']), '">', _('Edit'), '</a></td>
 				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedDepartmentID=', urlencode($MyRow['departmentid']), '&amp;delete=1" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this department?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 			</tr>';
@@ -241,8 +254,23 @@ if (!isset($_GET['delete'])) {
 	}
 	echo '</select>
 		<fieldhelp>', _('The user who has permission to authorise transactions for this department'), '</fieldhelp>
-	</field>
-</fieldset>';
+	</field>';
+
+	echo '<field>
+			<label for="Medical">', _('Medical Department?'), '</label>
+			<select name="Medical">';
+	if ($_POST['Medical'] == 0) {
+		echo '<option selected="selected" value="0">', _('No'), '</option>';
+		echo '<option value="1">', _('Yes'), '</option>';
+	} else {
+		echo '<option selected="selected" value="1">', _('Yes'), '</option>';
+		echo '<option value="0">', _('No'), '</option>';
+	}
+	echo '<select>
+		<fieldhelp>', _('If this department is a medical department then select "Yes" otherwise select "No"'), '</fieldhelp
+	<field>';
+
+	echo '</fieldset>';
 
 	echo '<div class="centre">
 			<input type="submit" name="Submit" value="', _('Enter Information'), '" />

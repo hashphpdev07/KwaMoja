@@ -57,6 +57,7 @@ if (isset($_POST['ProcessTransfer'])) {
 			$_SESSION['Transfer' . $Identifier]->TransferItem[$i]->CancelBalance = 0;
 		}
 		$TotalQuantity+= $TrfLine->Quantity;
+		$TrfLine->ContainerTo = $_POST['Container_' . $i];
 		++$i;
 	}
 	/*end loop to validate and update the SESSION['Transfer'] data */
@@ -67,7 +68,7 @@ if (isset($_POST['ProcessTransfer'])) {
 	//exit;
 	if (!$InputError) {
 		/*All inputs must be sensible so make the stock movement records and update the locations stocks */
-
+		$i = 0;
 		$Result = DB_Txn_Begin(); // The Txn should affect the full transfer
 		foreach ($_SESSION['Transfer' . $Identifier]->TransferItem as $TrfLine) {
 			if ($TrfLine->Quantity >= 0) {
@@ -92,6 +93,7 @@ if (isset($_POST['ProcessTransfer'])) {
 												type,
 												transno,
 												loccode,
+												container,
 												trandate,
 												userid,
 												prd,
@@ -103,6 +105,7 @@ if (isset($_POST['ProcessTransfer'])) {
 						16,
 						'" . $_SESSION['Transfer' . $Identifier]->TrfID . "',
 						'" . $_SESSION['Transfer' . $Identifier]->StockLocationFrom . "',
+						'" . $TrfLine->ContainerFrom . "',
 						'" . $SQLTransferDate . "',
 						'" . $_SESSION['UserID'] . "',
 						'" . $PeriodNo . "',
@@ -207,13 +210,13 @@ if (isset($_POST['ProcessTransfer'])) {
 
 				// BEGIN: **********************************************************************
 				// Insert outgoing inventory GL transaction if any of the locations has a GL account code:
-				if (($_SESSION['Transfer']->StockLocationFromAccount != '' or $_SESSION['Transfer']->StockLocationToAccount != '')) {
+				if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '')) {
 					// Get the account code:
-					if ($_SESSION['Transfer']->StockLocationFromAccount != '') {
-						$AccountCode = $_SESSION['Transfer']->StockLocationFromAccount;
+					if ($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '') {
+						$AccountCode = $_SESSION['Transfer' . $Identifier]->StockLocationFromAccount;
 					} else {
 						$StockGLCode = GetStockGLCode($TrfLine->StockID); // Get Category's account codes.
-						$AccountCode = $StockGLCode['stockact']; // Select account code for stock.
+						$AccountCode = $StockGLCode['stockact' . $Identifier]; // Select account code for stock.
 						
 					}
 					// Get the item cost:
@@ -238,9 +241,9 @@ if (isset($_POST['ProcessTransfer'])) {
 							'" . $PeriodNo . "',
 							'" . $SQLTransferDate . "',
 							16,
-							'" . $_SESSION['Transfer']->TrfID . "',
+							'" . $_SESSION['Transfer' . $Identifier]->TrfID . "',
 							'" . $AccountCode . "',
-							'" . $_SESSION['Transfer']->StockLocationFrom . ' - ' . $TrfLine->StockID . ' x ' . $TrfLine->Quantity . ' @ ' . $StandardCost . "',
+							'" . $_SESSION['Transfer' . $Identifier]->StockLocationFrom . ' - ' . $TrfLine->StockID . ' x ' . $TrfLine->Quantity . ' @ ' . $StandardCost . "',
 							'" . -$TrfLine->Quantity * $StandardCost . "'
 						)";
 					$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The outgoing inventory GL transacction record could not be inserted because');
@@ -253,6 +256,7 @@ if (isset($_POST['ProcessTransfer'])) {
 												type,
 												transno,
 												loccode,
+												container,
 												trandate,
 												userid,
 												prd,
@@ -264,6 +268,7 @@ if (isset($_POST['ProcessTransfer'])) {
 						16,
 						'" . $_SESSION['Transfer' . $Identifier]->TrfID . "',
 						'" . $_SESSION['Transfer' . $Identifier]->StockLocationTo . "',
+						'" . $TrfLine->ContainerTo . "',
 						'" . $SQLTransferDate . "',
 						'" . $_SESSION['UserID'] . "',
 						'" . $PeriodNo . "',
@@ -359,10 +364,10 @@ if (isset($_POST['ProcessTransfer'])) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				// BEGIN: **********************************************************************
 				// Insert incoming inventory GL transaction if any of the locations has a GL account code:
-				if (($_SESSION['Transfer']->StockLocationFromAccount != '' or $_SESSION['Transfer']->StockLocationToAccount != '')) {
+				if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '')) {
 					// Get the account code:
-					if ($_SESSION['Transfer']->StockLocationToAccount != '') {
-						$AccountCode = $_SESSION['Transfer']->StockLocationToAccount;
+					if ($_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') {
+						$AccountCode = $_SESSION['Transfer' . $Identifier]->StockLocationToAccount;
 					} else {
 						$StockGLCode = GetStockGLCode($TrfLine->StockID); // Get Category's account codes.
 						$AccountCode = $StockGLCode['stockact']; // Select account code for stock.
@@ -390,9 +395,9 @@ if (isset($_POST['ProcessTransfer'])) {
 							'" . $PeriodNo . "',
 							'" . $SQLTransferDate . "',
 							16,
-							'" . $_SESSION['Transfer']->TrfID . "',
+							'" . $_SESSION['Transfer' . $Identifier]->TrfID . "',
 							'" . $AccountCode . "',
-							'" . $_SESSION['Transfer']->StockLocationTo . ' - ' . $TrfLine->StockID . ' x ' . $TrfLine->Quantity . ' @ ' . $StandardCost . "',
+							'" . $_SESSION['Transfer' . $Identifier]->StockLocationTo . ' - ' . $TrfLine->StockID . ' x ' . $TrfLine->Quantity . ' @ ' . $StandardCost . "',
 							'" . $TrfLine->Quantity * $StandardCost . "')";
 					$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The incoming inventory GL transacction record could not be inserted because');
 					$DbgMsg = _('The following SQL to insert records was used');
@@ -411,7 +416,7 @@ if (isset($_POST['ProcessTransfer'])) {
 				prnMsg(_('A stock transfer for item code') . ' - ' . $TrfLine->StockID . ' ' . $TrfLine->ItemDescription . ' ' . _('has been created from') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationFromName . ' ' . _('to') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationToName . ' ' . _('for a quantity of') . ' ' . $TrfLine->Quantity, 'success');
 
 				if ($TrfLine->CancelBalance == 1) {
-					RecordItemCancelledInTransfer($_SESSION['Transfer']->TrfID, $TrfLine->StockID, $TrfLine->Quantity);
+					RecordItemCancelledInTransfer($_SESSION['Transfer' . $Identifier]->TrfID, $TrfLine->StockID, $TrfLine->Quantity);
 					$SQL = "UPDATE loctransfers SET recqty = recqty + '" . round($TrfLine->Quantity, $TrfLine->DecimalPlaces) . "',
 						shipqty = recqty + '" . round($TrfLine->Quantity, $TrfLine->DecimalPlaces) . "',
 								recdate = '" . Date('Y-m-d H:i:s') . "'
@@ -430,7 +435,7 @@ if (isset($_POST['ProcessTransfer'])) {
 			} /*end if Quantity >= 0 */
 			if ($TrfLine->CancelBalance == 1) {
 				$SQL = "UPDATE loctransfers SET shipqty = recqty
-						WHERE reference = '" . $_SESSION['Transfer']->TrfID . "'
+						WHERE reference = '" . $_SESSION['Transfer' . $Identifier]->TrfID . "'
 						AND stockid = '" . $TrfLine->StockID . "'";
 				$ErrMsg = _('CRITICAL ERROR') . '! ' . _('Unable to set the quantity received to the quantity shipped to cancel the balance on this transfer line');
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
@@ -480,8 +485,9 @@ if (isset($_GET['Trf_ID'])) {
 				locations.locationname as shiplocationname,
 				locations.glaccountcode as shipaccountcode,
 				reclocations.locationname as reclocationname,
-				locations.glaccountcode as shipaccountcode,
+				reclocations.glaccountcode as recaccountcode,
 				loctransfers.shiploc,
+				loctransfers.shiploccontainer,
 				loctransfers.recloc
 			FROM loctransfers
 			INNER JOIN locations
@@ -515,20 +521,31 @@ if (isset($_GET['Trf_ID'])) {
 		$_SESSION['Transfer' . $Identifier]->TransferItem[$i] = new LineItem($MyRow['stockid'], $MyRow['description'], $MyRow['shipqty'], $MyRow['units'], $MyRow['controlled'], $MyRow['serialised'], $MyRow['perishable'], $MyRow['decimalplaces']);
 		$_SESSION['Transfer' . $Identifier]->TransferItem[$i]->PrevRecvQty = $MyRow['recqty'];
 		$_SESSION['Transfer' . $Identifier]->TransferItem[$i]->Quantity = $MyRow['shipqty'] - $MyRow['recqty'];
+		$_SESSION['Transfer' . $Identifier]->TransferItem[$i]->ContainerFrom = $MyRow['shiploccontainer'];
 
 		++$i;
 		/*numerical index for the TransferItem[] array of LineItem s */
 
 	} while ($MyRow = DB_fetch_array($Result));
 
+	$SQL = "SELECT id FROM container WHERE parentid='" . $_SESSION['Transfer' . $Identifier]->StockLocationTo . "'";
+	$Result = DB_query($SQL);
+	if (DB_num_rows($Result) > 0) {
+		$WarehouseDefined = true;
+	} else {
+		$WarehouseDefined = false;
+	}
+
 }
 /* $_GET['Trf_ID'] is set */
 
 if (isset($_SESSION['Transfer' . $Identifier])) {
 	//Begin Form for receiving shipment
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . $Title . '</p>';
-	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . urlencode($Identifier) . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
+		</p>';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	prnMsg(_('Please Verify Shipment Quantities Received'), 'info');
 
@@ -536,31 +553,35 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 	echo '<table>
 			<thead>
 				<tr>
-					<th colspan="7"><h3>' . _('Location Transfer Reference') . ' #' . $_SESSION['Transfer' . $Identifier]->TrfID . ' ' . _('from') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationFromName . ' ' . _('to') . ' ' . $_SESSION['Transfer' . $Identifier]->StockLocationToName . '</h3></th>
+					<th colspan="8"><h3>', _('Location Transfer Reference'), ' #', $_SESSION['Transfer' . $Identifier]->TrfID, ' ', _('from'), ' ', $_SESSION['Transfer' . $Identifier]->StockLocationFromName, ' ', _('to'), ' ', $_SESSION['Transfer' . $Identifier]->StockLocationToName, '</h3></th>
 				</tr>
 				<tr>
-					<th class="SortedColumn">' . _('Item Code') . '</th>
-					<th class="SortedColumn">' . _('Item Description') . '</th>
-					<th>' . _('Quantity Dispatched') . '</th>
-					<th>' . _('Quantity Received') . '</th>
-					<th>' . _('Quantity To Receive') . '</th>
-					<th>' . _('Units') . '</th>
-					<th>' . _('Cancel Balance') . '</th>
-				</tr>
-			</thead>';
+					<th class="SortedColumn">', _('Item Code'), '</th>
+					<th class="SortedColumn">', _('Item Description'), '</th>
+					<th>', _('Quantity Dispatched'), '</th>
+					<th>', _('Quantity Received'), '</th>
+					<th>', _('Quantity To Receive'), '</th>
+					<th>', _('Units'), '</th>';
+	if ($WarehouseDefined) {
+		echo '<th>', _('Container'), '</th>';
+	}
+	echo '<th>', _('Cancel Balance'), '</th>
+		</tr>
+	</thead>';
 
 	echo '<tbody>';
 	$k = 0;
 	foreach ($_SESSION['Transfer' . $Identifier]->TransferItem as $TrfLine) {
 
 		echo '<tr class="striped_row">
-				<td>' . $TrfLine->StockID . '</td>
-				<td>' . $TrfLine->ItemDescription . '</td>';
+				<td>', $TrfLine->StockID, '</td>
+				<td>', $TrfLine->ItemDescription, '</td>';
 
-		echo '<td class="number">' . locale_number_format($TrfLine->ShipQty, $TrfLine->DecimalPlaces) . '</td>';
+		echo '<td class="number">', locale_number_format($TrfLine->ShipQty, $TrfLine->DecimalPlaces), '</td>';
 		if (isset($_POST['Qty' . $i]) and is_numeric(filter_number_format($_POST['Qty' . $i]))) {
 
-			$_SESSION['Transfer' . $Identifier]->TransferItem[$i]->Quantity = round(filter_number_format($_POST['Qty' . $i]), $TrfLine->DecimalPlaces);
+			$TrfLine->Quantity = round(filter_number_format($_POST['Qty' . $i]), $TrfLine->DecimalPlaces);
+			$TrfLine->ContainerTo = $_POST['Container_' . $i];
 
 			$Qty = round(filter_number_format($_POST['Qty' . $i]), $TrfLine->DecimalPlaces);
 
@@ -573,26 +594,50 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 		} else {
 			$Qty = $TrfLine->Quantity;
 		}
-		echo '<td class="number">' . locale_number_format($TrfLine->PrevRecvQty, $TrfLine->DecimalPlaces) . '</td>';
+		echo '<td class="number">', locale_number_format($TrfLine->PrevRecvQty, $TrfLine->DecimalPlaces), '</td>';
 
 		if ($TrfLine->Controlled == 1) {
 			echo '<td class="number">
-					<input type="hidden" name="Qty' . $i . '" value="' . locale_number_format($Qty, $TrfLine->DecimalPlaces) . '" />
-					<a href="' . $RootPath . '/StockTransferControlled.php?identifier=' . urlencode($Identifier) . '&TransferItem=' . urlencode($i) . '" />' . $Qty . '</a>
+					<input type="hidden" name="Qty', $i, '" value="', locale_number_format($Qty, $TrfLine->DecimalPlaces), '" />
+					<a href="', $RootPath, '/StockTransferControlled.php?identifier=', urlencode($Identifier), '&TransferItem=', urlencode($i), '" />', $Qty, '</a>
 				</td>';
 		} else {
-			echo '<td><input type="text" class="number" name="Qty' . $i . '" required="required" maxlength="10" size="auto" value="' . locale_number_format($Qty, $TrfLine->DecimalPlaces) . '" /></td>';
+			echo '<td>
+					<input type="text" class="number" name="Qty', $i, '" required="required" maxlength="10" size="auto" value="', locale_number_format($Qty, $TrfLine->DecimalPlaces), '" />
+				</td>';
 		}
 
-		echo '<td>' . $TrfLine->PartUnit . '</td>';
+		echo '<td>', $TrfLine->PartUnit, '</td>';
 
-		echo '<td><input type="checkbox" name="CancelBalance' . $i . '" value="1" /></td>';
+		if ($WarehouseDefined) {
+			$ContainerSQL = "SELECT id, name FROM container WHERE location='" . $_SESSION['Transfer' . $Identifier]->StockLocationTo . "' AND parentid<>''";
+			$ContainerResult = DB_query($ContainerSQL);
+			echo '<td>
+					<select name="Container_', $i, '">';
+			while ($MyContainerRow = DB_fetch_array($ContainerResult)) {
+				if (isset($TrfLine->Container) and $TrfLine->Container == $MyContainerRow['id']) {
+					echo '<option selected="selected" value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+				} else {
+					echo '<option value="', $MyContainerRow['id'], '">', $MyContainerRow['name'], '</option>';
+				}
+			}
+			echo '</select>
+				</td>';
+		}
+
+		echo '<td>
+				<input type="checkbox" name="CancelBalance', $i, '" value="1" />
+			</td>';
 
 		if ($TrfLine->Controlled == 1) {
 			if ($TrfLine->Serialised == 1) {
-				echo '<td><a href="' . $RootPath . '/StockTransferControlled.php?identifier=' . urlencode($Identifier) . '&TransferItem=' . urlencode($i) . '">' . _('Enter Serial Numbers') . '</a></td>';
+				echo '<td>
+						<a href="', $RootPath, '/StockTransferControlled.php?identifier=', urlencode($Identifier), '&TransferItem=', urlencode($i), '">', _('Enter Serial Numbers'), '</a>
+					</td>';
 			} else {
-				echo '<td><a href="' . $RootPath . '/StockTransferControlled.php?identifier=' . urlencode($Identifier) . '&TransferItem=' . urlencode($i) . '">' . _('Enter Batch Refs') . '</a></td>';
+				echo '<td>
+						<a href="', $RootPath, '/StockTransferControlled.php?identifier=', urlencode($Identifier), '&TransferItem=', urlencode($i), '">', _('Enter Batch Refs'), '</a>
+					</td>';
 			}
 		}
 
@@ -606,19 +651,20 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 	echo '</tbody>
 		</table>
 		<div class="centre">
-			<input type="submit" name="ProcessTransfer" value="' . _('Process Inventory Transfer') . '" />
-			<br />
+			<input type="submit" name="ProcessTransfer" value="', _('Process Inventory Transfer'), '" />
 		</div>
 	</form>';
-	echo '<a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?NewTransfer=true">' . _('Select A Different Transfer') . '</a>';
+	echo '<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?NewTransfer=true">', _('Select A Different Transfer'), '</a>';
 
 } else {
 	/*Not $_SESSION['Transfer' . $Identifier] set */
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/supplier.png" title="' . _('Dispatch') . '" alt="" />' . ' ' . $Title . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
+		</p>';
 
-	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" id="form1">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="form1">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	$SQL = "SELECT locationname,
 					locations.loccode
@@ -630,25 +676,29 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 				ORDER BY locationname";
 	$LocResult = DB_query($SQL);
 
-	echo '<table>';
-	echo '<tr>
-			<td>' . _('Select Location Receiving Into') . ':</td>
-			<td>';
-	echo '<select required="required" name="RecLocation" onchange="ReloadForm(form1.RefreshTransferList)">';
+	echo '<fieldset>
+			<legend>', _('Location Criteria'), '</legend>';
+	echo '<field>
+			<label for="RecLocation">', _('Select Location Receiving Into'), ':</label>';
+
+	echo '<select required="required" autofocus="autofocus" name="RecLocation" onchange="ReloadForm(form1.RefreshTransferList)">';
 	if (!isset($_POST['RecLocation'])) {
 		$_POST['RecLocation'] = $_SESSION['UserStockLocation'];
 	}
 	while ($MyRow = DB_fetch_array($LocResult)) {
 		if ($MyRow['loccode'] == $_POST['RecLocation']) {
-			echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+			echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 		} else {
-			echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+			echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 		}
 	}
 	echo '</select>
-		<input type="submit" name="RefreshTransferList" value="' . _('Refresh Transfer List') . '" /></td>
-		</tr>
-		</table>';
+		</field>
+	</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="RefreshTransferList" value="', _('Refresh Transfer List'), '" />
+		</div>';
 
 	$SQL = "SELECT DISTINCT reference,
 				locations.locationname as trffromloc,
@@ -665,21 +715,21 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 		$LocRow = DB_fetch_array($LocResult);
 		echo '<table>';
 		echo '<tr>
-				<th colspan="4"><h3>' . _('Pending Transfers Into') . ' ' . $LocRow['locationname'] . '</h3></th>
+				<th colspan="4"><h3>', _('Pending Transfers Into'), ' ', $LocRow['locationname'], '</h3></th>
 			</tr>';
 		echo '<tr>
-				<th>' . _('Transfer Ref') . '</th>
-				<th>' . _('Transfer From') . '</th>
-				<th>' . _('Dispatch Date') . '</th>
+				<th>', _('Transfer Ref'), '</th>
+				<th>', _('Transfer From'), '</th>
+				<th>', _('Dispatch Date'), '</th>
 			</tr>';
 		$k = 0;
 		while ($MyRow = DB_fetch_array($TrfResult)) {
 
 			echo '<tr class="striped_row">
-					<td class="number">' . $MyRow['reference'] . '</td>
-					<td>' . $MyRow['trffromloc'] . '</td>
-					<td>' . ConvertSQLDateTime($MyRow['shipdate']) . '</td>
-					<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Trf_ID=' . $MyRow['reference'] . '">' . _('Receive') . '</a></td>
+					<td class="number">', $MyRow['reference'], '</td>
+					<td>', $MyRow['trffromloc'], '</td>
+					<td>', ConvertSQLDateTime($MyRow['shipdate']), '</td>
+					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Trf_ID=', $MyRow['reference'], '">', _('Receive'), '</a></td>
 				</tr>';
 		}
 		echo '</table>';

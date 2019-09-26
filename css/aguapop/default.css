@@ -21,9 +21,9 @@ width:32px;
 }
 
 div.toplink {
-padding-top:1%;
+padding-top:0.3%;
 padding-left:1%;
-margin-bottom:-1%;
+margin-bottom:-1.5%;
 text-align:left
 }
 
@@ -190,11 +190,6 @@ font-weight:700;
 text-align:center;
 margin:0 auto;
 padding:5px;
-}
-
-.page_title_icon {
-padding-right:7px;
-width:32px;
 }
 
 p.good {
@@ -659,7 +654,33 @@ margin-bottom:4px;
 }
 
 .gallery {
-	margin: 5px;
-	float: left;
-	/* Class selector to let an element float to the left. */
+margin: 5px;
+float: left;
+/* Class selector to let an element float to the left. */
+}
+
+[data-title]:hover:after {
+opacity: 1;
+transition: all 0.1s ease 0.5s;
+visibility: visible;
+}
+[data-title]:after {
+content: attr(data-title);
+background-color: #ADD8E6;
+color: #404552;
+font-size: 100%;
+position: absolute;
+padding: 1px 5px 2px 5px;
+bottom: -1.9em;
+left: 10%;
+white-space: nowrap;
+box-shadow: 1px 1px 3px #222222;
+opacity: 0;
+border: 1px solid #111111;
+border-radius:5px;
+z-index: 99999;
+visibility: hidden;
+}
+[data-title] {
+position: relative;
 }

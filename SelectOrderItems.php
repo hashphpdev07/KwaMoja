@@ -1375,7 +1375,6 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			echo '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&amp;Delete=' . $OrderLine->LineNumber . '" onclick="return MakeConfirm(\'' . _('Are You Sure?') . '\', \'Confirm Delete\', this);">' . $RemTxt . '</a></td></tr>';
 
 			if ($_SESSION['AllowOrderLineItemNarrative'] == 1) {
-				echo $RowStarter;
 				echo '<td colspan="10">' . _('Narrative') . ':<textarea name="Narrative_' . $OrderLine->LineNumber . '" cols="100%" rows="1">' . stripslashes(AddCarriageReturns($OrderLine->Narrative)) . '</textarea><br /></td></tr>';
 			} //$_SESSION['AllowOrderLineItemNarrative'] == 1
 			else {
@@ -1534,16 +1533,18 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ';
 		echo _('Search for Order Items') . '</p></div>';
 		echo '<div class="page_help_text">' . _('Search for Order Items') . _(', Searches the database for items, you can narrow the results by selecting a stock category, or just enter a partial item description or partial item code') . '.</div><br />';
-		echo '<table>
-				<tr>
-					<td><b>' . _('Select a Stock Category') . ': </b><select name="StockCat">';
+		echo '<fieldset>
+				<legend class="search">', _('Search Criteria'), '</legend>
+				<field>
+					<label for="StockCat">', _('Select a Stock Category'), '</label>
+					<select name="StockCat">';
 
 		if (!isset($_POST['StockCat']) or $_POST['StockCat'] == 'All') {
-			echo '<option selected="selected" value="All">' . _('All') . '</option>';
+			echo '<option selected="selected" value="All">', _('All'), '</option>';
 			$_POST['StockCat'] = 'All';
 		} //!isset($_POST['StockCat']) or $_POST['StockCat'] == 'All'
 		else {
-			echo '<option value="All">' . _('All') . '</option>';
+			echo '<option value="All">', _('All'), '</option>';
 		}
 		$SQL = "SELECT categoryid,
 						categorydescription
@@ -1554,29 +1555,45 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		$Result1 = DB_query($SQL);
 		while ($MyRow1 = DB_fetch_array($Result1)) {
 			if ($_POST['StockCat'] == $MyRow1['categoryid']) {
-				echo '<option selected="selected" value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+				echo '<option selected="selected" value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 			} //$_POST['StockCat'] == $MyRow1['categoryid']
 			else {
-				echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+				echo '<option value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 			}
 		} //$MyRow1 = DB_fetch_array($Result1)
-		echo '</select></td>
+		echo '</select>
+			<fieldhelp>', _('Select the stock category to search in, or to search over all stock categories select All'), '</fieldhelp>
+		</field>';
 
-			<td><b>' . _('Enter partial Description') . ':</b><input type="text" name="Keywords" size="20" maxlength="25" value="';
+		echo '<field>
+				<label for="Keywords">', _('Enter partial Description'), '</label>';
 
 		if (isset($_POST['Keywords'])) {
-			echo $_POST['Keywords'];
-		} //isset($_POST['Keywords'])
-		echo '" /></td>';
+			echo '<input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />';
+		} else {
+			echo '<input type="text" name="Keywords" size="20" maxlength="25" value="" />';
+		}
+		echo '<fieldhelp>', _('Enter all or part of the item description you are searching for'), '</fieldhelp>
+			</field>';
 
-		echo '<td align="right"><b>' . _('OR') . ' ' . _('Enter extract of the Stock Code') . ':</b><input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="';
+		echo '<h1>', _('OR'), '</h1>';
+
+		echo '<field>
+				<label for="StockCode">', _('Enter extract of the Stock Code'), '</label>';
 		if (isset($_POST['StockCode'])) {
-			echo $_POST['StockCode'];
-		} //isset($_POST['StockCode'])
-		echo '" /></td>
-				<td><input type="checkbox" name="CustItemFlag" value="C" />' . _('Customer Item flag') . '&nbsp;&nbsp;<br/><span class="dpTbl">' . _('If checked, only items for this customer will show') . '</span> </td>
-			</tr>
-		</table>';
+			echo '<input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />';
+		} else {
+			echo '<input type="text" autofocus="autofocus" name="StockCode" size="15" maxlength="18" value="" />';
+		}
+		echo '<fieldhelp>', _('Enter all or part of the item code you are searching for'), '</fieldhelp>
+			</field>';
+
+		echo '<field>
+				<label for="CustItemFlag">' . _('Customer Item flag') . '</label>
+				<input type="checkbox" name="CustItemFlag" value="C" />
+				<fieldhelp>', _('If checked, only items for this customer will show'), '</fieldhelp>
+			</field>
+		</fieldset>';
 
 		echo '<div class="centre">
 				<input type="submit" name="Search" value="' . _('Search Now') . '" />
@@ -1718,7 +1735,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 			</tr>';
 		$DefaultDeliveryDate = DateAdd(Date($_SESSION['DefaultDateFormat']), 'd', $_SESSION['Items' . $Identifier]->DeliveryDays);
 		for ($i = 1;$i <= $_SESSION['QuickEntries'];$i++) {
-			echo '<tr class="OddTableRow">';
+			echo '<tr class="striped_row">';
 			/* Do not display colum unless customer requires po line number by sales order line*/
 			if ($_SESSION['Items' . $Identifier]->DefaultPOLine > 0) {
 				echo '<td><input type="text" name="poline_' . $i . '" size="21" maxlength="20" /></td>';

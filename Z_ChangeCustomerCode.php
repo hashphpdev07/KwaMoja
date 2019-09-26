@@ -41,6 +41,8 @@ if (isset($_POST['ProcessCustomerChange'])) {
 									`address2`,
 									`address3`,
 									`address4`,
+									`address5`,
+									`address6`,
 									`currcode`,
 									`salestype`,
 									`clientsince`,
@@ -60,6 +62,9 @@ if (isset($_POST['ProcessCustomerChange'])) {
 									`ediaddress`,
 									`ediserveruser`,
 									`ediserverpwd`,
+									`taxrref`,
+									`customerpoline`,
+									`languageid`,
 									`typeid`)
 					SELECT '" . $_POST['NewDebtorNo'] . "',
 									`name`,
@@ -67,6 +72,8 @@ if (isset($_POST['ProcessCustomerChange'])) {
 									`address2`,
 									`address3`,
 									`address4`,
+									`address5`,
+									`address6`,
 									`currcode`,
 									`salestype`,
 									`clientsince`,
@@ -86,6 +93,9 @@ if (isset($_POST['ProcessCustomerChange'])) {
 									`ediaddress`,
 									`ediserveruser`,
 									`ediserverpwd`,
+									`taxrref`,
+									`customerpoline`,
+									`languageid`,
 									`typeid`
 					FROM debtorsmaster
 					WHERE debtorno='" . $_POST['OldDebtorNo'] . "'";

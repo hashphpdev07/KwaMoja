@@ -1,9 +1,7 @@
 <?php
 echo '<div id="mask">
-				<div id="dialog" name="dialog"></div>
-			</div>';
-
-echo '<div id="MessageContainerFoot">';
+		<div id="dialog"></div>
+	</div>';
 
 if (isset($Messages) and count($Messages) > 0) {
 	foreach ($Messages as $Message) {
@@ -38,25 +36,24 @@ if (isset($Messages) and count($Messages) > 0) {
 					fwrite($LogFile, date('Y-m-d h-m-s') . ',' . $Type . ',' . $_SESSION['UserID'] . ',' . trim($Msg, ',') . "\n");
 				}
 		}
-		echo '<div class="Message ', $Class, ' noPrint">
-				<span class="MessageCloseButton">&times;</span>
-				<b>', $Message[2], '</b> : ', $Message[0], '</div>';
+		echo '<div id="MessageContainerFoot">
+				<div class="Message ', $Class, ' noPrint">
+					<span class="MessageCloseButton">&times;</span>
+					<b>', $Message[2], '</b> : ', $Message[0], '
+				</div>
+			</div>';
 	}
 }
 
-echo '</div>
-	</div>
-</div>'; // BodyDiv
-echo '<div id="FooterDiv" class="noPrint">
-		<div id="FooterWrapDiv">
-			<div id="FooterLogoDiv">
-				<a href="http://www.kwamoja.com" target="_blank"><img src="', $RootPath, '/', $_SESSION['LogoFile'], '" width="120" alt="KwaMoja" title="KwaMoja" /></a>
-			</div>
-			<div id="FooterVersionDiv">KwaMoja ', _('version'), ' ', $_SESSION['VersionNumber'], '.', $_SESSION['DBUpdateNumber'], '</div>
-			<div id="FooterTimeDiv">', DisplayDateTime(), '</div>
-		</div>
-	</div>'; // FooterDiv
-echo '</div>'; // Canvas
+echo '</section>'; // BodyDiv
+echo '<footer class="noPrint">
+		<a class="FooterLogo" href="http://www.kwamoja.com" target="_blank">
+			<img src="', $RootPath, '/', $_SESSION['LogoFile'], '" width="120" alt="KwaMoja" title="KwaMoja" />
+		</a>
+		<div class="FooterVersion">KwaMoja ', _('version'), ' ', $_SESSION['VersionNumber'], '.', $_SESSION['DBUpdateNumber'], '</div>
+		<div class="FooterTime">', DisplayDateTime(), '</div>
+	</footer>'; // FooterDiv
+echo '<script async type="text/javascript" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
 echo '</body>';
 echo '</html>';
 

@@ -1,4 +1,7 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 10;
 include ('includes/session.php');
 $Title = _('View Payroll Data');
 
@@ -16,34 +19,34 @@ if (isset($_GET['Counter'])) {
 if (isset($_GET['delete'])) {
 //the link to delete a selected record was clicked instead of the submit button
 
-$CancelDelete = 0;
+	$CancelDelete = 0;
 
-$SQL = "SELECT payrollid
-FROM prlpayrollperiod
-WHERE prlpayrollperiod.payrollid='" . $PayrollID . "'
-AND prlpayrollperiod.payclosed='1'";
-$PayDetails = DB_query($SQL);
-if(DB_num_rows($PayDetails)>0)
-{
-$CancelDelete = 1;
-prnMsg('Payroll is closed. Can not delete this record...','success');
-}
+	$SQL = "SELECT payrollid
+				FROM prlpayrollperiod
+				WHERE prlpayrollperiod.payrollid='" . $PayrollID . "'
+				AND prlpayrollperiod.payclosed='1'";
+		$PayDetails = DB_query($SQL);
+		if(DB_num_rows($PayDetails)>0)
+		{
+		  $CancelDelete = 1;
+		  prnMsg('Payroll is closed. Can not delete this record...','success');
+		}
 
 
 // PREVENT DELETES IF DEPENDENT RECORDSs
-if ($CancelDelete == 0) {
-$SQL="DELETE FROM prlpayrolltrans WHERE counterindex='$Counter'";
-$Result = DB_query($SQL);
-prnMsg(_('Payroll record ') . ' ' . $Counter . ' ' . _('has been deleted'),'success');
-unset($Counter);
-unset($_SESSION['Counter']);
-} //end of Delete
+	if ($CancelDelete == 0) {
+		$SQL="DELETE FROM prlpayrolltrans WHERE counterindex='$Counter'";
+		$Result = DB_query($SQL);
+		prnMsg(_('Payroll record ') . ' ' . $Counter . ' ' . _('has been deleted'),'success');
+		unset($Counter);
+		unset($_SESSION['Counter']);
+	} //end of Delete
 }
 */
 
 if (!isset($Counter)) {
-	echo '<form method="post" action="' . basename(__FILE__) . '">';
-	echo '<input type="hidden" name="New" value="Yes">';
+	echo "<form method='post' ACTION='" . basename(__FILE__) . "?" . SID . "'>";
+	echo "<input type='hidden' name='New' value='Yes'>";
 	echo '<table>';
 
 	$SQL = "SELECT  	payrollid,
@@ -71,31 +74,34 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Pay ID ') . "</td>
-		<th>" . _('Emp ID') . "</td>
-		<th>" . _('Period Rate') . "</td>
-		<th>" . _('Hourly Rate') . "</td>
-		<th>" . _('Basic Pay') . "</td>
-		<th>" . _('Other Income') . "</td>
-		<th>" . _('Absent') . "</td>
-		<th>" . _('Late') . "</td>
-		<th>" . _('Overtime Pay') . "</td>
-		<th>" . _('Gross Pay') . "</td>
-		<th>" . _('Loan Deduction') . "</td>
-		<th>" . _('NSSF') . "</td>
-		<th>" . _('Tax') . "</td>
-		<th>" . _('Net Pay') . "</td>
-		<th>" . _('Month') . "</td>
-		<th>" . _('Year') . "</td>
+		<td class='tableheader'>" . _('Pay ID ') . "</td>
+		<td class='tableheader'>" . _('Emp ID') . "</td>
+		<td class='tableheader'>" . _('Period Rate') . "</td>
+		<td class='tableheader'>" . _('Hourly Rate') . "</td>
+		<td class='tableheader'>" . _('Basic Pay') . "</td>
+		<td class='tableheader'>" . _('Other Income') . "</td>
+		<td class='tableheader'>" . _('Absent') . "</td>
+		<td class='tableheader'>" . _('Late') . "</td>
+		<td class='tableheader'>" . _('Overtime Pay') . "</td>
+		<td class='tableheader'>" . _('Gross Pay') . "</td>
+		<td class='tableheader'>" . _('Loan Deduction') . "</td>
+		<td class='tableheader'>" . _('SSS') . "</td>
+		<td class='tableheader'>" . _('HDMF') . "</td>
+		<td class='tableheader'>" . _('PhilHealth') . "</td>
+		<td class='tableheader'>" . _('Tax') . "</td>
+		<td class='tableheader'>" . _('Net Pay') . "</td>
+		<td class='tableheader'>" . _('Month') . "</td>
+		<td class='tableheader'>" . _('Year') . "</td>
 	</tr>";
 
+	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 
@@ -115,13 +121,15 @@ if (!isset($Counter)) {
 		echo '<td>' . $MyRow[13] . '</td>';
 		echo '<td>' . $MyRow[14] . '</td>';
 		echo '<td>' . $MyRow[15] . '</td>';
-		//echo '<td><a href="' . basename(__FILE__) . '?&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') .'</a></td>';
+		echo '<td>' . $MyRow[16] . '</td>';
+		echo '<td>' . $MyRow[17] . '</td>';
+		//echo '<td><A HREF="' . basename(__FILE__) . '?' . SID . '&Counter=' . $MyRow[0] . '&delete=1">' . _('Delete') .'</A></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	//END WHILE LIST LOOP
 	
-} //END IF selected="selected" ACCOUNT
+} //END IF SELECTED ACCOUNT
 
 
 echo '</table>';

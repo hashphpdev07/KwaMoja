@@ -83,6 +83,9 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	} elseif ($_FILES['ItemPicture']['error'] == 6) { //upload temp directory check
 		prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
 		$UploadTheFile = 'No';
+	} elseif (!is_writable($_SESSION['part_pics_dir'])) {
+		prnMsg(_('The web server user does not have permission to upload files. Please speak to your system administrator'), 'warn');
+		$UploadTheFile = 'No';
 	}
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;
@@ -1389,7 +1392,7 @@ echo '<tr>
 	</tr>
 	 <tr>
 		<td>' . _('Shrinkage Factor') . ':</td>
-		<td><input type="text" class="number" name="ShrinkFactor" size="6" maxlength="6" value="' . locale_number_format($_POST['ShrinkFactor'], 0) . '" /></td>
+		<td><input type="text" class="number" name="ShrinkFactor" size="6" maxlength="6" value="' . locale_number_format($_POST['ShrinkFactor'], 'Variable') . '" /></td>
 	</tr>';
 
 if (in_array($_SESSION['PageSecurityArray']['StockCostUpdate.php'], $_SESSION['AllowedPageSecurityTokens'])) {

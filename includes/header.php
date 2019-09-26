@@ -19,24 +19,19 @@ if (isset($Title) and $Title == _('Copy a BOM to New Item Code')) { //solve the 
 
 echo '<!DOCTYPE html>';
 
-echo '<html moznomarginboxes mozdisallowselectionprint>
+echo '<html>
 		<head>
 			<meta http-equiv="Content-Type" content="application/html; charset=utf-8; cache-control: no-cache, no-store, must-revalidate; Pragma: no-cache" />
-			<title>', $Title, '</title>
+			<title>', _('KwaMoja'), ' - ', $Title, '</title>
 			<link rel="icon" href="', $RootPath, '/favicon.ico" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/default.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/forms.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/tables.css" rel="stylesheet" type="text/css" media="screen" />
-			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/messages.css" rel="stylesheet" type="text/css" media="screen" />
+			<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/styles.css?v=4" rel="stylesheet" type="text/css" media="screen" />
 			<link href="', $RootPath, '/css/print.css" rel="stylesheet" type="text/css" media="print" />
-			<link href="', $RootPath, '/css/hint.css" rel="stylesheet" type="text/css" media="screen" />
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<script type="text/javascript" defer="defer" src = "', $RootPath, '/javascripts/MiscFunctions.js"></script>';
+			<meta name="viewport" content="width=device-width, initial-scale=1">';
 
 echo '<script>
 		localStorage.setItem("DateFormat", "', $_SESSION['DefaultDateFormat'], '");
 		localStorage.setItem("Theme", "', $_SESSION['Theme'], '");
-		</script>';
+	</script>';
 
 if ($_SESSION['ShowPageHelp'] == 0) {
 	echo '<link href="', $RootPath, '/css/', $_SESSION['Theme'], '/page_help_off.css" rel="stylesheet" type="text/css" media="screen" />';
@@ -88,124 +83,125 @@ echo '<style>
 				}
 			</style>';
 
-echo '<div id="CanvasDiv">';
-echo '<div id="HeaderDiv" class="noPrint">';
-echo '<div id="HeaderWrapDiv">';
+$ScriptName = basename($_SERVER['SCRIPT_NAME']);
 
-if (isset($Title)) {
-	if (!isset($_SESSION['CompanyRecord'])) {
-		include ('companies/' . $_SESSION['DatabaseName'] . '/Companies.php');
-		$_SESSION['CompanyRecord']['coyname'] = $CompanyName[$_SESSION['DatabaseName']];
-	}
-	echo '<div id="AppInfoDiv">'; //===HJ===
-	echo '<div id="AppInfoCompanyDiv">';
-	echo '<img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" title="', _('Company'), '" alt="', _('Company'), '"/>', stripslashes($_SESSION['CompanyRecord']['coyname']);
-	echo '</div>';
-	echo '<div id="AppInfoUserDiv">';
-	//	echo '<a  class="hint--bottom" data-hint="' . _('Change the settings for') . ' ' . $_SESSION['UsersRealName'] . '" href="', $RootPath, '/UserSettings.php"><img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" alt="', stripslashes($_SESSION['UsersRealName']), '" />', stripslashes($_SESSION['UsersRealName']), '</a>';
-	echo '<div class="tooltip_under">
-			<a class="FontSize" href="', $RootPath, '/UserSettings.php"><img style="padding-right:3px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" alt="', stripslashes($_SESSION['UsersRealName']), '" />' . $_SESSION['UsersRealName'] . '</a>
-			<span class="tooltiptext_under">' . _('Change the settings for') . ' ' . $_SESSION['UsersRealName'] . '</span>
-		</div>';
-	echo '</div>';
-	echo '<div id="AppInfoModuleDiv">';
-	// Make the title text a class, can be set to display:none is some themes
-	echo $Title;
-	$ScriptName = basename($_SERVER['SCRIPT_NAME']);
-	if ($ScriptName == 'index.php') {
-		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-		if ($_SESSION['ScreenFontSize'] == '8pt') {
-			echo '<div class="tooltip_over" style="font-size:8pt;">
-					<span class="tooltiptext_over" style="font-size:8pt;">Small text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0"><u>A</u></a>
+echo '<header>';
+
+echo '<div id="Info" data-title="', _('Company Details'), '">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" alt="', _('Company'), '"/>', stripslashes($_SESSION['CompanyRecord']['coyname']), '
+	</div>';
+
+echo '<div id="Info">
+		<a class="FontSize" data-title="', _('Change the settings for'), ' ', $_SESSION['UsersRealName'], '" href="', $RootPath, '/UserSettings.php">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" alt="', stripslashes($_SESSION['UsersRealName']), '" />', $_SESSION['UsersRealName'], '
+		</a>
+	</div>';
+
+echo '<div id="ExitIcon">
+		<a data-title="', _('Logout'), '" href="', $RootPath, '/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/quit.png" alt="', _('Logout'), '" />
+		</a>
+	</div>';
+
+if (count($_SESSION['AllowedPageSecurityTokens']) > 1) {
+
+	$DefaultManualLink = '<div id="ActionIcon"><a data-title="' . _('Read the manual') . '" target="_blank" href="' . $RootPath . '/doc/Manual/ManualContents.php' . $ViewTopic . $BookMark . '"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/manual.png" alt="' . _('Help') . '" /></a></div>';
+
+	if (strstr($_SESSION['Language'], 'en')) {
+		echo $DefaultManualLink;
+	} else {
+		if (file_exists('locale/' . $_SESSION['Language'] . '/Manual/ManualContents.php')) {
+			echo '<div id="ActionIcon">
+					<a data-title="', _('Read the manual'), '" href="', $RootPath, '/locale/', $_SESSION['Language'], '/Manual/ManualContents.php', $ViewTopic, $BookMark, '">
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/manual.png" title="', _('Help'), '" alt="', _('Help'), '" />
+					</a>
 				</div>';
 		} else {
-			echo '<div class="tooltip_over" style="font-size:8pt;">
-					<span class="tooltiptext_over" style="font-size:8pt;">Small text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=0">A</a>
-				</div>';
-		}
-		if ($_SESSION['ScreenFontSize'] == '10pt') {
-			echo '<div class="tooltip_over" style="font-size:10pt;">
-					<span class="tooltiptext_over" style="font-size:10pt;">Medium text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1"><u>A</u></a>
-				</div>';
-		} else {
-			echo '<div class="tooltip_over" style="font-size:10pt;">
-					<span class="tooltiptext_over" style="font-size:10pt;">Medium text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=1">A</a>
-				</div>';
-		}
-		if ($_SESSION['ScreenFontSize'] == '12pt') {
-			echo '<div class="tooltip_over" style="font-size:12pt;">
-					<span class="tooltiptext_over" style="font-size:12pt;">Large text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2"><u>A</u></a>
-				</div>';
-		} else {
-			echo '<div class="tooltip_over" style="font-size:12pt;">
-					<span class="tooltiptext_over" style="font-size:12pt;">Large text size</span><a class="FontSize" href="', $RootPath, '/index.php?FontSize=2">A</a>
-				</div>';
-		}
-	}
-	echo '</div>';
-	echo '</div>'; // AppInfoDiv
-	echo '<div id="QuickMenuDiv"><ul>';
-
-	if ($ScriptName != 'Dashboard.php') {
-		echo '<li><a class="hint--bottom" data-hint="', _('Show Dashboard'), '" href="', $RootPath, '/Dashboard.php"><img width="32px" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/dashboard-icon.png" alt="', _('Show Dashboard'), '" /></a></li>'; //take off inline formatting, use CSS instead ===HJ===
-		
-	}
-	if ($ScriptName != 'index.php') {
-		echo '<li><a class="hint--bottom" data-hint="', _('Return to the main menu'), '" href="', $RootPath, '/index.php"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/home.png" alt="', _('Main Menu'), '" /></a></li>'; //take off inline formatting, use CSS instead ===HJ===
-		
-	}
-
-	if (count($_SESSION['AllowedPageSecurityTokens']) > 1) {
-
-		if ($_SESSION['DBUpdateNumber'] >= 56) {
-			if (!isset($_SESSION['Favourites'])) {
-				$SQL = "SELECT caption, href FROM favourites WHERE userid='" . $_SESSION['UserID'] . "'";
-				$Result = DB_query($SQL);
-				while ($MyRow = DB_fetch_array($Result)) {
-					$_SESSION['Favourites'][$MyRow['href']] = $MyRow['caption'];
-				}
-				if (DB_num_rows($Result) == 0) {
-					$_SESSION['Favourites'] = Array();
-				}
-			}
-			if ($ScriptName != 'index.php') {
-				if (!isset($_SESSION['Favourites'][$ScriptName]) or $_SESSION['Favourites'][$ScriptName] == '') {
-					echo '<li><a class="hint--bottom" data-hint="', _('Add this script to your list of commonly used'), '"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/add.png" id="PlusMinus" onclick="AddScript(\'', $ScriptName, '\',\'', $Title, '\')"', '" alt="', _('Add to commonly used'), '" /></a></li>';
-				} else {
-					echo '<li><a class="hint--bottom" data-hint="', _('Remove this script from your list of commonly used'), '"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/subtract.png" id="PlusMinus" onclick="RemoveScript(\'', $ScriptName, '\')"', '" alt="', _('Remove from commonly used'), '" /></a></li>';
-				}
-			}
-			echo '<li><select name="Favourites" id="favourites" onchange="window.open (this.value,\'_self\',false)">';
-			echo '<option value=""><i><----', _('Commonly used'), '----></i></option>';
-			foreach ($_SESSION['Favourites'] as $Url => $Caption) {
-				echo '<option value="', $Url, '">', _($Caption), '</option>';
-			}
-			echo '</select></li>';
-		}
-
-		$DefaultManualLink = '<li><a class="hint--left" data-hint="' . _('Read the manual page for this functionality') . '" target="_blank" href="' . $RootPath . '/doc/Manual/ManualContents.php' . $ViewTopic . $BookMark . '"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/manual.png" alt="' . _('Help') . '" /></a></li>';
-
-		if (strstr($_SESSION['Language'], 'en')) {
 			echo $DefaultManualLink;
-		} else {
-			if (file_exists('locale/' . $_SESSION['Language'] . '/Manual/ManualContents.php')) {
-				echo '<li><a class="hint--left" data-hint="', _('Read the manual page for this functionality'), '" href="', $RootPath, '/locale/', $_SESSION['Language'], '/Manual/ManualContents.php', $ViewTopic, $BookMark, '"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/manual.png" title="', _('Help'), '" alt="', _('Help'), '" /></a></li>';
-			} else {
-				echo $DefaultManualLink;
-			}
 		}
 	}
 
-	echo '<li><a class="hint--left" data-hint="', _('Logout'), '" href="', $RootPath, '/Logout.php" onclick="return MakeConfirm(\'', _('Are you sure you wish to logout?'), '\', \'', _('Confirm Logout'), '\', this);"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/quit.png" alt="', _('Logout'), '" /></a></li>';
+	if ($_SESSION['DBUpdateNumber'] >= 56) {
+		if (!isset($_SESSION['Favourites'])) {
+			$SQL = "SELECT caption, href FROM favourites WHERE userid='" . $_SESSION['UserID'] . "'";
+			$Result = DB_query($SQL);
+			while ($MyRow = DB_fetch_array($Result)) {
+				$_SESSION['Favourites'][$MyRow['href']] = $MyRow['caption'];
+			}
+			if (DB_num_rows($Result) == 0) {
+				$_SESSION['Favourites'] = Array();
+			}
+		}
+		echo '<div id="ActionIcon">
+				<select name="Favourites" id="favourites" onchange="window.open (this.value,\'_self\',false)">';
+		echo '<option value=""><i><----', _('Commonly used'), '----></i></option>';
+		foreach ($_SESSION['Favourites'] as $Url => $Caption) {
+			echo '<option value="', $Url, '">', _($Caption), '</option>';
+		}
+		echo '</select>
+			</div>';
+		if ($ScriptName != 'index.php') {
+			if (!isset($_SESSION['Favourites'][$ScriptName]) or $_SESSION['Favourites'][$ScriptName] == '') {
+				echo '<div id="ActionIcon">
+						<a data-title="', _('Add this script to your list of commonly used'), '">
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/add.png" id="PlusMinus" onclick="AddScript(\'', $ScriptName, '\',\'', $Title, '\')"', '" alt="', _('Add to commonly used'), '" />
+						</a>
+					</div>';
+			} else {
+				echo '<div id="ActionIcon">
+						<a data-title="', _('Remove this script from your list of commonly used'), '">
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/subtract.png" id="PlusMinus" onclick="RemoveScript(\'', $ScriptName, '\')"', '" alt="', _('Remove from commonly used'), '" />
+						</a>
+					</div>';
+			}
+		}
+	}
+}
 
-	echo '</ul></div>'; // QuickMenuDiv
+if ($ScriptName != 'Dashboard.php') {
+	echo '<div id="ActionIcon">
+			<a data-title="', _('Show Dashboard'), '" href="', $RootPath, '/Dashboard.php">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/dashboard-icon.png" alt="', _('Show Dashboard'), '" />
+			</a>
+		</div>'; //take off inline formatting, use CSS instead ===HJ===
 	
 }
-echo '</div>'; // HeaderWrapDiv
-echo '</div>'; // Headerdiv
-//echo '<div id="HiddenOutput" style="display: none"></div>';
-echo '<div id="BodyDiv">';
-echo '<div id="BodyWrapDiv">';
+
+if ($ScriptName != 'index.php') {
+	echo '<div id="ActionIcon">
+			<a data-title="', _('Return to the main menu'), '" href="', $RootPath, '/index.php">
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/home.png" alt="', _('Main Menu'), '" />
+			</a>
+		</div>'; //take off inline formatting, use CSS instead ===HJ===
+	
+}
+
+echo '<br /><div class="ScriptTitle">', $Title, '</div>';
+if ($ScriptName == 'index.php') {
+	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	if ($_SESSION['ScreenFontSize'] == '8pt') {
+		echo '<a style="font-size:8pt;" class="FontSize" href="', $RootPath, '/index.php?FontSize=0" data-title="', _('Small text size'), '"><u>A</u></a>';
+	} else {
+		echo '<a style="font-size:8pt;" class="FontSize" href="', $RootPath, '/index.php?FontSize=0" data-title="', _('Small text size'), '">A</a>';
+	}
+	if ($_SESSION['ScreenFontSize'] == '10pt') {
+		echo '<a style="font-size:10pt;" class="FontSize" href="', $RootPath, '/index.php?FontSize=1" data-title="', _('Medium text size'), '"><u>A</u></a>';
+	} else {
+		echo '<a style="font-size:10pt;" class="FontSize" href="', $RootPath, '/index.php?FontSize=1" data-title="', _('Medium text size'), '">A</a>';
+	}
+	if ($_SESSION['ScreenFontSize'] == '12pt') {
+		echo '<a style="font-size:12pt;" class="FontSize" href="', $RootPath, '/index.php?FontSize=2" data-title="', _('Large text size'), '"><u>A</u></a>';
+	} else {
+		echo '<a style="font-size:12pt;" class="FontSize" href="', $RootPath, '/index.php?FontSize=2" data-title="', _('Large text size'), '">A</a>';
+	}
+}
+
+echo '</header>';
+
+if ($ScriptName != 'index.php') {
+	echo '<section class="MainBody">';
+}
+
 echo '<div id="MessageContainerHead"></div>';
 
 ?>

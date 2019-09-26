@@ -1,0 +1,85 @@
+.MainBody {
+background:transparent;
+margin:5px;
+padding:10px;
+border: 1px solid #82BCF4;
+border-radius: 7px;
+}
+.ModuleList {
+float:left;
+background:#617C4F;
+white-space:nowrap;
+text-align:left;
+padding-left:10px;
+padding-right:10px;
+padding-top:3px;
+width:11%;
+border:1px solid #8DCDEB;
+border-radius:7px;
+margin:7px;
+color:white;
+}
+.ModuleList li a,.ModuleList li a:hover,.ModuleList .main_menu_selected a {
+display:block;
+border-radius:10px;
+text-decoration:none;
+margin-bottom:5px;
+padding:3px;
+border:1px solid #404552;
+padding-left:5px;
+color:white;
+}
+.ModuleList li a:hover {
+border:1px solid #1A1A1A;
+background:#5A5F00;
+color:white;
+padding-left:5px;
+}
+.ModuleList .main_menu_selected a {
+border:1px solid #1A1A1A;
+background:#5A5F00;
+color:white;
+padding-left:5px;
+}
+.ModuleList ul,.MenuList ul {
+margin:0;
+padding:0;
+}
+.ModuleList li,.MenuList li {
+list-style:none;
+}
+.MenuList {
+background:#E0F3B1;
+display: inline;
+width:30%;
+border-radius:10px;
+margin-top:5px;
+vertical-align:top;
+margin-right:5px;
+}
+.MenuList legend {
+background:#E0F3B1;
+}
+.MenuList legend img {
+padding-right:7px;
+width:16px;
+}
+.MenuItem {
+color:#836C16;
+text-decoration:none;
+text-align:left;
+padding:2px;
+}
+.MenuItem:hover {
+background:transparent;
+text-align:left;
+color:white;
+}
+.clearfix {
+  overflow: auto;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

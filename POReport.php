@@ -1184,7 +1184,7 @@ function submitcsv($PartNumber, $PartNumberOp, $SupplierId, $SupplierIdOp, $Supp
 		}
 		fprintf($FileHandle, '"' . _('Purchase Order Report') . '","' . $_POST['ReportType'] . ' ' . _('By') . ' ' . $SortBy_Display . "\n");
 		fprintf($FileHandle, '"' . _('Date Type') . '","' . $_POST['DateType'] . '"' . "\n");
-		fprintf($FileHandle, '"' . _('Date Range') . '","' . $_POST['FromDate'] . _(' To ') . $_POST['ToDate'] . '"' . "\n");
+		fprintf($FileHandle, '"' . _('Date Range') . '","' . $_POST['FromDate'] . ' ' . _('To ') . ' ' . $_POST['ToDate'] . '"' . "\n");
 		if (mb_strlen(trim($PartNumber)) > 0) {
 			fprintf($FileHandle, '"' . _('Part Number') . '","' . $_POST['PartNumberOp'] . ' ' . $_POST['PartNumber'] . '"' . "\n");
 		}

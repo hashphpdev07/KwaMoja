@@ -1,18 +1,24 @@
 <?php
-/* $Id: PurchasesReport.php 7672 2016-11-27 10:42:50Z rchacon $ */
-/* Shows a report of purchases to suppliers for the range of selected dates. */
-/* This program is under the GNU General Public License, last version. Rafael E. Chacón, 2016-12-18. */
-/* This creative work is under the CC BY-NC-SA, later version. Rafael E. Chacón, 2016-12-18. */
-
+// PurchasesReport.php
+// Shows a report of purchases from suppliers for the range of selected dates.
+// This program is under the GNU General Public License, last version. 2016-12-18.
+// This creative work is under the CC BY-NC-SA, last version. 2016-12-18.
 // Notes:
 // Coding Conventions/Style: http://www.weberp.org/CodingConventions.html
-// BEGIN: Functions division ---------------------------------------------------
-// END: Functions division -----------------------------------------------------
-// BEGIN: Procedure division ---------------------------------------------------
+/*
+This script is "mirror-symmetric" to script SalesReport.php
+*/
+
 include ('includes/session.php');
 $Title = _('Purchases from Suppliers');
 $ViewTopic = 'PurchaseOrdering';
 $BookMark = 'PurchasesReport';
+
+// BEGIN Functions division ====================================================
+// END Functions division ======================================================
+// BEGIN Data division =========================================================
+// END Data division ===========================================================
+// BEGIN Procedure division ====================================================
 include ('includes/header.php');
 
 echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/reports.png" title="', // Icon image.
@@ -25,12 +31,55 @@ if (isset($_GET['PeriodFrom'])) { // Select period from.
 if (isset($_GET['PeriodTo'])) { // Select period to.
 	$_POST['PeriodTo'] = $_GET['PeriodTo'];
 }
-if (isset($_GET['ShowDetails'])) { // Show the budget for the period.
+if (isset($_GET['ShowDetails'])) { // Show purchase invoices for the period.
 	$_POST['ShowDetails'] = $_GET['ShowDetails'];
 }
 
 // Main code:
-if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action'] != 'New') { // If all parameters are set and valid, generates the report:
+if (!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo']) or $_POST['Action'] == 'New') {
+	// If one or more parameters are not set or it is a new report, shows a form to allow input of criteria for the report to generate:
+	echo '<form action="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
+
+	echo '<fieldset>
+			<legend>', _('Report Parameters'), '</legend>';
+	// Content of the body of the input table:
+	// Select period from:
+	if (!isset($_POST['PeriodFrom'])) {
+		$_POST['PeriodFrom'] = date($_SESSION['DefaultDateFormat'], strtotime("-1 year", time())); // One year before current date.
+		
+	}
+	echo '<field>
+			<label for="PeriodFrom">', _('Period from'), '</label>
+			<input class="date" id="PeriodFrom" maxlength="10" name="PeriodFrom" required="required" size="11" type="text" value="', $_POST['PeriodFrom'], '" />
+			<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>
+		</field>';
+
+	// Select period to:
+	if (!isset($_POST['PeriodTo'])) {
+		$_POST['PeriodTo'] = date($_SESSION['DefaultDateFormat']);
+	}
+	echo '<field>
+			<label for="PeriodTo">', _('Period to'), '</label>
+			<input class="date" id="PeriodTo" maxlength="10" name="PeriodTo" required="required" size="11" type="text" value="', $_POST['PeriodTo'], '" />
+			<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>
+		</field>';
+
+	// Show the budget for the period:
+	echo '<field>
+			<label for="ShowDetails">', _('Show details'), '</label></td>
+			<input', (isset($_POST['ShowDetails']) && $_POST['ShowDetails'] ? ' checked="checked"' : ''), ' id="ShowDetails" name="ShowDetails" type="checkbox">
+			<fieldhelp>', _('Check this box to show purchase invoices'), '</fieldhelp>
+		</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input name="Action" type="submit" value="', _('Submit'), '" />
+		</div>';
+
+} else {
+	// If all parameters are set and valid, generates the report:
 	// Validates the data submitted in the form:
 	if (Date1GreaterThanDate2($_POST['PeriodFrom'], $_POST['PeriodTo'])) { // RChacon: Is it the correct way to do this? **********************************************************************************
 		// The beginning is after the end.
@@ -43,6 +92,9 @@ if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action
 	$k = 1; // Row colour counter.
 	$PeriodFrom = FormatDateForSQL($_POST['PeriodFrom']);
 	$PeriodTo = FormatDateForSQL($_POST['PeriodTo']);
+
+	echo '<p>', _('Period from'), ': ', $_POST['PeriodFrom'], '<br />', _('Period to'), ': ', $_POST['PeriodTo'], '</p>';
+
 	if (isset($_POST['ShowDetails'])) { // Parameters: PeriodFrom, PeriodTo, ShowDetails=on.
 		echo '<table>
 				<thead>
@@ -60,12 +112,7 @@ if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action
 							<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
 						</th>
 					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<td colspan="9"><br /><b>' . _('Notes') . '</b><br />' . _('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') . '</td>
-					</tr>
-				</tfoot>'; // Common table code.
+				</thead>'; // Common table code.
 		$SupplierId = '';
 		$SupplierOvAmount = 0;
 		$SupplierOvTax = 0;
@@ -153,15 +200,10 @@ if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action
 						<th>', _('GL Overall Taxes'), '</th>
 						<th>', _('GL Overall Total'), '</th>
 						<th>
-							<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
 						</th>
 					</tr>
-				</thead>
-				<tfoot>
-					<tr>
-						<td colspan="9"><br /><b>' . _('Notes') . '</b><br />' . _('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') . '</td>
-					</tr>
-				</tfoot>';
+				</thead>';
 		$SQL = "SELECT
 					supptrans.supplierno,
 					suppliers.suppname,
@@ -179,10 +221,20 @@ if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action
 					supptrans.supplierno
 				ORDER BY supptrans.supplierno, supptrans.trandate";
 		$Result = DB_query($SQL);
+		include ('includes/CurrenciesArray.php');
 		echo '<tbody>';
 		foreach ($Result as $MyRow) {
 			echo '<tr class="striped_row">
-					<td class="text"><a href="', $RootPath, '/SupplierInquiry.php?SupplierID=', $MyRow['supplierno'], '">', $MyRow['supplierno'], '</a></td>', '<td class="text">', $MyRow['suppname'], '</td>', '<td class="text">', $MyRow['currcode'], '</td>', '<td class="number">', locale_number_format($MyRow['SupplierOvAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierOvAmount'] + $MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierGlAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '<td class="number">', locale_number_format($MyRow['SupplierGlAmount'] + $MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>', '</tr>';
+					<td class="text"><a href="', $RootPath, '/SupplierInquiry.php?SupplierID=', $MyRow['supplierno'], '">', $MyRow['supplierno'], '</a></td>
+					<td class="text">', $MyRow['suppname'], '</td>
+					<td class="text">', $MyRow['currcode'], ' - ', $CurrencyName[$MyRow['currcode']], '</td>
+					<td class="number">', locale_number_format($MyRow['SupplierOvAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['SupplierOvAmount'] + $MyRow['SupplierOvTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['SupplierGlAmount'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MyRow['SupplierGlAmount'] + $MyRow['SupplierGlTax'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>';
 			$TotalGlAmount+= $MyRow['SupplierGlAmount'];
 			$TotalGlTax+= $MyRow['SupplierGlTax'];
 		}
@@ -193,72 +245,25 @@ if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo']) and $_POST['Action
 			<td class="number">', locale_number_format($TotalGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 			<td class="number">', locale_number_format($TotalGlAmount + $TotalGlTax, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 		</tr>
-	</tbody>
-</table>'; // Prints all suppliers total.
-	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">
-		<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />
-		<input name="PeriodFrom" type="hidden" value="', $_POST['PeriodFrom'], '" />
-		<input name="PeriodTo" type="hidden" value="', $_POST['PeriodTo'], '" />
-		<input name="ShowDetails" type="hidden" value="', $_POST['ShowDetails'], '" />';
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="9"><br /><b>' . _('Notes') . '</b><br />' . _('Original amounts in the supplier\'s currency. GL amounts in the functional currency.') . '</td>
+			</tr>
+		</tfoot>
+	</table>'; // Prints all suppliers total.
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
+	echo '<input name="PeriodFrom" type="hidden" value="', $_POST['PeriodFrom'], '" />';
+	echo '<input name="PeriodTo" type="hidden" value="', $_POST['PeriodTo'], '" />';
+	echo '<input name="ShowDetails" type="hidden" value="', $_POST['ShowDetails'], '" />';
 
 	echo '<div class="centre noPrint">
 			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('New Report'), '</a>
-		</div>';
+		</div>
+	</form>';
 
-} else {
-	// Shows a form to allow input of criteria for the report to generate:
-	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">', '<input name="FormID" type="hidden" value="', $_SESSION['FormID'], '" />';
-	// Input table:
-	if (!isset($_POST['PeriodFrom'])) {
-		$_POST['PeriodFrom'] = date($_SESSION['DefaultDateFormat'], strtotime("-1 year", time())); // One year before current date.
-		
-	}
-	if (!isset($_POST['PeriodTo'])) {
-		$_POST['PeriodTo'] = date($_SESSION['DefaultDateFormat']);
-	}
-	echo '<table>
-			<thead>
-				<tr>
-					<th colspan="2">', _('Report Parameters'), '</th>
-				</tr>
-			</thead>
-			<tfoot>
-				<tr>
-					<td colspan="2">', '<div class="centre">', '<input name="Action" type="submit" value="', _('Submit'), '" />', // "Submit" button.
-	'</div>
-					</td>
-				</tr>
-			</tfoot>';
-	// Content of the body of the input table:
-	// Select period from:
-	if (isset($_POST['ShowDetails'])) {
-		$Checked = 'checked="checked"';
-	} else {
-		$Checked = '';
-	}
-	echo '<tbody>
-			<tr>
-				<td><label for="PeriodFrom">', _('Select period from'), '</label></td>
-				<td>
-					<input autofocus="autofocus" class="date" id="PeriodFrom" maxlength="10" minlength="0" name="PeriodFrom" required="required" size="12" type="text" value="', $_POST['PeriodFrom'], '" />
-					<fieldhelp>', _('Select the beginning of the reporting period'), '</fieldhelp>
-		 		</td>
-			</tr>
-			<tr>', '<td><label for="PeriodTo">', _('Select period to'), '</label></td>
-				<td><input class="date" id="PeriodTo" maxlength="10" minlength="0" name="PeriodTo" required="required" size="12" type="text" value="', $_POST['PeriodTo'], '" />
-					<fieldhelp>', _('Select the end of the reporting period'), '</fieldhelp>
-		 		</td>
-			</tr>
-			<tr>
-				<td><label for="ShowDetails">', _('Show details'), '</label></td>
-			 	<td><input ', $Checked, ' id="ShowDetails" name="ShowDetails" type="checkbox">
-					<fieldhelp>', _('Check this box to show purchase invoices'), '</fieldhelp>
-			 	</td>
-			</tr>', '</tbody>
-		</table>';
-	echo '</form>';
 }
-
 include ('includes/footer.php');
 // END: Procedure division -----------------------------------------------------
 

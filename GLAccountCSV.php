@@ -12,21 +12,24 @@ if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_GET['Period'];
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('General Ledger Account Inquiry') . '" alt="' . _('General Ledger Account Inquiry') . '" />' . ' ' . _('General Ledger Account Report') . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Account Inquiry'), '" alt="', _('General Ledger Account Inquiry'), '" />', ' ', _('General Ledger Account Report'), '
+	</p>';
 
-echo '<div class="page_help_text">' . _('Use the keyboard Shift key to select multiple accounts and periods') . '</div><br />';
+echo '<div class="page_help_text">', _('Use the keyboard Shift key to select multiple accounts and periods'), '</div>';
 
-echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 /*Dates in SQL format for the last day of last month*/
 $DefaultPeriodDate = Date('Y-m-d', Mktime(0, 0, 0, Date('m'), 0, Date('Y')));
 
 /*Show a form to allow input of criteria for the report */
-echo '<table summary="' . _('Criteria for report') . '">
-			<tr>
-			 <td>' . _('Selected Accounts') . ':</td>
-			 <td><select name="Account[]" size="12" multiple="multiple">';
+echo '<fieldset>
+		<legend>', _('Criteria for report'), '</legend>
+			<field>
+			 <label for="Account">', _('Selected Accounts'), ':</label>
+			 <select name="Account[]" size="12" multiple="multiple" autofocus="autofocus">';
 $SQL = "SELECT chartmaster.accountcode,
 			   chartmaster.accountname
 		FROM chartmaster
@@ -37,33 +40,38 @@ $AccountsResult = DB_query($SQL);
 $i = 0;
 while ($MyRow = DB_fetch_array($AccountsResult)) {
 	if (isset($_POST['Account'][$i]) and $MyRow['accountcode'] == $_POST['Account'][$i]) {
-		echo '<option selected="selected" value="' . $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' ' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
+		echo '<option selected="selected" value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 		++$i;
 	} else {
-		echo '<option value="' . $MyRow['accountcode'] . '">' . $MyRow['accountcode'] . ' ' . htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false) . '</option>';
+		echo '<option value="', $MyRow['accountcode'], '">', $MyRow['accountcode'], ' ', htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), '</option>';
 	}
 }
-echo '</select></td>';
+echo '</select>
+	<fieldhelp>', _('Select the accounts for this report. Use the keyboard Shift key to select multiple accounts.'), '</fieldhelp>
+</field>';
 
-echo '<td>' . _('For Period range') . ':</td>
-		<td><select name="Period[]" size="12" multiple="multiple">';
+echo '<field>
+		<label for="Period">', _('For Period range'), ':</label>
+		<select name="Period[]" size="12" multiple="multiple">';
 $SQL = "SELECT periodno, lastdate_in_period FROM periods ORDER BY periodno DESC";
 $Periods = DB_query($SQL);
 $id = 0;
 
 while ($MyRow = DB_fetch_array($Periods)) {
 	if (isset($SelectedPeriod[$id]) and $MyRow['periodno'] == $SelectedPeriod[$id]) {
-		echo '<option selected="selected" value="' . $MyRow['periodno'] . '">' . _(MonthAndYearFromSQLDate($MyRow['lastdate_in_period'])) . '</option>';
+		echo '<option selected="selected" value="', $MyRow['periodno'], '">', _(MonthAndYearFromSQLDate($MyRow['lastdate_in_period'])), '</option>';
 		$id++;
 	} else {
-		echo '<option value="' . $MyRow['periodno'] . '">' . _(MonthAndYearFromSQLDate($MyRow['lastdate_in_period'])) . '</option>';
+		echo '<option value="', $MyRow['periodno'], '">', _(MonthAndYearFromSQLDate($MyRow['lastdate_in_period'])), '</option>';
 	}
 }
-echo '</select></td></tr>';
+echo '</select>
+	<fieldhelp>', _('Select the accounts for this report. Use the keyboard Shift key to select multiple accounts.'), '</fieldhelp>
+</field>';
 
 //Select the tag
-echo '<tr>
-		<td>' . _('Select Tag') . ':</td>
+echo '<field>
+		<label forr="tag">', _('Select Tag'), ':</label>
 		<td><select name="tag">';
 
 $SQL = "SELECT tagref,
@@ -72,19 +80,24 @@ $SQL = "SELECT tagref,
 		ORDER BY tagref";
 
 $Result = DB_query($SQL);
-echo '<option value="0">0 - ' . _('All tags') . '</option>';
+echo '<option value="0">0 - ', _('All tags'), '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['tag']) and $_POST['tag'] == $MyRow['tagref']) {
-		echo '<option selected="selected" value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
+		echo '<option selected="selected" value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
 	} else {
-		echo '<option value="' . $MyRow['tagref'] . '">' . $MyRow['tagref'] . ' - ' . $MyRow['tagdescription'] . '</option>';
+		echo '<option value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
 	}
 }
-echo '</select></td></tr>';
+echo '</select>
+	<fieldhelp>', _('Select the tag for this report, or select All to show all transactions.'), '</fieldhelp>
+</field>';
 // End select tag
-echo '</table>
-		<div class="centre"><input type="submit" name="MakeCSV" value="' . _('Make CSV File') . '" /></div>
-	</form>';
+echo '</fieldset>';
+
+echo '<div class="centre">
+		<input type="submit" name="MakeCSV" value="', _('Make CSV File'), '" />
+	</div>
+</form>';
 
 /* End of the Form  rest of script is what happens if the show button is hit*/
 

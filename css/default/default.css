@@ -105,13 +105,8 @@ input.okButton:hover {
 background-color:#B06161;
 }
 
-a {
-color:blue;
-text-decoration:none;
-}
-
 a.FontSize {
-color:blue;
+color:Black;
 text-decoration:none;
 display:inline;
 }
@@ -136,11 +131,6 @@ font-weight:700;
 color:#000;
 text-align:center;
 padding:5px;
-}
-
-.page_title_icon {
-padding-right:7px;
-width:32px;
 }
 
 p.good {
@@ -315,7 +305,7 @@ margin-top:2px;
 }
 
 #QuickMenuDiv li {
-display:inline;
+display:inline-block;
 padding:14px 12px;
 }
 
@@ -353,10 +343,6 @@ text-decoration:underline;
 .main_menu_unselected {
 background:#8EDE8D;
 padding:2px;
-}
-
-.main_menu_unselected:hover {
-background:#FFF;
 }
 
 #SubMenuDiv {
@@ -450,11 +436,6 @@ color:#FFF;
 list-style:none;
 }
 
-.main_menu_selected,.menu_group_item {
-background-color:#FFF;
-padding:2px;
-}
-
 #favourites {
 background:#4682B4;
 color:#B0C4DE;
@@ -522,7 +503,33 @@ margin:0 auto;
 }
 
 .gallery {
-	margin: 5px;
-	float: left;
-	/* Class selector to let an element float to the left. */
+margin: 5px;
+float: left;
+/* Class selector to let an element float to the left. */
+}
+
+[data-title]:hover:after {
+opacity: 1;
+transition: all 0.1s ease 0.5s;
+visibility: visible;
+}
+[data-title]:after {
+content: attr(data-title);
+background-color: #ADD8E6;
+color: #404552;
+font-size: 100%;
+position: absolute;
+padding: 1px 5px 2px 5px;
+bottom: -1.9em;
+left: 10%;
+white-space: nowrap;
+box-shadow: 1px 1px 3px #222222;
+opacity: 0;
+border: 1px solid #111111;
+border-radius:5px;
+z-index: 99999;
+visibility: hidden;
+}
+[data-title] {
+position: relative;
 }

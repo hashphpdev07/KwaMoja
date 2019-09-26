@@ -140,7 +140,7 @@ if ((!isset($_POST['FromDate']) and !isset($_POST['ToDate'])) or isset($_POST['S
 	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('User'));
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 100, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 110, $YPos, 70, $FontSize, $Tabs['usercode']);
-	$LeftOvers = $PDF->addTextWrap($Left_Margin + 290, $YPos, 70, $FontSize, _('To '));
+	$LeftOvers = $PDF->addTextWrap($Left_Margin + 290, $YPos, 70, $FontSize, _('To') . ' ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 320, $YPos, 20, $FontSize, ': ');
 	$LeftOvers = $PDF->addTextWrap($Left_Margin + 340, $YPos, 70, $FontSize, $_POST['ToDate']);
 

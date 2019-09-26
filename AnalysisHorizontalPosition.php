@@ -1,7 +1,21 @@
 <?php
-/* $Id: AnalysisHorizontalPosition.php 7338 2015-08-13 18:51:07Z rchacon $*/
-/* Shows the horizontal analysis of the statement of financial position. */
-
+/* AnalysisHorizontalPosition.php
+Shows the horizontal analysis of the statement of financial position.
+Parameters:
+	PeriodFrom: Select the beginning of the reporting period.
+	PeriodTo: Select the end of the reporting period.
+	Period: Select a period instead of using the beginning and end of the reporting period.
+	ShowDetail: Check this box to show all accounts instead a summary.
+	ShowZeroBalance: Check this box to show accounts with zero balance.
+	ShowFinancialPosition: Check this box to show the statement of financial position as at the end and at the beginning of the period;
+	ShowComprehensiveIncome: Check this box to show the statement of comprehensive income;
+	ShowChangesInEquity: Check this box to show the statement of changes in equity;
+	ShowCashFlows: Check this box to show the statement of cash flows; and
+	ShowNotes: Check this box to show the notes that summarize the significant accounting policies and other explanatory information.
+	NewReport: Click this button to start a new report.
+	IsIncluded: Parameter to indicate that a script is included within another.
+*/
+// BEGIN: Functions division ===================================================
 function RelativeChange($SelectedPeriod, $PreviousPeriod) {
 	// Calculates the relative change between selected and previous periods. Uses percent in locale number format.
 	if ($PreviousPeriod <> 0) {
@@ -12,15 +26,36 @@ function RelativeChange($SelectedPeriod, $PreviousPeriod) {
 }
 
 include ('includes/session.php');
-$Title = _('Horizontal Analysis of Statement of Financial Position'); // Screen identification.
-$ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
-$BookMark = 'AnalysisHorizontalPosition'; // Anchor's id in the manual's html document.
+
+$Title = _('Horizontal Analysis of Statement of Financial Position');
+$ViewTopic = 'GeneralLedger';
+$BookMark = 'AnalysisHorizontalPosition';
+include ('includes/header.php');
+// Merges gets into posts:
+if (isset($_GET['PeriodFrom'])) {
+	$_POST['PeriodFrom'] = $_GET['PeriodFrom'];
+}
+if (isset($_GET['PeriodTo'])) {
+	$_POST['PeriodTo'] = $_GET['PeriodTo'];
+}
+if (isset($_GET['Period'])) {
+	$_POST['Period'] = $_GET['Period'];
+}
+if (isset($_GET['ShowDetail'])) {
+	$_POST['ShowDetail'] = $_GET['ShowDetail'];
+}
+if (isset($_GET['ShowZeroBalance'])) {
+	$_POST['ShowZeroBalance'] = $_GET['ShowZeroBalance'];
+}
+if (isset($_GET['NewReport'])) {
+	$_POST['NewReport'] = $_GET['NewReport'];
+}
+
 include ('includes/SQL_CommonFunctions.php');
 include ('includes/AccountSectionsDef.php'); // This loads the $Sections variable
-if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod'])) {
+if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['NewReport'])) {
 
 	/*Show a form to allow input of criteria for TB to show */
-	include ('includes/header.php');
 	echo '<p class="page_title_text">
 			<img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" title="', _('Print Horizontal Analysis of Statement of Financial Position'), '" /> ', // Icon title.
 	_('Horizontal Analysis of Statement of Financial Position'), '</p>'; // Page title.
@@ -78,7 +113,6 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 	include ('includes/GLPostings.php');
 
 } else {
-	include ('includes/header.php');
 
 	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
 
@@ -354,7 +388,7 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['SelectADifferentPeriod']
 			<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
 			<input type="hidden" name="BalancePeriodEnd" value="', $_POST['BalancePeriodEnd'], '" />
 			<div class="centre noPrint">
-				<input name="SelectADifferentPeriod" type="submit" value="', _('Select A Different Period'), '" />
+				<input name="NewReport" type="submit" value="', _('Select A Different Period'), '" />
 			</div>';
 }
 echo '</form>';

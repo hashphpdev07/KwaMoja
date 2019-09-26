@@ -121,14 +121,14 @@ if (isset($_POST['Search']) or isset($_POST['CSV']) or isset($_POST['Go']) or is
 	$SQL.= " ORDER BY debtorsmaster.name";
 	$ErrMsg = _('The searched customer records requested cannot be retrieved because');
 
-	$Result = DB_query($SQL, $ErrMsg);
-	if (DB_num_rows($Result) == 1) {
-		$MyRow = DB_fetch_array($Result);
+	$SearchResult = DB_query($SQL, $ErrMsg);
+	if (DB_num_rows($SearchResult) == 1) {
+		$MyRow = DB_fetch_array($SearchResult);
 		$_SESSION['CustomerID'] = $MyRow['debtorno'];
 		$_SESSION['BranchCode'] = $MyRow['branchcode'];
-		unset($Result);
+		unset($SearchResult);
 		unset($_POST['Search']);
-	} elseif (DB_num_rows($Result) == 0) {
+	} elseif (DB_num_rows($SearchResult) == 0) {
 		prnMsg(_('No customer records contain the selected text') . ' - ' . _('please alter your search criteria and try again'), 'info');
 		echo '<br />';
 	} // DB_num_rows($Result) == 0
@@ -154,13 +154,13 @@ if ($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST
 			AND custbranch.branchcode='" . $_SESSION['BranchCode'] . "'";
 	}
 	$ErrMsg = _('The customer name requested cannot be retrieved because');
-	$Result = DB_query($SQL, $ErrMsg);
-	if ($MyRow = DB_fetch_array($Result)) {
+	$CustomerResult = DB_query($SQL, $ErrMsg);
+	if ($MyRow = DB_fetch_array($CustomerResult)) {
 		$CustomerName = htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false);
 		$PhoneNo = $MyRow['phoneno'];
 		$BranchName = $MyRow['brname'];
 	} // $MyRow = DB_fetch_array($Result)
-	unset($Result);
+	unset($CustomerResult);
 
 	echo '<p class="page_title_text"><img alt="" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/customer.png" title="', // Icon image.
 	_('Customer'), '" /> ', // Icon title.
@@ -182,33 +182,33 @@ if ($_SESSION['CustomerID'] != '' and !isset($_POST['Search']) and !isset($_POST
 			<tr>
 				<td valign="top" class="select">';
 	// Customer inquiries options:
-	echo '<a href="', $RootPath, '/CustomerInquiry.php?CustomerID=', urlencode($_SESSION['CustomerID']), '">' . _('Customer Transaction Inquiries') . '</a>';
-	echo '<a href="', $RootPath, '/CustomerAccount.php?CustomerID=', urlencode($_SESSION['CustomerID']), '">' . _('Customer Account statement on screen') . '</a>';
-	echo '<a href="', $RootPath, '/Customers.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '&amp;Modify=No">' . _('View Customer Details') . '</a>';
-	echo '<a href="', $RootPath, '/PrintCustStatements.php?FromCust=', urlencode($_SESSION['CustomerID']), '&amp;ToCust=', urlencode($_SESSION['CustomerID']), '&amp;EmailOrPrint=print&amp;PrintPDF=Yes">', _('Print Customer Statement'), '</a>';
-	echo '<a title="', _('One of the customer\'s contacts must have an email address and be flagged as the address to send the customer statement to for this function to work'), '" href="', $RootPath, '/PrintCustStatements.php?FromCust=', urlencode($_SESSION['CustomerID']), '&amp;ToCust=', urlencode($_SESSION['CustomerID']), '&amp;EmailOrPrint=email&amp;PrintPDF=Yes">', _('Email Customer Statement'), '</a>';
-	echo '<a href="', $RootPath, '/SelectCompletedOrder.php?SelectedCustomer=', urlencode($_SESSION['CustomerID']), '">' . _('Order Inquiries') . '</a>';
-	echo '<a href="', $RootPath, '/CustomerPurchases.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Show purchases from this customer') . '</a>';
+	echo '<a href="', $RootPath, '/CustomerInquiry.php?CustomerID=', urlencode($_SESSION['CustomerID']), '">' . _('Customer Transaction Inquiries') . '</a><br />';
+	echo '<a href="', $RootPath, '/CustomerAccount.php?CustomerID=', urlencode($_SESSION['CustomerID']), '">' . _('Customer Account statement on screen') . '</a><br />';
+	echo '<a href="', $RootPath, '/Customers.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '&amp;Modify=No">' . _('View Customer Details') . '</a><br />';
+	echo '<a href="', $RootPath, '/PrintCustStatements.php?FromCust=', urlencode($_SESSION['CustomerID']), '&amp;ToCust=', urlencode($_SESSION['CustomerID']), '&amp;EmailOrPrint=print&amp;PrintPDF=Yes">', _('Print Customer Statement'), '</a><br />';
+	echo '<a title="', _('One of the customer\'s contacts must have an email address and be flagged as the address to send the customer statement to for this function to work'), '" href="', $RootPath, '/PrintCustStatements.php?FromCust=', urlencode($_SESSION['CustomerID']), '&amp;ToCust=', urlencode($_SESSION['CustomerID']), '&amp;EmailOrPrint=email&amp;PrintPDF=Yes">', _('Email Customer Statement'), '</a><br />';
+	echo '<a href="', $RootPath, '/SelectCompletedOrder.php?SelectedCustomer=', urlencode($_SESSION['CustomerID']), '">' . _('Order Inquiries') . '</a><br />';
+	echo '<a href="', $RootPath, '/CustomerPurchases.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Show purchases from this customer') . '</a><br />';
 	wikiLink('Customer', $_SESSION['CustomerID']);
 	echo '</td><td valign="top" class="select">';
 	// Customer transactions options:
-	echo '<a href="', $RootPath, '/SelectSalesOrder.php?SelectedCustomer=', urlencode($_SESSION['CustomerID']), '">' . _('Modify Outstanding Sales Orders') . '</a>';
-	echo '<a title="', _('This allows the deposits received from the customer to be matched against invoices'), '" href="', $RootPath, '/CustomerAllocations.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', _('Allocate Receipts OR Credit Notes'), '</a>';
-	echo '<a href="', $RootPath, '/JobCards.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '&amp;BranchNo=' . $_SESSION['BranchCode'] . '">' . _('Job Cards') . '</a>';
-	echo '<a href="', $RootPath, '/CustomerReceipt.php?CustomerID=', urlencode($_SESSION['CustomerID']), '&NewReceipt=Yes&Type=Customer">' . _('Enter a Receipt From This Customer') . '</a>';
+	echo '<a href="', $RootPath, '/SelectSalesOrder.php?SelectedCustomer=', urlencode($_SESSION['CustomerID']), '">' . _('Modify Outstanding Sales Orders') . '</a><br />';
+	echo '<a title="', _('This allows the deposits received from the customer to be matched against invoices'), '" href="', $RootPath, '/CustomerAllocations.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', _('Allocate Receipts OR Credit Notes'), '</a><br />';
+	echo '<a href="', $RootPath, '/JobCards.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '&amp;BranchNo=' . $_SESSION['BranchCode'] . '">' . _('Job Cards') . '</a><br />';
+	echo '<a href="', $RootPath, '/CustomerReceipt.php?CustomerID=', urlencode($_SESSION['CustomerID']), '&NewReceipt=Yes&Type=Customer">' . _('Enter a Receipt From This Customer') . '</a><br />';
 	if (isset($_SESSION['CustomerID']) and isset($_SESSION['BranchCode'])) {
-		echo '<a href="', $RootPath, '/CounterSales.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '&amp;BranchNo=' . $_SESSION['BranchCode'] . '">' . _('Create a Counter Sale for this Customer') . '</a>';
+		echo '<a href="', $RootPath, '/CounterSales.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '&amp;BranchNo=' . $_SESSION['BranchCode'] . '">' . _('Create a Counter Sale for this Customer') . '</a><br />';
 	} // isset($_SESSION['CustomerID']) and isset($_SESSION['BranchCode'])
 	echo '</td><td valign="top" class="select">';
 	// Customer maintenance options:
-	echo '<a href="', $RootPath, '/Customers.php">' . _('Add a New Customer') . '</a>';
-	echo '<a href="', $RootPath, '/Customers.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Modify Customer Details') . '</a>';
-	echo '<a href="', $RootPath, '/CustomerBranches.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Add/Edit/Delete Customer Branches') . '</a>';
-	echo '<a href="', $RootPath, '/SelectProduct.php">' . _('Special Customer Prices') . '</a>';
-	echo '<a href="', $RootPath, '/CustEDISetup.php">' . _('Customer EDI Configuration') . '</a>';
-	echo '<a href="', $RootPath, '/CustLoginSetup.php">' . _('Customer Login Configuration') . '</a>';
-	echo '<a href="', $RootPath, '/AddCustomerContacts.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', _('Add a customer contact'), '</a>';
-	echo '<a href="', $RootPath, '/AddCustomerNotes.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', _('Add a note on this customer'), '</a>';
+	echo '<a href="', $RootPath, '/Customers.php">' . _('Add a New Customer') . '</a><br />';
+	echo '<a href="', $RootPath, '/Customers.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Modify Customer Details') . '</a><br />';
+	echo '<a href="', $RootPath, '/CustomerBranches.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">' . _('Add/Edit/Delete Customer Branches') . '</a><br />';
+	echo '<a href="', $RootPath, '/SelectProduct.php">' . _('Special Customer Prices') . '</a><br />';
+	echo '<a href="', $RootPath, '/CustEDISetup.php">' . _('Customer EDI Configuration') . '</a><br />';
+	echo '<a href="', $RootPath, '/CustLoginSetup.php">' . _('Customer Login Configuration') . '</a><br />';
+	echo '<a href="', $RootPath, '/AddCustomerContacts.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', _('Add a customer contact'), '</a><br />';
+	echo '<a href="', $RootPath, '/AddCustomerNotes.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', _('Add a note on this customer'), '</a><br />';
 	echo '</td>
 			</tr>
 		<tbody>
@@ -369,7 +369,7 @@ echo '<div class="centre">
 if (isset($_SESSION['SalesmanLogin']) and $_SESSION['SalesmanLogin'] != '') {
 	prnMsg(_('Your account enables you to see only customers allocated to you'), 'warn', _('Note: Sales-person Login'));
 } // isset($_SESSION['SalesmanLogin']) and $_SESSION['SalesmanLogin'] != ''
-if (isset($Result)) {
+if (isset($SearchResult)) {
 	unset($_SESSION['CustomerID']);
 	$ListCount = DB_num_rows($Result);
 	$ListPageMax = ceil($ListCount / $_SESSION['DisplayRecordsMax']);
@@ -433,11 +433,11 @@ if (isset($Result)) {
 			
 		} // isset($_POST['CSV'])
 		if (!isset($_POST['CSV'])) {
-			DB_data_seek($Result, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
+			DB_data_seek($SearchResult, ($_POST['PageOffset'] - 1) * $_SESSION['DisplayRecordsMax']);
 		} // !isset($_POST['CSV'])
 		$i = 0; // counter for input controls
 		echo '<tbody>';
-		while (($MyRow = DB_fetch_array($Result)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
+		while (($MyRow = DB_fetch_array($SearchResult)) and ($RowIndex <> $_SESSION['DisplayRecordsMax'])) {
 			echo '<tr class="striped_row">
 					<td><button type="submit" name="SubmitCustomerSelection[', htmlspecialchars($MyRow['debtorno'], ENT_QUOTES, 'UTF-8', false), ']" value="', htmlspecialchars($MyRow['branchcode'], ENT_QUOTES, 'UTF-8', false), '" >', $MyRow['debtorno'], ' ', $MyRow['branchcode'], '</button></td>
 					<td class="text">', htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8', false), '</td>

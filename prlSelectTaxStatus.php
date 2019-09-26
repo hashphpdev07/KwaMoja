@@ -1,18 +1,17 @@
 <?php
+/* $Revision: 1.0 $ */
+
+$PageSecurity = 10;
 include ('includes/session.php');
 $Title = _('Employee Tax Status Maintenance');
 
 include ('includes/header.php');
 
-?>
-<a href="prlUserSettings.php">Back to User Settings
-    </a>
-	<?php
-echo "<table WIDTH=30% BORDER=2></tr>";
+echo "<table WIDTH=30% BORDER=2><tr></tr>";
 echo '<tr><td WIDTH=100%>';
-echo '<a href="' . $RootPath . '/prlTaxStatus.php?SelectedAccountr=">' . _('Add tax status records') . '</a><br />';
+echo '<a href="' . $RootPath . '/prlTaxStatus.php?SelectedAccountr=' . $_SESSION[''] . '">' . _('Add tax status records') . '</a><BR>';
 echo '</td><td WIDTH=100%>';
-echo '</td></tr></table><br>';
+echo '</td></tr></table><BR>';
 
 if (isset($_GET['TaxStatusID'])) {
 	$TaxStatusID = strtoupper($_GET['TaxStatusID']);
@@ -52,29 +51,30 @@ if (!isset($TaxStatusID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<th>" . _('Tax Status ID') . "</td>
-		<th>" . _('Tax Status Description ') . "</td>
+		<td class='tableheader'>" . _('Tax Status ID') . "</td>
+		<td class='tableheader'>" . _('Tax Status Description ') . "</td>
 	</tr>";
 
+	$k = 0; //row colour counter
 	while ($MyRow = DB_fetch_row($Result)) {
 
 		if ($k == 1) {
-			echo "<tr bgcolor='#CCCCCC'>";
+			echo "<TR BGCOLOR='#CCCCCC'>";
 			$k = 0;
 		} else {
-			echo "<tr bgcolor='#EEEEEE'>";
+			echo "<TR BGCOLOR='#EEEEEE'>";
 			$k++;
 		}
 
 		echo '<td>' . $MyRow[0] . '</td>';
 		echo '<td>' . $MyRow[1] . '</td>';
-		echo '<td><a href="' . $RootPath . '/prlTaxStatus.php?&TaxStatusID=' . $MyRow[0] . '">' . _('Edit/Delete') . '</a></td>';
+		echo '<td><A HREF="' . $RootPath . '/prlTaxStatus.php?' . SID . '&TaxStatusID=' . $MyRow[0] . '">' . _('Edit/Delete') . '</A></td>';
 		echo '</tr>';
 
 	} //END WHILE LIST LOOP
 	//END WHILE LIST LOOP
 	
-} //END IF selected="selected" ACCOUNT
+} //END IF SELECTED ACCOUNT
 
 
 echo '</table>';

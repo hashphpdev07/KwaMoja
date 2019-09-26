@@ -46,7 +46,7 @@ if (isset($_POST['AddGRNToTrans'])) {
 
 	if ($InputError == False) {
 
-		$_SESSION['SuppTrans']->Add_GRN_To_Trans($_POST['GRNNumber'], $_POST['PODetailItem'], $_POST['ItemCode'], $_POST['ItemDescription'], $_POST['QtyRecd'], $_POST['Prev_QuantityInv'], filter_number_format($_POST['This_QuantityCredited']), $_POST['OrderPrice'], filter_number_format($_POST['ChgPrice']), $Complete, $_POST['StdCostUnit'], $_POST['ShiptRef'], $_POST['JobRef'], $_POST['GLCode'], $_POST['PONo'], $_POST['AssetID'], 0, $_POST['DecimalPlaces'], $_POST['GRNBatchNo']);
+		$_SESSION['SuppTrans']->Add_GRN_To_Trans($_POST['GRNNumber'], $_POST['PODetailItem'], $_POST['ItemCode'], $_POST['ItemDescription'], $_POST['QtyRecd'], $_POST['Prev_QuantityInv'], filter_number_format($_POST['This_QuantityCredited']), $_POST['OrderPrice'], filter_number_format($_POST['ChgPrice']), $Complete, $_POST['StdCostUnit'], $_POST['ShiptRef'], $_POST['JobRef'], $_POST['GLCode'], $_POST['PONo'], $_POST['AssetID'], 0, $_POST['DecimalPlaces'], $_POST['GRNBatchNo'], $_SESSION['SuppTrans']->SuppReference);
 	}
 }
 

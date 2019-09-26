@@ -7,7 +7,7 @@ $ViewTopic = 'GeneralLedger'; // Filename's id in ManualContents.php's TOC.
 $BookMark = 'ImportBankTrans'; // Anchor's id in the manual's html document.
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
-
+var_dump($_POST);
 /*
 Read in the flat file one line at a time
 parse the data in the line of text from the flat file to read the bank transaction into an SESSION array of banktransactions objects
@@ -22,7 +22,8 @@ if (!isset($_FILES['ImportFile']) and !isset($_SESSION['Statement'])) {
 				INNER JOIN bankaccountusers
 					ON bankaccounts.accountcode=bankaccountusers.accountcode
 					AND bankaccountusers.userid = '" . $_SESSION['UserID'] . "'
-				WHERE importformat<>''";
+				WHERE importformat<>''
+				ORDER BY bankaccountname";
 
 	$ErrMsg = _('The bank accounts set up could not be retrieved because');
 	$DbgMsg = _('The SQL used to retrieve the bank accounts was') . '<br />' . $SQL;
@@ -33,29 +34,37 @@ if (!isset($_FILES['ImportFile']) and !isset($_SESSION['Statement'])) {
 		include ('includes/footer.php');
 		exit;
 	}
-	echo '<form name="ImportForm" enctype="multipart/form-data" method="post" action="' . basename(__FILE__) . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<p class="page_title_text" >
-			<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/upload.png" title="' . _('Receive') . '" alt="" />' . $Title . '</p>';
-	echo '<table>
-			<tr>
-				 <td>' . _('Bank Account to Import Transaction For') . '</td>
-	             <td><select name="ImportFormat">';
+	echo '<form name="ImportForm" enctype="multipart/form-data" method="post" action="', basename(__FILE__), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/upload.png" title="', _('Receive'), '" alt="" />', $Title, '
+		</p>';
+
+	echo '<fieldset>
+			<legend>', _('Select Bank Transaction File'), '</legend>
+			<field>
+				<label for="ImportFormat">', _('Bank Account to Import Transaction For'), '</label>
+				<select name="ImportFormat" autofocus="autofocus">';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['importformat'] . '">' . $MyRow['bankaccountname'] . '</option>';
+		echo '<option value="', $MyRow['importformat'], '">', $MyRow['bankaccountname'], '</option>';
 	}
 
-	echo '</td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('MT940 format Bank Statement File to import') . '</td>
-			<td><input type="file" id="ImportFile" autofocus="autofocus" required="required" title="' . _('Select the file that contains the bank transactions in MT940 format') . '" name="ImportFile" /></td>
-		</tr>
-	</table>';
+	echo '</select>
+		<fieldhelp>', _('Select the bank account to import the transactions into'), '</fieldhelp>
+	</field>';
+
+	echo '<field>
+			<label for="ImportFormat">', _('MT940 format Bank Statement File to import'), '</label>
+			<input type="file" id="ImportFile" autofocus="autofocus" required="required" title="', _('Select the file that contains the bank transactions in MT940 format'), '" name="ImportFile" />
+			<fieldhelp>', _('Select the file to import from'), '</fieldhelp>
+		</field>
+	</fieldset>';
+
 	echo '<div class="centre">
-			<input type="submit" name="Import" value="Process" />
+			<input type="submit" name="Import" value="', _('Process'), '" />
 		</div>';
+
 	echo '</form>';
 
 } elseif (isset($_POST['Import'])) {

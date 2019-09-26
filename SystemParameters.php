@@ -6,8 +6,8 @@ $ViewTopic = 'CreatingNewSystem';
 $BookMark = 'SystemParameters';
 include ('includes/header.php');
 include ('includes/CountriesArray.php');
-echo '<div class="page_title_text">
-		<img src="', $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Supplier Types') . '" alt="" />' . $Title . '
+echo '<div class="page_title_text centre">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Supplier Types'), '" alt="" />', $Title, '
 	</div>';
 
 echo '<style>
@@ -392,6 +392,9 @@ if (isset($_POST['submit'])) {
 		if ($_SESSION['SmtpSetting'] != $_POST['X_SmtpSetting']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_SmtpSetting'] . "' WHERE confname='SmtpSetting'";
 		}
+		if ($_SESSION['LastDayOfWeek'] != $_POST['X_LastDayOfWeek']) {
+			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_LastDayOfWeek'] . "' WHERE confname='LastDayOfWeek'";
+		}
 		$ErrMsg = _('The system configuration could not be updated because');
 		if (sizeof($SQL) > 1) {
 			$Result = DB_Txn_Begin();
@@ -455,8 +458,8 @@ echo '</select>
 echo '<field>
 		<label for="X_UpdateCurrencyRatesDaily">', _('Auto Update Exchange Rates Daily'), ':</label>
 		<select required="required" name="X_UpdateCurrencyRatesDaily">
-			<option ', ($_SESSION['UpdateCurrencyRatesDaily'] === '1' ? 'selected="selected" ' : ''), 'value="1">', _('Automatic'), '</option>
-			<option ', ($_SESSION['UpdateCurrencyRatesDaily'] === '0' ? 'selected="selected" ' : ''), 'value="0">', _('Manually'), '</option>
+			<option ', ($_SESSION['UpdateCurrencyRatesDaily'] == '1' ? 'selected="selected" ' : ''), 'value="1">', _('Automatic'), '</option>
+			<option ', ($_SESSION['UpdateCurrencyRatesDaily'] == '0' ? 'selected="selected" ' : ''), 'value="0">', _('Manually'), '</option>
 		</select>
 		<fieldhelp>', _('Automatic updates to exchange rates will retrieve the latest daily rates from either the European Central Bank or Google once per day - when the first user logs in for the day. Manual will never update the rates automatically - exchange rates will need to be maintained manually'), '</fieldhelp>
 	</field>';
@@ -700,6 +703,20 @@ if ($_SESSION['geocode_integration'] == 1) {
 echo '</select>
 	<fieldhelp>', _('This feature will give Latitude and Longitude coordinates to customers and suppliers. Requires access to a mapping provider. You must setup this facility under Main Menu - Setup - Geocode Setup. This feature is experimental.'), '</fieldhelp>
 </field>';
+
+echo '<field>
+		<label for="X_LastDayOfWeek">', _('Last day of the week'), '</label>
+		<select type="text" name="X_LastDayOfWeek" >
+			<option ', ($_SESSION['LastDayOfWeek'] == 0 ? 'selected="selected"' : ''), ' value="0">', _('Sunday'), '</option>
+			<option ', ($_SESSION['LastDayOfWeek'] == 1 ? 'selected="selected"' : ''), ' value="1">', _('Monday'), '</option>
+			<option ', ($_SESSION['LastDayOfWeek'] == 2 ? 'selected="selected"' : ''), ' value="2">', _('Tuesday'), '</option>
+			<option ', ($_SESSION['LastDayOfWeek'] == 3 ? 'selected="selected"' : ''), ' value="3">', _('Wednesday'), '</option>
+			<option ', ($_SESSION['LastDayOfWeek'] == 4 ? 'selected="selected"' : ''), ' value="4">', _('Thursday'), '</option>
+			<option ', ($_SESSION['LastDayOfWeek'] == 5 ? 'selected="selected"' : ''), ' value="5">', _('Friday'), '</option>
+			<option ', ($_SESSION['LastDayOfWeek'] == 6 ? 'selected="selected"' : ''), ' value="6">', _('Saturday'), '</option>
+		</select>
+		<fieldhelp>', _('Timesheet entry default to weeks ending on this day'), '</fieldhelp>
+	</field>';
 
 echo '</fieldset>'; // end General Settings
 echo '<fieldset style="width:66%">

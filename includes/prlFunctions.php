@@ -1,7 +1,6 @@
 <?php
-//include_once("ConnectDB_mysql.php");
-
-// All functions
+//include_once("ConnectDB_mysql.inc");
+// All Functions
 // *************
 //function beg() /
 //{
@@ -40,13 +39,12 @@ function GetPayTypeDesc($PT) {
 	return $PTStr;
 }
 
-
 function GetPayPeriodDesc($PeriodID) {
 
 	/*Gets the GL Codes relevant to the stock item account from the stock category record */
 
 	$QuerySQL = "SELECT payperiodid, payperioddesc FROM prlpayperiod
-	             WHERE payperiodid = '$PeriodID'";
+				 WHERE payperiodid = '$PeriodID'";
 	$ErrMsg = _('The period code could not be retreived because');
 	$GetPayDescResult = DB_query($QuerySQL, $ErrMsg);
 
@@ -58,26 +56,25 @@ function GetOthIncRow($OIID, $PayRow) {
 
 	/*Gets the GL Codes relevant to the stock item account from the stock category record */
 	$SQL = "SELECT othincdesc,taxable FROM prlothinctable
-	             WHERE othincid = '$OIID'";
+				 WHERE othincid = '$OIID'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
-	return $MyRow[$PayRow];
+	return $MyRow[$PayRow];;
 }
-
 
 function GetPayPeriodRow($PeriodID, $PayRow) {
 
 	/*Gets the GL Codes relevant to the stock item account from the stock category record */
 	$SQL = "SELECT payperiodid, payperioddesc,numberofpayday FROM prlpayperiod
-	             WHERE payperiodid = '$PeriodID'";
+				 WHERE payperiodid = '$PeriodID'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
-	return $MyRow[$PayRow];
+	return $MyRow[$PayRow];;
 }
 
 function GetMyTax($MyTaxableIncome) {
 	if ($MyTaxableIncome > 0) {
-		$SQL = "SELECT rangefrom,rangeto,fixtaxableamount,fixtax,percentofexcessamount,taxname
+		$SQL = "SELECT rangefrom,rangeto,fixtaxableamount,fixtax,percentofexcessamount
 				FROM prltaxtablerate
 				WHERE rangefrom<='$MyTaxableIncome'
 				AND rangeto>='$MyTaxableIncome'";
@@ -111,7 +108,7 @@ function GetMyTax2($MyEstTaxableIncome, $FSPPID, $MyTaxStatusID) {
 
 function GetHDMFEE($GrossIncome) {
 	$SQL = "SELECT rangefrom,rangeto,dedtypeee,employeeshare
-			FROM prlgrosspaytable
+			FROM prlhdmftable
 			WHERE rangefrom<='$GrossIncome'
 			AND rangeto>='$GrossIncome'";
 	$Result = DB_query($SQL);
@@ -128,22 +125,20 @@ function GetHDMFEE($GrossIncome) {
 
 function GetHDMFER($GrossIncome) {
 	$SQL = "SELECT rangefrom,rangeto,dedtypeer,employershare
-			FROM prlgrosspaytable
+			FROM prlhdmftable
 			WHERE rangefrom<='$GrossIncome'
 			AND rangeto>='$GrossIncome'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	if ($MyRow['dedtypeer'] == 'Fixed') {
-		//	$MyHDMFAmt= $MyRow['employeeshare'];
+		$MyHDMFAmt = $MyRow['employeeshare'];
 	} elseif ($MyRow['dedtypeer'] == 'Percentage') {
 		$MyHDMFAmt = $GrossIncome * ($MyRow['employershare'] / 100);
 	} else {
 		$MyHDMFAmt = 0;
 	}
-	return $GrossIncome;
+	return $MyHDMFAmt;
 }
-
-
 
 function GetTaxStatusRow($TaxID, $PayRow) {
 	$SQL = "SELECT taxstatusid,taxstatusdescription,personalexemption,additionalexemption,totalexemption
@@ -154,44 +149,32 @@ function GetTaxStatusRow($TaxID, $PayRow) {
 	return $MyRow[$PayRow];
 }
 
-
 function GetPayrollRow($PayrollID, $PayRow) {
 	//payrollid - 0, and so on
 	/*Gets the GL Codes relevant to the stock item account from the stock category record */
 	//$SQL = "SELECT payrollidyrolldesc,payperiodid,startdate,enddate,fsmonth,fsyear,payclosed
-	$SQL = "SELECT payrollid,payrolldesc,payperiodid,startdate,enddate,fsmonth,fsyear,payclosed
+	$SQL = "SELECT payrollid,payrolldesc,payperiodid,startdate,enddate,fsmonth,fsyear,deductsss,deducthdmf,deductphilhealth,payclosed
 			FROM prlpayrollperiod
 			WHERE payrollid = '$PayrollID'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
-	if ($PayRow == 11) {
-		return $MyRow['payclosed'];
-	} else {
-		return $MyRow[$PayRow];
-	}
+	if ($PayRow == 11) return $MyRow['payclosed'];
+	return $MyRow[$PayRow];
 }
 
-
 function GetEmpRow($EmpID, $EmpRow) {
-	$SQL = "SELECT paytype,payperiodid,periodrate,hourlyrate,marital,taxstatusid,employmentid,active,socialsecurity_company,grosspay,basicpay,tax_identificationno
+	$SQL = "SELECT paytype,payperiodid,periodrate,hourlyrate,marital,taxstatusid,employmentid,active,ssnumber,hdmfnumber,phnumber,taxactnumber,atmnumber
 			FROM prlemployeemaster
-			WHERE employeeid= '" . $EmpID . "'";
+			WHERE employeeid= '$EmpID'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
-	if ($EmpRow == 35)
-		return $MyRow['taxstatusid'];
-	if ($EmpRow == 29)
-		return $MyRow['paytype'];
-	if ($EmpRow == 19)
-		return $MyRow['atmnumber'];
-	if ($EmpRow == 20)
-		return $MyRow['socialsecurity_company'];
-	if ($EmpRow == 21)
-		return $MyRow['grosspay'];
-	if ($EmpRow == 22)
-		return $MyRow['basicpay'];
-	if ($EmpRow == 23)
-		return $MyRow['tax_identificationno'];
+	if ($EmpRow == 35) return $MyRow['taxstatusid'];
+	if ($EmpRow == 29) return $MyRow['paytype'];
+	if ($EmpRow == 19) return $MyRow['atmnumber'];
+	if ($EmpRow == 20) return $MyRow['ssnumber'];
+	if ($EmpRow == 21) return $MyRow['hdmfnumber'];
+	if ($EmpRow == 22) return $MyRow['phnumber'];
+	if ($EmpRow == 23) return $MyRow['taxactnumber'];
 	return $MyRow[$PayRow];
 }
 
@@ -204,10 +187,9 @@ function GetName($EmpID) {
 	return $MyRow['lastname'] . ', ' . $MyRow['firstname'] . ', ' . $MyRow['middlename'];
 }
 
-
 function GetSSSRow($SSSGross) {
 	$SQL = "SELECT rangefrom,rangeto,salarycredit,employerss,employerec,employeess,total
-			FROM prlnssftable
+			FROM prlsstable
 			WHERE rangefrom<='$SSSGross'
 			AND rangeto>='$SSSGross'";
 	$Result = DB_query($SQL);
@@ -216,17 +198,14 @@ function GetSSSRow($SSSGross) {
 }
 
 function GetPHRow($PHGross) {
-	$SQL = "SELECT rangefrom,rangeto,employerbasicpay,employerec,employeebasicpay,total
-			FROM prlbasicpaytable
+	$SQL = "SELECT rangefrom,rangeto,salarycredit,employerph,employerec,employeeph,total
+			FROM prlphilhealth
 			WHERE rangefrom<='$PHGross'
 			AND rangeto>='$PHGross'";
 	$Result = DB_query($SQL);
 	$MyRow = DB_fetch_array($Result);
 	return $MyRow;
 }
-
-
-
 
 function GetMonthStr($Mos) {
 	if ($Mos == 1) {
@@ -262,37 +241,36 @@ function GetMonthStr($Mos) {
 //unused
 function monthoption($Mos) {
 	$MosStr = GetMonthStr($Mos);
-	echo '<OPTION SELECTED VALUE=$Mos>' . _($MosStr);
-	echo '<OPTION VALUE=1>' . _('January');
-	echo '<OPTION VALUE=2>' . _('February');
-	echo '<OPTION VALUE=3>' . _('March');
-	echo '<OPTION VALUE=4>' . _('April');
-	echo '<OPTION VALUE=5>' . _('May');
-	echo '<OPTION VALUE=6>' . _('June');
-	echo '<OPTION VALUE=7>' . _('July');
-	echo '<OPTION VALUE=8>' . _('August');
-	echo '<OPTION VALUE=9>' . _('September');
-	echo '<OPTION VALUE=10>' . _('October');
-	echo '<OPTION VALUE=11>' . _('November');
-	echo '<OPTION VALUE=12>' . _('December');
+	echo '<option selected="selected" value=$Mos>' . _($MosStr);
+	echo '<option value=1>' . _('January');
+	echo '<option value=2>' . _('February');
+	echo '<option value=3>' . _('March');
+	echo '<option value=4>' . _('April');
+	echo '<option value=5>' . _('May');
+	echo '<option value=6>' . _('June');
+	echo '<option value=7>' . _('July');
+	echo '<option value=8>' . _('August');
+	echo '<option value=9>' . _('September');
+	echo '<option value=10>' . _('October');
+	echo '<option value=11>' . _('November');
+	echo '<option value=12>' . _('December');
 	return 1;
 }
 
 //unsed
 function yearoption($FSYear) {
 	if (($FSYear == 0) or ($FSYear == null)) {
-		echo '<OPTION SELECTED VALUE=0>' . _('Year');
+		echo '<option selected="selected" value=0>' . _('Year');
 	} else {
-		echo '<OPTION SELECTED VALUE=$FSYear>' . _($FSYear);
+		echo '<option selected="selected" value=$FSYear>' . _($FSYear);
 	}
-	for ($yy = 2006; $yy <= 2015; $yy++) {
+	for ($yy = 2006;$yy <= 2015;$yy++) {
 		echo "<option value=$yy>$yy</option>\n";
 
 	}
 
 	return 1;
 }
-
 
 //unused
 function makedropdown($optionid, $optionname, $table) {

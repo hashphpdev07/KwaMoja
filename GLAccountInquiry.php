@@ -20,16 +20,16 @@ if (isset($_POST['Account'])) {
 	$SelectedAccount = $_GET['Account'];
 }
 
-if (isset($_POST['ToPeriod'])) {
-	$SelectedToPeriod = $_POST['ToPeriod'];
-} elseif (isset($_GET['ToPeriod'])) {
-	$SelectedToPeriod = $_GET['ToPeriod'];
+if (isset($_POST['PeriodTo'])) {
+	$SelectedPeriodTo = $_POST['PeriodTo'];
+} elseif (isset($_GET['PeriodTo'])) {
+	$SelectedPeriodTo = $_GET['PeriodTo'];
 }
 
-if (isset($_POST['FromPeriod'])) {
-	$SelectedFromPeriod = $_POST['FromPeriod'];
-} elseif (isset($_GET['FromPeriod'])) {
-	$SelectedFromPeriod = $_GET['FromPeriod'];
+if (isset($_POST['PeriodFrom'])) {
+	$SelectedPeriodFrom = $_POST['PeriodFrom'];
+} elseif (isset($_GET['PeriodFrom'])) {
+	$SelectedPeriodFrom = $_GET['PeriodFrom'];
 }
 
 if (isset($_POST['Period'])) {
@@ -60,11 +60,11 @@ echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 if (isset($SelectedPeriod)) { //If it was called from itself (in other words an inquiry was run and we wish to leave the periods selected unchanged
 	$FirstPeriodSelected = min($SelectedPeriod);
 	$LastPeriodSelected = max($SelectedPeriod);
-} elseif (isset($_GET['FromPeriod'])) { //If it was called from the Trial Balance/P&L or Balance sheet
-	$FirstPeriodSelected = $_GET['FromPeriod'];
-	$LastPeriodSelected = $_GET['ToPeriod'];
-	$SelectedPeriod[0] = $_GET['FromPeriod'];
-	$SelectedPeriod[1] = $_GET['ToPeriod'];
+} elseif (isset($_GET['PeriodFrom'])) { //If it was called from the Trial Balance/P&L or Balance sheet
+	$FirstPeriodSelected = $_GET['PeriodFrom'];
+	$LastPeriodSelected = $_GET['PeriodTo'];
+	$SelectedPeriod[0] = $_GET['PeriodFrom'];
+	$SelectedPeriod[1] = $_GET['PeriodTo'];
 } else { // Otherwise just highlight the current period
 	$FirstPeriodSelected = GetPeriod(date($_SESSION['DefaultDateFormat']));
 	$LastPeriodSelected = GetPeriod(date($_SESSION['DefaultDateFormat']));
@@ -344,7 +344,7 @@ if (isset($_POST['Show'])) {
 		}
 
 		$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
-		$URL_to_TransDetail = $RootPath . '/GLTransInquiry.php?TypeID=' . $MyRow['type'] . '&amp;TransNo=' . $MyRow['typeno'];
+		$URL_to_TransDetail = $RootPath . '/GLTransInquiry.php?TypeID=' . urlencode($MyRow['type']) . '&amp;TransNo=' . urlencode($MyRow['typeno']);
 
 		$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['tag'] . "'";
 		$TagResult = DB_query($TagSQL);

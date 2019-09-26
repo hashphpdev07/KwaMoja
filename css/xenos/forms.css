@@ -6,6 +6,7 @@ color:#1A1A1A;
 }
 
 form fieldset {
+background:#FFFFFF;
 display: inline;
 border:solid 1px;
 margin:auto;
@@ -18,7 +19,7 @@ text-align:left;
 }
 
 form legend {
-background-color:transparent;
+background:#FFFFFF;
 padding:3px;
 border: 1px solid;
 border-radius:9px;

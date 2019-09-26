@@ -125,10 +125,13 @@ if (isset($_POST['PrintPDF'])) {
 				LEFT JOIN stockcosts
 					ON stockcosts.stockid=stockmaster.stockid
 					AND stockcosts.succeeded=0
+				LEFT JOIN stockcategory
+					ON stockmaster.categoryid = stockcategory.categoryid
 				LEFT JOIN demandtotal
 					ON stockmaster.stockid = demandtotal.part
 				LEFT JOIN supplytotal
 					ON stockmaster.stockid = supplytotal.part " . $SQLCategory . "
+				WHERE stockcategory.stocktype<>'L'
 				GROUP BY stockmaster.stockid,
 						stockmaster.description,
 						stockmaster.mbflag,
