@@ -158,30 +158,36 @@ if (isset($_POST['PrintPDF'])) {
 
 	include ('includes/header.php');
 
-	echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Sell Through Support Claims Report') . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title, '" alt="" />', ' ', _('Sell Through Support Claims Report'), '
+		</p>';
 
-	if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
+	$_POST['FromDate'] = Date($_SESSION['DefaultDateFormat']);
+	$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-		/*if $FromDate is not set then show a form to allow input */
-		$_POST['FromDate'] = Date($_SESSION['DefaultDateFormat']);
-		$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
-		echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-		echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-		echo '<table>
-					<tr>
-						<td>' . _('Sales Made From') . ' (' . _('in the format') . ' ' . $_SESSION['DefaultDateFormat'] . '):</td>
-						<td><input type="text" class="date" name="FromDate" size="10" required="required" maxlength="10" value="' . $_POST['FromDate'] . '" /></td>
-					</tr>
-					<tr>
-						<td>' . _('Sales Made To') . ' (' . _('in the format') . ' ' . $_SESSION['DefaultDateFormat'] . '):</td>
-						<td><input type="text" class="date" name="ToDate" size="10" required="required" maxlength="10" value="' . $_POST['ToDate'] . '" /></td>
-					</tr>
-				</table>
-				<div class="centre">
-					<input type="submit" name="PrintPDF" value="' . _('Create Claims Report') . '" />
-				</div>';
-		echo '</form>';
-	}
+	echo '<fieldset>
+			<legend>', _('Report Criteria'), '</legend>';
+
+	echo '<field>
+			<label for="FromDate">', _('Sales Made From'), ' (', _('in the format'), ' ', $_SESSION['DefaultDateFormat'], '):</label>
+			<input type="text" class="date" name="FromDate" size="10" required="required" maxlength="10" value="', $_POST['FromDate'], '" />
+		</field>';
+
+	echo '<field>
+			<label for="ToDate">', _('Sales Made To'), ' (', _('in the format'), ' ', $_SESSION['DefaultDateFormat'], '):</label>
+			<input type="text" class="date" name="ToDate" size="10" required="required" maxlength="10" value="', $_POST['ToDate'], '" />
+		</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="PrintPDF" value="' . _('Create Claims Report') . '" />
+		</div>';
+
+	echo '</form>';
+
 	include ('includes/footer.php');
 
 }

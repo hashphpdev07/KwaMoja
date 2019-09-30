@@ -3,12 +3,14 @@ include ('includes/session.php');
 $Title = _('Daily Sales Inquiry');
 include ('includes/header.php');
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . _('Daily Sales') . '" alt="" />' . ' ' . _('Daily Sales') . '</p>';
-echo '<div class="page_help_text">' . _('Select the month to show daily sales for') . '</div>
-	<br />';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Daily Sales'), '" alt="" />', ' ', _('Daily Sales'), '
+	</p>';
 
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<div class="page_help_text">', _('Select the month to show daily sales for.'), '</div>';
+
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_POST['MonthToShow'])) {
 	$_POST['MonthToShow'] = GetPeriod(Date($_SESSION['DefaultDateFormat']));
@@ -17,52 +19,59 @@ if (!isset($_POST['MonthToShow'])) {
 	$EndDateSQL = $MyRow['lastdate_in_period'];
 }
 
-echo '<table>
-		<tr>
-			<td>' . _('Month to Show') . ':</td>
-			<td><select name="MonthToShow">';
+echo '<fieldset>
+		<legend>', _('Report Criteria'), '</legend>';
+
+echo '<field>
+		<label for="MonthToShow">', _('Month to Show'), ':</label>
+		<select name="MonthToShow">';
 
 $PeriodsResult = DB_query("SELECT periodno, lastdate_in_period FROM periods");
 
 while ($PeriodRow = DB_fetch_array($PeriodsResult)) {
 	if ($_POST['MonthToShow'] == $PeriodRow['periodno']) {
-		echo '<option selected="selected" value="' . $PeriodRow['periodno'] . '">' . MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']) . '</option>';
+		echo '<option selected="selected" value="', $PeriodRow['periodno'], '">', MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']), '</option>';
 		$EndDateSQL = $PeriodRow['lastdate_in_period'];
 	} else {
-		echo '<option value="' . $PeriodRow['periodno'] . '">' . MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']) . '</option>';
+		echo '<option value="', $PeriodRow['periodno'], '">', MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']), '</option>';
 	}
 }
-echo '</select></td>
-	<td>' . _('Salesperson') . ':</td>';
+echo '</select>
+	</field>';
+
+echo '<field>
+		<label for="Salesperson">', _('Salesperson'), ':</label>';
 
 if ($_SESSION['SalesmanLogin'] != '') {
-	echo '<td>' . $_SESSION['UsersRealName'] . '</td>';
+	echo '<div class="fieldtext">', $_SESSION['UsersRealName'], '</div>';
 } else {
-	echo '<td><select name="Salesperson">';
+	echo '<select name="Salesperson">';
 
 	$SalespeopleResult = DB_query("SELECT salesmancode, salesmanname FROM salesman");
 	if (!isset($_POST['Salesperson'])) {
 		$_POST['Salesperson'] = 'All';
-		echo '<option selected="selected" value="All">' . _('All') . '</option>';
+		echo '<option selected="selected" value="All">', _('All'), '</option>';
 	} else {
-		echo '<option value="All">' . _('All') . '</option>';
+		echo '<option value="All">', _('All'), '</option>';
 	}
 
 	while ($SalespersonRow = DB_fetch_array($SalespeopleResult)) {
 		if ($_POST['Salesperson'] == $SalespersonRow['salesmancode']) {
-			echo '<option selected="selected" value="' . $SalespersonRow['salesmancode'] . '">' . $SalespersonRow['salesmanname'] . '</option>';
+			echo '<option selected="selected" value="', $SalespersonRow['salesmancode'], '">', $SalespersonRow['salesmanname'], '</option>';
 		} else {
-			echo '<option value="' . $SalespersonRow['salesmancode'] . '">' . $SalespersonRow['salesmanname'] . '</option>';
+			echo '<option value="', $SalespersonRow['salesmancode'], '">', $SalespersonRow['salesmanname'], '</option>';
 		}
 	}
-	echo '</select></td>';
+	echo '</select>';
 }
-echo '</tr>
-	</table>
-	<div class="centre">
-		<input type="submit" name="ShowResults" value="' . _('Show Daily Sales For The Selected Month') . '" />
+echo '</field>';
+
+echo '</fieldset>';
+
+echo '<div class="centre">
+		<input type="submit" name="ShowResults" value="', _('Show Daily Sales For The Selected Month'), '" />
 	</div>
-	</form>';
+</form>';
 /*Now get and display the sales data returned */
 if (mb_strpos($EndDateSQL, '/')) {
 	$Date_Array = explode('/', $EndDateSQL);
@@ -104,19 +113,19 @@ $MonthName = date("F", mktime(0, 0, 0, (int)$Date_Array[1], 10));
 echo '<table>
 		<tr>
 			<th colspan="9">
-				<h3>' . _('Daily Sales For') . ' ' . $MonthName . ' ' . $Date_Array[0] . '
-					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="" onclick="window.print();" />
+				<h3>', _('Daily Sales For'), ' ', $MonthName, ' ', $Date_Array[0], '
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="" onclick="window.print();" />
 				</h3>
 			</th>
 		</tr>
 		<tr>
-			<th style="width: 14%">' . _('Sunday') . '</th>
-			<th style="width: 14%">' . _('Monday') . '</th>
-			<th style="width: 14%">' . _('Tuesday') . '</th>
-			<th style="width: 14%">' . _('Wednesday') . '</th>
-			<th style="width: 14%">' . _('Thursday') . '</th>
-			<th style="width: 14%">' . _('Friday') . '</th>
-			<th style="width: 14%">' . _('Saturday') . '</th>
+			<th style="width: 14%">', _('Sunday'), '</th>
+			<th style="width: 14%">', _('Monday'), '</th>
+			<th style="width: 14%">', _('Tuesday'), '</th>
+			<th style="width: 14%">', _('Wednesday'), '</th>
+			<th style="width: 14%">', _('Thursday'), '</th>
+			<th style="width: 14%">', _('Friday'), '</th>
+			<th style="width: 14%">', _('Saturday'), '</th>
 		</tr>';
 
 $CumulativeTotalSales = 0;
@@ -160,9 +169,9 @@ $LastDayOfMonth = DayOfMonthFromSQLDate($EndDateSQL);
 for ($i = 1;$i <= $LastDayOfMonth;$i++) {
 	$ColumnCounter++;
 	if (isset($DaySalesArray[$i])) {
-		echo '<td class="number" style="outline: 1px solid gray;">' . locale_number_format($DaySalesArray[$i]['Sales'], 0) . '<br />' . locale_number_format($DaySalesArray[$i]['GPPercent'] * 100, 1) . '%</td>';
+		echo '<td class="number dpTbl">', locale_number_format($DaySalesArray[$i]['Sales'], 0), '<br />', locale_number_format($DaySalesArray[$i]['GPPercent'] * 100, 1), '%</td>';
 	} else {
-		echo '<td class="number" style="outline: 1px solid gray;">' . locale_number_format(0, 0) . '<br />' . locale_number_format(0, 1) . '%</td>';
+		echo '<td class="number dpTbl">', locale_number_format(0, 0), '<br />', locale_number_format(0, 1), '%</td>';
 	}
 	if ($ColumnCounter == 7) {
 		echo '</tr><tr>';
@@ -190,7 +199,7 @@ if ($CumulativeTotalSales != 0) {
 	$AverageDailySales = 0;
 }
 
-echo '<th colspan="7">' . _('Total Sales for month') . ': ' . locale_number_format($CumulativeTotalSales, 0) . ' ' . _('GP%') . ': ' . locale_number_format($AverageGPPercent, 1) . '% ' . _('Avg Daily Sales') . ': ' . locale_number_format($AverageDailySales, 0) . '</th></tr>';
+echo '<th colspan="7">', _('Total Sales for month'), ': ', locale_number_format($CumulativeTotalSales, 0), ' ', _('GP%'), ': ', locale_number_format($AverageGPPercent, 1), '% ', _('Avg Daily Sales'), ': ', locale_number_format($AverageDailySales, 0), '</th></tr>';
 
 echo '</table>';
 
