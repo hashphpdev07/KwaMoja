@@ -6,6 +6,7 @@ include ('includes/header.php');
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Sales Report'), '" alt="" />', ' ', _('Sales Category Report'), '
 	</p>';
+
 echo '<div class="page_help_text">', _('Select the parameters for the report'), '</div>';
 
 if (!isset($_POST['DateRange'])) {
@@ -16,55 +17,44 @@ if (!isset($_POST['DateRange'])) {
 echo '<form id="form1" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<table cellpadding="2">';
+echo '<fieldset>
+		<legend>', _('Date Selection'), '</legend>';
 
-echo '<tr>
-		<th colspan="2" class="centre">', _('Date Selection'), '</th>
-	</tr>';
-
-echo '<tr>
-		<td>', _('Custom Range'), ':</td>
-		<td>';
+echo '<field>
+		<label for="DateRange">', _('Custom Range'), ':</label>';
 if ($_POST['DateRange'] == 'Custom') {
 	echo '<input type="radio" name="DateRange" value="Custom" checked="checked" onchange="ReloadForm(form1.ShowSales)" />';
 } else {
 	echo '<input type="radio" name="DateRange" value="Custom" onchange="ReloadForm(form1.ShowSales)" />';
 }
-echo '</td>
-	</tr>';
+echo '</field>';
 
-echo '<tr>
-		<td>', _('This Week'), ':</td>
-		<td>';
+echo '<field>
+		<label for="DateRange">', _('This Week'), ':</label>';
 if ($_POST['DateRange'] == 'ThisWeek') {
 	echo '<input type="radio" name="DateRange" value="ThisWeek" checked="checked" onchange="ReloadForm(form1.ShowSales)" />';
 } else {
 	echo '<input type="radio" name="DateRange" value="ThisWeek" onchange="ReloadForm(form1.ShowSales)" />';
 }
-echo '</td>
-	</tr>';
+echo '</field>';
 
-echo '<tr>
-		<td>', _('This Month'), ':</td>
-		<td>';
+echo '<field>
+		<label for="DateRange">', _('This Month'), ':</label>';
 if ($_POST['DateRange'] == 'ThisMonth') {
 	echo '<input type="radio" name="DateRange" value="ThisMonth" checked="checked" onchange="ReloadForm(form1.ShowSales)" />';
 } else {
 	echo '<input type="radio" name="DateRange" value="ThisMonth" onchange="ReloadForm(form1.ShowSales)" />';
 }
-echo '</td>
-	</tr>';
+echo '</field>';
 
-echo '<tr>
-		<td>', _('This Quarter'), ':</td>
-		<td>';
+echo '<field>
+		<label for="DateRange">', _('This Quarter'), ':</label>';
 if ($_POST['DateRange'] == 'ThisQuarter') {
 	echo '<input type="radio" name="DateRange" value="ThisQuarter" checked="checked" onchange="ReloadForm(form1.ShowSales)" />';
 } else {
 	echo '<input type="radio" name="DateRange" value="ThisQuarter" onchange="ReloadForm(form1.ShowSales)" />';
 }
-echo '</td>
-	</tr>';
+echo '</field>';
 
 if ($_POST['DateRange'] == 'Custom') {
 	if (!isset($_POST['FromDate'])) {
@@ -72,20 +62,21 @@ if ($_POST['DateRange'] == 'Custom') {
 		$_POST['FromDate'] = Date($_SESSION['DefaultDateFormat'], mktime(1, 1, 1, Date('m') - 12, Date('d') + 1, Date('Y')));
 		$_POST['ToDate'] = Date($_SESSION['DefaultDateFormat']);
 	}
-	echo '<tr>
-			<td>', _('Date From'), ':</td>
-			<td><input type="text" class="date" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" /></td>
-		</tr>';
-	echo '<tr>
-			<td>', _('Date To'), ':</td>
-			<td><input type="text" class="date" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" /></td>
-		</tr>';
+	echo '<field>
+			<label for="FromDate">', _('Date From'), ':</label>
+			<input type="text" class="date" name="FromDate" maxlength="10" size="11" value="', $_POST['FromDate'], '" />
+		</field>';
+	echo '<field>
+			<label for="ToDate">', _('Date To'), ':</label>
+			<input type="text" class="date" name="ToDate" maxlength="10" size="11" value="', $_POST['ToDate'], '" />
+		</field>';
 }
-echo '</table>';
+echo '</fieldset>';
 
 echo '<div class="centre">
 		<input type="submit" name="ShowSales" value="', _('Show Sales'), '" />
 	</div>';
+
 echo '</form>';
 
 if (isset($_POST['ShowSales'])) {
@@ -196,7 +187,7 @@ if (isset($_POST['ShowSales'])) {
 	while ($SalesRow = DB_fetch_array($SalesResult)) {
 
 		echo '<tr class="striped_row">
-				<td>' . $SalesRow['categoryid'], ' - ', $SalesRow['categorydescription'], '</td>
+				<td>', $SalesRow['categoryid'], ' - ', $SalesRow['categorydescription'], '</td>
 				<td class="number">', locale_number_format($SalesRow['salesvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
 				<td class="number">', locale_number_format($SalesRow['salesvalue'] + $SalesRow['returnvalue'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
@@ -211,10 +202,14 @@ if (isset($_POST['ShowSales'])) {
 		$CumulativeTotalGP+= ($SalesRow['salesvalue'] + $SalesRow['returnvalue'] - $SalesRow['cost']);
 	} //loop around category sales for the period
 	if ($k == 1) {
-		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
+		echo '<tr class="striped_row">
+				<td colspan="8"><hr /></td>
+			</tr>';
 		echo '<tr class="striped_row">';
 	} else {
-		echo '<tr class="striped_row"><td colspan="8"><hr /></td></tr>';
+		echo '<tr class="striped_row">
+				<td colspan="8"><hr /></td>
+			</tr>';
 		echo '<tr class="striped_row">';
 	}
 	echo '<td class="number">', _('GRAND Total'), '</td>
