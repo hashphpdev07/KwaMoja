@@ -5,12 +5,15 @@ $ViewTopic = 'Contracts';
 $BookMark = 'SelectContract';
 include ('includes/header.php');
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/contract.png" title="' . _('Contracts') . '" alt="" />' . ' ' . _('Select A Contract') . '</p> ';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/contract.png" title="', _('Contracts'), '" alt="" />', ' ', _('Select A Contract'), '
+	</p> ';
 
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-echo '<br /><div class="centre">';
+echo '<fieldset>
+		<legend class="search">', _('Search Contracts'), '</legend>';
 
 if (isset($_GET['ContractRef'])) {
 	$_POST['ContractRef'] = $_GET['ContractRef'];
@@ -31,8 +34,14 @@ if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
 
 if (!isset($_POST['ContractRef']) or $_POST['ContractRef'] == '') {
 
-	echo _('Contract Reference') . ': <input type="text" name="ContractRef" maxlength="20" size="20" />&nbsp;&nbsp;';
-	echo '<select name="Status">';
+	echo '<field>
+			<label for="ContractRef">', _('Contract Reference'), ':</label>
+			<input type="text" name="ContractRef" maxlength="20" size="20" />
+		</field>';
+
+	echo '<field>
+			<label for="Status">', _('Contract Status'), ':</label>
+			<select name="Status">';
 
 	if (isset($_GET['Status'])) {
 		$_POST['Status'] = $_GET['Status'];
@@ -51,16 +60,21 @@ if (!isset($_POST['ContractRef']) or $_POST['ContractRef'] == '') {
 
 	for ($i = 0;$i < $StatusCount;$i++) {
 		if ($i == $_POST['Status']) {
-			echo '<option selected="selected" value="' . $i . '">' . $Statuses[$i] . '</option>';
+			echo '<option selected="selected" value="', $i, '">', $Statuses[$i], '</option>';
 		} else {
-			echo '<option value="' . $i . '">' . $Statuses[$i] . '</option>';
+			echo '<option value="', $i, '">', $Statuses[$i], '</option>';
 		}
 	}
 
-	echo '</select> &nbsp;&nbsp;';
+	echo '</select>
+		</field>';
 }
-echo '<input type="submit" name="SearchContracts" value="' . _('Search') . '" />';
-echo '&nbsp;&nbsp;<a href="' . $RootPath . '/Contracts.php">' . _('New Contract') . '</a></div><br />';
+echo '</fieldset>';
+
+echo '<div class="centre">
+		<a href="', $RootPath, '/Contracts.php">', _('New Contract'), '</a><br />
+		<input type="submit" name="SearchContracts" value="', _('Search'), '" />
+	</div>';
 
 //figure out the SQL required from the inputs available
 if (isset($_POST['ContractRef']) and $_POST['ContractRef'] != '') {
@@ -161,31 +175,32 @@ while ($MyRow = DB_fetch_array($ContractsResult)) {
 	$CostingPage = $RootPath . '/ContractCosting.php?SelectedContract=' . $MyRow['contractref'];
 	$FormatedRequiredDate = ConvertSQLDate($MyRow['requireddate']);
 
+	echo '<tr class="striped_row">';
+
 	if ($MyRow['status'] == 0 or $MyRow['status'] == 1) { //still setting up the contract
-		echo '<td><a href="' . $ModifyPage . '">' . _('Modify') . '</a></td>';
+		echo '<td><a href="', $ModifyPage, '">', _('Modify'), '</a></td>';
 	} else {
-		echo '<td>' . _('n/a') . '</td>';
+		echo '<td>', _('n/a'), '</td>';
 	}
 	if ($MyRow['status'] == 1 or $MyRow['status'] == 2) { // quoted or ordered
-		echo '<td><a href="' . $OrderModifyPage . '">' . $MyRow['orderno'] . '</a></td>';
+		echo '<td><a href="', $OrderModifyPage, '">', $MyRow['orderno'], '</a></td>';
 	} else {
-		echo '<td>' . _('n/a') . '</td>';
+		echo '<td>', _('n/a'), '</td>';
 	}
 	if ($MyRow['status'] == 2) { //the customer has accepted the quote but not completed contract yet
-		echo '<td><a href="' . $IssueToWOPage . '">' . $MyRow['wo'] . '</a></td>';
+		echo '<td><a href="', $IssueToWOPage, '">', $MyRow['wo'], '</a></td>';
 	} else {
-		echo '<td>' . _('n/a') . '</td>';
+		echo '<td>', _('n/a'), '</td>';
 	}
 	if ($MyRow['status'] == 2 or $MyRow['status'] == 3) {
-		echo '<td><a href="' . $CostingPage . '">' . _('View') . '</a></td>';
+		echo '<td><a href="', $CostingPage, '">', _('View'), '</a></td>';
 	} else {
-		echo '<td>' . _('n/a') . '</td>';
+		echo '<td>', _('n/a'), '</td>';
 	}
-	echo '<tr class="striped_row">
-			<td>' . $MyRow['contractref'] . '</td>
-			<td>' . $MyRow['contractdescription'] . '</td>
-			<td>' . $MyRow['customername'] . '</td>
-			<td>' . $FormatedRequiredDate . '</td>
+	echo '<td>', $MyRow['contractref'], '</td>
+			<td>', $MyRow['contractdescription'], '</td>
+			<td>', $MyRow['customername'], '</td>
+			<td>', $FormatedRequiredDate, '</td>
 		</tr>';
 
 }
@@ -193,5 +208,6 @@ while ($MyRow = DB_fetch_array($ContractsResult)) {
 echo '</table>
 	</tbody>
 </form>';
+
 include ('includes/footer.php');
 ?>
