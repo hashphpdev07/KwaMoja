@@ -130,12 +130,12 @@ if (!isset($Bracket)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Bracket') . "</td>
-		<td class='tableheader'>" . _('Range From') . "</td>
-		<td class='tableheader'>" . _('Range To') . "</td>
-		<td class='tableheader'>" . _('Fix Taxable Amount') . "</td>
-		<td class='tableheader'>" . _('Fix Tax for Fix Taxable Amount') . "</td>
-		<td class='tableheader'>" . _('% of excess over Fix Taxable Amount') . "</td>
+		<th>" . _('Bracket') . "</th>
+		<th>" . _('Range From') . "</th>
+		<th>" . _('Range To') . "</th>
+		<th>" . _('Fix Taxable Amount') . "</th>
+		<th>" . _('Fix Tax for Fix Taxable Amount') . "</th>
+		<th>" . _('% of excess over Fix Taxable Amount') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

@@ -51,11 +51,11 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Index') . "</td>
-		<td class='tableheader'>" . _('Pay ID ') . "</td>
-		<td class='tableheader'>" . _('Employee Name') . "</td>
-		<td class='tableheader'>" . _('Loan Type') . "</td>
-		<td class='tableheader'>" . _('Amount') . "</td>
+		<th>" . _('Index') . "</th>
+		<th>" . _('Pay ID ') . "</th>
+		<th>" . _('Employee Name') . "</th>
+		<th>" . _('Loan Type') . "</th>
+		<th>" . _('Amount') . "</th>
 	</tr>";
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {

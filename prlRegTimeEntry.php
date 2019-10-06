@@ -143,9 +143,9 @@ echo "<input type=SUBMIT name=Process value='" . _('Accept') . "'><input type=SU
 echo '</td></tr></table>'; /*Close the main table */
 
 echo "<table WIDTH=100% BORDER=1><tr>
-	<td class='tableheader'>" . _('RT Hour') . "</td>
-	<td class='tableheader'>" . _('Employee Name') . '</td></tr>';
-//<td class='tableheader'>"._('Overtime Type').'</td></tr>';
+	<th>" . _('RT Hour') . "</th>
+	<th>" . _('Employee Name') . '</th></tr>';
+//<th>"._('Overtime Type').'</td></tr>';
 foreach ($_SESSION['RTDetail']->RTEntries as $RTItem) {
 	echo "<tr><td ALIGN=RIGHT>" . number_format($RTItem->RTHours, 2) . "</td>
 		<td>" . $RTItem->EmployeeID . ' - ' . $RTItem->LastName . ',' . $RTItem->FirstName . "</td>

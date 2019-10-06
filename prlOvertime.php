@@ -123,9 +123,9 @@ if (!isset($OverTimeID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Overtime Code') . "</td>
-		<td class='tableheader'>" . _('Overtime Description') . "</td>
-		<td class='tableheader'>" . _('Overtime Rate') . "</td>
+		<th>" . _('Overtime Code') . "</th>
+		<th>" . _('Overtime Description') . "</th>
+		<th>" . _('Overtime Rate') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

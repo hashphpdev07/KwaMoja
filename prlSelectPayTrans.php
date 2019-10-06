@@ -74,24 +74,24 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Pay ID ') . "</td>
-		<td class='tableheader'>" . _('Emp ID') . "</td>
-		<td class='tableheader'>" . _('Period Rate') . "</td>
-		<td class='tableheader'>" . _('Hourly Rate') . "</td>
-		<td class='tableheader'>" . _('Basic Pay') . "</td>
-		<td class='tableheader'>" . _('Other Income') . "</td>
-		<td class='tableheader'>" . _('Absent') . "</td>
-		<td class='tableheader'>" . _('Late') . "</td>
-		<td class='tableheader'>" . _('Overtime Pay') . "</td>
-		<td class='tableheader'>" . _('Gross Pay') . "</td>
-		<td class='tableheader'>" . _('Loan Deduction') . "</td>
-		<td class='tableheader'>" . _('SSS') . "</td>
-		<td class='tableheader'>" . _('HDMF') . "</td>
-		<td class='tableheader'>" . _('PhilHealth') . "</td>
-		<td class='tableheader'>" . _('Tax') . "</td>
-		<td class='tableheader'>" . _('Net Pay') . "</td>
-		<td class='tableheader'>" . _('Month') . "</td>
-		<td class='tableheader'>" . _('Year') . "</td>
+		<th>" . _('Pay ID ') . "</th>
+		<th>" . _('Emp ID') . "</th>
+		<th>" . _('Period Rate') . "</th>
+		<th>" . _('Hourly Rate') . "</th>
+		<th>" . _('Basic Pay') . "</th>
+		<th>" . _('Other Income') . "</th>
+		<th>" . _('Absent') . "</th>
+		<th>" . _('Late') . "</th>
+		<th>" . _('Overtime Pay') . "</th>
+		<th>" . _('Gross Pay') . "</th>
+		<th>" . _('Loan Deduction') . "</th>
+		<th>" . _('SSS') . "</th>
+		<th>" . _('HDMF') . "</th>
+		<th>" . _('PhilHealth') . "</th>
+		<th>" . _('Tax') . "</th>
+		<th>" . _('Net Pay') . "</th>
+		<th>" . _('Month') . "</th>
+		<th>" . _('Year') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

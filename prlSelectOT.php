@@ -55,15 +55,15 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Index') . "</td>
-		<td class='tableheader'>" . _('Pay ID') . "</td>
-		<td class='tableheader'>" . _('OTRef ') . "</td>
-		<td class='tableheader'>" . _('OTDesc') . "</td>
-		<td class='tableheader'>" . _('OTDate ') . "</td>
-		<td class='tableheader'>" . _('OT ID') . "</td>
-		<td class='tableheader'>" . _('EE ID ') . "</td>
-		<td class='tableheader'>" . _('OT Hours') . "</td>
-		<td class='tableheader'>" . _('Amount ') . "</td>
+		<th>" . _('Index') . "</th>
+		<th>" . _('Pay ID') . "</th>
+		<th>" . _('OTRef ') . "</th>
+		<th>" . _('OTDesc') . "</th>
+		<th>" . _('OTDate ') . "</th>
+		<th>" . _('OT ID') . "</th>
+		<th>" . _('EE ID ') . "</th>
+		<th>" . _('OT Hours') . "</th>
+		<th>" . _('Amount ') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter
