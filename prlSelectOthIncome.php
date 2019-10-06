@@ -47,11 +47,11 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Index') . "</td>
-		<td class='tableheader'>" . _('Emp ID') . "</td>
-		<td class='tableheader'>" . _('Date') . "</td>
-		<td class='tableheader'>" . _('OthInc ID') . "</td>
-		<td class='tableheader'>" . _('Amount') . "</td>
+		<th>" . _('Index') . "</th>
+		<th>" . _('Emp ID') . "</th>
+		<th>" . _('Date') . "</th>
+		<th>" . _('OthInc ID') . "</th>
+		<th>" . _('Amount') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

@@ -53,13 +53,13 @@ if (!isset($PayrollID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Payroll ID') . "</td>
-		<td class='tableheader'>" . _('Desciption') . "</td>
-		<td class='tableheader'>" . _('FS Month') . "</td>
-		<td class='tableheader'>" . _('FS Year') . "</td>
-		<td class='tableheader'>" . _('Start Date') . "</td>
-		<td class='tableheader'>" . _('End Date') . "</td>
-		<td class='tableheader'>" . _('Pay Period ') . "</td>
+		<th>" . _('Payroll ID') . "</th>
+		<th>" . _('Desciption') . "</th>
+		<th>" . _('FS Month') . "</th>
+		<th>" . _('FS Year') . "</th>
+		<th>" . _('Start Date') . "</th>
+		<th>" . _('End Date') . "</th>
+		<th>" . _('Pay Period ') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

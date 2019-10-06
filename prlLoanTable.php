@@ -113,8 +113,8 @@ if (!isset($LoanTableID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Loan Code') . "</td>
-		<td class='tableheader'>" . _('Loan Description') . "</td>
+		<th>" . _('Loan Code') . "</th>
+		<th>" . _('Loan Description') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

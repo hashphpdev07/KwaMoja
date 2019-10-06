@@ -113,8 +113,8 @@ if (!isset($CostCenterID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('cost center Code') . "</td>
-		<td class='tableheader'>" . _('cost center Description') . "</td>
+		<th>" . _('cost center Code') . "</th>
+		<th>" . _('cost center Description') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

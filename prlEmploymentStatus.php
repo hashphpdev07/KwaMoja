@@ -177,7 +177,7 @@ if (!isset($SelectedStatusID)) {
 
 	echo "<table>
 		<tr>
-		<td class='tableheader'>" . _('Employment Status') . "</td>
+		<th>" . _('Employment Status') . "</th>
 		</tr>";
 
 	$k = 0; //row colour counter

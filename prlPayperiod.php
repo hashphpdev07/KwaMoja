@@ -123,9 +123,9 @@ if (!isset($PayPeriodID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Pay Code') . "</td>
-		<td class='tableheader'>" . _('Pay Description') . "</td>
-		<td class='tableheader'>" . _('Number of Payday') . "</td>
+		<th>" . _('Pay Code') . "</th>
+		<th>" . _('Pay Description') . "</th>
+		<th>" . _('Number of Payday') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter
