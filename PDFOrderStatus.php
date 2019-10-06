@@ -24,33 +24,38 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 		prnMsg($Msg, 'error');
 	}
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('Order Status Report') . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title, '" alt="" />', ' ', _('Order Status Report'), '
+		</p>';
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>
-			<tr>
-				<td>' . _('Enter the date from which orders are to be listed') . ':</td>
-				<td><input type="text" class="date" name="FromDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y'))) . '" /></td>
-			</tr>';
-	echo '<tr>
-			<td>' . _('Enter the date to which orders are to be listed') . ':</td>
-			<td><input type="text" class="date" name="ToDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
-		</tr>';
-	echo '<tr>
-			<td>' . _('Inventory Category') . '</td>
-			<td>';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+
+	echo '<fieldset>
+			<legend>', _('Report Criteria'), '</legend>';
+
+	echo '<field>
+			<label for="FromDate">', _('Enter the date from which orders are to be listed'), ':</label>
+			<input type="text" class="date" name="FromDate" required="required" maxlength="10" size="10" value="', Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m'), Date('d') - 1, Date('y'))), '" />
+		</field>';
+	echo '<field>
+			<label for="ToDate">', _('Enter the date to which orders are to be listed'), ':</label>
+			<input type="text" class="date" name="ToDate" required="required" maxlength="10" size="10" value="', Date($_SESSION['DefaultDateFormat']), '" />
+		</field>';
+	echo '<field>
+			<label for="CategoryID">', _('Inventory Category'), '</label>';
 
 	$SQL = "SELECT categorydescription, categoryid FROM stockcategory WHERE stocktype<>'D' AND stocktype<>'L'";
 	$Result = DB_query($SQL);
 
 	echo '<select required="required" name="CategoryID">';
-	echo '<option selected="selected" value="All">' . _('Over All Categories') . '</option>';
+	echo '<option selected="selected" value="All">', _('Over All Categories'), '</option>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
+		echo '<option value="', $MyRow['categoryid'], '">', $MyRow['categorydescription'], '</option>';
 	}
-	echo '</select></td></tr>';
+	echo '</select>
+		</field>';
 
 	$SQL = "SELECT locations.loccode,
 					locationname
@@ -60,26 +65,28 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate'])) {
 					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
 	$Result = DB_query($SQL);
-	echo '<tr>
-			<td>' . _('Inventory Location') . ':</td><td><select required="required" name="Location">';
-	echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
+	echo '<field>
+			<label for="Location">', _('Inventory Location'), ':</label>
+			<select required="required" name="Location">
+				<option selected="selected" value="All">', _('All Locations'), '</option>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+		echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 	}
-	echo '</select></td></tr>';
+	echo '</select>
+		</field>';
 
-	echo '<tr>
-			<td>' . _('Back Order Only') . ':</td>
-			<td><select required="required" name="BackOrders">
-					<option selected="selected" value="Yes">' . _('Only Show Back Orders') . '</option>
-					<option value="No">' . _('Show All Orders') . '</option>
-				</select>
-			</td>
-		</tr>
-		</table>
-		<div class="centre">
-			<input type="submit" name="Go" value="' . _('Create PDF') . '" />
+	echo '<field>
+			<label for="BackOrders">', _('Back Order Only'), ':</label>
+			<select required="required" name="BackOrders">
+				<option selected="selected" value="Yes">', _('Only Show Back Orders'), '</option>
+				<option value="No">', _('Show All Orders'), '</option>
+			</select>
+		</field>
+	</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="Go" value="', _('Create PDF'), '" />
 		</div>';
 	echo '</form>';
 

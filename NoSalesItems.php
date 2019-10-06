@@ -3,19 +3,22 @@ include ('includes/session.php');
 $Title = _('No Sales Items Searching');
 include ('includes/header.php');
 if (!(isset($_POST['Search']))) {
-	echo '<div class="centre"><p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('No Sales Items') . '" alt="" />' . ' ' . _('No Sales Items') . '</p></div>';
-	echo '<div class="page_help_text">' . _('List of items with stock available during the last X days at the selected locations but did not sell any quantity during these X days.') . '<br />' . _('This list gets the no selling items, items at the location just wasting space, or need a price reduction, etc.') . '<br />' . _('Stock available during the last X days means there was a stock movement that produced that item into that location before that day, and no other positive stock movement has been created afterwards.  No sell any quantity means, there is no sales order for that item from that location.') . '</div>';
-	echo '<br />';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('No Sales Items'), '" alt="" />', ' ', _('No Sales Items'), '
+		</p>';
+
+	echo '<div class="page_help_text">', _('List of items with stock available during the last X days at the selected locations but did not sell any quantity during these X days.'), '<br />', _('This list gets the no selling items, items at the location just wasting space, or need a price reduction, etc.') . '<br />' . _('Stock available during the last X days means there was a stock movement that produced that item into that location before that day, and no other positive stock movement has been created afterwards.  No sell any quantity means, there is no sales order for that item from that location.'), '</div>';
+
 	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>';
+
+	echo '<fieldset>
+			<legend>', _('Inquiry Criteria'), '</legend>';
 
 	//select location
-	echo '<tr>
-			<td>' . _('Select Location') . '</td>
-			<td>:</td>
-			<td>
-				<select required="required" name="Location">';
+	echo '<field>
+			<label for="Location">', _('Select Location'), ':</label>
+			<select required="required" name="Location">';
 	$SQL = "SELECT locations.loccode,
 					locationname
 				FROM locations
@@ -24,73 +27,73 @@ if (!(isset($_POST['Search']))) {
 					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1
 				ORDER BY locationname";
-	echo '<option value="All" selected="selected">' . _('All') . '</option>';
+	echo '<option value="All" selected="selected">', _('All'), '</option>';
 	$locationresult = DB_query($SQL);
 	$i = 0;
 	while ($MyRow = DB_fetch_array($locationresult)) {
 		if (isset($_POST['Location'][$i]) and $MyRow['loccode'] == $_POST['Location'][$i]) {
-			echo '<option selected="selected" value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+			echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 			++$i;
 		} else {
-			echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
+			echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
 		}
 	}
-	echo '</select></td>
-		</tr>';
+	echo '</select>
+		</field>';
 
 	//to view list of customer
-	echo '<tr>
-			<td width="150">' . _('Select Customer Type') . '</td>
-			<td>:</td>
-			<td><select name="Customers">';
+	echo '<field>
+			<label for="Customers">', _('Select Customer Type'), ':</label>
+			<select name="Customers">';
 
 	$SQL = "SELECT typename,
 					typeid
 				FROM debtortype";
 	$Result = DB_query($SQL);
-	echo '<option value="All">' . _('All') . '</option>';
+	echo '<option value="All">', _('All'), '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['typeid'] . '">' . $MyRow['typename'] . '</option>';
+		echo '<option value="', $MyRow['typeid'], '">', $MyRow['typename'], '</option>';
 	}
-	echo '</select></td>
-		</tr>';
+	echo '</select>
+		</field>';
 
 	// stock category selection
 	$SQL = "SELECT categoryid,categorydescription
 			FROM stockcategory
 			ORDER BY categorydescription";
 	$Result1 = DB_query($SQL);
-	echo '<tr>
-			<td width="150">' . _('In Stock Category') . ' </td>
-			<td>:</td>
-			<td><select name="StockCat">';
+	echo '<field>
+			<label for="StockCat">', _('In Stock Category'), ':</label>
+			<select name="StockCat">';
 	if (!isset($_POST['StockCat'])) {
 		$_POST['StockCat'] = 'All';
 	}
 	if ($_POST['StockCat'] == 'All') {
-		echo '<option selected="selected" value="All">' . _('All') . '</option>';
+		echo '<option selected="selected" value="All">', _('All'), '</option>';
 	} else {
-		echo '<option value="All">' . _('All') . '</option>';
+		echo '<option value="All">', _('All'), '</option>';
 	}
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		if ($MyRow1['categoryid'] == $_POST['StockCat']) {
-			echo '<option selected="selected" value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+			echo '<option selected="selected" value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 		} else {
-			echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+			echo '<option value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 		}
 	}
+	echo '</select>
+		</field>';
 
 	//View number of days
-	echo '<tr>
-			<td>' . _('Number Of Days') . ' </td>
-			<td>:</td>
-			<td><input class="number" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" /></td>
-		 </tr>
-	</table>
-	<br />
-	<div class="centre">
-		<input type="submit" name="Search" value="' . _('Search') . '" />
-	</div>
+	echo '<field>
+			<label for="NumberOfDays">', _('Number Of Days'), ':</label>
+			<input class="number" type="text" name="NumberOfDays" size="8" required="required" maxlength="8" value="30" />
+		 </field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="Search" value="', _('Search'), '" />
+		</div>
 	</form>';
 } else {
 
@@ -203,22 +206,27 @@ if (!(isset($_POST['Search']))) {
 				ORDER BY stockmaster.stockid";
 	}
 	$Result = DB_query($SQL);
-	echo '<p class="page_title_text"  align="center"><strong>' . _('No Sales Items') . '</strong></p>';
-	echo '<form action="PDFNoSalesItems.php"  method="GET">
-		<table>';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('No Sales Items'), '" alt="" />', ' ', _('No Sales Items'), '
+		</p>';
+
+	echo '<form action="PDFNoSalesItems.php"  method="GET">';
+	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+
+	echo '<input type="hidden" value="', $_POST['Location'], '" name="Location" />
+			<input type="hidden" value="', filter_number_format($_POST['NumberOfDays']), '" name="NumberOfDays" />
+			<input type="hidden" value="', $_POST['Customers'], '" name="Customers" />';
+
+	echo '<table>
 			<tr>
-				<th>' . _('No') . '</th>
-				<th>' . _('Location') . '</th>
-				<th>' . _('Code') . '</th>
-				<th>' . _('Description') . '</th>
-				<th>' . _('Location QOH') . '</th>
-				<th>' . _('Total QOH') . '</th>
-				<th>' . _('Units') . '</th>
+				<th>', _('No'), '</th>
+				<th>', _('Location'), '</th>
+				<th>', _('Code'), '</th>
+				<th>', _('Description'), '</th>
+				<th>', _('Location QOH'), '</th>
+				<th>', _('Total QOH'), '</th>
+				<th>', _('Units'), '</th>
 			</tr>';
-	echo '<input type="hidden" value="' . $_POST['Location'] . '" name="Location" />
-			<input type="hidden" value="' . filter_number_format($_POST['NumberOfDays']) . '" name="NumberOfDays" />
-			<input type="hidden" value="' . $_POST['Customers'] . '" name="Customers" />';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 		$QOHResult = DB_query("SELECT sum(quantity)
@@ -233,31 +241,25 @@ if (!(isset($_POST['Search']))) {
 
 		$CodeLink = '<a href="' . $RootPath . '/SelectProduct.php?StockID=' . urlencode($MyRow['stockid']) . '">' . $MyRow['stockid'] . '</a>';
 		if ($_POST['Location'][0] == 'All') {
-			printf('<tr class="striped_row">
-						<td class="number">%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td>%s</td>
-					</tr>', $i, 'All', $CodeLink, $MyRow['description'], $QOH, //on hand on ALL locations
-			$QOH, // total on hand
-			$MyRow['units'] //unit
-			);
+			echo '<tr class="striped_row">
+					<td class="number">', $i, '</td>
+					<td', _('All'), '</td>
+					<td>', $CodeLink, '</td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', $QOH, '</td>
+					<td class="number">', $QOH, '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 		} else {
-			printf('<tr class="striped_row">
-						<td class="number">%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td>%s</td>
-						<td class="number">%s</td>
-						<td class="number">%s</td>
-						<td>%s</td>
-					</tr>', $i, $MyRow['locationname'], $CodeLink, $MyRow['description'], $MyRow['quantity'], //on hand on location selected only
-			$QOH, // total on hand
-			$MyRow['units'] //unit
-			);
+			echo '<tr class="striped_row">
+					<td class="number">', $i, '</td>
+					<td>', $MyRow['locationname'], '</td>
+					<td>', $CodeLink, 's</td>
+					<td>', $MyRow['description'], '</td>
+					<td class="number">', $MyRow['quantity'], '</td>
+					<td class="number">', $QOH, '</td>
+					<td>', $MyRow['units'], '</td>
+				</tr>';
 		}
 	}
 	echo '</table>';

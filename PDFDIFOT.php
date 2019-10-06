@@ -18,46 +18,49 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 	$Title = _('Delivery In Full On Time (DIFOT) Report');
 	include ('includes/header.php');
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="" />' . ' ' . _('DIFOT Report') . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', $Title, '" alt="" />', ' ', _('DIFOT Report'), '
+		</p>';
 
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<table>
-			<tr>
-				<td>' . _('Enter the date from which variances between orders and deliveries are to be listed') . ':</td>
-				<td><input type="text" class="date" name="FromDate" autofocus="autofocus" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 1, 0, Date('y'))) . '" /></td>
-			</tr>';
-	echo '<tr>
-			<td>' . _('Enter the date to which variances between orders and deliveries are to be listed') . ':</td>
-			<td><input type="text" class="date" name="ToDate" required="required" maxlength="10" size="10" value="' . Date($_SESSION['DefaultDateFormat']) . '" /></td>
-		</tr>';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+	echo '<fieldset>
+			<legend>', _('Report Criteria'), '</legend>';
+
+	echo '<field>
+			<label for="FromDate">', _('From Date'), ':</label>
+			<input type="text" class="date" name="FromDate" autofocus="autofocus" required="required" maxlength="10" size="10" value="', Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 1, 0, Date('y'))), '" />
+			<fieldhelp>', _('Enter the date from which variances between orders and deliveries are to be listed'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="ToDate">', _('To Date'), ':</label>
+			<input type="text" class="date" name="ToDate" required="required" maxlength="10" size="10" value="', Date($_SESSION['DefaultDateFormat']), '" />
+			<fieldhelp>', _('Enter the date to which variances between orders and deliveries are to be listed'), '</fieldhelp>
+		</field>';
 
 	if (!isset($_POST['DaysAcceptable'])) {
 		$_POST['DaysAcceptable'] = 1;
 	}
 
-	echo '<tr>
-				<td>' . _('Enter the number of days considered acceptable between delivery requested date and invoice date(ie the date dispatched)') . ':</td>
-				<td><input type="text" class="integer" name="DaysAcceptable" required="required" maxlength="2" size="2" value="' . $_POST['DaysAcceptable'] . '" /></td>
-			</tr>';
-	echo '<tr>
-			<td>' . _('Inventory Category') . '</td>
-			<td>
-				<select required="required" name="CategoryID">
-					<option selected="selected" value="All">' . _('Over All Categories') . '</option>';
+	echo '<field>
+			<label for="DaysAcceptable">', _('Accpetable wait in days'), ':</label>
+			<input type="text" class="integer" name="DaysAcceptable" required="required" maxlength="2" size="2" value="', $_POST['DaysAcceptable'], '" />
+			<fieldhelp>', _('Enter the number of days considered acceptable between delivery requested date and invoice date(ie the date dispatched)'), '</fieldhelp>
+		</field>';
+
+	echo '<field>
+			<label for="CategoryID">', _('Inventory Category'), '</label>
+			<select required="required" name="CategoryID">
+				<option selected="selected" value="All">', _('Over All Categories'), '</option>';
 
 	$SQL = "SELECT categorydescription, categoryid FROM stockcategory WHERE stocktype<>'D' AND stocktype<>'L'";
 	$Result = DB_query($SQL);
-
 	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['categoryid'] . '">' . $MyRow['categorydescription'] . '</option>';
+		echo '<option value="', $MyRow['categoryid'], '">', $MyRow['categorydescription'], '</option>';
 	}
-
-	echo '</select></td></tr>';
-
-	echo '<tr>
-			<td>' . _('Inventory Location') . ':</td>
-			<td><select required="required" name="Location">';
+	echo '</select>
+		</field>';
 
 	$SQL = "SELECT locations.loccode,
 					locationname
@@ -66,26 +69,32 @@ if (!isset($_POST['FromDate']) or !isset($_POST['ToDate']) or $InputError == 1) 
 					ON locationusers.loccode=locations.loccode
 					AND locationusers.userid='" . $_SESSION['UserID'] . "'
 					AND locationusers.canview=1";
-	echo '<option selected="selected" value="All">' . _('All Locations') . '</option>';
-
 	$Result = DB_query($SQL);
-	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="' . $MyRow['loccode'] . '">' . $MyRow['locationname'] . '</option>';
-	}
-	echo '</select></td></tr>';
 
-	echo '<tr>
-			<td>' . _('Email the report off') . ':</td>
-			<td><select required="required" name="Email">
-					<option selected="selected" value="No">' . _('No') . '</option>
-					<option value="Yes">' . _('Yes') . '</option>
-				</select>
-			</td>
-		</tr>
-		</table>
-		<div class="centre">
-		<input type="submit" name="Go" value="' . _('Create PDF') . '" />
+	echo '<field>
+			<label for="Location">', _('Inventory Location'), ':</label>
+			<select required="required" name="Location">';
+	echo '<option selected="selected" value="All">', _('All Locations'), '</option>';
+	while ($MyRow = DB_fetch_array($Result)) {
+		echo '<option value="', $MyRow['loccode'], '">', $MyRow['locationname'], '</option>';
+	}
+	echo '</select>
+		</field>';
+
+	echo '<field>
+			<label for="Email">', _('Email the report'), ':</label>
+			<select required="required" name="Email">
+				<option selected="selected" value="No">', _('No'), '</option>
+				<option value="Yes">', _('Yes'), '</option>
+			</select>
+		</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="Go" value="', _('Create PDF'), '" />
 		</div>';
+
 	echo '</form>';
 
 	if ($InputError == 1) {
