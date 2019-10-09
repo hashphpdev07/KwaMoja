@@ -646,7 +646,7 @@ if (!isset($StockId)) {
 		$_POST['StockCode'] = '';
 	}
 
-	echo '<div class="page_hint_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
+	echo '<div class="page_help_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
 
 	echo '<fieldset>
 			<legend class="search">', _('Item Selection Criteria'), '</legend>
