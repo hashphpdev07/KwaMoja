@@ -245,7 +245,7 @@ if (isset($_POST['EnterTransfer'])) {
 		}
 		// BEGIN: **********************************************************************
 		// Insert outgoing inventory GL transaction if any of the locations has a GL account code:
-		if ($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') {
+		if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') and ($_SESSION['Transfer']->StockLocationFromAccount != $_SESSION['Transfer']->StockLocationToAccount)) {
 			// Get the account code:
 			if ($_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') {
 				$AccountCode = $_SESSION['Transfer' . $Identifier]->StockLocationToAccount;
@@ -413,7 +413,7 @@ if (isset($_POST['EnterTransfer'])) {
 		}
 		// BEGIN: **********************************************************************
 		// Insert incoming inventory GL transaction if any of the locations has a GL account code:
-		if ($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') {
+		if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') and ($_SESSION['Transfer']->StockLocationFromAccount != $_SESSION['Transfer']->StockLocationToAccount)) {
 			// Get the account code:
 			if ($_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') {
 				$AccountCode = $_SESSION['Transfer' . $Identifier]->StockLocationToAccount;
