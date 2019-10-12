@@ -7,23 +7,27 @@ div.Message {
 }
 div.Message.error {
 	background:#ffecec url('images/message-error.png') no-repeat 10px 50%;
+	color:#FF0000;
     border:1px solid #f5aca6;
 }
 div.Message.success {
-	background:#e9ffd9 url('images/message-success.png') no-repeat 10px 50%;
+	background:#90EE90 url('images/message-success.png') no-repeat 10px 50%;
+	color:#104B10;
     border:1px solid #a6ca8a;
 }
 div.Message.info {
-	background:#e3f7fc url('images/message-info.png') no-repeat 10px 50%;
+	background:#97E1F3 url('images/message-info.png') no-repeat 10px 50%;
+	color:#0E0E53;
     border:1px solid #8ed9f6;
 }
 div.Message.warn {
 	background:#fff8c4 url('images/message-warning.png') no-repeat 10px 50%;
+	color:#67670B;
     border:1px solid #f2c779;
 }
 .MessageCloseButton {
     margin-left: 15px;
-    color: #C8C8C8;
+    color: #1A1A1A;
     font-weight: bold;
     float: right;
     font-size: 20px;
