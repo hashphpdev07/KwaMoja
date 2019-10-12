@@ -161,9 +161,9 @@ echo "<input type=SUBMIT name=Process value='" . _('Accept') . "'><input type=SU
 echo '</td></tr></table>'; /*Close the main table */
 
 echo "<table WIDTH=100% BORDER=1><tr>
-	<td class='tableheader'>" . _('OT Hour') . "</td>
-	<td class='tableheader'>" . _('Employee Name') . "</td>
-	<td class='tableheader'>" . _('Overtime Type') . '</td></tr>';
+	<th>" . _('OT Hour') . "</th>
+	<th>" . _('Employee Name') . "</th>
+	<th>" . _('Overtime Type') . '</th></tr>';
 
 foreach ($_SESSION['OTDetail']->OTEntries as $OTItem) {
 	echo "<tr><td ALIGN=RIGHT>" . number_format($OTItem->OTHours, 2) . "</td>

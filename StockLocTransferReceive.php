@@ -210,7 +210,7 @@ if (isset($_POST['ProcessTransfer'])) {
 
 				// BEGIN: **********************************************************************
 				// Insert outgoing inventory GL transaction if any of the locations has a GL account code:
-				if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '')) {
+				if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') and ($_SESSION['Transfer']->StockLocationFromAccount != $_SESSION['Transfer']->StockLocationToAccount)) {
 					// Get the account code:
 					if ($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '') {
 						$AccountCode = $_SESSION['Transfer' . $Identifier]->StockLocationFromAccount;
@@ -364,7 +364,7 @@ if (isset($_POST['ProcessTransfer'])) {
 				$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 				// BEGIN: **********************************************************************
 				// Insert incoming inventory GL transaction if any of the locations has a GL account code:
-				if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '')) {
+				if (($_SESSION['Transfer' . $Identifier]->StockLocationFromAccount != '' or $_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') and ($_SESSION['Transfer']->StockLocationFromAccount != $_SESSION['Transfer']->StockLocationToAccount)) {
 					// Get the account code:
 					if ($_SESSION['Transfer' . $Identifier]->StockLocationToAccount != '') {
 						$AccountCode = $_SESSION['Transfer' . $Identifier]->StockLocationToAccount;
@@ -542,7 +542,7 @@ if (isset($_GET['Trf_ID'])) {
 if (isset($_SESSION['Transfer' . $Identifier])) {
 	//Begin Form for receiving shipment
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
 		</p>';
 	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '" method="post">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
@@ -660,7 +660,7 @@ if (isset($_SESSION['Transfer' . $Identifier])) {
 	/*Not $_SESSION['Transfer' . $Identifier] set */
 
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Dispatch'), '" alt="" />', ' ', $Title, '
 		</p>';
 
 	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="form1">';

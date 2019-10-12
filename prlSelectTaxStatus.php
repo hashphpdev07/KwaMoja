@@ -51,8 +51,8 @@ if (!isset($TaxStatusID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Tax Status ID') . "</td>
-		<td class='tableheader'>" . _('Tax Status Description ') . "</td>
+		<th>" . _('Tax Status ID') . "</th>
+		<th>" . _('Tax Status Description ') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

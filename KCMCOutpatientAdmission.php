@@ -73,7 +73,7 @@ if (isset($_POST['Create'])) {
 
 if (!isset($SelectedPatient)) {
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', _('Search For Patient'), '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', _('Search For Patient'), '
 		</p>';
 
 	echo '<form action="', $_SERVER['PHP_SELF'], '" method="post">';
@@ -175,7 +175,7 @@ if (!isset($SelectedPatient)) {
 }
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', $Title, '" alt="" />', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/user.png" title="', $Title, '" alt="" />', $Title, '
 	</p>';
 
 $SQL = "SELECT debtorsmaster.debtorno,

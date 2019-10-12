@@ -4,7 +4,7 @@ $Title = _('Stock On Hand By Date');
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" /><b>', $Title, '</b>
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" /><b>', $Title, '</b>
 	</p>';
 
 echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';

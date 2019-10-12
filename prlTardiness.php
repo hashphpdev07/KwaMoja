@@ -139,9 +139,9 @@ echo "<input type=SUBMIT name=Process value='" . _('Accept') . "'><input type=SU
 echo '</td></tr></table>'; /*Close the main table */
 
 echo "<table WIDTH=100% BORDER=1><tr>
-	<td class='tableheader'>" . _('Late(s)- Hour(s)') . "</td>
-	<td class='tableheader'>" . _('Absent - Hour(s)') . "</td>
-	<td class='tableheader'>" . _('Employee Name') . '</td></tr>';
+	<th>" . _('Late(s)- Hour(s)') . "</th>
+	<th>" . _('Absent - Hour(s)') . "</th>
+	<th>" . _('Employee Name') . '</th></tr>';
 
 foreach ($_SESSION['TDDetail']->TDEntries as $TDItem) {
 	echo "<tr><td ALIGN=RIGHT>" . number_format($TDItem->TDHours, 2) . "</td>

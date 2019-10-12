@@ -329,32 +329,40 @@ if (isset($_POST['SearchParts']) and $_POST['SearchParts'] != '') {
 if (!isset($_POST['OrdersAfterDate']) or $_POST['OrdersAfterDate'] == '' or !is_date($_POST['OrdersAfterDate'])) {
 	$_POST['OrdersAfterDate'] = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, Date('m') - 2, Date('d'), Date('Y')));
 }
-echo '<table>';
+echo '<fieldset>
+		<legend class="search">', _('Order Search Criteria'), '</legend>
+		<field>';
 
 if (isset($PartString)) {
-	echo '<tr>
-			<td>', $PartString, '</td>';
-} else {
-	echo '<tr>
-			<td></td>';
+	echo '<label>', $PartString, '</label>';
 }
+
+echo '</field>';
+
 if (!isset($_POST['OrderNumber'])) {
 	$_POST['OrderNumber'] = '';
 }
-echo '<td>', _('Order Number'), ':</td>
-		<td><input type="text" name="OrderNumber" maxlength="8" size="9" value="', $_POST['OrderNumber'], '" /></td>
-		<td>', _('for all orders placed after'), ': </td>
-		<td><input type="text" class="date" name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" /></td>
-		<td><input type="submit" name="SearchOrders" value="', _('Search Orders'), '" /></td>
-	</tr>';
-echo '<tr>
-		<td></td>
-		<td>', _('Customer Ref'), ':</td><td><input type="text" name="CustomerRef" maxlength="8" size="9" /></td>
-		<td></td>
-		<td colspan="2"><input type="checkbox" ', $ShowChecked, ' name="completed" />', _('Show Completed orders only'), '</td>
-	</tr>';
+echo '<field>
+		<label for="OrderNumber">', _('Order Number'), ':</label>
+		<input type="text" name="OrderNumber" maxlength="8" size="9" value="', $_POST['OrderNumber'], '" />
+	</field>';
 
-echo '</table>';
+echo '<field>
+		<label for="OrdersAfterDate">', _('for all orders placed after'), ':</label>
+		<input type="text" class="date" name="OrdersAfterDate" maxlength="10" size="11" value="', $_POST['OrdersAfterDate'], '" />
+	</field>';
+
+echo '<field>
+		<label for="CustomerRef">', _('Customer Ref'), ':</label>
+		<input type="text" name="CustomerRef" maxlength="8" size="9" />
+		<input type="checkbox" ', $ShowChecked, ' name="completed" />', _('Show Completed orders only'), '
+	</field>';
+
+echo '</fieldset>';
+
+echo '<div class="centre">
+		<input type="submit" name="SearchOrders" value="', _('Search Orders'), '" />
+	</div>';
 
 if (!isset($SelectedStockItem)) {
 	$Result1 = DB_query("SELECT categoryid,
@@ -363,10 +371,12 @@ if (!isset($SelectedStockItem)) {
 						ORDER BY categorydescription");
 
 	echo '<div class="page_help_text">', _('To search for sales orders for a specific part use the part selection facilities below'), '</div>';
-	echo '<table>';
-	echo '<tr>
-			<td>', _('Select a stock category'), ':';
-	echo '<select name="StockCat">';
+	echo '<fieldset>
+			<legend class="search">', _('Item Search Criteria'), '</legend>';
+
+	echo '<field>
+			<label>', _('Select a stock category'), ':</label>
+			<select name="StockCat">';
 
 	while ($MyRow1 = DB_fetch_array($Result1)) {
 		if (isset($_POST['StockCat']) and $MyRow1['categoryid'] == $_POST['StockCat']) {
@@ -377,27 +387,29 @@ if (!isset($SelectedStockItem)) {
 	}
 
 	echo '</select>
-			</td>';
-	echo '<td>', _('Enter text extracts in the description'), ':</td>
-		<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td><b> ', _('OR'), ' </b>', _('Enter extract of the Stock Code'), ':</td>
-		<td><input type="text" name="StockCode" size="15" maxlength="18" /></td>
-	</tr>
-	<tr>
-		<td colspan="4">
-			<div class="centre">
+		</field>';
+
+	echo '<field>
+			<label for="Keywords">', _('Enter text extracts in the description'), ':</label>
+			<input type="text" name="Keywords" size="20" maxlength="25" />
+		</field>';
+
+	echo '<h1>', _('OR'), '</h1>';
+
+	echo '<field>
+			<label for="StockCode">', _('Enter extract of the Stock Code'), ':</label>
+			<input type="text" name="StockCode" size="15" maxlength="18" />
+		</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
 				<input type="submit" name="SearchParts" value="', _('Search Parts Now'), '" />';
 
 	if (count($_SESSION['AllowedPageSecurityTokens']) > 1) {
 		echo '<input type="submit" name="ResetPart" value="', _('Show All'), '" /></div>';
 	}
-	echo '</div>
-		</td>
-	</tr>
-</table>';
+	echo '</div>';
 
 }
 
@@ -450,7 +462,7 @@ if (isset($SalesOrdersResult)) {
 	echo '<table cellpadding="2" width="90%">
 			<thead>
 				<tr>
-					<th colspan="9">
+					<th colspan="8">
 						<h3>', _('Sales Orders'), '
 							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="" onclick="window.print();" />
 						</h3>

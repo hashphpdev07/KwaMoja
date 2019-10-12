@@ -36,14 +36,14 @@ if (!isset($SelectedID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Index ') . "</td>
-		<td class='tableheader'>" . _('Ref ID') . "</td>
-		<td class='tableheader'>" . _('Loan Description ') . "</td>
-		<td class='tableheader'>" . _('Start of Deduction') . "</td>
-		<td class='tableheader'>" . _('Employee Name') . "</td>
-		<td class='tableheader'>" . _('Loan Type') . "</td>
-		<td class='tableheader'>" . _('Loan Amount') . "</td>
-		<td class='tableheader'>" . _('Amortization') . "</td>
+		<th>" . _('Index ') . "</th>
+		<th>" . _('Ref ID') . "</th>
+		<th>" . _('Loan Description ') . "</th>
+		<th>" . _('Start of Deduction') . "</th>
+		<th>" . _('Employee Name') . "</th>
+		<th>" . _('Loan Type') . "</th>
+		<th>" . _('Loan Amount') . "</th>
+		<th>" . _('Amortization') . "</th>
 	</tr>";
 	$k = 0;
 	while ($MyRow = DB_fetch_array($Result)) {

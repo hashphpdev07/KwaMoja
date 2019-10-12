@@ -1,0 +1,50 @@
+header {
+background:transparent;
+padding:10px;
+}
+#Info {
+display:inline;
+padding:10px;
+}
+#Info img {
+padding-right:7px;
+width:32px;
+}
+#ActionIcon {
+background:#686868;
+display:inline;
+float:right;
+padding-left:10px;
+padding-right:10px;
+height:50px;
+padding-top:9px;
+border-left: 1px solid #1A1A1A;
+margin-top:-10px;
+}
+#ActionIcon img{
+padding-right:7px;
+width:32px;
+}
+#ExitIcon {
+background:#686868;
+display:inline;
+float:right;
+padding-left:10px;
+padding-right:30px;
+height:50px;
+padding-top:9px;
+border-left: 1px solid #1A1A1A;
+margin-top:-10px;
+}
+.FontSize {
+font-weight:bold;
+display:inline;
+padding:3px;
+}
+.ScriptTitle {
+font-weight:bold;
+font-size:130%;
+display:inline;
+padding:10px;
+margin-left:0px;
+}

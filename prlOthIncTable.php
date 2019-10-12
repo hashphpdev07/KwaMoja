@@ -127,9 +127,9 @@ if (!isset($OthIncID)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Other Income ID') . "</td>
-		<td class='tableheader'>" . _('Other Income Description') . "</td>
-		<td class='tableheader'>" . _('Taxable Income') . "</td>
+		<th>" . _('Other Income ID') . "</th>
+		<th>" . _('Other Income Description') . "</th>
+		<th>" . _('Taxable Income') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

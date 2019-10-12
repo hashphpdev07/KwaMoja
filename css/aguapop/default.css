@@ -21,9 +21,9 @@ width:32px;
 }
 
 div.toplink {
-padding-top:1%;
+padding-top:0.3%;
 padding-left:1%;
-margin-bottom:-1%;
+margin-bottom:-1.5%;
 text-align:left
 }
 
@@ -190,11 +190,6 @@ font-weight:700;
 text-align:center;
 margin:0 auto;
 padding:5px;
-}
-
-.page_title_icon {
-padding-right:7px;
-width:32px;
 }
 
 p.good {

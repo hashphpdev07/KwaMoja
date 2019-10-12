@@ -29,7 +29,7 @@ if ((!isset($_GET['TransNo']) or $_GET['TransNo'] == '') and !isset($_POST['Tran
 			INNER JOIN locationusers ON locationusers.loccode=locations.loccode AND locationusers.userid='" . $_SESSION['UserID'] . "' AND locationusers.canupd=1";
 	$Result = DB_query($SQL);
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/sales.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/sales.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 		</p>';
 
 	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" name="form">';

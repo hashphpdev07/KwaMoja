@@ -52,12 +52,12 @@ if (!isset($Counter)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Index') . "</td>
-		<td class='tableheader'>" . _('Ref ') . "</td>
-		<td class='tableheader'>" . _('Desc') . "</td>
-		<td class='tableheader'>" . _('Date ') . "</td>
-		<td class='tableheader'>" . _('EE ID ') . "</td>
-		<td class='tableheader'>" . _('Hours') . "</td>
+		<th>" . _('Index') . "</th>
+		<th>" . _('Ref ') . "</th>
+		<th>" . _('Desc') . "</th>
+		<th>" . _('Date ') . "</th>
+		<th>" . _('EE ID ') . "</th>
+		<th>" . _('Hours') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter

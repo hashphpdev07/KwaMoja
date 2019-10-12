@@ -399,7 +399,7 @@ if (isset($_POST['AllocTrans'])) {
 	/*Show the transaction being allocated and the potential trans it could be allocated to
 	 and those where there is already an existing allocation */
 
-	echo '<div class="centre page_hint_text">
+	echo '<div class="centre page_help_text">
 			' . _('Allocation of supplier') . ' ' . $_SESSION['Alloc']->TransTypeName . ' ' . _('number') . ' ' . $_SESSION['Alloc']->TransNo . ' ' . _('from') . ' ' . $_SESSION['Alloc']->SupplierID . ' - <b>' . $_SESSION['Alloc']->SuppName . '</b>, ' . _('dated') . ' ' . $_SESSION['Alloc']->TransDate;
 
 	if ($_SESSION['Alloc']->TransExRate != 1) {

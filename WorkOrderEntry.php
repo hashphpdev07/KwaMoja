@@ -6,7 +6,7 @@ include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 /*unique session identifier to ensure that there is no conflict with other order entry sessions on the same machine  */

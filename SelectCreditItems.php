@@ -26,7 +26,7 @@ if (empty($_GET['identifier'])) {
 
 if (isset($_POST['ProcessCredit']) and !isset($_SESSION['CreditItems' . $Identifier])) {
 	prnMsg(_('This credit note has already been processed. Refreshing the page will not enter the credit note again') . '<br />' . _('Please use the navigation links provided rather than using the browser back button and then having to refresh'), 'info');
-	echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
+	echo '<br /><a href="', $RootPath, '/index.php">', _('Back to the menu'), '</a>';
 	include ('includes/footer.php');
 	exit;
 }
@@ -63,7 +63,7 @@ if (isset($_POST['CancelCredit'])) {
 }
 
 if (isset($_POST['SearchCust']) and $_SESSION['RequireCustomerSelection'] == 1) {
-
+	unset($_POST['JustSelectedACustomer']);
 	$SearchString = '%' . str_replace(' ', '%', $_POST['Keywords']) . '%';
 
 	$SQL = "SELECT	debtorsmaster.name,
@@ -182,24 +182,32 @@ if (isset($SelectedCustomer) and isset($_POST['JustSelectedACustomer'])) {
 /* if the change customer button hit or the customer has not already been selected */
 if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems' . $Identifier]->DebtorNo) or $_SESSION['CreditItems' . $Identifier]->DebtorNo == '') {
 
-	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . _('Select Customer For Credit Note') . '</p>';
+	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', $Identifier, '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
-	echo '<table cellpadding="3">';
-	echo '<tr>
-			<th colspan="5"><h3> ' . _('Customer Selection') . '</h3></th>
-		</tr>
-		<tr>
-			<td>' . _('Enter text in the customer name') . ':</td>
-			<td><input type="text" name="Keywords" size="20" maxlength="25" /></td>
-			<td><b>' . _('OR') . '</b></td>
-			<td>' . _('Enter text extract in the customer code') . ':</td>
-			<td><input type="text" name="CustCode" size="15" maxlength="18" /></td>
-		</tr>';
-	echo '</table>
-		<div class="centre">
-			<input type="submit" name="SearchCust" value="' . _('Search Now') . '" />
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', _('Select Customer For Credit Note'), '
+		</p>';
+
+	echo '<fieldset>
+			<legend class="search"> ', _('Customer Selection'), '</legend>';
+
+	echo '<field>
+			<label for="Keywords">', _('Enter text in the customer name'), ':</label>
+			<input type="text" name="Keywords" size="20" maxlength="25" />
+		</field>';
+
+	echo '<h1>', _('OR'), '</h1	>';
+
+	echo '<field>
+			<label for="CustCode">', _('Enter text extract in the customer code'), ':</label>
+			<input type="text" name="CustCode" size="15" maxlength="18" />
+		</field>';
+
+	echo '</fieldset>';
+
+	echo '<div class="centre">
+			<input type="submit" name="SearchCust" value="', _('Search Now'), '" />
 		</div>';
 
 	if (isset($Result_CustSelect)) {
@@ -216,23 +224,23 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 				</thead>';
 
 		$j = 1;
-		$k = 0; //row counter to determine background colour
+
 		$LastCustomer = '';
 		echo '<tbody>';
 		while ($MyRow = DB_fetch_array($Result_CustSelect)) {
-
+			echo '<tr class="striped_row">';
 			if ($LastCustomer != $MyRow['name']) {
-				echo '<td>' . $MyRow['name'] . '</td>';
+				echo '<td>', $MyRow['name'], '</td>';
 			} else {
 				echo '<td></td>';
 			}
-			echo '<tr class="striped_row">
-					<td><input type="submit" name="SubmitCustomerSelection' . $j . '" value="' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '" />
-					<input type="hidden" name="SelectedCustomer' . $j . '" value="' . $MyRow['debtorno'] . '" />
-					<input type="hidden" name="SelectedBranch' . $j . '" value="' . $MyRow['branchcode'] . '" /></td>
-					<td>' . $MyRow['contactname'] . '</td>
-					<td>' . $MyRow['phoneno'] . '</td>
-					<td>' . $MyRow['faxno'] . '</td>
+
+			echo '<td><input type="submit" name="SubmitCustomerSelection', $j, '" value="', htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8'), '" />
+					<input type="hidden" name="SelectedCustomer', $j, '" value="', $MyRow['debtorno'], '" />
+					<input type="hidden" name="SelectedBranch', $j, '" value="', $MyRow['branchcode'], '" /></td>
+					<td>', $MyRow['contactname'], '</td>
+					<td>', $MyRow['phoneno'], '</td>
+					<td>', $MyRow['faxno'], '</td>
 				</tr>';
 			$LastCustomer = $MyRow['name'];
 			++$j;
@@ -251,7 +259,9 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 	/* everything below here only do if a customer is selected
 	 first add a header to show who we are making a credit note for */
 
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Search') . '" alt="" />' . ' ' . $_SESSION['CreditItems' . $Identifier]->CustomerName . ' - ' . $_SESSION['CreditItems' . $Identifier]->DeliverTo . '</p>';
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/magnifier.png" title="', _('Search'), '" alt="" />', ' ', $_SESSION['CreditItems' . $Identifier]->CustomerName, ' - ', $_SESSION['CreditItems' . $Identifier]->DeliverTo . '
+		</p>';
 
 	if (isset($_POST['SalesPerson'])) {
 		$_SESSION['CreditItems' . $Identifier]->SalesPerson = $_POST['SalesPerson'];
@@ -369,8 +379,8 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 	/*Always do the stuff below if not looking for a customerid
 	 Set up the form for the credit note display and  entry*/
 
-	echo '<form id="MainForm" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '" method="post">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<form id="MainForm" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '" method="post">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	/*Process Quick Entry */
 	if (isset($_POST['QuickEntry'])) {
@@ -409,7 +419,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 
 				$SQL = "SELECT stockmaster.description,
 								stockmaster.longdescription,
-					    		stockmaster.stockid,
+								stockmaster.stockid,
 								stockmaster.units,
 								stockmaster.volume,
 								stockmaster.grossweight,
@@ -589,18 +599,18 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 
 		echo '<table cellpadding="2">
 				<tr>
-					<th>' . _('Item Code') . '</th>
-					<th>' . _('Item Description') . '</th>
-					<th>' . _('Quantity') . '</th>
-					<th>' . _('Unit') . '</th>
-					<th>' . _('Price') . '</th>
-					<th>' . _('Gross') . '</th>
-					<th>' . _('Discount') . '</th>
-					<th>' . _('Total') . '<br />' . _('Excl Tax') . '</th>
-					<th>' . _('Tax Authority') . '</th>
-					<th>' . _('Tax') . '<br />' . _('Rate') . '</th>
-					<th>' . _('Tax') . '<br />' . _('Amount') . '</th>
-					<th>' . _('Total') . '<br />' . _('Incl Tax') . '</th>
+					<th>', _('Item Code'), '</th>
+					<th>', _('Item Description'), '</th>
+					<th>', _('Quantity'), '</th>
+					<th>', _('Unit'), '</th>
+					<th>', _('Price'), '</th>
+					<th>', _('Gross'), '</th>
+					<th>', _('Discount'), '</th>
+					<th>', _('Total'), '<br />', _('Excl Tax'), '</th>
+					<th>', _('Tax Authority'), '</th>
+					<th>', _('Tax'), '<br />', _('Rate'), '</th>
+					<th>', _('Tax'), '<br />', _('Amount'), '</th>
+					<th>', _('Total'), '<br />', _('Incl Tax'), '</th>
 				</tr>';
 
 		$_SESSION['CreditItems' . $Identifier]->total = 0;
@@ -617,22 +627,24 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 			$DisplayLineTotal = locale_number_format($LineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
 			echo '<tr class="striped_row">
-					<td>' . $LineItem->StockID . '</td>
-					<td title="' . $LineItem->LongDescription . '">' . $LineItem->ItemDescription . '</td>';
+					<td>', $LineItem->StockID, '</td>
+					<td title="', $LineItem->LongDescription, '">', $LineItem->ItemDescription, '</td>';
 
 			if ($LineItem->Controlled == 0) {
-				echo '<td><input type="text" class="number" name="Quantity_' . $LineItem->LineNumber . '" required="required" maxlength="11" size="6" value="' . locale_number_format(round($LineItem->Quantity, $LineItem->DecimalPlaces), $LineItem->DecimalPlaces) . '" /></td>';
+				echo '<td>
+						<input type="text" class="number" name="Quantity_', $LineItem->LineNumber, '" required="required" maxlength="11" size="6" value="', locale_number_format(round($LineItem->Quantity, $LineItem->DecimalPlaces), $LineItem->DecimalPlaces), '" />
+					</td>';
 			} else {
 				echo '<td class="number">
-						<a href="' . $RootPath . '/CreditItemsControlled.php?LineNo=' . urlencode($LineItem->LineNumber) . '&identifier=' . urlencode($Identifier) . '">' . locale_number_format($LineItem->Quantity, $LineItem->DecimalPlaces) . '</a>
-                      <input type="hidden" name="Quantity_' . $LineItem->LineNumber . '" value="' . locale_number_format(round($LineItem->Quantity, $LineItem->DecimalPlaces), $LineItem->DecimalPlaces) . '" /></td>';
+						<a href="', $RootPath, '/CreditItemsControlled.php?LineNo=', urlencode($LineItem->LineNumber), '&identifier=', urlencode($Identifier), '">', locale_number_format($LineItem->Quantity, $LineItem->DecimalPlaces), '</a>
+					  <input type="hidden" name="Quantity_', $LineItem->LineNumber, '" value="', locale_number_format(round($LineItem->Quantity, $LineItem->DecimalPlaces), $LineItem->DecimalPlaces), '" /></td>';
 			}
 
-			echo '<td>' . $LineItem->Units . '</td>
-			<td><input type="text" class="number" name="Price_' . $LineItem->LineNumber . '" size="10" required="required" maxlength="12" value="' . locale_number_format($LineItem->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces) . '" /></td>
-			<td><input type="CheckBox" name="Gross" value="false" /></td>
-			<td><input type="text" class="number" name="Discount_' . $LineItem->LineNumber . '" size="3" required="required" maxlength="3" value="' . locale_number_format(($LineItem->DiscountPercent * 100), 'Variable') . '" />%</td>
-			<td class="number">' . $DisplayLineTotal . '</td>';
+			echo '<td>', $LineItem->Units, '</td>
+				<td><input type="text" class="number" name="Price_', $LineItem->LineNumber, '" size="10" required="required" maxlength="12" value="', locale_number_format($LineItem->Price, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces), '" /></td>
+				<td><input type="CheckBox" name="Gross" value="false" /></td>
+				<td><input type="text" class="number" name="Discount_', $LineItem->LineNumber, '" size="3" required="required" maxlength="3" value="', locale_number_format(($LineItem->DiscountPercent * 100), 'Variable'), '" />%</td>
+				<td class="number">', $DisplayLineTotal, '</td>';
 
 			/*Need to list the taxes applicable to this line */
 			echo '<td>';
@@ -650,7 +662,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 				if ($i > 0) {
 					echo '<br />';
 				}
-				echo '<input type="text" class="number" name="' . $LineItem->LineNumber . $TaxKey . '_TaxRate" maxlength="4" size="4" value="' . locale_number_format($Tax->TaxRate * 100, 'Variable') . '" />';
+				echo '<input type="text" class="number" name="', $LineItem->LineNumber, $TaxKey, '_TaxRate" maxlength="4" size="4" value="', locale_number_format($Tax->TaxRate * 100, 'Variable'), '" /> %';
 				++$i;
 				if ($Tax->TaxOnTax == 1) {
 					$TaxTotals[$Tax->TaxAuthID]+= ($Tax->TaxRate * ($LineTotal + $TaxLineTotal));
@@ -668,13 +680,17 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 			$DisplayTaxAmount = locale_number_format($TaxLineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 			$DisplayGrossLineTotal = locale_number_format($LineTotal + $TaxLineTotal, $_SESSION['CreditItems' . $Identifier]->CurrDecimalPlaces);
 
-			echo '<td class="number">' . $DisplayTaxAmount . '</td>
-				<td class="number">' . $DisplayGrossLineTotal . '</td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?identifier=' . $Identifier . '&Delete=' . $LineItem->LineNumber . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this line item from the credit note?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
-				</tr>';
+			echo '<td class="number">', $DisplayTaxAmount, '</td>
+				<td class="number">', $DisplayGrossLineTotal, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?identifier=', urlencode($Identifier), '&Delete=', urlencode($LineItem->LineNumber), '" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this line item from the credit note?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
+			</tr>';
 
-			echo $RowStarter;
-			echo '<td colspan="11"><textarea  name="Narrative_' . $LineItem->LineNumber . '" cols="100%" rows="1">' . $LineItem->Narrative . '</textarea><br /></td></tr>';
+			echo '<tr>
+					<td>', _('Comments'), '</td>
+					<td colspan="10">
+						<textarea  name="Narrative_', $LineItem->LineNumber, '" cols="100%" rows="1">', $LineItem->Narrative, '</textarea>
+					</td>
+				</tr>';
 
 			$_SESSION['CreditItems' . $Identifier]->total+= $LineTotal;
 			$_SESSION['CreditItems' . $Identifier]->totalVolume+= ($LineItem->Quantity * $LineItem->Volume);
@@ -710,7 +726,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 				echo '<br />';
 			}
 
-			echo '<input type="text" class="number" name=FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder . ' required="required" maxlength="4" size="4" value="' . locale_number_format(($FreightTaxLine->TaxRate * 100), 'Variable') . '" />';
+			echo '<input type="text" class="number" name=FreightTaxRate' . $FreightTaxLine->TaxCalculationOrder . ' required="required" maxlength="4" size="4" value="' . locale_number_format(($FreightTaxLine->TaxRate * 100), 'Variable') . '" /> %';
 
 			if ($FreightTaxLine->TaxOnTax == 1) {
 				$TaxTotals[$FreightTaxLine->TaxAuthID]+= ($FreightTaxLine->TaxRate * ($_SESSION['CreditItems' . $Identifier]->FreightCost + $FreightTaxTotal));
@@ -880,49 +896,60 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 
 		$Result1 = DB_query($SQL);
 
-		echo '<br />
-				<table>
-				<tr>
-					<td>' . _('Select a stock category') . ':&nbsp;<select name="StockCat">';
+		echo '<fieldset>
+				<legend class="search">', _('Search Criteria'), '</legend>';
 
-		echo '<option selected="selected" value="All">' . _('All') . '</option>';
+		echo '<field>
+				<label for="StockCat">', _('Select a stock category'), '</label>
+				<select name="StockCat">';
+
+		echo '<option selected="selected" value="All">', _('All'), '</option>';
 		while ($MyRow1 = DB_fetch_array($Result1)) {
 			if (isset($_POST['StockCat']) and $_POST['StockCat'] == $MyRow1['categoryid']) {
-				echo '<option selected="selected" value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+				echo '<option selected="selected" value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 			} else {
-				echo '<option value="' . $MyRow1['categoryid'] . '">' . $MyRow1['categorydescription'] . '</option>';
+				echo '<option value="', $MyRow1['categoryid'], '">', $MyRow1['categorydescription'], '</option>';
 			}
 		}
+		echo '</select>
+			<fieldhelp>', _('Select the stock category to filter by, or choose All to select from all categories'), '</fieldhelp>
+		</field>';
 
-		echo '</select></td>';
 		if (!isset($_POST['Keywords'])) {
 			$_POST['Keywords'] = '';
 		}
 		if (!isset($_POST['StockCode'])) {
 			$_POST['StockCode'] = '';
 		}
-		echo '<td>' . _('Enter text extracts in the description') . ':&nbsp;</td>';
-		echo '<td><input type="text" name="Keywords" size="20" maxlength="25" value="' . $_POST['Keywords'] . '" /></td></tr>';
-		echo '<tr><td></td>';
-		echo '<td><b>' . _('OR') . '</b>&nbsp;&nbsp;' . _('Enter extract of the Stock Code') . ':&nbsp;</td>';
-		echo '<td><input type="text" name="StockCode" size="15" maxlength="18" value="' . $_POST['StockCode'] . '" /></td>';
-		echo '</tr>';
-		echo '</table>
-				<br />
-				<div class="centre">';
+		echo '<field>
+				<label for="Keywords">', _('Enter text extracts in the description'), ':</label>
+				<input type="text" name="Keywords" size="20" maxlength="25" value="', $_POST['Keywords'], '" />
+				<fieldhelp>', _('Enter all or part of the item description you are searching for'), '</fieldhelp>
+			</field>';
 
-		echo '<input type="submit" name="Search" value="' . _('Search Now') . '" />
-				<input type="submit" name="ChangeCustomer" value="' . _('Change Customer') . '" />
-				<input type="submit" name="Quick" value="' . _('Quick Entry') . '" />
-				</div>';
+		echo '<h1>', _('OR'), '</h1>';
+
+		echo '<field>
+				<label for="StockCode">', _('Enter extract of the Stock Code'), ':</label>
+				<input type="text" name="StockCode" size="15" maxlength="18" value="', $_POST['StockCode'], '" />
+				<fieldhelp>', _('Enter all or part of the item code you are searching for'), '</fieldhelp>
+			</field>';
+
+		echo '</fieldset>';
+
+		echo '<div class="centre">
+				<input type="submit" name="Search" value="', _('Search Now'), '" />
+				<input type="submit" name="ChangeCustomer" value="', _('Change Customer'), '" />
+				<input type="submit" name="Quick" value="', _('Quick Entry'), '" />
+			</div>';
 
 		if (isset($SearchResult)) {
 
 			echo '<table cellpadding="2">
 					<tr>
-						<th>' . _('Code') . '</th>
-						<th>' . _('Description') . '</th>
-						<th>' . _('Units') . '</th>
+						<th>', _('Code'), '</th>
+						<th>', _('Description'), '</th>
+						<th>', _('Units'), '</th>
 					</tr>';
 
 			$j = 1;
@@ -930,22 +957,29 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 			while ($MyRow = DB_fetch_array($SearchResult)) {
 
 				$SupportedImgExt = array('png', 'jpg', 'jpeg');
-				$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
+				//				$ImageFile = reset((glob($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.{' . implode(",", $SupportedImgExt) . '}', GLOB_BRACE)));
+				foreach ($SupportedImgExt as $Extension) {
+					if (file_exists($_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.' . $Extension)) {
+						$ImageFile = $_SESSION['part_pics_dir'] . '/' . $MyRow['stockid'] . '.' . $Extension;
+					} else {
+						$ImageFile = '';
+					}
+				}
 				if (extension_loaded('gd') && function_exists('gd_info') && file_exists($ImageFile)) {
 					$ImageSource = '<img src="GetStockImage.php?automake=1&textcolor=FFFFFF&bgcolor=CCCCCC&StockID=' . urlencode($MyRow['stockid']) . '&text=&width=64&height=64" alt="" />';
-					printf('<tr class="striped_row">
-								<td><input type="submit" name="NewItem" value="%s" /></td>
-								<td>%s</td>
-								<td>%s</td>
-								<td>' . $ImageSource . '</td>
-							</tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units'], $MyRow['stockid']);
+					echo '<tr class="striped_row">
+							<td><input type="submit" name="NewItem" value="', $MyRow['stockid'], '" /></td>
+							<td>', $MyRow['description'], '</td>
+							<td>', $MyRow['units'], '</td>
+							<td>', $ImageSource, '</td>
+						</tr>';
 				} else { //don't try to show the image
-					printf('<tr class="striped_row">
-								<td><input type="submit" name="NewItem" value="%s" /></td>
-								<td>%s</td>
-								<td>%s</td>
-								<td>' . _('No Image') . '</td>
-							</tr>', $MyRow['stockid'], $MyRow['description'], $MyRow['units']);
+					echo '<tr class="striped_row">
+							<td><input type="submit" name="NewItem" value="', $MyRow['stockid'], '" /></td>
+							<td>', $MyRow['description'], '</td>
+							<td>', $MyRow['units'], '</td>
+							<td>', _('No Image'), '</td>
+						</tr>';
 				}
 				//end of page full new headings if
 				
@@ -962,27 +996,27 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['CreditItems'
 		/*FORM VARIABLES TO POST TO THE CREDIT NOTE 10 AT A TIME WITH PART CODE AND QUANTITY */
 		echo '<table>
 				<tr>
-					<th colspan="2"><h3>' . _('Quick Entry') . '</h3></th>
+					<th colspan="2"><h3>', _('Quick Entry'), '</h3></th>
 				</tr>
 				<tr>
-	           		<th>' . _('Part Code') . '</th>
-	           		<th>' . _('Quantity') . '</th>
-	           	</tr>';
+					<th>', _('Part Code'), '</th>
+					<th>', _('Quantity'), '</th>
+				</tr>';
 
 		for ($i = 1;$i <= $_SESSION['QuickEntries'];$i++) {
 
 			echo '<tr class="striped_row">
-					<td><input type="text" name="part_' . $i . '" size="21" maxlength="20" /></td>
-					<td><input type="text" class="number" name="qty_' . $i . '" size="6" maxlength="6" /></td>
+					<td><input type="text" name="part_', $i, '" size="21" maxlength="20" /></td>
+					<td><input type="text" class="number" name="qty_', $i, '" size="6" maxlength="6" /></td>
 				</tr>';
 		}
 
-		echo '</table>
-				<br />
-				<div class="centre">
-				<input type="submit" name="QuickEntry" value="' . _('Process Entries') . '" />
-				<input type="submit" name="PartSearch" value="' . _('Search Parts') . '" />
-				</div>';
+		echo '</table>';
+
+		echo '<div class="centre">
+				<input type="submit" name="QuickEntry" value="', _('Process Entries'), '" />
+				<input type="submit" name="PartSearch" value="', _('Search Parts'), '" />
+			</div>';
 
 	}
 

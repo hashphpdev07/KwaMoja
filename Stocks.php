@@ -83,6 +83,9 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 	} elseif ($_FILES['ItemPicture']['error'] == 6) { //upload temp directory check
 		prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
 		$UploadTheFile = 'No';
+	} elseif (!is_writable($_SESSION['part_pics_dir'])) {
+		prnMsg(_('The web server user does not have permission to upload files. Please speak to your system administrator'), 'warn');
+		$UploadTheFile = 'No';
 	}
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;

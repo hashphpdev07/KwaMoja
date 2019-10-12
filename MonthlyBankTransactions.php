@@ -4,7 +4,7 @@ $Title = _('Monthly Bank Transactions Inquiry');
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 if (!isset($_POST['Show'])) {

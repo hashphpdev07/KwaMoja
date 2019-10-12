@@ -5,7 +5,9 @@ $ViewTopic = 'Inventory'; // Filename in ManualContents.php's TOC.
 $BookMark = 'LocationUsers'; // Anchor's id in the manual's html document.
 include ('includes/header.php');
 
-echo '<p class="page_title_text"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/money_add.png" title="' . _('Location Authorised Users') . '" alt="" />' . ' ' . $Title . '</p>';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/money_add.png" data-title="', _('Location Authorised Users'), '" alt="" />', ' ', $Title, '
+	</p>';
 
 if (isset($_POST['SelectedUser'])) {
 	$SelectedUser = mb_strtoupper($_POST['SelectedUser']);
@@ -102,33 +104,30 @@ if (!isset($SelectedLocation)) {
 
 	/* It could still be the second time the page has been run and a record has been selected for modification - SelectedUser will exist because it was sent with the new call. If its the first time the page has been displayed with no parameters
 	 then none of the above are true. These will call the same page again and allow update/input or deletion of the records*/
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />
-			<table>
-			<tr>
-				<td>' . _('Select Location') . ':</td>
-				<td><select name="SelectedLocation">';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />
+			<fieldset>
+				<legend>', _('Location'), '</legend>
+				<label for="SelectedLocation">', _('Select the location'), '</label>
+				<select name="SelectedLocation" autofocus="autofocus">';
 
 	$SQL = "SELECT loccode,
 					locationname
 			FROM locations";
 
 	$Result = DB_query($SQL);
-	echo '<option value="">' . _('Not Yet Selected') . '</option>';
+	echo '<option value="">', _('Not Yet Selected'), '</option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if (isset($SelectedLocation) and $MyRow['loccode'] == $SelectedLocation) {
-			echo '<option selected="selected" value="';
+			echo '<option selected="selected" value="', $MyRow['loccode'], '">', $MyRow['loccode'], ' - ', $MyRow['locationname'], '</option>';
 		} else {
-			echo '<option value="';
+			echo '<option value="', $MyRow['loccode'], '">', $MyRow['loccode'], ' - ', $MyRow['locationname'], '</option>';
 		}
-		echo $MyRow['loccode'] . '">' . $MyRow['loccode'] . ' - ' . $MyRow['locationname'] . '</option>';
 
 	} //end while loop
-	echo '</select></td></tr>';
+	echo '</select>';
 
-	echo '</table>'; // close main table
-	DB_free_result($Result);
-
+	echo '</fieldset>'; // close main table
 	echo '<div class="centre">
 			<input type="submit" name="Process" value="' . _('Accept') . '" />
 			<input type="submit" name="Cancel" value="' . _('Cancel') . '" />
@@ -147,11 +146,14 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 	$MyRow = DB_fetch_array($Result);
 	$SelectedLocationName = $MyRow['locationname'];
 
-	echo '<div class="centre"><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">' . _('Authorised users for') . ' ' . $SelectedLocationName . ' ' . _('Location') . '</a></div>';
-	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+	echo '<div class="centre">
+			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">', _('Authorised users for'), ' ', $SelectedLocationName, ' ', _('Location'), '</a>
+		</div>';
 
-	echo '<input type="hidden" name="SelectedLocation" value="' . $SelectedLocation . '" />';
+	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+
+	echo '<input type="hidden" name="SelectedLocation" value="', $SelectedLocation, '" />';
 
 	$SQL = "SELECT locationusers.userid,
 					canview,
@@ -166,40 +168,50 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 
 	echo '<table>';
 	echo '<tr>
-			<th colspan="6"><h3>' . _('Authorised users for Location') . ': ' . $SelectedLocationName . '</h3></th>
+			<th colspan="6"><h3>', _('Authorised users for Location'), ': ', $SelectedLocationName, '</h3></th>
 		</tr>';
 	echo '<tr>
-			<th>' . _('User Code') . '</th>
-			<th>' . _('User Name') . '</th>
-			<th>' . _('View') . '</th>
-			<th>' . _('Update') . '</th>
+			<th>', _('User Code'), '</th>
+			<th>', _('User Name'), '</th>
+			<th>', _('View'), '</th>
+			<th>', _('Update'), '</th>
+			<th colspan="2"></th>
 		</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
 
 		if ($MyRow['canupd'] == 1) {
-			$ToggleText = '<td><a href="%s?SelectedUser=%s&amp;ToggleUpdate=0&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to remove Update for this user?') . '\');">' . _('Remove Update') . '</a></td>';
+			$ToggleText = '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedUser=' . $MyRow['userid'] . '&amp;ToggleUpdate=0&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to remove Update for this user?') . '\');">' . _('Remove Update') . '</a></td>';
+			$Update = _('Yes');
 		} else {
-			$ToggleText = '<td><a href="%s?SelectedUser=%s&amp;ToggleUpdate=1&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to add Update for this user?') . '\');">' . _('Add Update') . '</a></td>';
+			$ToggleText = '<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?SelectedUser=' . $MyRow['userid'] . '&amp;ToggleUpdate=1&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to add Update for this user?') . '\');">' . _('Add Update') . '</a></td>';
+			$Update = _('No');
 		}
 
-		printf('<tr class="striped_row">
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>
-					<td>%s</td>' . $ToggleText . '
-					<td><a href="%s?SelectedUser=%s&amp;delete=yes&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorise this user?') . '\');">' . _('Un-authorise') . '</a></td>
-				</tr>', $MyRow['userid'], $MyRow['realname'], $MyRow['canview'], $MyRow['canupd'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow['userid'], htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), $MyRow['userid']);
+		if ($MyRow['canview'] == 1) {
+			$CanView = _('Yes');
+		} else {
+			$CanView = _('No');
+		}
+
+		echo '<tr class="striped_row">
+				<td>', $MyRow['userid'], '</td>
+				<td>', $MyRow['realname'], '</td>
+				<td>', $CanView, '</td>
+				<td>', $Update, '</td>', $ToggleText, '
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedUser=', $MyRow['userid'], '&amp;delete=yes&amp;SelectedLocation=' . $SelectedLocation . '" onclick="return confirm(\'' . _('Are you sure you wish to un-authorise this user?') . '\');">' . _('Un-authorise') . '</a></td>
+			</tr>';
 	}
 	//END WHILE LIST LOOP
 	echo '</table>';
 
 	if (!isset($_GET['delete'])) {
 
-		echo '<table >'; //Main table
-		echo '<tr>
-				<td>' . _('Select User') . ':</td>
-				<td><select name="SelectedUser">';
+		echo '<fieldset >
+				<legend>', _('Users'), '</legend>
+				<field>
+					<label for="SelectedUser">', _('Select User'), ':</label>
+					<select name="SelectedUser">';
 
 		$SQL = "SELECT userid,
 						realname
@@ -211,27 +223,23 @@ if (isset($_POST['process']) or isset($SelectedLocation)) {
 
 		$Result = DB_query($SQL);
 		if (!isset($_POST['SelectedUser'])) {
-			echo '<option selected="selected" value="">' . _('Not Yet Selected') . '</option>';
+			echo '<option selected="selected" value="">', _('Not Yet Selected'), '</option>';
 		}
 		while ($MyRow = DB_fetch_array($Result)) {
 			if (isset($_POST['SelectedUser']) and $MyRow['userid'] == $_POST['SelectedUser']) {
-				echo '<option selected="selected" value="';
+				echo '<option selected="selected" value="', $MyRow['userid'], '">', $MyRow['userid'], ' - ', $MyRow['realname'], '</option>';
 			} else {
-				echo '<option value="';
+				echo '<option value="', $MyRow['userid'], '">', $MyRow['userid'], ' - ', $MyRow['realname'], '</option>';
 			}
-			echo $MyRow['userid'] . '">' . $MyRow['userid'] . ' - ' . $MyRow['realname'] . '</option>';
-
 		} //end while loop
 		echo '</select>
-					</td>
-				</tr>';
+			<fieldhelp>', _('Select the user to Authorise'), '</fieldhelp>
+		</field>';
 
-		echo '</table>'; // close main table
-		DB_free_result($Result);
-
+		echo '</fieldset>'; // close main table
 		echo '<div class="centre">
-				<input type="submit" name="submit" value="' . _('Accept') . '" />
-				<input type="submit" name="Cancel" value="' . _('Cancel') . '" />
+				<input type="submit" name="submit" value="', _('Accept'), '" />
+				<input type="submit" name="Cancel" value="', _('Cancel'), '" />
 			</div>';
 
 		echo '</form>';

@@ -28,7 +28,7 @@ if (DB_num_rows($Result) == 0) {
 	prnMsg(_('There are no templates stored in the database.'), 'warn');
 } else {
 	echo '<p class="page_title_text" >
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="" alt="" />', ' ', _('Maintain journal templates'), '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="" alt="" />', ' ', _('Maintain journal templates'), '
 		</p>';
 
 	echo '<table>

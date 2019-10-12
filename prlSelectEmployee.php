@@ -14,7 +14,7 @@ if (isset($_GET['EmployeeID'])) {
 }
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="', $Title, '" />', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="', $Title, '" />', $Title, '
 	</p>';
 
 if (isset($_GET['delete'])) {

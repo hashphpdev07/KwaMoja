@@ -412,7 +412,7 @@ if (!isset($SelectedLocation)) {
 	$Result = DB_query($SQL);
 
 	echo '<p class="page_title_text">
-			<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Locations'), '" alt="" />', $Title, '
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Locations'), '" alt="" />', $Title, '
 		</p>';
 
 	if (DB_num_rows($Result) == 0) {
@@ -500,7 +500,7 @@ if (!isset($_GET['delete'])) {
 	if (isset($SelectedLocation)) {
 		//editing an existing Location
 		echo '<p class="page_title_text">
-				<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Locations'), '" alt="" />', $Title, '
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/supplier.png" title="', _('Locations'), '" alt="" />', $Title, '
 			</p>';
 
 		$SQL = "SELECT loccode,

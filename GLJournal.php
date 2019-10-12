@@ -83,7 +83,7 @@ if (isset($_POST['LoadTemplate'])) {
 		prnMsg(_('There are no templates saved. You must first create a template.'), 'warn');
 	} else {
 		echo '<p class="page_title_text" >
-				<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="" alt="" />', ' ', _('Load journal from a template'), '
+				<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="" alt="" />', ' ', _('Load journal from a template'), '
 			</p>';
 
 		echo '<table>
@@ -189,7 +189,7 @@ if (isset($_POST['ConfimSave'])) {
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 	echo '<p class="page_title_text" >
-			<img  class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="" alt="" />', ' ', _('Save journal as a template'), '
+			<img  src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="" alt="" />', ' ', _('Save journal as a template'), '
 		</p>';
 
 	echo '<table width="85%">
@@ -449,7 +449,7 @@ echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8')
 echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 echo '<p class="page_title_text" >
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', ' ', $Title, '
 	</p>';
 
 // A new table in the first column of the main table

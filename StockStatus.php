@@ -39,7 +39,7 @@ $Serialised = $MyRow['serialised'];
 $Controlled = $MyRow['controlled'];
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" /><b>', ' ', $StockId, ' - ', $MyRow['description'], ' : ', _('in units of'), ' : ', $MyRow['units'], '</b>
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/inventory.png" title="', _('Inventory'), '" alt="" /><b>', ' ', $StockId, ' - ', $MyRow['description'], ' : ', _('in units of'), ' : ', $MyRow['units'], '</b>
 	</p>';
 
 $Its_A_KitSet_Assembly_Or_Dummy = False;

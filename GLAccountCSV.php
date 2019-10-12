@@ -13,7 +13,7 @@ if (isset($_POST['Period'])) {
 }
 
 echo '<p class="page_title_text">
-		<img class="page_title_icon" src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Account Inquiry'), '" alt="', _('General Ledger Account Inquiry'), '" />', ' ', _('General Ledger Account Report'), '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Account Inquiry'), '" alt="', _('General Ledger Account Inquiry'), '" />', ' ', _('General Ledger Account Report'), '
 	</p>';
 
 echo '<div class="page_help_text">', _('Use the keyboard Shift key to select multiple accounts and periods'), '</div>';

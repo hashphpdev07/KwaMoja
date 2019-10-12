@@ -142,14 +142,14 @@ if (!isset($Bracket)) {
 
 	echo '<table border=1>';
 	echo "<tr>
-		<td class='tableheader'>" . _('Salary Bracket') . "</td>
-		<td class='tableheader'>" . _('Range From') . "</td>
-		<td class='tableheader'>" . _('Range To') . "</td>
-		<td class='tableheader'>" . _('Salary Credit') . "</td>
-		<td class='tableheader'>" . _('Employer SS') . "</td>
-		<td class='tableheader'>" . _('Employer EC') . "</td>
-		<td class='tableheader'>" . _('Employee SS') . "</td>
-		<td class='tableheader'>" . _('Total') . "</td>
+		<th>" . _('Salary Bracket') . "</th>
+		<th>" . _('Range From') . "</th>
+		<th>" . _('Range To') . "</th>
+		<th>" . _('Salary Credit') . "</th>
+		<th>" . _('Employer SS') . "</th>
+		<th>" . _('Employer EC') . "</th>
+		<th>" . _('Employee SS') . "</th>
+		<th>" . _('Total') . "</th>
 	</tr>";
 
 	$k = 0; //row colour counter
