@@ -144,13 +144,13 @@ if (count($_SESSION['AllowedPageSecurityTokens']) > 1) {
 			if (!isset($_SESSION['Favourites'][$ScriptName]) or $_SESSION['Favourites'][$ScriptName] == '') {
 				echo '<div id="ActionIcon">
 						<a data-title="', _('Add this script to your list of commonly used'), '">
-							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/add.png" id="PlusMinus" onclick="AddScript(\'', $ScriptName, '\',\'', $Title, '\')"', '" alt="', _('Add to commonly used'), '" />
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/add.png" id="PlusMinus" onclick="AddScript(\'', $ScriptName, '\',\'', $Title, '\')"', ' alt="', _('Add to commonly used'), '" />
 						</a>
 					</div>';
 			} else {
 				echo '<div id="ActionIcon">
 						<a data-title="', _('Remove this script from your list of commonly used'), '">
-							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/subtract.png" id="PlusMinus" onclick="RemoveScript(\'', $ScriptName, '\')"', '" alt="', _('Remove from commonly used'), '" />
+							<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/subtract.png" id="PlusMinus" onclick="RemoveScript(\'', $ScriptName, '\')"', ' alt="', _('Remove from commonly used'), '" />
 						</a>
 					</div>';
 			}
