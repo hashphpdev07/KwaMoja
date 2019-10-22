@@ -68,6 +68,11 @@ color:red;
 border:1px solid red;
 margin:5px auto;
 }
+table tr.total_row {
+background:#4682B4;
+color:#FFFFFF;
+font-weight:bold;
+}
 table .number {
 text-align:right;
 }
