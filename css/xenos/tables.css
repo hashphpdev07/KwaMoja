@@ -77,4 +77,5 @@ text-align:right;
 table th .PrintIcon {
 float:right;
 cursor:pointer;
+width:32px;
 }

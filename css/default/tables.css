@@ -69,6 +69,7 @@ table .number {
 text-align:right;
 }
 table th .PrintIcon {
+width:32px;
 float:right;
 cursor:pointer;
 }
