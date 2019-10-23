@@ -192,7 +192,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 if ($_POST['Customer'] == '') { //if there could be several customers being reported
 	if (!isset($_POST['CreateCSV'])) {
-		echo '<tr>
+		echo '<tr class="total_row">
 				<td>' . _('TOTALS') . '</td>
 				<td class="number">' . locale_number_format($OpeningBalances, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				<td class="number">' . locale_number_format($Debits, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
