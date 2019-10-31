@@ -887,9 +887,9 @@ function initMap() {
 				ORDER BY date DESC";
 		$Result = DB_query($SQL);
 		if (DB_num_rows($Result) <> 0) {
-			echo '<div class="centre">
+			echo '<p class="page_title_text">
 					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/folder_add.png" title="', _('Customer Type (Group) Notes'), '" alt="" />', ' ', _('Customer Type (Group) Notes for'), ':<b> ', $CustomerTypeName, '</b>', '
-				</div>';
+				</p>';
 			echo '<table style="width:45%">
 					<thead>
 						<tr>
@@ -919,9 +919,10 @@ function initMap() {
 		} // DB_num_rows($Result) <> 0
 		else {
 			if ($_SESSION['CustomerID'] != '') {
-				echo '<div class="centre"><img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/folder_add.png" title="', _('Customer Group Notes'), '" alt="" />
+				echo '<p class="page_title_text">
+						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/folder_add.png" title="', _('Customer Group Notes'), '" alt="" />
 						<a href="AddCustomerTypeNotes.php?DebtorType=', urlencode($CustomerType), '">', ' ', _('Add New Group Note'), '</a>
-					</div>';
+					</p>';
 			} // $_SESSION['CustomerID'] != ''
 			
 		}

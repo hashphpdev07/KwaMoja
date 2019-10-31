@@ -184,7 +184,7 @@ if (isset($_POST['ShowResults']) and $_POST['TransNo'] != '') {
 					$AllocsTotal+= $MyRow['amt'];
 				}
 				//end of while loop
-				echo '<tr>
+				echo '<tr class="total_row">
 						<td colspan="6" class="number">', _('Total allocated'), '</td>
 						<td class="number">', locale_number_format($AllocsTotal, $CurrDecimalPlaces), '</td>
 					</tr>
