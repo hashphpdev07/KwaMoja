@@ -933,6 +933,10 @@ if (isset($StockId) and $StockId != '') {
 echo '<input type="hidden" name="New" value="' . $New . '" />';
 echo '<fieldset>';
 
+if (isset($_GET['Clone'])) {
+	$StockId = $_GET['Clone'];
+}
+
 if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 
 	echo '<legend>', _('New Stock Item Details'), '</legend>';
@@ -960,7 +964,8 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 			</field>';
 	}
 
-} elseif (!isset($_POST['UpdateCategories']) and $InputError != 1) { // Must be modifying an existing item and no changes made yet
+} elseif ((!isset($_POST['UpdateCategories']) and $InputError != 1) or isset($_GET['Clone'])) {
+	// Must be modifying or cloning an existing item and no changes made yet
 	$SQL = "SELECT stockmaster.stockid,
 					description,
 					longdescription,
@@ -1036,12 +1041,26 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 	while ($MyRow = DB_fetch_array($Result)) {
 		$_POST['LongDescription_' . str_replace('.', '_', $MyRow['language_id']) ] = $MyRow['longdescriptiontranslation'];
 	}
-	echo '<legend>', _('Amend Stock Item Details'), '</legend>';
-
-	echo '<field>
-			<label for="StockID">', _('Item Code'), ':</label>
-			<div class="fieldtext">', $StockId, '<input type="hidden" name="StockID" value="', $StockId, '" /></div>
-		</field>';
+	if (isset($_GET['Clone'])) {
+		echo '<legend>', _('Clone Stock Item Details'), '</legend>';
+		if ($_SESSION['AutoInvenoryNo'] == 0) {
+			echo '<field>
+					<label for="StockID">', _('Item Code'), ':</label>
+					<input type="text" value="" name="StockID" size="21" required="required" maxlength="20" />
+				</field>';
+		} else {
+			echo '<field>
+					<label for="StockID">', _('Item Code'), ':</label>
+					<div class="fieldtext">N/A</div>
+				</field>';
+		}
+	} else {
+		echo '<legend>', _('Amend Stock Item Details'), '</legend>';
+		echo '<field>
+				<label for="StockID">', _('Item Code'), ':</label>
+				<div class="fieldtext">', $StockId, '<input type="hidden" name="StockID" value="', $StockId, '" /></div>
+			</field>';
+	}
 
 } else { // some changes were made to the data so don't re-set form variables to DB ie the code above
 	echo '<field>

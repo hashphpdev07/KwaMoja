@@ -604,7 +604,7 @@ echo '<li class="MenuItem">
 			<a href="', $RootPath, '/DiscountCategories.php?StockID=', $UrlEncodedStockId, '">', _('Maintain Discount Category'), '</a>
 		</li>
 		<li class="MenuItem">
-			<a href="', $RootPath, '/StockClone.php?OldStockID=', $UrlEncodedStockId . '">', _('Clone This Item'), '</a>
+			<a href="', $RootPath, '/Stocks.php?Clone=', $UrlEncodedStockId . '">', _('Clone This Item'), '</a>
 		</li>
 		<li class="MenuItem">
 			<a href="', $RootPath, '/RelatedItemsUpdate.php?Item=', $UrlEncodedStockId, '">', _('Maintain Related Items'), '</a>
