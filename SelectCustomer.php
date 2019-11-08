@@ -821,10 +821,10 @@ function initMap() {
 		} // DB_num_rows($Result) <> 0
 		else {
 			if ($_SESSION['CustomerID'] != '') {
-				echo '<div class="centre">
+				echo '<p class="page_title_text">
 						<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/group_add.png" title="', _('Customer Contacts'), '" alt="" />
 						<a href="AddCustomerContacts.php?DebtorNo=', urlencode($_SESSION['CustomerID']), '">', ' ', _('Add New Contact'), '</a>
-					</div>';
+					</p>';
 			} // $_SESSION['CustomerID'] != ''
 			
 		}
