@@ -1,0 +1,16 @@
+div.container{
+height:250px;
+overflow:auto;
+border-radius:7px;
+}
+td.dashboard_cell{
+width:30%;
+vertical-align:top;
+}
+.CloseButton{
+float:right;
+}
+table.DashboardTable{
+max-width:100%;
+width:99%;
+}
