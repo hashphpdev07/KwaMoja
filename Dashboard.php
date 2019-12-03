@@ -5,6 +5,8 @@ include ('includes/session.php');
 $Title = _('Dashboard');
 include ('includes/header.php');
 include ('includes/MainMenuLinksArray.php');
+$URL = (isset($_SERVER['HTTPS']) ? 'https:' : 'http:') . "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
+$Path = substr($URL, 0, strlen($URL) - 13);
 
 $SQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserID'] . "' ";
 
@@ -45,7 +47,7 @@ $Result = DB_query($SQL);
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (in_array($MyRow['id'], $ScriptArray) and in_array($MyRow['pagesecurity'], $_SESSION['AllowedPageSecurityTokens'])) {
-		echo '<iframe src="dashboard/' . $MyRow['scripts'] . '"></iframe>';
+		echo '<iframe width=30% src="' . $Path . 'dashboard/' . $MyRow['scripts'] . '"></iframe>';
 	}
 }
 
