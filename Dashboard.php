@@ -4,7 +4,10 @@ $PageSecurity = 0;
 include ('includes/session.php');
 $Title = _('Dashboard');
 include ('includes/header.php');
-include ('includes/MainMenuLinksArray.php');
+
+$DashBoardURL = $_SERVER['REQUEST_URI'];
+
+echo '<link href="', $RootPath, '/dashboard/css/dashboard.css?v=1" rel="stylesheet" type="text/css" media="screen" />';
 
 $SQL = "SELECT scripts FROM dashboard_users WHERE userid = '" . $_SESSION['UserID'] . "' ";
 
@@ -43,26 +46,41 @@ $SQL = "SELECT id,
 
 $Result = DB_query($SQL);
 
+$i = 0;
+echo '<table>
+		<tr>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (in_array($MyRow['id'], $ScriptArray) and in_array($MyRow['pagesecurity'], $_SESSION['AllowedPageSecurityTokens'])) {
-		echo '<iframe src="dashboard/' . $MyRow['scripts'] . '"></iframe>';
+		echo '<td class="dashboard_cell">';
+		include ('dashboard/' . $MyRow['scripts']);
+		echo '</td>';
+		if ($i == 2) {
+			echo '</tr><tr>';
+		}
+		++$i;
 	}
 }
-
+echo '</tr>
+	</table>';
 DB_data_seek($Result, 0);
 
-echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-echo '<input type="submit" name="submit" value="" style="display:none;" />';
-echo '<div style="width:100%;font-size:120%;color:#2F4F4F;">' . _('Add reports to your dashboard') . '&nbsp;&nbsp;&nbsp;
-		<select name="Reports" style="font-size:100%;margin-top:10px;margin-bottom:0px;color:#2F4F4F;" id="favourites" onchange="ReloadForm(submit)">';
-echo '<option value=""></option>';
+echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
+
+echo '<div class="centre">
+		', _('Add reports to your dashboard'), '&nbsp;&nbsp;&nbsp;
+		<select name="Reports" style="font-size:100%;margin-top:10px;margin-bottom:0px;color:#2F4F4F;" onchange="ReloadForm(submit)">
+			<option value=""></option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (!in_array($MyRow['id'], $ScriptArray) and in_array($MyRow['pagesecurity'], $_SESSION['AllowedPageSecurityTokens'])) {
-		echo '<option value="' . $MyRow['id'] . '">' . $MyRow['description'] . '</option>';
+		echo '<option value="', $MyRow['id'], '">', $MyRow['description'], '</option>';
 	}
 }
-echo '</select></div>';
+echo '</select>
+	</div>';
+
+echo '<input type="submit" name="submit" value="" style="display:none;" />';
+
 echo '</form>';
 
 include ('includes/footer.php');
