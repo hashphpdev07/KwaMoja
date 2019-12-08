@@ -195,7 +195,7 @@ echo '<field>
 
 echo '<field>
 		<label for="FrequencyDays">', _('Days Before Task Due'), ':</label>
-		<input type="text" class="integer" name="FrequencyDays" size="5" required="required" maxlength="5" value="', $_POST['FrequencyDays'], '" />
+		<input type="text" class="number" name="FrequencyDays" size="5" required="required" maxlength="5" value="', $_POST['FrequencyDays'], '" />
 	</field>';
 
 echo '<field>
