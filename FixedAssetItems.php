@@ -588,7 +588,7 @@ echo '</select>
 
 echo '<field>
 		<label for="DepnRate">', _('Depreciation Rate'), ':</label>
-		<input type="text" class="integer" name="DepnRate" size="4" required="required" maxlength="4" value="', $_POST['DepnRate'], '" />%
+		<input type="text" class="number" name="DepnRate" size="4" required="required" maxlength="4" value="', $_POST['DepnRate'], '" />%
 	</field>
 </fieldset>';
 
