@@ -55,7 +55,7 @@ font-family:inherit;
 font-size:inherit;
 transition-duration:0.5s;
 }
-form fieldset field select {
+form fieldset field select:not([multiple]) {
 background:url(images/descending.png) no-repeat right #FFFFE0;
 padding-right:24px;
 background-size:contain;

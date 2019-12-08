@@ -54,7 +54,7 @@ color:#1A1A1A;
 font-family:inherit;
 font-size:inherit;
 }
-form fieldset field select {
+form fieldset field select:not([multiple]) {
 background:url(images/descending.png) no-repeat right #C0C3FF;
 padding-right:24px;
 background-size:contain;
