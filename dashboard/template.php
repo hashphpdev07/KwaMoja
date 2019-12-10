@@ -47,19 +47,23 @@ echo '<thead>
 /* Create the table/column headings for the output that you want to show
 */
 
-while ($row = DB_fetch_array($DashboardResult)) {
-
-	$AccountCurrTotal+= $row['amount'];
-	$LocalCurrTotal+= $row['amount'] / $row['functionalexrate'] / $row['exrate'];
+/**********************************************************************/
+while ($MyRow = DB_fetch_array($DashboardResult)) {
 	echo '<tr class="striped_row">
-			<td>', $row['currcode'], '</td>
-			<td class="number">', locale_number_format($row['amount'], $row['decimalplaces']), '</td>
-			<td>', $row['banktranstype'], '</td>
-			<td>', ConvertSQLDate($row['transdate']), '</td>
-			<td class="number">', $row['bankaccountname'], '</td>
+			<td>Text Data 1</td>
+			<td class="number">Numerical Data 2</td>
+			....................
+			....................
+			<td>Final Data</td>
 		</tr>';
 }
+/* Iterate through the rows of data returned by our SQL and create table
+ * rows for each record
+*/
+
+/**********************************************************************/
 echo '</tbody>
 	</table>';
+/* Don't forget to close off the table */
 
 ?>
