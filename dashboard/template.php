@@ -1,4 +1,5 @@
 <?php
+/**********************************************************/
 $PathPrefix = '../';
 
 if (basename($_SERVER['SCRIPT_NAME']) != 'Dashboard.php') {
@@ -21,39 +22,30 @@ echo '<div class="container">
 					</div>
 				</th>
 			</tr>';
+/* The section above must be left as is, apart from changing the script title.
+ * Making other changes could stop the dashboard from functioning
+*/
 
-$SQL = "SELECT banktrans.currcode,
-				banktrans.amount,
-				banktrans.functionalexrate,
-				banktrans.exrate,
-				banktrans.banktranstype,
-				banktrans.transdate,
-				bankaccounts.bankaccountname,
-				systypes.typename,
-				currencies.decimalplaces
-			FROM banktrans
-			INNER JOIN bankaccounts
-				ON banktrans.bankact=bankaccounts.accountcode
-			INNER JOIN systypes
-				ON banktrans.type=systypes.typeid
-			INNER JOIN currencies
-				ON banktrans.currcode=currencies.currabrev
-			ORDER BY banktrans.transdate DESC LIMIT 5";
-
+/**********************************************************************/
+$SQL = "";
 $DashboardResult = DB_query($SQL);
-$AccountCurrTotal = 0;
-$LocalCurrTotal = 0;
+/* Create an SQL SELECT query to produce the data you want to show
+ * and store the result in $DashboardResult
+*/
 
-echo '<tbody>
+/**********************************************************************/
+echo '<thead>
 		<tr>
-			<th>', _('Currency'), '</th>
-			<th>', _('Amount'), '</th>
-			<th>', _('Transaction Type'), '</th>
-			<th>', _('Transaction Date'), '</th>
-			<th>', _('Account Name'), '</th>
-		</tr>';
-
-$k = 0;
+			<th>Column 1</th>
+			<th>Column 2</th>
+			.................
+			.................
+			<th>Final Column</th>
+		</tr>
+	</thead>
+	<tbody>';
+/* Create the table/column headings for the output that you want to show
+*/
 
 while ($row = DB_fetch_array($DashboardResult)) {
 
