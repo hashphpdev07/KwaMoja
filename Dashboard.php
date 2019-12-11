@@ -3,6 +3,8 @@ $PageSecurity = 0;
 
 include ('includes/session.php');
 $Title = _('Dashboard');
+$ViewTopic = 'Dashboard';
+$BookMark = 'MainScreen';
 include ('includes/header.php');
 
 $DashBoardURL = $_SERVER['REQUEST_URI'];

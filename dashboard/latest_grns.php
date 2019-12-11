@@ -7,15 +7,15 @@ if (basename($_SERVER['SCRIPT_NAME']) != 'Dashboard.php') {
 	$DashBoardURL = $RootPath . '/Dashboard.php';
 }
 
-$ScriptTitle = _('Enter the script title here');
+$ScriptTitle = _('Latest goods received notes');
 
 $SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
 $DashboardResult = DB_query($SQL);
 $DashboardRow = DB_fetch_array($DashboardResult);
 
 echo '<div class="container">
-		<thead>
-			<table class="DashboardTable">
+		<table class="DashboardTable">
+			<thead>
 				<tr>
 					<th colspan="5">
 						<div class="CanvasTitle">', $ScriptTitle, '
@@ -28,7 +28,7 @@ echo '<div class="container">
 */
 
 /**********************************************************************/
-$SQL = "";
+$SQL = "SELECT grnno,deliverydate,itemcode,itemdescription,qtyrecd FROM grns ORDER BY deliverydate DESC,grnno DESC LIMIT 15";
 $DashboardResult = DB_query($SQL);
 /* Create an SQL SELECT query to produce the data you want to show
  * and store the result in $DashboardResult
@@ -36,11 +36,11 @@ $DashboardResult = DB_query($SQL);
 
 /**********************************************************************/
 echo '<tr>
-		<th>Column 1</th>
-		<th>Column 2</th>
-		.................
-		.................
-		<th>Final Column</th>
+		<th>', _('GRN Number'), '</th>
+		<th>', _('Delivery Date'), '</th>
+		<th>', _('Item Code'), '</th>
+		<th>', _('Description'), '</th>
+		<th>', _('Quantity'), '</th>
 	</tr>
 </thead>
 <tbody>';
@@ -50,11 +50,11 @@ echo '<tr>
 /**********************************************************************/
 while ($MyRow = DB_fetch_array($DashboardResult)) {
 	echo '<tr class="striped_row">
-			<td>Text Data 1</td>
-			<td class="number">Numerical Data 2</td>
-			....................
-			....................
-			<td>Final Data</td>
+			<td>', $MyRow['grnno'], '</td>
+			<td>', ConvertSQLDate($MyRow['deliverydate']), '</td>
+			<td>', $MyRow['itemcode'], '</td>
+			<td>', $MyRow['itemdescription'], '</td>
+			<td class="number">', $MyRow['qtyrecd'], '</td>
 		</tr>';
 }
 /* Iterate through the rows of data returned by our SQL and create table

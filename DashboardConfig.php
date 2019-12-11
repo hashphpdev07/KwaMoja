@@ -1,6 +1,8 @@
 <?php
 include ('includes/session.php');
 $Title = _('Configure Dashboard Scripts');
+$ViewTopic = 'Dashboard';
+$BookMark = 'Configure';
 include ('includes/header.php');
 
 echo '<p class="page_title_text">
