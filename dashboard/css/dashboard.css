@@ -9,6 +9,11 @@ vertical-align:top;
 }
 .CloseButton{
 float:right;
+background:#090932;
+color:#ADD8E6;
+padding-left:2px;
+padding-right:2px;
+border-radius:17px;
 }
 table.DashboardTable{
 max-width:100%;

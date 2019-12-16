@@ -1,4 +1,11 @@
 <?php
+$PathPrefix = '../';
+
+if (basename($_SERVER['SCRIPT_NAME']) != 'Dashboard.php') {
+	require_once ($PathPrefix . 'includes/session.php');
+	$DashBoardURL = $RootPath . '/Dashboard.php';
+}
+
 $ScriptTitle = _('Latest bank transactions');
 
 $SQL = "SELECT id FROM dashboard_scripts WHERE scripts='" . basename(basename(__FILE__)) . "'";
