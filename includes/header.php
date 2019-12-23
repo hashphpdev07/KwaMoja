@@ -14,7 +14,7 @@ $ViewTopic = isset($ViewTopic) ? '?ViewTopic=' . $ViewTopic : '';
 $BookMark = isset($BookMark) ? '#' . $BookMark : '';
 
 if (isset($_GET['Theme'])) {
-	if (file_exists($RootPath . '/css/' . $_GET['Theme'])) {
+	if (file_exists($PathPrefix . $RootPath . 'css/' . $_GET['Theme'])) {
 		$_SESSION['Theme'] = $_GET['Theme'];
 		$SQL = "UPDATE www_users SET theme='" . $_GET['Theme'] . "' WHERE userid='" . $_SESSION['UserID'] . "'";
 		$Result = DB_query($SQL);
