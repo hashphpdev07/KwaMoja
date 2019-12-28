@@ -43,6 +43,7 @@ width:24.5em;
 text-align:left;
 }
 form fieldset field .fieldtext {
+display:inline;
 margin-bottom:8px;
 }
 form fieldset field input,textarea,select {
