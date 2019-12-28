@@ -28,9 +28,9 @@ font-weight:bold;
 color:#FFFFFF;
 }
 form fieldset legend.search {
-background-image:url(images/magnifier.png);
+background-image:url(images/search.png);
 background-repeat: no-repeat;
-background-size:contain;
+background-size:middle;
 background-position:5px;
 padding-left:32px;
 }
