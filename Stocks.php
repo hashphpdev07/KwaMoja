@@ -103,6 +103,45 @@ if (isset($_FILES['ItemPicture']) and $_FILES['ItemPicture']['name'] != '') {
 		$Message = ($Result) ? _('File url') . '<a href="' . $FileName . '">' . $FileName . '</a>' : _('Something is wrong with uploading a file');
 	}
 }
+
+if (isset($_FILES['ItemSpec']) and $_FILES['ItemSpec']['name'] != '') {
+
+	$ImgExt = pathinfo($_FILES['ItemSpec']['name'], PATHINFO_EXTENSION);
+	$Result = $_FILES['ItemSpec']['error'];
+	$UploadTheFile = 'Yes'; //Assume all is well to start off with
+	$FileName = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ImgExt;
+
+	//But check for the worst
+	if ($ImgExt != 'pdf') {
+		prnMsg(_('Only pdf files are supported - a file extension of *.pdf is expected'), 'warn');
+		$UploadTheFile = 'No';
+	} elseif ($_FILES['ItemSpec']['size'] > ($_SESSION['MaxImageSize'] * 1024)) { //File Size Check
+		prnMsg(_('The file size is over the maximum allowed. The maximum size allowed in KB is') . ' ' . $_SESSION['MaxImageSize'], 'warn');
+		$UploadTheFile = 'No';
+	} elseif ($_FILES['ItemSpec']['error'] == 6) { //upload temp directory check
+		prnMsg(_('No tmp directory set. You must have a tmp directory set in your PHP for upload of files.'), 'warn');
+		$UploadTheFile = 'No';
+	} elseif (!is_writable($_SESSION['part_pics_dir'])) {
+		prnMsg(_('The web server user does not have permission to upload files. Please speak to your system administrator'), 'warn');
+		$UploadTheFile = 'No';
+	}
+	foreach ($SupportedImgExt as $ext) {
+		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;
+		if (file_exists($File)) {
+			$Result = unlink($File);
+			if (!$Result) {
+				prnMsg(_('The existing specification could not be removed'), 'error');
+				$UploadTheFile = 'No';
+			}
+		}
+	}
+
+	if ($UploadTheFile == 'Yes') {
+		$Result = move_uploaded_file($_FILES['ItemSpec']['tmp_name'], $FileName);
+		$Message = ($Result) ? _('File url') . '<a href="' . $FileName . '">' . $FileName . '</a>' : _('Something is wrong with uploading a file');
+	}
+}
+
 $InputError = 0;
 
 if (isset($_POST['submit'])) {
@@ -1109,6 +1148,7 @@ foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 			</field>';
 	}
 }
+
 echo '<field>
 		<label for="ItemPicture">', _('Image File (' . implode(", ", $SupportedImgExt) . ')'), ':</label>
 		<input type="file" id="ItemPicture" name="ItemPicture" />
@@ -1125,6 +1165,26 @@ if (extension_loaded('gd') and function_exists('gd_info') and isset($StockId) an
 }
 
 if (isset($_POST['ClearImage'])) {
+	foreach ($SupportedImgExt as $ext) {
+		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;
+		if (file_exists($File)) {
+			//workaround for many variations of permission issues that could cause unlink fail
+			@unlink($File);
+			if (is_file($ImageFile)) {
+				prnMsg(_('You do not have access to delete this item image file.'), 'error');
+			} else {
+				$StockImgLink = _('No Image');
+			}
+		}
+	}
+}
+echo '</field>';
+
+echo '<field>
+		<label for="ItemSpec">', _('Specification File (.pdf format)'), ':</label>
+		<input type="file" id="ItemSpec" name="ItemSpec" />
+		<input type="checkbox" name="ClearImage" id="ClearSpec" value="1" > ', _('Clear Specification');
+if (isset($_POST['ClearSpec'])) {
 	foreach ($SupportedImgExt as $ext) {
 		$File = $_SESSION['part_pics_dir'] . '/' . $StockId . '.' . $ext;
 		if (file_exists($File)) {
