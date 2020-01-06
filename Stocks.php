@@ -410,6 +410,7 @@ if (isset($_POST['submit'])) {
 							grossweight='" . filter_number_format($_POST['GrossWeight']) . "',
 							netweight='" . filter_number_format($_POST['NetWeight']) . "',
 							barcode='" . $_POST['BarCode'] . "',
+							drawingnumber='" . $_POST['DrawingNumber'] . "',
 							discountcategory='" . $_POST['DiscountCategory'] . "',
 							taxcatid='" . $_POST['TaxCat'] . "',
 							decimalplaces='" . $_POST['DecimalPlaces'] . "',
@@ -659,6 +660,7 @@ if (isset($_POST['submit'])) {
 												grossweight,
 												netweight,
 												barcode,
+												drawingnumber,
 												discountcategory,
 												taxcatid,
 												decimalplaces,
@@ -679,6 +681,7 @@ if (isset($_POST['submit'])) {
 								'" . filter_number_format($_POST['GrossWeight']) . "',
 								'" . filter_number_format($_POST['NetWeight']) . "',
 								'" . $_POST['BarCode'] . "',
+								'" . $_POST['DrawingNumber'] . "',
 								'" . $_POST['DiscountCategory'] . "',
 								'" . $_POST['TaxCat'] . "',
 								'" . $_POST['DecimalPlaces'] . "',
@@ -794,6 +797,7 @@ if (isset($_POST['submit'])) {
 						unset($_POST['GrossWeight']);
 						unset($_POST['NetWeight']);
 						unset($_POST['BarCode']);
+						unset($_POST['DrawingNumber']);
 						unset($_POST['ReorderLevel']);
 						unset($_POST['DiscountCategory']);
 						unset($_POST['DecimalPlaces']);
@@ -1020,6 +1024,7 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 					grossweight,
 					netweight,
 					barcode,
+					drawingnumber,
 					discountcategory,
 					taxcatid,
 					decimalplaces,
@@ -1052,6 +1057,7 @@ if (!isset($StockId) or $StockId == '' or isset($_POST['UpdateCategories'])) {
 	$_POST['GrossWeight'] = $MyRow['grossweight'];
 	$_POST['NetWeight'] = $MyRow['netweight'];
 	$_POST['BarCode'] = $MyRow['barcode'];
+	$_POST['DrawingNumber'] = $MyRow['drawingnumber'];
 	$_POST['DiscountCategory'] = $MyRow['discountcategory'];
 	$_POST['TaxCat'] = $MyRow['taxcatid'];
 	$_POST['DecimalPlaces'] = $MyRow['decimalplaces'];
@@ -1435,6 +1441,16 @@ if (isset($_POST['BarCode'])) {
 echo '<field>
 		<label for="BarCode">', _('Bar Code'), ':</label>
 		<input type="text" name="BarCode" size="22" maxlength="20" value="', $BarCode, '" />
+	</field>';
+
+if (isset($_POST['DrawingNumber'])) {
+	$DrawingNumber = $_POST['DrawingNumber'];
+} else {
+	$DrawingNumber = '';
+}
+echo '<field>
+		<label for="DrawingNumber">', _('Drawing Number'), ':</label>
+		<input type="text" name="DrawingNumber" size="22" maxlength="20" value="', $DrawingNumber, '" />
 	</field>';
 
 if (isset($_POST['DiscountCategory'])) {
