@@ -1,8 +1,8 @@
 
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `KwaMoja` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `KwaMoja2` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `KwaMoja`;
+USE `KwaMoja2`;
 DROP TABLE IF EXISTS `abcgroups`;
 CREATE TABLE `abcgroups` (
   `groupid` int(11) NOT NULL DEFAULT '0',
@@ -146,7 +146,7 @@ CREATE TABLE `banktrans` (
   KEY `ref_8` (`ref`),
   KEY `ref_9` (`ref`),
   KEY `ref_10` (`ref`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `bom`;
 CREATE TABLE `bom` (
   `parent` char(20) NOT NULL DEFAULT '',
@@ -219,7 +219,7 @@ CREATE TABLE `care_encounter` (
   KEY `pid` (`pid`),
   KEY `encounter_date` (`encounter_date`),
   CONSTRAINT `fk_care_person_encounter` FOREIGN KEY (`pid`) REFERENCES `care_person` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `care_encounter_location`;
 CREATE TABLE `care_encounter_location` (
   `nr` int(11) NOT NULL AUTO_INCREMENT,
@@ -307,7 +307,7 @@ CREATE TABLE `care_person` (
   KEY `date_reg` (`date_reg`),
   KEY `date_birth` (`date_birth`),
   KEY `pid` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `care_room`;
 CREATE TABLE `care_room` (
   `nr` int(8) unsigned NOT NULL AUTO_INCREMENT,
@@ -331,7 +331,7 @@ CREATE TABLE `care_room` (
   KEY `room_nr` (`room_nr`),
   KEY `ward_nr` (`ward_nr`),
   KEY `dept_nr` (`dept_nr`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `care_type_encounter`;
 CREATE TABLE `care_type_encounter` (
   `type_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -347,7 +347,7 @@ CREATE TABLE `care_type_encounter` (
   `create_id` varchar(35) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`type_nr`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `care_type_location`;
 CREATE TABLE `care_type_location` (
   `nr` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -361,7 +361,7 @@ CREATE TABLE `care_type_location` (
   `create_id` varchar(35) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`nr`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `care_ward`;
 CREATE TABLE `care_ward` (
   `nr` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -384,7 +384,7 @@ CREATE TABLE `care_ward` (
   `create_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`nr`),
   KEY `ward_id` (`ward_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `chartdetails`;
 CREATE TABLE `chartdetails` (
   `accountcode` varchar(20) NOT NULL DEFAULT '0',
@@ -421,7 +421,7 @@ CREATE TABLE `cogsglpostings` (
   KEY `StkCat` (`stkcat`),
   KEY `GLCode` (`glcode`),
   KEY `SalesType` (`salestype`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `companies`;
 CREATE TABLE `companies` (
   `coycode` int(11) NOT NULL DEFAULT '1',
@@ -513,7 +513,7 @@ CREATE TABLE `contractreqts` (
   `costperunit` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`contractreqid`),
   KEY `ContractRef` (`contractref`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `contracts`;
 CREATE TABLE `contracts` (
   `contractref` varchar(20) NOT NULL DEFAULT '',
@@ -563,7 +563,7 @@ CREATE TABLE `custallocns` (
   KEY `DateAlloc` (`datealloc`),
   KEY `TransID_AllocFrom` (`transid_allocfrom`),
   KEY `TransID_AllocTo` (`transid_allocto`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `custbranch`;
 CREATE TABLE `custbranch` (
   `branchcode` varchar(10) NOT NULL DEFAULT '',
@@ -629,7 +629,7 @@ CREATE TABLE `custcontacts` (
   `email` varchar(55) NOT NULL,
   `statement` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`contid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `custitem`;
 CREATE TABLE `custitem` (
   `debtorno` char(10) NOT NULL DEFAULT '',
@@ -651,7 +651,7 @@ CREATE TABLE `custnotes` (
   `date` date NOT NULL DEFAULT '0000-00-00',
   `priority` varchar(20) NOT NULL,
   PRIMARY KEY (`noteid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `dashboard_scripts`;
 CREATE TABLE `dashboard_scripts` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
@@ -659,14 +659,14 @@ CREATE TABLE `dashboard_scripts` (
   `pagesecurity` int(11) NOT NULL DEFAULT '1',
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `dashboard_users`;
 CREATE TABLE `dashboard_users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `userid` varchar(20) NOT NULL,
   `scripts` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `debtorsmaster`;
 CREATE TABLE `debtorsmaster` (
   `debtorno` varchar(10) NOT NULL DEFAULT '',
@@ -749,7 +749,7 @@ CREATE TABLE `debtortrans` (
   KEY `Type_2` (`type`,`transno`),
   KEY `EDISent` (`edisent`),
   KEY `salesperson` (`salesperson`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `debtortranstaxes`;
 CREATE TABLE `debtortranstaxes` (
   `debtortransid` int(11) NOT NULL DEFAULT '0',
@@ -763,7 +763,7 @@ CREATE TABLE `debtortype` (
   `typeid` tinyint(4) NOT NULL AUTO_INCREMENT,
   `typename` varchar(100) NOT NULL,
   PRIMARY KEY (`typeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `debtortypenotes`;
 CREATE TABLE `debtortypenotes` (
   `noteid` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -773,7 +773,7 @@ CREATE TABLE `debtortypenotes` (
   `date` date NOT NULL DEFAULT '0000-00-00',
   `priority` varchar(20) NOT NULL,
   PRIMARY KEY (`noteid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `deliverynotes`;
 CREATE TABLE `deliverynotes` (
   `deliverynotenumber` int(11) NOT NULL,
@@ -794,7 +794,7 @@ CREATE TABLE `departments` (
   `medical` tinyint(4) NOT NULL DEFAULT '0',
   `authoriser` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`departmentid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `discountmatrix`;
 CREATE TABLE `discountmatrix` (
   `salestype` char(2) NOT NULL DEFAULT '',
@@ -837,7 +837,7 @@ CREATE TABLE `edi_orders_segs` (
   PRIMARY KEY (`id`),
   KEY `SegTag` (`segtag`),
   KEY `SegNo` (`seggroup`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `ediitemmapping`;
 CREATE TABLE `ediitemmapping` (
   `supporcust` varchar(4) NOT NULL DEFAULT '',
@@ -875,7 +875,7 @@ CREATE TABLE `emailsettings` (
   `auth` tinyint(1) DEFAULT '0',
   `security` char(4) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `factorcompanies`;
 CREATE TABLE `factorcompanies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -892,7 +892,7 @@ CREATE TABLE `factorcompanies` (
   `email` varchar(55) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `factor_name` (`coyname`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `favourites`;
 CREATE TABLE `favourites` (
   `userid` varchar(20) NOT NULL DEFAULT '',
@@ -937,7 +937,7 @@ CREATE TABLE `fixedassets` (
   `depnrate` double NOT NULL,
   `disposaldate` date NOT NULL DEFAULT '0000-00-00',
   PRIMARY KEY (`assetid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `fixedassettasks`;
 CREATE TABLE `fixedassettasks` (
   `taskid` int(11) NOT NULL AUTO_INCREMENT,
@@ -950,7 +950,7 @@ CREATE TABLE `fixedassettasks` (
   PRIMARY KEY (`taskid`),
   KEY `assetid` (`assetid`),
   KEY `userresponsible` (`userresponsible`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `fixedassettrans`;
 CREATE TABLE `fixedassettrans` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -966,7 +966,7 @@ CREATE TABLE `fixedassettrans` (
   KEY `assetid` (`assetid`,`transtype`,`transno`),
   KEY `inputdate` (`inputdate`),
   KEY `transdate` (`transdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `freightcosts`;
 CREATE TABLE `freightcosts` (
   `shipcostfromid` int(11) NOT NULL AUTO_INCREMENT,
@@ -985,7 +985,7 @@ CREATE TABLE `freightcosts` (
   KEY `LocationFrom` (`locationfrom`),
   KEY `ShipperID` (`shipperid`),
   KEY `Destination_2` (`destination`,`locationfrom`,`shipperid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `geocode_param`;
 CREATE TABLE `geocode_param` (
   `geocodeid` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -996,7 +996,7 @@ CREATE TABLE `geocode_param` (
   `map_width` varchar(10) NOT NULL DEFAULT '',
   `map_host` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`geocodeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `glaccountusers`;
 CREATE TABLE `glaccountusers` (
   `accountcode` varchar(20) NOT NULL,
@@ -1034,7 +1034,7 @@ CREATE TABLE `gltrans` (
   KEY `TypeNo` (`typeno`),
   KEY `Type_and_Number` (`type`,`typeno`),
   KEY `JobRef` (`jobref`)
-) ENGINE=InnoDB AUTO_INCREMENT=131650 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `grns`;
 CREATE TABLE `grns` (
   `grnbatch` smallint(6) NOT NULL DEFAULT '0',
@@ -1054,7 +1054,7 @@ CREATE TABLE `grns` (
   KEY `ItemCode` (`itemcode`),
   KEY `PODetailItem` (`podetailitem`),
   KEY `SupplierID` (`supplierid`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `holdreasons`;
 CREATE TABLE `holdreasons` (
   `reasoncode` smallint(6) NOT NULL DEFAULT '1',
@@ -1087,7 +1087,7 @@ CREATE TABLE `jnltmplheader` (
   `templatedescription` varchar(50) NOT NULL DEFAULT '',
   `journaltype` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`templateid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `jobcards`;
 CREATE TABLE `jobcards` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1116,7 +1116,7 @@ CREATE TABLE `labelfields` (
   PRIMARY KEY (`labelfieldid`),
   KEY `labelid` (`labelid`),
   KEY `vpos` (`vpos`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `labels`;
 CREATE TABLE `labels` (
   `labelid` tinyint(11) NOT NULL AUTO_INCREMENT,
@@ -1130,7 +1130,7 @@ CREATE TABLE `labels` (
   `rowheight` double NOT NULL DEFAULT '0',
   `columnwidth` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`labelid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `lastcostrollup`;
 CREATE TABLE `lastcostrollup` (
   `stockid` char(20) NOT NULL DEFAULT '',
@@ -1232,7 +1232,7 @@ CREATE TABLE `mailgroups` (
   `groupname` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `groupname` (`groupname`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `manufacturers`;
 CREATE TABLE `manufacturers` (
   `manufacturers_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -1241,7 +1241,7 @@ CREATE TABLE `manufacturers` (
   `manufacturers_image` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`manufacturers_id`),
   KEY `manufacturers_name` (`manufacturers_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `menuitems`;
 CREATE TABLE `menuitems` (
   `secroleid` int(11) NOT NULL DEFAULT '8',
@@ -1279,7 +1279,7 @@ CREATE TABLE `mrpdemands` (
   PRIMARY KEY (`demandid`),
   KEY `StockID` (`stockid`),
   KEY `mrpdemands_ibfk_1` (`mrpdemandtype`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `mrpdemandtypes`;
 CREATE TABLE `mrpdemandtypes` (
   `mrpdemandtype` varchar(6) NOT NULL DEFAULT '',
@@ -1298,7 +1298,7 @@ CREATE TABLE `mrpplannedorders` (
   `mrpdate` date DEFAULT NULL,
   `updateflag` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `offers`;
 CREATE TABLE `offers` (
   `offerid` int(11) NOT NULL AUTO_INCREMENT,
@@ -1313,7 +1313,7 @@ CREATE TABLE `offers` (
   PRIMARY KEY (`offerid`),
   KEY `offers_ibfk_1` (`supplierid`),
   KEY `offers_ibfk_2` (`stockid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `orderdeliverydifferenceslog`;
 CREATE TABLE `orderdeliverydifferenceslog` (
   `orderno` int(11) NOT NULL DEFAULT '0',
@@ -1338,7 +1338,7 @@ CREATE TABLE `paymentmethods` (
   `opencashdrawer` tinyint(4) NOT NULL DEFAULT '0',
   `percentdiscount` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`paymentid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `paymentterms`;
 CREATE TABLE `paymentterms` (
   `termsindicator` char(2) NOT NULL DEFAULT '',
@@ -1362,7 +1362,7 @@ CREATE TABLE `pcashdetails` (
   `receipt` text COMMENT 'filename or path to scanned receipt or code of receipt to find physical receipt if tax guys or auditors show up',
   PRIMARY KEY (`counterindex`),
   KEY `tabcodedate` (`tabcode`,`date`,`codeexpense`,`counterindex`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `pcashdetailtaxes`;
 CREATE TABLE `pcashdetailtaxes` (
   `counterindex` int(20) NOT NULL AUTO_INCREMENT,
@@ -1375,7 +1375,7 @@ CREATE TABLE `pcashdetailtaxes` (
   `taxrate` double NOT NULL DEFAULT '0',
   `amount` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`counterindex`)
-) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `pcexpenses`;
 CREATE TABLE `pcexpenses` (
   `codeexpense` varchar(20) NOT NULL COMMENT 'code for the group',
@@ -1483,7 +1483,7 @@ CREATE TABLE `pickreq` (
   KEY `status` (`status`),
   KEY `closed` (`closed`),
   KEY `loccode` (`loccode`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `pickreqdetails`;
 CREATE TABLE `pickreqdetails` (
   `detailno` int(11) NOT NULL AUTO_INCREMENT,
@@ -1497,7 +1497,7 @@ CREATE TABLE `pickreqdetails` (
   PRIMARY KEY (`detailno`),
   KEY `prid` (`prid`),
   KEY `stockid` (`stockid`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `pickserialdetails`;
 CREATE TABLE `pickserialdetails` (
   `serialmoveid` int(11) NOT NULL AUTO_INCREMENT,
@@ -1709,7 +1709,7 @@ CREATE TABLE `prlloanfile` (
   `accountcode` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`counterindex`),
   KEY `LoanDate` (`loandate`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `prlloantable`;
 CREATE TABLE `prlloantable` (
   `loantableid` tinyint(4) NOT NULL DEFAULT '0',
@@ -1867,7 +1867,7 @@ CREATE TABLE `prltaxtablerate2` (
   `fixtax` decimal(12,2) NOT NULL DEFAULT '0.00',
   `percentofexcessamount` double NOT NULL DEFAULT '1',
   PRIMARY KEY (`counterindex`,`payperiodid`)
-) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `prodspecs`;
 CREATE TABLE `prodspecs` (
   `keyval` varchar(25) NOT NULL,
@@ -1976,7 +1976,7 @@ CREATE TABLE `projectreqts` (
   `costperunit` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`projectreqid`),
   KEY `ProjectRef` (`projectref`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `projects`;
 CREATE TABLE `projects` (
   `projectref` varchar(20) NOT NULL DEFAULT '',
@@ -2057,7 +2057,7 @@ CREATE TABLE `purchorderdetails` (
   KEY `OrderNo` (`orderno`),
   KEY `ShiptRef` (`shiptref`),
   KEY `Completed` (`completed`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `purchorders`;
 CREATE TABLE `purchorders` (
   `orderno` int(11) NOT NULL AUTO_INCREMENT,
@@ -2101,7 +2101,7 @@ CREATE TABLE `purchorders` (
   KEY `SupplierNo` (`supplierno`),
   KEY `IntoStockLocation` (`intostocklocation`),
   KEY `AllowPrintPO` (`allowprint`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `qasamples`;
 CREATE TABLE `qasamples` (
   `sampleid` int(11) NOT NULL AUTO_INCREMENT,
@@ -2114,7 +2114,7 @@ CREATE TABLE `qasamples` (
   `cert` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`sampleid`),
   KEY `prodspeckey` (`prodspeckey`,`lotkey`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `qatests`;
 CREATE TABLE `qatests` (
   `testid` int(11) NOT NULL AUTO_INCREMENT,
@@ -2132,7 +2132,7 @@ CREATE TABLE `qatests` (
   PRIMARY KEY (`testid`),
   KEY `name` (`name`),
   KEY `groupname` (`groupby`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `recurringsalesorders`;
 CREATE TABLE `recurringsalesorders` (
   `recurrorderno` int(11) NOT NULL AUTO_INCREMENT,
@@ -2165,7 +2165,7 @@ CREATE TABLE `recurringsalesorders` (
   KEY `ordertype` (`ordertype`),
   KEY `locationindex` (`fromstkloc`),
   KEY `branchcode` (`branchcode`,`debtorno`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `recurrsalesorderdetails`;
 CREATE TABLE `recurrsalesorderdetails` (
   `recurrorderno` int(11) NOT NULL DEFAULT '0',
@@ -2217,7 +2217,7 @@ CREATE TABLE `reportfields` (
   `params` text,
   PRIMARY KEY (`id`),
   KEY `reportid` (`reportid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1811 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `reportheaders`;
 CREATE TABLE `reportheaders` (
   `reportid` smallint(6) NOT NULL AUTO_INCREMENT,
@@ -2322,7 +2322,7 @@ CREATE TABLE `reports` (
   `table6criteria` varchar(75) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `name` (`reportname`,`groupname`)
-) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `salesanalysis`;
 CREATE TABLE `salesanalysis` (
   `typeabbrev` char(2) NOT NULL DEFAULT '',
@@ -2349,7 +2349,7 @@ CREATE TABLE `salesanalysis` (
   KEY `Area` (`area`),
   KEY `BudgetOrActual` (`budgetoractual`),
   KEY `Salesperson` (`salesperson`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `salescat`;
 CREATE TABLE `salescat` (
   `salescatid` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -2359,7 +2359,7 @@ CREATE TABLE `salescat` (
   `date_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `date_updated` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`salescatid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `salescatprod`;
 CREATE TABLE `salescatprod` (
   `salescatid` tinyint(4) NOT NULL DEFAULT '0',
@@ -2412,7 +2412,7 @@ CREATE TABLE `salescommissiontypes` (
   `commissiontypeid` tinyint(4) NOT NULL AUTO_INCREMENT,
   `commissiontypename` varchar(55) NOT NULL DEFAULT '',
   PRIMARY KEY (`commissiontypeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `salesglpostings`;
 CREATE TABLE `salesglpostings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -2426,7 +2426,7 @@ CREATE TABLE `salesglpostings` (
   KEY `Area` (`area`),
   KEY `StkCat` (`stkcat`),
   KEY `SalesType` (`salestype`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `salesman`;
 CREATE TABLE `salesman` (
   `salesmancode` varchar(4) NOT NULL,
@@ -2541,7 +2541,7 @@ CREATE TABLE `sampleresults` (
   PRIMARY KEY (`resultid`),
   KEY `sampleid` (`sampleid`),
   KEY `testid` (`testid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `schedule`;
 CREATE TABLE `schedule` (
   `jobnumber` int(11) NOT NULL AUTO_INCREMENT,
@@ -2550,7 +2550,7 @@ CREATE TABLE `schedule` (
   `frequency` char(1) NOT NULL DEFAULT 'd',
   PRIMARY KEY (`jobnumber`),
   KEY `Script` (`script`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `scripts`;
 CREATE TABLE `scripts` (
   `script` varchar(78) NOT NULL DEFAULT '',
@@ -2571,7 +2571,7 @@ CREATE TABLE `securityroles` (
   `secroleid` int(11) NOT NULL AUTO_INCREMENT,
   `secrolename` text NOT NULL,
   PRIMARY KEY (`secroleid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `securitytokens`;
 CREATE TABLE `securitytokens` (
   `tokenid` int(11) NOT NULL DEFAULT '0',
@@ -2597,7 +2597,7 @@ CREATE TABLE `sellthroughsupport` (
   KEY `effectiveto` (`effectiveto`),
   KEY `stockid` (`stockid`),
   KEY `categoryid` (`categoryid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `shipmentcharges`;
 CREATE TABLE `shipmentcharges` (
   `shiptchgid` int(11) NOT NULL AUTO_INCREMENT,
@@ -2611,7 +2611,7 @@ CREATE TABLE `shipmentcharges` (
   KEY `ShiptRef` (`shiptref`),
   KEY `StockID` (`stockid`),
   KEY `TransType_2` (`transtype`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `shipments`;
 CREATE TABLE `shipments` (
   `shiptref` int(11) NOT NULL DEFAULT '0',
@@ -2634,7 +2634,7 @@ CREATE TABLE `shippers` (
   `shippername` char(40) NOT NULL DEFAULT '',
   `mincharge` double NOT NULL DEFAULT '0',
   PRIMARY KEY (`shipper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `stockcategory`;
 CREATE TABLE `stockcategory` (
   `categoryid` char(6) NOT NULL DEFAULT '',
@@ -2665,7 +2665,7 @@ CREATE TABLE `stockcatproperties` (
   `numericvalue` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`stkcatpropid`),
   KEY `categoryid` (`categoryid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `stockcheckfreeze`;
 CREATE TABLE `stockcheckfreeze` (
   `stockid` varchar(20) NOT NULL DEFAULT '',
@@ -2697,7 +2697,7 @@ CREATE TABLE `stockcounts` (
   KEY `StockID` (`stockid`),
   KEY `LocCode` (`loccode`),
   KEY `container` (`loccode`,`container`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `stockdescriptiontranslations`;
 CREATE TABLE `stockdescriptiontranslations` (
   `stockid` varchar(20) NOT NULL DEFAULT '',
@@ -2804,7 +2804,7 @@ CREATE TABLE `stockmoves` (
   KEY `reference` (`reference`),
   KEY `stockmoves` (`reference`),
   KEY `Container` (`stockid`,`loccode`,`container`)
-) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `stockmovestaxes`;
 CREATE TABLE `stockmovestaxes` (
   `stkmoveno` int(11) NOT NULL DEFAULT '0',
@@ -2831,7 +2831,7 @@ CREATE TABLE `stockrequest` (
   KEY `departmentid` (`departmentid`),
   KEY `loccode_2` (`loccode`),
   KEY `departmentid_2` (`departmentid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `stockrequestitems`;
 CREATE TABLE `stockrequestitems` (
   `dispatchitemsid` int(11) NOT NULL DEFAULT '0',
@@ -2874,7 +2874,7 @@ CREATE TABLE `stockserialmoves` (
   KEY `StockMoveNo` (`stockmoveno`),
   KEY `StockID_SN` (`stockid`,`serialno`),
   KEY `serialno` (`serialno`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `stocktypes`;
 CREATE TABLE `stocktypes` (
   `type` char(1) NOT NULL DEFAULT '',
@@ -2893,7 +2893,7 @@ CREATE TABLE `suppallocs` (
   KEY `TransID_AllocFrom` (`transid_allocfrom`),
   KEY `TransID_AllocTo` (`transid_allocto`),
   KEY `DateAlloc` (`datealloc`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `suppinvstogrn`;
 CREATE TABLE `suppinvstogrn` (
   `suppinv` int(11) NOT NULL,
@@ -2948,7 +2948,7 @@ CREATE TABLE `suppliergroups` (
   `fax` varchar(25) NOT NULL DEFAULT '',
   `email` varchar(55) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `suppliers`;
 CREATE TABLE `suppliers` (
   `supplierid` varchar(10) NOT NULL DEFAULT '',
@@ -2997,7 +2997,7 @@ CREATE TABLE `suppliertype` (
   `typename` varchar(100) NOT NULL,
   `nextsupplierno` varchar(20) NOT NULL DEFAULT '',
   PRIMARY KEY (`typeid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `supptrans`;
 CREATE TABLE `supptrans` (
   `transno` int(11) NOT NULL DEFAULT '0',
@@ -3027,7 +3027,7 @@ CREATE TABLE `supptrans` (
   KEY `TransNo` (`transno`),
   KEY `Type` (`type`),
   KEY `TypeTransNo` (`transno`,`type`,`supplierno`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `supptranstaxes`;
 CREATE TABLE `supptranstaxes` (
   `supptransid` int(11) NOT NULL DEFAULT '0',
@@ -3050,7 +3050,7 @@ CREATE TABLE `tags` (
   `department` int(11) NOT NULL DEFAULT '0',
   `tagdescription` varchar(50) NOT NULL,
   PRIMARY KEY (`tagref`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `taxauthorities`;
 CREATE TABLE `taxauthorities` (
   `taxid` tinyint(4) NOT NULL AUTO_INCREMENT,
@@ -3064,7 +3064,7 @@ CREATE TABLE `taxauthorities` (
   PRIMARY KEY (`taxid`),
   KEY `TaxGLCode` (`taxglcode`),
   KEY `PurchTaxGLAccount` (`purchtaxglaccount`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `taxauthrates`;
 CREATE TABLE `taxauthrates` (
   `taxauthority` tinyint(4) NOT NULL DEFAULT '1',
@@ -3081,13 +3081,13 @@ CREATE TABLE `taxcategories` (
   `taxcatid` tinyint(4) NOT NULL AUTO_INCREMENT,
   `taxcatname` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`taxcatid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `taxgroups`;
 CREATE TABLE `taxgroups` (
   `taxgroupid` tinyint(4) NOT NULL AUTO_INCREMENT,
   `taxgroupdescription` varchar(30) NOT NULL DEFAULT '',
   PRIMARY KEY (`taxgroupid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `taxgrouptaxes`;
 CREATE TABLE `taxgrouptaxes` (
   `taxgroupid` tinyint(4) NOT NULL DEFAULT '0',
@@ -3104,7 +3104,7 @@ CREATE TABLE `taxprovinces` (
   `taxprovincename` varchar(30) NOT NULL DEFAULT '',
   `freighttaxcatid` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`taxprovinceid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `telecomrates`;
 CREATE TABLE `telecomrates` (
   `region` varchar(100) NOT NULL DEFAULT '',
@@ -3163,19 +3163,19 @@ CREATE TABLE `timesheets` (
   KEY `employees` (`employeeid`),
   KEY `wo` (`wo`),
   KEY `weekending` (`weekending`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `unitsofdimension`;
 CREATE TABLE `unitsofdimension` (
   `unitid` tinyint(4) NOT NULL AUTO_INCREMENT,
   `unitname` varchar(15) NOT NULL DEFAULT '',
   PRIMARY KEY (`unitid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `unitsofmeasure`;
 CREATE TABLE `unitsofmeasure` (
   `unitid` tinyint(4) NOT NULL AUTO_INCREMENT,
   `unitname` varchar(15) NOT NULL DEFAULT '',
   PRIMARY KEY (`unitid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 DROP TABLE IF EXISTS `woitems`;
 CREATE TABLE `woitems` (
   `wo` int(11) NOT NULL,
