@@ -20,6 +20,8 @@ form fieldset legend {
 background-color:#B06161;
 color:#FFFFFF;
 padding:3px;
+padding-left:5px;
+padding-right:5px;
 border: 0px solid;
 border-radius:9px;
 font-size:150%;
