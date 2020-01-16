@@ -46,7 +46,7 @@ text-align:left;
 }
 form fieldset field .fieldtext {
 display:inline;
-margin-bottom:8px;
+padding-bottom:10px;
 }
 form fieldset field input,textarea,select {
 background-color:#C0C3FF;
