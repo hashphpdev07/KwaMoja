@@ -807,6 +807,9 @@ if (isset($_POST['submit'])) {
 						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
 							unset($_POST['Description_' . str_replace('.', '_', $LanguageId) ]);
 						}
+						foreach ($ItemDescriptionLanguagesArray as $LanguageId) {
+							unset($_POST['LongDescription_' . str_replace('.', '_', $LanguageId) ]);
+						}
 						$New = 1;
 					} else {
 						$InsResult = DB_Txn_Rollback();
