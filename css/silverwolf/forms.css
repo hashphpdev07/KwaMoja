@@ -135,3 +135,6 @@ transition-duration:0.5s;
 form .number {
 text-align:right;
 }
+fieldset ul li {
+text-align:left;
+}

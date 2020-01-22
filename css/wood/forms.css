@@ -142,3 +142,6 @@ color:#1A1A1A;
 form .number {
 text-align:right;
 }
+fieldset ul li {
+text-align:left;
+}

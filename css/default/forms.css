@@ -136,3 +136,6 @@ cursor: pointer;
 form .number {
 text-align:right;
 }
+fieldset ul li {
+text-align:left;
+}
