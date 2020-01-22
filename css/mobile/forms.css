@@ -15,6 +15,9 @@ vertical-align:top;
 form fieldset legend {
 }
 form fieldset legend.search {
+background-size:18px 18px;
+background-position:5px center;
+padding-left:26px;
 }
 .fieldsetheader {
 background-color:#CCCCCC;
