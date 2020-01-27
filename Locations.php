@@ -647,6 +647,7 @@ if (!isset($_GET['delete'])) {
 			<input type="text" name="DelAdd5" value="', $_POST['DelAdd5'], '" size="21" maxlength="20" />
 			<fieldhelp>', _('Fifth line of the delivery address'), '</fieldhelp>
 		</field>
+		<field>
 			<label for="DelAdd6">', _('Country'), ':</label>
 			<select name="DelAdd6">';
 	foreach ($CountriesArray as $CountryEntry => $CountryName) {
