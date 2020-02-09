@@ -87,22 +87,6 @@ if (isset($_POST['submit'])) {
 	prnMsg(_('Sales posting record has been deleted'), 'success');
 }
 
-$SQL = "SELECT chartmaster.accountcode,
-			chartmaster.accountname
-		FROM chartmaster
-		INNER JOIN accountgroups
-			ON chartmaster.groupcode=accountgroups.groupcode
-			AND chartmaster.language=accountgroups.language
-		WHERE chartmaster.group_=accountgroups.groupname
-			AND accountgroups.pandl='1'
-			AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
-		ORDER BY accountgroups.sequenceintb,
-			chartmaster.accountcode";
-$Result = DB_query($SQL);
-while ($MyRow = DB_fetch_array($Result)) {
-	$PossibleGLCodes[$MyRow['accountcode']] = $MyRow['accountname'];
-}
-
 if (!isset($SelectedSalesPostingID)) {
 
 	$ShowLivePostingRecords = true;
@@ -160,12 +144,26 @@ if (!isset($SelectedSalesPostingID)) {
 				$TypeRow['sales_type'] = _('Any Other Sales Type');
 			}
 
+			$SQL = "SELECT chartmaster.accountname
+					FROM chartmaster
+					WHERE accountcode='" . $MyRow['salesglcode'] . "'
+						AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
+			$Result = DB_query($SQL);
+			$SalesRow = DB_fetch_array($Result);
+
+			$SQL = "SELECT chartmaster.accountname
+					FROM chartmaster
+					WHERE accountcode='" . $MyRow['discountglcode'] . "'
+						AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
+			$Result = DB_query($SQL);
+			$DiscountRow = DB_fetch_array($Result);
+
 			echo '<tr class="striped_row">
 					<td>', $AreaRow['areadescription'], ' (', $MyRow['area'], ')</td>
 					<td>', $CategoryRow['categorydescription'], ' (', $MyRow['stkcat'], ')</td>
 					<td>', $TypeRow['sales_type'], ' (', $MyRow['salestype'], ')</td>
-					<td>', htmlspecialchars($PossibleGLCodes[$MyRow['salesglcode']], ENT_QUOTES, 'UTF-8'), '</td>
-					<td>', htmlspecialchars($PossibleGLCodes[$MyRow['discountglcode']], ENT_QUOTES, 'UTF-8'), '</td>
+					<td>', htmlspecialchars($MyRow['salesglcode'] . ' - ' . $SalesRow['accountname'], ENT_QUOTES, 'UTF-8'), '</td>
+					<td>', htmlspecialchars($MyRow['discountglcode'] . ' - ' . $DiscountRow['accountname'], ENT_QUOTES, 'UTF-8'), '</td>
 					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedSalesPostingID=', urlencode($MyRow['id']), '">', _('Edit'), '</a></td>
 					<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?SelectedSalesPostingID=', urlencode($MyRow['id']), '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this sales GL posting record?'), '\', \'Confirm Delete\', this);">', _('Delete'), '</a></td>
 				</tr>';
@@ -231,7 +229,7 @@ while ($AreaRow = DB_fetch_array($AreaResult)) {
 	}
 } //end while loop
 echo '</select>
-		<fieldhelp>', _('Select an Area here. If this record is to refer to all areas that do not have a specific record then select "Any Other".'), '</fieldhelp>
+		<fieldhelp>', _('Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other.'), '</fieldhelp>
 	</field>';
 
 $SQL = "SELECT categoryid, categorydescription FROM stockcategory";
@@ -251,7 +249,7 @@ while ($CategoryRow = DB_fetch_array($CategoryResult)) {
 	}
 } //end while loop
 echo '</select>
-		<fieldhelp>', _('Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select "Any Other".'), '</fieldhelp>
+		<fieldhelp>', _('Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other.'), '</fieldhelp>
 	</field>';
 
 $SQL = "SELECT typeabbrev,
@@ -272,36 +270,19 @@ while ($MyRow = DB_fetch_array($Result)) {
 	}
 } //end while loop
 echo '</select>
-		<fieldhelp>', _('Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select "Any Other".'), '</fieldhelp>
+		<fieldhelp>', _('Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other.'), '</fieldhelp>
 	</field>';
 
 echo '<field>
-			<label for="SalesGLCode">', _('Post Sales to GL Account'), ':</label>
-			<select required="required" name="SalesGLCode">';
-foreach ($PossibleGLCodes as $AccountCode => $AccountName) {
-	if (isset($_POST['SalesGLCode']) and $AccountCode == $_POST['SalesGLCode']) {
-		echo '<option selected="selected" value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-	} else {
-		echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-	}
-} //end while loop
-echo '</select>
-		<fieldhelp>', _('Select the GL code to which sales should be posted for this criteria.'), '</fieldhelp>
+			<label for="SalesGLCode">', _('Post Sales to GL Account'), ':</label>';
+GLSelect(1, 'SalesGLCode');
+echo '<fieldhelp>', _('Select the GL code to which sales should be posted for this criteria.'), '</fieldhelp>
 	</field>';
 
 echo '<field>
-			<label for="DiscountGLCode">', _('Post Discount to GL Account'), ':</label>
-			<select required="required" name="DiscountGLCode">';
-
-foreach ($PossibleGLCodes as $AccountCode => $AccountName) {
-	if (isset($_POST['DiscountGLCode']) and $AccountCode == $_POST['DiscountGLCode']) {
-		echo '<option selected="selected" value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-	} else {
-		echo '<option value="', $AccountCode, '">', $AccountCode, ' - ', htmlspecialchars($AccountName, ENT_QUOTES, 'UTF-8', false), '</option>';
-	}
-} //end while loop
-echo '</select>
-		<fieldhelp>', _('Select the GL code to which sales discount should be posted for this criteria.'), '</fieldhelp>
+			<label for="DiscountGLCode">', _('Post Discount to GL Account'), ':</label>';
+GLSelect(1, 'DiscountGLCode');
+echo '<fieldhelp>', _('Select the GL code to which sales discount should be posted for this criteria.'), '</fieldhelp>
 	</field>';
 
 echo '</fieldset>';

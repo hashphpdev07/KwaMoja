@@ -15,6 +15,9 @@ vertical-align:top;
 form fieldset legend {
 }
 form fieldset legend.search {
+background-size:18px 18px;
+background-position:5px center;
+padding-left:26px;
 }
 .fieldsetheader {
 background-color:#CCCCCC;
@@ -38,6 +41,7 @@ text-align:left;
 form fieldset field .fieldtext {
 margin-bottom:8px;
 display:inline;
+line-height:170%;
 }
 form fieldset field input,textarea,select {
 background-color:transparent;
@@ -116,4 +120,7 @@ cursor: pointer;
 }
 form .number {
 text-align:right;
+}
+fieldset ul li {
+text-align:left;
 }
