@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-18 06:30+0000\n"
+"POT-Creation-Date: 2020-02-22 21:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,9 +199,9 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:712
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:715
 #: /home/tim/code/KwaMoja/PO_OrderDetails.php:147
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:398
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:402
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:406
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:400
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:404
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:408
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:401
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:433
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:83
@@ -1268,8 +1268,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:154
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:159
 #: /home/tim/code/KwaMoja/PO_Header.php:801
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:418
 #: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:422
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:426
 #: /home/tim/code/KwaMoja/PaymentMethods.php:207
 #: /home/tim/code/KwaMoja/PaymentMethods.php:208
 #: /home/tim/code/KwaMoja/PaymentMethods.php:209
@@ -1523,8 +1523,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:161
 #: /home/tim/code/KwaMoja/PO_Header.php:800
 #: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:50
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:419
 #: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:423
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:427
 #: /home/tim/code/KwaMoja/PaymentMethods.php:207
 #: /home/tim/code/KwaMoja/PaymentMethods.php:208
 #: /home/tim/code/KwaMoja/PaymentMethods.php:209
@@ -2105,8 +2105,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:617
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:713
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:716
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:403
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:407
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:405
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:409
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:100
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:868
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:890
@@ -2530,7 +2530,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:7
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:19
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:9
-#: /home/tim/code/KwaMoja/StockSerialItems.php:8
+#: /home/tim/code/KwaMoja/StockSerialItems.php:7
 #: /home/tim/code/KwaMoja/StockStatus.php:34
 #: /home/tim/code/KwaMoja/StockStatus.php:38
 #: /home/tim/code/KwaMoja/StockTransferControlled.php:13
@@ -3004,7 +3004,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:273
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:122
 #: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:18
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:152
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:151
 #: /home/tim/code/KwaMoja/PrintCustOrder.php:221
 #: /home/tim/code/KwaMoja/PrintCustOrder_generic.php:332
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:122
@@ -6923,7 +6923,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:57
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:356
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:528
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:363
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:360
 #: /home/tim/code/KwaMoja/Payments.php:946
 #: /home/tim/code/KwaMoja/Payments.php:951
 #: /home/tim/code/KwaMoja/PcReportTab.php:104
@@ -14943,7 +14943,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:155
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:277
 #: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:71
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:208
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:207
 #: /home/tim/code/KwaMoja/PrintCredit.php:113
 #: /home/tim/code/KwaMoja/PrintCustOrder.php:26
 #: /home/tim/code/KwaMoja/PrintCustOrder.php:121
@@ -19193,14 +19193,14 @@ msgid "The packing slip for order number"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/EmailConfirmation.php:100
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:146
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:145
 #: /home/tim/code/KwaMoja/PrintCustOrder.php:97
 #: /home/tim/code/KwaMoja/PrintCustOrder_generic.php:95
 msgid "has previously been printed"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/EmailConfirmation.php:100
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:146
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:145
 #: /home/tim/code/KwaMoja/PrintCustOrder.php:97
 #: /home/tim/code/KwaMoja/PrintCustOrder_generic.php:95
 msgid "It was printed on"
@@ -19334,13 +19334,13 @@ msgstr ""
 #: /home/tim/code/KwaMoja/EmailCustStatements.php:41
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:645
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:733
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:435
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:442
 msgid "Email to"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/EmailCustStatements.php:47
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:69
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:462
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:468
 msgid "OK"
 msgstr ""
 
@@ -19522,7 +19522,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:165
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:277
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:208
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:207
 msgid "There was a problem retrieving the line details for order number"
 msgstr ""
 
@@ -20283,12 +20283,12 @@ msgstr ""
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:568
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:90
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:27
+#: /home/tim/code/KwaMoja/StockSerialItems.php:94
 #: /home/tim/code/KwaMoja/StockSerialItems.php:96
 #: /home/tim/code/KwaMoja/StockSerialItems.php:98
-#: /home/tim/code/KwaMoja/StockSerialItems.php:100
+#: /home/tim/code/KwaMoja/StockSerialItems.php:102
 #: /home/tim/code/KwaMoja/StockSerialItems.php:104
 #: /home/tim/code/KwaMoja/StockSerialItems.php:106
-#: /home/tim/code/KwaMoja/StockSerialItems.php:108
 #: /home/tim/code/KwaMoja/Z_ChangeSerialNumber.php:66
 msgid "Serial Number"
 msgstr ""
@@ -23688,7 +23688,7 @@ msgstr ""
 msgid "Modify Order Items"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/GoodsReceived.php:861
+#: /home/tim/code/KwaMoja/GoodsReceived.php:860
 msgid "Process Goods Received"
 msgstr ""
 
@@ -26718,7 +26718,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:63
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:132
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:188
-#: /home/tim/code/KwaMoja/StockSerialItems.php:175
+#: /home/tim/code/KwaMoja/StockSerialItems.php:172
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:52
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:59
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsKeyed.php:59
@@ -27266,7 +27266,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFFGLabel.php:207
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:351
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:524
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:356
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:354
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:569
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:575
 msgid "has been emailed to"
@@ -30811,7 +30811,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFFGLabel.php:198
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:343
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:516
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:348
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:347
 msgid "The SMTP settings are wrong, please ask administrator for help"
 msgstr ""
 
@@ -30827,7 +30827,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFFGLabel.php:207
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:351
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:524
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:356
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:354
 msgid "as directed"
 msgstr ""
 
@@ -30840,7 +30840,7 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PDFFGLabel.php:213
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:356
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:528
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:363
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:360
 #: /home/tim/code/KwaMoja/Z_ChangeStockCode.php:174
 msgid "failed"
 msgstr ""
@@ -31322,7 +31322,7 @@ msgid "Price Labels"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:12
-msgid "Select Labels to rint"
+msgid "Select Labels to Print"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:40
@@ -31913,7 +31913,7 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:603
 #: /home/tim/code/KwaMoja/PDFWOPrint.php:702
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:391
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:393
 msgid "Print or Email the Order"
 msgstr ""
 
@@ -32597,8 +32597,8 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PO_Items.php:944
 #: /home/tim/code/KwaMoja/PO_Items.php:947
 #: /home/tim/code/KwaMoja/PO_OrderDetails.php:93
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:201
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:356
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:200
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:354
 #: /home/tim/code/KwaMoja/PurchaseByPrefSupplier.php:294
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:259
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:418
@@ -33379,67 +33379,75 @@ msgstr ""
 msgid "Purchase Order Already Printed"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:146
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:202
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:339
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:145
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:201
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:338
 #: /home/tim/code/KwaMoja/includes/PO_PDFOrderPageHeader.php:10
 msgid "Purchase Order Number"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:146
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:145
 msgid "To re-print the order it must be modified to allow a reprint"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:146
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:145
 msgid "This check is there to ensure that duplicate purchase orders are not sent to the supplier resulting in several deliveries of the same supplies"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:149
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:148
 msgid "Print This Order as a Copy"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:150
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:149
 msgid "Modify the order to allow a real reprint"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:151
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:150
 msgid "Select another order"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:319
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:318
 msgid "Order Total - excl tax"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:338
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:337
 msgid "Please find herewith our purchase order number"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:353
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:360
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:352
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:358
 msgid "Email a Purchase Order"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:363
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:360
 msgid "Emailing Purchase order"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:367
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:364
 msgid "Printed by"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:412
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:381
+msgid "Print the Purchase Order"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:391
+msgid "Print Purchase Orders"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:416
 msgid "Show Amounts on the Order"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:427
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:433
 msgid "There was a problem retrieving the contact details for the supplier"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:454
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:461
 msgid "There are no contacts defined for the supplier of this order"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:454
+#: /home/tim/code/KwaMoja/PO_PDFPurchOrder.php:461
 msgid "You must first set up supplier contacts before emailing an order"
 msgstr ""
 
@@ -34427,8 +34435,10 @@ msgstr ""
 
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:44
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:48
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:140
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:61
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:65
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:172
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:16
 #: /home/tim/code/KwaMoja/sql/updates/12.php:326
 #: /home/tim/code/KwaMoja/sql/updates/42.php:37
@@ -34443,11 +34453,6 @@ msgstr ""
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:62
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:105
 msgid "Detail Of Movement For Last "
-msgstr ""
-
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:140
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:172
-msgid "PettyCash"
 msgstr ""
 
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:243
@@ -41527,12 +41532,12 @@ msgstr ""
 #: /home/tim/code/KwaMoja/SelectProduct.php:373
 #: /home/tim/code/KwaMoja/StockLocStatus.php:168
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:61
-#: /home/tim/code/KwaMoja/StockSerialItems.php:114
-#: /home/tim/code/KwaMoja/StockSerialItems.php:117
-#: /home/tim/code/KwaMoja/StockSerialItems.php:120
-#: /home/tim/code/KwaMoja/StockSerialItems.php:125
-#: /home/tim/code/KwaMoja/StockSerialItems.php:129
-#: /home/tim/code/KwaMoja/StockSerialItems.php:133
+#: /home/tim/code/KwaMoja/StockSerialItems.php:112
+#: /home/tim/code/KwaMoja/StockSerialItems.php:115
+#: /home/tim/code/KwaMoja/StockSerialItems.php:118
+#: /home/tim/code/KwaMoja/StockSerialItems.php:123
+#: /home/tim/code/KwaMoja/StockSerialItems.php:127
+#: /home/tim/code/KwaMoja/StockSerialItems.php:131
 #: /home/tim/code/KwaMoja/StockStatus.php:104
 msgid "Quantity On Hand"
 msgstr ""
@@ -45019,68 +45024,68 @@ msgstr ""
 msgid "Total Move Qty"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:4
+#: /home/tim/code/KwaMoja/StockSerialItems.php:3
 msgid "Stock Of Controlled Items"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:13
+#: /home/tim/code/KwaMoja/StockSerialItems.php:12
 msgid "The stock code sent to this page appears to be invalid"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:19
+#: /home/tim/code/KwaMoja/StockSerialItems.php:18
 msgid "This page must be called with parameters specifying the item to show the serial references and quantities"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:19
+#: /home/tim/code/KwaMoja/StockSerialItems.php:18
 msgid "It cannot be displayed without the proper parameters being passed"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:32
+#: /home/tim/code/KwaMoja/StockSerialItems.php:31
 msgid "Could not retrieve the requested item because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:45
+#: /home/tim/code/KwaMoja/StockSerialItems.php:44
 msgid "This item is either a kitset or assembly or a dummy part and cannot have a stock holding"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:45
+#: /home/tim/code/KwaMoja/StockSerialItems.php:44
 msgid "This page cannot be displayed"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:45
+#: /home/tim/code/KwaMoja/StockSerialItems.php:44
 msgid "Only serialised or controlled items can be displayed in this page"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:57
+#: /home/tim/code/KwaMoja/StockSerialItems.php:56
 msgid "Could not retrieve the stock location of the item because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:58
+#: /home/tim/code/KwaMoja/StockSerialItems.php:57
 msgid "The SQL used to lookup the location was"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:76
+#: /home/tim/code/KwaMoja/StockSerialItems.php:74
 msgid "The serial numbers/batches held cannot be retrieved because"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:83
+#: /home/tim/code/KwaMoja/StockSerialItems.php:81
 msgid "Serialised items in"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:86
+#: /home/tim/code/KwaMoja/StockSerialItems.php:84
 msgid "Controlled items in"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:91
+#: /home/tim/code/KwaMoja/StockSerialItems.php:89
 msgid "In units of"
 msgstr ""
 
+#: /home/tim/code/KwaMoja/StockSerialItems.php:103
 #: /home/tim/code/KwaMoja/StockSerialItems.php:105
 #: /home/tim/code/KwaMoja/StockSerialItems.php:107
-#: /home/tim/code/KwaMoja/StockSerialItems.php:109
-#: /home/tim/code/KwaMoja/StockSerialItems.php:126
-#: /home/tim/code/KwaMoja/StockSerialItems.php:130
-#: /home/tim/code/KwaMoja/StockSerialItems.php:134
+#: /home/tim/code/KwaMoja/StockSerialItems.php:124
+#: /home/tim/code/KwaMoja/StockSerialItems.php:128
+#: /home/tim/code/KwaMoja/StockSerialItems.php:132
 #: /home/tim/code/KwaMoja/SupplierTenders.php:310
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:856
 #: /home/tim/code/KwaMoja/includes/InputSerialItems.php:120
@@ -45090,12 +45095,12 @@ msgstr ""
 msgid "Expiry Date"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/StockSerialItems.php:113
-#: /home/tim/code/KwaMoja/StockSerialItems.php:116
-#: /home/tim/code/KwaMoja/StockSerialItems.php:119
-#: /home/tim/code/KwaMoja/StockSerialItems.php:124
-#: /home/tim/code/KwaMoja/StockSerialItems.php:128
-#: /home/tim/code/KwaMoja/StockSerialItems.php:132
+#: /home/tim/code/KwaMoja/StockSerialItems.php:111
+#: /home/tim/code/KwaMoja/StockSerialItems.php:114
+#: /home/tim/code/KwaMoja/StockSerialItems.php:117
+#: /home/tim/code/KwaMoja/StockSerialItems.php:122
+#: /home/tim/code/KwaMoja/StockSerialItems.php:126
+#: /home/tim/code/KwaMoja/StockSerialItems.php:130
 msgid "Batch/Bundle Ref"
 msgstr ""
 
@@ -46348,19 +46353,28 @@ msgstr ""
 msgid "Qty Yet To Invoice"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SuppInvGRNs.php:287
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:277
+msgid "Fair Value per Unit in"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:279
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:319
+msgid "Transaction Tag"
+msgstr ""
+
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:291
 msgid "Add Whole PO to Invoice"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SuppInvGRNs.php:314
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:325
 msgid "Select All"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SuppInvGRNs.php:315
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:326
 msgid "Deselect All"
 msgstr ""
 
-#: /home/tim/code/KwaMoja/SuppInvGRNs.php:317
+#: /home/tim/code/KwaMoja/SuppInvGRNs.php:328
 msgid "Add to Invoice"
 msgstr ""
 
