@@ -1,6 +1,7 @@
 <?php
 // Display demo user name and password within login form if $AllowDemoMode is true
-include ('LanguageSetup.php');
+include ($PathPrefix . 'includes/LanguageSetup.php');
+include ('LanguagesArray.php');
 include ('MobileDetect.php');
 $MobileDetect = new Mobile_Detect;
 if ((isset($AllowDemoMode)) and ($AllowDemoMode == True) and (!isset($demo_text))) {
@@ -16,8 +17,8 @@ echo '<html>
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 echo '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />';
 
-if (!$MobileDetect->isMobile()) {
-	echo '<link rel="stylesheet" href="css/login.css" type="text/css" />';
+if ($LanguagesArray[$DefaultLanguage]['Direction'] == 'rtl') {
+	echo '<link rel="stylesheet" href="css/login_rtl.css" type="text/css" />';
 } else {
 	//	echo '<link rel="stylesheet" href="css/login-mobile.css" type="text/css" />';
 	echo '<link rel="stylesheet" href="css/login.css" type="text/css" />';
