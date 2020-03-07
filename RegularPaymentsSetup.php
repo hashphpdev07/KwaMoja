@@ -377,7 +377,7 @@ if (DB_num_rows($Result) > 0 and !isset($_GET['Edit'])) {
 				<th>', _('Days into Period'), '</th>
 				<th>', _('Bank Account'), '</th>
 				<th>', _('GL Account'), '</th>
-				<th>', _('GL Tag'), '</th>
+				<th>', _('GL Tags'), '</th>
 				<th>', _('Amount of Payment'), '</th>
 				<th>', _('Currency of payment'), '</th>
 				<th>', _('Description'), '</th>
@@ -388,12 +388,20 @@ if (DB_num_rows($Result) > 0 and !isset($_GET['Edit'])) {
 				<th></th>
 			</tr>';
 	while ($MyRow = DB_fetch_array($Result)) {
+		$Tags = explode(',', $MyRow['tag']);
+		$TagText = '';
+		foreach ($Tags as $Tag) {
+			$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $Tag . "'";
+			$TagResult = DB_query($TagSQL);
+			$TagRow = DB_fetch_array($TagResult);
+			$TagText.= $Tag . ' - ' . $TagRow['tagdescription'] . '<br />';
+		}
 		echo '<tr class="striped_row">
 				<td>', $Frequencies[$MyRow['frequency']], '</td>
 				<td class="number">', $MyRow['days'], '</td>
 				<td>', $MyRow['bankaccountname'], '</td>
 				<td>', $MyRow['glcode'], ' - ', $MyRow['accountname'], '</td>
-				<td>', $MyRow['tag'], '</td>
+				<td>', $TagText, '</td>
 				<td class="number">', $MyRow['amount'], '</td>
 				<td>', $MyRow['currabrev'], '</td>
 				<td>', $MyRow['narrative'], '</td>
