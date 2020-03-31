@@ -17,7 +17,7 @@ switch ($_SESSION['Installer']['DBMS']) {
 	case 'mysqli':
 		$DB = @mysqli_connect($_SESSION['Installer']['HostName'], $_SESSION['Installer']['UserName'], $_SESSION['Installer']['Password'], $_SESSION['DatabaseName']);
 	break;
-	case 'posgres':
+	case 'postgres':
 		$DB = pg_connect('host=' . $_SESSION['Installer']['HostName'] . ' dbname=kwamoja port=5432 user=postgres');;
 	break;
 	default:
@@ -182,7 +182,7 @@ for ($i = 0;$i < $ScriptFileEntries;$i++) {
 		}
 
 	} //end if its a valid sql line not a comment
-	
+
 } //end of for loop around the lines of the sql script
 /* End database structure */
 
@@ -281,7 +281,7 @@ if (!isset($_POST['Demo'])) {
 			}
 
 		} //end if its a valid sql line not a comment
-		
+
 	} //end of for loop around the lines of the sql script
 	echo '<div class="success">' . _('Your chosen chart of accounts has been uploaded') . '</div>';
 	ob_flush();
@@ -1453,7 +1453,7 @@ function PopulateSQLDataBySQL($File, $DB, $DBType, $NewDB = false, $DemoDB = 'kw
 		flush();
 
 	} //end of for loop around the lines of the sql script
-	
+
 }
 
 function chmod_R($path, $filemode, $dirmode) {
