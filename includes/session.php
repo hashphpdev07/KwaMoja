@@ -73,7 +73,7 @@ if (isset($_SESSION['DatabaseName'])) {
 					$PostVariableValue[$PostArrayKey] = stripslashes($value[$PostArrayKey]);
 					}
 				*/
-				$PostVariableValue[$PostArrayKey] = quote_smart($value[$PostArrayKey]);
+				$PostVariableValue[$PostArrayKey] = quote_smart($PostVariableValue[$PostArrayKey]);
 				$_POST[$PostVariableName][$PostArrayKey] = DB_escape_string(htmlspecialchars($PostArrayValue, ENT_QUOTES, 'UTF-8'));
 
 			}
