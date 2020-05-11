@@ -45,15 +45,15 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 	}
 
 	$ShowObsolete = " AND `stockmaster`.`discontinued` != 1 "; // Query element to exclude obsolete items.
-	if ($_POST['ShowObsolete']) {
+	if (isset($_POST['ShowObsolete'])) {
 		$ShowObsolete = ''; // Cleans the query element to exclude obsolete items.
 		
 	}
 
 	// Option to select the order of the items in the report:
-	$ItemOrder = 'stockmaster.stockid'; // Query element to sort by currency, item_stock_category, and item_code.
+	$ItemOrder = ',stockmaster.stockid'; // Query element to sort by currency, item_stock_category, and item_code.
 	if ($_POST['ItemOrder'] == 'Description') {
-		$ItemOrder = 'stockmaster.description'; // Query element to sort by currency, item_stock_category, and item_description.
+		$ItemOrder = ',stockmaster.description'; // Query element to sort by currency, item_stock_category, and item_description.
 		
 	}
 
@@ -100,7 +100,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 					prices.startdate,
 					prices.enddate,
 					prices.price,
-					stockmaster.materialcost+stockmaster.labourcost+stockmaster.overheadcost AS standardcost,
+					stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS standardcost,
 					stockmaster.categoryid,
 					stockcategory.categorydescription,
 					prices.debtorno,
@@ -109,6 +109,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 					currencies.decimalplaces
 				FROM stockmaster
 					INNER JOIN	stockcategory ON stockmaster.categoryid=stockcategory.categoryid
+					INNER JOIN	stockcosts ON stockmaster.stockid=stockcosts.stockid AND stockcosts.succeeded=0
 					INNER JOIN prices ON stockmaster.stockid=prices.stockid
 					INNER JOIN currencies ON prices.currabrev=currencies.currabrev
 					LEFT JOIN custbranch ON prices.debtorno=custbranch.debtorno AND prices.branchcode=custbranch.branchcode
@@ -140,12 +141,13 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 					stockmaster.longdescription,
 					prices.currabrev,
 					prices.price,
-					stockmaster.materialcost+stockmaster.labourcost+stockmaster.overheadcost as standardcost,
+					stockcosts.materialcost+stockcosts.labourcost+stockcosts.overheadcost AS standardcost,
 					stockmaster.categoryid,
 					stockcategory.categorydescription,
 					currencies.decimalplaces
 				FROM stockmaster
 					INNER JOIN	stockcategory ON stockmaster.categoryid=stockcategory.categoryid
+					INNER JOIN	stockcosts ON stockmaster.stockid=stockcosts.stockid AND stockcosts.succeeded=0
 					INNER JOIN prices ON stockmaster.stockid=prices.stockid
 					INNER JOIN currencies ON prices.currabrev=currencies.currabrev
 				WHERE stockmaster.categoryid IN ('" . implode("','", $_POST['Categories']) . "')
@@ -157,7 +159,7 @@ if (isset($_POST['PrintPDF']) and isset($_POST['Categories']) and sizeOf($_POST[
 					prices.currabrev,
 					stockcategory.categorydescription,
 					stockmaster.stockid,
-					prices.startdate" . $ItemOrder;
+					prices.startdate " . $ItemOrder;
 	}
 
 	$PricesResult = DB_query($SQL, '', '', false, false);
