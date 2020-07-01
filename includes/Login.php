@@ -1,6 +1,7 @@
 <?php
 // Display demo user name and password within login form if $AllowDemoMode is true
-include ('LanguageSetup.php');
+include ($PathPrefix . 'includes/LanguageSetup.php');
+include ('LanguagesArray.php');
 include ('MobileDetect.php');
 $MobileDetect = new Mobile_Detect;
 if ((isset($AllowDemoMode)) and ($AllowDemoMode == True) and (!isset($demo_text))) {
@@ -14,10 +15,11 @@ echo '<html>
 		<head>
 			<title>' . $ProjectName . ' ' . _('Login screen') . '</title>';
 echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
+echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
 echo '<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />';
 
-if (!$MobileDetect->isMobile()) {
-	echo '<link rel="stylesheet" href="css/login.css" type="text/css" />';
+if ($LanguagesArray[$DefaultLanguage]['Direction'] == 'rtl') {
+	echo '<link rel="stylesheet" href="css/login_rtl.css" type="text/css" />';
 } else {
 	//	echo '<link rel="stylesheet" href="css/login-mobile.css" type="text/css" />';
 	echo '<link rel="stylesheet" href="css/login.css" type="text/css" />';
@@ -25,14 +27,6 @@ if (!$MobileDetect->isMobile()) {
 ?>
 </head>
 <body>
-
-<?php
-if (get_magic_quotes_gpc()) {
-	echo '<p style="background:white">';
-	echo _('Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes');
-	echo '</p>';
-}
-?>
 
 <div id="container">
 	<table>
