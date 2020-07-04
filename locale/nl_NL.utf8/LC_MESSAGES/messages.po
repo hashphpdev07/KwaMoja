@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 23:50+0000\n"
+"POT-Creation-Date: 2020-07-03 18:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,7 +161,7 @@ msgstr "Lijst met ABC-ranglijstgroepen"
 #: /home/tim/code/KwaMoja/ContractBOM.php:294
 #: /home/tim/code/KwaMoja/CounterReturns.php:1644
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:149
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:607
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:610
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:117
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:619
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
@@ -292,7 +292,7 @@ msgstr "Weet je zeker dat je deze ranglijst wilt verwijderen?"
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:395
 #: /home/tim/code/KwaMoja/Currencies.php:357
 #: /home/tim/code/KwaMoja/CustItem.php:169
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1039
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1059
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
 #: /home/tim/code/KwaMoja/Customers.php:715
 #: /home/tim/code/KwaMoja/Departments.php:188
@@ -396,7 +396,7 @@ msgstr "Weet je zeker dat je deze ranglijst wilt verwijderen?"
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:175
 #: /home/tim/code/KwaMoja/WOSerialNos.php:316
 #: /home/tim/code/KwaMoja/WWW_Access.php:151
-#: /home/tim/code/KwaMoja/WWW_Users.php:431
+#: /home/tim/code/KwaMoja/WWW_Users.php:436
 #: /home/tim/code/KwaMoja/WorkCentres.php:156
 #: /home/tim/code/KwaMoja/prlBP.php:219
 #: /home/tim/code/KwaMoja/prlBankDetails.php:250
@@ -613,7 +613,7 @@ msgstr "De classificatiemethode is succesvol opgeslagen in de database"
 #: /home/tim/code/KwaMoja/Timesheets.php:531
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:174
 #: /home/tim/code/KwaMoja/WWW_Access.php:150
-#: /home/tim/code/KwaMoja/WWW_Users.php:430
+#: /home/tim/code/KwaMoja/WWW_Users.php:435
 #: /home/tim/code/KwaMoja/WorkCentres.php:155
 #: /home/tim/code/KwaMoja/prlALD.php:161 /home/tim/code/KwaMoja/prlBP.php:218
 #: /home/tim/code/KwaMoja/prlBankDetails.php:249
@@ -788,24 +788,27 @@ msgstr "zijn gewijzigd in de accountgroep"
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:473
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:382
 #: /home/tim/code/KwaMoja/JobScheduler.php:9
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:21
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:106
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:161
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:35
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:120
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:177
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:280
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:385
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:120
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:136
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:180
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:114
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
@@ -813,6 +816,7 @@ msgstr "zijn gewijzigd in de accountgroep"
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:37
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:74
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:102
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:35
 #: /home/tim/code/KwaMoja/MRPReport.php:535
 #: /home/tim/code/KwaMoja/MaintenanceTasks.php:12
 #: /home/tim/code/KwaMoja/MaintenanceUserSchedule.php:11
@@ -867,7 +871,7 @@ msgstr "zijn gewijzigd in de accountgroep"
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:542
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1459
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1552
-#: /home/tim/code/KwaMoja/SelectProduct.php:629
+#: /home/tim/code/KwaMoja/SelectProduct.php:633
 #: /home/tim/code/KwaMoja/SelectProject.php:62
 #: /home/tim/code/KwaMoja/SelectQASamples.php:44
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:630
@@ -903,7 +907,7 @@ msgstr "zijn gewijzigd in de accountgroep"
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:8
 #: /home/tim/code/KwaMoja/WOCanBeProducedNow.php:7
 #: /home/tim/code/KwaMoja/WWW_Access.php:10
-#: /home/tim/code/KwaMoja/WWW_Users.php:21
+#: /home/tim/code/KwaMoja/WWW_Users.php:26
 #: /home/tim/code/KwaMoja/WhereUsedInquiry.php:15
 #: /home/tim/code/KwaMoja/WorkCentres.php:115
 #: /home/tim/code/KwaMoja/WorkCentres.php:167
@@ -1155,9 +1159,9 @@ msgstr "Groepscode"
 #: /home/tim/code/KwaMoja/Donors.php:261
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:64
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:249
-#: /home/tim/code/KwaMoja/UserSettings.php:146
-#: /home/tim/code/KwaMoja/WWW_Users.php:384
-#: /home/tim/code/KwaMoja/WWW_Users.php:798
+#: /home/tim/code/KwaMoja/UserSettings.php:150
+#: /home/tim/code/KwaMoja/WWW_Users.php:389
+#: /home/tim/code/KwaMoja/WWW_Users.php:803
 msgid "Language"
 msgstr "Taal"
 
@@ -1240,12 +1244,28 @@ msgstr "Naam oudergroep"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:402
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:405
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:629
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:642
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:645
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:670
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:673
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:432
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:440
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:443
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:451
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:454
 #: /home/tim/code/KwaMoja/Labels.php:477 /home/tim/code/KwaMoja/Labels.php:479
 #: /home/tim/code/KwaMoja/Labels.php:521
 #: /home/tim/code/KwaMoja/LocationUsers.php:190
@@ -1408,24 +1428,24 @@ msgstr "Naam oudergroep"
 #: /home/tim/code/KwaMoja/UserGLAccounts.php:178
 #: /home/tim/code/KwaMoja/UserLocations.php:193
 #: /home/tim/code/KwaMoja/UserLocations.php:200
-#: /home/tim/code/KwaMoja/UserSettings.php:233
-#: /home/tim/code/KwaMoja/UserSettings.php:235
-#: /home/tim/code/KwaMoja/UserSettings.php:245
-#: /home/tim/code/KwaMoja/UserSettings.php:247
-#: /home/tim/code/KwaMoja/WWW_Users.php:577
-#: /home/tim/code/KwaMoja/WWW_Users.php:579
-#: /home/tim/code/KwaMoja/WWW_Users.php:622
-#: /home/tim/code/KwaMoja/WWW_Users.php:624
-#: /home/tim/code/KwaMoja/WWW_Users.php:637
-#: /home/tim/code/KwaMoja/WWW_Users.php:639
-#: /home/tim/code/KwaMoja/WWW_Users.php:669
-#: /home/tim/code/KwaMoja/WWW_Users.php:671
-#: /home/tim/code/KwaMoja/WWW_Users.php:825
-#: /home/tim/code/KwaMoja/WWW_Users.php:827
-#: /home/tim/code/KwaMoja/WWW_Users.php:899
-#: /home/tim/code/KwaMoja/WWW_Users.php:901
-#: /home/tim/code/KwaMoja/WWW_Users.php:912
-#: /home/tim/code/KwaMoja/WWW_Users.php:914
+#: /home/tim/code/KwaMoja/UserSettings.php:237
+#: /home/tim/code/KwaMoja/UserSettings.php:239
+#: /home/tim/code/KwaMoja/UserSettings.php:249
+#: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Users.php:582
+#: /home/tim/code/KwaMoja/WWW_Users.php:584
+#: /home/tim/code/KwaMoja/WWW_Users.php:627
+#: /home/tim/code/KwaMoja/WWW_Users.php:629
+#: /home/tim/code/KwaMoja/WWW_Users.php:642
+#: /home/tim/code/KwaMoja/WWW_Users.php:644
+#: /home/tim/code/KwaMoja/WWW_Users.php:674
+#: /home/tim/code/KwaMoja/WWW_Users.php:676
+#: /home/tim/code/KwaMoja/WWW_Users.php:830
+#: /home/tim/code/KwaMoja/WWW_Users.php:832
+#: /home/tim/code/KwaMoja/WWW_Users.php:904
+#: /home/tim/code/KwaMoja/WWW_Users.php:906
+#: /home/tim/code/KwaMoja/WWW_Users.php:917
+#: /home/tim/code/KwaMoja/WWW_Users.php:919
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:203
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:207
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:210
@@ -1493,12 +1513,28 @@ msgstr "Ja"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:403
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:406
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:630
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:633
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:643
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:646
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:671
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:674
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:419
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:422
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:430
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:433
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:441
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:444
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:452
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:455
 #: /home/tim/code/KwaMoja/Labels.php:476 /home/tim/code/KwaMoja/Labels.php:480
 #: /home/tim/code/KwaMoja/Labels.php:522
 #: /home/tim/code/KwaMoja/LocationUsers.php:193
@@ -1659,24 +1695,24 @@ msgstr "Ja"
 #: /home/tim/code/KwaMoja/UserGLAccounts.php:183
 #: /home/tim/code/KwaMoja/UserLocations.php:196
 #: /home/tim/code/KwaMoja/UserLocations.php:202
-#: /home/tim/code/KwaMoja/UserSettings.php:233
-#: /home/tim/code/KwaMoja/UserSettings.php:235
-#: /home/tim/code/KwaMoja/UserSettings.php:245
-#: /home/tim/code/KwaMoja/UserSettings.php:247
-#: /home/tim/code/KwaMoja/WWW_Users.php:576
-#: /home/tim/code/KwaMoja/WWW_Users.php:580
-#: /home/tim/code/KwaMoja/WWW_Users.php:621
-#: /home/tim/code/KwaMoja/WWW_Users.php:625
-#: /home/tim/code/KwaMoja/WWW_Users.php:636
-#: /home/tim/code/KwaMoja/WWW_Users.php:640
-#: /home/tim/code/KwaMoja/WWW_Users.php:668
-#: /home/tim/code/KwaMoja/WWW_Users.php:672
-#: /home/tim/code/KwaMoja/WWW_Users.php:824
-#: /home/tim/code/KwaMoja/WWW_Users.php:828
-#: /home/tim/code/KwaMoja/WWW_Users.php:899
-#: /home/tim/code/KwaMoja/WWW_Users.php:901
-#: /home/tim/code/KwaMoja/WWW_Users.php:912
-#: /home/tim/code/KwaMoja/WWW_Users.php:914
+#: /home/tim/code/KwaMoja/UserSettings.php:237
+#: /home/tim/code/KwaMoja/UserSettings.php:239
+#: /home/tim/code/KwaMoja/UserSettings.php:249
+#: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Users.php:581
+#: /home/tim/code/KwaMoja/WWW_Users.php:585
+#: /home/tim/code/KwaMoja/WWW_Users.php:626
+#: /home/tim/code/KwaMoja/WWW_Users.php:630
+#: /home/tim/code/KwaMoja/WWW_Users.php:641
+#: /home/tim/code/KwaMoja/WWW_Users.php:645
+#: /home/tim/code/KwaMoja/WWW_Users.php:673
+#: /home/tim/code/KwaMoja/WWW_Users.php:677
+#: /home/tim/code/KwaMoja/WWW_Users.php:829
+#: /home/tim/code/KwaMoja/WWW_Users.php:833
+#: /home/tim/code/KwaMoja/WWW_Users.php:904
+#: /home/tim/code/KwaMoja/WWW_Users.php:906
+#: /home/tim/code/KwaMoja/WWW_Users.php:917
+#: /home/tim/code/KwaMoja/WWW_Users.php:919
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:204
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:208
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:211
@@ -1814,7 +1850,7 @@ msgstr "De volgorde in de proefbalans waar deze groep zal verschijnen."
 #: /home/tim/code/KwaMoja/TaxProvinces.php:258
 #: /home/tim/code/KwaMoja/TestPlanResults.php:924
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:229
-#: /home/tim/code/KwaMoja/WWW_Users.php:966
+#: /home/tim/code/KwaMoja/WWW_Users.php:971
 #: /home/tim/code/KwaMoja/WorkCentres.php:270
 #: /home/tim/code/KwaMoja/prlCurrencies.php:273
 #: /home/tim/code/KwaMoja/prlEmploymentStatus.php:245
@@ -2033,11 +2069,12 @@ msgstr "Het contactrecord is verwijderd"
 #: /home/tim/code/KwaMoja/Customers.php:697
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:230
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:319
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2120,8 +2157,8 @@ msgstr "Telefoon nr"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:247
 #: /home/tim/code/KwaMoja/SupplierGroups.php:290
 #: /home/tim/code/KwaMoja/Timesheets.php:515
-#: /home/tim/code/KwaMoja/UserSettings.php:201
-#: /home/tim/code/KwaMoja/WWW_Users.php:375
+#: /home/tim/code/KwaMoja/UserSettings.php:205
+#: /home/tim/code/KwaMoja/WWW_Users.php:380
 #: /home/tim/code/KwaMoja/prlSSC.php:150 /home/tim/code/KwaMoja/prlSSC.php:220
 #: /home/tim/code/KwaMoja/prlnssf.php:323
 #: /home/tim/code/KwaMoja/prlnssf.php:367
@@ -2650,8 +2687,8 @@ msgstr "Voorraad"
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1468
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1649
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:304
-#: /home/tim/code/KwaMoja/SelectProduct.php:656
-#: /home/tim/code/KwaMoja/SelectProduct.php:809
+#: /home/tim/code/KwaMoja/SelectProduct.php:660
+#: /home/tim/code/KwaMoja/SelectProduct.php:813
 #: /home/tim/code/KwaMoja/SelectProject.php:142
 #: /home/tim/code/KwaMoja/SelectQASamples.php:313
 #: /home/tim/code/KwaMoja/SelectQASamples.php:405
@@ -2990,7 +3027,7 @@ msgstr "De klantgegevens konden door de SQL niet worden opgehaald omdat"
 #: /home/tim/code/KwaMoja/PDFGLJournal.php:104
 #: /home/tim/code/KwaMoja/PDFGrn.php:187 /home/tim/code/KwaMoja/PDFLowGP.php:60
 #: /home/tim/code/KwaMoja/PDFLowGP.php:72
-#: /home/tim/code/KwaMoja/PDFPriceList.php:168
+#: /home/tim/code/KwaMoja/PDFPriceList.php:170
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:41
 #: /home/tim/code/KwaMoja/PDFQALabel.php:115
 #: /home/tim/code/KwaMoja/PDFQuotation.php:254
@@ -3131,16 +3168,20 @@ msgstr "kon niet worden opgehaald omdat"
 #: /home/tim/code/KwaMoja/CustItem.php:77
 #: /home/tim/code/KwaMoja/CustItem.php:90
 #: /home/tim/code/KwaMoja/CustItem.php:190
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:602
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:745
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:773
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:605
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:748
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:140
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:188
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:44
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:146
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:197
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:94
 #: /home/tim/code/KwaMoja/Payments.php:450
 #: /home/tim/code/KwaMoja/PcReportTab.php:117
@@ -3346,7 +3387,7 @@ msgstr "Een samenvattingsrapport weergeven of transactiegegevens opnemen in het 
 #: /home/tim/code/KwaMoja/MRPShortages.php:302
 #: /home/tim/code/KwaMoja/PDFCustomerList.php:429
 #: /home/tim/code/KwaMoja/PDFLowGP.php:153
-#: /home/tim/code/KwaMoja/PDFPriceList.php:423
+#: /home/tim/code/KwaMoja/PDFPriceList.php:431
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:185
 #: /home/tim/code/KwaMoja/PDFStockCheckComparison.php:386
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:674
@@ -3454,7 +3495,7 @@ msgstr "Samenvatting of gedetailleerd rapport"
 #: /home/tim/code/KwaMoja/SelectProduct.php:210
 #: /home/tim/code/KwaMoja/SelectProduct.php:299
 #: /home/tim/code/KwaMoja/SelectProduct.php:300
-#: /home/tim/code/KwaMoja/SelectProduct.php:824
+#: /home/tim/code/KwaMoja/SelectProduct.php:828
 #: /home/tim/code/KwaMoja/StockCategorySalesInquiry.php:152
 #: /home/tim/code/KwaMoja/StockCategorySalesInquiry.php:179
 #: /home/tim/code/KwaMoja/StockCategorySalesInquiry.php:180
@@ -3542,8 +3583,8 @@ msgstr "Selecteer de laatste periode in het rapport"
 #: /home/tim/code/KwaMoja/CounterReturns.php:1711
 #: /home/tim/code/KwaMoja/CounterSales.php:2290
 #: /home/tim/code/KwaMoja/CustItem.php:219
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1213
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1216
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1233
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1236
 #: /home/tim/code/KwaMoja/DiscountCategories.php:139
 #: /home/tim/code/KwaMoja/DiscountCategories.php:146
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
@@ -3555,6 +3596,9 @@ msgstr "Selecteer de laatste periode in het rapport"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:128
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:139
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:150
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -3586,8 +3630,8 @@ msgstr "Selecteer de laatste periode in het rapport"
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:561
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1600
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:285
-#: /home/tim/code/KwaMoja/SelectProduct.php:664
-#: /home/tim/code/KwaMoja/SelectProduct.php:675
+#: /home/tim/code/KwaMoja/SelectProduct.php:668
+#: /home/tim/code/KwaMoja/SelectProduct.php:679
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:676
 #: /home/tim/code/KwaMoja/SelectSupplier.php:309
@@ -3656,6 +3700,7 @@ msgstr "Als u Samenvatting selecteert, wordt dit weergegeven op de totalen op ac
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:352
 #: /home/tim/code/KwaMoja/POReport.php:1332
 #: /home/tim/code/KwaMoja/SalesInquiry.php:949
 #: /home/tim/code/KwaMoja/Tax.php:504
@@ -3757,7 +3802,7 @@ msgstr "maanden tot"
 #: /home/tim/code/KwaMoja/Contracts.php:844
 #: /home/tim/code/KwaMoja/CustomerAccount.php:237
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1076
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1096
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:120
 #: /home/tim/code/KwaMoja/GLStatements.php:114
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:648
@@ -4286,8 +4331,8 @@ msgstr "Zoeken naar inschrijvingen tot deze datum"
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:193
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:226
 #: /home/tim/code/KwaMoja/StockMovements.php:135
-#: /home/tim/code/KwaMoja/UserSettings.php:132
-#: /home/tim/code/KwaMoja/WWW_Users.php:516
+#: /home/tim/code/KwaMoja/UserSettings.php:136
+#: /home/tim/code/KwaMoja/WWW_Users.php:521
 #: /home/tim/code/KwaMoja/includes/UserLogin.php:206
 msgid "User ID"
 msgstr "gebruikersnaam"
@@ -4333,8 +4378,8 @@ msgstr "gebruikersnaam"
 #: /home/tim/code/KwaMoja/NoSalesItems.php:72
 #: /home/tim/code/KwaMoja/NoSalesItems.php:74
 #: /home/tim/code/KwaMoja/NoSalesItems.php:246
-#: /home/tim/code/KwaMoja/PDFPriceList.php:243
-#: /home/tim/code/KwaMoja/PDFPriceList.php:367
+#: /home/tim/code/KwaMoja/PDFPriceList.php:250
+#: /home/tim/code/KwaMoja/PDFPriceList.php:375
 #: /home/tim/code/KwaMoja/POReport.php:1396
 #: /home/tim/code/KwaMoja/PO_Items.php:1376
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:97
@@ -4356,8 +4401,8 @@ msgstr "gebruikersnaam"
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:906
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1564
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1568
-#: /home/tim/code/KwaMoja/SelectProduct.php:641
-#: /home/tim/code/KwaMoja/SelectProduct.php:643
+#: /home/tim/code/KwaMoja/SelectProduct.php:645
+#: /home/tim/code/KwaMoja/SelectProduct.php:647
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:657
 #: /home/tim/code/KwaMoja/StockCategorySalesInquiry.php:36
 #: /home/tim/code/KwaMoja/StockCategorySalesInquiry.php:38
@@ -4419,7 +4464,7 @@ msgstr "Alle tekst die in het artikel staat waarnaar u op zoek bent, of laat bla
 #: /home/tim/code/KwaMoja/MRPReport.php:797
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:319
 #: /home/tim/code/KwaMoja/SelectContract.php:196
-#: /home/tim/code/KwaMoja/SelectProduct.php:846
+#: /home/tim/code/KwaMoja/SelectProduct.php:850
 #: /home/tim/code/KwaMoja/SelectProject.php:174
 #: /home/tim/code/KwaMoja/UserGLAccounts.php:143
 #: /home/tim/code/KwaMoja/UserLocations.php:181
@@ -4455,11 +4500,11 @@ msgstr "Gebruiker"
 #: /home/tim/code/KwaMoja/AuditTrail.php:186
 #: /home/tim/code/KwaMoja/CustomerBranches.php:108
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:150
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:234
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:150
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:234
-#: /home/tim/code/KwaMoja/KCMCRegister.php:263
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
 #: /home/tim/code/KwaMoja/PO_Header.php:1007
@@ -4582,7 +4627,7 @@ msgstr "#"
 #: /home/tim/code/KwaMoja/CounterSales.php:2323
 #: /home/tim/code/KwaMoja/CustItem.php:300
 #: /home/tim/code/KwaMoja/CustomerBranches.php:442
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1235
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1256
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:27
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:705
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:234
@@ -4613,7 +4658,7 @@ msgstr "#"
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1467
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1648
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:303
-#: /home/tim/code/KwaMoja/SelectProduct.php:807
+#: /home/tim/code/KwaMoja/SelectProduct.php:811
 #: /home/tim/code/KwaMoja/SelectQASamples.php:312
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:695
 #: /home/tim/code/KwaMoja/SelectSupplier.php:364
@@ -5142,7 +5187,7 @@ msgstr "Werkcentrum"
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1651
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:307
 #: /home/tim/code/KwaMoja/SelectProduct.php:161
-#: /home/tim/code/KwaMoja/SelectProduct.php:812
+#: /home/tim/code/KwaMoja/SelectProduct.php:816
 #: /home/tim/code/KwaMoja/SelectQASamples.php:315
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:698
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:243
@@ -5316,7 +5361,7 @@ msgstr "Voer uittreksel van de"
 #: /home/tim/code/KwaMoja/SalesInquiry.php:1087
 #: /home/tim/code/KwaMoja/SalesInquiry.php:1100
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:288
-#: /home/tim/code/KwaMoja/SelectProduct.php:667
+#: /home/tim/code/KwaMoja/SelectProduct.php:671
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/Shipt_Select.php:205
 #: /home/tim/code/KwaMoja/StockAdjustments.php:170
@@ -5352,10 +5397,11 @@ msgstr "Of voer een deel van een artikelcode in"
 #: /home/tim/code/KwaMoja/Contracts.php:785
 #: /home/tim/code/KwaMoja/CounterReturns.php:1719
 #: /home/tim/code/KwaMoja/CounterSales.php:2296
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1222
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1242
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:164
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -5370,7 +5416,7 @@ msgstr "Of voer een deel van een artikelcode in"
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:89
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:568
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1620
-#: /home/tim/code/KwaMoja/SelectProduct.php:688
+#: /home/tim/code/KwaMoja/SelectProduct.php:692
 #: /home/tim/code/KwaMoja/SelectSupplier.php:322
 #: /home/tim/code/KwaMoja/SelectSupplier.php:356
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:76
@@ -5395,7 +5441,7 @@ msgstr "Zoek nu"
 #: /home/tim/code/KwaMoja/SalesCategories.php:119
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:274
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:78
-#: /home/tim/code/KwaMoja/SelectProduct.php:703
+#: /home/tim/code/KwaMoja/SelectProduct.php:707
 #: /home/tim/code/KwaMoja/SelectQASamples.php:165
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:481
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:52
@@ -5722,7 +5768,7 @@ msgstr "De SQL die werd gebruikt om de lijst met mogelijke componenten te achter
 #: /home/tim/code/KwaMoja/SelectCustomer.php:516
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1636
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1725
-#: /home/tim/code/KwaMoja/SelectProduct.php:796
+#: /home/tim/code/KwaMoja/SelectProduct.php:800
 #: /home/tim/code/KwaMoja/SelectSupplier.php:353
 #: /home/tim/code/KwaMoja/SelectSupplier.php:417
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:273
@@ -5744,7 +5790,7 @@ msgstr "voorgaand"
 #: /home/tim/code/KwaMoja/SelectCustomer.php:517
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1644
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1733
-#: /home/tim/code/KwaMoja/SelectProduct.php:797
+#: /home/tim/code/KwaMoja/SelectProduct.php:801
 #: /home/tim/code/KwaMoja/SelectSupplier.php:354
 #: /home/tim/code/KwaMoja/SelectSupplier.php:418
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:274
@@ -5974,8 +6020,8 @@ msgstr "Opmerkingen voor deze stuklijstregel worden weergegeven op een werkorder
 #: /home/tim/code/KwaMoja/BankAccountUsers.php:122
 #: /home/tim/code/KwaMoja/BankAccountUsers.php:203
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:394
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1203
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1265
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1223
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1286
 #: /home/tim/code/KwaMoja/GLJournal.php:245
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:130
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:179
@@ -6331,7 +6377,7 @@ msgstr "Banksaldi"
 #: /home/tim/code/KwaMoja/BankReconciliation.php:111
 #: /home/tim/code/KwaMoja/CounterReturns.php:837
 #: /home/tim/code/KwaMoja/Currencies.php:218
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:828
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:848
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:51
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:33
 #: /home/tim/code/KwaMoja/PDFChequeListing.php:51
@@ -6438,8 +6484,8 @@ msgstr "Nog niet geselecteerd"
 
 #: /home/tim/code/KwaMoja/BankAccountUsers.php:121
 #: /home/tim/code/KwaMoja/BankAccountUsers.php:202
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:977
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1202
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:997
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1222
 #: /home/tim/code/KwaMoja/CustomerTypes.php:241
 #: /home/tim/code/KwaMoja/ExchangeRateTrend.php:48
 #: /home/tim/code/KwaMoja/FreightCosts.php:78
@@ -6504,7 +6550,7 @@ msgstr "Gebruikerscode"
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:142
 #: /home/tim/code/KwaMoja/PcTabs.php:202 /home/tim/code/KwaMoja/PcTabs.php:318
 #: /home/tim/code/KwaMoja/SMTPServer.php:129
-#: /home/tim/code/KwaMoja/UserSettings.php:136
+#: /home/tim/code/KwaMoja/UserSettings.php:140
 msgid "User Name"
 msgstr "Gebruikersnaam"
 
@@ -6647,7 +6693,7 @@ msgstr "Import formaat"
 #: /home/tim/code/KwaMoja/CustItem.php:414
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:449
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:514
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:860
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:880
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:115
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:97
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:500
@@ -7100,7 +7146,7 @@ msgstr "Ref"
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:159
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:214
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:327
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1002
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1022
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:114
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:202
@@ -7227,7 +7273,7 @@ msgid "The bank accounts could not be retrieved by the SQL because"
 msgstr "De bankrekeningen konden vanwege de SQL niet worden opgehaald"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:105
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:811
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:831
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:39
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:29
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1017
@@ -7248,17 +7294,17 @@ msgid "Reconciliation Details"
 msgstr "Verzoeningsdetails"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:118
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:835
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:855
 msgid "Bank Accounts have not yet been defined"
 msgstr "Bankrekeningen zijn nog niet gedefinieerd"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:118
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:835
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:855
 msgid "You must first"
 msgstr "Je moet eerst"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:118
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:835
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:855
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:58
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1026
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:673
@@ -7274,7 +7320,7 @@ msgid "define the bank accounts"
 msgstr "definieer de bankrekeningen"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:118
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:835
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:855
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:58
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1026
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:673
@@ -7382,7 +7428,7 @@ msgstr "Controleren"
 #: /home/tim/code/KwaMoja/CustomerAccount.php:271
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:254
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:92
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:955
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:975
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:110
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:165
 #: /home/tim/code/KwaMoja/GLAccountReport.php:353
@@ -7583,11 +7629,11 @@ msgstr "Selecteer de aandelencategorie die in deze groep moet worden gebruikt.  
 #: /home/tim/code/KwaMoja/Customers.php:512
 #: /home/tim/code/KwaMoja/EDIProcessOrders.php:420
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:210
-#: /home/tim/code/KwaMoja/KCMCRegister.php:318
+#: /home/tim/code/KwaMoja/KCMCRegister.php:533
 #: /home/tim/code/KwaMoja/PDFCustomerList.php:330
 #: /home/tim/code/KwaMoja/PDFPriceList.php:35
-#: /home/tim/code/KwaMoja/PDFPriceList.php:165
-#: /home/tim/code/KwaMoja/PDFPriceList.php:323
+#: /home/tim/code/KwaMoja/PDFPriceList.php:167
+#: /home/tim/code/KwaMoja/PDFPriceList.php:331
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:227
 #: /home/tim/code/KwaMoja/PricesByCost.php:283
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:261
@@ -7689,7 +7735,7 @@ msgid "Enter your current password here"
 msgstr "Voer hier uw huidige wachtwoord in"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:79
-#: /home/tim/code/KwaMoja/UserSettings.php:188
+#: /home/tim/code/KwaMoja/UserSettings.php:192
 msgid "New Password"
 msgstr "nieuw paswoord"
 
@@ -7963,6 +8009,7 @@ msgstr "Er zijn geen werkorders geretourneerd door de SQL, omdat"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -7984,7 +8031,7 @@ msgstr "kiezen"
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:970
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:368
 #: /home/tim/code/KwaMoja/Shipt_Select.php:332
-#: /home/tim/code/KwaMoja/UserSettings.php:269
+#: /home/tim/code/KwaMoja/UserSettings.php:273
 #: /home/tim/code/KwaMoja/Z_poEditLangHeader.php:110
 #: /home/tim/code/KwaMoja/Z_poEditLangModule.php:174
 #: /home/tim/code/KwaMoja/Z_poEditLangRemaining.php:142
@@ -8398,7 +8445,7 @@ msgstr "De zesde regel van het adres voor de maatschappelijke zetel van het bedr
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:324
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:195
-#: /home/tim/code/KwaMoja/KCMCRegister.php:299
+#: /home/tim/code/KwaMoja/KCMCRegister.php:514
 #: /home/tim/code/KwaMoja/SelectSupplier.php:164
 #: /home/tim/code/KwaMoja/SelectSupplier.php:201
 msgid "Telephone Number"
@@ -8424,7 +8471,7 @@ msgstr "Het faxnummer voor de maatschappelijke zetel van het bedrijf."
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:124
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:425
 #: /home/tim/code/KwaMoja/Suppliers.php:557
-#: /home/tim/code/KwaMoja/WWW_Users.php:597
+#: /home/tim/code/KwaMoja/WWW_Users.php:602
 #: /home/tim/code/KwaMoja/prlEmployers.php:178
 #: /home/tim/code/KwaMoja/prlEmployers.php:240
 #: /home/tim/code/KwaMoja/prlSSC.php:122
@@ -8770,8 +8817,8 @@ msgstr "Bevestig verzending en factuur"
 #: /home/tim/code/KwaMoja/SalesInquiry.php:1088
 #: /home/tim/code/KwaMoja/SalesInquiry.php:1102
 #: /home/tim/code/KwaMoja/SalesReport.php:220
-#: /home/tim/code/KwaMoja/WWW_Users.php:376
-#: /home/tim/code/KwaMoja/WWW_Users.php:688
+#: /home/tim/code/KwaMoja/WWW_Users.php:381
+#: /home/tim/code/KwaMoja/WWW_Users.php:693
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:202
 #: /home/tim/code/KwaMoja/geocode.php:54
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:120
@@ -8785,8 +8832,8 @@ msgstr "Klantencode"
 #: /home/tim/code/KwaMoja/CustItem.php:301
 #: /home/tim/code/KwaMoja/CustItem.php:377
 #: /home/tim/code/KwaMoja/CustItem.php:385
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:300
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1236
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:303
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1257
 #: /home/tim/code/KwaMoja/Customers.php:470
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:855
 #: /home/tim/code/KwaMoja/OrderDetails.php:90
@@ -8907,7 +8954,7 @@ msgstr "Prijs"
 #: /home/tim/code/KwaMoja/CounterReturns.php:670
 #: /home/tim/code/KwaMoja/CounterSales.php:753
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:90
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1003
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1023
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:881
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:664
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:723
@@ -11034,8 +11081,8 @@ msgstr "Beeld"
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:984
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1482
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1659
-#: /home/tim/code/KwaMoja/SelectProduct.php:529
-#: /home/tim/code/KwaMoja/SelectProduct.php:836
+#: /home/tim/code/KwaMoja/SelectProduct.php:533
+#: /home/tim/code/KwaMoja/SelectProduct.php:840
 #: /home/tim/code/KwaMoja/Stocks.php:1168
 #: /home/tim/code/KwaMoja/Stocks.php:1185
 #: /home/tim/code/KwaMoja/Stocks.php:1209
@@ -11781,7 +11828,7 @@ msgid "Customer Branch Code has been used in preference to the Customer Branch P
 msgstr "Klantafdelingcode is bij voorkeur gebruikt voor het telefoonnummer van de klantafdeling dat is ingevoerd"
 
 #: /home/tim/code/KwaMoja/Contracts.php:697
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:665
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:669
 #: /home/tim/code/KwaMoja/SelectCustomer.php:123
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:346
 msgid "The searched customer records requested cannot be retrieved because"
@@ -11909,6 +11956,7 @@ msgstr "Contract: selecteer klant"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -11970,8 +12018,8 @@ msgstr "Reset"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:36
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:36
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1004
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1076
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1024
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1096
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:108
 #: /home/tim/code/KwaMoja/Customers.php:18
 #: /home/tim/code/KwaMoja/Customers.php:268
@@ -12553,9 +12601,9 @@ msgstr "Netto"
 #: /home/tim/code/KwaMoja/CounterReturns.php:737
 #: /home/tim/code/KwaMoja/CounterSales.php:827
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:93
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:968
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1006
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1172
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:988
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
@@ -12683,7 +12731,7 @@ msgstr "De SQL die de GL-transactie niet invoerde voor de bankdeposito was"
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1502
 #: /home/tim/code/KwaMoja/CounterSales.php:1956
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:548
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:551
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:626
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:380
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:375
@@ -12697,7 +12745,7 @@ msgstr "Kan geen GL-transactie invoegen voor de bankrekeningafschrijving"
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1522
 #: /home/tim/code/KwaMoja/CounterSales.php:1976
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:570
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:573
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:648
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:401
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:396
@@ -12710,7 +12758,7 @@ msgstr "De SQL die de GL-transactie niet invoerde voor het krediet van de debite
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1523
 #: /home/tim/code/KwaMoja/CounterSales.php:1977
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:571
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:574
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:649
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:402
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:397
@@ -12735,7 +12783,7 @@ msgstr "Tegenverkoop"
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1583
 #: /home/tim/code/KwaMoja/CounterSales.php:2036
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:522
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:525
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:424
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:678
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:429
@@ -12750,7 +12798,7 @@ msgstr "De SQL die de bankrekeningtransactie niet invoerde was"
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1584
 #: /home/tim/code/KwaMoja/CounterSales.php:2037
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:523
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:526
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:679
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:430
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:425
@@ -12764,7 +12812,7 @@ msgstr "Kan geen banktransactie invoegen"
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1613
 #: /home/tim/code/KwaMoja/CounterSales.php:2070
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:477
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:480
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:710
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:459
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:454
@@ -12776,7 +12824,7 @@ msgstr "De SQL die de transactie met de klantenkwitantie niet invoerde was"
 
 #: /home/tim/code/KwaMoja/CounterReturns.php:1614
 #: /home/tim/code/KwaMoja/CounterSales.php:2071
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:478
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:481
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:711
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:460
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:455
@@ -12831,7 +12879,7 @@ msgstr "Zoekt in de database naar items, u kunt de resultaten verfijnen door een
 #: /home/tim/code/KwaMoja/MRPDemands.php:314
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:177
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:375
-#: /home/tim/code/KwaMoja/SelectProduct.php:633
+#: /home/tim/code/KwaMoja/SelectProduct.php:637
 #: /home/tim/code/KwaMoja/Shipt_Select.php:181
 msgid "Item Search Criteria"
 msgstr "Zoekcriteria artikel"
@@ -13290,13 +13338,13 @@ msgid "has been entered"
 msgstr "is ingevoerd"
 
 #: /home/tim/code/KwaMoja/CounterSales.php:2080
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:486
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:489
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:625
 msgid "The SQL that failed to update the date of the last payment received was"
 msgstr "De SQL die de datum van de laatste ontvangen betaling niet heeft bijgewerkt, was"
 
 #: /home/tim/code/KwaMoja/CounterSales.php:2081
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:487
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:490
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:626
 msgid "Cannot update the customer record for the date of the last payment received because"
 msgstr "Kan het klantrecord niet bijwerken voor de datum van de laatste ontvangen betaling omdat"
@@ -14050,7 +14098,7 @@ msgstr "De EDI-referentiecode van de klant mag geen van de volgende tekens bevat
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:17
 #: /home/tim/code/KwaMoja/Stocks.php:170
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:38
-#: /home/tim/code/KwaMoja/WWW_Users.php:64
+#: /home/tim/code/KwaMoja/WWW_Users.php:69
 #: /home/tim/code/KwaMoja/WorkCentres.php:40
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:28
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:263
@@ -14470,7 +14518,7 @@ msgstr "Voorraadbewegingen tonen"
 
 #: /home/tim/code/KwaMoja/CustItem.php:469
 #: /home/tim/code/KwaMoja/PurchData.php:772
-#: /home/tim/code/KwaMoja/SelectProduct.php:476
+#: /home/tim/code/KwaMoja/SelectProduct.php:480
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:4
 #: /home/tim/code/KwaMoja/StockAdjustments.php:669
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:244
@@ -14484,7 +14532,7 @@ msgstr "Zoek uitstekende verkooporders"
 
 #: /home/tim/code/KwaMoja/CustItem.php:470
 #: /home/tim/code/KwaMoja/PurchData.php:773
-#: /home/tim/code/KwaMoja/SelectProduct.php:479
+#: /home/tim/code/KwaMoja/SelectProduct.php:483
 #: /home/tim/code/KwaMoja/StockAdjustments.php:670
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:245
 #: /home/tim/code/KwaMoja/StockMovements.php:238
@@ -14509,6 +14557,7 @@ msgid "Select A Customer"
 msgstr "Selecteer een klant"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -14521,41 +14570,41 @@ msgstr "Het ingevoerde gebruikers-ID moet minimaal 4 tekens lang zijn"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:44
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:38
-#: /home/tim/code/KwaMoja/WWW_Users.php:64
+#: /home/tim/code/KwaMoja/WWW_Users.php:69
 msgid "User names cannot contain any of the following characters"
 msgstr "Gebruikersnamen mogen geen van de volgende tekens bevatten"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:48
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:41
 #: /home/tim/code/KwaMoja/UserSettings.php:53
-#: /home/tim/code/KwaMoja/WWW_Users.php:68
+#: /home/tim/code/KwaMoja/WWW_Users.php:73
 msgid "The password entered must be at least 5 characters long"
 msgstr "Het ingevoerde wachtwoord moet minimaal 5 tekens lang zijn"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:52
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:44
 #: /home/tim/code/KwaMoja/UserSettings.php:56
-#: /home/tim/code/KwaMoja/WWW_Users.php:72
+#: /home/tim/code/KwaMoja/WWW_Users.php:77
 msgid "The password cannot contain the user id"
 msgstr "Het wachtwoord kan het gebruikers-ID niet bevatten"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:55
-#: /home/tim/code/KwaMoja/WWW_Users.php:75
+#: /home/tim/code/KwaMoja/WWW_Users.php:80
 msgid "If you enter a Customer Code you must also enter a Branch Code valid for this Customer"
 msgstr "Als u een klantcode invoert, moet u ook een branchecode invoeren die voor deze klant geldig is"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:65
-#: /home/tim/code/KwaMoja/WWW_Users.php:100
+#: /home/tim/code/KwaMoja/WWW_Users.php:105
 msgid "The check on validity of the customer code and branch failed because"
 msgstr "De controle op de geldigheid van de klantcode en het filiaal is mislukt omdat"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:66
-#: /home/tim/code/KwaMoja/WWW_Users.php:101
+#: /home/tim/code/KwaMoja/WWW_Users.php:106
 msgid "The SQL that was used to check the customer code and branch was"
 msgstr "De SQL die werd gebruikt om de klantcode en het filiaal te controleren was"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:70
-#: /home/tim/code/KwaMoja/WWW_Users.php:105
+#: /home/tim/code/KwaMoja/WWW_Users.php:110
 msgid "The entered Branch Code is not valid for the entered Customer Code"
 msgstr "De ingevoerde filiaalcode is niet geldig voor de ingevoerde klantcode"
 
@@ -14575,26 +14624,26 @@ msgstr "Er is een nieuwe klantaanmelding aangemaakt"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:124
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:95
-#: /home/tim/code/KwaMoja/WWW_Users.php:372
-#: /home/tim/code/KwaMoja/WWW_Users.php:529
+#: /home/tim/code/KwaMoja/WWW_Users.php:377
+#: /home/tim/code/KwaMoja/WWW_Users.php:534
 msgid "User Login"
 msgstr "Gebruiker login"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:142
 #: /home/tim/code/KwaMoja/SMTPServer.php:134
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:112
-#: /home/tim/code/KwaMoja/WWW_Users.php:521
-#: /home/tim/code/KwaMoja/WWW_Users.php:535
-#: /home/tim/code/KwaMoja/includes/Login.php:102
-#: /home/tim/code/KwaMoja/includes/Login.php:104
+#: /home/tim/code/KwaMoja/WWW_Users.php:526
+#: /home/tim/code/KwaMoja/WWW_Users.php:540
+#: /home/tim/code/KwaMoja/includes/Login.php:94
+#: /home/tim/code/KwaMoja/includes/Login.php:96
 #: /home/tim/code/KwaMoja/install/Page3.php:37
 msgid "Password"
 msgstr "Wachtwoord"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:146
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:116
-#: /home/tim/code/KwaMoja/WWW_Users.php:373
-#: /home/tim/code/KwaMoja/WWW_Users.php:587
+#: /home/tim/code/KwaMoja/WWW_Users.php:378
+#: /home/tim/code/KwaMoja/WWW_Users.php:592
 msgid "Full Name"
 msgstr "Voor-en achternaam"
 
@@ -14603,7 +14652,7 @@ msgstr "Voor-en achternaam"
 #: /home/tim/code/KwaMoja/SalesPeople.php:347
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:120
 #: /home/tim/code/KwaMoja/SupplierContacts.php:247
-#: /home/tim/code/KwaMoja/WWW_Users.php:592
+#: /home/tim/code/KwaMoja/WWW_Users.php:597
 msgid "Telephone No"
 msgstr "Telefoon Nee"
 
@@ -14612,8 +14661,8 @@ msgstr "Telefoon Nee"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:653
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:86
 #: /home/tim/code/KwaMoja/EnableBranches.php:43
-#: /home/tim/code/KwaMoja/WWW_Users.php:377
-#: /home/tim/code/KwaMoja/WWW_Users.php:694
+#: /home/tim/code/KwaMoja/WWW_Users.php:382
+#: /home/tim/code/KwaMoja/WWW_Users.php:699
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:472
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:292
 #: /home/tim/code/KwaMoja/includes/PDFCustomerListPageHeader.php:85
@@ -14622,7 +14671,7 @@ msgstr "Filiaalcode"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:179
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:180
-#: /home/tim/code/KwaMoja/WWW_Users.php:728
+#: /home/tim/code/KwaMoja/WWW_Users.php:733
 msgid "Reports Page Size"
 msgstr "Rapporteert paginaformaat"
 
@@ -14633,8 +14682,8 @@ msgstr "Rapporteert paginaformaat"
 #: /home/tim/code/KwaMoja/PrintCustOrder_generic.php:96
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:184
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:186
-#: /home/tim/code/KwaMoja/WWW_Users.php:732
-#: /home/tim/code/KwaMoja/WWW_Users.php:734
+#: /home/tim/code/KwaMoja/WWW_Users.php:737
+#: /home/tim/code/KwaMoja/WWW_Users.php:739
 msgid "A4"
 msgstr "A4"
 
@@ -14646,10 +14695,10 @@ msgstr "A4"
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:192
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:196
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:198
-#: /home/tim/code/KwaMoja/WWW_Users.php:738
-#: /home/tim/code/KwaMoja/WWW_Users.php:740
-#: /home/tim/code/KwaMoja/WWW_Users.php:744
-#: /home/tim/code/KwaMoja/WWW_Users.php:746
+#: /home/tim/code/KwaMoja/WWW_Users.php:743
+#: /home/tim/code/KwaMoja/WWW_Users.php:745
+#: /home/tim/code/KwaMoja/WWW_Users.php:749
+#: /home/tim/code/KwaMoja/WWW_Users.php:751
 msgid "A3"
 msgstr "A3"
 
@@ -14668,12 +14717,12 @@ msgstr "A3"
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:210
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:219
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:221
-#: /home/tim/code/KwaMoja/WWW_Users.php:744
-#: /home/tim/code/KwaMoja/WWW_Users.php:746
-#: /home/tim/code/KwaMoja/WWW_Users.php:756
-#: /home/tim/code/KwaMoja/WWW_Users.php:758
-#: /home/tim/code/KwaMoja/WWW_Users.php:767
-#: /home/tim/code/KwaMoja/WWW_Users.php:769
+#: /home/tim/code/KwaMoja/WWW_Users.php:749
+#: /home/tim/code/KwaMoja/WWW_Users.php:751
+#: /home/tim/code/KwaMoja/WWW_Users.php:761
+#: /home/tim/code/KwaMoja/WWW_Users.php:763
+#: /home/tim/code/KwaMoja/WWW_Users.php:772
+#: /home/tim/code/KwaMoja/WWW_Users.php:774
 msgid "landscape"
 msgstr "landschap"
 
@@ -14685,10 +14734,10 @@ msgstr "landschap"
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:204
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:208
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:210
-#: /home/tim/code/KwaMoja/WWW_Users.php:750
-#: /home/tim/code/KwaMoja/WWW_Users.php:752
-#: /home/tim/code/KwaMoja/WWW_Users.php:756
-#: /home/tim/code/KwaMoja/WWW_Users.php:758
+#: /home/tim/code/KwaMoja/WWW_Users.php:755
+#: /home/tim/code/KwaMoja/WWW_Users.php:757
+#: /home/tim/code/KwaMoja/WWW_Users.php:761
+#: /home/tim/code/KwaMoja/WWW_Users.php:763
 msgid "Letter"
 msgstr "Brief"
 
@@ -14700,18 +14749,18 @@ msgstr "Brief"
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:216
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:219
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:221
-#: /home/tim/code/KwaMoja/WWW_Users.php:762
-#: /home/tim/code/KwaMoja/WWW_Users.php:764
 #: /home/tim/code/KwaMoja/WWW_Users.php:767
 #: /home/tim/code/KwaMoja/WWW_Users.php:769
+#: /home/tim/code/KwaMoja/WWW_Users.php:772
+#: /home/tim/code/KwaMoja/WWW_Users.php:774
 msgid "Legal"
 msgstr "wettelijk"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:226
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:227
-#: /home/tim/code/KwaMoja/UserSettings.php:163
-#: /home/tim/code/KwaMoja/WWW_Users.php:383
-#: /home/tim/code/KwaMoja/WWW_Users.php:780
+#: /home/tim/code/KwaMoja/UserSettings.php:167
+#: /home/tim/code/KwaMoja/WWW_Users.php:388
+#: /home/tim/code/KwaMoja/WWW_Users.php:785
 #: /home/tim/code/KwaMoja/includes/header.php:208
 msgid "Theme"
 msgstr "Thema"
@@ -14861,7 +14910,7 @@ msgid "Failed to retrieve charge data"
 msgstr "Het ophalen van laadgegevens is mislukt"
 
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:213
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1126
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1146
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:103
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:126
@@ -14985,7 +15034,7 @@ msgstr "Klantverklaring voor"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:241
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1076
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1096
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:681
 #: /home/tim/code/KwaMoja/SupplierCredit.php:253
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:114
@@ -14995,14 +15044,14 @@ msgstr "Voorwaarden"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:245
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1076
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1096
 #: /home/tim/code/KwaMoja/Customers.php:564
 msgid "Credit Limit"
 msgstr "Kredietlimiet"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:249
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1076
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1096
 #: /home/tim/code/KwaMoja/Customers.php:590
 #: /home/tim/code/KwaMoja/sql/updates/42.php:261
 msgid "Credit Status"
@@ -15010,7 +15059,7 @@ msgstr "Kredietstatus"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:255
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:165
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1082
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1102
 msgid "ACCOUNT ON HOLD"
 msgstr "ACCOUNT IN DE WACHT"
 
@@ -15175,7 +15224,7 @@ msgstr "Klik om fondsen toe te wijzen"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:427
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:170
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1087
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1107
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:440
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:137
 msgid "Total Balance"
@@ -15183,7 +15232,7 @@ msgstr "Eindbalans"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:428
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:171
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1088
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1108
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:436
 #: /home/tim/code/KwaMoja/SalesPeople.php:195
 #: /home/tim/code/KwaMoja/Shipments.php:421
@@ -15199,7 +15248,7 @@ msgstr "Actueel"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:429
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:172
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1089
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1109
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:139
 msgid "Now Due"
 msgstr "Nu verschuldigd"
@@ -15208,8 +15257,8 @@ msgstr "Nu verschuldigd"
 #: /home/tim/code/KwaMoja/CustomerAccount.php:431
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:173
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:174
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1090
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1091
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1110
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1111
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:140
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:141
 msgid "Days Overdue"
@@ -15217,7 +15266,7 @@ msgstr "Dagen te laat"
 
 #: /home/tim/code/KwaMoja/CustomerAccount.php:431
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:174
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1091
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1111
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:439
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:141
 msgid "Over"
@@ -15272,7 +15321,7 @@ msgid "Allocate Receipt"
 msgstr "Ontvangst toewijzen"
 
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:303
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:608
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:611
 msgid "Allocate Receipts"
 msgstr "Toewijzen van ontvangsten"
 
@@ -15303,8 +15352,8 @@ msgstr "Nog te"
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:328
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:463
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:521
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:294
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:608
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:297
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:611
 #: /home/tim/code/KwaMoja/SupplierAllocations.php:421
 #: /home/tim/code/KwaMoja/SupplierAllocations.php:531
 #: /home/tim/code/KwaMoja/SupplierAllocations.php:591
@@ -15854,7 +15903,7 @@ msgstr "Definieer verkoopgebieden"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:814
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:43
 #: /home/tim/code/KwaMoja/SalesPeople.php:157
-#: /home/tim/code/KwaMoja/WWW_Users.php:379
+#: /home/tim/code/KwaMoja/WWW_Users.php:384
 msgid "Salesperson"
 msgstr "Verkoper"
 
@@ -15901,8 +15950,9 @@ msgstr "Gebruik deze tak als standaard voor contante verkopen"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:882
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:151
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:151
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16174,87 +16224,87 @@ msgstr "De ingevoerde functionele wisselkoers moet numeriek zijn"
 msgid "Changing the currency of the receipt means that existing entries need to be re-done - only customers trading in the selected currency can be selected"
 msgstr "Het wijzigen van de valuta van de ontvangst betekent dat bestaande boekingen opnieuw moeten worden gedaan - alleen klanten die handelen in de geselecteerde valuta kunnen worden geselecteerd"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:214
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:217
 #: /home/tim/code/KwaMoja/Payments.php:886
 msgid "No General Ledger code has been chosen"
 msgstr "Er is geen grootboekcode gekozen"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:214
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:217
 #: /home/tim/code/KwaMoja/GLJournal.php:388
 #: /home/tim/code/KwaMoja/Payments.php:855
 #: /home/tim/code/KwaMoja/Payments.php:886
 msgid "so this GL analysis item could not be added"
 msgstr "dus dit GL-analyseitem kon niet worden toegevoegd"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:220
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:223
 #: /home/tim/code/KwaMoja/Payments.php:864
 msgid "Payments involving the debtors control account cannot be entered. The general ledger debtors ledger (AR) integration is enabled so control accounts are automatically maintained. This setting can be disabled in System Configuration"
 msgstr "Betalingen met de debiteurencontroleaccount kunnen niet worden ingevoerd.  De grootboek debiteuren grootboek (AR) -integratie is ingeschakeld, zodat controle-accounts automatisch worden beheerd.  Deze instelling kan worden uitgeschakeld in Systeemconfiguratie"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:224
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:227
 msgid "Payments involving the creditors control account or the GRN suspense account cannot be entered. The general ledger creditors ledger (AP) integration is enabled so control accounts are automatically maintained. This setting can be disabled in System Configuration"
 msgstr "Betalingen met betrekking tot de crediteurencontrolerekening of de GRN-tussenrekening kunnen niet worden ingevoerd.  De grootboek crediteuren grootboek (AP) -integratie is ingeschakeld, zodat besturingsaccounts automatisch worden beheerd.  Deze instelling kan worden uitgeschakeld in Systeemconfiguratie"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:228
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:231
 #: /home/tim/code/KwaMoja/Payments.php:872
 msgid "Payments involving the retained earnings control account cannot be entered. This account is automtically maintained."
 msgstr "Betalingen met de bewaarde inkomstencontrolerekening kunnen niet worden ingevoerd.  Dit account wordt automatisch onderhouden."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:269
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:272
 msgid "The company has not yet been set up properly"
 msgstr "Het bedrijf is nog niet goed opgezet"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:269
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:272
 msgid "this information is needed to process the batch"
 msgstr "deze informatie is nodig om de batch te verwerken"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:269
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:272
 msgid "Processing has been cancelled"
 msgstr "De verwerking is geannuleerd"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:294
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:297
 msgid "Summary of Receipt Batch"
 msgstr "Samenvatting van de ontvangstbatch"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:298
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:301
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "Batchnummer"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:299
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:854
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:302
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:874
 msgid "Date Banked"
 msgstr "Date Banked"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:301
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1005
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:304
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1025
 msgid "GL Code"
 msgstr "GL-code"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:302
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:303
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:305
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:306
 msgid "Amount of Receipt in"
 msgstr "Bedrag van de ontvangst in"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:324
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:327
 msgid "Print a Customer Receipt"
 msgstr "Druk een klantontvangst af"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:347
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:350
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:237
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:252
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:289
 msgid "Cannot insert a GL entry for the receipt because"
 msgstr "Kan geen GL-invoer voor de bon invoegen omdat"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:348
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:351
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:237
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:252
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:289
 msgid "The SQL that failed to insert the receipt GL entry was"
 msgstr "De SQL die de GL-boeking voor ontvangst niet kon invoegen was"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:353
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:290
 #: /home/tim/code/KwaMoja/GLJournal.php:319
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:147
@@ -16262,7 +16312,7 @@ msgstr "De SQL die de GL-boeking voor ontvangst niet kon invoegen was"
 msgid "Cannot insert a GL tag for the journal line because"
 msgstr "Kan geen GL-tag invoegen voor de journaalregel, omdat"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:354
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:291
 #: /home/tim/code/KwaMoja/GLJournal.php:320
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:148
@@ -16282,34 +16332,34 @@ msgstr "Kan geen GL-tag invoegen voor de journaalregel, omdat"
 msgid "The SQL that failed to insert the GL tag record was"
 msgstr "De SQL die het GL-labelrecord niet invoerde, was"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:424
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:427
 msgid "Act Transfer"
 msgstr "Overdracht"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:433
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:436
 msgid "The SQL that failed to insert the bank transaction was"
 msgstr "De SQL die de banktransactie niet invoerde was"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:434
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:437
 #: /home/tim/code/KwaMoja/Payments.php:754
 #: /home/tim/code/KwaMoja/Payments.php:786
 #: /home/tim/code/KwaMoja/RegularPaymentsProcess.php:162
 msgid "Cannot insert a bank transaction using the SQL"
 msgstr "Kan geen banktransactie invoegen met behulp van de SQL"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:547
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:550
 msgid "The SQL that failed to insert the GL transaction fro the bank account debit was"
 msgstr "De SQL die de GL-transactie voor de debitering van de bankrekening niet invoerde, was"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:593
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:596
 msgid "The SQL that failed to insert the GL transaction for the payment discount debit was"
 msgstr "De SQL die de GL-transactie voor het debet van de betaalkorting niet invoerde, was"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:594
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:597
 msgid "Cannot insert a GL transaction for the payment discount debit"
 msgstr "Kan geen GL-transactie invoegen voor het debet van de betaalkorting"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:601
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:604
 #: /home/tim/code/KwaMoja/GLJournal.php:326
 #: /home/tim/code/KwaMoja/prlOTFile.php:66
 #: /home/tim/code/KwaMoja/prlOthIncome.php:63
@@ -16318,39 +16368,39 @@ msgstr "Kan geen GL-transactie invoegen voor het debet van de betaalkorting"
 msgid "Cannot commit the changes"
 msgstr "Kan de wijzigingen niet uitvoeren"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:605
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:608
 msgid "Receipt batch"
 msgstr "Ontvangstbatch"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:605
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:608
 msgid "has been successfully entered into the database"
 msgstr "is met succes ingevoerd in de database"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:607
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:610
 msgid "Print PDF Batch Summary"
 msgstr "PDF-batchoverzicht afdrukken"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:609
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:612
 #: /home/tim/code/KwaMoja/sql/updates/42.php:72
 msgid "Enter Receipts"
 msgstr "Voer ontvangsten in"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:622
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:625
 msgid "Customer name keywords have been used in preference to the customer code extract entered"
 msgstr "Naamsleutelwoorden van de klant zijn bij voorkeur gebruikt voor het ingevoerde klantcodesupport"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:667
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:671
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:84
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:494
 msgid "SQL used to retrieve the customer details was"
 msgstr "SQL gebruikt om de klantgegevens op te halen was"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:674
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:678
 #: /home/tim/code/KwaMoja/SelectCustomer.php:133
 msgid "No customer records contain the selected text"
 msgstr "Geen klantrecords bevatten de geselecteerde tekst"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:674
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:678
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:22
 #: /home/tim/code/KwaMoja/KCMCDispenseDrugs.php:42
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:36
@@ -16368,13 +16418,13 @@ msgstr "Geen klantrecords bevatten de geselecteerde tekst"
 msgid "please alter your search criteria and try again"
 msgstr "wijzig uw zoekcriteria en probeer het opnieuw"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:744
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:772
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:747
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:775
 #: /home/tim/code/KwaMoja/Customers.php:429
 msgid "The customer details could not be retrieved because"
 msgstr "De klantgegevens konden niet worden opgehaald omdat"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:810
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:830
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:38
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1016
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:665
@@ -16388,99 +16438,99 @@ msgstr "De klantgegevens konden niet worden opgehaald omdat"
 msgid "The bank accounts could not be retrieved because"
 msgstr "De bankrekeningen konden niet worden opgehaald omdat"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:815
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:835
 #: /home/tim/code/KwaMoja/sql/updates/42.php:191
 msgid "Bank Account Receipts Entry"
 msgstr "Bankrekeningontvangst"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:817
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:837
 msgid "Enter Receipt"
 msgstr "Voer de bon in"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:817
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:837
 msgid "Enter Customer Receipt"
 msgstr "Voer de bon in"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:818
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:838
 msgid "To enter a payment TO a customer (ie. to pay out a credit note), enter a negative payment amount."
 msgstr "Als u een betaling AAN een klant wilt invoeren (bijvoorbeeld om een ​​creditnota uit te betalen), voert u een negatief betalingsbedrag in."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:826
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:846
 msgid "Batch header information"
 msgstr "Batch header-informatie"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:849
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:869
 msgid "The bank account that the receipts will be paid into."
 msgstr "De bankrekening waarop de ontvangsten worden gestort."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:856
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:876
 msgid "The date when the receipts are banked."
 msgstr "De datum waarop de ontvangsten worden gebankt."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:872
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:892
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
 msgid "No currencies are defined yet"
 msgstr "Er zijn nog geen valuta's gedefinieerd"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:872
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:892
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
 msgid "Receipts cannot be entered until a currency is defined"
 msgstr "Ontvangsten kunnen pas worden ingevoerd als een valuta is gedefinieerd"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:884
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:904
 msgid "The currency of the receipts. Does not have to be the same as the bank account currency."
 msgstr "De valuta van de ontvangsten.  Dit hoeft niet hetzelfde te zijn als de valuta van de bankrekening."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:903
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:919
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:923
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:939
 msgid "Suggested rate:"
 msgstr "Voorgestelde koers:"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:908
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:928
 msgid "Receipt Exchange Rate"
 msgstr "Ontvangstwisselkoers"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:910
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:930
 msgid "The exchange rate between the currency of the bank account currency and the currency of the receipt"
 msgstr "De wisselkoers tussen de valuta van de valuta van de bankrekening en de valuta van de kassabon"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:924
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:944
 #: /home/tim/code/KwaMoja/Payments.php:1089
 msgid "Functional Exchange Rate"
 msgstr "Functionele wisselkoers"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:926
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:946
 #: /home/tim/code/KwaMoja/Payments.php:1091
 msgid "The exchange rate between the currency of the business (the functional currency) and the currency of the bank account"
 msgstr "De wisselkoers tussen de valuta van het bedrijf (de functionele valuta) en de valuta van de bankrekening"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:934
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:954
 msgid "Receipt Type"
 msgstr "Ontvangsttype"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:947
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:967
 msgid "The payemnt method for this batch, cheque, direct debit, BACS, etc"
 msgstr "De payemnt-methode voor deze batch, cheque, automatische incasso, BACS, enz"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:957
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:977
 #: /home/tim/code/KwaMoja/Payments.php:1131
 msgid "Reference on Bank Transactions Inquiry"
 msgstr "Referentie over banktransactiesonderzoek"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:970
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:990
 #: /home/tim/code/KwaMoja/Payments.php:1140
 msgid "Narrative on General Ledger Account Inquiry"
 msgstr "Narratief over grootboekrekeningverzoek"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:998
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1018
 msgid "Banked"
 msgstr "opgespaarde"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:999
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1019
 msgid "Banked into the"
 msgstr "Betaald in de"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:999
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1019
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/Payments.php:967
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:259
@@ -16489,7 +16539,7 @@ msgstr "Betaald in de"
 msgid "on"
 msgstr "op"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1002
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1022
 #: /home/tim/code/KwaMoja/GoodsReceived.php:139
 #: /home/tim/code/KwaMoja/GoodsReceived.php:144
 #: /home/tim/code/KwaMoja/GoodsReceived.php:150
@@ -16507,7 +16557,7 @@ msgstr "op"
 msgid "Received"
 msgstr "Ontvangen"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1007
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/GLAccountReport.php:358
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
@@ -16526,8 +16576,8 @@ msgstr "Ontvangen"
 msgid "Tag"
 msgstr "Label"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1020
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1188
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
 #: /home/tim/code/KwaMoja/GLJournal.php:221
@@ -16557,115 +16607,115 @@ msgstr "Label"
 #: /home/tim/code/KwaMoja/SystemParameters.php:506
 #: /home/tim/code/KwaMoja/SystemParameters.php:512
 #: /home/tim/code/KwaMoja/SystemParameters.php:1096
-#: /home/tim/code/KwaMoja/WWW_Users.php:952
+#: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
 msgid "None"
 msgstr "Geen"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1051
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1071
 msgid "Accept and Process Batch"
 msgstr "Accepteer en verwerk batch"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1066
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1086
 msgid "The selected customer does not trade in the currency of the receipt being entered - either the currency of the receipt needs to be changed or a different customer selected"
 msgstr "De geselecteerde klant ruilt niet in de valuta van de kassabon die wordt ingevoerd - de valuta van de kassabon moet worden gewijzigd of een andere klant moet worden geselecteerd"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1092
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1112
 msgid "Customer Transaction Inquiry"
 msgstr "Klanttransactieonderzoek"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1101
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1121
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:118
 msgid "Inquiry"
 msgstr "Onderzoek"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1106
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1126
 msgid "Details of Receipt."
 msgstr "Details van ontvangstbewijs."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1122
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1142
 msgid "General Ledger Receipt Entry"
 msgstr "Grootboekontvangst boeking"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1128
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1148
 msgid "Select the General Ledger account to post this receipt to."
 msgstr "Selecteer het grootboekrekening om deze bon te plaatsen."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1150
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1170
 msgid "Amount of Receipt"
 msgstr "Hoeveelheid ontvangstbewijs"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1152
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1172
 msgid "The amount of the receipt in"
 msgstr "Het bedrag van de bon in"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1157
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1177
 #: /home/tim/code/KwaMoja/Payments.php:1415
 msgid "Amount of Discount"
 msgstr "Bedrag korting"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1159
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1179
 msgid "agreed prompt payment discount is"
 msgstr "overeengekomen prompte betalingskorting is"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1166
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1186
 msgid "Payee Bank Details"
 msgstr "Gegevens Payee Bank"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1168
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1188
 msgid "The bank details of the payee."
 msgstr "De bankgegevens van de begunstigde."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1174
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1194
 msgid "Any narrative associated with this receipt."
 msgstr "Elk verhaal dat bij deze bon hoort."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1179
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1199
 msgid "Select Tag(s)"
 msgstr "Selecteer tag (s)"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1197
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1217
 msgid "Select any number of tags to associate this receipt with - use the ctrl button to pick multiple tags."
 msgstr "Selecteer een willekeurig aantal tags om deze bon aan te koppelen - gebruik de ctrl-knop om meerdere tags te kiezen."
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1209
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1229
 #: /home/tim/code/KwaMoja/SearchCustomers.php:70
 msgid "Select a Customer"
 msgstr "Selecteer een klant"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1211
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1231
 msgid "Text in the Customer"
 msgstr "Tekst in de klant"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1211
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1231
 msgid "name"
 msgstr "naam"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1214
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1234
 msgid "Text extract in the Customer"
 msgstr "Tekstuittreksel bij de klant"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1214
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1234
 msgid "code"
 msgstr "code"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1215
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1235
 msgid "Enter an extract of the customer code to search for. Customer codes can contain any alpha-numeric character or underscore"
 msgstr "Voer een uittreksel van de klantcode in waarnaar moet worden gezocht.  Klantcodes kunnen elk alfanumeriek teken of onderstrepingsteken bevatten"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1217
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1237
 msgid "Customer invoice number"
 msgstr "Klant factuurnummer"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1223
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1243
 msgid "Enter A GL Receipt"
 msgstr "Voer een GL-ontvangst in"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1231
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1252
 msgid "Select a customer"
 msgstr "Selecteer een klant"
 
-#: /home/tim/code/KwaMoja/CustomerReceipt.php:1237
+#: /home/tim/code/KwaMoja/CustomerReceipt.php:1258
 msgid "Balance Outstanding"
 msgstr "Debetsaldo"
 
@@ -17718,6 +17768,7 @@ msgstr "Lengte"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:285
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:355
 #: /home/tim/code/KwaMoja/Labels.php:184
 msgid "Height"
 msgstr "Hoogte"
@@ -19683,7 +19734,7 @@ msgstr "Naam bedrijfsnaam"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:288
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:145
 #: /home/tim/code/KwaMoja/Suppliers.php:547
-#: /home/tim/code/KwaMoja/WWW_Users.php:374
+#: /home/tim/code/KwaMoja/WWW_Users.php:379
 #: /home/tim/code/KwaMoja/prlEmployers.php:179
 #: /home/tim/code/KwaMoja/prlEmployers.php:241
 #: /home/tim/code/KwaMoja/includes/JobCards.php:87
@@ -22495,6 +22546,20 @@ msgstr "Journal Type"
 #: /home/tim/code/KwaMoja/GLJournal.php:490
 #: /home/tim/code/KwaMoja/GLJournal.php:493
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:47
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:511
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:515
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:519
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:523
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:536
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:541
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:546
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:554
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:560
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:566
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:572
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:581
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:586
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:591
 msgid "Normal"
 msgstr "normaal"
 
@@ -23000,7 +23065,7 @@ msgstr "Beschrijving van tag"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:285
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 msgid "Department"
@@ -24564,7 +24629,7 @@ msgstr "Definieer voorraadcategorieën"
 #: /home/tim/code/KwaMoja/MRPReport.php:545
 #: /home/tim/code/KwaMoja/NoSalesItems.php:66
 #: /home/tim/code/KwaMoja/ReorderLevel.php:230
-#: /home/tim/code/KwaMoja/SelectProduct.php:635
+#: /home/tim/code/KwaMoja/SelectProduct.php:639
 #: /home/tim/code/KwaMoja/StockCategorySalesInquiry.php:30
 #: /home/tim/code/KwaMoja/StockDispatch.php:393
 #: /home/tim/code/KwaMoja/StockLocStatus.php:71
@@ -24592,9 +24657,9 @@ msgstr "Alle categorieën"
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
 #: /home/tim/code/KwaMoja/MRPReport.php:563
 #: /home/tim/code/KwaMoja/MRPReport.php:574
-#: /home/tim/code/KwaMoja/SelectProduct.php:656
-#: /home/tim/code/KwaMoja/SelectProduct.php:667
-#: /home/tim/code/KwaMoja/SelectProduct.php:678
+#: /home/tim/code/KwaMoja/SelectProduct.php:660
+#: /home/tim/code/KwaMoja/SelectProduct.php:671
+#: /home/tim/code/KwaMoja/SelectProduct.php:682
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:53
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:65
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:673
@@ -24646,7 +24711,7 @@ msgstr "Kwestie"
 #: /home/tim/code/KwaMoja/SelectCustomer.php:502
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:59
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1360
-#: /home/tim/code/KwaMoja/SelectProduct.php:783
+#: /home/tim/code/KwaMoja/SelectProduct.php:787
 #: /home/tim/code/KwaMoja/SelectSupplier.php:340
 #: /home/tim/code/KwaMoja/SelectSupplier.php:404
 #: /home/tim/code/KwaMoja/StockLocTransfer.php:101
@@ -24900,7 +24965,7 @@ msgstr "Er zijn geen voorraadaanvragen beschikbaar"
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:80
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:113
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:169
-#: /home/tim/code/KwaMoja/SelectProduct.php:752
+#: /home/tim/code/KwaMoja/SelectProduct.php:756
 #: /home/tim/code/KwaMoja/SelectQASamples.php:223
 #: /home/tim/code/KwaMoja/SelectSalesOrder.php:502
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:226
@@ -24975,7 +25040,7 @@ msgstr "Voorraadplanning rapportage"
 
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:483
 #: /home/tim/code/KwaMoja/InventoryValuation.php:239
-#: /home/tim/code/KwaMoja/PDFPriceList.php:333
+#: /home/tim/code/KwaMoja/PDFPriceList.php:341
 #: /home/tim/code/KwaMoja/StockCheck.php:262
 msgid "Select Inventory Categories"
 msgstr "Selecteer inventariscategorieën"
@@ -25609,60 +25674,451 @@ msgstr "Selecteer een notitie"
 msgid "Allocate Patients to Beds"
 msgstr "Patiënten toewijzen aan bedden"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:13
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:15
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:18
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:20
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:9
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:11
 msgid "This script can only be called with a ward ID as reference"
 msgstr "Dit script kan alleen worden opgeroepen met een wijk-ID als referentie"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:47
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:106
+msgid "Patients Awaiting Bed"
+msgstr "Patiënten in afwachting van bed"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:120
+msgid "There are no patients awaiting a bed in this ward"
+msgstr "Op deze afdeling wachten geen patiënten op een bed"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:124
+msgid "Allocate to Ward"
+msgstr "Wijs toe aan Ward"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:124
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:191
 msgid "Room Number"
 msgstr "Kamernummer"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:48
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:124
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:192
 msgid "Bed Number"
 msgstr "Bed nummer"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:49
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+msgid "PID"
+msgstr "PID"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
+#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
+#: /home/tim/code/KwaMoja/KCMCRegister.php:389
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+msgid "File Number"
+msgstr "Bestandsnummer"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:129
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:193
 msgid "Family Name"
 msgstr "Achternaam"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:50
-#: /home/tim/code/KwaMoja/KCMCRegister.php:251
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:130
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:194
+#: /home/tim/code/KwaMoja/KCMCRegister.php:466
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:381
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:69
 msgid "First Name"
 msgstr "Voornaam"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:51
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:131
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:195
 msgid "Birth Date"
 msgstr "Geboortedatum"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:52
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:150
+msgid "Allocate This Patient To This Bed"
+msgstr "Wijs deze patiënt toe aan dit bed"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:196
 msgid "Patient No."
 msgstr "Patiënt nr."
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:53
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:197
 msgid "Insurance Co."
 msgstr "Insurance Co."
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:54
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:198
 #: /home/tim/code/KwaMoja/SearchCustomers.php:96
 msgid "Options"
 msgstr "opties"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:65
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:210
 msgid "Bed"
 msgstr "Bed"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:67
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:212
 msgid "Bed is currently vacant"
 msgstr "Bed staat momenteel leeg"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:68
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:213
 msgid "Allocate Patient To This Bed"
 msgstr "Wijs de patiënt toe aan dit bed"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:237
+msgid "Patient Notes"
+msgstr "Patiëntnotities"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:241
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:29
+msgid "Daily Ward Notes"
+msgstr "Dagelijkse Ward Notes"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:245
+msgid "Patients Info Chart"
+msgstr "Patiënten Info Chart"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:249
+msgid "Admission Data"
+msgstr "Toelatingsgegevens"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:253
+msgid "Transfer Patient to another bed"
+msgstr "Breng de patiënt over naar een ander bed"
+
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:257
+msgid "Discharge Patient"
+msgstr "Ontslag patiënt"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:139
+msgid "The daily ward notes record could not be added because"
+msgstr "Het verslag met dagelijkse wijknotities kon niet worden toegevoegd omdat"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:187
+msgid "The daily ward notes record could not be updated because"
+msgstr "Het verslag met dagelijkse wijknotities kon niet worden bijgewerkt omdat"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:192
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:201
+msgid "The information was correctly saved"
+msgstr "De informatie is correct opgeslagen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:324
+msgid "Ward Notes"
+msgstr "Ward Notes"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:327
+msgid "Physique"
+msgstr "Lichaamsbouw"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:330
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:335
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:340
+msgid "Ectomorph"
+msgstr "Ectomorph"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:331
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:336
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:341
+msgid "Mesomorph"
+msgstr "Mesomorph"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:332
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:337
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:342
+msgid "Endomorph"
+msgstr "Endomorph"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:348
+msgid "General Condition"
+msgstr "Algemene staat"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:351
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:356
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:361
+msgid "Good"
+msgstr "Goed"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:352
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:357
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:362
+msgid "Fair"
+msgstr "Eerlijk"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:353
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:358
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:363
+msgid "Deceased"
+msgstr "Overleden"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:369
+msgid "Nutritional status"
+msgstr "Voedingstoestand"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:374
+msgid "Decubitus"
+msgstr "Decubitus"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:379
+msgid "Psychological Report"
+msgstr "Psychologisch rapport"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:384
+msgid "Skin Condition"
+msgstr "Huid conditie"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:389
+msgid "Mucous"
+msgstr "Slijm"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:394
+msgid "Skin appendages"
+msgstr "Huidaanhangsels"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:399
+msgid "Edema"
+msgstr "Oedeem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:412
+msgid "Edema Description"
+msgstr "Oedeem Beschrijving"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:417
+msgid "Temperature"
+msgstr "Temperatuur"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:420
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:424
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:428
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:432
+msgid "Apyrexia"
+msgstr "Apyrexia"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:421
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:425
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:429
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:433
+msgid "Fever"
+msgstr "Koorts"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:422
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:426
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:430
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:434
+msgid "Hypothermia"
+msgstr "Hypothermie"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:440
+msgid "Central Pulse"
+msgstr "Centrale puls"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:445
+msgid "Peripheral Pulse"
+msgstr "Perifere puls"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:448
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:454
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:460
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:466
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:472
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:478
+msgid "Regular"
+msgstr "Regelmatig"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:449
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:455
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:461
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:467
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:473
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:479
+msgid "Slow"
+msgstr "Langzaam"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:450
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:456
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:462
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:468
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:474
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:480
+msgid "Weak"
+msgstr "Zwak"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:451
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:457
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:463
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:469
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:475
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:481
+msgid "Fast"
+msgstr "Snel"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:452
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:458
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:464
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:470
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:476
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:482
+msgid "Arhythmic"
+msgstr "Aritmisch"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:488
+msgid "Diastolic pressure"
+msgstr "Diastolische druk"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:493
+msgid "Systolic pressure"
+msgstr "Systolische druk"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:498
+msgid "Lymph glands"
+msgstr "Lymfeklieren"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:503
+msgid "Head"
+msgstr "Hoofd"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:508
+msgid "Eye Balls"
+msgstr "Oogballen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:512
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:516
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:520
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:524
+msgid "Exophthalmos"
+msgstr "Exophthalmos"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:513
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:517
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:521
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:525
+msgid "Enophthalmos"
+msgstr "Enophthalmos"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:531
+msgid "Sclera"
+msgstr "Sclera"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:536
+msgid "Pupils"
+msgstr "Leerlingen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:541
+msgid "Corneal reflex"
+msgstr "Corneale reflex"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:546
+msgid "Ears"
+msgstr "Oren"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:551
+msgid "Nose"
+msgstr "Neus"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:556
+msgid "Mouth"
+msgstr "Mond"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:561
+msgid "Tongue"
+msgstr "Tong"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:564
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:569
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:574
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:579
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:584
+msgid "Well epithelialized"
+msgstr "Goed geëpithelialiseerd"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:565
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:570
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:575
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:580
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:585
+msgid "Atrophic"
+msgstr "Atrofisch"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:566
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:571
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:576
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:581
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:586
+msgid "Furred"
+msgstr "Furred"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:567
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:572
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:577
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:582
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:587
+msgid "Dry"
+msgstr "Droog"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:593
+msgid "Teeth"
+msgstr "Tanden"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:598
+msgid "Tonsils"
+msgstr "Amandelen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:603
+msgid "Neck"
+msgstr "Nek"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:606
+msgid "Neck Shape"
+msgstr "Nek vorm"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:611
+msgid "Neck Mobility"
+msgstr "Nek mobiliteit"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:616
+msgid "Neck Posture"
+msgstr "Nek houding"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
+msgid "Neck Examination"
+msgstr "Nekonderzoek"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:626
+msgid "Turgid Jugular"
+msgstr "Turgid halsader"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:639
+msgid "Normal Thyroid"
+msgstr "Normale schildklier"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:654
+msgid "Chest"
+msgstr "Borst"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:657
+msgid "Chest Shape"
+msgstr "Borst vorm"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:662
+msgid "Breasts"
+msgstr "Borsten"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:667
+msgid "Chest Examined"
+msgstr "Borst onderzocht"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:682
+msgid "Respiratory system"
+msgstr "Ademhalingssysteem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:685
+msgid "Respiratory Inspection"
+msgstr "Ademhalingsinspectie"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:690
+msgid "Respiratory Palpation"
+msgstr "Ademhalingspalpatie"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:699
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:611
+msgid "Save Data"
+msgstr "Gegevens opslaan"
 
 #: /home/tim/code/KwaMoja/KCMCDispenseDrugs.php:5
 msgid "Dispense drugs to patients"
@@ -25697,31 +26153,27 @@ msgid "The patient record"
 msgstr "Het patiëntendossier"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:114
+#: /home/tim/code/KwaMoja/KCMCRegister.php:342
 msgid "has been successfully updated"
 msgstr "is succesvol bijgewerkt"
 
-#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
-#: /home/tim/code/KwaMoja/KCMCRegister.php:228
-msgid "File Number"
-msgstr "Bestandsnummer"
-
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:247
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:247
-#: /home/tim/code/KwaMoja/KCMCRegister.php:305
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
 msgstr "Geboortedatum"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:208
-#: /home/tim/code/KwaMoja/KCMCRegister.php:314
+#: /home/tim/code/KwaMoja/KCMCRegister.php:529
 msgid "No sales types/price lists defined"
 msgstr "Geen verkoopsoorten / prijslijsten gedefinieerd"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:216
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:216
-#: /home/tim/code/KwaMoja/KCMCRegister.php:333
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:581
 #: /home/tim/code/KwaMoja/prlnssf.php:467
 #: /home/tim/code/KwaMoja/prlnssf.php:471
@@ -25729,9 +26181,9 @@ msgid "Male"
 msgstr "Mannetje"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:217
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:217
-#: /home/tim/code/KwaMoja/KCMCRegister.php:334
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:581
 #: /home/tim/code/KwaMoja/prlnssf.php:468
 #: /home/tim/code/KwaMoja/prlnssf.php:470
@@ -25743,14 +26195,14 @@ msgid "Sex"
 msgstr "Seks"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:326
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:326
-#: /home/tim/code/KwaMoja/KCMCRegister.php:404
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Verzekeringsbedrijf"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:266
-#: /home/tim/code/KwaMoja/KCMCRegister.php:428
+#: /home/tim/code/KwaMoja/KCMCRegister.php:643
 msgid "Employer Company"
 msgstr "Werkgever Bedrijf"
 
@@ -26110,229 +26562,267 @@ msgstr "Annuleer transactie"
 msgid "Admit Inpatient"
 msgstr "Geef intramurale patiënt toe"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:56
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:56
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:16
+msgid "This patient is not currently admitted as an inpatient"
+msgstr "Deze patiënt is momenteel niet opgenomen als intramuraal"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:18
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:124
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:18
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:126
+#: /home/tim/code/KwaMoja/KCMCRegister.php:345
+msgid "Return to Patient Screen"
+msgstr "Keer terug naar het patiëntscherm"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:74
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:75
 msgid "There was a problem inserting the encounter record because"
 msgstr "Er is een probleem opgetreden bij het invoegen van het ontmoetingsrecord omdat"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:57
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:57
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:75
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:108
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:110
 msgid "The SQL used to insert the encounter record was"
 msgstr "De SQL die werd gebruikt om het ontmoetingsrecord in te voegen was"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:60
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:60
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:78
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:79
 msgid "The patient was successfully admitted."
 msgstr "De patiënt werd succesvol opgenomen."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:91
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:92
+msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
+msgstr "De patiënt is al opgenomen. "
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:107
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:109
+msgid "There was a problem updating the encounter record because"
+msgstr "Er is een probleem opgetreden bij het bijwerken van het ontmoetingsrecord omdat"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:113
+msgid "The patient data was successfully updated."
+msgstr "De patiëntgegevens zijn succesvol bijgewerkt."
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:136
 msgid "Search For Patient"
 msgstr "Zoeken naar patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:96
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:96
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:156
 msgid "Search for patient details"
 msgstr "Zoeken naar patiëntgegevens"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:98
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:98
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:158
 msgid "File number"
 msgstr "Bestandsnummer"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:100
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:100
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:160
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "Voer het gehele of een deel van het patiëntendossiernummer in als dit bekend is"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:103
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:103
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:163
 msgid "Patients name"
 msgstr "Naam van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:105
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:105
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:165
 msgid "Enter all or part of the patients name if it is known"
 msgstr "Voer de naam van de patiënt geheel of gedeeltelijk in als deze bekend is"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:108
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:108
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
 msgid "Patients Address"
 msgstr "Patiënten adres"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:110
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:110
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:170
 msgid "Enter all or part of the patients address if it is known"
 msgstr "Voer het adres van de patiënt of een deel ervan in als dit bekend is"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:113
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:113
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:173
 msgid "Patients Phone Number"
 msgstr "Patiënten telefoonnummer"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:115
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:115
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:175
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "Voer het telefoonnummer van de patiënt geheel of gedeeltelijk in als dit bekend is"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:148
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:148
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "Patiëntnummer"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:149
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:149
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "Patient naam"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:231
 msgid "Admit Patient"
 msgstr "Geef patiënt toe"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCRegister.php:235
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:238
+msgid "There are no patients matching this criteria"
+msgstr "Er zijn geen patiënten die aan deze criteria voldoen"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "Dhr"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCRegister.php:235
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "Mevrouw"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCRegister.php:235
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Mevrouw"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCRegister.php:235
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "Mvr"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCRegister.php:235
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "Dr"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:220
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:220
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:304
+msgid "Update Admission data for"
+msgstr "Toegangsgegevens bijwerken voor"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "Admit"
 msgstr "Toegeven"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:220
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
 msgid "as an inpatient"
 msgstr "als een patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:222
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:222
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
 msgid "Admission Date"
 msgstr "Toelatingsdatum"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:226
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:226
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
 msgid "Admission Time"
 msgstr "Toelatingstijd"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:238
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:238
-#: /home/tim/code/KwaMoja/KCMCRegister.php:382
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "Bloedgroep"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:242
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:242
-#: /home/tim/code/KwaMoja/KCMCRegister.php:336
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:583
 #: /home/tim/code/KwaMoja/prlnssf.php:356
 #: /home/tim/code/KwaMoja/prlnssf.php:465
 msgid "Gender"
 msgstr "Geslacht"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:254
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:254
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
 msgid "Admission Type"
 msgstr "Toegangstype"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:264
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:264
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
 msgid "A type of admission."
 msgstr "Een soort toelating."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:267
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:267
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "White"
 msgstr "Wit"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:267
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:267
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Green"
 msgstr "Groen"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:267
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:267
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Yellow"
 msgstr "Geel"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:267
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:267
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Red"
 msgstr "Rood"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:269
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:269
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
 msgid "Triage Code"
 msgstr "Triage Code"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:279
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:279
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "De triage-code voor deze patiënt, wit is het minst ernstig en rood is het meest ernstig."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:285
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 msgid "Ward"
 msgstr "Afdeling"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:295
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:384
 msgid "The ward that this patient is being admitted to."
 msgstr "De afdeling waar deze patiënt wordt opgenomen."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:299
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
 msgid "Referrer Diagnosis"
 msgstr "Verwijzende diagnose"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:304
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:304
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
 msgid "Referred By"
 msgstr "Doorverwezen door"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:309
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
 msgid "Referrer Therapy"
 msgstr "Verwijzende therapie"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:314
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:314
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
 msgid "Referrer Notes"
 msgstr "Verwijzende opmerkingen"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:337
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
-#: /home/tim/code/KwaMoja/KCMCRegister.php:415
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "De eventuele verzekeringsmaatschappij waartoe deze patiënt behoort"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:342
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:342
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Insurance Number"
 msgstr "Verzekerings nummer"
 
@@ -26949,8 +27439,8 @@ msgstr "Kamernummers"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:266
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:381
-#: /home/tim/code/KwaMoja/WWW_Users.php:884
-#: /home/tim/code/KwaMoja/WWW_Users.php:888
+#: /home/tim/code/KwaMoja/WWW_Users.php:889
+#: /home/tim/code/KwaMoja/WWW_Users.php:893
 msgid "Open"
 msgstr "Open"
 
@@ -27052,11 +27542,15 @@ msgstr "Soort dienst"
 msgid "Admit Outpatient"
 msgstr "Geef polikliniek toe"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:220
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:16
+msgid "This patient is not currently admitted as an outpatient"
+msgstr "Deze patiënt is momenteel niet opgenomen als polikliniek"
+
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "as an outpatient"
 msgstr "als polikliniek"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:295
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
 msgid "The department that this patient is being admitted to."
 msgstr "De afdeling waar deze patiënt wordt opgenomen."
 
@@ -27551,175 +28045,310 @@ msgid "You must input a file number"
 msgstr "U moet een bestandsnummer invoeren"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:41
+#: /home/tim/code/KwaMoja/KCMCRegister.php:237
 msgid "You must input the name of the patient you are registering"
 msgstr "U moet de naam invoeren van de patiënt die u registreert"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:46
+#: /home/tim/code/KwaMoja/KCMCRegister.php:242
 msgid "You must input the date of birth of the patient"
 msgstr "U moet de geboortedatum van de patiënt invoeren"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:51
+#: /home/tim/code/KwaMoja/KCMCRegister.php:247
 msgid "Please select a price list "
 msgstr "Selecteer een prijslijst"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:56
+#: /home/tim/code/KwaMoja/KCMCRegister.php:252
 msgid "Please select the gender of the patient"
 msgstr "Selecteer het geslacht van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:102
+#: /home/tim/code/KwaMoja/KCMCRegister.php:108
 msgid "There was a problem inserting the patient record because"
 msgstr "Er is een probleem opgetreden bij het invoegen van het patiëntendossier omdat"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:103
+#: /home/tim/code/KwaMoja/KCMCRegister.php:109
 msgid "The SQL used to insert the patient record was"
 msgstr "De SQL die werd gebruikt om het patiëntendossier in te voegen was"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:130
+msgid "There was a problem inserting the billable items because"
+msgstr "Er is een probleem opgetreden bij het invoegen van de factureerbare items omdat"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:131
+msgid "The SQL used to insert the billable items was"
+msgstr "De SQL die werd gebruikt om de factureerbare items in te voegen was"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:159
 msgid "There was a problem inserting the debtors record because"
 msgstr "Er is een probleem opgetreden bij het invoegen van het debiteurenrecord omdat"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:131
+#: /home/tim/code/KwaMoja/KCMCRegister.php:160
 msgid "The SQL used to insert the debtors record was"
 msgstr "De SQL die werd gebruikt om het debiteurenrecord in te voegen was"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:152
-#: /home/tim/code/KwaMoja/KCMCRegister.php:176
+#: /home/tim/code/KwaMoja/KCMCRegister.php:181
+#: /home/tim/code/KwaMoja/KCMCRegister.php:204
 msgid "There was a problem inserting the branch record because"
 msgstr "Er is een probleem opgetreden bij het invoegen van het filiaalrecord omdat"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:153
-#: /home/tim/code/KwaMoja/KCMCRegister.php:177
+#: /home/tim/code/KwaMoja/KCMCRegister.php:182
+#: /home/tim/code/KwaMoja/KCMCRegister.php:205
 msgid "The SQL used to insert the branch record was"
 msgstr "De SQL die werd gebruikt om het filiaalrecord in te voegen was"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:182
+#: /home/tim/code/KwaMoja/KCMCRegister.php:210
+#: /home/tim/code/KwaMoja/KCMCRegister.php:342
 msgid "The patient"
 msgstr "De patient"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:182
+#: /home/tim/code/KwaMoja/KCMCRegister.php:210
 msgid "has been successfully registered"
 msgstr "is succesvol geregistreerd"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:185
+#: /home/tim/code/KwaMoja/KCMCRegister.php:213
 msgid "Admit as Inpatient"
 msgstr "Geef toe als intramurale patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:186
+#: /home/tim/code/KwaMoja/KCMCRegister.php:214
 msgid "Admit as Outpatient"
 msgstr "Geef toe als polikliniek"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:224
+#: /home/tim/code/KwaMoja/KCMCRegister.php:288
+msgid "There was a problem updating the patient record because"
+msgstr "Er is een probleem opgetreden bij het bijwerken van het patiëntendossier omdat"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:289
+msgid "The SQL used to update the patient record was"
+msgstr "De SQL die werd gebruikt om het patiëntendossier bij te werken was"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:298
+msgid "There was a problem updating the billable items because"
+msgstr "Er is een probleem opgetreden bij het bijwerken van de factureerbare items omdat"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:299
+msgid "The SQL used to update the billable items was"
+msgstr "De SQL die werd gebruikt om de factureerbare items bij te werken was"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:313
+msgid "There was a problem updating the debtors record because"
+msgstr "Er is een probleem opgetreden bij het bijwerken van het debiteurenrecord omdat"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:314
+msgid "The SQL used to update the debtors record was"
+msgstr "De SQL die werd gebruikt om het debiteurenrecord bij te werken was"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:323
+#: /home/tim/code/KwaMoja/KCMCRegister.php:336
+msgid "There was a problem updating the branch record because"
+msgstr "Er is een probleem opgetreden bij het bijwerken van het filiaalrecord omdat"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:324
+#: /home/tim/code/KwaMoja/KCMCRegister.php:337
+msgid "The SQL used to update the branch record was"
+msgstr "De SQL die werd gebruikt om het filiaalrecord bij te werken was"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:385
 #: /home/tim/code/KwaMoja/sql/updates/199.php:17
 msgid "Register a new patient"
 msgstr "Registreer een nieuwe patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:230
+#: /home/tim/code/KwaMoja/KCMCRegister.php:391
 msgid "A unique ID for this patient."
 msgstr "Een uniek ID voor deze patiënt."
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:237
+#: /home/tim/code/KwaMoja/KCMCRegister.php:445
+msgid "Amend patient details"
+msgstr "Patiëntgegevens wijzigen"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:452
 msgid "Title"
 msgstr "Titel"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:247
+#: /home/tim/code/KwaMoja/KCMCRegister.php:462
 msgid "The patients title."
 msgstr "De titel van de patiënt."
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:253
+#: /home/tim/code/KwaMoja/KCMCRegister.php:468
 msgid "The patients first name"
 msgstr "De voornaam van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:257
+#: /home/tim/code/KwaMoja/KCMCRegister.php:472
 #: /home/tim/code/KwaMoja/Timesheets.php:512
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:375
 msgid "Last Name"
 msgstr "Achternaam"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:259
+#: /home/tim/code/KwaMoja/KCMCRegister.php:474
 msgid "The patients last, or family name"
 msgstr "De achternaam van de patiënt of achternaam"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:265
+#: /home/tim/code/KwaMoja/KCMCRegister.php:480
 msgid "The first line of the patients address"
 msgstr "De eerste regel van het adres van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:271
+#: /home/tim/code/KwaMoja/KCMCRegister.php:486
 msgid "The second line of the patients address"
 msgstr "De tweede regel van het adres van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:277
+#: /home/tim/code/KwaMoja/KCMCRegister.php:492
 msgid "The third line of the patients address"
 msgstr "De derde regel van het adres van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:283
+#: /home/tim/code/KwaMoja/KCMCRegister.php:498
 msgid "The fourth line of the patients address"
 msgstr "De vierde regel van het adres van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:289
+#: /home/tim/code/KwaMoja/KCMCRegister.php:504
 msgid "The fifth line of the patients address"
 msgstr "De vijfde regel van het adres van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:295
+#: /home/tim/code/KwaMoja/KCMCRegister.php:510
 msgid "The sixth line of the patients address"
 msgstr "De zesde regel van het adres van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:301
+#: /home/tim/code/KwaMoja/KCMCRegister.php:516
 msgid "A contact telephone number for this patient"
 msgstr "Een telefoonnummer voor deze patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:329
+#: /home/tim/code/KwaMoja/KCMCRegister.php:544
 msgid "The price list to apply for this patient"
 msgstr "De prijslijst voor deze patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:347
+#: /home/tim/code/KwaMoja/KCMCRegister.php:562
 msgid "The gender of this patient"
 msgstr "Het geslacht van deze patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:350
+#: /home/tim/code/KwaMoja/KCMCRegister.php:565
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
 msgid "Single"
 msgstr "single"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:350
+#: /home/tim/code/KwaMoja/KCMCRegister.php:565
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
 msgid "Married"
 msgstr "Getrouwd"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:350
+#: /home/tim/code/KwaMoja/KCMCRegister.php:565
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
 msgid "Separated/Divorced"
 msgstr "Gescheiden / Gescheiden"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:350
+#: /home/tim/code/KwaMoja/KCMCRegister.php:565
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
 msgid "Widowed"
 msgstr "weduwnaar"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:350
+#: /home/tim/code/KwaMoja/KCMCRegister.php:565
 msgid "Civil Partnership"
 msgstr "Civiel partnerschap"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:352
+#: /home/tim/code/KwaMoja/KCMCRegister.php:567
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:568
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:71
 msgid "Marital Status"
 msgstr "Burgerlijke staat"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:362
+#: /home/tim/code/KwaMoja/KCMCRegister.php:577
 msgid "The patients marital status."
 msgstr "De burgerlijke staat van de patiënt."
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:367
+#: /home/tim/code/KwaMoja/KCMCRegister.php:582
 msgid "Citizen of"
 msgstr "Inwoner van"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:377
+#: /home/tim/code/KwaMoja/KCMCRegister.php:592
 msgid "The country where this patient is a citizen."
 msgstr "Het land waar deze patiënt een burger is."
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:393
+#: /home/tim/code/KwaMoja/KCMCRegister.php:608
 msgid "The blood group of this patient"
 msgstr "De bloedgroep van deze patiënt"
+
+#: /home/tim/code/KwaMoja/KCMCRegister.php:665
+msgid "Item to bill"
+msgstr "Te factureren item"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:5
+msgid "Search Patients"
+msgstr "Patiënten zoeken"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:11
+msgid "Patients"
+msgstr "Patiënten"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+msgid "Patient"
+msgstr "Geduldig"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:74
+msgid "Select a menu option to operate using this patient"
+msgstr "Selecteer een menuoptie om met deze patiënt te werken"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:79
+#: /home/tim/code/KwaMoja/SelectCustomer.php:174
+#: /home/tim/code/KwaMoja/SelectProduct.php:450
+#: /home/tim/code/KwaMoja/SelectSupplier.php:211
+#: /home/tim/code/KwaMoja/index.php:88
+msgid "Inquiries and Reports"
+msgstr "Vragen en rapporten"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:79
+msgid "Patient Inquiries"
+msgstr "Patiëntvragen"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:85
+msgid "Patient Transactions"
+msgstr "Patiënttransacties"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:88
+msgid "Modify patient registration data"
+msgstr "Wijzig patiëntregistratiegegevens"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:91
+msgid "Modify Inpatient admission data"
+msgstr "Wijzig de opnamegegevens van de patiënt"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:94
+msgid "Modify Outpatient admission data"
+msgstr "Wijzig poliklinische opnamegegevens"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:100
+msgid "Patient Maintenance"
+msgstr "Patiëntonderhoud"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:114
+msgid "Search for Patients"
+msgstr "Zoek naar patiënten"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
+#: /home/tim/code/KwaMoja/SelectCustomer.php:272
+#: /home/tim/code/KwaMoja/SelectSupplier.php:301
+#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
+msgid "Enter a partial Name"
+msgstr "Voer een gedeeltelijke naam in"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:131
+msgid "Enter a partial patient file number"
+msgstr "Voer een gedeeltelijk patiëntendossiernummer in"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:142
+#: /home/tim/code/KwaMoja/SelectCustomer.php:295
+msgid "Enter a partial Phone Number"
+msgstr "Voer een gedeeltelijk telefoonnummer in"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:153
+#: /home/tim/code/KwaMoja/SelectCustomer.php:306
+msgid "Enter part of the Address"
+msgstr "Voer een deel van het adres in"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:165
+#: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
+#: /home/tim/code/KwaMoja/SelectCustomer.php:399
+msgid "CSV Format"
+msgstr "CSV-indeling"
 
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:3
 msgid "Synchronise with Care2x Item Table"
@@ -27826,6 +28455,312 @@ msgstr "Afdelingsnummer"
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:128
 msgid "Select Ward"
 msgstr "Selecteer Ward"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:29
+msgid "Yellow Paper"
+msgstr "Geel papier"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:145
+msgid "The yellow paper record could not be added because"
+msgstr "Het gele papieren record kon niet worden toegevoegd omdat"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:196
+msgid "The yellow paper record could not be updated because"
+msgstr "Het gele papieren record kon niet worden bijgewerkt omdat"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:339
+msgid "Medical History"
+msgstr "Medische geschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:340
+msgid "Family History"
+msgstr "Familiegeschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:341
+msgid "Socio-environmental History"
+msgstr "Sociaal-ecologische geschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:342
+msgid "Physiological History"
+msgstr "Fysiologische geschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:343
+msgid "Pathological History"
+msgstr "Pathologische geschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:344
+msgid "Remote Pathological History"
+msgstr "Remote Pathologische geschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
+msgid "Physical Details"
+msgstr "Fysieke details"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:357
+#: /home/tim/code/KwaMoja/SelectProduct.php:167
+msgid "Weight"
+msgstr "Gewicht"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:359
+msgid "Age"
+msgstr "Leeftijd"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:361
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:362
+msgid "Symptoms"
+msgstr "Symptomen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:364
+msgid "Laboratory Data"
+msgstr "Laboratoriumgegevens"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:365
+msgid "Urine"
+msgstr "Urine"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:367
+msgid "Blood"
+msgstr "Bloed"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:369
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
+msgid "Other"
+msgstr "Andere"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:372
+msgid "Diagnosis"
+msgstr "Diagnose"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:374
+msgid "Therapy"
+msgstr "Behandeling"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:379
+msgid "Hereditary diseases"
+msgstr "Erfelijke ziekten"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:381
+msgid "Father"
+msgstr "Vader"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:383
+msgid "Mother"
+msgstr "Moeder"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:385
+msgid "Spouse/Partner"
+msgstr "Echtgenoot / partner"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:387
+msgid "Children"
+msgstr "Kinderen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:389
+msgid "Siblings"
+msgstr "Broers en zussen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:394
+msgid "Recent Travel"
+msgstr "Recente reizen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:396
+msgid "Type and standard of dwelling"
+msgstr "Type en standaard van de woning"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:398
+msgid "Past employment"
+msgstr "Eerdere dienstbetrekking"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:400
+msgid "Recent Employment"
+msgstr "Recente werkgelegenheid"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:402
+msgid "Current Employment"
+msgstr "Huidig ​​werk"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:404
+msgid "Work place"
+msgstr "Werkplek"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:406
+msgid "Contact with gas"
+msgstr "Contact met gas"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:408
+msgid "Contact with toxic substances"
+msgstr "Contact met giftige stoffen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:410
+msgid "Other toxic agents"
+msgstr "Andere giftige stoffen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:415
+msgid "Premature Birth"
+msgstr "Voortijdige geboorte"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:426
+msgid "Eutocic birth"
+msgstr "Eutocische geboorte"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:437
+msgid "Normal neonatal development"
+msgstr "Normale neonatale ontwikkeling"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:448
+msgid "Late development"
+msgstr "Late ontwikkeling"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:459
+msgid "Previous Pregnancies"
+msgstr "Eerdere zwangerschappen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:461
+msgid "Medication"
+msgstr "Medicatie"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:463
+msgid "Menstruation"
+msgstr "Menstruatie"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:465
+msgid "Military Service"
+msgstr "Militaire dienst"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:467
+msgid "Alcohol Consumption"
+msgstr "Alcohol gebruik"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:471
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:476
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:481
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:490
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:495
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:500
+msgid "Low or No Consumption"
+msgstr "Laag of geen verbruik"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:472
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:477
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:482
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:491
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:496
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:501
+msgid "Medium Consumption"
+msgstr "Gemiddeld verbruik"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:473
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:478
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:483
+msgid "Heavy Drinker"
+msgstr "Zware drinker"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:487
+msgid "Coffee Consumption"
+msgstr "Koffie consumptie"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:492
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:497
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:502
+msgid "High Consumption"
+msgstr "Hoge consumptie"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:505
+msgid "Smoking"
+msgstr "Roken"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:509
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:515
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:521
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:527
+msgid "Non smoker"
+msgstr "Niet-roker"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:510
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:516
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:522
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:528
+msgid "Occasional smoker"
+msgstr "Af en toe roker"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:511
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:517
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:523
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:529
+msgid "Heavy smoker"
+msgstr "Zware roker"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:512
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:518
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:524
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:530
+msgid "Ex smoker"
+msgstr "Ex-roker"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:533
+msgid "Thirst"
+msgstr "Dorst"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:537
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:542
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:547
+msgid "Reduced"
+msgstr "Verminderd"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:538
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:543
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:548
+msgid "Increased"
+msgstr "Is gestegen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:551
+msgid "Bowel movements"
+msgstr "Darmbewegingen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:555
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:561
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:567
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:573
+msgid "Diarrhea"
+msgstr "Diarree"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:556
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:562
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:568
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:574
+msgid "Constipated"
+msgstr "Verstopt"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:557
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:563
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:569
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:575
+msgid "Tenesmo"
+msgstr "Tenesmo"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:578
+msgid "Diuresis"
+msgstr "Diurese"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:582
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:587
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:592
+msgid "Low"
+msgstr "Laag"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:583
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:588
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:593
+msgid "High"
+msgstr "Hoog"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:599
+msgid "Other Medical History"
+msgstr "Andere medische geschiedenis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:604
+msgid "Remote Medical History"
+msgstr "Remote Medical History"
 
 #: /home/tim/code/KwaMoja/Labels.php:3
 msgid "Label Templates"
@@ -29098,7 +30033,7 @@ msgid "This report shows the MRP calculation for a specific item - a part code m
 msgstr "Dit rapport toont de MRP-berekening voor een specifiek artikel - een onderdeelcode moet worden geselecteerd"
 
 #: /home/tim/code/KwaMoja/MRPReport.php:535
-#: /home/tim/code/KwaMoja/SelectProduct.php:629
+#: /home/tim/code/KwaMoja/SelectProduct.php:633
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:17
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:237
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:636
@@ -29108,13 +30043,13 @@ msgstr "Zoeken naar voorraadartikelen"
 
 #: /home/tim/code/KwaMoja/MRPReport.php:722
 #: /home/tim/code/KwaMoja/SelectAsset.php:208
-#: /home/tim/code/KwaMoja/SelectProduct.php:753
+#: /home/tim/code/KwaMoja/SelectProduct.php:757
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:227
 msgid "The SQL that returned an error was"
 msgstr "De SQL die een fout retourneerde was"
 
 #: /home/tim/code/KwaMoja/MRPReport.php:725
-#: /home/tim/code/KwaMoja/SelectProduct.php:756
+#: /home/tim/code/KwaMoja/SelectProduct.php:760
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:230
 msgid "No stock items were returned by this search please re-enter alternative criteria to try again"
 msgstr "Er zijn geen voorraadartikelen geretourneerd door deze zoekopdracht. Voer opnieuw alternatieve criteria in om het opnieuw te proberen"
@@ -29123,7 +30058,7 @@ msgstr "Er zijn geen voorraadartikelen geretourneerd door deze zoekopdracht. Voe
 #: /home/tim/code/KwaMoja/SelectAsset.php:237
 #: /home/tim/code/KwaMoja/SelectCustomer.php:425
 #: /home/tim/code/KwaMoja/SelectCustomer.php:502
-#: /home/tim/code/KwaMoja/SelectProduct.php:783
+#: /home/tim/code/KwaMoja/SelectProduct.php:787
 #: /home/tim/code/KwaMoja/SelectSupplier.php:340
 #: /home/tim/code/KwaMoja/SelectSupplier.php:404
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:260
@@ -29134,7 +30069,7 @@ msgstr "pagina's"
 #: /home/tim/code/KwaMoja/SelectAsset.php:237
 #: /home/tim/code/KwaMoja/SelectCustomer.php:425
 #: /home/tim/code/KwaMoja/SelectCustomer.php:502
-#: /home/tim/code/KwaMoja/SelectProduct.php:783
+#: /home/tim/code/KwaMoja/SelectProduct.php:787
 #: /home/tim/code/KwaMoja/SelectSupplier.php:340
 #: /home/tim/code/KwaMoja/SelectSupplier.php:404
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:260
@@ -29148,7 +30083,7 @@ msgstr "Ga naar pagina"
 #: /home/tim/code/KwaMoja/SelectAsset.php:249
 #: /home/tim/code/KwaMoja/SelectCustomer.php:438
 #: /home/tim/code/KwaMoja/SelectCustomer.php:515
-#: /home/tim/code/KwaMoja/SelectProduct.php:795
+#: /home/tim/code/KwaMoja/SelectProduct.php:799
 #: /home/tim/code/KwaMoja/SelectSupplier.php:352
 #: /home/tim/code/KwaMoja/SelectSupplier.php:416
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:272
@@ -29156,12 +30091,12 @@ msgid "Go"
 msgstr "Gaan"
 
 #: /home/tim/code/KwaMoja/MRPReport.php:777
-#: /home/tim/code/KwaMoja/SelectProduct.php:811
+#: /home/tim/code/KwaMoja/SelectProduct.php:815
 msgid "Total Qty On Hand"
 msgstr "Totaal aantal bij de hand"
 
 #: /home/tim/code/KwaMoja/MRPReport.php:779
-#: /home/tim/code/KwaMoja/SelectProduct.php:806
+#: /home/tim/code/KwaMoja/SelectProduct.php:810
 #: /home/tim/code/KwaMoja/StockStatus.php:5
 #: /home/tim/code/KwaMoja/dashboard/latest_stock_status.php:9
 msgid "Stock Status"
@@ -29357,11 +30292,6 @@ msgstr "Hieronder vindt u het verkooprapport met kommagescheiden waarden"
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 msgid "Sales Analysis"
 msgstr "Verkoopanalyse"
-
-#: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
-#: /home/tim/code/KwaMoja/SelectCustomer.php:399
-msgid "CSV Format"
-msgstr "CSV-indeling"
 
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:3
 #: /home/tim/code/KwaMoja/sql/updates/42.php:256
@@ -30182,7 +31112,7 @@ msgstr "Toont de lijst met ontvangen goederen die nog niet zijn gefactureerd, zo
 #: /home/tim/code/KwaMoja/OutstandingGRNs.php:150
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:81
 #: /home/tim/code/KwaMoja/SalesTopItemsInquiry.php:77
-#: /home/tim/code/KwaMoja/WWW_Users.php:821
+#: /home/tim/code/KwaMoja/WWW_Users.php:826
 msgid "Display"
 msgstr "tonen"
 
@@ -31112,7 +32042,7 @@ msgid "Customer Credit Notes"
 msgstr "Creditnota's voor klanten"
 
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:183
-#: /home/tim/code/KwaMoja/SelectProduct.php:514
+#: /home/tim/code/KwaMoja/SelectProduct.php:518
 msgid "Location Transfers"
 msgstr "Locatie transfers"
 
@@ -31138,7 +32068,7 @@ msgid "Price list by inventory category"
 msgstr "Prijslijst per inventariscategorie"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:61
-#: /home/tim/code/KwaMoja/PDFPriceList.php:388
+#: /home/tim/code/KwaMoja/PDFPriceList.php:396
 #: /home/tim/code/KwaMoja/includes/PDFPriceListHeader.php:28
 msgid "Customer Special Prices Only"
 msgstr "Alleen klantsprijzen"
@@ -31158,7 +32088,7 @@ msgstr "Voer de prijslijst opnieuw uit nadat de klant is geselecteerd"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:70
 #: /home/tim/code/KwaMoja/PDFPriceList.php:80
-#: /home/tim/code/KwaMoja/PDFPriceList.php:179
+#: /home/tim/code/KwaMoja/PDFPriceList.php:181
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:50
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:49
 #: /home/tim/code/KwaMoja/PricesByCost.php:232
@@ -31170,29 +32100,29 @@ msgstr "Terug"
 msgid "The effective date must be entered in the format"
 msgstr "De ingangsdatum moet in het formaat worden ingevoerd"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:165
+#: /home/tim/code/KwaMoja/PDFPriceList.php:167
 msgid "Problem Report...."
 msgstr "Probleemrapport...."
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:167
+#: /home/tim/code/KwaMoja/PDFPriceList.php:169
 #: /home/tim/code/KwaMoja/SuppPriceList.php:136
 #: /home/tim/code/KwaMoja/Z_DataExport.php:62
 msgid "The Price List could not be retrieved by the SQL because"
 msgstr "De prijslijst kon door de SQL niet worden opgehaald omdat"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:170
+#: /home/tim/code/KwaMoja/PDFPriceList.php:172
 msgid "For debugging purposes the SQL used was"
 msgstr "Voor foutopsporingsdoeleinden werd de SQL gebruikt"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:176
+#: /home/tim/code/KwaMoja/PDFPriceList.php:178
 msgid "Print Price List Error"
 msgstr "Print prijslijst fout"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:178
+#: /home/tim/code/KwaMoja/PDFPriceList.php:180
 msgid "There were no price details to print out for the customer or category specified"
 msgstr "Er waren geen prijsgegevens om uit te printen voor de klant of de opgegeven categorie"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:224
+#: /home/tim/code/KwaMoja/PDFPriceList.php:229
 #: /home/tim/code/KwaMoja/Prices.php:233
 #: /home/tim/code/KwaMoja/PricesByCost.php:208
 #: /home/tim/code/KwaMoja/Prices_Customer.php:210
@@ -31200,112 +32130,112 @@ msgstr "Er waren geen prijsgegevens om uit te printen voor de klant of de opgege
 msgid "No End Date"
 msgstr "Geen einddatum"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:304
+#: /home/tim/code/KwaMoja/PDFPriceList.php:312
 msgid "* Obsolete items included."
 msgstr "* Verouderde items inbegrepen."
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:309
+#: /home/tim/code/KwaMoja/PDFPriceList.php:317
 msgid "Price_List"
 msgstr "Prijslijst"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:317
+#: /home/tim/code/KwaMoja/PDFPriceList.php:325
 msgid "Price Listing"
 msgstr "Prijslijst"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:323
+#: /home/tim/code/KwaMoja/PDFPriceList.php:331
 msgid "Print a price list by inventory category"
 msgstr "Print een prijslijst op inventariscategorie"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:331
+#: /home/tim/code/KwaMoja/PDFPriceList.php:339
 msgid "Select report criteria"
 msgstr "Selecteer rapportcriteria"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:346
+#: /home/tim/code/KwaMoja/PDFPriceList.php:354
 msgid "Choose the stock category or multiple categories to report on."
 msgstr "Kies de aandelencategorie of meerdere categorieën om over te rapporteren."
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:350
+#: /home/tim/code/KwaMoja/PDFPriceList.php:358
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:314
 #: /home/tim/code/KwaMoja/Z_DataExport.php:415
 msgid "For Sales Type/Price List"
 msgstr "Voor verkooptype / prijslijst"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:359
+#: /home/tim/code/KwaMoja/PDFPriceList.php:367
 msgid "Select the sales type to report on"
 msgstr "Selecteer het verkooptype om over te rapporteren"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:363
+#: /home/tim/code/KwaMoja/PDFPriceList.php:371
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:329
 msgid "For Currency"
 msgstr "Voor valuta"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:372
+#: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
 msgstr "Selecteer de valuta om over te rapporteren. "
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:376
+#: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
 msgstr "Bruto winstpercentage weergeven"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:378
+#: /home/tim/code/KwaMoja/PDFPriceList.php:386
 msgid "Prices Only"
 msgstr "Alleen prijzen"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:379
+#: /home/tim/code/KwaMoja/PDFPriceList.php:387
 msgid "Show GP % too"
 msgstr "Toon ook GP%"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:381
+#: /home/tim/code/KwaMoja/PDFPriceList.php:389
 msgid "To include the gross profit percentage in the report select Yes otherwise select no."
 msgstr "Selecteer Ja om het brutowinstpercentage in het rapport op te nemen, anders selecteert u nee."
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:385
+#: /home/tim/code/KwaMoja/PDFPriceList.php:393
 msgid "Price Listing Type"
 msgstr "Type prijsvermelding"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:387
+#: /home/tim/code/KwaMoja/PDFPriceList.php:395
 msgid "Default Sales Type Prices"
 msgstr "Standaard verkooptype prijzen"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:389
+#: /home/tim/code/KwaMoja/PDFPriceList.php:397
 msgid "Full Description"
 msgstr "Volledige beschrijving"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:391
+#: /home/tim/code/KwaMoja/PDFPriceList.php:399
 msgid "Show customer special prices, or just the default ones."
 msgstr "Toon speciale klantprijzen, of alleen de standaardprijzen."
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:395
+#: /home/tim/code/KwaMoja/PDFPriceList.php:403
 #: /home/tim/code/KwaMoja/PDFPrintLabel.php:345
 #: /home/tim/code/KwaMoja/includes/PDFPriceListHeader.php:35
 msgid "Effective As At"
 msgstr "Effectief als op"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:397
+#: /home/tim/code/KwaMoja/PDFPriceList.php:405
 msgid "Show prices that are effective on this date."
 msgstr "Toon prijzen die van kracht zijn op deze datum."
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:407
+#: /home/tim/code/KwaMoja/PDFPriceList.php:415
 msgid "Show obsolete items"
 msgstr "Verouderde items weergeven"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:409
+#: /home/tim/code/KwaMoja/PDFPriceList.php:417
 msgid "Check this box to show the obsolete items"
 msgstr "Vink dit vakje aan om de verouderde items te tonen"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:414
+#: /home/tim/code/KwaMoja/PDFPriceList.php:422
 msgid "Sort items by"
 msgstr "Sorteer items op"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:415
+#: /home/tim/code/KwaMoja/PDFPriceList.php:423
 msgid "Currency, category and code"
 msgstr "Valuta, categorie en code"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:417
+#: /home/tim/code/KwaMoja/PDFPriceList.php:425
 msgid "Currency, category and description"
 msgstr "Valuta, categorie en beschrijving"
 
-#: /home/tim/code/KwaMoja/PDFPriceList.php:418
+#: /home/tim/code/KwaMoja/PDFPriceList.php:426
 msgid "Select the order of the items in the report"
 msgstr "Selecteer de volgorde van de items in het rapport"
 
@@ -33155,7 +34085,7 @@ msgid "Item Category"
 msgstr "Artikelcategorie"
 
 #: /home/tim/code/KwaMoja/PO_Items.php:1411
-#: /home/tim/code/KwaMoja/SelectProduct.php:573
+#: /home/tim/code/KwaMoja/SelectProduct.php:577
 #: /home/tim/code/KwaMoja/Stocks.php:1622
 msgid "Insert New Item"
 msgstr "Nieuw item invoegen"
@@ -33260,8 +34190,8 @@ msgstr "Bestelkopgegevens"
 #: /home/tim/code/KwaMoja/Suppliers.php:386
 #: /home/tim/code/KwaMoja/Suppliers.php:419
 #: /home/tim/code/KwaMoja/Suppliers.php:489
-#: /home/tim/code/KwaMoja/WWW_Users.php:378
-#: /home/tim/code/KwaMoja/WWW_Users.php:700
+#: /home/tim/code/KwaMoja/WWW_Users.php:383
+#: /home/tim/code/KwaMoja/WWW_Users.php:705
 #: /home/tim/code/KwaMoja/geocode.php:99
 msgid "Supplier Code"
 msgstr "Leverancierscode"
@@ -33589,7 +34519,7 @@ msgstr "Er zijn geen inkooporders die aan deze criteria voldoen."
 #: /home/tim/code/KwaMoja/PageSecurity.php:11
 #: /home/tim/code/KwaMoja/SecurityTokens.php:9
 #: /home/tim/code/KwaMoja/WWW_Access.php:14
-#: /home/tim/code/KwaMoja/WWW_Users.php:25
+#: /home/tim/code/KwaMoja/WWW_Users.php:30
 msgid "The the system is in demo mode and the security model administration is disabled"
 msgstr "Het systeem bevindt zich in de demomodus en het beheer van het beveiligingsmodel is uitgeschakeld"
 
@@ -37318,7 +38248,7 @@ msgid "Suppliers Unit of Measure"
 msgstr "Leveranciers Meeteenheid"
 
 #: /home/tim/code/KwaMoja/PurchData.php:659
-#: /home/tim/code/KwaMoja/SelectProduct.php:678
+#: /home/tim/code/KwaMoja/SelectProduct.php:682
 msgid "Supplier Stock Code"
 msgstr "Voorraadcode leverancier"
 
@@ -39140,7 +40070,7 @@ msgid "Page Break After"
 msgstr "Pagina-einde na"
 
 #: /home/tim/code/KwaMoja/SalesAnalysis_UserDefined.php:6
-#: /home/tim/code/KwaMoja/includes/session.php:286
+#: /home/tim/code/KwaMoja/includes/session.php:290
 msgid "The security settings on your account do not permit you to access this function"
 msgstr "De beveiligingsinstellingen in uw account staan ​​niet toe dat u toegang hebt tot deze functie"
 
@@ -40860,13 +41790,6 @@ msgid "Select a menu option to operate using this customer"
 msgstr "Selecteer een menuoptie om met deze klant te werken"
 
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
-#: /home/tim/code/KwaMoja/SelectProduct.php:450
-#: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:88
-msgid "Inquiries and Reports"
-msgstr "Vragen en rapporten"
-
-#: /home/tim/code/KwaMoja/SelectCustomer.php:174
 msgid "Customer Inquiries"
 msgstr "Vragen van klanten"
 
@@ -40959,25 +41882,11 @@ msgstr "Voeg een notitie toe aan deze klant"
 msgid "Search for Customers"
 msgstr "Zoeken naar klanten"
 
-#: /home/tim/code/KwaMoja/SelectCustomer.php:272
-#: /home/tim/code/KwaMoja/SelectSupplier.php:301
-#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
-msgid "Enter a partial Name"
-msgstr "Voer een gedeeltelijke naam in"
-
 #: /home/tim/code/KwaMoja/SelectCustomer.php:284
 #: /home/tim/code/KwaMoja/SelectSupplier.php:312
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:515
 msgid "Enter a partial Code"
 msgstr "Voer een gedeeltelijke code in"
-
-#: /home/tim/code/KwaMoja/SelectCustomer.php:295
-msgid "Enter a partial Phone Number"
-msgstr "Voer een gedeeltelijk telefoonnummer in"
-
-#: /home/tim/code/KwaMoja/SelectCustomer.php:306
-msgid "Enter part of the Address"
-msgstr "Voer een deel van het adres in"
 
 #: /home/tim/code/KwaMoja/SelectCustomer.php:317
 msgid "Choose a Type"
@@ -41455,7 +42364,7 @@ msgid "Search Inventory Items"
 msgstr "Zoek in voorraadartikelen"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:96
-#: /home/tim/code/KwaMoja/SelectProduct.php:829
+#: /home/tim/code/KwaMoja/SelectProduct.php:833
 #: /home/tim/code/KwaMoja/Stocks.php:1371
 #: /home/tim/code/KwaMoja/Stocks.php:1373
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:556
@@ -41514,10 +42423,6 @@ msgstr "Batchs / Lots"
 #: /home/tim/code/KwaMoja/SelectProduct.php:165
 msgid "Volume"
 msgstr "Volume"
-
-#: /home/tim/code/KwaMoja/SelectProduct.php:167
-msgid "Weight"
-msgstr "Gewicht"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:201
 msgid "No Default Price Set"
@@ -41584,95 +42489,95 @@ msgstr "Voorraadgebruik tonen"
 msgid "Search All Purchase Orders"
 msgstr "Doorzoek alle bestellingen"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:472
+#: /home/tim/code/KwaMoja/SelectProduct.php:476
 msgid "Show Part Picture (if available)"
 msgstr "Deelafbeelding tonen (indien beschikbaar)"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:483
+#: /home/tim/code/KwaMoja/SelectProduct.php:487
 msgid "View Costed Bill Of Material"
 msgstr "Bekijk de kostenpost"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:486
+#: /home/tim/code/KwaMoja/SelectProduct.php:490
 msgid "Where This Item Is Used"
 msgstr "Waar dit item wordt gebruikt"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:491
+#: /home/tim/code/KwaMoja/SelectProduct.php:495
 msgid "Where This Labour Item Is Used"
 msgstr "Waar dit arbeidsitem wordt gebruikt"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:496
+#: /home/tim/code/KwaMoja/SelectProduct.php:500
 msgid "View Product Specification"
 msgstr "Bekijk productspecificatie"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:507
+#: /home/tim/code/KwaMoja/SelectProduct.php:511
 msgid "Item Transactions"
 msgstr "Artikeltransacties"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:511
+#: /home/tim/code/KwaMoja/SelectProduct.php:515
 msgid "Quantity Adjustments"
 msgstr "Aanpassingen van de hoeveelheid"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:555
+#: /home/tim/code/KwaMoja/SelectProduct.php:559
 msgid "Purchase this Item from"
 msgstr "Koop dit item van"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:570
+#: /home/tim/code/KwaMoja/SelectProduct.php:574
 #: /home/tim/code/KwaMoja/SelectSupplier.php:262
 #: /home/tim/code/KwaMoja/Suppliers.php:4
 msgid "Supplier Maintenance"
 msgstr "Onderhoud van de leverancier"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:576
+#: /home/tim/code/KwaMoja/SelectProduct.php:580
 msgid "Modify Item Details"
 msgstr "Wijzig itemdetails"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:581
+#: /home/tim/code/KwaMoja/SelectProduct.php:585
 msgid "Maintain Reorder Levels"
 msgstr "Handhaaf herordeningsniveaus"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:584
-#: /home/tim/code/KwaMoja/SelectProduct.php:595
+#: /home/tim/code/KwaMoja/SelectProduct.php:588
+#: /home/tim/code/KwaMoja/SelectProduct.php:599
 msgid "Maintain Standard Cost"
 msgstr "Standaardkosten behouden"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:587
+#: /home/tim/code/KwaMoja/SelectProduct.php:591
 msgid "Maintain Purchasing Data"
 msgstr "Inkoopgegevens behouden"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:590
+#: /home/tim/code/KwaMoja/SelectProduct.php:594
 msgid "Maintain Customer Item Data"
 msgstr "Klantitemgegevens behouden"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:600
+#: /home/tim/code/KwaMoja/SelectProduct.php:604
 msgid "Maintain Pricing"
 msgstr "Onderhoud prijzen"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:604
+#: /home/tim/code/KwaMoja/SelectProduct.php:608
 msgid "Special Prices for customer"
 msgstr "Speciale prijzen voor klant"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:609
+#: /home/tim/code/KwaMoja/SelectProduct.php:613
 msgid "Maintain Discount Category"
 msgstr "Kortingcategorie behouden"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:612
+#: /home/tim/code/KwaMoja/SelectProduct.php:616
 msgid "Clone This Item"
 msgstr "Kloon dit item"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:615
+#: /home/tim/code/KwaMoja/SelectProduct.php:619
 msgid "Maintain Related Items"
 msgstr "Aanverwante artikelen onderhouden"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:618
+#: /home/tim/code/KwaMoja/SelectProduct.php:622
 #: /home/tim/code/KwaMoja/sql/updates/80.php:16
 msgid "Mantain prices by quantity break and sales types"
 msgstr "Mantain-prijzen per hoeveelheidsbreuk en verkooptypes"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:808
+#: /home/tim/code/KwaMoja/SelectProduct.php:812
 msgid "image"
 msgstr "beeld"
 
-#: /home/tim/code/KwaMoja/SelectProduct.php:810
+#: /home/tim/code/KwaMoja/SelectProduct.php:814
 msgid "Suppliers Stock Code"
 msgstr "Leveranciers Stock Code"
 
@@ -46404,7 +47309,7 @@ msgid "The supplier login role is expected to contain just one token - number 9.
 msgstr "Er wordt verwacht dat de leveranciersaanmeldingsrol slechts één token - nummer 9 bevat. Er is momenteel geen dergelijke rol gedefinieerd - dus kan een leverancierslogin pas worden opgezet als deze rol is gedefinieerd"
 
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:158
-#: /home/tim/code/KwaMoja/WWW_Users.php:647
+#: /home/tim/code/KwaMoja/WWW_Users.php:652
 msgid "Default Location"
 msgstr "Standaardlocatie"
 
@@ -49508,7 +50413,7 @@ msgstr "Omdat dit de eerste keer is dat het systeem is gebruikt, moet u eerst ee
 #: /home/tim/code/KwaMoja/TaxGroups.php:177
 #: /home/tim/code/KwaMoja/TaxGroups.php:338
 #: /home/tim/code/KwaMoja/TaxProvinces.php:165
-#: /home/tim/code/KwaMoja/UserSettings.php:126
+#: /home/tim/code/KwaMoja/UserSettings.php:130
 msgid "For help, click on the help icon in the top right"
 msgstr "Klik voor hulp op het Help-pictogram in de rechterbovenhoek"
 
@@ -49971,7 +50876,7 @@ msgid "As this is the first time that the system has been used, you must first c
 msgstr "Omdat dit de eerste keer is dat het systeem is gebruikt, moet u eerst een belastingprovincie maken."
 
 #: /home/tim/code/KwaMoja/TaxProvinces.php:165
-#: /home/tim/code/KwaMoja/UserSettings.php:126
+#: /home/tim/code/KwaMoja/UserSettings.php:130
 msgid "Once you have filled in the details, click on the button at the bottom of the screen"
 msgstr "Nadat u de gegevens hebt ingevuld, klikt u op de knop onder aan het scherm"
 
@@ -50683,12 +51588,12 @@ msgid "Eastern European Russian Japanese Korean Hebrew Arabic Thai"
 msgstr "Oost-Europees Russisch Japans Koreaans Hebreeuws Arabisch Thais"
 
 #: /home/tim/code/KwaMoja/UserSettings.php:27
-#: /home/tim/code/KwaMoja/WWW_Users.php:11
+#: /home/tim/code/KwaMoja/WWW_Users.php:16
 msgid "Chinese"
 msgstr "Chinese"
 
 #: /home/tim/code/KwaMoja/UserSettings.php:27
-#: /home/tim/code/KwaMoja/WWW_Users.php:11
+#: /home/tim/code/KwaMoja/WWW_Users.php:16
 msgid "Free Serif"
 msgstr "Gratis Serif"
 
@@ -50708,134 +51613,134 @@ msgstr "Kan het wachtwoord niet wijzigen in de demo of anderen worden uitgeslote
 msgid "The password and password confirmation fields entered do not match"
 msgstr "De ingevoerde velden voor wachtwoord- en wachtwoordbevestiging komen niet overeen"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:80
-#: /home/tim/code/KwaMoja/UserSettings.php:99
-#: /home/tim/code/KwaMoja/WWW_Users.php:271
+#: /home/tim/code/KwaMoja/UserSettings.php:84
+#: /home/tim/code/KwaMoja/UserSettings.php:103
+#: /home/tim/code/KwaMoja/WWW_Users.php:276
 msgid "The user alterations could not be processed because"
 msgstr "De gebruikerswijzigingen konden niet worden verwerkt omdat"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:81
-#: /home/tim/code/KwaMoja/UserSettings.php:100
-#: /home/tim/code/KwaMoja/WWW_Users.php:272
+#: /home/tim/code/KwaMoja/UserSettings.php:85
+#: /home/tim/code/KwaMoja/UserSettings.php:104
+#: /home/tim/code/KwaMoja/WWW_Users.php:277
 msgid "The SQL that was used to update the user and failed was"
 msgstr "De SQL die is gebruikt om de gebruiker bij te werken en is mislukt"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:84
-#: /home/tim/code/KwaMoja/UserSettings.php:104
+#: /home/tim/code/KwaMoja/UserSettings.php:88
+#: /home/tim/code/KwaMoja/UserSettings.php:108
 msgid "The user settings have been updated"
 msgstr "De gebruikersinstellingen zijn bijgewerkt"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:104
+#: /home/tim/code/KwaMoja/UserSettings.php:108
 msgid "Be sure to remember your password for the next time you login"
 msgstr "Vergeet niet je wachtwoord te onthouden voor de volgende keer dat je inlogt"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:126
+#: /home/tim/code/KwaMoja/UserSettings.php:130
 msgid "This page contains the users settings than can be changed by the user."
 msgstr "Deze pagina bevat de gebruikersinstellingen die de gebruiker kan wijzigen."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:130
+#: /home/tim/code/KwaMoja/UserSettings.php:134
 msgid "Edit the settings for this user"
 msgstr "Bewerk de instellingen voor deze gebruiker"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:141
+#: /home/tim/code/KwaMoja/UserSettings.php:145
 msgid "Maximum Number of Records to Display"
 msgstr "Maximum aantal weer te geven records"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:143
+#: /home/tim/code/KwaMoja/UserSettings.php:147
 msgid "The maximum number of records to show on inquiries."
 msgstr "Het maximale aantal records dat kan worden weergegeven bij vragen."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:159
+#: /home/tim/code/KwaMoja/UserSettings.php:163
 msgid "The language to be used for this user."
 msgstr "De taal die voor deze gebruiker moet worden gebruikt."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:178
+#: /home/tim/code/KwaMoja/UserSettings.php:182
 msgid "The theme to be used for this user."
 msgstr "Het thema dat voor deze gebruiker moet worden gebruikt."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:190
+#: /home/tim/code/KwaMoja/UserSettings.php:194
 msgid "If you are changing the password enter it here. Otherwise leave blank."
 msgstr "Als u het wachtwoord wijzigt, voert u dit hier in.  Laat anders niets."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:193
+#: /home/tim/code/KwaMoja/UserSettings.php:197
 msgid "Confirm Password"
 msgstr "bevestig wachtwoord"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:195
+#: /home/tim/code/KwaMoja/UserSettings.php:199
 msgid "Confirm the new password if you created one."
 msgstr "Bevestig het nieuwe wachtwoord als je er een hebt gemaakt."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:198
+#: /home/tim/code/KwaMoja/UserSettings.php:202
 msgid "if you leave the password boxes empty your password will not change"
 msgstr "als u de wachtwoordvakken leeg laat, verandert uw wachtwoord niet"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:203
+#: /home/tim/code/KwaMoja/UserSettings.php:207
 msgid "The users email address."
 msgstr "Het e-mailadres van de gebruiker."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:209
-#: /home/tim/code/KwaMoja/WWW_Users.php:385
-#: /home/tim/code/KwaMoja/WWW_Users.php:923
+#: /home/tim/code/KwaMoja/UserSettings.php:213
+#: /home/tim/code/KwaMoja/WWW_Users.php:390
+#: /home/tim/code/KwaMoja/WWW_Users.php:928
 msgid "Screen Font Size"
 msgstr "Schermlettergrootte"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:212
 #: /home/tim/code/KwaMoja/UserSettings.php:216
 #: /home/tim/code/KwaMoja/UserSettings.php:220
-#: /home/tim/code/KwaMoja/WWW_Users.php:403
-#: /home/tim/code/KwaMoja/WWW_Users.php:926
-#: /home/tim/code/KwaMoja/WWW_Users.php:930
-#: /home/tim/code/KwaMoja/WWW_Users.php:934
+#: /home/tim/code/KwaMoja/UserSettings.php:224
+#: /home/tim/code/KwaMoja/WWW_Users.php:408
+#: /home/tim/code/KwaMoja/WWW_Users.php:931
+#: /home/tim/code/KwaMoja/WWW_Users.php:935
+#: /home/tim/code/KwaMoja/WWW_Users.php:939
 msgid "Small"
 msgstr "Klein"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:213
 #: /home/tim/code/KwaMoja/UserSettings.php:217
 #: /home/tim/code/KwaMoja/UserSettings.php:221
-#: /home/tim/code/KwaMoja/WWW_Users.php:406
-#: /home/tim/code/KwaMoja/WWW_Users.php:412
-#: /home/tim/code/KwaMoja/WWW_Users.php:927
-#: /home/tim/code/KwaMoja/WWW_Users.php:931
-#: /home/tim/code/KwaMoja/WWW_Users.php:935
+#: /home/tim/code/KwaMoja/UserSettings.php:225
+#: /home/tim/code/KwaMoja/WWW_Users.php:411
+#: /home/tim/code/KwaMoja/WWW_Users.php:417
+#: /home/tim/code/KwaMoja/WWW_Users.php:932
+#: /home/tim/code/KwaMoja/WWW_Users.php:936
+#: /home/tim/code/KwaMoja/WWW_Users.php:940
 msgid "Medium"
 msgstr "Medium"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:214
 #: /home/tim/code/KwaMoja/UserSettings.php:218
 #: /home/tim/code/KwaMoja/UserSettings.php:222
-#: /home/tim/code/KwaMoja/WWW_Users.php:409
-#: /home/tim/code/KwaMoja/WWW_Users.php:928
-#: /home/tim/code/KwaMoja/WWW_Users.php:932
-#: /home/tim/code/KwaMoja/WWW_Users.php:936
+#: /home/tim/code/KwaMoja/UserSettings.php:226
+#: /home/tim/code/KwaMoja/WWW_Users.php:414
+#: /home/tim/code/KwaMoja/WWW_Users.php:933
+#: /home/tim/code/KwaMoja/WWW_Users.php:937
+#: /home/tim/code/KwaMoja/WWW_Users.php:941
 msgid "Large"
 msgstr "Groot"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:225
+#: /home/tim/code/KwaMoja/UserSettings.php:229
 msgid "The size of font to be displayed for this user."
 msgstr "De grootte van het lettertype dat voor deze gebruiker moet worden weergegeven."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:230
-#: /home/tim/code/KwaMoja/WWW_Users.php:896
+#: /home/tim/code/KwaMoja/UserSettings.php:234
+#: /home/tim/code/KwaMoja/WWW_Users.php:901
 msgid "Display page help"
 msgstr "Help weergeven op de pagina"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:238
-#: /home/tim/code/KwaMoja/WWW_Users.php:904
+#: /home/tim/code/KwaMoja/UserSettings.php:242
+#: /home/tim/code/KwaMoja/WWW_Users.php:909
 msgid "Show page help when available."
 msgstr "Toon hulp op de pagina indien beschikbaar."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:242
-#: /home/tim/code/KwaMoja/WWW_Users.php:909
+#: /home/tim/code/KwaMoja/UserSettings.php:246
+#: /home/tim/code/KwaMoja/WWW_Users.php:914
 msgid "Display field help"
 msgstr "Veldhulp weergeven"
 
-#: /home/tim/code/KwaMoja/UserSettings.php:250
-#: /home/tim/code/KwaMoja/WWW_Users.php:917
+#: /home/tim/code/KwaMoja/UserSettings.php:254
+#: /home/tim/code/KwaMoja/WWW_Users.php:922
 msgid "Show field help when available."
 msgstr "Laat veldhulp zien als deze beschikbaar is."
 
-#: /home/tim/code/KwaMoja/UserSettings.php:254
-#: /home/tim/code/KwaMoja/WWW_Users.php:840
+#: /home/tim/code/KwaMoja/UserSettings.php:258
+#: /home/tim/code/KwaMoja/WWW_Users.php:845
 msgid "PDF Language Support"
 msgstr "PDF-taalondersteuning"
 
@@ -51085,277 +51990,277 @@ msgstr "Toegewezen veiligheidsmunten"
 msgid "Available Security Tokens"
 msgstr "Beschikbare beveiligingspennen"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:11
+#: /home/tim/code/KwaMoja/WWW_Users.php:16
 msgid "Latin Western Languages"
 msgstr "Latijnse westerse talen"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:11
+#: /home/tim/code/KwaMoja/WWW_Users.php:16
 msgid "Eastern European Russian Japanese Korean Vietnamese Hebrew Arabic Thai"
 msgstr "Oost-Europees Russisch Japans Koreaans Vietnamees Hebreeuws Arabisch Thais"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:13
+#: /home/tim/code/KwaMoja/WWW_Users.php:18
 #: /home/tim/code/KwaMoja/sql/updates/42.php:239
 msgid "User Maintenance"
 msgstr "Gebruikersonderhoud"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:61
+#: /home/tim/code/KwaMoja/WWW_Users.php:66
 msgid "The user ID entered must be at least 3 characters long"
 msgstr "Het ingevoerde gebruikers-ID moet minimaal 3 tekens lang zijn"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:89
+#: /home/tim/code/KwaMoja/WWW_Users.php:94
 msgid "The user ID"
 msgstr "De gebruikers-ID"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:89
+#: /home/tim/code/KwaMoja/WWW_Users.php:94
 msgid "already exists and cannot be used again"
 msgstr "bestaat al en kan niet opnieuw worden gebruikt"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:176
+#: /home/tim/code/KwaMoja/WWW_Users.php:181
 msgid "The selected user record has been updated"
 msgstr "Het geselecteerde gebruikersrecord is bijgewerkt"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:189
+#: /home/tim/code/KwaMoja/WWW_Users.php:194
 msgid "The default user locations could not be processed because"
 msgstr "De standaardgebruikerslocaties konden niet worden verwerkt omdat"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:190
+#: /home/tim/code/KwaMoja/WWW_Users.php:195
 msgid "The SQL that was used to create the user locations and failed was"
 msgstr "De SQL die is gebruikt om de gebruikerslocaties te maken en is mislukt"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:192
+#: /home/tim/code/KwaMoja/WWW_Users.php:197
 msgid "User has been authorised to use and update only his / her default location"
 msgstr "De gebruiker is gemachtigd om alleen zijn / haar standaardlocatie te gebruiken en bij te werken"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:204
+#: /home/tim/code/KwaMoja/WWW_Users.php:209
 msgid "The default user GL Accounts could not be processed because"
 msgstr "De standaardgebruikers-GL-accounts konden niet worden verwerkt omdat"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:205
+#: /home/tim/code/KwaMoja/WWW_Users.php:210
 msgid "The SQL that was used to create the user GL Accounts and failed was"
 msgstr "De SQL die is gebruikt om de gebruikers-GL-accounts te maken en is mislukt"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:207
+#: /home/tim/code/KwaMoja/WWW_Users.php:212
 msgid "User has been authorised to use and update all GL accounts"
 msgstr "Gebruiker is geautoriseerd om alle GL-accounts te gebruiken en bij te werken"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:262
+#: /home/tim/code/KwaMoja/WWW_Users.php:267
 msgid "A new user record has been inserted"
 msgstr "Er is een nieuw gebruikersrecord ingevoerd"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:311
+#: /home/tim/code/KwaMoja/WWW_Users.php:316
 msgid "The administration user called admin cannot be deleted"
 msgstr "De beheerder die admin wordt genoemd, kan niet worden verwijderd"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:317
+#: /home/tim/code/KwaMoja/WWW_Users.php:322
 msgid "Cannot delete user as entries already exist in the audit trail"
 msgstr "Kan gebruiker niet verwijderen omdat er al entries in de audit trail bestaan"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:321
+#: /home/tim/code/KwaMoja/WWW_Users.php:326
 msgid "The Location - User could not be deleted because"
 msgstr "De locatie - gebruiker kon niet worden verwijderd omdat"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:325
+#: /home/tim/code/KwaMoja/WWW_Users.php:330
 msgid "The GL Account - User could not be deleted because"
 msgstr "Het GL-account - De gebruiker kon niet worden verwijderd omdat"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:329
+#: /home/tim/code/KwaMoja/WWW_Users.php:334
 msgid "The Bank Accounts - User could not be deleted because"
 msgstr "De bankrekeningen - De gebruiker kon niet worden verwijderd omdat"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:333
+#: /home/tim/code/KwaMoja/WWW_Users.php:338
 msgid "The User could not be deleted because"
 msgstr "De gebruiker kon niet worden verwijderd omdat"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:336
+#: /home/tim/code/KwaMoja/WWW_Users.php:341
 msgid "User Deleted"
 msgstr "Gebruiker verwijderd"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:380
+#: /home/tim/code/KwaMoja/WWW_Users.php:385
 msgid "Last Visit"
 msgstr "Laatste bezoek"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:381
-#: /home/tim/code/KwaMoja/WWW_Users.php:602
+#: /home/tim/code/KwaMoja/WWW_Users.php:386
+#: /home/tim/code/KwaMoja/WWW_Users.php:607
 msgid "Security Role"
 msgstr "Beveiligingsrol"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:382
+#: /home/tim/code/KwaMoja/WWW_Users.php:387
 msgid "Report Size"
 msgstr "Rapportgrootte"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:393
+#: /home/tim/code/KwaMoja/WWW_Users.php:398
 msgid "User has not logged in yet"
 msgstr "Gebruiker is nog niet ingelogd"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:431
+#: /home/tim/code/KwaMoja/WWW_Users.php:436
 msgid "Are you sure you wish to delete this user?"
 msgstr "Weet je zeker dat je deze gebruiker wilt verwijderen?"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:442
+#: /home/tim/code/KwaMoja/WWW_Users.php:447
 msgid "Review Existing Users"
 msgstr "Bestaande gebruikers bekijken"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:514
+#: /home/tim/code/KwaMoja/WWW_Users.php:519
 msgid "Edit Details For"
 msgstr "Details bewerken voor"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:523
+#: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
 msgstr "Voer het wachtwoord voor deze gebruiker in. "
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:527
+#: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
 msgstr "Nieuwe gebruikersgegevens invoegen"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:531
+#: /home/tim/code/KwaMoja/WWW_Users.php:536
 msgid "Enter the unique ID the user will use to log in."
 msgstr "Voer de unieke ID in die de gebruiker zal gebruiken om in te loggen."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:537
+#: /home/tim/code/KwaMoja/WWW_Users.php:542
 msgid "Enter the password for this user."
 msgstr "Voer het wachtwoord voor deze gebruiker in."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:572
+#: /home/tim/code/KwaMoja/WWW_Users.php:577
 msgid "User Must Change their Password at next Login"
 msgstr "Gebruiker moet zijn wachtwoord wijzigen bij de volgende aanmelding"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:583
+#: /home/tim/code/KwaMoja/WWW_Users.php:588
 msgid "If set to Yes then the user must change their password at next Login."
 msgstr "Indien ingesteld op Ja, moet de gebruiker zijn wachtwoord wijzigen bij de volgende aanmelding."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:589
+#: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
 msgstr "Voer de volledige naam van deze gebruiker in. "
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:594
+#: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
 msgstr "Voer het telefoonnummer van deze gebruiker in."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:599
+#: /home/tim/code/KwaMoja/WWW_Users.php:604
 msgid "Enter the email address of this user."
 msgstr "Voer het e-mailadres van deze gebruiker in."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:613
+#: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
 msgstr "Selecteer de beveiligingsrol van deze gebruiker. "
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:617
+#: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
 msgstr "Gebruiker kan offertes maken"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:628
+#: /home/tim/code/KwaMoja/WWW_Users.php:633
 msgid "If the user is authorised to create supplier tenders then select Yes otherwise select No."
 msgstr "Als de gebruiker geautoriseerd is om leveranciersaanbiedingen te maken, selecteert u Ja, anders selecteert u Nee."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:632
+#: /home/tim/code/KwaMoja/WWW_Users.php:637
 msgid "User Can Enter Timesheets"
 msgstr "Gebruiker kan urenstaten invoeren"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:643
+#: /home/tim/code/KwaMoja/WWW_Users.php:648
 msgid "If the user is authorised to enter timesheets then select Yes otherwise select No."
 msgstr "Als de gebruiker gemachtigd is om urenstaten in te voeren, selecteert u Ja, anders selecteert u Nee."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:661
+#: /home/tim/code/KwaMoja/WWW_Users.php:666
 msgid "Select the default stock location for this user."
 msgstr "Selecteer de standaard voorraadlocatie voor deze gebruiker."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:665
+#: /home/tim/code/KwaMoja/WWW_Users.php:670
 msgid "Restrict to just this location"
 msgstr "Beperken tot alleen deze locatie"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:675
+#: /home/tim/code/KwaMoja/WWW_Users.php:680
 msgid "Select Yes if the user is restricted to only using their default location, or select No if they can use any location."
 msgstr "Selecteer Ja als de gebruiker alleen zijn standaardlocatie mag gebruiken, of selecteer Nee als hij een willekeurige locatie kan gebruiken."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:690
+#: /home/tim/code/KwaMoja/WWW_Users.php:695
 msgid "If this is a customer only login, then enter the code for that cuatomer."
 msgstr "Als dit alleen voor klanten is, voer dan de code voor die klant in."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:696
+#: /home/tim/code/KwaMoja/WWW_Users.php:701
 msgid "If this is a customer only login, then enter the code for the relevant branch of that customer."
 msgstr "Als dit alleen voor klanten is, voer dan de code in voor de betreffende vestiging van die klant."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:702
+#: /home/tim/code/KwaMoja/WWW_Users.php:707
 msgid "If this is a supplier only login, then enter the code for that supplier."
 msgstr "Als dit alleen voor leveranciers is, voer dan de code voor die leverancier in."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:708
+#: /home/tim/code/KwaMoja/WWW_Users.php:713
 msgid "Restrict to Sales Person"
 msgstr "Beperken tot verkoopmedewerker"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:711
-#: /home/tim/code/KwaMoja/WWW_Users.php:713
+#: /home/tim/code/KwaMoja/WWW_Users.php:716
+#: /home/tim/code/KwaMoja/WWW_Users.php:718
 msgid "Not a salesperson only login"
 msgstr "Geen verkoper, alleen inloggen"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:724
+#: /home/tim/code/KwaMoja/WWW_Users.php:729
 msgid "If this is a sales person only login, then select the code for that sales person"
 msgstr "Als dit alleen een verkoopmedewerker is, selecteert u de code voor die verkoopmedewerker"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:773
+#: /home/tim/code/KwaMoja/WWW_Users.php:778
 msgid "Select the page size to be used by default on reports for this user"
 msgstr "Selecteer het paginaformaat dat standaard moet worden gebruikt in rapporten voor deze gebruiker"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:794
+#: /home/tim/code/KwaMoja/WWW_Users.php:799
 msgid "Select the theme to be used for this user."
 msgstr "Selecteer het thema dat voor deze gebruiker moet worden gebruikt."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:811
+#: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
 msgstr "Selecteer de taal van de gebruiker. "
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:821
-#: /home/tim/code/KwaMoja/WWW_Users.php:831
+#: /home/tim/code/KwaMoja/WWW_Users.php:826
+#: /home/tim/code/KwaMoja/WWW_Users.php:836
 msgid "module"
 msgstr "module"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:831
+#: /home/tim/code/KwaMoja/WWW_Users.php:836
 msgid "Select Yes if the user will be allowed to view the"
 msgstr "Selecteer Ja als de gebruiker toestemming krijgt om de te bekijken"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:831
+#: /home/tim/code/KwaMoja/WWW_Users.php:836
 msgid "from the main menu screen"
 msgstr "vanuit het hoofdmenuscherm"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:850
+#: /home/tim/code/KwaMoja/WWW_Users.php:855
 msgid "Seleect the PDF languages to support for this user."
 msgstr "Selecteer de PDF-talen om deze gebruiker te ondersteunen."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:861
+#: /home/tim/code/KwaMoja/WWW_Users.php:866
 msgid "Allowed Department for Internal Requests"
 msgstr "Toegestane afdeling voor interne aanvragen"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:864
-#: /home/tim/code/KwaMoja/WWW_Users.php:866
+#: /home/tim/code/KwaMoja/WWW_Users.php:869
+#: /home/tim/code/KwaMoja/WWW_Users.php:871
 msgid "Any Internal Department"
 msgstr "Elke interne afdeling"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:876
+#: /home/tim/code/KwaMoja/WWW_Users.php:881
 msgid "What department will this user be allowed to make internal stock requests from."
 msgstr "Van welke afdeling mag deze gebruiker interne voorraadaanvragen doen."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:881
+#: /home/tim/code/KwaMoja/WWW_Users.php:886
 msgid "Account Status"
 msgstr "Account Status"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:885
-#: /home/tim/code/KwaMoja/WWW_Users.php:887
+#: /home/tim/code/KwaMoja/WWW_Users.php:890
+#: /home/tim/code/KwaMoja/WWW_Users.php:892
 msgid "Blocked"
 msgstr "geblokkeerd"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:891
+#: /home/tim/code/KwaMoja/WWW_Users.php:896
 msgid "If Blocked is chosen then this user will not be allowed to login."
 msgstr "Als Geblokkeerd wordt gekozen, mag deze gebruiker niet inloggen."
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:939
+#: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
 msgstr "Selecteer de lettergrootte waarin de schermen worden getekend voor deze gebruiker. "
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:950
+#: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
 msgstr "Standaardtag voor gebruiker"
 
-#: /home/tim/code/KwaMoja/WWW_Users.php:961
+#: /home/tim/code/KwaMoja/WWW_Users.php:966
 msgid "Select a default tag for the user."
 msgstr "Selecteer een standaardtag voor de gebruiker."
 
@@ -59592,7 +60497,7 @@ msgid "** Error Code Not Defined **"
 msgstr "** Foutcode niet gedefinieerd **"
 
 #: /home/tim/code/KwaMoja/api/api_login.php:119
-#: /home/tim/code/KwaMoja/includes/GetConfig.php:10
+#: /home/tim/code/KwaMoja/includes/GetConfig.php:22
 msgid "There was a problem deleting expired audit-trail history"
 msgstr "Er is een probleem opgetreden bij het verwijderen van verlopen audit-trailgeschiedenis"
 
@@ -59714,8 +60619,8 @@ msgstr "De naam van de database die moet worden gebruikt voor de transacties die
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:4127
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:4165
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:4203
-#: /home/tim/code/KwaMoja/includes/Login.php:98
-#: /home/tim/code/KwaMoja/includes/Login.php:100
+#: /home/tim/code/KwaMoja/includes/Login.php:90
+#: /home/tim/code/KwaMoja/includes/Login.php:92
 msgid "User name"
 msgstr "Gebruikersnaam"
 
@@ -63640,11 +64545,11 @@ msgstr "Daadwerkelijk geplukt"
 msgid "NOT A PACKING LIST.      DO NOT USE FOR SHIPMENT.      DRIVER DO NOT ACCEPT"
 msgstr "GEEN VERPAKKINGSLIJST.  GEBRUIK NIET VOOR VERZENDING.  BESTUURDER NIET ACCEPTEREN"
 
-#: /home/tim/code/KwaMoja/includes/GetConfig.php:14
+#: /home/tim/code/KwaMoja/includes/GetConfig.php:7
 msgid "Could not get the configuration parameters from the database because"
 msgstr "Kon de configuratieparameters uit de database niet ontvangen omdat"
 
-#: /home/tim/code/KwaMoja/includes/GetConfig.php:60
+#: /home/tim/code/KwaMoja/includes/GetConfig.php:59
 msgid "An error occurred accessing the database to retrieve the company information"
 msgstr "Er is een fout opgetreden bij het openen van de database om de bedrijfsinformatie op te halen"
 
@@ -63850,17 +64755,13 @@ msgstr "Meld u hier aan"
 msgid "Login screen"
 msgstr "Log in scherm"
 
-#: /home/tim/code/KwaMoja/includes/Login.php:34
-msgid "Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes"
-msgstr "Uw webserver is geconfigureerd om Magic Quotes in te schakelen.  Dit kan problemen veroorzaken als u interpunctie (zoals aanhalingstekens) gebruikt bij het invoeren van gegevens.  Neem contact op met uw webmaster om Magic Quotes uit te schakelen"
-
-#: /home/tim/code/KwaMoja/includes/Login.php:56
+#: /home/tim/code/KwaMoja/includes/Login.php:48
 #: /home/tim/code/KwaMoja/includes/header.php:101
 msgid "Company"
 msgstr "Bedrijf"
 
-#: /home/tim/code/KwaMoja/includes/Login.php:113
-#: /home/tim/code/KwaMoja/includes/Login.php:116
+#: /home/tim/code/KwaMoja/includes/Login.php:105
+#: /home/tim/code/KwaMoja/includes/Login.php:108
 msgid "Login"
 msgstr "Log in"
 
@@ -65903,56 +66804,56 @@ msgstr "Belastingbestand invoegen mislukt."
 msgid "The period code could not be retreived because"
 msgstr "De periodecode kan niet worden achterhaald omdat"
 
-#: /home/tim/code/KwaMoja/includes/session.php:137
-#: /home/tim/code/KwaMoja/includes/session.php:262
+#: /home/tim/code/KwaMoja/includes/session.php:141
+#: /home/tim/code/KwaMoja/includes/session.php:266
 msgid "Account Error Report"
 msgstr "Account Foutrapport"
 
-#: /home/tim/code/KwaMoja/includes/session.php:140
+#: /home/tim/code/KwaMoja/includes/session.php:144
 msgid "Your user role does not have any access defined for KwaMoja. There is an error in the security setup for this user account"
 msgstr "Uw gebruikersrol heeft geen toegang gedefinieerd voor KwaMoja.  Er is een fout opgetreden in de beveiligingsinstellingen voor dit gebruikersaccount"
 
-#: /home/tim/code/KwaMoja/includes/session.php:145
+#: /home/tim/code/KwaMoja/includes/session.php:149
 msgid "incorrect password"
 msgstr "Incorrect wachtwoord"
 
-#: /home/tim/code/KwaMoja/includes/session.php:145
+#: /home/tim/code/KwaMoja/includes/session.php:149
 msgid "The user/password combination"
 msgstr "De combinatie gebruiker / wachtwoord"
 
-#: /home/tim/code/KwaMoja/includes/session.php:145
+#: /home/tim/code/KwaMoja/includes/session.php:149
 msgid "is not a valid user of the system"
 msgstr "is geen geldige gebruiker van het systeem"
 
-#: /home/tim/code/KwaMoja/includes/session.php:149
+#: /home/tim/code/KwaMoja/includes/session.php:153
 msgid "system maintenance"
 msgstr "Systeem onderhoud"
 
-#: /home/tim/code/KwaMoja/includes/session.php:149
+#: /home/tim/code/KwaMoja/includes/session.php:153
 msgid "KwaMoja is not available right now"
 msgstr "KwaMoja is momenteel niet beschikbaar"
 
-#: /home/tim/code/KwaMoja/includes/session.php:149
+#: /home/tim/code/KwaMoja/includes/session.php:153
 msgid "during maintenance of the system"
 msgstr "tijdens onderhoud van het systeem"
 
-#: /home/tim/code/KwaMoja/includes/session.php:252
+#: /home/tim/code/KwaMoja/includes/session.php:256
 msgid "KwaMoja is configured to allow only secure socket connections. Pages must be called with https://"
 msgstr "KwaMoja is geconfigureerd om alleen beveiligde socketverbindingen toe te staan.  Pagina's moeten worden gebeld met https: //"
 
-#: /home/tim/code/KwaMoja/includes/session.php:265
+#: /home/tim/code/KwaMoja/includes/session.php:269
 msgid "Security settings have not been defined for your user account. Please advise your system administrator. It could also be that there is a session problem with your PHP web server"
 msgstr "Beveiligingsinstellingen zijn niet gedefinieerd voor uw gebruikersaccount.  Gelieve uw systeembeheerder op de hoogte te stellen.  Het kan ook zijn dat er een sessieprobleem is met uw PHP-webserver"
 
-#: /home/tim/code/KwaMoja/includes/session.php:280
+#: /home/tim/code/KwaMoja/includes/session.php:284
 msgid "Security Permissions Problem"
 msgstr "Beveiligingsmachtigingen Probleem"
 
-#: /home/tim/code/KwaMoja/includes/session.php:333
+#: /home/tim/code/KwaMoja/includes/session.php:337
 msgid "Error in form verification"
 msgstr "Fout bij formulierverificatie"
 
-#: /home/tim/code/KwaMoja/includes/session.php:335
+#: /home/tim/code/KwaMoja/includes/session.php:339
 msgid "This form was not submitted with a correct ID"
 msgstr "Dit formulier is niet ingediend met een juiste ID"
 
@@ -66821,6 +67722,7 @@ msgid "Create New Employee Details"
 msgstr "Maak nieuwe werknemersdetails"
 
 #: /home/tim/code/KwaMoja/sql/updates/199.php:5
+#: /home/tim/code/KwaMoja/sql/updates/216.php:171
 msgid "Hospital Configuration Options"
 msgstr "Ziekenhuis configuratie-opties"
 
@@ -66868,6 +67770,14 @@ msgstr "Regelmatige betalingen instellen"
 #: /home/tim/code/KwaMoja/sql/updates/98.php:25
 msgid "Process Regular Payments"
 msgstr "Verwerk reguliere betalingen"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:168
+msgid "Hospital Setup"
+msgstr "Ziekenhuisopstelling"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:174
+msgid "Select Patient"
+msgstr "Selecteer Patiënt"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
@@ -67711,6 +68621,9 @@ msgstr "Leningen van het personeel"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Terugbetaling van personeellening"
+
+#~ msgid "Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes"
+#~ msgstr "Uw webserver is geconfigureerd om Magic Quotes in te schakelen.  Dit kan problemen veroorzaken als u interpunctie (zoals aanhalingstekens) gebruikt bij het invoeren van gegevens.  Neem contact op met uw webmaster om Magic Quotes uit te schakelen"
 
 #~ msgid "Select GL Group"
 #~ msgstr "Selecteer GL-groep"
