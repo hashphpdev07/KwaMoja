@@ -6,15 +6,19 @@ color:#1A1A1A;
 }
 form fieldset {
 background:#BAD8F6;
-display: inline;
+display: inline-block;
 border:solid 0px;
 margin:auto;
 padding-top:7px;
-margin-bottom:4px;
-margin-right:4px;
 border-radius:7px;
 text-align:left;
 vertical-align:top;
+width:auto;
+}
+form fieldset fieldset {
+border: solid 1px #588BB6;
+display: inline-block;
+width:51%;
 }
 form fieldset legend {
 background-color:#B06161;
