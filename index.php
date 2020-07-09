@@ -56,7 +56,7 @@ echo '</ul>
 echo '<section class="MainBody clearfix">';
 echo '<fieldset class="MenuList">'; //=== TransactionsDiv ===
 echo '<legend>'; //=== SubMenuHeader ===
-if ($_SESSION['Module'] == 'system') {
+if ($_SESSION['Module'] == 'system' or $_SESSION['Module'] == 'hospsetup') {
 	echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/company.png" data-title="', _('General Setup Options'), '" alt="', _('General Setup Options'), '" /><b>', _('General Setup Options'), '</b>';
 } else {
 	echo '<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" data-title="', _('Transactions'), '" alt="', _('Transactions'), '" /><b>', _('Transactions'), '</b>';
@@ -82,7 +82,7 @@ echo '</ul>
 	</fieldset>'; //=== TransactionsDiv ===
 echo '<fieldset class="MenuList">'; //=== TransactionsDiv ===
 echo '<legend>'; //=== SubMenuHeader ===
-if ($_SESSION['Module'] == 'system') {
+if ($_SESSION['Module'] == 'system' or $_SESSION['Module'] == 'hospsetup') {
 	$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/ar.png" data-title="' . _('Receivables/Payables Setup') . '" alt="' . _('Receivables/Payables Setup') . '" /><b>' . _('Receivables/Payables Setup') . '</b>';
 } else {
 	$Header = '<img data-title="' . _('Inquiries and Reports') . '" src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/reports.png" alt="' . _('Inquiries and Reports') . '" /><b>' . _('Inquiries and Reports') . '</b>';
@@ -111,7 +111,7 @@ echo '</ul>
 	</fieldset>'; //=== InquiriesDiv ===
 echo '<fieldset class="MenuList">'; //=== MaintenanceDive ===
 echo '<legend>';
-if ($_SESSION['Module'] == 'system') {
+if ($_SESSION['Module'] == 'system' or $_SESSION['Module'] == 'hospsetup') {
 	$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/inventory.png" data-title="' . _('Inventory Setup') . '" alt="' . _('Inventory Setup') . '" /><b>' . _('Inventory Setup') . '</b>';
 } else {
 	$Header = '<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" data-title="' . _('Maintenance') . '" alt="' . _('Maintenance') . '" /><b>' . _('Maintenance') . '</b>';
