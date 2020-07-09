@@ -5,7 +5,7 @@ $Title = _('Ward Overview');
 include ('includes/header.php');
 include ('includes/SQL_CommonFunctions.php');
 
-echo '<link href="css/', $_SESSION['Theme'], '/charts.css?v=4" rel="stylesheet" type="text/css" media="screen" />';
+echo '<link href="css/', $_SESSION['Theme'], '/charts.css?v=5" rel="stylesheet" type="text/css" media="screen" />';
 
 if (!isset($_SESSION['WardID'])) {
 	echo '<p class="page_title_text">
