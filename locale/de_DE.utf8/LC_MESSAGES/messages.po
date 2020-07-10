@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 16:17+0100\n"
+"POT-Creation-Date: 2020-07-09 12:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,7 @@ msgstr "ABC Ranking Gruppennummer"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:126
 #: /home/tim/code/KwaMoja/GLAccounts.php:296
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:94
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
 #: /home/tim/code/KwaMoja/Locations.php:378
 #: /home/tim/code/KwaMoja/MRPDemands.php:230
 #: /home/tim/code/KwaMoja/Manufacturers.php:190
@@ -310,6 +311,7 @@ msgstr "Möchten Sie diese Rangfolge wirklich löschen?"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
@@ -554,6 +556,7 @@ msgstr "Die Ranking-Methode wurde erfolgreich in der Datenbank gespeichert"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:126
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
@@ -790,7 +793,8 @@ msgstr "wurden in die Kontengruppe geändert"
 #: /home/tim/code/KwaMoja/JobScheduler.php:9
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:106
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:161
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:35
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:34
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:158
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
@@ -801,22 +805,22 @@ msgstr "wurden in die Kontengruppe geändert"
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:136
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:180
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:179
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:114
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:10
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:37
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:74
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:102
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:35
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:12
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:55
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:104
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:132
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:34
 #: /home/tim/code/KwaMoja/MRPReport.php:535
 #: /home/tim/code/KwaMoja/MaintenanceTasks.php:12
 #: /home/tim/code/KwaMoja/MaintenanceUserSchedule.php:11
@@ -1244,28 +1248,52 @@ msgstr "Name der übergeordneten Gruppe"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:402
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:405
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:629
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:642
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:645
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:670
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:673
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:847
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:857
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:860
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:885
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:888
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:923
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:926
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:961
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:964
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:994
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:997
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1042
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1045
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1065
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1068
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1078
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1081
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1091
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1094
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1104
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1107
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1127
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1130
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1155
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1158
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1183
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:432
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:440
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:443
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:451
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:454
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:431
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:439
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:442
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:450
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:453
 #: /home/tim/code/KwaMoja/Labels.php:477 /home/tim/code/KwaMoja/Labels.php:479
 #: /home/tim/code/KwaMoja/Labels.php:521
 #: /home/tim/code/KwaMoja/LocationUsers.php:190
@@ -1513,28 +1541,52 @@ msgstr "Ja"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:403
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:406
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:630
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:633
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:643
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:646
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:671
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:674
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:848
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:858
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:861
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:886
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:889
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:924
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:927
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:962
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:965
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:995
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:998
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1043
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1046
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1066
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1069
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1079
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1082
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1092
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1095
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1105
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1108
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1128
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1131
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1156
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1159
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1184
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:419
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:422
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:430
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:433
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:441
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:444
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:452
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:455
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:432
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:440
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:443
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:451
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:454
 #: /home/tim/code/KwaMoja/Labels.php:476 /home/tim/code/KwaMoja/Labels.php:480
 #: /home/tim/code/KwaMoja/Labels.php:522
 #: /home/tim/code/KwaMoja/LocationUsers.php:193
@@ -2000,6 +2052,7 @@ msgstr "Die Kontakt-E-Mail-Adresse ist keine gültige E-Mail-Adresse"
 #: /home/tim/code/KwaMoja/Factors.php:102
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:235
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
@@ -2073,8 +2126,8 @@ msgstr "Der Kontaktdatensatz wurde gelöscht"
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:319
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2628,6 +2681,10 @@ msgstr "Stock"
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -3176,12 +3233,12 @@ msgstr "konnte nicht abgerufen werden, weil"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:140
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:188
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:44
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:146
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:197
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:145
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:196
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:94
 #: /home/tim/code/KwaMoja/Payments.php:450
 #: /home/tim/code/KwaMoja/PcReportTab.php:117
@@ -3596,9 +3653,9 @@ msgstr "Wählen Sie die letzte Periode im Bericht aus"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:128
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:139
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:150
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:126
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:137
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:148
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -3700,7 +3757,7 @@ msgstr "Die Auswahl von Zusammenfassung wird in den Summen auf Kontengruppeneben
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:352
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:351
 #: /home/tim/code/KwaMoja/POReport.php:1332
 #: /home/tim/code/KwaMoja/SalesInquiry.php:949
 #: /home/tim/code/KwaMoja/Tax.php:504
@@ -4502,8 +4559,8 @@ msgstr "Benutzer"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:323
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -4525,7 +4582,7 @@ msgstr "Benutzer"
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:395
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:399
 #: /home/tim/code/KwaMoja/Suppliers.php:128
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:393
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:394
 msgid "Address"
 msgstr "Adresse"
 
@@ -5401,7 +5458,7 @@ msgstr "Oder geben Sie einen Teil eines Artikelcodes ein"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:164
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:162
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -6026,6 +6083,7 @@ msgstr "Alle Kommentare für diese Stücklistenposition, die in einem Arbeitsauf
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:130
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:179
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:145
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:222
 #: /home/tim/code/KwaMoja/LocationUsers.php:135
 #: /home/tim/code/KwaMoja/LocationUsers.php:248
 #: /home/tim/code/KwaMoja/Payments.php:1235
@@ -6494,6 +6552,7 @@ msgstr "Noch nicht ausgewählt"
 #: /home/tim/code/KwaMoja/GLJournal.php:595
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:176
 #: /home/tim/code/KwaMoja/LocationUsers.php:134
 #: /home/tim/code/KwaMoja/LocationUsers.php:247
@@ -8009,7 +8068,7 @@ msgstr "Es wurden keine Werksaufträge von SQL zurückgegeben, weil"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:47
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8340,6 +8399,8 @@ msgid "As this is the first time that the system has been used, you must first f
 msgstr "Da das System zum ersten Mal verwendet wird, müssen Sie zuerst die Firmendaten eingeben."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:262
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:178
 #: /home/tim/code/KwaMoja/Locations.php:419
 #: /home/tim/code/KwaMoja/SalesTypes.php:160
 #: /home/tim/code/KwaMoja/SalesTypes.php:210
@@ -11956,7 +12017,7 @@ msgstr "Vertrag: Wählen Sie Kunde"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:115
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -13977,7 +14038,7 @@ msgstr "Der Währungsdefinitionsdatensatz wurde gelöscht"
 #: /home/tim/code/KwaMoja/Suppliers.php:531
 #: /home/tim/code/KwaMoja/prlCurrencies.php:146
 #: /home/tim/code/KwaMoja/prlCurrencies.php:250
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:424
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:425
 #: /home/tim/code/KwaMoja/prlEmployers.php:184
 #: /home/tim/code/KwaMoja/prlEmployers.php:247
 #: /home/tim/code/KwaMoja/prlSSC.php:120 /home/tim/code/KwaMoja/prlSSC.php:148
@@ -14557,7 +14618,7 @@ msgid "Select A Customer"
 msgstr "Wählen Sie einen Kunden aus"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -15951,8 +16012,8 @@ msgstr "Verwenden Sie diese Filiale als Standard für Barverkäufe"
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16851,6 +16912,7 @@ msgid "Customer type"
 msgstr "Kundentyp"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
@@ -16923,6 +16985,7 @@ msgstr "Typ-ID"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:116
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:170
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
@@ -17746,7 +17809,7 @@ msgstr "Quarantänebereich"
 #: /home/tim/code/KwaMoja/SelectSupplier.php:163
 #: /home/tim/code/KwaMoja/SupplierContacts.php:147
 #: /home/tim/code/KwaMoja/SupplierContacts.php:243
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:525
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:526
 msgid "Position"
 msgstr "Position"
 
@@ -17768,7 +17831,7 @@ msgstr "Länge"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:285
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:355
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
 msgid "Height"
 msgstr "Höhe"
@@ -22546,20 +22609,20 @@ msgstr "Journaltyp"
 #: /home/tim/code/KwaMoja/GLJournal.php:490
 #: /home/tim/code/KwaMoja/GLJournal.php:493
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:47
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:511
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:515
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:519
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:523
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:536
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:541
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:546
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:554
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:560
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:566
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:572
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:581
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:586
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:591
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:726
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:730
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:734
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:738
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:535
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:540
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:545
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:553
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:559
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:565
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:571
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:580
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:585
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:590
 msgid "Normal"
 msgstr "Normal"
 
@@ -23065,7 +23128,7 @@ msgstr "Beschreibung des Tags"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 msgid "Department"
@@ -25577,7 +25640,7 @@ msgid "Select Script to Schedule"
 msgstr "Wählen Sie Skript zum Planen aus"
 
 #: /home/tim/code/KwaMoja/JobScheduler.php:175
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:628
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:629
 msgid "Hourly"
 msgstr "Stündlich"
 
@@ -25694,12 +25757,13 @@ msgid "Allocate to Ward"
 msgstr "Zuweisen zu Ward"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:124
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:191
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:190
 msgid "Room Number"
 msgstr "Zimmernummer"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:124
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:192
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:191
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:349
 msgid "Bed Number"
 msgstr "Bett Nummer"
 
@@ -25708,27 +25772,30 @@ msgid "PID"
 msgstr "PID"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:56
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
 msgstr "Dateinummer"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:129
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:193
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:192
 msgid "Family Name"
 msgstr "Familienname"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:130
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:194
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:193
 #: /home/tim/code/KwaMoja/KCMCRegister.php:466
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:381
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:382
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:69
 msgid "First Name"
 msgstr "Vorname"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:131
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:195
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:194
 msgid "Birth Date"
 msgstr "Geburtsdatum"
 
@@ -25736,389 +25803,710 @@ msgstr "Geburtsdatum"
 msgid "Allocate This Patient To This Bed"
 msgstr "Ordnen Sie diesen Patienten diesem Bett zu"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:196
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:195
 msgid "Patient No."
 msgstr "Patientennummer"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:197
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:196
 msgid "Insurance Co."
 msgstr "Versicherung Co."
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:198
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:197
 #: /home/tim/code/KwaMoja/SearchCustomers.php:96
 msgid "Options"
 msgstr "Optionen"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:210
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:209
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:263
 msgid "Bed"
 msgstr "Bett"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:212
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:211
 msgid "Bed is currently vacant"
 msgstr "Bett ist derzeit frei"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:213
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:212
 msgid "Allocate Patient To This Bed"
 msgstr "Weisen Sie diesem Bett einen Patienten zu"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:237
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:236
 msgid "Patient Notes"
 msgstr "Patientennotizen"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:241
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:29
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:240
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:28
 msgid "Daily Ward Notes"
 msgstr "Tägliche Stationsnotizen"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:245
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:244
 msgid "Patients Info Chart"
 msgstr "Patienteninfo-Diagramm"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:249
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:248
 msgid "Admission Data"
 msgstr "Zulassungsdaten"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:253
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:252
 msgid "Transfer Patient to another bed"
 msgstr "Übertragen Sie den Patienten in ein anderes Bett"
 
-#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:257
+#: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:256
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:3
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:119
 msgid "Discharge Patient"
 msgstr "Entlassungspatient"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:139
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
 msgstr "Der tägliche Stationsnotizdatensatz konnte nicht hinzugefügt werden, da"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:187
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:294
 msgid "The daily ward notes record could not be updated because"
 msgstr "Der tägliche Stationsnotizdatensatz konnte da nicht aktualisiert werden"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:192
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:201
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:299
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:200
 msgid "The information was correctly saved"
 msgstr "Die Informationen wurden korrekt gespeichert"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:324
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:539
 msgid "Ward Notes"
 msgstr "Ward Notes"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:327
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:542
 msgid "Physique"
 msgstr "Körperbau"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:330
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:335
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:340
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:545
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:550
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:555
 msgid "Ectomorph"
 msgstr "Ektomorph"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:331
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:336
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:341
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:546
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:551
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:556
 msgid "Mesomorph"
 msgstr "Mesomorph"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:332
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:337
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:342
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:547
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:552
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:557
 msgid "Endomorph"
 msgstr "Endomorph"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:348
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:563
 msgid "General Condition"
 msgstr "Allgemeinzustand"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:351
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:356
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:361
-msgid "Good"
-msgstr "Gut"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:352
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:357
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:362
-msgid "Fair"
-msgstr "Messe"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:353
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:358
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:363
-msgid "Deceased"
-msgstr "Verstorbene"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:369
-msgid "Nutritional status"
-msgstr "Ernährungszustand"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:374
-msgid "Decubitus"
-msgstr "Dekubitus"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:379
-msgid "Psychological Report"
-msgstr "Psychologischer Bericht"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:384
-msgid "Skin Condition"
-msgstr "Hautzustand"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:389
-msgid "Mucous"
-msgstr "Schleimig"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:394
-msgid "Skin appendages"
-msgstr "Hautanhänge"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:399
-msgid "Edema"
-msgstr "Ödem"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:412
-msgid "Edema Description"
-msgstr "Ödembeschreibung"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:417
-msgid "Temperature"
-msgstr "Temperatur"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:420
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:424
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:428
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:432
-msgid "Apyrexia"
-msgstr "Apyrexie"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:421
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:425
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:429
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:433
-msgid "Fever"
-msgstr "Fieber"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:422
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:426
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:430
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:434
-msgid "Hypothermia"
-msgstr "Unterkühlung"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:440
-msgid "Central Pulse"
-msgstr "Zentralimpuls"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:445
-msgid "Peripheral Pulse"
-msgstr "Peripherer Puls"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:448
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:454
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:460
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:466
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:472
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:478
-msgid "Regular"
-msgstr "Regulär"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:449
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:455
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:461
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:467
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:473
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:479
-msgid "Slow"
-msgstr "Langsam"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:450
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:456
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:462
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:468
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:474
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:480
-msgid "Weak"
-msgstr "Schwach"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:451
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:457
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:463
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:469
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:475
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:481
-msgid "Fast"
-msgstr "Schnell"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:452
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:458
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:464
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:470
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:476
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:482
-msgid "Arhythmic"
-msgstr "Arhythmisch"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:488
-msgid "Diastolic pressure"
-msgstr "Diastolischer Druck"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:493
-msgid "Systolic pressure"
-msgstr "Systolischer Druck"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:498
-msgid "Lymph glands"
-msgstr "Lymphdrüsen"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:503
-msgid "Head"
-msgstr "Kopf"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:508
-msgid "Eye Balls"
-msgstr "Augäpfel"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:512
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:516
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:520
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:524
-msgid "Exophthalmos"
-msgstr "Exophthalmus"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:513
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:517
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:521
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:525
-msgid "Enophthalmos"
-msgstr "Enophthalmus"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:531
-msgid "Sclera"
-msgstr "Sklera"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:536
-msgid "Pupils"
-msgstr "Schüler"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:541
-msgid "Corneal reflex"
-msgstr "Hornhautreflex"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:546
-msgid "Ears"
-msgstr "Ohren"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:551
-msgid "Nose"
-msgstr "Nase"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:556
-msgid "Mouth"
-msgstr "Mund"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:561
-msgid "Tongue"
-msgstr "Zunge"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:564
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:569
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:574
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:579
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:584
-msgid "Well epithelialized"
-msgstr "Gut epithelisiert"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:565
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:570
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:575
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:580
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:585
-msgid "Atrophic"
-msgstr "Atrophisch"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:566
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:571
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:576
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:581
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:586
-msgid "Furred"
-msgstr "Belegt"
+msgid "Good"
+msgstr "Gut"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:567
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:572
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:577
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:582
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:587
+msgid "Fair"
+msgstr "Messe"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:568
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:573
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:578
+msgid "Deceased"
+msgstr "Verstorbene"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:584
+msgid "Nutritional status"
+msgstr "Ernährungszustand"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:589
+msgid "Decubitus"
+msgstr "Dekubitus"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:594
+msgid "Psychological Report"
+msgstr "Psychologischer Bericht"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:599
+msgid "Skin Condition"
+msgstr "Hautzustand"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:604
+msgid "Mucous"
+msgstr "Schleimig"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:609
+msgid "Skin appendages"
+msgstr "Hautanhänge"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:614
+msgid "Edema"
+msgstr "Ödem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:627
+msgid "Edema Description"
+msgstr "Ödembeschreibung"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:635
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:639
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:643
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:647
+msgid "Apyrexia"
+msgstr "Apyrexie"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:636
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:640
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:644
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:648
+msgid "Fever"
+msgstr "Fieber"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:637
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:641
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:645
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:649
+msgid "Hypothermia"
+msgstr "Unterkühlung"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:655
+msgid "Central Pulse"
+msgstr "Zentralimpuls"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:660
+msgid "Peripheral Pulse"
+msgstr "Peripherer Puls"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:663
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:669
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:675
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:681
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:687
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:693
+msgid "Regular"
+msgstr "Regulär"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:664
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:670
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:676
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:682
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:688
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:694
+msgid "Slow"
+msgstr "Langsam"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:665
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:671
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:677
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:683
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:689
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:695
+msgid "Weak"
+msgstr "Schwach"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:666
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:672
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:678
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:684
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:690
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:696
+msgid "Fast"
+msgstr "Schnell"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:667
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:673
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:679
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:685
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:691
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:697
+msgid "Arhythmic"
+msgstr "Arhythmisch"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:703
+msgid "Diastolic pressure"
+msgstr "Diastolischer Druck"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:708
+msgid "Systolic pressure"
+msgstr "Systolischer Druck"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:713
+msgid "Lymph glands"
+msgstr "Lymphdrüsen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:718
+msgid "Head"
+msgstr "Kopf"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:723
+msgid "Eye Balls"
+msgstr "Augäpfel"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:727
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:731
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:735
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:739
+msgid "Exophthalmos"
+msgstr "Exophthalmus"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:728
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:732
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:736
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:740
+msgid "Enophthalmos"
+msgstr "Enophthalmus"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:746
+msgid "Sclera"
+msgstr "Sklera"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:751
+msgid "Pupils"
+msgstr "Schüler"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:756
+msgid "Corneal reflex"
+msgstr "Hornhautreflex"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:761
+msgid "Ears"
+msgstr "Ohren"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:766
+msgid "Nose"
+msgstr "Nase"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:771
+msgid "Mouth"
+msgstr "Mund"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:776
+msgid "Tongue"
+msgstr "Zunge"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:779
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:784
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:789
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:794
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:799
+msgid "Well epithelialized"
+msgstr "Gut epithelisiert"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:780
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:785
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:790
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:795
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:800
+msgid "Atrophic"
+msgstr "Atrophisch"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:781
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:786
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:791
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:796
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:801
+msgid "Furred"
+msgstr "Belegt"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:782
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:787
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:792
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:797
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:802
 msgid "Dry"
 msgstr "Trocken"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:593
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:808
 msgid "Teeth"
 msgstr "Zähne"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:598
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:813
 msgid "Tonsils"
 msgstr "Mandeln"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:603
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:818
 msgid "Neck"
 msgstr "Hals"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:606
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:821
 msgid "Neck Shape"
 msgstr "Halsform"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:611
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:826
 msgid "Neck Mobility"
 msgstr "Halsmobilität"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:616
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:831
 msgid "Neck Posture"
 msgstr "Halshaltung"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:836
 msgid "Neck Examination"
 msgstr "Halsuntersuchung"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:626
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:841
 msgid "Turgid Jugular"
 msgstr "Turgid Jugular"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:639
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:854
 msgid "Normal Thyroid"
 msgstr "Normale Schilddrüse"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:654
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:869
 msgid "Chest"
 msgstr "Truhe"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:657
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:872
 msgid "Chest Shape"
 msgstr "Brustform"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:662
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:877
 msgid "Breasts"
 msgstr "Brüste"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:667
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:882
 msgid "Chest Examined"
 msgstr "Brust untersucht"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:682
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:897
 msgid "Respiratory system"
 msgstr "Atmungssystem"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:685
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:900
 msgid "Respiratory Inspection"
 msgstr "Ateminspektion"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:690
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:905
 msgid "Respiratory Palpation"
 msgstr "Atemtastung"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:699
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:611
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:910
+msgid "Respiratory Sound"
+msgstr "Atemgeräusche"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:915
+msgid "Respiratory Auscultation"
+msgstr "Auskultation der Atemwege"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:920
+msgid "Respiratory System Examined"
+msgstr "Untersuchtes Atmungssystem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:935
+msgid "Heart"
+msgstr "Herz"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:938
+msgid "Heart Inspection"
+msgstr "Herzinspektion"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:943
+msgid "Heart Palpation"
+msgstr "Herzklopfen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:948
+msgid "Heart Sound"
+msgstr "Herzton"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:953
+msgid "Heart Auscultation"
+msgstr "Herzauskultation"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:958
+msgid "Heart System Examined"
+msgstr "Untersuchtes Herzsystem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:973
+msgid "Peripheral Vessels"
+msgstr "Periphere Gefäße"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:976
+msgid "Vessel Description"
+msgstr "Schiffsbeschreibung"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:981
+msgid "Arteries"
+msgstr "Arterien"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:986
+msgid "Veins"
+msgstr "Venen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:991
+msgid "Vessels Examined"
+msgstr "Untersuchte Schiffe"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1006
+msgid "Abdomen"
+msgstr "Abdomen"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1009
+msgid "Abdomen Inspection"
+msgstr "Bauchinspektion"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1014
+msgid "Abdomen Palpation"
+msgstr "Bauchabtastung"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1019
+msgid "Abdomen Sound"
+msgstr "Bauchgeräusch"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1024
+msgid "Abdomen Auscultation"
+msgstr "Bauchauskultation"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1029
+msgid "Abdomen Description"
+msgstr "Bauch Beschreibung"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1034
+msgid "Rectal Exploration"
+msgstr "Rektale Erforschung"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1039
+msgid "Abdomen Examined"
+msgstr "Bauch untersucht"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1054
+msgid "Liver"
+msgstr "Leber"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1062
+msgid "Hepatomegaly"
+msgstr "Hepatomegalie"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1075
+msgid "Positive Murphy Test"
+msgstr "Positiver Murphy-Test"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1088
+msgid "Palpable gallbladder"
+msgstr "Tastbare Gallenblase"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1101
+msgid "Liver Examined"
+msgstr "Leber untersucht"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1116
+msgid "Spleen"
+msgstr "Milz"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1124
+msgid "Spleen Examined"
+msgstr "Milz untersucht"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1139
+msgid "Urogenital System"
+msgstr "Urogenitalsystem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
+#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:305
+#: /home/tim/code/KwaMoja/KCMCRegister.php:548
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
+#: /home/tim/code/KwaMoja/prlnssf.php:467
+#: /home/tim/code/KwaMoja/prlnssf.php:471
+msgid "Male"
+msgstr "Männlich"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
+#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCRegister.php:549
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
+#: /home/tim/code/KwaMoja/prlnssf.php:468
+#: /home/tim/code/KwaMoja/prlnssf.php:470
+msgid "Female"
+msgstr "Weiblich"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1152
+msgid "Urogenital System Examined"
+msgstr "Untersuchtes Urogenitalsystem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1167
+msgid "Musculoskeletal system"
+msgstr "Bewegungsapparat"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1175
+msgid "Musculature"
+msgstr "Muskulatur"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1180
+msgid "Musculoskeletal System Examined"
+msgstr "Muskel-Skelett-System untersucht"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1203
+msgid "Cranial Nerves"
+msgstr "Hirnnerven"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1208
+msgid "Superficial Reflexes"
+msgstr "Oberflächliche Reflexe"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1213
+msgid "Nervous System Examined"
+msgstr "Untersuchtes Nervensystem"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1230
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:610
 msgid "Save Data"
 msgstr "Daten speichern"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:53
+msgid "Patient Discharge Details"
+msgstr "Details zur Patientenentlassung"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:61
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
+#: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
+msgid "Patient Name"
+msgstr "Patientenname"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:66
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:562
+#: /home/tim/code/KwaMoja/prlEmployers.php:239
+#: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
+#: /home/tim/code/KwaMoja/prlnssf.php:461
+msgid "Date of Birth"
+msgstr "Geburtsdatum"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:75
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
+msgid "Ward"
+msgstr "Station"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:80
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:258
+msgid "Room"
+msgstr "Zimmer"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:85
+msgid "Discharge Date"
+msgstr "Entlassungsdatum"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:90
+msgid "Discharge Time"
+msgstr "Entladezeit"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+msgid "Discharge Type"
+msgstr "Entladungsart"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:106
+msgid "Discharge Notes"
+msgstr "Entlastungsnotizen"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+msgid "Clinician"
+msgstr "Kliniker"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:3
+#: /home/tim/code/KwaMoja/sql/updates/216.php:220
+msgid "Maintain Discharge Types"
+msgstr "Entladungsarten pflegen"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:22
+msgid "The discharge type code cannot be an empty string or spaces"
+msgstr "Der Entladungsartcode darf keine leere Zeichenfolge oder Leerzeichen sein"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:25
+msgid "The discharge type description cannot be empty"
+msgstr "Die Beschreibung der Entladungsart darf nicht leer sein"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:28
+msgid "The discharge type description must be one hundred characters or less long"
+msgstr "Die Beschreibung des Entladungstyps darf maximal 100 Zeichen lang sein"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
+msgid "The discharge type"
+msgstr "Die Entladungsart"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:51
+msgid "The discharge type "
+msgstr "Die Entladungsart"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:51
+#: /home/tim/code/KwaMoja/StockTypes.php:66
+msgid " already exists."
+msgstr "ist bereits vorhanden."
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
+msgid "Discharge type"
+msgstr "Entladungsart"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:83
+msgid "The number of occasions this type has been used could not be retrieved"
+msgstr "Die Anzahl der Fälle, in denen dieser Typ verwendet wurde, konnte nicht abgerufen werden"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:88
+msgid "Cannot delete this discharge type because patients have already been discharged with it"
+msgstr "Dieser Entlassungstyp kann nicht gelöscht werden, da Patienten bereits damit entlassen wurden"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:93
+msgid "The Discharge Type record could not be deleted because"
+msgstr "Der Datensatz Entladungsart konnte nicht gelöscht werden, da"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:112
+msgid "Discharge Types"
+msgstr "Entladungsarten"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:178
+msgid "As this is the first time that the system has been used, you must first create a discharge type."
+msgstr "Da das System zum ersten Mal verwendet wird, müssen Sie zuerst einen Entladungstyp erstellen."
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:130
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:204
+#: /home/tim/code/KwaMoja/SalesTypes.php:167
+#: /home/tim/code/KwaMoja/SalesTypes.php:224
+#: /home/tim/code/KwaMoja/SalesTypes.php:234
+#: /home/tim/code/KwaMoja/StockTypes.php:145
+#: /home/tim/code/KwaMoja/StockTypes.php:206
+#: /home/tim/code/KwaMoja/StockTypes.php:216
+msgid "Type Code"
+msgstr "Gib 'den Code ein"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
+msgid "Are you sure you wish to delete this type?"
+msgstr "Möchten Sie diesen Typ wirklich löschen?"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:154
+msgid "Show All Discharge Types Defined"
+msgstr "Alle definierten Entladungsarten anzeigen"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:191
+msgid "Edit Discharge Type"
+msgstr "Entladungsart bearbeiten"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:202
+msgid "Create New Discharge Type"
+msgstr "Neuen Entladungstyp erstellen"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:206
+msgid "The code for this discharge type."
+msgstr "Der Code für diese Entladungsart."
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:214
+msgid "Discharge Type Name"
+msgstr "Name der Entladungsart"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:216
+msgid "Description of this discharge type."
+msgstr "Beschreibung dieser Entladungsart."
 
 #: /home/tim/code/KwaMoja/KCMCDispenseDrugs.php:5
 msgid "Dispense drugs to patients"
@@ -26159,7 +26547,7 @@ msgstr "wurde erfolgreich aktualisiert"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:336
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -26170,33 +26558,13 @@ msgstr "Geburtsdatum"
 msgid "No sales types/price lists defined"
 msgstr "Keine Verkaufstypen / Preislisten definiert"
 
-#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
-#: /home/tim/code/KwaMoja/KCMCRegister.php:548
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:581
-#: /home/tim/code/KwaMoja/prlnssf.php:467
-#: /home/tim/code/KwaMoja/prlnssf.php:471
-msgid "Male"
-msgstr "Männlich"
-
-#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCRegister.php:549
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:581
-#: /home/tim/code/KwaMoja/prlnssf.php:468
-#: /home/tim/code/KwaMoja/prlnssf.php:470
-msgid "Female"
-msgstr "Weiblich"
-
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:227
 msgid "Sex"
 msgstr "Sex"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:415
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Versicherungsunternehmen"
@@ -26607,104 +26975,97 @@ msgid "The patient data was successfully updated."
 msgstr "Die Patientendaten wurden erfolgreich aktualisiert."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:136
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
 msgid "Search For Patient"
 msgstr "Suche nach Patienten"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:156
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:155
 msgid "Search for patient details"
 msgstr "Suche nach Patientendaten"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:158
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:157
 msgid "File number"
 msgstr "Dateinummer"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:160
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "Geben Sie die gesamte oder einen Teil der Patientendateinummer ein, wenn diese bekannt ist"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:163
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:162
 msgid "Patients name"
 msgstr "Patientenname"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:165
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:164
 msgid "Enter all or part of the patients name if it is known"
 msgstr "Geben Sie den Namen des Patienten ganz oder teilweise ein, wenn er bekannt ist"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
 msgid "Patients Address"
 msgstr "Patientenadresse"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:170
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:169
 msgid "Enter all or part of the patients address if it is known"
 msgstr "Geben Sie die gesamte oder einen Teil der Patientenadresse ein, wenn dies bekannt ist"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:173
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:172
 msgid "Patients Phone Number"
 msgstr "Telefonnummer des Patienten"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:175
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:174
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "Geben Sie die Telefonnummer des Patienten ganz oder teilweise ein, wenn dies bekannt ist"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "Patientennummer"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
-#: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
-msgid "Patient Name"
-msgstr "Patientenname"
-
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:231
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
 msgid "Admit Patient"
 msgstr "Patient aufnehmen"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:238
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:237
 msgid "There are no patients matching this criteria"
 msgstr "Es sind keine Patienten, die diese Kriterien übereinstimmen"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "Herr"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "Frau"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Fräulein"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "Frau"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "DR"
@@ -26714,7 +27075,7 @@ msgid "Update Admission data for"
 msgstr "Zulassungsdaten für aktualisieren"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
 msgid "Admit"
 msgstr "Eingestehen"
 
@@ -26723,106 +27084,102 @@ msgid "as an inpatient"
 msgstr "als stationärer Patient"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:311
 msgid "Admission Date"
 msgstr "Aufnahmedatum"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:315
 msgid "Admission Time"
 msgstr "Eintrittszeit"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:327
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "Blutgruppe"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:331
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:583
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
 #: /home/tim/code/KwaMoja/prlnssf.php:465
 msgid "Gender"
 msgstr "Geschlecht"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "Admission Type"
 msgstr "Zulassungsart"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
 msgid "A type of admission."
 msgstr "Eine Art der Aufnahme."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "White"
 msgstr "Weiß"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "Green"
 msgstr "Grün"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "Yellow"
 msgstr "Gelb"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "Red"
 msgstr "rot"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:358
 msgid "Triage Code"
 msgstr "Triage Code"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:368
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "Der Triage-Code für diesen Patienten, wobei Weiß der am wenigsten schwerwiegende und Rot der schwerwiegendste ist."
-
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
-msgid "Ward"
-msgstr "Station"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:384
 msgid "The ward that this patient is being admitted to."
 msgstr "Die Abteilung, in die dieser Patient aufgenommen wird."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:388
 msgid "Referrer Diagnosis"
 msgstr "Überweisungsdiagnose"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:393
 msgid "Referred By"
 msgstr "Empfohlen von"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:398
 msgid "Referrer Therapy"
 msgstr "Referrer-Therapie"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:403
 msgid "Referrer Notes"
 msgstr "Hinweise zum Verweis"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:426
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "Gegebenenfalls die Versicherungsgesellschaft, der dieser Patient angehört"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:431
 msgid "Insurance Number"
 msgstr "Versicherungsnummer"
 
@@ -27280,12 +27637,12 @@ msgstr "Der Begegnungstyp wurde erfolgreich aktualisiert"
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
 #: /home/tim/code/KwaMoja/ProductSpecs.php:380
 #: /home/tim/code/KwaMoja/QATests.php:391
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:677
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "Active"
 msgstr "Aktiv"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:95
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:677
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "InActive"
 msgstr "Inaktiv"
 
@@ -27332,14 +27689,14 @@ msgstr "Konfigurieren Sie die Anzahl der Betten pro Zimmer"
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:254
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:315
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:329
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:90
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:118
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:120
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:148
 msgid "Ward ID"
 msgstr "Stationsausweis"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:64
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:336
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:119
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:149
 msgid "Ward Name"
 msgstr "Stationsname"
 
@@ -27546,11 +27903,11 @@ msgstr "Ambulant einweisen"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "Dieser Patient wird derzeit nicht ambulant aufgenommen"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
 msgid "as an outpatient"
 msgstr "als ambulanter Patient"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:384
 msgid "The department that this patient is being admitted to."
 msgstr "Die Abteilung, in die dieser Patient aufgenommen wird."
 
@@ -28176,7 +28533,7 @@ msgstr "Der Vorname des Patienten"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:472
 #: /home/tim/code/KwaMoja/Timesheets.php:512
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:375
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:376
 msgid "Last Name"
 msgstr "Familienname, Nachname"
 
@@ -28221,22 +28578,22 @@ msgid "The gender of this patient"
 msgstr "Das Geschlecht dieses Patienten"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:565
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:567
 msgid "Single"
 msgstr "Single"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:565
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:567
 msgid "Married"
 msgstr "Verheiratet"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:565
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:567
 msgid "Separated/Divorced"
 msgstr "Getrennt / Geschieden"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:565
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:566
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:567
 msgid "Widowed"
 msgstr "Verwitwet"
 
@@ -28245,7 +28602,7 @@ msgid "Civil Partnership"
 msgstr "Lebenspartnerschaft"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:567
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:568
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:569
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:71
 msgid "Marital Status"
 msgstr "Familienstand"
@@ -28278,16 +28635,16 @@ msgstr "Patienten suchen"
 msgid "Patients"
 msgstr "Patienten"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:69
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 msgid "Patient"
 msgstr "Geduldig"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:74
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
 msgid "Select a menu option to operate using this patient"
 msgstr "Wählen Sie eine Menüoption, um mit diesem Patienten zu operieren"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:79
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
@@ -28295,56 +28652,56 @@ msgstr "Wählen Sie eine Menüoption, um mit diesem Patienten zu operieren"
 msgid "Inquiries and Reports"
 msgstr "Anfragen und Berichte"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:79
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
 msgid "Patient Inquiries"
 msgstr "Patientenanfragen"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:85
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:83
 msgid "Patient Transactions"
 msgstr "Patiententransaktionen"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:88
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:86
 msgid "Modify patient registration data"
 msgstr "Ändern Sie die Patientenregistrierungsdaten"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:91
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:89
 msgid "Modify Inpatient admission data"
 msgstr "Ändern Sie die Daten zur stationären Aufnahme"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:94
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:92
 msgid "Modify Outpatient admission data"
 msgstr "Ändern Sie die Daten zur ambulanten Aufnahme"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:100
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:98
 msgid "Patient Maintenance"
 msgstr "Patientenpflege"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:114
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
 msgid "Search for Patients"
 msgstr "Suche nach Patienten"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
 msgid "Enter a partial Name"
 msgstr "Geben Sie einen Teilnamen ein"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:131
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:129
 msgid "Enter a partial patient file number"
 msgstr "Geben Sie eine Teilnummer der Patientenakte ein"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:142
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:140
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "Geben Sie eine Telefonnummer ein"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:153
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:151
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "Geben Sie einen Teil der Adresse ein"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:165
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:163
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 #: /home/tim/code/KwaMoja/SelectCustomer.php:399
 msgid "CSV Format"
@@ -28362,6 +28719,89 @@ msgstr "Hinzufügen oder Ändern von Aktienkategorien"
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:48
 msgid "Find Items"
 msgstr "Gegenstände finden"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:3
+msgid "Transfer patient to other bed"
+msgstr "Übertragen Sie den Patienten in ein anderes Bett"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:245
+msgid "Move Patient"
+msgstr "Patienten bewegen"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:62
+msgid "There was a problem updating the old ward record"
+msgstr "Beim Aktualisieren des alten Stationsdatensatzes ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:93
+msgid "There was a problem creating the new ward record"
+msgstr "Beim Erstellen des neuen Stationsdatensatzes ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:103
+msgid "There was a problem updating the encounter record"
+msgstr "Beim Aktualisieren des Begegnungsdatensatzes ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:121
+msgid "There was a problem updating the room record"
+msgstr "Beim Aktualisieren der Raumaufzeichnung ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:152
+msgid "There was a problem creating the new room record"
+msgstr "Beim Erstellen des neuen Raumdatensatzes ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:167
+msgid "There was a problem updating the bed record"
+msgstr "Beim Aktualisieren der Bettaufzeichnung ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:198
+msgid "There was a problem creating the new bed record"
+msgstr "Beim Erstellen des neuen Bettdatensatzes ist ein Problem aufgetreten"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:203
+msgid "The patient has been successfully transferred"
+msgstr "Der Patient wurde erfolgreich übertragen"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:205
+msgid "Return to ward overview"
+msgstr "Zurück zur Stationsübersicht"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:249
+msgid "Current Bed"
+msgstr "Aktuelles Bett"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:277
+msgid "Transfer to ward"
+msgstr "Transfer zur Station"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:288
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:158
+msgid "Select Ward"
+msgstr "Wählen Sie Ward"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:297
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:335
+msgid "New Ward Number"
+msgstr "Neue Stationsnummer"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:311
+msgid "Transfer to room"
+msgstr "Transfer ins Zimmer"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:322
+msgid "Select Room"
+msgstr "Wählen Sie Raum"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:340
+msgid "New Room Number"
+msgstr "Neue Zimmernummer"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:345
+msgid "New Bed Number"
+msgstr "Neue Bettnummer"
+
+#: /home/tim/code/KwaMoja/KCMCTransferBeds.php:358
+msgid "Select Bed"
+msgstr "Wählen Sie Bett"
 
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:3
 msgid "Items prescribed but not billed"
@@ -28392,244 +28832,261 @@ msgstr "Anamnese des Patienten anzeigen"
 msgid "Ward Overview"
 msgstr "Stationsübersicht"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:10
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:12
 msgid "Wards"
 msgstr "Wächter"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:35
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:53
 msgid "Details for"
 msgstr "Details für"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:40
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:58
 msgid "Select a menu option to operate for this ward."
 msgstr "Wählen Sie eine Menüoption aus, die für diese Station verwendet werden soll."
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:44
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:62
 msgid "Ward Inquiries"
 msgstr "Ward-Anfragen"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:50
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:70
+msgid "Ward Occupancy"
+msgstr "Belegung der Station"
+
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:71
+msgid "Occupied"
+msgstr "Belegt"
+
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:72
+msgid "Unoccupied"
+msgstr "Unbesetzt"
+
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:80
 msgid "Ward Transactions"
 msgstr "Ward-Transaktionen"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:53
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:83
 msgid "Allocate Patients to beds"
 msgstr "Patienten zu Betten zuordnen"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:59
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:89
 msgid "Ward Maintenance"
 msgstr "Stationswartung"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:62
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:92
 msgid "Maintain ward details"
 msgstr "Stationsdetails pflegen"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:65
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:95
 msgid "Maintain details of rooms in the ward"
 msgstr "Pflegen Sie die Details der Räume in der Station"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:74
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:104
 msgid "Search For Ward"
 msgstr "Suche nach Ward"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:88
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:118
 msgid "Search for ward details"
 msgstr "Suche nach Stationsdetails"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:92
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:122
 msgid "Enter all or part of the ward ID if it is known"
 msgstr "Geben Sie die Stations-ID ganz oder teilweise ein, wenn sie bekannt ist"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:95
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:125
 msgid "Ward name"
 msgstr "Name der Gemeinde"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:97
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:127
 msgid "Enter all or part of the ward name if it is known"
 msgstr "Geben Sie den Stationsnamen ganz oder teilweise ein, wenn er bekannt ist"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:117
+#: /home/tim/code/KwaMoja/KCMCWardOverview.php:147
 msgid "Ward Number"
 msgstr "Stationsnummer"
 
-#: /home/tim/code/KwaMoja/KCMCWardOverview.php:128
-msgid "Select Ward"
-msgstr "Wählen Sie Ward"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:29
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:28
 msgid "Yellow Paper"
 msgstr "Gelbes Papier"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:145
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:144
 msgid "The yellow paper record could not be added because"
 msgstr "Der gelbe Papierdatensatz konnte da nicht hinzugefügt werden"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:196
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:195
 msgid "The yellow paper record could not be updated because"
 msgstr "Der gelbe Papierdatensatz konnte da nicht aktualisiert werden"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:339
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:338
 msgid "Medical History"
 msgstr "Krankengeschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:340
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:339
 msgid "Family History"
 msgstr "Familiengeschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:341
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:340
 msgid "Socio-environmental History"
 msgstr "Sozio-Umweltgeschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:342
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:341
 msgid "Physiological History"
 msgstr "Physiologische Geschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:343
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:342
 msgid "Pathological History"
 msgstr "Pathologische Geschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:344
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:343
 msgid "Remote Pathological History"
 msgstr "Fernpathologische Geschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:353
 msgid "Physical Details"
 msgstr "Physikalische Details"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:357
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
 msgid "Weight"
 msgstr "Gewicht"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:359
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:358
 msgid "Age"
 msgstr "Alter"
 
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:360
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:361
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:362
 msgid "Symptoms"
 msgstr "Symptome"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:364
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:363
 msgid "Laboratory Data"
 msgstr "Labordaten"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:365
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:364
 msgid "Urine"
 msgstr "Urin"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:367
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:366
 msgid "Blood"
 msgstr "Blut"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:369
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
 msgid "Other"
 msgstr "Andere"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:372
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "Diagnose"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:374
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:373
 msgid "Therapy"
 msgstr "Therapie"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:379
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:378
 msgid "Hereditary diseases"
 msgstr "Erbliche Krankheiten"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:381
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:380
 msgid "Father"
 msgstr "Vater"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:383
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:382
 msgid "Mother"
 msgstr "Mutter"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:385
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:384
 msgid "Spouse/Partner"
 msgstr "Ehepartner / Partner"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:387
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:386
 msgid "Children"
 msgstr "Kinder"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:389
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:388
 msgid "Siblings"
 msgstr "Geschwister"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:394
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:393
 msgid "Recent Travel"
 msgstr "Letzte Reisen"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:396
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:395
 msgid "Type and standard of dwelling"
 msgstr "Art und Standard der Wohnung"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:398
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:397
 msgid "Past employment"
 msgstr "Frühere Beschäftigung"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:400
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:399
 msgid "Recent Employment"
 msgstr "Letzte Beschäftigung"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:402
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:401
 msgid "Current Employment"
 msgstr "Aktuelle Beschäftigung"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:404
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:403
 msgid "Work place"
 msgstr "Arbeitsplatz"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:406
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:405
 msgid "Contact with gas"
 msgstr "Kontakt mit Gas"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:408
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:407
 msgid "Contact with toxic substances"
 msgstr "Kontakt mit giftigen Substanzen"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:410
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:409
 msgid "Other toxic agents"
 msgstr "Andere toxische Substanzen"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:415
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:414
 msgid "Premature Birth"
 msgstr "Frühgeburt"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:426
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:425
 msgid "Eutocic birth"
 msgstr "Eutokische Geburt"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:437
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:436
 msgid "Normal neonatal development"
 msgstr "Normale Neugeborenenentwicklung"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:448
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:447
 msgid "Late development"
 msgstr "Späte Entwicklung"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:459
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:458
 msgid "Previous Pregnancies"
 msgstr "Frühere Schwangerschaften"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:461
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:460
 msgid "Medication"
 msgstr "Medikament"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:463
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:462
 msgid "Menstruation"
 msgstr "Menstruation"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:465
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:464
 msgid "Military Service"
 msgstr "Militärdienst"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:467
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:466
 msgid "Alcohol Consumption"
 msgstr "Alkoholkonsum"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:470
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:475
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:480
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:489
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:494
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:499
+msgid "Low or No Consumption"
+msgstr "Geringer oder kein Verbrauch"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:471
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:476
@@ -28637,128 +29094,119 @@ msgstr "Alkoholkonsum"
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:490
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:495
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:500
-msgid "Low or No Consumption"
-msgstr "Geringer oder kein Verbrauch"
+msgid "Medium Consumption"
+msgstr "Mittlerer Verbrauch"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:472
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:477
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:482
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:491
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:496
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:501
-msgid "Medium Consumption"
-msgstr "Mittlerer Verbrauch"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:473
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:478
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:483
 msgid "Heavy Drinker"
 msgstr "Starker Trinker"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:487
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:486
 msgid "Coffee Consumption"
 msgstr "Kaffeekonsum"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:492
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:497
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:502
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:491
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:496
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:501
 msgid "High Consumption"
 msgstr "Hoher Verbrauch"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:505
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:504
 msgid "Smoking"
 msgstr "Rauchen"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:508
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:514
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:520
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:526
+msgid "Non smoker"
+msgstr "Nichtraucher"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:509
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:515
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:521
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:527
-msgid "Non smoker"
-msgstr "Nichtraucher"
+msgid "Occasional smoker"
+msgstr "Gelegentlicher Raucher"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:510
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:516
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:522
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:528
-msgid "Occasional smoker"
-msgstr "Gelegentlicher Raucher"
+msgid "Heavy smoker"
+msgstr "Starker Raucher"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:511
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:517
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:523
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:529
-msgid "Heavy smoker"
-msgstr "Starker Raucher"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:512
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:518
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:524
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:530
 msgid "Ex smoker"
 msgstr "Ex-Raucher"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:533
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:532
 msgid "Thirst"
 msgstr "Durst"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:536
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:541
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:546
+msgid "Reduced"
+msgstr "Reduziert"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:537
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:542
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:547
-msgid "Reduced"
-msgstr "Reduziert"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:538
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:543
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:548
 msgid "Increased"
 msgstr "Ist gestiegen"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:551
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:550
 msgid "Bowel movements"
 msgstr "Stuhlgang"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:554
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:560
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:566
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:572
+msgid "Diarrhea"
+msgstr "Durchfall"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:555
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:561
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:567
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:573
-msgid "Diarrhea"
-msgstr "Durchfall"
+msgid "Constipated"
+msgstr "Verstopft"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:556
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:562
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:568
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:574
-msgid "Constipated"
-msgstr "Verstopft"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:557
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:563
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:569
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:575
 msgid "Tenesmo"
 msgstr "Tenesmo"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:578
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:577
 msgid "Diuresis"
 msgstr "Diurese"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:581
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:586
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:591
+msgid "Low"
+msgstr "Niedrig"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:582
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:587
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:592
-msgid "Low"
-msgstr "Niedrig"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:583
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:588
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:593
 msgid "High"
 msgstr "Hoch"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:599
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:598
 msgid "Other Medical History"
 msgstr "Andere Krankengeschichte"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:604
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:603
 msgid "Remote Medical History"
 msgstr "Anamnese"
 
@@ -30462,7 +30910,7 @@ msgstr "Person"
 #: /home/tim/code/KwaMoja/MaintenanceUserSchedule.php:48
 #: /home/tim/code/KwaMoja/SalesPeople.php:192
 #: /home/tim/code/KwaMoja/Timesheets.php:514
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:458
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:459
 msgid "Manager"
 msgstr "Manager"
 
@@ -41289,15 +41737,6 @@ msgstr "und alle Preise für diese Verkaufsart / Preisliste wurden ebenfalls gel
 msgid "As this is the first time that the system has been used, you must first create a sales type."
 msgstr "Da das System zum ersten Mal verwendet wurde, müssen Sie zunächst einen Verkaufstyp anlegen."
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:167
-#: /home/tim/code/KwaMoja/SalesTypes.php:224
-#: /home/tim/code/KwaMoja/SalesTypes.php:234
-#: /home/tim/code/KwaMoja/StockTypes.php:145
-#: /home/tim/code/KwaMoja/StockTypes.php:206
-#: /home/tim/code/KwaMoja/StockTypes.php:216
-msgid "Type Code"
-msgstr "Gib 'den Code ein"
-
 #: /home/tim/code/KwaMoja/SalesTypes.php:180
 #: /home/tim/code/KwaMoja/StockTypes.php:165
 msgid "Are you sure you wish to delete this price list and all the prices it may have set up?"
@@ -46235,10 +46674,6 @@ msgstr "Der Bestandstyp"
 #: /home/tim/code/KwaMoja/StockTypes.php:66
 msgid "The stock type "
 msgstr "Der Bestandstyp"
-
-#: /home/tim/code/KwaMoja/StockTypes.php:66
-msgid " already exists."
-msgstr "ist bereits vorhanden."
 
 #: /home/tim/code/KwaMoja/StockTypes.php:79
 #: /home/tim/code/KwaMoja/StockTypes.php:113
@@ -56499,7 +56934,7 @@ msgstr "Mitarbeiter Darlehen Autorisierung"
 
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:66
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:331
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:369
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:370
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:174
 #: /home/tim/code/KwaMoja/prlPaye.php:161
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:67
@@ -57060,7 +57495,7 @@ msgstr "Personalabrechnung für"
 
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:152
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:253
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:615
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:616
 #: /home/tim/code/KwaMoja/prlLoanRepayments.php:119
 msgid "Pay Period"
 msgstr "Zahlungsfrist"
@@ -57317,223 +57752,216 @@ msgstr "Mitarbeiterdatensatz für"
 msgid "Amend the details for"
 msgstr "Ändern Sie die Details für"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:366
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:367
 msgid "Create new employee record"
 msgstr "Neuen Mitarbeiterdatensatz erstellen"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:371
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
 msgstr "Ein eindeutiger alphanumerischer Code zur Identifizierung dieses Mitarbeiters. "
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:377
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
 msgstr "Der Nachname oder Familienname dieses Mitarbeiters"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:383
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:384
 msgid "The first name of this employee."
 msgstr "Der Vorname dieses Mitarbeiters."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:387
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:388
 msgid "Middle Name"
 msgstr "Zweiter Vorname"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:389
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:390
 msgid "If the employee has a middle name enter it here."
 msgstr "Wenn der Mitarbeiter einen zweiten Vornamen hat, geben Sie diesen hier ein."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:395
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:396
 msgid "The first line of the employees address."
 msgstr "Die erste Zeile der Mitarbeiteradresse."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:401
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:402
 msgid "The second line of the employees address."
 msgstr "Die zweite Zeile der Mitarbeiteradresse."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:407
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:408
 msgid "The third line of the employees address."
 msgstr "Die dritte Zeile der Mitarbeiteradresse."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:413
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:414
 msgid "The fourth line of the employees address."
 msgstr "Die vierte Zeile der Mitarbeiteradresse."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:417
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:418
 msgid "Postal/Zip Code"
 msgstr "Postleitzahl"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:419
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:420
 msgid "The post code of the employee"
 msgstr "Die Postleitzahl des Mitarbeiters"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:434
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:435
 msgid "The country in which this employee resides."
 msgstr "Das Land, in dem sich dieser Mitarbeiter befindet."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:438
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:439
 msgid "KwaMoja User"
 msgstr "KwaMoja Benutzer"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:441
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:443
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:442
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:444
 msgid "Not a KwaMoja User"
 msgstr "Kein KwaMoja-Benutzer"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:454
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:455
 msgid "Select the employees KwaMoja account so that when the user logs in to enter a time sheet the system knows which employee record to use"
 msgstr "Wählen Sie das KwaMoja-Konto des Mitarbeiters aus, damit das System beim Anmelden des Benutzers zur Eingabe eines Arbeitszeitblattes weiß, welcher Mitarbeiterdatensatz verwendet werden soll"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:467
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:469
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:468
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:470
 msgid "Not Managed"
 msgstr "Nicht verwaltet"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:485
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:486
 msgid "Cost Centre"
 msgstr "Kostenstelle"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:495
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:496
 msgid "The cost centre to which this employees costs are apportioned."
 msgstr "Die Kostenstelle, auf die sich diese Mitarbeiter verteilen."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:499
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:500
 msgid "Labour Type"
 msgstr "Arbeitstyp"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:521
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:522
 msgid "Select the stock item that the labour costs for this employee are to be aportioned to"
 msgstr "Wählen Sie den Lagerartikel aus, auf den die Arbeitskosten für diesen Mitarbeiter verteilt werden sollen"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:527
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:528
 msgid "The job role that this employees does."
 msgstr "Die berufliche Rolle, die dieser Mitarbeiter ausübt."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:531
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:532
 msgid "ATM Number"
 msgstr "ATM-Nummer"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:533
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:534
 msgid "The ATM Number for this employee."
 msgstr "Die ATM-Nummer für diesen Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:537
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:538
 msgid "Tax Account #"
 msgstr "Steuerkonto #"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:539
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:540
 msgid "The Tax Account Number for this employee."
 msgstr "Die Steuerkontonummer für diesen Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:543
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:544
 msgid "SSS #"
 msgstr "SSS #"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:545
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:546
 msgid "The SSS Number for this employee."
 msgstr "Die SSS-Nummer für diesen Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:549
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:550
 msgid "Pag-ibig #"
 msgstr "Pag-ibig #"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:551
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:552
 msgid "The Pag-ibig Number for this employee."
 msgstr "Die Pag-ibig-Nummer für diesen Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:555
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:556
 msgid "PhilHealth #"
 msgstr "PhilHealth #"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:557
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:558
 msgid "The PhilHealth Number for this employee."
 msgstr "Die PhilHealth-Nummer für diesen Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:561
-#: /home/tim/code/KwaMoja/prlEmployers.php:239
-#: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
-#: /home/tim/code/KwaMoja/prlnssf.php:461
-msgid "Date of Birth"
-msgstr "Geburtsdatum"
-
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:563
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:564
 msgid "The date of birth of this employee."
 msgstr "Das Geburtsdatum dieses Mitarbeiters."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:578
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:579
 msgid "The employees marital status."
 msgstr "Der Familienstand der Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:593
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:594
 msgid "The employees gender."
 msgstr "Das Geschlecht der Mitarbeiter."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:599
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:600
 msgid "Tax Status"
 msgstr "Steuerstatus"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:609
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:610
 msgid "The tax status of this employee."
 msgstr "Der Steuerstatus dieses Mitarbeiters."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:625
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:626
 msgid "What period is this employee for."
 msgstr "Für welchen Zeitraum ist dieser Mitarbeiter?"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:628
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:629
 msgid "Salary"
 msgstr "Gehalt"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:630
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:631
 msgid "Pay Type"
 msgstr "Bezahlart"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:640
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:641
 msgid "Is the employee salaried or paid by the hour."
 msgstr "Wird der Mitarbeiter stundenweise bezahlt oder bezahlt?"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:644
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:645
 msgid "Pay per period"
 msgstr "Zahlen Sie pro Periode"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:646
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:647
 msgid "The rate of pay per pay period, if the employee is salaried."
 msgstr "Die Höhe des Entgelts pro Entgeltperiode, wenn der Arbeitnehmer angestellt ist."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:650
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:651
 msgid "Normal Weekly Hours"
 msgstr "Normale Wochenstunden"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:652
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:653
 msgid "Enter the employee's normal hours per week"
 msgstr "Geben Sie die normalen Wochenstunden des Mitarbeiters ein"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:656
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:657
 msgid "Pay per Hour"
 msgstr "Zahlen Sie pro Stunde"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:658
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:659
 msgid "Base Rate for Absent,Late and Overtime"
 msgstr "Grundtarif für Abwesenheit, Verspätung und Überstunden"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:664
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:679
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:665
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:680
 #: /home/tim/code/KwaMoja/prlEmploymentStatus.php:180
 #: /home/tim/code/KwaMoja/prlEmploymentStatus.php:240
 msgid "Employment Status"
 msgstr "Arbeitsverhältnis"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:674
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:675
 msgid "Select the employment status of this employee."
 msgstr "Wählen Sie den Beschäftigungsstatus dieses Mitarbeiters."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:689
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:690
 msgid "If the employee is not to be part of the payroll select InActive, otherwise select Active."
 msgstr "Wenn der Mitarbeiter nicht in die Personalabrechnung aufgenommen werden soll, wählen Sie InActive, andernfalls wählen Sie Active."
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:696
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:697
 msgid "Update employee details"
 msgstr "Mitarbeiterdetails aktualisieren"
 
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:700
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:701
 msgid "Insert New Employee"
 msgstr "Neuen Mitarbeiter einfügen"
 
@@ -67722,7 +68150,7 @@ msgid "Create New Employee Details"
 msgstr "Neue Mitarbeiterdetails erstellen"
 
 #: /home/tim/code/KwaMoja/sql/updates/199.php:5
-#: /home/tim/code/KwaMoja/sql/updates/216.php:171
+#: /home/tim/code/KwaMoja/sql/updates/216.php:170
 msgid "Hospital Configuration Options"
 msgstr "Krankenhaus-Konfigurationsoptionen"
 
@@ -67771,13 +68199,69 @@ msgstr "Regelmäßige Zahlungen einrichten"
 msgid "Process Regular Payments"
 msgstr "Regelmäßige Zahlungen verarbeiten"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:168
+#: /home/tim/code/KwaMoja/sql/updates/216.php:16
+msgid "Pregnancy"
+msgstr "Schwangerschaft"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:17
+msgid "Neonatal"
+msgstr "Neugeborene"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:18
+msgid "Encounter"
+msgstr "Begegnung"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:19
+msgid "OP"
+msgstr "OP"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:20
+msgid "Anesthesia"
+msgstr "Anästhesie"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:21
+msgid "Prescription"
+msgstr "Rezept"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:167
 msgid "Hospital Setup"
 msgstr "Krankenhauseinrichtung"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:174
+#: /home/tim/code/KwaMoja/sql/updates/216.php:173
 msgid "Select Patient"
 msgstr "Wählen Sie Patient"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:202
+msgid "Regular discharge"
+msgstr "Regelmäßige Entladung"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:203
+msgid "Patient left hospital on his own will"
+msgstr "Der Patient verließ das Krankenhaus aus eigenem Willen"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:204
+msgid "Emergency discharge"
+msgstr "Notentladung"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:205
+msgid "Change of ward"
+msgstr "Stationswechsel"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:206
+msgid "Change of room"
+msgstr "Raumwechsel"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:207
+msgid "Change of bed"
+msgstr "Bettwechsel"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:208
+msgid "Death of patient"
+msgstr "Tod des Patienten"
+
+#: /home/tim/code/KwaMoja/sql/updates/216.php:209
+msgid "Change of department"
+msgstr "Abteilungswechsel"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
