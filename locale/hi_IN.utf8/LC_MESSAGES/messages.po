@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 19:34+0100\n"
+"POT-Creation-Date: 2020-07-13 13:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -397,7 +397,7 @@ msgstr "क्या आप वाकई इस रैंकिंग समू�
 #: /home/tim/code/KwaMoja/Timesheets.php:657
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:175
 #: /home/tim/code/KwaMoja/WOSerialNos.php:316
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 #: /home/tim/code/KwaMoja/WWW_Users.php:436
 #: /home/tim/code/KwaMoja/WorkCentres.php:156
 #: /home/tim/code/KwaMoja/prlBP.php:219
@@ -615,7 +615,7 @@ msgstr "रैंकिंग विधि सफलतापूर्वक ड
 #: /home/tim/code/KwaMoja/TaxProvinces.php:184
 #: /home/tim/code/KwaMoja/Timesheets.php:531
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:174
-#: /home/tim/code/KwaMoja/WWW_Access.php:150
+#: /home/tim/code/KwaMoja/WWW_Access.php:159
 #: /home/tim/code/KwaMoja/WWW_Users.php:435
 #: /home/tim/code/KwaMoja/WorkCentres.php:155
 #: /home/tim/code/KwaMoja/prlALD.php:161 /home/tim/code/KwaMoja/prlBP.php:218
@@ -1097,7 +1097,7 @@ msgstr "इस समूह को नष्ट नहीं कर सकते
 #: /home/tim/code/KwaMoja/TaxGroups.php:151
 #: /home/tim/code/KwaMoja/TaxProvinces.php:127
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:128
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 #: /home/tim/code/KwaMoja/WorkCentres.php:91
 #: /home/tim/code/KwaMoja/WorkCentres.php:97
 #: /home/tim/code/KwaMoja/prlCurrencies.php:119
@@ -1460,6 +1460,9 @@ msgstr "मूल समूह का नाम"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:153
+#: /home/tim/code/KwaMoja/WWW_Access.php:212
+#: /home/tim/code/KwaMoja/WWW_Access.php:215
 #: /home/tim/code/KwaMoja/WWW_Users.php:582
 #: /home/tim/code/KwaMoja/WWW_Users.php:584
 #: /home/tim/code/KwaMoja/WWW_Users.php:627
@@ -1751,6 +1754,9 @@ msgstr "हाँ"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:211
+#: /home/tim/code/KwaMoja/WWW_Access.php:214
 #: /home/tim/code/KwaMoja/WWW_Users.php:581
 #: /home/tim/code/KwaMoja/WWW_Users.php:585
 #: /home/tim/code/KwaMoja/WWW_Users.php:626
@@ -2160,8 +2166,8 @@ msgstr "नाम"
 #: /home/tim/code/KwaMoja/Customers.php:690
 #: /home/tim/code/KwaMoja/Customers.php:698
 #: /home/tim/code/KwaMoja/SelectCustomer.php:772
-#: /home/tim/code/KwaMoja/WWW_Access.php:140
-#: /home/tim/code/KwaMoja/WWW_Access.php:192
+#: /home/tim/code/KwaMoja/WWW_Access.php:142
+#: /home/tim/code/KwaMoja/WWW_Access.php:203
 msgid "Role"
 msgstr "भूमिका"
 
@@ -14548,7 +14554,7 @@ msgstr "ग्राहक शेयर विवरण"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:482
 #: /home/tim/code/KwaMoja/TestPlanResults.php:547
 #: /home/tim/code/KwaMoja/WOSerialNos.php:266
-#: /home/tim/code/KwaMoja/WWW_Access.php:240
+#: /home/tim/code/KwaMoja/WWW_Access.php:266
 msgid "Add"
 msgstr "जोड़ना"
 
@@ -17614,7 +17620,7 @@ msgstr "सुरक्षा स्तर"
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
-#: /home/tim/code/KwaMoja/WWW_Access.php:233
+#: /home/tim/code/KwaMoja/WWW_Access.php:259
 msgid "Remove"
 msgstr "हटाना"
 
@@ -25772,8 +25778,8 @@ msgid "PID"
 msgstr "पीआईडी"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:56
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
@@ -25852,8 +25858,8 @@ msgstr "रोगी को दूसरे बिस्तर पर स्थ�
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:256
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:3
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:119
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "रोगी को छुट्टी दें"
 
@@ -26361,11 +26367,28 @@ msgstr "तंत्रिका तंत्र की जांच की"
 msgid "Save Data"
 msgstr "डेटा बचाना"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:53
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
+msgid "There was an error updating the encounter record"
+msgstr "एनकाउंटर रिकॉर्ड को अपडेट करने में एक त्रुटि हुई"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:83
+msgid "There was an error updating the ward record"
+msgstr "वार्ड रिकॉर्ड अपडेट करने में त्रुटि हुई थी"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+msgid "There was an error updating the room record"
+msgstr "कमरे के रिकॉर्ड को अपडेट करने में एक त्रुटि हुई"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:116
+msgid "The patieent has been successfully discharged"
+msgstr "संरक्षक को सफलतापूर्वक छुट्टी दे दी गई है"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:125
 msgid "Patient Discharge Details"
 msgstr "रोगी निर्वहन विवरण"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:61
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
@@ -26373,7 +26396,7 @@ msgstr "रोगी निर्वहन विवरण"
 msgid "Patient Name"
 msgstr "रोगी का नाम"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:66
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:138
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:562
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
@@ -26381,34 +26404,36 @@ msgstr "रोगी का नाम"
 msgid "Date of Birth"
 msgstr "जन्म की तारीख"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 msgid "Ward"
 msgstr "परवरिश"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:80
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:152
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:258
 msgid "Room"
 msgstr "कक्ष"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:85
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:157
 msgid "Discharge Date"
 msgstr "कार्यमुक्ति दिवस"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:90
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:162
 msgid "Discharge Time"
 msgstr "डिस्चार्ज का समय"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:169
 msgid "Discharge Type"
 msgstr "डिस्चार्ज टाइप"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:106
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:178
 msgid "Discharge Notes"
 msgstr "डिस्चार्ज नोट्स"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/WWW_Access.php:143
+#: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
 msgstr "चिकित्सक"
 
@@ -52353,75 +52378,79 @@ msgstr "एक्सेस अनुमतियाँ रखरखाव"
 msgid "The role description entered must be at least 4 characters long"
 msgstr "दर्ज किया गया भूमिका विवरण कम से कम 4 वर्ण लंबा होना चाहिए"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:49
+#: /home/tim/code/KwaMoja/WWW_Access.php:50
 msgid "The update of the security role description failed because"
 msgstr "सुरक्षा भूमिका विवरण का अद्यतन विफल रहा क्योंकि"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:50
+#: /home/tim/code/KwaMoja/WWW_Access.php:51
 msgid "The Security role description was updated."
 msgstr "सुरक्षा भूमिका विवरण अद्यतन किया गया था।"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:53
-msgid "The update of the security role failed because"
-msgstr "सुरक्षा भूमिका का अद्यतन विफल रहा क्योंकि"
-
 #: /home/tim/code/KwaMoja/WWW_Access.php:54
+msgid "The insert of the security role failed because"
+msgstr "सुरक्षा भूमिका सम्मिलित करने में विफल रहा क्योंकि"
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:55
 msgid "The Security role was created."
 msgstr "सुरक्षा भूमिका बनाई गई थी"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:64
+#: /home/tim/code/KwaMoja/WWW_Access.php:65
 msgid "The addition of the page group access failed because"
 msgstr "पृष्ठ समूह पहुंच के अलावा विफल क्योंकि"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:65
+#: /home/tim/code/KwaMoja/WWW_Access.php:66
 msgid "The page group access was added."
 msgstr "पृष्ठ समूह का उपयोग जोड़ा गया था।"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:70
+#: /home/tim/code/KwaMoja/WWW_Access.php:71
 msgid "The removal of this page-group access failed because"
 msgstr "इस पृष्ठ-समूह पहुंच को हटाने के कारण विफल रहे"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:71
+#: /home/tim/code/KwaMoja/WWW_Access.php:72
 msgid "This page-group access was removed."
 msgstr "यह पेज-समूह पहुंच हटाया गया था"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:114
+#: /home/tim/code/KwaMoja/WWW_Access.php:115
 msgid "Cannot delete this role because user accounts are setup using it"
 msgstr "इस भूमिका को हटा नहीं सकते क्योंकि उपयोगकर्ता खाते इसका उपयोग करके सेटअप कर रहे हैं"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 msgid "user accounts that have this security role setting"
 msgstr "उपयोगकर्ता खाते जिनके पास यह सुरक्षा भूमिका है"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:121
+#: /home/tim/code/KwaMoja/WWW_Access.php:122
 msgid "security role has been deleted"
 msgstr "सुरक्षा भूमिका हटा दी गई है"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 msgid "Are you sure you wish to delete this role?"
 msgstr "क्या आप वाकई इस भूमिका को हटाना चाहते हैं?"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:161
+#: /home/tim/code/KwaMoja/WWW_Access.php:170
 msgid "Review Existing Roles"
 msgstr "मौजूदा भूमिकाओं की समीक्षा करें"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:173
+#: /home/tim/code/KwaMoja/WWW_Access.php:183
 msgid "The selected role is no longer available."
 msgstr "चयनित भूमिका अब उपलब्ध नहीं है"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:187
+#: /home/tim/code/KwaMoja/WWW_Access.php:198
 msgid "Security Role Name"
 msgstr "सुरक्षा भूमिका नाम"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:197
+#: /home/tim/code/KwaMoja/WWW_Access.php:218
+msgid "Is the role a clinical one. For instance, doctor, or a nurse"
+msgstr "भूमिका एक नैदानिक ​​एक है। "
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
 msgstr "भूमिका दर्ज करें"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:222
+#: /home/tim/code/KwaMoja/WWW_Access.php:248
 msgid "Assigned Security Tokens"
 msgstr "सौंपा सुरक्षा टोकन"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:223
+#: /home/tim/code/KwaMoja/WWW_Access.php:249
 msgid "Available Security Tokens"
 msgstr "उपलब्ध सुरक्षा टोकन"
 
@@ -69105,6 +69134,9 @@ msgstr "स्टाफ ऋण"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "कर्मचारी ऋण चुकौती"
+
+#~ msgid "The update of the security role failed because"
+#~ msgstr "सुरक्षा भूमिका का अद्यतन विफल रहा क्योंकि"
 
 #~ msgid "Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes"
 #~ msgstr "मैजिक कोटेशन को सक्षम करने के लिए आपका वेबसर्वर कॉन्फ़िगर किया गया है।  यदि आप विराम चिह्न का प्रयोग करते हैं (जैसे उद्धरण) डेटा प्रविष्टि करते समय यह समस्या पैदा कर सकता है  जादू कोट को अक्षम करने के लिए आपको अपने वेबमास्टर से संपर्क करना चाहिए"

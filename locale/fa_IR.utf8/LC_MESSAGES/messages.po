@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 15:13+0100\n"
+"POT-Creation-Date: 2020-07-13 13:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -397,7 +397,7 @@ msgstr "؟دینک فذح ار یدنب هبتر هورگ نیا دیهاوخ ی
 #: /home/tim/code/KwaMoja/Timesheets.php:657
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:175
 #: /home/tim/code/KwaMoja/WOSerialNos.php:316
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 #: /home/tim/code/KwaMoja/WWW_Users.php:436
 #: /home/tim/code/KwaMoja/WorkCentres.php:156
 #: /home/tim/code/KwaMoja/prlBP.php:219
@@ -615,7 +615,7 @@ msgstr "هریخذ هداد هاگیاپ هب تیقفوم اب تسا هدش ی
 #: /home/tim/code/KwaMoja/TaxProvinces.php:184
 #: /home/tim/code/KwaMoja/Timesheets.php:531
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:174
-#: /home/tim/code/KwaMoja/WWW_Access.php:150
+#: /home/tim/code/KwaMoja/WWW_Access.php:159
 #: /home/tim/code/KwaMoja/WWW_Users.php:435
 #: /home/tim/code/KwaMoja/WorkCentres.php:155
 #: /home/tim/code/KwaMoja/prlALD.php:161 /home/tim/code/KwaMoja/prlBP.php:218
@@ -1097,7 +1097,7 @@ msgstr "دنا هدش داجیا هورگ نیا زا هدافتسا اب لک �
 #: /home/tim/code/KwaMoja/TaxGroups.php:151
 #: /home/tim/code/KwaMoja/TaxProvinces.php:127
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:128
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 #: /home/tim/code/KwaMoja/WorkCentres.php:91
 #: /home/tim/code/KwaMoja/WorkCentres.php:97
 #: /home/tim/code/KwaMoja/prlCurrencies.php:119
@@ -1460,6 +1460,9 @@ msgstr "دلاو هورگ مان "
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:153
+#: /home/tim/code/KwaMoja/WWW_Access.php:212
+#: /home/tim/code/KwaMoja/WWW_Access.php:215
 #: /home/tim/code/KwaMoja/WWW_Users.php:582
 #: /home/tim/code/KwaMoja/WWW_Users.php:584
 #: /home/tim/code/KwaMoja/WWW_Users.php:627
@@ -1751,6 +1754,9 @@ msgstr "هلب "
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:211
+#: /home/tim/code/KwaMoja/WWW_Access.php:214
 #: /home/tim/code/KwaMoja/WWW_Users.php:581
 #: /home/tim/code/KwaMoja/WWW_Users.php:585
 #: /home/tim/code/KwaMoja/WWW_Users.php:626
@@ -2160,8 +2166,8 @@ msgstr "مان "
 #: /home/tim/code/KwaMoja/Customers.php:690
 #: /home/tim/code/KwaMoja/Customers.php:698
 #: /home/tim/code/KwaMoja/SelectCustomer.php:772
-#: /home/tim/code/KwaMoja/WWW_Access.php:140
-#: /home/tim/code/KwaMoja/WWW_Access.php:192
+#: /home/tim/code/KwaMoja/WWW_Access.php:142
+#: /home/tim/code/KwaMoja/WWW_Access.php:203
 msgid "Role"
 msgstr "شقن "
 
@@ -14548,7 +14554,7 @@ msgstr "تکرشاب طباوض و ماهس "
 #: /home/tim/code/KwaMoja/TestPlanResults.php:482
 #: /home/tim/code/KwaMoja/TestPlanResults.php:547
 #: /home/tim/code/KwaMoja/WOSerialNos.php:266
-#: /home/tim/code/KwaMoja/WWW_Access.php:240
+#: /home/tim/code/KwaMoja/WWW_Access.php:266
 msgid "Add"
 msgstr "ندرک هفاضا "
 
@@ -17614,7 +17620,7 @@ msgstr "سطح امنیتی"
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
-#: /home/tim/code/KwaMoja/WWW_Access.php:233
+#: /home/tim/code/KwaMoja/WWW_Access.php:259
 msgid "Remove"
 msgstr "نتشادرب "
 
@@ -25772,8 +25778,8 @@ msgid "PID"
 msgstr "PID"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:56
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
@@ -25852,8 +25858,8 @@ msgstr "بیمار را به تخت دیگری منتقل کنید"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:256
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:3
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:119
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "مرخص بیمار"
 
@@ -26361,11 +26367,28 @@ msgstr "سیستم عصبی مورد بررسی قرار می گیرد"
 msgid "Save Data"
 msgstr "ذخیره داده ها"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:53
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
+msgid "There was an error updating the encounter record"
+msgstr "هنگام بروزرسانی سابقه برخورد خطایی رخ داد"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:83
+msgid "There was an error updating the ward record"
+msgstr "هنگام بروزرسانی سابقه بخش خطایی روی داد"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+msgid "There was an error updating the room record"
+msgstr "هنگام بروزرسانی پرونده اتاق خطایی روی داد"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:116
+msgid "The patieent has been successfully discharged"
+msgstr "خائن با موفقیت مرخص شد"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:125
 msgid "Patient Discharge Details"
 msgstr "جزئیات تخلیه بیمار"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:61
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
@@ -26373,7 +26396,7 @@ msgstr "جزئیات تخلیه بیمار"
 msgid "Patient Name"
 msgstr "نام بیمار"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:66
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:138
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:562
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
@@ -26381,34 +26404,36 @@ msgstr "نام بیمار"
 msgid "Date of Birth"
 msgstr "دلوت خیرات "
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 msgid "Ward"
 msgstr "بخش"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:80
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:152
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:258
 msgid "Room"
 msgstr "اتاق"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:85
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:157
 msgid "Discharge Date"
 msgstr "تاریخ ترخیص"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:90
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:162
 msgid "Discharge Time"
 msgstr "زمان تخلیه"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:169
 msgid "Discharge Type"
 msgstr "نوع تخلیه"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:106
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:178
 msgid "Discharge Notes"
 msgstr "یادداشتهای تخلیه"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/WWW_Access.php:143
+#: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
 msgstr "پزشک"
 
@@ -52353,75 +52378,79 @@ msgstr "یرادهگن و ریمعت یسرتسد حوطس "
 msgid "The role description entered must be at least 4 characters long"
 msgstr "دشاب رتکاراک 4 لقادح دیاب دراو شقن تاحیضوت "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:49
+#: /home/tim/code/KwaMoja/WWW_Access.php:50
 msgid "The update of the security role description failed because"
 msgstr "ارچ تسا هدروخ تسکش یتینما شقن تاحیضوت زا یناسر زور هب "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:50
+#: /home/tim/code/KwaMoja/WWW_Access.php:51
 msgid "The Security role description was updated."
 msgstr ".دش زور هب تینما شقن تاحیضوت "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:53
-msgid "The update of the security role failed because"
-msgstr "ارچ تسا هدروخ تسکش یتینما شقن زا یناسر زور هب "
-
 #: /home/tim/code/KwaMoja/WWW_Access.php:54
+msgid "The insert of the security role failed because"
+msgstr "درج نقش امنیتی به دلیل انجام نشد"
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:55
 msgid "The Security role was created."
 msgstr ".دش داجیا تینما شقن "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:64
+#: /home/tim/code/KwaMoja/WWW_Access.php:65
 msgid "The addition of the page group access failed because"
 msgstr "ارچ تسا هدروخ تسکش هحفص هورگ یسرتسد زا نیا رب هوالع "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:65
+#: /home/tim/code/KwaMoja/WWW_Access.php:66
 msgid "The page group access was added."
 msgstr ".تسا هدش هفاضا هحفص یسرتسد هورگ "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:70
+#: /home/tim/code/KwaMoja/WWW_Access.php:71
 msgid "The removal of this page-group access failed because"
 msgstr "ارچ تسا هدروخ تسکش هورگ یسرتسد هحفص نیا فذح "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:71
+#: /home/tim/code/KwaMoja/WWW_Access.php:72
 msgid "This page-group access was removed."
 msgstr ".دش فذح هورگ یسرتسد هحفص نیا "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:114
+#: /home/tim/code/KwaMoja/WWW_Access.php:115
 msgid "Cannot delete this role because user accounts are setup using it"
 msgstr "نآ زا هدافتسا اب یزادنا هار دروم ربراک اب نیناوق نوچ دینک فذح ار شقن نیا دناوت یمن "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 msgid "user accounts that have this security role setting"
 msgstr "یتینما شقن میظنت نیا هک یربراک یاه باسح "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:121
+#: /home/tim/code/KwaMoja/WWW_Access.php:122
 msgid "security role has been deleted"
 msgstr ".تسا هدش فذح یتینما شقن "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 msgid "Are you sure you wish to delete this role?"
 msgstr "؟دینک فذح ار شقن نیا دیهاوخیم هک دیتسه نئمطم امش ایآ "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:161
+#: /home/tim/code/KwaMoja/WWW_Access.php:170
 msgid "Review Existing Roles"
 msgstr "دوجوم یاه شقن یسررب "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:173
+#: /home/tim/code/KwaMoja/WWW_Access.php:183
 msgid "The selected role is no longer available."
 msgstr ".تسین سرتسد رد رگید باختنا شقن "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:187
+#: /home/tim/code/KwaMoja/WWW_Access.php:198
 msgid "Security Role Name"
 msgstr "نام نقش امنیتی"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:197
+#: /home/tim/code/KwaMoja/WWW_Access.php:218
+msgid "Is the role a clinical one. For instance, doctor, or a nurse"
+msgstr "آیا این نقش یک بالینی است. "
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
 msgstr "دینک دراو ار شقن "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:222
+#: /home/tim/code/KwaMoja/WWW_Access.php:248
 msgid "Assigned Security Tokens"
 msgstr "هدش راذگاو تینما یاه هناشن "
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:223
+#: /home/tim/code/KwaMoja/WWW_Access.php:249
 msgid "Available Security Tokens"
 msgstr "دوجوم تینما یاه هناشن "
 
@@ -69105,6 +69134,9 @@ msgstr "نانکراک ماو "
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "تخادرپزاب نانکراک ماو "
+
+#~ msgid "The update of the security role failed because"
+#~ msgstr "ارچ تسا هدروخ تسکش یتینما شقن زا یناسر زور هب "
 
 #~ msgid "Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes"
 #~ msgstr "وداج و رحس لوق لقن ندرک لاعف ریغ یارب دیریگب سامت دوخ رتسم بو دیاب امش .تاعالطا دورو ماجنا ماگنه )لوق لقن دننام( یراذگ هطقن زا هدافتسا امش رگا تالکشم ثعاب تسا نکمم نیا .وداج و رحس لوق لقن ندرک لاعف هب تسا هدش یدنبرکیپ دوخ رورس بو "

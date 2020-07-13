@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 07:40+0100\n"
+"POT-Creation-Date: 2020-07-13 13:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,7 @@ msgstr "Nọmba otu ABC"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:126
 #: /home/tim/code/KwaMoja/GLAccounts.php:296
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:94
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
 #: /home/tim/code/KwaMoja/Locations.php:378
 #: /home/tim/code/KwaMoja/MRPDemands.php:230
 #: /home/tim/code/KwaMoja/Manufacturers.php:190
@@ -310,6 +311,7 @@ msgstr "O doro gi anya na ichoro ikpochapu ndi otu a?"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
@@ -395,7 +397,7 @@ msgstr "O doro gi anya na ichoro ikpochapu ndi otu a?"
 #: /home/tim/code/KwaMoja/Timesheets.php:657
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:175
 #: /home/tim/code/KwaMoja/WOSerialNos.php:316
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 #: /home/tim/code/KwaMoja/WWW_Users.php:436
 #: /home/tim/code/KwaMoja/WorkCentres.php:156
 #: /home/tim/code/KwaMoja/prlBP.php:219
@@ -554,6 +556,7 @@ msgstr "Echekwaala usoro ahụ n'ọha nke ọma na nchekwa data"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:126
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
@@ -612,7 +615,7 @@ msgstr "Echekwaala usoro ahụ n'ọha nke ọma na nchekwa data"
 #: /home/tim/code/KwaMoja/TaxProvinces.php:184
 #: /home/tim/code/KwaMoja/Timesheets.php:531
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:174
-#: /home/tim/code/KwaMoja/WWW_Access.php:150
+#: /home/tim/code/KwaMoja/WWW_Access.php:159
 #: /home/tim/code/KwaMoja/WWW_Users.php:435
 #: /home/tim/code/KwaMoja/WorkCentres.php:155
 #: /home/tim/code/KwaMoja/prlALD.php:161 /home/tim/code/KwaMoja/prlBP.php:218
@@ -790,7 +793,8 @@ msgstr "agbanweela ka ndị ọrụ akaụntụ"
 #: /home/tim/code/KwaMoja/JobScheduler.php:9
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:106
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:161
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:35
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:34
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:158
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
@@ -801,14 +805,14 @@ msgstr "agbanweela ka ndị ọrụ akaụntụ"
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:136
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:180
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:179
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:114
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
@@ -816,7 +820,7 @@ msgstr "agbanweela ka ndị ọrụ akaụntụ"
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:55
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:104
 #: /home/tim/code/KwaMoja/KCMCWardOverview.php:132
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:35
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:34
 #: /home/tim/code/KwaMoja/MRPReport.php:535
 #: /home/tim/code/KwaMoja/MaintenanceTasks.php:12
 #: /home/tim/code/KwaMoja/MaintenanceUserSchedule.php:11
@@ -1093,7 +1097,7 @@ msgstr "Enweghi ike ihichapụ otu akaụntụ a, n'ihi na ejirila otu a mepụt
 #: /home/tim/code/KwaMoja/TaxGroups.php:151
 #: /home/tim/code/KwaMoja/TaxProvinces.php:127
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:128
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 #: /home/tim/code/KwaMoja/WorkCentres.php:91
 #: /home/tim/code/KwaMoja/WorkCentres.php:97
 #: /home/tim/code/KwaMoja/prlCurrencies.php:119
@@ -1244,52 +1248,52 @@ msgstr "Aha nne na nna"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:848
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:858
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:861
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:886
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:889
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:924
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:927
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:962
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:965
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:995
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:998
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1043
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1046
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1066
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1069
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1079
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1082
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1092
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1095
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1105
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1108
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1128
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1131
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1156
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1159
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1184
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:847
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:857
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:860
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:885
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:888
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:923
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:926
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:961
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:964
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:994
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:997
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1042
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1045
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1065
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1068
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1078
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1081
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1091
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1094
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1104
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1107
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1127
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1130
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1155
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1158
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1183
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:432
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:440
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:443
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:451
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:454
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:431
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:439
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:442
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:450
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:453
 #: /home/tim/code/KwaMoja/Labels.php:477 /home/tim/code/KwaMoja/Labels.php:479
 #: /home/tim/code/KwaMoja/Labels.php:521
 #: /home/tim/code/KwaMoja/LocationUsers.php:190
@@ -1456,6 +1460,9 @@ msgstr "Aha nne na nna"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:153
+#: /home/tim/code/KwaMoja/WWW_Access.php:212
+#: /home/tim/code/KwaMoja/WWW_Access.php:215
 #: /home/tim/code/KwaMoja/WWW_Users.php:582
 #: /home/tim/code/KwaMoja/WWW_Users.php:584
 #: /home/tim/code/KwaMoja/WWW_Users.php:627
@@ -1537,52 +1544,52 @@ msgstr "Ee"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:619
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:622
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:846
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:849
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:859
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:862
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:887
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:890
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:925
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:928
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:963
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:966
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:996
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:999
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1044
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1047
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1067
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1070
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1080
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1083
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1093
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1096
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1106
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1109
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1129
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1132
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1157
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1160
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1185
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1188
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1218
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1221
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:848
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:858
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:861
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:886
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:889
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:924
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:927
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:962
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:965
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:995
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:998
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1043
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1046
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1066
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1069
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1079
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1082
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1092
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1095
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1105
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1108
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1128
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1131
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1156
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1159
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1184
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:419
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:422
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:430
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:433
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:441
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:444
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:452
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:455
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:432
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:440
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:443
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:451
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:454
 #: /home/tim/code/KwaMoja/Labels.php:476 /home/tim/code/KwaMoja/Labels.php:480
 #: /home/tim/code/KwaMoja/Labels.php:522
 #: /home/tim/code/KwaMoja/LocationUsers.php:193
@@ -1747,6 +1754,9 @@ msgstr "Ee"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:211
+#: /home/tim/code/KwaMoja/WWW_Access.php:214
 #: /home/tim/code/KwaMoja/WWW_Users.php:581
 #: /home/tim/code/KwaMoja/WWW_Users.php:585
 #: /home/tim/code/KwaMoja/WWW_Users.php:626
@@ -2048,6 +2058,7 @@ msgstr "Adreesị email a na-akpọtụrụ abụghị ezigbo adreesị ozi-e"
 #: /home/tim/code/KwaMoja/Factors.php:102
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:235
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
@@ -2121,8 +2132,8 @@ msgstr "Ehichapula kọntaktị ahụ"
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:319
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2155,8 +2166,8 @@ msgstr "Aha"
 #: /home/tim/code/KwaMoja/Customers.php:690
 #: /home/tim/code/KwaMoja/Customers.php:698
 #: /home/tim/code/KwaMoja/SelectCustomer.php:772
-#: /home/tim/code/KwaMoja/WWW_Access.php:140
-#: /home/tim/code/KwaMoja/WWW_Access.php:192
+#: /home/tim/code/KwaMoja/WWW_Access.php:142
+#: /home/tim/code/KwaMoja/WWW_Access.php:203
 msgid "Role"
 msgstr "Ọrụ"
 
@@ -2676,10 +2687,10 @@ msgstr "Ngwa ahia"
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1058
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1120
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1171
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1199
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -3228,12 +3239,12 @@ msgstr "enweghị ike weghachite ya n'ihi"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:212
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:296
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:44
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:146
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:197
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:145
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:196
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:94
 #: /home/tim/code/KwaMoja/Payments.php:450
 #: /home/tim/code/KwaMoja/PcReportTab.php:117
@@ -3648,9 +3659,9 @@ msgstr "Họrọ oge ikpeazụ na akụkọ"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:128
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:139
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:150
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:126
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:137
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:148
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -3752,7 +3763,7 @@ msgstr "Ahọpụta nchikota ga-egosiputa nghakọta nke ọkwa otu ahụ"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:352
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:351
 #: /home/tim/code/KwaMoja/POReport.php:1332
 #: /home/tim/code/KwaMoja/SalesInquiry.php:949
 #: /home/tim/code/KwaMoja/Tax.php:504
@@ -4554,8 +4565,8 @@ msgstr "Onye ọrụ"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:323
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -5453,7 +5464,7 @@ msgstr "Ma ọ bụ tinye akụkụ nke koodu ihe"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:164
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:162
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -6078,6 +6089,7 @@ msgstr "Ihe ọ bụla kwuru maka eriri BOM a gosipụtara n'usoro ọrụ."
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:130
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:179
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:145
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:222
 #: /home/tim/code/KwaMoja/LocationUsers.php:135
 #: /home/tim/code/KwaMoja/LocationUsers.php:248
 #: /home/tim/code/KwaMoja/Payments.php:1235
@@ -6546,6 +6558,7 @@ msgstr "Ahọpụtabeghị"
 #: /home/tim/code/KwaMoja/GLJournal.php:595
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:176
 #: /home/tim/code/KwaMoja/LocationUsers.php:134
 #: /home/tim/code/KwaMoja/LocationUsers.php:247
@@ -8061,7 +8074,7 @@ msgstr "Enweghị iwu ọ bụla nyere iwu site na SQL n'ihi"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:47
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8392,6 +8405,8 @@ msgid "As this is the first time that the system has been used, you must first f
 msgstr "Dịka nke a bụ oge mbụ ejirila sistemụ ahụ, ị ​​ga-ebu ụzọ dejupụta nkọwa ụlọ ọrụ ahụ."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:262
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:178
 #: /home/tim/code/KwaMoja/Locations.php:419
 #: /home/tim/code/KwaMoja/SalesTypes.php:160
 #: /home/tim/code/KwaMoja/SalesTypes.php:210
@@ -12008,7 +12023,7 @@ msgstr "Nkwekọrịta: Họrọ Ahịa"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:115
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -14539,7 +14554,7 @@ msgstr "Nkọwapụta Ahịa Ndị Ahịa"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:482
 #: /home/tim/code/KwaMoja/TestPlanResults.php:547
 #: /home/tim/code/KwaMoja/WOSerialNos.php:266
-#: /home/tim/code/KwaMoja/WWW_Access.php:240
+#: /home/tim/code/KwaMoja/WWW_Access.php:266
 msgid "Add"
 msgstr "Tinye"
 
@@ -14609,7 +14624,7 @@ msgid "Select A Customer"
 msgstr "Họrọ Ahịa"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -16003,8 +16018,8 @@ msgstr "Jiri ngalaba a dịka ndabara maka azụmaahịa ego"
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16903,6 +16918,7 @@ msgid "Customer type"
 msgstr "Dị ndị ahịa"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
@@ -16975,6 +16991,7 @@ msgstr "IDdị NJ"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:116
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:170
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
@@ -17603,7 +17620,7 @@ msgstr "Ọkwa nchekwa"
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
-#: /home/tim/code/KwaMoja/WWW_Access.php:233
+#: /home/tim/code/KwaMoja/WWW_Access.php:259
 msgid "Remove"
 msgstr "Wepu"
 
@@ -17820,7 +17837,7 @@ msgstr "Ogologo"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:285
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:355
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
 msgid "Height"
 msgstr "Elu"
@@ -22598,20 +22615,20 @@ msgstr "Journaldị Journal"
 #: /home/tim/code/KwaMoja/GLJournal.php:490
 #: /home/tim/code/KwaMoja/GLJournal.php:493
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:47
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:727
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:731
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:735
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:739
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:536
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:541
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:546
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:554
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:560
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:566
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:572
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:581
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:586
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:591
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:726
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:730
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:734
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:738
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:535
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:540
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:545
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:553
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:559
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:565
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:571
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:580
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:585
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:590
 msgid "Normal"
 msgstr "Nkịtị"
 
@@ -23117,7 +23134,7 @@ msgstr "Nkọwa nke mkpado"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 msgid "Department"
@@ -25761,11 +25778,11 @@ msgid "PID"
 msgstr "PID"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:56
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
 msgstr "Nọmba Faịlị"
@@ -25823,7 +25840,7 @@ msgid "Patient Notes"
 msgstr "Ndetu Ndidi"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:240
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:29
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:28
 msgid "Daily Ward Notes"
 msgstr "Daily Ward Notes"
 
@@ -25841,136 +25858,145 @@ msgstr "Nyefee onye ọrịa na akwa ọzọ"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:256
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:3
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:119
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "Wepu Ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
 msgstr "Enweghi ike itinye ihe ndekọ ederede kwa ụbọchị n'ihi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:294
 msgid "The daily ward notes record could not be updated because"
 msgstr "Enweghi ike imelite ihe ndekọ ụbọchị kwa ụbọchị n'ihi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:300
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:201
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:299
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:200
 msgid "The information was correctly saved"
 msgstr "Edebere ozi ahụ nke ọma"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:540
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:539
 msgid "Ward Notes"
 msgstr "Ihe Odide Ward"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:543
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:542
 msgid "Physique"
 msgstr "Ahụ"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:545
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:550
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:555
+msgid "Ectomorph"
+msgstr "Ectomorph"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:546
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:551
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:556
-msgid "Ectomorph"
-msgstr "Ectomorph"
+msgid "Mesomorph"
+msgstr "Mesomorph"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:547
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:552
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:557
-msgid "Mesomorph"
-msgstr "Mesomorph"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:548
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:553
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:558
 msgid "Endomorph"
 msgstr "Endomorph"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:564
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:563
 msgid "General Condition"
 msgstr "Ọnọdụ General"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:566
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:571
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:576
+msgid "Good"
+msgstr "Ọ dị mma"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:567
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:572
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:577
-msgid "Good"
-msgstr "Ọ dị mma"
+msgid "Fair"
+msgstr "Kpamkpam"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:568
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:573
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:578
-msgid "Fair"
-msgstr "Kpamkpam"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:569
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:574
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:579
 msgid "Deceased"
 msgstr "Aghugho"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:585
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:584
 msgid "Nutritional status"
 msgstr "Ọnọdụ nri"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:590
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:589
 msgid "Decubitus"
 msgstr "Ọkpụkpụ agba"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:595
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:594
 msgid "Psychological Report"
 msgstr "Nkwupụta akparamaagwa"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:600
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:599
 msgid "Skin Condition"
 msgstr "Ọnọdụ Ahụ"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:605
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:604
 msgid "Mucous"
 msgstr "Mucous"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:610
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:609
 msgid "Skin appendages"
 msgstr "Mmepe ahu"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:615
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:614
 msgid "Edema"
 msgstr "Edema"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:628
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:627
 msgid "Edema Description"
 msgstr "Nkọwapụta Edema"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:633
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
 msgid "Temperature"
 msgstr "Okpomọkụ"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:635
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:639
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:643
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:647
+msgid "Apyrexia"
+msgstr "Apyrexia"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:636
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:640
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:644
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:648
-msgid "Apyrexia"
-msgstr "Apyrexia"
+msgid "Fever"
+msgstr "Ahụ ọkụ"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:637
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:641
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:645
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:649
-msgid "Fever"
-msgstr "Ahụ ọkụ"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:638
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:642
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:646
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:650
 msgid "Hypothermia"
 msgstr "Ọbara hypothermia"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:656
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:655
 msgid "Central Pulse"
 msgstr "Central Pulse"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:661
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:660
 msgid "Peripheral Pulse"
 msgstr "Peri na Peri"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:663
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:669
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:675
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:681
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:687
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:693
+msgid "Regular"
+msgstr "Mgbe"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:664
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:670
@@ -25978,8 +26004,8 @@ msgstr "Peri na Peri"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:682
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:688
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:694
-msgid "Regular"
-msgstr "Mgbe"
+msgid "Slow"
+msgstr "Jiri nwayọ"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:665
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:671
@@ -25987,8 +26013,8 @@ msgstr "Mgbe"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:683
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:689
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:695
-msgid "Slow"
-msgstr "Jiri nwayọ"
+msgid "Weak"
+msgstr "Adịghị Ike"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:666
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:672
@@ -25996,8 +26022,8 @@ msgstr "Jiri nwayọ"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:684
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:690
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:696
-msgid "Weak"
-msgstr "Adịghị Ike"
+msgid "Fast"
+msgstr "Ngwa ngwa"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:667
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:673
@@ -26005,300 +26031,291 @@ msgstr "Adịghị Ike"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:685
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:691
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:697
-msgid "Fast"
-msgstr "Ngwa ngwa"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:668
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:674
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:680
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:686
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:692
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:698
 msgid "Arhythmic"
 msgstr "Arhythmic"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:704
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:703
 msgid "Diastolic pressure"
 msgstr "Diastolic pressure"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:709
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:708
 msgid "Systolic pressure"
 msgstr "Systolic nsogbu"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:714
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:713
 msgid "Lymph glands"
 msgstr "Ọrịa Lymph glands"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:719
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:718
 msgid "Head"
 msgstr "Isi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:724
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:723
 msgid "Eye Balls"
 msgstr "Anya bọọlụ"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:727
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:731
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:735
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:739
+msgid "Exophthalmos"
+msgstr "Exophthalmos"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:728
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:732
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:736
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:740
-msgid "Exophthalmos"
-msgstr "Exophthalmos"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:729
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:733
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:737
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:741
 msgid "Enophthalmos"
 msgstr "Enophehalmos"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:747
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:746
 msgid "Sclera"
 msgstr "Ọrịa shuga"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:752
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:751
 msgid "Pupils"
 msgstr "Upmụ akwụkwọ"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:757
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:756
 msgid "Corneal reflex"
 msgstr "Mmegharị Corneal"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:762
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:761
 msgid "Ears"
 msgstr "Ntị"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:767
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:766
 msgid "Nose"
 msgstr "Igha"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:772
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:771
 msgid "Mouth"
 msgstr "Ọnụ"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:777
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:776
 msgid "Tongue"
 msgstr "Ire"
+
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:779
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:784
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:789
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:794
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:799
+msgid "Well epithelialized"
+msgstr "Nke ọma epithelialized"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:780
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:785
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:790
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:795
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:800
-msgid "Well epithelialized"
-msgstr "Nke ọma epithelialized"
+msgid "Atrophic"
+msgstr "Atrophic"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:781
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:786
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:791
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:796
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:801
-msgid "Atrophic"
-msgstr "Atrophic"
+msgid "Furred"
+msgstr "Iwe"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:782
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:787
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:792
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:797
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:802
-msgid "Furred"
-msgstr "Iwe"
-
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:783
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:788
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:793
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:798
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:803
 msgid "Dry"
 msgstr "Akọrọ"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:809
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:808
 msgid "Teeth"
 msgstr "Ezé"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:814
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:813
 msgid "Tonsils"
 msgstr "Oyi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:819
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:818
 msgid "Neck"
 msgstr "Olu"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:822
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:821
 msgid "Neck Shape"
 msgstr "Akara Akara"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:827
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:826
 msgid "Neck Mobility"
 msgstr "Agagharị agagharị"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:832
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:831
 msgid "Neck Posture"
 msgstr "Ọkpụkpụ olu"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:837
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:836
 msgid "Neck Examination"
 msgstr "Nnyocha Olu"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:842
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:841
 msgid "Turgid Jugular"
 msgstr "Turgi Jugular"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:855
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:854
 msgid "Normal Thyroid"
 msgstr "Nkịtị thyroid"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:870
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:869
 msgid "Chest"
 msgstr "Igbe"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:873
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:872
 msgid "Chest Shape"
 msgstr "Afọ nku"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:878
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:877
 msgid "Breasts"
 msgstr "Na-agba ume"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:883
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:882
 msgid "Chest Examined"
 msgstr "Nlere igbe"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:898
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:897
 msgid "Respiratory system"
 msgstr "Sistem"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:901
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:900
 msgid "Respiratory Inspection"
 msgstr "Nnyocha akụkụ ume"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:906
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:905
 msgid "Respiratory Palpation"
 msgstr "Palpation Okpo iku ume"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:911
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:910
 msgid "Respiratory Sound"
 msgstr "Resda ume iku ume"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:916
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:915
 msgid "Respiratory Auscultation"
 msgstr "Auscultation nke Mmebi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:921
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:920
 msgid "Respiratory System Examined"
 msgstr "Nyocha usoro akụkụ iku ume"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:936
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:935
 msgid "Heart"
 msgstr "Obi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:939
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:938
 msgid "Heart Inspection"
 msgstr "Nnyocha Obi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:944
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:943
 msgid "Heart Palpation"
 msgstr "Isi Obi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:949
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:948
 msgid "Heart Sound"
 msgstr "Soundda Obi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:954
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:953
 msgid "Heart Auscultation"
 msgstr "Mgbakwunye Obi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:959
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:958
 msgid "Heart System Examined"
 msgstr "Nyochaa Obi Obi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:974
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:973
 msgid "Peripheral Vessels"
 msgstr "Peripheral Vessels"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:977
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:976
 msgid "Vessel Description"
 msgstr "Nkọwapụta Nkọwapụta"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:982
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:981
 msgid "Arteries"
 msgstr "Akwara akwara"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:987
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:986
 msgid "Veins"
 msgstr "Insgbọ mmiri"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:992
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:991
 msgid "Vessels Examined"
 msgstr "Nyochaa"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1007
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1006
 msgid "Abdomen"
 msgstr "Ibem"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1010
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1009
 msgid "Abdomen Inspection"
 msgstr "Nnyocha Abdomen"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1015
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1014
 msgid "Abdomen Palpation"
 msgstr "Isi ulo"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1020
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1019
 msgid "Abdomen Sound"
 msgstr "Domda Uda"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1025
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1024
 msgid "Abdomen Auscultation"
 msgstr "Enugwu Abia"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1030
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1029
 msgid "Abdomen Description"
 msgstr "Nkọwapụta Aba"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1035
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1034
 msgid "Rectal Exploration"
 msgstr "Nchọgharị nyocha"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1040
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1039
 msgid "Abdomen Examined"
 msgstr "Nyochaa Abdomen"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1055
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1054
 msgid "Liver"
 msgstr "Imeju"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1063
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1062
 msgid "Hepatomegaly"
 msgstr "Hepatomegaly"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1076
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1075
 msgid "Positive Murphy Test"
 msgstr "Nnwale Murphy Positive"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1089
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1088
 msgid "Palpable gallbladder"
 msgstr "Palpable gallbladder"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1102
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1101
 msgid "Liver Examined"
 msgstr "Nyochaa Imeju"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1117
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1116
 msgid "Spleen"
 msgstr "Spleen"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1125
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1124
 msgid "Spleen Examined"
 msgstr "Nyocha Spleen"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1140
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1139
 msgid "Urogenital System"
 msgstr "Sistemụ Urogenital"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1143
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:305
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -26306,10 +26323,10 @@ msgstr "Sistemụ Urogenital"
 msgid "Male"
 msgstr "Nwoke"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1148
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -26317,52 +26334,69 @@ msgstr "Nwoke"
 msgid "Female"
 msgstr "Nwanyi"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1153
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1152
 msgid "Urogenital System Examined"
 msgstr "Nyochaa Urogenital Sistem"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1168
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1167
 msgid "Musculoskeletal system"
 msgstr "Sistem akwara"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1176
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1175
 msgid "Musculature"
 msgstr "Musculature"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1181
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1180
 msgid "Musculoskeletal System Examined"
 msgstr "Nyocha nke Musculoskeletal"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1204
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1203
 msgid "Cranial Nerves"
 msgstr "Akpụ akwara"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1209
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1208
 msgid "Superficial Reflexes"
 msgstr "Mmegharị Ọgbara"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1214
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1213
 msgid "Nervous System Examined"
 msgstr "Nyocha Sistem"
 
-#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1231
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:611
+#: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1230
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:610
 msgid "Save Data"
 msgstr "Chekwaa data"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:53
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
+msgid "There was an error updating the encounter record"
+msgstr "Enwere mperi na-emelite ndekọ ndekọ"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:83
+msgid "There was an error updating the ward record"
+msgstr "Enwere mperi na-emelite ndekọ ụlọ mkpọrọ"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+msgid "There was an error updating the room record"
+msgstr "Enwere mperi na-emelite ndekọ ụlọ"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:116
+msgid "The patieent has been successfully discharged"
+msgstr "Akpọpụrụ onye ọbịa ahụ nke ọma"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:125
 msgid "Patient Discharge Details"
 msgstr "Nkọwa onye ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:61
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "Aha Ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:66
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:138
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:562
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
@@ -26370,36 +26404,134 @@ msgstr "Aha Ndidi"
 msgid "Date of Birth"
 msgstr "Ụbọchị ọmụmụ"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 msgid "Ward"
 msgstr "Ward"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:80
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:152
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:258
 msgid "Room"
 msgstr "Ime ụlọ"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:85
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:157
 msgid "Discharge Date"
 msgstr "Datebọchị mwepu"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:90
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:162
 msgid "Discharge Time"
 msgstr "Oge Iwepu"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:169
 msgid "Discharge Type"
 msgstr "Chardị Mwepu"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:106
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:178
 msgid "Discharge Notes"
 msgstr "Ihe ndetu"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/WWW_Access.php:143
+#: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
 msgstr "Onye Ọrịa"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:3
+#: /home/tim/code/KwaMoja/sql/updates/216.php:220
+msgid "Maintain Discharge Types"
+msgstr "Nọgide Na-enwe Disdị Mwepu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:22
+msgid "The discharge type code cannot be an empty string or spaces"
+msgstr "Codedị ụdị nziputa anaghị enwe eriri ma ọ bụ oghere"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:25
+msgid "The discharge type description cannot be empty"
+msgstr "Nkọwa ụdị nke ụdị nzipu enweghị ike ịbụ ihe efu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:28
+msgid "The discharge type description must be one hundred characters or less long"
+msgstr "Nkọwa ụdị nzipu ya ga-adị otu narị mkpụrụ edemede ma ọ bụ obere"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
+msgid "The discharge type"
+msgstr "Thedị nzipụta ahụ"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:51
+msgid "The discharge type "
+msgstr "Thedị nzipụta ahụ"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:51
+#: /home/tim/code/KwaMoja/StockTypes.php:66
+msgid " already exists."
+msgstr "ododu."
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
+msgid "Discharge type"
+msgstr "Dị mwepu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:83
+msgid "The number of occasions this type has been used could not be retrieved"
+msgstr "Enweghi ike weghachite ugboro ole ụdị a ejirila"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:88
+msgid "Cannot delete this discharge type because patients have already been discharged with it"
+msgstr "Enweghi ike ihichapụ ụdị nzipu a maka na ewepụrụla ndị ọrịa na ya"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:93
+msgid "The Discharge Type record could not be deleted because"
+msgstr "Enweghị ike ihichapụ ụdị recorddị Mwepu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:112
+msgid "Discharge Types"
+msgstr "Dị Mwepu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:178
+msgid "As this is the first time that the system has been used, you must first create a discharge type."
+msgstr "Dịka nke a bụ oge izizi sistemu eji arụ ọrụ, ị ga-ebu ụzọ mepụta ụdị ikwapu."
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:130
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:204
+#: /home/tim/code/KwaMoja/SalesTypes.php:167
+#: /home/tim/code/KwaMoja/SalesTypes.php:224
+#: /home/tim/code/KwaMoja/SalesTypes.php:234
+#: /home/tim/code/KwaMoja/StockTypes.php:145
+#: /home/tim/code/KwaMoja/StockTypes.php:206
+#: /home/tim/code/KwaMoja/StockTypes.php:216
+msgid "Type Code"
+msgstr "Koodu pịnye"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
+msgid "Are you sure you wish to delete this type?"
+msgstr "Ì ji n’aka na ịchọrọ ihichapụ ụdị a?"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:154
+msgid "Show All Discharge Types Defined"
+msgstr "Gosiputa Nkpuputa Nkọwa niile"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:191
+msgid "Edit Discharge Type"
+msgstr "Dezie chardị Mwepu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:202
+msgid "Create New Discharge Type"
+msgstr "Mepụta Disdị Mgbapụta Ọhụrụ"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:206
+msgid "The code for this discharge type."
+msgstr "Koodu maka ụdị nnuku a."
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:214
+msgid "Discharge Type Name"
+msgstr "Namedị Mwepu"
+
+#: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:216
+msgid "Description of this discharge type."
+msgstr "Nkọwa nke ụdị nzipu nka."
 
 #: /home/tim/code/KwaMoja/KCMCDispenseDrugs.php:5
 msgid "Dispense drugs to patients"
@@ -26440,7 +26572,7 @@ msgstr "emelitere nke ọma"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:336
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -26457,7 +26589,7 @@ msgstr "Mmekọahụ"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:415
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Companylọ ọrụ inshọransị"
@@ -26868,97 +27000,97 @@ msgid "The patient data was successfully updated."
 msgstr "Emelitere data onye ọrịa n'ọfụma."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:136
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
 msgid "Search For Patient"
 msgstr "Chọọnụ Ndidi"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:156
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:155
 msgid "Search for patient details"
 msgstr "Chọọ nkọwa ndị ọrịa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:158
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:157
 msgid "File number"
 msgstr "Nọmba faịlụ"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:160
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "Tinye nọmba ma ọ bụ akụkụ nke nọmba ndị ọrịa ma ọ bụrụ na amaara ya"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:163
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:162
 msgid "Patients name"
 msgstr "Aha ndị ọrịa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:165
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:164
 msgid "Enter all or part of the patients name if it is known"
 msgstr "Tinye aha ma ọ bụ akụkụ nke aha ndị ọrịa ọ bụrụ na amara ya"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
 msgid "Patients Address"
 msgstr "Adreesị Ndị ọrịa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:170
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:169
 msgid "Enter all or part of the patients address if it is known"
 msgstr "Tinye adreesị ma ọ bụ akụkụ niile nke ndị ọrịa ma ọ bụrụ na amaara ya"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:173
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:172
 msgid "Patients Phone Number"
 msgstr "Nọmba ekwentị ndị ọrịa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:175
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:174
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "Tinye nọmba ekwentị ma ọ bụ akụkụ nke ndị ọrịa ahụ ma ọ bụrụ na amaara ya"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "Nọmba ndidi"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:231
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
 msgid "Admit Patient"
 msgstr "Nye Ndidi"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:238
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:237
 msgid "There are no patients matching this criteria"
 msgstr "Onweghi ndi oria di otua"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "Mazị"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "Mmeka"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Agbaghara"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "Oriakụ"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "Dr"
@@ -26968,7 +27100,7 @@ msgid "Update Admission data for"
 msgstr "Mmelite mbanye data maka"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
 msgid "Admit"
 msgstr "Kwenye"
 
@@ -26977,23 +27109,23 @@ msgid "as an inpatient"
 msgstr "ka inpatient"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:311
 msgid "Admission Date"
 msgstr "Datebọchị nnabata"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:315
 msgid "Admission Time"
 msgstr "Oge Nnabata"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:327
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "Otu Ọbara"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:331
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -27002,42 +27134,42 @@ msgid "Gender"
 msgstr "Okike"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "Admission Type"
 msgstr "Missiondị mbanye"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
 msgid "A type of admission."
 msgstr "Ofdị nnabata."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "White"
 msgstr "Ọcha"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "Green"
 msgstr "Green"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "Yellow"
 msgstr "Edo edo"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
 msgid "Red"
 msgstr "Uhie"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:358
 msgid "Triage Code"
 msgstr "Koodu Tita"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:368
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "Usoro akara maka onye ọrịa a, onye ọcha adịghị obere, yana ọbara bụ ihe kacha njọ."
 
@@ -27046,33 +27178,33 @@ msgid "The ward that this patient is being admitted to."
 msgstr "Ngalaba a na-anabata onye ọrịa a."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:388
 msgid "Referrer Diagnosis"
 msgstr "Nchọpụta Nchoputa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:393
 msgid "Referred By"
 msgstr "Kwuru okwu ya"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:398
 msgid "Referrer Therapy"
 msgstr "Ọgwụ nyocha"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:403
 msgid "Referrer Notes"
 msgstr "Ntuziaka ndetu"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:426
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "Companylọ ọrụ mkpuchi, ọ bụrụ na ọ dị, nke onye ọrịa a bụ"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:431
 msgid "Insurance Number"
 msgstr "Nọmba Inshọransị"
 
@@ -27796,11 +27928,11 @@ msgstr "Nyefee onye ọrịa"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "Anaghị anabata onye ọrịa a ugbu a dịka onye ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
 msgid "as an outpatient"
 msgstr "dị ka ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:384
 msgid "The department that this patient is being admitted to."
 msgstr "Ngalaba a na-anabata onye ọrịa a."
 
@@ -28528,16 +28660,16 @@ msgstr "Chọọ ndị ọrịa"
 msgid "Patients"
 msgstr "Ndị ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:69
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 msgid "Patient"
 msgstr "Ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:74
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
 msgid "Select a menu option to operate using this patient"
 msgstr "Họrọ nhọrọ menu iji rụọ ọrụ site na iji onye ọrịa a"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:79
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
@@ -28545,56 +28677,56 @@ msgstr "Họrọ nhọrọ menu iji rụọ ọrụ site na iji onye ọrịa a"
 msgid "Inquiries and Reports"
 msgstr "Ajuju na Akuko"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:79
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
 msgid "Patient Inquiries"
 msgstr "Achọpụta Ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:85
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:83
 msgid "Patient Transactions"
 msgstr "Azụmahịa Ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:88
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:86
 msgid "Modify patient registration data"
 msgstr "Gbanwee data ndebanye ndị ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:91
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:89
 msgid "Modify Inpatient admission data"
 msgstr "Gbanwee data nnabata na-enweghị ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:94
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:92
 msgid "Modify Outpatient admission data"
 msgstr "Gbanwee data nnabata banyere ndị ọrịa nọ n'ụlọ ọgwụ"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:100
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:98
 msgid "Patient Maintenance"
 msgstr "Mmezi Ndidi"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:114
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
 msgid "Search for Patients"
 msgstr "Choo ndi oria"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
 msgid "Enter a partial Name"
 msgstr "Tinye aha otu"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:131
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:129
 msgid "Enter a partial patient file number"
 msgstr "Tinye nọmba faịlụ ime na nkebi"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:142
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:140
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "Tinye Nọmba ekwentị dị na ya"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:153
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:151
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "Tinye akụkụ nke Adreesị"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:165
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:163
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 #: /home/tim/code/KwaMoja/SelectCustomer.php:399
 msgid "CSV Format"
@@ -28797,180 +28929,189 @@ msgstr "Tinye aha ma ọ bụ akụkụ mpaghara aha nlekọta ọ bụla ma ọ
 msgid "Ward Number"
 msgstr "Nọmba Ward"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:29
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:28
 msgid "Yellow Paper"
 msgstr "Akwụkwọ edo edo"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:145
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:144
 msgid "The yellow paper record could not be added because"
 msgstr "Enweghi ike itinye ihe ndekọ akwụkwọ odo n'ihi na"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:196
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:195
 msgid "The yellow paper record could not be updated because"
 msgstr "Enweghi ike imelite ihe ndekọ odo na-acha odo odo n'ihi"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:339
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:338
 msgid "Medical History"
 msgstr "Akụkọ Ahụike"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:340
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:339
 msgid "Family History"
 msgstr "Akụkọ Banyere Ezinaụlọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:341
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:340
 msgid "Socio-environmental History"
 msgstr "Akụkọ banyere gburugburu ebe obibi"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:342
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:341
 msgid "Physiological History"
 msgstr "Akụkọ gbasara anụ ahụ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:343
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:342
 msgid "Pathological History"
 msgstr "Ọrịa akụrụngwa"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:344
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:343
 msgid "Remote Pathological History"
 msgstr "Akụkọ Agwọ Ọdụdọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:353
 msgid "Physical Details"
 msgstr "Nkọwa nke anụ ahụ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:357
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
 msgid "Weight"
 msgstr "Ibu ibu"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:359
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:358
 msgid "Age"
 msgstr "Afọ"
 
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:360
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:361
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:362
 msgid "Symptoms"
 msgstr "Ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:364
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:363
 msgid "Laboratory Data"
 msgstr "Data laabu"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:365
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:364
 msgid "Urine"
 msgstr "Mmamịrị"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:367
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:366
 msgid "Blood"
 msgstr "Ọbara"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:369
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
 msgid "Other"
 msgstr "Ndị ọzọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:372
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "Ọrịa"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:374
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:373
 msgid "Therapy"
 msgstr "Usoro ọgwụgwọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:379
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:378
 msgid "Hereditary diseases"
 msgstr "Ọrịa ndị e ketara eketa"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:381
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:380
 msgid "Father"
 msgstr "Nna"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:383
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:382
 msgid "Mother"
 msgstr "Nne"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:385
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:384
 msgid "Spouse/Partner"
 msgstr "Nwunye ma ọ bụ Onye Mmekọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:387
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:386
 msgid "Children"
 msgstr "Childrenmụaka"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:389
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:388
 msgid "Siblings"
 msgstr "Nwanne"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:394
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:393
 msgid "Recent Travel"
 msgstr "Njem odi nso"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:396
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:395
 msgid "Type and standard of dwelling"
 msgstr "Anddị na ụkpụrụ obibi"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:398
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:397
 msgid "Past employment"
 msgstr "Ọrụ gara aga"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:400
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:399
 msgid "Recent Employment"
 msgstr "Ọrụ Na-adịbeghị anya"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:402
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:401
 msgid "Current Employment"
 msgstr "Ọrụ dị ugbu a"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:404
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:403
 msgid "Work place"
 msgstr "Ebe ọrụ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:406
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:405
 msgid "Contact with gas"
 msgstr "Ikpo ya na gas"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:408
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:407
 msgid "Contact with toxic substances"
 msgstr "Mee ihe nsi uto"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:410
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:409
 msgid "Other toxic agents"
 msgstr "Ndị ọzọ na-egbu egbu"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:415
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:414
 msgid "Premature Birth"
 msgstr "Ọmụmụ n’oge"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:426
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:425
 msgid "Eutocic birth"
 msgstr "Amuru Eutocic"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:437
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:436
 msgid "Normal neonatal development"
 msgstr "Mmepe ahụkarị nwa"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:448
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:447
 msgid "Late development"
 msgstr "Oge mmepe"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:459
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:458
 msgid "Previous Pregnancies"
 msgstr "Gmụnwaanyị gara aga"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:461
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:460
 msgid "Medication"
 msgstr "Ọgwụ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:463
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:462
 msgid "Menstruation"
 msgstr "Oge nsọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:465
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:464
 msgid "Military Service"
 msgstr "Ndị agha"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:467
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:466
 msgid "Alcohol Consumption"
 msgstr "Mmanya Mmanya"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:470
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:475
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:480
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:489
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:494
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:499
+msgid "Low or No Consumption"
+msgstr "Obere ma ọ bụ enweghị oriri"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:471
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:476
@@ -28978,128 +29119,119 @@ msgstr "Mmanya Mmanya"
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:490
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:495
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:500
-msgid "Low or No Consumption"
-msgstr "Obere ma ọ bụ enweghị oriri"
+msgid "Medium Consumption"
+msgstr "Ọkara"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:472
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:477
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:482
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:491
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:496
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:501
-msgid "Medium Consumption"
-msgstr "Ọkara"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:473
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:478
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:483
 msgid "Heavy Drinker"
 msgstr "Onye na-a Drinkụ mmanya"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:487
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:486
 msgid "Coffee Consumption"
 msgstr "Oriri kọfị"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:492
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:497
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:502
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:491
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:496
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:501
 msgid "High Consumption"
 msgstr "Nri Ebu"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:505
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:504
 msgid "Smoking"
 msgstr "Ụ sịga"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:508
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:514
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:520
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:526
+msgid "Non smoker"
+msgstr "Anaghị a smụ sịga"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:509
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:515
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:521
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:527
-msgid "Non smoker"
-msgstr "Anaghị a smụ sịga"
+msgid "Occasional smoker"
+msgstr "Okerokerụ sịga"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:510
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:516
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:522
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:528
-msgid "Occasional smoker"
-msgstr "Okerokerụ sịga"
+msgid "Heavy smoker"
+msgstr "Anwụrụ ọkụ"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:511
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:517
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:523
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:529
-msgid "Heavy smoker"
-msgstr "Anwụrụ ọkụ"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:512
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:518
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:524
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:530
 msgid "Ex smoker"
 msgstr "Smokerụ sịga"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:533
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:532
 msgid "Thirst"
 msgstr "Obi mgbawa"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:536
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:541
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:546
+msgid "Reduced"
+msgstr "Belatara"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:537
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:542
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:547
-msgid "Reduced"
-msgstr "Belatara"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:538
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:543
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:548
 msgid "Increased"
 msgstr ".Ba ụba"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:551
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:550
 msgid "Bowel movements"
 msgstr "Ugha ije"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:554
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:560
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:566
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:572
+msgid "Diarrhea"
+msgstr "Ọrịa afọ ọsịsa"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:555
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:561
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:567
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:573
-msgid "Diarrhea"
-msgstr "Ọrịa afọ ọsịsa"
+msgid "Constipated"
+msgstr "Agbachi nkịtị"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:556
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:562
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:568
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:574
-msgid "Constipated"
-msgstr "Agbachi nkịtị"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:557
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:563
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:569
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:575
 msgid "Tenesmo"
 msgstr "Tenesmo"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:578
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:577
 msgid "Diuresis"
 msgstr "Diuresis"
+
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:581
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:586
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:591
+msgid "Low"
+msgstr "Dị ala"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:582
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:587
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:592
-msgid "Low"
-msgstr "Dị ala"
-
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:583
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:588
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:593
 msgid "High"
 msgstr "Elu"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:599
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:598
 msgid "Other Medical History"
 msgstr "Akụkọ Ahụike Ndị Ọzọ"
 
-#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:604
+#: /home/tim/code/KwaMoja/KCMCYellowPaper.php:603
 msgid "Remote Medical History"
 msgstr "Akụkọ Ahụike Ọgwụ"
 
@@ -41630,15 +41762,6 @@ msgstr "ehichapụkwara ọnụahịa ọ bụla maka ụdị ahịa / ndepụta
 msgid "As this is the first time that the system has been used, you must first create a sales type."
 msgstr "Dịka nke a bụ oge mbụ ejirila sistemụ ahụ, ị ​​ga-ebu ụzọ mepụta ụdị ahịa."
 
-#: /home/tim/code/KwaMoja/SalesTypes.php:167
-#: /home/tim/code/KwaMoja/SalesTypes.php:224
-#: /home/tim/code/KwaMoja/SalesTypes.php:234
-#: /home/tim/code/KwaMoja/StockTypes.php:145
-#: /home/tim/code/KwaMoja/StockTypes.php:206
-#: /home/tim/code/KwaMoja/StockTypes.php:216
-msgid "Type Code"
-msgstr "Koodu pịnye"
-
 #: /home/tim/code/KwaMoja/SalesTypes.php:180
 #: /home/tim/code/KwaMoja/StockTypes.php:165
 msgid "Are you sure you wish to delete this price list and all the prices it may have set up?"
@@ -46576,10 +46699,6 @@ msgstr "Thedị ngwaahịa ahụ"
 #: /home/tim/code/KwaMoja/StockTypes.php:66
 msgid "The stock type "
 msgstr "Thedị ngwaahịa ahụ"
-
-#: /home/tim/code/KwaMoja/StockTypes.php:66
-msgid " already exists."
-msgstr "ododu."
 
 #: /home/tim/code/KwaMoja/StockTypes.php:79
 #: /home/tim/code/KwaMoja/StockTypes.php:113
@@ -52259,75 +52378,79 @@ msgstr "Nweta Nkwado nnweta"
 msgid "The role description entered must be at least 4 characters long"
 msgstr "Nkọwa ọrụ etinyegoghi ederede 4 ma ọ dịkarịa ala"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:49
+#: /home/tim/code/KwaMoja/WWW_Access.php:50
 msgid "The update of the security role description failed because"
 msgstr "Nwelite nkọwa nke ọrụ nchekwa dara n'ihi"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:50
+#: /home/tim/code/KwaMoja/WWW_Access.php:51
 msgid "The Security role description was updated."
 msgstr "Emelitere nkọwa ọrụ nchekwa ahụ."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:53
-msgid "The update of the security role failed because"
-msgstr "Mmelite nke ọrụ nchekwa ahụ dara n'ihi"
-
 #: /home/tim/code/KwaMoja/WWW_Access.php:54
+msgid "The insert of the security role failed because"
+msgstr "Inserttinye ọrụ nchekwa ahụ dara n'ihi"
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:55
 msgid "The Security role was created."
 msgstr "Emebere ọrụ nchekwa."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:64
+#: /home/tim/code/KwaMoja/WWW_Access.php:65
 msgid "The addition of the page group access failed because"
 msgstr "Ihe mgbakwunye nke nnweta ibe peeji nke emezighị n'ihi"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:65
+#: /home/tim/code/KwaMoja/WWW_Access.php:66
 msgid "The page group access was added."
 msgstr "Emeghere uzo ndi no na peeji a."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:70
+#: /home/tim/code/KwaMoja/WWW_Access.php:71
 msgid "The removal of this page-group access failed because"
 msgstr "Iwepu uzo nke otu akwukwo a bu ihe mbu"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:71
+#: /home/tim/code/KwaMoja/WWW_Access.php:72
 msgid "This page-group access was removed."
 msgstr "Ewepu uzo nnweta ihu akwukwo a."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:114
+#: /home/tim/code/KwaMoja/WWW_Access.php:115
 msgid "Cannot delete this role because user accounts are setup using it"
 msgstr "Enweghi ike ihichapụ ọrụ a n'ihi na ndekọ aha onye ọrụ na-eji ya"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 msgid "user accounts that have this security role setting"
 msgstr "akaụntụ onye ọrụ nwere ọnọdụ nchekwa nchekwa a"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:121
+#: /home/tim/code/KwaMoja/WWW_Access.php:122
 msgid "security role has been deleted"
 msgstr "ehichapụla ọrụ nchekwa"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 msgid "Are you sure you wish to delete this role?"
 msgstr "Ì ji n’aka na ịchọrọ ihichapụ ọrụ a?"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:161
+#: /home/tim/code/KwaMoja/WWW_Access.php:170
 msgid "Review Existing Roles"
 msgstr "Nyochaa Ọrụ Dịnụ"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:173
+#: /home/tim/code/KwaMoja/WWW_Access.php:183
 msgid "The selected role is no longer available."
 msgstr "Ọrụ ahọpụtara anaghịzi adị."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:187
+#: /home/tim/code/KwaMoja/WWW_Access.php:198
 msgid "Security Role Name"
 msgstr "Aha Ọrụ Nche"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:197
+#: /home/tim/code/KwaMoja/WWW_Access.php:218
+msgid "Is the role a clinical one. For instance, doctor, or a nurse"
+msgstr "Ọ bụ ọrụ bụ ụlọọgwụ. "
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
 msgstr "Banye Ọrụ"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:222
+#: /home/tim/code/KwaMoja/WWW_Access.php:248
 msgid "Assigned Security Tokens"
 msgstr "Edebere Tokens Security"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:223
+#: /home/tim/code/KwaMoja/WWW_Access.php:249
 msgid "Available Security Tokens"
 msgstr "Nche Tokyo E Nwere"
 
@@ -68056,7 +68179,7 @@ msgid "Create New Employee Details"
 msgstr "Mepụta nkọwa ndị ọrụ ọhụụ"
 
 #: /home/tim/code/KwaMoja/sql/updates/199.php:5
-#: /home/tim/code/KwaMoja/sql/updates/216.php:171
+#: /home/tim/code/KwaMoja/sql/updates/216.php:170
 msgid "Hospital Configuration Options"
 msgstr "Nhọrọ nhazi ụlọ ọgwụ"
 
@@ -68105,67 +68228,67 @@ msgstr "Nhazi ịkwụ ụgwọ oge niile"
 msgid "Process Regular Payments"
 msgstr "Usoro ịkwụ ụgwọ oge niile"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:17
+#: /home/tim/code/KwaMoja/sql/updates/216.php:16
 msgid "Pregnancy"
 msgstr "Ime"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:18
+#: /home/tim/code/KwaMoja/sql/updates/216.php:17
 msgid "Neonatal"
 msgstr "Ọgba ọhụrụ"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:19
+#: /home/tim/code/KwaMoja/sql/updates/216.php:18
 msgid "Encounter"
 msgstr "Na-ezukọta"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:20
+#: /home/tim/code/KwaMoja/sql/updates/216.php:19
 msgid "OP"
 msgstr "OP"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:21
+#: /home/tim/code/KwaMoja/sql/updates/216.php:20
 msgid "Anesthesia"
 msgstr "Ahụhụ"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:22
+#: /home/tim/code/KwaMoja/sql/updates/216.php:21
 msgid "Prescription"
 msgstr "Ndenye ọgwụ"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:168
+#: /home/tim/code/KwaMoja/sql/updates/216.php:167
 msgid "Hospital Setup"
 msgstr "Mbido ụlọ ọgwụ"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:174
+#: /home/tim/code/KwaMoja/sql/updates/216.php:173
 msgid "Select Patient"
 msgstr "Họrọ Ndidi"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:203
+#: /home/tim/code/KwaMoja/sql/updates/216.php:202
 msgid "Regular discharge"
 msgstr "Nwepu oge nile"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:204
+#: /home/tim/code/KwaMoja/sql/updates/216.php:203
 msgid "Patient left hospital on his own will"
 msgstr "Onye ọrịa hapụrụ uche ya"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:205
+#: /home/tim/code/KwaMoja/sql/updates/216.php:204
 msgid "Emergency discharge"
 msgstr "Nwepu ihe mberede"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:206
+#: /home/tim/code/KwaMoja/sql/updates/216.php:205
 msgid "Change of ward"
 msgstr "Mgbanwe nke ngalaba"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:207
+#: /home/tim/code/KwaMoja/sql/updates/216.php:206
 msgid "Change of room"
 msgstr "Mgbanwe nke ime ụlọ"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:208
+#: /home/tim/code/KwaMoja/sql/updates/216.php:207
 msgid "Change of bed"
 msgstr "Ofgbanwe akwa"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:209
+#: /home/tim/code/KwaMoja/sql/updates/216.php:208
 msgid "Death of patient"
 msgstr "Ọnwụ onye ọrịa"
 
-#: /home/tim/code/KwaMoja/sql/updates/216.php:210
+#: /home/tim/code/KwaMoja/sql/updates/216.php:209
 msgid "Change of department"
 msgstr "Mgbanwe nke ngalaba"
 
@@ -69011,3 +69134,6 @@ msgstr "Mgbazinye ndị ọrụ"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Lokwụ gwọ Ọrụ na Staffgwọ Ọrụ"
+
+#~ msgid "The update of the security role failed because"
+#~ msgstr "Mmelite nke ọrụ nchekwa ahụ dara n'ihi"

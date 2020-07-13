@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 12:13+0100\n"
+"POT-Creation-Date: 2020-07-13 13:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -397,7 +397,7 @@ msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε 
 #: /home/tim/code/KwaMoja/Timesheets.php:657
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:175
 #: /home/tim/code/KwaMoja/WOSerialNos.php:316
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 #: /home/tim/code/KwaMoja/WWW_Users.php:436
 #: /home/tim/code/KwaMoja/WorkCentres.php:156
 #: /home/tim/code/KwaMoja/prlBP.php:219
@@ -615,7 +615,7 @@ msgstr "Η μέθοδος κατάταξης αποθηκεύτηκε με επ�
 #: /home/tim/code/KwaMoja/TaxProvinces.php:184
 #: /home/tim/code/KwaMoja/Timesheets.php:531
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:174
-#: /home/tim/code/KwaMoja/WWW_Access.php:150
+#: /home/tim/code/KwaMoja/WWW_Access.php:159
 #: /home/tim/code/KwaMoja/WWW_Users.php:435
 #: /home/tim/code/KwaMoja/WorkCentres.php:155
 #: /home/tim/code/KwaMoja/prlALD.php:161 /home/tim/code/KwaMoja/prlBP.php:218
@@ -1097,7 +1097,7 @@ msgstr "Δεν είναι δυνατή η διαγραφή αυτής της ο�
 #: /home/tim/code/KwaMoja/TaxGroups.php:151
 #: /home/tim/code/KwaMoja/TaxProvinces.php:127
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:128
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 #: /home/tim/code/KwaMoja/WorkCentres.php:91
 #: /home/tim/code/KwaMoja/WorkCentres.php:97
 #: /home/tim/code/KwaMoja/prlCurrencies.php:119
@@ -1460,6 +1460,9 @@ msgstr "Όνομα ομάδας γονέων"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:153
+#: /home/tim/code/KwaMoja/WWW_Access.php:212
+#: /home/tim/code/KwaMoja/WWW_Access.php:215
 #: /home/tim/code/KwaMoja/WWW_Users.php:582
 #: /home/tim/code/KwaMoja/WWW_Users.php:584
 #: /home/tim/code/KwaMoja/WWW_Users.php:627
@@ -1751,6 +1754,9 @@ msgstr "Ναί"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:211
+#: /home/tim/code/KwaMoja/WWW_Access.php:214
 #: /home/tim/code/KwaMoja/WWW_Users.php:581
 #: /home/tim/code/KwaMoja/WWW_Users.php:585
 #: /home/tim/code/KwaMoja/WWW_Users.php:626
@@ -2160,8 +2166,8 @@ msgstr "Ονομα"
 #: /home/tim/code/KwaMoja/Customers.php:690
 #: /home/tim/code/KwaMoja/Customers.php:698
 #: /home/tim/code/KwaMoja/SelectCustomer.php:772
-#: /home/tim/code/KwaMoja/WWW_Access.php:140
-#: /home/tim/code/KwaMoja/WWW_Access.php:192
+#: /home/tim/code/KwaMoja/WWW_Access.php:142
+#: /home/tim/code/KwaMoja/WWW_Access.php:203
 msgid "Role"
 msgstr "Ρόλος"
 
@@ -14548,7 +14554,7 @@ msgstr "Περιγραφή αποθέματος πελατών"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:482
 #: /home/tim/code/KwaMoja/TestPlanResults.php:547
 #: /home/tim/code/KwaMoja/WOSerialNos.php:266
-#: /home/tim/code/KwaMoja/WWW_Access.php:240
+#: /home/tim/code/KwaMoja/WWW_Access.php:266
 msgid "Add"
 msgstr "Προσθήκη"
 
@@ -17614,7 +17620,7 @@ msgstr "Επίπεδο ασφαλείας"
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
-#: /home/tim/code/KwaMoja/WWW_Access.php:233
+#: /home/tim/code/KwaMoja/WWW_Access.php:259
 msgid "Remove"
 msgstr "Αφαιρώ"
 
@@ -25772,8 +25778,8 @@ msgid "PID"
 msgstr "PID"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:56
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
@@ -25852,8 +25858,8 @@ msgstr "Μεταφέρετε τον ασθενή σε άλλο κρεβάτι"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:256
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:3
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:119
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "Απαλλαγή ασθενούς"
 
@@ -26361,11 +26367,28 @@ msgstr "Εξετάστηκε νευρικό σύστημα"
 msgid "Save Data"
 msgstr "Αποθήκευση δεδομένων"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:53
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
+msgid "There was an error updating the encounter record"
+msgstr "Παρουσιάστηκε σφάλμα κατά την ενημέρωση της εγγραφής συνάντησης"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:83
+msgid "There was an error updating the ward record"
+msgstr "Παρουσιάστηκε σφάλμα κατά την ενημέρωση της εγγραφής θαλάμου"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+msgid "There was an error updating the room record"
+msgstr "Παρουσιάστηκε σφάλμα κατά την ενημέρωση της εγγραφής δωματίου"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:116
+msgid "The patieent has been successfully discharged"
+msgstr "Το δίπλωμα ευρεσιτεχνίας απολύθηκε επιτυχώς"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:125
 msgid "Patient Discharge Details"
 msgstr "Λεπτομέρειες απαλλαγής ασθενούς"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:61
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
@@ -26373,7 +26396,7 @@ msgstr "Λεπτομέρειες απαλλαγής ασθενούς"
 msgid "Patient Name"
 msgstr "Ονομα ασθενή"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:66
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:138
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:562
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
@@ -26381,34 +26404,36 @@ msgstr "Ονομα ασθενή"
 msgid "Date of Birth"
 msgstr "Ημερομηνια γεννησης"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 msgid "Ward"
 msgstr "Πτέρυγα"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:80
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:152
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:258
 msgid "Room"
 msgstr "Δωμάτιο"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:85
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:157
 msgid "Discharge Date"
 msgstr "Ημερομηνία απελασης"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:90
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:162
 msgid "Discharge Time"
 msgstr "Χρόνος απαλλαγής"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:169
 msgid "Discharge Type"
 msgstr "Τύπος απαλλαγής"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:106
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:178
 msgid "Discharge Notes"
 msgstr "Σημειώσεις απαλλαγής"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/WWW_Access.php:143
+#: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
 msgstr "Κλινικός ιατρός"
 
@@ -52353,75 +52378,79 @@ msgstr "Συντήρηση δικαιωμάτων πρόσβασης"
 msgid "The role description entered must be at least 4 characters long"
 msgstr "Η περιγραφή ρόλου που καταχωρίσατε πρέπει να έχει μήκος τουλάχιστον 4 χαρακτήρων"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:49
+#: /home/tim/code/KwaMoja/WWW_Access.php:50
 msgid "The update of the security role description failed because"
 msgstr "Η ενημέρωση της ενημέρωσης του ρόλου ασφαλείας απέτυχε επειδή"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:50
+#: /home/tim/code/KwaMoja/WWW_Access.php:51
 msgid "The Security role description was updated."
 msgstr "Η περιγραφή του ρόλου ασφαλείας ενημερώθηκε."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:53
-msgid "The update of the security role failed because"
-msgstr "Η ενημέρωση του ρόλου ασφαλείας απέτυχε επειδή"
-
 #: /home/tim/code/KwaMoja/WWW_Access.php:54
+msgid "The insert of the security role failed because"
+msgstr "Η εισαγωγή του ρόλου ασφαλείας απέτυχε επειδή"
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:55
 msgid "The Security role was created."
 msgstr "Ο ρόλος ασφαλείας δημιουργήθηκε."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:64
+#: /home/tim/code/KwaMoja/WWW_Access.php:65
 msgid "The addition of the page group access failed because"
 msgstr "Η προσθήκη της πρόσβασης σε ομάδα σελίδων απέτυχε επειδή"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:65
+#: /home/tim/code/KwaMoja/WWW_Access.php:66
 msgid "The page group access was added."
 msgstr "Προστέθηκε η πρόσβαση στην ομάδα σελίδων."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:70
+#: /home/tim/code/KwaMoja/WWW_Access.php:71
 msgid "The removal of this page-group access failed because"
 msgstr "Η κατάργηση αυτής της πρόσβασης σε ομάδα σελίδων απέτυχε επειδή"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:71
+#: /home/tim/code/KwaMoja/WWW_Access.php:72
 msgid "This page-group access was removed."
 msgstr "Αυτή η πρόσβαση σε ομάδα σελίδων καταργήθηκε."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:114
+#: /home/tim/code/KwaMoja/WWW_Access.php:115
 msgid "Cannot delete this role because user accounts are setup using it"
 msgstr "Δεν είναι δυνατή η διαγραφή αυτού του ρόλου επειδή οι λογαριασμοί χρηστών έχουν ρυθμιστεί χρησιμοποιώντας το"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 msgid "user accounts that have this security role setting"
 msgstr "λογαριασμούς χρηστών που έχουν αυτήν τη ρύθμιση ρόλου ασφαλείας"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:121
+#: /home/tim/code/KwaMoja/WWW_Access.php:122
 msgid "security role has been deleted"
 msgstr "ο ρόλος ασφαλείας έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 msgid "Are you sure you wish to delete this role?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον ρόλο;"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:161
+#: /home/tim/code/KwaMoja/WWW_Access.php:170
 msgid "Review Existing Roles"
 msgstr "Ανασκόπηση υφιστάμενων ρόλων"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:173
+#: /home/tim/code/KwaMoja/WWW_Access.php:183
 msgid "The selected role is no longer available."
 msgstr "Ο επιλεγμένος ρόλος δεν είναι πλέον διαθέσιμος."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:187
+#: /home/tim/code/KwaMoja/WWW_Access.php:198
 msgid "Security Role Name"
 msgstr "Όνομα ρόλου ασφαλείας"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:197
+#: /home/tim/code/KwaMoja/WWW_Access.php:218
+msgid "Is the role a clinical one. For instance, doctor, or a nurse"
+msgstr "Είναι ο ρόλος κλινικός. "
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
 msgstr "Εισαγάγετε τον ρόλο"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:222
+#: /home/tim/code/KwaMoja/WWW_Access.php:248
 msgid "Assigned Security Tokens"
 msgstr "Αποδεδειγμένοι κωδικοί ασφαλείας"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:223
+#: /home/tim/code/KwaMoja/WWW_Access.php:249
 msgid "Available Security Tokens"
 msgstr "Διαθέσιμα σύμβολα ασφαλείας"
 
@@ -69105,6 +69134,9 @@ msgstr "Δάνεια Προσωπικού"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Αποπληρωμές δανείου προσωπικού"
+
+#~ msgid "The update of the security role failed because"
+#~ msgstr "Η ενημέρωση του ρόλου ασφαλείας απέτυχε επειδή"
 
 #~ msgid "Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes"
 #~ msgstr "Ο διακομιστής σας έχει ρυθμιστεί ώστε να ενεργοποιεί τις Magic Quotes. "

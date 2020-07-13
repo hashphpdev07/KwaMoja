@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-09 12:35+0100\n"
+"POT-Creation-Date: 2020-07-13 13:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -397,7 +397,7 @@ msgstr "Opravdu chcete smazat tuto skupinu hodnocení?"
 #: /home/tim/code/KwaMoja/Timesheets.php:657
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:175
 #: /home/tim/code/KwaMoja/WOSerialNos.php:316
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 #: /home/tim/code/KwaMoja/WWW_Users.php:436
 #: /home/tim/code/KwaMoja/WorkCentres.php:156
 #: /home/tim/code/KwaMoja/prlBP.php:219
@@ -615,7 +615,7 @@ msgstr "Metoda hodnocení byla úspěšně uložena do databáze"
 #: /home/tim/code/KwaMoja/TaxProvinces.php:184
 #: /home/tim/code/KwaMoja/Timesheets.php:531
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:174
-#: /home/tim/code/KwaMoja/WWW_Access.php:150
+#: /home/tim/code/KwaMoja/WWW_Access.php:159
 #: /home/tim/code/KwaMoja/WWW_Users.php:435
 #: /home/tim/code/KwaMoja/WorkCentres.php:155
 #: /home/tim/code/KwaMoja/prlALD.php:161 /home/tim/code/KwaMoja/prlBP.php:218
@@ -1097,7 +1097,7 @@ msgstr "Tuto skupinu účtů nelze odstranit, protože účty hlavní knihy byly
 #: /home/tim/code/KwaMoja/TaxGroups.php:151
 #: /home/tim/code/KwaMoja/TaxProvinces.php:127
 #: /home/tim/code/KwaMoja/UnitsOfMeasure.php:128
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 #: /home/tim/code/KwaMoja/WorkCentres.php:91
 #: /home/tim/code/KwaMoja/WorkCentres.php:97
 #: /home/tim/code/KwaMoja/prlCurrencies.php:119
@@ -1460,6 +1460,9 @@ msgstr "Nadřazený název skupiny"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:153
+#: /home/tim/code/KwaMoja/WWW_Access.php:212
+#: /home/tim/code/KwaMoja/WWW_Access.php:215
 #: /home/tim/code/KwaMoja/WWW_Users.php:582
 #: /home/tim/code/KwaMoja/WWW_Users.php:584
 #: /home/tim/code/KwaMoja/WWW_Users.php:627
@@ -1751,6 +1754,9 @@ msgstr "Ano"
 #: /home/tim/code/KwaMoja/UserSettings.php:239
 #: /home/tim/code/KwaMoja/UserSettings.php:249
 #: /home/tim/code/KwaMoja/UserSettings.php:251
+#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:211
+#: /home/tim/code/KwaMoja/WWW_Access.php:214
 #: /home/tim/code/KwaMoja/WWW_Users.php:581
 #: /home/tim/code/KwaMoja/WWW_Users.php:585
 #: /home/tim/code/KwaMoja/WWW_Users.php:626
@@ -2160,8 +2166,8 @@ msgstr "název"
 #: /home/tim/code/KwaMoja/Customers.php:690
 #: /home/tim/code/KwaMoja/Customers.php:698
 #: /home/tim/code/KwaMoja/SelectCustomer.php:772
-#: /home/tim/code/KwaMoja/WWW_Access.php:140
-#: /home/tim/code/KwaMoja/WWW_Access.php:192
+#: /home/tim/code/KwaMoja/WWW_Access.php:142
+#: /home/tim/code/KwaMoja/WWW_Access.php:203
 msgid "Role"
 msgstr "Role"
 
@@ -14548,7 +14554,7 @@ msgstr "Popis zásob zákazníka"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:482
 #: /home/tim/code/KwaMoja/TestPlanResults.php:547
 #: /home/tim/code/KwaMoja/WOSerialNos.php:266
-#: /home/tim/code/KwaMoja/WWW_Access.php:240
+#: /home/tim/code/KwaMoja/WWW_Access.php:266
 msgid "Add"
 msgstr "Přidat"
 
@@ -17614,7 +17620,7 @@ msgstr "Úroveň zabezpečení"
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
-#: /home/tim/code/KwaMoja/WWW_Access.php:233
+#: /home/tim/code/KwaMoja/WWW_Access.php:259
 msgid "Remove"
 msgstr "Odstranit"
 
@@ -25772,8 +25778,8 @@ msgid "PID"
 msgstr "PID"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:128
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:56
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
@@ -25852,8 +25858,8 @@ msgstr "Přeneste pacienta na jiné lůžko"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:256
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:3
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:46
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:119
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:49
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "Uvolněte pacienta"
 
@@ -26361,11 +26367,28 @@ msgstr "Byl zkoumán nervový systém"
 msgid "Save Data"
 msgstr "Uložit data"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:53
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
+msgid "There was an error updating the encounter record"
+msgstr "Při aktualizaci záznamu o setkání došlo k chybě"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:83
+msgid "There was an error updating the ward record"
+msgstr "Při aktualizaci záznamu oddělení došlo k chybě"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+msgid "There was an error updating the room record"
+msgstr "Při aktualizaci záznamu o místnosti došlo k chybě"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:116
+msgid "The patieent has been successfully discharged"
+msgstr "Patieent byl úspěšně propuštěn"
+
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:125
 msgid "Patient Discharge Details"
 msgstr "Podrobnosti o vyložení pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:61
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
@@ -26373,7 +26396,7 @@ msgstr "Podrobnosti o vyložení pacienta"
 msgid "Patient Name"
 msgstr "Jméno pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:66
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:138
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:562
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
@@ -26381,34 +26404,36 @@ msgstr "Jméno pacienta"
 msgid "Date of Birth"
 msgstr "Datum narození"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:75
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 msgid "Ward"
 msgstr "Ward"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:80
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:152
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:258
 msgid "Room"
 msgstr "Pokoj, místnost"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:85
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:157
 msgid "Discharge Date"
 msgstr "Datum propuštění"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:90
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:162
 msgid "Discharge Time"
 msgstr "Čas vybití"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:97
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:169
 msgid "Discharge Type"
 msgstr "Typ výboje"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:106
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:178
 msgid "Discharge Notes"
 msgstr "Poznámky k vybití"
 
-#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:111
+#: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/WWW_Access.php:143
+#: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
 msgstr "Lékař"
 
@@ -52353,75 +52378,79 @@ msgstr "Údržba oprávnění přístupu"
 msgid "The role description entered must be at least 4 characters long"
 msgstr "Zadaný popis role musí mít délku nejméně 4 znaků"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:49
+#: /home/tim/code/KwaMoja/WWW_Access.php:50
 msgid "The update of the security role description failed because"
 msgstr "Aktualizace popisu úlohy zabezpečení selhala, protože"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:50
+#: /home/tim/code/KwaMoja/WWW_Access.php:51
 msgid "The Security role description was updated."
 msgstr "Popis role role byl aktualizován."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:53
-msgid "The update of the security role failed because"
-msgstr "Aktualizace role zabezpečení se nezdařila"
-
 #: /home/tim/code/KwaMoja/WWW_Access.php:54
+msgid "The insert of the security role failed because"
+msgstr "Vložení role zabezpečení se nezdařilo, protože"
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:55
 msgid "The Security role was created."
 msgstr "Byla vytvořena role zabezpečení."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:64
+#: /home/tim/code/KwaMoja/WWW_Access.php:65
 msgid "The addition of the page group access failed because"
 msgstr "Přidání přístupu do skupiny stránek se nezdařilo"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:65
+#: /home/tim/code/KwaMoja/WWW_Access.php:66
 msgid "The page group access was added."
 msgstr "Byl přidán přístup do skupiny stránek."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:70
+#: /home/tim/code/KwaMoja/WWW_Access.php:71
 msgid "The removal of this page-group access failed because"
 msgstr "Odstranění přístupu této skupiny stránek se nezdařilo"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:71
+#: /home/tim/code/KwaMoja/WWW_Access.php:72
 msgid "This page-group access was removed."
 msgstr "Tento přístup ke skupině stránek byl odebrán."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:114
+#: /home/tim/code/KwaMoja/WWW_Access.php:115
 msgid "Cannot delete this role because user accounts are setup using it"
 msgstr "Tuto roli nelze odstranit, protože uživatelské účty jsou nastaveny pomocí této funkce"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:115
+#: /home/tim/code/KwaMoja/WWW_Access.php:116
 msgid "user accounts that have this security role setting"
 msgstr "uživatelské účty, které mají toto nastavení role zabezpečení"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:121
+#: /home/tim/code/KwaMoja/WWW_Access.php:122
 msgid "security role has been deleted"
 msgstr "role zabezpečení byla odstraněna"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:151
+#: /home/tim/code/KwaMoja/WWW_Access.php:160
 msgid "Are you sure you wish to delete this role?"
 msgstr "Opravdu chcete tuto roli smazat?"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:161
+#: /home/tim/code/KwaMoja/WWW_Access.php:170
 msgid "Review Existing Roles"
 msgstr "Zkontrolujte existující role"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:173
+#: /home/tim/code/KwaMoja/WWW_Access.php:183
 msgid "The selected role is no longer available."
 msgstr "Vybraná role již není k dispozici."
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:187
+#: /home/tim/code/KwaMoja/WWW_Access.php:198
 msgid "Security Role Name"
 msgstr "Název role zabezpečení"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:197
+#: /home/tim/code/KwaMoja/WWW_Access.php:218
+msgid "Is the role a clinical one. For instance, doctor, or a nurse"
+msgstr "Je role klinická. "
+
+#: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
 msgstr "Zadejte roli"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:222
+#: /home/tim/code/KwaMoja/WWW_Access.php:248
 msgid "Assigned Security Tokens"
 msgstr "Přiřazené bezpečnostní tokeny"
 
-#: /home/tim/code/KwaMoja/WWW_Access.php:223
+#: /home/tim/code/KwaMoja/WWW_Access.php:249
 msgid "Available Security Tokens"
 msgstr "Dostupné bezpečnostní značky"
 
@@ -69105,6 +69134,9 @@ msgstr "Zaměstnanecké půjčky"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Splátky zaměstnanců"
+
+#~ msgid "The update of the security role failed because"
+#~ msgstr "Aktualizace role zabezpečení se nezdařila"
 
 #~ msgid "Your webserver is configured to enable Magic Quotes. This may cause problems if you use punctuation (such as quotes) when doing data entry. You should contact your webmaster to disable Magic Quotes"
 #~ msgstr "Váš webový server je nakonfigurován tak, aby umožňoval Magic Quotes.  To může způsobit problémy při použití interpunkce (například uvozovek) při zadávání dat.  Měli byste kontaktovat svého správce webu, abyste zakázali Magic Quotes"
