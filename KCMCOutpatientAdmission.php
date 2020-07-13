@@ -213,7 +213,7 @@ if (!isset($SelectedPatient)) {
 					</tr>';
 
 			while ($MyRow = DB_fetch_array($Result)) {
-				$SQL = "SELECT pid FROM care_encounter WHERE pid='" . $MyRow['debtorno'] . "' AND is_discharged=0 AND (current_dept_nr<>0 OR current_ward_nr<>0)";
+				$SQL = "SELECT pid FROM care_encounter WHERE pid='" . $MyRow['debtorno'] . "' AND is_discharged=1 AND (current_dept_nr<>0 OR current_ward_nr<>0)";
 				$CheckResult = DB_query($SQL);
 				if (DB_num_rows($CheckResult) == 0) {
 					$Address = '';
@@ -288,6 +288,7 @@ if (isset($_GET['Edit'])) {
 	$EncounterRow['referrer_dr'] = '';
 	$EncounterRow['referrer_dept'] = '';
 	$EncounterRow['referrer_notes'] = '';
+	$EncounterRow['insurance_nr'] = '';
 }
 
 echo '<form action="', $_SERVER['PHP_SELF'], '" method="post">';
