@@ -12,6 +12,7 @@ echo '<p class="page_title_text">
 	</p>';
 
 include ('includes/SQL_CommonFunctions.php');
+include ('includes/HospitalFunctions.php');
 
 if (isset($_GET['Select'])) {
 	$_SESSION['PatientID'] = $_GET['Select'];
@@ -90,6 +91,9 @@ if ($_SESSION['PatientID'] != '' and !isset($_POST['Search'])) {
 				</li>
 				<li class="MenuItem">
 					<a href="', $RootPath, '/KCMCOutpatientAdmission.php?Edit=Yes&SelectedPatient=', urlencode($_SESSION['PatientID']), '">', _('Modify Outpatient admission data'), '</a>
+				</li>
+				<li class="MenuItem">
+					<a href="', $RootPath, '/KCMCDischargePatient.php?Encounter=', urlencode(GetEncounterFromPID($_SESSION['PatientID'])), '">', _('Discharge this patient'), '</a>
 				</li>
 			</ul>
 		</fieldset>';
