@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 13:20+0100\n"
+"POT-Creation-Date: 2020-07-17 02:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -311,10 +311,12 @@ msgstr "؟دینک فذح ار یدنب هبتر هورگ نیا دیهاوخ ی
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
@@ -556,9 +558,11 @@ msgstr "هریخذ هداد هاگیاپ هب تیقفوم اب تسا هدش ی
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
@@ -812,7 +816,7 @@ msgstr "تسا هدش هداد رییغت باسح هورگ هب "
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
@@ -2058,8 +2062,10 @@ msgstr "تسین ربتعم لیمیا سردآ کی تسا سامت لیمیا 
 #: /home/tim/code/KwaMoja/Factors.php:102
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:235
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2132,8 +2138,8 @@ msgstr "تسا هدش فذح بطاخم دروکر "
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:319
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2687,10 +2693,13 @@ msgstr "یدوجوم "
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -3659,9 +3668,9 @@ msgstr "آخرین دوره را در گزارش انتخاب کنید"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:126
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:137
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:148
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -4566,7 +4575,7 @@ msgstr "ربراک "
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -4607,6 +4616,12 @@ msgstr "یناشن "
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
@@ -5464,7 +5479,7 @@ msgstr "یا بخشی از کد موارد را وارد کنید"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:162
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -6559,7 +6574,6 @@ msgstr "هدش باختنا زونه "
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:176
 #: /home/tim/code/KwaMoja/LocationUsers.php:134
 #: /home/tim/code/KwaMoja/LocationUsers.php:247
 #: /home/tim/code/KwaMoja/OffersReceived.php:112
@@ -8074,7 +8088,7 @@ msgstr "دندش هدنادرگزاب لیلد LQS راثآ تاشرافس نو�
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:47
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8105,6 +8119,12 @@ msgstr "رییغت "
 
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:482
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:513
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
@@ -12023,7 +12043,7 @@ msgstr "طباوض و دینک باختنا :دادرارق "
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:115
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -14624,7 +14644,7 @@ msgid "Select A Customer"
 msgstr "طباوض و کی باختنا "
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -16019,7 +16039,7 @@ msgstr "از این شعبه به عنوان پیش فرض برای فروش ن�
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16676,6 +16696,7 @@ msgstr "بسچرب "
 #: /home/tim/code/KwaMoja/SystemParameters.php:1096
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
+#: /home/tim/code/KwaMoja/sql/updates/217.php:21
 msgid "None"
 msgstr "چیه "
 
@@ -16868,6 +16889,8 @@ msgstr "طباوض و عاونا "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:3
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
@@ -16876,7 +16899,7 @@ msgstr "طباوض و عاونا "
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintenance"
 msgstr "یرادهگن "
 
@@ -16913,13 +16936,14 @@ msgstr ".تسا دوجوم لبق زا "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
 msgid "Customer type"
 msgstr "طباوض و عون "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -16974,15 +16998,18 @@ msgid "customers with this type code"
 msgstr "عون دک نیا اب نایرتشم "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "دوش فذح لیلد هب دناوت یمن عون دروکر "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:175
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:115
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:158
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
@@ -16991,9 +17018,13 @@ msgstr "DI عون "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:116
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:170
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
@@ -17003,7 +17034,9 @@ msgid "Type Name"
 msgstr "مان عون "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "؟یرتشم عون نیا فذح دیهاوخیم هک دیتسه نئمطم امش ایآ "
 
@@ -17832,6 +17865,7 @@ msgstr "ضرع "
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:284
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:87
+#: /home/tim/code/KwaMoja/sql/updates/217.php:440
 msgid "Length"
 msgstr "لوط "
 
@@ -17839,6 +17873,7 @@ msgstr "لوط "
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
+#: /home/tim/code/KwaMoja/sql/updates/217.php:241
 msgid "Height"
 msgstr "عافترا "
 
@@ -21848,6 +21883,7 @@ msgstr "لداعم دقن لوپ ای و یدقن "
 #: /home/tim/code/KwaMoja/sql/updates/12.php:392
 #: /home/tim/code/KwaMoja/sql/updates/12.php:403
 #: /home/tim/code/KwaMoja/sql/updates/12.php:414
+#: /home/tim/code/KwaMoja/sql/updates/217.php:22
 msgid "Unknown"
 msgstr "هتخانشان "
 
@@ -23134,9 +23170,10 @@ msgstr "بسچرب حرش "
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
+#: /home/tim/code/KwaMoja/sql/updates/217.php:74
 msgid "Department"
 msgstr "شخب "
 
@@ -25782,7 +25819,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
 msgstr "شماره پرونده"
@@ -25862,6 +25899,121 @@ msgstr "بیمار را به تخت دیگری منتقل کنید"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "مرخص بیمار"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Types"
+msgstr "انواع بی حسی"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Type Setup"
+msgstr "تنظیم نوع بیهوشی"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:15
+msgid "Add/edit/delete Anaesthesia Types"
+msgstr "انواع بیهوشی را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:28
+msgid "The anaesthesia type name description must be 100 characters or less long"
+msgstr "شرح نام نوع بیهوشی باید 100 نویسه یا کمتر طول داشته باشد"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:33
+msgid "The anaesthesia type name description must contain at least one character"
+msgstr "شرح نام نوع بیهوشی باید حداقل یک شخصیت داشته باشد"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The anaesthesia type"
+msgstr "نوع بیهوشی"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an anaesthesia type called"
+msgstr "شما در حال حاضر نوع بیهوشی به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Anaesthesia type"
+msgstr "نوع بیهوشی"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The anaesthesia type has been deleted"
+msgstr "نوع بیهوشی حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
+msgid "Type Description"
+msgstr "توضیحات نوع"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Anaesthesia Type"
+msgstr "نوع بیهوشی را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/ProductSpecs.php:380
+#: /home/tim/code/KwaMoja/QATests.php:391
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
+msgid "Active"
+msgstr "لاعف "
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Anaesthesia Type"
+msgstr "نوع بی حسی جدیدی ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+msgid "Inactive"
+msgstr "غیر فعال"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Anaesthesia Type"
+msgstr "نوع بیهوشی را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Anaesthesia Type"
+msgstr "نوع بیهوشی ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Types"
+msgstr "انواع برنامه ها"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Type Setup"
+msgstr "نوع تنظیم برنامه"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:15
+msgid "Add/edit/delete Application Types"
+msgstr "انواع برنامه ها را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:28
+msgid "The application type name description must be 100 characters or less long"
+msgstr "شرح نام نوع برنامه باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
+msgid "The application type name description must contain at least one character"
+msgstr "شرح نام نوع برنامه باید حداقل دارای یک شخصیت باشد"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -25957,6 +26109,8 @@ msgid "Edema Description"
 msgstr "توضیحات ادم"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
+#: /home/tim/code/KwaMoja/sql/updates/217.php:237
+#: /home/tim/code/KwaMoja/sql/updates/217.php:442
 msgid "Temperature"
 msgstr "درجه حرارت"
 
@@ -26315,7 +26469,7 @@ msgstr "سیستم ادراری"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:305
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -26326,7 +26480,7 @@ msgstr "رن "
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -26407,6 +26561,7 @@ msgstr "دلوت خیرات "
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
+#: /home/tim/code/KwaMoja/sql/updates/217.php:73
 msgid "Ward"
 msgstr "بخش"
 
@@ -26572,7 +26727,7 @@ msgstr "با موفقیت به روز شد"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:336
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -26589,7 +26744,7 @@ msgstr "ارتباط جنسی"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:415
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "شرکت بیمه"
@@ -27066,31 +27221,31 @@ msgid "There are no patients matching this criteria"
 msgstr "هیچ بیمار مطابق با این معیارها وجود ندارد"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "آقای"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "خانم"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "از دست دادن"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "خانم"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "دکتر"
@@ -27100,7 +27255,7 @@ msgid "Update Admission data for"
 msgstr "داده های پذیرش را به روز کنید"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "Admit"
 msgstr "اقرار کردن"
 
@@ -27109,23 +27264,23 @@ msgid "as an inpatient"
 msgstr "به عنوان بستری"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:311
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
 msgid "Admission Date"
 msgstr "تاریخ پذیرش"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:315
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
 msgid "Admission Time"
 msgstr "زمان پذیرش"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:327
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "گروه خونی"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:331
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -27134,42 +27289,42 @@ msgid "Gender"
 msgstr "سنج "
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
 msgid "Admission Type"
 msgstr "نوع پذیرش"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
 msgid "A type of admission."
 msgstr "یک نوع پذیرش."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "White"
 msgstr "سفید"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Green"
 msgstr "سبز"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Yellow"
 msgstr "رنگ زرد"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Red"
 msgstr "قرمز"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:358
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
 msgid "Triage Code"
 msgstr "کد آزمایشی"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:368
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "کد تریاژ برای این بیمار ، از جدی ترین رنگ سفید ، و جدی ترین رنگ قرمز است."
 
@@ -27178,33 +27333,33 @@ msgid "The ward that this patient is being admitted to."
 msgstr "بخشي كه در اين بيمارستان بستري است."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:388
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
 msgid "Referrer Diagnosis"
 msgstr "تشخیص ارجاع"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:393
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
 msgid "Referred By"
 msgstr "ارجاع شده توسط"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:398
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
 msgid "Referrer Therapy"
 msgstr "مراجعه کننده درمانی"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:403
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
 msgid "Referrer Notes"
 msgstr "یادداشت های ارجاع دهنده"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "شرکت بیمه ، در صورت وجود ، متعلق به این بیمار است"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Insurance Number"
 msgstr "شماره بیمه"
 
@@ -27472,45 +27627,57 @@ msgid "Include"
 msgstr "عبارتند از"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Types"
 msgstr "انواع بیمه"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Type Setup"
 msgstr "نوع تنظیم بیمه"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:19
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:15
 msgid "Add/edit/delete Insurance Types"
 msgstr "انواع بیمه را اضافه یا ویرایش کنید"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:32
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:28
 msgid "The insurance type name description must be 100 characters or less long"
 msgstr "شرح نوع بیمه باید 100 نویسه یا کمتر باشد"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:37
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:33
 msgid "The insurnace type name description must contain at least one character"
 msgstr "توضیحات نام نوع insurnace باید حداقل یک شخصیت داشته باشد"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:48
-msgid "You already have an insurance type called"
-msgstr "شما قبلاً یک نوع بیمه به نام دارید"
-
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 msgid "The insurance type"
 msgstr "نوع بیمه"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:84
-msgid "The number of insurance companies using this type could not be retrieved"
-msgstr "تعداد شرکتهای بیمه ای که از این نوع استفاده می کنند قابل بازیابی نیست"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+msgid "You already have an insurance type called"
+msgstr "شما قبلاً یک نوع بیمه به نام دارید"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:89
-msgid "Cannot delete this type because insurance companies have been created using this type"
-msgstr "این نوع حذف نمی شود زیرا شرکت های بیمه با استفاده از این نوع ایجاد شده اند"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+msgid "Insurance type"
+msgstr "نوع بیمه"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:107
 msgid "The insurance type has been deleted"
 msgstr "نوع بیمه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:181
+msgid "Edit Insurance Type"
+msgstr "ویرایش نوع بیمه"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:195
+msgid "Create New Insurance Type"
+msgstr "نوع بیمه جدید ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:230
+msgid "Update Insurance Type"
+msgstr "نوع بیمه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:234
+msgid "Create Insurance Type"
+msgstr "نوع بیمه را ایجاد کنید"
 
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:3
 msgid "Billing For Laboratory Tests"
@@ -27658,14 +27825,6 @@ msgstr "SQL استفاده شده برای به روزرسانی رکورد نو
 msgid "The encounter type was successfully updated"
 msgstr "نوع برخورد با موفقیت به روز شد"
 
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-#: /home/tim/code/KwaMoja/ProductSpecs.php:380
-#: /home/tim/code/KwaMoja/QATests.php:391
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
-msgid "Active"
-msgstr "لاعف "
-
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:95
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "InActive"
@@ -27678,10 +27837,6 @@ msgstr "ویرایش نوع برخورد"
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:139
 msgid "Create New Encounter Type"
 msgstr "نوع جدید برخورد را ایجاد کنید"
-
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-msgid "Inactive"
-msgstr "غیر فعال"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:166
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:393
@@ -27928,11 +28083,11 @@ msgstr "بستری شوید"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "این بیمار در حال حاضر به عنوان سرپایی بستری نیست"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "as an outpatient"
 msgstr "به عنوان سرپایی"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
 msgid "The department that this patient is being admitted to."
 msgstr "بخشي كه در اين بيمارستان بستري است."
 
@@ -28660,73 +28815,77 @@ msgstr "جستجو در بیماران"
 msgid "Patients"
 msgstr "بیماران"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:69
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 msgid "Patient"
 msgstr "صبور"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
 msgid "Select a menu option to operate using this patient"
 msgstr "با استفاده از این بیمار گزینه منو را انتخاب کنید"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:88
+#: /home/tim/code/KwaMoja/index.php:90
 msgid "Inquiries and Reports"
 msgstr "شرازگ و تالاوس "
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 msgid "Patient Inquiries"
 msgstr "سوالات بیمار"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:83
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
 msgid "Patient Transactions"
 msgstr "تراکنش های بیمار"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:86
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
 msgstr "داده های ثبت نام بیمار را اصلاح کنید"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:89
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:90
 msgid "Modify Inpatient admission data"
 msgstr "داده های بستری را اصلاح کنید"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:92
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:93
 msgid "Modify Outpatient admission data"
 msgstr "داده های بستری را اصلاح کنید"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:98
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
+msgid "Discharge this patient"
+msgstr "این بیمار را مرخص کنید"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
 msgid "Patient Maintenance"
 msgstr "نگهداری بیمار"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "جستجوی بیماران"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
 msgid "Enter a partial Name"
 msgstr "دینک دراو ار یئزج مان "
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:129
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "شماره پرونده بیمار جزئی را وارد کنید"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:140
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "یئزج دینک دراو ار نفلت هرامش "
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:151
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "دینک دراو ار سردآ زا یشخب "
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:163
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 #: /home/tim/code/KwaMoja/SelectCustomer.php:399
 msgid "CSV Format"
@@ -28971,6 +29130,8 @@ msgstr "جزئیات فیزیکی"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
+#: /home/tim/code/KwaMoja/sql/updates/217.php:240
+#: /home/tim/code/KwaMoja/sql/updates/217.php:439
 msgid "Weight"
 msgstr "نزو "
 
@@ -28997,6 +29158,7 @@ msgstr "خون"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
+#: /home/tim/code/KwaMoja/sql/updates/217.php:285
 msgid "Other"
 msgstr "دیگر"
 
@@ -31941,7 +32103,7 @@ msgstr "زا ار یرتشم هلماعم "
 
 #: /home/tim/code/KwaMoja/PDFCustTransListing.php:132
 #: /home/tim/code/KwaMoja/PDFSuppTransListing.php:131
-#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:62
+#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:64
 msgid "Transactions"
 msgstr "تالماعم "
 
@@ -37622,7 +37784,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "دراد دوجو زا ار دوخ باختنا قیبطت نایرتشم چیه "
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Statements"
 msgstr "یرتشم تاراهظا "
 
@@ -41964,7 +42126,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "ریز شخب باختنا تاناکما زا هدافتسا صاخ شخب کی یارب شورف تاشرافس یسررب یارب "
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Orders"
 msgstr "شورف یاه شرافس "
 
@@ -42885,6 +43047,7 @@ msgid "Batchs/Lots"
 msgstr "تال / shctaB "
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:165
+#: /home/tim/code/KwaMoja/sql/updates/217.php:438
 msgid "Volume"
 msgstr "مجح "
 
@@ -48274,7 +48437,7 @@ msgstr "یارب دینک دراو هب هجوت رابتعا هدننک هضر�
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "دیرخ تاشرافس "
@@ -56763,59 +56926,71 @@ msgstr "LMX دیلوت ییایفارغج دک "
 msgid "General Setup Options"
 msgstr "یمومع puteS یاه هنیزگ "
 
-#: /home/tim/code/KwaMoja/index.php:86
+#: /home/tim/code/KwaMoja/index.php:62
+msgid "General Hospital Setup"
+msgstr "راه اندازی بیمارستان عمومی"
+
+#: /home/tim/code/KwaMoja/index.php:88
 msgid "Receivables/Payables Setup"
 msgstr "یزادنا هار یهدب / تابلاطم "
 
-#: /home/tim/code/KwaMoja/index.php:115
+#: /home/tim/code/KwaMoja/index.php:117
 msgid "Inventory Setup"
 msgstr "یزادنا هار همانشسرپ "
 
-#: /home/tim/code/KwaMoja/index.php:152
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain types"
+msgstr "انواع را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain Types"
+msgstr "انواع را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/index.php:156
 msgid "Bank Checks"
 msgstr "کناب کچ "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Collection Letters"
 msgstr "همان هعومجم "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Bank Deposit Slips"
 msgstr "هقرو هدرپس کناب "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Invoices and Packing Slips"
 msgstr "یدنب هتسب یاه هقرو و اهروتکاف "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Customer"
 msgstr "طباوض و - اه بسچرب "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Vendor"
 msgstr "هدنشورف - اه بسچرب "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Quotes"
 msgstr "طباوض و لوق لقن "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Receipts"
 msgstr "دیسر شورف "
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Miscellaneous"
 msgstr "هقرفتم "
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Custom Reports"
 msgstr "یشرافس یاه شرازگ "
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Standard Reports and Forms"
 msgstr "مرف و درادناتسا یاه شرازگ "
 
-#: /home/tim/code/KwaMoja/index.php:207
+#: /home/tim/code/KwaMoja/index.php:211
 msgid "There are no reports to show!"
 msgstr "!درادن دوجو شیامن یارب یشرازگ چیه "
 
@@ -68292,6 +68467,582 @@ msgstr "مرگ بیمار"
 msgid "Change of department"
 msgstr "تغییر بخش"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:23
+msgid "General"
+msgstr "عمومی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:24
+msgid "Spinal"
+msgstr "ستون فقرات"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:25
+msgid "Epidural"
+msgstr "اپیدورال"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:26
+msgid "Pudendal"
+msgstr "پودل"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:28
+msgid "Maintain Anaesthesia Types"
+msgstr "انواع بی حسی را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:45
+msgid "Intratracheal anesthesia"
+msgstr "بی حسی داخل رحمی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:46
+msgid "Locally applied anesthesia"
+msgstr "بی حسی موضعی اعمال می شود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:47
+msgid "Analgesic sedation"
+msgstr "آرام بخش ضد درد"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Mask"
+msgstr "ماسک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Gas anesthesia through breathing mask"
+msgstr "بیحسی گاز از طریق ماسک تنفسی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Oral"
+msgstr "دهانی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Intravenous"
+msgstr "داخل وریدی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Subcutaneous"
+msgstr "زیر جلدی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular"
+msgstr "عضلانی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Sublingual"
+msgstr "زیر زبانه"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Applied under the tounge"
+msgstr "تحت تابستان اعمال می شود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:54
+msgid "Intraarterial"
+msgstr "مقدماتی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Pre-admission"
+msgstr "پیش پذیرش"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:57
+msgid "Maintain Application Types"
+msgstr "انواع برنامه ها را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:75
+msgid "Firm"
+msgstr "شرکت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:76
+msgid "Clinic"
+msgstr "درمانگاه"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:78
+msgid "Maintain Assignment Types"
+msgstr "انواع تخصیص را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:94
+msgid "Patient was delayed"
+msgstr "بیمار به تأخیر افتاد"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:95
+msgid "Nurses were delayed"
+msgstr "پرستاران به تأخیر افتادند"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:96
+msgid "Surgeons were delayed"
+msgstr "جراحان به تأخیر افتادند"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:97
+msgid "Cleaning delayed"
+msgstr "تمیز کردن با تأخیر انجام شد"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:98
+msgid "Anesthesiologist was delayed"
+msgstr "متخصص بیهوشی به تأخیر افتاد"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:99
+msgid "Other causes"
+msgstr "علل دیگر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:101
+msgid "Maintain Operation Delay Types"
+msgstr "انواع تأخیر عملکرد را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:118
+msgid "Medical"
+msgstr "پزشکی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:119
+msgid "Support (non-medical)"
+msgstr "پشتیبانی (غیر پزشکی)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:120
+msgid "News"
+msgstr "اخبار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:122
+msgid "Maintain Department Types"
+msgstr "انواع گروه را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duty"
+msgstr "وظیفه منظم"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duty"
+msgstr "وظیفه آماده به کار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning duty"
+msgstr "وظیفه صبح"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon duty"
+msgstr "وظیفه بعد از ظهر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night duty"
+msgstr "وظیفه شب"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:145
+msgid "Maintain Duty Types"
+msgstr "حفظ انواع وظایف"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:161
+msgid "asian"
+msgstr "آسیایی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:162
+msgid "black"
+msgstr "سیاه"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:163
+msgid "caucasian"
+msgstr "قفقازی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:164
+msgid "white"
+msgstr "سفید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:166
+msgid "Maintain Ethnic Origin Types"
+msgstr "انواع ریشه قومی را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast"
+msgstr "پستان"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula"
+msgstr "فرمول"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Both"
+msgstr "هر دو"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Parenteral"
+msgstr "زایمان"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:187
+msgid "Never fed"
+msgstr "هرگز تغذیه نمی شود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:189
+msgid "Maintain Feeding Types"
+msgstr "انواع تغذیه را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Medical insurance"
+msgstr "بیمه درمانی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Main (default) medical insurance"
+msgstr "بیمه پزشکی اصلی (پیش فرض)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance"
+msgstr "بیمه پزشکی اضافی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance (evt. pays extra services)"
+msgstr "بیمه درمانی اضافی (در صورت پرداخت خدمات اضافی)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Dental insurance"
+msgstr "بیمه ی دندان پزشکی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Separate dental plan in case not included in medical plan or simply additional private plan"
+msgstr "برنامه دندانپزشکی جداگانه در مواردی که در برنامه پزشکی یا برنامه خصوصی اضافی شامل نشود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability plan"
+msgstr "برنامه معلولیت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability insurance plan - general , both long term & short term"
+msgstr "طرح بیمه معلولیت - بطور کلی ، چه بلند مدت و چه کوتاه مدت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Disability plan (short term)"
+msgstr "برنامه معلولیت (کوتاه مدت)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Short term disability plan"
+msgstr "برنامه ناتوانی کوتاه مدت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Disability plan (long term)"
+msgstr "برنامه معلولیت (بلند مدت)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Long term disability plan"
+msgstr "برنامه معلولیت بلند مدت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement  income plan (general)"
+msgstr "برنامه درآمد بازنشستگی (عمومی)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement income plan - either private or income/employer supported"
+msgstr "برنامه درآمد بازنشستگی - خصوصی یا درآمد / کارفرما پشتیبانی می کند"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Educational Reimbursement Plan"
+msgstr "برنامه بازپرداخت آموزشی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Reimbursement plan for education, either private or employer supported"
+msgstr "برنامه بازپرداخت برای آموزش و پرورش ، چه خصوصی و چه کارفرمایان پشتیبانی می کنند"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Retirement medical plan"
+msgstr "برنامه پزشکی بازنشستگی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Medical plan in retirement  - might include other care services"
+msgstr "برنامه پزشکی در دوران بازنشستگی - ممکن است خدمات درمانی دیگری را نیز شامل شود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "Liability Insurance Plan"
+msgstr "برنامه بیمه مسئولیت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "General liability insurance - either private or employer supported"
+msgstr "بیمه مسئولیت عمومی - خصوصی یا کارفرمایی پشتیبانی می شود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Malpractice Insurance Plan"
+msgstr "طرح بیمه سوء استفاده"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Insurance plan against possible malpractice"
+msgstr "طرح بیمه در برابر اشتباهات احتمالی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment Insurance Plan"
+msgstr "برنامه بیمه بیکاری"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment insurance , in case compulsory unemployment funds are guaranteed by the state, this plan is usually privately paid by the insured"
+msgstr "بیمه بیکاری ، در صورت تضمین وجوه بیکاری اجباری توسط دولت ، این طرح معمولاً به صورت خصوصی توسط بیمه شده پرداخت می شود"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:220
+msgid "Maintain Insurance Types"
+msgstr "انواع بیمه را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:235
+msgid "Systolic"
+msgstr "سیستولیک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:236
+msgid "Diastolic"
+msgstr "دیاستولیک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:238
+msgid "Fluid intake"
+msgstr "مصرف مایعات"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:239
+msgid "Fluid output"
+msgstr "خروجی سیال"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:242
+msgid "Sys/Dias"
+msgstr "Sys / Dias"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:243
+msgid "Head circumference"
+msgstr "دور سر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:245
+msgid "Maintain Measurement Types"
+msgstr "انواع اندازه گیری را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:262
+msgid "Admission History and Physical"
+msgstr "تاریخچه پذیرش و فیزیکی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:263
+msgid "Doctors daily notes"
+msgstr "روزانه پزشکان یادداشت می کنند"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:264
+msgid "Discharge summary"
+msgstr "خلاصه تخلیه"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:265
+msgid "Consultation notes"
+msgstr "نکات مشاوره"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:266
+msgid "Operation notes"
+msgstr "یادداشتهای عملیاتی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:267
+msgid "Daily ward notes"
+msgstr "یادداشت های روزانه بخش"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:268
+msgid "Chart notes"
+msgstr "یادداشتهای نمودار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:269
+msgid "PT,ATG,etc. daily notes"
+msgstr "PT ، ATG و غیره. "
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:270
+msgid "IV daily notes"
+msgstr "یادداشت های روزانه چهارم"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:271
+msgid "Anticoagulant daily notes"
+msgstr "یادداشت های ضد انعقادی روزانه"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:272
+msgid "Material LOT, Charge Nr."
+msgstr "مواد LOT ، شارژ شماره."
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:273
+msgid "Diagnosis text"
+msgstr "متن تشخیص"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:274
+msgid "Therapy text"
+msgstr "متن درمانی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:275
+msgid "Extra notes on therapy & diagnosis"
+msgstr "یادداشت های اضافی در مورد درمان و تشخیص"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:276
+msgid "Nursing care report"
+msgstr "گزارش مراقبت از پرستار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:277
+msgid "Nursing problem report"
+msgstr "گزارش مشکل پرستاری"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:278
+msgid "Nursing effectivity report"
+msgstr "گزارش اثربخشی پرستاری"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:279
+msgid "Inquiry to doctor"
+msgstr "استعلام از دکتر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:280
+msgid "Doctors directive"
+msgstr "بخشنامه پزشکان"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:281
+msgid "Problem"
+msgstr "مسئله"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:282
+msgid "Development"
+msgstr "توسعه"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:283
+msgid "Allergy"
+msgstr "آلرژی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:284
+msgid "Diet plan"
+msgstr "برنامه رژیم"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:287
+msgid "Maintain Notes Types"
+msgstr "انواع یادداشت ها را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:304
+msgid "Alive"
+msgstr "زنده"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:305
+msgid "Stillborn"
+msgstr "مرده"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:306
+msgid "Early neonatal death"
+msgstr "مرگ زودرس نوزاد"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:307
+msgid "Late neonatal death"
+msgstr "مرگ اواخر نوزادی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:308
+msgid "Death uncertain timing"
+msgstr "زمان نامشخص مرگ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:310
+msgid "Maintain Outcome Types"
+msgstr "انواع نتایج را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:327
+msgid "Intact"
+msgstr "سالم"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:328
+msgid "1st degree tear"
+msgstr "اشک درجه یک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:329
+msgid "2nd degree tear"
+msgstr "اشک درجه 2"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:330
+msgid "3rd degree tear"
+msgstr "پارگی درجه 3"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:331
+msgid "Episiotomy"
+msgstr "اپیزوتومی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:333
+msgid "Maintain Perineum Types"
+msgstr "انواع پرینوم را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:348
+msgid "Anticoagulant"
+msgstr "پادبند"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:349
+msgid "Hemolytic"
+msgstr "همولیتیک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:350
+msgid "Diuretic"
+msgstr "دیورتیک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:351
+msgid "Antibiotic"
+msgstr "آنتی بیوتیک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:353
+msgid "Maintain Prescription Types"
+msgstr "انواع نسخه را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Ward room"
+msgstr "اتاق بخش"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating room"
+msgstr "اتاق عمل"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:372
+msgid "Maintain Room Types"
+msgstr "انواع اتاق را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:389
+msgid "Chemical-Serology Lab"
+msgstr "آزمایشگاه شیمی شناسی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:390
+msgid "Pathological Lab"
+msgstr "آزمایشگاه آسیب شناسی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:391
+msgid "Bacteriological Lab"
+msgstr "آزمایشگاه باکتریولوژیک"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Radiological Lab"
+msgstr "آزمایشگاه رادیولوژی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:393
+msgid "Blood test & product"
+msgstr "آزمایش خون و محصول"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:394
+msgid "Generic test program"
+msgstr "برنامه تست عمومی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:396
+msgid "Maintain Test Types"
+msgstr "انواع تست را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:413
+msgid "Patient entry/exit"
+msgstr "ورود / خروج بیمار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:414
+msgid "OP start/end"
+msgstr "شروع / پایان OP"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:415
+msgid "Delay time"
+msgstr "زمان تاخیر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:416
+msgid "Plaster cast"
+msgstr "گچ گرفتن"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:417
+msgid "Reposition"
+msgstr "بازپرداخت"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:418
+msgid "Coronary catheter"
+msgstr "سوند کرونر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:419
+msgid "Bandage"
+msgstr "بانداژ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:421
+msgid "Maintain Time Types"
+msgstr "حفظ انواع زمان"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:441
+msgid "Pressure"
+msgstr "فشار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:444
+msgid "Maintain Unit Measurements Types"
+msgstr "انواع اندازه گیری واحد را حفظ کنید"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Maintain Test Parameters"
+msgstr "پارامترهای تست را حفظ کنید"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "دیرخ "
@@ -69134,6 +69885,12 @@ msgstr "نانکراک ماو "
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "تخادرپزاب نانکراک ماو "
+
+#~ msgid "The number of insurance companies using this type could not be retrieved"
+#~ msgstr "تعداد شرکتهای بیمه ای که از این نوع استفاده می کنند قابل بازیابی نیست"
+
+#~ msgid "Cannot delete this type because insurance companies have been created using this type"
+#~ msgstr "این نوع حذف نمی شود زیرا شرکت های بیمه با استفاده از این نوع ایجاد شده اند"
 
 #~ msgid "The update of the security role failed because"
 #~ msgstr "ارچ تسا هدروخ تسکش یتینما شقن زا یناسر زور هب "

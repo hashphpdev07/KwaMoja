@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 13:40+0100\n"
+"POT-Creation-Date: 2020-07-17 06:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -311,10 +311,12 @@ msgstr "このランキンググループを削除してもよろしいですか
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
@@ -556,9 +558,11 @@ msgstr "ランキング方法が正常にデータベースに保存されまし
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
@@ -812,7 +816,7 @@ msgstr "アカウントグループに変更されました"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
@@ -2058,8 +2062,10 @@ msgstr "連絡先メールアドレスは有効なメールアドレスではあ
 #: /home/tim/code/KwaMoja/Factors.php:102
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:235
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2132,8 +2138,8 @@ msgstr "連絡先レコードが削除されました"
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:319
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2687,10 +2693,13 @@ msgstr "株式"
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -3659,9 +3668,9 @@ msgstr "レポートの最後の期間を選択します"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:126
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:137
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:148
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -4566,7 +4575,7 @@ msgstr "ユーザー"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -4607,6 +4616,12 @@ msgstr "住所"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
@@ -5464,7 +5479,7 @@ msgstr "または、商品コードの一部を入力してください"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:162
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -6559,7 +6574,6 @@ msgstr "未選択"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:176
 #: /home/tim/code/KwaMoja/LocationUsers.php:134
 #: /home/tim/code/KwaMoja/LocationUsers.php:247
 #: /home/tim/code/KwaMoja/OffersReceived.php:112
@@ -8074,7 +8088,7 @@ msgstr "SQLによって返された作業指示はありませんでした。"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:47
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8105,6 +8119,12 @@ msgstr "変更"
 
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:482
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:513
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
@@ -12023,7 +12043,7 @@ msgstr "契約：顧客を選択"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:115
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -14624,7 +14644,7 @@ msgid "Select A Customer"
 msgstr "顧客を選択"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -16019,7 +16039,7 @@ msgstr "このブランチを現金販売のデフォルトとして使用しま
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16676,6 +16696,7 @@ msgstr "タグ"
 #: /home/tim/code/KwaMoja/SystemParameters.php:1096
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
+#: /home/tim/code/KwaMoja/sql/updates/217.php:21
 msgid "None"
 msgstr "なし"
 
@@ -16868,6 +16889,8 @@ msgstr "顧客タイプ"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:3
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
@@ -16876,7 +16899,7 @@ msgstr "顧客タイプ"
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintenance"
 msgstr "メンテナンス"
 
@@ -16913,13 +16936,14 @@ msgstr "すでに存在しています。"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
 msgid "Customer type"
 msgstr "顧客タイプ"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -16974,15 +16998,18 @@ msgid "customers with this type code"
 msgstr "このタイプコードを持つ顧客"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "タイプレコードは削除できませんでした。"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:175
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:115
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:158
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
@@ -16991,9 +17018,13 @@ msgstr "タイプID"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:116
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:170
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
@@ -17003,7 +17034,9 @@ msgid "Type Name"
 msgstr "タイプ名"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "この顧客タイプを削除してもよろしいですか？"
 
@@ -17832,6 +17865,7 @@ msgstr "幅"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:284
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:87
+#: /home/tim/code/KwaMoja/sql/updates/217.php:440
 msgid "Length"
 msgstr "長さ"
 
@@ -17839,6 +17873,7 @@ msgstr "長さ"
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
+#: /home/tim/code/KwaMoja/sql/updates/217.php:241
 msgid "Height"
 msgstr "高さ"
 
@@ -21848,6 +21883,7 @@ msgstr "現金または現金同等物"
 #: /home/tim/code/KwaMoja/sql/updates/12.php:392
 #: /home/tim/code/KwaMoja/sql/updates/12.php:403
 #: /home/tim/code/KwaMoja/sql/updates/12.php:414
+#: /home/tim/code/KwaMoja/sql/updates/217.php:22
 msgid "Unknown"
 msgstr "未知の"
 
@@ -23134,9 +23170,10 @@ msgstr "タグの説明"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
+#: /home/tim/code/KwaMoja/sql/updates/217.php:74
 msgid "Department"
 msgstr "部門"
 
@@ -25782,7 +25819,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
 msgstr "ファイル番号"
@@ -25862,6 +25899,121 @@ msgstr "患者を別のベッドに移す"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "退院患者"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Types"
+msgstr "麻酔のタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Type Setup"
+msgstr "麻酔タイプのセットアップ"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:15
+msgid "Add/edit/delete Anaesthesia Types"
+msgstr "麻酔タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:28
+msgid "The anaesthesia type name description must be 100 characters or less long"
+msgstr "麻酔タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:33
+msgid "The anaesthesia type name description must contain at least one character"
+msgstr "麻酔タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The anaesthesia type"
+msgstr "麻酔タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an anaesthesia type called"
+msgstr "あなたはすでに呼ばれる麻酔タイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Anaesthesia type"
+msgstr "麻酔タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The anaesthesia type has been deleted"
+msgstr "麻酔タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
+msgid "Type Description"
+msgstr "タイプ説明"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Anaesthesia Type"
+msgstr "麻酔タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/ProductSpecs.php:380
+#: /home/tim/code/KwaMoja/QATests.php:391
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
+msgid "Active"
+msgstr "アクティブ"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Anaesthesia Type"
+msgstr "新しい麻酔タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+msgid "Inactive"
+msgstr "非活性"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Anaesthesia Type"
+msgstr "麻酔タイプを更新する"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Anaesthesia Type"
+msgstr "麻酔タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Types"
+msgstr "アプリケーションの種類"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Type Setup"
+msgstr "アプリケーションタイプのセットアップ"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:15
+msgid "Add/edit/delete Application Types"
+msgstr "アプリケーションタイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:28
+msgid "The application type name description must be 100 characters or less long"
+msgstr "アプリケーションタイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
+msgid "The application type name description must contain at least one character"
+msgstr "アプリケーションタイプ名の説明には、少なくとも1文字を含める必要があります"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -25957,6 +26109,8 @@ msgid "Edema Description"
 msgstr "浮腫の説明"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
+#: /home/tim/code/KwaMoja/sql/updates/217.php:237
+#: /home/tim/code/KwaMoja/sql/updates/217.php:442
 msgid "Temperature"
 msgstr "温度"
 
@@ -26315,7 +26469,7 @@ msgstr "泌尿生殖器系"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:305
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -26326,7 +26480,7 @@ msgstr "男性"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -26407,6 +26561,7 @@ msgstr "生年月日"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
+#: /home/tim/code/KwaMoja/sql/updates/217.php:73
 msgid "Ward"
 msgstr "区"
 
@@ -26572,7 +26727,7 @@ msgstr "正常に更新されました"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:336
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -26589,7 +26744,7 @@ msgstr "性別"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:415
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "保険会社"
@@ -27066,31 +27221,31 @@ msgid "There are no patients matching this criteria"
 msgstr "この基準に一致する患者はいません"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "氏"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "ミズ"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "お嬢"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "夫人"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "博士"
@@ -27100,7 +27255,7 @@ msgid "Update Admission data for"
 msgstr "の入学データを更新"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "Admit"
 msgstr "認める"
 
@@ -27109,23 +27264,23 @@ msgid "as an inpatient"
 msgstr "入院患者として"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:311
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
 msgid "Admission Date"
 msgstr "入学日"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:315
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
 msgid "Admission Time"
 msgstr "入場時間"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:327
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "血液型"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:331
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -27134,42 +27289,42 @@ msgid "Gender"
 msgstr "性別"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
 msgid "Admission Type"
 msgstr "入場タイプ"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
 msgid "A type of admission."
 msgstr "入場のタイプ。"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "White"
 msgstr "白い"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Green"
 msgstr "緑"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Yellow"
 msgstr "黄"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Red"
 msgstr "赤"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:358
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
 msgid "Triage Code"
 msgstr "トリアージコード"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:368
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "この患者のトリアージコード。白が最も深刻でなく、赤が最も深刻です。"
 
@@ -27178,33 +27333,33 @@ msgid "The ward that this patient is being admitted to."
 msgstr "この患者が入院している病棟。"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:388
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
 msgid "Referrer Diagnosis"
 msgstr "リファラー診断"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:393
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
 msgid "Referred By"
 msgstr "参照元"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:398
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
 msgid "Referrer Therapy"
 msgstr "リファラーセラピー"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:403
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
 msgid "Referrer Notes"
 msgstr "リファラーノート"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "この患者が属する保険会社（ある場合）"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Insurance Number"
 msgstr "保険番号"
 
@@ -27472,45 +27627,57 @@ msgid "Include"
 msgstr "含める"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Types"
 msgstr "保険の種類"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Type Setup"
 msgstr "保険タイプの設定"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:19
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:15
 msgid "Add/edit/delete Insurance Types"
 msgstr "保険タイプの追加/編集/削除"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:32
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:28
 msgid "The insurance type name description must be 100 characters or less long"
 msgstr "保険タイプ名の説明は100文字以下でなければなりません"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:37
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:33
 msgid "The insurnace type name description must contain at least one character"
 msgstr "保険タイプ名の説明には少なくとも1つの文字が含まれている必要があります"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:48
-msgid "You already have an insurance type called"
-msgstr "という保険タイプが既にあります"
-
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 msgid "The insurance type"
 msgstr "保険の種類"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:84
-msgid "The number of insurance companies using this type could not be retrieved"
-msgstr "このタイプを使用している保険会社の数を取得できませんでした"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+msgid "You already have an insurance type called"
+msgstr "という保険タイプが既にあります"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:89
-msgid "Cannot delete this type because insurance companies have been created using this type"
-msgstr "このタイプを使用して保険会社が作成されているため、このタイプを削除できません"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+msgid "Insurance type"
+msgstr "保険の種類"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:107
 msgid "The insurance type has been deleted"
 msgstr "保険タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:181
+msgid "Edit Insurance Type"
+msgstr "保険タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:195
+msgid "Create New Insurance Type"
+msgstr "新しい保険タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:230
+msgid "Update Insurance Type"
+msgstr "保険タイプを更新"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:234
+msgid "Create Insurance Type"
+msgstr "保険タイプを作成"
 
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:3
 msgid "Billing For Laboratory Tests"
@@ -27658,14 +27825,6 @@ msgstr "遭遇タイプレコードの更新に使用されたSQLは"
 msgid "The encounter type was successfully updated"
 msgstr "遭遇タイプは正常に更新されました"
 
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-#: /home/tim/code/KwaMoja/ProductSpecs.php:380
-#: /home/tim/code/KwaMoja/QATests.php:391
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
-msgid "Active"
-msgstr "アクティブ"
-
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:95
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "InActive"
@@ -27678,10 +27837,6 @@ msgstr "遭遇タイプの編集"
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:139
 msgid "Create New Encounter Type"
 msgstr "新しい出会いタイプを作成する"
-
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-msgid "Inactive"
-msgstr "非活性"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:166
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:393
@@ -27928,11 +28083,11 @@ msgstr "外来患者を認める"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "この患者は現在外来で入院していません"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "as an outpatient"
 msgstr "外来患者として"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
 msgid "The department that this patient is being admitted to."
 msgstr "この患者が入院している部門。"
 
@@ -28660,73 +28815,77 @@ msgstr "患者を検索"
 msgid "Patients"
 msgstr "患者様"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:69
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 msgid "Patient"
 msgstr "患者"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
 msgid "Select a menu option to operate using this patient"
 msgstr "この患者を使用して操作するメニューオプションを選択します"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:88
+#: /home/tim/code/KwaMoja/index.php:90
 msgid "Inquiries and Reports"
 msgstr "お問い合わせとレポート"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 msgid "Patient Inquiries"
 msgstr "患者の問い合わせ"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:83
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
 msgid "Patient Transactions"
 msgstr "患者のトランザクション"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:86
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
 msgstr "患者登録データを変更する"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:89
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:90
 msgid "Modify Inpatient admission data"
 msgstr "入院患者の入院データを修正する"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:92
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:93
 msgid "Modify Outpatient admission data"
 msgstr "外来入院データの変更"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:98
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
+msgid "Discharge this patient"
+msgstr "この患者を退院させる"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
 msgid "Patient Maintenance"
 msgstr "患者の維持"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "患者を探す"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
 msgid "Enter a partial Name"
 msgstr "部分的な名前を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:129
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "患者ファイル番号の一部を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:140
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "電話番号の一部を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:151
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "住所の一部を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:163
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 #: /home/tim/code/KwaMoja/SelectCustomer.php:399
 msgid "CSV Format"
@@ -28971,6 +29130,8 @@ msgstr "物理的な詳細"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
+#: /home/tim/code/KwaMoja/sql/updates/217.php:240
+#: /home/tim/code/KwaMoja/sql/updates/217.php:439
 msgid "Weight"
 msgstr "重量"
 
@@ -28997,6 +29158,7 @@ msgstr "血液"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
+#: /home/tim/code/KwaMoja/sql/updates/217.php:285
 msgid "Other"
 msgstr "その他の"
 
@@ -31941,7 +32103,7 @@ msgstr "からの顧客取引リスト"
 
 #: /home/tim/code/KwaMoja/PDFCustTransListing.php:132
 #: /home/tim/code/KwaMoja/PDFSuppTransListing.php:131
-#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:62
+#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:64
 msgid "Transactions"
 msgstr "トランザクション"
 
@@ -37622,7 +37784,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "あなたの選択にマッチした顧客はいませんでした"
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Statements"
 msgstr "お客様の声明"
 
@@ -41964,7 +42126,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "特定の部品の受注を検索するには、以下の部品選択機能を使用します"
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Orders"
 msgstr "受注"
 
@@ -42885,6 +43047,7 @@ msgid "Batchs/Lots"
 msgstr "バッチ/ロット"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:165
+#: /home/tim/code/KwaMoja/sql/updates/217.php:438
 msgid "Volume"
 msgstr "ボリューム"
 
@@ -48274,7 +48437,7 @@ msgstr "クレジットメモを入力するサプライヤを選択する"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "購入注文"
@@ -56763,59 +56926,71 @@ msgstr "XMLを生成するジオコード"
 msgid "General Setup Options"
 msgstr "一般的なセットアップオプション"
 
-#: /home/tim/code/KwaMoja/index.php:86
+#: /home/tim/code/KwaMoja/index.php:62
+msgid "General Hospital Setup"
+msgstr "一般的な病院のセットアップ"
+
+#: /home/tim/code/KwaMoja/index.php:88
 msgid "Receivables/Payables Setup"
 msgstr "債権/債務の設定"
 
-#: /home/tim/code/KwaMoja/index.php:115
+#: /home/tim/code/KwaMoja/index.php:117
 msgid "Inventory Setup"
 msgstr "インベントリ設定"
 
-#: /home/tim/code/KwaMoja/index.php:152
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain types"
+msgstr "タイプを維持する"
+
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain Types"
+msgstr "タイプを維持する"
+
+#: /home/tim/code/KwaMoja/index.php:156
 msgid "Bank Checks"
 msgstr "銀行小切手"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Collection Letters"
 msgstr "コレクションレター"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Bank Deposit Slips"
 msgstr "銀行預金口座"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Invoices and Packing Slips"
 msgstr "請求書と梱包明細"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Customer"
 msgstr "ラベル - 顧客"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Vendor"
 msgstr "ラベル - ベンダー"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Quotes"
 msgstr "顧客からの引用"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Receipts"
 msgstr "受注"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Miscellaneous"
 msgstr "雑"
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Custom Reports"
 msgstr "カスタムレポート"
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Standard Reports and Forms"
 msgstr "標準レポートとフォーム"
 
-#: /home/tim/code/KwaMoja/index.php:207
+#: /home/tim/code/KwaMoja/index.php:211
 msgid "There are no reports to show!"
 msgstr "表示する報告はありません！"
 
@@ -68292,6 +68467,582 @@ msgstr "患者の死"
 msgid "Change of department"
 msgstr "部署の変更"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:23
+msgid "General"
+msgstr "一般的な"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:24
+msgid "Spinal"
+msgstr "脊椎"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:25
+msgid "Epidural"
+msgstr "硬膜外"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:26
+msgid "Pudendal"
+msgstr "陰部"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:28
+msgid "Maintain Anaesthesia Types"
+msgstr "麻酔タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:45
+msgid "Intratracheal anesthesia"
+msgstr "気管内麻酔"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:46
+msgid "Locally applied anesthesia"
+msgstr "局所麻酔"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:47
+msgid "Analgesic sedation"
+msgstr "鎮痛鎮静"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Mask"
+msgstr "マスク"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Gas anesthesia through breathing mask"
+msgstr "呼吸マスクによるガス麻酔"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Oral"
+msgstr "オーラル"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Intravenous"
+msgstr "静脈内"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Subcutaneous"
+msgstr "皮下"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular"
+msgstr "筋肉内"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Sublingual"
+msgstr "舌下"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Applied under the tounge"
+msgstr "舌の下に適用"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:54
+msgid "Intraarterial"
+msgstr "動脈内"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Pre-admission"
+msgstr "入学前"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:57
+msgid "Maintain Application Types"
+msgstr "アプリケーションタイプの維持"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:75
+msgid "Firm"
+msgstr "当社"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:76
+msgid "Clinic"
+msgstr "診療所"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:78
+msgid "Maintain Assignment Types"
+msgstr "割り当てタイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:94
+msgid "Patient was delayed"
+msgstr "患者は遅れた"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:95
+msgid "Nurses were delayed"
+msgstr "看護師が遅れた"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:96
+msgid "Surgeons were delayed"
+msgstr "外科医は遅れた"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:97
+msgid "Cleaning delayed"
+msgstr "クリーニングが遅れました"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:98
+msgid "Anesthesiologist was delayed"
+msgstr "麻酔科医が遅れた"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:99
+msgid "Other causes"
+msgstr "その他の原因"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:101
+msgid "Maintain Operation Delay Types"
+msgstr "操作遅延タイプの維持"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:118
+msgid "Medical"
+msgstr "医療"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:119
+msgid "Support (non-medical)"
+msgstr "サポート（非医療）"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:120
+msgid "News"
+msgstr "ニュース"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:122
+msgid "Maintain Department Types"
+msgstr "部門タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duty"
+msgstr "通常の義務"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duty"
+msgstr "スタンバイ義務"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning duty"
+msgstr "朝の勤務"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon duty"
+msgstr "午後の勤務"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night duty"
+msgstr "夜勤"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:145
+msgid "Maintain Duty Types"
+msgstr "義務の種類を維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:161
+msgid "asian"
+msgstr "アジア人"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:162
+msgid "black"
+msgstr "黒"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:163
+msgid "caucasian"
+msgstr "コーカサス人"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:164
+msgid "white"
+msgstr "白い"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:166
+msgid "Maintain Ethnic Origin Types"
+msgstr "民族の起源のタイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast"
+msgstr "乳"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula"
+msgstr "式"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Both"
+msgstr "両方とも"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Parenteral"
+msgstr "非経口"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:187
+msgid "Never fed"
+msgstr "食べたことがない"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:189
+msgid "Maintain Feeding Types"
+msgstr "給餌タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Medical insurance"
+msgstr "医療保険"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Main (default) medical insurance"
+msgstr "主な（デフォルト）医療保険"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance"
+msgstr "追加医療保険"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance (evt. pays extra services)"
+msgstr "追加の医療保険（追加のサービスを支払うなど）"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Dental insurance"
+msgstr "歯科保険"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Separate dental plan in case not included in medical plan or simply additional private plan"
+msgstr "医療プランまたは単に追加のプライベートプランに含まれていない場合の個別の歯科プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability plan"
+msgstr "障害プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability insurance plan - general , both long term & short term"
+msgstr "障害保険プラン-一般、長期および短期の両方"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Disability plan (short term)"
+msgstr "障害プラン（短期）"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Short term disability plan"
+msgstr "短期障害プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Disability plan (long term)"
+msgstr "障害プラン（長期）"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Long term disability plan"
+msgstr "長期障害プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement  income plan (general)"
+msgstr "退職金プラン（一般）"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement income plan - either private or income/employer supported"
+msgstr "退職後の収入計画-民間または収入/雇用者のいずれかがサポート"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Educational Reimbursement Plan"
+msgstr "教育償還計画"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Reimbursement plan for education, either private or employer supported"
+msgstr "民間または雇用主が支援する教育の償還計画"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Retirement medical plan"
+msgstr "退職医療プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Medical plan in retirement  - might include other care services"
+msgstr "退職後の医療計画-他の介護サービスが含まれる場合があります"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "Liability Insurance Plan"
+msgstr "賠償責任保険"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "General liability insurance - either private or employer supported"
+msgstr "損害賠償責任保険-民間または雇用者がサポート"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Malpractice Insurance Plan"
+msgstr "過誤保険プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Insurance plan against possible malpractice"
+msgstr "不正行為の可能性に対する保険プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment Insurance Plan"
+msgstr "失業保険プラン"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment insurance , in case compulsory unemployment funds are guaranteed by the state, this plan is usually privately paid by the insured"
+msgstr "失業保険、強制失業資金が国家によって保証されている場合、この計画は通常、被保険者によって私的に支払われます"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:220
+msgid "Maintain Insurance Types"
+msgstr "保険の種類を維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:235
+msgid "Systolic"
+msgstr "シストリック"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:236
+msgid "Diastolic"
+msgstr "拡張期"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:238
+msgid "Fluid intake"
+msgstr "水分摂取"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:239
+msgid "Fluid output"
+msgstr "流体出力"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:242
+msgid "Sys/Dias"
+msgstr "Sys / Dias"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:243
+msgid "Head circumference"
+msgstr "頭囲"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:245
+msgid "Maintain Measurement Types"
+msgstr "測定タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:262
+msgid "Admission History and Physical"
+msgstr "入学歴と身体"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:263
+msgid "Doctors daily notes"
+msgstr "医師の日記"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:264
+msgid "Discharge summary"
+msgstr "退院サマリー"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:265
+msgid "Consultation notes"
+msgstr "相談メモ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:266
+msgid "Operation notes"
+msgstr "操作上の注意"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:267
+msgid "Daily ward notes"
+msgstr "ワードノート"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:268
+msgid "Chart notes"
+msgstr "チャートノート"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:269
+msgid "PT,ATG,etc. daily notes"
+msgstr "PT、ATGなど"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:270
+msgid "IV daily notes"
+msgstr "IV毎日のメモ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:271
+msgid "Anticoagulant daily notes"
+msgstr "抗凝固剤の日記"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:272
+msgid "Material LOT, Charge Nr."
+msgstr "材料LOT、チャージNr。"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:273
+msgid "Diagnosis text"
+msgstr "診断テキスト"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:274
+msgid "Therapy text"
+msgstr "セラピーテキスト"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:275
+msgid "Extra notes on therapy & diagnosis"
+msgstr "治療と診断に関する補足事項"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:276
+msgid "Nursing care report"
+msgstr "介護レポート"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:277
+msgid "Nursing problem report"
+msgstr "看護問題報告"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:278
+msgid "Nursing effectivity report"
+msgstr "看護効果レポート"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:279
+msgid "Inquiry to doctor"
+msgstr "医師へのお問い合わせ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:280
+msgid "Doctors directive"
+msgstr "医師指令"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:281
+msgid "Problem"
+msgstr "問題"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:282
+msgid "Development"
+msgstr "開発"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:283
+msgid "Allergy"
+msgstr "アレルギー"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:284
+msgid "Diet plan"
+msgstr "ダイエット計画"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:287
+msgid "Maintain Notes Types"
+msgstr "ノートのタイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:304
+msgid "Alive"
+msgstr "生きている"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:305
+msgid "Stillborn"
+msgstr "死産"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:306
+msgid "Early neonatal death"
+msgstr "新生児の早期死亡"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:307
+msgid "Late neonatal death"
+msgstr "後期新生児死亡"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:308
+msgid "Death uncertain timing"
+msgstr "不確実なタイミング"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:310
+msgid "Maintain Outcome Types"
+msgstr "結果のタイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:327
+msgid "Intact"
+msgstr "そのまま"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:328
+msgid "1st degree tear"
+msgstr "1度涙"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:329
+msgid "2nd degree tear"
+msgstr "2度涙"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:330
+msgid "3rd degree tear"
+msgstr "3度涙"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:331
+msgid "Episiotomy"
+msgstr "会陰切開"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:333
+msgid "Maintain Perineum Types"
+msgstr "会陰タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:348
+msgid "Anticoagulant"
+msgstr "抗凝固剤"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:349
+msgid "Hemolytic"
+msgstr "溶血性"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:350
+msgid "Diuretic"
+msgstr "利尿"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:351
+msgid "Antibiotic"
+msgstr "抗生物質"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:353
+msgid "Maintain Prescription Types"
+msgstr "処方タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Ward room"
+msgstr "病室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating room"
+msgstr "手術室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:372
+msgid "Maintain Room Types"
+msgstr "部屋タイプを維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:389
+msgid "Chemical-Serology Lab"
+msgstr "化学血清学ラボ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:390
+msgid "Pathological Lab"
+msgstr "病理学研究室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:391
+msgid "Bacteriological Lab"
+msgstr "細菌学研究室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Radiological Lab"
+msgstr "放射線検査室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:393
+msgid "Blood test & product"
+msgstr "血液検査と製品"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:394
+msgid "Generic test program"
+msgstr "汎用テストプログラム"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:396
+msgid "Maintain Test Types"
+msgstr "テストの種類を維持する"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:413
+msgid "Patient entry/exit"
+msgstr "患者の入退室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:414
+msgid "OP start/end"
+msgstr "OP開始/終了"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:415
+msgid "Delay time"
+msgstr "遅延時間"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:416
+msgid "Plaster cast"
+msgstr "石膏ギプス"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:417
+msgid "Reposition"
+msgstr "再配置"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:418
+msgid "Coronary catheter"
+msgstr "冠状カテーテル"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:419
+msgid "Bandage"
+msgstr "包帯"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:421
+msgid "Maintain Time Types"
+msgstr "時間タイプの維持"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:441
+msgid "Pressure"
+msgstr "圧力"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:444
+msgid "Maintain Unit Measurements Types"
+msgstr "単位測定タイプの維持"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Maintain Test Parameters"
+msgstr "テストパラメータの維持"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "購入"
@@ -69134,6 +69885,12 @@ msgstr "スタッフローン"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "スタッフローン返済"
+
+#~ msgid "The number of insurance companies using this type could not be retrieved"
+#~ msgstr "このタイプを使用している保険会社の数を取得できませんでした"
+
+#~ msgid "Cannot delete this type because insurance companies have been created using this type"
+#~ msgstr "このタイプを使用して保険会社が作成されているため、このタイプを削除できません"
 
 #~ msgid "The update of the security role failed because"
 #~ msgstr "セキュリティロールの更新は失敗しました。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 13:41+0100\n"
+"POT-Creation-Date: 2020-07-17 07:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -311,10 +311,12 @@ msgstr "Weet je zeker dat je deze ranglijst wilt verwijderen?"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
@@ -556,9 +558,11 @@ msgstr "De classificatiemethode is succesvol opgeslagen in de database"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
@@ -812,7 +816,7 @@ msgstr "zijn gewijzigd in de accountgroep"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
@@ -2058,8 +2062,10 @@ msgstr "Het e-mailadres voor contact is geen geldig e-mailadres"
 #: /home/tim/code/KwaMoja/Factors.php:102
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:235
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2132,8 +2138,8 @@ msgstr "Het contactrecord is verwijderd"
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:319
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2687,10 +2693,13 @@ msgstr "Voorraad"
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -3659,9 +3668,9 @@ msgstr "Selecteer de laatste periode in het rapport"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:126
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:137
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:148
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -4566,7 +4575,7 @@ msgstr "Gebruiker"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -4607,6 +4616,12 @@ msgstr "Adres"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
@@ -5464,7 +5479,7 @@ msgstr "Of voer een deel van een artikelcode in"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:162
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -6559,7 +6574,6 @@ msgstr "Nog niet geselecteerd"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:176
 #: /home/tim/code/KwaMoja/LocationUsers.php:134
 #: /home/tim/code/KwaMoja/LocationUsers.php:247
 #: /home/tim/code/KwaMoja/OffersReceived.php:112
@@ -8074,7 +8088,7 @@ msgstr "Er zijn geen werkorders geretourneerd door de SQL, omdat"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:47
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8105,6 +8119,12 @@ msgstr "Wijzigen"
 
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:482
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:513
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
@@ -12023,7 +12043,7 @@ msgstr "Contract: selecteer klant"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:115
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -14624,7 +14644,7 @@ msgid "Select A Customer"
 msgstr "Selecteer een klant"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -16019,7 +16039,7 @@ msgstr "Gebruik deze tak als standaard voor contante verkopen"
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16676,6 +16696,7 @@ msgstr "Label"
 #: /home/tim/code/KwaMoja/SystemParameters.php:1096
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
+#: /home/tim/code/KwaMoja/sql/updates/217.php:21
 msgid "None"
 msgstr "Geen"
 
@@ -16868,6 +16889,8 @@ msgstr "Klanttypen"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:3
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
@@ -16876,7 +16899,7 @@ msgstr "Klanttypen"
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintenance"
 msgstr "Onderhoud"
 
@@ -16913,13 +16936,14 @@ msgstr "bestaat al."
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
 msgid "Customer type"
 msgstr "Klant type"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -16974,15 +16998,18 @@ msgid "customers with this type code"
 msgstr "klanten met deze typecode"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "Het type record kon niet worden verwijderd omdat"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:175
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:115
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:158
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
@@ -16991,9 +17018,13 @@ msgstr "Type ID"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:116
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:170
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
@@ -17003,7 +17034,9 @@ msgid "Type Name"
 msgstr "Type Naam"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "Weet je zeker dat je dit klanttype wilt verwijderen?"
 
@@ -17832,6 +17865,7 @@ msgstr "Breedte"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:284
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:87
+#: /home/tim/code/KwaMoja/sql/updates/217.php:440
 msgid "Length"
 msgstr "Lengte"
 
@@ -17839,6 +17873,7 @@ msgstr "Lengte"
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
+#: /home/tim/code/KwaMoja/sql/updates/217.php:241
 msgid "Height"
 msgstr "Hoogte"
 
@@ -21848,6 +21883,7 @@ msgstr "Cash of kasequivalent"
 #: /home/tim/code/KwaMoja/sql/updates/12.php:392
 #: /home/tim/code/KwaMoja/sql/updates/12.php:403
 #: /home/tim/code/KwaMoja/sql/updates/12.php:414
+#: /home/tim/code/KwaMoja/sql/updates/217.php:22
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -23134,9 +23170,10 @@ msgstr "Beschrijving van tag"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
+#: /home/tim/code/KwaMoja/sql/updates/217.php:74
 msgid "Department"
 msgstr "afdeling"
 
@@ -25782,7 +25819,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
 msgstr "Bestandsnummer"
@@ -25862,6 +25899,121 @@ msgstr "Breng de patiënt over naar een ander bed"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "Ontslag patiënt"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Types"
+msgstr "Anesthesietypes"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Type Setup"
+msgstr "Anesthesietype instellen"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:15
+msgid "Add/edit/delete Anaesthesia Types"
+msgstr "Anesthesietypes toevoegen / bewerken / verwijderen"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:28
+msgid "The anaesthesia type name description must be 100 characters or less long"
+msgstr "De beschrijving van de naam van het anesthesietype mag niet langer zijn dan 100 tekens"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:33
+msgid "The anaesthesia type name description must contain at least one character"
+msgstr "De naam van het anesthesietype moet ten minste één teken bevatten"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The anaesthesia type"
+msgstr "Het type anesthesie"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an anaesthesia type called"
+msgstr "U heeft al een anesthesietype genaamd"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Anaesthesia type"
+msgstr "Type anesthesie"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The anaesthesia type has been deleted"
+msgstr "Het anesthesietype is verwijderd"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
+msgid "Type Description"
+msgstr "Type Beschrijving"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Anaesthesia Type"
+msgstr "Anesthesietype bewerken"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/ProductSpecs.php:380
+#: /home/tim/code/KwaMoja/QATests.php:391
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
+msgid "Active"
+msgstr "Actief"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Anaesthesia Type"
+msgstr "Maak een nieuw anesthesietype"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+msgid "Inactive"
+msgstr "Inactief"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Anaesthesia Type"
+msgstr "Anesthesietype bijwerken"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Anaesthesia Type"
+msgstr "Maak een anesthesietype"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Types"
+msgstr "Applicatietypes"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Type Setup"
+msgstr "Toepassingstype instellen"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:15
+msgid "Add/edit/delete Application Types"
+msgstr "Applicatietypes toevoegen / bewerken / verwijderen"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:28
+msgid "The application type name description must be 100 characters or less long"
+msgstr "De naamomschrijving van het type applicatie mag niet langer zijn dan 100 tekens"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
+msgid "The application type name description must contain at least one character"
+msgstr "De naam van de toepassingstype moet minstens één teken bevatten"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -25957,6 +26109,8 @@ msgid "Edema Description"
 msgstr "Oedeem Beschrijving"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
+#: /home/tim/code/KwaMoja/sql/updates/217.php:237
+#: /home/tim/code/KwaMoja/sql/updates/217.php:442
 msgid "Temperature"
 msgstr "Temperatuur"
 
@@ -26315,7 +26469,7 @@ msgstr "Urogenitaal systeem"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:305
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -26326,7 +26480,7 @@ msgstr "Mannetje"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -26407,6 +26561,7 @@ msgstr "Geboortedatum"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
+#: /home/tim/code/KwaMoja/sql/updates/217.php:73
 msgid "Ward"
 msgstr "Afdeling"
 
@@ -26572,7 +26727,7 @@ msgstr "is succesvol bijgewerkt"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:336
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -26589,7 +26744,7 @@ msgstr "Seks"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:415
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Verzekeringsbedrijf"
@@ -27066,31 +27221,31 @@ msgid "There are no patients matching this criteria"
 msgstr "Er zijn geen patiënten die aan deze criteria voldoen"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "Dhr"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "Mevrouw"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Mevrouw"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "Mvr"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "Dr"
@@ -27100,7 +27255,7 @@ msgid "Update Admission data for"
 msgstr "Toegangsgegevens bijwerken voor"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "Admit"
 msgstr "Toegeven"
 
@@ -27109,23 +27264,23 @@ msgid "as an inpatient"
 msgstr "als een patiënt"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:311
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
 msgid "Admission Date"
 msgstr "Toelatingsdatum"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:315
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
 msgid "Admission Time"
 msgstr "Toelatingstijd"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:327
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "Bloedgroep"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:331
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -27134,42 +27289,42 @@ msgid "Gender"
 msgstr "Geslacht"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
 msgid "Admission Type"
 msgstr "Toegangstype"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
 msgid "A type of admission."
 msgstr "Een soort toelating."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "White"
 msgstr "Wit"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Green"
 msgstr "Groen"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Yellow"
 msgstr "Geel"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Red"
 msgstr "Rood"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:358
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
 msgid "Triage Code"
 msgstr "Triage Code"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:368
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "De triage-code voor deze patiënt, wit is het minst ernstig en rood is het meest ernstig."
 
@@ -27178,33 +27333,33 @@ msgid "The ward that this patient is being admitted to."
 msgstr "De afdeling waar deze patiënt wordt opgenomen."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:388
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
 msgid "Referrer Diagnosis"
 msgstr "Verwijzende diagnose"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:393
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
 msgid "Referred By"
 msgstr "Doorverwezen door"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:398
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
 msgid "Referrer Therapy"
 msgstr "Verwijzende therapie"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:403
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
 msgid "Referrer Notes"
 msgstr "Verwijzende opmerkingen"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "De eventuele verzekeringsmaatschappij waartoe deze patiënt behoort"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Insurance Number"
 msgstr "Verzekerings nummer"
 
@@ -27472,45 +27627,57 @@ msgid "Include"
 msgstr "omvatten"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Types"
 msgstr "Verzekeringstypes"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Type Setup"
 msgstr "Type verzekering instellen"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:19
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:15
 msgid "Add/edit/delete Insurance Types"
 msgstr "Verzekeringstypes toevoegen / bewerken / verwijderen"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:32
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:28
 msgid "The insurance type name description must be 100 characters or less long"
 msgstr "De naambeschrijving van het verzekeringstype moet 100 tekens of minder lang zijn"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:37
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:33
 msgid "The insurnace type name description must contain at least one character"
 msgstr "De beschrijving van het insurnace-type moet ten minste één teken bevatten"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:48
-msgid "You already have an insurance type called"
-msgstr "U hebt al een verzekeringstype genaamd"
-
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 msgid "The insurance type"
 msgstr "Het verzekeringstype"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:84
-msgid "The number of insurance companies using this type could not be retrieved"
-msgstr "Het aantal verzekeringsmaatschappijen dat dit type gebruikt, kan niet worden opgehaald"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+msgid "You already have an insurance type called"
+msgstr "U hebt al een verzekeringstype genaamd"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:89
-msgid "Cannot delete this type because insurance companies have been created using this type"
-msgstr "Kan dit type niet verwijderen omdat verzekeringsmaatschappijen met dit type zijn aangemaakt"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+msgid "Insurance type"
+msgstr "Soort verzekering"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:107
 msgid "The insurance type has been deleted"
 msgstr "Het verzekeringstype is verwijderd"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:181
+msgid "Edit Insurance Type"
+msgstr "Verzekeringstype bewerken"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:195
+msgid "Create New Insurance Type"
+msgstr "Maak een nieuw verzekeringstype"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:230
+msgid "Update Insurance Type"
+msgstr "Verzekeringstype bijwerken"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:234
+msgid "Create Insurance Type"
+msgstr "Verzekeringstype maken"
 
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:3
 msgid "Billing For Laboratory Tests"
@@ -27658,14 +27825,6 @@ msgstr "De SQL die werd gebruikt om het record van het type ontmoeting bij te we
 msgid "The encounter type was successfully updated"
 msgstr "Het type ontmoeting is succesvol bijgewerkt"
 
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-#: /home/tim/code/KwaMoja/ProductSpecs.php:380
-#: /home/tim/code/KwaMoja/QATests.php:391
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
-msgid "Active"
-msgstr "Actief"
-
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:95
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "InActive"
@@ -27678,10 +27837,6 @@ msgstr "Type ontmoeting bewerken"
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:139
 msgid "Create New Encounter Type"
 msgstr "Creëer nieuw ontmoetingstype"
-
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-msgid "Inactive"
-msgstr "Inactief"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:166
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:393
@@ -27928,11 +28083,11 @@ msgstr "Geef polikliniek toe"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "Deze patiënt is momenteel niet opgenomen als polikliniek"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "as an outpatient"
 msgstr "als polikliniek"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
 msgid "The department that this patient is being admitted to."
 msgstr "De afdeling waar deze patiënt wordt opgenomen."
 
@@ -28660,73 +28815,77 @@ msgstr "Patiënten zoeken"
 msgid "Patients"
 msgstr "Patiënten"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:69
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 msgid "Patient"
 msgstr "Geduldig"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
 msgid "Select a menu option to operate using this patient"
 msgstr "Selecteer een menuoptie om met deze patiënt te werken"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:88
+#: /home/tim/code/KwaMoja/index.php:90
 msgid "Inquiries and Reports"
 msgstr "Vragen en rapporten"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 msgid "Patient Inquiries"
 msgstr "Patiëntvragen"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:83
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
 msgid "Patient Transactions"
 msgstr "Patiënttransacties"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:86
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
 msgstr "Wijzig patiëntregistratiegegevens"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:89
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:90
 msgid "Modify Inpatient admission data"
 msgstr "Wijzig de opnamegegevens van de patiënt"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:92
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:93
 msgid "Modify Outpatient admission data"
 msgstr "Wijzig poliklinische opnamegegevens"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:98
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
+msgid "Discharge this patient"
+msgstr "Ontslag deze patiënt"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
 msgid "Patient Maintenance"
 msgstr "Patiëntonderhoud"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "Zoek naar patiënten"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
 msgid "Enter a partial Name"
 msgstr "Voer een gedeeltelijke naam in"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:129
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "Voer een gedeeltelijk patiëntendossiernummer in"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:140
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "Voer een gedeeltelijk telefoonnummer in"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:151
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "Voer een deel van het adres in"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:163
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 #: /home/tim/code/KwaMoja/SelectCustomer.php:399
 msgid "CSV Format"
@@ -28971,6 +29130,8 @@ msgstr "Fysieke details"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
+#: /home/tim/code/KwaMoja/sql/updates/217.php:240
+#: /home/tim/code/KwaMoja/sql/updates/217.php:439
 msgid "Weight"
 msgstr "Gewicht"
 
@@ -28997,6 +29158,7 @@ msgstr "Bloed"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
+#: /home/tim/code/KwaMoja/sql/updates/217.php:285
 msgid "Other"
 msgstr "Andere"
 
@@ -31941,7 +32103,7 @@ msgstr "Klanttransactielijst van"
 
 #: /home/tim/code/KwaMoja/PDFCustTransListing.php:132
 #: /home/tim/code/KwaMoja/PDFSuppTransListing.php:131
-#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:62
+#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:64
 msgid "Transactions"
 msgstr "transacties"
 
@@ -37622,7 +37784,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "Er zijn geen klanten gevonden die overeenkomen met uw selectie"
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Statements"
 msgstr "Klantverklaringen"
 
@@ -41964,7 +42126,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "Om te zoeken naar verkooporders voor een specifiek onderdeel, gebruikt u de deelselectiefaciliteiten hieronder"
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Orders"
 msgstr "Verkooporders"
 
@@ -42885,6 +43047,7 @@ msgid "Batchs/Lots"
 msgstr "Batchs / Lots"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:165
+#: /home/tim/code/KwaMoja/sql/updates/217.php:438
 msgid "Volume"
 msgstr "Volume"
 
@@ -48274,7 +48437,7 @@ msgstr "Selecteer een leverancier om een ​​creditnota in te voeren"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "Inkooporders"
@@ -56763,59 +56926,71 @@ msgstr "Geocode Genereer XML"
 msgid "General Setup Options"
 msgstr "Algemene setup-opties"
 
-#: /home/tim/code/KwaMoja/index.php:86
+#: /home/tim/code/KwaMoja/index.php:62
+msgid "General Hospital Setup"
+msgstr "Algemene ziekenhuisopstelling"
+
+#: /home/tim/code/KwaMoja/index.php:88
 msgid "Receivables/Payables Setup"
 msgstr "Debiteuren / crediteuren setup"
 
-#: /home/tim/code/KwaMoja/index.php:115
+#: /home/tim/code/KwaMoja/index.php:117
 msgid "Inventory Setup"
 msgstr "Voorraadinstellingen"
 
-#: /home/tim/code/KwaMoja/index.php:152
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain types"
+msgstr "Handhaaf types"
+
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain Types"
+msgstr "Soorten behouden"
+
+#: /home/tim/code/KwaMoja/index.php:156
 msgid "Bank Checks"
 msgstr "Bankcheques"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Collection Letters"
 msgstr "Collectie Letters"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Bank Deposit Slips"
 msgstr "Bankdeposito's"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Invoices and Packing Slips"
 msgstr "Facturen en pakbonnen"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Customer"
 msgstr "Labels - klant"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Vendor"
 msgstr "Labels - Leverancier"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Quotes"
 msgstr "Klant Quotes"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Receipts"
 msgstr "Verkoopbewijzen"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Miscellaneous"
 msgstr "Diversen"
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Custom Reports"
 msgstr "Aangepaste rapporten"
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Standard Reports and Forms"
 msgstr "Standaardrapporten en formulieren"
 
-#: /home/tim/code/KwaMoja/index.php:207
+#: /home/tim/code/KwaMoja/index.php:211
 msgid "There are no reports to show!"
 msgstr "Er zijn geen rapporten te zien!"
 
@@ -68292,6 +68467,582 @@ msgstr "Overlijden van patiënt"
 msgid "Change of department"
 msgstr "Verandering van afdeling"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:23
+msgid "General"
+msgstr "Algemeen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:24
+msgid "Spinal"
+msgstr "Ruggengraat"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:25
+msgid "Epidural"
+msgstr "Epiduraal"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:26
+msgid "Pudendal"
+msgstr "Pudendal"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:28
+msgid "Maintain Anaesthesia Types"
+msgstr "Behoud anesthesietypes"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:45
+msgid "Intratracheal anesthesia"
+msgstr "Intratracheale anesthesie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:46
+msgid "Locally applied anesthesia"
+msgstr "Lokaal aangebrachte anesthesie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:47
+msgid "Analgesic sedation"
+msgstr "Pijnstillende sedatie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Mask"
+msgstr "Masker"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Gas anesthesia through breathing mask"
+msgstr "Gasanesthesie door ademhalingsmasker"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Oral"
+msgstr "Oraal"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Intravenous"
+msgstr "Intraveneus"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Subcutaneous"
+msgstr "Onderhuids"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular"
+msgstr "Intramusculair"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Sublingual"
+msgstr "Sublinguaal"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Applied under the tounge"
+msgstr "Toegepast onder de tong"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:54
+msgid "Intraarterial"
+msgstr "Intraarterieel"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Pre-admission"
+msgstr "Pre-toelating"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:57
+msgid "Maintain Application Types"
+msgstr "Applicatietypes onderhouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:75
+msgid "Firm"
+msgstr "Firma"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:76
+msgid "Clinic"
+msgstr "Kliniek"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:78
+msgid "Maintain Assignment Types"
+msgstr "Toewijzingstypen behouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:94
+msgid "Patient was delayed"
+msgstr "Patiënt was vertraagd"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:95
+msgid "Nurses were delayed"
+msgstr "Verpleegsters hadden vertraging"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:96
+msgid "Surgeons were delayed"
+msgstr "Chirurgen waren vertraagd"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:97
+msgid "Cleaning delayed"
+msgstr "Reiniging vertraagd"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:98
+msgid "Anesthesiologist was delayed"
+msgstr "De anesthesioloog had vertraging"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:99
+msgid "Other causes"
+msgstr "Andere oorzaken"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:101
+msgid "Maintain Operation Delay Types"
+msgstr "Handhaaf de soorten vertraging van de operatie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:118
+msgid "Medical"
+msgstr "Medisch"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:119
+msgid "Support (non-medical)"
+msgstr "Ondersteuning (niet-medisch)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:120
+msgid "News"
+msgstr "Nieuws"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:122
+msgid "Maintain Department Types"
+msgstr "Afdelingstypen behouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duty"
+msgstr "Reguliere dienst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duty"
+msgstr "Stand-by dienst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning duty"
+msgstr "Ochtenddienst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon duty"
+msgstr "Middagdienst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night duty"
+msgstr "Nachtdienst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:145
+msgid "Maintain Duty Types"
+msgstr "Handhavingstypes"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:161
+msgid "asian"
+msgstr "Aziatisch"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:162
+msgid "black"
+msgstr "zwart"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:163
+msgid "caucasian"
+msgstr "Kaukasisch"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:164
+msgid "white"
+msgstr "wit"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:166
+msgid "Maintain Ethnic Origin Types"
+msgstr "Handhaaf typen etnische afkomst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast"
+msgstr "Borst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula"
+msgstr "Formule"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Both"
+msgstr "Beide"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Parenteral"
+msgstr "Parenteraal"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:187
+msgid "Never fed"
+msgstr "Nooit gevoed"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:189
+msgid "Maintain Feeding Types"
+msgstr "Handhaaf voersoorten"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Medical insurance"
+msgstr "Medische verzekering"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Main (default) medical insurance"
+msgstr "Basis (standaard) ziektekostenverzekering"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance"
+msgstr "Extra medische verzekering"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance (evt. pays extra services)"
+msgstr "Extra ziektekostenverzekering (evt. Betaalt extra diensten)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Dental insurance"
+msgstr "Tandartsverzekering"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Separate dental plan in case not included in medical plan or simply additional private plan"
+msgstr "Afzonderlijk tandheelkundig plan voor het geval dat niet is opgenomen in het medische plan of gewoon een aanvullend privéplan"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability plan"
+msgstr "Invaliditeitsplan"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability insurance plan - general , both long term & short term"
+msgstr "Arbeidsongeschiktheidsverzekering - algemeen, zowel op lange als op korte termijn"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Disability plan (short term)"
+msgstr "Arbeidsongeschiktheidsplan (korte termijn)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Short term disability plan"
+msgstr "Plan voor arbeidsongeschiktheid op korte termijn"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Disability plan (long term)"
+msgstr "Arbeidsongeschiktheidsplan (lange termijn)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Long term disability plan"
+msgstr "Arbeidsongeschiktheidsplan op lange termijn"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement  income plan (general)"
+msgstr "Pensioeninkomenplan (algemeen)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement income plan - either private or income/employer supported"
+msgstr "Pensioeninkomenplan - ofwel particulier ofwel inkomen / werkgever ondersteund"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Educational Reimbursement Plan"
+msgstr "Onderwijsvergoedingsplan"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Reimbursement plan for education, either private or employer supported"
+msgstr "Vergoedingsplan voor onderwijs, zowel particulier als door de werkgever ondersteund"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Retirement medical plan"
+msgstr "Pensioen medisch plan"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Medical plan in retirement  - might include other care services"
+msgstr "Medisch plan bij pensionering - kan andere zorgdiensten omvatten"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "Liability Insurance Plan"
+msgstr "Aansprakelijkheidsverzekering"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "General liability insurance - either private or employer supported"
+msgstr "Algemene aansprakelijkheidsverzekering - particulier of door de werkgever ondersteund"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Malpractice Insurance Plan"
+msgstr "Verzekering tegen wanpraktijken"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Insurance plan against possible malpractice"
+msgstr "Verzekeringsplan tegen mogelijke wanpraktijken"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment Insurance Plan"
+msgstr "Werkloosheidsverzekering"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment insurance , in case compulsory unemployment funds are guaranteed by the state, this plan is usually privately paid by the insured"
+msgstr "Werkloosheidsverzekering, in het geval dat verplichte werkloosheidsfondsen door de staat worden gegarandeerd, wordt dit plan meestal particulier betaald door de verzekerde"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:220
+msgid "Maintain Insurance Types"
+msgstr "Verzekeringstypes behouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:235
+msgid "Systolic"
+msgstr "Systolisch"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:236
+msgid "Diastolic"
+msgstr "Diastolisch"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:238
+msgid "Fluid intake"
+msgstr "Vloeistofinname"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:239
+msgid "Fluid output"
+msgstr "Vloeistofuitvoer"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:242
+msgid "Sys/Dias"
+msgstr "Sys / Dias"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:243
+msgid "Head circumference"
+msgstr "Hoofdomtrek"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:245
+msgid "Maintain Measurement Types"
+msgstr "Handhaaf meettechnieken"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:262
+msgid "Admission History and Physical"
+msgstr "Toelatingsgeschiedenis en fysiek"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:263
+msgid "Doctors daily notes"
+msgstr "Artsen maken dagelijks aantekeningen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:264
+msgid "Discharge summary"
+msgstr "Kwijting samenvatting"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:265
+msgid "Consultation notes"
+msgstr "Raadplegingsnota's"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:266
+msgid "Operation notes"
+msgstr "Bewerkingsnotities"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:267
+msgid "Daily ward notes"
+msgstr "Dagelijkse afdelingsnotities"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:268
+msgid "Chart notes"
+msgstr "Grafiek notities"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:269
+msgid "PT,ATG,etc. daily notes"
+msgstr "PT, ATG, enz. "
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:270
+msgid "IV daily notes"
+msgstr "IV dagelijkse aantekeningen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:271
+msgid "Anticoagulant daily notes"
+msgstr "Anticoagulantia dagelijkse notities"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:272
+msgid "Material LOT, Charge Nr."
+msgstr "Materiaal LOT, Charge Nr."
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:273
+msgid "Diagnosis text"
+msgstr "Diagnosetekst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:274
+msgid "Therapy text"
+msgstr "Therapie tekst"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:275
+msgid "Extra notes on therapy & diagnosis"
+msgstr "Extra opmerkingen over therapie en diagnose"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:276
+msgid "Nursing care report"
+msgstr "Rapport verpleegkundige zorg"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:277
+msgid "Nursing problem report"
+msgstr "Rapport over verpleegproblemen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:278
+msgid "Nursing effectivity report"
+msgstr "Rapport over verpleegeffectiviteit"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:279
+msgid "Inquiry to doctor"
+msgstr "Vraag aan arts"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:280
+msgid "Doctors directive"
+msgstr "Artsenrichtlijn"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:281
+msgid "Problem"
+msgstr "Probleem"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:282
+msgid "Development"
+msgstr "Ontwikkeling"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:283
+msgid "Allergy"
+msgstr "Allergie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:284
+msgid "Diet plan"
+msgstr "Dieet plan"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:287
+msgid "Maintain Notes Types"
+msgstr "Onderhoud notitiesoorten"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:304
+msgid "Alive"
+msgstr "Levend"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:305
+msgid "Stillborn"
+msgstr "Doodgeboren"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:306
+msgid "Early neonatal death"
+msgstr "Vroege neonatale dood"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:307
+msgid "Late neonatal death"
+msgstr "Late neonatale dood"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:308
+msgid "Death uncertain timing"
+msgstr "Death onzekere timing"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:310
+msgid "Maintain Outcome Types"
+msgstr "Behoud uitkomsttypes"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:327
+msgid "Intact"
+msgstr "Intact"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:328
+msgid "1st degree tear"
+msgstr "1e graads scheur"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:329
+msgid "2nd degree tear"
+msgstr "2e graads scheur"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:330
+msgid "3rd degree tear"
+msgstr "3e graads scheur"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:331
+msgid "Episiotomy"
+msgstr "Episiotomie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:333
+msgid "Maintain Perineum Types"
+msgstr "Perineumtypes behouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:348
+msgid "Anticoagulant"
+msgstr "Anticoagulans"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:349
+msgid "Hemolytic"
+msgstr "Hemolytisch"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:350
+msgid "Diuretic"
+msgstr "Diureticum"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:351
+msgid "Antibiotic"
+msgstr "Antibiotica"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:353
+msgid "Maintain Prescription Types"
+msgstr "Behoud recepttypen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Ward room"
+msgstr "Ward kamer"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating room"
+msgstr "Operatiekamer"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:372
+msgid "Maintain Room Types"
+msgstr "Kamertypes behouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:389
+msgid "Chemical-Serology Lab"
+msgstr "Chemical-Serology Lab"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:390
+msgid "Pathological Lab"
+msgstr "Pathologisch Lab"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:391
+msgid "Bacteriological Lab"
+msgstr "Bacteriological Lab"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Radiological Lab"
+msgstr "Radiological Lab"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:393
+msgid "Blood test & product"
+msgstr "Bloedonderzoek en product"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:394
+msgid "Generic test program"
+msgstr "Generiek testprogramma"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:396
+msgid "Maintain Test Types"
+msgstr "Handhaaf Testtypes"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:413
+msgid "Patient entry/exit"
+msgstr "Patiënt in- / uitstappen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:414
+msgid "OP start/end"
+msgstr "OP begin / einde"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:415
+msgid "Delay time"
+msgstr "Vertragingstijd"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:416
+msgid "Plaster cast"
+msgstr "Gips"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:417
+msgid "Reposition"
+msgstr "Verplaats"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:418
+msgid "Coronary catheter"
+msgstr "Coronaire katheter"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:419
+msgid "Bandage"
+msgstr "Verband"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:421
+msgid "Maintain Time Types"
+msgstr "Handhaaf tijdtypes"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:441
+msgid "Pressure"
+msgstr "Druk"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:444
+msgid "Maintain Unit Measurements Types"
+msgstr "Soorten maateenheden onderhouden"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Maintain Test Parameters"
+msgstr "Testparameters behouden"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "Aankopen"
@@ -69134,6 +69885,12 @@ msgstr "Leningen van het personeel"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Terugbetaling van personeellening"
+
+#~ msgid "The number of insurance companies using this type could not be retrieved"
+#~ msgstr "Het aantal verzekeringsmaatschappijen dat dit type gebruikt, kan niet worden opgehaald"
+
+#~ msgid "Cannot delete this type because insurance companies have been created using this type"
+#~ msgstr "Kan dit type niet verwijderen omdat verzekeringsmaatschappijen met dit type zijn aangemaakt"
 
 #~ msgid "The update of the security role failed because"
 #~ msgstr "De update van de beveiligingsrol is mislukt omdat"

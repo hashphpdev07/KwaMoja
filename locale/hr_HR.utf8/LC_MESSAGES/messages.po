@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-13 13:24+0100\n"
+"POT-Creation-Date: 2020-07-17 04:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -311,10 +311,12 @@ msgstr "Jeste li sigurni da želite izbrisati ovu grupu za rangiranje?"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
@@ -556,9 +558,11 @@ msgstr "Metoda rangiranja uspješno je spremljena u bazu podataka"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
@@ -812,7 +816,7 @@ msgstr "promijenjeni su u grupu računa"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:51
@@ -2058,8 +2062,10 @@ msgstr "Adresa e-pošte za kontakt nije važeća e-adresa"
 #: /home/tim/code/KwaMoja/Factors.php:102
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:235
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2132,8 +2138,8 @@ msgstr "Popis kontakata je izbrisan"
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:319
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:200
@@ -2687,10 +2693,13 @@ msgstr "Zaliha"
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -3659,9 +3668,9 @@ msgstr "Odaberite zadnje razdoblje u izvješću"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:126
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:137
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:148
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
 #: /home/tim/code/KwaMoja/MRPDemands.php:321
 #: /home/tim/code/KwaMoja/MRPDemands.php:328
 #: /home/tim/code/KwaMoja/MRPReport.php:571
@@ -4566,7 +4575,7 @@ msgstr "Korisnik"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -4607,6 +4616,12 @@ msgstr "Adresa"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
@@ -5464,7 +5479,7 @@ msgstr "Ili unesite dio koda predmeta"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:162
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
 #: /home/tim/code/KwaMoja/PO_Header.php:563
@@ -6559,7 +6574,6 @@ msgstr "Još nije odabrano"
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:176
 #: /home/tim/code/KwaMoja/LocationUsers.php:134
 #: /home/tim/code/KwaMoja/LocationUsers.php:247
 #: /home/tim/code/KwaMoja/OffersReceived.php:112
@@ -8074,7 +8088,7 @@ msgstr "SQL nije vraćen nijedan nalog za rad jer je"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:47
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8105,6 +8119,12 @@ msgstr "izmijeniti"
 
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:482
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:513
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
@@ -12023,7 +12043,7 @@ msgstr "Ugovor: odaberite kupca"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:115
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:90
@@ -14624,7 +14644,7 @@ msgid "Select A Customer"
 msgstr "Odaberite klijenta"
 
 #: /home/tim/code/KwaMoja/CustLoginSetup.php:27
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 #: /home/tim/code/KwaMoja/SelectCustomer.php:167
 #: /home/tim/code/KwaMoja/SuppLoginSetup.php:22
 msgid " has been selected"
@@ -16019,7 +16039,7 @@ msgstr "Koristite ovu granu kao zadanu za gotovinsku prodaju"
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
 #: /home/tim/code/KwaMoja/prlnssf.php:322
@@ -16676,6 +16696,7 @@ msgstr "Označiti"
 #: /home/tim/code/KwaMoja/SystemParameters.php:1096
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
+#: /home/tim/code/KwaMoja/sql/updates/217.php:21
 msgid "None"
 msgstr "nijedan"
 
@@ -16868,6 +16889,8 @@ msgstr "Vrste kupaca"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:3
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
@@ -16876,7 +16899,7 @@ msgstr "Vrste kupaca"
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintenance"
 msgstr "Održavanje"
 
@@ -16913,13 +16936,14 @@ msgstr "već postoji."
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
 msgid "Customer type"
 msgstr "Vrsta kupca"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:62
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -16974,15 +16998,18 @@ msgid "customers with this type code"
 msgstr "korisnici s ovim tipskim kodom"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "Zapis vrste nije moguće izbrisati jer"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:175
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:115
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:158
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
@@ -16991,9 +17018,13 @@ msgstr "ID vrste"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:116
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:170
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
@@ -17003,7 +17034,9 @@ msgid "Type Name"
 msgstr "Upišite Naziv"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "Jeste li sigurni da želite izbrisati ovu vrstu klijenta?"
 
@@ -17832,6 +17865,7 @@ msgstr "Širina"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:284
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:87
+#: /home/tim/code/KwaMoja/sql/updates/217.php:440
 msgid "Length"
 msgstr "dužina"
 
@@ -17839,6 +17873,7 @@ msgstr "dužina"
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
+#: /home/tim/code/KwaMoja/sql/updates/217.php:241
 msgid "Height"
 msgstr "Visina"
 
@@ -21848,6 +21883,7 @@ msgstr "Novac ili gotovinski ekvivalent"
 #: /home/tim/code/KwaMoja/sql/updates/12.php:392
 #: /home/tim/code/KwaMoja/sql/updates/12.php:403
 #: /home/tim/code/KwaMoja/sql/updates/12.php:414
+#: /home/tim/code/KwaMoja/sql/updates/217.php:22
 msgid "Unknown"
 msgstr "nepoznat"
 
@@ -23134,9 +23170,10 @@ msgstr "Opis oznake"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
+#: /home/tim/code/KwaMoja/sql/updates/217.php:74
 msgid "Department"
 msgstr "odjel"
 
@@ -25782,7 +25819,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:35
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
 msgstr "Broj datoteke"
@@ -25862,6 +25899,121 @@ msgstr "Prebaci pacijenta na drugi krevet"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:204
 msgid "Discharge Patient"
 msgstr "Pacijent otpusta"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Types"
+msgstr "Vrste anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:13
+msgid "Anaesthesia Type Setup"
+msgstr "Postavljanje anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:15
+msgid "Add/edit/delete Anaesthesia Types"
+msgstr "Dodavanje / uređivanje / brisanje vrsta anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:28
+msgid "The anaesthesia type name description must be 100 characters or less long"
+msgstr "Opis imena vrste anestezije mora biti dugačak 100 znakova ili manje"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:33
+msgid "The anaesthesia type name description must contain at least one character"
+msgstr "Opis imena vrste anestezije mora sadržavati barem jedan znak"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The anaesthesia type"
+msgstr "Vrsta anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an anaesthesia type called"
+msgstr "Već imate zvani tip anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Anaesthesia type"
+msgstr "Vrsta anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The anaesthesia type has been deleted"
+msgstr "Izbrisana je vrsta anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
+msgid "Type Description"
+msgstr "Vrsta Opis"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Anaesthesia Type"
+msgstr "Uredi vrstu anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/ProductSpecs.php:380
+#: /home/tim/code/KwaMoja/QATests.php:391
+#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
+msgid "Active"
+msgstr "Aktivan"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Anaesthesia Type"
+msgstr "Stvorite novi tip anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
+#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+msgid "Inactive"
+msgstr "Neaktivan"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Anaesthesia Type"
+msgstr "Ažurirajte vrstu anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Anaesthesia Type"
+msgstr "Stvorite vrstu anestezije"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Types"
+msgstr "Vrste aplikacija"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:13
+msgid "Application Type Setup"
+msgstr "Postavljanje vrste aplikacije"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:15
+msgid "Add/edit/delete Application Types"
+msgstr "Dodavanje / uređivanje / brisanje vrsta aplikacija"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:28
+msgid "The application type name description must be 100 characters or less long"
+msgstr "Opis naziva aplikacije mora biti dugačak 100 znakova ili manje"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
+msgid "The application type name description must contain at least one character"
+msgstr "Opis naziva aplikacije mora sadržavati najmanje jedan znak"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -25957,6 +26109,8 @@ msgid "Edema Description"
 msgstr "Opis edema"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
+#: /home/tim/code/KwaMoja/sql/updates/217.php:237
+#: /home/tim/code/KwaMoja/sql/updates/217.php:442
 msgid "Temperature"
 msgstr "Temperatura"
 
@@ -26315,7 +26469,7 @@ msgstr "Urogenitalni sustav"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:305
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -26326,7 +26480,7 @@ msgstr "Muški"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -26407,6 +26561,7 @@ msgstr "Datum rođenja"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
+#: /home/tim/code/KwaMoja/sql/updates/217.php:73
 msgid "Ward"
 msgstr "štićenik"
 
@@ -26572,7 +26727,7 @@ msgstr "je uspješno ažurirano"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:336
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -26589,7 +26744,7 @@ msgstr "Seks"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:415
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Osiguravajuće društvo"
@@ -27066,31 +27221,31 @@ msgid "There are no patients matching this criteria"
 msgstr "Ne postoje pacijenti koji odgovaraju ovom kriteriju"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "G."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "ms"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Propustiti"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "Gđa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:296
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "doktor"
@@ -27100,7 +27255,7 @@ msgid "Update Admission data for"
 msgstr "Ažurirajte podatke o prijemu za"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "Admit"
 msgstr "Priznati"
 
@@ -27109,23 +27264,23 @@ msgid "as an inpatient"
 msgstr "kao bolesnika"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:311
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
 msgid "Admission Date"
 msgstr "Datum prijema"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:315
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
 msgid "Admission Time"
 msgstr "Vrijeme prijema"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:327
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
 msgid "Blood Group"
 msgstr "Krvna grupa"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:331
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -27134,42 +27289,42 @@ msgid "Gender"
 msgstr "rod"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
 msgid "Admission Type"
 msgstr "Vrsta prijema"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
 msgid "A type of admission."
 msgstr "Vrsta prijema."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "White"
 msgstr "bijela"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Green"
 msgstr "zelena"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Yellow"
 msgstr "Žuta boja"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 msgid "Red"
 msgstr "Crvena"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:358
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
 msgid "Triage Code"
 msgstr "Triage Code"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:368
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "Trijažni kod ovog pacijenta, bijeli je najmanje ozbiljan, a crveni najozbiljniji."
 
@@ -27178,33 +27333,33 @@ msgid "The ward that this patient is being admitted to."
 msgstr "Odjel u koji je primljen ovaj pacijent."
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:388
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
 msgid "Referrer Diagnosis"
 msgstr "Dijagnoza preporuke"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:393
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
 msgid "Referred By"
 msgstr "Naveo"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:398
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
 msgid "Referrer Therapy"
 msgstr "Referentna terapija"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:403
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
 msgid "Referrer Notes"
 msgstr "Napomene o preporuci"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "Osiguravajuće društvo, ako ga ima, kojem pripada ovaj pacijent"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Insurance Number"
 msgstr "Broj osiguranja"
 
@@ -27472,45 +27627,57 @@ msgid "Include"
 msgstr "uključiti"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Types"
 msgstr "Vrste osiguranja"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:18
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:13
 msgid "Insurance Type Setup"
 msgstr "Postavljanje osiguranja"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:19
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:15
 msgid "Add/edit/delete Insurance Types"
 msgstr "Dodavanje / uređivanje / brisanje vrsta osiguranja"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:32
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:28
 msgid "The insurance type name description must be 100 characters or less long"
 msgstr "Opis imena osiguranja mora biti dugačak 100 znakova ili manje"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:37
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:33
 msgid "The insurnace type name description must contain at least one character"
 msgstr "Opis imena vrste insurna mora sadržavati barem jedan znak"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:48
-msgid "You already have an insurance type called"
-msgstr "Već imate zvanu vrstu osiguranja"
-
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
 msgid "The insurance type"
 msgstr "Vrsta osiguranja"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:84
-msgid "The number of insurance companies using this type could not be retrieved"
-msgstr "Broj osiguravajućih društava koja koriste ovu vrstu nije moguće dohvatiti"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:57
+msgid "You already have an insurance type called"
+msgstr "Već imate zvanu vrstu osiguranja"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:89
-msgid "Cannot delete this type because insurance companies have been created using this type"
-msgstr "Ne možete izbrisati ovu vrstu jer su osiguravajuća društva stvorena korištenjem ove vrste"
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+msgid "Insurance type"
+msgstr "Vrsta osiguranja"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:107
 msgid "The insurance type has been deleted"
 msgstr "Vrsta osiguranja izbrisana je"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:181
+msgid "Edit Insurance Type"
+msgstr "Uredi vrstu osiguranja"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:195
+msgid "Create New Insurance Type"
+msgstr "Stvorite novu vrstu osiguranja"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:230
+msgid "Update Insurance Type"
+msgstr "Ažurirajte vrstu osiguranja"
+
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:234
+msgid "Create Insurance Type"
+msgstr "Stvorite vrstu osiguranja"
 
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:3
 msgid "Billing For Laboratory Tests"
@@ -27658,14 +27825,6 @@ msgstr "SQL koji se koristio za ažuriranje zapisa vrste susreta bio je"
 msgid "The encounter type was successfully updated"
 msgstr "Vrsta susreta uspješno je ažurirana"
 
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-#: /home/tim/code/KwaMoja/ProductSpecs.php:380
-#: /home/tim/code/KwaMoja/QATests.php:391
-#: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
-msgid "Active"
-msgstr "Aktivan"
-
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:95
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "InActive"
@@ -27678,10 +27837,6 @@ msgstr "Uredi vrstu susreta"
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:139
 msgid "Create New Encounter Type"
 msgstr "Stvorite novu vrstu susreta"
-
-#: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-msgid "Inactive"
-msgstr "Neaktivan"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:166
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:393
@@ -27928,11 +28083,11 @@ msgstr "Primiti ambulantno"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "Ovaj pacijent trenutno nije primljen kao ambulantno"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:309
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
 msgid "as an outpatient"
 msgstr "kao ambulantno"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
 msgid "The department that this patient is being admitted to."
 msgstr "Odjel u koji je primljen ovaj pacijent."
 
@@ -28660,73 +28815,77 @@ msgstr "Pretražuju pacijenti"
 msgid "Patients"
 msgstr "pacijenti"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:69
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
 msgid "Patient"
 msgstr "Pacijent"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:72
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
 msgid "Select a menu option to operate using this patient"
 msgstr "Odaberite opciju izbornika za rad s ovim pacijentom"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:88
+#: /home/tim/code/KwaMoja/index.php:90
 msgid "Inquiries and Reports"
 msgstr "Upiti i izvješća"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:77
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 msgid "Patient Inquiries"
 msgstr "Upiti pacijenata"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:83
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
 msgid "Patient Transactions"
 msgstr "Transakcije pacijenata"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:86
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
 msgstr "Izmijenite podatke o registraciji pacijenata"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:89
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:90
 msgid "Modify Inpatient admission data"
 msgstr "Izmjena podataka o prijemu u bolnicu"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:92
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:93
 msgid "Modify Outpatient admission data"
 msgstr "Izmjena podataka o ambulantnom prijemu"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:98
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
+msgid "Discharge this patient"
+msgstr "Otpusti ovog pacijenta"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
 msgid "Patient Maintenance"
 msgstr "Održavanje pacijenta"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:112
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "Potražite pacijente"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:117
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
 msgid "Enter a partial Name"
 msgstr "Unesite djelomično ime"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:129
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "Unesite djelomični broj dosjea pacijenta"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:140
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "Unesite djelomični telefonski broj"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:151
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "Unesite dio adrese"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:163
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
 #: /home/tim/code/KwaMoja/SelectCustomer.php:399
 msgid "CSV Format"
@@ -28971,6 +29130,8 @@ msgstr "Fizički detalji"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
+#: /home/tim/code/KwaMoja/sql/updates/217.php:240
+#: /home/tim/code/KwaMoja/sql/updates/217.php:439
 msgid "Weight"
 msgstr "Težina"
 
@@ -28997,6 +29158,7 @@ msgstr "Krv"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
+#: /home/tim/code/KwaMoja/sql/updates/217.php:285
 msgid "Other"
 msgstr "drugo"
 
@@ -31941,7 +32103,7 @@ msgstr "Popis kupaca s kupcem"
 
 #: /home/tim/code/KwaMoja/PDFCustTransListing.php:132
 #: /home/tim/code/KwaMoja/PDFSuppTransListing.php:131
-#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:62
+#: /home/tim/code/KwaMoja/Tax.php:332 /home/tim/code/KwaMoja/index.php:64
 msgid "Transactions"
 msgstr "Transakcije"
 
@@ -37622,7 +37784,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "Nije bilo klijenata koji odgovaraju vašem izboru"
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Statements"
 msgstr "Izjave klijenata"
 
@@ -41964,7 +42126,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "Da biste potražili narudžbe za prodaju za određeni dio, upotrijebite elemente za odabir dijela u nastavku"
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Orders"
 msgstr "Prodajni nalozi"
 
@@ -42885,6 +43047,7 @@ msgid "Batchs/Lots"
 msgstr "Batchs / Paketi"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:165
+#: /home/tim/code/KwaMoja/sql/updates/217.php:438
 msgid "Volume"
 msgstr "Volumen"
 
@@ -48274,7 +48437,7 @@ msgstr "Odaberite dobavljača da biste unijeli bilješku o kreditu"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "Narudžbenice"
@@ -56763,59 +56926,71 @@ msgstr "Geokodiranje generira XML"
 msgid "General Setup Options"
 msgstr "Opcije općih postavki"
 
-#: /home/tim/code/KwaMoja/index.php:86
+#: /home/tim/code/KwaMoja/index.php:62
+msgid "General Hospital Setup"
+msgstr "Opće postavljanje bolnice"
+
+#: /home/tim/code/KwaMoja/index.php:88
 msgid "Receivables/Payables Setup"
 msgstr "Postavljanje potraživanja / obveza"
 
-#: /home/tim/code/KwaMoja/index.php:115
+#: /home/tim/code/KwaMoja/index.php:117
 msgid "Inventory Setup"
 msgstr "Postavljanje oglasnog prostora"
 
-#: /home/tim/code/KwaMoja/index.php:152
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain types"
+msgstr "Održavajte vrste"
+
+#: /home/tim/code/KwaMoja/index.php:119
+msgid "Maintain Types"
+msgstr "Održavajte vrste"
+
+#: /home/tim/code/KwaMoja/index.php:156
 msgid "Bank Checks"
 msgstr "Bankovne provjere"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Collection Letters"
 msgstr "Zbirka pisama"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Bank Deposit Slips"
 msgstr "Bankovni depoziti"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Invoices and Packing Slips"
 msgstr "Fakture i Pakiranje Slips"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Customer"
 msgstr "Oznake - kupac"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Labels - Vendor"
 msgstr "Oznake - dobavljač"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Customer Quotes"
 msgstr "Citati kupaca"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Sales Receipts"
 msgstr "Prihodi od prodaje"
 
-#: /home/tim/code/KwaMoja/index.php:153
+#: /home/tim/code/KwaMoja/index.php:157
 msgid "Miscellaneous"
 msgstr "razni"
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Custom Reports"
 msgstr "Prilagođena izvješća"
 
-#: /home/tim/code/KwaMoja/index.php:159
+#: /home/tim/code/KwaMoja/index.php:163
 msgid "Standard Reports and Forms"
 msgstr "Standardni izvještaji i obrasci"
 
-#: /home/tim/code/KwaMoja/index.php:207
+#: /home/tim/code/KwaMoja/index.php:211
 msgid "There are no reports to show!"
 msgstr "Nema izvješća za prikazivanje!"
 
@@ -68292,6 +68467,582 @@ msgstr "Smrt pacijenta"
 msgid "Change of department"
 msgstr "Promjena odjela"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:23
+msgid "General"
+msgstr "Općenito"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:24
+msgid "Spinal"
+msgstr "spinalni"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:25
+msgid "Epidural"
+msgstr "epiduralna"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:26
+msgid "Pudendal"
+msgstr "pudendalnog"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:28
+msgid "Maintain Anaesthesia Types"
+msgstr "Održavajte vrste anestezije"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:45
+msgid "Intratracheal anesthesia"
+msgstr "Intratrahealna anestezija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:46
+msgid "Locally applied anesthesia"
+msgstr "Lokalno primijenjena anestezija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:47
+msgid "Analgesic sedation"
+msgstr "Analgetska sedacija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Mask"
+msgstr "Maska"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+msgid "Gas anesthesia through breathing mask"
+msgstr "Plinska anestezija putem maske za disanje"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Oral"
+msgstr "oralno"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Intravenous"
+msgstr "intravenski"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Subcutaneous"
+msgstr "Supkntano"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular"
+msgstr "intramuskularna"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Sublingual"
+msgstr "sublingvalne"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+msgid "Applied under the tounge"
+msgstr "Primjenjuje se ispod toungea"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:54
+msgid "Intraarterial"
+msgstr "intraarterijski"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Pre-admission"
+msgstr "Pre-ulaz"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:57
+msgid "Maintain Application Types"
+msgstr "Održavajte vrste aplikacija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:75
+msgid "Firm"
+msgstr "Firma"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:76
+msgid "Clinic"
+msgstr "Klinika"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:78
+msgid "Maintain Assignment Types"
+msgstr "Održavajte vrste dodjele"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:94
+msgid "Patient was delayed"
+msgstr "Pacijent je kasnio"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:95
+msgid "Nurses were delayed"
+msgstr "Sestre su kasnile"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:96
+msgid "Surgeons were delayed"
+msgstr "Kirurzi su kasnili"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:97
+msgid "Cleaning delayed"
+msgstr "Čišćenje je odgođeno"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:98
+msgid "Anesthesiologist was delayed"
+msgstr "Anesteziolog je kasnio"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:99
+msgid "Other causes"
+msgstr "Ostali uzroci"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:101
+msgid "Maintain Operation Delay Types"
+msgstr "Održavajte vrste kašnjenja rada"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:118
+msgid "Medical"
+msgstr "medicinski"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:119
+msgid "Support (non-medical)"
+msgstr "Podrška (nemedicinska)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:120
+msgid "News"
+msgstr "Vijesti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:122
+msgid "Maintain Department Types"
+msgstr "Održavajte vrste odjela"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duty"
+msgstr "Redovna dužnost"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duty"
+msgstr "Dužnost u pripravnosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning duty"
+msgstr "Jutarnja dužnost"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon duty"
+msgstr "Poslijepodnevna dužnost"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night duty"
+msgstr "Noćna dužnost"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:145
+msgid "Maintain Duty Types"
+msgstr "Održavajte vrste dužnosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:161
+msgid "asian"
+msgstr "azijski"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:162
+msgid "black"
+msgstr "crno"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:163
+msgid "caucasian"
+msgstr "bijele rase"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:164
+msgid "white"
+msgstr "bijela"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:166
+msgid "Maintain Ethnic Origin Types"
+msgstr "Održavajte vrste etničkog podrijetla"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast"
+msgstr "Grudi"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula"
+msgstr "Formula"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Both"
+msgstr "Oba"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Parenteral"
+msgstr "parenteralna"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:187
+msgid "Never fed"
+msgstr "Nikad hranjena"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:189
+msgid "Maintain Feeding Types"
+msgstr "Održavajte vrste hranjenja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Medical insurance"
+msgstr "Zdravstveno osiguranje"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+msgid "Main (default) medical insurance"
+msgstr "Glavno (zadano) zdravstveno osiguranje"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance"
+msgstr "Dodatno medicinsko osiguranje"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+msgid "Extra medical insurance (evt. pays extra services)"
+msgstr "Dodatno medicinsko osiguranje (evt plaća dodatne usluge)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Dental insurance"
+msgstr "Stomatološko osiguranje"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+msgid "Separate dental plan in case not included in medical plan or simply additional private plan"
+msgstr "Odvojeni stomatološki plan u slučaju da nije uključen u medicinski plan ili jednostavno dodatni privatni plan"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability plan"
+msgstr "Plan invalidnosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+msgid "Disability insurance plan - general , both long term & short term"
+msgstr "Plan invalidskog osiguranja - općeniti, i dugoročni i kratkoročni"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Disability plan (short term)"
+msgstr "Plan invalidnosti (kratkoročni)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+msgid "Short term disability plan"
+msgstr "Kratkoročni plan invalidnosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Disability plan (long term)"
+msgstr "Plan invalidnosti (dugoročni)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+msgid "Long term disability plan"
+msgstr "Dugoročni plan invalidnosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement  income plan (general)"
+msgstr "Plan prihoda za umirovljenje (općenito)"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+msgid "Retirement income plan - either private or income/employer supported"
+msgstr "Plan prihoda za umirovljenje - bilo privatni ili uzdržavanje / poslodavca"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Educational Reimbursement Plan"
+msgstr "Plan naknada za obrazovanje"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+msgid "Reimbursement plan for education, either private or employer supported"
+msgstr "Plan nadoknade za obrazovanje, bilo privatno ili podržano od poslodavca"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Retirement medical plan"
+msgstr "Medicinski plan umirovljenja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+msgid "Medical plan in retirement  - might include other care services"
+msgstr "Medicinski plan u mirovini - mogao bi uključivati ​​i ostale usluge skrbi"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "Liability Insurance Plan"
+msgstr "Plan osiguranja od odgovornosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+msgid "General liability insurance - either private or employer supported"
+msgstr "Osiguranje od opće odgovornosti - bilo privatno ili poslodavce"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Malpractice Insurance Plan"
+msgstr "Plan osiguranja nesmetanog osiguranja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+msgid "Insurance plan against possible malpractice"
+msgstr "Plan osiguranja od mogućih nesavjestan rad"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment Insurance Plan"
+msgstr "Plan osiguranja za slučaj nezaposlenosti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+msgid "Unemployment insurance , in case compulsory unemployment funds are guaranteed by the state, this plan is usually privately paid by the insured"
+msgstr "Osiguranje za slučaj nezaposlenosti, u slučaju da država obavezno osigurava nezaposlene fondove, ovaj plan obično privatno plaća osiguranik"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:220
+msgid "Maintain Insurance Types"
+msgstr "Održavajte vrste osiguranja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:235
+msgid "Systolic"
+msgstr "sistolički"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:236
+msgid "Diastolic"
+msgstr "dijastolički"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:238
+msgid "Fluid intake"
+msgstr "Unos tekućine"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:239
+msgid "Fluid output"
+msgstr "Izlaz tekućine"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:242
+msgid "Sys/Dias"
+msgstr "Sys / Dias"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:243
+msgid "Head circumference"
+msgstr "Opseg glave"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:245
+msgid "Maintain Measurement Types"
+msgstr "Održavajte vrste mjerenja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:262
+msgid "Admission History and Physical"
+msgstr "Povijest upisa i fizička"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:263
+msgid "Doctors daily notes"
+msgstr "Liječnici svakodnevno bilježe"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:264
+msgid "Discharge summary"
+msgstr "Sažetak sa pražnjenja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:265
+msgid "Consultation notes"
+msgstr "Savjetodavne bilješke"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:266
+msgid "Operation notes"
+msgstr "Radne napomene"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:267
+msgid "Daily ward notes"
+msgstr "Bilješke dnevnog odjela"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:268
+msgid "Chart notes"
+msgstr "Bilješke grafikona"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:269
+msgid "PT,ATG,etc. daily notes"
+msgstr "PT, ATG, itd. "
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:270
+msgid "IV daily notes"
+msgstr "IV dnevne bilješke"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:271
+msgid "Anticoagulant daily notes"
+msgstr "Dnevne bilješke o antikoagulansima"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:272
+msgid "Material LOT, Charge Nr."
+msgstr "Materijal LOT, Br."
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:273
+msgid "Diagnosis text"
+msgstr "Tekst dijagnoze"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:274
+msgid "Therapy text"
+msgstr "Tekst terapije"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:275
+msgid "Extra notes on therapy & diagnosis"
+msgstr "Dodatne napomene o terapiji i dijagnozi"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:276
+msgid "Nursing care report"
+msgstr "Izvještaj o njezi"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:277
+msgid "Nursing problem report"
+msgstr "Izvještaj o problemima sestrinstva"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:278
+msgid "Nursing effectivity report"
+msgstr "Izvještaj o učinkovitosti medicinskih sestara"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:279
+msgid "Inquiry to doctor"
+msgstr "Upit liječniku"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:280
+msgid "Doctors directive"
+msgstr "Direktori liječnika"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:281
+msgid "Problem"
+msgstr "Problem"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:282
+msgid "Development"
+msgstr "Razvoj"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:283
+msgid "Allergy"
+msgstr "Alergija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:284
+msgid "Diet plan"
+msgstr "Plan prehrane"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:287
+msgid "Maintain Notes Types"
+msgstr "Održavajte vrste napomena"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:304
+msgid "Alive"
+msgstr "Živ"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:305
+msgid "Stillborn"
+msgstr "mrtvorođen"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:306
+msgid "Early neonatal death"
+msgstr "Rana neonatalna smrt"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:307
+msgid "Late neonatal death"
+msgstr "Kasna neonatalna smrt"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:308
+msgid "Death uncertain timing"
+msgstr "Vrijeme neizvjesne smrti"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:310
+msgid "Maintain Outcome Types"
+msgstr "Održavajte vrste ishoda"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:327
+msgid "Intact"
+msgstr "netaknut"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:328
+msgid "1st degree tear"
+msgstr "Suza 1. stupnja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:329
+msgid "2nd degree tear"
+msgstr "Suza drugog stupnja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:330
+msgid "3rd degree tear"
+msgstr "Suza 3. stupnja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:331
+msgid "Episiotomy"
+msgstr "epiziotomija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:333
+msgid "Maintain Perineum Types"
+msgstr "Održavajte vrste perineuma"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:348
+msgid "Anticoagulant"
+msgstr "antikoagulans"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:349
+msgid "Hemolytic"
+msgstr "hemolitički"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:350
+msgid "Diuretic"
+msgstr "Diuretik"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:351
+msgid "Antibiotic"
+msgstr "Antibiotik"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:353
+msgid "Maintain Prescription Types"
+msgstr "Održavajte vrste recepta"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Ward room"
+msgstr "Ward soba"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating room"
+msgstr "Operacijska dvorana"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:372
+msgid "Maintain Room Types"
+msgstr "Održavajte vrste soba"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:389
+msgid "Chemical-Serology Lab"
+msgstr "Kemijsko-serološki laboratorij"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:390
+msgid "Pathological Lab"
+msgstr "Patološki laboratorij"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:391
+msgid "Bacteriological Lab"
+msgstr "Bakteriološki laboratorij"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Radiological Lab"
+msgstr "Radiološki laboratorij"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:393
+msgid "Blood test & product"
+msgstr "Krvni test i proizvod"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:394
+msgid "Generic test program"
+msgstr "Generički program ispitivanja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:396
+msgid "Maintain Test Types"
+msgstr "Održavajte vrste ispitivanja"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:413
+msgid "Patient entry/exit"
+msgstr "Ulazak / izlazak pacijenta"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:414
+msgid "OP start/end"
+msgstr "OP početak / kraj"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:415
+msgid "Delay time"
+msgstr "Vrijeme odgode"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:416
+msgid "Plaster cast"
+msgstr "Gips"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:417
+msgid "Reposition"
+msgstr "Vratite"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:418
+msgid "Coronary catheter"
+msgstr "Koronarni kateter"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:419
+msgid "Bandage"
+msgstr "Zavoj"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:421
+msgid "Maintain Time Types"
+msgstr "Održavajte vremenske vrste"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:441
+msgid "Pressure"
+msgstr "Pritisak"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:444
+msgid "Maintain Unit Measurements Types"
+msgstr "Održavajte vrste mjerenja jedinica"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Maintain Test Parameters"
+msgstr "Održavajte parametre ispitivanja"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "Kupnja"
@@ -69134,6 +69885,12 @@ msgstr "Osobni zajmovi"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Otplata zajma osoblja"
+
+#~ msgid "The number of insurance companies using this type could not be retrieved"
+#~ msgstr "Broj osiguravajućih društava koja koriste ovu vrstu nije moguće dohvatiti"
+
+#~ msgid "Cannot delete this type because insurance companies have been created using this type"
+#~ msgstr "Ne možete izbrisati ovu vrstu jer su osiguravajuća društva stvorena korištenjem ove vrste"
 
 #~ msgid "The update of the security role failed because"
 #~ msgstr "Ažuriranje sigurnosne uloge nije uspjelo jer"
