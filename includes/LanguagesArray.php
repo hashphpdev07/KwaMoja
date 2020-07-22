@@ -118,7 +118,7 @@ $LanguagesArray['id_ID.utf8']['DecimalPoint'] = ',';
 $LanguagesArray['id_ID.utf8']['ThousandsSeparator'] = '.';
 $LanguagesArray['id_ID.utf8']['Direction'] = 'ltr';
 
-$LanguagesArray['ig_NG.utf8']['LanguageName'] = 'Igbo Nigeria';
+$LanguagesArray['ig_NG.utf8']['LanguageName'] = 'Ndi Igbo Nigeria';
 $LanguagesArray['ig_NG.utf8']['WindowsLocale'] = 'igbo';
 $LanguagesArray['ig_NG.utf8']['DecimalPoint'] = '.';
 $LanguagesArray['ig_NG.utf8']['ThousandsSeparator'] = ',';
