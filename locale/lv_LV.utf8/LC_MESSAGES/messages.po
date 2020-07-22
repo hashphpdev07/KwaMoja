@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-17 06:56+0100\n"
+"POT-Creation-Date: 2020-07-22 09:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,6 +243,8 @@ msgstr "ID"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:125
 #: /home/tim/code/KwaMoja/AccountGroups.php:328
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:204
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:278
 msgid "Group Name"
 msgstr "Grupas nosaukums"
 
@@ -313,17 +315,33 @@ msgstr "Vai tiešām vēlaties dzēst šo rangu grupu?"
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:584
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:775
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:584
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:586
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
 #: /home/tim/code/KwaMoja/Labels.php:217 /home/tim/code/KwaMoja/Labels.php:230
 #: /home/tim/code/KwaMoja/Labels.php:485
 #: /home/tim/code/KwaMoja/Locations.php:478
@@ -440,6 +458,8 @@ msgid "Ranking Group Details"
 msgstr "Ranking grupas informācija"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:203
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:273
 msgid "Group ID"
 msgstr "Grupas ID"
 
@@ -560,11 +580,27 @@ msgstr "Novērtēšanas metode ir veiksmīgi saglabāta datu bāzē"
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
 #: /home/tim/code/KwaMoja/Locations.php:476
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:119
@@ -2064,8 +2100,24 @@ msgstr "Kontaktpersonas e-pasta adrese nav derīga e-pasta adrese"
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2699,6 +2751,9 @@ msgstr "Krājums"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
@@ -2707,8 +2762,20 @@ msgstr "Krājums"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:68
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:256
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:358
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:62
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:131
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:207
 #: /home/tim/code/KwaMoja/Labels.php:180
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:107
 #: /home/tim/code/KwaMoja/MRPDemands.php:90
@@ -4620,10 +4687,38 @@ msgstr "Adrese"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:188
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:197
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
 #: /home/tim/code/KwaMoja/ProductSpecs.php:372
 #: /home/tim/code/KwaMoja/QATests.php:229
@@ -6302,6 +6397,8 @@ msgstr "Līmenis"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:271
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:393
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:127
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:202
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:268
 #: /home/tim/code/KwaMoja/ModuleEditor.php:74
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:97
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:213
@@ -8123,12 +8220,42 @@ msgstr "Mainīt"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:120
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:185
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:383
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:212
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:313
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:59
 #: /home/tim/code/KwaMoja/PO_Header.php:824
@@ -16891,7 +17018,23 @@ msgstr "Klientu veidi"
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
 #: /home/tim/code/KwaMoja/SupplierTypes.php:3
@@ -16899,7 +17042,7 @@ msgstr "Klientu veidi"
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:121
+#: /home/tim/code/KwaMoja/index.php:123
 msgid "Maintenance"
 msgstr "Apkope"
 
@@ -16942,8 +17085,24 @@ msgstr "Klienta tips"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -17000,7 +17159,23 @@ msgstr "klienti ar šāda veida kodu"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:177
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:102
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "Tipa ierakstu nevarēja dzēst, jo"
@@ -17009,8 +17184,23 @@ msgstr "Tipa ierakstu nevarēja dzēst, jo"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:176
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:167
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:182
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
 msgid "Type ID"
@@ -17022,10 +17212,38 @@ msgstr "Tips ID"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:195
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:202
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
 #: /home/tim/code/KwaMoja/SupplierTypes.php:138
@@ -17034,8 +17252,6 @@ msgid "Type Name"
 msgstr "Veida nosaukumu"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "Vai tiešām vēlaties dzēst šo klienta veidu?"
@@ -25922,33 +26138,35 @@ msgid "The anaesthesia type name description must contain at least one character
 msgstr "Anestēzijas tipa nosaukuma aprakstā jābūt vismaz vienam burtam"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 msgid "The anaesthesia type"
 msgstr "Anestēzijas veids"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
 msgid "You already have an anaesthesia type called"
 msgstr "Jums jau ir anestēzijas veids, ko sauc"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 msgid "Anaesthesia type"
 msgstr "Anestēzijas veids"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
 msgid "The anaesthesia type has been deleted"
 msgstr "Anestēzijas veids ir izdzēsts"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
 msgid "Type Description"
 msgstr "Tips Apraksts"
 
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+msgid "Are you sure you wish to delete this Anaesthesia Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo anestēzijas veidu?"
+
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
 msgid "Edit Anaesthesia Type"
 msgstr "Rediģēt anestēzijas veidu"
 
@@ -25958,11 +26176,56 @@ msgstr "Rediģēt anestēzijas veidu"
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:183
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:191
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:218
 #: /home/tim/code/KwaMoja/ProductSpecs.php:380
 #: /home/tim/code/KwaMoja/QATests.php:391
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
@@ -25970,7 +26233,6 @@ msgid "Active"
 msgstr "Aktīvs"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
 msgid "Create New Anaesthesia Type"
 msgstr "Izveidot jaunu anestēzijas veidu"
 
@@ -25978,19 +26240,47 @@ msgstr "Izveidot jaunu anestēzijas veidu"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:219
 msgid "Inactive"
 msgstr "Neaktīvs"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
 msgid "Update Anaesthesia Type"
 msgstr "Atjaunināt anestēzijas veidu"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
 msgid "Create Anaesthesia Type"
 msgstr "Izveidot anestēzijas veidu"
 
@@ -26014,6 +26304,99 @@ msgstr "Lietojumprogrammas tipa nosaukuma aprakstā nedrīkst būt vairāk par 1
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
 msgid "The application type name description must contain at least one character"
 msgstr "Lietojumprogrammas tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The application type"
+msgstr "Pieteikuma tips"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an application type called"
+msgstr "Jums jau ir lietojumprogrammas tips ar nosaukumu"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Application type"
+msgstr "Pieteikuma tips"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The application type has been deleted"
+msgstr "Lietojumprogrammas tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+msgid "Are you sure you wish to delete this Application Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo lietojumprogrammas veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Application Type"
+msgstr "Rediģēt lietojumprogrammas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Application Type"
+msgstr "Izveidot jaunu lietojumprogrammas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Application Type"
+msgstr "Atjaunināt lietojumprogrammas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Application Type"
+msgstr "Izveidot lietojumprogrammas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Types"
+msgstr "Piešķiršanas veidi"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Type Setup"
+msgstr "Piešķiršanas veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:15
+msgid "Add/edit/delete Assignment Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet piešķiršanas veidus"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:28
+msgid "The assignment type name description must be 100 characters or less long"
+msgstr "Piešķiršanas veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:33
+msgid "The assignment type name description must contain at least one character"
+msgstr "Piešķiršanas veida nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+msgid "The assignment type"
+msgstr "Piešķiršanas tips"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:56
+msgid "You already have an assignment type called"
+msgstr "Jums jau ir piešķirts piešķīruma tips"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+msgid "Assignment type"
+msgstr "Piešķiršanas tips"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:104
+msgid "The assignment type has been deleted"
+msgstr "Piešķiršanas tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+msgid "Are you sure you wish to delete this Assignment Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo piešķiršanas veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:173
+msgid "Edit Assignment Type"
+msgstr "Rediģēt piešķiršanas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:186
+msgid "Create New Assignment Type"
+msgstr "Izveidot jaunu piešķiršanas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:216
+msgid "Update Assignment Type"
+msgstr "Atjaunināt piešķiršanas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:220
+msgid "Create Assignment Type"
+msgstr "Izveidot piešķiršanas veidu"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -26521,6 +26904,63 @@ msgstr "Pārbaudīta nervu sistēma"
 msgid "Save Data"
 msgstr "Saglabāt datus"
 
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Types"
+msgstr "Departamentu veidi"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Type Setup"
+msgstr "Departamenta tipa iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:15
+msgid "Add/edit/delete Department Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet departamentu tipus"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:28
+msgid "The department type name description must be 100 characters or less long"
+msgstr "Nodaļas nosaukuma aprakstam jābūt ne garākam par 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:33
+msgid "The department type name description must contain at least one character"
+msgstr "Nodaļas tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
+msgid "The depaartment type"
+msgstr "Sadalīšanas tips"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:57
+msgid "You already have a department type called"
+msgstr "Jums jau ir nodaļas tips, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
+msgid "Department type"
+msgstr "Nodaļas tips"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:105
+msgid "The department type has been deleted"
+msgstr "Nodaļas tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
+msgid "Are you sure you wish to delete this Department Type?"
+msgstr "Vai tiešām vēlaties dzēst šo departamenta veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:179
+msgid "Edit Department Type"
+msgstr "Rediģēt nodaļas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:193
+msgid "Create New Department Type"
+msgstr "Izveidot jaunu nodaļas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:228
+msgid "Update Department Type"
+msgstr "Atjaunināt nodaļas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:232
+msgid "Create Department Type"
+msgstr "Izveidot nodaļas veidu"
+
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
 msgid "There was an error updating the encounter record"
 msgstr "Atjauninot tikšanās ierakstu, radās kļūda"
@@ -26711,6 +27151,63 @@ msgstr "Sistēma ir iestatīta automātiski iztikt bez rēķiniem, tāpēc šo f
 msgid "Unable to identify the selected customer"
 msgstr "Nevar identificēt atlasīto klientu"
 
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Types"
+msgstr "Pienākumu veidi"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Type Setup"
+msgstr "Pienākuma veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:15
+msgid "Add/edit/delete Duty Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet maksājuma veidus"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:28
+msgid "The duty type name description must be 100 characters or less long"
+msgstr "Pienākuma veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:33
+msgid "The duty type name description must contain at least one character"
+msgstr "Pienākuma veida nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+msgid "The duty type"
+msgstr "Pienākuma veids"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:57
+msgid "You already have a duty type called"
+msgstr "Jums jau ir pienākuma tips, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+msgid "Duty type"
+msgstr "Pienākuma veids"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:105
+msgid "The duty type has been deleted"
+msgstr "Pienākuma veids ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+msgid "Are you sure you wish to delete this Duty Type?"
+msgstr "Vai tiešām vēlaties dzēst šo maksājuma veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:179
+msgid "Edit Duty Type"
+msgstr "Rediģēt maksājuma veidu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:193
+msgid "Create New Duty Type"
+msgstr "Izveidot jaunu maksājuma veidu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:228
+msgid "Update Duty Type"
+msgstr "Atjaunināt maksājuma veidu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:232
+msgid "Create Duty Type"
+msgstr "Izveidot maksājuma veidu"
+
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:5
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:156
 msgid "Update Patient Details"
@@ -26757,6 +27254,120 @@ msgstr "Darba devēju uzņēmums"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "Atjaunināt informāciju"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Types"
+msgstr "Etniskās izcelsmes veidi"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Type Setup"
+msgstr "Etniskās izcelsmes veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:15
+msgid "Add/edit/delete Ethnic Origin Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet etniskās izcelsmes veidus"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:28
+msgid "The ethnic origin type name description must be 100 characters or less long"
+msgstr "Etniskās izcelsmes veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:33
+msgid "The ethnic origin type name description must contain at least one character"
+msgstr "Etniskās izcelsmes tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+msgid "The ethnic origin type"
+msgstr "Etniskās izcelsmes tips"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:55
+msgid "You already have an ethnic origin type called"
+msgstr "Jums jau ir etniskās izcelsmes tips, kuru sauc"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+msgid "Ethnic Origin type"
+msgstr "Etniskās izcelsmes tips"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:99
+msgid "The ethnic origin type has been deleted"
+msgstr "Etniskās izcelsmes tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+msgid "Are you sure you wish to delete this Ethnic Origin Type?"
+msgstr "Vai tiešām vēlaties dzēst šo etniskās izcelsmes veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:164
+msgid "Edit Ethnic Origin Type"
+msgstr "Etniskās izcelsmes veida rediģēšana"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:176
+msgid "Create New Ethnic Origin Type"
+msgstr "Izveidojiet jaunu etniskās izcelsmes veidu"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:201
+msgid "Update Ethnic Origin Type"
+msgstr "Atjauniniet etnisko izcelsmi"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:205
+msgid "Create Ethnic Origin Type"
+msgstr "Izveidot etnisko izcelsmi"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Types"
+msgstr "Barošanas veidi"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Type Setup"
+msgstr "Barošanas veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:15
+msgid "Add/edit/delete Feeding Types"
+msgstr "Pievienojiet / rediģējiet / izdzēsiet barošanas veidus"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:28
+msgid "The feeding type name description must be 100 characters or less long"
+msgstr "Barošanas veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:33
+msgid "The feeding type name description must contain at least one character"
+msgstr "Barošanas veida nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
+msgid "The feeding type"
+msgstr "Barošanas veids"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:57
+msgid "You already have a feeding type called"
+msgstr "Jums jau ir barošanas veids, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
+msgid "Feeding type"
+msgstr "Barošanas veids"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:105
+msgid "The feeding type has been deleted"
+msgstr "Barošanas veids ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
+msgid "Are you sure you wish to delete this Feeding Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo barošanas veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:179
+msgid "Edit Feeding Type"
+msgstr "Rediģēt barošanas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:193
+msgid "Create New Feeding Type"
+msgstr "Izveidot jaunu barošanas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:228
+msgid "Update Feeding Type"
+msgstr "Atjaunināt barošanas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:232
+msgid "Create Feeding Type"
+msgstr "Izveidot barošanas veidu"
 
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:4
 msgid "Income and Expenditure by Functional Unit"
@@ -27786,8 +28397,9 @@ msgid "Income for the previous week"
 msgstr "Ienākumi par iepriekšējo nedēļu"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:3
-msgid "Maintian Encounter Types"
-msgstr "Maintiešu sadursmju veidi"
+#: /home/tim/code/KwaMoja/sql/updates/199.php:165
+msgid "Maintain Encounter Types"
+msgstr "Uzturiet tikšanās veidus"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:20
 msgid "The encounter type name cannot be empty"
@@ -28031,6 +28643,178 @@ msgstr "Grozīt detaļas par palātu"
 msgid "Create the ward"
 msgstr "Izveidojiet palātu"
 
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
+msgid "Measurement Types"
+msgstr "Mērījumu veidi"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Measurement Type Setup"
+msgstr "Mērījumu veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:15
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:15
+msgid "Add/edit/delete Measurement Types"
+msgstr "Pievienojiet / rediģējiet / izdzēsiet mērījumu veidus"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:28
+msgid "The measurement type name description must be 100 characters or less long"
+msgstr "Mērījuma veida nosaukuma aprakstam jābūt ne garākam par 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:33
+msgid "The measurement type name description must contain at least one character"
+msgstr "Mērījuma veida nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
+msgid "The measurement type"
+msgstr "Mērījuma tips"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:57
+msgid "You already have a measurement type called"
+msgstr "Jums jau ir mērīšanas tips ar nosaukumu"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
+msgid "Measurement type"
+msgstr "Mērījumu tips"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:105
+msgid "The measurement type has been deleted"
+msgstr "Mērījuma tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
+msgid "Are you sure you wish to delete this Measurement Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo Mērīšanas veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:179
+msgid "Edit Measurement Type"
+msgstr "Rediģēt mērījumu veidu"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:193
+msgid "Create New Measurement Type"
+msgstr "Izveidot jaunu mērījumu veidu"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:228
+msgid "Update Measurement Type"
+msgstr "Atjaunināt mērījumu veidu"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:232
+msgid "Create Measurement Type"
+msgstr "Izveidot mērījumu veidu"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Types"
+msgstr "Piezīmju veidi"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Type Setup"
+msgstr "Piezīmes Tips Setup"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:15
+msgid "Add/edit/delete Notes Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet piezīmju veidus"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+msgid "Are you sure you wish to delete this Notes Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo piezīmju veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:171
+msgid "Edit Notes Type"
+msgstr "Rediģēt piezīmju veidu"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:184
+msgid "Create New Notes Type"
+msgstr "Izveidot jaunu piezīmju veidu"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:214
+msgid "Update Notes Type"
+msgstr "Atjaunināt piezīmju veidu"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:218
+msgid "Create Notes Type"
+msgstr "Izveidot piezīmju veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Types"
+msgstr "Operācijas aizkavēšanās veidi"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Type Setup"
+msgstr "Darbības kavējuma veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:15
+msgid "Add/edit/delete Operation Delay Types"
+msgstr "Pievienojiet / rediģējiet / izdzēsiet operācijas aizkavēšanās tipus"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:28
+msgid "The operation delay type name description must be 100 characters or less long"
+msgstr "Darbības kavējuma veida nosaukuma aprakstam jābūt ne garākam par 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:33
+msgid "The operation delay type name description must contain at least one character"
+msgstr "Operācijas aizkavēšanās tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+msgid "The operation delay type"
+msgstr "Darbības kavējuma tips"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:56
+msgid "You already have an operation delay type called"
+msgstr "Jums jau ir saukts operācijas aizkaves tips"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+msgid "Operation delay type"
+msgstr "Darbības kavējuma tips"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:102
+msgid "The operation delay type has been deleted"
+msgstr "Operācijas aizkaves tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:193
+msgid "Cause of Delay"
+msgstr "Kavēšanās iemesls"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
+msgid "Are you sure you wish to delete this Operation Delay Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo operācijas aizkaves veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:171
+msgid "Edit Operation Delay Type"
+msgstr "Rediģēt operācijas aizkaves veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:184
+msgid "Create New Operation Delay Type"
+msgstr "Izveidot jaunu operācijas aizkaves veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:214
+msgid "Update Delay Type"
+msgstr "Atjaunināt aizkaves veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:218
+msgid "Create Delay Type"
+msgstr "Izveidot aizkaves veidu"
+
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:3
 msgid "Billing For Other Medical Services"
 msgstr "Norēķini par citiem medicīnas pakalpojumiem"
@@ -28074,6 +28858,69 @@ msgstr "Cits medicīniskais pakalpojums pacientam"
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:556
 msgid "Type of Service"
 msgstr "Pakalpojuma veids"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Outcome Types"
+msgstr "Rezultātu veidi"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+msgid "Outcome Type Setup"
+msgstr "Rezultāta veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:15
+msgid "Add/edit/delete Outcome Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet iznākuma veidus"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:28
+msgid "The outcome type name description must be 100 characters or less long"
+msgstr "Rezultāta veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:33
+msgid "The outcome type name description must contain at least one character"
+msgstr "Rezultāta tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+msgid "The outcome type"
+msgstr "Rezultāta veids"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:57
+msgid "You already have a outcome type called"
+msgstr "Jums jau ir iznākuma tips, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+msgid "Outcome type"
+msgstr "Rezultāta tips"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:105
+msgid "The outcome type has been deleted"
+msgstr "Rezultāta tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+msgid "Are you sure you wish to delete this Outcome Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo iznākuma veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:179
+msgid "Edit Outcome Type"
+msgstr "Rediģēt iznākuma veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:193
+msgid "Create New Outcome Type"
+msgstr "Izveidot jaunu iznākuma veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:228
+msgid "Update Outcome Type"
+msgstr "Atjaunināt iznākuma veidu"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:232
+msgid "Create Outcome Type"
+msgstr "Izveidot iznākuma veidu"
 
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:3
 msgid "Admit Outpatient"
@@ -28122,6 +28969,62 @@ msgstr "Šim lietotājam vēl nav definēts naudas konts. "
 msgid "Process Payment"
 msgstr "Apmaksas process"
 
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+msgid "Perineum Types"
+msgstr "Starpenes veidi"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+msgid "Perineum Type Setup"
+msgstr "Perineum tipa iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:15
+msgid "Add/edit/delete Perineum Types"
+msgstr "Pievienot / rediģēt / dzēst starpenes tipus"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:28
+msgid "The perineum type name description must be 100 characters or less long"
+msgstr "Starpenes tipa nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:33
+msgid "The perineum type name description must contain at least one character"
+msgstr "Starpenes tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+msgid "The perineum type"
+msgstr "Starpenes tips"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:57
+msgid "You already have a perineum type called"
+msgstr "Jums jau ir starpenes tips, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+msgid "Perineum type"
+msgstr "Starpenes tips"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:105
+msgid "The perineum type has been deleted"
+msgstr "Starpenes tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
+msgid "Are you sure you wish to delete this Perineum Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo starpenes veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:179
+msgid "Edit Perineum Type"
+msgstr "Rediģēt starpenes veidu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:193
+msgid "Create New Perineum Type"
+msgstr "Izveidot jaunu starpenes tipu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:228
+msgid "Update Perineum Type"
+msgstr "Atjaunināt starpenes veidu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:232
+msgid "Create Perineum Type"
+msgstr "Izveidot starpenes veidu"
+
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:3
 msgid "Billing For Pharmaceuticals"
 msgstr "Norēķini par farmāciju"
@@ -28141,6 +29044,62 @@ msgstr "Filtrējiet narkotiku sarakstu"
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:749
 msgid "Select a Drug"
 msgstr "Izvēlieties narkotiku"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+msgid "Prescription Types"
+msgstr "Recepšu veidi"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+msgid "Prescription Type Setup"
+msgstr "Recepšu veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:15
+msgid "Add/edit/delete Prescription Types"
+msgstr "Pievienojiet / rediģējiet / dzēsiet recepšu veidus"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:28
+msgid "The prescription type name description must be 100 characters or less long"
+msgstr "Receptes veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:33
+msgid "The prescription type name description must contain at least one character"
+msgstr "Receptes tipa nosaukuma aprakstā jāiekļauj vismaz viena rakstzīme"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+msgid "The prescription type"
+msgstr "Recepšu veids"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:56
+msgid "You already have a prescription type called"
+msgstr "Jums jau ir recepšu veids, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+msgid "Prescription type"
+msgstr "Receptes tips"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:102
+msgid "The prescription type has been deleted"
+msgstr "Receptes tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
+msgid "Are you sure you wish to delete this Prescription Type?"
+msgstr "Vai tiešām vēlaties dzēst šo receptes veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:171
+msgid "Edit Prescription Type"
+msgstr "Rediģēt receptes veidu"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:184
+msgid "Create New Prescription Type"
+msgstr "Izveidot jaunu receptes veidu"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:214
+msgid "Update Prescription Type"
+msgstr "Atjaunināt receptes veidu"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:218
+msgid "Create Prescription Type"
+msgstr "Izveidot receptes veidu"
 
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:36
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:44
@@ -28807,6 +29766,62 @@ msgstr "Šī pacienta asins grupa"
 msgid "Item to bill"
 msgstr "Prece rēķinam"
 
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+msgid "Room Types"
+msgstr "Istabu veidi"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+msgid "Room Type Setup"
+msgstr "Istabas tipa iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:15
+msgid "Add/edit/delete Room Types"
+msgstr "Pievienojiet / rediģējiet / izdzēsiet istabu tipus"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:28
+msgid "The room type name description must be 100 characters or less long"
+msgstr "Istabas tipa nosaukuma aprakstā nedrīkst būt vairāk par 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:33
+msgid "The room type name description must contain at least one character"
+msgstr "Istabas tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+msgid "The room type"
+msgstr "Istabas tips"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:57
+msgid "You already have a room type called"
+msgstr "Jums jau ir istabas tips, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+msgid "Room type"
+msgstr "Istabas tips"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:105
+msgid "The room type has been deleted"
+msgstr "Istabas tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+msgid "Are you sure you wish to delete this Room Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo istabas veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:179
+msgid "Edit Room Type"
+msgstr "Rediģēt istabas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:193
+msgid "Create New Room Type"
+msgstr "Izveidot jaunu istabas tipu"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:228
+msgid "Update Room Type"
+msgstr "Atjaunināt istabas veidu"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:232
+msgid "Create Room Type"
+msgstr "Izveidojiet istabas veidu"
+
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:5
 msgid "Search Patients"
 msgstr "Meklēt pacientus"
@@ -28828,7 +29843,7 @@ msgstr "Atlasiet izvēlnes opciju, lai darbotos, izmantojot šo pacientu"
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:90
+#: /home/tim/code/KwaMoja/index.php:92
 msgid "Inquiries and Reports"
 msgstr "Pieprasījumi un pārskati"
 
@@ -28903,6 +29918,175 @@ msgstr "Pievienojiet vai modificējiet krājumu kategorijas"
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:48
 msgid "Find Items"
 msgstr "Atrodiet vienumus"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:13
+msgid "Test Groups"
+msgstr "Pārbaudes grupas"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:15
+msgid "Add/edit/delete Test Groups"
+msgstr "Pievienojiet / rediģējiet / izdzēsiet testa grupas"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:28
+msgid "The test group type name description must be 100 characters or less long"
+msgstr "Pārbaudes grupas tipa nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:33
+msgid "The test group name description must contain at least one character"
+msgstr "Testa grupas nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+msgid "The test group"
+msgstr "Pārbaudes grupa"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:56
+msgid "You already have a test group type called"
+msgstr "Jums jau ir testa grupas tips, ko sauc"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+msgid "Test Group"
+msgstr "Pārbaudes grupa"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:180
+msgid "The test group has been deleted"
+msgstr "Pārbaudes grupa ir izdzēsta"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+msgid "Are you sure you wish to delete this Test Group?"
+msgstr "Vai tiešām vēlaties izdzēst šo testa grupu?"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:251
+msgid "Edit Test Group"
+msgstr "Rediģēt testa grupu"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:254
+msgid "Group Number"
+msgstr "Grupas numurs"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:264
+msgid "Create New Test Group"
+msgstr "Izveidot jaunu testa grupu"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:286
+msgid "Update Test Group"
+msgstr "Atjaunināt testa grupu"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:290
+msgid "Create Test Group"
+msgstr "Izveidot testa grupu"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+msgid "Test Types"
+msgstr "Pārbaudes veidi"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+msgid "Test Type Setup"
+msgstr "Testa veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:15
+msgid "Add/edit/delete Test Types"
+msgstr "Pievienojiet / rediģējiet / izdzēsiet testa veidus"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:28
+msgid "The test type name description must be 100 characters or less long"
+msgstr "Pārbaudes veida nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:33
+msgid "The test type name description must contain at least one character"
+msgstr "Testa tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+msgid "The test type"
+msgstr "Pārbaudes veids"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:57
+msgid "You already have a test type called"
+msgstr "Jums jau ir testa tips ar nosaukumu"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+msgid "Test type"
+msgstr "Pārbaudes veids"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:105
+msgid "The test type has been deleted"
+msgstr "Testa tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+msgid "Are you sure you wish to delete this Test Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo testa veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:179
+msgid "Edit Test Type"
+msgstr "Rediģēt testa veidu"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:193
+msgid "Create New Test Type"
+msgstr "Izveidot jaunu testa veidu"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:228
+msgid "Update Test Type"
+msgstr "Atjaunināt testa veidu"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:232
+msgid "Create Test Type"
+msgstr "Izveidot testa veidu"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+msgid "Time Types"
+msgstr "Laika veidi"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+msgid "Time Type Setup"
+msgstr "Laika veida iestatīšana"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:15
+msgid "Add/edit/delete Time Types"
+msgstr "Laika veidu pievienošana / rediģēšana / dzēšana"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:28
+msgid "The time type name description must be 100 characters or less long"
+msgstr "Laika veida nosaukuma aprakstā nedrīkst būt vairāk par 100 rakstzīmēm"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:33
+msgid "The time type name description must contain at least one character"
+msgstr "Laika veida nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+msgid "The time type"
+msgstr "Laika tips"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:57
+msgid "You already have a time type called"
+msgstr "Jums jau ir noteikts laika tips"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+msgid "Time type"
+msgstr "Laika tips"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:105
+msgid "The time type has been deleted"
+msgstr "Laika tips ir izdzēsts"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+msgid "Are you sure you wish to delete this Time Type?"
+msgstr "Vai tiešām vēlaties izdzēst šo laika veidu?"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:179
+msgid "Edit Time Type"
+msgstr "Rediģēt laika tipu"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:193
+msgid "Create New Time Type"
+msgstr "Izveidot jaunu laika tipu"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:228
+msgid "Update Time Type"
+msgstr "Atjaunināt laika veidu"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:232
+msgid "Create Time Type"
+msgstr "Izveidot laika tipu"
 
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:3
 msgid "Transfer patient to other bed"
@@ -37784,7 +38968,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "Nebija neviena klienta, kas atbilstu jūsu izvēlei"
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Statements"
 msgstr "Klientu paziņojumi"
 
@@ -42126,7 +43310,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "Lai meklētu pārdošanas pasūtījumus konkrētai daļai, izmantojiet daļu atlases iespējas zemāk"
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Orders"
 msgstr "Pārdošanas pasūtījumi"
 
@@ -48437,7 +49621,7 @@ msgstr "Izvēlieties piegādātāju, lai ievadītu kredītrēķinu"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "Pirkuma pasūtījumi"
@@ -56934,63 +58118,67 @@ msgstr "Vispārējā slimnīcas iestatīšana"
 msgid "Receivables/Payables Setup"
 msgstr "Debitoru / kreditoru maksājumu iestatīšana"
 
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:90
+msgid "ERP Integration"
+msgstr "ERP integrācija"
+
+#: /home/tim/code/KwaMoja/index.php:119
 msgid "Inventory Setup"
 msgstr "Inventāra iestatīšana"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain types"
 msgstr "Uzturēt veidus"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain Types"
 msgstr "Uzturēt tipus"
 
-#: /home/tim/code/KwaMoja/index.php:156
+#: /home/tim/code/KwaMoja/index.php:158
 msgid "Bank Checks"
 msgstr "Bankas čeki"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Collection Letters"
 msgstr "Kolekcijas vēstules"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Bank Deposit Slips"
 msgstr "Bankas depozīta čeki"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Invoices and Packing Slips"
 msgstr "Rēķini un iesaiņošanas iepakojumi"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Customer"
 msgstr "Etiķetes - klients"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Vendor"
 msgstr "Etiķetes - pārdevējs"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Quotes"
 msgstr "Klientu cenas"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Receipts"
 msgstr "Pārdošanas kvītis"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Miscellaneous"
 msgstr "Dažādi"
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Custom Reports"
 msgstr "Pielāgoti pārskati"
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Standard Reports and Forms"
 msgstr "Standarta pārskati un veidlapas"
 
-#: /home/tim/code/KwaMoja/index.php:211
+#: /home/tim/code/KwaMoja/index.php:213
 msgid "There are no reports to show!"
 msgstr "Nav ziņu, ko parādīt!"
 
@@ -68366,10 +69554,6 @@ msgstr "Uzņem ambulatori"
 msgid "Admit an inpatient"
 msgstr "Uzņemiet stacionāru"
 
-#: /home/tim/code/KwaMoja/sql/updates/199.php:165
-msgid "Maintain Encounter Types"
-msgstr "Uzturiet tikšanās veidus"
-
 #: /home/tim/code/KwaMoja/sql/updates/199.php:191
 msgid "Maintain Wards"
 msgstr "Uzturēt palātās"
@@ -68511,17 +69695,33 @@ msgstr "Gāzes anestēzija caur elpošanas masku"
 msgid "Oral"
 msgstr "Mutiski"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Applied Orally"
+msgstr "Pielieto mutiski"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:50
 msgid "Intravenous"
 msgstr "Intravenozi"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Applied Intravenously"
+msgstr "Lieto intravenozi"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:51
 msgid "Subcutaneous"
 msgstr "Zemādas"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Applied Subcutaneously"
+msgstr "Pielieto subkutāni"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:52
 msgid "Intramuscular"
 msgstr "Intramuskulāri"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular application"
+msgstr "Intramuskulāra lietošana"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:53
 msgid "Sublingual"
@@ -68538,6 +69738,10 @@ msgstr "Intraarteriāla"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:55
 msgid "Pre-admission"
 msgstr "Iepriekšēja uzņemšana"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Taken Pre-admission"
+msgstr "Veikta iepriekšēja uzņemšana"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:57
 msgid "Maintain Application Types"
@@ -68603,21 +69807,41 @@ msgstr "Uzturēt departamentu veidus"
 msgid "Regular duty"
 msgstr "Regulārs pienākums"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duties"
+msgstr "Regulārie pienākumi"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:140
 msgid "Standby duty"
 msgstr "Gaidīšanas režīms"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duties"
+msgstr "Gaidīšanas pienākumi"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:141
 msgid "Morning duty"
 msgstr "Rīta pienākums"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning shift duties"
+msgstr "Rīta maiņas pienākumi"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:142
 msgid "Afternoon duty"
 msgstr "Pēcpusdienas pienākums"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon shift duties"
+msgstr "Pēcpusdienas maiņas pienākumi"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:143
 msgid "Night duty"
 msgstr "Nakts dežūra"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night shift duties"
+msgstr "Nakts maiņu pienākumi"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:145
 msgid "Maintain Duty Types"
@@ -68647,17 +69871,33 @@ msgstr "Saglabāt etniskās izcelsmes veidus"
 msgid "Breast"
 msgstr "Krūtis"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast Feeding"
+msgstr "Barošana ar krūti"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:184
 msgid "Formula"
 msgstr "Formula"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula Feeding"
+msgstr "Formula barošana"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:185
 msgid "Both"
 msgstr "Gan"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Breast and Formula Feeding"
+msgstr "Barošana ar krūti un formula"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:186
 msgid "Parenteral"
 msgstr "Parenterāli"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Non-oral Feeding"
+msgstr "Ne-perorāla barošana"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:187
 msgid "Never fed"
@@ -68963,9 +70203,17 @@ msgstr "Saglabāt recepšu veidus"
 msgid "Ward room"
 msgstr "Palātas istaba"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Hospital Ward Room"
+msgstr "Slimnīcas palātas istaba"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:370
 msgid "Operating room"
 msgstr "Operācijas zāle"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating Theatre Room"
+msgstr "Operāciju teātra istaba"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:372
 msgid "Maintain Room Types"
@@ -68986,6 +70234,10 @@ msgstr "Bakterioloģiskā laboratorija"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:392
 msgid "Radiological Lab"
 msgstr "Radioloģijas laboratorija"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Lab for X-ray, Mammography, Computer Tomography, NMR"
+msgstr "Laboratorija rentgenam, mammogrāfijai, datortomogrāfijai, NMR"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:393
 msgid "Blood test & product"
@@ -69040,6 +70292,10 @@ msgid "Maintain Unit Measurements Types"
 msgstr "Uzturiet vienību mērījumu veidus"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Test Parmameter Groups"
+msgstr "Pārbaudiet Parmameter grupas"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:836
 msgid "Maintain Test Parameters"
 msgstr "Uzturiet testa parametrus"
 
@@ -69885,6 +71141,24 @@ msgstr "Personāla aizdevumi"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Personāla aizdevuma atmaksas"
+
+#~ msgid "The ttime type name description must be 100 characters or less long"
+#~ msgstr "Ttime tipa nosaukuma aprakstam jābūt ne vairāk kā 100 rakstzīmēm"
+
+#~ msgid "The ttime type name description must contain at least one character"
+#~ msgstr "Ttime tipa nosaukuma aprakstā jābūt vismaz vienai rakstzīmei"
+
+#~ msgid "The ttime type"
+#~ msgstr "Ttime tips"
+
+#~ msgid "You already have a ttime type called"
+#~ msgstr "Jums jau ir ttime tips, ko sauc"
+
+#~ msgid "The ttime type has been deleted"
+#~ msgstr "Ttime tips ir izdzēsts"
+
+#~ msgid "Maintian Encounter Types"
+#~ msgstr "Maintiešu sadursmju veidi"
 
 #~ msgid "The number of insurance companies using this type could not be retrieved"
 #~ msgstr "Apdrošināšanas sabiedrību skaitu, kas izmanto šo veidu, nevarēja iegūt"

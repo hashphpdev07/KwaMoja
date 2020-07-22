@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-17 02:38+0100\n"
+"POT-Creation-Date: 2020-07-22 03:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,6 +243,8 @@ msgstr "هسانش "
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:125
 #: /home/tim/code/KwaMoja/AccountGroups.php:328
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:204
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:278
 msgid "Group Name"
 msgstr "هورگ مسا "
 
@@ -313,17 +315,33 @@ msgstr "؟دینک فذح ار یدنب هبتر هورگ نیا دیهاوخ ی
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:584
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:775
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:584
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:586
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
 #: /home/tim/code/KwaMoja/Labels.php:217 /home/tim/code/KwaMoja/Labels.php:230
 #: /home/tim/code/KwaMoja/Labels.php:485
 #: /home/tim/code/KwaMoja/Locations.php:478
@@ -440,6 +458,8 @@ msgid "Ranking Group Details"
 msgstr "هورگ تاصخشم یدنب هبتر "
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:203
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:273
 msgid "Group ID"
 msgstr "هورگ هسانش "
 
@@ -560,11 +580,27 @@ msgstr "هریخذ هداد هاگیاپ هب تیقفوم اب تسا هدش ی
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
 #: /home/tim/code/KwaMoja/Locations.php:476
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:119
@@ -2064,8 +2100,24 @@ msgstr "تسین ربتعم لیمیا سردآ کی تسا سامت لیمیا 
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2699,6 +2751,9 @@ msgstr "یدوجوم "
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
@@ -2707,8 +2762,20 @@ msgstr "یدوجوم "
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:68
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:256
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:358
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:62
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:131
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:207
 #: /home/tim/code/KwaMoja/Labels.php:180
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:107
 #: /home/tim/code/KwaMoja/MRPDemands.php:90
@@ -4620,10 +4687,38 @@ msgstr "یناشن "
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:188
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:197
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
 #: /home/tim/code/KwaMoja/ProductSpecs.php:372
 #: /home/tim/code/KwaMoja/QATests.php:229
@@ -6302,6 +6397,8 @@ msgstr "حطس "
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:271
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:393
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:127
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:202
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:268
 #: /home/tim/code/KwaMoja/ModuleEditor.php:74
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:97
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:213
@@ -8123,12 +8220,42 @@ msgstr "رییغت "
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:120
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:185
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:383
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:212
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:313
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:59
 #: /home/tim/code/KwaMoja/PO_Header.php:824
@@ -16891,7 +17018,23 @@ msgstr "طباوض و عاونا "
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
 #: /home/tim/code/KwaMoja/SupplierTypes.php:3
@@ -16899,7 +17042,7 @@ msgstr "طباوض و عاونا "
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:121
+#: /home/tim/code/KwaMoja/index.php:123
 msgid "Maintenance"
 msgstr "یرادهگن "
 
@@ -16942,8 +17085,24 @@ msgstr "طباوض و عون "
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -17000,7 +17159,23 @@ msgstr "عون دک نیا اب نایرتشم "
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:177
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:102
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "دوش فذح لیلد هب دناوت یمن عون دروکر "
@@ -17009,8 +17184,23 @@ msgstr "دوش فذح لیلد هب دناوت یمن عون دروکر "
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:176
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:167
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:182
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
 msgid "Type ID"
@@ -17022,10 +17212,38 @@ msgstr "DI عون "
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:195
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:202
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
 #: /home/tim/code/KwaMoja/SupplierTypes.php:138
@@ -17034,8 +17252,6 @@ msgid "Type Name"
 msgstr "مان عون "
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "؟یرتشم عون نیا فذح دیهاوخیم هک دیتسه نئمطم امش ایآ "
@@ -25922,33 +26138,35 @@ msgid "The anaesthesia type name description must contain at least one character
 msgstr "شرح نام نوع بیهوشی باید حداقل یک شخصیت داشته باشد"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 msgid "The anaesthesia type"
 msgstr "نوع بیهوشی"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
 msgid "You already have an anaesthesia type called"
 msgstr "شما در حال حاضر نوع بیهوشی به نام دارید"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 msgid "Anaesthesia type"
 msgstr "نوع بیهوشی"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
 msgid "The anaesthesia type has been deleted"
 msgstr "نوع بیهوشی حذف شده است"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
 msgid "Type Description"
 msgstr "توضیحات نوع"
 
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+msgid "Are you sure you wish to delete this Anaesthesia Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع بیهوشی را حذف کنید؟"
+
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
 msgid "Edit Anaesthesia Type"
 msgstr "نوع بیهوشی را ویرایش کنید"
 
@@ -25958,11 +26176,56 @@ msgstr "نوع بیهوشی را ویرایش کنید"
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:183
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:191
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:218
 #: /home/tim/code/KwaMoja/ProductSpecs.php:380
 #: /home/tim/code/KwaMoja/QATests.php:391
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
@@ -25970,7 +26233,6 @@ msgid "Active"
 msgstr "لاعف "
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
 msgid "Create New Anaesthesia Type"
 msgstr "نوع بی حسی جدیدی ایجاد کنید"
 
@@ -25978,19 +26240,47 @@ msgstr "نوع بی حسی جدیدی ایجاد کنید"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:219
 msgid "Inactive"
 msgstr "غیر فعال"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
 msgid "Update Anaesthesia Type"
 msgstr "نوع بیهوشی را به روز کنید"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
 msgid "Create Anaesthesia Type"
 msgstr "نوع بیهوشی ایجاد کنید"
 
@@ -26014,6 +26304,99 @@ msgstr "شرح نام نوع برنامه باید 100 نویسه یا کمتر 
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
 msgid "The application type name description must contain at least one character"
 msgstr "شرح نام نوع برنامه باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The application type"
+msgstr "نوع برنامه"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an application type called"
+msgstr "شما قبلاً یک نوع برنامه به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Application type"
+msgstr "نوع درخواست"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The application type has been deleted"
+msgstr "نوع برنامه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+msgid "Are you sure you wish to delete this Application Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع برنامه را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Application Type"
+msgstr "نوع برنامه را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Application Type"
+msgstr "نوع برنامه جدید را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Application Type"
+msgstr "نوع برنامه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Application Type"
+msgstr "نوع برنامه را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Types"
+msgstr "انواع واگذاری"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Type Setup"
+msgstr "نوع تنظیم تنظیمات"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:15
+msgid "Add/edit/delete Assignment Types"
+msgstr "انواع اختصاصی را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:28
+msgid "The assignment type name description must be 100 characters or less long"
+msgstr "شرح نام نوع واگذاری باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:33
+msgid "The assignment type name description must contain at least one character"
+msgstr "شرح نام نوع واگذاری باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+msgid "The assignment type"
+msgstr "نوع تکلیف"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:56
+msgid "You already have an assignment type called"
+msgstr "شما قبلاً نوع واگذاری دارید"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+msgid "Assignment type"
+msgstr "نوع واگذاری"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:104
+msgid "The assignment type has been deleted"
+msgstr "نوع واگذاری حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+msgid "Are you sure you wish to delete this Assignment Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع واگذاری را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:173
+msgid "Edit Assignment Type"
+msgstr "ویرایش نوع واگذاری"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:186
+msgid "Create New Assignment Type"
+msgstr "نوع واگذاری جدیدی ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:216
+msgid "Update Assignment Type"
+msgstr "نوع اختصاصی را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:220
+msgid "Create Assignment Type"
+msgstr "نوع واگذاری را ایجاد کنید"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -26521,6 +26904,63 @@ msgstr "سیستم عصبی مورد بررسی قرار می گیرد"
 msgid "Save Data"
 msgstr "ذخیره داده ها"
 
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Types"
+msgstr "انواع دپارتمان"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Type Setup"
+msgstr "تنظیم نوع دپارتمان"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:15
+msgid "Add/edit/delete Department Types"
+msgstr "انواع گروه ها را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:28
+msgid "The department type name description must be 100 characters or less long"
+msgstr "شرح نام بخش باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:33
+msgid "The department type name description must contain at least one character"
+msgstr "شرح نام بخش باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
+msgid "The depaartment type"
+msgstr "نوع دپارتمان"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:57
+msgid "You already have a department type called"
+msgstr "شما قبلاً یک نوع دپارتمان دارید به نام"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
+msgid "Department type"
+msgstr "نوع دپارتمان"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:105
+msgid "The department type has been deleted"
+msgstr "نوع بخش حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
+msgid "Are you sure you wish to delete this Department Type?"
+msgstr "آیا مطمئن هستید که می خواهید این بخش را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:179
+msgid "Edit Department Type"
+msgstr "ویرایش نوع بخش"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:193
+msgid "Create New Department Type"
+msgstr "نوع جدیدی ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:228
+msgid "Update Department Type"
+msgstr "نوع گروه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:232
+msgid "Create Department Type"
+msgstr "ایجاد نوع دپارتمان"
+
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
 msgid "There was an error updating the encounter record"
 msgstr "هنگام بروزرسانی سابقه برخورد خطایی رخ داد"
@@ -26711,6 +27151,63 @@ msgstr "سیستم تنظیم شده است به صورت خودکار در صو
 msgid "Unable to identify the selected customer"
 msgstr "باختنا یرتشم ییاسانش هب رداق "
 
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Types"
+msgstr "انواع وظایف"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Type Setup"
+msgstr "تنظیم وظیفه نوع"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:15
+msgid "Add/edit/delete Duty Types"
+msgstr "انواع وظایف را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:28
+msgid "The duty type name description must be 100 characters or less long"
+msgstr "شرح نوع وظیفه باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:33
+msgid "The duty type name description must contain at least one character"
+msgstr "شرح نام وظیفه باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+msgid "The duty type"
+msgstr "نوع وظیفه"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:57
+msgid "You already have a duty type called"
+msgstr "شما قبلاً یک نوع وظیفه به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+msgid "Duty type"
+msgstr "نوع وظیفه"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:105
+msgid "The duty type has been deleted"
+msgstr "نوع وظیفه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+msgid "Are you sure you wish to delete this Duty Type?"
+msgstr "آیا مطمئن هستید که می خواهید این وظیفه را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:179
+msgid "Edit Duty Type"
+msgstr "ویرایش نوع وظیفه"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:193
+msgid "Create New Duty Type"
+msgstr "نوع جدیدی از وظایف را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:228
+msgid "Update Duty Type"
+msgstr "نوع وظیفه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:232
+msgid "Create Duty Type"
+msgstr "نوع وظیفه را ایجاد کنید"
+
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:5
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:156
 msgid "Update Patient Details"
@@ -26757,6 +27254,120 @@ msgstr "شرکت کارفرما"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "جزئیات را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Types"
+msgstr "انواع منشأ قومی"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Type Setup"
+msgstr "تنظیم نوع ریشه قومی"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:15
+msgid "Add/edit/delete Ethnic Origin Types"
+msgstr "انواع ریشه قومی را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:28
+msgid "The ethnic origin type name description must be 100 characters or less long"
+msgstr "شرح نام نوع منشا قومی باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:33
+msgid "The ethnic origin type name description must contain at least one character"
+msgstr "توضیحات نام نوع منشأ قومی باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+msgid "The ethnic origin type"
+msgstr "نوع منشأ قومی"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:55
+msgid "You already have an ethnic origin type called"
+msgstr "شما قبلاً یک نوع منشأ قومی دارید"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+msgid "Ethnic Origin type"
+msgstr "نوع مبدا قومی"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:99
+msgid "The ethnic origin type has been deleted"
+msgstr "نوع منشأ قومی حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+msgid "Are you sure you wish to delete this Ethnic Origin Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع ریشه قومی را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:164
+msgid "Edit Ethnic Origin Type"
+msgstr "نوع ریشه قومی را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:176
+msgid "Create New Ethnic Origin Type"
+msgstr "نوع ریشه قومی جدید ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:201
+msgid "Update Ethnic Origin Type"
+msgstr "نوع ریشه قومی را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:205
+msgid "Create Ethnic Origin Type"
+msgstr "نوع منشأ قومی را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Types"
+msgstr "انواع تغذیه"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Type Setup"
+msgstr "تنظیم نوع تغذیه"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:15
+msgid "Add/edit/delete Feeding Types"
+msgstr "انواع تغذیه را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:28
+msgid "The feeding type name description must be 100 characters or less long"
+msgstr "شرح نام نوع تغذیه باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:33
+msgid "The feeding type name description must contain at least one character"
+msgstr "شرح نام نوع تغذیه باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
+msgid "The feeding type"
+msgstr "نوع تغذیه"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:57
+msgid "You already have a feeding type called"
+msgstr "شما در حال حاضر نوع تغذیه ای به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
+msgid "Feeding type"
+msgstr "نوع تغذیه"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:105
+msgid "The feeding type has been deleted"
+msgstr "نوع تغذیه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
+msgid "Are you sure you wish to delete this Feeding Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع تغذیه را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:179
+msgid "Edit Feeding Type"
+msgstr "نوع تغذیه را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:193
+msgid "Create New Feeding Type"
+msgstr "نوع جدید تغذیه ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:228
+msgid "Update Feeding Type"
+msgstr "نوع تغذیه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:232
+msgid "Create Feeding Type"
+msgstr "نوع تغذیه ایجاد کنید"
 
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:4
 msgid "Income and Expenditure by Functional Unit"
@@ -27786,8 +28397,9 @@ msgid "Income for the previous week"
 msgstr "درآمد هفته قبل"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:3
-msgid "Maintian Encounter Types"
-msgstr "انواع مواجهه با ماینری"
+#: /home/tim/code/KwaMoja/sql/updates/199.php:165
+msgid "Maintain Encounter Types"
+msgstr "انواع برخورد را حفظ کنید"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:20
 msgid "The encounter type name cannot be empty"
@@ -28031,6 +28643,178 @@ msgstr "جزئیات بخش را اصلاح کنید"
 msgid "Create the ward"
 msgstr "بخش را ایجاد کنید"
 
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
+msgid "Measurement Types"
+msgstr "انواع اندازه گیری"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Measurement Type Setup"
+msgstr "نوع تنظیم اندازه گیری"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:15
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:15
+msgid "Add/edit/delete Measurement Types"
+msgstr "انواع اندازه گیری را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:28
+msgid "The measurement type name description must be 100 characters or less long"
+msgstr "شرح نام اندازه گیری باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:33
+msgid "The measurement type name description must contain at least one character"
+msgstr "شرح نام اندازه گیری باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
+msgid "The measurement type"
+msgstr "نوع اندازه گیری"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:57
+msgid "You already have a measurement type called"
+msgstr "شما قبلاً یک نوع اندازه گیری به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
+msgid "Measurement type"
+msgstr "نوع اندازه گیری"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:105
+msgid "The measurement type has been deleted"
+msgstr "نوع اندازه گیری حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
+msgid "Are you sure you wish to delete this Measurement Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع اندازه گیری را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:179
+msgid "Edit Measurement Type"
+msgstr "نوع اندازه گیری را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:193
+msgid "Create New Measurement Type"
+msgstr "نوع جدید اندازه گیری را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:228
+msgid "Update Measurement Type"
+msgstr "نوع اندازه گیری را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:232
+msgid "Create Measurement Type"
+msgstr "نوع اندازه گیری را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Types"
+msgstr "انواع یادداشت ها"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Type Setup"
+msgstr "یادداشت ها نوع تنظیم"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:15
+msgid "Add/edit/delete Notes Types"
+msgstr "انواع یادداشت ها را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+msgid "Are you sure you wish to delete this Notes Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع یادداشت ها را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:171
+msgid "Edit Notes Type"
+msgstr "نوع یادداشت ها را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:184
+msgid "Create New Notes Type"
+msgstr "نوع یادداشتهای جدید را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:214
+msgid "Update Notes Type"
+msgstr "نوع یادداشت ها را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:218
+msgid "Create Notes Type"
+msgstr "نوع یادداشت ها را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Types"
+msgstr "انواع تأخیر عملکرد"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Type Setup"
+msgstr "راه اندازی تأخیر عملکرد"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:15
+msgid "Add/edit/delete Operation Delay Types"
+msgstr "انواع تأخیر عملکرد را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:28
+msgid "The operation delay type name description must be 100 characters or less long"
+msgstr "شرح نوع تأخیر عملکرد باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:33
+msgid "The operation delay type name description must contain at least one character"
+msgstr "شرح نام تأخیر عملکرد باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+msgid "The operation delay type"
+msgstr "نوع تأخیر عملکرد"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:56
+msgid "You already have an operation delay type called"
+msgstr "شما قبلاً نوع تأخیر عملیاتی دارید"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+msgid "Operation delay type"
+msgstr "نوع تأخیر عملکرد"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:102
+msgid "The operation delay type has been deleted"
+msgstr "نوع تأخیر عملکرد حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:193
+msgid "Cause of Delay"
+msgstr "علت تأخیر"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
+msgid "Are you sure you wish to delete this Operation Delay Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع تأخیر عملیات را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:171
+msgid "Edit Operation Delay Type"
+msgstr "نوع تأخیر عملیات را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:184
+msgid "Create New Operation Delay Type"
+msgstr "نوع تأخیر عملیات جدید را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:214
+msgid "Update Delay Type"
+msgstr "نوع تأخیر را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:218
+msgid "Create Delay Type"
+msgstr "نوع تأخیر را ایجاد کنید"
+
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:3
 msgid "Billing For Other Medical Services"
 msgstr "صورتحساب برای سایر خدمات پزشکی"
@@ -28074,6 +28858,69 @@ msgstr "سایر خدمات پزشکی بیمار"
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:556
 msgid "Type of Service"
 msgstr "نوع خدمات"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Outcome Types"
+msgstr "انواع نتیجه"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+msgid "Outcome Type Setup"
+msgstr "نوع تنظیم نتیجه"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:15
+msgid "Add/edit/delete Outcome Types"
+msgstr "انواع نتایج را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:28
+msgid "The outcome type name description must be 100 characters or less long"
+msgstr "شرح نام نوع نتیجه باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:33
+msgid "The outcome type name description must contain at least one character"
+msgstr "شرح نام نوع نتیجه باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+msgid "The outcome type"
+msgstr "نوع نتیجه"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:57
+msgid "You already have a outcome type called"
+msgstr "شما قبلاً یک نوع نتیجه به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+msgid "Outcome type"
+msgstr "نوع نتیجه"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:105
+msgid "The outcome type has been deleted"
+msgstr "نوع نتیجه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+msgid "Are you sure you wish to delete this Outcome Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع نتیجه را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:179
+msgid "Edit Outcome Type"
+msgstr "نوع نتیجه را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:193
+msgid "Create New Outcome Type"
+msgstr "نوع نتیجه جدید را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:228
+msgid "Update Outcome Type"
+msgstr "نوع نتیجه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:232
+msgid "Create Outcome Type"
+msgstr "نوع نتیجه را ایجاد کنید"
 
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:3
 msgid "Admit Outpatient"
@@ -28122,6 +28969,62 @@ msgstr "هنوز حساب نقدی برای این کاربر تعریف نشد�
 msgid "Process Payment"
 msgstr "پرداخت فرآیند"
 
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+msgid "Perineum Types"
+msgstr "انواع پرینوم"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+msgid "Perineum Type Setup"
+msgstr "تنظیم نوع پرینه"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:15
+msgid "Add/edit/delete Perineum Types"
+msgstr "انواع Perineum را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:28
+msgid "The perineum type name description must be 100 characters or less long"
+msgstr "شرح نام نوع پرینه باید 100 حرف یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:33
+msgid "The perineum type name description must contain at least one character"
+msgstr "شرح نام نوع پرینه باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+msgid "The perineum type"
+msgstr "نوع پرینه"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:57
+msgid "You already have a perineum type called"
+msgstr "شما قبلاً یک نوع پرینه را دارید"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+msgid "Perineum type"
+msgstr "نوع پرینه"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:105
+msgid "The perineum type has been deleted"
+msgstr "نوع پرینه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
+msgid "Are you sure you wish to delete this Perineum Type?"
+msgstr "آیا مطمئن هستید که می خواهید این Perineum Type را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:179
+msgid "Edit Perineum Type"
+msgstr "ویرایش نوع Perineum"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:193
+msgid "Create New Perineum Type"
+msgstr "نوع جدید Perineum را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:228
+msgid "Update Perineum Type"
+msgstr "نوع Perineum را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:232
+msgid "Create Perineum Type"
+msgstr "نوع Perineum را ایجاد کنید"
+
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:3
 msgid "Billing For Pharmaceuticals"
 msgstr "صورتحساب برای داروسازی"
@@ -28141,6 +29044,62 @@ msgstr "لیست داروها را فیلتر کنید"
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:749
 msgid "Select a Drug"
 msgstr "یک دارو را انتخاب کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+msgid "Prescription Types"
+msgstr "انواع نسخه"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+msgid "Prescription Type Setup"
+msgstr "نوع تنظیم نسخه"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:15
+msgid "Add/edit/delete Prescription Types"
+msgstr "انواع نسخه را اضافه یا ویرایش / حذف کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:28
+msgid "The prescription type name description must be 100 characters or less long"
+msgstr "شرح نام نوع نسخه باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:33
+msgid "The prescription type name description must contain at least one character"
+msgstr "شرح نام نوع نسخه باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+msgid "The prescription type"
+msgstr "نوع نسخه"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:56
+msgid "You already have a prescription type called"
+msgstr "شما قبلاً یک نوع نسخه به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+msgid "Prescription type"
+msgstr "نوع نسخه"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:102
+msgid "The prescription type has been deleted"
+msgstr "نوع نسخه حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
+msgid "Are you sure you wish to delete this Prescription Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع نسخه را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:171
+msgid "Edit Prescription Type"
+msgstr "ویرایش نوع نسخه"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:184
+msgid "Create New Prescription Type"
+msgstr "نوع جدیدی از نسخه را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:214
+msgid "Update Prescription Type"
+msgstr "نوع نسخه را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:218
+msgid "Create Prescription Type"
+msgstr "نوع نسخه را ایجاد کنید"
 
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:36
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:44
@@ -28807,6 +29766,62 @@ msgstr "گروه خونی این بیمار"
 msgid "Item to bill"
 msgstr "مورد به صورت حساب"
 
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+msgid "Room Types"
+msgstr "انواع اتاق"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+msgid "Room Type Setup"
+msgstr "تنظیم نوع اتاق"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:15
+msgid "Add/edit/delete Room Types"
+msgstr "انواع اتاق را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:28
+msgid "The room type name description must be 100 characters or less long"
+msgstr "شرح نوع اتاق باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:33
+msgid "The room type name description must contain at least one character"
+msgstr "شرح نام نوع اتاق باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+msgid "The room type"
+msgstr "نوع اتاق"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:57
+msgid "You already have a room type called"
+msgstr "شما قبلاً یک نوع اتاق دارید به نام"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+msgid "Room type"
+msgstr "نوع اتاق"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:105
+msgid "The room type has been deleted"
+msgstr "نوع اتاق حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+msgid "Are you sure you wish to delete this Room Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع اتاق را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:179
+msgid "Edit Room Type"
+msgstr "نوع اتاق را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:193
+msgid "Create New Room Type"
+msgstr "نوع اتاق جدید ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:228
+msgid "Update Room Type"
+msgstr "نوع اتاق را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:232
+msgid "Create Room Type"
+msgstr "نوع اتاق را ایجاد کنید"
+
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:5
 msgid "Search Patients"
 msgstr "جستجو در بیماران"
@@ -28828,7 +29843,7 @@ msgstr "با استفاده از این بیمار گزینه منو را انت
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:90
+#: /home/tim/code/KwaMoja/index.php:92
 msgid "Inquiries and Reports"
 msgstr "شرازگ و تالاوس "
 
@@ -28903,6 +29918,175 @@ msgstr "اه یدنب هتسد ماهس رییغت ای ندرک هفاضا "
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:48
 msgid "Find Items"
 msgstr "یافتن موارد"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:13
+msgid "Test Groups"
+msgstr "گروههای آزمایشی"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:15
+msgid "Add/edit/delete Test Groups"
+msgstr "گروه های آزمایشی را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:28
+msgid "The test group type name description must be 100 characters or less long"
+msgstr "شرح نام گروه آزمایش باید 100 حرف یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:33
+msgid "The test group name description must contain at least one character"
+msgstr "شرح نام گروه آزمون باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+msgid "The test group"
+msgstr "گروه آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:56
+msgid "You already have a test group type called"
+msgstr "شما قبلاً یک نوع گروه آزمایشی به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+msgid "Test Group"
+msgstr "گروه آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:180
+msgid "The test group has been deleted"
+msgstr "گروه آزمون حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+msgid "Are you sure you wish to delete this Test Group?"
+msgstr "آیا مطمئن هستید که می خواهید این گروه آزمایشی را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:251
+msgid "Edit Test Group"
+msgstr "ویرایش گروه آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:254
+msgid "Group Number"
+msgstr "شماره گروه"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:264
+msgid "Create New Test Group"
+msgstr "ایجاد یک گروه آزمایش جدید"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:286
+msgid "Update Test Group"
+msgstr "گروه آزمون را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:290
+msgid "Create Test Group"
+msgstr "ایجاد گروه آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+msgid "Test Types"
+msgstr "انواع تست"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+msgid "Test Type Setup"
+msgstr "تنظیم نوع تست"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:15
+msgid "Add/edit/delete Test Types"
+msgstr "انواع تست را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:28
+msgid "The test type name description must be 100 characters or less long"
+msgstr "توضیحات نام آزمون باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:33
+msgid "The test type name description must contain at least one character"
+msgstr "توضیحات نام نوع آزمون باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+msgid "The test type"
+msgstr "نوع آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:57
+msgid "You already have a test type called"
+msgstr "شما قبلاً یک نوع تست به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+msgid "Test type"
+msgstr "نوع آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:105
+msgid "The test type has been deleted"
+msgstr "نوع آزمون حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+msgid "Are you sure you wish to delete this Test Type?"
+msgstr "آیا مطمئن هستید که می خواهید این نوع تست را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:179
+msgid "Edit Test Type"
+msgstr "ویرایش نوع آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:193
+msgid "Create New Test Type"
+msgstr "نوع تست جدیدی ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:228
+msgid "Update Test Type"
+msgstr "نوع تست را به روز کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:232
+msgid "Create Test Type"
+msgstr "نوع تست را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+msgid "Time Types"
+msgstr "انواع زمان"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+msgid "Time Type Setup"
+msgstr "نوع تنظیم زمان"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:15
+msgid "Add/edit/delete Time Types"
+msgstr "انواع زمان را اضافه یا ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:28
+msgid "The ttime type name description must be 100 characters or less long"
+msgstr "توضیحات نام نوع ttime باید 100 نویسه یا کمتر باشد"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:33
+msgid "The ttime type name description must contain at least one character"
+msgstr "توضیحات نام نوع ttime باید حداقل دارای یک شخصیت باشد"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+msgid "The ttime type"
+msgstr "نوع زمان"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:57
+msgid "You already have a ttime type called"
+msgstr "شما در حال حاضر یک نوع ttime به نام دارید"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+msgid "Time type"
+msgstr "نوع زمان"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:105
+msgid "The ttime type has been deleted"
+msgstr "نوع ttime حذف شده است"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+msgid "Are you sure you wish to delete this Time Type?"
+msgstr "آیا مطمئن هستید که می خواهید این تایپ تایپ را حذف کنید؟"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:179
+msgid "Edit Time Type"
+msgstr "نوع زمان را ویرایش کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:193
+msgid "Create New Time Type"
+msgstr "نوع جدیدی را ایجاد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:228
+msgid "Update Time Type"
+msgstr "نوع زمان بروزرسانی کنید"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:232
+msgid "Create Time Type"
+msgstr "تایپ تایپ کنید"
 
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:3
 msgid "Transfer patient to other bed"
@@ -37784,7 +38968,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "دراد دوجو زا ار دوخ باختنا قیبطت نایرتشم چیه "
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Statements"
 msgstr "یرتشم تاراهظا "
 
@@ -42126,7 +43310,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "ریز شخب باختنا تاناکما زا هدافتسا صاخ شخب کی یارب شورف تاشرافس یسررب یارب "
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Orders"
 msgstr "شورف یاه شرافس "
 
@@ -48437,7 +49621,7 @@ msgstr "یارب دینک دراو هب هجوت رابتعا هدننک هضر�
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "دیرخ تاشرافس "
@@ -56934,63 +58118,67 @@ msgstr "راه اندازی بیمارستان عمومی"
 msgid "Receivables/Payables Setup"
 msgstr "یزادنا هار یهدب / تابلاطم "
 
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:90
+msgid "ERP Integration"
+msgstr "ادغام ERP"
+
+#: /home/tim/code/KwaMoja/index.php:119
 msgid "Inventory Setup"
 msgstr "یزادنا هار همانشسرپ "
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain types"
 msgstr "انواع را حفظ کنید"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain Types"
 msgstr "انواع را حفظ کنید"
 
-#: /home/tim/code/KwaMoja/index.php:156
+#: /home/tim/code/KwaMoja/index.php:158
 msgid "Bank Checks"
 msgstr "کناب کچ "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Collection Letters"
 msgstr "همان هعومجم "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Bank Deposit Slips"
 msgstr "هقرو هدرپس کناب "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Invoices and Packing Slips"
 msgstr "یدنب هتسب یاه هقرو و اهروتکاف "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Customer"
 msgstr "طباوض و - اه بسچرب "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Vendor"
 msgstr "هدنشورف - اه بسچرب "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Quotes"
 msgstr "طباوض و لوق لقن "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Receipts"
 msgstr "دیسر شورف "
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Miscellaneous"
 msgstr "هقرفتم "
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Custom Reports"
 msgstr "یشرافس یاه شرازگ "
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Standard Reports and Forms"
 msgstr "مرف و درادناتسا یاه شرازگ "
 
-#: /home/tim/code/KwaMoja/index.php:211
+#: /home/tim/code/KwaMoja/index.php:213
 msgid "There are no reports to show!"
 msgstr "!درادن دوجو شیامن یارب یشرازگ چیه "
 
@@ -68366,10 +69554,6 @@ msgstr "یک سرپایی بستری کنید"
 msgid "Admit an inpatient"
 msgstr "بستری را قبول کنید"
 
-#: /home/tim/code/KwaMoja/sql/updates/199.php:165
-msgid "Maintain Encounter Types"
-msgstr "انواع برخورد را حفظ کنید"
-
 #: /home/tim/code/KwaMoja/sql/updates/199.php:191
 msgid "Maintain Wards"
 msgstr "بخش ها را حفظ کنید"
@@ -68511,17 +69695,33 @@ msgstr "بیحسی گاز از طریق ماسک تنفسی"
 msgid "Oral"
 msgstr "دهانی"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Applied Orally"
+msgstr "بصورت شفاهی اعمال می شود"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:50
 msgid "Intravenous"
 msgstr "داخل وریدی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Applied Intravenously"
+msgstr "به صورت داخل وریدی کاربرد دارد"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:51
 msgid "Subcutaneous"
 msgstr "زیر جلدی"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Applied Subcutaneously"
+msgstr "به طور زیر استفاده می شود"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:52
 msgid "Intramuscular"
 msgstr "عضلانی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular application"
+msgstr "برنامه عضلانی"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:53
 msgid "Sublingual"
@@ -68538,6 +69738,10 @@ msgstr "مقدماتی"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:55
 msgid "Pre-admission"
 msgstr "پیش پذیرش"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Taken Pre-admission"
+msgstr "پیش پذیرش گرفته شده است"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:57
 msgid "Maintain Application Types"
@@ -68603,21 +69807,41 @@ msgstr "انواع گروه را حفظ کنید"
 msgid "Regular duty"
 msgstr "وظیفه منظم"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duties"
+msgstr "وظایف منظم"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:140
 msgid "Standby duty"
 msgstr "وظیفه آماده به کار"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duties"
+msgstr "وظایف آماده به کار"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:141
 msgid "Morning duty"
 msgstr "وظیفه صبح"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning shift duties"
+msgstr "وظایف تغییر صبح"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:142
 msgid "Afternoon duty"
 msgstr "وظیفه بعد از ظهر"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon shift duties"
+msgstr "وظایف تغییر بعد از ظهر"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:143
 msgid "Night duty"
 msgstr "وظیفه شب"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night shift duties"
+msgstr "وظایف شیفت شب"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:145
 msgid "Maintain Duty Types"
@@ -68647,17 +69871,33 @@ msgstr "انواع ریشه قومی را حفظ کنید"
 msgid "Breast"
 msgstr "پستان"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast Feeding"
+msgstr "شیر دادن"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:184
 msgid "Formula"
 msgstr "فرمول"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula Feeding"
+msgstr "تغذیه فرمول"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:185
 msgid "Both"
 msgstr "هر دو"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Breast and Formula Feeding"
+msgstr "تغذیه با شیر مادر و فرمول"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:186
 msgid "Parenteral"
 msgstr "زایمان"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Non-oral Feeding"
+msgstr "تغذیه غیر خوراکی"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:187
 msgid "Never fed"
@@ -68963,9 +70203,17 @@ msgstr "انواع نسخه را حفظ کنید"
 msgid "Ward room"
 msgstr "اتاق بخش"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Hospital Ward Room"
+msgstr "اتاق بخش بیمارستان"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:370
 msgid "Operating room"
 msgstr "اتاق عمل"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating Theatre Room"
+msgstr "اتاق عمل تئاتر"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:372
 msgid "Maintain Room Types"
@@ -68986,6 +70234,10 @@ msgstr "آزمایشگاه باکتریولوژیک"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:392
 msgid "Radiological Lab"
 msgstr "آزمایشگاه رادیولوژی"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Lab for X-ray, Mammography, Computer Tomography, NMR"
+msgstr "آزمایشگاه برای اشعه ایکس ، ماموگرافی ، توموگرافی رایانه ای ، NMR"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:393
 msgid "Blood test & product"
@@ -69040,6 +70292,10 @@ msgid "Maintain Unit Measurements Types"
 msgstr "انواع اندازه گیری واحد را حفظ کنید"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Test Parmameter Groups"
+msgstr "آزمایش گروه های پارامتر"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:836
 msgid "Maintain Test Parameters"
 msgstr "پارامترهای تست را حفظ کنید"
 
@@ -69885,6 +71141,9 @@ msgstr "نانکراک ماو "
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "تخادرپزاب نانکراک ماو "
+
+#~ msgid "Maintian Encounter Types"
+#~ msgstr "انواع مواجهه با ماینری"
 
 #~ msgid "The number of insurance companies using this type could not be retrieved"
 #~ msgstr "تعداد شرکتهای بیمه ای که از این نوع استفاده می کنند قابل بازیابی نیست"

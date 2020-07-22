@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-17 08:57+0100\n"
+"POT-Creation-Date: 2020-07-22 10:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,6 +243,8 @@ msgstr "ID-ul"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:125
 #: /home/tim/code/KwaMoja/AccountGroups.php:328
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:204
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:278
 msgid "Group Name"
 msgstr "Numele Grupului"
 
@@ -313,17 +315,33 @@ msgstr "Sigur doriți să ștergeți acest grup de clasare?"
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:584
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:775
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:584
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:586
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
 #: /home/tim/code/KwaMoja/Labels.php:217 /home/tim/code/KwaMoja/Labels.php:230
 #: /home/tim/code/KwaMoja/Labels.php:485
 #: /home/tim/code/KwaMoja/Locations.php:478
@@ -440,6 +458,8 @@ msgid "Ranking Group Details"
 msgstr "Clasarea detaliilor grupului"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:203
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:273
 msgid "Group ID"
 msgstr "ID-ul grupului"
 
@@ -560,11 +580,27 @@ msgstr "Metoda de clasificare a fost salvată cu succes în baza de date"
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
 #: /home/tim/code/KwaMoja/Locations.php:476
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:119
@@ -2064,8 +2100,24 @@ msgstr "Adresa de e-mail de contact nu este o adresă de e-mail validă"
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2699,6 +2751,9 @@ msgstr "Stoc"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
@@ -2707,8 +2762,20 @@ msgstr "Stoc"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:68
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:256
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:358
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:62
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:131
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:207
 #: /home/tim/code/KwaMoja/Labels.php:180
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:107
 #: /home/tim/code/KwaMoja/MRPDemands.php:90
@@ -4620,10 +4687,38 @@ msgstr "Adresa"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:188
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:197
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
 #: /home/tim/code/KwaMoja/ProductSpecs.php:372
 #: /home/tim/code/KwaMoja/QATests.php:229
@@ -6302,6 +6397,8 @@ msgstr "Nivel"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:271
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:393
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:127
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:202
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:268
 #: /home/tim/code/KwaMoja/ModuleEditor.php:74
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:97
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:213
@@ -8123,12 +8220,42 @@ msgstr "Modifica"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:120
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:185
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:383
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:212
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:313
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:59
 #: /home/tim/code/KwaMoja/PO_Header.php:824
@@ -16891,7 +17018,23 @@ msgstr "Tipuri de clienți"
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
 #: /home/tim/code/KwaMoja/SupplierTypes.php:3
@@ -16899,7 +17042,7 @@ msgstr "Tipuri de clienți"
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:121
+#: /home/tim/code/KwaMoja/index.php:123
 msgid "Maintenance"
 msgstr "întreținere"
 
@@ -16942,8 +17085,24 @@ msgstr "Tip de client"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -17000,7 +17159,23 @@ msgstr "clienții cu acest tip de cod"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:177
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:102
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "Înregistrarea de tip nu a putut fi ștearsă deoarece"
@@ -17009,8 +17184,23 @@ msgstr "Înregistrarea de tip nu a putut fi ștearsă deoarece"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:176
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:167
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:182
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
 msgid "Type ID"
@@ -17022,10 +17212,38 @@ msgstr "ID-ul de tip"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:195
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:202
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
 #: /home/tim/code/KwaMoja/SupplierTypes.php:138
@@ -17034,8 +17252,6 @@ msgid "Type Name"
 msgstr "Introduceți numele"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "Sigur doriți să ștergeți acest tip de client?"
@@ -25922,33 +26138,35 @@ msgid "The anaesthesia type name description must contain at least one character
 msgstr "Descrierea tipului de anestezie trebuie să conțină cel puțin un caracter"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 msgid "The anaesthesia type"
 msgstr "Tipul anesteziei"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
 msgid "You already have an anaesthesia type called"
 msgstr "Aveți deja un tip de anestezie numit"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 msgid "Anaesthesia type"
 msgstr "Anestezie de tip"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
 msgid "The anaesthesia type has been deleted"
 msgstr "Tipul de anestezie a fost șters"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
 msgid "Type Description"
 msgstr "Descriere tip"
 
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+msgid "Are you sure you wish to delete this Anaesthesia Type?"
+msgstr "Sigur doriți să ștergeți acest tip de anestezie?"
+
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
 msgid "Edit Anaesthesia Type"
 msgstr "Editează tipul de anestezie"
 
@@ -25958,11 +26176,56 @@ msgstr "Editează tipul de anestezie"
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:183
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:191
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:218
 #: /home/tim/code/KwaMoja/ProductSpecs.php:380
 #: /home/tim/code/KwaMoja/QATests.php:391
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
@@ -25970,7 +26233,6 @@ msgid "Active"
 msgstr "Activ"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
 msgid "Create New Anaesthesia Type"
 msgstr "Creați un nou tip de anestezie"
 
@@ -25978,19 +26240,47 @@ msgstr "Creați un nou tip de anestezie"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:219
 msgid "Inactive"
 msgstr "Inactiv"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
 msgid "Update Anaesthesia Type"
 msgstr "Actualizați tipul de anestezie"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
 msgid "Create Anaesthesia Type"
 msgstr "Creați tip de anestezie"
 
@@ -26014,6 +26304,99 @@ msgstr "Descrierea tipului de aplicație trebuie să aibă o lungime de 100 de c
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
 msgid "The application type name description must contain at least one character"
 msgstr "Descrierea tipului de aplicație trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The application type"
+msgstr "Tipul cererii"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an application type called"
+msgstr "Aveți deja un tip de aplicație numit"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Application type"
+msgstr "Tipul cererii"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The application type has been deleted"
+msgstr "Tipul aplicației a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+msgid "Are you sure you wish to delete this Application Type?"
+msgstr "Sigur doriți să ștergeți acest tip de aplicație?"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Application Type"
+msgstr "Modificați tipul aplicației"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Application Type"
+msgstr "Creați un nou tip de aplicație"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Application Type"
+msgstr "Actualizați tipul de cerere"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Application Type"
+msgstr "Creați tip de aplicație"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Types"
+msgstr "Tipuri de atribuire"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Type Setup"
+msgstr "Configurare tip atribut"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:15
+msgid "Add/edit/delete Assignment Types"
+msgstr "Adăugați / editați / ștergeți tipurile de atribuire"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:28
+msgid "The assignment type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de atribuire trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:33
+msgid "The assignment type name description must contain at least one character"
+msgstr "Descrierea tipului de atribuire trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+msgid "The assignment type"
+msgstr "Tipul de atribuire"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:56
+msgid "You already have an assignment type called"
+msgstr "Aveți deja un tip de atribuire apelat"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+msgid "Assignment type"
+msgstr "Tipul misiunii"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:104
+msgid "The assignment type has been deleted"
+msgstr "Tipul de atribuire a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+msgid "Are you sure you wish to delete this Assignment Type?"
+msgstr "Sigur doriți să ștergeți acest tip de atribuire?"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:173
+msgid "Edit Assignment Type"
+msgstr "Editați tipul de atribuire"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:186
+msgid "Create New Assignment Type"
+msgstr "Creați un nou tip de atribuire"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:216
+msgid "Update Assignment Type"
+msgstr "Actualizați tipul de atribuire"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:220
+msgid "Create Assignment Type"
+msgstr "Creați tip de atribuire"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -26521,6 +26904,63 @@ msgstr "Sistemul nervos examinat"
 msgid "Save Data"
 msgstr "Salveaza date"
 
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Types"
+msgstr "Tipuri de departament"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Type Setup"
+msgstr "Configurare tip departament"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:15
+msgid "Add/edit/delete Department Types"
+msgstr "Adăugați / editați / ștergeți tipurile de departament"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:28
+msgid "The department type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de departament trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:33
+msgid "The department type name description must contain at least one character"
+msgstr "Descrierea tipului de departament trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
+msgid "The depaartment type"
+msgstr "Tipul de deparazitare"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:57
+msgid "You already have a department type called"
+msgstr "Aveți deja un tip de departament numit"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
+msgid "Department type"
+msgstr "Tipul departamentului"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:105
+msgid "The department type has been deleted"
+msgstr "Tipul departamentului a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
+msgid "Are you sure you wish to delete this Department Type?"
+msgstr "Sigur doriți să ștergeți acest tip de departament?"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:179
+msgid "Edit Department Type"
+msgstr "Editează tipul departamentului"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:193
+msgid "Create New Department Type"
+msgstr "Creați un nou tip de departament"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:228
+msgid "Update Department Type"
+msgstr "Actualizare tip departament"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:232
+msgid "Create Department Type"
+msgstr "Creați tipul departamentului"
+
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
 msgid "There was an error updating the encounter record"
 msgstr "A apărut o eroare la actualizarea înregistrării întâlnirii"
@@ -26711,6 +27151,63 @@ msgstr "Sistemul este setat să dispenseze automat la facturare, astfel încât 
 msgid "Unable to identify the selected customer"
 msgstr "Nu s-a putut identifica clientul selectat"
 
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Types"
+msgstr "Tipuri de taxe"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Type Setup"
+msgstr "Configurarea tipului de serviciu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:15
+msgid "Add/edit/delete Duty Types"
+msgstr "Adăugați / editați / ștergeți tipurile de serviciu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:28
+msgid "The duty type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de serviciu trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:33
+msgid "The duty type name description must contain at least one character"
+msgstr "Descrierea tipului de serviciu trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+msgid "The duty type"
+msgstr "Tipul taxei"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:57
+msgid "You already have a duty type called"
+msgstr "Aveți deja un tip de serviciu numit"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+msgid "Duty type"
+msgstr "Tipul de serviciu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:105
+msgid "The duty type has been deleted"
+msgstr "Tipul taxei a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+msgid "Are you sure you wish to delete this Duty Type?"
+msgstr "Sigur doriți să ștergeți acest tip de serviciu?"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:179
+msgid "Edit Duty Type"
+msgstr "Editează tipul de serviciu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:193
+msgid "Create New Duty Type"
+msgstr "Creați un nou tip de serviciu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:228
+msgid "Update Duty Type"
+msgstr "Actualizați tipul de serviciu"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:232
+msgid "Create Duty Type"
+msgstr "Creați tip de serviciu"
+
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:5
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:156
 msgid "Update Patient Details"
@@ -26757,6 +27254,120 @@ msgstr "Compania angajatoare"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "Detalii detalii"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Types"
+msgstr "Tipuri de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Type Setup"
+msgstr "Configurarea tipului de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:15
+msgid "Add/edit/delete Ethnic Origin Types"
+msgstr "Adăugați / editați / ștergeți tipurile de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:28
+msgid "The ethnic origin type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de origine etnică trebuie să aibă 100 caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:33
+msgid "The ethnic origin type name description must contain at least one character"
+msgstr "Descrierea tipului de origine etnică trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+msgid "The ethnic origin type"
+msgstr "Tipul de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:55
+msgid "You already have an ethnic origin type called"
+msgstr "Aveți deja un tip de origine etnică numit"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+msgid "Ethnic Origin type"
+msgstr "Tip de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:99
+msgid "The ethnic origin type has been deleted"
+msgstr "Tipul de origine etnică a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+msgid "Are you sure you wish to delete this Ethnic Origin Type?"
+msgstr "Sigur doriți să ștergeți acest tip de origine etnică?"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:164
+msgid "Edit Ethnic Origin Type"
+msgstr "Editați tipul de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:176
+msgid "Create New Ethnic Origin Type"
+msgstr "Creați un nou tip de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:201
+msgid "Update Ethnic Origin Type"
+msgstr "Actualizați tipul de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:205
+msgid "Create Ethnic Origin Type"
+msgstr "Creați tip de origine etnică"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Types"
+msgstr "Tipuri de hrănire"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Type Setup"
+msgstr "Configurare tip alimentare"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:15
+msgid "Add/edit/delete Feeding Types"
+msgstr "Adăugați / editați / ștergeți tipurile de alimentare"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:28
+msgid "The feeding type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de alimentare trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:33
+msgid "The feeding type name description must contain at least one character"
+msgstr "Descrierea tipului de alimentare trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
+msgid "The feeding type"
+msgstr "Tipul de hrănire"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:57
+msgid "You already have a feeding type called"
+msgstr "Aveți deja un tip de hrănire numit"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
+msgid "Feeding type"
+msgstr "Tipul de hrănire"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:105
+msgid "The feeding type has been deleted"
+msgstr "Tipul de hrănire a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
+msgid "Are you sure you wish to delete this Feeding Type?"
+msgstr "Sigur doriți să ștergeți acest tip de alimentare?"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:179
+msgid "Edit Feeding Type"
+msgstr "Editează tipul de hrănire"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:193
+msgid "Create New Feeding Type"
+msgstr "Creați un nou tip de alimentare"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:228
+msgid "Update Feeding Type"
+msgstr "Actualizați tipul de alimentare"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:232
+msgid "Create Feeding Type"
+msgstr "Creați tip de hrănire"
 
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:4
 msgid "Income and Expenditure by Functional Unit"
@@ -27786,8 +28397,9 @@ msgid "Income for the previous week"
 msgstr "Venit pentru săptămâna precedentă"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:3
-msgid "Maintian Encounter Types"
-msgstr "Tipuri de întâlniri maintiene"
+#: /home/tim/code/KwaMoja/sql/updates/199.php:165
+msgid "Maintain Encounter Types"
+msgstr "Mențineți tipurile de întâlniri"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:20
 msgid "The encounter type name cannot be empty"
@@ -28031,6 +28643,178 @@ msgstr "Modificați detaliile secției"
 msgid "Create the ward"
 msgstr "Creați secția"
 
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
+msgid "Measurement Types"
+msgstr "Tipuri de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Measurement Type Setup"
+msgstr "Configurare tip măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:15
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:15
+msgid "Add/edit/delete Measurement Types"
+msgstr "Adăugați / editați / ștergeți tipurile de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:28
+msgid "The measurement type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de măsurare trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:33
+msgid "The measurement type name description must contain at least one character"
+msgstr "Descrierea tipului de măsurare trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
+msgid "The measurement type"
+msgstr "Tipul de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:57
+msgid "You already have a measurement type called"
+msgstr "Aveți deja un tip de măsurare apelat"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
+msgid "Measurement type"
+msgstr "Tipul de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:105
+msgid "The measurement type has been deleted"
+msgstr "Tipul de măsurare a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
+msgid "Are you sure you wish to delete this Measurement Type?"
+msgstr "Sigur doriți să ștergeți acest tip de măsurare?"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:179
+msgid "Edit Measurement Type"
+msgstr "Editați tipul de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:193
+msgid "Create New Measurement Type"
+msgstr "Creați un nou tip de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:228
+msgid "Update Measurement Type"
+msgstr "Actualizați tipul de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:232
+msgid "Create Measurement Type"
+msgstr "Creați tipul de măsurare"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Types"
+msgstr "Tipuri de note"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Type Setup"
+msgstr "Note Tip Configurare"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:15
+msgid "Add/edit/delete Notes Types"
+msgstr "Adăugați / editați / ștergeți tipurile de note"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+msgid "Are you sure you wish to delete this Notes Type?"
+msgstr "Sigur doriți să ștergeți acest tip de note?"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:171
+msgid "Edit Notes Type"
+msgstr "Editează tipul de note"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:184
+msgid "Create New Notes Type"
+msgstr "Creați tip de note noi"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:214
+msgid "Update Notes Type"
+msgstr "Actualizare tip note"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:218
+msgid "Create Notes Type"
+msgstr "Creați tipul de note"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Types"
+msgstr "Tipuri de întârziere în funcționare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Type Setup"
+msgstr "Configurare tip întârziere operație"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:15
+msgid "Add/edit/delete Operation Delay Types"
+msgstr "Adăugați / editați / ștergeți tipurile de întârziere de operare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:28
+msgid "The operation delay type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de întârziere de operare trebuie să fie de 100 de caractere sau mai puțin lungă"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:33
+msgid "The operation delay type name description must contain at least one character"
+msgstr "Descrierea tipului de întârziere de operare trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+msgid "The operation delay type"
+msgstr "Tipul de întârziere de operare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:56
+msgid "You already have an operation delay type called"
+msgstr "Ați apelat deja la un tip de întârziere de operare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+msgid "Operation delay type"
+msgstr "Tip întârziere de operare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:102
+msgid "The operation delay type has been deleted"
+msgstr "Tipul de întârziere de operare a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:193
+msgid "Cause of Delay"
+msgstr "Cauza întârzierii"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
+msgid "Are you sure you wish to delete this Operation Delay Type?"
+msgstr "Sigur doriți să ștergeți acest tip de întârziere de operare?"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:171
+msgid "Edit Operation Delay Type"
+msgstr "Editați tipul de întârziere de operare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:184
+msgid "Create New Operation Delay Type"
+msgstr "Creați un nou tip de întârziere de operare"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:214
+msgid "Update Delay Type"
+msgstr "Actualizați tipul de întârziere"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:218
+msgid "Create Delay Type"
+msgstr "Creați tipul de întârziere"
+
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:3
 msgid "Billing For Other Medical Services"
 msgstr "Facturare pentru alte servicii medicale"
@@ -28074,6 +28858,69 @@ msgstr "Alte servicii medicale pentru pacient"
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:556
 msgid "Type of Service"
 msgstr "Tipul serviciului"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Outcome Types"
+msgstr "Tipuri de rezultate"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+msgid "Outcome Type Setup"
+msgstr "Configurare tip rezultat"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:15
+msgid "Add/edit/delete Outcome Types"
+msgstr "Adăugați / editați / ștergeți tipurile de rezultate"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:28
+msgid "The outcome type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de rezultat trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:33
+msgid "The outcome type name description must contain at least one character"
+msgstr "Descrierea tipului de rezultat descriere trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+msgid "The outcome type"
+msgstr "Tipul rezultatului"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:57
+msgid "You already have a outcome type called"
+msgstr "Aveți deja un tip de rezultat apelat"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+msgid "Outcome type"
+msgstr "Tip de rezultat"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:105
+msgid "The outcome type has been deleted"
+msgstr "Tipul rezultatului a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+msgid "Are you sure you wish to delete this Outcome Type?"
+msgstr "Sigur doriți să ștergeți acest tip de rezultat?"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:179
+msgid "Edit Outcome Type"
+msgstr "Editează tipul de rezultat"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:193
+msgid "Create New Outcome Type"
+msgstr "Creați un nou tip de rezultat"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:228
+msgid "Update Outcome Type"
+msgstr "Actualizați tipul de rezultat"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:232
+msgid "Create Outcome Type"
+msgstr "Creați tip de rezultat"
 
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:3
 msgid "Admit Outpatient"
@@ -28122,6 +28969,62 @@ msgstr "Un cont de numerar nu a fost încă definit pentru acest utilizator. "
 msgid "Process Payment"
 msgstr "Plata procesului"
 
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+msgid "Perineum Types"
+msgstr "Tipuri de perineu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+msgid "Perineum Type Setup"
+msgstr "Configurare tip perineu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:15
+msgid "Add/edit/delete Perineum Types"
+msgstr "Adăugați / editați / ștergeți tipurile de perineu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:28
+msgid "The perineum type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de perineu trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:33
+msgid "The perineum type name description must contain at least one character"
+msgstr "Descrierea tipului de perineu trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+msgid "The perineum type"
+msgstr "Tipul perineului"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:57
+msgid "You already have a perineum type called"
+msgstr "Aveți deja un tip de perineu numit"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+msgid "Perineum type"
+msgstr "Tipul perineului"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:105
+msgid "The perineum type has been deleted"
+msgstr "Tipul perineului a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
+msgid "Are you sure you wish to delete this Perineum Type?"
+msgstr "Sigur doriți să ștergeți acest tip de perineu?"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:179
+msgid "Edit Perineum Type"
+msgstr "Editează tipul de perineu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:193
+msgid "Create New Perineum Type"
+msgstr "Creați un nou tip de perineu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:228
+msgid "Update Perineum Type"
+msgstr "Actualizați tipul de perineu"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:232
+msgid "Create Perineum Type"
+msgstr "Creați tipul de perineu"
+
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:3
 msgid "Billing For Pharmaceuticals"
 msgstr "Facturare pentru produse farmaceutice"
@@ -28141,6 +29044,62 @@ msgstr "Lista medicamentelor de filtrare"
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:749
 msgid "Select a Drug"
 msgstr "Selectați un medicament"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+msgid "Prescription Types"
+msgstr "Tipuri de prescriptie medicala"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+msgid "Prescription Type Setup"
+msgstr "Configurare tip prescripție"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:15
+msgid "Add/edit/delete Prescription Types"
+msgstr "Adăugați / editați / ștergeți tipurile de prescripție"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:28
+msgid "The prescription type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de prescripție trebuie să fie de 100 de caractere sau mai puțin lungă"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:33
+msgid "The prescription type name description must contain at least one character"
+msgstr "Descrierea tipului de prescripție trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+msgid "The prescription type"
+msgstr "Tipul de rețetă"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:56
+msgid "You already have a prescription type called"
+msgstr "Aveți deja un tip de rețetă apelat"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+msgid "Prescription type"
+msgstr "Tip de prescriptie medicala"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:102
+msgid "The prescription type has been deleted"
+msgstr "Tipul de rețetă a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
+msgid "Are you sure you wish to delete this Prescription Type?"
+msgstr "Sigur doriți să ștergeți acest tip de prescripție?"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:171
+msgid "Edit Prescription Type"
+msgstr "Editați tipul de prescripție"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:184
+msgid "Create New Prescription Type"
+msgstr "Creați un nou tip de prescripție medicală"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:214
+msgid "Update Prescription Type"
+msgstr "Actualizați tipul de prescripție"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:218
+msgid "Create Prescription Type"
+msgstr "Creați tip de prescripție"
 
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:36
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:44
@@ -28807,6 +29766,62 @@ msgstr "Grupul sanguin al acestui pacient"
 msgid "Item to bill"
 msgstr "Articol de facturat"
 
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+msgid "Room Types"
+msgstr "Tipuri de cameră"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+msgid "Room Type Setup"
+msgstr "Configurare tip cameră"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:15
+msgid "Add/edit/delete Room Types"
+msgstr "Adăugați / editați / ștergeți tipurile de cameră"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:28
+msgid "The room type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de cameră trebuie să fie de 100 de caractere sau mai puțin lungă"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:33
+msgid "The room type name description must contain at least one character"
+msgstr "Descrierea tipului de cameră trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+msgid "The room type"
+msgstr "Tipul camerei"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:57
+msgid "You already have a room type called"
+msgstr "Aveți deja un tip de cameră numit"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+msgid "Room type"
+msgstr "Tipul camerei"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:105
+msgid "The room type has been deleted"
+msgstr "Tipul de cameră a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+msgid "Are you sure you wish to delete this Room Type?"
+msgstr "Sigur doriți să ștergeți acest tip de cameră?"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:179
+msgid "Edit Room Type"
+msgstr "Modificați tipul camerei"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:193
+msgid "Create New Room Type"
+msgstr "Creați tip nou de cameră"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:228
+msgid "Update Room Type"
+msgstr "Actualizați tipul camerei"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:232
+msgid "Create Room Type"
+msgstr "Creați tipul camerei"
+
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:5
 msgid "Search Patients"
 msgstr "Căutați pacienți"
@@ -28828,7 +29843,7 @@ msgstr "Selectați o opțiune de meniu pentru a opera cu acest pacient"
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:90
+#: /home/tim/code/KwaMoja/index.php:92
 msgid "Inquiries and Reports"
 msgstr "Anchete și rapoarte"
 
@@ -28903,6 +29918,175 @@ msgstr "Adăugați sau modificați categorii stoc"
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:48
 msgid "Find Items"
 msgstr "Găsiți articole"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:13
+msgid "Test Groups"
+msgstr "Grupuri de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:15
+msgid "Add/edit/delete Test Groups"
+msgstr "Adăugați / editați / ștergeți grupuri de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:28
+msgid "The test group type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de grup de testare trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:33
+msgid "The test group name description must contain at least one character"
+msgstr "Descrierea grupului de testare trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+msgid "The test group"
+msgstr "Grupul de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:56
+msgid "You already have a test group type called"
+msgstr "Aveți deja un tip de grup de testare numit"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+msgid "Test Group"
+msgstr "Grup de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:180
+msgid "The test group has been deleted"
+msgstr "Grupul de test a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+msgid "Are you sure you wish to delete this Test Group?"
+msgstr "Sigur doriți să ștergeți acest grup de testare?"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:251
+msgid "Edit Test Group"
+msgstr "Editează grupul de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:254
+msgid "Group Number"
+msgstr "Număr de grup"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:264
+msgid "Create New Test Group"
+msgstr "Creați grup de testare nou"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:286
+msgid "Update Test Group"
+msgstr "Actualizați grupul de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:290
+msgid "Create Test Group"
+msgstr "Creați grup de testare"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+msgid "Test Types"
+msgstr "Tipuri de test"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+msgid "Test Type Setup"
+msgstr "Configurare tip test"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:15
+msgid "Add/edit/delete Test Types"
+msgstr "Adăugați / editați / ștergeți tipurile de test"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:28
+msgid "The test type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de testare trebuie să aibă o lungime de 100 de caractere sau mai puțin"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:33
+msgid "The test type name description must contain at least one character"
+msgstr "Descrierea tipului de testare trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+msgid "The test type"
+msgstr "Tipul testului"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:57
+msgid "You already have a test type called"
+msgstr "Aveți deja un tip de test numit"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+msgid "Test type"
+msgstr "Tipul testului"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:105
+msgid "The test type has been deleted"
+msgstr "Tipul testului a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+msgid "Are you sure you wish to delete this Test Type?"
+msgstr "Sigur doriți să ștergeți acest tip de test?"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:179
+msgid "Edit Test Type"
+msgstr "Editează tipul de test"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:193
+msgid "Create New Test Type"
+msgstr "Creați un nou tip de test"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:228
+msgid "Update Test Type"
+msgstr "Actualizați tipul de test"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:232
+msgid "Create Test Type"
+msgstr "Creați tipul de test"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+msgid "Time Types"
+msgstr "Tipuri de timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+msgid "Time Type Setup"
+msgstr "Configurare tip timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:15
+msgid "Add/edit/delete Time Types"
+msgstr "Adăugați / editați / ștergeți tipurile de timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:28
+msgid "The time type name description must be 100 characters or less long"
+msgstr "Descrierea tipului de timp trebuie să fie de 100 de caractere sau mai puțin lungă"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:33
+msgid "The time type name description must contain at least one character"
+msgstr "Descrierea tipului de timp trebuie să conțină cel puțin un caracter"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+msgid "The time type"
+msgstr "Tipul de timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:57
+msgid "You already have a time type called"
+msgstr "Aveți deja un tip de timp apelat"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+msgid "Time type"
+msgstr "Tipul de timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:105
+msgid "The time type has been deleted"
+msgstr "Tipul de timp a fost șters"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+msgid "Are you sure you wish to delete this Time Type?"
+msgstr "Sigur doriți să ștergeți acest tip de timp?"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:179
+msgid "Edit Time Type"
+msgstr "Editează tipul de timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:193
+msgid "Create New Time Type"
+msgstr "Creați un nou tip de timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:228
+msgid "Update Time Type"
+msgstr "Actualizare tip timp"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:232
+msgid "Create Time Type"
+msgstr "Creați tipul de timp"
 
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:3
 msgid "Transfer patient to other bed"
@@ -37784,7 +38968,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "Nu au existat clienți care să se potrivească cu selecția dvs."
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Statements"
 msgstr "Declarațiile clientului"
 
@@ -42126,7 +43310,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "Pentru a căuta comenzi de vânzări pentru o anumită parte, utilizați facilitățile de selectare a pieselor de mai jos"
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Orders"
 msgstr "Comenzile de vânzări"
 
@@ -48437,7 +49621,7 @@ msgstr "Selectați un furnizor pentru a introduce o notă de credit pentru"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "Ordine de achiziție"
@@ -56934,63 +58118,67 @@ msgstr "Configurarea spitalului general"
 msgid "Receivables/Payables Setup"
 msgstr "Crearea de creanțe / datorii"
 
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:90
+msgid "ERP Integration"
+msgstr "Integrare ERP"
+
+#: /home/tim/code/KwaMoja/index.php:119
 msgid "Inventory Setup"
 msgstr "Instalarea inventarului"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain types"
 msgstr "Mențineți tipurile"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain Types"
 msgstr "Mențineți tipurile"
 
-#: /home/tim/code/KwaMoja/index.php:156
+#: /home/tim/code/KwaMoja/index.php:158
 msgid "Bank Checks"
 msgstr "Verificări bancare"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Collection Letters"
 msgstr "Scrisori de colecție"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Bank Deposit Slips"
 msgstr "Depozite bancare"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Invoices and Packing Slips"
 msgstr "Facturi și bușoane de ambalare"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Customer"
 msgstr "Etichete - Client"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Vendor"
 msgstr "Etichete - furnizor"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Quotes"
 msgstr "Citate de client"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Receipts"
 msgstr "Încasări de vânzări"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Miscellaneous"
 msgstr "Diverse"
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Custom Reports"
 msgstr "Rapoarte personalizate"
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Standard Reports and Forms"
 msgstr "Rapoarte standard și formulare"
 
-#: /home/tim/code/KwaMoja/index.php:211
+#: /home/tim/code/KwaMoja/index.php:213
 msgid "There are no reports to show!"
 msgstr "Nu există rapoarte care să fie afișate!"
 
@@ -68366,10 +69554,6 @@ msgstr "Admiteti un ambulatoriu"
 msgid "Admit an inpatient"
 msgstr "Admiteți un internat"
 
-#: /home/tim/code/KwaMoja/sql/updates/199.php:165
-msgid "Maintain Encounter Types"
-msgstr "Mențineți tipurile de întâlniri"
-
 #: /home/tim/code/KwaMoja/sql/updates/199.php:191
 msgid "Maintain Wards"
 msgstr "Mentinerea sectiilor"
@@ -68511,17 +69695,33 @@ msgstr "Anestezie cu gaze prin masca respiratorie"
 msgid "Oral"
 msgstr "Oral"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Applied Orally"
+msgstr "Aplicat oral"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:50
 msgid "Intravenous"
 msgstr "intravenos"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Applied Intravenously"
+msgstr "Aplicat intravenos"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:51
 msgid "Subcutaneous"
 msgstr "Subcutanat"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Applied Subcutaneously"
+msgstr "Aplicat subcutanat"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:52
 msgid "Intramuscular"
 msgstr "intramusculara"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular application"
+msgstr "Aplicație intramusculară"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:53
 msgid "Sublingual"
@@ -68538,6 +69738,10 @@ msgstr "intraarterial"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:55
 msgid "Pre-admission"
 msgstr "Pre admitere"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Taken Pre-admission"
+msgstr "Pre-admitere"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:57
 msgid "Maintain Application Types"
@@ -68603,21 +69807,41 @@ msgstr "Mențineți tipurile de departament"
 msgid "Regular duty"
 msgstr "Datoria regulată"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duties"
+msgstr "Obligații periodice"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:140
 msgid "Standby duty"
 msgstr "Datoria de standby"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duties"
+msgstr "Taxele de standby"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:141
 msgid "Morning duty"
 msgstr "Sarcina de dimineață"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning shift duties"
+msgstr "Taxele de schimb de dimineață"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:142
 msgid "Afternoon duty"
 msgstr "După-amiaza"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon shift duties"
+msgstr "După-amiaza schimb de taxe"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:143
 msgid "Night duty"
 msgstr "Tura de noapte"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night shift duties"
+msgstr "Taxele de schimb de noapte"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:145
 msgid "Maintain Duty Types"
@@ -68647,17 +69871,33 @@ msgstr "Mențineți tipurile de origine etnică"
 msgid "Breast"
 msgstr "sân"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast Feeding"
+msgstr "Alăptarea sânilor"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:184
 msgid "Formula"
 msgstr "Formulă"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula Feeding"
+msgstr "Formula de hrănire"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:185
 msgid "Both"
 msgstr "Ambii"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Breast and Formula Feeding"
+msgstr "Alăptarea sânilor și a formulelor"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:186
 msgid "Parenteral"
 msgstr "Parenteral"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Non-oral Feeding"
+msgstr "Hrănire non-orală"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:187
 msgid "Never fed"
@@ -68963,8 +70203,16 @@ msgstr "Mențineți tipurile de prescripție medicală"
 msgid "Ward room"
 msgstr "Camera de gardă"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Hospital Ward Room"
+msgstr "Camera de la spital"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:370
 msgid "Operating room"
+msgstr "Sala de operatie"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating Theatre Room"
 msgstr "Sala de operatie"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:372
@@ -68986,6 +70234,10 @@ msgstr "Laborator bacteriologic"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:392
 msgid "Radiological Lab"
 msgstr "Laborator radiologic"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Lab for X-ray, Mammography, Computer Tomography, NMR"
+msgstr "Laborator pentru radiografie, mamografie, tomografie computerizată, RMN"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:393
 msgid "Blood test & product"
@@ -69040,6 +70292,10 @@ msgid "Maintain Unit Measurements Types"
 msgstr "Mențineți tipurile de măsurători de unități"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Test Parmameter Groups"
+msgstr "Testează grupuri de parametri"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:836
 msgid "Maintain Test Parameters"
 msgstr "Mențineți parametrii de testare"
 
@@ -69885,6 +71141,27 @@ msgstr "Credite pentru personal"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Rambursări de împrumuturi pentru personal"
+
+#~ msgid "The tmeasurement type has been deleted"
+#~ msgstr "Tipul de măsurare a fost șters"
+
+#~ msgid "The ttime type name description must be 100 characters or less long"
+#~ msgstr "Descrierea tipului de timp trebuie să fie de 100 de caractere sau mai puțin lungă"
+
+#~ msgid "The ttime type name description must contain at least one character"
+#~ msgstr "Descrierea tipului de timp ttime trebuie să conțină cel puțin un caracter"
+
+#~ msgid "The ttime type"
+#~ msgstr "Tipul de timp"
+
+#~ msgid "You already have a ttime type called"
+#~ msgstr "Aveți deja un tip de timp apelat"
+
+#~ msgid "The ttime type has been deleted"
+#~ msgstr "Tipul de timp a fost șters"
+
+#~ msgid "Maintian Encounter Types"
+#~ msgstr "Tipuri de întâlniri maintiene"
 
 #~ msgid "The number of insurance companies using this type could not be retrieved"
 #~ msgstr "Nu a putut fi recuperat numărul companiilor de asigurare care utilizează acest tip"

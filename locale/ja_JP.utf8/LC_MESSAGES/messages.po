@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-17 06:33+0100\n"
+"POT-Creation-Date: 2020-07-22 09:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,6 +243,8 @@ msgstr "ID"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:125
 #: /home/tim/code/KwaMoja/AccountGroups.php:328
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:204
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:278
 msgid "Group Name"
 msgstr "グループ名"
 
@@ -313,17 +315,33 @@ msgstr "このランキンググループを削除してもよろしいですか
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:584
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:775
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:584
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:586
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
 #: /home/tim/code/KwaMoja/Labels.php:217 /home/tim/code/KwaMoja/Labels.php:230
 #: /home/tim/code/KwaMoja/Labels.php:485
 #: /home/tim/code/KwaMoja/Locations.php:478
@@ -440,6 +458,8 @@ msgid "Ranking Group Details"
 msgstr "ランキンググループの詳細"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:203
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:273
 msgid "Group ID"
 msgstr "グループID"
 
@@ -560,11 +580,27 @@ msgstr "ランキング方法が正常にデータベースに保存されまし
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
 #: /home/tim/code/KwaMoja/Locations.php:476
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:119
@@ -2064,8 +2100,24 @@ msgstr "連絡先メールアドレスは有効なメールアドレスではあ
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:59
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:38
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
 #: /home/tim/code/KwaMoja/MRPCalendar.php:168
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:84
 #: /home/tim/code/KwaMoja/PO_Items.php:496
@@ -2699,6 +2751,9 @@ msgstr "株式"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
@@ -2707,8 +2762,20 @@ msgstr "株式"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:68
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:256
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:358
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:207
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:62
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:131
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:207
 #: /home/tim/code/KwaMoja/Labels.php:180
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:107
 #: /home/tim/code/KwaMoja/MRPDemands.php:90
@@ -4620,10 +4687,38 @@ msgstr "住所"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:197
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:188
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:197
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
 #: /home/tim/code/KwaMoja/ProductSpecs.php:372
 #: /home/tim/code/KwaMoja/QATests.php:229
@@ -6302,6 +6397,8 @@ msgstr "レベル"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:271
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:393
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:127
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:202
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:268
 #: /home/tim/code/KwaMoja/ModuleEditor.php:74
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:97
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:213
@@ -8123,12 +8220,42 @@ msgstr "変更"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:120
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:185
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:212
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:383
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:198
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:129
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:212
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:313
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:59
 #: /home/tim/code/KwaMoja/PO_Header.php:824
@@ -16891,7 +17018,23 @@ msgstr "顧客タイプ"
 #: /home/tim/code/KwaMoja/JobScheduler.php:83
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
 #: /home/tim/code/KwaMoja/Prices.php:225
 #: /home/tim/code/KwaMoja/StockCategories.php:333
 #: /home/tim/code/KwaMoja/SupplierTypes.php:3
@@ -16899,7 +17042,7 @@ msgstr "顧客タイプ"
 #: /home/tim/code/KwaMoja/TaxCategories.php:165
 #: /home/tim/code/KwaMoja/TaxGroups.php:187
 #: /home/tim/code/KwaMoja/TaxProvinces.php:173
-#: /home/tim/code/KwaMoja/index.php:121
+#: /home/tim/code/KwaMoja/index.php:123
 msgid "Maintenance"
 msgstr "メンテナンス"
 
@@ -16942,8 +17085,24 @@ msgstr "顧客タイプ"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:75
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:60
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:83
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
 #: /home/tim/code/KwaMoja/PO_AuthorisationLevels.php:51
 #: /home/tim/code/KwaMoja/PO_Items.php:348
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:123
@@ -17000,7 +17159,23 @@ msgstr "このタイプコードを持つ顧客"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:96
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:177
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:102
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "タイプレコードは削除できませんでした。"
@@ -17009,8 +17184,23 @@ msgstr "タイプレコードは削除できませんでした。"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:176
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:167
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:182
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:174
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:182
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
 msgid "Type ID"
@@ -17022,10 +17212,38 @@ msgstr "タイプID"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:195
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:202
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:202
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
 #: /home/tim/code/KwaMoja/SupplierTypes.php:138
@@ -17034,8 +17252,6 @@ msgid "Type Name"
 msgstr "タイプ名"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "この顧客タイプを削除してもよろしいですか？"
@@ -25922,33 +26138,35 @@ msgid "The anaesthesia type name description must contain at least one character
 msgstr "麻酔タイプ名の説明には、少なくとも1文字を含める必要があります"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:46
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
 msgid "The anaesthesia type"
 msgstr "麻酔タイプ"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:57
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
 msgid "You already have an anaesthesia type called"
 msgstr "あなたはすでに呼ばれる麻酔タイプを持っています"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:81
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
 msgid "Anaesthesia type"
 msgstr "麻酔タイプ"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
 msgid "The anaesthesia type has been deleted"
 msgstr "麻酔タイプが削除されました"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
 msgid "Type Description"
 msgstr "タイプ説明"
 
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+msgid "Are you sure you wish to delete this Anaesthesia Type?"
+msgstr "この麻酔タイプを削除してもよろしいですか？"
+
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
 msgid "Edit Anaesthesia Type"
 msgstr "麻酔タイプを編集"
 
@@ -25958,11 +26176,56 @@ msgstr "麻酔タイプを編集"
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:183
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:191
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:218
 #: /home/tim/code/KwaMoja/ProductSpecs.php:380
 #: /home/tim/code/KwaMoja/QATests.php:391
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
@@ -25970,7 +26233,6 @@ msgid "Active"
 msgstr "アクティブ"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
 msgid "Create New Anaesthesia Type"
 msgstr "新しい麻酔タイプを作成する"
 
@@ -25978,19 +26240,47 @@ msgstr "新しい麻酔タイプを作成する"
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
 #: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:219
 msgid "Inactive"
 msgstr "非活性"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
 msgid "Update Anaesthesia Type"
 msgstr "麻酔タイプを更新する"
 
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
 msgid "Create Anaesthesia Type"
 msgstr "麻酔タイプを作成する"
 
@@ -26014,6 +26304,99 @@ msgstr "アプリケーションタイプ名の説明は100文字以下にする
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:33
 msgid "The application type name description must contain at least one character"
 msgstr "アプリケーションタイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:46
+msgid "The application type"
+msgstr "アプリケーションの種類"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:57
+msgid "You already have an application type called"
+msgstr "あなたはすでに呼ばれるアプリケーションタイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:81
+msgid "Application type"
+msgstr "アプリケーションタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+msgid "The application type has been deleted"
+msgstr "アプリケーションタイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+msgid "Are you sure you wish to delete this Application Type?"
+msgstr "このアプリケーションタイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+msgid "Edit Application Type"
+msgstr "アプリケーションタイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+msgid "Create New Application Type"
+msgstr "新しいアプリケーションタイプの作成"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+msgid "Update Application Type"
+msgstr "アプリケーションタイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+msgid "Create Application Type"
+msgstr "アプリケーションタイプの作成"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Types"
+msgstr "割り当てタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:13
+msgid "Assignment Type Setup"
+msgstr "割り当てタイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:15
+msgid "Add/edit/delete Assignment Types"
+msgstr "割り当てタイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:28
+msgid "The assignment type name description must be 100 characters or less long"
+msgstr "割り当てタイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:33
+msgid "The assignment type name description must contain at least one character"
+msgstr "割り当てタイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:45
+msgid "The assignment type"
+msgstr "割り当てタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:56
+msgid "You already have an assignment type called"
+msgstr "すでに割り当てタイプが呼び出されています"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:80
+msgid "Assignment type"
+msgstr "割り当てタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:104
+msgid "The assignment type has been deleted"
+msgstr "割り当てタイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+msgid "Are you sure you wish to delete this Assignment Type?"
+msgstr "この割り当てタイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:173
+msgid "Edit Assignment Type"
+msgstr "割り当てタイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:186
+msgid "Create New Assignment Type"
+msgstr "新しい割り当てタイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:216
+msgid "Update Assignment Type"
+msgstr "割り当てタイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:220
+msgid "Create Assignment Type"
+msgstr "割り当てタイプの作成"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:210
 msgid "The daily ward notes record could not be added because"
@@ -26521,6 +26904,63 @@ msgstr "調べた神経系"
 msgid "Save Data"
 msgstr "データを保存"
 
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Types"
+msgstr "部門タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:13
+msgid "Department Type Setup"
+msgstr "部門タイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:15
+msgid "Add/edit/delete Department Types"
+msgstr "部門タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:28
+msgid "The department type name description must be 100 characters or less long"
+msgstr "部門タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:33
+msgid "The department type name description must contain at least one character"
+msgstr "部門タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:46
+msgid "The depaartment type"
+msgstr "仕切りタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:57
+msgid "You already have a department type called"
+msgstr "と呼ばれる部門タイプがすでにあります"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:81
+msgid "Department type"
+msgstr "部門タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:105
+msgid "The department type has been deleted"
+msgstr "部門タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
+msgid "Are you sure you wish to delete this Department Type?"
+msgstr "この部門タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:179
+msgid "Edit Department Type"
+msgstr "部門タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:193
+msgid "Create New Department Type"
+msgstr "新しい部門タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:228
+msgid "Update Department Type"
+msgstr "部門タイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:232
+msgid "Create Department Type"
+msgstr "部門タイプの作成"
+
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:69
 msgid "There was an error updating the encounter record"
 msgstr "エンカウンターレコードの更新中にエラーが発生しました"
@@ -26711,6 +27151,63 @@ msgstr "システムは請求時に自動的に分配するように設定され
 msgid "Unable to identify the selected customer"
 msgstr "選択した顧客を特定できません"
 
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Types"
+msgstr "職種"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:13
+msgid "Duty Type Setup"
+msgstr "デューティタイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:15
+msgid "Add/edit/delete Duty Types"
+msgstr "デューティタイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:28
+msgid "The duty type name description must be 100 characters or less long"
+msgstr "職務タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:33
+msgid "The duty type name description must contain at least one character"
+msgstr "職務タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:46
+msgid "The duty type"
+msgstr "職種"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:57
+msgid "You already have a duty type called"
+msgstr "あなたはすでに呼ばれる義務のタイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:81
+msgid "Duty type"
+msgstr "デューティータイプ"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:105
+msgid "The duty type has been deleted"
+msgstr "職務タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+msgid "Are you sure you wish to delete this Duty Type?"
+msgstr "この職務タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:179
+msgid "Edit Duty Type"
+msgstr "職務タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:193
+msgid "Create New Duty Type"
+msgstr "新しい職務タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:228
+msgid "Update Duty Type"
+msgstr "デューティタイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:232
+msgid "Create Duty Type"
+msgstr "デューティタイプの作成"
+
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:5
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:156
 msgid "Update Patient Details"
@@ -26757,6 +27254,120 @@ msgstr "雇用者の会社"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "更新の詳細"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Types"
+msgstr "民族起源のタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
+msgid "Ethnic Origin Type Setup"
+msgstr "エスニックオリジンタイプのセットアップ"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:15
+msgid "Add/edit/delete Ethnic Origin Types"
+msgstr "民族起源タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:28
+msgid "The ethnic origin type name description must be 100 characters or less long"
+msgstr "エスニックオリジンタイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:33
+msgid "The ethnic origin type name description must contain at least one character"
+msgstr "エスニックオリジンタイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:44
+msgid "The ethnic origin type"
+msgstr "人種タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:55
+msgid "You already have an ethnic origin type called"
+msgstr "あなたはすでに、"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:75
+msgid "Ethnic Origin type"
+msgstr "人種タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:99
+msgid "The ethnic origin type has been deleted"
+msgstr "エスニックオリジンタイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+msgid "Are you sure you wish to delete this Ethnic Origin Type?"
+msgstr "この民族起源タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:164
+msgid "Edit Ethnic Origin Type"
+msgstr "人種のタイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:176
+msgid "Create New Ethnic Origin Type"
+msgstr "新しいエスニックオリジンタイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:201
+msgid "Update Ethnic Origin Type"
+msgstr "エスニックオリジンタイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:205
+msgid "Create Ethnic Origin Type"
+msgstr "エスニックオリジンタイプの作成"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Types"
+msgstr "給餌タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:13
+msgid "Feeding Type Setup"
+msgstr "給餌タイプ設定"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:15
+msgid "Add/edit/delete Feeding Types"
+msgstr "フィードタイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:28
+msgid "The feeding type name description must be 100 characters or less long"
+msgstr "フィードタイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:33
+msgid "The feeding type name description must contain at least one character"
+msgstr "フィードタイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:46
+msgid "The feeding type"
+msgstr "給餌タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:57
+msgid "You already have a feeding type called"
+msgstr "あなたはすでに呼ばれる給餌タイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:81
+msgid "Feeding type"
+msgstr "給餌タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:105
+msgid "The feeding type has been deleted"
+msgstr "フィードタイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
+msgid "Are you sure you wish to delete this Feeding Type?"
+msgstr "このフィードタイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:179
+msgid "Edit Feeding Type"
+msgstr "給餌タイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:193
+msgid "Create New Feeding Type"
+msgstr "新しい給餌タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:228
+msgid "Update Feeding Type"
+msgstr "給餌タイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:232
+msgid "Create Feeding Type"
+msgstr "給餌タイプを作成"
 
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:4
 msgid "Income and Expenditure by Functional Unit"
@@ -27786,8 +28397,9 @@ msgid "Income for the previous week"
 msgstr "前週の収入"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:3
-msgid "Maintian Encounter Types"
-msgstr "Maintian Encounter Types"
+#: /home/tim/code/KwaMoja/sql/updates/199.php:165
+msgid "Maintain Encounter Types"
+msgstr "出会いのタイプを維持する"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:20
 msgid "The encounter type name cannot be empty"
@@ -28031,6 +28643,178 @@ msgstr "病棟の詳細を修正する"
 msgid "Create the ward"
 msgstr "病棟を作成する"
 
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:3
+msgid "Measurement Types"
+msgstr "測定タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Measurement Type Setup"
+msgstr "測定タイプのセットアップ"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:15
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:15
+msgid "Add/edit/delete Measurement Types"
+msgstr "測定タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:28
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:28
+msgid "The measurement type name description must be 100 characters or less long"
+msgstr "測定タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:33
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:33
+msgid "The measurement type name description must contain at least one character"
+msgstr "測定タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:45
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:46
+msgid "The measurement type"
+msgstr "測定タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:56
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:57
+msgid "You already have a measurement type called"
+msgstr "すでに測定タイプが呼び出されています"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:78
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:81
+msgid "Measurement type"
+msgstr "測定タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:105
+msgid "The measurement type has been deleted"
+msgstr "測定タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
+msgid "Are you sure you wish to delete this Measurement Type?"
+msgstr "この測定タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:179
+msgid "Edit Measurement Type"
+msgstr "測定タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:193
+msgid "Create New Measurement Type"
+msgstr "新しい測定タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:228
+msgid "Update Measurement Type"
+msgstr "測定タイプを更新"
+
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:232
+msgid "Create Measurement Type"
+msgstr "測定タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Types"
+msgstr "ノートのタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
+msgid "Notes Type Setup"
+msgstr "メモの種類の設定"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:15
+msgid "Add/edit/delete Notes Types"
+msgstr "ノートタイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+msgid "Are you sure you wish to delete this Notes Type?"
+msgstr "このメモタイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:171
+msgid "Edit Notes Type"
+msgstr "ノートタイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:184
+msgid "Create New Notes Type"
+msgstr "新しいメモの種類を作成"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:214
+msgid "Update Notes Type"
+msgstr "メモの種類を更新"
+
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:218
+msgid "Create Notes Type"
+msgstr "メモの種類を作成"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Types"
+msgstr "操作遅延タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:13
+msgid "Operation Delay Type Setup"
+msgstr "動作遅延タイプ設定"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:15
+msgid "Add/edit/delete Operation Delay Types"
+msgstr "操作遅延タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:28
+msgid "The operation delay type name description must be 100 characters or less long"
+msgstr "操作遅延タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:33
+msgid "The operation delay type name description must contain at least one character"
+msgstr "操作遅延タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:45
+msgid "The operation delay type"
+msgstr "動作遅延タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:56
+msgid "You already have an operation delay type called"
+msgstr "すでに呼び出された操作遅延タイプがあります"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:78
+msgid "Operation delay type"
+msgstr "動作遅延タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:102
+msgid "The operation delay type has been deleted"
+msgstr "操作遅延タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:193
+msgid "Cause of Delay"
+msgstr "遅延の原因"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
+msgid "Are you sure you wish to delete this Operation Delay Type?"
+msgstr "この操作遅延タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:171
+msgid "Edit Operation Delay Type"
+msgstr "操作遅延タイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:184
+msgid "Create New Operation Delay Type"
+msgstr "新しい操作遅延タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:214
+msgid "Update Delay Type"
+msgstr "遅延タイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:218
+msgid "Create Delay Type"
+msgstr "遅延タイプを作成"
+
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:3
 msgid "Billing For Other Medical Services"
 msgstr "他の医療サービスの請求"
@@ -28074,6 +28858,69 @@ msgstr "患者のための他の医療サービス"
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:556
 msgid "Type of Service"
 msgstr "サービスの種類"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:3
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:13
+msgid "Outcome Types"
+msgstr "結果のタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:13
+msgid "Outcome Type Setup"
+msgstr "結果タイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:15
+msgid "Add/edit/delete Outcome Types"
+msgstr "結果タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:28
+msgid "The outcome type name description must be 100 characters or less long"
+msgstr "結果タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:33
+msgid "The outcome type name description must contain at least one character"
+msgstr "結果タイプ名の説明には、少なくとも1つの文字が含まれている必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:46
+msgid "The outcome type"
+msgstr "結果のタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:57
+msgid "You already have a outcome type called"
+msgstr "あなたはすでに呼ばれる結果タイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:81
+msgid "Outcome type"
+msgstr "結果のタイプ"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:105
+msgid "The outcome type has been deleted"
+msgstr "結果タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+msgid "Are you sure you wish to delete this Outcome Type?"
+msgstr "この結果タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:179
+msgid "Edit Outcome Type"
+msgstr "結果のタイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:193
+msgid "Create New Outcome Type"
+msgstr "新しい結果タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:228
+msgid "Update Outcome Type"
+msgstr "結果のタイプを更新"
+
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:232
+msgid "Create Outcome Type"
+msgstr "結果タイプの作成"
 
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:3
 msgid "Admit Outpatient"
@@ -28122,6 +28969,62 @@ msgstr "このユーザーの現金口座はまだ定義されていません。
 msgid "Process Payment"
 msgstr "支払いの処理"
 
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
+msgid "Perineum Types"
+msgstr "会陰タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:13
+msgid "Perineum Type Setup"
+msgstr "会陰タイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:15
+msgid "Add/edit/delete Perineum Types"
+msgstr "会陰タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:28
+msgid "The perineum type name description must be 100 characters or less long"
+msgstr "会陰タイプの名前の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:33
+msgid "The perineum type name description must contain at least one character"
+msgstr "会陰タイプの名前の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:46
+msgid "The perineum type"
+msgstr "会陰式"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:57
+msgid "You already have a perineum type called"
+msgstr "あなたはすでに呼ばれる会陰タイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:81
+msgid "Perineum type"
+msgstr "会陰式"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:105
+msgid "The perineum type has been deleted"
+msgstr "会陰タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
+msgid "Are you sure you wish to delete this Perineum Type?"
+msgstr "この会陰タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:179
+msgid "Edit Perineum Type"
+msgstr "会陰タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:193
+msgid "Create New Perineum Type"
+msgstr "新しい会陰タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:228
+msgid "Update Perineum Type"
+msgstr "会陰タイプを更新"
+
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:232
+msgid "Create Perineum Type"
+msgstr "会陰タイプを作成"
+
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:3
 msgid "Billing For Pharmaceuticals"
 msgstr "医薬品の請求"
@@ -28141,6 +29044,62 @@ msgstr "医薬品リストのフィルタリング"
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:749
 msgid "Select a Drug"
 msgstr "薬を選択してください"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:3
+msgid "Prescription Types"
+msgstr "処方タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:13
+msgid "Prescription Type Setup"
+msgstr "処方タイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:15
+msgid "Add/edit/delete Prescription Types"
+msgstr "処方タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:28
+msgid "The prescription type name description must be 100 characters or less long"
+msgstr "処方タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:33
+msgid "The prescription type name description must contain at least one character"
+msgstr "処方タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:45
+msgid "The prescription type"
+msgstr "処方タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:56
+msgid "You already have a prescription type called"
+msgstr "あなたはすでに呼ばれる処方タイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:78
+msgid "Prescription type"
+msgstr "処方タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:102
+msgid "The prescription type has been deleted"
+msgstr "処方タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
+msgid "Are you sure you wish to delete this Prescription Type?"
+msgstr "この処方タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:171
+msgid "Edit Prescription Type"
+msgstr "処方タイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:184
+msgid "Create New Prescription Type"
+msgstr "新しい処方タイプを作成する"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:214
+msgid "Update Prescription Type"
+msgstr "処方タイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:218
+msgid "Create Prescription Type"
+msgstr "処方タイプの作成"
 
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:36
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:44
@@ -28807,6 +29766,62 @@ msgstr "この患者の血液型"
 msgid "Item to bill"
 msgstr "請求するアイテム"
 
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
+msgid "Room Types"
+msgstr "部屋タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:13
+msgid "Room Type Setup"
+msgstr "部屋タイプの設定"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:15
+msgid "Add/edit/delete Room Types"
+msgstr "部屋タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:28
+msgid "The room type name description must be 100 characters or less long"
+msgstr "部屋タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:33
+msgid "The room type name description must contain at least one character"
+msgstr "部屋タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:46
+msgid "The room type"
+msgstr "部屋タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:57
+msgid "You already have a room type called"
+msgstr "と呼ばれる部屋タイプがすでにあります"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:81
+msgid "Room type"
+msgstr "部屋タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:105
+msgid "The room type has been deleted"
+msgstr "部屋タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+msgid "Are you sure you wish to delete this Room Type?"
+msgstr "この部屋タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:179
+msgid "Edit Room Type"
+msgstr "部屋タイプを編集"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:193
+msgid "Create New Room Type"
+msgstr "新しい部屋タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:228
+msgid "Update Room Type"
+msgstr "部屋タイプを更新"
+
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:232
+msgid "Create Room Type"
+msgstr "部屋タイプを作成"
+
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:5
 msgid "Search Patients"
 msgstr "患者を検索"
@@ -28828,7 +29843,7 @@ msgstr "この患者を使用して操作するメニューオプションを選
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
 #: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:90
+#: /home/tim/code/KwaMoja/index.php:92
 msgid "Inquiries and Reports"
 msgstr "お問い合わせとレポート"
 
@@ -28903,6 +29918,175 @@ msgstr "株式カテゴリの追加または変更"
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:48
 msgid "Find Items"
 msgstr "アイテムを探す"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:3
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:13
+msgid "Test Groups"
+msgstr "テストグループ"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:15
+msgid "Add/edit/delete Test Groups"
+msgstr "テストグループの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:28
+msgid "The test group type name description must be 100 characters or less long"
+msgstr "テストグループタイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:33
+msgid "The test group name description must contain at least one character"
+msgstr "テストグループ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:45
+msgid "The test group"
+msgstr "テストグループ"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:56
+msgid "You already have a test group type called"
+msgstr "あなたはすでに呼ばれるテストグループタイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+msgid "Test Group"
+msgstr "テストグループ"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:180
+msgid "The test group has been deleted"
+msgstr "テストグループが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+msgid "Are you sure you wish to delete this Test Group?"
+msgstr "このテストグループを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:251
+msgid "Edit Test Group"
+msgstr "テストグループの編集"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:254
+msgid "Group Number"
+msgstr "グループ番号"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:264
+msgid "Create New Test Group"
+msgstr "新しいテストグループを作成"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:286
+msgid "Update Test Group"
+msgstr "テストグループの更新"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:290
+msgid "Create Test Group"
+msgstr "テストグループの作成"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
+msgid "Test Types"
+msgstr "テストの種類"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:13
+msgid "Test Type Setup"
+msgstr "テストタイプのセットアップ"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:15
+msgid "Add/edit/delete Test Types"
+msgstr "テストタイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:28
+msgid "The test type name description must be 100 characters or less long"
+msgstr "テストタイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:33
+msgid "The test type name description must contain at least one character"
+msgstr "テストタイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:46
+msgid "The test type"
+msgstr "テストの種類"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:57
+msgid "You already have a test type called"
+msgstr "あなたはすでに呼ばれるテストタイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:81
+msgid "Test type"
+msgstr "試験タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:105
+msgid "The test type has been deleted"
+msgstr "テストタイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+msgid "Are you sure you wish to delete this Test Type?"
+msgstr "このテストタイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:179
+msgid "Edit Test Type"
+msgstr "テストタイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:193
+msgid "Create New Test Type"
+msgstr "新しいテストタイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:228
+msgid "Update Test Type"
+msgstr "テストタイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:232
+msgid "Create Test Type"
+msgstr "テストタイプの作成"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:3
+msgid "Time Types"
+msgstr "時間タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:13
+msgid "Time Type Setup"
+msgstr "時間タイプのセットアップ"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:15
+msgid "Add/edit/delete Time Types"
+msgstr "時間タイプの追加/編集/削除"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:28
+msgid "The time type name description must be 100 characters or less long"
+msgstr "時間タイプ名の説明は100文字以下にする必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:33
+msgid "The time type name description must contain at least one character"
+msgstr "時間タイプ名の説明には、少なくとも1文字を含める必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
+msgid "The time type"
+msgstr "時間タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:57
+msgid "You already have a time type called"
+msgstr "あなたはすでに呼ばれる時間タイプを持っています"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
+msgid "Time type"
+msgstr "時間タイプ"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:105
+msgid "The time type has been deleted"
+msgstr "時間タイプが削除されました"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+msgid "Are you sure you wish to delete this Time Type?"
+msgstr "この時間タイプを削除してもよろしいですか？"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:179
+msgid "Edit Time Type"
+msgstr "時間タイプの編集"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:193
+msgid "Create New Time Type"
+msgstr "新しい時間タイプを作成"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:228
+msgid "Update Time Type"
+msgstr "時間タイプの更新"
+
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:232
+msgid "Create Time Type"
+msgstr "時間タイプの作成"
 
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:3
 msgid "Transfer patient to other bed"
@@ -37784,7 +38968,7 @@ msgid "There were no Customers matching your selection of "
 msgstr "あなたの選択にマッチした顧客はいませんでした"
 
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:92
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Statements"
 msgstr "お客様の声明"
 
@@ -42126,7 +43310,7 @@ msgid "To search for sales orders for a specific part use the part selection fac
 msgstr "特定の部品の受注を検索するには、以下の部品選択機能を使用します"
 
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:466
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Orders"
 msgstr "受注"
 
@@ -48437,7 +49621,7 @@ msgstr "クレジットメモを入力するサプライヤを選択する"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:283
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:549
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:620
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 #: /home/tim/code/KwaMoja/sql/updates/42.php:105
 msgid "Purchase Orders"
 msgstr "購入注文"
@@ -56934,63 +58118,67 @@ msgstr "一般的な病院のセットアップ"
 msgid "Receivables/Payables Setup"
 msgstr "債権/債務の設定"
 
-#: /home/tim/code/KwaMoja/index.php:117
+#: /home/tim/code/KwaMoja/index.php:90
+msgid "ERP Integration"
+msgstr "ERP統合"
+
+#: /home/tim/code/KwaMoja/index.php:119
 msgid "Inventory Setup"
 msgstr "インベントリ設定"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain types"
 msgstr "タイプを維持する"
 
-#: /home/tim/code/KwaMoja/index.php:119
+#: /home/tim/code/KwaMoja/index.php:121
 msgid "Maintain Types"
 msgstr "タイプを維持する"
 
-#: /home/tim/code/KwaMoja/index.php:156
+#: /home/tim/code/KwaMoja/index.php:158
 msgid "Bank Checks"
 msgstr "銀行小切手"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Collection Letters"
 msgstr "コレクションレター"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Bank Deposit Slips"
 msgstr "銀行預金口座"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Invoices and Packing Slips"
 msgstr "請求書と梱包明細"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Customer"
 msgstr "ラベル - 顧客"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Labels - Vendor"
 msgstr "ラベル - ベンダー"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Customer Quotes"
 msgstr "顧客からの引用"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Sales Receipts"
 msgstr "受注"
 
-#: /home/tim/code/KwaMoja/index.php:157
+#: /home/tim/code/KwaMoja/index.php:159
 msgid "Miscellaneous"
 msgstr "雑"
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Custom Reports"
 msgstr "カスタムレポート"
 
-#: /home/tim/code/KwaMoja/index.php:163
+#: /home/tim/code/KwaMoja/index.php:165
 msgid "Standard Reports and Forms"
 msgstr "標準レポートとフォーム"
 
-#: /home/tim/code/KwaMoja/index.php:211
+#: /home/tim/code/KwaMoja/index.php:213
 msgid "There are no reports to show!"
 msgstr "表示する報告はありません！"
 
@@ -68366,10 +69554,6 @@ msgstr "外来患者を認める"
 msgid "Admit an inpatient"
 msgstr "入院患者を認める"
 
-#: /home/tim/code/KwaMoja/sql/updates/199.php:165
-msgid "Maintain Encounter Types"
-msgstr "出会いのタイプを維持する"
-
 #: /home/tim/code/KwaMoja/sql/updates/199.php:191
 msgid "Maintain Wards"
 msgstr "区を維持する"
@@ -68511,17 +69695,33 @@ msgstr "呼吸マスクによるガス麻酔"
 msgid "Oral"
 msgstr "オーラル"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+msgid "Applied Orally"
+msgstr "経口投与"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:50
 msgid "Intravenous"
 msgstr "静脈内"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+msgid "Applied Intravenously"
+msgstr "静脈内投与"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:51
 msgid "Subcutaneous"
 msgstr "皮下"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+msgid "Applied Subcutaneously"
+msgstr "皮下投与"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:52
 msgid "Intramuscular"
 msgstr "筋肉内"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+msgid "Intramuscular application"
+msgstr "筋肉内投与"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:53
 msgid "Sublingual"
@@ -68538,6 +69738,10 @@ msgstr "動脈内"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:55
 msgid "Pre-admission"
 msgstr "入学前"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+msgid "Taken Pre-admission"
+msgstr "事前入学"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:57
 msgid "Maintain Application Types"
@@ -68603,20 +69807,40 @@ msgstr "部門タイプを維持する"
 msgid "Regular duty"
 msgstr "通常の義務"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+msgid "Regular duties"
+msgstr "通常の職務"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:140
 msgid "Standby duty"
+msgstr "スタンバイ義務"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+msgid "Standby duties"
 msgstr "スタンバイ義務"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:141
 msgid "Morning duty"
 msgstr "朝の勤務"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+msgid "Morning shift duties"
+msgstr "朝交番"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:142
 msgid "Afternoon duty"
 msgstr "午後の勤務"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+msgid "Afternoon shift duties"
+msgstr "午後シフト勤務"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:143
 msgid "Night duty"
+msgstr "夜勤"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+msgid "Night shift duties"
 msgstr "夜勤"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:145
@@ -68647,17 +69871,33 @@ msgstr "民族の起源のタイプを維持する"
 msgid "Breast"
 msgstr "乳"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+msgid "Breast Feeding"
+msgstr "授乳"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:184
 msgid "Formula"
 msgstr "式"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+msgid "Formula Feeding"
+msgstr "フォーミュラフィーディング"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:185
 msgid "Both"
 msgstr "両方とも"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+msgid "Breast and Formula Feeding"
+msgstr "母乳と人工授乳"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:186
 msgid "Parenteral"
 msgstr "非経口"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+msgid "Non-oral Feeding"
+msgstr "非経口栄養"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:187
 msgid "Never fed"
@@ -68963,8 +70203,16 @@ msgstr "処方タイプを維持する"
 msgid "Ward room"
 msgstr "病室"
 
+#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+msgid "Hospital Ward Room"
+msgstr "病棟病室"
+
 #: /home/tim/code/KwaMoja/sql/updates/217.php:370
 msgid "Operating room"
+msgstr "手術室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+msgid "Operating Theatre Room"
 msgstr "手術室"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:372
@@ -68986,6 +70234,10 @@ msgstr "細菌学研究室"
 #: /home/tim/code/KwaMoja/sql/updates/217.php:392
 msgid "Radiological Lab"
 msgstr "放射線検査室"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+msgid "Lab for X-ray, Mammography, Computer Tomography, NMR"
+msgstr "X線、マンモグラフィー、コンピューター断層撮影、NMRのラボ"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:393
 msgid "Blood test & product"
@@ -69040,6 +70292,10 @@ msgid "Maintain Unit Measurements Types"
 msgstr "単位測定タイプの維持"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:834
+msgid "Test Parmameter Groups"
+msgstr "パラメータグループのテスト"
+
+#: /home/tim/code/KwaMoja/sql/updates/217.php:836
 msgid "Maintain Test Parameters"
 msgstr "テストパラメータの維持"
 
@@ -69885,6 +71141,24 @@ msgstr "スタッフローン"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "スタッフローン返済"
+
+#~ msgid "The ttime type name description must be 100 characters or less long"
+#~ msgstr "ttimeタイプ名の説明は100文字以下にする必要があります"
+
+#~ msgid "The ttime type name description must contain at least one character"
+#~ msgstr "ttimeタイプ名の説明には、少なくとも1つの文字が含まれている必要があります"
+
+#~ msgid "The ttime type"
+#~ msgstr "ttimeタイプ"
+
+#~ msgid "You already have a ttime type called"
+#~ msgstr "あなたはすでに呼ばれるttimeタイプを持っています"
+
+#~ msgid "The ttime type has been deleted"
+#~ msgstr "ttimeタイプが削除されました"
+
+#~ msgid "Maintian Encounter Types"
+#~ msgstr "Maintian Encounter Types"
 
 #~ msgid "The number of insurance companies using this type could not be retrieved"
 #~ msgstr "このタイプを使用している保険会社の数を取得できませんでした"
