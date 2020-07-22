@@ -29,7 +29,7 @@ if (isset($_SESSION['WardID'])) {
 	$TotalRow = DB_fetch_array($Result);
 	$TotalBedsInWard = $TotalRow['total'];
 
-	$WardSQL = "SELECT COUNT(DISTINCT encounter_nr) AS occupied FROM care_encounter_location WHERE type_nr=2 AND location_nr='" . $_SESSION['WardID'] . "'";
+	$WardSQL = "SELECT COUNT(DISTINCT encounter_nr) AS occupied FROM care_encounter_location WHERE type_nr=2 AND location_nr='" . $_SESSION['WardID'] . "' and date_to='0000-00-00'";
 	$WardResult = DB_query($WardSQL);
 	$WardRow = DB_fetch_array($WardResult);
 	$TotalOccupiedBeds = $WardRow['occupied'];

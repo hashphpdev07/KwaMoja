@@ -1,6 +1,6 @@
 <?php
 include ('includes/session.php');
-$Title = _('Insurance Types') . ' / ' . _('Maintenance');
+$Title = _('Operation Delay Types') . ' / ' . _('Maintenance');
 include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
@@ -10,9 +10,9 @@ if (isset($_POST['SelectedType'])) {
 }
 
 echo '<p class="page_title_text">
-		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Insurance Types'), '" alt="" />', _('Insurance Type Setup'), '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Operation Delay Types'), '" alt="" />', _('Operation Delay Type Setup'), '
 	</p>';
-echo '<div class="page_help_text">', _('Add/edit/delete Insurance Types'), '</div>';
+echo '<div class="page_help_text">', _('Add/edit/delete Operation Delay Types'), '</div>';
 
 if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 
@@ -25,62 +25,57 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['TypeName']) > 100) {
 		$InputError = 1;
-		prnMsg(_('The insurance type name description must be 100 characters or less long'), 'error');
+		prnMsg(_('The operation delay type name description must be 100 characters or less long'), 'error');
 	}
 
 	if (mb_strlen($_POST['TypeName']) == 0) {
 		$InputError = 1;
-		prnMsg(_('The insurnace type name description must contain at least one character'), 'error');
+		prnMsg(_('The operation delay type name description must contain at least one character'), 'error');
 	}
 
 	if (isset($_POST['Update']) and $InputError != 1) {
 
-		$SQL = "UPDATE care_type_insurance
+		$SQL = "UPDATE care_type_cause_opdelay
 				SET type = '" . $_POST['Type'] . "',
-					name = '" . $_POST['TypeName'] . "',
-					description = '" . $_POST['Description'] . "',
+					cause = '" . $_POST['TypeName'] . "',
 					status= '" . $_POST['Status'] . "',
 					modify_id='" . $_SESSION['UserID'] . "'
 				WHERE type_nr = '" . $SelectedType . "'";
 
-		$Msg = _('The insurance type') . ' ' . $SelectedType . ' ' . _('has been updated');
+		$Msg = _('The operation delay type') . ' ' . $SelectedType . ' ' . _('has been updated');
 	} elseif ($InputError != 1) {
 
-		$CheckSql = "SELECT count(type_nr)
-						FROM care_type_insurance
-						WHERE name = '" . $_POST['TypeName'] . "'";
+		$CheckSql = "SELECT count(type)
+						FROM care_type_cause_opdelay
+						WHERE type = '" . $_POST['Type'] . "'";
 		$CheckResult = DB_query($CheckSql);
 		$CheckRow = DB_fetch_row($CheckResult);
 		if ($CheckRow[0] > 0 and !isset($SelectedType)) {
 			$InputError = 1;
 			echo '<br />';
-			prnMsg(_('You already have an insurance type called') . ' ' . $_POST['TypeName'], 'error');
+			prnMsg(_('You already have an operation delay type called') . ' ' . $_POST['TypeName'], 'error');
 		} else {
 
 			// Add new record on submit
-			$SQL = "INSERT INTO care_type_insurance (type_nr,
+			$SQL = "INSERT INTO care_type_cause_opdelay (type_nr,
 													type,
-													name,
-													description,
+													cause,
 													status,
 													create_id,
 													create_time,
 													modify_id,
-													LD_var,
-													history
+													LD_var
 												) VALUES (
 													NULL,
 													'" . $_POST['Type'] . "',
 													'" . $_POST['TypeName'] . "',
-													'" . $_POST['Description'] . "',
 													'" . $_POST['Status'] . "',
 													'" . $_SESSION['UserID'] . "',
 													CURRENT_DATE,
 													'" . $_SESSION['UserID'] . "',
-													'',
 													''
 												)";
-			$Msg = _('Insurance type') . ' ' . $_POST['TypeName'] . ' ' . _('has been created');
+			$Msg = _('Operation delay type') . ' ' . $_POST['TypeName'] . ' ' . _('has been created');
 		}
 
 	}
@@ -99,11 +94,11 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
 	// Prevent delete if saletype exist in customer transactions
-	$SQL = "DELETE FROM care_type_insurance WHERE type_nr='" . $SelectedType . "'";
+	$SQL = "DELETE FROM care_type_cause_opdelay WHERE type_nr='" . $SelectedType . "'";
 	$ErrMsg = _('The Type record could not be deleted because');
 	$Result = DB_query($SQL, $ErrMsg);
 	echo '<br />';
-	prnMsg(_('The insurance type has been deleted'), 'success');
+	prnMsg(_('The operation delay type has been deleted'), 'success');
 
 	unset($SelectedType);
 	unset($_GET['delete']);
@@ -114,10 +109,9 @@ if (!isset($SelectedType)) {
 
 	$SQL = "SELECT type_nr,
 					type,
-					name,
-					description,
+					cause,
 					status
-				FROM care_type_insurance";
+				FROM care_type_cause_opdelay";
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) > 0) {
@@ -125,8 +119,7 @@ if (!isset($SelectedType)) {
 				<thead>
 					<tr>
 						<th class="SortedColumn">', _('Type'), '</th>
-						<th class="SortedColumn">', _('Type Name'), '</th>
-						<th class="SortedColumn">', _('Type Description'), '</th>
+						<th class="SortedColumn">', _('Cause of Delay'), '</th>
 						<th class="SortedColumn">', _('Status'), '</th>
 						<th></th>
 						<th></th>
@@ -138,11 +131,10 @@ if (!isset($SelectedType)) {
 		while ($MyRow = DB_fetch_array($Result)) {
 			echo '<tr class="striped_row">
 					<td>', $MyRow['type'], '</td>
-					<td>', $MyRow['name'], '</td>
-					<td>', $MyRow['description'], '</td>
+					<td>', $MyRow['cause'], '</td>
 					<td>', _($MyRow['status']), '</td>
 					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type_nr']), '">' . _('Edit') . '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type_nr']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Customer Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type_nr']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Operation Delay Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 		}
 		//END WHILE LIST LOOP
@@ -161,23 +153,21 @@ if (!isset($_GET['delete'])) {
 
 		$SQL = "SELECT type_nr,
 						type,
-						name,
-						description,
+						cause,
 						status
-				FROM care_type_insurance
+				FROM care_type_cause_opdelay
 				WHERE type_nr='" . $SelectedType . "'";
 
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
 
 		$_POST['Type'] = $MyRow['type'];
-		$_POST['TypeName'] = $MyRow['name'];
-		$_POST['Description'] = $MyRow['description'];
+		$_POST['TypeName'] = $MyRow['cause'];
 		$_POST['Status'] = $MyRow['status'];
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
 		echo '<fieldset>
-				<legend>', _('Edit Insurance Type'), ' - ', $MyRow['name'], '</legend>';
+				<legend>', _('Edit Operation Delay Type'), ' - ', $MyRow['type'], '</legend>';
 
 		echo '<field>
 				<label for="TypeID">', _('Type ID'), ':</label>
@@ -187,11 +177,10 @@ if (!isset($_GET['delete'])) {
 	} else {
 		$_POST['Type'] = '';
 		$_POST['TypeName'] = '';
-		$_POST['Description'] = '';
 		$_POST['Status'] = _('Active');
 
 		echo '<fieldset>
-				<legend>', _('Create New Insurance Type'), '</legend>';
+				<legend>', _('Create New Operation Delay Type'), '</legend>';
 	}
 
 	echo '<field>
@@ -200,13 +189,8 @@ if (!isset($_GET['delete'])) {
 		</field>';
 
 	echo '<field>
-			<label for="TypeName">', _('Type Name'), ':</label>
+			<label for="TypeName">', _('Cause of Delay'), ':</label>
 			<input type="text" name="TypeName" required="required" maxlength="60" size="50" value="', $_POST['TypeName'], '" />
-		</field>';
-
-	echo '<field>
-			<label for="Description">', _('Description'), ':</label>
-			<input type="text" name="Description" required="required" maxlength="255" size="100" value="', $_POST['Description'], '" />
 		</field>';
 
 	echo '<field>
@@ -225,11 +209,11 @@ if (!isset($_GET['delete'])) {
 	echo '</fieldset>'; // close main table
 	if (isset($SelectedType) and $SelectedType != '') {
 		echo '<div class="centre">
-				<input type="submit" name="Update" value="', _('Update Insurance Type'), '" />
+				<input type="submit" name="Update" value="', _('Update Delay Type'), '" />
 			</div>';
 	} else {
 		echo '<div class="centre">
-				<input type="submit" name="Insert" value="', _('Create Insurance Type'), '" />
+				<input type="submit" name="Insert" value="', _('Create Delay Type'), '" />
 			</div>';
 	}
 

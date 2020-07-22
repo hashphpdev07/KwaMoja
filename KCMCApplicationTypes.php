@@ -1,6 +1,6 @@
 <?php
 include ('includes/session.php');
-$Title = _('Insurance Types') . ' / ' . _('Maintenance');
+$Title = _('Application Types') . ' / ' . _('Maintenance');
 include ('includes/header.php');
 
 if (isset($_POST['SelectedType'])) {
@@ -10,9 +10,9 @@ if (isset($_POST['SelectedType'])) {
 }
 
 echo '<p class="page_title_text">
-		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Insurance Types'), '" alt="" />', _('Insurance Type Setup'), '
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Application Types'), '" alt="" />', _('Application Type Setup'), '
 	</p>';
-echo '<div class="page_help_text">', _('Add/edit/delete Insurance Types'), '</div>';
+echo '<div class="page_help_text">', _('Add/edit/delete Application Types'), '</div>';
 
 if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 
@@ -25,40 +25,40 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 	//first off validate inputs sensible
 	if (mb_strlen($_POST['TypeName']) > 100) {
 		$InputError = 1;
-		prnMsg(_('The insurance type name description must be 100 characters or less long'), 'error');
+		prnMsg(_('The application type name description must be 100 characters or less long'), 'error');
 	}
 
 	if (mb_strlen($_POST['TypeName']) == 0) {
 		$InputError = 1;
-		prnMsg(_('The insurnace type name description must contain at least one character'), 'error');
+		prnMsg(_('The application type name description must contain at least one character'), 'error');
 	}
 
 	if (isset($_POST['Update']) and $InputError != 1) {
 
-		$SQL = "UPDATE care_type_insurance
+		$SQL = "UPDATE care_type_application
 				SET type = '" . $_POST['Type'] . "',
 					name = '" . $_POST['TypeName'] . "',
 					description = '" . $_POST['Description'] . "',
 					status= '" . $_POST['Status'] . "',
 					modify_id='" . $_SESSION['UserID'] . "'
-				WHERE type_nr = '" . $SelectedType . "'";
+				WHERE nr = '" . $SelectedType . "'";
 
-		$Msg = _('The insurance type') . ' ' . $SelectedType . ' ' . _('has been updated');
+		$Msg = _('The application type') . ' ' . $SelectedType . ' ' . _('has been updated');
 	} elseif ($InputError != 1) {
 
-		$CheckSql = "SELECT count(type_nr)
-						FROM care_type_insurance
+		$CheckSql = "SELECT count(type)
+						FROM care_type_application
 						WHERE name = '" . $_POST['TypeName'] . "'";
 		$CheckResult = DB_query($CheckSql);
 		$CheckRow = DB_fetch_row($CheckResult);
 		if ($CheckRow[0] > 0 and !isset($SelectedType)) {
 			$InputError = 1;
 			echo '<br />';
-			prnMsg(_('You already have an insurance type called') . ' ' . $_POST['TypeName'], 'error');
+			prnMsg(_('You already have an application type called') . ' ' . $_POST['TypeName'], 'error');
 		} else {
 
 			// Add new record on submit
-			$SQL = "INSERT INTO care_type_insurance (type_nr,
+			$SQL = "INSERT INTO care_type_application (nr,
 													type,
 													name,
 													description,
@@ -66,8 +66,7 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 													create_id,
 													create_time,
 													modify_id,
-													LD_var,
-													history
+													LD_var
 												) VALUES (
 													NULL,
 													'" . $_POST['Type'] . "',
@@ -77,10 +76,9 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 													'" . $_SESSION['UserID'] . "',
 													CURRENT_DATE,
 													'" . $_SESSION['UserID'] . "',
-													'',
 													''
 												)";
-			$Msg = _('Insurance type') . ' ' . $_POST['TypeName'] . ' ' . _('has been created');
+			$Msg = _('Application type') . ' ' . $_POST['TypeName'] . ' ' . _('has been created');
 		}
 
 	}
@@ -99,11 +97,11 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 
 	// PREVENT DELETES IF DEPENDENT RECORDS IN 'DebtorTrans'
 	// Prevent delete if saletype exist in customer transactions
-	$SQL = "DELETE FROM care_type_insurance WHERE type_nr='" . $SelectedType . "'";
+	$SQL = "DELETE FROM care_type_application WHERE nr='" . $SelectedType . "'";
 	$ErrMsg = _('The Type record could not be deleted because');
 	$Result = DB_query($SQL, $ErrMsg);
 	echo '<br />';
-	prnMsg(_('The insurance type has been deleted'), 'success');
+	prnMsg(_('The application type has been deleted'), 'success');
 
 	unset($SelectedType);
 	unset($_GET['delete']);
@@ -112,12 +110,12 @@ if (isset($_POST['Insert']) or isset($_POST['Update'])) {
 
 if (!isset($SelectedType)) {
 
-	$SQL = "SELECT type_nr,
+	$SQL = "SELECT nr,
 					type,
 					name,
 					description,
 					status
-				FROM care_type_insurance";
+				FROM care_type_application";
 	$Result = DB_query($SQL);
 
 	if (DB_num_rows($Result) > 0) {
@@ -141,8 +139,8 @@ if (!isset($SelectedType)) {
 					<td>', $MyRow['name'], '</td>
 					<td>', $MyRow['description'], '</td>
 					<td>', _($MyRow['status']), '</td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type_nr']), '">' . _('Edit') . '</a></td>
-					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['type_nr']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Customer Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['nr']), '">' . _('Edit') . '</a></td>
+					<td><a href="', htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'), '?SelectedType=', urlencode($MyRow['nr']), '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this Application Type?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 				</tr>';
 		}
 		//END WHILE LIST LOOP
@@ -159,13 +157,13 @@ if (!isset($_GET['delete'])) {
 	// The user wish to EDIT an existing type
 	if (isset($SelectedType) and $SelectedType != '') {
 
-		$SQL = "SELECT type_nr,
+		$SQL = "SELECT nr,
 						type,
 						name,
 						description,
 						status
-				FROM care_type_insurance
-				WHERE type_nr='" . $SelectedType . "'";
+				FROM care_type_application
+				WHERE nr='" . $SelectedType . "'";
 
 		$Result = DB_query($SQL);
 		$MyRow = DB_fetch_array($Result);
@@ -177,7 +175,7 @@ if (!isset($_GET['delete'])) {
 
 		echo '<input type="hidden" name="SelectedType" value="', $SelectedType, '" />';
 		echo '<fieldset>
-				<legend>', _('Edit Insurance Type'), ' - ', $MyRow['name'], '</legend>';
+				<legend>', _('Edit Application Type'), ' - ', $MyRow['name'], '</legend>';
 
 		echo '<field>
 				<label for="TypeID">', _('Type ID'), ':</label>
@@ -191,7 +189,7 @@ if (!isset($_GET['delete'])) {
 		$_POST['Status'] = _('Active');
 
 		echo '<fieldset>
-				<legend>', _('Create New Insurance Type'), '</legend>';
+				<legend>', _('Create New Application Type'), '</legend>';
 	}
 
 	echo '<field>
@@ -225,11 +223,11 @@ if (!isset($_GET['delete'])) {
 	echo '</fieldset>'; // close main table
 	if (isset($SelectedType) and $SelectedType != '') {
 		echo '<div class="centre">
-				<input type="submit" name="Update" value="', _('Update Insurance Type'), '" />
+				<input type="submit" name="Update" value="', _('Update Application Type'), '" />
 			</div>';
 	} else {
 		echo '<div class="centre">
-				<input type="submit" name="Insert" value="', _('Create Insurance Type'), '" />
+				<input type="submit" name="Insert" value="', _('Create Application Type'), '" />
 			</div>';
 	}
 
