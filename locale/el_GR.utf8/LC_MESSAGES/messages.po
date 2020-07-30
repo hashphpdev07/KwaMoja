@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-22 02:19+0100\n"
+"POT-Creation-Date: 2020-07-28 00:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,8 +243,8 @@ msgstr "ταυτότητα"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:125
 #: /home/tim/code/KwaMoja/AccountGroups.php:328
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:204
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:278
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:203
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:277
 msgid "Group Name"
 msgstr "Ονομα ομάδας"
 
@@ -313,35 +313,38 @@ msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε 
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:214
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:459
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:128
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:902
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:515
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:588
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:590
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:582
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:584
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:775
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:584
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:586
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:255
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:260
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:265
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
 #: /home/tim/code/KwaMoja/Labels.php:217 /home/tim/code/KwaMoja/Labels.php:230
 #: /home/tim/code/KwaMoja/Labels.php:485
 #: /home/tim/code/KwaMoja/Locations.php:478
@@ -458,8 +461,8 @@ msgid "Ranking Group Details"
 msgstr "Κατάταξη Λεπτομέρειες ομάδας"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:156
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:203
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:273
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:202
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:272
 msgid "Group ID"
 msgstr "Αναγνωριστικό ομάδας"
 
@@ -578,29 +581,29 @@ msgstr "Η μέθοδος κατάταξης αποθηκεύτηκε με επ�
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:458
 #: /home/tim/code/KwaMoja/JobScheduler.php:102
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:127
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:142
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:131
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:142
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:514
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:144
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:102
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:277
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:136
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:136
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:136
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:136
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:216
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:142
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:142
 #: /home/tim/code/KwaMoja/Labels.php:216 /home/tim/code/KwaMoja/Labels.php:229
 #: /home/tim/code/KwaMoja/Locations.php:476
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:119
@@ -2745,16 +2748,16 @@ msgstr "Στοκ"
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:247
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/JobCards.php:154
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:206
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1057
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1119
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1170
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1198
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:209
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:208
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:61
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:133
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:86
@@ -2762,20 +2765,20 @@ msgstr "Στοκ"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:68
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:256
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:358
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:206
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:62
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:131
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:207
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:206
 #: /home/tim/code/KwaMoja/Labels.php:180
 #: /home/tim/code/KwaMoja/MRPDemandTypes.php:107
 #: /home/tim/code/KwaMoja/MRPDemands.php:90
@@ -4683,42 +4686,42 @@ msgstr "Διεύθυνση"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:486
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:124
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:199
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:198
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:58
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:122
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:122
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:122
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:122
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:121
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:187
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:121
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:187
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:121
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:187
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:121
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:187
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:59
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:197
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:196
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:196
 #: /home/tim/code/KwaMoja/MRPReschedules.php:186
 #: /home/tim/code/KwaMoja/ProductSpecs.php:372
 #: /home/tim/code/KwaMoja/QATests.php:229
@@ -6397,8 +6400,8 @@ msgstr "Επίπεδο"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:271
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:393
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:127
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:202
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:268
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:201
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:267
 #: /home/tim/code/KwaMoja/ModuleEditor.php:74
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:97
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:213
@@ -7095,6 +7098,9 @@ msgstr "Επιλέξτε τον τραπεζικό λογαριασμό για �
 
 #: /home/tim/code/KwaMoja/BankMatching.php:121
 #: /home/tim/code/KwaMoja/FormDesigner.php:97
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:253
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:258
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:263
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:364
 #: /home/tim/code/KwaMoja/ShopParameters.php:283
 #: /home/tim/code/KwaMoja/ShopParameters.php:287
@@ -8186,6 +8192,7 @@ msgstr "Δεν έχουν επιστραφεί εντολές εργασίας �
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:224
 #: /home/tim/code/KwaMoja/SupplierTenderCreate.php:368
@@ -8216,46 +8223,47 @@ msgstr "Τροποποιώ"
 
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:482
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:513
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:126
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:200
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:120
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:185
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:131
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:125
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:199
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:213
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:87
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:156
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:257
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:383
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:124
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:198
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:124
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:198
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:124
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:198
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:124
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:198
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:212
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:123
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:197
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:250
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:211
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:313
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:59
 #: /home/tim/code/KwaMoja/PO_Header.php:824
@@ -16823,7 +16831,7 @@ msgstr "Ετικέτα"
 #: /home/tim/code/KwaMoja/SystemParameters.php:1096
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
-#: /home/tim/code/KwaMoja/sql/updates/217.php:21
+#: /home/tim/code/KwaMoja/sql/updates/217.php:19
 msgid "None"
 msgstr "Κανένας"
 
@@ -17157,50 +17165,50 @@ msgid "customers with this type code"
 msgstr "πελάτες με αυτόν τον κωδικό τύπου"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:147
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:101
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:96
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:104
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:99
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:99
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:99
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:99
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:177
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:100
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:95
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:103
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:98
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:98
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:98
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:98
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:176
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:101
 #: /home/tim/code/KwaMoja/SupplierTypes.php:113
 msgid "The Type record could not be deleted because"
 msgstr "Δεν ήταν δυνατή η διαγραφή της καταγραφής Τύπου επειδή"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:175
 #: /home/tim/code/KwaMoja/CustomerTypes.php:220
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:176
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:167
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:175
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:166
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:183
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:84
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:174
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:174
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:174
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:174
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:182
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:181
 #: /home/tim/code/KwaMoja/SupplierTypes.php:137
 #: /home/tim/code/KwaMoja/SupplierTypes.php:193
 msgid "Type ID"
@@ -17208,42 +17216,42 @@ msgstr "Πληκτρολογήστε ID"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:176
 #: /home/tim/code/KwaMoja/CustomerTypes.php:234
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:125
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:195
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:124
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:194
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:201
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:131
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:180
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:118
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:128
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:203
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:143
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:123
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:123
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:123
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:193
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:127
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:192
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:126
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:201
 #: /home/tim/code/KwaMoja/SalesTypes.php:168
 #: /home/tim/code/KwaMoja/StockTypes.php:146
 #: /home/tim/code/KwaMoja/SupplierTypes.php:138
@@ -17252,7 +17260,7 @@ msgid "Type Name"
 msgstr "Πληκτρολογήστε το όνομα"
 
 #: /home/tim/code/KwaMoja/CustomerTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:146
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:145
 msgid "Are you sure you wish to delete this Customer Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο πελάτη;"
 
@@ -18081,7 +18089,7 @@ msgstr "Πλάτος"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:284
 #: /home/tim/code/KwaMoja/StockSerialItemResearch.php:87
-#: /home/tim/code/KwaMoja/sql/updates/217.php:440
+#: /home/tim/code/KwaMoja/sql/updates/217.php:421
 msgid "Length"
 msgstr "Μήκος"
 
@@ -18089,7 +18097,7 @@ msgstr "Μήκος"
 #: /home/tim/code/KwaMoja/FormDesigner.php:58
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:354
 #: /home/tim/code/KwaMoja/Labels.php:184
-#: /home/tim/code/KwaMoja/sql/updates/217.php:241
+#: /home/tim/code/KwaMoja/sql/updates/217.php:230
 msgid "Height"
 msgstr "Υψος"
 
@@ -22099,7 +22107,7 @@ msgstr "Μετρητά ή ισοδύναμο μετρητών"
 #: /home/tim/code/KwaMoja/sql/updates/12.php:392
 #: /home/tim/code/KwaMoja/sql/updates/12.php:403
 #: /home/tim/code/KwaMoja/sql/updates/12.php:414
-#: /home/tim/code/KwaMoja/sql/updates/217.php:22
+#: /home/tim/code/KwaMoja/sql/updates/217.php:20
 msgid "Unknown"
 msgstr "Αγνωστος"
 
@@ -22822,6 +22830,7 @@ msgid "GL Codes Inquiry"
 msgstr "GL Codes Inquiry"
 
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:26
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:271
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:103
 msgid "Group"
 msgstr "Ομάδα"
@@ -23389,7 +23398,7 @@ msgstr "Περιγραφή της ετικέτας"
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
-#: /home/tim/code/KwaMoja/sql/updates/217.php:74
+#: /home/tim/code/KwaMoja/sql/updates/217.php:70
 msgid "Department"
 msgstr "Τμήμα"
 
@@ -26149,138 +26158,138 @@ msgstr "Έχετε ήδη έναν τύπο αναισθησίας που ονο
 msgid "Anaesthesia type"
 msgstr "Τύπος αναισθησίας"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:104
 msgid "The anaesthesia type has been deleted"
 msgstr "Ο τύπος αναισθησίας έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:130
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:127
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:129
 msgid "Type Description"
 msgstr "Τύπος Περιγραφή"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:143
 msgid "Are you sure you wish to delete this Anaesthesia Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο αναισθησίας;"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:178
 msgid "Edit Anaesthesia Type"
 msgstr "Επεξεργασία τύπου αναισθησίας"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:183
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:203
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:206
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:173
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:188
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:191
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:192
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:182
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:202
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:172
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:187
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:190
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:191
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:219
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:93
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:181
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:201
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:204
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:181
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:201
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:204
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:181
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:201
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:204
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:181
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:201
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:204
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:190
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:215
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:180
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:200
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:189
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:217
 #: /home/tim/code/KwaMoja/ProductSpecs.php:380
 #: /home/tim/code/KwaMoja/QATests.php:391
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:678
 msgid "Active"
 msgstr "Ενεργός"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:192
 msgid "Create New Anaesthesia Type"
 msgstr "Δημιουργία νέου τύπου αναισθησίας"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:204
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:207
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:189
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:192
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:221
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:203
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:206
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:188
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:191
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:217
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:220
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:154
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:205
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:205
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:205
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:202
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:205
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:219
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:216
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:219
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:204
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:215
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:218
 msgid "Inactive"
 msgstr "Αδρανής"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:226
 msgid "Update Anaesthesia Type"
 msgstr "Ενημέρωση τύπου αναισθησίας"
 
-#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:230
 msgid "Create Anaesthesia Type"
 msgstr "Δημιουργία τύπου αναισθησίας"
 
@@ -26317,27 +26326,27 @@ msgstr "Έχετε ήδη έναν τύπο εφαρμογής που ονομά
 msgid "Application type"
 msgstr "Τύπος αίτησης"
 
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:104
 msgid "The application type has been deleted"
 msgstr "Ο τύπος εφαρμογής έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:143
 msgid "Are you sure you wish to delete this Application Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο εφαρμογής;"
 
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:178
 msgid "Edit Application Type"
 msgstr "Επεξεργασία τύπου εφαρμογής"
 
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:192
 msgid "Create New Application Type"
 msgstr "Δημιουργία νέου τύπου εφαρμογής"
 
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:226
 msgid "Update Application Type"
 msgstr "Ενημέρωση τύπου εφαρμογής"
 
-#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:230
 msgid "Create Application Type"
 msgstr "Δημιουργία τύπου εφαρμογής"
 
@@ -26374,27 +26383,27 @@ msgstr "Έχετε ήδη έναν τύπο εργασίας που ονομάζ
 msgid "Assignment type"
 msgstr "Τύπος εργασίας"
 
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:104
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:103
 msgid "The assignment type has been deleted"
 msgstr "Ο τύπος εργασίας έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:140
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:139
 msgid "Are you sure you wish to delete this Assignment Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο εργασίας;"
 
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:173
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:172
 msgid "Edit Assignment Type"
 msgstr "Επεξεργασία τύπου εργασίας"
 
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:186
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:185
 msgid "Create New Assignment Type"
 msgstr "Δημιουργία νέου τύπου εργασίας"
 
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:214
 msgid "Update Assignment Type"
 msgstr "Ενημέρωση τύπου εργασίας"
 
-#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:220
+#: /home/tim/code/KwaMoja/KCMCAssignmentTypes.php:218
 msgid "Create Assignment Type"
 msgstr "Δημιουργία τύπου εργασίας"
 
@@ -26492,8 +26501,8 @@ msgid "Edema Description"
 msgstr "Περιγραφή οιδήματος"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:632
-#: /home/tim/code/KwaMoja/sql/updates/217.php:237
-#: /home/tim/code/KwaMoja/sql/updates/217.php:442
+#: /home/tim/code/KwaMoja/sql/updates/217.php:226
+#: /home/tim/code/KwaMoja/sql/updates/217.php:423
 msgid "Temperature"
 msgstr "Θερμοκρασία"
 
@@ -26900,6 +26909,7 @@ msgid "Nervous System Examined"
 msgstr "Εξετάστηκε νευρικό σύστημα"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1230
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:374
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:610
 msgid "Save Data"
 msgstr "Αποθήκευση δεδομένων"
@@ -26937,27 +26947,27 @@ msgstr "Έχετε ήδη έναν τύπο τμήματος που ονομάζ
 msgid "Department type"
 msgstr "Τύπος τμήματος"
 
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:104
 msgid "The department type has been deleted"
 msgstr "Ο τύπος τμήματος έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:143
 msgid "Are you sure you wish to delete this Department Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο τμήματος;"
 
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:178
 msgid "Edit Department Type"
 msgstr "Επεξεργασία τύπου τμήματος"
 
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:192
 msgid "Create New Department Type"
 msgstr "Δημιουργία νέου τύπου τμήματος"
 
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:226
 msgid "Update Department Type"
 msgstr "Ενημέρωση τύπου τμήματος"
 
-#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:230
 msgid "Create Department Type"
 msgstr "Δημιουργία τύπου τμήματος"
 
@@ -27001,7 +27011,7 @@ msgstr "Ημερομηνια γεννησης"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
-#: /home/tim/code/KwaMoja/sql/updates/217.php:73
+#: /home/tim/code/KwaMoja/sql/updates/217.php:69
 msgid "Ward"
 msgstr "Πτέρυγα"
 
@@ -27184,27 +27194,27 @@ msgstr "Έχετε ήδη έναν τύπο υπηρεσίας που ονομά
 msgid "Duty type"
 msgstr "Τύπος καθηκόντων"
 
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:104
 msgid "The duty type has been deleted"
 msgstr "Ο τύπος δασμού έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:143
 msgid "Are you sure you wish to delete this Duty Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο υπηρεσίας;"
 
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:178
 msgid "Edit Duty Type"
 msgstr "Επεξεργασία τύπου υπηρεσίας"
 
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:192
 msgid "Create New Duty Type"
 msgstr "Δημιουργία νέου τύπου υπηρεσίας"
 
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:226
 msgid "Update Duty Type"
 msgstr "Ενημέρωση τύπου υπηρεσίας"
 
-#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCDutyTypes.php:230
 msgid "Create Duty Type"
 msgstr "Δημιουργία τύπου υπηρεσίας"
 
@@ -27288,27 +27298,27 @@ msgstr "Έχετε ήδη έναν τύπο εθνικής καταγωγής π
 msgid "Ethnic Origin type"
 msgstr "Τύπος εθνικής καταγωγής"
 
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:99
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:98
 msgid "The ethnic origin type has been deleted"
 msgstr "Ο τύπος εθνικής καταγωγής έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:133
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:132
 msgid "Are you sure you wish to delete this Ethnic Origin Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο εθνικής καταγωγής;"
 
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:164
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:163
 msgid "Edit Ethnic Origin Type"
 msgstr "Επεξεργασία τύπου εθνικής καταγωγής"
 
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:176
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:175
 msgid "Create New Ethnic Origin Type"
 msgstr "Δημιουργία νέου τύπου εθνικής καταγωγής"
 
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:201
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:199
 msgid "Update Ethnic Origin Type"
 msgstr "Ενημέρωση τύπου εθνικής καταγωγής"
 
-#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:205
+#: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:203
 msgid "Create Ethnic Origin Type"
 msgstr "Δημιουργία τύπου εθνικής καταγωγής"
 
@@ -27345,27 +27355,27 @@ msgstr "Έχετε ήδη έναν τύπο σίτισης που ονομάζε
 msgid "Feeding type"
 msgstr "Τύπος σίτισης"
 
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:104
 msgid "The feeding type has been deleted"
 msgstr "Ο τύπος σίτισης έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:143
 msgid "Are you sure you wish to delete this Feeding Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο σίτισης;"
 
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:178
 msgid "Edit Feeding Type"
 msgstr "Επεξεργασία τύπου τροφοδοσίας"
 
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:192
 msgid "Create New Feeding Type"
 msgstr "Δημιουργία νέου τύπου τροφοδοσίας"
 
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:226
 msgid "Update Feeding Type"
 msgstr "Ενημέρωση τύπου τροφοδοσίας"
 
-#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:230
 msgid "Create Feeding Type"
 msgstr "Δημιουργία τύπου τροφοδοσίας"
 
@@ -28270,23 +28280,23 @@ msgstr "Έχετε ήδη καλέσει έναν τύπο ασφάλισης"
 msgid "Insurance type"
 msgstr "Τύπος ασφάλισης"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:107
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:106
 msgid "The insurance type has been deleted"
 msgstr "Ο τύπος ασφάλισης έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:181
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:180
 msgid "Edit Insurance Type"
 msgstr "Επεξεργασία τύπου ασφάλισης"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:195
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:194
 msgid "Create New Insurance Type"
 msgstr "Δημιουργία νέου τύπου ασφάλισης"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:230
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:228
 msgid "Update Insurance Type"
 msgstr "Ενημέρωση τύπου ασφάλισης"
 
-#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:234
+#: /home/tim/code/KwaMoja/KCMCInsuranceTypes.php:232
 msgid "Create Insurance Type"
 msgstr "Δημιουργία τύπου ασφάλισης"
 
@@ -28344,6 +28354,7 @@ msgstr "Χρέωση"
 
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:59
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:60
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:248
 #: /home/tim/code/KwaMoja/ProductSpecs.php:162
 #: /home/tim/code/KwaMoja/ProductSpecs.php:370
 #: /home/tim/code/KwaMoja/QATests.php:215
@@ -28689,34 +28700,34 @@ msgstr "Έχετε ήδη έναν τύπο μέτρησης που ονομάζ
 msgid "Measurement type"
 msgstr "Τύπος μέτρησης"
 
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:102
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:101
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:104
 msgid "The measurement type has been deleted"
 msgstr "Ο τύπος μέτρησης έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:138
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:137
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:143
 msgid "Are you sure you wish to delete this Measurement Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο μέτρησης;"
 
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:171
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:170
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:178
 msgid "Edit Measurement Type"
 msgstr "Επεξεργασία τύπου μέτρησης"
 
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:184
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:183
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:192
 msgid "Create New Measurement Type"
 msgstr "Δημιουργία νέου τύπου μέτρησης"
 
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:214
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:212
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:226
 msgid "Update Measurement Type"
 msgstr "Ενημέρωση τύπου μέτρησης"
 
-#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:218
-#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCMeasurementTypes.php:216
+#: /home/tim/code/KwaMoja/KCMCUnitMeasurementsTypes.php:230
 msgid "Create Measurement Type"
 msgstr "Δημιουργία τύπου μέτρησης"
 
@@ -28733,23 +28744,23 @@ msgstr "Εγκατάσταση τύπου σημειώσεων"
 msgid "Add/edit/delete Notes Types"
 msgstr "Προσθήκη / επεξεργασία / διαγραφή τύπων σημειώσεων"
 
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:137
 msgid "Are you sure you wish to delete this Notes Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο σημειώσεων;"
 
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:170
 msgid "Edit Notes Type"
 msgstr "Επεξεργασία τύπου σημειώσεων"
 
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:183
 msgid "Create New Notes Type"
 msgstr "Δημιουργία νέου τύπου σημειώσεων"
 
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:212
 msgid "Update Notes Type"
 msgstr "Ενημέρωση τύπου σημειώσεων"
 
-#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCNotesTypes.php:216
 msgid "Create Notes Type"
 msgstr "Δημιουργία τύπου σημειώσεων"
 
@@ -28786,32 +28797,32 @@ msgstr "Έχετε ήδη καλέσει έναν τύπο καθυστέρησ�
 msgid "Operation delay type"
 msgstr "Τύπος καθυστέρησης λειτουργίας"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:101
 msgid "The operation delay type has been deleted"
 msgstr "Ο τύπος καθυστέρησης λειτουργίας έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:123
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:122
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:192
 msgid "Cause of Delay"
 msgstr "Αιτία καθυστέρησης"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:137
 msgid "Are you sure you wish to delete this Operation Delay Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο καθυστέρησης λειτουργίας;"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:170
 msgid "Edit Operation Delay Type"
 msgstr "Επεξεργασία τύπου καθυστέρησης λειτουργίας"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:183
 msgid "Create New Operation Delay Type"
 msgstr "Δημιουργία νέου τύπου καθυστέρησης λειτουργίας"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:212
 msgid "Update Delay Type"
 msgstr "Ενημέρωση τύπου καθυστέρησης"
 
-#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCOperationDelayTypes.php:216
 msgid "Create Delay Type"
 msgstr "Δημιουργία τύπου καθυστέρησης"
 
@@ -28898,27 +28909,27 @@ msgstr "Έχετε ήδη έναν τύπο αποτελέσματος που ο
 msgid "Outcome type"
 msgstr "Τύπος αποτελέσματος"
 
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:104
 msgid "The outcome type has been deleted"
 msgstr "Ο τύπος αποτελέσματος έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:143
 msgid "Are you sure you wish to delete this Outcome Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο αποτελέσματος;"
 
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:178
 msgid "Edit Outcome Type"
 msgstr "Επεξεργασία τύπου αποτελέσματος"
 
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:192
 msgid "Create New Outcome Type"
 msgstr "Δημιουργία νέου τύπου αποτελέσματος"
 
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:226
 msgid "Update Outcome Type"
 msgstr "Ενημέρωση τύπου αποτελέσματος"
 
-#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCOutcomeTypes.php:230
 msgid "Create Outcome Type"
 msgstr "Δημιουργία τύπου αποτελέσματος"
 
@@ -29001,27 +29012,27 @@ msgstr "Έχετε ήδη έναν τύπο perineum"
 msgid "Perineum type"
 msgstr "Τύπος περινέου"
 
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:104
 msgid "The perineum type has been deleted"
 msgstr "Ο τύπος περίνεου έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:143
 msgid "Are you sure you wish to delete this Perineum Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο Perineum;"
 
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:178
 msgid "Edit Perineum Type"
 msgstr "Επεξεργασία τύπου Perineum"
 
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:192
 msgid "Create New Perineum Type"
 msgstr "Δημιουργία νέου τύπου Perineum"
 
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:226
 msgid "Update Perineum Type"
 msgstr "Ενημέρωση τύπου Perineum"
 
-#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:230
 msgid "Create Perineum Type"
 msgstr "Δημιουργία τύπου Perineum"
 
@@ -29077,27 +29088,27 @@ msgstr "Έχετε ήδη έναν τύπο συνταγής που ονομάζ
 msgid "Prescription type"
 msgstr "Τύπος συνταγής"
 
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:102
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:101
 msgid "The prescription type has been deleted"
 msgstr "Ο τύπος συνταγής έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:138
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:137
 msgid "Are you sure you wish to delete this Prescription Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο συνταγής;"
 
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:171
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:170
 msgid "Edit Prescription Type"
 msgstr "Επεξεργασία τύπου συνταγής"
 
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:184
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:183
 msgid "Create New Prescription Type"
 msgstr "Δημιουργία νέου τύπου συνταγής"
 
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:214
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:212
 msgid "Update Prescription Type"
 msgstr "Ενημέρωση τύπου συνταγής"
 
-#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:218
+#: /home/tim/code/KwaMoja/KCMCPrescriptionTypes.php:216
 msgid "Create Prescription Type"
 msgstr "Δημιουργία τύπου συνταγής"
 
@@ -29798,27 +29809,27 @@ msgstr "Έχετε ήδη έναν τύπο δωματίου που ονομάζ
 msgid "Room type"
 msgstr "Τύπος δωματίου"
 
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:104
 msgid "The room type has been deleted"
 msgstr "Ο τύπος δωματίου έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:143
 msgid "Are you sure you wish to delete this Room Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο δωματίου;"
 
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:178
 msgid "Edit Room Type"
 msgstr "Επεξεργασία τύπου δωματίου"
 
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:192
 msgid "Create New Room Type"
 msgstr "Δημιουργία νέου τύπου δωματίου"
 
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:226
 msgid "Update Room Type"
 msgstr "Ενημέρωση τύπου δωματίου"
 
-#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCRoomTypes.php:230
 msgid "Create Room Type"
 msgstr "Δημιουργία τύπου δωματίου"
 
@@ -29948,33 +29959,188 @@ msgstr "Έχετε ήδη έναν τύπο δοκιμαστικής ομάδα�
 msgid "Test Group"
 msgstr "Ομάδα δοκιμών"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:180
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:179
 msgid "The test group has been deleted"
 msgstr "Η δοκιμαστική ομάδα έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:218
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:217
 msgid "Are you sure you wish to delete this Test Group?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν την ομάδα δοκιμών;"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:251
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:250
 msgid "Edit Test Group"
 msgstr "Επεξεργασία ομάδας δοκιμών"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:254
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:253
 msgid "Group Number"
 msgstr "Αριθμός ομάδας"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:264
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:263
 msgid "Create New Test Group"
 msgstr "Δημιουργία νέας ομάδας δοκιμών"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:286
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:284
 msgid "Update Test Group"
 msgstr "Ενημέρωση δοκιμαστικής ομάδας"
 
-#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:290
+#: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:288
 msgid "Create Test Group"
 msgstr "Δημιουργία ομάδας δοκιμών"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:3
+msgid "Test parameters"
+msgstr "Παράμετροι δοκιμής"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:67
+msgid "The Test parameter details have been successfully updated"
+msgstr "Οι λεπτομέρειες της παραμέτρου δοκιμής ενημερώθηκαν με επιτυχία"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:69
+msgid "There was a problem updating the test parameter details"
+msgstr "Παρουσιάστηκε πρόβλημα κατά την ενημέρωση των λεπτομερειών της παραμέτρου δοκιμής"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:84
+msgid "Test parameters for group"
+msgstr "Παράμετροι δοκιμής για ομάδα"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:93
+msgid "Parameter"
+msgstr "Παράμετρος"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:94
+msgid "Measurement Unit"
+msgstr "Μονάδα μέτρησης"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:95
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:287
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:304
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:321
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:338
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:355
+msgid "Median"
+msgstr "Διάμεσος"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:96
+msgid "Lower Boundary"
+msgstr "Κάτω όριο"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:97
+msgid "Upper Boundary"
+msgstr "Άνω όριο"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:98
+msgid "Lower Critical"
+msgstr "Κάτω κρίσιμη"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:99
+msgid "Upper Critical"
+msgstr "Άνω κρίσιμη"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:100
+msgid "Lower Toxic"
+msgstr "Κάτω τοξικό"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:101
+msgid "Upper Toxic"
+msgstr "Άνω τοξικό"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:135
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:227
+msgid "Edit Parameter"
+msgstr "Επεξεργασία παραμέτρου"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:146
+msgid "Select parameter group"
+msgstr "Επιλέξτε ομάδα παραμέτρων"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
+msgid "Parameter Group"
+msgstr "Ομάδα παραμέτρων"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:235
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:244
+msgid "Paramater"
+msgstr "Παράμετρος"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:236
+msgid "Males"
+msgstr "Αρσενικά"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:237
+msgid "Females"
+msgstr "Γυναίκες"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:238
+msgid "0-1 Month"
+msgstr "0-1 Μήνας"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:239
+msgid "1-12 Month"
+msgstr "1-12 Μήνας"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:240
+msgid "1-14 Year"
+msgstr "1-14 Έτος"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:246
+msgid "Unit of measurement"
+msgstr "Μονάδα μέτρησης"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:254
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:259
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:264
+#: /home/tim/code/KwaMoja/ShopParameters.php:284
+#: /home/tim/code/KwaMoja/ShopParameters.php:286
+msgid "Hide"
+msgstr "Κρύβω"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:289
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:306
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:323
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:340
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:357
+msgid "Upper boundary"
+msgstr "Άνω όριο"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:291
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:308
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:325
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:342
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:359
+msgid "Lower boundary"
+msgstr "Κάτω όριο"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:293
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:310
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:327
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:344
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:361
+msgid "Upper critical"
+msgstr "Άνω κρίσιμη"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:295
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:312
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:329
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:346
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:363
+msgid "Lower critical"
+msgstr "Χαμηλότερο κρίσιμο"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:297
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:314
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:331
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:348
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:365
+msgid "Upper toxic"
+msgstr "Άνω τοξικό"
+
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:299
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:316
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:333
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:350
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:367
+msgid "Lower toxic"
+msgstr "Χαμηλότερο τοξικό"
 
 #: /home/tim/code/KwaMoja/KCMCTestTypes.php:3
 msgid "Test Types"
@@ -30008,27 +30174,27 @@ msgstr "Έχετε ήδη έναν τύπο δοκιμής που ονομάζε
 msgid "Test type"
 msgstr "Τύπος δοκιμής"
 
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:105
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:104
 msgid "The test type has been deleted"
 msgstr "Ο τύπος δοκιμής έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:143
 msgid "Are you sure you wish to delete this Test Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο δοκιμής;"
 
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:178
 msgid "Edit Test Type"
 msgstr "Επεξεργασία τύπου δοκιμής"
 
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:192
 msgid "Create New Test Type"
 msgstr "Δημιουργία νέου τύπου δοκιμής"
 
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:226
 msgid "Update Test Type"
 msgstr "Ενημέρωση τύπου δοκιμής"
 
-#: /home/tim/code/KwaMoja/KCMCTestTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCTestTypes.php:230
 msgid "Create Test Type"
 msgstr "Δημιουργία τύπου δοκιμής"
 
@@ -30045,46 +30211,46 @@ msgid "Add/edit/delete Time Types"
 msgstr "Προσθήκη / επεξεργασία / διαγραφή τύπων ώρας"
 
 #: /home/tim/code/KwaMoja/KCMCTimeTypes.php:28
-msgid "The ttime type name description must be 100 characters or less long"
+msgid "The time type name description must be 100 characters or less long"
 msgstr "Η περιγραφή ονόματος τύπου χρόνου πρέπει να είναι 100 χαρακτήρες ή λιγότερο"
 
 #: /home/tim/code/KwaMoja/KCMCTimeTypes.php:33
-msgid "The ttime type name description must contain at least one character"
+msgid "The time type name description must contain at least one character"
 msgstr "Η περιγραφή ονόματος τύπου χρόνου πρέπει να περιέχει τουλάχιστον έναν χαρακτήρα"
 
 #: /home/tim/code/KwaMoja/KCMCTimeTypes.php:46
-msgid "The ttime type"
-msgstr "Ο τύπος χρόνου"
+msgid "The time type"
+msgstr "Ο τύπος ώρας"
 
 #: /home/tim/code/KwaMoja/KCMCTimeTypes.php:57
-msgid "You already have a ttime type called"
+msgid "You already have a time type called"
 msgstr "Έχετε ήδη έναν τύπο χρόνου"
 
 #: /home/tim/code/KwaMoja/KCMCTimeTypes.php:81
 msgid "Time type"
 msgstr "Τύπος χρόνου"
 
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:105
-msgid "The ttime type has been deleted"
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:104
+msgid "The time type has been deleted"
 msgstr "Ο τύπος ώρας έχει διαγραφεί"
 
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:144
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:143
 msgid "Are you sure you wish to delete this Time Type?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον τύπο ώρας;"
 
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:179
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:178
 msgid "Edit Time Type"
 msgstr "Επεξεργασία τύπου ώρας"
 
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:193
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:192
 msgid "Create New Time Type"
 msgstr "Δημιουργία νέου τύπου ώρας"
 
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:228
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:226
 msgid "Update Time Type"
 msgstr "Ενημέρωση τύπου ώρας"
 
-#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:232
+#: /home/tim/code/KwaMoja/KCMCTimeTypes.php:230
 msgid "Create Time Type"
 msgstr "Δημιουργία τύπου ώρας"
 
@@ -30314,8 +30480,8 @@ msgstr "Φυσικές λεπτομέρειες"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:356
 #: /home/tim/code/KwaMoja/SelectProduct.php:167
-#: /home/tim/code/KwaMoja/sql/updates/217.php:240
-#: /home/tim/code/KwaMoja/sql/updates/217.php:439
+#: /home/tim/code/KwaMoja/sql/updates/217.php:229
+#: /home/tim/code/KwaMoja/sql/updates/217.php:420
 msgid "Weight"
 msgstr "Βάρος"
 
@@ -30342,7 +30508,7 @@ msgstr "Αίμα"
 
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:368
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:370
-#: /home/tim/code/KwaMoja/sql/updates/217.php:285
+#: /home/tim/code/KwaMoja/sql/updates/217.php:273
 msgid "Other"
 msgstr "Αλλα"
 
@@ -44231,7 +44397,7 @@ msgid "Batchs/Lots"
 msgstr "Παρτίδες / Παρτίδες"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:165
-#: /home/tim/code/KwaMoja/sql/updates/217.php:438
+#: /home/tim/code/KwaMoja/sql/updates/217.php:419
 msgid "Volume"
 msgstr "Ενταση ΗΧΟΥ"
 
@@ -45742,11 +45908,6 @@ msgstr "Εμφανίζει μόνο αντικείμενα με QOH μεγαλύ
 #: /home/tim/code/KwaMoja/ShopParameters.php:280
 msgid "Show/Hide QOH column"
 msgstr "Εμφάνιση / Απόκρυψη στήλης QOH"
-
-#: /home/tim/code/KwaMoja/ShopParameters.php:284
-#: /home/tim/code/KwaMoja/ShopParameters.php:286
-msgid "Hide"
-msgstr "Κρύβω"
 
 #: /home/tim/code/KwaMoja/ShopParameters.php:290
 msgid "Shows / Hides the QOH column Select Hide if you do not want webSHOP visitors to know how many stock do you currently hold."
@@ -69651,651 +69812,651 @@ msgstr "Θάνατος ασθενούς"
 msgid "Change of department"
 msgstr "Αλλαγή τμήματος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:23
+#: /home/tim/code/KwaMoja/sql/updates/217.php:21
 msgid "General"
 msgstr "Γενικός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:24
+#: /home/tim/code/KwaMoja/sql/updates/217.php:22
 msgid "Spinal"
 msgstr "Νωτιαίος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:25
+#: /home/tim/code/KwaMoja/sql/updates/217.php:23
 msgid "Epidural"
 msgstr "Επισκληρίδιος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:26
+#: /home/tim/code/KwaMoja/sql/updates/217.php:24
 msgid "Pudendal"
 msgstr "Πούντενταλ"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:28
+#: /home/tim/code/KwaMoja/sql/updates/217.php:26
 msgid "Maintain Anaesthesia Types"
 msgstr "Διατηρήστε τους τύπους αναισθησίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:45
+#: /home/tim/code/KwaMoja/sql/updates/217.php:42
 msgid "Intratracheal anesthesia"
 msgstr "Ενδοτραχειακή αναισθησία"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:46
+#: /home/tim/code/KwaMoja/sql/updates/217.php:43
 msgid "Locally applied anesthesia"
 msgstr "Τοπικά εφαρμοσμένη αναισθησία"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:47
+#: /home/tim/code/KwaMoja/sql/updates/217.php:44
 msgid "Analgesic sedation"
 msgstr "Αναλγητική καταστολή"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+#: /home/tim/code/KwaMoja/sql/updates/217.php:45
 msgid "Mask"
 msgstr "Μάσκα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:48
+#: /home/tim/code/KwaMoja/sql/updates/217.php:45
 msgid "Gas anesthesia through breathing mask"
 msgstr "Αναισθησία αερίου μέσω αναπνευστικής μάσκας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+#: /home/tim/code/KwaMoja/sql/updates/217.php:46
 msgid "Oral"
 msgstr "Από το στόμα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:49
+#: /home/tim/code/KwaMoja/sql/updates/217.php:46
 msgid "Applied Orally"
 msgstr "Εφαρμόζεται προφορικά"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+#: /home/tim/code/KwaMoja/sql/updates/217.php:47
 msgid "Intravenous"
 msgstr "Ενδοφλεβίως"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:50
+#: /home/tim/code/KwaMoja/sql/updates/217.php:47
 msgid "Applied Intravenously"
 msgstr "Εφαρμόζεται ενδοφλεβίως"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
 msgid "Subcutaneous"
 msgstr "Υποδόριος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:51
+#: /home/tim/code/KwaMoja/sql/updates/217.php:48
 msgid "Applied Subcutaneously"
 msgstr "Εφαρμόστηκε Υποδόρια"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
 msgid "Intramuscular"
 msgstr "Ενδομυϊκή"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:52
+#: /home/tim/code/KwaMoja/sql/updates/217.php:49
 msgid "Intramuscular application"
 msgstr "Ενδομυϊκή εφαρμογή"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
 msgid "Sublingual"
 msgstr "Υπογλώσσιο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:53
+#: /home/tim/code/KwaMoja/sql/updates/217.php:50
 msgid "Applied under the tounge"
 msgstr "Εφαρμόζεται κάτω από το πεδίο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:54
+#: /home/tim/code/KwaMoja/sql/updates/217.php:51
 msgid "Intraarterial"
 msgstr "Ενδοαρτηριακό"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
 msgid "Pre-admission"
 msgstr "Προ-εισαγωγή"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:55
+#: /home/tim/code/KwaMoja/sql/updates/217.php:52
 msgid "Taken Pre-admission"
 msgstr "Λήψη πριν από την εισαγωγή"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:57
+#: /home/tim/code/KwaMoja/sql/updates/217.php:54
 msgid "Maintain Application Types"
 msgstr "Διατήρηση τύπων εφαρμογής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:75
+#: /home/tim/code/KwaMoja/sql/updates/217.php:71
 msgid "Firm"
 msgstr "Εταιρεία"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:76
+#: /home/tim/code/KwaMoja/sql/updates/217.php:72
 msgid "Clinic"
 msgstr "Κλινική"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:78
+#: /home/tim/code/KwaMoja/sql/updates/217.php:74
 msgid "Maintain Assignment Types"
 msgstr "Διατήρηση τύπων ανάθεσης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:94
+#: /home/tim/code/KwaMoja/sql/updates/217.php:89
 msgid "Patient was delayed"
 msgstr "Ο ασθενής καθυστέρησε"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:95
+#: /home/tim/code/KwaMoja/sql/updates/217.php:90
 msgid "Nurses were delayed"
 msgstr "Οι νοσοκόμες καθυστέρησαν"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:96
+#: /home/tim/code/KwaMoja/sql/updates/217.php:91
 msgid "Surgeons were delayed"
 msgstr "Οι χειρουργοί καθυστέρησαν"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:97
+#: /home/tim/code/KwaMoja/sql/updates/217.php:92
 msgid "Cleaning delayed"
 msgstr "Ο καθαρισμός καθυστέρησε"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:98
+#: /home/tim/code/KwaMoja/sql/updates/217.php:93
 msgid "Anesthesiologist was delayed"
 msgstr "Ο αναισθησιολόγος καθυστέρησε"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:99
+#: /home/tim/code/KwaMoja/sql/updates/217.php:94
 msgid "Other causes"
 msgstr "Άλλες αιτίες"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:101
+#: /home/tim/code/KwaMoja/sql/updates/217.php:96
 msgid "Maintain Operation Delay Types"
 msgstr "Διατηρήστε τους τύπους καθυστέρησης λειτουργίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:118
+#: /home/tim/code/KwaMoja/sql/updates/217.php:112
 msgid "Medical"
 msgstr "Ιατρικός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:119
+#: /home/tim/code/KwaMoja/sql/updates/217.php:113
 msgid "Support (non-medical)"
 msgstr "Υποστήριξη (μη ιατρική)"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:120
+#: /home/tim/code/KwaMoja/sql/updates/217.php:114
 msgid "News"
 msgstr "Νέα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:122
+#: /home/tim/code/KwaMoja/sql/updates/217.php:116
 msgid "Maintain Department Types"
 msgstr "Διατήρηση τύπων τμήματος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+#: /home/tim/code/KwaMoja/sql/updates/217.php:132
 msgid "Regular duty"
 msgstr "Κανονικό καθήκον"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:139
+#: /home/tim/code/KwaMoja/sql/updates/217.php:132
 msgid "Regular duties"
 msgstr "Τακτικά καθήκοντα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+#: /home/tim/code/KwaMoja/sql/updates/217.php:133
 msgid "Standby duty"
 msgstr "Εφεδρικό καθήκον"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:140
+#: /home/tim/code/KwaMoja/sql/updates/217.php:133
 msgid "Standby duties"
 msgstr "Καθήκοντα αναμονής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+#: /home/tim/code/KwaMoja/sql/updates/217.php:134
 msgid "Morning duty"
 msgstr "Πρωί καθήκον"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:141
+#: /home/tim/code/KwaMoja/sql/updates/217.php:134
 msgid "Morning shift duties"
 msgstr "Καθημερινή βάρδια"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+#: /home/tim/code/KwaMoja/sql/updates/217.php:135
 msgid "Afternoon duty"
 msgstr "Απογευματινό καθήκον"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:142
+#: /home/tim/code/KwaMoja/sql/updates/217.php:135
 msgid "Afternoon shift duties"
 msgstr "Απογευματινές βάρδιες"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+#: /home/tim/code/KwaMoja/sql/updates/217.php:136
 msgid "Night duty"
 msgstr "Νυχτερινό καθήκον"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:143
+#: /home/tim/code/KwaMoja/sql/updates/217.php:136
 msgid "Night shift duties"
 msgstr "Νυχτερινές βάρδιες"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:145
+#: /home/tim/code/KwaMoja/sql/updates/217.php:138
 msgid "Maintain Duty Types"
 msgstr "Διατηρήστε τους τύπους καθηκόντων"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:161
+#: /home/tim/code/KwaMoja/sql/updates/217.php:153
 msgid "asian"
 msgstr "ασιάτης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:162
+#: /home/tim/code/KwaMoja/sql/updates/217.php:154
 msgid "black"
 msgstr "μαύρος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:163
+#: /home/tim/code/KwaMoja/sql/updates/217.php:155
 msgid "caucasian"
 msgstr "καυκάσιος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:164
+#: /home/tim/code/KwaMoja/sql/updates/217.php:156
 msgid "white"
 msgstr "άσπρο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:166
+#: /home/tim/code/KwaMoja/sql/updates/217.php:158
 msgid "Maintain Ethnic Origin Types"
 msgstr "Διατηρήστε τους τύπους εθνικής καταγωγής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+#: /home/tim/code/KwaMoja/sql/updates/217.php:174
 msgid "Breast"
 msgstr "Στήθος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:183
+#: /home/tim/code/KwaMoja/sql/updates/217.php:174
 msgid "Breast Feeding"
 msgstr "Θηλασμός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+#: /home/tim/code/KwaMoja/sql/updates/217.php:175
 msgid "Formula"
 msgstr "Τύπος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:184
+#: /home/tim/code/KwaMoja/sql/updates/217.php:175
 msgid "Formula Feeding"
 msgstr "Τροφοδοσία τύπου"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+#: /home/tim/code/KwaMoja/sql/updates/217.php:176
 msgid "Both"
 msgstr "Και τα δυο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:185
+#: /home/tim/code/KwaMoja/sql/updates/217.php:176
 msgid "Breast and Formula Feeding"
 msgstr "Σίτιση και στήθος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+#: /home/tim/code/KwaMoja/sql/updates/217.php:177
 msgid "Parenteral"
 msgstr "Παρεντερικός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:186
+#: /home/tim/code/KwaMoja/sql/updates/217.php:177
 msgid "Non-oral Feeding"
 msgstr "Μη στοματική σίτιση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:187
+#: /home/tim/code/KwaMoja/sql/updates/217.php:178
 msgid "Never fed"
 msgstr "Δεν τρέφονται ποτέ"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:189
+#: /home/tim/code/KwaMoja/sql/updates/217.php:180
 msgid "Maintain Feeding Types"
 msgstr "Διατηρήστε τους τύπους σίτισης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+#: /home/tim/code/KwaMoja/sql/updates/217.php:197
 msgid "Medical insurance"
 msgstr "Ιατρική ασφάλιση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:207
+#: /home/tim/code/KwaMoja/sql/updates/217.php:197
 msgid "Main (default) medical insurance"
 msgstr "Κύρια (προεπιλεγμένη) ιατρική ασφάλιση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+#: /home/tim/code/KwaMoja/sql/updates/217.php:198
 msgid "Extra medical insurance"
 msgstr "Επιπλέον ιατρική ασφάλιση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:208
+#: /home/tim/code/KwaMoja/sql/updates/217.php:198
 msgid "Extra medical insurance (evt. pays extra services)"
 msgstr "Πρόσθετη ιατρική ασφάλιση (πληρώνει επιπλέον υπηρεσίες)"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+#: /home/tim/code/KwaMoja/sql/updates/217.php:199
 msgid "Dental insurance"
 msgstr "Οδοντιατρική ασφάλεια"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:209
+#: /home/tim/code/KwaMoja/sql/updates/217.php:199
 msgid "Separate dental plan in case not included in medical plan or simply additional private plan"
 msgstr "Ξεχωριστό οδοντιατρικό πρόγραμμα σε περίπτωση που δεν περιλαμβάνεται στο ιατρικό πρόγραμμα ή απλώς πρόσθετο ιδιωτικό πρόγραμμα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+#: /home/tim/code/KwaMoja/sql/updates/217.php:200
 msgid "Disability plan"
 msgstr "Σχέδιο αναπηρίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:210
+#: /home/tim/code/KwaMoja/sql/updates/217.php:200
 msgid "Disability insurance plan - general , both long term & short term"
 msgstr "Πρόγραμμα ασφάλισης αναπηρίας - γενικά, μακροπρόθεσμα και βραχυπρόθεσμα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+#: /home/tim/code/KwaMoja/sql/updates/217.php:201
 msgid "Disability plan (short term)"
 msgstr "Σχέδιο αναπηρίας (βραχυπρόθεσμα)"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:211
+#: /home/tim/code/KwaMoja/sql/updates/217.php:201
 msgid "Short term disability plan"
 msgstr "Πρόγραμμα βραχυπρόθεσμης αναπηρίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+#: /home/tim/code/KwaMoja/sql/updates/217.php:202
 msgid "Disability plan (long term)"
 msgstr "Σχέδιο αναπηρίας (μακροπρόθεσμα)"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:212
+#: /home/tim/code/KwaMoja/sql/updates/217.php:202
 msgid "Long term disability plan"
 msgstr "Πρόγραμμα μακροπρόθεσμης αναπηρίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+#: /home/tim/code/KwaMoja/sql/updates/217.php:203
 msgid "Retirement  income plan (general)"
 msgstr "Πρόγραμμα εισοδήματος συνταξιοδότησης (γενικό)"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:213
+#: /home/tim/code/KwaMoja/sql/updates/217.php:203
 msgid "Retirement income plan - either private or income/employer supported"
 msgstr "Πρόγραμμα εισοδήματος συνταξιοδότησης - υποστηρίζεται είτε ιδιωτικό είτε εισόδημα / εργοδότη"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+#: /home/tim/code/KwaMoja/sql/updates/217.php:204
 msgid "Educational Reimbursement Plan"
 msgstr "Σχέδιο Εκπαιδευτικής Επιστροφής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:214
+#: /home/tim/code/KwaMoja/sql/updates/217.php:204
 msgid "Reimbursement plan for education, either private or employer supported"
 msgstr "Υποστηρίζεται πρόγραμμα αποζημίωσης για εκπαίδευση, είτε ιδιωτικό είτε εργοδότη"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+#: /home/tim/code/KwaMoja/sql/updates/217.php:205
 msgid "Retirement medical plan"
 msgstr "Ιατρικό πρόγραμμα συνταξιοδότησης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:215
+#: /home/tim/code/KwaMoja/sql/updates/217.php:205
 msgid "Medical plan in retirement  - might include other care services"
 msgstr "Ιατρικό πρόγραμμα σε συνταξιοδότηση - μπορεί να περιλαμβάνει άλλες υπηρεσίες φροντίδας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+#: /home/tim/code/KwaMoja/sql/updates/217.php:206
 msgid "Liability Insurance Plan"
 msgstr "Πρόγραμμα ασφάλισης αστικής ευθύνης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:216
+#: /home/tim/code/KwaMoja/sql/updates/217.php:206
 msgid "General liability insurance - either private or employer supported"
 msgstr "Ασφάλιση γενικής ευθύνης - υποστηρίζεται είτε ιδιωτικός είτε εργοδότης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
 msgid "Malpractice Insurance Plan"
 msgstr "Ασφαλιστικό πρόγραμμα κακής πρακτικής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:217
+#: /home/tim/code/KwaMoja/sql/updates/217.php:207
 msgid "Insurance plan against possible malpractice"
 msgstr "Ασφαλιστικό πρόγραμμα για πιθανή αθέμιτη πρακτική"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
 msgid "Unemployment Insurance Plan"
 msgstr "Πρόγραμμα ασφάλισης ανεργίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:218
+#: /home/tim/code/KwaMoja/sql/updates/217.php:208
 msgid "Unemployment insurance , in case compulsory unemployment funds are guaranteed by the state, this plan is usually privately paid by the insured"
 msgstr "Ασφάλιση ανεργίας, σε περίπτωση που τα υποχρεωτικά ταμεία ανεργίας είναι εγγυημένα από το κράτος, αυτό το πρόγραμμα πληρώνεται συνήθως από τον ασφαλισμένο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:220
+#: /home/tim/code/KwaMoja/sql/updates/217.php:210
 msgid "Maintain Insurance Types"
 msgstr "Διατηρήστε τους τύπους ασφάλισης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:235
+#: /home/tim/code/KwaMoja/sql/updates/217.php:224
 msgid "Systolic"
 msgstr "Συστολικός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:236
+#: /home/tim/code/KwaMoja/sql/updates/217.php:225
 msgid "Diastolic"
 msgstr "Διαστολική"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:238
+#: /home/tim/code/KwaMoja/sql/updates/217.php:227
 msgid "Fluid intake"
 msgstr "Η πρόσληψη υγρών"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:239
+#: /home/tim/code/KwaMoja/sql/updates/217.php:228
 msgid "Fluid output"
 msgstr "Έξοδος υγρού"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:242
+#: /home/tim/code/KwaMoja/sql/updates/217.php:231
 msgid "Sys/Dias"
 msgstr "Sys / Dias"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:243
+#: /home/tim/code/KwaMoja/sql/updates/217.php:232
 msgid "Head circumference"
 msgstr "Περίμετρος κεφαλιού"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:245
+#: /home/tim/code/KwaMoja/sql/updates/217.php:234
 msgid "Maintain Measurement Types"
 msgstr "Διατήρηση τύπων μέτρησης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:262
+#: /home/tim/code/KwaMoja/sql/updates/217.php:250
 msgid "Admission History and Physical"
 msgstr "Ιστορικό Εισαγωγής και Φυσική"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:263
+#: /home/tim/code/KwaMoja/sql/updates/217.php:251
 msgid "Doctors daily notes"
 msgstr "Γιατροί καθημερινές σημειώσεις"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:264
+#: /home/tim/code/KwaMoja/sql/updates/217.php:252
 msgid "Discharge summary"
 msgstr "Περίληψη απαλλαγής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:265
+#: /home/tim/code/KwaMoja/sql/updates/217.php:253
 msgid "Consultation notes"
 msgstr "Σημειώσεις διαβούλευσης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:266
+#: /home/tim/code/KwaMoja/sql/updates/217.php:254
 msgid "Operation notes"
 msgstr "Σημειώσεις λειτουργίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:267
+#: /home/tim/code/KwaMoja/sql/updates/217.php:255
 msgid "Daily ward notes"
 msgstr "Καθημερινές σημειώσεις θαλάμου"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:268
+#: /home/tim/code/KwaMoja/sql/updates/217.php:256
 msgid "Chart notes"
 msgstr "Σημειώσεις γραφήματος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:269
+#: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
 msgstr "PT, ATG, κ.λπ. "
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:270
+#: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"
 msgstr "IV καθημερινές σημειώσεις"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:271
+#: /home/tim/code/KwaMoja/sql/updates/217.php:259
 msgid "Anticoagulant daily notes"
 msgstr "Αντιπηκτικές ημερήσιες νότες"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:272
+#: /home/tim/code/KwaMoja/sql/updates/217.php:260
 msgid "Material LOT, Charge Nr."
 msgstr "Υλικό LOT, Charge Nr."
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:273
+#: /home/tim/code/KwaMoja/sql/updates/217.php:261
 msgid "Diagnosis text"
 msgstr "Κείμενο διάγνωσης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:274
+#: /home/tim/code/KwaMoja/sql/updates/217.php:262
 msgid "Therapy text"
 msgstr "Κείμενο θεραπείας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:275
+#: /home/tim/code/KwaMoja/sql/updates/217.php:263
 msgid "Extra notes on therapy & diagnosis"
 msgstr "Επιπλέον σημειώσεις για τη θεραπεία και τη διάγνωση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:276
+#: /home/tim/code/KwaMoja/sql/updates/217.php:264
 msgid "Nursing care report"
 msgstr "Έκθεση νοσηλευτικής περίθαλψης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:277
+#: /home/tim/code/KwaMoja/sql/updates/217.php:265
 msgid "Nursing problem report"
 msgstr "Αναφορά προβλημάτων νοσηλευτικής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:278
+#: /home/tim/code/KwaMoja/sql/updates/217.php:266
 msgid "Nursing effectivity report"
 msgstr "Αναφορά αποτελεσματικότητας νοσηλευτικής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:279
+#: /home/tim/code/KwaMoja/sql/updates/217.php:267
 msgid "Inquiry to doctor"
 msgstr "Έρευνα στον γιατρό"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:280
+#: /home/tim/code/KwaMoja/sql/updates/217.php:268
 msgid "Doctors directive"
 msgstr "Οδηγία γιατρών"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:281
+#: /home/tim/code/KwaMoja/sql/updates/217.php:269
 msgid "Problem"
 msgstr "Πρόβλημα"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:282
+#: /home/tim/code/KwaMoja/sql/updates/217.php:270
 msgid "Development"
 msgstr "Ανάπτυξη"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:283
+#: /home/tim/code/KwaMoja/sql/updates/217.php:271
 msgid "Allergy"
 msgstr "Αλλεργία"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:284
+#: /home/tim/code/KwaMoja/sql/updates/217.php:272
 msgid "Diet plan"
 msgstr "Σχέδιο διατροφής"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:287
+#: /home/tim/code/KwaMoja/sql/updates/217.php:275
 msgid "Maintain Notes Types"
 msgstr "Διατήρηση τύπων σημειώσεων"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:304
+#: /home/tim/code/KwaMoja/sql/updates/217.php:291
 msgid "Alive"
 msgstr "Ζωντανός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:305
+#: /home/tim/code/KwaMoja/sql/updates/217.php:292
 msgid "Stillborn"
 msgstr "Νεκρός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:306
+#: /home/tim/code/KwaMoja/sql/updates/217.php:293
 msgid "Early neonatal death"
 msgstr "Πρόωρος νεογνικός θάνατος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:307
+#: /home/tim/code/KwaMoja/sql/updates/217.php:294
 msgid "Late neonatal death"
 msgstr "Πρόσφατος νεογνικός θάνατος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:308
+#: /home/tim/code/KwaMoja/sql/updates/217.php:295
 msgid "Death uncertain timing"
 msgstr "Αβέβαιος χρόνος θανάτου"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:310
+#: /home/tim/code/KwaMoja/sql/updates/217.php:297
 msgid "Maintain Outcome Types"
 msgstr "Διατηρήστε τους τύπους αποτελεσμάτων"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:327
+#: /home/tim/code/KwaMoja/sql/updates/217.php:313
 msgid "Intact"
 msgstr "Αθικτος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:328
+#: /home/tim/code/KwaMoja/sql/updates/217.php:314
 msgid "1st degree tear"
 msgstr "Δάκρυ 1ου βαθμού"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:329
+#: /home/tim/code/KwaMoja/sql/updates/217.php:315
 msgid "2nd degree tear"
 msgstr "Δάκρυ 2ου βαθμού"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:330
+#: /home/tim/code/KwaMoja/sql/updates/217.php:316
 msgid "3rd degree tear"
 msgstr "Δάκρυ 3ου βαθμού"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:331
+#: /home/tim/code/KwaMoja/sql/updates/217.php:317
 msgid "Episiotomy"
 msgstr "ΕΠΙΣΙΟΤΟΜΙΑ"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:333
+#: /home/tim/code/KwaMoja/sql/updates/217.php:319
 msgid "Maintain Perineum Types"
 msgstr "Διατηρήστε τους τύπους Perineum"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:348
+#: /home/tim/code/KwaMoja/sql/updates/217.php:333
 msgid "Anticoagulant"
 msgstr "Αντιπηκτικό"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:349
+#: /home/tim/code/KwaMoja/sql/updates/217.php:334
 msgid "Hemolytic"
 msgstr "Αιμολυτικό"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:350
+#: /home/tim/code/KwaMoja/sql/updates/217.php:335
 msgid "Diuretic"
 msgstr "Διουρητικός"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:351
+#: /home/tim/code/KwaMoja/sql/updates/217.php:336
 msgid "Antibiotic"
 msgstr "Αντιβιοτικό"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:353
+#: /home/tim/code/KwaMoja/sql/updates/217.php:338
 msgid "Maintain Prescription Types"
 msgstr "Διατηρήστε τους τύπους συνταγών"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+#: /home/tim/code/KwaMoja/sql/updates/217.php:353
 msgid "Ward room"
 msgstr "Αίθουσα θαλάμου"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:369
+#: /home/tim/code/KwaMoja/sql/updates/217.php:353
 msgid "Hospital Ward Room"
 msgstr "Δωμάτιο στο νοσοκομείο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+#: /home/tim/code/KwaMoja/sql/updates/217.php:354
 msgid "Operating room"
 msgstr "Χειρουργείο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:370
+#: /home/tim/code/KwaMoja/sql/updates/217.php:354
 msgid "Operating Theatre Room"
 msgstr "Δωμάτιο χειρουργείου"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:372
+#: /home/tim/code/KwaMoja/sql/updates/217.php:356
 msgid "Maintain Room Types"
 msgstr "Διατήρηση τύπων δωματίων"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:389
+#: /home/tim/code/KwaMoja/sql/updates/217.php:372
 msgid "Chemical-Serology Lab"
 msgstr "Εργαστήριο Χημικής-Ορολογίας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:390
+#: /home/tim/code/KwaMoja/sql/updates/217.php:373
 msgid "Pathological Lab"
 msgstr "Παθολογικό εργαστήριο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:391
+#: /home/tim/code/KwaMoja/sql/updates/217.php:374
 msgid "Bacteriological Lab"
 msgstr "Βακτηριολογικό Εργαστήριο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+#: /home/tim/code/KwaMoja/sql/updates/217.php:375
 msgid "Radiological Lab"
 msgstr "Ακτινολογικό εργαστήριο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:392
+#: /home/tim/code/KwaMoja/sql/updates/217.php:375
 msgid "Lab for X-ray, Mammography, Computer Tomography, NMR"
 msgstr "Εργαστήριο ακτινογραφίας, μαστογραφίας, υπολογιστικής τομογραφίας, NMR"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:393
+#: /home/tim/code/KwaMoja/sql/updates/217.php:376
 msgid "Blood test & product"
 msgstr "Δοκιμή αίματος & προϊόν"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:394
+#: /home/tim/code/KwaMoja/sql/updates/217.php:377
 msgid "Generic test program"
 msgstr "Γενικό πρόγραμμα δοκιμών"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:396
+#: /home/tim/code/KwaMoja/sql/updates/217.php:379
 msgid "Maintain Test Types"
 msgstr "Διατηρήστε τους τύπους δοκιμών"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:413
+#: /home/tim/code/KwaMoja/sql/updates/217.php:395
 msgid "Patient entry/exit"
 msgstr "Είσοδος / έξοδος ασθενούς"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:414
+#: /home/tim/code/KwaMoja/sql/updates/217.php:396
 msgid "OP start/end"
 msgstr "OP έναρξη / τέλος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:415
+#: /home/tim/code/KwaMoja/sql/updates/217.php:397
 msgid "Delay time"
 msgstr "Χρόνος καθυστέρησης"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:416
+#: /home/tim/code/KwaMoja/sql/updates/217.php:398
 msgid "Plaster cast"
 msgstr "Γύψο"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:417
+#: /home/tim/code/KwaMoja/sql/updates/217.php:399
 msgid "Reposition"
 msgstr "Επανατοποθέτηση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:418
+#: /home/tim/code/KwaMoja/sql/updates/217.php:400
 msgid "Coronary catheter"
 msgstr "Στεφανιαίος καθετήρας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:419
+#: /home/tim/code/KwaMoja/sql/updates/217.php:401
 msgid "Bandage"
 msgstr "Επίδεσμος"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:421
+#: /home/tim/code/KwaMoja/sql/updates/217.php:403
 msgid "Maintain Time Types"
 msgstr "Διατηρήστε τους τύπους χρόνου"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:441
+#: /home/tim/code/KwaMoja/sql/updates/217.php:422
 msgid "Pressure"
 msgstr "Πίεση"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:444
+#: /home/tim/code/KwaMoja/sql/updates/217.php:425
 msgid "Maintain Unit Measurements Types"
 msgstr "Διατήρηση τύπων μετρήσεων μονάδας"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:834
+#: /home/tim/code/KwaMoja/sql/updates/217.php:814
 msgid "Test Parmameter Groups"
 msgstr "Ομάδες δοκιμής παραμέτρων"
 
-#: /home/tim/code/KwaMoja/sql/updates/217.php:836
+#: /home/tim/code/KwaMoja/sql/updates/217.php:816
 msgid "Maintain Test Parameters"
 msgstr "Διατηρήστε τις παραμέτρους δοκιμής"
 
@@ -71141,6 +71302,21 @@ msgstr "Δάνεια Προσωπικού"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Αποπληρωμές δανείου προσωπικού"
+
+#~ msgid "The ttime type name description must be 100 characters or less long"
+#~ msgstr "Η περιγραφή ονόματος τύπου χρόνου πρέπει να είναι 100 χαρακτήρες ή λιγότερο"
+
+#~ msgid "The ttime type name description must contain at least one character"
+#~ msgstr "Η περιγραφή ονόματος τύπου χρόνου πρέπει να περιέχει τουλάχιστον έναν χαρακτήρα"
+
+#~ msgid "The ttime type"
+#~ msgstr "Ο τύπος χρόνου"
+
+#~ msgid "You already have a ttime type called"
+#~ msgstr "Έχετε ήδη έναν τύπο χρόνου"
+
+#~ msgid "The ttime type has been deleted"
+#~ msgstr "Ο τύπος ώρας έχει διαγραφεί"
 
 #~ msgid "Maintian Encounter Types"
 #~ msgstr "Τύποι συνάντησης Maintian"
