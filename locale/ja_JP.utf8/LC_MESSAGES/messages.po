@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 01:17+0100\n"
+"POT-Creation-Date: 2020-08-07 02:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,6 +855,7 @@ msgstr "アカウントグループに変更されました"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
@@ -1329,6 +1330,8 @@ msgstr "親グループ名"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:66
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
@@ -1625,6 +1628,8 @@ msgstr "はい"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:64
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
@@ -2194,6 +2199,7 @@ msgstr "連絡先レコードが削除されました"
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
@@ -2308,6 +2314,7 @@ msgstr "ステートメント"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:179
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:410
 #: /home/tim/code/KwaMoja/GLStatements.php:137
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -3738,6 +3745,9 @@ msgstr "レポートの最後の期間を選択します"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:432
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
@@ -3923,6 +3933,7 @@ msgstr "代替期間を選択してください"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/MRPReport.php:438
 #: /home/tim/code/KwaMoja/SalesGraph.php:283
 #: /home/tim/code/KwaMoja/SalesGraph.php:291
@@ -5577,6 +5588,7 @@ msgstr "または、商品コードの一部を入力してください"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:446
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
@@ -8191,6 +8203,7 @@ msgstr "SQLによって返された作業指示はありませんでした。"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
@@ -12178,6 +12191,7 @@ msgstr "契約：顧客を選択"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
@@ -16174,6 +16188,7 @@ msgstr "このブランチを現金販売のデフォルトとして使用しま
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
@@ -16489,6 +16504,8 @@ msgid "Summary of Receipt Batch"
 msgstr "領収書バッチの要約"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:76
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "バッチ番号"
@@ -17751,6 +17768,7 @@ msgid "Daily Sales For"
 msgstr "毎日の売上"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:122
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
@@ -17758,6 +17776,7 @@ msgid "Sunday"
 msgstr "日曜日"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:123
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:16
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
@@ -17765,6 +17784,7 @@ msgid "Monday"
 msgstr "月曜"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:124
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:17
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
@@ -17772,6 +17792,7 @@ msgid "Tuesday"
 msgstr "火曜日"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:125
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:18
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
@@ -17779,6 +17800,7 @@ msgid "Wednesday"
 msgstr "水曜日"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:126
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:19
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
@@ -17786,6 +17808,7 @@ msgid "Thursday"
 msgstr "木曜日"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:127
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:20
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
@@ -17793,6 +17816,7 @@ msgid "Friday"
 msgstr "金曜日"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:128
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:167
@@ -25800,6 +25824,7 @@ msgid "Technician"
 msgstr "技術者"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:277
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
@@ -26036,6 +26061,8 @@ msgid "Bed Number"
 msgstr "ベッド数"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:81
 msgid "PID"
 msgstr "PID"
 
@@ -26044,6 +26071,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
@@ -26996,6 +27024,7 @@ msgstr "患者の退院の詳細"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "患者名"
@@ -27037,6 +27066,7 @@ msgid "Discharge Notes"
 msgstr "排出に関する注意"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:100
 #: /home/tim/code/KwaMoja/WWW_Access.php:143
 #: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
@@ -27629,6 +27659,7 @@ msgstr "アイテムの種類："
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:960
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:625
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:618
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:39
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:843
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:923
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:613
@@ -28232,6 +28263,7 @@ msgid "Invoices for transfer to"
 msgstr "への転送請求書"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:388
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
 msgid "Patient ID"
 msgstr "患者ID"
 
@@ -28367,6 +28399,9 @@ msgstr "方法"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:132
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:61
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:130
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:221
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:325
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
 #: /home/tim/code/KwaMoja/QATests.php:380
 msgid "Test ID"
 msgstr "テストID"
@@ -28731,6 +28766,48 @@ msgstr "測定タイプを更新"
 msgid "Create Measurement Type"
 msgstr "測定タイプを作成"
 
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:5
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:11
+msgid "Medical Laboratory"
+msgstr "医療研究所"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:17
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
+msgid "Select a menu option to operate using this patient"
+msgstr "この患者を使用して操作するメニューオプションを選択します"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+#: /home/tim/code/KwaMoja/SelectCustomer.php:174
+#: /home/tim/code/KwaMoja/SelectProduct.php:450
+#: /home/tim/code/KwaMoja/SelectSupplier.php:211
+#: /home/tim/code/KwaMoja/index.php:92
+msgid "Inquiries and Reports"
+msgstr "お問い合わせとレポート"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+msgid "Patient Inquiries"
+msgstr "患者の問い合わせ"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:25
+msgid "Pending Laboratory Tests"
+msgstr "保留中の実験室試験"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:31
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
+msgid "Patient Transactions"
+msgstr "患者のトランザクション"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:34
+msgid "Request a Laboratory Test"
+msgstr "臨床検査を依頼する"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:40
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
+msgid "Patient Maintenance"
+msgstr "患者の維持"
+
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
 msgid "Notes Types"
@@ -28979,6 +29056,42 @@ msgstr "このユーザーの現金口座はまだ定義されていません。
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
 msgstr "支払いの処理"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:5
+msgid "Pending Medical Laboratory Test Requests"
+msgstr "保留中の臨床検査テストリクエスト"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:32
+msgid "Pending Test Requests"
+msgstr "保留中のテストリクエスト"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:84
+msgid "Patient Phone"
+msgstr "患者の電話"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:40
+msgid "Date Batch Sent"
+msgstr "バッチ送信日"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:42
+msgid "Is Batch Urgent"
+msgstr "バッチ緊急である"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
+msgid "View Batch"
+msgstr "バッチを表示"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
+#: /home/tim/code/KwaMoja/SelectQASamples.php:403
+#: /home/tim/code/KwaMoja/TestPlanResults.php:264
+msgid "Enter Results"
+msgstr "結果を入力"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:95
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:146
+msgid "Return to Laboratory Centre"
+msgstr "研究所センターに戻る"
 
 #: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
 msgid "Perineum Types"
@@ -29777,6 +29890,148 @@ msgstr "この患者の血液型"
 msgid "Item to bill"
 msgstr "請求するアイテム"
 
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:5
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:63
+msgid "Medical Laboratory Test Request"
+msgstr "医療研究所の試験依頼"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:133
+msgid "Failed to insert the batch header into the database"
+msgstr "バッチヘッダーをデータベースに挿入できませんでした"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:154
+msgid "Failed to insert the batch line into the database"
+msgstr "バッチ行をデータベースに挿入できませんでした"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
+msgid "The batch of tests has been sent successfully"
+msgstr "テストのバッチが正常に送信されました"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:216
+msgid "Tests in Batch"
+msgstr "バッチでのテスト"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+msgid "Test Number"
+msgstr "試験番号"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
+#: /home/tim/code/KwaMoja/ProductSpecs.php:512
+#: /home/tim/code/KwaMoja/TestPlanResults.php:765
+msgid "Test Name"
+msgstr "テスト名"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:240
+msgid "Remove From Batch"
+msgstr "バッチから削除"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:253
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:88
+msgid "Clinicians Notes"
+msgstr "臨床医ノート"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
+msgid "Sample Taken On"
+msgstr "採取したサンプル"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
+msgid "Sun"
+msgstr "太陽"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
+msgid "Mon"
+msgstr "月"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
+msgid "Tue"
+msgstr "火"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
+msgid "Wed"
+msgstr "結婚した"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
+msgid "Thu"
+msgstr "木"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
+msgid "Fri"
+msgstr "金"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:265
+msgid "Sat"
+msgstr "土"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:287
+msgid "Minutes"
+msgstr "議事録"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:290
+msgid "Urgent Test"
+msgstr "緊急テスト"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:297
+msgid "Send Batch"
+msgstr "バッチを送信"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:321
+msgid "Select Tests"
+msgstr "テストを選択"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:326
+msgid "Select Test"
+msgstr "テストを選択"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:346
+msgid "Add Tests To Batch"
+msgstr "テストをバッチに追加"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
+msgid "Select a test group"
+msgstr "テストグループを選択"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:360
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
+msgid "Parameter Group"
+msgstr "パラメータグループ"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:385
+msgid "Select Group"
+msgstr "グループを選択"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
+msgid "Search for Patients"
+msgstr "患者を探す"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:402
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
+#: /home/tim/code/KwaMoja/SelectCustomer.php:272
+#: /home/tim/code/KwaMoja/SelectSupplier.php:301
+#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
+msgid "Enter a partial Name"
+msgstr "部分的な名前を入力してください"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:413
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
+msgid "Enter a partial patient file number"
+msgstr "患者ファイル番号の一部を入力してください"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:424
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
+#: /home/tim/code/KwaMoja/SelectCustomer.php:295
+msgid "Enter a partial Phone Number"
+msgstr "電話番号の一部を入力してください"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:435
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
+#: /home/tim/code/KwaMoja/SelectCustomer.php:306
+msgid "Enter part of the Address"
+msgstr "住所の一部を入力してください"
+
 #: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
 msgid "Room Types"
 msgstr "部屋タイプ"
@@ -29843,28 +30098,9 @@ msgstr "患者様"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
 msgid "Patient"
 msgstr "患者"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
-msgid "Select a menu option to operate using this patient"
-msgstr "この患者を使用して操作するメニューオプションを選択します"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-#: /home/tim/code/KwaMoja/SelectCustomer.php:174
-#: /home/tim/code/KwaMoja/SelectProduct.php:450
-#: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:92
-msgid "Inquiries and Reports"
-msgstr "お問い合わせとレポート"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-msgid "Patient Inquiries"
-msgstr "患者の問い合わせ"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
-msgid "Patient Transactions"
-msgstr "患者のトランザクション"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
@@ -29881,35 +30117,6 @@ msgstr "外来入院データの変更"
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
 msgid "Discharge this patient"
 msgstr "この患者を退院させる"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
-msgid "Patient Maintenance"
-msgstr "患者の維持"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
-msgid "Search for Patients"
-msgstr "患者を探す"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
-#: /home/tim/code/KwaMoja/SelectCustomer.php:272
-#: /home/tim/code/KwaMoja/SelectSupplier.php:301
-#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
-msgid "Enter a partial Name"
-msgstr "部分的な名前を入力してください"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
-msgid "Enter a partial patient file number"
-msgstr "患者ファイル番号の一部を入力してください"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
-#: /home/tim/code/KwaMoja/SelectCustomer.php:295
-msgid "Enter a partial Phone Number"
-msgstr "電話番号の一部を入力してください"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
-#: /home/tim/code/KwaMoja/SelectCustomer.php:306
-msgid "Enter part of the Address"
-msgstr "住所の一部を入力してください"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
@@ -29956,6 +30163,7 @@ msgid "You already have a test group type called"
 msgstr "あなたはすでに呼ばれるテストグループタイプを持っています"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:128
 msgid "Test Group"
 msgstr "テストグループ"
 
@@ -30052,10 +30260,6 @@ msgstr "パラメータを編集"
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:146
 msgid "Select parameter group"
 msgstr "パラメータグループを選択"
-
-#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
-msgid "Parameter Group"
-msgstr "パラメータグループ"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:235
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:244
@@ -30352,6 +30556,38 @@ msgstr "このリストは、毎日の終わりに空でなければなりませ
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:48
 msgid "Prescription Date"
 msgstr "処方日"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:4
+msgid "View Lab Tests"
+msgstr "ラボテストを見る"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:25
+msgid "View Lab Test Batch"
+msgstr "ラボテストバッチの表示"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
+msgid "Batch Summary"
+msgstr "バッチの要約"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:72
+msgid "Print Test Request"
+msgstr "テストリクエストの印刷"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:92
+msgid "Date Sent"
+msgstr "送信日"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:96
+msgid "Sample Taken"
+msgstr "採取したサンプル"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:104
+msgid "Request Urgent"
+msgstr "緊急を要求"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:123
+msgid "Tests to be carried out"
+msgstr "実施する試験"
 
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:3
 msgid "View Patient History"
@@ -39551,11 +39787,6 @@ msgstr "すべての製品仕様を表示"
 msgid "Edit Test Details"
 msgstr "テストの詳細を編集"
 
-#: /home/tim/code/KwaMoja/ProductSpecs.php:512
-#: /home/tim/code/KwaMoja/TestPlanResults.php:765
-msgid "Test Name"
-msgstr "テスト名"
-
 #: /home/tim/code/KwaMoja/ProductSpecs.php:571
 #: /home/tim/code/KwaMoja/QATests.php:278
 msgid "Show On Cert?"
@@ -44670,11 +44901,6 @@ msgstr "特定の部品のサンプルを検索するには、以下の部品選
 #: /home/tim/code/KwaMoja/TestPlanResults.php:256
 msgid "No QA samples were returned by the SQL because"
 msgstr "SQLではQAサンプルが返されませんでした。"
-
-#: /home/tim/code/KwaMoja/SelectQASamples.php:403
-#: /home/tim/code/KwaMoja/TestPlanResults.php:264
-msgid "Enter Results"
-msgstr "結果を入力"
 
 #: /home/tim/code/KwaMoja/SelectQASamples.php:404
 #: /home/tim/code/KwaMoja/SelectQASamples.php:496
@@ -70460,6 +70686,10 @@ msgstr "パラメータグループのテスト"
 msgid "Maintain Test Parameters"
 msgstr "テストパラメータの維持"
 
+#: /home/tim/code/KwaMoja/sql/updates/218.php:8
+msgid "Medical Laboratory Details"
+msgstr "医療研究所の詳細"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "購入"
@@ -71302,6 +71532,15 @@ msgstr "スタッフローン"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "スタッフローン返済"
+
+#~ msgid "Medical Laboratory Test Reqest"
+#~ msgstr "医療検査要求"
+
+#~ msgid "Date Sampled"
+#~ msgstr "サンプリング日"
+
+#~ msgid "Selected Tests in Batch"
+#~ msgstr "バッチで選択されたテスト"
 
 #~ msgid "The ttime type name description must be 100 characters or less long"
 #~ msgstr "ttimeタイプ名の説明は100文字以下にする必要があります"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 00:54+0100\n"
+"POT-Creation-Date: 2020-08-07 02:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,6 +855,7 @@ msgstr "को खाता समूह में बदल दिया गय
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
@@ -1329,6 +1330,8 @@ msgstr "मूल समूह का नाम"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:66
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
@@ -1625,6 +1628,8 @@ msgstr "हाँ"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:64
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
@@ -2194,6 +2199,7 @@ msgstr "संपर्क रिकॉर्ड हटा दिया गय�
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
@@ -2308,6 +2314,7 @@ msgstr "बयान"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:179
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:410
 #: /home/tim/code/KwaMoja/GLStatements.php:137
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -3738,6 +3745,9 @@ msgstr "रिपोर्ट में अंतिम अवधि का च�
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:432
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
@@ -3923,6 +3933,7 @@ msgstr "कृपया एक वैकल्पिक अवधि सीम�
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/MRPReport.php:438
 #: /home/tim/code/KwaMoja/SalesGraph.php:283
 #: /home/tim/code/KwaMoja/SalesGraph.php:291
@@ -5577,6 +5588,7 @@ msgstr "या एक आइटम कोड का हिस्सा दर्
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:446
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
@@ -8191,6 +8203,7 @@ msgstr "एसक्यूएल द्वारा कोई काम आद�
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
@@ -12178,6 +12191,7 @@ msgstr "अनुबंध: ग्राहक चुनें"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
@@ -16174,6 +16188,7 @@ msgstr "नकद बिक्री के लिए इस शाखा का
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
@@ -16489,6 +16504,8 @@ msgid "Summary of Receipt Batch"
 msgstr "रसीद बैच का सारांश"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:76
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "बैच संख्या"
@@ -17751,6 +17768,7 @@ msgid "Daily Sales For"
 msgstr "दैनिक बिक्री के लिए"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:122
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
@@ -17758,6 +17776,7 @@ msgid "Sunday"
 msgstr "रविवार"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:123
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:16
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
@@ -17765,6 +17784,7 @@ msgid "Monday"
 msgstr "सोमवार"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:124
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:17
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
@@ -17772,6 +17792,7 @@ msgid "Tuesday"
 msgstr "मंगलवार"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:125
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:18
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
@@ -17779,6 +17800,7 @@ msgid "Wednesday"
 msgstr "बुधवार"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:126
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:19
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
@@ -17786,6 +17808,7 @@ msgid "Thursday"
 msgstr "गुरूवार"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:127
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:20
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
@@ -17793,6 +17816,7 @@ msgid "Friday"
 msgstr "शुक्रवार"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:128
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:167
@@ -25800,6 +25824,7 @@ msgid "Technician"
 msgstr "तकनीशियन"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:277
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
@@ -26036,6 +26061,8 @@ msgid "Bed Number"
 msgstr "बेड नंबर"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:81
 msgid "PID"
 msgstr "पीआईडी"
 
@@ -26044,6 +26071,7 @@ msgstr "पीआईडी"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
@@ -26996,6 +27024,7 @@ msgstr "रोगी निर्वहन विवरण"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "रोगी का नाम"
@@ -27037,6 +27066,7 @@ msgid "Discharge Notes"
 msgstr "डिस्चार्ज नोट्स"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:100
 #: /home/tim/code/KwaMoja/WWW_Access.php:143
 #: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
@@ -27629,6 +27659,7 @@ msgstr "आइटम का प्रकार:"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:960
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:625
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:618
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:39
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:843
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:923
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:613
@@ -28232,6 +28263,7 @@ msgid "Invoices for transfer to"
 msgstr "में स्थानांतरण के लिए चालान"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:388
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
 msgid "Patient ID"
 msgstr "रोगी आईडी"
 
@@ -28367,6 +28399,9 @@ msgstr "तरीका"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:132
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:61
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:130
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:221
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:325
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
 #: /home/tim/code/KwaMoja/QATests.php:380
 msgid "Test ID"
 msgstr "टेस्ट आईडी"
@@ -28731,6 +28766,48 @@ msgstr "माप प्रकार अद्यतन करें"
 msgid "Create Measurement Type"
 msgstr "माप प्रकार बनाएँ"
 
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:5
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:11
+msgid "Medical Laboratory"
+msgstr "चिकित्सा प्रयोगशाला"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:17
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
+msgid "Select a menu option to operate using this patient"
+msgstr "इस रोगी का उपयोग करके संचालित करने के लिए एक मेनू विकल्प चुनें"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+#: /home/tim/code/KwaMoja/SelectCustomer.php:174
+#: /home/tim/code/KwaMoja/SelectProduct.php:450
+#: /home/tim/code/KwaMoja/SelectSupplier.php:211
+#: /home/tim/code/KwaMoja/index.php:92
+msgid "Inquiries and Reports"
+msgstr "पूछताछ और रिपोर्ट"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+msgid "Patient Inquiries"
+msgstr "रोगी से पूछताछ"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:25
+msgid "Pending Laboratory Tests"
+msgstr "लंबित प्रयोगशाला परीक्षण"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:31
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
+msgid "Patient Transactions"
+msgstr "रोगी के लेन-देन"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:34
+msgid "Request a Laboratory Test"
+msgstr "प्रयोगशाला परीक्षण का अनुरोध करें"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:40
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
+msgid "Patient Maintenance"
+msgstr "रोगी का रखरखाव"
+
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
 msgid "Notes Types"
@@ -28979,6 +29056,42 @@ msgstr "इस उपयोगकर्ता के लिए अभी तक 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
 msgstr "भुगतान की प्रक्रिया"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:5
+msgid "Pending Medical Laboratory Test Requests"
+msgstr "लंबित मेडिकल प्रयोगशाला परीक्षण अनुरोध"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:32
+msgid "Pending Test Requests"
+msgstr "लंबित परीक्षण अनुरोध"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:84
+msgid "Patient Phone"
+msgstr "रोगी फोन"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:40
+msgid "Date Batch Sent"
+msgstr "दिनांक बैच भेजा गया"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:42
+msgid "Is Batch Urgent"
+msgstr "बैच अर्जेंट है"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
+msgid "View Batch"
+msgstr "देखें बैच"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
+#: /home/tim/code/KwaMoja/SelectQASamples.php:403
+#: /home/tim/code/KwaMoja/TestPlanResults.php:264
+msgid "Enter Results"
+msgstr "परिणाम दर्ज करें"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:95
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:146
+msgid "Return to Laboratory Centre"
+msgstr "प्रयोगशाला केंद्र पर लौटें"
 
 #: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
 msgid "Perineum Types"
@@ -29777,6 +29890,148 @@ msgstr "इस रोगी का रक्त समूह"
 msgid "Item to bill"
 msgstr "बिल का मद"
 
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:5
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:63
+msgid "Medical Laboratory Test Request"
+msgstr "चिकित्सा प्रयोगशाला परीक्षण अनुरोध"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:133
+msgid "Failed to insert the batch header into the database"
+msgstr "डेटाबेस में बैच हेडर डालने में विफल"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:154
+msgid "Failed to insert the batch line into the database"
+msgstr "डेटाबेस में बैच लाइन डालने में विफल"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
+msgid "The batch of tests has been sent successfully"
+msgstr "परीक्षणों के बैच को सफलतापूर्वक भेजा गया है"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:216
+msgid "Tests in Batch"
+msgstr "बैच में टेस्ट"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+msgid "Test Number"
+msgstr "टेस्ट नंबर"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
+#: /home/tim/code/KwaMoja/ProductSpecs.php:512
+#: /home/tim/code/KwaMoja/TestPlanResults.php:765
+msgid "Test Name"
+msgstr "परीक्षण का नाम"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:240
+msgid "Remove From Batch"
+msgstr "बैच से निकालें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:253
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:88
+msgid "Clinicians Notes"
+msgstr "चिकित्सक नोट"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
+msgid "Sample Taken On"
+msgstr "नमूना लिया गया"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
+msgid "Sun"
+msgstr "रवि"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
+msgid "Mon"
+msgstr "सोमवार"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
+msgid "Tue"
+msgstr "मंगल"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
+msgid "Wed"
+msgstr "बुध"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
+msgid "Thu"
+msgstr "गुरु"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
+msgid "Fri"
+msgstr "शुक्र"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:265
+msgid "Sat"
+msgstr "बैठ गया"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:287
+msgid "Minutes"
+msgstr "मिनट"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:290
+msgid "Urgent Test"
+msgstr "तत्काल परीक्षण"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:297
+msgid "Send Batch"
+msgstr "बैच भेजें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:321
+msgid "Select Tests"
+msgstr "टेस्ट का चयन करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:326
+msgid "Select Test"
+msgstr "टेस्ट का चयन करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:346
+msgid "Add Tests To Batch"
+msgstr "बैच में टेस्ट जोड़ें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
+msgid "Select a test group"
+msgstr "एक परीक्षण समूह का चयन करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:360
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
+msgid "Parameter Group"
+msgstr "पैरामीटर समूह"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:385
+msgid "Select Group"
+msgstr "समूह का चयन करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
+msgid "Search for Patients"
+msgstr "मरीजों की तलाश करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:402
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
+#: /home/tim/code/KwaMoja/SelectCustomer.php:272
+#: /home/tim/code/KwaMoja/SelectSupplier.php:301
+#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
+msgid "Enter a partial Name"
+msgstr "आंशिक नाम दर्ज करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:413
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
+msgid "Enter a partial patient file number"
+msgstr "एक आंशिक रोगी फ़ाइल नंबर दर्ज करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:424
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
+#: /home/tim/code/KwaMoja/SelectCustomer.php:295
+msgid "Enter a partial Phone Number"
+msgstr "आंशिक फ़ोन नंबर दर्ज करें"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:435
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
+#: /home/tim/code/KwaMoja/SelectCustomer.php:306
+msgid "Enter part of the Address"
+msgstr "पता का हिस्सा दर्ज करें"
+
 #: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
 msgid "Room Types"
 msgstr "कमरे के प्रकार"
@@ -29843,28 +30098,9 @@ msgstr "मरीजों"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
 msgid "Patient"
 msgstr "मरीज़"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
-msgid "Select a menu option to operate using this patient"
-msgstr "इस रोगी का उपयोग करके संचालित करने के लिए एक मेनू विकल्प चुनें"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-#: /home/tim/code/KwaMoja/SelectCustomer.php:174
-#: /home/tim/code/KwaMoja/SelectProduct.php:450
-#: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:92
-msgid "Inquiries and Reports"
-msgstr "पूछताछ और रिपोर्ट"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-msgid "Patient Inquiries"
-msgstr "रोगी से पूछताछ"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
-msgid "Patient Transactions"
-msgstr "रोगी के लेन-देन"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
@@ -29881,35 +30117,6 @@ msgstr "आउट पेशेंट प्रवेश डेटा संश�
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
 msgid "Discharge this patient"
 msgstr "इस रोगी को छुट्टी दें"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
-msgid "Patient Maintenance"
-msgstr "रोगी का रखरखाव"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
-msgid "Search for Patients"
-msgstr "मरीजों की तलाश करें"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
-#: /home/tim/code/KwaMoja/SelectCustomer.php:272
-#: /home/tim/code/KwaMoja/SelectSupplier.php:301
-#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
-msgid "Enter a partial Name"
-msgstr "आंशिक नाम दर्ज करें"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
-msgid "Enter a partial patient file number"
-msgstr "एक आंशिक रोगी फ़ाइल नंबर दर्ज करें"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
-#: /home/tim/code/KwaMoja/SelectCustomer.php:295
-msgid "Enter a partial Phone Number"
-msgstr "आंशिक फ़ोन नंबर दर्ज करें"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
-#: /home/tim/code/KwaMoja/SelectCustomer.php:306
-msgid "Enter part of the Address"
-msgstr "पता का हिस्सा दर्ज करें"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
@@ -29956,6 +30163,7 @@ msgid "You already have a test group type called"
 msgstr "आपके पास पहले से ही एक परीक्षण समूह प्रकार है जिसे कहा जाता है"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:128
 msgid "Test Group"
 msgstr "टेस्ट ग्रुप"
 
@@ -30052,10 +30260,6 @@ msgstr "पैरामीटर संपादित करें"
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:146
 msgid "Select parameter group"
 msgstr "पैरामीटर समूह का चयन करें"
-
-#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
-msgid "Parameter Group"
-msgstr "पैरामीटर समूह"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:235
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:244
@@ -30352,6 +30556,38 @@ msgstr "यह सूची प्रत्येक दिन के अंत 
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:48
 msgid "Prescription Date"
 msgstr "प्रिस्क्रिप्शन तिथि"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:4
+msgid "View Lab Tests"
+msgstr "लैब टेस्ट देखें"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:25
+msgid "View Lab Test Batch"
+msgstr "लैब टेस्ट बैच देखें"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
+msgid "Batch Summary"
+msgstr "बैच सारांश"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:72
+msgid "Print Test Request"
+msgstr "प्रिंट परीक्षण अनुरोध"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:92
+msgid "Date Sent"
+msgstr "तिथि भेज दी"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:96
+msgid "Sample Taken"
+msgstr "नमूना लिया गया"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:104
+msgid "Request Urgent"
+msgstr "आग्रह करें"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:123
+msgid "Tests to be carried out"
+msgstr "टेस्ट किए जाने हैं"
 
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:3
 msgid "View Patient History"
@@ -39551,11 +39787,6 @@ msgstr "सभी उत्पाद चश्मा दिखाएँ"
 msgid "Edit Test Details"
 msgstr "परीक्षण विवरण संपादित करें"
 
-#: /home/tim/code/KwaMoja/ProductSpecs.php:512
-#: /home/tim/code/KwaMoja/TestPlanResults.php:765
-msgid "Test Name"
-msgstr "परीक्षण का नाम"
-
 #: /home/tim/code/KwaMoja/ProductSpecs.php:571
 #: /home/tim/code/KwaMoja/QATests.php:278
 msgid "Show On Cert?"
@@ -44670,11 +44901,6 @@ msgstr "एक विशिष्ट भाग के लिए नमूनो�
 #: /home/tim/code/KwaMoja/TestPlanResults.php:256
 msgid "No QA samples were returned by the SQL because"
 msgstr "एसएक्सएल द्वारा कोई क्यूए के नमूनों को नहीं लौटाया गया था क्योंकि"
-
-#: /home/tim/code/KwaMoja/SelectQASamples.php:403
-#: /home/tim/code/KwaMoja/TestPlanResults.php:264
-msgid "Enter Results"
-msgstr "परिणाम दर्ज करें"
 
 #: /home/tim/code/KwaMoja/SelectQASamples.php:404
 #: /home/tim/code/KwaMoja/SelectQASamples.php:496
@@ -70460,6 +70686,10 @@ msgstr "परीक्षण पैरामीटर समूह"
 msgid "Maintain Test Parameters"
 msgstr "टेस्ट पैरामीटर्स बनाए रखें"
 
+#: /home/tim/code/KwaMoja/sql/updates/218.php:8
+msgid "Medical Laboratory Details"
+msgstr "चिकित्सा प्रयोगशाला विवरण"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "खरीद"
@@ -71302,6 +71532,15 @@ msgstr "स्टाफ ऋण"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "कर्मचारी ऋण चुकौती"
+
+#~ msgid "Medical Laboratory Test Reqest"
+#~ msgstr "मेडिकल लेबोरेटरी टेस्ट रेक्स्ट"
+
+#~ msgid "Date Sampled"
+#~ msgstr "दिनांक समादृत"
+
+#~ msgid "Selected Tests in Batch"
+#~ msgstr "बैच में चयनित टेस्ट"
 
 #~ msgid "The ttime type name description must be 100 characters or less long"
 #~ msgstr "समय प्रकार नाम विवरण 100 वर्ण या उससे कम लंबा होना चाहिए"

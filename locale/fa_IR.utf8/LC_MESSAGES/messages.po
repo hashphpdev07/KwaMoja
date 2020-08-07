@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-28 00:33+0100\n"
+"POT-Creation-Date: 2020-08-07 01:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,6 +855,7 @@ msgstr "تسا هدش هداد رییغت باسح هورگ هب "
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
@@ -1329,6 +1330,8 @@ msgstr "دلاو هورگ مان "
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:66
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
@@ -1625,6 +1628,8 @@ msgstr "هلب "
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:64
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
@@ -2194,6 +2199,7 @@ msgstr "تسا هدش فذح بطاخم دروکر "
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
@@ -2308,6 +2314,7 @@ msgstr "هینایب "
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:179
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:410
 #: /home/tim/code/KwaMoja/GLStatements.php:137
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -3738,6 +3745,9 @@ msgstr "آخرین دوره را در گزارش انتخاب کنید"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:432
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
@@ -3923,6 +3933,7 @@ msgstr "دینک باختنا ار نیزگیاج هرود یعیسو کی اف�
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/MRPReport.php:438
 #: /home/tim/code/KwaMoja/SalesGraph.php:283
 #: /home/tim/code/KwaMoja/SalesGraph.php:291
@@ -5577,6 +5588,7 @@ msgstr "یا بخشی از کد موارد را وارد کنید"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:446
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
@@ -8191,6 +8203,7 @@ msgstr "دندش هدنادرگزاب لیلد LQS راثآ تاشرافس نو�
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
@@ -12178,6 +12191,7 @@ msgstr "طباوض و دینک باختنا :دادرارق "
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
@@ -16174,6 +16188,7 @@ msgstr "از این شعبه به عنوان پیش فرض برای فروش ن�
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
@@ -16489,6 +16504,8 @@ msgid "Summary of Receipt Batch"
 msgstr "تفایرد یا هتسد زا یا هصالخ "
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:76
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "چب هرامش "
@@ -17751,6 +17768,7 @@ msgid "Daily Sales For"
 msgstr "یارب هنازور شورف "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:122
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
@@ -17758,6 +17776,7 @@ msgid "Sunday"
 msgstr "هبنشکی "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:123
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:16
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
@@ -17765,6 +17784,7 @@ msgid "Monday"
 msgstr "هبنشود "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:124
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:17
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
@@ -17772,6 +17792,7 @@ msgid "Tuesday"
 msgstr "هبنشهس "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:125
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:18
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
@@ -17779,6 +17800,7 @@ msgid "Wednesday"
 msgstr "هبنش راهچ "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:126
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:19
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
@@ -17786,6 +17808,7 @@ msgid "Thursday"
 msgstr "هبنش جنپ "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:127
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:20
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
@@ -17793,6 +17816,7 @@ msgid "Friday"
 msgstr "هعمج "
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:128
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:167
@@ -25800,6 +25824,7 @@ msgid "Technician"
 msgstr "نیسنکت "
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:277
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
@@ -26036,6 +26061,8 @@ msgid "Bed Number"
 msgstr "شماره تخت"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:81
 msgid "PID"
 msgstr "PID"
 
@@ -26044,6 +26071,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
@@ -26996,6 +27024,7 @@ msgstr "جزئیات تخلیه بیمار"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "نام بیمار"
@@ -27037,6 +27066,7 @@ msgid "Discharge Notes"
 msgstr "یادداشتهای تخلیه"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:100
 #: /home/tim/code/KwaMoja/WWW_Access.php:143
 #: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
@@ -27629,6 +27659,7 @@ msgstr "نوع کالا:"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:960
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:625
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:618
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:39
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:843
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:923
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:613
@@ -28232,6 +28263,7 @@ msgid "Invoices for transfer to"
 msgstr "صورتحساب برای انتقال به"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:388
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
 msgid "Patient ID"
 msgstr "شناسه بیمار"
 
@@ -28367,6 +28399,9 @@ msgstr "شور "
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:132
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:61
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:130
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:221
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:325
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
 #: /home/tim/code/KwaMoja/QATests.php:380
 msgid "Test ID"
 msgstr "DI تست "
@@ -28731,6 +28766,48 @@ msgstr "نوع اندازه گیری را به روز کنید"
 msgid "Create Measurement Type"
 msgstr "نوع اندازه گیری را ایجاد کنید"
 
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:5
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:11
+msgid "Medical Laboratory"
+msgstr "آزمایشگاه پزشکی"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:17
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
+msgid "Select a menu option to operate using this patient"
+msgstr "با استفاده از این بیمار گزینه منو را انتخاب کنید"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+#: /home/tim/code/KwaMoja/SelectCustomer.php:174
+#: /home/tim/code/KwaMoja/SelectProduct.php:450
+#: /home/tim/code/KwaMoja/SelectSupplier.php:211
+#: /home/tim/code/KwaMoja/index.php:92
+msgid "Inquiries and Reports"
+msgstr "شرازگ و تالاوس "
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+msgid "Patient Inquiries"
+msgstr "سوالات بیمار"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:25
+msgid "Pending Laboratory Tests"
+msgstr "تست های آزمایشگاهی در انتظار"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:31
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
+msgid "Patient Transactions"
+msgstr "تراکنش های بیمار"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:34
+msgid "Request a Laboratory Test"
+msgstr "درخواست آزمایش آزمایشگاهی کنید"
+
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:40
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
+msgid "Patient Maintenance"
+msgstr "نگهداری بیمار"
+
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
 msgid "Notes Types"
@@ -28979,6 +29056,42 @@ msgstr "هنوز حساب نقدی برای این کاربر تعریف نشد�
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
 msgstr "پرداخت فرآیند"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:5
+msgid "Pending Medical Laboratory Test Requests"
+msgstr "در انتظار درخواست های آزمایشگاه پزشکی"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:32
+msgid "Pending Test Requests"
+msgstr "درخواست های آزمون در انتظار"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:84
+msgid "Patient Phone"
+msgstr "تلفن بیمار"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:40
+msgid "Date Batch Sent"
+msgstr "تاریخ ارسال دسته ای"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:42
+msgid "Is Batch Urgent"
+msgstr "فوری دسته ای است"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
+msgid "View Batch"
+msgstr "مشاهده دسته ای"
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
+#: /home/tim/code/KwaMoja/SelectQASamples.php:403
+#: /home/tim/code/KwaMoja/TestPlanResults.php:264
+msgid "Enter Results"
+msgstr "دینک دراو ار جیاتن "
+
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:95
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:146
+msgid "Return to Laboratory Centre"
+msgstr "بازگشت به مرکز آزمایشگاه"
 
 #: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
 msgid "Perineum Types"
@@ -29777,6 +29890,148 @@ msgstr "گروه خونی این بیمار"
 msgid "Item to bill"
 msgstr "مورد به صورت حساب"
 
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:5
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:63
+msgid "Medical Laboratory Test Request"
+msgstr "درخواست آزمایش آزمایشگاه پزشکی"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:133
+msgid "Failed to insert the batch header into the database"
+msgstr "درج هدر دسته ای در بانک اطلاعات انجام نشد"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:154
+msgid "Failed to insert the batch line into the database"
+msgstr "درج خط دسته در پایگاه داده انجام نشد"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
+msgid "The batch of tests has been sent successfully"
+msgstr "دسته آزمایشات با موفقیت ارسال شده است"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:216
+msgid "Tests in Batch"
+msgstr "تست در دسته"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+msgid "Test Number"
+msgstr "شماره آزمون"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
+#: /home/tim/code/KwaMoja/ProductSpecs.php:512
+#: /home/tim/code/KwaMoja/TestPlanResults.php:765
+msgid "Test Name"
+msgstr "نومزآ مان "
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:240
+msgid "Remove From Batch"
+msgstr "حذف از دسته"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:253
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:88
+msgid "Clinicians Notes"
+msgstr "یادداشت پزشکان"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
+msgid "Sample Taken On"
+msgstr "نمونه گرفته شده در"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
+msgid "Sun"
+msgstr "آفتاب"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
+msgid "Mon"
+msgstr "دوشنبه"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
+msgid "Tue"
+msgstr "سه شنبه"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
+msgid "Wed"
+msgstr "چهارشنبه"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
+msgid "Thu"
+msgstr "پنجشنبه"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
+msgid "Fri"
+msgstr "جمعه"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:265
+msgid "Sat"
+msgstr "نشسته"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:287
+msgid "Minutes"
+msgstr "دقایق"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:290
+msgid "Urgent Test"
+msgstr "تست فوری"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:297
+msgid "Send Batch"
+msgstr "ارسال دسته ای"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:321
+msgid "Select Tests"
+msgstr "آزمایش ها را انتخاب کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:326
+msgid "Select Test"
+msgstr "تست را انتخاب کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:346
+msgid "Add Tests To Batch"
+msgstr "اضافه کردن تست به دسته"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
+msgid "Select a test group"
+msgstr "یک گروه آزمایشی را انتخاب کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:360
+#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
+msgid "Parameter Group"
+msgstr "گروه پارامتر"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:385
+msgid "Select Group"
+msgstr "گروه را انتخاب کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
+msgid "Search for Patients"
+msgstr "جستجوی بیماران"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:402
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
+#: /home/tim/code/KwaMoja/SelectCustomer.php:272
+#: /home/tim/code/KwaMoja/SelectSupplier.php:301
+#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
+msgid "Enter a partial Name"
+msgstr "دینک دراو ار یئزج مان "
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:413
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
+msgid "Enter a partial patient file number"
+msgstr "شماره پرونده بیمار جزئی را وارد کنید"
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:424
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
+#: /home/tim/code/KwaMoja/SelectCustomer.php:295
+msgid "Enter a partial Phone Number"
+msgstr "یئزج دینک دراو ار نفلت هرامش "
+
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:435
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
+#: /home/tim/code/KwaMoja/SelectCustomer.php:306
+msgid "Enter part of the Address"
+msgstr "دینک دراو ار سردآ زا یشخب "
+
 #: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
 msgid "Room Types"
 msgstr "انواع اتاق"
@@ -29843,28 +30098,9 @@ msgstr "بیماران"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
 msgid "Patient"
 msgstr "صبور"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
-msgid "Select a menu option to operate using this patient"
-msgstr "با استفاده از این بیمار گزینه منو را انتخاب کنید"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-#: /home/tim/code/KwaMoja/SelectCustomer.php:174
-#: /home/tim/code/KwaMoja/SelectProduct.php:450
-#: /home/tim/code/KwaMoja/SelectSupplier.php:211
-#: /home/tim/code/KwaMoja/index.php:92
-msgid "Inquiries and Reports"
-msgstr "شرازگ و تالاوس "
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-msgid "Patient Inquiries"
-msgstr "سوالات بیمار"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
-msgid "Patient Transactions"
-msgstr "تراکنش های بیمار"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
@@ -29881,35 +30117,6 @@ msgstr "داده های بستری را اصلاح کنید"
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
 msgid "Discharge this patient"
 msgstr "این بیمار را مرخص کنید"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
-msgid "Patient Maintenance"
-msgstr "نگهداری بیمار"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
-msgid "Search for Patients"
-msgstr "جستجوی بیماران"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
-#: /home/tim/code/KwaMoja/SelectCustomer.php:272
-#: /home/tim/code/KwaMoja/SelectSupplier.php:301
-#: /home/tim/code/KwaMoja/SupplierTenderCreate.php:504
-msgid "Enter a partial Name"
-msgstr "دینک دراو ار یئزج مان "
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
-msgid "Enter a partial patient file number"
-msgstr "شماره پرونده بیمار جزئی را وارد کنید"
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
-#: /home/tim/code/KwaMoja/SelectCustomer.php:295
-msgid "Enter a partial Phone Number"
-msgstr "یئزج دینک دراو ار نفلت هرامش "
-
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
-#: /home/tim/code/KwaMoja/SelectCustomer.php:306
-msgid "Enter part of the Address"
-msgstr "دینک دراو ار سردآ زا یشخب "
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
@@ -29956,6 +30163,7 @@ msgid "You already have a test group type called"
 msgstr "شما قبلاً یک نوع گروه آزمایشی به نام دارید"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:128
 msgid "Test Group"
 msgstr "گروه آزمون"
 
@@ -30052,10 +30260,6 @@ msgstr "پارامتر را ویرایش کنید"
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:146
 msgid "Select parameter group"
 msgstr "گروه پارامتر را انتخاب کنید"
-
-#: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
-msgid "Parameter Group"
-msgstr "گروه پارامتر"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:235
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:244
@@ -30352,6 +30556,38 @@ msgstr "این لیست باید در پایان هر روز خالی باشد"
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:48
 msgid "Prescription Date"
 msgstr "تاریخ نسخه"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:4
+msgid "View Lab Tests"
+msgstr "مشاهده آزمایشات آزمایشگاه"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:25
+msgid "View Lab Test Batch"
+msgstr "مشاهده آزمایشگاه دسته ای"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
+msgid "Batch Summary"
+msgstr "خلاصه دسته ای"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:72
+msgid "Print Test Request"
+msgstr "درخواست آزمون چاپ"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:92
+msgid "Date Sent"
+msgstr "تاریخ ارسال شد"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:96
+msgid "Sample Taken"
+msgstr "نمونه گرفته شده"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:104
+msgid "Request Urgent"
+msgstr "درخواست فوری"
+
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:123
+msgid "Tests to be carried out"
+msgstr "آزمایش هایی که باید انجام شود"
 
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:3
 msgid "View Patient History"
@@ -39551,11 +39787,6 @@ msgstr "لوصحم تاصخشم مامت شیامن "
 msgid "Edit Test Details"
 msgstr "جزئیات تست را ویرایش کنید"
 
-#: /home/tim/code/KwaMoja/ProductSpecs.php:512
-#: /home/tim/code/KwaMoja/TestPlanResults.php:765
-msgid "Test Name"
-msgstr "نومزآ مان "
-
 #: /home/tim/code/KwaMoja/ProductSpecs.php:571
 #: /home/tim/code/KwaMoja/QATests.php:278
 msgid "Show On Cert?"
@@ -44670,11 +44901,6 @@ msgstr "برای جستجوی نمونه برای یک قسمت خاص از ام
 #: /home/tim/code/KwaMoja/TestPlanResults.php:256
 msgid "No QA samples were returned by the SQL because"
 msgstr "دندش هدنادرگزاب لیلد LQS طسوت AQ هنومن چیه "
-
-#: /home/tim/code/KwaMoja/SelectQASamples.php:403
-#: /home/tim/code/KwaMoja/TestPlanResults.php:264
-msgid "Enter Results"
-msgstr "دینک دراو ار جیاتن "
 
 #: /home/tim/code/KwaMoja/SelectQASamples.php:404
 #: /home/tim/code/KwaMoja/SelectQASamples.php:496
@@ -70460,6 +70686,10 @@ msgstr "آزمایش گروه های پارامتر"
 msgid "Maintain Test Parameters"
 msgstr "پارامترهای تست را حفظ کنید"
 
+#: /home/tim/code/KwaMoja/sql/updates/218.php:8
+msgid "Medical Laboratory Details"
+msgstr "جزئیات آزمایشگاه پزشکی"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "دیرخ "
@@ -71302,6 +71532,15 @@ msgstr "نانکراک ماو "
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "تخادرپزاب نانکراک ماو "
+
+#~ msgid "Medical Laboratory Test Reqest"
+#~ msgstr "آزمایش آزمایشگاه پزشکی Reqest"
+
+#~ msgid "Date Sampled"
+#~ msgstr "تاریخ نمونه برداری"
+
+#~ msgid "Selected Tests in Batch"
+#~ msgstr "تست های انتخاب شده در دسته ای"
 
 #~ msgid "The ttime type name description must be 100 characters or less long"
 #~ msgstr "توضیحات نام نوع ttime باید 100 نویسه یا کمتر باشد"
