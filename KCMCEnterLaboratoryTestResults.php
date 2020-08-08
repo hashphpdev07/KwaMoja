@@ -66,8 +66,10 @@ if ($HeaderRow['urgent'] == 0) {
 	$Urgent = _('Yes');
 }
 
+$History = 'Created - ' . date($_SESSION['DefaultDateFormat'] . ' - ' . $_SESSION['UserID']);
+
 if (isset($_POST['SaveResults'])) {
-	$InsertHeaderSQL = "INSERT INTO care_test_findings_chemlab`(`batch_nr`,
+	$InsertHeaderSQL = "INSERT INTO `care_test_findings_chemlab` (`batch_nr`,
 																`encounter_nr`,
 																`job_id`,
 																`test_date`,
@@ -86,8 +88,82 @@ if (isset($_POST['SaveResults'])) {
 																NULL,
 																'" . $HeaderRow['encounter_nr'] . "',
 																'" . $HeaderRow['batch_nr'] . "',
-																'" . $_POST['ExaminationDate'] . "',
+																'" . FormatDateForSQL($_POST['ExaminationDate']) . "',
+																CURRENT_TIME,
+																'',
+																'',
+																'',
+																CURRENT_TIME,
+																'entered',
+																'" . $History . "',
+																'" . $_SESSION['UserID'] . "',
+																NOW(),
+																'" . $_SESSION['UserID'] . "',
+																NOW()
 															)";
+	$InsertHeaderResult = DB_query($InsertHeaderSQL);
+	if (DB_error_no() > 0) {
+		prnMsg(_('There was a problem inserting the header information for these results'), 'error');
+		include ('includes/footer.php');
+		exit;
+	}
+
+	$BatchNumber = DB_Last_Insert_ID('care_test_findings_chemlab', 'batch_nr');
+
+	foreach ($_POST as $Key => $Value) {
+		if (mb_substr($Key, 0, 6) == 'param_') {
+			$TestID = mb_substr($Key, 6);
+			$InsertLineSQL = "INSERT INTO `care_test_findings_chemlabor_sub` (`sub_id`,
+																			`batch_nr`,
+																			`job_id`,
+																			`encounter_nr`,
+																			`paramater_name`,
+																			`parameter_value`,
+																			`status`,
+																			`history`,
+																			`test_date`,
+																			`test_time`,
+																			`create_id`,
+																			`create_time`
+																		) VALUES (
+																			NULL,
+																			'" . $BatchNumber . "',
+																			'" . $HeaderRow['batch_nr'] . "',
+																			'" . $HeaderRow['encounter_nr'] . "',
+																			'" . $TestID . "',
+																			'" . $Value . "',
+																			'entered',
+																			'" . $History . "',
+																			'" . FormatDateForSQL($_POST['ExaminationDate']) . "',
+																			CURRENT_TIME,
+																			'" . $_SESSION['UserID'] . "',
+																			NOW()
+																		)";
+			$InsertLineResult = DB_query($InsertLineSQL);
+			if (DB_error_no() > 0) {
+				prnMsg(_('There was a problem inserting the line information for these results'), 'error');
+				include ('includes/footer.php');
+				exit;
+			}
+		}
+	}
+
+	$SQL = "UPDATE care_test_request_chemlabor SET status='entered' WHERE batch_nr='" . $HeaderRow['batch_nr'] . "'";
+	$Result = DB_query($SQL);
+	if (DB_error_no() > 0) {
+		prnMsg(_('There was a problem updating the status of the request'), 'error');
+		include ('includes/footer.php');
+		exit;
+	}
+
+	prnMsg(_('The test results were saved successfully'), 'success');
+
+	echo '<div class="centre">
+			<a href="', $RootPath, '/KCMCPendingLaboratoryTests.php">', _('Select another batch to enter'), '</a>
+		</div>';
+
+	include ('includes/footer.php');
+	exit;
 } else {
 
 	echo '<table>
