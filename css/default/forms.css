@@ -19,6 +19,7 @@ form fieldset fieldset {
 border: solid 1px #588BB6;
 display: inline-block;
 width:51%;
+margin-bottom:3px;
 }
 form fieldset legend {
 background-color:#B06161;
@@ -43,6 +44,7 @@ form fieldset field {
 display:block;
 text-align:left;
 margin-bottom:3px;
+margin-top:2px;
 }
 form fieldset field label {
 float:left;
