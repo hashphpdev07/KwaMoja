@@ -47,38 +47,6 @@ CreateTable('care_test_request_chemlabor_sub', "CREATE TABLE IF NOT EXISTS `care
   PRIMARY KEY  (`sub_id`)
 )");
 
-CreateTable('care_test_request_baclabor', "CREATE TABLE IF NOT EXISTS `care_test_request_baclabor` (
-  `batch_nr` int(11) NOT NULL auto_increment COMMENT 'Test request batch number. primary key',
-  `encounter_nr` int(11) unsigned NOT NULL default '0' COMMENT 'Related encounter number',
-  `dept_nr` smallint(5) unsigned NOT NULL default '0' COMMENT 'Department number (foreign key)',
-  `material` text collate latin1_general_ci NOT NULL COMMENT 'Material type',
-  `test_type` text collate latin1_general_ci NOT NULL,
-  `material_note` tinytext collate latin1_general_ci NOT NULL,
-  `diagnosis_note` tinytext collate latin1_general_ci NOT NULL COMMENT 'Supplementary diagnosis notes',
-  `immune_supp` tinyint(4) NOT NULL default '0' COMMENT 'Flag if immune suppressed. 1 = YES, 0 = NO',
-  `send_date` date NOT NULL default '0000-00-00',
-  `sample_date` date NOT NULL default '0000-00-00' COMMENT 'Date when sample was taken',
-  `status` varchar(10) collate latin1_general_ci NOT NULL,
-  `history` text collate latin1_general_ci NOT NULL,
-  `modify_id` varchar(35) collate latin1_general_ci NOT NULL,
-  `modify_time` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  `create_id` varchar(35) collate latin1_general_ci NOT NULL,
-  `create_time` timestamp NOT NULL default '0000-00-00 00:00:00',
-  PRIMARY KEY  (`batch_nr`),
-  KEY `send_date` (`send_date`)
-)");
-
-CreateTable('care_test_request_baclabor_sub', "CREATE TABLE IF NOT EXISTS `care_test_request_baclabor_sub` (
-  `sub_id` int(40) NOT NULL auto_increment COMMENT 'primary key',
-  `batch_nr` int(11) NOT NULL default '0' COMMENT 'connects to care_test_request_baclabor.batch_nr',
-  `encounter_nr` int(11) NOT NULL default '0' COMMENT 'Related encounter number',
-  `test_type` varchar(255) NOT NULL default '0' COMMENT 'Type of test requested',
-  `test_type_value` varchar(255) NOT NULL default '0',
-  `material` varchar(255) NOT NULL default '0' COMMENT 'Material notes and remarks',
-  `material_value` varchar(255) NOT NULL default '0',
-  PRIMARY KEY  (`sub_id`)
-)");
-
 CreateTable('care_test_findings_chemlab', "CREATE TABLE IF NOT EXISTS `care_test_findings_chemlab` (
   `batch_nr` int(11) NOT NULL auto_increment,
   `encounter_nr` int(11) NOT NULL default '0',
@@ -111,6 +79,38 @@ CreateTable('care_test_findings_chemlabor_sub', "CREATE TABLE IF NOT EXISTS `car
   `test_time` time default NULL,
   `create_id` varchar(35) character set latin1 collate latin1_general_ci default NULL,
   `create_time` timestamp NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`sub_id`)
+)");
+
+CreateTable('care_test_request_baclabor', "CREATE TABLE IF NOT EXISTS `care_test_request_baclabor` (
+  `batch_nr` int(11) NOT NULL auto_increment COMMENT 'Test request batch number. primary key',
+  `encounter_nr` int(11) unsigned NOT NULL default '0' COMMENT 'Related encounter number',
+  `dept_nr` smallint(5) unsigned NOT NULL default '0' COMMENT 'Department number (foreign key)',
+  `material` text collate latin1_general_ci NOT NULL COMMENT 'Material type',
+  `test_type` text collate latin1_general_ci NOT NULL,
+  `material_note` tinytext collate latin1_general_ci NOT NULL,
+  `diagnosis_note` tinytext collate latin1_general_ci NOT NULL COMMENT 'Supplementary diagnosis notes',
+  `immune_supp` tinyint(4) NOT NULL default '0' COMMENT 'Flag if immune suppressed. 1 = YES, 0 = NO',
+  `send_date` date NOT NULL default '0000-00-00',
+  `sample_date` date NOT NULL default '0000-00-00' COMMENT 'Date when sample was taken',
+  `status` varchar(10) collate latin1_general_ci NOT NULL,
+  `history` text collate latin1_general_ci NOT NULL,
+  `modify_id` varchar(35) collate latin1_general_ci NOT NULL,
+  `modify_time` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `create_id` varchar(35) collate latin1_general_ci NOT NULL,
+  `create_time` timestamp NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`batch_nr`),
+  KEY `send_date` (`send_date`)
+)");
+
+CreateTable('care_test_request_baclabor_sub', "CREATE TABLE IF NOT EXISTS `care_test_request_baclabor_sub` (
+  `sub_id` int(40) NOT NULL auto_increment COMMENT 'primary key',
+  `batch_nr` int(11) NOT NULL default '0' COMMENT 'connects to care_test_request_baclabor.batch_nr',
+  `encounter_nr` int(11) NOT NULL default '0' COMMENT 'Related encounter number',
+  `test_type` varchar(255) NOT NULL default '0' COMMENT 'Type of test requested',
+  `test_type_value` varchar(255) NOT NULL default '0',
+  `material` varchar(255) NOT NULL default '0' COMMENT 'Material notes and remarks',
+  `material_value` varchar(255) NOT NULL default '0',
   PRIMARY KEY  (`sub_id`)
 )");
 
