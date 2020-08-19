@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-07 04:45+0100\n"
+"POT-Creation-Date: 2020-08-19 03:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,7 +855,8 @@ msgstr "hesap grubuna değiştirildi"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
@@ -1324,6 +1325,7 @@ msgstr "Üst Grup Adı"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
@@ -1331,7 +1333,7 @@ msgstr "Üst Grup Adı"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:66
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
@@ -1622,6 +1624,7 @@ msgstr "Evet"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
@@ -1629,7 +1632,7 @@ msgstr "Evet"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:64
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
@@ -2200,6 +2203,7 @@ msgstr "Kişi kaydı silindi"
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
@@ -3745,9 +3749,12 @@ msgstr "Rapordaki son dönemi seçme"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:410
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:421
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:432
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
@@ -3934,6 +3941,7 @@ msgstr "Lütfen alternatif bir dönem aralığı seçin"
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/MRPReport.php:438
 #: /home/tim/code/KwaMoja/SalesGraph.php:283
 #: /home/tim/code/KwaMoja/SalesGraph.php:291
@@ -5588,7 +5596,8 @@ msgstr "Veya bir ürün kodunun bir kısmını girin"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:446
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:384
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
@@ -8204,6 +8213,7 @@ msgstr "SQL tarafından herhangi bir iş emri geri gönderilmedi, çünkü"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
@@ -12191,7 +12201,8 @@ msgstr "Sözleşme: Müşteri Seç"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:338
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
@@ -16189,6 +16200,7 @@ msgstr "Nakit satışı için bu şubeyi varsayılan olarak kullanın"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
@@ -16504,8 +16516,10 @@ msgid "Summary of Receipt Batch"
 msgstr "Makbuz Düzeyinin Özeti"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:176
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:76
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:31
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:75
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "Toplu İş Numarası"
@@ -17768,7 +17782,8 @@ msgid "Daily Sales For"
 msgstr "Için günlük satışlar"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:122
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
@@ -17776,7 +17791,8 @@ msgid "Sunday"
 msgstr "Pazar"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:123
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:16
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
@@ -17784,7 +17800,8 @@ msgid "Monday"
 msgstr "Pazartesi"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:124
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:17
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
@@ -17792,7 +17809,8 @@ msgid "Tuesday"
 msgstr "Salı"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:125
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:18
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
@@ -17800,7 +17818,8 @@ msgid "Wednesday"
 msgstr "Çarşamba"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:126
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:19
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
@@ -17808,7 +17827,8 @@ msgid "Thursday"
 msgstr "Perşembe"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:127
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:20
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
@@ -17816,6 +17836,7 @@ msgid "Friday"
 msgstr "Cuma"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:128
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
@@ -23088,6 +23109,7 @@ msgid "General Ledger Jornals"
 msgstr "Genel Dedesi Gazeteler"
 
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:90
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:109
 msgid "Journal Number"
 msgstr "Günlük Numarası"
 
@@ -25824,7 +25846,7 @@ msgid "Technician"
 msgstr "teknisyen"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:277
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:276
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
@@ -26061,8 +26083,10 @@ msgid "Bed Number"
 msgstr "Yatak Sayısı"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:81
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
 msgid "PID"
 msgstr "PID"
 
@@ -26072,6 +26096,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
@@ -27025,6 +27050,7 @@ msgstr "Hasta Taburcu Detayları"
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:33
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "Hasta adı"
@@ -27066,7 +27092,8 @@ msgid "Discharge Notes"
 msgstr "Deşarj Notları"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:100
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:200
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:99
 #: /home/tim/code/KwaMoja/WWW_Access.php:143
 #: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
@@ -27294,6 +27321,100 @@ msgstr "İşveren Firma"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "Güncelleme Ayrıntıları"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
+msgid "Enter Medical Laboratory Test Data"
+msgstr "Tıbbi Laboratuvar Test Verilerini Girin"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:15
+msgid "You must first select a batch of tests to enter results for"
+msgstr "Önce sonuçları girmek için bir test grubu seçmelisiniz."
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:17
+msgid "Select a batch to process"
+msgstr "İşlenecek bir grup seçin"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:24
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:24
+msgid "View Lab Test Batch"
+msgstr "Laboratuvar Test Grubunu Görüntüle"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:106
+msgid "There was a problem inserting the header information for these results"
+msgstr "Bu sonuçlar için başlık bilgilerini girerken bir sorun oluştu"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:144
+msgid "There was a problem inserting the line information for these results"
+msgstr "Bu sonuçlar için satır bilgilerini girerken bir sorun oluştu"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:154
+msgid "There was a problem updating the status of the request"
+msgstr "İsteğin durumu güncellenirken bir sorun oluştu"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:159
+msgid "The test results were saved successfully"
+msgstr "Test sonuçları başarıyla kaydedildi"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:162
+msgid "Select another batch to enter"
+msgstr "Girmek için başka bir grup seçin"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:171
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:70
+msgid "Batch Summary"
+msgstr "Parti Özeti"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:172
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
+msgid "Print Test Request"
+msgstr "Test İsteğini Yazdır"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:180
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:79
+msgid "Patient"
+msgstr "Hasta"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:184
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:34
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:83
+msgid "Patient Phone"
+msgstr "Hasta Telefonu"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:188
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:252
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:87
+msgid "Clinicians Notes"
+msgstr "Klinisyen Notları"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:192
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:91
+msgid "Date Sent"
+msgstr "Tarih gönderildi"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:196
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:95
+msgid "Sample Taken"
+msgstr "Alınan Örnek"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:204
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:103
+msgid "Request Urgent"
+msgstr "Acil Talep"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:214
+msgid "Enter Test Results For Batch"
+msgstr "Parti İçin Test Sonuçlarını Girin"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:217
+msgid "Examination Date"
+msgstr "Sınav Tarihi"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:242
+msgid "Save Results"
+msgstr "Sonuçları Kaydet"
 
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
@@ -27660,6 +27781,7 @@ msgstr "Öğe türü:"
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:625
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:618
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:39
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:843
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:923
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:613
@@ -28264,6 +28386,7 @@ msgstr "Adresine havale edilecek faturalar"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:388
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:32
 msgid "Patient ID"
 msgstr "Hasta Kimliği"
 
@@ -28399,9 +28522,9 @@ msgstr "Yöntem"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:132
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:61
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:130
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:325
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:323
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
 #: /home/tim/code/KwaMoja/QATests.php:380
 msgid "Test ID"
 msgstr "Test ID"
@@ -28771,12 +28894,8 @@ msgstr "Unda Aina ya Vipimo"
 msgid "Medical Laboratory"
 msgstr "Tıbbi laboratuvar"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:17
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
-msgid "Select a menu option to operate using this patient"
-msgstr "Bu hastayı kullanarak çalıştırmak için bir menü seçeneği seçin"
-
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:20
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:20
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
@@ -28785,28 +28904,28 @@ msgstr "Bu hastayı kullanarak çalıştırmak için bir menü seçeneği seçin
 msgid "Inquiries and Reports"
 msgstr "Sorular ve Raporlar"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-msgid "Patient Inquiries"
-msgstr "Hasta Soruları"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:20
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:20
+msgid "Lobaoratory Inquiries"
+msgstr "Lobaoratory Soruları"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:25
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:23
 msgid "Pending Laboratory Tests"
 msgstr "Bekleyen Laboratuvar Testleri"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:31
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
-msgid "Patient Transactions"
-msgstr "Hasta İşlemleri"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:29
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:29
+msgid "Lobaoratory Transactions"
+msgstr "Lobaoratory İşlemleri"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:34
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:32
 msgid "Request a Laboratory Test"
 msgstr "Laboratuvar Testi İste"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:40
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
-msgid "Patient Maintenance"
-msgstr "Hasta Bakımı"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:38
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:38
+msgid "Lobaoratory Maintenance"
+msgstr "Laboratuvar Bakımı"
 
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
@@ -29026,6 +29145,19 @@ msgstr "ayaktan olarak"
 msgid "The department that this patient is being admitted to."
 msgstr "Bu hastanın kabul edildiği bölüm."
 
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:5
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:11
+msgid "Pathology Laboratory"
+msgstr "Patoloji Laboratuvarı"
+
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:23
+msgid "Pending Pathology Tests"
+msgstr "Patoloji Testleri Bekleniyor"
+
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:32
+msgid "Request a Pathology Test"
+msgstr "Patoloji Testi isteyin"
+
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:3
 msgid "In Patient Deposit Payments"
 msgstr "Hasta Mevduat Ödemelerinde"
@@ -29062,15 +29194,12 @@ msgid "Pending Medical Laboratory Test Requests"
 msgstr "Bekleyen Tıbbi Laboratuvar Test Talepleri"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:32
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:28
 msgid "Pending Test Requests"
 msgstr "Bekleyen Test Talepleri"
 
-#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:84
-msgid "Patient Phone"
-msgstr "Hasta Telefonu"
-
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:40
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:36
 msgid "Date Batch Sent"
 msgstr "Toplu İşin Gönderildiği Tarih"
 
@@ -29079,19 +29208,29 @@ msgid "Is Batch Urgent"
 msgstr "Toplu Acil mi"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "Grubu Görüntüle"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
 #: /home/tim/code/KwaMoja/SelectQASamples.php:403
 #: /home/tim/code/KwaMoja/TestPlanResults.php:264
 msgid "Enter Results"
 msgstr "Sonuçları Gir"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:95
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:146
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:145
 msgid "Return to Laboratory Centre"
 msgstr "Laboratuvar Merkezine Dön"
+
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:5
+msgid "Pending Pathology Laboratory Test Requests"
+msgstr "Patoloji Laboratuvarı Test Talepleri Bekleniyor"
+
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:81
+msgid "Return to Pathology Laboratory Centre"
+msgstr "Patoloji Laboratuvar Merkezine Dön"
 
 #: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
 msgid "Perineum Types"
@@ -29905,109 +30044,109 @@ msgid "Failed to insert the batch line into the database"
 msgstr "Toplu iş satırı veritabanına eklenemedi"
 
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:166
 msgid "The batch of tests has been sent successfully"
 msgstr "Test grubu başarıyla gönderildi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:216
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:215
 msgid "Tests in Batch"
 msgstr "Toplu Testler"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:218
 msgid "Test Number"
 msgstr "Test Numarası"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:322
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:125
 #: /home/tim/code/KwaMoja/ProductSpecs.php:512
 #: /home/tim/code/KwaMoja/TestPlanResults.php:765
 msgid "Test Name"
 msgstr "Test Adı"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:240
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:239
 msgid "Remove From Batch"
 msgstr "Toplu İşten Kaldır"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:253
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:88
-msgid "Clinicians Notes"
-msgstr "Klinisyen Notları"
-
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:257
 msgid "Sample Taken On"
 msgstr "Alınan Örnek"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
 msgid "Sun"
 msgstr "Güneş"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
 msgid "Mon"
 msgstr "Pazartesi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
 msgid "Tue"
 msgstr "Sal"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
 msgid "Wed"
 msgstr "evlenmek"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
 msgid "Thu"
 msgstr "Per"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
 msgid "Fri"
 msgstr "Cuma"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:265
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
 msgid "Sat"
 msgstr "Oturdu"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:287
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:285
 msgid "Minutes"
 msgstr "Dakika"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:290
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:288
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:226
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:165
 msgid "Urgent Test"
 msgstr "Acil Test"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:297
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:295
 msgid "Send Batch"
 msgstr "Toplu Gönder"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:321
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:319
 msgid "Select Tests"
 msgstr "Testleri Seçin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:326
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
 msgid "Select Test"
 msgstr "Test Seçin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:346
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:344
 msgid "Add Tests To Batch"
 msgstr "Partiye Test Ekleme"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:356
 msgid "Select a test group"
 msgstr "Bir test grubu seçin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:360
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
 msgid "Parameter Group"
 msgstr "Parametre Grubu"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:383
 msgid "Select Group"
 msgstr "Grup Seç"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "Hasta Ara"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:402
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:340
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
@@ -30015,22 +30154,169 @@ msgstr "Hasta Ara"
 msgid "Enter a partial Name"
 msgstr "Kısmi bir ad girin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:413
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:351
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "Kısmi bir hasta dosya numarası girin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:362
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "Kısmi bir Telefon Numarasını girin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:435
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:373
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "Adresin bir bölümünü girin"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:5
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:48
+msgid "Pathology Laboratory Test Request"
+msgstr "Patoloji Laboratuvarı Test Talebi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:162
+msgid "Failed to insert the test request into the database"
+msgstr "Test isteği veritabanına eklenemedi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:169
+msgid "Return to Pathology Laboratory"
+msgstr "Patoloji Laboratuvarına Dönüş"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:216
+msgid "Request diagnostic test - Pathology"
+msgstr "Teşhis testi isteyin - Patoloji"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:220
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:153
+msgid "Express Cut"
+msgstr "Ekspres Kesim"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:222
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:228
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:155
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:167
+msgid "Telephone to notify"
+msgstr "Bildirilecek telefon"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:233
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:172
+msgid "Specimen Type"
+msgstr "Numune Tipi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:235
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:190
+msgid "Biopsy, sample excision"
+msgstr "Biyopsi, örnek eksizyon"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:236
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:191
+msgid "Operation Specimen"
+msgstr "Operasyon Örneği"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:237
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:192
+msgid "Curettage"
+msgstr "kürtaj"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:238
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:193
+msgid "Cytology"
+msgstr "sitoloji"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:244
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:199
+msgid "Localisation"
+msgstr "yerelleştirme"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:249
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:204
+msgid "Clinical Diagnoses, Reports, Queries"
+msgstr "Klinik Tanılar, Raporlar, Sorgular"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:254
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:209
+msgid "Supporting information"
+msgstr "Destek Bilgisi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:256
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:211
+msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
+msgstr "Örneğin. "
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:260
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:215
+msgid "Repeated Test"
+msgstr "Tekrarlanan Test"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:262
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:217
+msgid "For repeated test: please enter the early Journal number with date"
+msgstr "Tekrarlanan test için: lütfen tarihle birlikte erken Journal numarasını girin"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:266
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:221
+msgid "For gynecological tests"
+msgstr "Jinekolojik testler için"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:269
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:224
+msgid "Last Period"
+msgstr "Son dönem"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:274
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:229
+msgid "Period Type"
+msgstr "Dönem Tipi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:279
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:234
+msgid "Gravida"
+msgstr "gravida"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:284
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:239
+msgid "Menopause since"
+msgstr "Menopozdan beri"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:289
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:244
+msgid "Hysterectomy"
+msgstr "Histerektomi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:294
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:249
+msgid "Contraceptive"
+msgstr "gebeliği önleyici"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:299
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:254
+msgid "Hormonal therapy"
+msgstr "Hormonal tedavi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:304
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:259
+msgid "IUD"
+msgstr "RİA"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:311
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:266
+msgid "Date of operation"
+msgstr "Operasyon tarihi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:316
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:271
+msgid "Doctor/Department"
+msgstr "Doktor / Bölümü"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:323
+msgid "Send Request"
+msgstr "İstek gönder"
 
 #: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
 msgid "Room Types"
@@ -30096,11 +30382,17 @@ msgstr "Hasta Ara"
 msgid "Patients"
 msgstr "hastalar"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
-msgid "Patient"
-msgstr "Hasta"
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
+msgid "Select a menu option to operate using this patient"
+msgstr "Bu hastayı kullanarak çalıştırmak için bir menü seçeneği seçin"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+msgid "Patient Inquiries"
+msgstr "Hasta Soruları"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
+msgid "Patient Transactions"
+msgstr "Hasta İşlemleri"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
@@ -30117,6 +30409,10 @@ msgstr "Ayaktan başvuru verilerini değiştirme"
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
 msgid "Discharge this patient"
 msgstr "Bu hastayı taburcu et"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
+msgid "Patient Maintenance"
+msgstr "Hasta Bakımı"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
@@ -30163,7 +30459,7 @@ msgid "You already have a test group type called"
 msgstr "Tayari una aina ya kikundi cha jaribio inayoitwa"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:128
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
 msgid "Test Group"
 msgstr "Kikundi cha Mtihani"
 
@@ -30557,37 +30853,75 @@ msgstr "Bu liste her günün sonunda boş olmalıdır"
 msgid "Prescription Date"
 msgstr "Reçete Tarihi"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:4
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:3
 msgid "View Lab Tests"
 msgstr "Laboratuvar Testlerini Görüntüleyin"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:25
-msgid "View Lab Test Batch"
-msgstr "Laboratuvar Test Grubunu Görüntüle"
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:13
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:13
+msgid "You must first select a batch of tests to view"
+msgstr "Görüntülemek için önce bir test grubu seçmelisiniz"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
-msgid "Batch Summary"
-msgstr "Parti Özeti"
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:15
+msgid "Select a batch to view"
+msgstr "Görüntülemek için bir grup seçin"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:72
-msgid "Print Test Request"
-msgstr "Test İsteğini Yazdır"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:92
-msgid "Date Sent"
-msgstr "Tarih gönderildi"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:96
-msgid "Sample Taken"
-msgstr "Alınan Örnek"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:104
-msgid "Request Urgent"
-msgstr "Acil Talep"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:123
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:122
 msgid "Tests to be carried out"
 msgstr "Yapılacak testler"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:3
+msgid "View Pathology Tests"
+msgstr "Patoloji Testlerini Görüntüleyin"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:22
+msgid "View Pathology Test Batch"
+msgstr "Patoloji Test Grubunu Görüntüle"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:98
+msgid "Pending diagnostic test - Pathology"
+msgstr "Bekleyen tanı testi - Patoloji"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:101
+msgid "Pathology"
+msgstr "Patoloji"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:104
+msgid "Entry Date"
+msgstr "Giriş tarihi"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:114
+msgid "Number of Blocks"
+msgstr "Blok Sayısı"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:119
+msgid "Deep Blocks"
+msgstr "Derin Bloklar"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:124
+msgid "Special Stain"
+msgstr "Özel Leke"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:129
+msgid "Immune Histo-Chemistry"
+msgstr "Bağışıklık Histo-Kimya"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:134
+msgid "Hormone Receptors"
+msgstr "Hormon Reseptörleri"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:139
+msgid "Specials"
+msgstr "Özel"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:278
+msgid "Save Details"
+msgstr "Ayrıntıları Kaydet"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:285
+msgid "Return to Pathology Centre"
+msgstr "Patoloji Merkezine Dönüş"
 
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:3
 msgid "View Patient History"
@@ -70686,9 +71020,13 @@ msgstr "Vikundi vya Piramidi za Mtihani"
 msgid "Maintain Test Parameters"
 msgstr "Dumisha Viwango vya Mtihani"
 
-#: /home/tim/code/KwaMoja/sql/updates/218.php:8
+#: /home/tim/code/KwaMoja/sql/updates/218.php:13
 msgid "Medical Laboratory Details"
 msgstr "Tıbbi Laboratuar Detayları"
+
+#: /home/tim/code/KwaMoja/sql/updates/218.php:16
+msgid "Pathology Laboratory Details"
+msgstr "Patoloji Laboratuvarı Detayları"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"

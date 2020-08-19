@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-07 05:15+0100\n"
+"POT-Creation-Date: 2020-08-19 04:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,7 +855,8 @@ msgstr "已被更改为帐户组"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
@@ -1324,6 +1325,7 @@ msgstr "父组名称"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
@@ -1331,7 +1333,7 @@ msgstr "父组名称"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:66
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
@@ -1622,6 +1624,7 @@ msgstr "是"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
@@ -1629,7 +1632,7 @@ msgstr "是"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:64
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
@@ -2200,6 +2203,7 @@ msgstr "联系人记录已被删除"
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
@@ -3745,9 +3749,12 @@ msgstr "选择报告中的最后一个期间"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:410
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:421
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:432
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
@@ -3934,6 +3941,7 @@ msgstr "请选择一个替代的时间段"
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/MRPReport.php:438
 #: /home/tim/code/KwaMoja/SalesGraph.php:283
 #: /home/tim/code/KwaMoja/SalesGraph.php:291
@@ -5588,7 +5596,8 @@ msgstr "或输入部分商品代码"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:446
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:384
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
@@ -8204,6 +8213,7 @@ msgstr "SQL没有返回工单，因为"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
@@ -12191,7 +12201,8 @@ msgstr "合同：选择客户"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:338
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
@@ -16189,6 +16200,7 @@ msgstr "使用此分支作为默认现金销售"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
@@ -16504,8 +16516,10 @@ msgid "Summary of Receipt Batch"
 msgstr "收货批次摘要"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:176
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:76
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:31
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:75
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "批号"
@@ -17768,7 +17782,8 @@ msgid "Daily Sales For"
 msgstr "每日销售额"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:122
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
@@ -17776,7 +17791,8 @@ msgid "Sunday"
 msgstr "星期日"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:123
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:16
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
@@ -17784,7 +17800,8 @@ msgid "Monday"
 msgstr "星期一"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:124
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:17
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
@@ -17792,7 +17809,8 @@ msgid "Tuesday"
 msgstr "星期二"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:125
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:18
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
@@ -17800,7 +17818,8 @@ msgid "Wednesday"
 msgstr "星期三"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:126
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:19
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
@@ -17808,7 +17827,8 @@ msgid "Thursday"
 msgstr "星期四"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:127
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:20
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
@@ -17816,6 +17836,7 @@ msgid "Friday"
 msgstr "星期五"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:128
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
@@ -23088,6 +23109,7 @@ msgid "General Ledger Jornals"
 msgstr "总帐报纸"
 
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:90
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:109
 msgid "Journal Number"
 msgstr "日志编号"
 
@@ -25824,7 +25846,7 @@ msgid "Technician"
 msgstr "技术员"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:277
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:276
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
@@ -26061,8 +26083,10 @@ msgid "Bed Number"
 msgstr "床号"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:81
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
 msgid "PID"
 msgstr "PID"
 
@@ -26072,6 +26096,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
@@ -27025,6 +27050,7 @@ msgstr "病人出院明细"
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:33
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "患者姓名"
@@ -27066,7 +27092,8 @@ msgid "Discharge Notes"
 msgstr "出院注意事项"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:100
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:200
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:99
 #: /home/tim/code/KwaMoja/WWW_Access.php:143
 #: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
@@ -27294,6 +27321,100 @@ msgstr "雇主公司"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "更新详情"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
+msgid "Enter Medical Laboratory Test Data"
+msgstr "输入医学实验室测试数据"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:15
+msgid "You must first select a batch of tests to enter results for"
+msgstr "您必须首先选择一批测试才能输入结果"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:17
+msgid "Select a batch to process"
+msgstr "选择要处理的批次"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:24
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:24
+msgid "View Lab Test Batch"
+msgstr "查看实验室测试批次"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:106
+msgid "There was a problem inserting the header information for these results"
+msgstr "为这些结果插入标题信息时出现问题"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:144
+msgid "There was a problem inserting the line information for these results"
+msgstr "为这些结果插入行信息时出现问题"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:154
+msgid "There was a problem updating the status of the request"
+msgstr "更新请求状态时出现问题"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:159
+msgid "The test results were saved successfully"
+msgstr "测试结果成功保存"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:162
+msgid "Select another batch to enter"
+msgstr "选择另一个批次输入"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:171
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:70
+msgid "Batch Summary"
+msgstr "批次摘要"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:172
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
+msgid "Print Test Request"
+msgstr "打印测试请求"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:180
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:79
+msgid "Patient"
+msgstr "患者"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:184
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:34
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:83
+msgid "Patient Phone"
+msgstr "病人电话"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:188
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:252
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:87
+msgid "Clinicians Notes"
+msgstr "临床医生注意事项"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:192
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:91
+msgid "Date Sent"
+msgstr "发送日期"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:196
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:95
+msgid "Sample Taken"
+msgstr "取样"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:204
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:103
+msgid "Request Urgent"
+msgstr "要求紧急"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:214
+msgid "Enter Test Results For Batch"
+msgstr "输入批次的测试结果"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:217
+msgid "Examination Date"
+msgstr "考试日期"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:242
+msgid "Save Results"
+msgstr "保存结果"
 
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
@@ -27660,6 +27781,7 @@ msgstr "项目类型："
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:625
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:618
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:39
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:843
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:923
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:613
@@ -28264,6 +28386,7 @@ msgstr "发票转至"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:388
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:32
 msgid "Patient ID"
 msgstr "患者编号"
 
@@ -28399,9 +28522,9 @@ msgstr "方法"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:132
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:61
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:130
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:325
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:323
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
 #: /home/tim/code/KwaMoja/QATests.php:380
 msgid "Test ID"
 msgstr "测试ID"
@@ -28771,12 +28894,8 @@ msgstr "创建测量类型"
 msgid "Medical Laboratory"
 msgstr "医学实验室"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:17
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
-msgid "Select a menu option to operate using this patient"
-msgstr "选择菜单选项以使用该患者进行操作"
-
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:20
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:20
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
@@ -28785,28 +28904,28 @@ msgstr "选择菜单选项以使用该患者进行操作"
 msgid "Inquiries and Reports"
 msgstr "查询和报告"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-msgid "Patient Inquiries"
-msgstr "病人查询"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:20
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:20
+msgid "Lobaoratory Inquiries"
+msgstr "入学咨询"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:25
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:23
 msgid "Pending Laboratory Tests"
 msgstr "待定实验室测试"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:31
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
-msgid "Patient Transactions"
-msgstr "病人交易"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:29
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:29
+msgid "Lobaoratory Transactions"
+msgstr "办公交易"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:34
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:32
 msgid "Request a Laboratory Test"
 msgstr "要求实验室测试"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:40
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
-msgid "Patient Maintenance"
-msgstr "病人维护"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:38
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:38
+msgid "Lobaoratory Maintenance"
+msgstr "实验室维修"
 
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
@@ -29026,6 +29145,19 @@ msgstr "作为门诊病人"
 msgid "The department that this patient is being admitted to."
 msgstr "该患者被收治的部门。"
 
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:5
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:11
+msgid "Pathology Laboratory"
+msgstr "病理实验室"
+
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:23
+msgid "Pending Pathology Tests"
+msgstr "待定病理学测试"
+
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:32
+msgid "Request a Pathology Test"
+msgstr "要求病理检查"
+
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:3
 msgid "In Patient Deposit Payments"
 msgstr "在病人押金中"
@@ -29062,15 +29194,12 @@ msgid "Pending Medical Laboratory Test Requests"
 msgstr "待定的医学实验室测试要求"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:32
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:28
 msgid "Pending Test Requests"
 msgstr "待处理的测试请求"
 
-#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:84
-msgid "Patient Phone"
-msgstr "病人电话"
-
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:40
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:36
 msgid "Date Batch Sent"
 msgstr "发送的日期批次"
 
@@ -29079,19 +29208,29 @@ msgid "Is Batch Urgent"
 msgstr "是否批量紧急"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "查看批次"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
 #: /home/tim/code/KwaMoja/SelectQASamples.php:403
 #: /home/tim/code/KwaMoja/TestPlanResults.php:264
 msgid "Enter Results"
 msgstr "输入结果"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:95
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:146
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:145
 msgid "Return to Laboratory Centre"
 msgstr "返回实验室中心"
+
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:5
+msgid "Pending Pathology Laboratory Test Requests"
+msgstr "待定病理实验室测试要求"
+
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:81
+msgid "Return to Pathology Laboratory Centre"
+msgstr "返回病理实验室"
 
 #: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
 msgid "Perineum Types"
@@ -29905,109 +30044,109 @@ msgid "Failed to insert the batch line into the database"
 msgstr "无法将批生产线插入数据库"
 
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:166
 msgid "The batch of tests has been sent successfully"
 msgstr "批量测试已成功发送"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:216
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:215
 msgid "Tests in Batch"
 msgstr "批量测试"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:218
 msgid "Test Number"
 msgstr "测试编号"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:322
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:125
 #: /home/tim/code/KwaMoja/ProductSpecs.php:512
 #: /home/tim/code/KwaMoja/TestPlanResults.php:765
 msgid "Test Name"
 msgstr "测试名称"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:240
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:239
 msgid "Remove From Batch"
 msgstr "从批次中删除"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:253
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:88
-msgid "Clinicians Notes"
-msgstr "临床医生注意事项"
-
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:257
 msgid "Sample Taken On"
 msgstr "样品采集"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
 msgid "Sun"
 msgstr "太阳"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
 msgid "Mon"
 msgstr "周一"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
 msgid "Tue"
 msgstr "周二"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
 msgid "Wed"
 msgstr "星期三"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
 msgid "Thu"
 msgstr "周四"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
 msgid "Fri"
 msgstr "周五"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:265
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
 msgid "Sat"
 msgstr "周六"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:287
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:285
 msgid "Minutes"
 msgstr "分钟"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:290
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:288
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:226
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:165
 msgid "Urgent Test"
 msgstr "紧急测试"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:297
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:295
 msgid "Send Batch"
 msgstr "发送批量"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:321
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:319
 msgid "Select Tests"
 msgstr "选择测试"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:326
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
 msgid "Select Test"
 msgstr "选择测试"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:346
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:344
 msgid "Add Tests To Batch"
 msgstr "批量添加测试"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:356
 msgid "Select a test group"
 msgstr "选择一个测试组"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:360
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
 msgid "Parameter Group"
 msgstr "参数组"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:383
 msgid "Select Group"
 msgstr "选择组"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "寻找病人"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:402
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:340
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
@@ -30015,22 +30154,169 @@ msgstr "寻找病人"
 msgid "Enter a partial Name"
 msgstr "输入部分名称"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:413
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:351
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "输入部分患者档案号"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:362
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "输入部分电话号码"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:435
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:373
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "输入地址的一部分"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:5
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:48
+msgid "Pathology Laboratory Test Request"
+msgstr "病理实验室测试要求"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:162
+msgid "Failed to insert the test request into the database"
+msgstr "无法将测试请求插入数据库"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:169
+msgid "Return to Pathology Laboratory"
+msgstr "返回病理实验室"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:216
+msgid "Request diagnostic test - Pathology"
+msgstr "要求诊断测试-病理"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:220
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:153
+msgid "Express Cut"
+msgstr "快速切割"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:222
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:228
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:155
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:167
+msgid "Telephone to notify"
+msgstr "电话通知"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:233
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:172
+msgid "Specimen Type"
+msgstr "标本类型"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:235
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:190
+msgid "Biopsy, sample excision"
+msgstr "活检，样本切除"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:236
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:191
+msgid "Operation Specimen"
+msgstr "操作标本"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:237
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:192
+msgid "Curettage"
+msgstr "刮除"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:238
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:193
+msgid "Cytology"
+msgstr "细胞学"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:244
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:199
+msgid "Localisation"
+msgstr "本土化"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:249
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:204
+msgid "Clinical Diagnoses, Reports, Queries"
+msgstr "临床诊断，报告，查询"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:254
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:209
+msgid "Supporting information"
+msgstr "配套信息"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:256
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:211
+msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
+msgstr "例如"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:260
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:215
+msgid "Repeated Test"
+msgstr "重复测试"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:262
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:217
+msgid "For repeated test: please enter the early Journal number with date"
+msgstr "要进行重复测试：请输入带有日期的早期日记帐编号"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:266
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:221
+msgid "For gynecological tests"
+msgstr "用于妇科检查"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:269
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:224
+msgid "Last Period"
+msgstr "上期"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:274
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:229
+msgid "Period Type"
+msgstr "期间类型"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:279
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:234
+msgid "Gravida"
+msgstr "格拉维达"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:284
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:239
+msgid "Menopause since"
+msgstr "更年期以来"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:289
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:244
+msgid "Hysterectomy"
+msgstr "子宫切除术"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:294
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:249
+msgid "Contraceptive"
+msgstr "避孕药"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:299
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:254
+msgid "Hormonal therapy"
+msgstr "荷尔蒙疗法"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:304
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:259
+msgid "IUD"
+msgstr "宫内节育器"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:311
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:266
+msgid "Date of operation"
+msgstr "营业日期"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:316
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:271
+msgid "Doctor/Department"
+msgstr "医生/系"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:323
+msgid "Send Request"
+msgstr "发送请求"
 
 #: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
 msgid "Room Types"
@@ -30096,11 +30382,17 @@ msgstr "搜索患者"
 msgid "Patients"
 msgstr "耐心"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
-msgid "Patient"
-msgstr "患者"
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
+msgid "Select a menu option to operate using this patient"
+msgstr "选择菜单选项以使用该患者进行操作"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+msgid "Patient Inquiries"
+msgstr "病人查询"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
+msgid "Patient Transactions"
+msgstr "病人交易"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
@@ -30117,6 +30409,10 @@ msgstr "修改门诊入院数据"
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
 msgid "Discharge this patient"
 msgstr "出院"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
+msgid "Patient Maintenance"
+msgstr "病人维护"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
@@ -30163,7 +30459,7 @@ msgid "You already have a test group type called"
 msgstr "您已经有一个名为"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:128
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
 msgid "Test Group"
 msgstr "测试组"
 
@@ -30557,37 +30853,75 @@ msgstr "该列表在每天结束时应该为空"
 msgid "Prescription Date"
 msgstr "处方日期"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:4
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:3
 msgid "View Lab Tests"
 msgstr "查看实验室测试"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:25
-msgid "View Lab Test Batch"
-msgstr "查看实验室测试批次"
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:13
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:13
+msgid "You must first select a batch of tests to view"
+msgstr "您必须先选择一批测试才能查看"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
-msgid "Batch Summary"
-msgstr "批次摘要"
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:15
+msgid "Select a batch to view"
+msgstr "选择要查看的批次"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:72
-msgid "Print Test Request"
-msgstr "打印测试请求"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:92
-msgid "Date Sent"
-msgstr "发送日期"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:96
-msgid "Sample Taken"
-msgstr "取样"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:104
-msgid "Request Urgent"
-msgstr "要求紧急"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:123
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:122
 msgid "Tests to be carried out"
 msgstr "进行测试"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:3
+msgid "View Pathology Tests"
+msgstr "查看病理学测试"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:22
+msgid "View Pathology Test Batch"
+msgstr "查看病理学测试批次"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:98
+msgid "Pending diagnostic test - Pathology"
+msgstr "待定诊断测试-病理"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:101
+msgid "Pathology"
+msgstr "病理"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:104
+msgid "Entry Date"
+msgstr "录入日期"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:114
+msgid "Number of Blocks"
+msgstr "块数"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:119
+msgid "Deep Blocks"
+msgstr "深块"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:124
+msgid "Special Stain"
+msgstr "特殊染色"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:129
+msgid "Immune Histo-Chemistry"
+msgstr "免疫组织化学"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:134
+msgid "Hormone Receptors"
+msgstr "激素受体"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:139
+msgid "Specials"
+msgstr "特价商品"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:278
+msgid "Save Details"
+msgstr "保存详细信息"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:285
+msgid "Return to Pathology Centre"
+msgstr "返回病理中心"
 
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:3
 msgid "View Patient History"
@@ -70686,9 +71020,13 @@ msgstr "测试Parmameter组"
 msgid "Maintain Test Parameters"
 msgstr "维护测试参数"
 
-#: /home/tim/code/KwaMoja/sql/updates/218.php:8
+#: /home/tim/code/KwaMoja/sql/updates/218.php:13
 msgid "Medical Laboratory Details"
 msgstr "医学实验室详细信息"
+
+#: /home/tim/code/KwaMoja/sql/updates/218.php:16
+msgid "Pathology Laboratory Details"
+msgstr "病理实验室详细信息"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"

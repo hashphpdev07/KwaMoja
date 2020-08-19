@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-07 04:25+0100\n"
+"POT-Creation-Date: 2020-08-19 03:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,7 +855,8 @@ msgstr "har ändrats till kontogruppen"
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:6
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:6
@@ -1324,6 +1325,7 @@ msgstr "Föräldragruppsnamn"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
@@ -1331,7 +1333,7 @@ msgstr "Föräldragruppsnamn"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:66
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:420
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:428
@@ -1622,6 +1624,7 @@ msgstr "Ja"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
@@ -1629,7 +1632,7 @@ msgstr "Ja"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:64
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:421
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:429
@@ -2200,6 +2203,7 @@ msgstr "Kontaktposten har raderats"
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:178
 #: /home/tim/code/KwaMoja/PrintWOItemSlip.php:189
@@ -3745,9 +3749,12 @@ msgstr "Välj den sista perioden i rapporten"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:410
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:421
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:432
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:130
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:141
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:152
@@ -3934,6 +3941,7 @@ msgstr "Välj ett alternativt periodintervall"
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/MRPReport.php:438
 #: /home/tim/code/KwaMoja/SalesGraph.php:283
 #: /home/tim/code/KwaMoja/SalesGraph.php:291
@@ -5588,7 +5596,8 @@ msgstr "Eller ange en del av en artikelkod"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:446
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:384
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
 #: /home/tim/code/KwaMoja/MRPDemands.php:337
 #: /home/tim/code/KwaMoja/MRPReport.php:585
@@ -8204,6 +8213,7 @@ msgstr "Inga beställningsorder returnerades av SQL eftersom"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:173
 #: /home/tim/code/KwaMoja/PO_Header.php:909
@@ -12191,7 +12201,8 @@ msgstr "Kontrakt: Välj kund"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:338
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
 #: /home/tim/code/KwaMoja/MRPReport.php:539
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:78
@@ -16189,6 +16200,7 @@ msgstr "Använd denna gren som standard för kontantförsäljning"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
 #: /home/tim/code/KwaMoja/SelectCustomer.php:773
 #: /home/tim/code/KwaMoja/prlSSC.php:149 /home/tim/code/KwaMoja/prlSSC.php:219
@@ -16504,8 +16516,10 @@ msgid "Summary of Receipt Batch"
 msgstr "Sammanfattning av kvittot"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:176
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:76
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:31
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:75
 #: /home/tim/code/KwaMoja/includes/InputSerialItemsFile.php:190
 msgid "Batch Number"
 msgstr "Batchnummer"
@@ -17768,7 +17782,8 @@ msgid "Daily Sales For"
 msgstr "Daglig försäljning för"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:122
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
@@ -17776,7 +17791,8 @@ msgid "Sunday"
 msgstr "söndag"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:123
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:16
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
@@ -17784,7 +17800,8 @@ msgid "Monday"
 msgstr "måndag"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:124
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:17
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
@@ -17792,7 +17809,8 @@ msgid "Tuesday"
 msgstr "tisdag"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:125
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:18
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
@@ -17800,7 +17818,8 @@ msgid "Wednesday"
 msgstr "onsdag"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:126
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:19
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
@@ -17808,7 +17827,8 @@ msgid "Thursday"
 msgstr "torsdag"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:127
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:20
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
@@ -17816,6 +17836,7 @@ msgid "Friday"
 msgstr "fredag"
 
 #: /home/tim/code/KwaMoja/DailySalesInquiry.php:128
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
@@ -23088,6 +23109,7 @@ msgid "General Ledger Jornals"
 msgstr "General Ledger Newspapers"
 
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:90
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:109
 msgid "Journal Number"
 msgstr "Tidskriftsnummer"
 
@@ -25824,7 +25846,7 @@ msgid "Technician"
 msgstr "Tekniker"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:277
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:276
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
@@ -26061,8 +26083,10 @@ msgid "Bed Number"
 msgstr "Sängantal"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:81
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
 msgid "PID"
 msgstr "PID"
 
@@ -26072,6 +26096,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:46
 msgid "File Number"
@@ -27025,6 +27050,7 @@ msgstr "Patientavläsningsinformation"
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:33
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:50
 msgid "Patient Name"
 msgstr "Patientnamn"
@@ -27066,7 +27092,8 @@ msgid "Discharge Notes"
 msgstr "Utsläppsanteckningar"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:188
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:100
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:200
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:99
 #: /home/tim/code/KwaMoja/WWW_Access.php:143
 #: /home/tim/code/KwaMoja/WWW_Access.php:208
 msgid "Clinician"
@@ -27294,6 +27321,100 @@ msgstr "Arbetsgivarföretag"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "Uppdatera detaljer"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
+msgid "Enter Medical Laboratory Test Data"
+msgstr "Ange medicinska laboratorietestdata"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:15
+msgid "You must first select a batch of tests to enter results for"
+msgstr "Du måste först välja ett antal tester för att ange resultat för"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:17
+msgid "Select a batch to process"
+msgstr "Välj en batch som ska bearbetas"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:24
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:24
+msgid "View Lab Test Batch"
+msgstr "Visa Lab Test Batch"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:106
+msgid "There was a problem inserting the header information for these results"
+msgstr "Det uppstod ett problem att infoga rubrikinformationen för dessa resultat"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:144
+msgid "There was a problem inserting the line information for these results"
+msgstr "Det uppstod ett problem att infoga radinformationen för dessa resultat"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:154
+msgid "There was a problem updating the status of the request"
+msgstr "Det uppstod ett problem med att uppdatera statusen för begäran"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:159
+msgid "The test results were saved successfully"
+msgstr "Testresultaten sparades framgångsrikt"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:162
+msgid "Select another batch to enter"
+msgstr "Välj en annan batch för att gå in"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:171
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:70
+msgid "Batch Summary"
+msgstr "Batchöversikt"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:172
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
+msgid "Print Test Request"
+msgstr "Skriv ut testbegäran"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:180
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:79
+msgid "Patient"
+msgstr "Patient"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:184
+#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:34
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:83
+msgid "Patient Phone"
+msgstr "Patienttelefon"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:188
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:252
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:87
+msgid "Clinicians Notes"
+msgstr "Kliniker Anteckningar"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:192
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:91
+msgid "Date Sent"
+msgstr "Datum skickat"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:196
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:95
+msgid "Sample Taken"
+msgstr "Prov taget"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:204
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:103
+msgid "Request Urgent"
+msgstr "Begär brådskande"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:214
+msgid "Enter Test Results For Batch"
+msgstr "Ange testresultat för batch"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:217
+msgid "Examination Date"
+msgstr "Examinationsdatum"
+
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:242
+msgid "Save Results"
+msgstr "Spara resultat"
 
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:13
@@ -27660,6 +27781,7 @@ msgstr "Typ av artikel:"
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:625
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:618
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:39
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:843
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:923
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:613
@@ -28264,6 +28386,7 @@ msgstr "Fakturor för överföring till"
 
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:388
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:32
 msgid "Patient ID"
 msgstr "Patient-ID"
 
@@ -28399,9 +28522,9 @@ msgstr "Metod"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:132
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:61
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:130
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:325
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:323
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
 #: /home/tim/code/KwaMoja/QATests.php:380
 msgid "Test ID"
 msgstr "Test ID"
@@ -28771,12 +28894,8 @@ msgstr "Loo mõõtmise tüüp"
 msgid "Medical Laboratory"
 msgstr "Medicinsk laboratorium"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:17
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
-msgid "Select a menu option to operate using this patient"
-msgstr "Välj ett menyalternativ för att använda denna patient"
-
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:20
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:20
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
 #: /home/tim/code/KwaMoja/SelectCustomer.php:174
 #: /home/tim/code/KwaMoja/SelectProduct.php:450
@@ -28785,28 +28904,28 @@ msgstr "Välj ett menyalternativ för att använda denna patient"
 msgid "Inquiries and Reports"
 msgstr "Förfrågningar och rapporter"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:22
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
-msgid "Patient Inquiries"
-msgstr "Patientförfrågningar"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:20
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:20
+msgid "Lobaoratory Inquiries"
+msgstr "Lobaoratory Undersökningar"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:25
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:23
 msgid "Pending Laboratory Tests"
 msgstr "Väntande laboratorietester"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:31
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
-msgid "Patient Transactions"
-msgstr "Patienttransaktioner"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:29
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:29
+msgid "Lobaoratory Transactions"
+msgstr "Lobaoratoriska transaktioner"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:34
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:32
 msgid "Request a Laboratory Test"
 msgstr "Begär ett laboratorietest"
 
-#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:40
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
-msgid "Patient Maintenance"
-msgstr "Patientunderhåll"
+#: /home/tim/code/KwaMoja/KCMCMedicalLaboratory.php:38
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:38
+msgid "Lobaoratory Maintenance"
+msgstr "Lobaoratory Underhåll"
 
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:3
 #: /home/tim/code/KwaMoja/KCMCNotesTypes.php:13
@@ -29026,6 +29145,19 @@ msgstr "som öppenvård"
 msgid "The department that this patient is being admitted to."
 msgstr "Den avdelning som denna patient tas in på."
 
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:5
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:11
+msgid "Pathology Laboratory"
+msgstr "Patologilaboratorium"
+
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:23
+msgid "Pending Pathology Tests"
+msgstr "Väntande patologiprövningar"
+
+#: /home/tim/code/KwaMoja/KCMCPathologyLaboratory.php:32
+msgid "Request a Pathology Test"
+msgstr "Begär ett patologitest"
+
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:3
 msgid "In Patient Deposit Payments"
 msgstr "I betalningsbetalningar för patienten"
@@ -29062,15 +29194,12 @@ msgid "Pending Medical Laboratory Test Requests"
 msgstr "Väntar på medicinska laboratorietestförfrågningar"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:32
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:28
 msgid "Pending Test Requests"
 msgstr "Väntande testförfrågningar"
 
-#: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:38
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:84
-msgid "Patient Phone"
-msgstr "Patienttelefon"
-
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:40
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:36
 msgid "Date Batch Sent"
 msgstr "Datum skickat"
 
@@ -29079,19 +29208,29 @@ msgid "Is Batch Urgent"
 msgstr "Är Batch Urgent"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "Visa batch"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
 #: /home/tim/code/KwaMoja/SelectQASamples.php:403
 #: /home/tim/code/KwaMoja/TestPlanResults.php:264
 msgid "Enter Results"
 msgstr "Ange resultat"
 
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:95
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:146
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:145
 msgid "Return to Laboratory Centre"
 msgstr "Återgå till Laboratory Center"
+
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:5
+msgid "Pending Pathology Laboratory Test Requests"
+msgstr "Väntande patologiska laboratorietestförfrågningar"
+
+#: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:81
+msgid "Return to Pathology Laboratory Centre"
+msgstr "Återgå till patologilaboratoriecentret"
 
 #: /home/tim/code/KwaMoja/KCMCPerineumTypes.php:3
 msgid "Perineum Types"
@@ -29905,109 +30044,109 @@ msgid "Failed to insert the batch line into the database"
 msgstr "Det gick inte att infoga batchlinjen i databasen"
 
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:166
 msgid "The batch of tests has been sent successfully"
 msgstr "Testet har skickats framgångsrikt"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:216
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:215
 msgid "Tests in Batch"
 msgstr "Test i batch"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:218
 msgid "Test Number"
 msgstr "Testnummer"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:220
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:126
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:219
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:322
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:125
 #: /home/tim/code/KwaMoja/ProductSpecs.php:512
 #: /home/tim/code/KwaMoja/TestPlanResults.php:765
 msgid "Test Name"
 msgstr "Testnamn"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:240
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:239
 msgid "Remove From Batch"
 msgstr "Ta bort från batch"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:253
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:88
-msgid "Clinicians Notes"
-msgstr "Kliniker Anteckningar"
-
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:257
 msgid "Sample Taken On"
 msgstr "Prov taget på"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:258
 msgid "Sun"
 msgstr "Sol"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:259
 msgid "Mon"
 msgstr "Mon"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:260
 msgid "Tue"
 msgstr "tue"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:261
 msgid "Wed"
 msgstr "ons"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:262
 msgid "Thu"
 msgstr "Thu"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:263
 msgid "Fri"
 msgstr "Fri"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:265
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:264
 msgid "Sat"
 msgstr "lör"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:287
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:285
 msgid "Minutes"
 msgstr "Minuter"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:290
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:288
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:226
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:165
 msgid "Urgent Test"
 msgstr "Urgent Test"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:297
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:295
 msgid "Send Batch"
 msgstr "Skicka batch"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:321
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:319
 msgid "Select Tests"
 msgstr "Välj test"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:326
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:324
 msgid "Select Test"
 msgstr "Välj Test"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:346
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:344
 msgid "Add Tests To Batch"
 msgstr "Lägg till test i batch"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:356
 msgid "Select a test group"
 msgstr "Välj en testgrupp"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:360
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:358
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:148
 msgid "Parameter Group"
 msgstr "Parametergrupp"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:383
 msgid "Select Group"
 msgstr "Välj grupp"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:397
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "Sök efter patienter"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:402
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:340
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
 #: /home/tim/code/KwaMoja/SelectCustomer.php:272
 #: /home/tim/code/KwaMoja/SelectSupplier.php:301
@@ -30015,22 +30154,169 @@ msgstr "Sök efter patienter"
 msgid "Enter a partial Name"
 msgstr "Ange ett partiellt namn"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:413
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:351
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "Ange ett partiellt patientfilnummer"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:362
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
 #: /home/tim/code/KwaMoja/SelectCustomer.php:295
 msgid "Enter a partial Phone Number"
 msgstr "Ange ett partiellt telefonnummer"
 
-#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:435
+#: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:373
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
 #: /home/tim/code/KwaMoja/SelectCustomer.php:306
 msgid "Enter part of the Address"
 msgstr "Ange en del av Adressen"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:5
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:48
+msgid "Pathology Laboratory Test Request"
+msgstr "Pathology Laboratory Test Request"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:162
+msgid "Failed to insert the test request into the database"
+msgstr "Det gick inte att infoga testbegäran i databasen"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:169
+msgid "Return to Pathology Laboratory"
+msgstr "Återgå till patologilaboratoriet"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:216
+msgid "Request diagnostic test - Pathology"
+msgstr "Begär diagnostiskt test - Patologi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:220
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:153
+msgid "Express Cut"
+msgstr "Express Cut"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:222
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:228
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:155
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:167
+msgid "Telephone to notify"
+msgstr "Telefon för att meddela"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:233
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:172
+msgid "Specimen Type"
+msgstr "Provtyp"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:235
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:190
+msgid "Biopsy, sample excision"
+msgstr "Biopsi, provskärning"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:236
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:191
+msgid "Operation Specimen"
+msgstr "Driftprov"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:237
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:192
+msgid "Curettage"
+msgstr "skrapning"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:238
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:193
+msgid "Cytology"
+msgstr "Cytologi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:244
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:199
+msgid "Localisation"
+msgstr "Lokalisering"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:249
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:204
+msgid "Clinical Diagnoses, Reports, Queries"
+msgstr "Kliniska diagnoser, rapporter, frågor"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:254
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:209
+msgid "Supporting information"
+msgstr "Stödjande information"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:256
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:211
+msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
+msgstr "t.ex. "
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:260
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:215
+msgid "Repeated Test"
+msgstr "Upprepat test"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:262
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:217
+msgid "For repeated test: please enter the early Journal number with date"
+msgstr "För upprepat test: ange tidigt tidskriftnummer med datum"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:266
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:221
+msgid "For gynecological tests"
+msgstr "För gynekologiska tester"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:269
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:224
+msgid "Last Period"
+msgstr "Förra perioden"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:274
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:229
+msgid "Period Type"
+msgstr "Periodstyp"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:279
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:234
+msgid "Gravida"
+msgstr "gravida"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:284
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:239
+msgid "Menopause since"
+msgstr "Menopaus sedan"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:289
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:244
+msgid "Hysterectomy"
+msgstr "Hysterektomi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:294
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:249
+msgid "Contraceptive"
+msgstr "Preventivmedel"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:299
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:254
+msgid "Hormonal therapy"
+msgstr "Hormonterapi"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:304
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:259
+msgid "IUD"
+msgstr "spiral"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:311
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:266
+msgid "Date of operation"
+msgstr "Datum för drift"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:316
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:271
+msgid "Doctor/Department"
+msgstr "Doktor / Department"
+
+#: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:323
+msgid "Send Request"
+msgstr "Skicka förfrågan"
 
 #: /home/tim/code/KwaMoja/KCMCRoomTypes.php:3
 msgid "Room Types"
@@ -30096,11 +30382,17 @@ msgstr "Sök patienter"
 msgid "Patients"
 msgstr "patienter"
 
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:70
-#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:71
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:80
-msgid "Patient"
-msgstr "Patient"
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:73
+msgid "Select a menu option to operate using this patient"
+msgstr "Välj ett menyalternativ för att använda denna patient"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:78
+msgid "Patient Inquiries"
+msgstr "Patientförfrågningar"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:84
+msgid "Patient Transactions"
+msgstr "Patienttransaktioner"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:87
 msgid "Modify patient registration data"
@@ -30117,6 +30409,10 @@ msgstr "Ändra poliklinikuppgifter"
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:96
 msgid "Discharge this patient"
 msgstr "Lossa denna patient"
+
+#: /home/tim/code/KwaMoja/KCMCSelectPatient.php:102
+msgid "Patient Maintenance"
+msgstr "Patientunderhåll"
 
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:167
 #: /home/tim/code/KwaMoja/MailSalesReport_csv.php:40
@@ -30163,7 +30459,7 @@ msgid "You already have a test group type called"
 msgstr "Du har redan en testgruppstyp som heter"
 
 #: /home/tim/code/KwaMoja/KCMCTestParameterGroups.php:156
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:128
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:127
 msgid "Test Group"
 msgstr "Testgrupp"
 
@@ -30557,37 +30853,75 @@ msgstr "Denna lista bör vara tom i slutet av varje dag"
 msgid "Prescription Date"
 msgstr "Receptdatum"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:4
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:3
 msgid "View Lab Tests"
 msgstr "Visa laboratorietester"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:25
-msgid "View Lab Test Batch"
-msgstr "Visa Lab Test Batch"
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:13
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:13
+msgid "You must first select a batch of tests to view"
+msgstr "Du måste först välja ett antal tester för att se"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:71
-msgid "Batch Summary"
-msgstr "Batchöversikt"
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:15
+msgid "Select a batch to view"
+msgstr "Välj en batch som ska visas"
 
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:72
-msgid "Print Test Request"
-msgstr "Skriv ut testbegäran"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:92
-msgid "Date Sent"
-msgstr "Datum skickat"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:96
-msgid "Sample Taken"
-msgstr "Prov taget"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:104
-msgid "Request Urgent"
-msgstr "Begär brådskande"
-
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:123
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:122
 msgid "Tests to be carried out"
 msgstr "Test som ska genomföras"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:3
+msgid "View Pathology Tests"
+msgstr "Visa patologiprövningar"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:22
+msgid "View Pathology Test Batch"
+msgstr "Se patologtestbatch"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:98
+msgid "Pending diagnostic test - Pathology"
+msgstr "Väntar på diagnostiskt test - Patologi"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:101
+msgid "Pathology"
+msgstr "Patologi"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:104
+msgid "Entry Date"
+msgstr "Startdatum"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:114
+msgid "Number of Blocks"
+msgstr "Antal block"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:119
+msgid "Deep Blocks"
+msgstr "Djupa block"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:124
+msgid "Special Stain"
+msgstr "Special Stain"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:129
+msgid "Immune Histo-Chemistry"
+msgstr "Immunhistokemi"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:134
+msgid "Hormone Receptors"
+msgstr "Hormonreceptorer"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:139
+msgid "Specials"
+msgstr "Specials"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:278
+msgid "Save Details"
+msgstr "Spara detaljer"
+
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:285
+msgid "Return to Pathology Centre"
+msgstr "Återgå till patologicentrum"
 
 #: /home/tim/code/KwaMoja/KCMCViewPatientHistory.php:3
 msgid "View Patient History"
@@ -70686,9 +71020,13 @@ msgstr "Testparmametergrupper"
 msgid "Maintain Test Parameters"
 msgstr "Säilitage testparameetrid"
 
-#: /home/tim/code/KwaMoja/sql/updates/218.php:8
+#: /home/tim/code/KwaMoja/sql/updates/218.php:13
 msgid "Medical Laboratory Details"
 msgstr "Medicinska laboratoriedetaljer"
+
+#: /home/tim/code/KwaMoja/sql/updates/218.php:16
+msgid "Pathology Laboratory Details"
+msgstr "Pathology Laboratory Details"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
