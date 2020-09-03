@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-23 01:15+0100\n"
+"POT-Creation-Date: 2020-08-31 00:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -855,7 +855,7 @@ msgstr "को खाता समूह में बदल दिया गय
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:477
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -1326,16 +1326,17 @@ msgstr "मूल समूह का नाम"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:176
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:75
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:78
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:89
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:92
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:137
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:140
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:67
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:81
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:84
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:95
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:98
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:146
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:68
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:445
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:450
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
@@ -1628,16 +1629,17 @@ msgstr "हाँ"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:174
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:88
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:136
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:69
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:80
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:83
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:94
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:97
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:142
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:145
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:70
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:446
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:46
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
@@ -2209,7 +2211,7 @@ msgstr "संपर्क रिकॉर्ड हटा दिया गय�
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:358
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:360
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
@@ -3341,7 +3343,7 @@ msgstr "पुनर्प्राप्त नहीं किया जा �
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:44
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:145
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:196
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:94
@@ -3758,9 +3760,9 @@ msgstr "रिपोर्ट में अंतिम अवधि का च�
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:490
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:501
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:512
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:506
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:517
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
@@ -3952,8 +3954,9 @@ msgstr "कृपया एक वैकल्पिक अवधि सीम�
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:93
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:45
@@ -5611,7 +5614,7 @@ msgstr "या एक आइटम कोड का हिस्सा दर्
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:108
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:526
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:531
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:381
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
@@ -8228,7 +8231,7 @@ msgstr "एसक्यूएल द्वारा कोई काम आद�
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:369
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
@@ -8273,6 +8276,7 @@ msgstr "संशोधित करें"
 #: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:211
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:211
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:165
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
@@ -8537,7 +8541,7 @@ msgstr "मुद्रा दर को अपडेट नहीं किय�
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:58
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8565,7 +8569,7 @@ msgid "Validation failed"
 msgstr "प्रमाणीकरण विफल रहा"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:58
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
 #: /home/tim/code/KwaMoja/SystemParameters.php:415
@@ -8885,7 +8889,7 @@ msgstr "जब एक इन्वेंट्री लेनदेन कि�
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:426
 #: /home/tim/code/KwaMoja/InternalStockRequestAuthorisation.php:133
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:390
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:209
 #: /home/tim/code/KwaMoja/KCMCSyncCare2xItems.php:90
 #: /home/tim/code/KwaMoja/LocationUsers.php:180
 #: /home/tim/code/KwaMoja/MRPCalendar.php:309
@@ -12218,7 +12222,7 @@ msgstr "अनुबंध: ग्राहक चुनें"
 
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:480
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:485
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
@@ -15498,6 +15502,7 @@ msgstr "कुल शेष"
 #: /home/tim/code/KwaMoja/CustomerAccount.php:428
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:171
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1108
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:168
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:436
 #: /home/tim/code/KwaMoja/SalesPeople.php:195
 #: /home/tim/code/KwaMoja/Shipments.php:421
@@ -16217,7 +16222,7 @@ msgstr "नकद बिक्री के लिए इस शाखा का
 #: /home/tim/code/KwaMoja/Customers.php:699
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:359
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:361
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
@@ -16535,6 +16540,7 @@ msgid "Summary of Receipt Batch"
 msgstr "रसीद बैच का सारांश"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:176
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:33
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
@@ -20132,6 +20138,7 @@ msgstr "फैक्टर कंपनी का नाम"
 #: /home/tim/code/KwaMoja/prlEmployers.php:179
 #: /home/tim/code/KwaMoja/prlEmployers.php:241
 #: /home/tim/code/KwaMoja/includes/JobCards.php:87
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:54
 msgid "Telephone"
 msgstr "टेलीफोन"
 
@@ -26104,9 +26111,10 @@ msgid "Bed Number"
 msgstr "बेड नंबर"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:93
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:74
@@ -26120,7 +26128,7 @@ msgstr "पीआईडी"
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:128
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:357
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:359
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
@@ -26981,6 +26989,7 @@ msgstr "मूत्रजनन प्रणाली"
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
 #: /home/tim/code/KwaMoja/prlnssf.php:471
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:28
 msgid "Male"
 msgstr "नर"
 
@@ -26992,6 +27001,7 @@ msgstr "नर"
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
 #: /home/tim/code/KwaMoja/prlnssf.php:470
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:30
 msgid "Female"
 msgstr "महिला"
 
@@ -27123,6 +27133,7 @@ msgstr "रोगी का नाम"
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
 #: /home/tim/code/KwaMoja/prlnssf.php:461
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
 msgid "Date of Birth"
 msgstr "जन्म की तारीख"
 
@@ -27385,6 +27396,81 @@ msgstr "नियोक्ता कंपनी"
 msgid "Update Details"
 msgstr "अद्यतन विवरण"
 
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:4
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:90
+msgid "Enter Bacteriology Test Findings"
+msgstr "जीवाणु विज्ञान परीक्षण निष्कर्ष दर्ज करें"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:14
+#: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:13
+#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:13
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:13
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:13
+msgid "You must first select a batch of tests to view"
+msgstr "देखने के लिए आपको पहले परीक्षणों के एक बैच का चयन करना होगा"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:16
+#: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:15
+#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:15
+#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:15
+msgid "Select a batch to view"
+msgstr "देखने के लिए एक बैच चुनें"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:104
+#: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:125
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:390
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:431
+msgid "Material"
+msgstr "सामग्री"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:126
+msgid "Requested Tests"
+msgstr "अनुरोधित परीक्षण"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:146
+msgid "Label"
+msgstr "लेबल"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:155
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:38
+msgid "Material Note"
+msgstr "सामग्री नोट"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:160
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:39
+#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:93
+msgid "Diagnosis Note"
+msgstr "निदान नोट"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:167
+msgid "Initial"
+msgstr "प्रारंभिक"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:169
+msgid "Final"
+msgstr "अंतिम"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:179
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:448
+#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:97
+msgid "Immune Suppressed"
+msgstr "प्रतिरक्षा दबा हुआ"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:184
+msgid "Laboratory Entry Number"
+msgstr "प्रयोगशाला प्रवेश संख्या"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:189
+msgid "Reception Date"
+msgstr "रिसेप्शन की तारीख"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:198
+msgid "For lab use only"
+msgstr "लैब उपयोग के लिए ही"
+
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
 msgid "Enter Medical Laboratory Test Data"
 msgstr "मेडिकल प्रयोगशाला परीक्षण डेटा दर्ज करें"
@@ -27493,20 +27579,6 @@ msgstr "परिणाम सहेजें"
 msgid "Enter Pathology Test Findings"
 msgstr "पैथोलॉजी टेस्ट फाइंडिंग दर्ज करें"
 
-#: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:13
-#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:13
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:13
-#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:13
-msgid "You must first select a batch of tests to view"
-msgstr "देखने के लिए आपको पहले परीक्षणों के एक बैच का चयन करना होगा"
-
-#: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:15
-#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:15
-#: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
-#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:15
-msgid "Select a batch to view"
-msgstr "देखने के लिए एक बैच चुनें"
-
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:101
 msgid "Failed to insert the test findings into the database"
 msgstr "डेटाबेस में परीक्षण के निष्कर्षों को सम्मिलित करने में विफल"
@@ -27521,12 +27593,6 @@ msgstr "निष्कर्ष सफलतापूर्वक सहेज�
 msgid "Return to Pathology Laboratory"
 msgstr "पैथोलॉजी प्रयोगशाला में लौटें"
 
-#: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:125
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:389
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:426
-msgid "Material"
-msgstr "सामग्री"
-
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:130
 msgid "Macro Findings"
 msgstr "मैक्रो फाइंडिंग"
@@ -27540,7 +27606,7 @@ msgid "Additional Note"
 msgstr "अतिरिक्त नोट"
 
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:145
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:431
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:436
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "निदान"
@@ -27685,67 +27751,80 @@ msgstr "आय और व्यय का विवरण"
 msgid "Hospital Configuration"
 msgstr "अस्पताल का विन्यास"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:43
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:49
 msgid "The hospital configuration could not be updated because"
 msgstr "अस्पताल कॉन्फ़िगरेशन अपडेट नहीं किया जा सका क्योंकि"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:51
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:57
 msgid "Hospital configuration updated"
 msgstr "अस्पताल का कॉन्फ़िगरेशन अपडेट किया गया"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:68
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/ShopParameters.php:184
 #: /home/tim/code/KwaMoja/SystemParameters.php:425
 msgid "General Settings"
 msgstr "सामान्य सेटिंग्स"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:71
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:77
 msgid "Dispense on Bill"
 msgstr "विधेयक पर नाराजगी"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:81
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:87
 msgid "Should items be deducted from stock automatically on production of the bill, or on actual dispensing?"
 msgstr "क्या आइटम को बिल के उत्पादन पर या वास्तविक वितरण पर स्वचालित रूप से स्टॉक से घटा दिया जाना चाहिए?"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:85
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:91
 msgid "Cashiers can Amend Bills"
 msgstr "कैशियर बिलों में संशोधन कर सकते हैं"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:95
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:101
 msgid "Can the cashiers delete and insert lines in patients bills?"
 msgstr "क्या कैशियर मरीजों के बिल में लाइनों को हटा और डाल सकते हैं?"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:101
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:107
 msgid "Default Sales Person for Patients"
 msgstr "मरीजों के लिए डिफ़ॉल्ट बिक्री व्यक्ति"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:112
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:118
 msgid "The default sales person that will be used when patients are transferred from care2x"
 msgstr "डिफ़ॉल्ट बिक्री व्यक्ति जिसका उपयोग तब किया जाएगा जब मरीजों को care2x से स्थानांतरित किया जाता है"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:118
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:124
 msgid "Default Sales Area for Patients"
 msgstr "मरीजों के लिए डिफ़ॉल्ट बिक्री क्षेत्र"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:129
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:135
 msgid "The default sales area that will be used when patients are transferred from care2x"
 msgstr "डिफ़ॉल्ट बिक्री क्षेत्र जिसका उपयोग तब किया जाएगा जब मरीजों को care2x से स्थानांतरित किया जाएगा"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:133
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:139
 msgid "New Patient numbers Automatically Generated"
 msgstr "नई रोगी संख्या स्वचालित रूप से उत्पन्न"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:149
 msgid "If new patient numbers are to be automatically allocated select Yes here."
 msgstr "यदि नए रोगी संख्याओं को स्वचालित रूप से आवंटित किया जाना है तो यहां हां का चयन करें।"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:149
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:155
 msgid "Debtor type to use for Insurance companies"
 msgstr "देनदार प्रकार बीमा कंपनियों के लिए उपयोग करने के लिए"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:159
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
 msgstr "ऋणी प्रकार जो बीमा कंपनियों के लिए उपयोग किया जाता है। "
+
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
+msgid "The directory where QRcodes are stored"
+msgstr "वह निर्देशिका जहाँ QRcodes संग्रहीत हैं"
+
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:184
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:203
+msgid "The directory under which all qrcodes_dir files will be stored."
+msgstr "वह निर्देशिका जिसके अंतर्गत सभी qrcodes_dir फ़ाइलों को संग्रहीत किया जाएगा।"
+
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:191
+msgid "The directory where barcodes are stored"
+msgstr "वह निर्देशिका जहाँ बारकोड संग्रहीत किए जाते हैं"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:3
 msgid "Billing For All Drugs and Services"
@@ -28187,6 +28266,7 @@ msgstr "प्रवेश का समय"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:52
 msgid "Blood Group"
 msgstr "रक्त समूह"
 
@@ -28196,6 +28276,7 @@ msgstr "रक्त समूह"
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
 #: /home/tim/code/KwaMoja/prlnssf.php:465
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:53
 msgid "Gender"
 msgstr "लिंग"
 
@@ -28525,6 +28606,7 @@ msgstr "में स्थानांतरण के लिए चाला�
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:34
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:32
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:49
 msgid "Patient ID"
 msgstr "रोगी आईडी"
 
@@ -29334,28 +29416,17 @@ msgstr "लंबित परीक्षण अनुरोध"
 msgid "Date Batch Sent"
 msgstr "दिनांक बैच भेजा गया"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:38
-msgid "Material Note"
-msgstr "सामग्री नोट"
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+msgid "Edit Batch"
+msgstr "बैच संपादित करें"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:39
-#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:93
-msgid "Diagnosis Note"
-msgstr "निदान नोट"
-
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:40
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:443
-#: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:97
-msgid "Immune Suppressed"
-msgstr "प्रतिरक्षा दबा हुआ"
-
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:81
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "देखें बैच"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:84
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
 #: /home/tim/code/KwaMoja/SelectQASamples.php:403
@@ -29363,7 +29434,7 @@ msgstr "देखें बैच"
 msgid "Enter Results"
 msgstr "परिणाम दर्ज करें"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:90
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:92
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:169
 msgid "Return to Bacteriology Centre"
 msgstr "जीवाणु विज्ञान केंद्र पर लौटें"
@@ -30187,71 +30258,71 @@ msgid "Item to bill"
 msgstr "बिल का मद"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:5
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:93
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:97
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:99
 msgid "Bacteriology Laboratory Test Request"
 msgstr "जीवाणु विज्ञान प्रयोगशाला परीक्षण अनुरोध"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:142
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:144
 msgid "Failed to update the batch header into the database"
 msgstr "डेटाबेस में बैच हेडर को अपडेट करने में विफल"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:169
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:194
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:171
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:196
 msgid "Failed to update the batch line into the database"
 msgstr "डेटाबेस में बैच लाइन को अपडेट करने में विफल"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:199
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:201
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:122
 msgid "The batch of tests has been updated successfully"
 msgstr "परीक्षणों के बैच को सफलतापूर्वक अपडेट किया गया है"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:202
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:330
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:204
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:332
 msgid "Print the request form"
 msgstr "अनुरोध प्रपत्र प्रिंट करें"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:203
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:331
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:205
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:333
 msgid "Edit the same test request"
 msgstr "समान परीक्षण अनुरोध संपादित करें"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:204
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:332
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:206
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:334
 msgid "Create a new test request for the same patient"
 msgstr "उसी रोगी के लिए एक नया परीक्षण अनुरोध बनाएँ"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:205
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:333
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:207
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:335
 msgid "Create a test request for another patient"
 msgstr "किसी अन्य रोगी के लिए एक परीक्षण अनुरोध बनाएँ"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:272
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:274
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:133
 msgid "Failed to insert the batch header into the database"
 msgstr "डेटाबेस में बैच हेडर डालने में विफल"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:297
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:322
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:299
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:324
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:154
 msgid "Failed to insert the batch line into the database"
 msgstr "डेटाबेस में बैच लाइन डालने में विफल"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:327
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:329
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:159
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:166
 msgid "The batch of tests has been sent successfully"
 msgstr "परीक्षणों के बैच को सफलतापूर्वक भेजा गया है"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:386
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:387
 msgid "Request diagnostic test - Bacteriology"
 msgstr "नैदानिक ​​परीक्षण का अनुरोध करें - जीवाणु विज्ञान"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:409
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:412
 msgid "Requested Test"
 msgstr "अनुरोधित परीक्षण"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:456
 #: /home/tim/code/KwaMoja/SelectQASamples.php:409
 #: /home/tim/code/KwaMoja/SelectQASamples.php:516
 #: /home/tim/code/KwaMoja/TestPlanResults.php:270
@@ -30259,23 +30330,23 @@ msgstr "अनुरोधित परीक्षण"
 msgid "Sample Date"
 msgstr "नमूना तिथि"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:459
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:464
 msgid "Update Request"
 msgstr "अद्यतन अनुरोध"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:464
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:469
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:320
 msgid "Send Request"
 msgstr "अनुरोध भेजा"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:477
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
 msgid "Search for Patients"
 msgstr "मरीजों की तलाश करें"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:487
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:337
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
@@ -30285,14 +30356,14 @@ msgstr "मरीजों की तलाश करें"
 msgid "Enter a partial Name"
 msgstr "आंशिक नाम दर्ज करें"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:493
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:498
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
 msgid "Enter a partial patient file number"
 msgstr "एक आंशिक रोगी फ़ाइल नंबर दर्ज करें"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:504
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:509
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
@@ -30300,7 +30371,7 @@ msgstr "एक आंशिक रोगी फ़ाइल नंबर दर�
 msgid "Enter a partial Phone Number"
 msgstr "आंशिक फ़ोन नंबर दर्ज करें"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:515
+#: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:520
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
@@ -71457,6 +71528,277 @@ msgstr "Pharm.mat।"
 msgid "GO-stain"
 msgstr "GO-दाग"
 
+#: /home/tim/code/KwaMoja/sql/updates/219.php:153
+msgid "C.aer."
+msgstr "C.aer।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:154
+#: /home/tim/code/KwaMoja/sql/updates/219.php:155
+#: /home/tim/code/KwaMoja/sql/updates/219.php:156
+#: /home/tim/code/KwaMoja/sql/updates/219.php:157
+#: /home/tim/code/KwaMoja/sql/updates/219.php:158
+msgid "S.aer."
+msgstr "S.aer।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:159
+#: /home/tim/code/KwaMoja/sql/updates/219.php:169
+msgid "OPTCN"
+msgstr "OPTCN"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:160
+#: /home/tim/code/KwaMoja/sql/updates/219.php:170
+msgid "C.blod"
+msgstr "C.blod"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:161
+#: /home/tim/code/KwaMoja/sql/updates/219.php:171
+msgid "BCTCN"
+msgstr "BCTCN"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:162
+#: /home/tim/code/KwaMoja/sql/updates/219.php:172
+msgid "CPBTR"
+msgstr "CPBTR"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:163
+msgid "C.ana"
+msgstr "C.ana"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:164
+#: /home/tim/code/KwaMoja/sql/updates/219.php:165
+#: /home/tim/code/KwaMoja/sql/updates/219.php:166
+#: /home/tim/code/KwaMoja/sql/updates/219.php:167
+#: /home/tim/code/KwaMoja/sql/updates/219.php:168
+msgid "S.ana."
+msgstr "S.ana।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:173
+#: /home/tim/code/KwaMoja/sql/updates/219.php:174
+msgid "Fung.C."
+msgstr "Fung.C."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:175
+#: /home/tim/code/KwaMoja/sql/updates/219.php:176
+msgid "Path.T."
+msgstr "Path.T."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:177
+#: /home/tim/code/KwaMoja/sql/updates/219.php:178
+msgid "API.Cdd"
+msgstr "API.Cdd"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:179
+#: /home/tim/code/KwaMoja/sql/updates/219.php:180
+msgid "s.Fungi"
+msgstr "s.Fungi"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:181
+#: /home/tim/code/KwaMoja/sql/updates/219.php:182
+msgid "Cdd-ID"
+msgstr "Cdd-आईडी"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:183
+msgid "StoolC."
+msgstr "StoolC।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:184
+msgid "BlodC."
+msgstr "BlodC।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:185
+msgid "Liq.KF"
+msgstr "Liq.KF"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:186
+msgid "LAAL"
+msgstr "Laal"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:187
+msgid "O.blod"
+msgstr "O.blod"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:191
+msgid "Kliglr"
+msgstr "Kliglr"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:193
+#: /home/tim/code/KwaMoja/sql/updates/219.php:194
+#: /home/tim/code/KwaMoja/sql/updates/219.php:195
+msgid "Ag.1x"
+msgstr "Ag.1x"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:196
+msgid "Ag.4x"
+msgstr "Ag.4x"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:197
+msgid "Ag.8x"
+msgstr "Ag.8x"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:198
+msgid "ASP1"
+msgstr "ASP1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:199
+msgid "ASP2"
+msgstr "ASP2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:200
+msgid "Ag.Dys."
+msgstr "Ag.Dys।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:201
+msgid "EHEC"
+msgstr "EHEC"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:202
+msgid "MBLTY"
+msgstr "MBLTY"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:203
+msgid "M-blau"
+msgstr "एम Blau"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:204
+msgid "A.oran."
+msgstr "एक।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:205
+msgid "Z-Neel."
+msgstr "जेड-नील।"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:206
+msgid "KOH"
+msgstr "KOH"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:207
+msgid "NBCN.1"
+msgstr "NBCN.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:208
+msgid "NBCN.2"
+msgstr "NBCN.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:213
+msgid "STPX.1"
+msgstr "STPX.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:214
+msgid "PK.1"
+msgstr "PK.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:215
+msgid "CTLS.1"
+msgstr "CTLS.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:216
+msgid "Ndol.1"
+msgstr "Ndol.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:217
+msgid "OXDS.1"
+msgstr "OXDS.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:218
+msgid "ENTB.1"
+msgstr "ENTB.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:219
+msgid "BBL1"
+msgstr "BBL1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:220
+msgid "API1"
+msgstr "API1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:221
+msgid "APIa.1"
+msgstr "APIa.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:222
+msgid "Gram.1"
+msgstr "Gram.1"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:223
+msgid "STPX.2"
+msgstr "STPX.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:224
+msgid "PK.2"
+msgstr "PK.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:225
+msgid "CTLS.2"
+msgstr "CTLS.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:226
+msgid "Ndol.2"
+msgstr "Ndol.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:227
+msgid "OXDS.2"
+msgstr "OXDS.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:228
+msgid "ENTB.2"
+msgstr "ENTB.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:229
+msgid "BBL2"
+msgstr "BBL2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:230
+msgid "API2"
+msgstr "API2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:231
+msgid "APIa.2"
+msgstr "APIa.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:232
+msgid "Gram.2"
+msgstr "Gram.2"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:233
+msgid "STPX.3"
+msgstr "STPX.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:234
+msgid "PK.3"
+msgstr "PK.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:235
+msgid "CTLS.3"
+msgstr "CTLS.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:236
+msgid "Ndol.3"
+msgstr "Ndol.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:237
+msgid "OXDS.3"
+msgstr "OXDS.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:238
+msgid "ENTB.3"
+msgstr "ENTB.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:239
+msgid "BBL3"
+msgstr "BBL3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:240
+msgid "API3"
+msgstr "API3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:241
+msgid "APIa.3"
+msgstr "APIa.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:242
+msgid "Gram.3"
+msgstr "Gram.3"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "खरीद"
@@ -72299,6 +72641,9 @@ msgstr "स्टाफ ऋण"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "कर्मचारी ऋण चुकौती"
+
+#~ msgid "Bacteriological Laboratory"
+#~ msgstr "जीवाणु प्रयोगशाला"
 
 #~ msgid "Return to Bacteriology Laboratory"
 #~ msgstr "जीवाणु विज्ञान प्रयोगशाला में लौटें"
