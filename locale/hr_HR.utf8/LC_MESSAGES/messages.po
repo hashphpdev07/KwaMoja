@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 00:16+0100\n"
+"POT-Creation-Date: 2020-09-07 02:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1326,7 +1326,7 @@ msgstr "Naziv roditeljske grupe"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:176
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:175
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:81
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:84
@@ -1629,7 +1629,7 @@ msgstr "Da"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:174
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:173
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:80
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:83
@@ -8276,7 +8276,7 @@ msgstr "izmijeniti"
 #: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:211
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:211
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:165
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:164
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
@@ -15502,7 +15502,7 @@ msgstr "Ukupni saldo"
 #: /home/tim/code/KwaMoja/CustomerAccount.php:428
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:171
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1108
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:168
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:167
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:436
 #: /home/tim/code/KwaMoja/SalesPeople.php:195
 #: /home/tim/code/KwaMoja/Shipments.php:421
@@ -27425,51 +27425,83 @@ msgstr "Odaberite seriju za prikaz"
 msgid "Material"
 msgstr "Materijal"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:126
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:125
 msgid "Requested Tests"
 msgstr "Zatraženi testovi"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:146
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:145
 msgid "Label"
 msgstr "Označiti"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:155
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:154
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:38
 msgid "Material Note"
 msgstr "Bilješka o materijalu"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:160
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:159
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:39
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:93
 msgid "Diagnosis Note"
 msgstr "Napomena o dijagnozi"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:167
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:166
 msgid "Initial"
 msgstr "početni"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:169
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:168
 msgid "Final"
 msgstr "konačni"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:179
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:178
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:40
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:448
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:97
 msgid "Immune Suppressed"
 msgstr "Imunološki potisnuti"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:184
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:183
 msgid "Laboratory Entry Number"
 msgstr "Ulazni broj laboratorija"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:189
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:188
 msgid "Reception Date"
 msgstr "Datum prijema"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:198
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:217
 msgid "For lab use only"
 msgstr "Samo za laboratorijsku upotrebu"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:281
+msgid "Test results / Findings"
+msgstr "Rezultati ispitivanja / Nalazi"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:285
+msgid "Blocker Positive"
+msgstr "Bloker pozitivan"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:292
+msgid "Blocker Negative"
+msgstr "Negativni bloker"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:301
+msgid "Mark by streptococcus resistance"
+msgstr "Označiti rezistencijom na streptokok"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:308
+msgid "Bac.ct.>10^5"
+msgstr "Bac.ct.> 10 ^ 5"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:315
+msgid "Bac.ct.<10^5"
+msgstr "Bac.ct. <10 ^ 5"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:322
+msgid "Bac.ct.neg"
+msgstr "Bac.ct.neg"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:413
+msgid "Resistance Test Aerobe"
+msgstr "Test otpora Aerobe"
 
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
 msgid "Enter Medical Laboratory Test Data"
@@ -71798,6 +71830,102 @@ msgstr "APIa.3"
 #: /home/tim/code/KwaMoja/sql/updates/219.php:242
 msgid "Gram.3"
 msgstr "Gram.3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:358
+msgid "No growth after 48 hours"
+msgstr "Nema rasta nakon 48 sati"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:359
+msgid "Aerobe like growth"
+msgstr "Aerobe poput rasta"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:360
+msgid "Am&#246;bai nstool negative"
+msgstr "Amöbai nstool negativan"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:361
+msgid "No growth after 5 days"
+msgstr "Nema rasta nakon 5 dana"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:362
+msgid "Lambia in stool negative"
+msgstr "Lambija u stolici negativna"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:363
+msgid "No growth after 9 days"
+msgstr "Nema rasta nakon 9 dana"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:364
+msgid "Gram.neg.Diplococci No Evid."
+msgstr "Gram.neg.Diplococci Nema dokaza."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:365
+msgid "Worm eggs.n.stoolneg."
+msgstr "Jajašca crva.n.stoolneg."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:366
+msgid "No Bact.of TPE-Group"
+msgstr "Nema Bact-a. TPE-grupe"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:367
+msgid "GO-culturenegative"
+msgstr "GO-kultura negativan"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:368
+msgid "No growth of E.Coli"
+msgstr "Nema rasta E.Coli"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:369
+msgid "Campylobacter.cultureneg."
+msgstr "Campylobacter.cultureneg."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:370
+msgid "Liquorantigen negative"
+msgstr "Liquorantigen negativan"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:371
+msgid "NoG.Campylobacter.pylori"
+msgstr "NoG.Campylobacter.pylori"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:372
+msgid "NoEvid.microscp.acid.Cylind."
+msgstr "NoEvid.microscp.acid.Cilindar."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:373
+msgid "EHEC egative"
+msgstr "EHEC negativan"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:374
+msgid "Dyspepsy.Coliserolg.NoEvid"
+msgstr "Dispepsija.Coliserolg.NoEvid"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:375
+msgid "No growth after 7 days"
+msgstr "Nema rasta nakon 7 dana"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:376
+msgid "isolated Spore fungi evident"
+msgstr "evidentne izolirane gljivice spora"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:377
+msgid "Fungiculture negative"
+msgstr "Fungiculture negativan"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:378
+msgid "Cocci mixflora"
+msgstr "Cocci mixflora"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:379
+msgid "Cocci.Cylinder.Mixflora"
+msgstr "Cocci.Cilindar.Mixflora"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:380
+msgid "Bacteria microscop.NonEvid"
+msgstr "Mikroskop bakterija.NonEvid"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:381
+msgid "NoG.oxacil.resist.Staphyloc."
+msgstr "NoG.oxacil.resist.Staphyloc."
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"

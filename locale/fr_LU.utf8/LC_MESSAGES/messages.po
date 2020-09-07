@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-31 00:11+0100\n"
+"POT-Creation-Date: 2020-09-07 02:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1326,7 +1326,7 @@ msgstr "Nom du groupe parent"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:176
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:175
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:81
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:84
@@ -1629,7 +1629,7 @@ msgstr "Oui"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:174
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:173
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:80
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:83
@@ -8276,7 +8276,7 @@ msgstr "Modifier"
 #: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:211
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:211
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:165
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:164
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
@@ -15502,7 +15502,7 @@ msgstr "Solde total"
 #: /home/tim/code/KwaMoja/CustomerAccount.php:428
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:171
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1108
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:168
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:167
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:436
 #: /home/tim/code/KwaMoja/SalesPeople.php:195
 #: /home/tim/code/KwaMoja/Shipments.php:421
@@ -27425,51 +27425,83 @@ msgstr "Sélectionnez un lot à afficher"
 msgid "Material"
 msgstr "Matériel"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:126
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:125
 msgid "Requested Tests"
 msgstr "Tests demandés"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:146
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:145
 msgid "Label"
 msgstr "Étiquette"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:155
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:154
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:38
 msgid "Material Note"
 msgstr "Note matérielle"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:160
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:159
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:39
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:93
 msgid "Diagnosis Note"
 msgstr "Note de diagnostic"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:167
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:166
 msgid "Initial"
 msgstr "Initiale"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:169
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:168
 msgid "Final"
 msgstr "Final"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:179
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:178
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:40
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:448
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:97
 msgid "Immune Suppressed"
 msgstr "Immunité supprimée"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:184
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:183
 msgid "Laboratory Entry Number"
 msgstr "Numéro d'entrée du laboratoire"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:189
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:188
 msgid "Reception Date"
 msgstr "Date de réception"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:198
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:217
 msgid "For lab use only"
 msgstr "Pour usage en laboratoire uniquement"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:281
+msgid "Test results / Findings"
+msgstr "Résultats des tests / résultats"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:285
+msgid "Blocker Positive"
+msgstr "Bloqueur positif"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:292
+msgid "Blocker Negative"
+msgstr "Bloqueur négatif"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:301
+msgid "Mark by streptococcus resistance"
+msgstr "Marquer par résistance au streptocoque"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:308
+msgid "Bac.ct.>10^5"
+msgstr "Bac.ct.> 10 ^ 5"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:315
+msgid "Bac.ct.<10^5"
+msgstr "Bac.ct. <10 ^ 5"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:322
+msgid "Bac.ct.neg"
+msgstr "Bac.ct.neg"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:413
+msgid "Resistance Test Aerobe"
+msgstr "Test de résistance Aerobe"
 
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
 msgid "Enter Medical Laboratory Test Data"
@@ -71798,6 +71830,102 @@ msgstr "APIa.3"
 #: /home/tim/code/KwaMoja/sql/updates/219.php:242
 msgid "Gram.3"
 msgstr "Gramme 3"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:358
+msgid "No growth after 48 hours"
+msgstr "Pas de croissance après 48 heures"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:359
+msgid "Aerobe like growth"
+msgstr "Aerobe comme la croissance"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:360
+msgid "Am&#246;bai nstool negative"
+msgstr "Amöbai nstool négatif"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:361
+msgid "No growth after 5 days"
+msgstr "Aucune croissance après 5 jours"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:362
+msgid "Lambia in stool negative"
+msgstr "Lambia dans les selles négatives"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:363
+msgid "No growth after 9 days"
+msgstr "Aucune croissance après 9 jours"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:364
+msgid "Gram.neg.Diplococci No Evid."
+msgstr "Gram.neg.Diplococci No Evid."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:365
+msgid "Worm eggs.n.stoolneg."
+msgstr "Oeufs de ver. N.stoolneg."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:366
+msgid "No Bact.of TPE-Group"
+msgstr "Pas de Bact. De TPE-Group"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:367
+msgid "GO-culturenegative"
+msgstr "GO-culturenegative"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:368
+msgid "No growth of E.Coli"
+msgstr "Aucune croissance de E.Coli"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:369
+msgid "Campylobacter.cultureneg."
+msgstr "Campylobacter.cultureneg."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:370
+msgid "Liquorantigen negative"
+msgstr "Liquorantigène négatif"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:371
+msgid "NoG.Campylobacter.pylori"
+msgstr "NoG.Campylobacter.pylori"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:372
+msgid "NoEvid.microscp.acid.Cylind."
+msgstr "NoEvid.microscp.acid.Cylind."
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:373
+msgid "EHEC egative"
+msgstr "EHEC égatif"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:374
+msgid "Dyspepsy.Coliserolg.NoEvid"
+msgstr "Dyspepsie.Coliserolg.NoEvid"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:375
+msgid "No growth after 7 days"
+msgstr "Aucune croissance après 7 jours"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:376
+msgid "isolated Spore fungi evident"
+msgstr "champignons spores isolés évidents"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:377
+msgid "Fungiculture negative"
+msgstr "Négatif pour la fongiculture"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:378
+msgid "Cocci mixflora"
+msgstr "Cocci mixflora"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:379
+msgid "Cocci.Cylinder.Mixflora"
+msgstr "Cocci.Cylinder.Mixflora"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:380
+msgid "Bacteria microscop.NonEvid"
+msgstr "Microscopie bactérienne.NonEvid"
+
+#: /home/tim/code/KwaMoja/sql/updates/219.php:381
+msgid "NoG.oxacil.resist.Staphyloc."
+msgstr "NoG.oxacil.resist.Staphyloc."
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
