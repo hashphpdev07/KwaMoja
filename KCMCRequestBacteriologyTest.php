@@ -27,10 +27,6 @@ if (isset($_POST['SelectedPatient'])) {
 	$SelectedPatient = $_GET['SelectedPatient'];
 }
 
-$MaterialsArray = array();
-$TestsArray = array();
-$ImmuneSupp = 0;
-
 if (isset($_GET['SelectedBatch'])) {
 	$HeaderSQL = "SELECT `encounter_nr`,
 						`dept_nr`,
@@ -66,9 +62,9 @@ if (isset($_GET['SelectedBatch'])) {
 	$LinesResult = DB_query($LinesSQL);
 	while ($LinesRow = DB_fetch_array($LinesResult)) {
 		if ($LinesRow['test_type_value'] != 0) {
-			$TestsArray[] = $LinesRow['test_type'];
+			$TestArray[] = $LinesRow['test_type'];
 		} elseif ($LinesRow['material_value'] != 0) {
-			$MaterialsArray[] = $LinesRow['material'];
+			$MaterialArray[] = $LinesRow['material'];
 		}
 	}
 } else {
@@ -77,7 +73,9 @@ if (isset($_GET['SelectedBatch'])) {
 	$DiagnosisNote = '';
 	$SampleDate = date('Y-m-d');;
 
-	$History = '';
+	$MaterialArray = array();
+	$TestArray = array();
+	$ImmuneSupp = 0;
 }
 
 if (isset($SelectedPatient)) {
@@ -392,14 +390,16 @@ if (isset($SelectedPatient) and $SelectedPatient != '') {
 			<legend>', _('Material'), '</legend>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if (in_array($MyRow['type'], $MaterialsArray)) {
+		if (in_array($MyRow['type'], $MaterialArray)) {
 			$Checked = ' checked="checked" ';
 		} else {
 			$Checked = '';
 		}
 		echo '<field>
-				<label for="', $MyRow['type'], '">', _($MyRow['name']), '</label>
-				<input type="checkbox"', $Checked, ' name="material', $MyRow['type'], '" />
+				<label class="container" for="', $MyRow['type'], '" onclick="ToggleCheckbox(document.getElementById(\'material', $MyRow['type'], '\'));">', _($MyRow['name']), '
+					<input type="checkbox" ', $Checked, ' id="material', $MyRow['type'], '" name="material', $MyRow['type'], '" />
+					<span class="checkmark"></span>
+				</label>
 			</field>';
 	}
 
@@ -412,14 +412,16 @@ if (isset($SelectedPatient) and $SelectedPatient != '') {
 			<legend>', _('Requested Test'), '</legend>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
-		if (in_array($MyRow['type'], $TestsArray)) {
+		if (in_array($MyRow['type'], $TestArray)) {
 			$Checked = ' checked="checked" ';
 		} else {
 			$Checked = '';
 		}
 		echo '<field>
-				<label for="', $MyRow['type'], '">', _($MyRow['name']), '</label>
-				<input type="checkbox"', $Checked, ' name="test', $MyRow['type'], '" />
+				<label class="container" for="', $MyRow['type'], '" onclick="ToggleCheckbox(document.getElementById(\'test', $MyRow['type'], '\'));">', _($MyRow['name']), '
+					<input type="checkbox" ', $Checked, ' id="test', $MyRow['type'], '" name="test', $MyRow['type'], '" />
+					<span class="checkmark"></span>
+				</label>
 			</field>';
 	}
 
