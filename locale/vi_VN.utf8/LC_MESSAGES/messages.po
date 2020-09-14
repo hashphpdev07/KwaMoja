@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-07 06:27+0100\n"
+"POT-Creation-Date: 2020-09-14 00:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1326,7 +1326,7 @@ msgstr "Tên Nhóm Phụ Huynh"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1186
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1216
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1219
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:175
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:821
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:66
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:81
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:84
@@ -1334,7 +1334,7 @@ msgstr "Tên Nhóm Phụ Huynh"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:98
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:146
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:68
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:67
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:450
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:44
@@ -1629,7 +1629,7 @@ msgstr "Vâng"
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1187
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1217
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1220
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:173
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:819
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:80
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:83
@@ -1637,7 +1637,7 @@ msgstr "Vâng"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:97
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:142
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:145
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:70
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:69
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:46
@@ -2486,6 +2486,7 @@ msgstr "Ghi chú dành cho khách hàng"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
 #: /home/tim/code/KwaMoja/GoodsReceived.php:140
 #: /home/tim/code/KwaMoja/JobCards.php:189
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:834
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:150
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:131
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:625
@@ -3954,7 +3955,7 @@ msgstr "Vui lòng chọn một khoảng thời gian khác"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
@@ -8276,7 +8277,7 @@ msgstr "Chỉnh sửa"
 #: /home/tim/code/KwaMoja/KCMCDepartmentTypes.php:211
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:128
 #: /home/tim/code/KwaMoja/KCMCDutyTypes.php:211
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:164
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:803
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:119
 #: /home/tim/code/KwaMoja/KCMCEthnicOriginTypes.php:184
 #: /home/tim/code/KwaMoja/KCMCFeedingTypes.php:128
@@ -15502,7 +15503,6 @@ msgstr "Tổng dư"
 #: /home/tim/code/KwaMoja/CustomerAccount.php:428
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:171
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1108
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:167
 #: /home/tim/code/KwaMoja/PrintCustStatements.php:436
 #: /home/tim/code/KwaMoja/SalesPeople.php:195
 #: /home/tim/code/KwaMoja/Shipments.php:421
@@ -16540,7 +16540,7 @@ msgid "Summary of Receipt Batch"
 msgstr "Tóm tắt Biên nhận"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:301
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:176
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:33
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:35
@@ -20138,7 +20138,7 @@ msgstr "Tên công ty yếu tố"
 #: /home/tim/code/KwaMoja/prlEmployers.php:179
 #: /home/tim/code/KwaMoja/prlEmployers.php:241
 #: /home/tim/code/KwaMoja/includes/JobCards.php:87
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:54
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:53
 msgid "Telephone"
 msgstr "Điện thoại"
 
@@ -26111,7 +26111,7 @@ msgid "Bed Number"
 msgstr "Số giường"
 
 #: /home/tim/code/KwaMoja/KCMCAllocatePatientsToBeds.php:127
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -26989,7 +26989,7 @@ msgstr "Hệ thống niệu sinh dục"
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
 #: /home/tim/code/KwaMoja/prlnssf.php:471
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:28
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:27
 msgid "Male"
 msgstr "Nam giới"
 
@@ -27001,7 +27001,7 @@ msgstr "Nam giới"
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
 #: /home/tim/code/KwaMoja/prlnssf.php:470
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:30
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:29
 msgid "Female"
 msgstr "Giống cái"
 
@@ -27034,6 +27034,7 @@ msgid "Nervous System Examined"
 msgstr "Hệ thần kinh được kiểm tra"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1230
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1449
 #: /home/tim/code/KwaMoja/KCMCTestParameters.php:374
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:610
 msgid "Save Data"
@@ -27133,7 +27134,7 @@ msgstr "Tên bệnh nhân"
 #: /home/tim/code/KwaMoja/prlEmployers.php:239
 #: /home/tim/code/KwaMoja/prlSelectEmployee.php:73
 #: /home/tim/code/KwaMoja/prlnssf.php:461
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:50
 msgid "Date of Birth"
 msgstr "Ngày sinh"
 
@@ -27396,13 +27397,13 @@ msgstr "Công ty tuyển dụng"
 msgid "Update Details"
 msgstr "Cập nhật chi tiết"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:4
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:86
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:90
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:3
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:724
 msgid "Enter Bacteriology Test Findings"
 msgstr "Nhập các phát hiện xét nghiệm vi khuẩn học"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:14
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:13
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:13
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:13
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:13
@@ -27410,7 +27411,7 @@ msgstr "Nhập các phát hiện xét nghiệm vi khuẩn học"
 msgid "You must first select a batch of tests to view"
 msgstr "Trước tiên, bạn phải chọn một loạt các bài kiểm tra để xem"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:16
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:15
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:15
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:15
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:15
@@ -27418,90 +27419,136 @@ msgstr "Trước tiên, bạn phải chọn một loạt các bài kiểm tra đ
 msgid "Select a batch to view"
 msgstr "Chọn một loạt để xem"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:104
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:121
+msgid "There was a problem updating the header information for these results"
+msgstr "Đã xảy ra sự cố khi cập nhật thông tin tiêu đề cho những kết quả này"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:174
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:106
+msgid "There was a problem inserting the header information for these results"
+msgstr "Đã xảy ra sự cố khi chèn thông tin tiêu đề cho những kết quả này"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:234
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:272
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:334
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:372
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:434
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:472
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:534
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:572
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:144
+msgid "There was a problem inserting the line information for these results"
+msgstr "Đã xảy ra sự cố khi chèn thông tin dòng cho những kết quả này"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:579
+#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:159
+msgid "The test results were saved successfully"
+msgstr "Kết quả kiểm tra đã được lưu thành công"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:740
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:125
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:390
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:431
 msgid "Material"
 msgstr "Vật chất"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:125
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:763
 msgid "Requested Tests"
 msgstr "Kiểm tra được yêu cầu"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:145
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:784
 msgid "Label"
 msgstr "Nhãn"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:154
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:793
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:38
 msgid "Material Note"
 msgstr "Ghi chú vật liệu"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:159
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:798
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:39
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:93
 msgid "Diagnosis Note"
 msgstr "Ghi chú chẩn đoán"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:166
-msgid "Initial"
-msgstr "Ban đầu"
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:804
+msgid "Initial Findings"
+msgstr "Kết quả ban đầu"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:168
-msgid "Final"
-msgstr "Sau cùng"
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:808
+msgid "Current Findings"
+msgstr "Kết quả hiện tại"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:178
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:812
+msgid "Final Findings"
+msgstr "Kết quả cuối cùng"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:824
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:40
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:448
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:97
 msgid "Immune Suppressed"
 msgstr "Miễn dịch bị ức chế"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:183
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:829
 msgid "Laboratory Entry Number"
 msgstr "Số đầu vào phòng thí nghiệm"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:188
-msgid "Reception Date"
-msgstr "Ngày nhận"
-
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:217
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:931
 msgid "For lab use only"
 msgstr "Chỉ sử dụng trong phòng thí nghiệm"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:281
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:942
+msgid "Anaerobic Resistance Test"
+msgstr "Kiểm tra sức đề kháng kỵ khí"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1029
 msgid "Test results / Findings"
 msgstr "Kết quả kiểm tra / Phát hiện"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:285
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1040
 msgid "Blocker Positive"
 msgstr "Chặn tích cực"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:292
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1053
 msgid "Blocker Negative"
 msgstr "Trình chặn âm bản"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:301
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1068
 msgid "Mark by streptococcus resistance"
 msgstr "Đánh dấu bằng kháng liên cầu"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:308
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1080
 msgid "Bac.ct.>10^5"
 msgstr "Bac.ct.> 10 ^ 5"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:315
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1092
 msgid "Bac.ct.<10^5"
 msgstr "Bac.ct. <10 ^ 5"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:322
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1104
 msgid "Bac.ct.neg"
 msgstr "Bac.ct.neg"
 
-#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:413
-msgid "Resistance Test Aerobe"
-msgstr "Kiểm tra sức đề kháng Aerobe"
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1242
+msgid "Aerobic Resistance Test"
+msgstr "Kiểm tra sức đề kháng hiếu khí"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1252
+msgid "Patho 1"
+msgstr "Patho 1"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1259
+msgid "Patho 2"
+msgstr "Patho 2"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1266
+msgid "Patho 3"
+msgstr "Patho 3"
+
+#: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:1403
+msgid "Fungi"
+msgstr "Fungi"
 
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:5
 msgid "Enter Medical Laboratory Test Data"
@@ -27520,21 +27567,9 @@ msgstr "Chọn một lô để xử lý"
 msgid "View Lab Test Batch"
 msgstr "Xem hàng loạt thử nghiệm phòng thí nghiệm"
 
-#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:106
-msgid "There was a problem inserting the header information for these results"
-msgstr "Đã xảy ra sự cố khi chèn thông tin tiêu đề cho những kết quả này"
-
-#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:144
-msgid "There was a problem inserting the line information for these results"
-msgstr "Đã xảy ra sự cố khi chèn thông tin dòng cho những kết quả này"
-
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:154
 msgid "There was a problem updating the status of the request"
 msgstr "Đã xảy ra sự cố khi cập nhật trạng thái của yêu cầu"
-
-#: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:159
-msgid "The test results were saved successfully"
-msgstr "Kết quả kiểm tra đã được lưu thành công"
 
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:162
 msgid "Select another batch to enter"
@@ -28298,7 +28333,7 @@ msgstr "Thời gian nhập học"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:52
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
 msgid "Blood Group"
 msgstr "Nhóm máu"
 
@@ -28308,7 +28343,7 @@ msgstr "Nhóm máu"
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
 #: /home/tim/code/KwaMoja/prlnssf.php:465
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:53
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:52
 msgid "Gender"
 msgstr "Giới tính"
 
@@ -28638,7 +28673,7 @@ msgstr "Hóa đơn chuyển khoản"
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:34
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:36
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:32
-#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:49
+#: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:48
 msgid "Patient ID"
 msgstr "ID của Bệnh Nhân"
 
@@ -29448,17 +29483,17 @@ msgstr "Yêu cầu kiểm tra đang chờ xử lý"
 msgid "Date Batch Sent"
 msgstr "Ngày gửi hàng loạt"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:81
 msgid "Edit Batch"
 msgstr "Chỉnh sửa hàng loạt"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "Xem hàng loạt"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:84
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
 #: /home/tim/code/KwaMoja/SelectQASamples.php:403
@@ -29466,7 +29501,7 @@ msgstr "Xem hàng loạt"
 msgid "Enter Results"
 msgstr "Nhập Kết quả"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:92
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:91
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:169
 msgid "Return to Bacteriology Centre"
 msgstr "Quay lại Trung tâm Vi khuẩn học"
@@ -71364,566 +71399,566 @@ msgstr "Chi tiết phòng thí nghiệm y tế"
 msgid "Pathology Laboratory Details"
 msgstr "Chi tiết Phòng thí nghiệm Bệnh học"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:9
+#: /home/tim/code/KwaMoja/sql/updates/219.php:8
 msgid "Bacteriology Laboratory Details"
 msgstr "Chi tiết Phòng thí nghiệm Vi khuẩn học"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:25
+#: /home/tim/code/KwaMoja/sql/updates/219.php:23
 msgid "C.Urin"
 msgstr "C.Urin"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:26
+#: /home/tim/code/KwaMoja/sql/updates/219.php:24
 msgid "Sputum"
 msgstr "Đờm"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:27
+#: /home/tim/code/KwaMoja/sql/updates/219.php:25
 msgid "M.Urin"
 msgstr "M.Urin"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:28
+#: /home/tim/code/KwaMoja/sql/updates/219.php:26
 msgid "Trac.scrt."
 msgstr "Trác.scrt."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:29
+#: /home/tim/code/KwaMoja/sql/updates/219.php:27
 msgid "B.lavage"
 msgstr "B.lavage"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:30
+#: /home/tim/code/KwaMoja/sql/updates/219.php:28
 msgid "W.smr"
 msgstr "W.smr"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:31
+#: /home/tim/code/KwaMoja/sql/updates/219.php:29
 msgid "Gastrc.j."
 msgstr "Gastrc.j."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:32
+#: /home/tim/code/KwaMoja/sql/updates/219.php:30
 msgid "Uricult"
 msgstr "Nông nghiệp"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:33
+#: /home/tim/code/KwaMoja/sql/updates/219.php:31
 msgid "Pleura"
 msgstr "Màng phổi"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:34
+#: /home/tim/code/KwaMoja/sql/updates/219.php:32
 msgid "Ey.s.r."
 msgstr "Ey.s.r."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:35
+#: /home/tim/code/KwaMoja/sql/updates/219.php:33
 msgid "Secrete"
 msgstr "Bí mật"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:36
+#: /home/tim/code/KwaMoja/sql/updates/219.php:34
 msgid "Ey.s.l."
 msgstr "Ey.s.l."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:37
+#: /home/tim/code/KwaMoja/sql/updates/219.php:35
 msgid "Exsudat"
 msgstr "Exsudat"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:38
+#: /home/tim/code/KwaMoja/sql/updates/219.php:36
 msgid "E.s.r."
 msgstr "E.s.r."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:39
+#: /home/tim/code/KwaMoja/sql/updates/219.php:37
 msgid "Punctat"
 msgstr "Dấu câu"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:40
+#: /home/tim/code/KwaMoja/sql/updates/219.php:38
 msgid "E.s.l."
 msgstr "Ví dụ:"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:41
+#: /home/tim/code/KwaMoja/sql/updates/219.php:39
 msgid "Th.smr"
 msgstr "Th.smr"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:42
+#: /home/tim/code/KwaMoja/sql/updates/219.php:40
 msgid "Ascetis"
 msgstr "Ascetis"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:43
+#: /home/tim/code/KwaMoja/sql/updates/219.php:41
 msgid "Tons.s."
 msgstr "Tấn"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:44
+#: /home/tim/code/KwaMoja/sql/updates/219.php:42
 msgid "Douglas"
 msgstr "Douglas"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:45
+#: /home/tim/code/KwaMoja/sql/updates/219.php:43
 msgid "N.smr"
 msgstr "N.smr"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:46
+#: /home/tim/code/KwaMoja/sql/updates/219.php:44
 msgid "Liquor"
 msgstr "Rượu"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:47
+#: /home/tim/code/KwaMoja/sql/updates/219.php:45
 msgid "Vag.s."
 msgstr "Vag.s."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:48
+#: /home/tim/code/KwaMoja/sql/updates/219.php:46
 msgid "Blood.C."
 msgstr "Máu.C."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:64
+#: /home/tim/code/KwaMoja/sql/updates/219.php:61
 msgid "S.body.m."
 msgstr "S.body.m."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:65
+#: /home/tim/code/KwaMoja/sql/updates/219.php:62
 msgid "Aerob.C."
 msgstr "Thể dục nhịp điệu.C."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:66
+#: /home/tim/code/KwaMoja/sql/updates/219.php:63
 msgid "OP.Mat."
 msgstr "OP.Mat."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:67
+#: /home/tim/code/KwaMoja/sql/updates/219.php:64
 msgid "Anae.C."
 msgstr "Anae.C."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:68
+#: /home/tim/code/KwaMoja/sql/updates/219.php:65
 msgid "Fungal.C."
 msgstr "Nấm.C."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:69
+#: /home/tim/code/KwaMoja/sql/updates/219.php:66
 msgid "Tube.tip"
 msgstr "Tube.tip"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:70
+#: /home/tim/code/KwaMoja/sql/updates/219.php:67
 msgid "St.f.paras."
 msgstr "St.f.paras."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:71
+#: /home/tim/code/KwaMoja/sql/updates/219.php:68
 msgid "GO-Cult."
 msgstr "GO-Giáo phái."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:72
+#: /home/tim/code/KwaMoja/sql/updates/219.php:69
 msgid "St.f.patho."
 msgstr "St.f.patho."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:73
+#: /home/tim/code/KwaMoja/sql/updates/219.php:70
 msgid "Hygien.Mat."
 msgstr "Hygien.Mat."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:74
+#: /home/tim/code/KwaMoja/sql/updates/219.php:71
 msgid "St.f.Dysp."
 msgstr "St.f.Dysp."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:75
+#: /home/tim/code/KwaMoja/sql/updates/219.php:72
 msgid "Biops.Mat."
 msgstr "Biops.Mat."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:76
+#: /home/tim/code/KwaMoja/sql/updates/219.php:73
 msgid "St.f.C.Tox."
 msgstr "St.f.C.Tox."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:77
+#: /home/tim/code/KwaMoja/sql/updates/219.php:74
 msgid "Stool"
 msgstr "Ghế đẩu"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:78
+#: /home/tim/code/KwaMoja/sql/updates/219.php:75
 msgid "TBC.Stain"
 msgstr "TBC.Stain"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:79
+#: /home/tim/code/KwaMoja/sql/updates/219.php:76
 msgid "St.f.Yers."
 msgstr "St.f.Yers."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:80
+#: /home/tim/code/KwaMoja/sql/updates/219.php:77
 msgid "TBC.cult."
 msgstr "TBC.cult."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:81
+#: /home/tim/code/KwaMoja/sql/updates/219.php:78
 msgid "St.f.EHEC"
 msgstr "St.f.EHEC"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:82
+#: /home/tim/code/KwaMoja/sql/updates/219.php:79
 msgid "Liq.antigen"
 msgstr "Liq.antigen"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:83
+#: /home/tim/code/KwaMoja/sql/updates/219.php:80
 msgid "Cat.tip"
 msgstr "Cat.tip"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:84
+#: /home/tim/code/KwaMoja/sql/updates/219.php:81
 msgid "Ownblood"
 msgstr "Ownblood"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:85
+#: /home/tim/code/KwaMoja/sql/updates/219.php:82
 msgid "Gram.stain"
 msgstr "Gram.stain"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:86
+#: /home/tim/code/KwaMoja/sql/updates/219.php:83
 msgid "Pharm.mat."
 msgstr "Dược phẩm."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:87
+#: /home/tim/code/KwaMoja/sql/updates/219.php:84
 msgid "GO-stain"
 msgstr "ĐI-vết"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:153
+#: /home/tim/code/KwaMoja/sql/updates/219.php:148
 msgid "C.aer."
 msgstr "C.aer."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:154
-#: /home/tim/code/KwaMoja/sql/updates/219.php:155
-#: /home/tim/code/KwaMoja/sql/updates/219.php:156
-#: /home/tim/code/KwaMoja/sql/updates/219.php:157
-#: /home/tim/code/KwaMoja/sql/updates/219.php:158
+#: /home/tim/code/KwaMoja/sql/updates/219.php:149
+#: /home/tim/code/KwaMoja/sql/updates/219.php:150
+#: /home/tim/code/KwaMoja/sql/updates/219.php:151
+#: /home/tim/code/KwaMoja/sql/updates/219.php:152
+#: /home/tim/code/KwaMoja/sql/updates/219.php:153
 msgid "S.aer."
 msgstr "S.aer."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:159
-#: /home/tim/code/KwaMoja/sql/updates/219.php:169
+#: /home/tim/code/KwaMoja/sql/updates/219.php:154
+#: /home/tim/code/KwaMoja/sql/updates/219.php:164
 msgid "OPTCN"
 msgstr "OPTCN"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:160
-#: /home/tim/code/KwaMoja/sql/updates/219.php:170
+#: /home/tim/code/KwaMoja/sql/updates/219.php:155
+#: /home/tim/code/KwaMoja/sql/updates/219.php:165
 msgid "C.blod"
 msgstr "C.blod"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:161
-#: /home/tim/code/KwaMoja/sql/updates/219.php:171
+#: /home/tim/code/KwaMoja/sql/updates/219.php:156
+#: /home/tim/code/KwaMoja/sql/updates/219.php:166
 msgid "BCTCN"
 msgstr "BCTCN"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:162
-#: /home/tim/code/KwaMoja/sql/updates/219.php:172
+#: /home/tim/code/KwaMoja/sql/updates/219.php:157
+#: /home/tim/code/KwaMoja/sql/updates/219.php:167
 msgid "CPBTR"
 msgstr "CPBTR"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:163
+#: /home/tim/code/KwaMoja/sql/updates/219.php:158
 msgid "C.ana"
 msgstr "Có thể một"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:164
-#: /home/tim/code/KwaMoja/sql/updates/219.php:165
-#: /home/tim/code/KwaMoja/sql/updates/219.php:166
-#: /home/tim/code/KwaMoja/sql/updates/219.php:167
-#: /home/tim/code/KwaMoja/sql/updates/219.php:168
+#: /home/tim/code/KwaMoja/sql/updates/219.php:159
+#: /home/tim/code/KwaMoja/sql/updates/219.php:160
+#: /home/tim/code/KwaMoja/sql/updates/219.php:161
+#: /home/tim/code/KwaMoja/sql/updates/219.php:162
+#: /home/tim/code/KwaMoja/sql/updates/219.php:163
 msgid "S.ana."
 msgstr "S.ana."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:173
-#: /home/tim/code/KwaMoja/sql/updates/219.php:174
+#: /home/tim/code/KwaMoja/sql/updates/219.php:168
+#: /home/tim/code/KwaMoja/sql/updates/219.php:169
 msgid "Fung.C."
 msgstr "Fung.C."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:175
-#: /home/tim/code/KwaMoja/sql/updates/219.php:176
+#: /home/tim/code/KwaMoja/sql/updates/219.php:170
+#: /home/tim/code/KwaMoja/sql/updates/219.php:171
 msgid "Path.T."
 msgstr "Đường dẫn.T."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:177
-#: /home/tim/code/KwaMoja/sql/updates/219.php:178
+#: /home/tim/code/KwaMoja/sql/updates/219.php:172
+#: /home/tim/code/KwaMoja/sql/updates/219.php:173
 msgid "API.Cdd"
 msgstr "API.Cdd"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:179
-#: /home/tim/code/KwaMoja/sql/updates/219.php:180
+#: /home/tim/code/KwaMoja/sql/updates/219.php:174
+#: /home/tim/code/KwaMoja/sql/updates/219.php:175
 msgid "s.Fungi"
 msgstr "s.Fungi"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:181
-#: /home/tim/code/KwaMoja/sql/updates/219.php:182
+#: /home/tim/code/KwaMoja/sql/updates/219.php:176
+#: /home/tim/code/KwaMoja/sql/updates/219.php:177
 msgid "Cdd-ID"
 msgstr "Cdd-ID"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:183
+#: /home/tim/code/KwaMoja/sql/updates/219.php:178
 msgid "StoolC."
 msgstr "PhânC."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:184
+#: /home/tim/code/KwaMoja/sql/updates/219.php:179
 msgid "BlodC."
 msgstr "BlodC."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:185
+#: /home/tim/code/KwaMoja/sql/updates/219.php:180
 msgid "Liq.KF"
 msgstr "Liq.KF"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:186
+#: /home/tim/code/KwaMoja/sql/updates/219.php:181
 msgid "LAAL"
 msgstr "LAAL"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:187
+#: /home/tim/code/KwaMoja/sql/updates/219.php:182
 msgid "O.blod"
 msgstr "O.blod"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:191
+#: /home/tim/code/KwaMoja/sql/updates/219.php:186
 msgid "Kliglr"
 msgstr "Kliglr"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:193
-#: /home/tim/code/KwaMoja/sql/updates/219.php:194
-#: /home/tim/code/KwaMoja/sql/updates/219.php:195
+#: /home/tim/code/KwaMoja/sql/updates/219.php:188
+#: /home/tim/code/KwaMoja/sql/updates/219.php:189
+#: /home/tim/code/KwaMoja/sql/updates/219.php:190
 msgid "Ag.1x"
 msgstr "Ag.1x"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:196
+#: /home/tim/code/KwaMoja/sql/updates/219.php:191
 msgid "Ag.4x"
 msgstr "Ag.4x"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:197
+#: /home/tim/code/KwaMoja/sql/updates/219.php:192
 msgid "Ag.8x"
 msgstr "Ag.8x"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:198
+#: /home/tim/code/KwaMoja/sql/updates/219.php:193
 msgid "ASP1"
 msgstr "ASP1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:199
+#: /home/tim/code/KwaMoja/sql/updates/219.php:194
 msgid "ASP2"
 msgstr "ASP2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:200
+#: /home/tim/code/KwaMoja/sql/updates/219.php:195
 msgid "Ag.Dys."
 msgstr "Ag.Dys."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:201
+#: /home/tim/code/KwaMoja/sql/updates/219.php:196
 msgid "EHEC"
 msgstr "EHEC"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:202
+#: /home/tim/code/KwaMoja/sql/updates/219.php:197
 msgid "MBLTY"
 msgstr "MBLTY"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:203
+#: /home/tim/code/KwaMoja/sql/updates/219.php:198
 msgid "M-blau"
 msgstr "M-blau"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:204
+#: /home/tim/code/KwaMoja/sql/updates/219.php:199
 msgid "A.oran."
 msgstr "A.oran."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:205
+#: /home/tim/code/KwaMoja/sql/updates/219.php:200
 msgid "Z-Neel."
 msgstr "Z-Neel."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:206
+#: /home/tim/code/KwaMoja/sql/updates/219.php:201
 msgid "KOH"
 msgstr "KOH"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:207
+#: /home/tim/code/KwaMoja/sql/updates/219.php:202
 msgid "NBCN.1"
 msgstr "NBCN.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:208
+#: /home/tim/code/KwaMoja/sql/updates/219.php:203
 msgid "NBCN.2"
 msgstr "NBCN.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:213
+#: /home/tim/code/KwaMoja/sql/updates/219.php:208
 msgid "STPX.1"
 msgstr "STPX.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:214
+#: /home/tim/code/KwaMoja/sql/updates/219.php:209
 msgid "PK.1"
 msgstr "PK.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:215
+#: /home/tim/code/KwaMoja/sql/updates/219.php:210
 msgid "CTLS.1"
 msgstr "CTLS.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:216
+#: /home/tim/code/KwaMoja/sql/updates/219.php:211
 msgid "Ndol.1"
 msgstr "Ndol.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:217
+#: /home/tim/code/KwaMoja/sql/updates/219.php:212
 msgid "OXDS.1"
 msgstr "OXDS.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:218
+#: /home/tim/code/KwaMoja/sql/updates/219.php:213
 msgid "ENTB.1"
 msgstr "ENTB.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:219
+#: /home/tim/code/KwaMoja/sql/updates/219.php:214
 msgid "BBL1"
 msgstr "BBL1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:220
+#: /home/tim/code/KwaMoja/sql/updates/219.php:215
 msgid "API1"
 msgstr "API1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:221
+#: /home/tim/code/KwaMoja/sql/updates/219.php:216
 msgid "APIa.1"
 msgstr "APIa.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:222
+#: /home/tim/code/KwaMoja/sql/updates/219.php:217
 msgid "Gram.1"
 msgstr "Gram.1"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:223
+#: /home/tim/code/KwaMoja/sql/updates/219.php:218
 msgid "STPX.2"
 msgstr "STPX.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:224
+#: /home/tim/code/KwaMoja/sql/updates/219.php:219
 msgid "PK.2"
 msgstr "PK.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:225
+#: /home/tim/code/KwaMoja/sql/updates/219.php:220
 msgid "CTLS.2"
 msgstr "CTLS.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:226
+#: /home/tim/code/KwaMoja/sql/updates/219.php:221
 msgid "Ndol.2"
 msgstr "Ndol.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:227
+#: /home/tim/code/KwaMoja/sql/updates/219.php:222
 msgid "OXDS.2"
 msgstr "OXDS.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:228
+#: /home/tim/code/KwaMoja/sql/updates/219.php:223
 msgid "ENTB.2"
 msgstr "ENTB.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:229
+#: /home/tim/code/KwaMoja/sql/updates/219.php:224
 msgid "BBL2"
 msgstr "BBL2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:230
+#: /home/tim/code/KwaMoja/sql/updates/219.php:225
 msgid "API2"
 msgstr "API2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:231
+#: /home/tim/code/KwaMoja/sql/updates/219.php:226
 msgid "APIa.2"
 msgstr "APIa.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:232
+#: /home/tim/code/KwaMoja/sql/updates/219.php:227
 msgid "Gram.2"
 msgstr "Gram.2"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:233
+#: /home/tim/code/KwaMoja/sql/updates/219.php:228
 msgid "STPX.3"
 msgstr "STPX.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:234
+#: /home/tim/code/KwaMoja/sql/updates/219.php:229
 msgid "PK.3"
 msgstr "PK.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:235
+#: /home/tim/code/KwaMoja/sql/updates/219.php:230
 msgid "CTLS.3"
 msgstr "CTLS.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:236
+#: /home/tim/code/KwaMoja/sql/updates/219.php:231
 msgid "Ndol.3"
 msgstr "Ndol.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:237
+#: /home/tim/code/KwaMoja/sql/updates/219.php:232
 msgid "OXDS.3"
 msgstr "OXDS.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:238
+#: /home/tim/code/KwaMoja/sql/updates/219.php:233
 msgid "ENTB.3"
 msgstr "ENTB.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:239
+#: /home/tim/code/KwaMoja/sql/updates/219.php:234
 msgid "BBL3"
 msgstr "BBL3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:240
+#: /home/tim/code/KwaMoja/sql/updates/219.php:235
 msgid "API3"
 msgstr "API3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:241
+#: /home/tim/code/KwaMoja/sql/updates/219.php:236
 msgid "APIa.3"
 msgstr "APIa.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:242
+#: /home/tim/code/KwaMoja/sql/updates/219.php:237
 msgid "Gram.3"
 msgstr "Gram.3"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:358
+#: /home/tim/code/KwaMoja/sql/updates/219.php:351
 msgid "No growth after 48 hours"
 msgstr "Không tăng trưởng sau 48 giờ"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:359
+#: /home/tim/code/KwaMoja/sql/updates/219.php:352
 msgid "Aerobe like growth"
 msgstr "Aerobe như tăng trưởng"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:360
+#: /home/tim/code/KwaMoja/sql/updates/219.php:353
 msgid "Am&#246;bai nstool negative"
 msgstr "Amöbai nstool phủ định"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:361
+#: /home/tim/code/KwaMoja/sql/updates/219.php:354
 msgid "No growth after 5 days"
 msgstr "Không tăng trưởng sau 5 ngày"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:362
+#: /home/tim/code/KwaMoja/sql/updates/219.php:355
 msgid "Lambia in stool negative"
 msgstr "Lambia trong phân âm tính"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:363
+#: /home/tim/code/KwaMoja/sql/updates/219.php:356
 msgid "No growth after 9 days"
 msgstr "Không tăng trưởng sau 9 ngày"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:364
+#: /home/tim/code/KwaMoja/sql/updates/219.php:357
 msgid "Gram.neg.Diplococci No Evid."
 msgstr "Gram.neg.Diplococci Không có Evid."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:365
+#: /home/tim/code/KwaMoja/sql/updates/219.php:358
 msgid "Worm eggs.n.stoolneg."
 msgstr "Trứng giun.n.stoolneg."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:366
+#: /home/tim/code/KwaMoja/sql/updates/219.php:359
 msgid "No Bact.of TPE-Group"
 msgstr "Không có Bact.of TPE-Group"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:367
+#: /home/tim/code/KwaMoja/sql/updates/219.php:360
 msgid "GO-culturenegative"
 msgstr "GO-culturenegative"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:368
+#: /home/tim/code/KwaMoja/sql/updates/219.php:361
 msgid "No growth of E.Coli"
 msgstr "Không có sự phát triển của E.Coli"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:369
+#: /home/tim/code/KwaMoja/sql/updates/219.php:362
 msgid "Campylobacter.cultureneg."
 msgstr "Campylobacter.cultureneg."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:370
+#: /home/tim/code/KwaMoja/sql/updates/219.php:363
 msgid "Liquorantigen negative"
 msgstr "Liquorantigen âm tính"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:371
+#: /home/tim/code/KwaMoja/sql/updates/219.php:364
 msgid "NoG.Campylobacter.pylori"
 msgstr "NoG.Campylobacter.pylori"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:372
+#: /home/tim/code/KwaMoja/sql/updates/219.php:365
 msgid "NoEvid.microscp.acid.Cylind."
 msgstr "NoEvid.microscp.acid.Cylind."
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:373
+#: /home/tim/code/KwaMoja/sql/updates/219.php:366
 msgid "EHEC egative"
 msgstr "EHEC ví dụ"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:374
+#: /home/tim/code/KwaMoja/sql/updates/219.php:367
 msgid "Dyspepsy.Coliserolg.NoEvid"
 msgstr "Dyspepsy.Coliserolg.NoEvid"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:375
+#: /home/tim/code/KwaMoja/sql/updates/219.php:368
 msgid "No growth after 7 days"
 msgstr "Không tăng trưởng sau 7 ngày"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:376
+#: /home/tim/code/KwaMoja/sql/updates/219.php:369
 msgid "isolated Spore fungi evident"
 msgstr "nấm bào tử cô lập rõ ràng"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:377
+#: /home/tim/code/KwaMoja/sql/updates/219.php:370
 msgid "Fungiculture negative"
 msgstr "Tiêu cực trong nghề trồng nấm"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:378
+#: /home/tim/code/KwaMoja/sql/updates/219.php:371
 msgid "Cocci mixflora"
 msgstr "Cocci mixflora"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:379
+#: /home/tim/code/KwaMoja/sql/updates/219.php:372
 msgid "Cocci.Cylinder.Mixflora"
 msgstr "Cocci.Cylinder.Mixflora"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:380
+#: /home/tim/code/KwaMoja/sql/updates/219.php:373
 msgid "Bacteria microscop.NonEvid"
 msgstr "Kính hiển vi vi khuẩn.NonEvid"
 
-#: /home/tim/code/KwaMoja/sql/updates/219.php:381
+#: /home/tim/code/KwaMoja/sql/updates/219.php:374
 msgid "NoG.oxacil.resist.Staphyloc."
 msgstr "NoG.oxacil.resist.Staphyloc."
 
@@ -72769,6 +72804,18 @@ msgstr "Cho vay nhân viên"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Trả nợ nhân viên"
+
+#~ msgid "Reception Date"
+#~ msgstr "Ngày nhận"
+
+#~ msgid "Resistance Test Aerobe"
+#~ msgstr "Kiểm tra sức đề kháng Aerobe"
+
+#~ msgid "Initial"
+#~ msgstr "Ban đầu"
+
+#~ msgid "Final"
+#~ msgstr "Sau cùng"
 
 #~ msgid "Bacteriological Laboratory"
 #~ msgstr "Phòng thí nghiệm vi khuẩn học"
