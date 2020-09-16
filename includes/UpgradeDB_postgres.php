@@ -1,7 +1,6 @@
 <?php
-
 /* postgres specific functions for the database upgrade script
- */
+*/
 
 function CharacterSet($Table) {
 	$SQL = "SELECT TABLE_COLLATION
@@ -233,10 +232,10 @@ function AddIndex($Columns, $Table, $Name) {
 		if (DB_num_rows($Result) == 0) {
 			$SQL = "ALTER TABLE `" . $Table . "` ADD INDEX " . $Name . " (`" . $Columns[0] . "`";
 			$SizeOfColumns = sizeOf($Columns);
-			for ($i = 1; $i < $SizeOfColumns; $i++) {
-				$SQL .= "," . $Columns[$i];
+			for ($i = 1;$i < $SizeOfColumns;$i++) {
+				$SQL.= "," . $Columns[$i];
 			}
-			$SQL .= ")";
+			$SQL.= ")";
 			$Response = executeSQL($SQL, False);
 			if ($Response == 0) {
 				OutputResult(_('The index has been inserted'), 'success');
@@ -614,7 +613,7 @@ function InsertRecord($Table, $CheckFields, $CheckValues, $Fields, $Values) {
 	if (DB_table_exists($Table)) {
 		$SQL = "SELECT * FROM " . $Table . " WHERE ";
 		$SizeOfCheckFields = sizeOf($CheckFields);
-		for ($i = 0; $i < $SizeOfCheckFields; $i++) {
+		for ($i = 0;$i < $SizeOfCheckFields;$i++) {
 			$SQL = $SQL . $CheckFields[$i] . "='" . $CheckValues[$i] . "' AND ";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 5);
@@ -623,12 +622,12 @@ function InsertRecord($Table, $CheckFields, $CheckValues, $Fields, $Values) {
 	if (DB_num_rows($Result) == 0 or isset($SQLFile)) {
 		$SQL = "INSERT INTO " . $Table . " (";
 		$SizeOfFields = sizeOf($Fields);
-		for ($i = 0; $i < $SizeOfFields; $i++) {
+		for ($i = 0;$i < $SizeOfFields;$i++) {
 			$SQL = $SQL . $Fields[$i] . ",";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1) . ") VALUES (";
 		$SizeOfValues = sizeOf($Values);
-		for ($i = 0; $i < $SizeOfValues; $i++) {
+		for ($i = 0;$i < $SizeOfValues;$i++) {
 			$SQL = $SQL . "'" . $Values[$i] . "',";
 		}
 		$SQL = mb_substr($SQL, 0, mb_strlen($SQL) - 1) . ")";
@@ -700,6 +699,18 @@ function RenameTable($OldName, $NewName) {
 		}
 	} else {
 		OutputResult(_('The table') . ' ' . $NewName . ' ' . _('already exists'), 'info');
+	}
+}
+
+function SetAutoIncStart($Table, $Field, $StartNumber) {
+	$GetLargestSQL = "SELECT MAX(" . $Field . ") AS highest FROM " . $Table;
+	$GetLargestResult = DB_query($GetLargestSQL);
+	$LargestRow = DB_fetch_array($GetLargestResult);
+	if ($LargestRow['highest'] > $StartNumber) {
+		OutputResult(_('Cannot update the auto increment field in table') . ' ' . $Table . '<br />' . $SQL, 'error');
+	} else {
+		$Response = executeSQL("ALTER TABLE " . $Table . " AUTO_INCREMENT = " . $StartNumber, False);
+		OutputResult(_('The auto increment field in table') . ' ' . $Table . _('has been updated'), 'success');
 	}
 }
 
