@@ -735,7 +735,7 @@ $Result = DB_query($SQL);
 
 echo '<div class="baclab_container centre">';
 
-echo '<div class="material">
+echo '<div class="baclab_material">
 		<fieldset>
 			<legend>', _('Material'), '</legend>';
 
@@ -757,7 +757,7 @@ echo '</fieldset>
 	</div>'; // Material
 $SQL = "SELECT type, name FROM care_baclabor_test_type";
 $Result = DB_query($SQL);
-echo '<div class="test">
+echo '<div class="baclab_test">
 		<fieldset>
 			<legend>', _('Requested Tests'), '</legend>';
 
@@ -777,13 +777,13 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 echo '</fieldset>
 	</div>'; //Test
-echo '<div class="label">
+echo '<div class="baclab_label">
 		<fieldset>
 			<legend>', _('Label'), '</legend>';
 include ('includes/KCMCDrawPatientLabel.php');
 echo '</fieldset>
 	</div>'; // Label
-echo '<div class="batch_details">
+echo '<div class="baclab_batch_details">
 		<fieldset>';
 
 echo '<field>
@@ -923,7 +923,7 @@ echo '</fieldset>';
 echo '</fieldset>
 	</div>';
 
-echo '<div class="lab_notes">
+echo '<div class="baclab_lab_notes">
 		<fieldset>
 			<legend>', _('For lab use only'), '</legend>';
 
@@ -1021,8 +1021,8 @@ echo '</table>
 echo '</fieldset>
 	</div>';
 
-echo '<div class="findings">
-		<fieldset class="findings">
+echo '<div class="baclab_findings">
+		<fieldset class="baclab_findings">
 			<legend>', _('Test results / Findings'), '</legend>';
 
 echo '<fieldset>';
@@ -1249,7 +1249,7 @@ echo '</fieldset>';
 echo '</fieldset>
 	</div>';
 
-echo '<div class="resistance_test">
+echo '<div class="baclab_resistance_test">
 		<fieldset>
 			<legend>', _('Aerobic Resistance Test'), '</legend>';
 
@@ -1417,7 +1417,7 @@ echo '</table>';
 echo '</fieldset>
 	</div>';
 
-echo '<div class="resistance_test_fungi">
+echo '<div class="baclab_resistance_test_fungi">
 		<fieldset>';
 
 $SQL = "SELECT nr, type, name FROM care_aerobic_resistance_extra ORDER BY nr";
