@@ -4,28 +4,28 @@ grid-template-columns: auto auto auto;
 grid-gap: 10px;
 width:70%;
 }
-.material {
+.baclab_material {
 grid-column-start: 1;
 grid-column-end: 1;
 grid-row-start: 1;
 grid-row-end: 1;
 vertical-align:top;
 }
-.test {
+.baclab_test {
 grid-column-start: 2;
 grid-column-end: 2;
 grid-row-start: 1;
 grid-row-end: 1;
 vertical-align:top;
 }
-.label {
+.baclab_label {
 grid-column-start: 3;
 grid-column-end: 3;
 grid-row-start: 1;
 grid-row-end: 1;
 vertical-align:top;
 }
-.batch_details {
+.baclab_batch_details {
 grid-column-start: 1;
 grid-column-end: 3;
 grid-row-start: 2;
@@ -33,31 +33,69 @@ grid-row-end: 2;
 text-align:left;
 vertical-align:top;
 }
-.lab_notes {
+.baclab_lab_notes {
 grid-column-start: 3;
 grid-column-end: 3;
 grid-row-start: 2;
 grid-row-end: 2;
 vertical-align:top;
 }
-.findings {
+.baclab_findings {
 grid-column-start: 1;
 grid-column-end: 4;
 grid-row-start: 3;
 grid-row-end: 3;
 vertical-align:top;
 }
-.resistance_test {
+.baclab_resistance_test {
 grid-column-start: 1;
 grid-column-end: 1;
 grid-row-start: 4;
 grid-row-end: 4;
 vertical-align:top;
 }
-.resistance_test_fungi {
+.baclab_resistance_test_fungi {
 grid-column-start: 2;
 grid-column-end: 2;
 grid-row-start: 4;
 grid-row-end: 4;
 vertical-align:top;
+}
+.blood_request_container {
+display:grid;
+grid-template-columns: auto auto;
+grid-gap: 10px;
+width:90%;
+}
+.blood_request_general {
+grid-column-start: 1;
+grid-column-end: 1;
+grid-row-start: 1;
+grid-row-end: 1;
+vertical-align:top;
+text-align:left;
+}
+.blood_request_label {
+grid-column-start: 2;
+grid-column-end: 2;
+grid-row-start: 1;
+grid-row-end: 1;
+vertical-align:top;
+text-align:left;
+}
+.blood_request_specimen {
+grid-column-start: 1;
+grid-column-end: 1;
+grid-row-start: 2;
+grid-row-end: 2;
+vertical-align:top;
+text-align:left;
+}
+.blood_request_notes {
+grid-column-start: 2;
+grid-column-end: 2;
+grid-row-start: 2;
+grid-row-end: 2;
+vertical-align:top;
+text-align:left;
 }
