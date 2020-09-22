@@ -37,7 +37,9 @@ function updateDBNo($NewNumber) {
 
 include ('includes/UpgradeDB_' . $DBType . '.php');
 
-echo '<div class="centre"><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title;
+echo '<div class="page_title_text">
+		<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . ' ' . $Title, '
+	</div>';
 
 if (!isset($_POST['continue'])) {
 	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';

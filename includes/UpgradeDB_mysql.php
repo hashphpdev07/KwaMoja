@@ -710,6 +710,18 @@ function RenameTable($OldName, $NewName) {
 	}
 }
 
+function SetAutoIncStart($Table, $Field, $StartNumber) {
+	$GetLargestSQL = "SELECT MAX(" . $Field . ") AS highest FROM " . $Table;
+	$GetLargestResult = DB_query($GetLargestSQL);
+	$LargestRow = DB_fetch_array($GetLargestResult);
+	if ($LargestRow['highest'] > $StartNumber) {
+		OutputResult(_('Cannot update the auto increment field in table') . ' ' . $Table . '<br />' . $SQL, 'error');
+	} else {
+		$Response = executeSQL("ALTER TABLE " . $Table . " AUTO_INCREMENT = " . $StartNumber, False);
+		OutputResult(_('The auto increment field in table') . ' ' . $Table . _('has been updated'), 'success');
+	}
+}
+
 function OutputResult($Msg, $Status) {
 	if ($Status == 'error') {
 		$_SESSION['Updates']['Errors']++;
