@@ -1,5 +1,4 @@
 <?php
-/* $Id: GetPrice.php 6941 2014-10-26 23:18:08Z daintree $*/
 function GetPrice($StockID, $DebtorNo, $BranchCode, $OrderLineQty = 1, $ReportZeroPrice = 1) {
 
 	$Price = 0;
@@ -33,7 +32,7 @@ function GetPrice($StockID, $DebtorNo, $BranchCode, $OrderLineQty = 1, $ReportZe
 					AND prices.debtorno=debtorsmaster.debtorno
 					AND prices.branchcode='" . $BranchCode . "'
 					AND prices.startdate<=CURRENT_DATE
-					AND prices.enddate ='0000-00-00'
+					AND prices.enddate>=CURRENT_DATE
 				ORDER BY prices.startdate DESC";
 
 		$Result = DB_query($SQL, $ErrMsg);
@@ -67,7 +66,7 @@ function GetPrice($StockID, $DebtorNo, $BranchCode, $OrderLineQty = 1, $ReportZe
 							AND prices.debtorno=debtorsmaster.debtorno
 							AND prices.branchcode=''
 							AND prices.startdate<=CURRENT_DATE
-							AND prices.enddate>='0000-00-00'
+							AND prices.enddate='0000-00-00'
 						ORDER BY prices.startdate DESC";
 
 				$Result = DB_query($SQL, $ErrMsg);
@@ -171,6 +170,7 @@ function GetPrice($StockID, $DebtorNo, $BranchCode, $OrderLineQty = 1, $ReportZe
 										}
 									}
 									//									$MaxPriceRow = DB_fetch_row($Result);
+									
 								}
 								//								if ($MaxPriceRow[0]==NULL){
 								if (DB_num_rows($Result) == 0) {
@@ -178,7 +178,7 @@ function GetPrice($StockID, $DebtorNo, $BranchCode, $OrderLineQty = 1, $ReportZe
 									if ($ReportZeroPrice == 1) {
 										prnMsg(_('There are no prices set up for') . ' ' . $StockID, 'warn');
 									}
-									Return 0;
+									return 0;
 								}
 							}
 						}
@@ -191,7 +191,6 @@ function GetPrice($StockID, $DebtorNo, $BranchCode, $OrderLineQty = 1, $ReportZe
 	if (DB_num_rows($Result) != 0) {
 		/*There is a price from one of the above so return that */
 		$MyRow = DB_fetch_row($Result);
-
 
 		return $MyRow[0];
 	} else {
