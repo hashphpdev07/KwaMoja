@@ -28,29 +28,31 @@ if (!isset($Item) or !isset($_SESSION['CustomerID']) or $_SESSION['CustomerID'] 
 	exit;
 }
 
-echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/maintenance.png" title="' . _('Search') . '" alt="" />' . _('Special Customer Prices') . '</p><br />';
-echo '<b>' . htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8') . ' ' . _('in') . ' ' . $MyRow['currcode'] . '<br />' . ' ' . _('for') . ' ';
+echo '<p class="page_title_text">
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', _('Search'), '" alt="" />', _('Special Customer Prices'), '
+	</p>';
 
 $CurrCode = $MyRow['currcode'];
 $SalesType = $MyRow['salestype'];
 $CurrDecimalPlaces = $MyRow['currdecimalplaces'];
 
-$Result = DB_query("SELECT stockmaster.description,
+$FlagResult = DB_query("SELECT stockmaster.description,
 							stockmaster.mbflag
 					FROM stockmaster
 					WHERE stockmaster.stockid='" . $Item . "'");
 
-$MyRow = DB_fetch_row($Result);
-if (DB_num_rows($Result) == 0) {
+$MyFlagRow = DB_fetch_row($FlagResult);
+if (DB_num_rows($FlagResult) == 0) {
 	prnMsg(_('The part code entered does not exist in the database') . '. ' . _('Only valid parts can have prices entered against them'), 'error');
 	$InputError = 1;
 }
-if ($MyRow[1] == 'K') {
+if ($MyFlagRow[1] == 'K') {
 	prnMsg(_('The part selected is a kit set item') . ', ' . _('these items explode into their components when selected on an order') . ', ' . _('prices must be set up for the components and no price can be set for the whole kit'), 'error');
 	exit;
 }
 
-echo $Item . ' - ' . $MyRow[0] . '</b><br />';
+echo '<div class="page_help_text">', htmlspecialchars($MyRow['name'], ENT_QUOTES, 'UTF-8'), ' ', _('in'), ' ', $MyRow['currcode'], '<br />', ' ', _('for'), ' ', $Item, ' - ', $MyRow[0], '
+	</div>';
 
 if (isset($_POST['submit'])) {
 
@@ -194,16 +196,15 @@ $ErrMsg = _('Could not retrieve the normal prices set up because');
 $DbgMsg = _('The SQL used to retrieve these records was');
 $Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
-echo '<table><tr><td valign="top">';
 echo '<table>';
 
 if (DB_num_rows($Result) == 0) {
 	prnMsg(_('There are no default prices set up for this part'), 'info');
 } else {
 	echo '<tr>
-			<th>' . _('Normal Price') . '</th>
-			<th>' . _('Start Date') . '</th>
-			<th>' . _('End Date') . '</th>
+			<th>', _('Normal Price'), '</th>
+			<th>', _('Start Date'), '</th>
+			<th>', _('End Date'), '</th>
 		</tr>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['enddate'] == '0000-00-00') {
@@ -211,15 +212,15 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		printf('<tr class="striped_row">
-					<td class="number">%s</td>
-					<td class="date">%s</td>
-					<td class="date">%s</td>
-				</tr>', locale_number_format($MyRow['price'], $CurrDecimalPlaces), ConvertSQLDate($MyRow['startdate']), $EndDateDisplay);
+		echo '<tr class="striped_row">
+				<td class="number">', locale_number_format($MyRow['price'], $CurrDecimalPlaces), '</td>
+				<td class="date">', ConvertSQLDate($MyRow['startdate']), '</td>
+				<td class="date">', $EndDateDisplay, '</td>
+			</tr>';
 	}
 }
 
-echo '</table></td><td valign="top">';
+echo '</table>';
 
 //now get the prices for the customer selected
 $SQL = "SELECT prices.price,
@@ -249,10 +250,12 @@ if (DB_num_rows($Result) == 0) {
 } else {
 	/*THERE IS ALREADY A spl price setup */
 	echo '<tr>
-			<th>' . _('Special Price') . '</th>
-			<th>' . _('Branch') . '</th>
-			<th>' . _('Start Date') . '</th>
-			<th>' . _('End Date') . '</th>
+			<th>', _('Special Price'), '</th>
+			<th>', _('Branch'), '</th>
+			<th>', _('Start Date'), '</th>
+			<th>', _('End Date'), '</th>
+			<th></th>
+			<th></th>
 		</tr>';
 
 	while ($MyRow = DB_fetch_array($Result)) {
@@ -267,13 +270,13 @@ if (DB_num_rows($Result) == 0) {
 		} else {
 			$EndDateDisplay = ConvertSQLDate($MyRow['enddate']);
 		}
-		echo '<tr>
-				<td class="number">' . locale_number_format($MyRow['price'], $CurrDecimalPlaces) . '</td>
-				<td>' . $Branch . '</td>
-				<td>' . ConvertSQLDate($MyRow['startdate']) . '</td>
-				<td>' . $EndDateDisplay . '</td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Price=' . $MyRow['price'] . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;Edit=1">' . _('Edit') . '</a></td>
-				<td><a href="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '?Item=' . $Item . '&amp;Branch=' . $MyRow['branchcode'] . '&amp;StartDate=' . $MyRow['startdate'] . '&amp;EndDate=' . $MyRow['enddate'] . '&amp;delete=yes" onclick="return MakeConfirm(\'' . _('Are you sure you wish to delete this price?') . '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
+		echo '<tr class="striped_row">
+				<td class="number">', locale_number_format($MyRow['price'], $CurrDecimalPlaces), '</td>
+				<td>', $Branch, '</td>
+				<td>', ConvertSQLDate($MyRow['startdate']), '</td>
+				<td>', $EndDateDisplay, '</td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Item=', $Item, '&amp;Price=', $MyRow['price'], '&amp;Branch=', $MyRow['branchcode'], '&amp;StartDate=', $MyRow['startdate'], '&amp;EndDate=', $MyRow['enddate'], '&amp;Edit=1">', _('Edit'), '</a></td>
+				<td><a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?Item=', $Item, '&amp;Branch=', $MyRow['branchcode'], '&amp;StartDate=', $MyRow['startdate'], '&amp;EndDate=', $MyRow['enddate'], '&amp;delete=yes" onclick="return MakeConfirm(\'', _('Are you sure you wish to delete this price?'), '\', \'Confirm Delete\', this);">' . _('Delete') . '</a></td>
 			</tr>';
 
 	}
@@ -281,7 +284,7 @@ if (DB_num_rows($Result) == 0) {
 	
 }
 
-echo '</table></td></tr></table><br />';
+echo '</table>';
 
 echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
@@ -321,36 +324,43 @@ $SQL = "SELECT branchcode,
 		WHERE debtorno='" . $_SESSION['CustomerID'] . "'";
 $Result = DB_query($SQL);
 
-echo '<table>
-		<tr>
-			<td>' . _('Branch') . ':</td>
-			<td>
-				<select name="Branch">
-					<option value="">' . _('All branches') . '</option>';
+echo '<fieldset>
+		<legend>', _('Special Customer Prices'), '</legend>';
+
+echo '<field>
+		<label for="branch">', _('Branch'), ':</label>
+		<select name="Branch">
+			<option value="">', _('All branches'), '</option>';
 
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_GET['Branch']) and $MyRow['branchcode'] == $_GET['Branch']) {
-		echo '<option selected="selected" value="' . $MyRow['branchcode'] . '">' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '</option>';
+		echo '<option selected="selected" value="', $MyRow['branchcode'], '">', htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8'), '</option>';
 	} else {
-		echo '<option value="' . $MyRow['branchcode'] . '">' . htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8') . '</option>';
+		echo '<option value="', $MyRow['branchcode'], '">', htmlspecialchars($MyRow['brname'], ENT_QUOTES, 'UTF-8'), '</option>';
 	}
 }
-echo '</select></td></tr>';
-echo '<tr>
-		<td>' . _('Start Date') . ':</td>
-		<td><input type="text" name="StartDate" class="date" size="11" required="required" maxlength="10" value="' . $_POST['StartDate'] . '" /></td>
-	</tr>';
-echo '<tr>
-		<td>' . _('End Date') . ':</td>
-		<td><input type="text" name="EndDate" class="date" size="11" required="required" maxlength="10" value="' . $_POST['EndDate'] . '" /></td></tr>';
+echo '</select>
+	</field>';
 
-echo '<tr><td>' . _('Price') . ':</td>
-		  <td><input type="text" class="number" name="Price" size="11" required="required" maxlength="10" value="' . locale_number_format($_POST['Price'], 2) . '" /></td>
-		</tr>
-	</table>';
+echo '<field>
+		<label for="StartDate">', _('Start Date'), ':</label>
+		<input type="text" name="StartDate" class="date" size="11" required="required" maxlength="10" value="', $_POST['StartDate'], '" />
+	</field>';
+
+echo '<field>
+		<label for="EndDate">', _('End Date'), ':</label>
+		<td><input type="text" name="EndDate" class="date" size="11" required="required" maxlength="10" value="', $_POST['EndDate'], '" /></td>
+	</field>';
+
+echo '<field>
+		<label for="Price">', _('Price'), ':</label>
+		<input type="text" class="number" name="Price" size="11" required="required" maxlength="10" value="', locale_number_format($_POST['Price'], 2), '" />
+	</field>';
+
+echo '</fieldset>';
 
 echo '<div class="centre">
-		<input type="submit" name="submit" value="' . _('Enter Information') . '" />
+		<input type="submit" name="submit" value="', _('Enter Information'), '" />
 	</div>
 </form>';
 
