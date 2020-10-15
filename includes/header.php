@@ -75,16 +75,16 @@ if (isset($_GET['FontSize'])) {
 	$Result = DB_query($SQL);
 	switch ($_GET['FontSize']) {
 		case 0:
-			$_SESSION['ScreenFontSize'] = '8pt';
+			$_SESSION['ScreenFontSize'] = '0.667rem';
 		break;
 		case 1:
-			$_SESSION['ScreenFontSize'] = '10pt';
+			$_SESSION['ScreenFontSize'] = '0.833rem';
 		break;
 		case 2:
-			$_SESSION['ScreenFontSize'] = '12pt';
+			$_SESSION['ScreenFontSize'] = '1rem';
 		break;
 		default:
-			$_SESSION['ScreenFontSize'] = '10pt';
+			$_SESSION['ScreenFontSize'] = '0.833rem';
 	}
 }
 echo '<style>
@@ -189,20 +189,20 @@ if ($ScriptName != 'index.php') {
 echo '<br /><div class="ScriptTitle">', $Title, '</div>';
 if ($ScriptName == 'index.php') {
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-	if ($_SESSION['ScreenFontSize'] == '8pt') {
-		echo '<a style="font-size:8pt;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=0" data-title="', _('Small text size'), '"><u>A</u></a>';
+	if ($_SESSION['ScreenFontSize'] == '0.667rem') {
+		echo '<a style="font-size:0.667rem;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=0" data-title="', _('Small text size'), '"><u>A</u></a>';
 	} else {
-		echo '<a style="font-size:8pt;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=0" data-title="', _('Small text size'), '">A</a>';
+		echo '<a style="font-size:0.667rem;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=0" data-title="', _('Small text size'), '">A</a>';
 	}
-	if ($_SESSION['ScreenFontSize'] == '10pt') {
-		echo '<a style="font-size:10pt;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=1" data-title="', _('Medium text size'), '"><u>A</u></a>';
+	if ($_SESSION['ScreenFontSize'] == '0.833rem') {
+		echo '<a style="font-size:0.833rem;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=1" data-title="', _('Medium text size'), '"><u>A</u></a>';
 	} else {
-		echo '<a style="font-size:10pt;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=1" data-title="', _('Medium text size'), '">A</a>';
+		echo '<a style="font-size:0.833rem;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=1" data-title="', _('Medium text size'), '">A</a>';
 	}
-	if ($_SESSION['ScreenFontSize'] == '12pt') {
-		echo '<a style="font-size:12pt;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=2" data-title="', _('Large text size'), '"><u>A</u></a>';
+	if ($_SESSION['ScreenFontSize'] == '1rem') {
+		echo '<a style="font-size:1rem;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=2" data-title="', _('Large text size'), '"><u>A</u></a>';
 	} else {
-		echo '<a style="font-size:12pt;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=2" data-title="', _('Large text size'), '">A</a>';
+		echo '<a style="font-size:1rem;" class="FontSize" href="', $PathPrefix, $RootPath, '/index.php?FontSize=2" data-title="', _('Large text size'), '">A</a>';
 	}
 	echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	echo '<div class="ScriptTitle">', _('Theme'), ':</div>';

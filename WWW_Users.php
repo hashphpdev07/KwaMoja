@@ -139,16 +139,16 @@ if (isset($_POST['submit'])) {
 		if ($SelectedUser == $_SESSION['UserID']) {
 			switch ($_POST['FontSize']) {
 				case 0:
-					$_SESSION['ScreenFontSize'] = '8pt';
+					$_SESSION['ScreenFontSize'] = '0.667rem';
 				break;
 				case 1:
-					$_SESSION['ScreenFontSize'] = '10pt';
+					$_SESSION['ScreenFontSize'] = '0.833rem';
 				break;
 				case 2:
-					$_SESSION['ScreenFontSize'] = '12pt';
+					$_SESSION['ScreenFontSize'] = '1rem';
 				break;
 				default:
-					$_SESSION['ScreenFontSize'] = '10pt';
+					$_SESSION['ScreenFontSize'] = '0.833rem';
 			}
 		}
 		$SQL = "UPDATE www_users SET realname='" . $_POST['RealName'] . "',
