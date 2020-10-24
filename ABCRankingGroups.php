@@ -210,7 +210,7 @@ if (isset($_POST['Submit'])) {
 
 	echo '</fieldset>';
 	echo '<div class="centre">
-			<input type="submit" name="Submit" value="Save" />
+			<input type="submit" name="Submit" value="', _('Save'), '" />
 		</div>';
 	echo '</form>';
 }
