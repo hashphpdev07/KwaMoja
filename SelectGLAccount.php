@@ -87,7 +87,7 @@ echo '</fieldset>';
 
 echo '<div class="centre">
 		<input type="submit" name="Search" value="', _('Search Now'), '" />
-		<input type="submit" name="reset" value="', _('Reset'), '" />
+		<input type="reset" name="reset" value="', _('Reset'), '" />
 	</div>
 </form>';
 
