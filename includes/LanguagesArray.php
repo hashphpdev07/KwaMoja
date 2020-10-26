@@ -70,6 +70,12 @@ $LanguagesArray['fa_IR.utf8']['DecimalPoint'] = ',';
 $LanguagesArray['fa_IR.utf8']['ThousandsSeparator'] = '.';
 $LanguagesArray['fa_IR.utf8']['Direction'] = 'rtl';
 
+$LanguagesArray['fi_FI.utf8']['LanguageName'] = 'Suomi';
+$LanguagesArray['fi_FI.utf8']['WindowsLocale'] = 'Finnish';
+$LanguagesArray['fi_FI.utf8']['DecimalPoint'] = ',';
+$LanguagesArray['fi_FI.utf8']['ThousandsSeparator'] = ' ';
+$LanguagesArray['fa_IR.utf8']['Direction'] = 'ltr';
+
 $LanguagesArray['fr_CA.utf8']['LanguageName'] = 'Français Canada';
 $LanguagesArray['fr_CA.utf8']['WindowsLocale'] = 'french-quebec';
 $LanguagesArray['fr_CA.utf8']['DecimalPoint'] = ',';
