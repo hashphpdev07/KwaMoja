@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 00:41+0000\n"
-"PO-Revision-Date: 2020-10-2600:00+0000\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-26 14:16+0000\n"
+"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -9875,14 +9876,14 @@ msgstr "Le SQL utilisé pour mettre à jour le transporteur par défaut de la su
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10251,14 +10252,14 @@ msgstr "ERREUR CRITIQUE"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10972,8 +10973,8 @@ msgstr "La transaction d'immobilisation n'a pas pu être insérée car"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "Le code SQL suivant pour insérer l'enregistrement de transaction d'immobilisation a été utilisé"
 
@@ -12056,9 +12057,9 @@ msgstr "Les emplacements de l'article"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -14121,7 +14122,7 @@ msgstr "L'écriture GL de fret pour cette note de crédit n'a pas pu être insé
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -24134,7 +24135,7 @@ msgstr "Le code SQL suivant pour insérer les enregistrements d'articles en sér
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "Coût"
 
@@ -24143,8 +24144,8 @@ msgstr "Coût"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "ERREUR CRITIQUE!  NOTEZ CETTE ERREUR ET DEMANDEZ L'ASSISTANCE La transaction d'immobilisation n'a pas pu être insérée car"
 
@@ -24154,7 +24155,7 @@ msgstr "ERREUR CRITIQUE!  NOTEZ CETTE ERREUR ET DEMANDEZ L'AIDE.  Le coût de l'
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Le SQL suivant a été utilisé pour tenter la mise à jour du coût et la date à laquelle l'actif a été acheté"
 
@@ -46530,14 +46531,14 @@ msgstr "Variance"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "La quantité disponible n'a pas pu être extraite de la base de données"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "Le SQL suivant pour récupérer la quantité totale de stock a été utilisé"
 
@@ -46571,13 +46572,13 @@ msgstr "L'entrée GL pour l'ajustement du coût moyen d'expédition pour"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Le coût n'a pas pu être mis à jour parce que"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Le SQL suivant pour mettre à jour le coût a été utilisé"
 
@@ -50106,7 +50107,7 @@ msgstr "Crédits contractuels sur une note de crédit"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Retour à l'entrée de facture"
 
@@ -51310,15 +51311,15 @@ msgstr "Le SQL suivant pour mettre à jour la quantité GRN crédité a été ut
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Le relevé de frais d'expédition pour l'envoi"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "Le SQL suivant pour insérer l'enregistrement de charge d'expédition a été utilisé"
 
@@ -51331,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Le code SQL suivant a été utilisé pour tenter la mise à jour du coût de l'immobilisation"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "L'enregistrement de la charge du contrat pour le contrat"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "Le SQL suivant pour insérer l'enregistrement de charge de contrat a été utilisé"
 
@@ -51544,7 +51545,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "La réception automatique d'articles en stock contrôlés nécessitant un numéro de série ou une entrée de numéro de lot n'est pas actuellement prise en compte.  Seules les commandes avec des articles normaux non numérotés peuvent être reçues automatiquement"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "ERREUR CRITIQUE! "
 
@@ -51761,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "Le SQL suivant pour mettre à jour la quantité GRN facturée a été utilisé"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "La facture n'a pas pu être mappée à l'enregistrement des marchandises reçues car"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Le code SQL suivant pour mapper la facture au GRN a été utilisé"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "L'enregistrement des mouvements de stock pour la livraison n'a pas pu être actualisé au coût réel"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Les enregistrements d'analyse des ventes n'ont pas pu être mis à jour pour les écarts de coûts sur cette facture d'achat"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Les mouvements de stock pour les factures ne peuvent pas être mis à jour pour les écarts de coûts sur cette facture d'achat"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "ERREUR CRITIQUE! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "Le code SQL suivant a été utilisé pour tenter la mise à jour du coût de l'actif:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Numéro de facture du fournisseur"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Entrez une autre facture pour ce fournisseur"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Entrer le paiement"
 
@@ -73217,9 +73216,6 @@ msgstr "Remboursements de prêts du personnel"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "Vos autorisations ne permettent pas la réception de marchandises.  La réception automatique des commandes d'achat est limitée aux seuls utilisateurs autorisés à recevoir des biens / services"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "La facture n'a pas pu être mappée à l'enregistrement des marchandises reçues car"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "ERREUR CRITIQUE!  NOTEZ CETTE ERREUR ET DEMANDEZ L'AIDE.  Le coût de l'immobilisation n'a pas pu être mis à jour car"

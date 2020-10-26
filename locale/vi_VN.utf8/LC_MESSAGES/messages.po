@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 00:44+0000\n"
-"PO-Revision-Date: 2020-10-2600:00+0000\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-26 14:13+0000\n"
+"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -9875,14 +9876,14 @@ msgstr "SQL được sử dụng để cập nhật các nhà cung cấp mặc �
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10251,14 +10252,14 @@ msgstr "LỖI NGHIÊM TRỌNG"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10972,8 +10973,8 @@ msgstr "Không thể chèn được giao dịch tài sản cố định vì"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "SQL sau để chèn bản ghi giao dịch tài sản cố định đã được sử dụng"
 
@@ -12056,9 +12057,9 @@ msgstr "Vị trí của mặt hàng"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -14121,7 +14122,7 @@ msgstr "Không thể chèn bài đăng GL vận chuyển cho giấy báo tín d�
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -24134,7 +24135,7 @@ msgstr "Các SQL sau để chèn các bản ghi cổ phiếu hàng tồn kho đ�
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "Giá cả"
 
@@ -24143,8 +24144,8 @@ msgstr "Giá cả"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "LỖI NGHIÊM TRỌNG!  LƯU Ý THÊM L ERI VÀ TRỢ GIÚP Không thể chèn được giao dịch tài sản cố định vì"
 
@@ -24154,7 +24155,7 @@ msgstr "LỖI NGHIÊM TRỌNG!  LƯU Ý THÊM L ERI VÀ TRỢ GIÚP.  Chi phí t
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "SQL sau đã được sử dụng để cố gắng cập nhật chi phí và ngày mua tài sản"
 
@@ -46530,14 +46531,14 @@ msgstr "Chênh lệch"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Số lượng trong tay không thể được lấy ra từ cơ sở dữ liệu"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "Các SQL sau đây để lấy tổng số cổ phiếu đã được sử dụng"
 
@@ -46571,13 +46572,13 @@ msgstr "Mục nhập GL cho điều chỉnh chi phí trung bình cho vận chuy�
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Không thể cập nhật chi phí vì"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "SQL sau để cập nhật chi phí đã được sử dụng"
 
@@ -50106,7 +50107,7 @@ msgstr "Các khoản tín dụng hợp đồng ghi trên Tín dụng"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Quay lại Mục nhập Hóa đơn"
 
@@ -51310,15 +51311,15 @@ msgstr "Đã sử dụng SQL sau để cập nhật số liệu GRN đã đượ
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Biên bản phí vận chuyển cho lô hàng"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "SQL sau để chèn bản ghi phí vận chuyển đã được sử dụng"
 
@@ -51331,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "SQL sau đã được sử dụng để cố gắng cập nhật chi phí tài sản cố định"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Biên bản phí hợp đồng cho hợp đồng"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "SQL sau để chèn bản ghi phí hợp đồng đã được sử dụng"
 
@@ -51544,7 +51545,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "Tự động nhận các mặt hàng có kiểm soát chứng khoán yêu cầu số sêri hoặc nhập số lô hiện không được phục vụ.  Chỉ có thể nhận các đơn đặt hàng có các mục không có số thứ tự thông thường"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "LỖI NGHIÊM TRỌNG! "
 
@@ -51761,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "SQL sau đây để cập nhật số lượng GRN đã lập hoá đơn đã được sử dụng"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "Hóa đơn không thể được ánh xạ tới hàng hoá đã nhận được vì"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "SQL sau đây để lập bản đồ hoá đơn cho GRN đã được sử dụng"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Hồ sơ lưu chuyển hàng tồn kho cho việc phân phối không thể có chi phí cập nhật với chi phí thực tế"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Không thể cập nhật hồ sơ phân tích bán hàng cho các chênh lệch chi phí trên hóa đơn mua hàng này"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Các phong trào chứng khoán cho các hoá đơn không thể được cập nhật cho các chênh lệch chi phí trên hóa đơn mua hàng này"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "LỖI NGHIÊM TRỌNG! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "SQL sau được sử dụng để thử cập nhật chi phí tài sản:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Số hoá đơn nhà cung cấp"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Nhập một Hóa đơn cho Nhà cung cấp này"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Nhập thanh toán"
 
@@ -73193,9 +73192,6 @@ msgstr "Trả nợ nhân viên"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "Quyền của bạn không cho phép nhận hàng.  Tự động tiếp nhận các đơn đặt hàng chỉ được giới hạn cho những người dùng được ủy quyền nhận hàng hóa / dịch vụ"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "Hóa đơn không thể được ánh xạ tới hàng hoá đã nhận được vì"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "LỖI NGHIÊM TRỌNG!  LƯU Ý THÊM L ERI VÀ TRỢ GIÚP.  Không thể cập nhật chi phí tài sản cố định vì"

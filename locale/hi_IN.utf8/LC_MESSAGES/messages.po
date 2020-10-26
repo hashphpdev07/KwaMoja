@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 00:41+0000\n"
-"PO-Revision-Date: 2020-10-2600:00+0000\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-26 14:10+0000\n"
+"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -9875,14 +9876,14 @@ msgstr "एसक्यूएल को शाखा के डिफ़ॉल�
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10251,14 +10252,14 @@ msgstr "गंभीर त्रुटि"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10972,8 +10973,8 @@ msgstr "अचल परिसंपत्ति लेनदेन सम्म
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "निर्धारित एसेट लेनदेन रिकॉर्ड सम्मिलित करने के लिए निम्नलिखित एसक्यूएल का इस्तेमाल किया गया था"
 
@@ -12056,9 +12057,9 @@ msgstr "आइटम के लिए स्थान"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -14121,7 +14122,7 @@ msgstr "इस क्रेडिट नोट के लिए फ्रेट 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -24134,7 +24135,7 @@ msgstr "सीरियल स्टॉक आइटम रिकॉर्ड �
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "लागत"
 
@@ -24143,8 +24144,8 @@ msgstr "लागत"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "गंभीर त्रुटि!  इस त्रुटि के नीचे नोट करें और सहायता प्राप्त करें निश्चित परिसंपत्ति लेनदेन सम्मिलित नहीं किया जा सकता क्योंकि"
 
@@ -24154,7 +24155,7 @@ msgstr "गंभीर त्रुटि!  इस त्रुटि को �
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "निम्न एसक्यूएल का उपयोग लागत के अद्यतन और परिसंपत्ति को खरीदा जाने की तिथि के लिए किया गया था"
 
@@ -46530,14 +46531,14 @@ msgstr "झगड़ा"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "हाथ से मात्रा डेटाबेस से प्राप्त नहीं की जा सकती"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "कुल स्टॉक मात्रा को पुनः प्राप्त करने के लिए निम्नलिखित एसक्यूएल का उपयोग किया गया था"
 
@@ -46571,13 +46572,13 @@ msgstr "शिपमेंट के लिए जीएल एंट्री �
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "लागत को अपडेट नहीं किया जा सका क्योंकि"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "निम्न एसक्यूएल को अद्यतन करने के लिए इस्तेमाल किया गया था"
 
@@ -50106,7 +50107,7 @@ msgstr "क्रेडिट नोट पर अनुबंध का क्�
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "चालान प्रविष्टि पर वापस जाएं"
 
@@ -51310,15 +51311,15 @@ msgstr "जीआरएन मात्रा को अद्यतन कर�
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "शिपमेंट के लिए शिपमेंट चार्ज रिकॉर्ड"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "शिपमेंट चार्ज रिकॉर्ड डालने के लिए निम्नलिखित एसक्यूएल का उपयोग किया गया था"
 
@@ -51331,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "निम्नलिखित एसक्यूएल का उपयोग निश्चित परिसंपत्ति लागत के अद्यतन करने के लिए किया गया था"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "अनुबंध के लिए अनुबंध चार्ज रिकॉर्ड"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "अनुबंध चार्ज रिकॉर्ड डालने के लिए निम्नलिखित एसक्यूएल का इस्तेमाल किया गया था"
 
@@ -51544,7 +51545,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "सीरियल नंबर या बैच नंबर प्रविष्टि की आवश्यकता होती है जो नियंत्रित स्टॉक आइटम्स की ऑटो प्राप्त वर्तमान में के लिए catered नहीं है  सामान्य गैर-सीरियल नंबर वाले आइटम के साथ ही ऑर्डर स्वचालित रूप से प्राप्त हो सकते हैं"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "गंभीर त्रुटि! "
 
@@ -51761,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "चालान किए गए जीआरएन मात्रा को अद्यतन करने के लिए निम्नलिखित एसक्यूएल का उपयोग किया गया था"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "इनवॉइस को प्राप्त माल के लिए मैप नहीं किया जा सका क्योंकि"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "जीआरएन के लिए इनवॉइस को मैप करने के लिए निम्नलिखित एसक्यूएल का उपयोग किया गया था"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "वितरण के लिए स्टॉक आंदोलन रिकॉर्ड वास्तविक लागत के लिए लागत को अद्यतन नहीं हो सकता था"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "इस क्रय इनवॉइस पर लागत के भिन्नता के लिए बिक्री विश्लेषण रिकॉर्ड अपडेट नहीं किए जा सकते"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "चालान के लिए स्टॉक की चालान इस खरीद चालान पर लागत के भिन्न-भिन्न तरीकों के लिए अद्यतन नहीं किया जा सकता है"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "गंभीर त्रुटि! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "निम्नलिखित एसक्यूएल का उपयोग परिसंपत्ति लागत के अद्यतन का प्रयास करने के लिए किया गया था:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "प्रदायक चालान संख्या"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "इस सप्लायर के लिए एक और चालान दर्ज करें"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "भुगतान दर्ज करें"
 
@@ -73217,9 +73216,6 @@ msgstr "कर्मचारी ऋण चुकौती"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "आपकी अनुमतियां माल प्राप्त करने की अनुमति नहीं देतीं  खरीद ऑर्डर प्राप्त करने के लिए स्वचालित रूप से उन उपयोगकर्ताओं तक सीमित है जो माल / सेवाओं को प्राप्त करने के लिए अधिकृत हैं"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "इनवॉइस को प्राप्त माल के लिए मैप नहीं किया जा सका क्योंकि"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "गंभीर त्रुटि!  इस त्रुटि को नीचे दें और सहायता देखें।  निश्चित परिसंपत्ति की लागत को अद्यतन नहीं किया जा सका क्योंकि"

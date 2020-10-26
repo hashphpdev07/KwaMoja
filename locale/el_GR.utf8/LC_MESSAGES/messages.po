@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 07:42+0000\n"
-"PO-Revision-Date: 2020-10-2600:00+0000\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-26 14:14+0000\n"
+"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -9875,14 +9876,14 @@ msgstr "Η SQL που χρησιμοποιήθηκε για την ενημέρ�
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10251,14 +10252,14 @@ msgstr "ΚΡΙΤΙΚΟ ΣΦΑΛΜΑ"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10972,8 +10973,8 @@ msgstr "Η συναλλαγή παγίου στοιχείου δεν μπόρε�
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την εισαγωγή της εγγραφής της συναλλαγής παγίων στοιχείων"
 
@@ -12056,9 +12057,9 @@ msgstr "Οι θέσεις για το στοιχείο"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -14121,7 +14122,7 @@ msgstr "Το φορτίο GL που αποστέλλει αυτό το πιστ�
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -24134,7 +24135,7 @@ msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την �
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "κόστος"
 
@@ -24143,8 +24144,8 @@ msgstr "κόστος"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "CRITICAL ERROR! "
 
@@ -24154,7 +24155,7 @@ msgstr "CRITICAL ERROR! "
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Η ακόλουθη SQL χρησιμοποιήθηκε για να επιχειρήσει την ενημέρωση του κόστους και την ημερομηνία αγοράς του περιουσιακού στοιχείου"
 
@@ -46530,14 +46531,14 @@ msgstr "Διαφορά"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Η ποσότητα στο χέρι δεν μπορεί να ανακτηθεί από τη βάση δεδομένων"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την ανάκτηση της συνολικής ποσότητας αποθέματος"
 
@@ -46571,13 +46572,13 @@ msgstr "Η καταχώριση GL για τη μέση προσαρμογή τ�
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Το κόστος δεν ήταν δυνατό να ενημερωθεί επειδή"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την ενημέρωση του κόστους"
 
@@ -50106,7 +50107,7 @@ msgstr "Συμβόλαιο πιστώσεις στην πιστωτική σημ
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Επιστροφή στην καταχώριση τιμολογίου"
 
@@ -51310,15 +51311,15 @@ msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την �
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Το φορτίο αποστολής για την αποστολή"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την εισαγωγή της εγγραφής χρέωσης αποστολής"
 
@@ -51331,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Το ακόλουθο SQL χρησιμοποιήθηκε για την προσπάθεια ενημέρωσης του κόστους παγίου στοιχείου"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Το αρχείο συμβατικής χρέωσης για σύμβαση"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την εισαγωγή του αρχείου χρέωσης της σύμβασης"
 
@@ -51544,7 +51545,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "Η αυτόματη λήψη ελεγχόμενων στοιχείων αποθέματος που απαιτούν καταχώριση αριθμού σειράς ή παρτίδας δεν καλύπτεται προς το παρόν. "
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "Κρίσιμο λάθος! Σημειώστε αυτό το λάθος και να ζητήσουν βοήθεια. Το πάγιο κόστος του ενεργητικού και αγοράζονται ημερομηνία αυτή δεν ήταν σε θέση να ενημερωθεί, επειδή:"
 
@@ -51761,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για την ενημέρωση της ποσότητας GRN που τιμολογήθηκε"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "Το τιμολόγιο δεν μπόρεσε να αντιστοιχιστεί στα ληφθέντα εμπορεύματα, επειδή"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Χρησιμοποιήθηκε το ακόλουθο SQL για τη χαρτογράφηση του τιμολογίου στο GRN"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Το αρχείο κίνησης αποθεμάτων για την παράδοση δεν θα μπορούσε να αναβαθμίσει το κόστος με το πραγματικό κόστος"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Τα αρχεία ανάλυσης πωλήσεων δεν ήταν δυνατό να ενημερωθούν για τις αποκλίσεις κόστους αυτού του τιμολογίου αγοράς"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Οι μεταβολές των αποθεμάτων των τιμολογίων δεν είναι δυνατόν να ενημερωθούν για τις διακυμάνσεις του κόστους αυτού του τιμολογίου αγοράς"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "Κρίσιμο λάθος! Σημειώστε αυτό το λάθος και να ζητήσουν βοήθεια. Το πάγιο κόστος περιουσιακό στοιχείο θα μπορούσε να μην είναι ενημερωμένος, διότι:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "Η ακόλουθη SQL χρησιμοποιήθηκε για να προσπαθήσει την ενημέρωση του κόστους περιουσιακού στοιχείου:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Αριθμός τιμολογίου προμηθευτή"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Εισαγάγετε ένα άλλο τιμολόγιο για αυτόν τον προμηθευτή"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Πληκτρολογήστε την πληρωμή"
 
@@ -73193,9 +73192,6 @@ msgstr "Αποπληρωμές δανείου προσωπικού"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "Τα δικαιώματά σας δεν επιτρέπουν την παραλαβή αγαθών. "
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "Το τιμολόγιο δεν μπόρεσε να αντιστοιχιστεί στα ληφθέντα εμπορεύματα, επειδή"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "CRITICAL ERROR! "

@@ -7,9 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 00:42+0000\n"
-"PO-Revision-Date: 2020-10-2600:00+0000\n""Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-26 14:10+0000\n"
+"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -9875,14 +9876,14 @@ msgstr "Ndị SQL na-eji emelite alaka ụgbọ ala ndabere"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10251,14 +10252,14 @@ msgstr "CRITICAL ERROR"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10972,8 +10973,8 @@ msgstr "Enweghi ike itinye azụmahịa azụmaara a n'ihi na"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "Ejiri SQL ndị na-esote ka itinye ihe ndekọ azụmaahịa atọrọ ntọala"
 
@@ -12056,9 +12057,9 @@ msgstr "Ọnọdụ maka ihe ahụ"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -14121,7 +14122,7 @@ msgstr "Enweghị ike itinye mgbakwunye GL na-akwụ ụgwọ maka ndetu Ebe E S
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -24134,7 +24135,7 @@ msgstr "Ejiri SQL ndị na-esote ka itinye ihe ndebe akụ ihe eji eme ihe"
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "eri"
 
@@ -24143,8 +24144,8 @@ msgstr "eri"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "EGO ERROR! "
 
@@ -24154,7 +24155,7 @@ msgstr "EGO ERROR! "
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Ejiri SQL ndị na-esote ya nwaa mmelite nke ọnụahịa ahụ yana ụbọchị azụrụ azụtara ego ahụ"
 
@@ -46530,14 +46531,14 @@ msgstr "Mgbanwe"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Onweghi aka ichotaghachita onu ha n’ebe edere"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "SQL ndị na-esote iji weghachite ngụkọta ngwaahịa ejiri mee ihe"
 
@@ -46571,13 +46572,13 @@ msgstr "Ntinye GL maka mmezi ọnụ ahịa mmezi maka"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Enweghi ike emelite onu ya n'ihi"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Ejiri SQL ndị na-esote iji melite ọnụ ahịa ejiri"
 
@@ -50106,7 +50107,7 @@ msgstr "Ebe nkwekọrịta na Ebe E Si Nweta"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Laghachi nbanye akwụkwọ ọnụahịa"
 
@@ -51310,15 +51311,15 @@ msgstr "Ejiri SQL ndị na-esote iji melite ọtụtụ nzere GRN"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Ederede na-ebu maka mbupu"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "Ejiri SQL ndị na-esote ka itinye ihe ndekọ ego maka Shipment"
 
@@ -51331,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Ejiri SQL ndị na-esote ya nwaa mmelite nke ọnụahịa bara uru echekwara"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Ihe ndekọ banyere ụgwọ nkwekọrịta maka nkwekọrịta"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "Ejiri SQL ndị na-esote ka itinye ihe ndekọ nkwekọrịta"
 
@@ -51544,7 +51545,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "Onyinye ihe ndi anabataghi nke choro onu ogugu ma obu itinye onu ogugu ekwenyeghi ugbua. "
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "EGO ERROR! "
 
@@ -51761,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "Ejiri SQL ndị na-esote iji melite ọnụahịa inwale nke GRN"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "The akwụkwọ ọnụahịa na-apụghị mapped na ngwongwo natara ndekọ n'ihi na"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Ejiri SQL ndị na-esote iji gosipụta akwụkwọ ọnụahịa na GRN"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Ndekọ ngagharị ngwaahịa maka nnyefe ahụ enweghị ike ime ka ọnụ ego emelitere ka ọ dị ọnụ ahịa"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Enweghi ike imelite ihe omuma ahia nke ahia ahia di iche maka onu ahia onu ahia"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Agaghị emelite mmegharị ngwaahịa maka ọnụahịa ọnụahịa maka mgbanwe ego dị na ọnụahịa azụmaahịa a"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "EGO ERROR! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "Ejiri SQL ndị na-eso ya nwaa mmelite nke ọnụ ahịa bara uru:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Nọmba ọnụahịa ntinye aka"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Tinye akwụkwọ ọnụahịa ọzọ maka onye a na-eweta"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Tinye ugwo"
 

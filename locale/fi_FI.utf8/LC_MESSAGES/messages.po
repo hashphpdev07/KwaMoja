@@ -5,9 +5,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: weberp\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 07:43+0000\n"
-"PO-Revision-Date: 2020-10-2600:00+0000\n""Last-Translator: \n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-26 14:15+0000\n"
+"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: IT Palvelu\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -9874,14 +9875,14 @@ msgstr "Haaran oletusoperaattorin päivittämiseen käytetty SQL oli"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10250,14 +10251,14 @@ msgstr "KRIITTINEN VIRHE"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10971,8 +10972,8 @@ msgstr "Käyttöomaisuuden kauppaa ei voitu lisätä, koska"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "Seuraavaa SQL:ää käytetyn käyttöomaisuuden kauppatietueen lisäämiseksi käytettiin"
 
@@ -12055,9 +12056,9 @@ msgstr "Kohteen sijainnit"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -12235,7 +12236,7 @@ msgstr "Käytetty SQL, josta ei saatu asiakastietoja, oli"
 #: /home/tim/code/KwaMoja/ShopParameters.php:592
 #: /home/tim/code/KwaMoja/SpecialOrder.php:94
 msgid "The"
-msgstr ""
+msgstr "Sitä"
 
 #: /home/tim/code/KwaMoja/Contracts.php:746
 #: /home/tim/code/KwaMoja/CounterSales.php:195
@@ -14120,7 +14121,7 @@ msgstr "Tämän hyvityslaskun rahtikirjaa ei voitu lisätä, koska"
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -24133,7 +24134,7 @@ msgstr "Sarjavarastotietueiden lisäämiseen käytettiin seuraavaa SQL:ää"
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "kustannus"
 
@@ -24142,8 +24143,8 @@ msgstr "kustannus"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "KRIITTINEN VIRHE! KIRJAA TÄMÄN VIRHEEN JA HAE APUA Käyttöomaisuuseriä ei voitu lisätä, koska"
 
@@ -24153,7 +24154,7 @@ msgstr "KRIITTINEN VIRHE! "
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Seuraavaa SQL:ää yritettiin päivittää kustannus ja päivämäärä, jolloin omaisuuserä ostettiin"
 
@@ -46529,14 +46530,14 @@ msgstr "Varianssi"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Käsillä olevaa määrää ei voitu hakea tietokannasta"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "Seuraavaa SQL: tä käytettiin varastomäärän noutamiseen"
 
@@ -46570,13 +46571,13 @@ msgstr "Lähetyksen keskimääräisten kustannusten oikaisua koskeva PK-merkint�
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Kustannuksia ei voitu päivittää, koska"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Seuraavaa SQL:ää käytettiin päivittämään kustannuksia"
 
@@ -50105,7 +50106,7 @@ msgstr "Sopimushyvitykset hyvityslaskussa"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Takaisin laskun syöttöön"
 
@@ -51309,15 +51310,15 @@ msgstr "Hyväksyttyä GRN-määrää päivitettiin seuraavalla SQL: llä"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Lähetyksen toimitusmaksu"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "Lähetysmaksutietueen lisäämiseen käytettiin seuraavaa SQL:ää"
 
@@ -51330,12 +51331,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Seuraavaa SQL: ää yritettiin päivittää käyttöomaisuuden kustannuksia"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Sopimusmaksutiedot"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "Seuraavaa SQL:ää lisättiin sopimusmaksutietue"
 
@@ -51543,7 +51544,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "Valvottujen varastotuotteiden automaattista vastaanottoa, joka edellyttää sarjanumeron tai eränumeron syöttämistä, ei tällä hetkellä huomioida. Vain tilaukset, joissa on tavanomaiset ei-sarjanumerot, voidaan vastaanottaa automaattisesti"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "KRIITTINEN VIRHE! KIRJAA TÄMÄ VIRHE JA HAE APUA. Käyttöomaisuuden kustannuksia ja ostopäivää ei voitu päivittää, koska:"
 
@@ -51760,44 +51761,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "Laskutetun GRN-määrän päivittämiseen käytettiin seuraavaa SQL:ää"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "Laskua ei voitu yhdistää vastaanotettujen tavaroiden tietueeseen, koska"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Seuraavaa SQL: tä käytettiin laskun yhdistämiseen GRN:ään"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Toimituksen varastoliikennetiedot eivät saaneet kustannuksia päivittää todellisiin kustannuksiin"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Myyntianalyysitietueita ei voitu päivittää tämän ostolaskun kustannusvaihteluihin"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Laskun varastoliikkeitä ei voida päivittää tämän ostolaskun kustannusvaihteluihin"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "KRIITTINEN VIRHE! KIRJAA TÄMÄ VIRHE JA HAE APUA. Käyttöomaisuuden kustannuksia ei voitu päivittää, koska:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "Seuraavaa SQL:ää yritettiin päivittää omaisuuserän hinta:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Toimittajan laskun numero"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Anna tälle toimittajalle toinen lasku"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Anna maksu"
 
@@ -73139,8 +73138,6 @@ msgstr "Henkilöstön lainojen takaisinmaksut"
 #~ msgid "The statements for two periods are used in horizontal analysis. The earliest period is used as the base period. The items on the later statement are compared with items on the statement of the base period. The changes are shown both in currency (actual change) and percentage (relative change)."
 #~ msgstr "Kahden jakson lauseita käytetään horisontaalisessa analyysissä. Perusjaksona käytetään aikaisinta ajanjaksoa. Myöhemmän laskelman eriä verrataan vertailujakson eriin. Muutokset näkyvät sekä valuutassa (todellinen muutos) että prosentteina (suhteellinen muutos)."
 
-#~ msgid "webERP is an \accrual\\ based system (not a \\cash based\\ system). Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date."
-#~ msgstr "webERP on \\suoriteperusteinen\\ järjestelmä (ei \\kassaperusteinen\\ järjestelmä). Suoriteperusteiset järjestelmät sisältävät erät, kun ne laskutetaan asiakkaalle ja kun kulut ovat velkaa toimittajan laskupäivän perusteella."
 
 #~ msgid "Check this box to show accounts with zero balance"
 #~ msgstr "Valitse tämä valintaruutu näyttääksesi tilit, joiden saldo on nolla"
@@ -73751,12 +73748,6 @@ msgstr "Henkilöstön lainojen takaisinmaksut"
 #~ msgid "Select a general ledger account code"
 #~ msgstr "Valitse pääkirjatilikoodi"
 
-#~ msgid "Profit and loss statement (P&amp;L), also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the \top line\\) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the \bottom line\\)."
-#~ msgstr "Tuloslaskelma (P&amp; L), jota kutsutaan myös tuloslaskelmaksi tai tuloslaskelma, tämä on lausunto, joka osoittaa, kuinka tuotot (tuotteiden ja palvelujen myynnistä ennen kulujen vastaanottamista saadut rahat, tunnetaan myös nimellä \\ylärivi\\) muutetaan nettotuloksi (tulos sen jälkeen, kun kaikki tulot ja kulut on laskettu, tunnetaan myös nimellä \alarivi\\)."
-
-#~ msgid "The P&amp;L represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
-#~ msgstr "P&amp; L edustaa ajanjaksoa. Tämä on ristiriidassa taseen kanssa, joka edustaa yhtä ajanhetkeä."
-
 #~ msgid "Check this box to show the budget"
 #~ msgstr "Valitse tämä ruutu näyttääksesi budjetin"
 
@@ -73810,9 +73801,6 @@ msgstr "Henkilöstön lainojen takaisinmaksut"
 
 #~ msgid "Fulfill Stock Requests"
 #~ msgstr "Täytä varastopyynnöt"
-
-#~ msgid "Lot/Batch/Serial"
-#~ msgstr "Erä / erä / sarja"
 
 #~ msgid "You have no authority to do the internal request inquiry"
 #~ msgstr "Sinulla ei ole valtuuksia tehdä sisäistä kyselyä"
@@ -75971,17 +75959,9 @@ msgstr "Henkilöstön lainojen takaisinmaksut"
 #~ msgid "The file must contain four columns, and the first row should be the following headers:"
 #~ msgstr "Tiedoston on sisällettävä neljä saraketta, ja ensimmäisen rivin on oltava seuraavat otsikot:"
 
-#~ msgid "Stock item \\"
-#~ msgstr "Varastotuote \\"
-
-#~ msgid "ItemPDF must contain either a filename, or the keyword `none`"
-#~ msgstr "ItemPDF:n on sisällettävä joko tiedostonimi tai avainsana \"ei mitään\""
 
 #~ msgid "Current Items without picture in webERP"
 #~ msgstr "Nykyiset kohteet ilman kuvaa webERP: ssä"
-
-#~ msgid "Company database must not contain spaces, \\& or \\ or '"
-#~ msgstr "Yritystietokanta ei saa sisältää välilyöntejä, \\ & tai \\ tai '"
 
 #~ msgid "Cannot open the configuration file: "
 #~ msgstr "Kokoonpanotiedostoa ei voi avata: "
