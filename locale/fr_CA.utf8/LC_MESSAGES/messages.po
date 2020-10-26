@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-24 01:10+0100\n"
+"POT-Creation-Date: 2020-10-26 07:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -366,7 +366,7 @@ msgstr "Êtes-vous sûr de vouloir supprimer ce groupe de classement?"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:151
 #: /home/tim/code/KwaMoja/PriceMatrix.php:310
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 #: /home/tim/code/KwaMoja/ProductSpecs.php:446
 #: /home/tim/code/KwaMoja/ProjectBOM.php:179
 #: /home/tim/code/KwaMoja/ProjectOtherReqts.php:110
@@ -526,6 +526,16 @@ msgstr "Mois de mouvement à inclure"
 msgid "The number of months stock movement to analyse."
 msgstr "Le nombre de mois de mouvement de stock à analyser."
 
+#: /home/tim/code/KwaMoja/ABCRankingGroups.php:213
+#: /home/tim/code/KwaMoja/ABCRankingMethods.php:112
+#: /home/tim/code/KwaMoja/ModuleEditor.php:87
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
+#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
+msgid "Save"
+msgstr "sauvegarder"
+
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:4
 msgid "Maintain ABC ranking methods"
 msgstr "Maintenir les méthodes de classement ABC"
@@ -621,7 +631,7 @@ msgstr "La méthode de classement a été enregistrée avec succès dans la base
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:150
 #: /home/tim/code/KwaMoja/PriceMatrix.php:309
 #: /home/tim/code/KwaMoja/Prices.php:246
-#: /home/tim/code/KwaMoja/Prices_Customer.php:275
+#: /home/tim/code/KwaMoja/Prices_Customer.php:278
 #: /home/tim/code/KwaMoja/ProductSpecs.php:445
 #: /home/tim/code/KwaMoja/PurchData.php:325
 #: /home/tim/code/KwaMoja/QATests.php:455
@@ -744,6 +754,11 @@ msgstr "Classement Analyse Détails"
 #: /home/tim/code/KwaMoja/ABCRunAnalysis.php:128
 msgid "Ranking group"
 msgstr "Groupe de classement"
+
+#: /home/tim/code/KwaMoja/ABCRunAnalysis.php:146
+#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
+msgid "Run"
+msgstr "Courir"
 
 #: /home/tim/code/KwaMoja/ABCRunAnalysis.php:150
 msgid "Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one"
@@ -892,7 +907,7 @@ msgstr "ont été remplacés par le groupe de comptes"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:28
 #: /home/tim/code/KwaMoja/Prices.php:18
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:7
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
 #: /home/tim/code/KwaMoja/ProductSpecs.php:31
 #: /home/tim/code/KwaMoja/PurchData.php:253
 #: /home/tim/code/KwaMoja/PurchData.php:367
@@ -1436,9 +1451,9 @@ msgstr "Nom du groupe parent"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:445
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:448
 #: /home/tim/code/KwaMoja/SalesCategories.php:348
-#: /home/tim/code/KwaMoja/SalesCategories.php:435
-#: /home/tim/code/KwaMoja/SalesCategories.php:439
-#: /home/tim/code/KwaMoja/SalesCategories.php:504
+#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:511
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:85
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:85
 #: /home/tim/code/KwaMoja/SalesPeople.php:207
@@ -1742,9 +1757,9 @@ msgstr "Oui"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:444
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:447
 #: /home/tim/code/KwaMoja/SalesCategories.php:350
-#: /home/tim/code/KwaMoja/SalesCategories.php:436
-#: /home/tim/code/KwaMoja/SalesCategories.php:438
-#: /home/tim/code/KwaMoja/SalesCategories.php:507
+#: /home/tim/code/KwaMoja/SalesCategories.php:443
+#: /home/tim/code/KwaMoja/SalesCategories.php:445
+#: /home/tim/code/KwaMoja/SalesCategories.php:514
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:83
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:83
 #: /home/tim/code/KwaMoja/SalesPeople.php:209
@@ -1959,12 +1974,12 @@ msgstr "La séquence dans la balance d'essai où ce groupe apparaîtra."
 #: /home/tim/code/KwaMoja/PaymentMethods.php:312
 #: /home/tim/code/KwaMoja/PaymentTerms.php:278
 #: /home/tim/code/KwaMoja/PriceMatrix.php:261
-#: /home/tim/code/KwaMoja/Prices_Customer.php:353
+#: /home/tim/code/KwaMoja/Prices_Customer.php:363
 #: /home/tim/code/KwaMoja/ProductSpecs.php:637
 #: /home/tim/code/KwaMoja/QATests.php:348
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:513
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:473
-#: /home/tim/code/KwaMoja/SalesCategories.php:455
+#: /home/tim/code/KwaMoja/SalesCategories.php:462
 #: /home/tim/code/KwaMoja/SalesCommissionTypes.php:221
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:291
 #: /home/tim/code/KwaMoja/SalesPeople.php:455
@@ -2861,7 +2876,7 @@ msgstr "Stock"
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:74
 #: /home/tim/code/KwaMoja/ReverseGRN.php:404
 #: /home/tim/code/KwaMoja/SalesCategories.php:203
-#: /home/tim/code/KwaMoja/SalesCategories.php:487
+#: /home/tim/code/KwaMoja/SalesCategories.php:494
 #: /home/tim/code/KwaMoja/SecurityTokens.php:121
 #: /home/tim/code/KwaMoja/SecurityTokens.php:163
 #: /home/tim/code/KwaMoja/SelectAsset.php:262
@@ -3809,7 +3824,7 @@ msgstr "Sélectionnez la dernière période du rapport"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:246
 #: /home/tim/code/KwaMoja/Projects.php:653
 #: /home/tim/code/KwaMoja/PurchData.php:382
-#: /home/tim/code/KwaMoja/SalesCategories.php:570
+#: /home/tim/code/KwaMoja/SalesCategories.php:577
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:231
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:231
 #: /home/tim/code/KwaMoja/SalesGraph.php:96
@@ -4591,8 +4606,8 @@ msgstr "Identifiant d'utilisateur"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:215
 #: /home/tim/code/KwaMoja/ReorderLevel.php:236
 #: /home/tim/code/KwaMoja/ReorderLevel.php:238
-#: /home/tim/code/KwaMoja/SalesCategories.php:538
-#: /home/tim/code/KwaMoja/SalesCategories.php:541
+#: /home/tim/code/KwaMoja/SalesCategories.php:545
+#: /home/tim/code/KwaMoja/SalesCategories.php:548
 #: /home/tim/code/KwaMoja/SalesGraph.php:120
 #: /home/tim/code/KwaMoja/SalesGraph.php:122
 #: /home/tim/code/KwaMoja/SalesGraph.php:144
@@ -5533,7 +5548,7 @@ msgstr "Entrez les critères de recherche"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5548,7 +5563,7 @@ msgstr "Entrer des extraits de texte dans le"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5567,7 +5582,7 @@ msgstr "Entrez une partie de la description d'un article"
 #: /home/tim/code/KwaMoja/MRPDemands.php:324
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:288
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/Shipt_Select.php:205
@@ -5588,7 +5603,7 @@ msgstr "Entrez l'extrait de"
 #: /home/tim/code/KwaMoja/MRPReport.php:574
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SalesInquiry.php:627
 #: /home/tim/code/KwaMoja/SalesInquiry.php:638
 #: /home/tim/code/KwaMoja/SalesInquiry.php:661
@@ -5650,7 +5665,7 @@ msgstr "Ou entrez une partie d'un code d'articles"
 #: /home/tim/code/KwaMoja/PO_Items.php:1433
 #: /home/tim/code/KwaMoja/ProjectBOM.php:250
 #: /home/tim/code/KwaMoja/Projects.php:659
-#: /home/tim/code/KwaMoja/SalesCategories.php:578
+#: /home/tim/code/KwaMoja/SalesCategories.php:585
 #: /home/tim/code/KwaMoja/SelectAsset.php:118
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:210
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:941
@@ -8030,7 +8045,7 @@ msgstr "Impossible de récupérer les données de coût"
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:317
 #: /home/tim/code/KwaMoja/SalesCategories.php:97
 #: /home/tim/code/KwaMoja/SalesCategories.php:111
-#: /home/tim/code/KwaMoja/SalesCategories.php:486
+#: /home/tim/code/KwaMoja/SalesCategories.php:493
 #: /home/tim/code/KwaMoja/SalesTopItemsInquiry.php:217
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:375
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:139
@@ -8195,7 +8210,7 @@ msgstr "Pour rechercher des ordres de travail pour un article spécifique, utili
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:147
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:213
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:180
-#: /home/tim/code/KwaMoja/SalesCategories.php:534
+#: /home/tim/code/KwaMoja/SalesCategories.php:541
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:378
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:903
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:268
@@ -8426,9 +8441,9 @@ msgstr "Quantité en circulation"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:491
 #: /home/tim/code/KwaMoja/Prices.php:222
 #: /home/tim/code/KwaMoja/PricesByCost.php:164
-#: /home/tim/code/KwaMoja/Prices_Customer.php:205
-#: /home/tim/code/KwaMoja/Prices_Customer.php:254
-#: /home/tim/code/KwaMoja/Prices_Customer.php:340
+#: /home/tim/code/KwaMoja/Prices_Customer.php:206
+#: /home/tim/code/KwaMoja/Prices_Customer.php:255
+#: /home/tim/code/KwaMoja/Prices_Customer.php:346
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:418
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:379
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:384
@@ -9210,7 +9225,7 @@ msgstr "Cette expédition"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:254
 #: /home/tim/code/KwaMoja/Prices.php:221 /home/tim/code/KwaMoja/Prices.php:341
 #: /home/tim/code/KwaMoja/PricesByCost.php:266
-#: /home/tim/code/KwaMoja/Prices_Customer.php:347
+#: /home/tim/code/KwaMoja/Prices_Customer.php:356
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:997
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1021
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1101
@@ -12376,8 +12391,8 @@ msgstr "Client"
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:310
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:314
 #: /home/tim/code/KwaMoja/PricesByCost.php:163
-#: /home/tim/code/KwaMoja/Prices_Customer.php:253
-#: /home/tim/code/KwaMoja/Prices_Customer.php:326
+#: /home/tim/code/KwaMoja/Prices_Customer.php:254
+#: /home/tim/code/KwaMoja/Prices_Customer.php:331
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:970
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:474
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:219
@@ -13585,7 +13600,7 @@ msgstr "Nouveau numéro de commande"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:123
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:182
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:452
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RecurringSalesOrdersProcess.php:88
 #: /home/tim/code/KwaMoja/ReverseGRN.php:342
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
@@ -17976,7 +17991,7 @@ msgstr "Niveau de sécurité"
 #: /home/tim/code/KwaMoja/DashboardConfig.php:109
 #: /home/tim/code/KwaMoja/JobScheduler.php:103
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:213
-#: /home/tim/code/KwaMoja/SalesCategories.php:510
+#: /home/tim/code/KwaMoja/SalesCategories.php:517
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
@@ -20711,14 +20726,14 @@ msgid "long"
 msgstr "longue"
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:477
-#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:453
 #: /home/tim/code/KwaMoja/Stocks.php:1171
 msgid "Image File ("
 msgstr "Fichier d'image ("
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:479
 #: /home/tim/code/KwaMoja/Manufacturers.php:315
-#: /home/tim/code/KwaMoja/SalesCategories.php:448
+#: /home/tim/code/KwaMoja/SalesCategories.php:455
 #: /home/tim/code/KwaMoja/Stocks.php:1174
 msgid "Clear Image"
 msgstr "Image claire"
@@ -24485,7 +24500,7 @@ msgstr "Solde d'ouverture au"
 #: /home/tim/code/KwaMoja/Payments.php:1397
 #: /home/tim/code/KwaMoja/Payments.php:1405
 #: /home/tim/code/KwaMoja/Payments.php:1407
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:32
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
 #: /home/tim/code/KwaMoja/SpecialOrder.php:126
@@ -24710,7 +24725,7 @@ msgid "SalesType/Price List"
 msgstr "SalesType / Liste de prix"
 
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:125
-#: /home/tim/code/KwaMoja/Prices_Customer.php:150
+#: /home/tim/code/KwaMoja/Prices_Customer.php:152
 #: /home/tim/code/KwaMoja/UploadPriceList.php:126
 msgid "The price could not be added because"
 msgstr "Le prix n'a pas pu être ajouté parce que"
@@ -33789,7 +33804,7 @@ msgid "Are you sure you wish to delete this brand?"
 msgstr "Êtes-vous sûr de vouloir supprimer cette marque?"
 
 #: /home/tim/code/KwaMoja/Manufacturers.php:265
-#: /home/tim/code/KwaMoja/SalesCategories.php:488
+#: /home/tim/code/KwaMoja/SalesCategories.php:495
 msgid "Brand"
 msgstr "Marque"
 
@@ -33882,14 +33897,6 @@ msgstr "Nom du module"
 #: /home/tim/code/KwaMoja/ModuleEditor.php:73
 msgid "New Name"
 msgstr "Nouveau nom"
-
-#: /home/tim/code/KwaMoja/ModuleEditor.php:87
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
-#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
-msgid "Save"
-msgstr "sauvegarder"
 
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:3
 msgid "Monthly Bank Transactions Inquiry"
@@ -35310,8 +35317,8 @@ msgstr "Il n'y avait pas de détails de prix à imprimer pour le client ou la ca
 #: /home/tim/code/KwaMoja/PDFPriceList.php:229
 #: /home/tim/code/KwaMoja/Prices.php:233
 #: /home/tim/code/KwaMoja/PricesByCost.php:208
-#: /home/tim/code/KwaMoja/Prices_Customer.php:210
-#: /home/tim/code/KwaMoja/Prices_Customer.php:266
+#: /home/tim/code/KwaMoja/Prices_Customer.php:211
+#: /home/tim/code/KwaMoja/Prices_Customer.php:269
 msgid "No End Date"
 msgstr "Pas de date de fin"
 
@@ -37083,7 +37090,7 @@ msgid "The quantity of the ordered item entered must be a positive amount"
 msgstr "La quantité de l'article commandé doit être un montant positif"
 
 #: /home/tim/code/KwaMoja/PO_Items.php:550 /home/tim/code/KwaMoja/Prices.php:71
-#: /home/tim/code/KwaMoja/Prices_Customer.php:66
+#: /home/tim/code/KwaMoja/Prices_Customer.php:68
 #: /home/tim/code/KwaMoja/SpecialOrder.php:205
 msgid "The price entered must be numeric"
 msgstr "Le prix entré doit être numérique"
@@ -39497,20 +39504,20 @@ msgstr "Le prix doit être entré comme un nombre positif"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:54
 #: /home/tim/code/KwaMoja/Prices.php:75
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:192
-#: /home/tim/code/KwaMoja/Prices_Customer.php:84
+#: /home/tim/code/KwaMoja/Prices_Customer.php:86
 msgid "The date this price is to take effect from must be entered in the format"
 msgstr "La date d'entrée en vigueur de ce prix doit être entrée au format"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:58
 #: /home/tim/code/KwaMoja/Prices.php:81
-#: /home/tim/code/KwaMoja/Prices_Customer.php:89
+#: /home/tim/code/KwaMoja/Prices_Customer.php:91
 msgid "The date this price is be in effect to must be entered in the format"
 msgstr "La date d'entrée en vigueur de ce prix doit être entrée au format"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:61
 #: /home/tim/code/KwaMoja/Prices.php:85
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:196
-#: /home/tim/code/KwaMoja/Prices_Customer.php:93
+#: /home/tim/code/KwaMoja/Prices_Customer.php:95
 msgid "The end date is expected to be after the start date, enter an end date after the start date for this price"
 msgstr "La date de fin devrait être après la date de début, entrez une date de fin après la date de début pour ce prix"
 
@@ -39595,13 +39602,13 @@ msgid "Item Prices"
 msgstr "Prix ​​des articles"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 #: /home/tim/code/KwaMoja/RelatedItemsUpdate.php:37
 msgid "The part code entered does not exist in the database"
 msgstr "Le code de pièce entré n'existe pas dans la base de données"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 msgid "Only valid parts can have prices entered against them"
 msgstr "Seules les pièces valides peuvent avoir des prix saisis contre eux"
 
@@ -39617,22 +39624,22 @@ msgid "The product selection page should call this page with a valid product cod
 msgstr "La page de sélection de produits devrait appeler cette page avec un code produit valide"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "The part selected is a kit set item"
 msgstr "La pièce sélectionnée est un article du kit"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "these items explode into their components when selected on an order"
 msgstr "ces articles explosent dans leurs composants lorsqu'ils sont sélectionnés sur une commande"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "prices must be set up for the components and no price can be set for the whole kit"
 msgstr "les prix doivent être définis pour les composants et aucun prix ne peut être défini pour l'ensemble du kit"
 
 #: /home/tim/code/KwaMoja/Prices.php:89
-#: /home/tim/code/KwaMoja/Prices_Customer.php:97
+#: /home/tim/code/KwaMoja/Prices_Customer.php:99
 msgid "The end date is expected to be after today. There is no point entering a new price where the effective date is before today!"
 msgstr "La date de fin devrait être après aujourd'hui.  Il est inutile d'entrer un nouveau prix où la date d'entrée en vigueur est avant aujourd'hui!"
 
@@ -39662,9 +39669,9 @@ msgstr "Examen des prix"
 
 #: /home/tim/code/KwaMoja/Prices.php:223
 #: /home/tim/code/KwaMoja/PricesByCost.php:165
-#: /home/tim/code/KwaMoja/Prices_Customer.php:206
-#: /home/tim/code/KwaMoja/Prices_Customer.php:255
-#: /home/tim/code/KwaMoja/Prices_Customer.php:344
+#: /home/tim/code/KwaMoja/Prices_Customer.php:207
+#: /home/tim/code/KwaMoja/Prices_Customer.php:256
+#: /home/tim/code/KwaMoja/Prices_Customer.php:351
 #: /home/tim/code/KwaMoja/SelectRecurringSalesOrder.php:105
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:165
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:266
@@ -39673,7 +39680,7 @@ msgid "End Date"
 msgstr "Date de fin"
 
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 msgid "Are you sure you wish to delete this price?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce prix?"
 
@@ -39974,66 +39981,67 @@ msgstr "Un client doit être sélectionné dans l'écran de sélection du client
 msgid "then an item must be selected before this page is called"
 msgstr "puis un élément doit être sélectionné avant que cette page ne soit appelée"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:328
 #: /home/tim/code/KwaMoja/SelectCustomer.php:239
 msgid "Special Customer Prices"
 msgstr "Prix ​​spéciaux pour les clients"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:78
+#: /home/tim/code/KwaMoja/Prices_Customer.php:80
 msgid "The branch code entered is not currently defined"
 msgstr "Le code de succursale entré n'est pas défini actuellement"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:120
-#: /home/tim/code/KwaMoja/Prices_Customer.php:147
+#: /home/tim/code/KwaMoja/Prices_Customer.php:122
+#: /home/tim/code/KwaMoja/Prices_Customer.php:149
 msgid "Price Updated"
 msgstr "Prix ​​mis à jour"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:141
+#: /home/tim/code/KwaMoja/Prices_Customer.php:143
 msgid "Price added"
 msgstr "Prix ​​ajouté"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:148
+#: /home/tim/code/KwaMoja/Prices_Customer.php:150
 msgid "The price could not be updated because"
 msgstr "Le prix n'a pas pu être mis à jour car"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:174
+#: /home/tim/code/KwaMoja/Prices_Customer.php:176
 msgid "This price has been deleted"
 msgstr "Ce prix a été supprimé"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:193
+#: /home/tim/code/KwaMoja/Prices_Customer.php:195
 msgid "Could not retrieve the normal prices set up because"
 msgstr "Impossible de récupérer les prix normaux établis parce que"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:194
-#: /home/tim/code/KwaMoja/Prices_Customer.php:242
+#: /home/tim/code/KwaMoja/Prices_Customer.php:196
+#: /home/tim/code/KwaMoja/Prices_Customer.php:243
 msgid "The SQL used to retrieve these records was"
 msgstr "Le SQL utilisé pour récupérer ces enregistrements était"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:201
+#: /home/tim/code/KwaMoja/Prices_Customer.php:202
 msgid "There are no default prices set up for this part"
 msgstr "Aucun prix par défaut n'est défini pour cette pièce"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:204
+#: /home/tim/code/KwaMoja/Prices_Customer.php:205
 msgid "Normal Price"
 msgstr "Prix ​​normal"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:241
+#: /home/tim/code/KwaMoja/Prices_Customer.php:242
 msgid "Could not retrieve the special prices set up because"
 msgstr "Impossible de récupérer les prix spéciaux configurés parce que"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:248
+#: /home/tim/code/KwaMoja/Prices_Customer.php:249
 msgid "There are no special prices set up for this part"
 msgstr "Il n'y a pas de prix spéciaux pour cette partie"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:252
+#: /home/tim/code/KwaMoja/Prices_Customer.php:253
 msgid "Special Price"
 msgstr "Prix ​​spécial"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:261
+#: /home/tim/code/KwaMoja/Prices_Customer.php:264
 msgid "All Branches"
 msgstr "Toutes les branches"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:329
+#: /home/tim/code/KwaMoja/Prices_Customer.php:333
 msgid "All branches"
 msgstr "Toutes les branches"
 
@@ -43507,17 +43515,18 @@ msgid "A new Sales category record has been added"
 msgstr "Un nouvel enregistrement de catégorie de vente a été ajouté"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:324
-#: /home/tim/code/KwaMoja/SalesCategories.php:408
+#: /home/tim/code/KwaMoja/SalesCategories.php:411
 msgid "Category Name"
 msgstr "Nom de catégorie"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:325
-#: /home/tim/code/KwaMoja/SalesCategories.php:417
+#: /home/tim/code/KwaMoja/SalesCategories.php:420
 msgid "Parent Category"
 msgstr "Catégorie Parentale"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:357
-#: /home/tim/code/KwaMoja/SalesCategories.php:419
+#: /home/tim/code/KwaMoja/SalesCategories.php:423
+#: /home/tim/code/KwaMoja/SalesCategories.php:425
 msgid "No parent"
 msgstr "Aucun parent"
 
@@ -43533,57 +43542,57 @@ msgstr "Êtes-vous sûr de vouloir supprimer cette catégorie de vente?"
 msgid "Edit Sales Category"
 msgstr "Modifier la catégorie de vente"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:405
+#: /home/tim/code/KwaMoja/SalesCategories.php:408
 msgid "New Sales Category"
 msgstr "Nouvelle catégorie de vente"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:410
+#: /home/tim/code/KwaMoja/SalesCategories.php:413
 msgid "The name by which this category will be called, using up to 50 characters"
 msgstr "Nom sous lequel cette catégorie sera appelée, en utilisant jusqu'à 50 caractères"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:428
+#: /home/tim/code/KwaMoja/SalesCategories.php:435
 msgid "If this is a sub category of another sales category select the parent here"
 msgstr "S'il s'agit d'une sous-catégorie d'une autre catégorie de vente, sélectionnez le parent ici"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:432
+#: /home/tim/code/KwaMoja/SalesCategories.php:439
 msgid "Is the category in active use?"
 msgstr "La catégorie est-elle en cours d'utilisation?"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:449
 msgid "Is the sales category in active use? Should it be displayed in your web shop?"
 msgstr "La catégorie de vente est-elle active? "
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:449
+#: /home/tim/code/KwaMoja/SalesCategories.php:456
 msgid "Upload an image to be associated with this category"
 msgstr "Téléchargez une image à associer à cette catégorie"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:483
+#: /home/tim/code/KwaMoja/SalesCategories.php:490
 msgid "Inventory items for"
 msgstr "Articles d'inventaire pour"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:489
+#: /home/tim/code/KwaMoja/SalesCategories.php:496
 #: /home/tim/code/KwaMoja/includes/OcKwaMojaToOpenCartSync.php:454
 msgid "Featured"
 msgstr "En vedette"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:505
+#: /home/tim/code/KwaMoja/SalesCategories.php:512
 msgid "Cancel Feature"
 msgstr "Annuler la fonctionnalité"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:508
+#: /home/tim/code/KwaMoja/SalesCategories.php:515
 msgid "Make Featured"
 msgstr "Faire une sélection"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:516
+#: /home/tim/code/KwaMoja/SalesCategories.php:523
 msgid "No Inventory items in this category"
 msgstr "Aucun article d'inventaire dans cette catégorie"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:531
+#: /home/tim/code/KwaMoja/SalesCategories.php:538
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:563
 msgid "Select Stock Items"
 msgstr "Sélectionner les articles en stock"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:562
+#: /home/tim/code/KwaMoja/SalesCategories.php:569
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:594
 msgid "Select the stock category to search in. To search in all categories, choose All."
 msgstr "Sélectionnez la catégorie de stock dans laquelle effectuer la recherche. Pour rechercher dans toutes les catégories, choisissez Tout."
@@ -56278,10 +56287,6 @@ msgstr "Ce script ne mettra pas à jour les soldes des stocks du grand livre gé
 msgid "Update costs for all items listed in a bill of materials"
 msgstr "Mettre à jour les coûts pour tous les articles énumérés dans une nomenclature"
 
-#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
-msgid "Run"
-msgstr "Courir"
-
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:3
 msgid "UTILITY PAGE To Changes A Customer Branch Code In All Tables"
 msgstr "PAGE UTILITAIRE Pour modifier un code de succursale client dans tous les tableaux"
@@ -67712,27 +67717,27 @@ msgstr "Impossible d'obtenir les paramètres de configuration de la base de donn
 msgid "An error occurred accessing the database to retrieve the company information"
 msgstr "Une erreur s'est produite lors de l'accès à la base de données pour récupérer les informations sur la société"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "There is a problem in retrieving the pricing information for part"
 msgstr "Il y a un problème dans la récupération des informations de prix pour une partie"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "and for Customer"
 msgstr "et pour le client"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "the error message returned by the SQL server was"
 msgstr "le message d'erreur renvoyé par le serveur SQL était"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "There is an error to retrieve price from price matrix for stock"
 msgstr "Il y a une erreur pour extraire le prix de la matrice de prix pour le stock"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "and the error message returned by SQL server is "
 msgstr "et le message d'erreur renvoyé par le serveur SQL est"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:169
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:168
 msgid "Failed to retrieve price from price matrix"
 msgstr "Échec d'extraction du prix de la matrice de prix"
 
