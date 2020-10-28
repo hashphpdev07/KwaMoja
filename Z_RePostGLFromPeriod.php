@@ -3,16 +3,21 @@ include ('includes/session.php');
 $Title = _('Recalculation of GL Balances in Chart Details Table');
 include ('includes/header.php');
 
-echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
-echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
+echo '<p class="page_title_text" >
+		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/maintenance.png" title="', $Title, '" alt="', $Title, '" />', ' ', $Title, '
+	</p>';
+
+echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
+echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
 
 if (!isset($_POST['FromPeriod'])) {
 
 	/*Show a form to allow input of criteria for TB to show */
-	echo '<table>
-			 <tr>
-				 <td>' . _('Select Period From') . ':</td>
-				 <td><select name="FromPeriod">';
+	echo '<fieldset>
+			<legend>', _('Selection Criteria'), '</legend>
+			 <field>
+				 <label for="FromPeriod">', _('Select Period From'), ':</label>
+				 <select name="FromPeriod">';
 
 	$SQL = "SELECT periodno,
 				   lastdate_in_period
@@ -23,11 +28,13 @@ if (!isset($_POST['FromPeriod'])) {
 		echo '<option value="' . $MyRow['periodno'] . '">' . MonthAndYearFromSQLDate($MyRow['lastdate_in_period']) . '</option>';
 	}
 
-	echo '</select></td>
-			 </tr>
-			 </table>';
+	echo '</select>
+		</field>
+	</fieldset>';
 
-	echo '<div class="centre"><input type="submit" name="recalc" value="' . _('Do the Recalculation') . '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to re-post all general ledger transactions since the selected period this can take some time?') . '\');" /></div>
+	echo '<div class="centre">
+			<input type="submit" name="recalc" value="', _('Do the Recalculation'), '" onclick="return MakeConfirm(\'' . _('Are you sure you wish to re-post all general ledger transactions since the selected period this can take some time?') . '\');" />
+		</div>
 	</form>';
 
 } else {
@@ -54,7 +61,9 @@ if (!isset($_POST['FromPeriod'])) {
 			$SQL = "SELECT SUM(amount) AS actual FROM gltrans WHERE account='" . $GLCodes['accountcode'] . "' AND periodno='" . $Periods['period'] . "'";
 			$Result = DB_query($SQL);
 			$MyRow = DB_fetch_array($Result);
-
+			if ($MyRow['actual'] == NULL) {
+				$MyRow['actual'] = 0;
+			}
 			/* Update the chartdetails table */
 			$SQL = "UPDATE chartdetails SET actual='" . $MyRow['actual'] . "',
 											bfwd=" . $BalanceBroughtForward . "
