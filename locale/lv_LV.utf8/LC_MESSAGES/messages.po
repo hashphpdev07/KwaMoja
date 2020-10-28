@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:11+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-28 06:56+0000\n"
+"PO-Revision-Date: 2020-10-28 06:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2090,7 +2090,7 @@ msgstr "Šīs grupas sadaļas vesels skaitļu grupas kods"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Atlasiet šīs konta sadaļas valodu. "
+msgstr "Atlasiet šīs konta sadaļas valodu. Ņemiet vērā, ka katrai valodai ir jābūt vienādām konta sadaļu iestatījumiem."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -3888,7 +3888,7 @@ msgstr "Izvēlieties periodu"
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "Šajā sarakstā atlasiet iepriekš noteiktu periodu. "
+msgstr "Šajā sarakstā atlasiet iepriekš noteiktu periodu. Ja šeit tiek veikta atlase, tā ignorēs visu, kas atlasīts opcijās Sākot un Kam."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -7931,7 +7931,7 @@ msgstr "Ievadījāt nepareizu pašreizējo paroli, lūdzu, ievadiet vēlreiz"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Jaunā parole ir tāda pati kā vecā. "
+msgstr "Jaunā parole ir tāda pati kā vecā. Jums jāizvēlas jauna parole."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7939,7 +7939,7 @@ msgstr "Apstiprinājums un jaunās paroles nav vienādas."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "Jūs darbojaties demonstrācijas režīmā, tāpēc paroli nevar mainīt. "
+msgstr "Jūs darbojaties demonstrācijas režīmā, tāpēc paroli nevar mainīt. Klikšķis"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7963,11 +7963,11 @@ msgstr "šeit"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr ", lai atteiktos un vēlreiz pieteiktos, izmantojot pašreizējo paroli. "
+msgstr "atteikties un vēlreiz pieteikties ar savu pašreizējo paroli. Jūsu parole nav mainīta"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Jūsu parole ir atjaunināta. "
+msgstr "Jūsu parole ir atjaunināta. Klikšķis"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7983,7 +7983,7 @@ msgstr "Nomainiet paroli"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "Administrators ir bloķējis jūsu kontu, līdz maināt paroli. "
+msgstr "Administrators ir bloķējis jūsu kontu, līdz nomaināt paroli. Pirms turpināt, izmantojiet šo ekrānu, lai mainītu paroli."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8846,7 +8846,7 @@ msgstr "Pārdošanas komisijas uzkrājumu konts"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "Galvenais virsgrāmata konts darbojas kā pārdošanas komisijas uzkrājumu konts. "
+msgstr "Galvenās grāmatas konts darbojas kā pārdošanas komisijas uzkrāšanas konts. Komisijas nopelnītā, bet nesamaksātā komisija tiks ievietota šeit un tiks dzēsta, kad būs samaksāta komisija."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -11062,7 +11062,7 @@ msgstr "Datums rēķinā"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "Preču / pakalpojumu nosūtīšanas datums. "
+msgstr "Preču / pakalpojumu nosūtīšanas datums. Šis ir datums, kas tiks parādīts kā rēķina datums."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11104,7 +11104,7 @@ msgstr "Rēķina teksts"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Jebkurš teksts, kas jāparādās rēķinā. "
+msgstr "Jebkurš teksts, kas jāparāda rēķinā. Šis teksts būs redzams klientam."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11112,7 +11112,7 @@ msgstr "Iekšējie komentāri"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Jebkurš iekšējs šī rēķina teksts. "
+msgstr "Jebkurš šī rēķina iekšējais teksts. Šis teksts klientam nebūs redzams."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -13996,7 +13996,7 @@ msgstr "Kredīta daudzums pozīcijai"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "ir vairāk nekā rēķinā norādītais daudzums. "
+msgstr "ir vairāk nekā rēķinā norādītais daudzums. Šī pārbaude tiek veikta, lai pārliecinātos, ka kredītzīme netiek dublēta."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -17703,7 +17703,7 @@ msgstr "Darījumi no datuma"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Izvēlieties pārskata sākuma datumu. "
+msgstr "Izvēlieties pārskata sākuma datumu. Šajā datumā tiks iekļauti darījumi."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17712,7 +17712,7 @@ msgstr "Darījumi, kas datēti līdz"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Atlasiet pārskata beigu datumu. "
+msgstr "Atlasiet pārskata beigu datumu. Šajā datumā tiks iekļauti darījumi."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17726,7 +17726,7 @@ msgstr "Atbilst"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Izvēlieties, vai rādīt tikai saskaņotus vai nesaskaņotus darījumus. "
+msgstr "Atlasiet, vai rādīt tikai saskaņotus vai nesaskaņotus darījumus. Lai parādītu visus darījumus, izvēlieties Visi."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -18234,11 +18234,11 @@ msgstr "Izveidojiet konteinera informāciju"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Ievadiet ID, uz kuru tiks atsaukts šis konteiners. "
+msgstr "Ievadiet ID, pēc kura tiks norādīts šis konteiners. ID var būt līdz 6 rakstzīmēm."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Ievadiet šī konteinera aprakstu. "
+msgstr "Ievadiet šī konteinera aprakstu. Aprakstā var būt līdz 50 rakstzīmēm."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18254,19 +18254,19 @@ msgstr "Ievadiet šī konteinera kārtas numuru."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Atlasiet Jā, ja šo konteineru var izmantot virzītai izvietošanai. "
+msgstr "Atlasiet Jā, ja šo konteineru var izmantot novirzītiem virzieniem. Pretējā gadījumā atlasiet Nē"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Atlasiet Jā, ja šo konteineru var izmantot tiešai savākšanai. "
+msgstr "Atlasiet Jā, ja šo konteineru var izmantot mērķtiecīgai savākšanai. Pretējā gadījumā atlasiet Nē"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Atlasiet Jā, ja šo konteineru var papildināt. "
+msgstr "Atlasiet Jā, ja šo konteineru var papildināt. Pretējā gadījumā atlasiet Nē"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Atlasiet Jā, ja šis konteiners ir apzīmēts kā karantīnas rea. "
+msgstr "Atlasiet Jā, ja šis konteiners ir norādīts kā karantīnas rea. Pretējā gadījumā atlasiet Nē"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18723,7 +18723,7 @@ msgstr "Departamenta nosaukums nedrīkst būt tukšs"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Nodaļa ar šo nosaukumu jau pastāv. "
+msgstr "Nodaļa ar šādu nosaukumu jau pastāv. Lūdzu, izvēlieties jaunu vārdu"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -21274,7 +21274,7 @@ msgstr "Atlasiet rediģējamo veidlapu"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Atlasiet saglabājamo formu. "
+msgstr "Atlasiet saglabājamo veidlapu. Šo veidlapu xml faili tiek glabāti uzņēmumu direktorijā"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21533,7 +21533,7 @@ msgstr "Atlasītie konti"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Atlasiet šī pārskata kontus. "
+msgstr "Atlasiet šī pārskata kontus. Izmantojiet tastatūras Shift taustiņu, lai atlasītu vairākus kontus."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22966,7 +22966,7 @@ msgstr "Ievadītais datums nav derīgs, lūdzu, ievadiet datumu, lai žurnāls t
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Nav saglabātas veidnes. "
+msgstr "Nav saglabātu nevienu veidni. Vispirms jums jāizveido veidne."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23038,7 +23038,7 @@ msgstr "Veidne ir veiksmīgi saglabāta"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Veidne ar šo aprakstu jau pastāv. "
+msgstr "Veidne ar šo aprakstu jau pastāv. Jums jāizmanto unikāls apraksts"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23304,7 +23304,7 @@ msgstr "Finanšu pārskati"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "Jums jāizvēlas vismaz viens finanšu pārskats. "
+msgstr "Jums jāizvēlas vismaz viens finanšu pārskats. Lūdzu, atlasiet finanšu pārskatus."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -28031,7 +28031,7 @@ msgstr "Parādnieka tips, ko izmantot apdrošināšanas sabiedrībām"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Debitoru tips, ko izmanto apdrošināšanas sabiedrībām. "
+msgstr "Debitora tips, ko izmanto apdrošināšanas sabiedrībām. Visām apdrošināšanas sabiedrībām jābūt šāda veida."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28198,7 +28198,7 @@ msgstr "Narkotikas izdotas no plkst"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Vietas vēl nav noteiktas. "
+msgstr "Atrašanās vietas vēl nav definētas. Vispirms jums tas jādara"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28364,7 +28364,7 @@ msgstr "Apmaksājamo vienumu ievietošanai izmantotais SQL bija"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
 msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "Pacients jau ir uzņemts. "
+msgstr "Pacients jau ir uzņemts. Pirms atkārtotas uzņemšanas viņi ir jāatlaiž"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
@@ -29048,7 +29048,7 @@ msgstr "Satikšanās veida apraksts nevar būt tukšs"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "Datus nevar ievadīt, jo ir kļūdas. "
+msgstr "Datus nevar ievadīt, jo ir kļūdas. Lūdzu, izlabojiet šīs kļūdas un mēģiniet vēlreiz"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29156,7 +29156,7 @@ msgstr "Palātas pārskata ekrāns"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "Palātas ID nedrīkst būt tukšs. "
+msgstr "Palātas ID nevar būt tukšs. Lūdzu, ievadiet pareizu ID."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29164,7 +29164,7 @@ msgstr "Palātas ID nedrīkst būt garāks par 35 rakstzīmēm."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "Palātas nosaukums nedrīkst būt tukšs. "
+msgstr "Palātas nosaukums nevar būt tukšs. Lūdzu, ievadiet pareizu vārdu."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29172,7 +29172,7 @@ msgstr "Palātas nosaukums nedrīkst būt garāks par 35 rakstzīmēm."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "Pirmais istabas numurs nedrīkst būt tukšs. "
+msgstr "Pirmās istabas numurs nevar būt tukšs. Lūdzu, ievadiet pareizu numuru."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29181,7 +29181,7 @@ msgstr "Istabu numuriem jābūt skaitļiem."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Pēdējais istabas numurs nedrīkst būt tukšs. "
+msgstr "Pēdējais istabas numurs nevar būt tukšs. Lūdzu, ievadiet pareizu numuru."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29270,7 +29270,7 @@ msgstr "Istabas prefikss"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Prefikss, kas jāuztur pirms numura numura. "
+msgstr "Prefikss, kas jānāk pirms istabas numura. Var izmantot ne vairāk kā 4 rakstzīmes."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29641,7 +29641,7 @@ msgstr "Ievadiet citu depozītu"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Šim lietotājam vēl nav definēts naudas konts. "
+msgstr "Šim lietotājam vēl nav noteikts naudas konts. Vispirms jums tas jādara"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -30285,7 +30285,7 @@ msgstr "Reģistrējiet pacientu"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Šis faila numurs jau ir izmantots citam pacientam. "
+msgstr "Šis faila numurs jau ir izmantots citam pacientam. Lūdzu, atlasiet citu faila numuru."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30655,7 +30655,7 @@ msgstr "Kell"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Datums un protokola nr. "
+msgstr "Datums un protokola nr. testu veicis"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
@@ -30880,7 +30880,7 @@ msgstr "Papildu informācija"
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:253
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:313
 msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
-msgstr "piem. "
+msgstr "piem. svarīgi ķīmijterapijas rezultāti pēc starojuma izgriešanas zonā, pēc ķīmijterapijas"
 
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:257
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:317
@@ -32393,7 +32393,7 @@ msgstr "Jauna atrašanās vietas informācija"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Ievadiet kodu, ko izmantot šai atrašanās vietai. "
+msgstr "Ievadiet kodu, ko izmantot šai atrašanās vietai. Kodā var būt no 1 līdz 5 rakstzīmēm."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -35363,7 +35363,7 @@ msgstr "Par valūtu"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Atlasiet valūtas, par kurām ziņot. "
+msgstr "Atlasiet valūtas, par kurām ziņot. Lai ziņotu par visām valūtām, atlasiet Visas"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -37909,7 +37909,7 @@ msgstr "Ja šajā maksājuma veidā tiek izmantotas iepriekš drukātas kancelej
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Lietošanai tirdzniecības vietā. "
+msgstr "Lietošanai ar tirdzniecības vietu lietošanu. Vai POS ir jāatver naudas atvilktne šim maksājuma veidam."
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -43440,7 +43440,7 @@ msgstr "Nav iestatīts tmp katalogs.  Lai augšupielādētu failus, jūsu PHP pr
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "Web servera lietotājam nav atļaujas augšupielādēt failus. "
+msgstr "Tīmekļa servera lietotājam nav atļaujas augšupielādēt failus. Lūdzu, sazinieties ar sistēmas administratoru"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43680,15 +43680,15 @@ msgstr "Izveidojiet informāciju par komisiju"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "Komisijas likmi var piemērot tikai noteiktiem posteņiem. "
+msgstr "Komisijas likme var attiekties tikai uz noteiktiem priekšmetiem. Atlasiet akciju kategoriju, uz kuru attiecas šī komisijas likme. Ja tas attiecas uz visām kategorijām, atlasiet Visas."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "Komisijas likme var tikt piemērota tikai noteiktai teritorijai. "
+msgstr "Komisijas likme var attiekties tikai uz noteiktu apgabalu. Atlasiet apgabalu, uz kuru attiecas šī komisijas likme. Ja tas attiecas uz visiem apgabaliem, atlasiet Visi."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Izvēlieties valūtu šim komisijas ierakstam. "
+msgstr "Atlasiet šī komisijas ieraksta valūtu. Komisijas nolūkos tiks iekļauti tikai darījumi šajā valūtā."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43696,7 +43696,7 @@ msgstr "Vērtība, ar kādu sākas šī komisijas maksa."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Šī komisija var pieteikties tikai noteiktu dienu skaitu pēc klienta aktivizēšanās. "
+msgstr "Šī komisija var pieteikties tikai noteiktu dienu skaitu pēc klienta aktivizēšanās. Izvēlieties nulli, ja likme vienmēr ir piemērota."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43729,7 +43729,7 @@ msgstr "Apmaksāts?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Nav komisiju, kas atbilstu šiem kritērijiem. "
+msgstr "Nav komisiju, kas atbilstu šiem kritērijiem. Lūdzu, atlasiet citus kritērijus un palaidiet pārskatu vēlreiz."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43929,15 +43929,15 @@ msgstr "Izveidojiet jaunu pārdošanas GL informāciju"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Šeit atlasiet apgabalu. "
+msgstr "Šeit atlasiet apgabalu. Ja šis ieraksts attiecas uz visām jomām, kurām nav noteikta ieraksta, atlasiet Jebkura cita."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Šeit atlasiet krājumu kategoriju. "
+msgstr "Šeit izvēlieties akciju kategoriju. Ja šis ieraksts attiecas uz visām kategorijām, kurām nav noteikta ieraksta, atlasiet Jebkura cita."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Šeit atlasiet pārdošanas veidu. "
+msgstr "Šeit atlasiet pārdošanas veidu. Ja šis ieraksts attiecas uz visiem veidiem, kuriem nav noteikta ieraksta, atlasiet Jebkurš cits."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44290,7 +44290,7 @@ msgstr "Ievadiet vārdu, ar kuru šī pārdevēja būs pazīstama."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Atlasiet pārdošanas apgabalu, kuru šī persona sedz. "
+msgstr "Atlasiet tirdzniecības zonu, uz kuru šī persona attiecas. Ja tie aptver vairāk nekā vienu apgabalu, atstājiet to tukšu."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44330,7 +44330,7 @@ msgstr "SQL, kas tika izmantots, lai izgūtu komisijas veida informāciju, un š
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Izvēlieties aprēķināšanas metodi, kuru izmanto, lai aprēķinātu komisiju šai pārdevējai. "
+msgstr "Atlasiet aprēķināšanas metodi, ko izmantoja, lai aprēķinātu komisijas maksu šai pārdošanas personai. To izmanto tikai tad, ja tika izvēlēts komisijas periods."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44350,7 +44350,7 @@ msgstr "Atzīmējiet šo izvēles rūtiņu, lai parādītu pārdošanas rēķinu
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Oriģinālās summas klienta valūtā. "
+msgstr "Sākotnējās summas klienta valūtā. GL summas funkcionālajā valūtā."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45537,7 +45537,7 @@ msgstr "Rēķina pasūtījums"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Nav atlasīšanas sarakstu, kas atbilstu jūsu kritērijiem. "
+msgstr "Nav atlases sarakstu, kas atbilstu jūsu kritērijiem. Lūdzu, mēģiniet vēlreiz, izmantojot citus kritērijus"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -47720,7 +47720,7 @@ msgstr "Korekcijas daudzums"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "Pielāgojamais daudzums. "
+msgstr "Pielāgojamais daudzums. Veikls daudzums samazina krājumus, un pozitīvs - palielina."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -49002,7 +49002,7 @@ msgstr "Krājums pēc datuma"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Atlasiet krājumu kategoriju, kurā meklēt. "
+msgstr "Atlasiet akciju kategoriju, lai meklētu. Lai meklētu visās akciju kategorijās, atlasiet Visi"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -51538,7 +51538,7 @@ msgstr "Izvēlieties piegādātāju, lai ievadītu rēķinu par"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "Jūsu atļaujas neļauj saņemt preces. "
+msgstr "Jūsu atļaujas neļauj saņemt preces. Automātiska pirkuma pasūtījumu saņemšana ir atļauta tikai tiem lietotājiem, kuriem ir tiesības saņemt preces / pakalpojumus"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
@@ -52128,7 +52128,7 @@ msgstr "Pēdējais piegādātāja numurs"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Ja piegādātājiem automātiski tiek ģenerēts ID, dažādiem piegādātāju veidiem var būt savs sākuma numurs. "
+msgstr "Ja piegādātājiem ID tiek automātiski ģenerēts, dažādiem piegādātāju veidiem var būt savs sākuma numurs. Ievadiet nākamā šāda veida piegādātāja numuru."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52364,7 +52364,7 @@ msgstr "Izvēlieties piegādātāju grupu, kurai pieder šis piegādātājs."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Izvēlieties pārdevēju, uz kuru šis piegādātājs atsaucas. "
+msgstr "Atlasiet pārdošanas personu, uz kuru atsaucas šis piegādātājs. Ja šis piegādātājs nav tirdzniecības persona, atlasiet Neviens."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -54250,7 +54250,7 @@ msgstr "7. dienā ievadītās stundas izskatās pārāk augstas - tā, iespējam
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Ja laiks nav iekasējams, tas jāatspoguļo gan darba kārtībā, gan darba centrā. "
+msgstr "Ja laiks nav jāmaksā, tas jāatspoguļo gan darba pasūtījumam, gan darba centram. Darba centru var iestatīt tikai tad, ja ir izvēlēts darba pasūtījums"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55133,7 +55133,7 @@ msgstr "Drošības lomas nosaukums"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "Vai loma ir klīniska. "
+msgstr "Vai loma ir klīniska. Piemēram, ārsts vai medmāsa"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55263,7 +55263,7 @@ msgstr "Rediģēt informāciju par"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Ievadiet šī lietotāja paroli. "
+msgstr "Ievadiet šī lietotāja paroli. Ja atstājat tukšu, parole paliks nemainīga."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55287,7 +55287,7 @@ msgstr "Ja iestatīts uz Jā, lietotājam jāmaina parole nākamajā pieteikšan
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Ievadiet šī lietotāja pilnu vārdu. "
+msgstr "Ievadiet pilnu šī lietotāja vārdu. Nav jābūt unikālam."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55299,7 +55299,7 @@ msgstr "Ievadiet šī lietotāja e-pasta adresi."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Atlasiet šī lietotāja drošības lomu. "
+msgstr "Atlasiet šī lietotāja drošības lomu. Tas atbildīs viņu amata nosaukumam."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55364,7 +55364,7 @@ msgstr "Atlasiet motīvu, kas tiks izmantots šim lietotājam."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Atlasiet lietotāju valodu. "
+msgstr "Atlasiet lietotāju valodu. Visi ekrāni tiks tulkoti šajā valodā"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55411,7 +55411,7 @@ msgstr "Ja tiek izvēlēts Bloķēts, šim lietotājam netiks atļauts pieteikti
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Atlasiet fonta lielumu, kādā šim lietotājam tiks ievilkti ekrāni. "
+msgstr "Atlasiet fonta lielumu, kurā šim lietotājam tiks parādīti ekrāni. To var mainīt jebkurā laikā no galvenās izvēlnes ekrāna."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55474,7 +55474,7 @@ msgstr "Darba centri"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Šis darba centrs jau pastāv datu bāzē. "
+msgstr "Šis darba centrs jau pastāv datu bāzē. Lūdzu, izmantojiet citu kodu."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55556,7 +55556,7 @@ msgstr "Izveidot jaunu darba centru"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "Burtu un ciparu kods, pēc kura tiks identificēts šis darba centrs. "
+msgstr "Burtciparu kods, pēc kura tiks identificēts šis darba centrs. Var izmantot līdz 5 rakstzīmēm."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -60492,7 +60492,7 @@ msgstr "Izveidojiet jaunu darbinieku ierakstu"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Unikāls burtu un ciparu kods šī darbinieka identificēšanai. "
+msgstr "Unikāls burtu un ciparu kods šī darbinieka identificēšanai. Var izmantot līdz 10 rakstzīmēm"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61695,7 +61695,7 @@ msgstr "Izveidojiet algas periodu"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "ID, pēc kura būs zināms šis samaksas periods. "
+msgstr "ID, pēc kura būs zināms šis apmaksas periods. Tam jābūt veselam skaitlim."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -71424,7 +71424,7 @@ msgstr "Diagrammas piezīmes"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG utt. "
+msgstr "PT, ATG utt. ikdienas piezīmes"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"

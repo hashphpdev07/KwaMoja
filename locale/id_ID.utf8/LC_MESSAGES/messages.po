@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:10+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-28 01:43+0000\n"
+"PO-Revision-Date: 2020-10-28 01:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2090,7 +2090,7 @@ msgstr "Kode grup integer untuk bagian akun ini"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Pilih bahasa untuk bagian akun ini. "
+msgstr "Pilih bahasa untuk bagian akun ini. Perhatikan bahwa setiap bahasa harus memiliki semua pengaturan bagian akun yang sama."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -3888,7 +3888,7 @@ msgstr "Pilih Periode"
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "Pilih periode yang telah ditentukan dari daftar ini. "
+msgstr "Pilih periode yang telah ditentukan dari daftar ini. Jika pemilihan dibuat di sini, itu akan menimpa apa pun yang dipilih dalam opsi Dari dan Ke di atas."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -4387,7 +4387,7 @@ msgstr "SQL yang digunakan untuk mengambil informasi area dan yang gagal dalam p
 
 #: /home/tim/code/KwaMoja/Areas.php:227
 msgid "The area that contains this area. Leave blank if this is a top level area"
-msgstr "Area yang berisi area ini. "
+msgstr "Area yang berisi area ini. Biarkan kosong jika ini adalah area tingkat atas"
 
 #: /home/tim/code/KwaMoja/Areas.php:233
 msgid "The name of the area being entered"
@@ -5100,11 +5100,11 @@ msgstr "Kuantitas Di Tangan"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:234
 msgid "P.O. Quantity"
-msgstr "P.O. "
+msgstr "P.O. Kuantitas"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:235
 msgid "W.O. Quantity"
-msgstr "W. "
+msgstr "W.O. Kuantitas"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:236
 #: /home/tim/code/KwaMoja/MRPShortages.php:351
@@ -7059,7 +7059,7 @@ msgstr "Pilih kode Buku Besar untuk digunakan untuk rekening bank ini."
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:310
 msgid "The name that this bank account will be called. Does not have to be the same as the General Ledger description."
-msgstr "Nama tempat rekening bank ini akan dipanggil. "
+msgstr "Nama yang akan digunakan untuk rekening bank ini. Tidak harus sama dengan deskripsi Buku Besar."
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:315
 msgid "The code that the account is known by at the bank."
@@ -7775,7 +7775,7 @@ msgstr "Apakah kamu yakin"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:347
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
-msgstr "Adalah normal bagi akun mata uang asing untuk memiliki perbedaan nilai tukar yang perlu tercermin karena nilai tukar bervariasi. "
+msgstr "Biasanya akun mata uang asing memiliki perbedaan nilai tukar yang perlu dicerminkan karena nilai tukar bervariasi. Rekonsiliasi ini dibuat dengan menggunakan nilai tukar yang diatur dalam tabel mata uang (lihat tab pengaturan). Tabel ini harus dipertahankan dengan nilai tukar saat ini sebelum menjalankan rekonsiliasi. Jika Anda ingin membuat jurnal untuk merefleksikan perbedaan nilai tukar berdasarkan nilai tukar saat ini untuk memperbaiki rekonsiliasi ke saldo laporan bank aktual, klik di bawah ini."
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:358
 #: /home/tim/code/KwaMoja/BankReconciliation.php:363
@@ -7882,11 +7882,11 @@ msgstr "Ada yang lain"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:156
 msgid "Select the area to be used in this group. To cover all areas just select Any Other"
-msgstr "Pilih area yang akan digunakan dalam grup ini. "
+msgstr "Pilih area yang akan digunakan dalam grup ini. Untuk mencakup semua area cukup pilih Lainnya"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:175
 msgid "Select the stock category to be used in this group. To cover all categories just select Any Other"
-msgstr "Pilih kategori stok yang akan digunakan dalam grup ini. "
+msgstr "Pilih kategori saham yang akan digunakan dalam grup ini. Untuk mencakup semua kategori, cukup pilih Lainnya"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:182
 #: /home/tim/code/KwaMoja/Customers.php:512
@@ -7911,7 +7911,7 @@ msgstr "Daftar Harga"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:194
 msgid "Select the sales type to be used in this group. To cover all types just select Any Other"
-msgstr "Pilih jenis penjualan yang akan digunakan dalam grup ini. "
+msgstr "Pilih jenis penjualan yang akan digunakan di grup ini. Untuk mencakup semua jenis cukup pilih Lainnya"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:198
 msgid "Post to GL account"
@@ -7931,7 +7931,7 @@ msgstr "Anda telah memasukkan kata sandi saat ini yang salah, silakan masukkan k
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Kata sandi baru sama dengan kata sandi lama. "
+msgstr "Kata sandi baru sama dengan yang lama. Anda harus memilih kata sandi baru."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7939,7 +7939,7 @@ msgstr "Konfirmasi dan kata sandi baru tidak sama."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "Anda menjalankan dalam mode demonstrasi sehingga kata sandi tidak dapat diubah. "
+msgstr "Anda menjalankan mode demonstrasi sehingga kata sandi tidak dapat diubah. Klik"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7963,11 +7963,11 @@ msgstr "sini"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "untuk logout dan Login lagi dengan kata sandi Anda saat ini. "
+msgstr "untuk keluar dan masuk lagi dengan kata sandi Anda saat ini. Kata sandi Anda belum diubah"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Kata sandi Anda telah diperbarui. "
+msgstr "Kata sandi Anda sudah diperbarui. Klik"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7983,7 +7983,7 @@ msgstr "Ubah Kata Sandi Anda"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "Admin telah memblokir akun Anda sampai Anda mengubah kata sandi Anda. "
+msgstr "Admin telah memblokir akun Anda sampai Anda mengubah kata sandi Anda. Gunakan layar ini untuk mengubah kata sandi Anda sebelum melanjutkan."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8814,7 +8814,7 @@ msgstr "Akun Debitor Control GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:377
 msgid "The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report."
-msgstr "Akun buku besar umum untuk bertindak sebagai kontrol untuk transaksi piutang. "
+msgstr "Akun buku besar yang berfungsi sebagai kontrol atas transaksi piutang. Akun ini harus sesuai dengan laporan total debitur berusia."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:381
 msgid "Creditors Control GL Account"
@@ -8822,7 +8822,7 @@ msgstr "Kontrol Kreditor GL Account"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:383
 msgid "The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report."
-msgstr "Akun buku besar umum untuk bertindak sebagai kontrol untuk transaksi hutang dagang. "
+msgstr "Akun buku besar yang berfungsi sebagai kontrol atas transaksi hutang dagang. Akun ini harus setuju dengan total laporan kreditor berusia."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:387
 msgid "Payroll Net Pay Clearing GL Account"
@@ -8838,7 +8838,7 @@ msgstr "Barang Menerima Rekening Kliring GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:395
 msgid "The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero."
-msgstr "Akun buku besar umum untuk bertindak sebagai akun kliring untuk Barang yang Diterima. "
+msgstr "Akun buku besar yang berfungsi sebagai akun kliring untuk Barang Diterima. Ketika GRN dinaikkan, entri diposting di sini, dan ketika faktur pemasok diposting, itu akan bertentangan dengan entri ini. Akun ini harus selalu direkonsiliasi kembali ke nol."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:399
 msgid "Sales Commission Accruals Account"
@@ -8846,7 +8846,7 @@ msgstr "Akun Akrual Komisi Penjualan"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "Akun buku besar umum untuk bertindak sebagai akun akrual komisi penjualan. "
+msgstr "Akun buku besar untuk bertindak sebagai akun akrual komisi penjualan. Komisi yang diperoleh tetapi tidak dibayarkan akan diposting di sini, dan dihapus saat komisi dibayarkan."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -8854,7 +8854,7 @@ msgstr "Saldo Aktivasi Kliring Rekening GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:407
 msgid "The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly."
-msgstr "Akun buku besar umum untuk bertindak sebagai akun laba ditahan dengan akumulasi Laba / Rugi. "
+msgstr "Akun buku besar yang berfungsi sebagai akun laba ditahan dengan akumulasi Laba / Rugi. Akun ini dikelola oleh KwaMoja dan setelah disiapkan tidak boleh diakses secara langsung."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:411
 msgid "Freight Re-charged GL Account"
@@ -11062,7 +11062,7 @@ msgstr "Tanggal pada faktur"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "Tanggal pengiriman barang / jasa. "
+msgstr "Tanggal barang / jasa dikirim. Ini adalah tanggal yang akan muncul sebagai tanggal faktur."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11104,7 +11104,7 @@ msgstr "Teks faktur"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Teks apa pun yang akan muncul pada faktur. "
+msgstr "Teks apa pun yang seharusnya muncul di faktur. Teks ini akan terlihat oleh pelanggan."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11112,7 +11112,7 @@ msgstr "Komentar Internal"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Teks internal apa pun untuk faktur ini. "
+msgstr "Teks internal apa pun untuk faktur ini. Teks ini tidak akan terlihat oleh pelanggan."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -13996,7 +13996,7 @@ msgstr "Jumlah kredit untuk baris untuk"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "lebih dari jumlah yang ditagih. "
+msgstr "lebih dari jumlah yang ditagih. Pemeriksaan ini dilakukan untuk memastikan bahwa nota kredit tidak digandakan."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -16805,7 +16805,7 @@ msgstr "Tanda terima tidak dapat dimasukkan sampai mata uang ditentukan"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:904
 msgid "The currency of the receipts. Does not have to be the same as the bank account currency."
-msgstr "Mata uang kwitansi. "
+msgstr "Mata uang tanda terima. Tidak harus sama dengan mata uang rekening bank."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:923
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:939
@@ -17703,7 +17703,7 @@ msgstr "Transaksi Sejak tanggal"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Pilih tanggal mulai untuk laporan. "
+msgstr "Pilih tanggal mulai untuk laporan. Transaksi pada tanggal ini akan dimasukkan."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17712,7 +17712,7 @@ msgstr "Transaksi Tanggal Untuk"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Pilih tanggal penutupan untuk laporan. "
+msgstr "Pilih tanggal penutupan untuk laporan. Transaksi pada tanggal ini akan dimasukkan."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17726,7 +17726,7 @@ msgstr "Cocok"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Pilih apakah akan menampilkan hanya transaksi yang cocok atau tidak cocok. "
+msgstr "Pilih apakah hanya menampilkan transaksi yang cocok atau tidak cocok. Untuk menampilkan semua transaksi, pilih Semua."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -18234,11 +18234,11 @@ msgstr "Buat detail wadah"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Masukkan ID dimana wadah ini akan dirujuk. "
+msgstr "Masukkan Id yang akan menjadi acuan penampung ini. ID dapat memiliki hingga 6 karakter."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Masukkan deskripsi wadah ini. "
+msgstr "Masukkan deskripsi wadah ini. Deskripsi dapat memiliki hingga 50 karakter."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18254,19 +18254,19 @@ msgstr "Masukkan nomor urut untuk wadah ini."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Pilih Ya jika wadah ini dapat digunakan untuk mengarahkan aways. "
+msgstr "Pilih Ya jika wadah ini dapat digunakan untuk pemasangan terarah. Jika tidak, pilih Tidak"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Pilih Ya jika wadah ini dapat digunakan untuk memetik terarah. "
+msgstr "Pilih Ya jika wadah ini dapat digunakan untuk pengambilan terarah. Jika tidak, pilih Tidak"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Pilih Ya jika wadah ini dapat diisi ulang. "
+msgstr "Pilih Ya jika penampung ini dapat diisi ulang. Jika tidak, pilih Tidak"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Pilih Ya jika wadah ini dirancang sebagai karantina rea. "
+msgstr "Pilih Ya jika wadah ini ditetapkan sebagai kawasan karantina. Jika tidak, pilih Tidak"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18723,7 +18723,7 @@ msgstr "Nama Departemen tidak boleh kosong"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Departemen dengan nama ini sudah ada. "
+msgstr "Departemen dengan nama ini sudah ada. Silakan pilih nama baru"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -21274,7 +21274,7 @@ msgstr "Pilih formulir yang akan diedit"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Pilih formulir yang akan dipertahankan. "
+msgstr "Pilih formulir yang akan dipertahankan. File xml untuk formulir ini disimpan di bawah direktori perusahaan"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21533,7 +21533,7 @@ msgstr "Akun yang Dipilih"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Pilih akun untuk laporan ini. "
+msgstr "Pilih akun untuk laporan ini. Gunakan tombol Shift keyboard untuk memilih beberapa akun."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22966,7 +22966,7 @@ msgstr "Tanggal yang dimasukkan tidak valid silahkan masukkan tanggal untuk memp
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Tidak ada template yang disimpan. "
+msgstr "Tidak ada template yang disimpan. Anda harus membuat template terlebih dahulu."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23038,7 +23038,7 @@ msgstr "Template telah berhasil disimpan"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Templat dengan deskripsi ini sudah ada. "
+msgstr "Template dengan deskripsi ini sudah ada. Anda harus menggunakan deskripsi unik"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23304,7 +23304,7 @@ msgstr "Laporan keuangan"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "Anda harus memilih setidaknya satu laporan keuangan. "
+msgstr "Anda harus memilih setidaknya satu laporan keuangan. Pilih laporan keuangan."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -28031,7 +28031,7 @@ msgstr "Jenis debitur untuk digunakan untuk perusahaan asuransi"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Jenis debitur yang digunakan untuk perusahaan asuransi. "
+msgstr "Jenis debitur yang digunakan untuk perusahaan asuransi. Semua Perusahaan Asuransi harus dari jenis ini."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28198,7 +28198,7 @@ msgstr "Obat yang dikeluarkan dari"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Lokasi belum ditentukan. "
+msgstr "Lokasi belum ditentukan. Kamu harus dulu"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28364,7 +28364,7 @@ msgstr "SQL yang digunakan untuk memasukkan item yang dapat ditagih adalah"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
 msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "Pasien sudah dirawat. "
+msgstr "Pasien sudah dirawat. Mereka harus dipulangkan sebelum dapat diterima kembali"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
@@ -29048,7 +29048,7 @@ msgstr "Tipe pertemuan Deskripsi tidak boleh kosong"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "Data tidak dapat dimasukkan karena ada kesalahan. "
+msgstr "Data tidak dapat dimasukkan karena ada kesalahan. Harap perbaiki kesalahan ini dan coba lagi"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29156,7 +29156,7 @@ msgstr "Layar Tinjauan Lingkungan"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "ID lingkungan tidak boleh kosong. "
+msgstr "ID lingkungan tidak boleh kosong. Harap masukkan ID yang benar."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29164,7 +29164,7 @@ msgstr "ID lingkungan tidak boleh lebih dari 35 karakter."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "Nama lingkungan tidak boleh kosong. "
+msgstr "Nama lingkungan tidak boleh kosong. Harap masukkan nama yang benar."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29172,7 +29172,7 @@ msgstr "Panjang nama ward tidak boleh lebih dari 35 karakter."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "Nomor kamar pertama tidak boleh kosong. "
+msgstr "Nomor kamar pertama tidak boleh kosong. Harap masukkan nomor yang benar."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29181,7 +29181,7 @@ msgstr "Nomor kamar harus berupa bilangan bulat."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Nomor kamar terakhir tidak boleh kosong. "
+msgstr "Nomor kamar terakhir tidak boleh kosong. Harap masukkan nomor yang benar."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29270,7 +29270,7 @@ msgstr "Awalan ruang"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Awalan yang akan datang sebelum nomor kamar. "
+msgstr "Awalan sebelum nomor kamar. Maksimal 4 karakter dapat digunakan."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29641,7 +29641,7 @@ msgstr "Masukkan setoran lain"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Akun Tunai belum ditentukan untuk pengguna ini. "
+msgstr "Akun Tunai belum ditentukan untuk pengguna ini. Kamu harus dulu"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -30285,7 +30285,7 @@ msgstr "Daftarkan Pasien"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Nomor file itu sudah digunakan untuk pasien lain. "
+msgstr "Nomor file tersebut telah digunakan untuk pasien lain. Pilih nomor file lain."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30655,7 +30655,7 @@ msgstr "Kell"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Tanggal & protokol nr. "
+msgstr "Tanggal & protokol nr. dari tes oleh"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
@@ -32393,7 +32393,7 @@ msgstr "Perincian Lokasi Baru"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Masukkan kode yang akan digunakan untuk lokasi ini. "
+msgstr "Masukkan kode yang akan digunakan untuk lokasi ini. Kode dapat berisi antara 1 dan 5 karakter."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -35363,7 +35363,7 @@ msgstr "Untuk mata uang"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Pilih mata uang untuk dilaporkan. "
+msgstr "Pilih mata uang yang akan dilaporkan. Untuk melaporkan semua mata uang pilih Semua"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -37909,7 +37909,7 @@ msgstr "Jika metode pembayaran ini menggunakan alat tulis pra-cetak seperti cek 
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Untuk digunakan dengan aplikasi point of sales. "
+msgstr "Untuk digunakan dengan aplikasi titik penjualan. Apakah POS perlu membuka laci uang untuk metode pembayaran ini."
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -43440,7 +43440,7 @@ msgstr "Tidak ada direktori tmp yang ditetapkan.  Anda harus memiliki direktori 
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "Pengguna server web tidak memiliki izin untuk mengunggah file. "
+msgstr "Pengguna server web tidak memiliki izin untuk mengunggah file. Silakan berbicara dengan administrator sistem Anda"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43680,15 +43680,15 @@ msgstr "Buat Detail Komisi"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "Nilai komisi hanya berlaku untuk barang-barang tertentu. "
+msgstr "Tarif komisi hanya dapat berlaku untuk item tertentu. Pilih kategori saham di mana tarif komisi ini berlaku. Jika berlaku untuk semua kategori pilih Semua."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "Nilai komisi hanya dapat berlaku untuk area tertentu. "
+msgstr "Tarif komisi hanya dapat berlaku untuk area tertentu. Pilih area tempat tarif komisi ini berlaku. Jika berlaku untuk semua area pilih Semua."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Pilih mata uang untuk catatan komisi ini. "
+msgstr "Pilih mata uang untuk catatan komisi ini. Hanya transaksi dalam mata uang ini yang akan dimasukkan untuk tujuan komisi."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43696,7 +43696,7 @@ msgstr "Nilai di mana nilai komisi ini digunakan."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Komisi ini dapat berlaku hanya untuk beberapa hari setelah pelanggan menjadi aktif. "
+msgstr "Komisi ini hanya berlaku untuk beberapa hari setelah pelanggan aktif. Pilih nol jika tarif selalu berlaku."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43729,7 +43729,7 @@ msgstr "Dibayar?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Tidak ada komisi yang memenuhi kriteria ini. "
+msgstr "Tidak ada komisi yang memenuhi kriteria ini. Pilih kriteria yang berbeda dan jalankan laporan lagi."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43929,15 +43929,15 @@ msgstr "Buat detail GL Penjualan Baru"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Pilih Area di sini. "
+msgstr "Pilih Area di sini. Jika catatan ini merujuk ke semua area yang tidak memiliki catatan tertentu, pilih Lainnya."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Pilih Kategori Stok di sini. "
+msgstr "Pilih Kategori Saham di sini. Jika catatan ini merujuk ke semua kategori yang tidak memiliki catatan tertentu, pilih Lainnya."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Pilih Jenis Penjualan di sini. "
+msgstr "Pilih Jenis Penjualan di sini. Jika catatan ini merujuk ke semua jenis yang tidak memiliki catatan tertentu, pilih Lainnya."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44290,7 +44290,7 @@ msgstr "Masukkan nama orang penjualan ini."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Pilih area penjualan yang dicakup orang ini. "
+msgstr "Pilih area penjualan yang dicakup orang ini. Jika mereka menutupi lebih dari satu area, biarkan kosong."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44330,7 +44330,7 @@ msgstr "SQL yang digunakan untuk mengambil informasi jenis komisi dan yang gagal
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Pilih metode perhitungan yang digunakan untuk menghitung komisi untuk tenaga penjualan ini. "
+msgstr "Pilih metode kalkulasi yang digunakan untuk menghitung komisi untuk staf penjualan ini. Ini hanya digunakan jika periode komisi dipilih."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44350,7 +44350,7 @@ msgstr "Centang kotak ini untuk menampilkan faktur penjualan"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Jumlah asli dalam mata uang pelanggan. "
+msgstr "Jumlah asli dalam mata uang pelanggan. Jumlah GL dalam mata uang fungsional."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45537,7 +45537,7 @@ msgstr "Pesanan faktur"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Tidak ada daftar pilihan yang memenuhi kriteria Anda. "
+msgstr "Tidak ada daftar pemilihan yang memenuhi kriteria Anda. Harap coba lagi dengan kriteria yang berbeda"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -47720,7 +47720,7 @@ msgstr "Jumlah Penyesuaian"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "Kuantitas yang akan disesuaikan. "
+msgstr "Jumlah yang akan disesuaikan. Jumlah negatif mengurangi stok, dan jumlah positif meningkatkannya."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -49002,7 +49002,7 @@ msgstr "Stock On Hand By Date"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Pilih kategori stok untuk dicari. "
+msgstr "Pilih kategori saham yang akan dicari. Untuk mencari di semua kategori saham pilih Semua"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -51538,7 +51538,7 @@ msgstr "Pilih Pemasok untuk Memasukkan Faktur Untuk"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "Izin Anda tidak memungkinkan penerimaan barang. "
+msgstr "Izin Anda tidak mengizinkan penerimaan barang. Penerimaan otomatis pesanan pembelian dibatasi hanya untuk pengguna yang berwenang untuk menerima barang / jasa"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
@@ -52128,7 +52128,7 @@ msgstr "Nomor pemasok terakhir"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Jika pemasok ingin membuat ID mereka secara otomatis, berbagai jenis pemasok dapat memiliki nomor awal sendiri. "
+msgstr "Jika pemasok ingin ID mereka dibuat secara otomatis, jenis pemasok yang berbeda dapat memiliki nomor awal mereka sendiri. Masukkan nomor pemasok berikutnya untuk tipe ini."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52364,7 +52364,7 @@ msgstr "Pilih grup pemasok yang menjadi milik pemasok ini."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Pilih tenaga penjualan yang dimaksud pemasok ini. "
+msgstr "Pilih staf penjualan yang dirujuk pemasok ini. Jika pemasok ini bukan staf penjualan, pilih Tidak Ada."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -52562,7 +52562,7 @@ msgstr "Tema standar"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:454
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
-msgstr "Tema default yang digunakan untuk layar login dan pengaturan pengguna baru. "
+msgstr "Tema default yang digunakan untuk layar login dan pengaturan pengguna baru. Pemilihan tema pengguna akan menimpanya."
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:459
 msgid "Auto Update Exchange Rates Daily"
@@ -54250,7 +54250,7 @@ msgstr "Jam yang dimasukkan untuk hari 7 terlihat terlalu tinggi - ini mungkin m
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Jika waktunya tidak dapat diisi maka perintah kerja dan pusat kerja harus mencerminkan hal ini. "
+msgstr "Jika waktu tidak dapat ditagih maka perintah kerja dan pusat kerja harus mencerminkan hal ini. Hanya jika perintah kerja dipilih, pusat kerja dapat diatur"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55263,7 +55263,7 @@ msgstr "Edit Detail Untuk"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Masukkan kata sandi untuk pengguna ini. "
+msgstr "Masukkan kata sandi untuk pengguna ini. Jika dibiarkan kosong maka kata sandi tidak akan berubah."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55287,7 +55287,7 @@ msgstr "Jika diatur ke Ya maka pengguna harus mengubah kata sandi mereka di Logi
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Masukkan nama lengkap pengguna ini. "
+msgstr "Masukkan nama lengkap pengguna ini. Tidak harus unik."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55299,7 +55299,7 @@ msgstr "Masukkan alamat email pengguna ini."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Pilih peran keamanan pengguna ini. "
+msgstr "Pilih peran keamanan pengguna ini. Ini akan sesuai dengan jabatan mereka."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55364,7 +55364,7 @@ msgstr "Pilih tema yang akan digunakan untuk pengguna ini."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Pilih bahasa pengguna. "
+msgstr "Pilih bahasa pengguna. Semua layar akan diterjemahkan ke dalam bahasa ini"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55411,7 +55411,7 @@ msgstr "Jika Diblokir dipilih maka pengguna ini tidak akan diizinkan masuk."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Pilih ukuran font yang akan ditarik layar untuk pengguna ini. "
+msgstr "Pilih ukuran font yang akan digambar layar untuk pengguna ini. Itu dapat diubah kapan saja dari layar menu utama."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55474,7 +55474,7 @@ msgstr "Pusat Kerja"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Pusat kerja ini sudah ada di database. "
+msgstr "Pusat kerja ini sudah ada di database. Harap gunakan kode lain."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55556,7 +55556,7 @@ msgstr "Buat Pusat Kerja Baru"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "Kode alfanumerik yang digunakan untuk mengidentifikasi pusat kerja ini. "
+msgstr "Kode alfanumerik yang akan digunakan untuk mengidentifikasi pusat kerja ini. Hingga 5 karakter dapat digunakan."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -60492,7 +60492,7 @@ msgstr "Buat catatan karyawan baru"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Kode alfa numerik unik untuk mengidentifikasi karyawan ini. "
+msgstr "Kode alfa numerik unik untuk mengidentifikasi karyawan ini. Hingga 10 karakter dapat digunakan"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61695,7 +61695,7 @@ msgstr "Buat periode penggajian"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "ID dimana periode pembayaran ini akan diketahui. "
+msgstr "ID yang akan digunakan untuk mengetahui periode pembayaran ini. Ini harus berupa bilangan bulat."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -71424,7 +71424,7 @@ msgstr "Bagan catatan"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG, dll. "
+msgstr "PT, ATG, dll. catatan harian"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"

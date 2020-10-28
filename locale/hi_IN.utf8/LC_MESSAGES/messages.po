@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:10+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-28 00:14+0000\n"
+"PO-Revision-Date: 2020-10-28 00:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -5100,11 +5100,11 @@ msgstr "हाथ की मात्रा पर"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:234
 msgid "P.O. Quantity"
-msgstr "पी.ओ. "
+msgstr "पी.ओ. मात्रा"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:235
 msgid "W.O. Quantity"
-msgstr "W.O. "
+msgstr "W.O. मात्रा"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:236
 #: /home/tim/code/KwaMoja/MRPShortages.php:351
@@ -30655,7 +30655,7 @@ msgstr "केल"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "दिनांक और प्रोटोकॉल एन.आर. "
+msgstr "दिनांक और प्रोटोकॉल एन.आर. द्वारा परीक्षण"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"

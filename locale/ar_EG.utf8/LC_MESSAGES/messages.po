@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:49+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-27 23:21+0000\n"
+"PO-Revision-Date: 2020-10-27 23:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2089,7 +2089,7 @@ msgstr "اذه باسحلا مسقل حيحصلا ةعومجملا زمر "
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "اختر لغة قسم الحساب هذا. "
+msgstr "حدد لغة قسم هذا الحساب. لاحظ أن كل لغة يجب أن تحتوي على نفس إعداد أقسام الحساب."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -3887,7 +3887,7 @@ msgstr "ةرتفلا ددح "
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "حدد فترة محددة مسبقًا من هذه القائمة. "
+msgstr "حدد فترة محددة مسبقا من هذه القائمة. إذا تم إجراء تحديد هنا ، فسيتم تجاوز أي شيء محدد في خياري "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -4460,7 +4460,7 @@ msgstr "نم "
 
 #: /home/tim/code/KwaMoja/AsteriskImport.php:150
 msgid ". Batch import has been rolled back."
-msgstr ".ةعفدلا داريتسا عاجرإ مت . "
+msgstr ". تم التراجع عن استيراد الدُفعات."
 
 #: /home/tim/code/KwaMoja/AsteriskImport.php:155
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:141
@@ -7930,7 +7930,7 @@ msgstr "لقد أدخلت كلمة المرور الحالية الخاطئة ،
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "كلمة المرور الجديدة هي نفس كلمة المرور القديمة. "
+msgstr "كلمة المرور الجديدة هي نفسها القديمة. يجب عليك اختيار كلمة مرور جديدة."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7938,7 +7938,7 @@ msgstr "التأكيد وكلمات المرور الجديدة ليست هي ن
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "أنت تعمل في وضع العرض التوضيحي بحيث لا يمكن تغيير كلمة المرور. "
+msgstr "أنت تعمل في وضع العرض التوضيحي لذلك لا يمكن تغيير كلمة المرور. انقر"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7962,11 +7962,11 @@ msgstr "انه "
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "لتسجيل الدخول وتسجيل الدخول مرة أخرى باستخدام كلمة المرور الحالية. "
+msgstr "لتسجيل الخروج وتسجيل الدخول مرة أخرى باستخدام كلمة المرور الحالية. لم يتم تغيير كلمة المرور الخاصة بك"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "لقد تم تحديث كلمة مرورك. "
+msgstr "تم تحديث كلمة المرور الخاصة بك. انقر"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7982,7 +7982,7 @@ msgstr "غير كلمة المرور الخاصة بك"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "قام المسؤول بحظر حسابك حتى تقوم بتغيير كلمة المرور الخاصة بك. "
+msgstr "قام المسؤول بحظر حسابك حتى تقوم بتغيير كلمة المرور الخاصة بك. استخدم هذه الشاشة لتغيير كلمة المرور الخاصة بك قبل المتابعة."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8813,7 +8813,7 @@ msgstr "لغ باسح نينيدملا ةبقارم "
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:377
 msgid "The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report."
-msgstr "حساب دفتر الأستاذ العام للعمل كعنصر تحكم للحسابات المستحقة القبض المعاملات. "
+msgstr "حساب دفتر الأستاذ العام ليكون بمثابة عنصر التحكم في معاملات حسابات القبض. يجب أن يتوافق هذا الحساب مع تقرير إجمالي المدينين المسنين."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:381
 msgid "Creditors Control GL Account"
@@ -8821,7 +8821,7 @@ msgstr "باسح لغ باسح نئاد "
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:383
 msgid "The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report."
-msgstr "حساب دفتر الأستاذ العام ليكون بمثابة التحكم للحسابات المستحقة الدفع المعاملات. "
+msgstr "حساب دفتر الأستاذ العام ليكون بمثابة عنصر التحكم في معاملات الحسابات الدائنة. يجب أن يتوافق هذا الحساب مع تقرير إجمالي الدائنين المسنين."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:387
 msgid "Payroll Net Pay Clearing GL Account"
@@ -8837,7 +8837,7 @@ msgstr "باسحلا لغ ةصاقملا ةملتسملا علسلا "
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:395
 msgid "The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero."
-msgstr "حساب دفتر الأستاذ العام ليكون بمثابة حساب المقاصة للبضائع المستلمة. "
+msgstr "حساب دفتر الأستاذ العام للعمل كحساب مقاصة للبضائع المستلمة. عندما يتم رفع GRN ، يتم ترحيل إدخال هنا ، وعندما يتم ترحيل فاتورة المورد ، فإنه يتعارض مع هذا الإدخال. يجب أن تتم تسوية هذا الحساب دائمًا إلى الصفر."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:399
 msgid "Sales Commission Accruals Account"
@@ -8845,7 +8845,7 @@ msgstr "حساب مستحقات عمولة المبيعات"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "حساب دفتر الأستاذ العام للعمل كحساب مستحقات عمولة المبيعات. "
+msgstr "حساب دفتر الأستاذ العام ليكون بمثابة حساب مستحقات عمولة المبيعات. سيتم نشر العمولة المكتسبة ولكن لم يتم دفعها هنا ، ويتم تسويتها عند دفع العمولة."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -8853,7 +8853,7 @@ msgstr "تنوكأ لغ غنيرالك لغ ظافتحالا "
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:407
 msgid "The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly."
-msgstr "حساب دفتر الأستاذ العام ليكون بمثابة حساب الأرباح المحتجزة مع الربح / الخسارة المتراكمة. "
+msgstr "حساب دفتر الأستاذ العام للعمل كحساب الأرباح المحتجزة مع الربح / الخسارة المتراكمة. تتم إدارة هذا الحساب بواسطة KwaMoja وبمجرد إعداده لا يجب الوصول إليه مباشرة."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:411
 msgid "Freight Re-charged GL Account"
@@ -11061,7 +11061,7 @@ msgstr "ةروتافلا يف خيرات "
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "تاريخ إرسال البضائع / الخدمات. "
+msgstr "تاريخ إرسال البضائع / الخدمات. هذا هو التاريخ الذي سيظهر كتاريخ الفاتورة."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11103,7 +11103,7 @@ msgstr "ةروتافلا صن "
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "أي نص يجب أن يظهر في الفاتورة. "
+msgstr "أي نص يجب أن يظهر في الفاتورة. سيكون هذا النص مرئيًا للعميل."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11111,7 +11111,7 @@ msgstr "ةيلخادلا تاقيلعتلا "
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "أي نص داخلي لهذه الفاتورة. "
+msgstr "أي نص داخلي لهذه الفاتورة. لن يكون هذا النص مرئيًا للعميل."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -13995,7 +13995,7 @@ msgstr "ل طخلل نامتئالا ةيمك "
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "أكثر من الكمية المفوترة. "
+msgstr "أكثر من الكمية المفوترة. يتم إجراء هذا الفحص للتأكد من عدم تكرار إشعار الائتمان."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -17702,7 +17702,7 @@ msgstr "ىلإ اهخيرات عجري يتلا تالماعملا "
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "اختر تاريخ البدء للتقرير. "
+msgstr "اختر تاريخ البدء للتقرير. سيتم تضمين المعاملات في هذا التاريخ."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17711,7 +17711,7 @@ msgstr "ىلإ اهخيرات عجري يتلا تالماعملا "
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "حدد الموعد النهائي للتقرير. "
+msgstr "حدد تاريخ إغلاق التقرير. سيتم تضمين المعاملات في هذا التاريخ."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17725,7 +17725,7 @@ msgstr "لباقي "
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "حدد ما إذا كنت تريد إظهار المعاملات المتطابقة أو غير المتطابقة فقط. "
+msgstr "حدد ما إذا كنت تريد إظهار المعاملات المتطابقة أو غير المتطابقة فقط. لإظهار جميع المعاملات ، اختر الكل."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -18233,11 +18233,11 @@ msgstr "إنشاء تفاصيل الحاوية"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "أدخل معرفًا يُشار إليه بهذه الحاوية. "
+msgstr "أدخل معرفًا سيتم من خلاله الإشارة إلى هذه الحاوية. يمكن أن يصل المعرف إلى 6 أحرف."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "أدخل وصفًا لهذه الحاوية. "
+msgstr "أدخل وصفًا لهذه الحاوية. يمكن أن يصل الوصف إلى 50 حرفًا."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18253,19 +18253,19 @@ msgstr "أدخل رقم التسلسل لهذه الحاوية."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "حدد نعم إذا كان يمكن استخدام هذه الحاوية في وضع التوجيه المباشر. "
+msgstr "حدد  إذا كان من الممكن استخدام هذه الحاوية للوضع الموجه بعيدًا. وإلا حدد لا"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "حدد نعم إذا كان يمكن استخدام هذه الحاوية للانتقاء الموجه. "
+msgstr "حدد نعم إذا كان يمكن استخدام هذه الحاوية للانتقاء الموجه. وإلا حدد لا"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "حدد نعم إذا كان يمكن تجديد هذه الحاوية. "
+msgstr "حدد نعم إذا كان من الممكن تجديد هذه الحاوية. وإلا حدد لا"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "حدد نعم إذا تم تحديد هذه الحاوية كحجر صحي. "
+msgstr "حدد إذا تم تعيين هذه الحاوية كعلاج للحجر الصحي. وإلا حدد لا"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18722,7 +18722,7 @@ msgstr "اغراف ةرادإلا مسا نوكي نأ يغبني الو "
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "يوجد قسم بهذا الاسم بالفعل. "
+msgstr "يوجد قسم بهذا الاسم بالفعل. الرجاء اختيار اسم جديد"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -21273,7 +21273,7 @@ msgstr "هليدعت دارملا جذومنلا ددح "
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "حدد النموذج المراد صيانته. "
+msgstr "حدد النموذج المراد صيانته. يتم تخزين ملفات xml لهذه النماذج تحت دليل الشركات"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21532,7 +21532,7 @@ msgstr "ةددحملا تاباسحلا "
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "حدد حسابات هذا التقرير. "
+msgstr "حدد الحسابات لهذا التقرير. استخدم مفتاح Shift الخاص بلوحة المفاتيح لتحديد حسابات متعددة."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22965,7 +22965,7 @@ msgstr "قيسنتلاب ةلجملا ةجلاعم خيرات لاخدإ ىجر�
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "لا توجد قوالب محفوظة. "
+msgstr "لا توجد قوالب محفوظة. يجب عليك أولا إنشاء قالب."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23037,7 +23037,7 @@ msgstr "تم حفظ القالب بنجاح"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "يوجد بالفعل قالب بهذا الوصف. "
+msgstr "يوجد قالب بهذا الوصف بالفعل. يجب عليك استخدام وصف فريد"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23099,7 +23099,7 @@ msgstr "لبق نم ايئاقلت مكحتلا تاباسح ىلع ظافحلا
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid ". This setting can be disabled in System Configuration"
-msgstr "ماظنلا نيوكت يف دادعإلا اذه ليطعت نكمي . "
+msgstr ". يمكن تعطيل هذا الإعداد في تكوين النظام"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:368
 #: /home/tim/code/KwaMoja/GLJournal.php:414
@@ -23303,7 +23303,7 @@ msgstr "القوائم المالية"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "يجب عليك تحديد بيان مالي واحد على الأقل. "
+msgstr "يجب تحديد كشف مالي واحد على الأقل. الرجاء تحديد البيانات المالية."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -28030,7 +28030,7 @@ msgstr "نوع المدين لاستخدامه لشركات التأمين"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "نوع المدين المستخدم لشركات التأمين. "
+msgstr "نوع المدين المستخدم لشركات التأمين. يجب أن تكون جميع شركات التأمين من هذا النوع."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28197,7 +28197,7 @@ msgstr "المخدرات الصادرة من"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "لم يتم تحديد المواقع بعد. "
+msgstr "لم يتم تحديد المواقع بعد. يجب عليك أولا"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28363,7 +28363,7 @@ msgstr "تم استخدام SQL لإدراج العناصر القابلة لل�
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
 msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "تم قبول المريض بالفعل. "
+msgstr "تم قبول المريض بالفعل. يجب تسريحهم قبل إعادة قبولهم"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
@@ -29047,7 +29047,7 @@ msgstr "لا يمكن أن يكون نوع اللقاء فارغًا"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "لا يمكن إدخال البيانات لأن هناك أخطاء. "
+msgstr "لا يمكن إدخال البيانات لوجود أخطاء. يرجى تصحيح هذه الأخطاء وحاول مرة أخرى"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29155,7 +29155,7 @@ msgstr "جناح نظرة عامة على الشاشة"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "لا يمكن أن يكون معرف الجناح فارغًا. "
+msgstr "لا يمكن ترك معرف الجناح فارغًا. الرجاء إدخال معرف صحيح."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29163,7 +29163,7 @@ msgstr "لا يمكن أن يتجاوز طول معرّف الجناح 35 حرف
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "لا يمكن أن يكون اسم الجناح فارغًا. "
+msgstr "لا يمكن أن يكون اسم الجناح فارغًا. الرجاء إدخال الاسم الصحيح."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29171,7 +29171,7 @@ msgstr "لا يمكن أن يتجاوز طول اسم الجناح 35 حرفًا
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "لا يمكن أن يكون رقم الغرفة الأولى فارغًا. "
+msgstr "لا يمكن أن يكون رقم الغرفة الأول فارغًا. الرجاء إدخال الرقم الصحيح."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29180,7 +29180,7 @@ msgstr "يجب أن تكون أرقام الغرف عددًا صحيحًا."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "لا يمكن أن يكون رقم الغرفة الأخير فارغًا. "
+msgstr "لا يمكن أن يكون رقم آخر غرفة فارغًا. الرجاء إدخال الرقم الصحيح."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29269,7 +29269,7 @@ msgstr "بادئة الغرفة"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "البادئة ليأتي قبل رقم الغرفة. "
+msgstr "البادئة التي تأتي قبل رقم الغرفة. يمكن استخدام 4 أحرف كحد أقصى."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29640,7 +29640,7 @@ msgstr "أدخل وديعة أخرى"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "لم يتم تحديد الحساب النقدي لهذا المستخدم بعد. "
+msgstr "لم يتم تحديد حساب نقدي لهذا المستخدم. يجب عليك أولا"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -30284,7 +30284,7 @@ msgstr "تسجيل المريض"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "لقد تم بالفعل استخدام رقم الملف هذا لمريض آخر. "
+msgstr "تم استخدام رقم الملف هذا بالفعل لمريض آخر. الرجاء تحديد رقم ملف آخر."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30654,7 +30654,7 @@ msgstr "كيل"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "التاريخ والبروتوكول رقم. "
+msgstr "التاريخ والبروتوكول رقم. من الاختبار"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
@@ -32392,7 +32392,7 @@ msgstr "ةديدجلا عقوملا ليصافت "
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "أدخل الرمز لاستخدامه في هذا الموقع. "
+msgstr "أدخل الرمز المراد استخدامه لهذا الموقع. يمكن أن يحتوي الرمز على ما بين 1 و 5 أحرف."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -35362,7 +35362,7 @@ msgstr "ةلمعلل "
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "حدد العملات للإبلاغ عنها. "
+msgstr "حدد العملات للإبلاغ عنها. للإبلاغ عن جميع العملات ، حدد الكل"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -37908,7 +37908,7 @@ msgstr "إذا كانت طريقة الدفع هذه تستخدم قرطاسية
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "للاستخدام مع تطبيق نقطة المبيعات. "
+msgstr "للاستخدام مع تطبيق نقاط البيع. هل يحتاج جهاز نقاط البيع إلى فتح درج النقود لطريقة الدفع هذه."
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -43439,7 +43439,7 @@ msgstr ".تافلملا ليمحتل كب صاخلا بف يف بمت ليلد �
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "مستخدم خادم الويب ليس لديه إذن لتحميل الملفات. "
+msgstr "ليس لدى مستخدم خادم الويب إذن لتحميل الملفات. يرجى التحدث إلى مسؤول النظام الخاص بك"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43679,15 +43679,15 @@ msgstr "إنشاء تفاصيل العمولة"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "يمكن تطبيق معدل العمولة على عناصر معينة فقط. "
+msgstr "يمكن تطبيق معدل العمولة على عناصر معينة فقط. حدد فئة المخزون التي ينطبق عليها معدل العمولة هذا. إذا كان ينطبق على جميع الفئات حدد الكل."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "يمكن تطبيق معدل العمولة على منطقة معينة فقط. "
+msgstr "يمكن تطبيق معدل العمولة على منطقة معينة فقط. حدد المنطقة التي ينطبق عليها معدل العمولة هذا. إذا كان ينطبق على جميع المناطق ، حدد الكل."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "حدد العملة لسجل العمولة هذا. "
+msgstr "حدد العملة لسجل العمولة هذا. سيتم تضمين المعاملات بهذه العملة فقط لأغراض العمولة."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43695,7 +43695,7 @@ msgstr "القيمة التي يبدأ بها سعر العمولة هذا."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "يمكن تطبيق هذه العمولة لعدد معين فقط من الأيام بعد أن أصبح العميل نشطًا. "
+msgstr "يمكن تطبيق هذه العمولة لعدد معين من الأيام فقط بعد أن أصبح العميل نشطًا. اختر صفرًا إذا كان السعر ينطبق دائمًا."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43728,7 +43728,7 @@ msgstr "دفع؟"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "لا توجد لجان تفي بهذا المعيار. "
+msgstr "لا توجد لجان تلبي هذه المعايير. يرجى تحديد معايير مختلفة وتشغيل التقرير مرة أخرى."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43932,11 +43932,11 @@ msgstr "اختر منطقة هنا "
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "اختر فئة الأسهم هنا. "
+msgstr "حدد فئة الأسهم هنا. إذا كان هذا السجل للإشارة إلى جميع الفئات التي ليس لها سجل معين ، فحدد "
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "اختر نوع المبيعات هنا. "
+msgstr "حدد نوع المبيعات هنا. إذا كان هذا السجل للإشارة إلى جميع الأنواع التي ليس لها سجل معين ، فحدد أي أخرى."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44289,7 +44289,7 @@ msgstr "أدخل الاسم الذي سيعرف به مندوب المبيعات
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "حدد منطقة المبيعات التي يغطيها هذا الشخص. "
+msgstr "حدد منطقة المبيعات التي يغطيها هذا الشخص. إذا كانت تغطي أكثر من منطقة ، فاتركها فارغة."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44329,7 +44329,7 @@ msgstr "SQL التي تم استخدامها لاسترداد معلومات ن�
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "حدد طريقة الحساب المستخدمة لحساب عمولة مندوب المبيعات هذا. "
+msgstr "حدد طريقة الحساب المستخدمة لحساب العمولة لمندوب المبيعات هذا. يستخدم هذا فقط إذا تم تحديد فترة العمولة."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44349,7 +44349,7 @@ msgstr "حدد هذا المربع لإظهار فواتير المبيعات"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "المبالغ الأصلية بعملة العميل. "
+msgstr "المبالغ الأصلية بعملة العميل. مبالغ دفتر الأستاذ العام بالعملة الوظيفية."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45536,7 +45536,7 @@ msgstr "ةروتافلا رمأ "
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "لا توجد قوائم اختيار تفي بالمعايير الخاصة بك. "
+msgstr "لا توجد قوائم اختيار تلبي المعايير الخاصة بك. يرجى إعادة المحاولة بمعايير مختلفة"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -47719,7 +47719,7 @@ msgstr "ةيمكلا ليدعت "
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "الكمية المراد تعديلها. "
+msgstr "الكمية المراد تعديلها. الكمية الدقيقة تقلل المخزون ، والكمية الإيجابية تزيده."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -49001,7 +49001,7 @@ msgstr "خيراتلا بسح ديلا ىلع مهسألا "
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "حدد فئة الأسهم للبحث فيها. "
+msgstr "حدد فئة الأسهم للبحث من خلالها. للبحث في جميع فئات الأسهم ، حدد الكل"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -51537,7 +51537,7 @@ msgstr "ةروتاف لاخدإل دروم ددح "
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "أذوناتك لا تسمح باستلام البضائع. "
+msgstr "أذوناتك لا تسمح باستلام البضائع. يقتصر الاستلام التلقائي لأوامر الشراء على المستخدمين المرخص لهم فقط بتلقي السلع / الخدمات"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
@@ -52127,7 +52127,7 @@ msgstr "ريخألا دروملا مقر "
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "إذا كان للموردين أن يتم إنشاء هويتهم تلقائيًا ، فيمكن أن يكون لأنواع الموردين المختلفة رقم البداية الخاص بهم. "
+msgstr "إذا كان المورّدون سيحصلون على هوياتهم تلقائيًا ، فيمكن أن يكون لأنواع الموردين المختلفة رقم بدء خاص بهم. أدخل رقم المورد التالي لهذا النوع."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52363,7 +52363,7 @@ msgstr "حدد مجموعة الموردين التي ينتمي إليها هذ
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "حدد شخص المبيعات الذي يشير إليه المورد. "
+msgstr "حدد مندوب المبيعات الذي يشير إليه هذا المورد. إذا لم يكن هذا المورد مندوب مبيعات ، فحدد لا شيء."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -52561,7 +52561,7 @@ msgstr "يضارتفالا عوضوملا "
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:454
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
-msgstr "السمة الافتراضية لاستخدامها في شاشة تسجيل الدخول وإعداد المستخدمين الجدد. "
+msgstr "الموضوع الافتراضي المراد استخدامه لشاشة تسجيل الدخول وإعداد المستخدمين الجدد. اختيار موضوع المستخدمين سوف يتجاوزها."
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:459
 msgid "Auto Update Exchange Rates Daily"
@@ -54249,7 +54249,7 @@ msgstr "تبدو الساعات التي تم إدخالها لليوم 7 مرت
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "إذا كان الوقت غير قابل للشحن ، فيجب أن يعكس كل من أمر العمل ومركز العمل هذا. "
+msgstr "إذا كان الوقت غير خاضع للرسوم ، فيجب أن يعكس كل من أمر العمل ومركز العمل ذلك. فقط إذا تم تحديد أمر عمل ، يمكن تعيين مركز عمل"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55132,7 +55132,7 @@ msgstr "اسم دور الأمان"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "هو دور سريري. "
+msgstr "هو دور سريري واحد. على سبيل المثال ، طبيب أو ممرضة"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55262,7 +55262,7 @@ msgstr "تحرير التفاصيل ل"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "أدخل كلمة المرور لهذا المستخدم. "
+msgstr "أدخل كلمة المرور لهذا المستخدم. إذا تُركت فارغة ، فستظل كلمة المرور دون تغيير."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55286,7 +55286,7 @@ msgstr "إذا تم التعيين على نعم ، يجب على المستخد
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "أدخل الاسم الكامل لهذا المستخدم. "
+msgstr "أدخل الاسم الكامل لهذا المستخدم. لا يجب أن تكون فريدة من نوعها."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55298,7 +55298,7 @@ msgstr "أدخل عنوان البريد الإلكتروني لهذا المس�
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "حدد دور الأمان لهذا المستخدم. "
+msgstr "حدد دور الأمان لهذا المستخدم. هذا سوف يتوافق مع المسمى الوظيفي الخاص بهم."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55363,7 +55363,7 @@ msgstr "حدد السمة المراد استخدامها لهذا المستخ�
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "اختر لغة المستخدمين. "
+msgstr "حدد لغة المستخدمين. سيتم ترجمة جميع الشاشات إلى هذه اللغة"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55410,7 +55410,7 @@ msgstr "إذا تم اختيار محظور ، فلن يُسمح لهذا الم
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "حدد حجم الخط الذي سيتم رسم الشاشات لهذا المستخدم. "
+msgstr "حدد حجم الخط الذي سيتم رسم الشاشات لهذا المستخدم. يمكن تغييره في أي وقت من شاشة القائمة الرئيسية."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55473,7 +55473,7 @@ msgstr "لمعلا زكارم "
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "مركز العمل هذا موجود بالفعل في قاعدة البيانات. "
+msgstr "مركز العمل هذا موجود بالفعل في قاعدة البيانات. الرجاء استخدام رمز مختلف."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55555,7 +55555,7 @@ msgstr "إنشاء مركز عمل جديد"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "الرمز الأبجدي الرقمي الذي سيتم من خلاله تحديد مركز العمل هذا. "
+msgstr "الرمز الأبجدي الرقمي الذي سيتم من خلاله تحديد مركز العمل هذا. يمكن استخدام ما يصل إلى 5 أحرف."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -60491,7 +60491,7 @@ msgstr "إنشاء سجل الموظف الجديد"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "رمز أبجدي رقمي فريد لتعريف هذا الموظف. "
+msgstr "رمز أبجدي رقمي فريد لتعريف هذا الموظف. يمكن استخدام ما يصل إلى 10 أحرف"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61694,7 +61694,7 @@ msgstr "إنشاء فترة الرواتب"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "المعرف الذي ستعرف به فترة الدفع هذه. "
+msgstr "المعرف الذي من خلاله ستعرف فترة الدفع هذه. يجب أن يكون هذا عددًا صحيحًا."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -71423,7 +71423,7 @@ msgstr "ملاحظات الرسم البياني"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT ، ATG ، إلخ. "
+msgstr "PT ، ATG ، إلخ. ملاحظات يومية"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"

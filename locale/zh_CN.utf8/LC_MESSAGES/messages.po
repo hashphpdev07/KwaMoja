@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:13+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-28 15:50+0000\n"
+"PO-Revision-Date: 2020-10-28 15:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -181,6 +181,8 @@ msgstr "ABC排名组列表"
 #: /home/tim/code/KwaMoja/GLTags.php:53
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:495
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -3013,6 +3015,8 @@ msgstr "天老了"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:668
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:683
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:702
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:246
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:291
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3576,6 +3580,7 @@ msgstr "显示摘要报告，或在报告中包括交易明细。"
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3794,6 +3799,7 @@ msgstr "选择报告中的最后一个期间"
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
@@ -3871,6 +3877,7 @@ msgstr "要么"
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:116
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:71
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:238
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:238
@@ -3884,6 +3891,7 @@ msgstr "选择期间"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:240
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
@@ -4050,6 +4058,7 @@ msgstr "所有金额均在"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:499
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4075,6 +4084,7 @@ msgstr "帐户"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:500
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4207,6 +4217,7 @@ msgstr "净利"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:428
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:729
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
 #: /home/tim/code/KwaMoja/SalesGraph.php:20
@@ -21114,6 +21125,7 @@ msgstr "固定资产已成功移动"
 #: /home/tim/code/KwaMoja/OffersReceived.php:46
 #: /home/tim/code/KwaMoja/SelectAsset.php:50
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:131
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:17
 msgid "Selection Criteria"
 msgstr "选择标准"
 
@@ -21642,6 +21654,7 @@ msgstr "总帐科目表"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:31
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:26
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:26
 #: /home/tim/code/KwaMoja/SalesGraph.php:15
 msgid "The selected period from is actually after the period to! Please re-select the reporting period"
 msgstr "所选的时期实际上是在这个时期之后！ 请重新选择报告期"
@@ -21730,11 +21743,12 @@ msgstr "如果所选帐户通常是贷方余额，则选择该帐户以显示贷
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:32
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:178
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:178
 #: /home/tim/code/KwaMoja/SalesGraph.php:41
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:14
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:19
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:24
 msgid "Select Period From"
 msgstr "选择时间段"
@@ -21743,6 +21757,7 @@ msgstr "选择时间段"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:204
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:204
 #: /home/tim/code/KwaMoja/SalesGraph.php:70
@@ -21753,6 +21768,7 @@ msgstr "选择此报告的开始时间"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:65
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:214
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:214
@@ -21765,6 +21781,7 @@ msgstr "选择期间至"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:228
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:228
 #: /home/tim/code/KwaMoja/SalesGraph.php:93
@@ -22671,6 +22688,7 @@ msgstr "现金流量表"
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:503
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22683,6 +22701,7 @@ msgstr "期间实际"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:504
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -23580,19 +23599,25 @@ msgstr "发布"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:138
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "试算表"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:54
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:54
 msgid "Input criteria for inquiry"
 msgstr "输入查询标准"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
 msgid "Show Trial Balance"
 msgstr "显示试算平衡"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
 msgid "Export to Spreadsheet"
 msgstr "导出到电子表格"
 
@@ -23602,20 +23627,25 @@ msgstr "打印试算平衡错误"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:490
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
 msgid "Trial Balance Report"
 msgstr "试算表报告"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "美元的试算表"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "和为了"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
@@ -23623,6 +23653,7 @@ msgid " months to "
 msgstr "个月来"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:501
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
@@ -23630,6 +23661,7 @@ msgid "Month Actual"
 msgstr "当月实际"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:502
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "月份预算"
@@ -58591,16 +58623,16 @@ msgstr "更新期间的销售分析成本数据"
 msgid "Recalculation of GL Balances in Chart Details Table"
 msgstr "在图表详细信息表中重新计算总帐余额"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:30
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:36
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:54
 msgid "Do the Recalculation"
 msgstr "做重新计算"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:30
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:36
 msgid "Are you sure you wish to re-post all general ledger transactions since the selected period this can take some time?"
 msgstr "您确定您希望重新发布所有总帐交易，因为选定的时间段可能需要一些时间吗？"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:69
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:78
 msgid "All general ledger postings have been reposted from period"
 msgstr "所有总帐的过帐都是从期间转移过来的"
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:11+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-28 07:34+0000\n"
+"PO-Revision-Date: 2020-10-28 07:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2090,7 +2090,7 @@ msgstr "De gehele groepscode voor dit accountgedeelte"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Selecteer de taal voor dit accountgedeelte. "
+msgstr "Selecteer de taal voor dit accountgedeelte. Merk op dat elke taal dezelfde instellingen voor accountsecties moet hebben."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -3888,7 +3888,7 @@ msgstr "Selecteer Periode"
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "Selecteer een vooraf gedefinieerde periode in deze lijst. "
+msgstr "Selecteer een voorgedefinieerde periode uit deze lijst. Als hier een selectie wordt gemaakt, wordt alles dat is geselecteerd in de opties Van en Tot hierboven overschreven."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -7931,7 +7931,7 @@ msgstr "U hebt het verkeerde huidige wachtwoord ingevoerd. Voer het opnieuw in"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Het nieuwe wachtwoord is hetzelfde als het oude. "
+msgstr "Het nieuwe wachtwoord is hetzelfde als het oude. U moet een nieuw wachtwoord kiezen."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7939,7 +7939,7 @@ msgstr "De bevestiging en de nieuwe wachtwoorden zijn niet hetzelfde."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "U werkt in de demonstratiemodus, dus het wachtwoord kan niet worden gewijzigd. "
+msgstr "U werkt in de demonstratiemodus, dus het wachtwoord kan niet worden gewijzigd. Klik"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7963,11 +7963,11 @@ msgstr "hier"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "om uit te loggen en opnieuw in te loggen met uw huidige wachtwoord. "
+msgstr "om uit te loggen en opnieuw in te loggen met uw huidige wachtwoord. Uw wachtwoord is niet gewijzigd"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Uw wachtwoord is bijgewerkt. "
+msgstr "Uw wachtwoord is bijgewerkt. Klik"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7983,7 +7983,7 @@ msgstr "Wijzig uw wachtwoord"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "De beheerder heeft uw account geblokkeerd totdat u uw wachtwoord wijzigt. "
+msgstr "De admin heeft uw account geblokkeerd totdat u uw wachtwoord wijzigt. Gebruik dit scherm om uw wachtwoord te wijzigen voordat u verder gaat."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8846,7 +8846,7 @@ msgstr "Accounts voor verkoop Commissie"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "De grootboekrekening die dient als de opgebouwde rekening voor de verkoopcommissie. "
+msgstr "De grootboekrekening die fungeert als de verkoopprovisierekening. Verdiende maar niet betaalde commissie wordt hier gepost en gewist wanneer de commissie wordt betaald."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -11062,7 +11062,7 @@ msgstr "Datum op factuur"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "De datum waarop de goederen / diensten zijn verzonden. "
+msgstr "De datum waarop de goederen / diensten zijn verzonden. Dit is de datum die als factuurdatum zal verschijnen."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11104,7 +11104,7 @@ msgstr "Factuur tekst"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Alle tekst die op de factuur moet verschijnen. "
+msgstr "Elke tekst die op de factuur moet verschijnen. Deze tekst is zichtbaar voor de klant."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11112,7 +11112,7 @@ msgstr "Interne opmerkingen"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Elke interne tekst voor deze factuur. "
+msgstr "Eventuele interne tekst voor deze factuur. Deze tekst is niet zichtbaar voor de klant."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -13996,7 +13996,7 @@ msgstr "De krediethoeveelheid voor de regel voor"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "is meer dan de gefactureerde hoeveelheid. "
+msgstr "is meer dan de gefactureerde hoeveelheid. Deze controle wordt uitgevoerd om ervoor te zorgen dat de creditnota niet wordt gedupliceerd."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -17703,7 +17703,7 @@ msgstr "Transacties gedateerd van"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Kies de startdatum voor het rapport. "
+msgstr "Kies de begindatum voor het rapport. Transacties op deze datum worden meegerekend."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17712,7 +17712,7 @@ msgstr "Transacties gedateerd"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Selecteer de sluitingsdatum voor het rapport. "
+msgstr "Selecteer de sluitingsdatum voor het rapport. Transacties op deze datum worden meegerekend."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17726,7 +17726,7 @@ msgstr "Op elkaar afgestemd"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Selecteer of alleen overeenkomende of niet-overeenkomende transacties moeten worden weergegeven. "
+msgstr "Selecteer of u alleen overeenkomende of niet-overeenkomende transacties wilt weergeven. Kies Alle om alle transacties weer te geven."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -18234,11 +18234,11 @@ msgstr "Maak containerdetails"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Voer een ID in waarnaar deze container zal worden verwezen. "
+msgstr "Voer een ID in waarmee naar deze container wordt verwezen. De ID kan uit maximaal 6 tekens bestaan."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Voer een beschrijving van deze container in. "
+msgstr "Voer een beschrijving van deze container in. De beschrijving kan uit maximaal 50 tekens bestaan."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18254,19 +18254,19 @@ msgstr "Voer het volgnummer voor deze container in."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Selecteer Ja als deze container kan worden gebruikt voor gerichte opslag. "
+msgstr "Selecteer Ja als deze container kan worden gebruikt voor gerichte opslag. Selecteer anders Nee"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Selecteer Ja als deze container kan worden gebruikt voor gericht picken. "
+msgstr "Selecteer Ja als deze container kan worden gebruikt voor gericht picken. Selecteer anders Nee"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Selecteer Ja als deze container kan worden bijgevuld. "
+msgstr "Selecteer Ja als deze container kan worden bijgevuld. Selecteer anders Nee"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Selecteer Ja als deze container is aangewezen als quarantainerea. "
+msgstr "Selecteer Ja als deze container is aangewezen als quarantainereactie. Selecteer anders Nee"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18723,7 +18723,7 @@ msgstr "De naam van de afdeling mag niet leeg zijn"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Er bestaat al een afdeling met deze naam. "
+msgstr "Er bestaat al een afdeling met deze naam. Kies een nieuwe naam"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -21274,7 +21274,7 @@ msgstr "Selecteer het formulier om te bewerken"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Selecteer het te onderhouden formulier. "
+msgstr "Selecteer het formulier dat u wilt onderhouden. De xml-bestanden voor deze formulieren worden opgeslagen in de bedrijvenlijst"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21533,7 +21533,7 @@ msgstr "Geselecteerde accounts"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Selecteer de accounts voor dit rapport. "
+msgstr "Selecteer de accounts voor dit rapport. Gebruik de Shift-toets op het toetsenbord om meerdere accounts te selecteren."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22966,7 +22966,7 @@ msgstr "De ingevoerde datum was niet geldig. Voer de datum in om het journaal in
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Er zijn geen sjablonen opgeslagen. "
+msgstr "Er zijn geen sjablonen opgeslagen. U moet eerst een sjabloon maken."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23038,7 +23038,7 @@ msgstr "De sjabloon is succesvol opgeslagen"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Er bestaat al een sjabloon met deze beschrijving. "
+msgstr "Er bestaat al een sjabloon met deze beschrijving. U moet een unieke beschrijving gebruiken"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23304,7 +23304,7 @@ msgstr "Jaarrekening"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "U moet ten minste één financieel overzicht selecteren. "
+msgstr "U moet minimaal één financieel overzicht selecteren. Selecteer financiële overzichten."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -28031,7 +28031,7 @@ msgstr "Type schuldenaar voor verzekeringsmaatschappijen"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Het type debiteur dat wordt gebruikt voor verzekeringsmaatschappijen. "
+msgstr "Het debiteurensoort dat wordt gebruikt voor verzekeringsmaatschappijen. Alle verzekeringsmaatschappijen moeten van dit type zijn."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28198,7 +28198,7 @@ msgstr "Geneesmiddelen uitgegeven door"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Locaties zijn nog niet gedefinieerd. "
+msgstr "Locaties zijn nog niet gedefinieerd. U moet eerst"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28364,7 +28364,7 @@ msgstr "De SQL die werd gebruikt om de factureerbare items in te voegen was"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
 msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "De patiënt is al opgenomen. "
+msgstr "De patiënt is al opgenomen. Ze moeten worden ontslagen voordat ze opnieuw kunnen worden toegelaten"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
@@ -29048,7 +29048,7 @@ msgstr "Het type ontmoeting Beschrijving mag niet leeg zijn"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "De gegevens kunnen niet worden ingevoerd omdat er fouten zijn. "
+msgstr "De gegevens kunnen niet worden ingevoerd omdat er fouten zijn. Corrigeer deze fouten en probeer het opnieuw"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29156,7 +29156,7 @@ msgstr "Ward Overzichtsscherm"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "De wijk-ID mag niet leeg zijn. "
+msgstr "De wijk-ID mag niet leeg zijn. Voer een correct ID in."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29164,7 +29164,7 @@ msgstr "De afdelings-ID mag niet langer zijn dan 35 tekens."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "De wijknaam mag niet leeg zijn. "
+msgstr "De naam van de wijk mag niet leeg zijn. Voer een correcte naam in."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29172,7 +29172,7 @@ msgstr "De wijknaam mag niet langer zijn dan 35 tekens."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "Het eerste kamernummer mag niet leeg zijn. "
+msgstr "Het eerste kamernummer mag niet leeg zijn. Voer een correct nummer in."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29181,7 +29181,7 @@ msgstr "De kamernummers moeten gehele getallen zijn."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Het laatste kamernummer mag niet leeg zijn. "
+msgstr "Het laatste kamernummer mag niet leeg zijn. Voer een correct nummer in."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29270,7 +29270,7 @@ msgstr "Voorvoegsel kamer"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Het voorvoegsel dat vóór het kamernummer komt. "
+msgstr "Het voorvoegsel dat voor het kamernummer moet komen. Er mogen maximaal 4 tekens worden gebruikt."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29641,7 +29641,7 @@ msgstr "Voer nog een aanbetaling in"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Er is nog geen Cash-account voor deze gebruiker gedefinieerd. "
+msgstr "Voor deze gebruiker is nog geen Geldrekening gedefinieerd. U moet eerst"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -30285,7 +30285,7 @@ msgstr "Registreer een patiënt"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Dat bestandsnummer is al voor een andere patiënt gebruikt. "
+msgstr "Dat dossiernummer is al gebruikt voor een andere patiënt. Selecteer een ander bestandsnummer."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30655,7 +30655,7 @@ msgstr "Kell"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Datum & protocol nr. "
+msgstr "Datum & protocol nr. van test door"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
@@ -30880,7 +30880,7 @@ msgstr "Ondersteunende informatie"
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:253
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:313
 msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
-msgstr "bijv. "
+msgstr "bijv. belangrijke Lab resultaten, na bestraling in excisie gebied, na chemotherapie"
 
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:257
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:317
@@ -32393,7 +32393,7 @@ msgstr "Nieuwe locatiegegevens"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Voer de code in die voor deze locatie moet worden gebruikt. "
+msgstr "Voer de code in die u voor deze locatie wilt gebruiken. De code kan tussen de 1 en 5 karakters bevatten."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -35363,7 +35363,7 @@ msgstr "Voor valuta"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Selecteer de valuta om over te rapporteren. "
+msgstr "Selecteer de valuta's waarover u wilt rapporteren. Selecteer Alles om over alle valuta's te rapporteren"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -37909,7 +37909,7 @@ msgstr "Als deze betaalmethode voorbedrukte briefpapier zoals voorbedrukte chequ
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Voor gebruik met point of sales-applicatie. "
+msgstr "Voor gebruik met verkooppuntapplicaties. Moet de POS de kassalade openen voor deze betaalmethode?"
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -43440,7 +43440,7 @@ msgstr "Geen tmp-directory ingesteld.  U moet een tmp-directory hebben ingesteld
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "De webservergebruiker heeft geen toestemming om bestanden te uploaden. "
+msgstr "De webservergebruiker heeft geen toestemming om bestanden te uploaden. Spreek met uw systeembeheerder"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43680,15 +43680,15 @@ msgstr "Creëer commissiegegevens"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "Een commissietarief kan alleen op bepaalde artikelen van toepassing zijn. "
+msgstr "Een commissietarief kan alleen van toepassing zijn op bepaalde items. Selecteer de aandelencategorie waarop dit commissiepercentage van toepassing is. Als het van toepassing is op alle categorieën, selecteert u Alles."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "Een commissietarief kan alleen voor een bepaald gebied gelden. "
+msgstr "Een commissietarief kan slechts voor een bepaald gebied gelden. Selecteer het gebied waarop dit commissietarief van toepassing is. Als het van toepassing is op alle gebieden, selecteert u Alles."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Selecteer de valuta voor dit commissierecord. "
+msgstr "Selecteer de valuta voor dit provisierecord. Alleen transacties in deze valuta worden meegenomen voor commissiedoeleinden."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43696,7 +43696,7 @@ msgstr "De waarde waartegen dit commissietarief van start gaat."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Deze commissie kan slechts een bepaald aantal dagen van toepassing zijn nadat de klant actief is geworden. "
+msgstr "Deze commissie kan gelden voor slechts een bepaald aantal dagen nadat de klant actief is geworden. Kies nul als het tarief altijd van toepassing is."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43729,7 +43729,7 @@ msgstr "Betaald?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Er zijn geen commissies die aan deze criteria voldoen. "
+msgstr "Er zijn geen commissies die aan deze criteria voldoen. Selecteer andere criteria en voer het rapport opnieuw uit."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43929,15 +43929,15 @@ msgstr "Maak nieuwe Sales GL-details"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Selecteer hier een gebied. "
+msgstr "Selecteer hier een gebied. Als dit record moet verwijzen naar alle gebieden die geen specifiek record hebben, selecteer dan Elke andere."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Selecteer hier een aandelencategorie. "
+msgstr "Selecteer hier een aandelencategorie. Als dit record moet verwijzen naar alle categorieën die geen specifiek record hebben, selecteer dan Elke andere."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Selecteer hier een verkooptype. "
+msgstr "Selecteer hier een verkooptype. Als dit record moet verwijzen naar alle typen die geen specifiek record hebben, selecteer dan Elke andere."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44290,7 +44290,7 @@ msgstr "Voer de naam in waaronder deze verkoper bekend zal worden."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Selecteer het verkoopgebied dat deze persoon bestrijkt. "
+msgstr "Selecteer het verkoopgebied dat deze persoon bestrijkt. Als ze meer dan één gebied beslaan, laat het dan blanco."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44330,7 +44330,7 @@ msgstr "De SQL die is gebruikt om informatie over het commissietype op te halen 
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Selecteer de berekeningsmethode die wordt gebruikt om de commissie voor deze verkoper te berekenen. "
+msgstr "Selecteer de berekeningsmethode die wordt gebruikt om de commissie voor deze verkoper te berekenen. Dit wordt alleen gebruikt als er een commissieperiode is geselecteerd."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44350,7 +44350,7 @@ msgstr "Vink dit vakje aan om verkoopfacturen te tonen"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Oorspronkelijke bedragen in de valuta van de klant. "
+msgstr "Oorspronkelijke bedragen in de valuta van de klant. GL-bedragen in de functionele valuta."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45537,7 +45537,7 @@ msgstr "Factuurorder"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Er zijn geen picklijsten die aan uw criteria voldoen. "
+msgstr "Er zijn geen keuzelijsten die aan uw criteria voldoen. Probeer het opnieuw met andere criteria"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -47720,7 +47720,7 @@ msgstr "Aanpassingshoeveelheid"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "De hoeveelheid die moet worden aangepast. "
+msgstr "De hoeveelheid die moet worden aangepast. Een gelijk bedrag vermindert de voorraad en een positief bedrag verhoogt het."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -49002,7 +49002,7 @@ msgstr "Voorraad bij de hand op datum"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Selecteer de aandelencategorie om door te zoeken. "
+msgstr "Selecteer de aandelencategorie om door te zoeken. Selecteer Alles om in alle aandelencategorieën te zoeken"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -51538,7 +51538,7 @@ msgstr "Selecteer een leverancier om een ​​factuur in te voeren"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "Uw machtigingen staan ​​niet toe dat goederen worden ontvangen. "
+msgstr "Uw toestemming staat het ontvangen van goederen niet toe. Het automatisch ontvangen van inkooporders is beperkt tot de enige gebruikers die geautoriseerd zijn om goederen / diensten te ontvangen"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
@@ -52128,7 +52128,7 @@ msgstr "Laatste leveranciersnummer"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Als leveranciers hun ID automatisch moeten laten genereren, kunnen verschillende typen leveranciers hun eigen startnummer hebben. "
+msgstr "Als leveranciers hun ID automatisch laten genereren, kunnen verschillende soorten leveranciers hun eigen startnummer hebben. Voer het nummer van de volgende leverancier voor dit type in."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52364,7 +52364,7 @@ msgstr "Selecteer de leveranciersgroep waartoe deze leverancier behoort."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Selecteer de verkoper waarnaar deze leverancier verwijst. "
+msgstr "Selecteer de verkoper waarnaar deze leverancier verwijst. Als deze leverancier geen verkoper is, selecteert u Geen."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -54250,7 +54250,7 @@ msgstr "De ingevoerde uren voor dag 7 lijken te hoog - dit is waarschijnlijk een
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Als de tijd niet kan worden berekend, moeten zowel de werkorder als het werkcentrum dit weerspiegelen. "
+msgstr "Als de tijd niet in rekening kan worden gebracht, moeten zowel de werkopdracht als de afdeling dit weerspiegelen. Alleen als een werkorder is geselecteerd, kan een afdeling worden ingesteld"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55133,7 +55133,7 @@ msgstr "Naam van beveiligingsrol"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "Is de rol een klinische rol. "
+msgstr "Is de rol een klinische. Bijvoorbeeld een dokter of een verpleegster"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55263,7 +55263,7 @@ msgstr "Details bewerken voor"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Voer het wachtwoord voor deze gebruiker in. "
+msgstr "Voer het wachtwoord voor deze gebruiker in. Indien leeg gelaten, blijft het wachtwoord ongewijzigd."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55287,7 +55287,7 @@ msgstr "Indien ingesteld op Ja, moet de gebruiker zijn wachtwoord wijzigen bij d
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Voer de volledige naam van deze gebruiker in. "
+msgstr "Voer de volledige naam van deze gebruiker in. Het hoeft niet uniek te zijn."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55299,7 +55299,7 @@ msgstr "Voer het e-mailadres van deze gebruiker in."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Selecteer de beveiligingsrol van deze gebruiker. "
+msgstr "Selecteer de beveiligingsrol van deze gebruiker. Dit komt overeen met hun functietitel."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55364,7 +55364,7 @@ msgstr "Selecteer het thema dat voor deze gebruiker moet worden gebruikt."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Selecteer de taal van de gebruiker. "
+msgstr "Selecteer de taal van de gebruiker. Alle schermen worden in deze taal vertaald"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55411,7 +55411,7 @@ msgstr "Als Geblokkeerd wordt gekozen, mag deze gebruiker niet inloggen."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Selecteer de lettergrootte waarin de schermen worden getekend voor deze gebruiker. "
+msgstr "Selecteer de lettergrootte waarin de schermen voor deze gebruiker worden getekend. Het kan op elk moment worden gewijzigd vanuit het hoofdmenuscherm."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55474,7 +55474,7 @@ msgstr "Werkcentra"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Dit werkcentrum bestaat al in de database. "
+msgstr "Deze afdeling bestaat al in de database. Gebruik een andere code."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55556,7 +55556,7 @@ msgstr "Nieuw werkcentrum maken"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "De alfanumerieke code waarmee dit werkcentrum wordt geïdentificeerd. "
+msgstr "De alfanumerieke code waarmee deze afdeling wordt geïdentificeerd. Er kunnen maximaal 5 tekens worden gebruikt."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -60492,7 +60492,7 @@ msgstr "Maak een nieuw werknemersrecord"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Een unieke alfanumerieke code om deze werknemer te identificeren. "
+msgstr "Een unieke alfanumerieke code om deze werknemer te identificeren. Er kunnen maximaal 10 tekens worden gebruikt"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61695,7 +61695,7 @@ msgstr "Creëer loonperiode"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "De ID waarmee deze betaalperiode bekend is. "
+msgstr "Het ID waarmee deze betaalperiode bekend zal zijn. Dit moet een geheel getal zijn."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -71424,7 +71424,7 @@ msgstr "Grafiek notities"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG, enz. "
+msgstr "PT, ATG, enz. dagelijkse notities"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"

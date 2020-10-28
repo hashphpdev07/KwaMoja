@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-26 14:10+0000\n"
-"PO-Revision-Date: 2020-10-26 14:10+0000\n"
+"POT-Creation-Date: 2020-10-28 00:15+0000\n"
+"PO-Revision-Date: 2020-10-28 00:10+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -2090,7 +2090,7 @@ msgstr "Kôd cijele grupe za ovaj odjeljak računa"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Odaberite jezik za ovaj odjeljak računa. "
+msgstr "Odaberite jezik za ovaj odjeljak računa. Imajte na umu da svaki jezik mora imati iste postavke odjeljaka računa."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -3888,7 +3888,7 @@ msgstr "Odaberite razdoblje"
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "Na popisu odaberite unaprijed određeno razdoblje. "
+msgstr "S ovog popisa odaberite unaprijed definirano razdoblje. Ako se ovdje izvrši odabir, poništit će sve odabrane u gornjim opcijama Od i Do."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -4387,7 +4387,7 @@ msgstr "SQL koji je upotrijebljen za pronalaženje podataka o području i koji n
 
 #: /home/tim/code/KwaMoja/Areas.php:227
 msgid "The area that contains this area. Leave blank if this is a top level area"
-msgstr "Područje koje sadrži ovo područje. "
+msgstr "Područje koje sadrži ovo područje. Ostavite prazno ako je ovo područje najviše razine"
 
 #: /home/tim/code/KwaMoja/Areas.php:233
 msgid "The name of the area being entered"
@@ -5104,7 +5104,7 @@ msgstr "PP "
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:235
 msgid "W.O. Quantity"
-msgstr "W. C. "
+msgstr "W.O. Količina"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:236
 #: /home/tim/code/KwaMoja/MRPShortages.php:351
@@ -7059,7 +7059,7 @@ msgstr "Odaberite šifru glavne knjige koju želite koristiti za ovaj bankovni r
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:310
 msgid "The name that this bank account will be called. Does not have to be the same as the General Ledger description."
-msgstr "Naziv na koji će se zvati ovaj bankovni račun. "
+msgstr "Ime koje će se zvati ovaj bankovni račun. Ne mora biti isto što i opis glavne knjige."
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:315
 msgid "The code that the account is known by at the bank."
@@ -7775,7 +7775,7 @@ msgstr "Jesi li siguran?"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:347
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
-msgstr "Normalno je da devizni računi imaju tečajne razlike koje treba odražavati kako tečaj varira. "
+msgstr "Normalno je da devizni računi imaju tečajne razlike koje se moraju odražavati kako se tečaj mijenja. Ovo usklađivanje priprema se pomoću tečaja postavljenog u tablici valuta (pogledajte karticu postavljanja). Ova tablica mora se održavati s trenutnim tečajem prije pokretanja pomirenja. Ako želite stvoriti dnevnik koji će odražavati tečajnu razliku na temelju trenutnog tečaja da biste ispravili usklađivanje sa stvarnim saldom bankovnih izvoda, kliknite ispod."
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:358
 #: /home/tim/code/KwaMoja/BankReconciliation.php:363
@@ -7882,11 +7882,11 @@ msgstr "Bilo koji drugi"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:156
 msgid "Select the area to be used in this group. To cover all areas just select Any Other"
-msgstr "Odaberite područje koje ćete koristiti u ovoj grupi. "
+msgstr "Odaberite područje koje će se koristiti u ovoj grupi. Da biste pokrili sva područja, samo odaberite Bilo koji drugi"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:175
 msgid "Select the stock category to be used in this group. To cover all categories just select Any Other"
-msgstr "Odaberite kategoriju zaliha koja će se koristiti u ovoj grupi. "
+msgstr "Odaberite kategoriju dionica koja će se koristiti u ovoj grupi. Da biste pokrili sve kategorije, samo odaberite Bilo koji drugi"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:182
 #: /home/tim/code/KwaMoja/Customers.php:512
@@ -7911,7 +7911,7 @@ msgstr "Cjenik"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:194
 msgid "Select the sales type to be used in this group. To cover all types just select Any Other"
-msgstr "Odaberite vrstu prodaje koja će se upotrebljavati u ovoj grupi. "
+msgstr "Odaberite vrstu prodaje koja će se koristiti u ovoj grupi. Da biste pokrili sve vrste, samo odaberite Bilo koji drugi"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:198
 msgid "Post to GL account"
@@ -7931,7 +7931,7 @@ msgstr "Uneli ste pogrešnu trenutnu zaporku. Ponovno je unesite"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Nova lozinka jednaka je staroj. "
+msgstr "Nova lozinka je ista kao i stara. Morate odabrati novu lozinku."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7939,7 +7939,7 @@ msgstr "Potvrda i nove lozinke nisu iste."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "Radi u demonstracijskom načinu rada, tako da se lozinka ne može promijeniti. "
+msgstr "Izvodite u demonstracijskom načinu, tako da lozinku nije moguće promijeniti. Klik"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7963,11 +7963,11 @@ msgstr "ovdje"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "odjaviti se i ponovno se prijaviti s trenutnom lozinkom. "
+msgstr "za odjavu i ponovna prijava sa trenutnom lozinkom. Vaša lozinka nije promijenjena"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Vaša je zaporka ažurirana. "
+msgstr "Vaša lozinka je ažurirana. Klik"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7983,7 +7983,7 @@ msgstr "Promjeni lozinku"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "Administrator je blokirao vaš račun dok ne promijenite zaporku. "
+msgstr "Administrator je blokirao vaš račun dok ne promijenite lozinku. Koristite ovaj zaslon za promjenu lozinke prije nastavka."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8814,7 +8814,7 @@ msgstr "Dužnici kontroliraju GL račun"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:377
 msgid "The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report."
-msgstr "Račun glavne knjige djeluje kao kontrola za transakcije potraživanja. "
+msgstr "Račun glavne knjige koji će djelovati kao kontrola za transakcije potraživanja. Ovaj bi se račun trebao slagati s izvješćem o ukupno ostarjelim dužnicima."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:381
 msgid "Creditors Control GL Account"
@@ -8822,7 +8822,7 @@ msgstr "Kontrola vjerovnika GL računa"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:383
 msgid "The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report."
-msgstr "Račun glavne knjige djeluje kao kontrola za transakcije dospjelih na račun. "
+msgstr "Račun glavne knjige koji će djelovati kao kontrola za transakcije s obvezama. Ovaj bi se račun trebao slagati s izvješćem o ukupno ostarjelim vjerovnicima."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:387
 msgid "Payroll Net Pay Clearing GL Account"
@@ -8838,7 +8838,7 @@ msgstr "Roba dobivena kliring GL račun"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:395
 msgid "The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero."
-msgstr "Račun glavne knjige djeluje kao obračunski račun za primljenu robu. "
+msgstr "Račun glavne knjige koji će služiti kao klirinški račun za primljenu robu. Kada se podigne GRN, ovdje se knjiži unos i kada se knjiži račun dobavljača, suprotno će biti protiv ovog unosa. Ovaj bi se račun uvijek trebao pomiriti na nulu."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:399
 msgid "Sales Commission Accruals Account"
@@ -8846,7 +8846,7 @@ msgstr "Račun obračunskih računa Komisije za prodaju"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "Račun glavne knjige koji djeluje kao račun obračuna provizije prodaje. "
+msgstr "Račun glavne knjige koji će služiti kao račun priraštaja provizije za prodaju. Provizija zarađena, ali neplaćena bit će ovdje objavljena i obrisana kada se provizija plati."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -8854,7 +8854,7 @@ msgstr "Zadržana zarada uklanjanjem GL računa"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:407
 msgid "The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly."
-msgstr "Račun glavne knjige djeluje kao račun zadržane dobiti s akumuliranom dobiti / gubitkom. "
+msgstr "Račun glavne knjige koji djeluje kao račun zadržane dobiti s akumuliranom dobiti / gubitku. Ovim računom upravlja KwaMoja i jednom postavljenom ne smije se pristupiti izravno."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:411
 msgid "Freight Re-charged GL Account"
@@ -11062,7 +11062,7 @@ msgstr "Datum na fakturi"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "Datum slanja robe / usluga. "
+msgstr "Datum slanja robe / usluge. To je datum koji će se pojaviti kao datum fakture."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11104,7 +11104,7 @@ msgstr "Tekst fakture"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Svaki tekst koji bi se trebao pojaviti na fakturi. "
+msgstr "Bilo koji tekst koji bi se trebao pojaviti na računu. Ovaj će tekst biti vidljiv kupcu."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11112,7 +11112,7 @@ msgstr "Interni komentari"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Bilo interni tekst za ovu fakturu. "
+msgstr "Bilo koji interni tekst za ovu fakturu. Ovaj tekst neće biti vidljiv kupcu."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -13996,7 +13996,7 @@ msgstr "Kreditna količina za liniju za"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "je više od fakturirane količine. "
+msgstr "je više od fakturirane količine. Ova se provjera vrši kako bi se osiguralo da se kreditna knjižica ne duplicira."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -16805,7 +16805,7 @@ msgstr "Priznanice se ne mogu upisati sve dok se valuta ne definira"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:904
 msgid "The currency of the receipts. Does not have to be the same as the bank account currency."
-msgstr "Valuta primitaka. "
+msgstr "Valuta računa. Ne mora biti ista kao valuta bankovnog računa."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:923
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:939
@@ -17703,7 +17703,7 @@ msgstr "Transakcije s datuma"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Odaberite datum početka izvješća. "
+msgstr "Odaberite datum početka izvješća. Uključit će se transakcije na ovaj datum."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17712,7 +17712,7 @@ msgstr "Transakcije dane do"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Odaberite datum zatvaranja izvješća. "
+msgstr "Odaberite datum zatvaranja izvješća. Uključit će se transakcije na ovaj datum."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17726,7 +17726,7 @@ msgstr "uskladiti"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Odaberite želite li prikazivati ​​samo podudarne ili neusklađene transakcije. "
+msgstr "Odaberite hoće li se prikazivati ​​samo podudarne ili neusklađene transakcije. Za prikaz svih transakcija odaberite Sve."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -18234,11 +18234,11 @@ msgstr "Izradite detalje spremnika"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Unesite ID na koji će se ovaj spremnik pozivati. "
+msgstr "Unesite ID kojim će se upućivati ​​na ovaj spremnik. ID može sadržavati do 6 znakova."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Unesite opis ovog spremnika. "
+msgstr "Unesite opis ovog spremnika. Opis može sadržavati do 50 znakova."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18254,19 +18254,19 @@ msgstr "Unesite redni broj za ovaj spremnik."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Odaberite Da ako se ovaj spremnik može koristiti za usmjerene smještaje. "
+msgstr "Odaberite Da ako se ovaj spremnik može koristiti za usmjerena uklanjanja. U suprotnom odaberite Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Odaberite Da ako se ovaj spremnik može koristiti za usmjereno branje. "
+msgstr "Odaberite Da ako se ovaj spremnik može koristiti za usmjereno branje. U suprotnom odaberite Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Odaberite Da ako ovaj spremnik možete napuniti. "
+msgstr "Odaberite Da ako se ovaj spremnik može nadopuniti. U suprotnom odaberite Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Odaberite Da ako je ovaj spremnik označen kao karantenska reak. "
+msgstr "Odaberite Da ako je ovaj spremnik određen kao karantenski rea. U suprotnom odaberite Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18723,7 +18723,7 @@ msgstr "Naziv Odjela ne smije biti prazan"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Odjel s ovim imenom već postoji. "
+msgstr "Odjel s ovim imenom već postoji. Molimo odaberite novo ime"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -21274,7 +21274,7 @@ msgstr "Odaberite obrazac za uređivanje"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Odaberite obrazac za održavanje. "
+msgstr "Odaberite obrazac koji želite održavati. Xml datoteke za ove obrasce pohranjene su u direktoriju tvrtki"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21533,7 +21533,7 @@ msgstr "Odabrani računi"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Odaberite račune za ovo izvješće. "
+msgstr "Odaberite račune za ovo izvješće. Upotrijebite tipku Shift za odabir više računa."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22966,7 +22966,7 @@ msgstr "Uneseni datum nije valjan, unesite datum za obradu časopisa u formatu"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Nema spremljenih predložaka. "
+msgstr "Nema spremljenih predložaka. Prvo morate stvoriti predložak."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23038,7 +23038,7 @@ msgstr "Predložak je uspješno spremljen"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Predložak s ovim opisom već postoji. "
+msgstr "Predložak s ovim opisom već postoji. Morate koristiti jedinstveni opis"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23304,7 +23304,7 @@ msgstr "Financijska izvješća"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "Morate odabrati barem jedno financijsko izvješće. "
+msgstr "Morate odabrati barem jedan financijski izvještaj. Molimo odaberite financijske izvještaje."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -28031,7 +28031,7 @@ msgstr "Vrsta dužnika koja se koristi za osiguravajuće kuće"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Vrsta dužnika koja se koristi za osiguravajuća društva. "
+msgstr "Vrsta dužnika koja se koristi za osiguravajuća društva. Sva osiguravajuća društva moraju biti ove vrste."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28198,7 +28198,7 @@ msgstr "Lijekovi izdani od"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Lokacije još nisu definirane. "
+msgstr "Lokacije još nisu definirane. Prvo moraš"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28364,7 +28364,7 @@ msgstr "SQL koji se koristio za umetanje stavki za naplatu bio je"
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
 msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "Pacijent je već primljen. "
+msgstr "Pacijent je već primljen. Moraju biti otpušteni prije ponovnog prijema"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
@@ -29048,7 +29048,7 @@ msgstr "Vrsta susreta Opis ne može biti prazan"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "Podaci se ne mogu unositi jer postoje pogreške. "
+msgstr "Podaci se ne mogu unijeti jer postoje pogreške. Ispravite ove pogreške i pokušajte ponovo"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29156,7 +29156,7 @@ msgstr "Zaslon pregleda Ward-a"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "ID odeljenja ne može biti prazan. "
+msgstr "ID štićenika ne može biti prazan. Unesite ispravan ID."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29164,7 +29164,7 @@ msgstr "ID zaštitnika ne može biti duži od 35 znakova."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "Ime garde ne može biti prazno. "
+msgstr "Naziv štićenika ne može biti prazan. Unesite ispravno ime."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29172,7 +29172,7 @@ msgstr "Naziv sefa ne može biti duži od 35 znakova."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "Broj prve sobe ne može biti prazan. "
+msgstr "Broj prve sobe ne može biti prazan. Unesite točan broj."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29181,7 +29181,7 @@ msgstr "Broj soba mora biti cijeli broj."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Posljednji broj sobe ne može biti prazan. "
+msgstr "Zadnji broj sobe ne može biti prazan. Unesite točan broj."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29270,7 +29270,7 @@ msgstr "Sofijski prefiks"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Prefiks koji dolazi prije broja sobe. "
+msgstr "Prefiks koji dolazi ispred broja sobe. Mogu se koristiti najviše 4 znaka."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29641,7 +29641,7 @@ msgstr "Unesite drugi depozit"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Novčani račun još nije definiran za ovog korisnika. "
+msgstr "Gotovinski račun još nije definiran za ovog korisnika. Prvo moraš"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -30285,7 +30285,7 @@ msgstr "Registrirajte pacijenta"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Taj je broj datoteke već korišten za drugog pacijenta. "
+msgstr "Taj je broj datoteke već korišten za drugog pacijenta. Odaberite drugi broj datoteke."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30655,7 +30655,7 @@ msgstr "Kell"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Datum i protokol br. "
+msgstr "Datum i protokol br. testa od"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
@@ -32393,7 +32393,7 @@ msgstr "Novi podaci o lokaciji"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Unesite kôd koji ćete koristiti za ovu lokaciju. "
+msgstr "Unesite kod koji ćete koristiti za ovo mjesto. Kôd može sadržavati između 1 i 5 znakova."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -35363,7 +35363,7 @@ msgstr "Za valutu"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Odaberite valute o kojima ćete izvještavati. "
+msgstr "Odaberite valute o kojima ćete izvještavati. Da biste izvještavali o svim valutama, odaberite Sve"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -37909,7 +37909,7 @@ msgstr "Ako ovaj način plaćanja koristi predtiskane tiskanice, kao što su una
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Za uporabu s aplikacijom za prodajno mjesto. "
+msgstr "Za upotrebu s prodajnim mjestom. Treba li POS otvoriti ladicu gotovine za ovaj način plaćanja."
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -43440,7 +43440,7 @@ msgstr "Nema skupa mapa tmp.  Morate imati postavljenu mapu tmp u PHP-u za prije
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "Korisnik web poslužitelja nema dozvolu za prijenos datoteka. "
+msgstr "Korisnik web poslužitelja nema dozvolu za prijenos datoteka. Obratite se svom administratoru sustava"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43680,15 +43680,15 @@ msgstr "Izradite pojedinosti o komisiji"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "Naknada za proviziju može se primijeniti na samo određene stavke. "
+msgstr "Provizija se može odnositi samo na određene stavke. Odaberite kategoriju dionica na koju se odnosi ova provizija. Ako se odnosi na sve kategorije, odaberite Sve."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "Naknada za proviziju može se primijeniti na samo određeno područje. "
+msgstr "Stopa provizije može se odnositi samo na određeno područje. Odaberite područje na koje se odnosi ova stopa provizije. Ako se odnosi na sva područja, odaberite Sve."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Odaberite valutu za ovu evidenciju provizije. "
+msgstr "Odaberite valutu za ovaj zapis provizije. Samo transakcije u ovoj valuti bit će uključene u svrhu provizije."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43696,7 +43696,7 @@ msgstr "Vrijednost po kojoj počinje ta provizija."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Ovo se povjerenje može prijaviti samo određeni broj dana nakon što je korisnik postao aktivan. "
+msgstr "Ova se provizija može prijaviti samo određeni broj dana nakon što kupac postane aktivan. Odaberite nulu ako se stopa uvijek primjenjuje."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43729,7 +43729,7 @@ msgstr "Plaćeni?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Ne postoje komisije koje ispunjavaju ove kriterije. "
+msgstr "Ne postoje komisije koje ispunjavaju ove kriterije. Odaberite druge kriterije i pokrenite izvješće ponovo."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43929,15 +43929,15 @@ msgstr "Izradite nove detalje GL prodaje"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Ovdje odaberite područje. "
+msgstr "Ovdje odaberite područje. Ako se ovaj zapis odnosi na sva područja koja nemaju određeni zapis, odaberite Bilo koji drugi."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Ovdje odaberite kategoriju dionica. "
+msgstr "Ovdje odaberite kategoriju dionica. Ako se ovaj zapis odnosi na sve kategorije koje nemaju određeni zapis, odaberite Bilo koji drugi."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Ovdje odaberite vrstu prodaje. "
+msgstr "Ovdje odaberite vrstu prodaje. Ako se ovaj zapis odnosi na sve vrste koje nemaju određeni zapis, odaberite Bilo koji drugi."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44290,7 +44290,7 @@ msgstr "Unesite ime po kome će ta osoba biti poznata."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Odaberite prodajno područje koje ova osoba pokriva. "
+msgstr "Odaberite prodajno područje koje pokriva ova osoba. Ako pokrivaju više od jednog područja, ostavite ga praznim."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44330,7 +44330,7 @@ msgstr "Bio je SQL koji je korišten za dohvaćanje informacija o vrsti provizij
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Odaberite metodu izračuna koja se koristi za izračunavanje provizije za ovu prodajnu osobu. "
+msgstr "Odaberite metodu izračuna koja se koristi za izračun provizije za ovu prodajnu osobu. To se koristi samo ako je odabrano razdoblje provizije."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44350,7 +44350,7 @@ msgstr "Potvrdite ovaj okvir za prikaz faktura prodaje"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Izvorni iznosi u valuti kupca. "
+msgstr "Izvorni iznosi u valuti kupca. Iznosi GL-a u funkcionalnoj valuti."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45537,7 +45537,7 @@ msgstr "Narudžba fakture"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Nema popisnih lista koje bi zadovoljile vaše kriterije. "
+msgstr "Ne postoje popisi za branje koji ispunjavaju vaše kriterije. Pokušajte ponovo s drugim kriterijima"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -47720,7 +47720,7 @@ msgstr "Količina prilagodbe"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "Količina koja se mora prilagoditi. "
+msgstr "Količina koju treba prilagoditi. Neativna količina smanjuje zalihe, a pozitivna je povećava."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -49002,7 +49002,7 @@ msgstr "Dostupno po datumu"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Odaberite kategoriju dionica za pretraživanje. "
+msgstr "Odaberite kategoriju dionica za pretragu. Za pretraživanje svih kategorija dionica odaberite Sve"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -51538,7 +51538,7 @@ msgstr "Odaberite dobavljača za unos fakture"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "Vaša dopuštenja ne dopuštaju primanje robe. "
+msgstr "Vaša dopuštenja ne dopuštaju primanje robe. Automatsko primanje narudžbenica ograničeno je samo na one korisnike koji su ovlašteni za primanje robe / usluga"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
@@ -52128,7 +52128,7 @@ msgstr "Posljednji broj dobavljača"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Ako će dobavljači automatski generirati svoj ID, različite vrste dobavljača mogu imati svoj početni broj. "
+msgstr "Ako se dobavljačima želi automatski generirati ID, različite vrste dobavljača mogu imati vlastiti početni broj. Unesite broj sljedećeg dobavljača za ovu vrstu."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52364,7 +52364,7 @@ msgstr "Odaberite grupu dobavljača kojoj ovaj dobavljač pripada."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Odaberite prodajnu osobu na koju se odnosi ovaj dobavljač. "
+msgstr "Odaberite prodajnu osobu na koju se odnosi ovaj dobavljač. Ako ovaj dobavljač nije prodavač, odaberite Nijedan."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -52562,7 +52562,7 @@ msgstr "Zadana tema"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:454
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
-msgstr "Zadana tema za upotrebu za zaslon za prijavu i postavljanje novih korisnika. "
+msgstr "Zadana tema za zaslon za prijavu i postavljanje novih korisnika. Odabir teme korisnika nadjačat će je."
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:459
 msgid "Auto Update Exchange Rates Daily"
@@ -54250,7 +54250,7 @@ msgstr "Radni sati uneseni za 7. dan izgledaju previsoko - to je vjerojatno gre�
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Ako vrijeme nije moguće zamijeniti, to mora odražavati i radni nalog i radni centar. "
+msgstr "Ako se vrijeme ne može naplatiti, to moraju odražavati i radni nalog i radni centar. Samo ako je odabran radni nalog, radni centar se može postaviti"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55133,7 +55133,7 @@ msgstr "Naziv sigurnosne uloge"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "Je li uloga klinička. "
+msgstr "Je li uloga klinička. Na primjer, liječnik ili medicinska sestra"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55263,7 +55263,7 @@ msgstr "Uredi detalje za"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Unesite lozinku za ovog korisnika. "
+msgstr "Unesite lozinku za ovog korisnika. Ako ostane prazna, lozinka će ostati nepromijenjena."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55287,7 +55287,7 @@ msgstr "Ako je postavljeno na Da, tada korisnik mora promijeniti lozinku priliko
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Unesite puno ime ovog korisnika. "
+msgstr "Unesite puno ime ovog korisnika. Ne mora biti jedinstven."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55299,7 +55299,7 @@ msgstr "Unesite adresu e-pošte ovog korisnika."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Odaberite sigurnosnu ulogu ovog korisnika. "
+msgstr "Odaberite sigurnosnu ulogu ovog korisnika. To će odgovarati nazivu radnog mjesta."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55364,7 +55364,7 @@ msgstr "Odaberite temu koja će se koristiti za ovog korisnika."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Odaberite jezik korisnika. "
+msgstr "Odaberite jezik korisnika. Svi će se zasloni prevesti na ovaj jezik"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55411,7 +55411,7 @@ msgstr "Ako je odabrano Blokirano, ovom korisniku neće biti dozvoljena prijava.
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Odaberite veličinu fonta u koju će se zasloni crtati za ovog korisnika. "
+msgstr "Odaberite veličinu fonta kojom će se zaslon uvlačiti za ovog korisnika. Može se promijeniti u bilo kojem trenutku sa zaslona glavnog izbornika."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55474,7 +55474,7 @@ msgstr "Radni centri"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Ovaj radni centar već postoji u bazi podataka. "
+msgstr "Ovaj radni centar već postoji u bazi podataka. Upotrijebite drugi kod."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55556,7 +55556,7 @@ msgstr "Stvorite novi radni centar"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "Alfanumerički kôd po kojem će se identificirati ovaj radni centar. "
+msgstr "Alfanumerički kôd kojim će se identificirati ovaj radni centar. Može se koristiti do 5 znakova."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -60492,7 +60492,7 @@ msgstr "Stvorite novu evidenciju zaposlenika"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Jedinstveni alfa numerički kod za prepoznavanje ovog zaposlenika. "
+msgstr "Jedinstveni alfanumerički kod za identifikaciju ovog zaposlenika. Može se koristiti do 10 znakova"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61695,7 +61695,7 @@ msgstr "Stvorite razdoblje za plaću"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "ID po kojem će biti poznato ovo razdoblje plaćanja. "
+msgstr "ID pod kojim će biti poznato ovo razdoblje plaćanja. Ovo mora biti cijeli broj."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -71424,7 +71424,7 @@ msgstr "Bilješke grafikona"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG, itd. "
+msgstr "PT, ATG, itd. dnevne bilješke"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"
