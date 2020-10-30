@@ -142,6 +142,12 @@ $LanguagesArray['ja_JP.utf8']['DecimalPoint'] = '.';
 $LanguagesArray['ja_JP.utf8']['ThousandsSeparator'] = ',';
 $LanguagesArray['ja_JP.utf8']['Direction'] = 'ltr';
 
+$LanguagesArray['ko_KR.utf8']['LanguageName'] = '한국어';
+$LanguagesArray['ko_KR.utf8']['WindowsLocale'] = 'korean';
+$LanguagesArray['ko_KR.utf8']['DecimalPoint'] = '.';
+$LanguagesArray['ko_KR.utf8']['ThousandsSeparator'] = ',';
+$LanguagesArray['ko_KR.utf8']['Direction'] = 'ltr';
+
 $LanguagesArray['lv_LV.utf8']['LanguageName'] = 'Latviešu';
 $LanguagesArray['lv_LV.utf8']['WindowsLocale'] = 'latvian';
 $LanguagesArray['lv_LV.utf8']['DecimalPoint'] = ',';
