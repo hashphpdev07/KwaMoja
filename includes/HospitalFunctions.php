@@ -21,4 +21,15 @@ function GetPIDFRomEncounter($Encounter) {
 	}
 }
 
+function GetPriceListFromPID($PID) {
+	$PriceListSQL = "SELECT salestype FROM debtorsmaster WHERE debtorno='" . $PID . "'";
+	$PriceListResult = DB_query($PriceListSQL);
+	$PriceListRow = DB_fetch_array($PriceListResult);
+	if (DB_error_no($Result) == 0) {
+		return $PriceListRow['salestype'];
+	} else {
+		return -1;
+	}
+}
+
 ?>

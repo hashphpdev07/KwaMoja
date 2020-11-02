@@ -114,7 +114,7 @@ if (isset($_POST['Create'])) {
 		$MyRow = DB_fetch_array($Result);
 		$PID = $MyRow['pid'];
 
-		if (isset($_POST['StockItem'])) {
+		if (isset($_SESSION['RegistrationBillingItem']) and $_SESSION['RegistrationBillingItem'] != '') {
 			$SQL = "INSERT INTO care_billable_items (`pid`,
 													`stockid`,
 													`price_list`,
@@ -122,7 +122,7 @@ if (isset($_POST['Create'])) {
 													`create_time`
 												) VALUES (
 													'" . $PID . "',
-													'" . $_POST['StockItem'] . "',
+													'" . $_SESSION['RegistrationBillingItem'] . "',
 													'" . $_POST['SalesType'] . "',
 													'" . $_SESSION['UserID'] . "',
 													NOW()
@@ -289,8 +289,8 @@ if (isset($_POST['Create'])) {
 		$DbgMsg = _('The SQL used to update the patient record was');
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
 
-		if (isset($_POST['StockItem'])) {
-			$SQL = "UPDATE care_billable_items SET `stockid`='" . $_POST['StockItem'] . "',
+		if (isset($_SESSION['RegistrationBillingItem']) and $_SESSION['RegistrationBillingItem'] != '') {
+			$SQL = "UPDATE care_billable_items SET `stockid`='" . $_SESSION['RegistrationBillingItem'] . "',
 													`price_list`='" . $_POST['SalesType'] . "',
 													`modify_id`='" . $_SESSION['UserID'] . "',
 													`modify_time`=NOW()
@@ -645,27 +645,6 @@ if (isset($_POST['Insurance']) and $_POST['Insurance'] != '') {
 	echo '<option value=""></option>';
 	while ($MyRow = DB_fetch_array($Result)) {
 		echo '<option value="', $MyRow['salesmancode'], '">', $MyRow['salesmanname'], '</option>';
-	}
-	echo '</select>
-		</field>';
-}
-
-$SQL = "SELECT stockid,
-				description
-			FROM stockmaster
-			INNER JOIN stockcategory
-				ON stockmaster.categoryid=stockcategory.categoryid
-			INNER JOIN stocktypes
-				ON stockcategory.stocktype=stocktypes.type
-			WHERE stocktypes.type='R'";
-$Result = DB_query($SQL);
-
-if (DB_num_rows($Result) > 0) {
-	echo '<field>
-			<label for="StockItem">', _('Item to bill'), ':</label>
-			<select name="StockItem">';
-	while ($MyRow = DB_fetch_array($Result)) {
-		echo '<option value="', $MyRow['stockid'], '">', $MyRow['stockid'], ' - ', $MyRow['description'], '</option>';
 	}
 	echo '</select>
 		</field>';
