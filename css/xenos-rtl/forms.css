@@ -137,11 +137,32 @@ border-radius: 6px;
 cursor: pointer;
 color:#FFFFFF;
 }
+form input[type="submit"].previous_button {
+background:#34A7E8 url(images/previous.png) center left 2%/24px no-repeat;
+padding-right:16px;
+padding-left:32px;
+}
+form input[type="submit"].previous_button:hover {
+background:#34A7E8 url(images/previous.png) center left 2%/24px no-repeat;
+padding-right:16px;
+padding-left:32px;
+}
+form input[type="submit"].next_button {
+background:#34A7E8 url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
+form input[type="submit"].next_button:hover {
+background:#34A7E8 url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
 form .number {
 text-align:left;
 }
 fieldset ul li {
-text-alig
+text-align:left;
+}
 fieldset .container {
 display: block;
 position: relative;
