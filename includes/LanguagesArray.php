@@ -70,6 +70,12 @@ $LanguagesArray['fa_IR.utf8']['DecimalPoint'] = ',';
 $LanguagesArray['fa_IR.utf8']['ThousandsSeparator'] = '.';
 $LanguagesArray['fa_IR.utf8']['Direction'] = 'rtl';
 
+$LanguagesArray['fi_FI.utf8']['LanguageName'] = 'Suomi';
+$LanguagesArray['fi_FI.utf8']['WindowsLocale'] = 'Finnish';
+$LanguagesArray['fi_FI.utf8']['DecimalPoint'] = ',';
+$LanguagesArray['fi_FI.utf8']['ThousandsSeparator'] = ' ';
+$LanguagesArray['fi_FI.utf8']['Direction'] = 'ltr';
+
 $LanguagesArray['fr_CA.utf8']['LanguageName'] = 'Français Canada';
 $LanguagesArray['fr_CA.utf8']['WindowsLocale'] = 'french-quebec';
 $LanguagesArray['fr_CA.utf8']['DecimalPoint'] = ',';
@@ -135,6 +141,12 @@ $LanguagesArray['ja_JP.utf8']['WindowsLocale'] = 'japanese';
 $LanguagesArray['ja_JP.utf8']['DecimalPoint'] = '.';
 $LanguagesArray['ja_JP.utf8']['ThousandsSeparator'] = ',';
 $LanguagesArray['ja_JP.utf8']['Direction'] = 'ltr';
+
+$LanguagesArray['ko_KR.utf8']['LanguageName'] = '한국어';
+$LanguagesArray['ko_KR.utf8']['WindowsLocale'] = 'korean';
+$LanguagesArray['ko_KR.utf8']['DecimalPoint'] = '.';
+$LanguagesArray['ko_KR.utf8']['ThousandsSeparator'] = ',';
+$LanguagesArray['ko_KR.utf8']['Direction'] = 'ltr';
 
 $LanguagesArray['lv_LV.utf8']['LanguageName'] = 'Latviešu';
 $LanguagesArray['lv_LV.utf8']['WindowsLocale'] = 'latvian';

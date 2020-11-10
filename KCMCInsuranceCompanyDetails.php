@@ -459,11 +459,11 @@ echo '</table>';
 echo '<div class="centre">';
 if (!isset($_POST['ID'])) {
 	echo '<input type="submit" name="submit" value="' . _('Add New Company') . '" />
-			<input type="submit" name="reset" value="' . _('Reset') . '" />';
+			<input type="reset" name="reset" value="' . _('Reset') . '" />';
 	echo '<input type="hidden" name="New" value="True" />';
 } else {
 	echo '<input type="submit" name="submit" value="' . _('Update Company') . '" />';
-	echo '<input type="submit" name="delete" value="' . _('Delete Company') . '" />';
+	echo '<input type="reset" name="delete" value="' . _('Delete Company') . '" />';
 }
 
 echo '</div>';

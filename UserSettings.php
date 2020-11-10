@@ -212,11 +212,11 @@ echo '<field>
 echo '<field>
 		<label for="FontSize">', _('Screen Font Size'), ':</label>
 		<select name="FontSize">';
-if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '8pt') {
+if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '0.667rem') {
 	echo '<option selected="selected" value="0">', _('Small'), '</option>';
 	echo '<option value="1">', _('Medium'), '</option>';
 	echo '<option value="2">', _('Large'), '</option>';
-} else if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '10pt') {
+} else if (isset($_SESSION['ScreenFontSize']) and $_SESSION['ScreenFontSize'] == '0.833rem') {
 	echo '<option value="0">', _('Small'), '</option>';
 	echo '<option selected="selected" value="1">', _('Medium'), '</option>';
 	echo '<option value="2">', _('Large'), '</option>';

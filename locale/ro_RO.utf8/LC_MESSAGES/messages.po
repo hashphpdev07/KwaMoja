@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-19 01:24+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-28 10:22+0000\n"
+"PO-Revision-Date: 2020-10-28 10:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -366,7 +366,7 @@ msgstr "Sigur doriți să ștergeți acest grup de clasare?"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:151
 #: /home/tim/code/KwaMoja/PriceMatrix.php:310
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 #: /home/tim/code/KwaMoja/ProductSpecs.php:446
 #: /home/tim/code/KwaMoja/ProjectBOM.php:179
 #: /home/tim/code/KwaMoja/ProjectOtherReqts.php:110
@@ -526,6 +526,16 @@ msgstr "Lunile de mișcare pentru a include"
 msgid "The number of months stock movement to analyse."
 msgstr "Numărul de mișcare a stocului de luni de analizat."
 
+#: /home/tim/code/KwaMoja/ABCRankingGroups.php:213
+#: /home/tim/code/KwaMoja/ABCRankingMethods.php:112
+#: /home/tim/code/KwaMoja/ModuleEditor.php:87
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
+#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
+msgid "Save"
+msgstr "Salvați"
+
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:4
 msgid "Maintain ABC ranking methods"
 msgstr "Mențineți metodele de clasificare ABC"
@@ -621,7 +631,7 @@ msgstr "Metoda de clasificare a fost salvată cu succes în baza de date"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:150
 #: /home/tim/code/KwaMoja/PriceMatrix.php:309
 #: /home/tim/code/KwaMoja/Prices.php:246
-#: /home/tim/code/KwaMoja/Prices_Customer.php:275
+#: /home/tim/code/KwaMoja/Prices_Customer.php:278
 #: /home/tim/code/KwaMoja/ProductSpecs.php:445
 #: /home/tim/code/KwaMoja/PurchData.php:325
 #: /home/tim/code/KwaMoja/QATests.php:455
@@ -745,6 +755,11 @@ msgstr "Analiza detaliilor de clasare"
 msgid "Ranking group"
 msgstr "Clasament grup"
 
+#: /home/tim/code/KwaMoja/ABCRunAnalysis.php:146
+#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
+msgid "Run"
+msgstr "Alerga"
+
 #: /home/tim/code/KwaMoja/ABCRunAnalysis.php:150
 msgid "Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one"
 msgstr "Rețineți că, dacă executați o analiză ABC împotriva unui grup care a fost utilizat anterior, această analiză va fi ștearsă și înlocuită cu aceasta"
@@ -841,22 +856,22 @@ msgstr "au fost modificați în grupul de cont"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:177
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:210
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:280
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:385
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:179
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -892,7 +907,7 @@ msgstr "au fost modificați în grupul de cont"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:28
 #: /home/tim/code/KwaMoja/Prices.php:18
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:7
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
 #: /home/tim/code/KwaMoja/ProductSpecs.php:31
 #: /home/tim/code/KwaMoja/PurchData.php:253
 #: /home/tim/code/KwaMoja/PurchData.php:367
@@ -1295,6 +1310,10 @@ msgstr "Numele grupului părinte"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1335,10 +1354,10 @@ msgstr "Numele grupului părinte"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:98
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:146
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:67
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:70
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:450
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
@@ -1432,9 +1451,9 @@ msgstr "Numele grupului părinte"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:445
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:448
 #: /home/tim/code/KwaMoja/SalesCategories.php:348
-#: /home/tim/code/KwaMoja/SalesCategories.php:435
-#: /home/tim/code/KwaMoja/SalesCategories.php:439
-#: /home/tim/code/KwaMoja/SalesCategories.php:504
+#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:511
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:85
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:85
 #: /home/tim/code/KwaMoja/SalesPeople.php:207
@@ -1599,6 +1618,10 @@ msgstr "da"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -1639,10 +1662,10 @@ msgstr "da"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:97
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:142
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:145
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:69
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:72
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:408
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:46
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
@@ -1734,9 +1757,9 @@ msgstr "da"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:444
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:447
 #: /home/tim/code/KwaMoja/SalesCategories.php:350
-#: /home/tim/code/KwaMoja/SalesCategories.php:436
-#: /home/tim/code/KwaMoja/SalesCategories.php:438
-#: /home/tim/code/KwaMoja/SalesCategories.php:507
+#: /home/tim/code/KwaMoja/SalesCategories.php:443
+#: /home/tim/code/KwaMoja/SalesCategories.php:445
+#: /home/tim/code/KwaMoja/SalesCategories.php:514
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:83
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:83
 #: /home/tim/code/KwaMoja/SalesPeople.php:209
@@ -1951,12 +1974,12 @@ msgstr "Secvența din bilanțul procesului în care va apărea acest grup."
 #: /home/tim/code/KwaMoja/PaymentMethods.php:312
 #: /home/tim/code/KwaMoja/PaymentTerms.php:278
 #: /home/tim/code/KwaMoja/PriceMatrix.php:261
-#: /home/tim/code/KwaMoja/Prices_Customer.php:353
+#: /home/tim/code/KwaMoja/Prices_Customer.php:363
 #: /home/tim/code/KwaMoja/ProductSpecs.php:637
 #: /home/tim/code/KwaMoja/QATests.php:348
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:513
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:473
-#: /home/tim/code/KwaMoja/SalesCategories.php:455
+#: /home/tim/code/KwaMoja/SalesCategories.php:462
 #: /home/tim/code/KwaMoja/SalesCommissionTypes.php:221
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:291
 #: /home/tim/code/KwaMoja/SalesPeople.php:455
@@ -2067,7 +2090,7 @@ msgstr "Codul grupului întreg pentru această secțiune de cont"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Selectați limba pentru această secțiune de cont. "
+msgstr "Selectați limba pentru această secțiune de cont. Rețineți că fiecare limbă trebuie să aibă toate aceleași secțiuni de cont configurate."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -2213,13 +2236,13 @@ msgstr "Înregistrarea de contact a fost ștearsă"
 #: /home/tim/code/KwaMoja/Customers.php:697
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:319
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:360
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
@@ -2338,7 +2361,7 @@ msgstr "Afirmație"
 #: /home/tim/code/KwaMoja/GLStatements.php:137
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:56
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:465
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -2501,7 +2524,7 @@ msgstr "Note pentru client"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:131
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:625
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:129
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:486
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:483
 #: /home/tim/code/KwaMoja/MRPCalendar.php:209
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:400
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:318
@@ -2853,7 +2876,7 @@ msgstr "Stoc"
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:74
 #: /home/tim/code/KwaMoja/ReverseGRN.php:404
 #: /home/tim/code/KwaMoja/SalesCategories.php:203
-#: /home/tim/code/KwaMoja/SalesCategories.php:487
+#: /home/tim/code/KwaMoja/SalesCategories.php:494
 #: /home/tim/code/KwaMoja/SecurityTokens.php:121
 #: /home/tim/code/KwaMoja/SecurityTokens.php:163
 #: /home/tim/code/KwaMoja/SelectAsset.php:262
@@ -3352,6 +3375,7 @@ msgstr "nu a putut fi recuperat deoarece"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -3775,9 +3799,9 @@ msgstr "Selectați ultima perioadă din raport"
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:517
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:534
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:545
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:556
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:529
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:540
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:551
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
@@ -3800,7 +3824,7 @@ msgstr "Selectați ultima perioadă din raport"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:246
 #: /home/tim/code/KwaMoja/Projects.php:653
 #: /home/tim/code/KwaMoja/PurchData.php:382
-#: /home/tim/code/KwaMoja/SalesCategories.php:570
+#: /home/tim/code/KwaMoja/SalesCategories.php:577
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:231
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:231
 #: /home/tim/code/KwaMoja/SalesGraph.php:96
@@ -3864,7 +3888,7 @@ msgstr "Selectați Perioada"
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "Selectați o perioadă predefinită din această listă. "
+msgstr "Selectați o perioadă predefinită din această listă. Dacă este făcută o selecție aici, aceasta va înlocui orice este selectat în opțiunile De la și până la de mai sus."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -3972,7 +3996,7 @@ msgstr "Selectați un interval de perioadă alternativ"
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:45
@@ -4363,7 +4387,7 @@ msgstr "SQL-ul care a fost folosit pentru a prelua informațiile zonei și care 
 
 #: /home/tim/code/KwaMoja/Areas.php:227
 msgid "The area that contains this area. Leave blank if this is a top level area"
-msgstr "Zona care conține această zonă. "
+msgstr "Zona care conține această zonă. Lăsați necompletat dacă aceasta este o zonă de nivel superior"
 
 #: /home/tim/code/KwaMoja/Areas.php:233
 msgid "The name of the area being entered"
@@ -4582,8 +4606,8 @@ msgstr "numele de utilizator"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:215
 #: /home/tim/code/KwaMoja/ReorderLevel.php:236
 #: /home/tim/code/KwaMoja/ReorderLevel.php:238
-#: /home/tim/code/KwaMoja/SalesCategories.php:538
-#: /home/tim/code/KwaMoja/SalesCategories.php:541
+#: /home/tim/code/KwaMoja/SalesCategories.php:545
+#: /home/tim/code/KwaMoja/SalesCategories.php:548
 #: /home/tim/code/KwaMoja/SalesGraph.php:120
 #: /home/tim/code/KwaMoja/SalesGraph.php:122
 #: /home/tim/code/KwaMoja/SalesGraph.php:144
@@ -4695,10 +4719,10 @@ msgstr "Utilizator"
 #: /home/tim/code/KwaMoja/AuditTrail.php:186
 #: /home/tim/code/KwaMoja/CustomerBranches.php:108
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:241
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:243
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -5076,11 +5100,11 @@ msgstr "Pe cantitatea de mână"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:234
 msgid "P.O. Quantity"
-msgstr "P.O. "
+msgstr "P.O. Cantitate"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:235
 msgid "W.O. Quantity"
-msgstr "W.O. "
+msgstr "W.O. Cantitate"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:236
 #: /home/tim/code/KwaMoja/MRPShortages.php:351
@@ -5524,7 +5548,7 @@ msgstr "Introduceți criterii de căutare"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5539,7 +5563,7 @@ msgstr "Introduceți extrase de text în"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5558,7 +5582,7 @@ msgstr "Introduceți o parte a descrierii unui articol"
 #: /home/tim/code/KwaMoja/MRPDemands.php:324
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:288
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/Shipt_Select.php:205
@@ -5579,7 +5603,7 @@ msgstr "Introduceți extras din"
 #: /home/tim/code/KwaMoja/MRPReport.php:574
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SalesInquiry.php:627
 #: /home/tim/code/KwaMoja/SalesInquiry.php:638
 #: /home/tim/code/KwaMoja/SalesInquiry.php:661
@@ -5631,7 +5655,7 @@ msgstr "Sau introduceți o parte dintr-un cod de articole"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:531
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:570
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:565
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:381
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
@@ -5641,7 +5665,7 @@ msgstr "Sau introduceți o parte dintr-un cod de articole"
 #: /home/tim/code/KwaMoja/PO_Items.php:1433
 #: /home/tim/code/KwaMoja/ProjectBOM.php:250
 #: /home/tim/code/KwaMoja/Projects.php:659
-#: /home/tim/code/KwaMoja/SalesCategories.php:578
+#: /home/tim/code/KwaMoja/SalesCategories.php:585
 #: /home/tim/code/KwaMoja/SelectAsset.php:118
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:210
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:941
@@ -7035,7 +7059,7 @@ msgstr "Selectați codul contabil general pe care să-l utilizați pentru acest 
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:310
 msgid "The name that this bank account will be called. Does not have to be the same as the General Ledger description."
-msgstr "Numele la care se va numi acest cont bancar. "
+msgstr "Numele pe care va fi numit acest cont bancar. Nu trebuie să fie la fel ca descrierea contabilității generale."
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:315
 msgid "The code that the account is known by at the bank."
@@ -7751,7 +7775,7 @@ msgstr "Esti sigur?"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:347
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
-msgstr "Este normal ca conturile în valută să aibă diferențe de schimb care trebuie reflectate pe măsură ce rata de schimb variază. "
+msgstr "Este normal ca conturile în valută să aibă diferențe de schimb care trebuie reflectate pe măsură ce rata de schimb variază. Această reconciliere este pregătită folosind cursul de schimb stabilit în tabelul monedelor (vezi fila de configurare). Acest tabel trebuie menținut cu cursul de schimb curent înainte de executarea reconcilierii. Dacă doriți să creați un jurnal pentru a reflecta diferența de schimb pe baza cursului de schimb curent pentru a corecta reconcilierea cu soldul extrasului de cont real, faceți clic mai jos."
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:358
 #: /home/tim/code/KwaMoja/BankReconciliation.php:363
@@ -7858,11 +7882,11 @@ msgstr "Oricare altul"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:156
 msgid "Select the area to be used in this group. To cover all areas just select Any Other"
-msgstr "Selectați zona care va fi utilizată în acest grup. "
+msgstr "Selectați zona care va fi utilizată în acest grup. Pentru a acoperi toate zonele, selectați Orice altul"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:175
 msgid "Select the stock category to be used in this group. To cover all categories just select Any Other"
-msgstr "Selectați categoria de stoc care va fi utilizată în acest grup. "
+msgstr "Selectați categoria de stoc care va fi utilizată în acest grup. Pentru a acoperi toate categoriile, selectați oricare altul"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:182
 #: /home/tim/code/KwaMoja/Customers.php:512
@@ -7887,7 +7911,7 @@ msgstr "Listă de prețuri"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:194
 msgid "Select the sales type to be used in this group. To cover all types just select Any Other"
-msgstr "Selectați tipul de vânzări care va fi utilizat în acest grup. "
+msgstr "Selectați tipul de vânzare care va fi utilizat în acest grup. Pentru a acoperi toate tipurile, selectați Orice altul"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:198
 msgid "Post to GL account"
@@ -7907,7 +7931,7 @@ msgstr "Ați introdus parola curentă greșită, vă rugăm să reintroduceți"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Noua parolă este aceeași cu cea veche. "
+msgstr "Noua parolă este aceeași cu cea veche. Trebuie să alegeți o nouă parolă."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7915,7 +7939,7 @@ msgstr "Confirmarea și noile parole nu sunt aceleași."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "Executați în modul demonstrativ, astfel încât parola nu poate fi modificată. "
+msgstr "Rulați în modul demonstrativ, astfel încât parola nu poate fi modificată. Clic"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7939,11 +7963,11 @@ msgstr "aici"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "pentru a vă deconecta și a vă autentifica din nou cu parola curentă. "
+msgstr "să vă deconectați și să vă conectați din nou cu parola dvs. curentă. Parola dvs. nu a fost modificată"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Parola dvs. a fost actualizată. "
+msgstr "Parola dvs. a fost actualizată. Clic"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7959,7 +7983,7 @@ msgstr "Schimbați-vă parola"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "Administratorul îți blochează contul până când îți schimbi parola. "
+msgstr "Administratorul v-a blocat contul până când vă schimbați parola. Utilizați acest ecran pentru a vă schimba parola înainte de a continua."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8021,7 +8045,7 @@ msgstr "Eroare la recuperarea datelor despre costuri"
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:317
 #: /home/tim/code/KwaMoja/SalesCategories.php:97
 #: /home/tim/code/KwaMoja/SalesCategories.php:111
-#: /home/tim/code/KwaMoja/SalesCategories.php:486
+#: /home/tim/code/KwaMoja/SalesCategories.php:493
 #: /home/tim/code/KwaMoja/SalesTopItemsInquiry.php:217
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:375
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:139
@@ -8186,7 +8210,7 @@ msgstr "Pentru a căuta ordine de lucru pentru un anumit element, utilizați fac
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:147
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:213
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:180
-#: /home/tim/code/KwaMoja/SalesCategories.php:534
+#: /home/tim/code/KwaMoja/SalesCategories.php:541
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:378
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:903
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:268
@@ -8249,7 +8273,7 @@ msgstr "Nu au fost returnate comenzi de lucrări de către SQL deoarece"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:73
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
@@ -8417,9 +8441,9 @@ msgstr "Cantitate în exclusivitate"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:491
 #: /home/tim/code/KwaMoja/Prices.php:222
 #: /home/tim/code/KwaMoja/PricesByCost.php:164
-#: /home/tim/code/KwaMoja/Prices_Customer.php:205
-#: /home/tim/code/KwaMoja/Prices_Customer.php:254
-#: /home/tim/code/KwaMoja/Prices_Customer.php:340
+#: /home/tim/code/KwaMoja/Prices_Customer.php:206
+#: /home/tim/code/KwaMoja/Prices_Customer.php:255
+#: /home/tim/code/KwaMoja/Prices_Customer.php:346
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:418
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:379
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:384
@@ -8559,6 +8583,7 @@ msgstr "Nu s-a putut actualiza tarifele de schimb valutar"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8587,6 +8612,7 @@ msgid "Validation failed"
 msgstr "Validarea a esuat"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8788,7 +8814,7 @@ msgstr "Contul de control al debitorilor GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:377
 msgid "The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report."
-msgstr "Contul de evidență generală să acționeze ca control al tranzacțiilor cu creanțe. "
+msgstr "Contul contabil general trebuie să acționeze ca control pentru tranzacțiile de creanță. Acest cont ar trebui să fie de acord cu raportul total al debitorilor în vârstă."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:381
 msgid "Creditors Control GL Account"
@@ -8796,7 +8822,7 @@ msgstr "Creditorii Cont Cont GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:383
 msgid "The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report."
-msgstr "Contul de evidență generală să acționeze ca control al tranzacțiilor plătitoare de conturi. "
+msgstr "Contul contabil general trebuie să acționeze ca control pentru tranzacțiile de plătit. Acest cont ar trebui să fie de acord cu raportul total al creditorilor în vârstă."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:387
 msgid "Payroll Net Pay Clearing GL Account"
@@ -8812,7 +8838,7 @@ msgstr "Bunuri primite Cont de compensare GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:395
 msgid "The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero."
-msgstr "Contul de evidență generală să acționeze ca contul de compensare a mărfurilor primite. "
+msgstr "Contul contabil general să acționeze ca cont de compensare pentru bunurile primite. Atunci când GRN este ridicat, o înregistrare este postată aici, iar când factura furnizorului este afișată, aceasta va contracara această intrare. Acest cont ar trebui să se reconcilieze întotdeauna cu zero."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:399
 msgid "Sales Commission Accruals Account"
@@ -8820,7 +8846,7 @@ msgstr "Contul de vânzări al Comisiei de vânzări"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "Contul de evidență generală să acționeze ca cont de angajamente al comisiei de vânzări. "
+msgstr "Contul de contabilitate generală va acționa ca contul de angajamente pentru vânzări. Comisionul câștigat, dar neplătit, va fi afișat aici și va fi compensat la plata comisionului."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -8828,7 +8854,7 @@ msgstr "Contul de compensare a contului GL pentru încasări"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:407
 msgid "The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly."
-msgstr "Contul de evidență generală să acționeze ca contul de câștiguri obținute cu Profitul / Pierderea acumulată. "
+msgstr "Contul de contabilitate generală va acționa ca contul de câștiguri reportate cu Profitul / Pierderea acumulată. Acest cont este gestionat de KwaMoja și, odată configurat, nu trebuie accesat direct."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:411
 msgid "Freight Re-charged GL Account"
@@ -9199,7 +9225,7 @@ msgstr "Această expediere"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:254
 #: /home/tim/code/KwaMoja/Prices.php:221 /home/tim/code/KwaMoja/Prices.php:341
 #: /home/tim/code/KwaMoja/PricesByCost.php:266
-#: /home/tim/code/KwaMoja/Prices_Customer.php:347
+#: /home/tim/code/KwaMoja/Prices_Customer.php:356
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:997
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1021
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1101
@@ -9850,14 +9876,14 @@ msgstr "SQL-ul utilizat pentru actualizarea transportatorului implicit al ramuri
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10226,14 +10252,14 @@ msgstr "EROARE CRITICA"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10947,8 +10973,8 @@ msgstr "Tranzacția cu active fixe nu a putut fi introdusă deoarece"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "A fost utilizat următorul SQL pentru a insera înregistrarea tranzacției imobiliare"
 
@@ -11036,7 +11062,7 @@ msgstr "Data facturii"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "Data la care au fost trimise mărfurile / serviciile. "
+msgstr "Data trimiterii bunurilor / serviciilor. Aceasta este data care va apărea ca dată a facturii."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11078,7 +11104,7 @@ msgstr "Text de factură"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Orice text care ar trebui să apară pe factură. "
+msgstr "Orice text care ar trebui să apară pe factură. Acest text va fi vizibil pentru client."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11086,7 +11112,7 @@ msgstr "Comentarii interne"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Orice text intern pentru această factură. "
+msgstr "Orice text intern pentru această factură. Acest text nu va fi vizibil pentru client."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -12031,9 +12057,9 @@ msgstr "Locațiile pentru element"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -12211,7 +12237,7 @@ msgstr "S-a folosit SQL care nu a reușit să obțină detaliile despre client"
 #: /home/tim/code/KwaMoja/ShopParameters.php:592
 #: /home/tim/code/KwaMoja/SpecialOrder.php:94
 msgid "The"
-msgstr ""
+msgstr "Cele"
 
 #: /home/tim/code/KwaMoja/Contracts.php:746
 #: /home/tim/code/KwaMoja/CounterSales.php:195
@@ -12241,7 +12267,7 @@ msgstr "Contract: Selectați Client"
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:485
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:524
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:519
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
@@ -12365,8 +12391,8 @@ msgstr "Client"
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:310
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:314
 #: /home/tim/code/KwaMoja/PricesByCost.php:163
-#: /home/tim/code/KwaMoja/Prices_Customer.php:253
-#: /home/tim/code/KwaMoja/Prices_Customer.php:326
+#: /home/tim/code/KwaMoja/Prices_Customer.php:254
+#: /home/tim/code/KwaMoja/Prices_Customer.php:331
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:970
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:474
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:219
@@ -13574,7 +13600,7 @@ msgstr "Noul număr de comandă de lucru"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:123
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:182
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:452
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RecurringSalesOrdersProcess.php:88
 #: /home/tim/code/KwaMoja/ReverseGRN.php:342
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
@@ -13970,7 +13996,7 @@ msgstr "Cantitatea de credit pentru linia pentru"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "este mai mult decât cantitatea facturată. "
+msgstr "este mai mult decât cantitatea facturată. Această verificare se face pentru a se asigura că nota de credit nu este duplicată."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -14096,7 +14122,7 @@ msgstr "Postarea GL pentru transportul de marfă pentru această notă de credit
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -16238,10 +16264,10 @@ msgstr "Utilizați această sucursală ca implicită pentru vânzările de numer
 #: /home/tim/code/KwaMoja/CustomerBranches.php:882
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:242
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:244
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:361
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:63
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
@@ -16779,7 +16805,7 @@ msgstr "Încasările nu pot fi introduse până când nu este definită o moned�
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:904
 msgid "The currency of the receipts. Does not have to be the same as the bank account currency."
-msgstr "Moneda încasărilor. "
+msgstr "Moneda încasărilor. Nu trebuie să fie la fel ca moneda contului bancar."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:923
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:939
@@ -17677,7 +17703,7 @@ msgstr "Tranzacții datate de la"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Alegeți data de început pentru raport. "
+msgstr "Alegeți data de începere pentru raport. Tranzacțiile la această dată vor fi incluse."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17686,7 +17712,7 @@ msgstr "Tranzacții datate"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Selectați data de închidere pentru raport. "
+msgstr "Selectați data de închidere a raportului. Tranzacțiile la această dată vor fi incluse."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17700,7 +17726,7 @@ msgstr "Potrivite"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Selectați dacă să afișați doar tranzacții potrivite sau neegalate. "
+msgstr "Selectați dacă doriți să afișați numai tranzacții potrivite sau neegalate. Pentru a afișa toate tranzacțiile, alegeți Toate."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -17965,7 +17991,7 @@ msgstr "Nivel de securitate"
 #: /home/tim/code/KwaMoja/DashboardConfig.php:109
 #: /home/tim/code/KwaMoja/JobScheduler.php:103
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:213
-#: /home/tim/code/KwaMoja/SalesCategories.php:510
+#: /home/tim/code/KwaMoja/SalesCategories.php:517
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
@@ -18208,11 +18234,11 @@ msgstr "Creați detalii despre container"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Introduceți un ID prin care va face referire acest container. "
+msgstr "Introduceți un cod prin care se va face referire la acest container. ID-ul poate avea până la 6 caractere."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Introduceți o descriere a acestui container. "
+msgstr "Introduceți o descriere a acestui container. Descrierea poate avea până la 50 de caractere."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18228,19 +18254,19 @@ msgstr "Introduceți numărul de secvență pentru acest container."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Selectați Da, dacă acest container poate fi utilizat pentru îndepărtarea directă. "
+msgstr "Selectați Da, dacă acest container poate fi folosit pentru depozitarea directă. În caz contrar, selectați Nu"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Selectați Da dacă acest container poate fi utilizat pentru preluarea direcționată. "
+msgstr "Selectați Da dacă acest container poate fi utilizat pentru cules direct. În caz contrar, selectați Nu"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Selectați Da dacă acest container poate fi reumplut. "
+msgstr "Selectați Da dacă acest container poate fi completat. În caz contrar, selectați Nu"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Selectați Da dacă acest container este desemnat ca rea ​​de carantină. "
+msgstr "Selectați Da dacă acest container este desemnat drept rea de carantină. În caz contrar, selectați Nu"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18697,7 +18723,7 @@ msgstr "Numele departamentului nu trebuie să fie gol"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Există deja un departament cu acest nume. "
+msgstr "Există deja un departament cu acest nume. Vă rugăm să alegeți un nume nou"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -20143,7 +20169,7 @@ msgstr "Numele companiei"
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:558
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:713
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:752
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:496
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:493
 #: /home/tim/code/KwaMoja/OrderDetails.php:124
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:866
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:888
@@ -20700,14 +20726,14 @@ msgid "long"
 msgstr "lung"
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:477
-#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:453
 #: /home/tim/code/KwaMoja/Stocks.php:1171
 msgid "Image File ("
 msgstr "Fișier imagine ("
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:479
 #: /home/tim/code/KwaMoja/Manufacturers.php:315
-#: /home/tim/code/KwaMoja/SalesCategories.php:448
+#: /home/tim/code/KwaMoja/SalesCategories.php:455
 #: /home/tim/code/KwaMoja/Stocks.php:1174
 msgid "Clear Image"
 msgstr "Ștergeți imaginea"
@@ -21248,7 +21274,7 @@ msgstr "Selectați formularul de editat"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Selectați formularul de menținut. "
+msgstr "Selectați formularul de menținut. Fișierele xml pentru aceste formulare sunt stocate în directorul companiilor"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21507,7 +21533,7 @@ msgstr "Conturile selectate"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Selectați conturile pentru acest raport. "
+msgstr "Selectați conturile pentru acest raport. Utilizați tasta Shift de la tastatură pentru a selecta mai multe conturi."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22940,7 +22966,7 @@ msgstr "Data introdusă nu a fost validă, introduceți data pentru procesarea j
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Nu sunt salvate șabloane. "
+msgstr "Nu există șabloane salvate. Mai întâi trebuie să creați un șablon."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23012,7 +23038,7 @@ msgstr "Șablonul a fost salvat cu succes"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Un șablon cu această descriere există deja. "
+msgstr "Există deja un șablon cu această descriere. Trebuie să utilizați o descriere unică"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23278,7 +23304,7 @@ msgstr "Situațiile financiare"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "Trebuie să selectați cel puțin o situație financiară. "
+msgstr "Trebuie să selectați cel puțin o situație financiară. Vă rugăm să selectați situațiile financiare."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -23490,7 +23516,7 @@ msgstr "Descrierea etichetei"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:408
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 #: /home/tim/code/KwaMoja/sql/updates/217.php:70
@@ -24109,7 +24135,7 @@ msgstr "A fost utilizată următoarea SQL pentru a insera înregistrările de st
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "cost"
 
@@ -24118,8 +24144,8 @@ msgstr "cost"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "EROARE CRITICA!  NOTĂ CITIȚI ACEASTA EROARE ȘI CĂUTAȚI ASISTENȚA Tranzacția cu active fixe nu a putut fi introdusă deoarece"
 
@@ -24129,7 +24155,7 @@ msgstr "EROARE CRITICA!  Lăsați această eroare și solicitați asistență.  
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Următorul SQL a fost utilizat pentru a încerca actualizarea costului și data achiziționării acestuia"
 
@@ -24474,7 +24500,7 @@ msgstr "Soldul de deschidere la data de"
 #: /home/tim/code/KwaMoja/Payments.php:1397
 #: /home/tim/code/KwaMoja/Payments.php:1405
 #: /home/tim/code/KwaMoja/Payments.php:1407
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:32
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
 #: /home/tim/code/KwaMoja/SpecialOrder.php:126
@@ -24699,7 +24725,7 @@ msgid "SalesType/Price List"
 msgstr "Tip de vânzare / Listă de prețuri"
 
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:125
-#: /home/tim/code/KwaMoja/Prices_Customer.php:150
+#: /home/tim/code/KwaMoja/Prices_Customer.php:152
 #: /home/tim/code/KwaMoja/UploadPriceList.php:126
 msgid "The price could not be added because"
 msgstr "Prețul nu a putut fi adăugat deoarece"
@@ -26074,7 +26100,7 @@ msgid "Created On"
 msgstr "Creat in"
 
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:118
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:491
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:488
 msgid "Doctor"
 msgstr "Doctor"
 
@@ -26137,7 +26163,7 @@ msgstr "Număr pat"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:74
@@ -26152,7 +26178,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:359
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:60
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
@@ -26558,6 +26584,89 @@ msgstr "Solicitați un test de bacteriologie"
 msgid "Laboratory Maintenance"
 msgstr "Întreținere de laborator"
 
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
+#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+msgid "Billing Configuration"
+msgstr "Configurare facturare"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
+msgid "Hospital Configuration"
+msgstr "Configurare spital"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+msgid "The billing configuration could not be updated because"
+msgstr "Configurația de facturare nu a putut fi actualizată deoarece"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+msgid "Billing configuration updated"
+msgstr "Configurația de facturare a fost actualizată"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+msgid "Registration and Admissions"
+msgstr "Înregistrare și admitere"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+msgid "Item to bill for patient registration"
+msgstr "Articol de facturat pentru înregistrarea pacientului"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+msgid "Do not Bill"
+msgstr "Nu facturați"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+msgid "Item to bill for inpatient admissions"
+msgstr "Articol de facturat pentru internări"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+msgid "Item to bill for outpatient admissions"
+msgstr "Articol de facturat pentru internări ambulatorii"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+msgid "Laboratory Billing"
+msgstr "Facturarea în laborator"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+msgid "Payment must be made before Test"
+msgstr "Plata trebuie efectuată înainte de test"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+msgid "If not insured"
+msgstr "Dacă nu este asigurat"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+msgid "Always"
+msgstr "Mereu"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/SystemParameters.php:592
+#: /home/tim/code/KwaMoja/SystemParameters.php:594
+msgid "Never"
+msgstr "Nu"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+msgid "Bill for bacteriology tests"
+msgstr "Proiect de lege pentru testele de bacteriologie"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+msgid "Bill for blood tests"
+msgstr "Factură pentru analize de sânge"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+msgid "Bill for medical tests"
+msgstr "Factura pentru analize medicale"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+msgid "Bill for pathology tests"
+msgstr "Proiect de lege pentru testele de patologie"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+msgid "Save Configuration"
+msgstr "Salvați configurația"
+
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:5
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:11
 msgid "Blood Bank"
@@ -26568,9 +26677,9 @@ msgid "Pending Blood Requests"
 msgstr "Cereri de sânge în așteptare"
 
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:32
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:4
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:3
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:43
 msgid "Blood Request"
 msgstr "Cerere de sânge"
 
@@ -27027,8 +27136,8 @@ msgstr "Sistemul urogenital"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:339
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -27039,8 +27148,8 @@ msgstr "Masculin"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:333
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:340
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -27163,9 +27272,9 @@ msgid "Patient Discharge Details"
 msgstr "Detalii despre descarcarea pacientului"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:240
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:242
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:51
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
@@ -27184,7 +27293,7 @@ msgid "Date of Birth"
 msgstr "Data de nastere"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:407
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 #: /home/tim/code/KwaMoja/sql/updates/217.php:69
 msgid "Ward"
@@ -27410,8 +27519,8 @@ msgid "has been successfully updated"
 msgstr "a fost actualizat cu succes"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:370
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -27427,8 +27536,8 @@ msgid "Sex"
 msgstr "Sex"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:448
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:449
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Companie de asigurari"
@@ -27502,7 +27611,7 @@ msgid "Requested Tests"
 msgstr "Teste solicitate"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:782
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:394
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:391
 msgid "Label"
 msgstr "Eticheta"
 
@@ -27722,7 +27831,7 @@ msgstr "Notă suplimentară"
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:145
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:436
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:476
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:473
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "Diagnostic"
@@ -27862,11 +27971,6 @@ msgstr "Unitatea funcțională"
 msgid "Statement of Income and Expenditure for"
 msgstr "Situația veniturilor și cheltuielilor pentru"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
-msgid "Hospital Configuration"
-msgstr "Configurare spital"
-
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:49
 msgid "The hospital configuration could not be updated because"
 msgstr "Configurația spitalului nu a putut fi actualizată deoarece"
@@ -27927,7 +28031,7 @@ msgstr "Tip de debitor de utilizat pentru companiile de asigurări"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Tipul de debitor utilizat pentru companiile de asigurări. "
+msgstr "Tipul de debitor utilizat pentru companiile de asigurări. Toate companiile de asigurări trebuie să fie de acest tip."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28094,7 +28198,7 @@ msgstr "Droguri emise din"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Locațiile nu au fost încă definite. "
+msgstr "Locațiile nu au fost încă definite. Mai întâi trebuie"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28221,9 +28325,9 @@ msgid "This patient is not currently admitted as an inpatient"
 msgstr "În prezent, acest pacient nu este internat ca internat"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:124
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:126
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
 #: /home/tim/code/KwaMoja/KCMCRegister.php:345
 msgid "Return to Patient Screen"
 msgstr "Reveniți la ecranul pacientului"
@@ -28234,9 +28338,9 @@ msgid "There was a problem inserting the encounter record because"
 msgstr "A apărut o problemă la introducerea înregistrării de întâlnire, deoarece"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:75
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:108
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:128
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:110
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:130
 msgid "The SQL used to insert the encounter record was"
 msgstr "SQL folosit pentru a insera înregistrarea întâlnirii a fost"
 
@@ -28245,151 +28349,175 @@ msgstr "SQL folosit pentru a insera înregistrarea întâlnirii a fost"
 msgid "The patient was successfully admitted."
 msgstr "Pacientul a fost internat cu succes."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:91
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:92
-msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "Pacientul este deja internat. "
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:94
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCRegister.php:130
+msgid "There was a problem inserting the billable items because"
+msgstr "A apărut o problemă la introducerea elementelor facturabile, deoarece"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:107
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:109
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:96
+#: /home/tim/code/KwaMoja/KCMCRegister.php:131
+msgid "The SQL used to insert the billable items was"
+msgstr "SQL folosit pentru a insera elementele facturabile a fost"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
+msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
+msgstr "Pacientul este deja internat. Trebuie să fie eliberați înainte de a putea fi readmiși"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
 msgid "There was a problem updating the encounter record because"
 msgstr "A apărut o problemă la actualizarea înregistrării întâlnirii deoarece"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:113
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:131
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:133
 msgid "The patient data was successfully updated."
 msgstr "Datele despre pacient au fost actualizate cu succes."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:140
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:142
+#: /home/tim/code/KwaMoja/KCMCRegister.php:298
+msgid "There was a problem updating the billable items because"
+msgstr "A existat o problemă la actualizarea elementelor facturabile, deoarece"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:141
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:143
+#: /home/tim/code/KwaMoja/KCMCRegister.php:299
+msgid "The SQL used to update the billable items was"
+msgstr "SQL folosit pentru actualizarea elementelor facturabile a fost"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
 msgid "Search For Patient"
 msgstr "Caută pacient"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:155
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:186
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:188
 msgid "Search for patient details"
 msgstr "Căutați detalii despre pacient"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:157
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:188
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:190
 msgid "File number"
 msgstr "Numărul fișierului"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:190
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:192
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "Introduceți total sau parțial numărul de fișier al pacienților, dacă este cunoscut"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:162
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:193
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:195
 msgid "Patients name"
 msgstr "Numele pacienților"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:164
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:195
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:197
 msgid "Enter all or part of the patients name if it is known"
 msgstr "Introduceți numele total sau parțial al pacienților, dacă este cunoscut"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:198
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:200
 msgid "Patients Address"
 msgstr "Adresa pacienților"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:169
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:200
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:202
 msgid "Enter all or part of the patients address if it is known"
 msgstr "Introduceți toate sau o parte a adresei pacienților, dacă este cunoscută"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:172
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:203
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:205
 msgid "Patients Phone Number"
 msgstr "Numărul de telefon al pacienților"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:174
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:205
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "Introduceți integral sau parțial numărul de telefon al pacienților, dacă este cunoscut"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:208
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:239
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:241
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "Numărul pacientului"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:258
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:263
 msgid "Admit Patient"
 msgstr "Admite pacient"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:237
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:264
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:270
 msgid "There are no patients matching this criteria"
 msgstr "Nu există pacienți care să corespundă acestor criterii"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "Domnul"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "Domnișoară"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "domnișoară"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "doamna"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "Dr."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:304
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:337
 msgid "Update Admission data for"
 msgstr "Actualizați datele de admitere pentru"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "Admit"
 msgstr "admite"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
 msgid "as an inpatient"
 msgstr "ca internat"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:345
 msgid "Admission Date"
 msgstr "Data admiterii"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:348
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:349
 msgid "Admission Time"
 msgstr "Ora de admitere"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:360
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:361
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:54
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:336
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:333
 #: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
 msgid "Blood Group"
 msgstr "Grupa sanguină"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:364
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:365
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -28398,78 +28526,78 @@ msgstr "Grupa sanguină"
 msgid "Gender"
 msgstr "Gen"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:376
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:377
 msgid "Admission Type"
 msgstr "Tipul de admitere"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:386
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:387
 msgid "A type of admission."
 msgstr "Un tip de admitere."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "White"
 msgstr "alb"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Green"
 msgstr "Verde"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Yellow"
 msgstr "Galben"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Red"
 msgstr "roșu"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:391
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:392
 msgid "Triage Code"
 msgstr "Cod de triaj"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:401
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:402
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "Codul de triaj pentru acest pacient, albul fiind cel mai puțin grav, iar roșul fiind cel mai grav."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:417
 msgid "The ward that this patient is being admitted to."
 msgstr "Secția în care este internat acest pacient."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:421
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:422
 msgid "Referrer Diagnosis"
 msgstr "Diagnostic referitor"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 msgid "Referred By"
 msgstr "Menționate prin"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Referrer Therapy"
 msgstr "Terapia referitorilor"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:436
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:437
 msgid "Referrer Notes"
 msgstr "Note referitor"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:459
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:460
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "Compania de asigurare, dacă este cazul, de care aparține acest pacient"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:464
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:465
 msgid "Insurance Number"
 msgstr "Numar de asigurare"
 
@@ -28920,7 +29048,7 @@ msgstr "Descrierea tipului de întâlnire nu poate fi goală"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "Datele nu pot fi introduse deoarece există erori. "
+msgstr "Datele nu pot fi introduse deoarece există erori. Corectați aceste erori și încercați din nou"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29028,7 +29156,7 @@ msgstr "Ecran de prezentare Ward"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "ID-ul nu poate fi gol. "
+msgstr "ID-ul secției nu poate fi gol. Vă rugăm să introduceți un ID corect."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29036,7 +29164,7 @@ msgstr "ID-ul de secțiune nu poate avea mai mult de 35 de caractere."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "Numele secțiunii nu poate fi gol. "
+msgstr "Numele secției nu poate fi gol. Vă rugăm să introduceți un nume corect."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29044,7 +29172,7 @@ msgstr "Numele secțiunii nu poate avea mai mult de 35 de caractere."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "Primul număr de cameră nu poate fi gol. "
+msgstr "Primul număr de cameră nu poate fi gol. Vă rugăm să introduceți un număr corect."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29053,7 +29181,7 @@ msgstr "Numerele camerei trebuie să fie numere întregi."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Ultimul număr de cameră nu poate fi gol. "
+msgstr "Ultimul număr de cameră nu poate fi gol. Vă rugăm să introduceți un număr corect."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29142,7 +29270,7 @@ msgstr "Prefixul camerei"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Prefixul care trebuie să vină înainte de numărul camerei. "
+msgstr "Prefixul pentru a veni înainte de numărul camerei. Se pot utiliza maximum 4 caractere."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29467,11 +29595,11 @@ msgstr "Admit ambulatoriu"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "În prezent, acest pacient nu este internat ca ambulator"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "as an outpatient"
 msgstr "ca ambulator"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:418
 msgid "The department that this patient is being admitted to."
 msgstr "Departamentul la care este internat acest pacient."
 
@@ -29513,7 +29641,7 @@ msgstr "Introduceți un alt depozit"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Un cont de numerar nu a fost încă definit pentru acest utilizator. "
+msgstr "Un cont de numerar nu a fost încă definit pentru acest utilizator. Mai întâi trebuie"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -29537,19 +29665,19 @@ msgstr "Cereri de test în așteptare"
 msgid "Date Batch Sent"
 msgstr "Data trimiterii lotului"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:81
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:84
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:91
 msgid "Edit Batch"
 msgstr "Editați lotul"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:85
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:92
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "Vizualizați lotul"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:93
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
@@ -29558,7 +29686,7 @@ msgstr "Vizualizați lotul"
 msgid "Enter Results"
 msgstr "Introduceți rezultatele"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:91
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:94
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:169
 msgid "Return to Bacteriology Centre"
 msgstr "Întoarcere la Centrul de Bacteriologie"
@@ -30157,7 +30285,7 @@ msgstr "Înregistrați un pacient"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Acest număr de fișier a fost deja utilizat pentru un alt pacient. "
+msgstr "Acest număr de fișier a fost deja utilizat pentru un alt pacient. Vă rugăm să selectați un alt număr de fișier."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30190,14 +30318,6 @@ msgstr "A apărut o problemă la introducerea înregistrării pacientului, deoar
 #: /home/tim/code/KwaMoja/KCMCRegister.php:109
 msgid "The SQL used to insert the patient record was"
 msgstr "SQL folosit pentru a insera înregistrarea pacientului a fost"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:130
-msgid "There was a problem inserting the billable items because"
-msgstr "A apărut o problemă la introducerea elementelor facturabile, deoarece"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:131
-msgid "The SQL used to insert the billable items was"
-msgstr "SQL folosit pentru a insera elementele facturabile a fost"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:159
 msgid "There was a problem inserting the debtors record because"
@@ -30241,14 +30361,6 @@ msgstr "A existat o problemă la actualizarea înregistrării pacientului, deoar
 #: /home/tim/code/KwaMoja/KCMCRegister.php:289
 msgid "The SQL used to update the patient record was"
 msgstr "SQL folosit pentru actualizarea înregistrării pacientului a fost"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:298
-msgid "There was a problem updating the billable items because"
-msgstr "A existat o problemă la actualizarea elementelor facturabile, deoarece"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:299
-msgid "The SQL used to update the billable items was"
-msgstr "SQL folosit pentru actualizarea elementelor facturabile a fost"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:313
 msgid "There was a problem updating the debtors record because"
@@ -30385,10 +30497,6 @@ msgstr "Țara în care acest pacient este cetățean."
 msgid "The blood group of this patient"
 msgstr "Grupul sanguin al acestui pacient"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:665
-msgid "Item to bill"
-msgstr "Articol de facturat"
-
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:5
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:99
@@ -30467,13 +30575,13 @@ msgid "Update Request"
 msgstr "Cerere de actualizare"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:469
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:511
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:320
 msgid "Send Request"
 msgstr "Trimite cerere"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -30481,7 +30589,7 @@ msgid "Search for Patients"
 msgstr "Căutați pacienți"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:487
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:526
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:337
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
@@ -30492,7 +30600,7 @@ msgid "Enter a partial Name"
 msgstr "Introduceți un nume parțial"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:498
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:537
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:532
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
@@ -30500,7 +30608,7 @@ msgid "Enter a partial patient file number"
 msgstr "Introduceți un număr parțial de fișier pacient"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:509
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:548
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:543
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
@@ -30509,7 +30617,7 @@ msgid "Enter a partial Phone Number"
 msgstr "Introduceți un număr parțial de telefon"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:520
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:559
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:554
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
@@ -30517,91 +30625,91 @@ msgstr "Introduceți un număr parțial de telefon"
 msgid "Enter part of the Address"
 msgstr "Introduceți o parte a adresei"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:185
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:182
 msgid "Failed to insert the request into the database"
 msgstr "Nu s-a putut introduce cererea în baza de date"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:186
 msgid "The request was successfully sent"
 msgstr "Solicitarea a fost trimisă cu succes"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:224
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:221
 msgid "Failed to update the request"
 msgstr "Actualizarea solicitării nu a reușit"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:228
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:225
 msgid "The request was successfully updated"
 msgstr "Solicitarea a fost actualizată cu succes"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:313
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:310
 msgid "General Details"
 msgstr "Detalii generale"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:357
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:354
 msgid "Rhesus Factor"
 msgstr "Factorul Rhesus"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:376
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:373
 msgid "Kell"
 msgstr "Kell"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Data și protocolul nr. "
+msgstr "Data și protocolul nr. de test de către"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
 msgstr "Cu probe de testare a meciului de la banca de sânge"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:418
 msgid "Specimen Counts"
 msgstr "Numărul de exemplare"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
 msgid "Pure blood"
 msgstr "Pur sânge"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:429
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:426
 msgid "Red blood cell concentrate"
 msgstr "Concentrat de celule roșii din sânge"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:434
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:431
 msgid "Leukocytedepleted red blood cell"
 msgstr "Celule roșii din sânge completate de leucocite"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:439
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:436
 msgid "Washed red blood cells"
 msgstr "Celule roșii din sânge spălate"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:441
 msgid "Platelet rich plasma"
 msgstr "Plasma bogată în trombocite"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:449
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:446
 msgid "Platelet concentrate"
 msgstr "Concentrat de trombocite"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:454
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:451
 msgid "Fresh frozen plasma"
 msgstr "Plasma congelată proaspătă"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:459
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:456
 msgid "Transfusion devices"
 msgstr "Dispozitive de transfuzie"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:471
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
 msgid "Transfusion date"
 msgstr "Data transfuziei"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:481
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:478
 msgid "Notes/special orders"
 msgstr "Note / comenzi speciale"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:501
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "The ordering doctor is responsible for this order!"
 msgstr "Medicul care comandă este responsabil pentru această comandă!"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:502
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "For security reasons, only sample tubes with full name & birthdate will be accepted."
 msgstr "Din motive de securitate, vor fi acceptate numai eșantioane cu numele complet și data nașterii."
 
@@ -30772,7 +30880,7 @@ msgstr "Informatii justificative"
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:253
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:313
 msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
-msgstr "de exemplu. "
+msgstr "de exemplu. rezultate importante de laborator, după radiații în zona de excizie, după chimioterapie"
 
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:257
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:317
@@ -32285,7 +32393,7 @@ msgstr "Noi detalii despre locație"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Introduceți codul de utilizat pentru această locație. "
+msgstr "Introduceți codul de utilizat pentru această locație. Codul poate conține între 1 și 5 caractere."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -33696,7 +33804,7 @@ msgid "Are you sure you wish to delete this brand?"
 msgstr "Sigur doriți să ștergeți această marcă?"
 
 #: /home/tim/code/KwaMoja/Manufacturers.php:265
-#: /home/tim/code/KwaMoja/SalesCategories.php:488
+#: /home/tim/code/KwaMoja/SalesCategories.php:495
 msgid "Brand"
 msgstr "Marca"
 
@@ -33789,14 +33897,6 @@ msgstr "Numele modulului"
 #: /home/tim/code/KwaMoja/ModuleEditor.php:73
 msgid "New Name"
 msgstr "Nume nou"
-
-#: /home/tim/code/KwaMoja/ModuleEditor.php:87
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
-#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
-msgid "Save"
-msgstr "Salvați"
 
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:3
 msgid "Monthly Bank Transactions Inquiry"
@@ -35217,8 +35317,8 @@ msgstr "Nu au existat detalii despre prețul de imprimat pentru client sau categ
 #: /home/tim/code/KwaMoja/PDFPriceList.php:229
 #: /home/tim/code/KwaMoja/Prices.php:233
 #: /home/tim/code/KwaMoja/PricesByCost.php:208
-#: /home/tim/code/KwaMoja/Prices_Customer.php:210
-#: /home/tim/code/KwaMoja/Prices_Customer.php:266
+#: /home/tim/code/KwaMoja/Prices_Customer.php:211
+#: /home/tim/code/KwaMoja/Prices_Customer.php:269
 msgid "No End Date"
 msgstr "Nu există dată de încheiere"
 
@@ -35263,7 +35363,7 @@ msgstr "Pentru monedă"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Selectați monedele pe care să le raportați. "
+msgstr "Selectați monedele pentru care să raportați. Pentru a raporta toate monedele, selectați Toate"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -36990,7 +37090,7 @@ msgid "The quantity of the ordered item entered must be a positive amount"
 msgstr "Cantitatea elementului comandat introdus trebuie să fie o sumă pozitivă"
 
 #: /home/tim/code/KwaMoja/PO_Items.php:550 /home/tim/code/KwaMoja/Prices.php:71
-#: /home/tim/code/KwaMoja/Prices_Customer.php:66
+#: /home/tim/code/KwaMoja/Prices_Customer.php:68
 #: /home/tim/code/KwaMoja/SpecialOrder.php:205
 msgid "The price entered must be numeric"
 msgstr "Prețul introdus trebuie să fie numeric"
@@ -37809,7 +37909,7 @@ msgstr "Dacă această metodă de plată folosește papetărie preimprimată, cu
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Pentru utilizare cu aplicația de vânzare. "
+msgstr "Pentru utilizare cu aplicația punct de vânzare. Este necesar POS să deschidă sertarul de numerar pentru această metodă de plată."
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -39404,20 +39504,20 @@ msgstr "Prețul trebuie să fie introdus ca număr pozitiv"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:54
 #: /home/tim/code/KwaMoja/Prices.php:75
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:192
-#: /home/tim/code/KwaMoja/Prices_Customer.php:84
+#: /home/tim/code/KwaMoja/Prices_Customer.php:86
 msgid "The date this price is to take effect from must be entered in the format"
 msgstr "Data la care urmează să apară acest preț trebuie să fie introdusă în format"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:58
 #: /home/tim/code/KwaMoja/Prices.php:81
-#: /home/tim/code/KwaMoja/Prices_Customer.php:89
+#: /home/tim/code/KwaMoja/Prices_Customer.php:91
 msgid "The date this price is be in effect to must be entered in the format"
 msgstr "Data la care este valabil acest preț trebuie introdusă în format"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:61
 #: /home/tim/code/KwaMoja/Prices.php:85
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:196
-#: /home/tim/code/KwaMoja/Prices_Customer.php:93
+#: /home/tim/code/KwaMoja/Prices_Customer.php:95
 msgid "The end date is expected to be after the start date, enter an end date after the start date for this price"
 msgstr "Data de încheiere se așteaptă să fie după data de începere, introduceți o dată de încheiere după data de începere a acestui preț"
 
@@ -39502,13 +39602,13 @@ msgid "Item Prices"
 msgstr "Prețuri pentru articole"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 #: /home/tim/code/KwaMoja/RelatedItemsUpdate.php:37
 msgid "The part code entered does not exist in the database"
 msgstr "Codul parțial introdus nu există în baza de date"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 msgid "Only valid parts can have prices entered against them"
 msgstr "Doar piese valide pot avea prețuri introduse împotriva lor"
 
@@ -39524,22 +39624,22 @@ msgid "The product selection page should call this page with a valid product cod
 msgstr "Pagina de selectare a produsului ar trebui să apeleze această pagină cu un cod de produs valabil"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "The part selected is a kit set item"
 msgstr "Partea selectată este un element setat în kit"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "these items explode into their components when selected on an order"
 msgstr "aceste elemente explodează în componentele lor atunci când sunt selectate la comandă"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "prices must be set up for the components and no price can be set for the whole kit"
 msgstr "prețurile trebuie să fie stabilite pentru componente și nici un preț nu poate fi stabilit pentru întregul kit"
 
 #: /home/tim/code/KwaMoja/Prices.php:89
-#: /home/tim/code/KwaMoja/Prices_Customer.php:97
+#: /home/tim/code/KwaMoja/Prices_Customer.php:99
 msgid "The end date is expected to be after today. There is no point entering a new price where the effective date is before today!"
 msgstr "Data de încheiere se așteaptă să fie după azi.  Nu este nici un punct de a introduce un nou preț unde data efectivă este înainte de azi!"
 
@@ -39569,9 +39669,9 @@ msgstr "Examinați prețurile"
 
 #: /home/tim/code/KwaMoja/Prices.php:223
 #: /home/tim/code/KwaMoja/PricesByCost.php:165
-#: /home/tim/code/KwaMoja/Prices_Customer.php:206
-#: /home/tim/code/KwaMoja/Prices_Customer.php:255
-#: /home/tim/code/KwaMoja/Prices_Customer.php:344
+#: /home/tim/code/KwaMoja/Prices_Customer.php:207
+#: /home/tim/code/KwaMoja/Prices_Customer.php:256
+#: /home/tim/code/KwaMoja/Prices_Customer.php:351
 #: /home/tim/code/KwaMoja/SelectRecurringSalesOrder.php:105
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:165
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:266
@@ -39580,7 +39680,7 @@ msgid "End Date"
 msgstr "Data de încheiere"
 
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 msgid "Are you sure you wish to delete this price?"
 msgstr "Sigur doriți să ștergeți acest preț?"
 
@@ -39881,66 +39981,67 @@ msgstr "Un client trebuie selectat din ecranul de selectare a clientului"
 msgid "then an item must be selected before this page is called"
 msgstr "apoi trebuie să fie selectat un element înainte de apelarea acestei pagini"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:328
 #: /home/tim/code/KwaMoja/SelectCustomer.php:239
 msgid "Special Customer Prices"
 msgstr "Prețuri speciale ale clienților"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:78
+#: /home/tim/code/KwaMoja/Prices_Customer.php:80
 msgid "The branch code entered is not currently defined"
 msgstr "Codul de ramură introdus nu este definit în prezent"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:120
-#: /home/tim/code/KwaMoja/Prices_Customer.php:147
+#: /home/tim/code/KwaMoja/Prices_Customer.php:122
+#: /home/tim/code/KwaMoja/Prices_Customer.php:149
 msgid "Price Updated"
 msgstr "Actualizare preț"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:141
+#: /home/tim/code/KwaMoja/Prices_Customer.php:143
 msgid "Price added"
 msgstr "Preț adăugat"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:148
+#: /home/tim/code/KwaMoja/Prices_Customer.php:150
 msgid "The price could not be updated because"
 msgstr "Prețul nu a putut fi actualizat deoarece"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:174
+#: /home/tim/code/KwaMoja/Prices_Customer.php:176
 msgid "This price has been deleted"
 msgstr "Acest preț a fost șters"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:193
+#: /home/tim/code/KwaMoja/Prices_Customer.php:195
 msgid "Could not retrieve the normal prices set up because"
 msgstr "Nu s-au putut obține prețurile normale stabilite deoarece"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:194
-#: /home/tim/code/KwaMoja/Prices_Customer.php:242
+#: /home/tim/code/KwaMoja/Prices_Customer.php:196
+#: /home/tim/code/KwaMoja/Prices_Customer.php:243
 msgid "The SQL used to retrieve these records was"
 msgstr "SQL-ul folosit pentru recuperarea acestor înregistrări a fost"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:201
+#: /home/tim/code/KwaMoja/Prices_Customer.php:202
 msgid "There are no default prices set up for this part"
 msgstr "Nu există prețuri implicite stabilite pentru această parte"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:204
+#: /home/tim/code/KwaMoja/Prices_Customer.php:205
 msgid "Normal Price"
 msgstr "Pret normal"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:241
+#: /home/tim/code/KwaMoja/Prices_Customer.php:242
 msgid "Could not retrieve the special prices set up because"
 msgstr "Nu s-au putut obține prețurile speciale stabilite deoarece"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:248
+#: /home/tim/code/KwaMoja/Prices_Customer.php:249
 msgid "There are no special prices set up for this part"
 msgstr "Nu există prețuri speciale stabilite pentru această parte"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:252
+#: /home/tim/code/KwaMoja/Prices_Customer.php:253
 msgid "Special Price"
 msgstr "Pret special"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:261
+#: /home/tim/code/KwaMoja/Prices_Customer.php:264
 msgid "All Branches"
 msgstr "Toate filialele"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:329
+#: /home/tim/code/KwaMoja/Prices_Customer.php:333
 msgid "All branches"
 msgstr "Toate ramurile"
 
@@ -43339,7 +43440,7 @@ msgstr "Nu este setat directorul tmp.  Trebuie să aveți setat un director TMP 
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "Utilizatorul serverului web nu are permisiunea de a încărca fișiere. "
+msgstr "Utilizatorul serverului web nu are permisiunea de a încărca fișiere. Vă rugăm să vorbiți cu administratorul de sistem"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43414,17 +43515,18 @@ msgid "A new Sales category record has been added"
 msgstr "A fost adăugată o nouă înregistrare în categoria vânzări"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:324
-#: /home/tim/code/KwaMoja/SalesCategories.php:408
+#: /home/tim/code/KwaMoja/SalesCategories.php:411
 msgid "Category Name"
 msgstr "Numele categoriei"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:325
-#: /home/tim/code/KwaMoja/SalesCategories.php:417
+#: /home/tim/code/KwaMoja/SalesCategories.php:420
 msgid "Parent Category"
 msgstr "Categoria părinților"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:357
-#: /home/tim/code/KwaMoja/SalesCategories.php:419
+#: /home/tim/code/KwaMoja/SalesCategories.php:423
+#: /home/tim/code/KwaMoja/SalesCategories.php:425
 msgid "No parent"
 msgstr "Fără părinte"
 
@@ -43440,57 +43542,57 @@ msgstr "Sigur doriți să ștergeți această categorie de vânzări?"
 msgid "Edit Sales Category"
 msgstr "Modificați categoria de vânzări"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:405
+#: /home/tim/code/KwaMoja/SalesCategories.php:408
 msgid "New Sales Category"
 msgstr "Noua categorie de vânzări"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:410
+#: /home/tim/code/KwaMoja/SalesCategories.php:413
 msgid "The name by which this category will be called, using up to 50 characters"
 msgstr "Numele cu care va fi apelată această categorie, folosind până la 50 de caractere"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:428
+#: /home/tim/code/KwaMoja/SalesCategories.php:435
 msgid "If this is a sub category of another sales category select the parent here"
 msgstr "Dacă aceasta este o subcategorie a unei alte categorii de vânzări, selectați părintele aici"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:432
+#: /home/tim/code/KwaMoja/SalesCategories.php:439
 msgid "Is the category in active use?"
 msgstr "Categoria este în uz activ?"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:449
 msgid "Is the sales category in active use? Should it be displayed in your web shop?"
 msgstr "Categoria de vânzări este activă? "
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:449
+#: /home/tim/code/KwaMoja/SalesCategories.php:456
 msgid "Upload an image to be associated with this category"
 msgstr "Încărcați o imagine care va fi asociată cu această categorie"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:483
+#: /home/tim/code/KwaMoja/SalesCategories.php:490
 msgid "Inventory items for"
 msgstr "Articole de inventar pentru"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:489
+#: /home/tim/code/KwaMoja/SalesCategories.php:496
 #: /home/tim/code/KwaMoja/includes/OcKwaMojaToOpenCartSync.php:454
 msgid "Featured"
 msgstr "Recomandate"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:505
+#: /home/tim/code/KwaMoja/SalesCategories.php:512
 msgid "Cancel Feature"
 msgstr "Anulați caracteristica"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:508
+#: /home/tim/code/KwaMoja/SalesCategories.php:515
 msgid "Make Featured"
 msgstr "Faceți recomandat"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:516
+#: /home/tim/code/KwaMoja/SalesCategories.php:523
 msgid "No Inventory items in this category"
 msgstr "Nu există articole din această categorie"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:531
+#: /home/tim/code/KwaMoja/SalesCategories.php:538
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:563
 msgid "Select Stock Items"
 msgstr "Selectați elemente de stoc"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:562
+#: /home/tim/code/KwaMoja/SalesCategories.php:569
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:594
 msgid "Select the stock category to search in. To search in all categories, choose All."
 msgstr "Selectați categoria stoc pentru a căuta. Pentru a căuta în toate categoriile, alegeți toate."
@@ -43578,15 +43680,15 @@ msgstr "Creați detalii ale Comisiei"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "O rată de comisioane se poate aplica numai anumitor elemente. "
+msgstr "O rată de comision se poate aplica numai anumitor elemente. Selectați categoria de stoc la care se aplică această rată de comision. Dacă se aplică tuturor categoriilor, selectați Toate."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "O rată de comisioane se poate aplica numai unei anumite zone. "
+msgstr "O rată de comision se poate aplica doar unei anumite zone. Selectați zona pentru care se aplică această rată de comision. Dacă se aplică tuturor zonelor, selectați Toate."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Selectați moneda pentru această înregistrare a comisiei. "
+msgstr "Selectați moneda pentru acest record de comisioane. Numai tranzacțiile în această monedă vor fi incluse în scopuri de comision."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43594,7 +43696,7 @@ msgstr "Valoarea la care această rată de comision începe."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Această comision se poate aplica doar pentru un anumit număr de zile după ce clientul a devenit activ. "
+msgstr "Acest comision se poate aplica doar un anumit număr de zile după ce clientul a devenit activ. Alegeți zero dacă rata se aplică întotdeauna."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43627,7 +43729,7 @@ msgstr "Plătit?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Nu există comisii care îndeplinesc aceste criterii. "
+msgstr "Nu există comisii care să îndeplinească aceste criterii. Vă rugăm să selectați diferite criterii și să rulați din nou raportul."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43827,15 +43929,15 @@ msgstr "Creați detalii noi de vânzări GL"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Selectați o zonă aici. "
+msgstr "Selectați o zonă aici. Dacă această înregistrare se referă la toate zonele care nu au o înregistrare specifică, selectați Orice alta."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Selectați aici o categorie de stoc. "
+msgstr "Selectați aici o categorie de stoc. Dacă această înregistrare se referă la toate categoriile care nu au o înregistrare specifică, selectați Orice alta."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Selectați un tip de vânzări aici. "
+msgstr "Selectați un tip de vânzare aici. Dacă această înregistrare se referă la toate tipurile care nu au o înregistrare specifică, selectați Orice alta."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44188,7 +44290,7 @@ msgstr "Introduceți numele cu care va fi cunoscută această persoană de vânz
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Selectați zona de vânzări pe care o acoperă această persoană. "
+msgstr "Selectați zona de vânzare acoperită de această persoană. Dacă acoperă mai multe zone, lăsați-l necompletat."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44228,7 +44330,7 @@ msgstr "SQL care a fost folosit pentru a prelua informațiile despre tipul comis
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Selectați metoda de calcul utilizată pentru calcularea comisionului pentru această persoană de vânzări. "
+msgstr "Selectați metoda de calcul utilizată pentru a calcula comisionul pentru această persoană de vânzări. Aceasta este utilizată numai dacă a fost selectată o perioadă de comision."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44248,7 +44350,7 @@ msgstr "Bifează această casetă pentru a afișa facturile de vânzare"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Sume originale în moneda clientului. "
+msgstr "Sume originale în moneda clientului. Sume GL în moneda funcțională."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45435,7 +45537,7 @@ msgstr "Ordin de factură"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Nu există liste de alegeri care să corespundă criteriilor dvs. "
+msgstr "Nu există liste de selecție care să corespundă criteriilor dvs. Încercați din nou cu diferite criterii"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -46429,14 +46531,14 @@ msgstr "variație"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Cantitatea disponibilă nu a putut fi extrasă din baza de date"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "A fost folosită următoarea SQL pentru a recupera cantitatea totală de stoc"
 
@@ -46470,13 +46572,13 @@ msgstr "Intrarea GL pentru ajustarea costului mediu al transportului pentru"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Costul nu a putut fi actualizat deoarece"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Următoarele SQL pentru actualizarea costului au fost utilizate"
 
@@ -47618,7 +47720,7 @@ msgstr "Cantitatea de ajustare"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "Cantitatea care trebuie ajustată. "
+msgstr "Cantitatea care trebuie ajustată. O cantitate îngrijită reduce stocul, iar o cantitate pozitivă îl mărește."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -48900,7 +49002,7 @@ msgstr "Stocul în mână după dată"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Selectați categoria stoc pe care să o cercetați. "
+msgstr "Selectați categoria de stocuri pentru a căuta. Pentru a căuta în toate categoriile de stocuri, selectați Toate"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -50005,7 +50107,7 @@ msgstr "Credite contractuale pe nota de credit"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Înapoi la intrarea în factură"
 
@@ -51209,15 +51311,15 @@ msgstr "A fost folosită următoarea SQL pentru actualizarea cantității GRN cr
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Înregistrarea taxei de transport pentru expediere"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "A fost folosită următoarea SQL pentru a insera înregistrarea de încărcare a expediției"
 
@@ -51230,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Următorul SQL a fost utilizat pentru a încerca actualizarea costului activului fix"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Recordul de taxă contractuală pentru contract"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "A fost folosită următoarea SQL pentru a introduce înregistrarea taxei contractuale"
 
@@ -51436,14 +51538,14 @@ msgstr "Selectați un furnizor pentru a introduce o factură pentru"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "Permisiunile dvs. nu permit primirea de bunuri. "
+msgstr "Permisiunile dvs. nu permit primirea de bunuri. Primirea automată a comenzilor de cumpărare este limitată numai la acei utilizatori autorizați să primească bunuri / servicii"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
 msgstr "Recepționarea automată a elementelor stoc controlate care necesită introducerea numărului de serie sau a numărului de lot nu este în prezent asigurată.  Doar comenzile cu elemente normale non-serie numerotate pot fi primite automat"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "EROARE CRITICA! "
 
@@ -51660,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "A fost folosită următoarea SQL pentru a actualiza cantitatea GRN facturată"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "Factura nu a putut fi cartografiată la înregistrarea mărfurilor, deoarece"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Următorul SQL pentru a mapa factura la GRN a fost utilizat"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Înregistrarea mișcării stocurilor pentru livrare nu ar putea avea costul actualizat la costul real"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Înregistrările de analiză a vânzărilor nu au putut fi actualizate pentru diferențele de cost din această factură de achiziție"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Miscările stocurilor pentru facturi nu pot fi actualizate pentru diferențele de cost din această factură de achiziție"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "EROARE CRITICA! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "Următorul SQL a fost utilizat pentru a încerca actualizarea costului activului:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Numărul facturii furnizorului"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Introduceți o altă factură pentru acest furnizor"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Introduceți plata"
 
@@ -52028,7 +52128,7 @@ msgstr "Ultimul număr al furnizorului"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Dacă furnizorii vor să genereze automat ID-ul lor, diferite tipuri de furnizori pot avea propriul număr de pornire. "
+msgstr "Dacă furnizorii vor avea ID-ul lor generat automat, diferitele tipuri de furnizori pot avea propriul număr de pornire. Introduceți numărul următorului furnizor pentru acest tip."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52264,7 +52364,7 @@ msgstr "Selectați grupul de furnizori din care face parte acest furnizor."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Selectați persoana de vânzări la care se referă acest furnizor. "
+msgstr "Selectați persoana de vânzări la care se referă acest furnizor. Dacă acest furnizor nu este un vânzător, selectați Nici unul."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -52462,7 +52562,7 @@ msgstr "Temă implicită"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:454
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
-msgstr "Tema implicită de utilizat pentru ecranul de conectare și configurarea utilizatorilor noi. "
+msgstr "Tema implicită de utilizat pentru ecranul de conectare și configurarea de noi utilizatori. Selecția temei utilizatorilor o va înlocui."
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:459
 msgid "Auto Update Exchange Rates Daily"
@@ -52593,11 +52693,6 @@ msgstr "Legăturile de forță trebuie să fie doar prin prize securizate - adic
 #: /home/tim/code/KwaMoja/SystemParameters.php:574
 msgid "Perform database maintenance at logon"
 msgstr "Efectuați întreținerea bazei de date la conectare"
-
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
-msgid "Never"
-msgstr "Nu"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:597
 #: /home/tim/code/KwaMoja/SystemParameters.php:599
@@ -54155,7 +54250,7 @@ msgstr "Orele introduse pentru ziua 7 par a fi prea mari - probabil este o eroar
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Dacă timpul este neîncărcabil, atunci atât comanda, cât și centrul de lucru trebuie să reflecte acest lucru. "
+msgstr "Dacă timpul nu este taxabil, atunci atât ordinul de lucru, cât și centrul de lucru trebuie să reflecte acest lucru. Numai dacă este selectată o comandă de lucru se poate seta un centru de lucru"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55038,7 +55133,7 @@ msgstr "Numele rolului de securitate"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "Rolul este unul clinic. "
+msgstr "Rolul este unul clinic. De exemplu, medic sau o asistentă medicală"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55168,7 +55263,7 @@ msgstr "Editează detalii pentru"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Introduceți parola pentru acest utilizator. "
+msgstr "Introduceți parola pentru acest utilizator. Dacă este lăsată goală, parola va rămâne neschimbată."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55192,7 +55287,7 @@ msgstr "Dacă este setat pe Da, utilizatorul trebuie să își schimbe parola la
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Introduceți numele complet al acestui utilizator. "
+msgstr "Introduceți numele complet al acestui utilizator. Nu trebuie să fie unic."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55204,7 +55299,7 @@ msgstr "Introduceți adresa de e-mail a acestui utilizator."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Selectați rolul de securitate al acestui utilizator. "
+msgstr "Selectați rolul de securitate al acestui utilizator. Acest lucru va corespunde cu titlul postului lor."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55269,7 +55364,7 @@ msgstr "Selectați tema care va fi utilizată pentru acest utilizator."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Selectați limba utilizatorilor. "
+msgstr "Selectați limba utilizatorilor. Toate ecranele vor fi traduse în această limbă"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55316,7 +55411,7 @@ msgstr "Dacă este ales Blocked, atunci acest utilizator nu i se va permite să 
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Selectați dimensiunea fontului în care vor fi desenate ecranele pentru acest utilizator. "
+msgstr "Selectați dimensiunea fontului în care vor fi desenate ecranele pentru acest utilizator. Poate fi schimbat în orice moment din ecranul meniului principal."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55379,7 +55474,7 @@ msgstr "Centrele de lucru"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Acest centru de lucru există deja în baza de date. "
+msgstr "Acest centru de lucru există deja în baza de date. Vă rugăm să utilizați un alt cod."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55461,7 +55556,7 @@ msgstr "Creați un nou centru de lucru"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "Codul alfanumeric prin care va fi identificat acest centru de lucru. "
+msgstr "Codul alfanumeric prin care va fi identificat acest centru de lucru. Pot fi utilizate până la 5 caractere."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -56189,10 +56284,6 @@ msgstr "Acest script nu va actualiza soldurile de inventar general pentru costur
 #: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:51
 msgid "Update costs for all items listed in a bill of materials"
 msgstr "Actualizați costurile pentru toate elementele enumerate într-un document de materiale"
-
-#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
-msgid "Run"
-msgstr "Alerga"
 
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:3
 msgid "UTILITY PAGE To Changes A Customer Branch Code In All Tables"
@@ -58509,7 +58600,7 @@ msgstr "Faceți recalcularea"
 msgid "Are you sure you wish to re-post all general ledger transactions since the selected period this can take some time?"
 msgstr "Sigur doriți să re-postați toate tranzacțiile din registrul general de la perioada selectată, aceasta poate dura ceva timp?"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:69
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:71
 msgid "All general ledger postings have been reposted from period"
 msgstr "Toate postările de registru general au fost repuse din perioada"
 
@@ -60401,7 +60492,7 @@ msgstr "Creați o înregistrare nouă a angajaților"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Un cod alfanic unic pentru identificarea acestui angajat. "
+msgstr "Un cod alfanumeric unic pentru identificarea acestui angajat. Pot fi utilizate până la 10 caractere"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61604,7 +61695,7 @@ msgstr "Creați o perioadă de salarizare"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "ID-ul prin care va fi cunoscută această perioadă de plată. "
+msgstr "ID-ul prin care va fi cunoscută această perioadă de plată. Acesta trebuie să fie un număr întreg."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -67624,27 +67715,27 @@ msgstr "Nu s-au putut obține parametrii de configurare din baza de date, deoare
 msgid "An error occurred accessing the database to retrieve the company information"
 msgstr "A apărut o eroare la accesarea bazei de date pentru a prelua informațiile despre companie"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "There is a problem in retrieving the pricing information for part"
 msgstr "Există o problemă în recuperarea informațiilor de tarifare pentru o parte"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "and for Customer"
 msgstr "și pentru client"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "the error message returned by the SQL server was"
 msgstr "mesajul de eroare returnat de serverul SQL a fost"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "There is an error to retrieve price from price matrix for stock"
 msgstr "Există o eroare de recuperare a prețului din matricea de preț pentru stoc"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "and the error message returned by SQL server is "
 msgstr "iar mesajul de eroare returnat de serverul SQL este"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:169
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:168
 msgid "Failed to retrieve price from price matrix"
 msgstr "Nu a reușit să se recupereze prețul din matricea prețurilor"
 
@@ -69740,9 +69831,8 @@ msgstr "nu a putut fi redenumită"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysqli.php:718
-#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
-msgid "Cannot update the auto increment field in table"
-msgstr "Nu se poate actualiza câmpul de incrementare automată din tabel"
+msgid "You are trying to set the auto increment number below the current number"
+msgstr "Încercați să setați numărul de creștere automată sub numărul curent"
 
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:721
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:721
@@ -69750,6 +69840,10 @@ msgstr "Nu se poate actualiza câmpul de incrementare automată din tabel"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:713
 msgid "The auto increment field in table"
 msgstr "Câmpul de incrementare automată din tabel"
+
+#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
+msgid "Cannot update the auto increment field in table"
+msgstr "Nu se poate actualiza câmpul de incrementare automată din tabel"
 
 #: /home/tim/code/KwaMoja/includes/UserLogin.php:47
 msgid "Could not retrieve user details on login because"
@@ -71330,7 +71424,7 @@ msgstr "Note de diagramă"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG, etc. "
+msgstr "PT, ATG etc. note zilnice"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"
@@ -72135,7 +72229,7 @@ msgstr "Microscop pentru bacterii.NonEvid"
 msgid "NoG.oxacil.resist.Staphyloc."
 msgstr "NoG.oxacil.resist.Staphyloc."
 
-#: /home/tim/code/KwaMoja/sql/updates/220.php:4
+#: /home/tim/code/KwaMoja/sql/updates/220.php:3
 msgid "Blood Laboratory Details"
 msgstr "Detalii despre laboratorul de sânge"
 
@@ -72982,6 +73076,9 @@ msgstr "Credite pentru personal"
 msgid "Staff Loan Repayments"
 msgstr "Rambursări de împrumuturi pentru personal"
 
+#~ msgid "Item to bill"
+#~ msgstr "Articol de facturat"
+
 #~ msgid "Blood Laboratory"
 #~ msgstr "Laboratorul de sânge"
 
@@ -73104,9 +73201,6 @@ msgstr "Rambursări de împrumuturi pentru personal"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "Permisiunile dvs. nu permit primirea de bunuri.  Recepționarea automată a comenzilor de cumpărare este limitată doar la acei utilizatori autorizați să primească bunuri / servicii"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "Factura nu a putut fi cartografiată la înregistrarea mărfurilor, deoarece"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "EROARE CRITICA!  Lăsați această eroare și solicitați asistență.  Costul activului fix nu a putut fi actualizat deoarece"

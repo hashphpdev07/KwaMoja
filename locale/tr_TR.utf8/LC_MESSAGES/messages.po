@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-19 01:40+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-28 14:19+0000\n"
+"PO-Revision-Date: 2020-10-28 14:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -181,6 +181,8 @@ msgstr "ABC Sıralaması Grupları Listesi"
 #: /home/tim/code/KwaMoja/GLTags.php:53
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:495
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -366,7 +368,7 @@ msgstr "Bu sıralama grubunu silmek istediğinizden emin misiniz?"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:151
 #: /home/tim/code/KwaMoja/PriceMatrix.php:310
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 #: /home/tim/code/KwaMoja/ProductSpecs.php:446
 #: /home/tim/code/KwaMoja/ProjectBOM.php:179
 #: /home/tim/code/KwaMoja/ProjectOtherReqts.php:110
@@ -526,6 +528,16 @@ msgstr "Dahil Edilecek Hareket Ayları"
 msgid "The number of months stock movement to analyse."
 msgstr "Analiz edilecek ay hareketinin sayısı."
 
+#: /home/tim/code/KwaMoja/ABCRankingGroups.php:213
+#: /home/tim/code/KwaMoja/ABCRankingMethods.php:112
+#: /home/tim/code/KwaMoja/ModuleEditor.php:87
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
+#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
+msgid "Save"
+msgstr "Kayıt etmek"
+
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:4
 msgid "Maintain ABC ranking methods"
 msgstr "ABC derecelendirme yöntemlerini koru"
@@ -621,7 +633,7 @@ msgstr "Sıralama yöntemi başarıyla veritabanına kaydedildi"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:150
 #: /home/tim/code/KwaMoja/PriceMatrix.php:309
 #: /home/tim/code/KwaMoja/Prices.php:246
-#: /home/tim/code/KwaMoja/Prices_Customer.php:275
+#: /home/tim/code/KwaMoja/Prices_Customer.php:278
 #: /home/tim/code/KwaMoja/ProductSpecs.php:445
 #: /home/tim/code/KwaMoja/PurchData.php:325
 #: /home/tim/code/KwaMoja/QATests.php:455
@@ -745,6 +757,11 @@ msgstr "Sıralama Analizi Detayları"
 msgid "Ranking group"
 msgstr "Sıralama grubu"
 
+#: /home/tim/code/KwaMoja/ABCRunAnalysis.php:146
+#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
+msgid "Run"
+msgstr "Koşmak"
+
 #: /home/tim/code/KwaMoja/ABCRunAnalysis.php:150
 msgid "Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one"
 msgstr "Lütfen daha önce kullanılmış bir sıralama grubuna karşı bir ABC analizi yaparsanız, analizin silinip değiştirileceğini unutmayın."
@@ -841,22 +858,22 @@ msgstr "hesap grubuna değiştirildi"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:177
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:210
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:280
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:385
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:179
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -892,7 +909,7 @@ msgstr "hesap grubuna değiştirildi"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:28
 #: /home/tim/code/KwaMoja/Prices.php:18
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:7
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
 #: /home/tim/code/KwaMoja/ProductSpecs.php:31
 #: /home/tim/code/KwaMoja/PurchData.php:253
 #: /home/tim/code/KwaMoja/PurchData.php:367
@@ -1295,6 +1312,10 @@ msgstr "Üst Grup Adı"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1335,10 +1356,10 @@ msgstr "Üst Grup Adı"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:98
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:146
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:67
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:70
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:450
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
@@ -1432,9 +1453,9 @@ msgstr "Üst Grup Adı"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:445
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:448
 #: /home/tim/code/KwaMoja/SalesCategories.php:348
-#: /home/tim/code/KwaMoja/SalesCategories.php:435
-#: /home/tim/code/KwaMoja/SalesCategories.php:439
-#: /home/tim/code/KwaMoja/SalesCategories.php:504
+#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:511
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:85
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:85
 #: /home/tim/code/KwaMoja/SalesPeople.php:207
@@ -1599,6 +1620,10 @@ msgstr "Evet"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -1639,10 +1664,10 @@ msgstr "Evet"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:97
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:142
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:145
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:69
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:72
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:408
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:46
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
@@ -1734,9 +1759,9 @@ msgstr "Evet"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:444
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:447
 #: /home/tim/code/KwaMoja/SalesCategories.php:350
-#: /home/tim/code/KwaMoja/SalesCategories.php:436
-#: /home/tim/code/KwaMoja/SalesCategories.php:438
-#: /home/tim/code/KwaMoja/SalesCategories.php:507
+#: /home/tim/code/KwaMoja/SalesCategories.php:443
+#: /home/tim/code/KwaMoja/SalesCategories.php:445
+#: /home/tim/code/KwaMoja/SalesCategories.php:514
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:83
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:83
 #: /home/tim/code/KwaMoja/SalesPeople.php:209
@@ -1951,12 +1976,12 @@ msgstr "Deneme dengesinde bu grubun görüneceği sıra."
 #: /home/tim/code/KwaMoja/PaymentMethods.php:312
 #: /home/tim/code/KwaMoja/PaymentTerms.php:278
 #: /home/tim/code/KwaMoja/PriceMatrix.php:261
-#: /home/tim/code/KwaMoja/Prices_Customer.php:353
+#: /home/tim/code/KwaMoja/Prices_Customer.php:363
 #: /home/tim/code/KwaMoja/ProductSpecs.php:637
 #: /home/tim/code/KwaMoja/QATests.php:348
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:513
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:473
-#: /home/tim/code/KwaMoja/SalesCategories.php:455
+#: /home/tim/code/KwaMoja/SalesCategories.php:462
 #: /home/tim/code/KwaMoja/SalesCommissionTypes.php:221
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:291
 #: /home/tim/code/KwaMoja/SalesPeople.php:455
@@ -2067,7 +2092,7 @@ msgstr "Bu hesap bölümü için tamsayı grup kodu"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Bu hesap bölümü için dili seçin. "
+msgstr "Bu hesap bölümü için dili seçin. Her dilin aynı hesap bölümleri kurulumuna sahip olması gerektiğini unutmayın."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -2213,13 +2238,13 @@ msgstr "Kişi kaydı silindi"
 #: /home/tim/code/KwaMoja/Customers.php:697
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:319
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:360
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
@@ -2338,7 +2363,7 @@ msgstr "Beyan"
 #: /home/tim/code/KwaMoja/GLStatements.php:137
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:56
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:465
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -2501,7 +2526,7 @@ msgstr "Müşteri Notları"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:131
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:625
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:129
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:486
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:483
 #: /home/tim/code/KwaMoja/MRPCalendar.php:209
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:400
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:318
@@ -2853,7 +2878,7 @@ msgstr "Stok"
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:74
 #: /home/tim/code/KwaMoja/ReverseGRN.php:404
 #: /home/tim/code/KwaMoja/SalesCategories.php:203
-#: /home/tim/code/KwaMoja/SalesCategories.php:487
+#: /home/tim/code/KwaMoja/SalesCategories.php:494
 #: /home/tim/code/KwaMoja/SecurityTokens.php:121
 #: /home/tim/code/KwaMoja/SecurityTokens.php:163
 #: /home/tim/code/KwaMoja/SelectAsset.php:262
@@ -2990,6 +3015,7 @@ msgstr "Eski günler"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:668
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:683
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:702
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:209
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3352,6 +3378,7 @@ msgstr "alınamadı çünkü"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -3552,6 +3579,7 @@ msgstr "Özet bir rapor gösterin veya rapora işlem ayrıntılarını ekleyin."
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3770,14 +3798,15 @@ msgstr "Rapordaki son dönemi seçme"
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:517
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:534
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:545
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:556
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:529
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:540
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:551
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
@@ -3800,7 +3829,7 @@ msgstr "Rapordaki son dönemi seçme"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:246
 #: /home/tim/code/KwaMoja/Projects.php:653
 #: /home/tim/code/KwaMoja/PurchData.php:382
-#: /home/tim/code/KwaMoja/SalesCategories.php:570
+#: /home/tim/code/KwaMoja/SalesCategories.php:577
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:231
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:231
 #: /home/tim/code/KwaMoja/SalesGraph.php:96
@@ -3847,6 +3876,7 @@ msgstr "VEYA"
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:116
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:71
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:238
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:238
@@ -3860,11 +3890,12 @@ msgstr "Dönem Seçiniz"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:240
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "Bu listeden önceden tanımlanmış bir dönem seçin. "
+msgstr "Bu listeden önceden tanımlanmış bir dönem seçin. Burada bir seçim yapılırsa, yukarıdaki Başlangıç ​​ve Bitiş seçeneklerinde seçilen her şeyi geçersiz kılar."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -3972,7 +4003,7 @@ msgstr "Lütfen alternatif bir dönem aralığı seçin"
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:45
@@ -4026,6 +4057,7 @@ msgstr "Tüm tutarlar,"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:499
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4051,6 +4083,7 @@ msgstr "hesap"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:500
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4183,6 +4216,7 @@ msgstr "Net kazanç"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:428
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:729
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
 #: /home/tim/code/KwaMoja/SalesGraph.php:20
@@ -4363,7 +4397,7 @@ msgstr "Alan bilgilerini almak için kullanılan ve işlem sırasında başarıs
 
 #: /home/tim/code/KwaMoja/Areas.php:227
 msgid "The area that contains this area. Leave blank if this is a top level area"
-msgstr "Bu alanı içeren alan. "
+msgstr "Bu alanı içeren alan. Bu üst düzey bir alansa boş bırakın"
 
 #: /home/tim/code/KwaMoja/Areas.php:233
 msgid "The name of the area being entered"
@@ -4582,8 +4616,8 @@ msgstr "Kullanıcı adı"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:215
 #: /home/tim/code/KwaMoja/ReorderLevel.php:236
 #: /home/tim/code/KwaMoja/ReorderLevel.php:238
-#: /home/tim/code/KwaMoja/SalesCategories.php:538
-#: /home/tim/code/KwaMoja/SalesCategories.php:541
+#: /home/tim/code/KwaMoja/SalesCategories.php:545
+#: /home/tim/code/KwaMoja/SalesCategories.php:548
 #: /home/tim/code/KwaMoja/SalesGraph.php:120
 #: /home/tim/code/KwaMoja/SalesGraph.php:122
 #: /home/tim/code/KwaMoja/SalesGraph.php:144
@@ -4695,10 +4729,10 @@ msgstr "kullanıcı"
 #: /home/tim/code/KwaMoja/AuditTrail.php:186
 #: /home/tim/code/KwaMoja/CustomerBranches.php:108
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:241
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:243
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -5076,11 +5110,11 @@ msgstr "Eldeki Miktar"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:234
 msgid "P.O. Quantity"
-msgstr "P.O. "
+msgstr "P.O. Miktar"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:235
 msgid "W.O. Quantity"
-msgstr "W.O. "
+msgstr "W.O. Miktar"
 
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:236
 #: /home/tim/code/KwaMoja/MRPShortages.php:351
@@ -5524,7 +5558,7 @@ msgstr "Arama Ölçütlerini Girin"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5539,7 +5573,7 @@ msgstr "Metin özetlerini içine girin."
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5558,7 +5592,7 @@ msgstr "Öğe açıklamasının bir kısmını girin"
 #: /home/tim/code/KwaMoja/MRPDemands.php:324
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:288
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/Shipt_Select.php:205
@@ -5579,7 +5613,7 @@ msgstr "Özütünü girin"
 #: /home/tim/code/KwaMoja/MRPReport.php:574
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SalesInquiry.php:627
 #: /home/tim/code/KwaMoja/SalesInquiry.php:638
 #: /home/tim/code/KwaMoja/SalesInquiry.php:661
@@ -5631,7 +5665,7 @@ msgstr "Veya bir ürün kodunun bir kısmını girin"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:531
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:570
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:565
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:381
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
@@ -5641,7 +5675,7 @@ msgstr "Veya bir ürün kodunun bir kısmını girin"
 #: /home/tim/code/KwaMoja/PO_Items.php:1433
 #: /home/tim/code/KwaMoja/ProjectBOM.php:250
 #: /home/tim/code/KwaMoja/Projects.php:659
-#: /home/tim/code/KwaMoja/SalesCategories.php:578
+#: /home/tim/code/KwaMoja/SalesCategories.php:585
 #: /home/tim/code/KwaMoja/SelectAsset.php:118
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:210
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:941
@@ -7035,7 +7069,7 @@ msgstr "Bu banka hesabı için kullanılacak Defteri Kebir kodunu seçin."
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:310
 msgid "The name that this bank account will be called. Does not have to be the same as the General Ledger description."
-msgstr "Bu banka hesabının çağrılacağı ad. "
+msgstr "Bu banka hesabının çağrılacağı isim. Genel Muhasebe açıklaması ile aynı olmak zorunda değildir."
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:315
 msgid "The code that the account is known by at the bank."
@@ -7751,7 +7785,7 @@ msgstr "Emin misiniz?"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:347
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
-msgstr "Döviz kuru değiştikçe, döviz hesaplarında yansıtılması gereken döviz kuru farklılıklarının olması normaldir. "
+msgstr "Döviz hesaplarında, döviz kuru değiştikçe yansıtılması gereken kur farklarının olması normaldir. Bu mutabakat, para birimleri tablosunda belirlenen döviz kuru kullanılarak hazırlanır (kurulum sekmesine bakın). Mutabakat çalıştırılmadan önce bu tablonun güncel döviz kuruyla korunması gerekir. Mutabakatı gerçek banka ekstresi bakiyesiyle düzeltmek için cari döviz kuruna dayalı kur farkını yansıtacak bir günlük oluşturmak istiyorsanız aşağıya tıklayın."
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:358
 #: /home/tim/code/KwaMoja/BankReconciliation.php:363
@@ -7858,11 +7892,11 @@ msgstr "Herhangi Bir Diğer"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:156
 msgid "Select the area to be used in this group. To cover all areas just select Any Other"
-msgstr "Bu grupta kullanılacak alanı seçin. "
+msgstr "Bu grupta kullanılacak alanı seçin. Tüm alanları kapsamak için Herhangi Birini seçin"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:175
 msgid "Select the stock category to be used in this group. To cover all categories just select Any Other"
-msgstr "Bu grupta kullanılacak stok kategorisini seçin. "
+msgstr "Bu grupta kullanılacak stok kategorisini seçin. Tüm kategorileri kapsamak için Herhangi Birini seçin"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:182
 #: /home/tim/code/KwaMoja/Customers.php:512
@@ -7887,7 +7921,7 @@ msgstr "Fiyat listesi"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:194
 msgid "Select the sales type to be used in this group. To cover all types just select Any Other"
-msgstr "Bu grupta kullanılacak satış türünü seçin. "
+msgstr "Bu grupta kullanılacak satış türünü seçin. Tüm türleri kapsamak için Herhangi Birini seçin"
 
 #: /home/tim/code/KwaMoja/COGSGLPostings.php:198
 msgid "Post to GL account"
@@ -7907,7 +7941,7 @@ msgstr "Mevcut şifreyi yanlış girdiniz, lütfen tekrar girin"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Yeni şifre eskisiyle aynı. "
+msgstr "Yeni şifre eski ile aynıdır. Yeni bir şifre seçmelisiniz."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7915,7 +7949,7 @@ msgstr "Onay ve yeni şifreler aynı değildir."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "Gösterim modunda çalışıyorsunuz, bu nedenle şifre değiştirilemiyor. "
+msgstr "Demo modunda çalışıyorsunuz, bu yüzden şifre değiştirilemez. Tıklayın"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7939,11 +7973,11 @@ msgstr "İşte"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "oturumunuzu kapatın ve mevcut şifrenizle tekrar Giriş yapın. "
+msgstr "Çıkış yapmak ve mevcut şifrenizle tekrar Giriş yapmak. Şifreniz değiştirilmedi"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Parolanız güncellendi. "
+msgstr "Şifreniz güncellenmedi. Tıklayın"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7959,7 +7993,7 @@ msgstr "Şifreni değiştir"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "Yönetici, siz şifrenizi değiştirene kadar hesabınızı engelledi. "
+msgstr "Yönetici, şifrenizi değiştirene kadar hesabınızı bloke etti. Devam etmeden önce şifrenizi değiştirmek için bu ekranı kullanın."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8021,7 +8055,7 @@ msgstr "Maliyet verileri alınamadı."
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:317
 #: /home/tim/code/KwaMoja/SalesCategories.php:97
 #: /home/tim/code/KwaMoja/SalesCategories.php:111
-#: /home/tim/code/KwaMoja/SalesCategories.php:486
+#: /home/tim/code/KwaMoja/SalesCategories.php:493
 #: /home/tim/code/KwaMoja/SalesTopItemsInquiry.php:217
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:375
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:139
@@ -8186,7 +8220,7 @@ msgstr "Belirli bir öğeye ait iş emirlerini aramak için aşağıdaki öğe s
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:147
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:213
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:180
-#: /home/tim/code/KwaMoja/SalesCategories.php:534
+#: /home/tim/code/KwaMoja/SalesCategories.php:541
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:378
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:903
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:268
@@ -8249,7 +8283,7 @@ msgstr "SQL tarafından herhangi bir iş emri geri gönderilmedi, çünkü"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:73
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
@@ -8417,9 +8451,9 @@ msgstr "Miktar Ödenmemiş"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:491
 #: /home/tim/code/KwaMoja/Prices.php:222
 #: /home/tim/code/KwaMoja/PricesByCost.php:164
-#: /home/tim/code/KwaMoja/Prices_Customer.php:205
-#: /home/tim/code/KwaMoja/Prices_Customer.php:254
-#: /home/tim/code/KwaMoja/Prices_Customer.php:340
+#: /home/tim/code/KwaMoja/Prices_Customer.php:206
+#: /home/tim/code/KwaMoja/Prices_Customer.php:255
+#: /home/tim/code/KwaMoja/Prices_Customer.php:346
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:418
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:379
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:384
@@ -8559,6 +8593,7 @@ msgstr "Döviz kurları güncellenemedi"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8587,6 +8622,7 @@ msgid "Validation failed"
 msgstr "Doğrulama başarısız"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8788,7 +8824,7 @@ msgstr "Borçlular Kontrol GL Hesabı"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:377
 msgid "The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report."
-msgstr "Defteri kebir hesabı alacak hesapları için kontrol görevi görür. "
+msgstr "Genel muhasebe hesabı, alacak hesapları işlemleri için kontrol görevi görür. Bu hesap, toplam yaşlı borçlu raporuna uygun olmalıdır."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:381
 msgid "Creditors Control GL Account"
@@ -8796,7 +8832,7 @@ msgstr "Alacaklılar Kontrol GL Hesabı"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:383
 msgid "The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report."
-msgstr "Defteri kebir hesabı, ödenecek hesaplar için kontrol görevi görür. "
+msgstr "Genel muhasebe hesabı, borçlu hesap işlemleri için kontrol görevi görecek. Bu hesap, toplam yaşlı alacaklı raporuna uygun olmalıdır."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:387
 msgid "Payroll Net Pay Clearing GL Account"
@@ -8812,7 +8848,7 @@ msgstr "Alınan Mallar Alınan GL Hesabı"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:395
 msgid "The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero."
-msgstr "Defteri kebir hesabı, Alınan Mallar için mahsup hesabı olarak hareket edecektir. "
+msgstr "Genel muhasebe hesabı, Alınan Mallar için mahsuplaştırma hesabı olarak hareket eder. GRN yükseltildiğinde, buraya bir giriş kaydedilir ve tedarikçi faturası kaydedildiğinde, bu girişi geçersiz kılar. Bu hesap her zaman sıfıra geri dönmelidir."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:399
 msgid "Sales Commission Accruals Account"
@@ -8820,7 +8856,7 @@ msgstr "Satış Komisyonu Tahakkuk Hesabı"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "Defteri kebir satış komisyonu hesabı olarak hareket eder. "
+msgstr "Satış komisyonu tahakkuk hesabı olarak hareket edecek genel muhasebe hesabı. Kazanılan ancak ödenmeyen komisyon buraya postalanacak ve komisyon ödendiğinde silinecektir."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -8828,7 +8864,7 @@ msgstr "Kâr Kazanılan Takas GL Hesabı"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:407
 msgid "The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly."
-msgstr "Ana hesap, birikmiş Kar / Zarar ile dağıtılmamış kar hesabı olarak hareket eder. "
+msgstr "Genel muhasebe hesabı, birikmiş Kar / Zarar ile birikmiş kazanç hesabı olarak hareket eder. Bu hesap KwaMoja tarafından yönetilmektedir ve bir kez kurulduktan sonra doğrudan erişilmemelidir."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:411
 msgid "Freight Re-charged GL Account"
@@ -9199,7 +9235,7 @@ msgstr "Bu Sevkıyat"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:254
 #: /home/tim/code/KwaMoja/Prices.php:221 /home/tim/code/KwaMoja/Prices.php:341
 #: /home/tim/code/KwaMoja/PricesByCost.php:266
-#: /home/tim/code/KwaMoja/Prices_Customer.php:347
+#: /home/tim/code/KwaMoja/Prices_Customer.php:356
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:997
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1021
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1101
@@ -9850,14 +9886,14 @@ msgstr "Şube varsayılan taşıyıcıyı güncellemek için kullanılan SQL"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10226,14 +10262,14 @@ msgstr "KRİTİK HATA"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10947,8 +10983,8 @@ msgstr "Sabit kıymet işlemleri takılamadı çünkü"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "Sabit kıymet işlem kaydını eklemek için aşağıdaki SQL kullanıldı"
 
@@ -11036,7 +11072,7 @@ msgstr "Fatura Tarihi"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "Malların / hizmetlerin gönderildiği tarih. "
+msgstr "Malların / hizmetlerin gönderildiği tarih. Bu, fatura tarihi olarak görünecek tarihtir."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11078,7 +11114,7 @@ msgstr "Fatura Metni"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Faturada görünmesi gereken metinler. "
+msgstr "Faturada görünmesi gereken herhangi bir metin. Bu metin müşteri tarafından görülecektir."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11086,7 +11122,7 @@ msgstr "Dahili Yorumlar"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Bu fatura için herhangi bir dahili metin. "
+msgstr "Bu fatura için herhangi bir dahili metin. Bu metin müşteri tarafından görülmeyecektir."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -12031,9 +12067,9 @@ msgstr "Maddenin yerleri"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -12241,7 +12277,7 @@ msgstr "Sözleşme: Müşteri Seç"
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:485
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:524
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:519
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
@@ -12365,8 +12401,8 @@ msgstr "Müşteri"
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:310
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:314
 #: /home/tim/code/KwaMoja/PricesByCost.php:163
-#: /home/tim/code/KwaMoja/Prices_Customer.php:253
-#: /home/tim/code/KwaMoja/Prices_Customer.php:326
+#: /home/tim/code/KwaMoja/Prices_Customer.php:254
+#: /home/tim/code/KwaMoja/Prices_Customer.php:331
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:970
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:474
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:219
@@ -13574,7 +13610,7 @@ msgstr "Yeni İş Sipariş Numarası"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:123
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:182
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:452
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RecurringSalesOrdersProcess.php:88
 #: /home/tim/code/KwaMoja/ReverseGRN.php:342
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
@@ -13970,7 +14006,7 @@ msgstr "Için satırın kredi miktarı"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "faturalanan miktardan fazla. "
+msgstr "faturalandırılan miktardan fazla. Bu kontrol, kredi notunun kopyalanmadığından emin olmak için yapılır."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -14096,7 +14132,7 @@ msgstr "Bu kredi notu için yük GL yüklemesi eklenemedi çünkü"
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -16238,10 +16274,10 @@ msgstr "Nakit satışı için bu şubeyi varsayılan olarak kullanın"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:882
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:242
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:244
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:361
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:63
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
@@ -16779,7 +16815,7 @@ msgstr "Bir para birimi tanımlanana dek makbuz girilemez"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:904
 msgid "The currency of the receipts. Does not have to be the same as the bank account currency."
-msgstr "Makbuzların para birimi. "
+msgstr "Makbuzların para birimi. Banka hesabı para birimi ile aynı olmak zorunda değildir."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:923
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:939
@@ -17677,7 +17713,7 @@ msgstr "Tarihli işlemler"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Rapor için başlangıç ​​tarihini seçin. "
+msgstr "Raporun başlangıç ​​tarihini seçin. Bu tarihteki işlemler dahil edilecektir."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17686,7 +17722,7 @@ msgstr "Tarihli işlemler"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Raporun kapanış tarihini seçin. "
+msgstr "Raporun kapanış tarihini seçin. Bu tarihteki işlemler dahil edilecektir."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17700,7 +17736,7 @@ msgstr "eşleşti"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Yalnızca eşleşen veya eşleşmeyen işlemlerin gösterilip gösterilmeyeceğini seçin. "
+msgstr "Yalnızca eşleşen veya eşleşmeyen işlemlerin gösterilip gösterilmeyeceğini seçin. Tüm işlemleri göstermek için Tümü'nü seçin."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -17965,7 +18001,7 @@ msgstr "Güvenlik seviyesi"
 #: /home/tim/code/KwaMoja/DashboardConfig.php:109
 #: /home/tim/code/KwaMoja/JobScheduler.php:103
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:213
-#: /home/tim/code/KwaMoja/SalesCategories.php:510
+#: /home/tim/code/KwaMoja/SalesCategories.php:517
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
@@ -18208,11 +18244,11 @@ msgstr "Kapsayıcı ayrıntıları oluşturma"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Bu kapsayıcının yönlendirileceği bir Kimlik girin. "
+msgstr "Bu kapsayıcıya başvurulacak bir Kimlik girin. Kimlik en fazla 6 karakter içerebilir."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Bu kapsayıcının bir açıklamasını girin. "
+msgstr "Bu kapsayıcı için bir açıklama girin. Açıklama 50 karaktere kadar olabilir."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18228,19 +18264,19 @@ msgstr "Bu kapsayıcı için sıra numarasını girin."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Bu kap yönlendirilmiş koymalar için kullanılabiliyorsa Evet'i seçin. "
+msgstr "Bu konteyner yönlendirilmiş paketler için kullanılabiliyorsa Evet'i seçin. Aksi takdirde Hayır'ı seçin"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Bu kap yönlendirilmiş toplama için kullanılabiliyorsa Evet'i seçin. "
+msgstr "Bu konteyner yönlendirilmiş toplama için kullanılabiliyorsa Evet'i seçin. Aksi takdirde Hayır'ı seçin"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Bu kap doldurulabiliyorsa Evet'i seçin. "
+msgstr "Bu kap yeniden doldurulabiliyorsa Evet'i seçin. Aksi takdirde Hayır'ı seçin"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Bu kapsayıcı karantina rea ​​olarak belirlenmişse Evet'i seçin. "
+msgstr "Bu kapsayıcı bir karantina alanı olarak belirlenmişse Evet'i seçin. Aksi takdirde Hayır'ı seçin"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18697,7 +18733,7 @@ msgstr "Bölümün Adı boş olmamalıdır"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Bu adda bir departman zaten var. "
+msgstr "Bu isimde bir departman zaten var. Lütfen yeni bir isim seçin"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -20143,7 +20179,7 @@ msgstr "Faktör şirketi Adı"
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:558
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:713
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:752
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:496
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:493
 #: /home/tim/code/KwaMoja/OrderDetails.php:124
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:866
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:888
@@ -20700,14 +20736,14 @@ msgid "long"
 msgstr "uzun"
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:477
-#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:453
 #: /home/tim/code/KwaMoja/Stocks.php:1171
 msgid "Image File ("
 msgstr "Görüntü dosyası ("
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:479
 #: /home/tim/code/KwaMoja/Manufacturers.php:315
-#: /home/tim/code/KwaMoja/SalesCategories.php:448
+#: /home/tim/code/KwaMoja/SalesCategories.php:455
 #: /home/tim/code/KwaMoja/Stocks.php:1174
 msgid "Clear Image"
 msgstr "Temiz görüntü"
@@ -21088,6 +21124,7 @@ msgstr "Sabit Kıymet başarıyla taşındı"
 #: /home/tim/code/KwaMoja/OffersReceived.php:46
 #: /home/tim/code/KwaMoja/SelectAsset.php:50
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:131
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:17
 msgid "Selection Criteria"
 msgstr "Seçim kriterleri"
 
@@ -21248,7 +21285,7 @@ msgstr "Düzenlenecek formu seçin"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Korunacak formu seçin. "
+msgstr "Bakım yapılacak formu seçin. Bu formlar için xml dosyaları şirketler dizininin altında saklanır"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21507,7 +21544,7 @@ msgstr "Seçilen Hesaplar"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Bu rapor için hesapları seçin. "
+msgstr "Bu rapor için hesapları seçin. Birden çok hesap seçmek için klavyedeki Shift tuşunu kullanın."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -21616,6 +21653,7 @@ msgstr "GL Hesap Grafiği"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:31
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:26
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:26
 #: /home/tim/code/KwaMoja/SalesGraph.php:15
 msgid "The selected period from is actually after the period to! Please re-select the reporting period"
 msgstr "Seçilen dönem aslında dönemin bitimini takip ediyor!  Lütfen raporlama dönemini tekrar seçin"
@@ -21704,11 +21742,12 @@ msgstr "Seçilen hesap normalde bir kredi bakiyesiyse, kredili grafiği pozitif 
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:32
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:178
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:178
 #: /home/tim/code/KwaMoja/SalesGraph.php:41
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:14
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:19
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:24
 msgid "Select Period From"
 msgstr "Dönem Sonu Seçiniz"
@@ -21717,6 +21756,7 @@ msgstr "Dönem Sonu Seçiniz"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:204
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:204
 #: /home/tim/code/KwaMoja/SalesGraph.php:70
@@ -21727,6 +21767,7 @@ msgstr "Bu rapor için başlangıç ​​dönemini seçin"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:65
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:214
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:214
@@ -21739,6 +21780,7 @@ msgstr "Için dönemi seçin"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:228
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:228
 #: /home/tim/code/KwaMoja/SalesGraph.php:93
@@ -22645,6 +22687,7 @@ msgstr "Nakit Akış Tablosu"
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:503
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22657,6 +22700,7 @@ msgstr "Gerçekleşen Dönem"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:504
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -22940,7 +22984,7 @@ msgstr "Girilen tarih geçerli değildi. Lütfen günlüğün formatındaki tari
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Kaydedilmiş şablon yok. "
+msgstr "Kaydedilmiş şablon yok. Önce bir şablon oluşturmalısınız."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23012,7 +23056,7 @@ msgstr "Şablon başarıyla kaydedildi"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Bu açıklamaya sahip bir şablon zaten var. "
+msgstr "Bu açıklamaya sahip bir şablon zaten var. Benzersiz bir açıklama kullanmalısınız"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23278,7 +23322,7 @@ msgstr "Finansal Tablolar"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "En az bir finansal tablo seçmelisiniz. "
+msgstr "En az bir mali tablo seçmelisiniz. Lütfen mali tabloları seçin."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -23490,7 +23534,7 @@ msgstr "Etiketinin açıklaması"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:408
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 #: /home/tim/code/KwaMoja/sql/updates/217.php:70
@@ -23554,19 +23598,25 @@ msgstr "Gönderildi"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:138
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Mizan"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:54
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:54
 msgid "Input criteria for inquiry"
 msgstr "Sorgulama için girdi ölçütleri"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
 msgid "Show Trial Balance"
 msgstr "Deneme Bakiyesini Göster"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
 msgid "Export to Spreadsheet"
 msgstr "Elektronik Tabloya Dışa Aktar"
 
@@ -23576,20 +23626,25 @@ msgstr "Deneme Dengesi Testini Yazdır"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:490
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
 msgid "Trial Balance Report"
 msgstr "Deneme Dengesi Raporu"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Aylık Deneme Bakiyesi"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "ve için"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
@@ -23597,6 +23652,7 @@ msgid " months to "
 msgstr "aylar"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:501
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
@@ -23604,6 +23660,7 @@ msgid "Month Actual"
 msgstr "Ay Gerçek"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:502
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Ay Bütçesi"
@@ -24109,7 +24166,7 @@ msgstr "Seri stok kalemi kayıtlarını eklemek için aşağıdaki SQL kullanıl
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "maliyet"
 
@@ -24118,8 +24175,8 @@ msgstr "maliyet"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "KRİTİK HATA!  BU HATASIN DÜŞÜRMAYIN VE YARDIMI GÖRÜŞİN Sabit kıymet işlemleri takılamadı çünkü"
 
@@ -24129,7 +24186,7 @@ msgstr "KRİTİK HATA!  BU HATASı DÜŞÜNMEMEK VE YARDIMINA GİTMEYİN.  Satı
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Aşağıdaki SQL, maliyetin güncellenmesi ve varlığın satın alındığı tarihi denemek için kullanıldı"
 
@@ -24474,7 +24531,7 @@ msgstr "Açılış bakiyesi şu şekilde:"
 #: /home/tim/code/KwaMoja/Payments.php:1397
 #: /home/tim/code/KwaMoja/Payments.php:1405
 #: /home/tim/code/KwaMoja/Payments.php:1407
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:32
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
 #: /home/tim/code/KwaMoja/SpecialOrder.php:126
@@ -24699,7 +24756,7 @@ msgid "SalesType/Price List"
 msgstr "Satış Tipi / Fiyat Listesi"
 
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:125
-#: /home/tim/code/KwaMoja/Prices_Customer.php:150
+#: /home/tim/code/KwaMoja/Prices_Customer.php:152
 #: /home/tim/code/KwaMoja/UploadPriceList.php:126
 msgid "The price could not be added because"
 msgstr "Fiyat eklenemedi, çünkü fiyat eklenemedi"
@@ -26074,7 +26131,7 @@ msgid "Created On"
 msgstr "Oluşturma Tarihi"
 
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:118
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:491
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:488
 msgid "Doctor"
 msgstr "doktor"
 
@@ -26137,7 +26194,7 @@ msgstr "Yatak Sayısı"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:74
@@ -26152,7 +26209,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:359
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:60
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
@@ -26558,6 +26615,89 @@ msgstr "Bakteriyoloji Testi talep edin"
 msgid "Laboratory Maintenance"
 msgstr "Laboratuvar Bakımı"
 
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
+#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+msgid "Billing Configuration"
+msgstr "Fatura Yapılandırması"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
+msgid "Hospital Configuration"
+msgstr "Hastane Konfigürasyonu"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+msgid "The billing configuration could not be updated because"
+msgstr "Faturalandırma yapılandırması güncellenemedi çünkü"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+msgid "Billing configuration updated"
+msgstr "Faturalandırma yapılandırması güncellendi"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+msgid "Registration and Admissions"
+msgstr "Kayıt ve Kabuller"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+msgid "Item to bill for patient registration"
+msgstr "Hasta kaydı için faturalandırılacak öğe"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+msgid "Do not Bill"
+msgstr "Fatura Etmeyin"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+msgid "Item to bill for inpatient admissions"
+msgstr "Yatarak tedavi için faturalandırılacak madde"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+msgid "Item to bill for outpatient admissions"
+msgstr "Ayakta hasta kabulleri için fatura edilecek kalem"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+msgid "Laboratory Billing"
+msgstr "Laboratuvar Faturalandırması"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+msgid "Payment must be made before Test"
+msgstr "Testten önce ödeme yapılmalıdır"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+msgid "If not insured"
+msgstr "Sigortalı değilse"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+msgid "Always"
+msgstr "Her zaman"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/SystemParameters.php:592
+#: /home/tim/code/KwaMoja/SystemParameters.php:594
+msgid "Never"
+msgstr "Asla"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+msgid "Bill for bacteriology tests"
+msgstr "Bakteriyoloji testleri faturası"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+msgid "Bill for blood tests"
+msgstr "Kan testleri faturası"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+msgid "Bill for medical tests"
+msgstr "Tıbbi testler için fatura"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+msgid "Bill for pathology tests"
+msgstr "Patoloji testleri faturası"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+msgid "Save Configuration"
+msgstr "Yapılandırmayı Kaydet"
+
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:5
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:11
 msgid "Blood Bank"
@@ -26568,9 +26708,9 @@ msgid "Pending Blood Requests"
 msgstr "Bekleyen Kan Talepleri"
 
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:32
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:4
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:3
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:43
 msgid "Blood Request"
 msgstr "Kan İsteği"
 
@@ -27027,8 +27167,8 @@ msgstr "Ürogenital Sistem"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:339
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -27039,8 +27179,8 @@ msgstr "Erkek"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:333
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:340
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -27163,9 +27303,9 @@ msgid "Patient Discharge Details"
 msgstr "Hasta Taburcu Detayları"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:240
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:242
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:51
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
@@ -27184,7 +27324,7 @@ msgid "Date of Birth"
 msgstr "Doğum tarihi"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:407
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 #: /home/tim/code/KwaMoja/sql/updates/217.php:69
 msgid "Ward"
@@ -27410,8 +27550,8 @@ msgid "has been successfully updated"
 msgstr "başarıyla güncellendi"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:370
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -27427,8 +27567,8 @@ msgid "Sex"
 msgstr "Seks"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:448
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:449
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Sigorta şirketi"
@@ -27502,7 +27642,7 @@ msgid "Requested Tests"
 msgstr "Talep Edilen Testler"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:782
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:394
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:391
 msgid "Label"
 msgstr "Etiket"
 
@@ -27722,7 +27862,7 @@ msgstr "Ek not"
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:145
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:436
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:476
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:473
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "Teşhis"
@@ -27862,11 +28002,6 @@ msgstr "Fonksiyonel Ünite"
 msgid "Statement of Income and Expenditure for"
 msgstr "Gelir ve Gider Tablosu"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
-msgid "Hospital Configuration"
-msgstr "Hastane Konfigürasyonu"
-
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:49
 msgid "The hospital configuration could not be updated because"
 msgstr "Hastane yapılandırması güncellenemedi çünkü"
@@ -27927,7 +28062,7 @@ msgstr "Sigorta şirketleri için kullanılacak borçlu türü"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Sigorta şirketleri için kullanılan borçlu türü. "
+msgstr "Sigorta şirketleri için kullanılan borçlu türü. Tüm Sigorta şirketleri bu türden olmalıdır."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28094,7 +28229,7 @@ msgstr "Tarafından verilen ilaçlar"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Konumlar henüz tanımlanmadı. "
+msgstr "Konumlar henüz tanımlanmadı. Önce yapmalısın"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28221,9 +28356,9 @@ msgid "This patient is not currently admitted as an inpatient"
 msgstr "Bu hasta şu anda yatan hasta olarak kabul edilmiyor"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:124
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:126
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
 #: /home/tim/code/KwaMoja/KCMCRegister.php:345
 msgid "Return to Patient Screen"
 msgstr "Hasta Ekranına Dön"
@@ -28234,9 +28369,9 @@ msgid "There was a problem inserting the encounter record because"
 msgstr "Karşılaşma kaydı eklenirken bir sorun oluştu çünkü"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:75
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:108
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:128
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:110
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:130
 msgid "The SQL used to insert the encounter record was"
 msgstr "Karşılaşma kaydını eklemek için kullanılan SQL"
 
@@ -28245,151 +28380,175 @@ msgstr "Karşılaşma kaydını eklemek için kullanılan SQL"
 msgid "The patient was successfully admitted."
 msgstr "Hasta başarıyla kabul edildi."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:91
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:92
-msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "Hasta zaten kabul edildi. "
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:94
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCRegister.php:130
+msgid "There was a problem inserting the billable items because"
+msgstr "Faturalandırılabilir öğeler eklenirken bir sorun oluştu çünkü"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:107
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:109
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:96
+#: /home/tim/code/KwaMoja/KCMCRegister.php:131
+msgid "The SQL used to insert the billable items was"
+msgstr "Faturalandırılabilir öğeleri eklemek için kullanılan SQL"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
+msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
+msgstr "Hasta zaten kabul edildi. Tekrar kabul edilmeden önce taburcu edilmeleri gerekir"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
 msgid "There was a problem updating the encounter record because"
 msgstr "Karşılaşma kaydı güncellenirken bir sorun oluştu çünkü"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:113
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:131
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:133
 msgid "The patient data was successfully updated."
 msgstr "Hasta verileri başarıyla güncellendi."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:140
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:142
+#: /home/tim/code/KwaMoja/KCMCRegister.php:298
+msgid "There was a problem updating the billable items because"
+msgstr "Faturalandırılabilir öğeler güncellenirken bir sorun oluştu çünkü"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:141
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:143
+#: /home/tim/code/KwaMoja/KCMCRegister.php:299
+msgid "The SQL used to update the billable items was"
+msgstr "Faturalandırılabilir öğeleri güncellemek için kullanılan SQL"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
 msgid "Search For Patient"
 msgstr "Hastayı Ara"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:155
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:186
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:188
 msgid "Search for patient details"
 msgstr "Hasta ayrıntılarını arama"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:157
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:188
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:190
 msgid "File number"
 msgstr "Dosya numarası"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:190
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:192
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "Biliniyorsa hasta dosya numarasının tamamını veya bir kısmını girin"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:162
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:193
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:195
 msgid "Patients name"
 msgstr "Hastanın ismi"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:164
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:195
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:197
 msgid "Enter all or part of the patients name if it is known"
 msgstr "Biliyorsa, hasta adının tamamını veya bir kısmını girin"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:198
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:200
 msgid "Patients Address"
 msgstr "Hasta Adresi"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:169
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:200
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:202
 msgid "Enter all or part of the patients address if it is known"
 msgstr "Biliniyorsa, hasta adresinin tamamını veya bir kısmını girin"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:172
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:203
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:205
 msgid "Patients Phone Number"
 msgstr "Hastaların Telefon Numarası"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:174
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:205
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "Biliniyorsa, hastaların telefon numaralarının tümünü veya bir kısmını girin"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:208
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:239
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:241
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "Hasta Sayısı"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:258
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:263
 msgid "Admit Patient"
 msgstr "Hastayı Kabul Et"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:237
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:264
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:270
 msgid "There are no patients matching this criteria"
 msgstr "Bu kriterlere uyan hasta yok"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "Bay"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "Hanım"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Özlemek"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "Bayan"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "Dr"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:304
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:337
 msgid "Update Admission data for"
 msgstr "İçin Giriş verilerini güncelleyin"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "Admit"
 msgstr "Kabul et"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
 msgid "as an inpatient"
 msgstr "yatılı olarak"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:345
 msgid "Admission Date"
 msgstr "Kabul Tarihi"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:348
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:349
 msgid "Admission Time"
 msgstr "Giriş zamanı"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:360
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:361
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:54
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:336
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:333
 #: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
 msgid "Blood Group"
 msgstr "Kan grubu"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:364
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:365
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -28398,78 +28557,78 @@ msgstr "Kan grubu"
 msgid "Gender"
 msgstr "Cinsiyet"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:376
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:377
 msgid "Admission Type"
 msgstr "Giriş Türü"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:386
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:387
 msgid "A type of admission."
 msgstr "Bir tür kabul."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "White"
 msgstr "Beyaz"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Green"
 msgstr "Yeşil"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Yellow"
 msgstr "Sarı"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Red"
 msgstr "Kırmızı"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:391
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:392
 msgid "Triage Code"
 msgstr "Triyaj Kodu"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:401
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:402
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "Bu hastanın triyaj kodu, beyaz en az ciddi ve kırmızı en ciddi."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:417
 msgid "The ward that this patient is being admitted to."
 msgstr "Bu hastanın kabul edildiği servis."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:421
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:422
 msgid "Referrer Diagnosis"
 msgstr "Yönlendiren Teşhisi"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 msgid "Referred By"
 msgstr "Referans veren"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Referrer Therapy"
 msgstr "Yönlendiren Terapi"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:436
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:437
 msgid "Referrer Notes"
 msgstr "Yönlendiren Notlar"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:459
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:460
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "Varsa, bu hastanın ait olduğu sigorta şirketi"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:464
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:465
 msgid "Insurance Number"
 msgstr "Sigorta numarası"
 
@@ -28920,7 +29079,7 @@ msgstr "Karşılaşma türü Açıklama boş olamaz"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "Hata olduğu için veri girilemez. "
+msgstr "Hatalar olduğu için veri girilemez. Lütfen bu hataları düzeltip tekrar deneyin"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29028,7 +29187,7 @@ msgstr "Koğuş Genel Bakış Ekranı"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "Servis kimliği boş olamaz. "
+msgstr "Servis kimliği boş olamaz. Lütfen doğru bir kimlik girin."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29036,7 +29195,7 @@ msgstr "Servis kimliği 35 karakterden uzun olamaz."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "Servis adı boş bırakılamaz. "
+msgstr "Servis adı boş olamaz. Lütfen doğru bir isim girin."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29044,7 +29203,7 @@ msgstr "Servis adı 35 karakterden uzun olamaz."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "İlk oda numarası boş olamaz. "
+msgstr "İlk oda numarası boş olamaz. Lütfen doğru bir numara girin."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29053,7 +29212,7 @@ msgstr "Oda numaraları tamsayı olmalıdır."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Son oda numarası boş bırakılamaz. "
+msgstr "Son oda numarası boş olamaz. Lütfen doğru bir numara girin."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29142,7 +29301,7 @@ msgstr "Oda öneki"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Oda numarasından önce gelen önek. "
+msgstr "Oda numarasından önce gelecek ön ek. Maksimum 4 karakter kullanılabilir."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29467,11 +29626,11 @@ msgstr "Polikliniğe Başvur"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "Bu hasta şu anda ayaktan olarak kabul edilmiyor"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "as an outpatient"
 msgstr "ayaktan olarak"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:418
 msgid "The department that this patient is being admitted to."
 msgstr "Bu hastanın kabul edildiği bölüm."
 
@@ -29513,7 +29672,7 @@ msgstr "Başka bir para yatırma girin"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Bu kullanıcı için henüz bir Nakit Hesabı tanımlanmadı. "
+msgstr "Bu kullanıcı için henüz bir Nakit Hesabı tanımlanmadı. Önce yapmalısın"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -29537,19 +29696,19 @@ msgstr "Bekleyen Test Talepleri"
 msgid "Date Batch Sent"
 msgstr "Toplu İşin Gönderildiği Tarih"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:81
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:84
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:91
 msgid "Edit Batch"
 msgstr "Grubu Düzenle"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:85
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:92
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "Grubu Görüntüle"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:93
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
@@ -29558,7 +29717,7 @@ msgstr "Grubu Görüntüle"
 msgid "Enter Results"
 msgstr "Sonuçları Gir"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:91
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:94
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:169
 msgid "Return to Bacteriology Centre"
 msgstr "Bakteriyoloji Merkezine Dönüş"
@@ -30157,7 +30316,7 @@ msgstr "Hasta Kaydı"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Bu dosya numarası başka bir hasta için zaten kullanılmış. "
+msgstr "Bu dosya numarası zaten başka bir hasta için kullanıldı. Lütfen başka bir dosya numarası seçin."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30190,14 +30349,6 @@ msgstr "Hasta kaydı eklenirken bir sorun oluştu çünkü"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:109
 msgid "The SQL used to insert the patient record was"
 msgstr "Hasta kaydını eklemek için kullanılan SQL"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:130
-msgid "There was a problem inserting the billable items because"
-msgstr "Faturalandırılabilir öğeler eklenirken bir sorun oluştu çünkü"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:131
-msgid "The SQL used to insert the billable items was"
-msgstr "Faturalandırılabilir öğeleri eklemek için kullanılan SQL"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:159
 msgid "There was a problem inserting the debtors record because"
@@ -30241,14 +30392,6 @@ msgstr "Hasta kaydı güncellenirken bir sorun oluştu çünkü"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:289
 msgid "The SQL used to update the patient record was"
 msgstr "Hasta kaydını güncellemek için kullanılan SQL"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:298
-msgid "There was a problem updating the billable items because"
-msgstr "Faturalandırılabilir öğeler güncellenirken bir sorun oluştu çünkü"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:299
-msgid "The SQL used to update the billable items was"
-msgstr "Faturalandırılabilir öğeleri güncellemek için kullanılan SQL"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:313
 msgid "There was a problem updating the debtors record because"
@@ -30385,10 +30528,6 @@ msgstr "Bu hastanın vatandaş olduğu ülke."
 msgid "The blood group of this patient"
 msgstr "Bu hastanın kan grubu"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:665
-msgid "Item to bill"
-msgstr "Faturalanacak öğe"
-
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:5
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:99
@@ -30467,13 +30606,13 @@ msgid "Update Request"
 msgstr "Güncelleme Talebi"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:469
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:511
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:320
 msgid "Send Request"
 msgstr "İstek gönder"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -30481,7 +30620,7 @@ msgid "Search for Patients"
 msgstr "Hasta Ara"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:487
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:526
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:337
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
@@ -30492,7 +30631,7 @@ msgid "Enter a partial Name"
 msgstr "Kısmi bir ad girin"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:498
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:537
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:532
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
@@ -30500,7 +30639,7 @@ msgid "Enter a partial patient file number"
 msgstr "Kısmi bir hasta dosya numarası girin"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:509
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:548
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:543
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
@@ -30509,7 +30648,7 @@ msgid "Enter a partial Phone Number"
 msgstr "Kısmi bir Telefon Numarasını girin"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:520
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:559
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:554
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
@@ -30517,91 +30656,91 @@ msgstr "Kısmi bir Telefon Numarasını girin"
 msgid "Enter part of the Address"
 msgstr "Adresin bir bölümünü girin"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:185
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:182
 msgid "Failed to insert the request into the database"
 msgstr "İstek veritabanına eklenemedi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:186
 msgid "The request was successfully sent"
 msgstr "İstek başarıyla gönderildi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:224
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:221
 msgid "Failed to update the request"
 msgstr "İstek güncellenemedi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:228
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:225
 msgid "The request was successfully updated"
 msgstr "İstek başarıyla güncellendi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:313
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:310
 msgid "General Details"
 msgstr "Genel Detaylar"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:357
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:354
 msgid "Rhesus Factor"
 msgstr "Rhesus faktörü"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:376
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:373
 msgid "Kell"
 msgstr "Kell"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Tarih ve protokol no. "
+msgstr "Tarih ve protokol no. tarafından test edilen"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
 msgstr "Kan bankasından alınan eşleşme testi numuneleriyle"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:418
 msgid "Specimen Counts"
 msgstr "Numune Sayımları"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
 msgid "Pure blood"
 msgstr "Saf kan"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:429
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:426
 msgid "Red blood cell concentrate"
 msgstr "Kırmızı kan hücresi konsantresi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:434
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:431
 msgid "Leukocytedepleted red blood cell"
 msgstr "Lökositik eritilmiş kırmızı kan hücresi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:439
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:436
 msgid "Washed red blood cells"
 msgstr "Yıkanmış kırmızı kan hücreleri"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:441
 msgid "Platelet rich plasma"
 msgstr "Trombosit zengin plazma"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:449
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:446
 msgid "Platelet concentrate"
 msgstr "Trombosit konsantresi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:454
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:451
 msgid "Fresh frozen plasma"
 msgstr "Taze donmuş plazma"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:459
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:456
 msgid "Transfusion devices"
 msgstr "Transfüzyon cihazları"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:471
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
 msgid "Transfusion date"
 msgstr "Transfüzyon tarihi"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:481
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:478
 msgid "Notes/special orders"
 msgstr "Notlar / özel siparişler"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:501
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "The ordering doctor is responsible for this order!"
 msgstr "Siparişi veren doktor bu siparişten sorumludur!"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:502
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "For security reasons, only sample tubes with full name & birthdate will be accepted."
 msgstr "Güvenlik nedeniyle, yalnızca tam adı ve doğum tarihi olan örnek tüpler kabul edilecektir."
 
@@ -30772,7 +30911,7 @@ msgstr "Destek Bilgisi"
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:253
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:313
 msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
-msgstr "Örneğin. "
+msgstr "Örneğin. Kemoterapi sonrası eksizyon alanında radyasyon sonrası önemli laboratuvar sonuçları"
 
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:257
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:317
@@ -32285,7 +32424,7 @@ msgstr "Yeni Konum ayrıntıları"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Bu konum için kullanılacak kodu girin. "
+msgstr "Bu konum için kullanılacak kodu girin. Kod 1 ila 5 karakter içerebilir."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -33696,7 +33835,7 @@ msgid "Are you sure you wish to delete this brand?"
 msgstr "Bu markayı silmek istediğinizden emin misiniz?"
 
 #: /home/tim/code/KwaMoja/Manufacturers.php:265
-#: /home/tim/code/KwaMoja/SalesCategories.php:488
+#: /home/tim/code/KwaMoja/SalesCategories.php:495
 msgid "Brand"
 msgstr "Marka"
 
@@ -33789,14 +33928,6 @@ msgstr "Modül Adı"
 #: /home/tim/code/KwaMoja/ModuleEditor.php:73
 msgid "New Name"
 msgstr "Yeni isim"
-
-#: /home/tim/code/KwaMoja/ModuleEditor.php:87
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
-#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
-msgid "Save"
-msgstr "Kayıt etmek"
 
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:3
 msgid "Monthly Bank Transactions Inquiry"
@@ -35217,8 +35348,8 @@ msgstr "Belirtilen müşteri veya kategori için yazdırılacak fiyat ayrıntıl
 #: /home/tim/code/KwaMoja/PDFPriceList.php:229
 #: /home/tim/code/KwaMoja/Prices.php:233
 #: /home/tim/code/KwaMoja/PricesByCost.php:208
-#: /home/tim/code/KwaMoja/Prices_Customer.php:210
-#: /home/tim/code/KwaMoja/Prices_Customer.php:266
+#: /home/tim/code/KwaMoja/Prices_Customer.php:211
+#: /home/tim/code/KwaMoja/Prices_Customer.php:269
 msgid "No End Date"
 msgstr "Bitiş Tarihi Yok"
 
@@ -35263,7 +35394,7 @@ msgstr "Para Birimi İçin"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Raporlanacak para birimlerini seçin. "
+msgstr "Raporlanacak para birimlerini seçin. Tüm para birimlerini raporlamak için Tümünü seçin"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -36990,7 +37121,7 @@ msgid "The quantity of the ordered item entered must be a positive amount"
 msgstr "Girilen sipariş edilen ürünün miktarı olumlu bir miktar olmalıdır"
 
 #: /home/tim/code/KwaMoja/PO_Items.php:550 /home/tim/code/KwaMoja/Prices.php:71
-#: /home/tim/code/KwaMoja/Prices_Customer.php:66
+#: /home/tim/code/KwaMoja/Prices_Customer.php:68
 #: /home/tim/code/KwaMoja/SpecialOrder.php:205
 msgid "The price entered must be numeric"
 msgstr "Girilen fiyat sayısal olmalıdır"
@@ -37809,7 +37940,7 @@ msgstr "Bu ödeme yöntemi, önceden yazdırılmış çekler gibi önceden bası
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Satış noktası uygulaması ile kullanım için. "
+msgstr "Satış noktası uygulaması ile kullanım için. POS'un bu ödeme yöntemi için kasa çekmecesini açması gerekiyor mu?"
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -39404,20 +39535,20 @@ msgstr "Fiyat pozitif bir sayı olarak girilmelidir"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:54
 #: /home/tim/code/KwaMoja/Prices.php:75
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:192
-#: /home/tim/code/KwaMoja/Prices_Customer.php:84
+#: /home/tim/code/KwaMoja/Prices_Customer.php:86
 msgid "The date this price is to take effect from must be entered in the format"
 msgstr "Bu fiyatın yürürlüğe girmesi gereken tarih biçime girilmelidir"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:58
 #: /home/tim/code/KwaMoja/Prices.php:81
-#: /home/tim/code/KwaMoja/Prices_Customer.php:89
+#: /home/tim/code/KwaMoja/Prices_Customer.php:91
 msgid "The date this price is be in effect to must be entered in the format"
 msgstr "Bu fiyatın geçerli olacağı tarih,"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:61
 #: /home/tim/code/KwaMoja/Prices.php:85
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:196
-#: /home/tim/code/KwaMoja/Prices_Customer.php:93
+#: /home/tim/code/KwaMoja/Prices_Customer.php:95
 msgid "The end date is expected to be after the start date, enter an end date after the start date for this price"
 msgstr "Bitiş tarihinin başlangıç ​​tarihinden sonra olması ve bu fiyatın başlangıç ​​tarihinden sonraki bitiş tarihini girmesi bekleniyor"
 
@@ -39502,13 +39633,13 @@ msgid "Item Prices"
 msgstr "Ürün Fiyatları"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 #: /home/tim/code/KwaMoja/RelatedItemsUpdate.php:37
 msgid "The part code entered does not exist in the database"
 msgstr "Girilen parça kodu veritabanında mevcut değil"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 msgid "Only valid parts can have prices entered against them"
 msgstr "Sadece geçerli parçalar fiyatlara karşı girilebilir"
 
@@ -39524,22 +39655,22 @@ msgid "The product selection page should call this page with a valid product cod
 msgstr "Ürün seçimi sayfası bu sayfayı geçerli bir ürün kodu ile birlikte aramalıdır"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "The part selected is a kit set item"
 msgstr "Seçilen parça, bir kit set maddesi"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "these items explode into their components when selected on an order"
 msgstr "bu öğeler bir siparişte seçildiğinde parçalarına patlar"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "prices must be set up for the components and no price can be set for the whole kit"
 msgstr "Fiyatlar bileşenler için ayarlanmalı ve tüm kit için fiyat ayarlanmamalıdır"
 
 #: /home/tim/code/KwaMoja/Prices.php:89
-#: /home/tim/code/KwaMoja/Prices_Customer.php:97
+#: /home/tim/code/KwaMoja/Prices_Customer.php:99
 msgid "The end date is expected to be after today. There is no point entering a new price where the effective date is before today!"
 msgstr "Bitiş tarihinin bugün bitmiş olması bekleniyor.  Geçerlilik tarihinin bugün öncekinden yeni bir fiyat girilmesinin anlamı yok!"
 
@@ -39569,9 +39700,9 @@ msgstr "İnceleme Fiyatları"
 
 #: /home/tim/code/KwaMoja/Prices.php:223
 #: /home/tim/code/KwaMoja/PricesByCost.php:165
-#: /home/tim/code/KwaMoja/Prices_Customer.php:206
-#: /home/tim/code/KwaMoja/Prices_Customer.php:255
-#: /home/tim/code/KwaMoja/Prices_Customer.php:344
+#: /home/tim/code/KwaMoja/Prices_Customer.php:207
+#: /home/tim/code/KwaMoja/Prices_Customer.php:256
+#: /home/tim/code/KwaMoja/Prices_Customer.php:351
 #: /home/tim/code/KwaMoja/SelectRecurringSalesOrder.php:105
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:165
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:266
@@ -39580,7 +39711,7 @@ msgid "End Date"
 msgstr "Bitiş tarihi"
 
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 msgid "Are you sure you wish to delete this price?"
 msgstr "Bu fiyatı silmek istediğinizden emin misiniz?"
 
@@ -39881,66 +40012,67 @@ msgstr "Müşteri seçimi ekranından bir müşteri seçilmelidir"
 msgid "then an item must be selected before this page is called"
 msgstr "bu sayfa çağrılmadan önce bir öğe seçilmelidir"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:328
 #: /home/tim/code/KwaMoja/SelectCustomer.php:239
 msgid "Special Customer Prices"
 msgstr "Özel Müşteri Fiyatları"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:78
+#: /home/tim/code/KwaMoja/Prices_Customer.php:80
 msgid "The branch code entered is not currently defined"
 msgstr "Girilen şube kodu şu anda tanımlanmamış"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:120
-#: /home/tim/code/KwaMoja/Prices_Customer.php:147
+#: /home/tim/code/KwaMoja/Prices_Customer.php:122
+#: /home/tim/code/KwaMoja/Prices_Customer.php:149
 msgid "Price Updated"
 msgstr "Güncellenen Fiyatlar"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:141
+#: /home/tim/code/KwaMoja/Prices_Customer.php:143
 msgid "Price added"
 msgstr "Fiyat eklendi"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:148
+#: /home/tim/code/KwaMoja/Prices_Customer.php:150
 msgid "The price could not be updated because"
 msgstr "Fiyat güncellenemedi, çünkü fiyat güncellenemedi çünkü"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:174
+#: /home/tim/code/KwaMoja/Prices_Customer.php:176
 msgid "This price has been deleted"
 msgstr "Bu fiyat silindi"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:193
+#: /home/tim/code/KwaMoja/Prices_Customer.php:195
 msgid "Could not retrieve the normal prices set up because"
 msgstr "Ayarlanan normal fiyatları alamadım çünkü"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:194
-#: /home/tim/code/KwaMoja/Prices_Customer.php:242
+#: /home/tim/code/KwaMoja/Prices_Customer.php:196
+#: /home/tim/code/KwaMoja/Prices_Customer.php:243
 msgid "The SQL used to retrieve these records was"
 msgstr "Bu kayıtları almak için kullanılan SQL"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:201
+#: /home/tim/code/KwaMoja/Prices_Customer.php:202
 msgid "There are no default prices set up for this part"
 msgstr "Bu bölüm için ayarlanmış varsayılan fiyat yok"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:204
+#: /home/tim/code/KwaMoja/Prices_Customer.php:205
 msgid "Normal Price"
 msgstr "Normal fiyat"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:241
+#: /home/tim/code/KwaMoja/Prices_Customer.php:242
 msgid "Could not retrieve the special prices set up because"
 msgstr "Ayarlanan özel fiyatları alamadıysanız, çünkü"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:248
+#: /home/tim/code/KwaMoja/Prices_Customer.php:249
 msgid "There are no special prices set up for this part"
 msgstr "Bu bölüm için özel bir fiyat belirlenmedi"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:252
+#: /home/tim/code/KwaMoja/Prices_Customer.php:253
 msgid "Special Price"
 msgstr "Özel fiyat"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:261
+#: /home/tim/code/KwaMoja/Prices_Customer.php:264
 msgid "All Branches"
 msgstr "Tüm Şubeler"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:329
+#: /home/tim/code/KwaMoja/Prices_Customer.php:333
 msgid "All branches"
 msgstr "Tüm şubeler"
 
@@ -43339,7 +43471,7 @@ msgstr "Tmp dizini yok.  Dosyalarınızı yüklemek için PHP'nizde bir tmp dizi
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "Web sunucusu kullanıcısının dosyaları karşıya yükleme izni yok. "
+msgstr "Web sunucusu kullanıcısının dosya yükleme izni yoktur. Lütfen sistem yöneticinizle görüşün"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43414,17 +43546,18 @@ msgid "A new Sales category record has been added"
 msgstr "Yeni bir Satış kategorisi kaydı eklendi"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:324
-#: /home/tim/code/KwaMoja/SalesCategories.php:408
+#: /home/tim/code/KwaMoja/SalesCategories.php:411
 msgid "Category Name"
 msgstr "Kategori adı"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:325
-#: /home/tim/code/KwaMoja/SalesCategories.php:417
+#: /home/tim/code/KwaMoja/SalesCategories.php:420
 msgid "Parent Category"
 msgstr "aile kategorisi"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:357
-#: /home/tim/code/KwaMoja/SalesCategories.php:419
+#: /home/tim/code/KwaMoja/SalesCategories.php:423
+#: /home/tim/code/KwaMoja/SalesCategories.php:425
 msgid "No parent"
 msgstr "Ebeveyn yok"
 
@@ -43440,57 +43573,57 @@ msgstr "Bu satış kategorisini silmek istediğinizden emin misiniz?"
 msgid "Edit Sales Category"
 msgstr "Satış Kategorisini Düzenle"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:405
+#: /home/tim/code/KwaMoja/SalesCategories.php:408
 msgid "New Sales Category"
 msgstr "Yeni Satış Kategorisi"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:410
+#: /home/tim/code/KwaMoja/SalesCategories.php:413
 msgid "The name by which this category will be called, using up to 50 characters"
 msgstr "En fazla 50 karakter kullanılarak bu kategorinin çağrılacağı ad"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:428
+#: /home/tim/code/KwaMoja/SalesCategories.php:435
 msgid "If this is a sub category of another sales category select the parent here"
 msgstr "Bu, başka bir satış kategorisinin alt kategorisiyse üst grubu buradan seçin"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:432
+#: /home/tim/code/KwaMoja/SalesCategories.php:439
 msgid "Is the category in active use?"
 msgstr "Kategori aktif kullanımda mı?"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:449
 msgid "Is the sales category in active use? Should it be displayed in your web shop?"
 msgstr "Satış kategorisi aktif kullanımda mı? "
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:449
+#: /home/tim/code/KwaMoja/SalesCategories.php:456
 msgid "Upload an image to be associated with this category"
 msgstr "Bu kategoriyle ilişkilendirilecek bir resim yükleyin"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:483
+#: /home/tim/code/KwaMoja/SalesCategories.php:490
 msgid "Inventory items for"
 msgstr "Için envanter öğeleri"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:489
+#: /home/tim/code/KwaMoja/SalesCategories.php:496
 #: /home/tim/code/KwaMoja/includes/OcKwaMojaToOpenCartSync.php:454
 msgid "Featured"
 msgstr "Öne çıkan"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:505
+#: /home/tim/code/KwaMoja/SalesCategories.php:512
 msgid "Cancel Feature"
 msgstr "Özelliğini İptal Et"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:508
+#: /home/tim/code/KwaMoja/SalesCategories.php:515
 msgid "Make Featured"
 msgstr "Öne Çıkarın"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:516
+#: /home/tim/code/KwaMoja/SalesCategories.php:523
 msgid "No Inventory items in this category"
 msgstr "Bu kategorideki envanter öğesi yok"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:531
+#: /home/tim/code/KwaMoja/SalesCategories.php:538
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:563
 msgid "Select Stock Items"
 msgstr "Stok Kalemleri Seçiniz"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:562
+#: /home/tim/code/KwaMoja/SalesCategories.php:569
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:594
 msgid "Select the stock category to search in. To search in all categories, choose All."
 msgstr "Aramak için stok kategorisini seçin. Tüm kategorilerde aramak için Tümü'nü seçin."
@@ -43578,15 +43711,15 @@ msgstr "Komisyon Ayrıntıları Oluşturun"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "Komisyon oranı sadece belirli kalemlere uygulanabilir. "
+msgstr "Komisyon oranı yalnızca belirli öğeler için geçerli olabilir. Bu komisyon oranının geçerli olduğu hisse senedi kategorisini seçin. Tüm kategoriler için geçerliyse Tümü'nü seçin."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "Komisyon oranı sadece belirli bir bölgeye uygulanabilir. "
+msgstr "Bir komisyon oranı yalnızca belirli bir alan için geçerli olabilir. Bu komisyon oranının uygulanacağı alanı seçin. Tüm alanlar için geçerliyse, Tümünü seçin."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Bu komisyon kaydı için para birimini seçin. "
+msgstr "Bu komisyon kaydı için para birimini seçin. Komisyon amaçları için yalnızca bu para birimindeki işlemler dahil edilecektir."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43594,7 +43727,7 @@ msgstr "Bu komisyon oranının devreye girdiği değer."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Bu komisyon, müşteri aktif hale geldikten sadece belirli bir süre sonra başvurabilir. "
+msgstr "Bu komisyon, müşteri aktif hale geldikten sonra sadece belirli sayıda gün için geçerli olabilir. Oran her zaman geçerliyse sıfırı seçin."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43627,7 +43760,7 @@ msgstr "Ücretli?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Bu kriterleri karşılayan komisyon yok. "
+msgstr "Bu kriterleri karşılayan komisyon yok. Lütfen farklı kriterler seçin ve raporu tekrar çalıştırın."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43827,15 +43960,15 @@ msgstr "Yeni Satış GL ayrıntıları oluşturma"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Buradan bir Alan seçin. "
+msgstr "Burada bir Alan seçin. Bu kayıt, belirli bir kaydı olmayan tüm alanlara atıfta bulunacaksa, Diğerlerini seçin."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Burada bir Stok Kategorisi seçin. "
+msgstr "Burada bir Stok Kategorisi seçin. Bu kayıt, belirli bir kaydı olmayan tüm kategorilere atıfta bulunacaksa, Diğerleri'ni seçin."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Buradan bir Satış Türü seçin. "
+msgstr "Burada bir Satış Türü seçin. Bu kayıt, belirli bir kaydı olmayan tüm türlere atıfta bulunacaksa, Diğerlerini seçin."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44188,7 +44321,7 @@ msgstr "Bu satış görevlisinin bilineceği adı girin."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Bu kişinin kapsadığı satış alanını seçin. "
+msgstr "Bu kişinin kapsadığı satış alanını seçin. Birden fazla alanı kaplıyorlarsa, boş bırakın."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44228,7 +44361,7 @@ msgstr "Komisyon türü bilgilerini almak için kullanılan ve işlemde başarı
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Bu satış görevlisinin komisyonunu hesaplamak için kullanılan hesaplama yöntemini seçin. "
+msgstr "Bu satış elemanı için komisyonu hesaplamak için kullanılan hesaplama yöntemini seçin. Bu sadece bir komisyon dönemi seçilmişse kullanılır."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44248,7 +44381,7 @@ msgstr "Satış faturalarını göstermek için bu kutuyu işaretleyin"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Müşterinin para birimindeki orijinal tutarlar. "
+msgstr "Müşterinin para birimindeki orijinal tutarlar. Geçerli para birimi cinsinden TL tutarları."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45435,7 +45568,7 @@ msgstr "Fatura Siparişi"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Kriterlerinize uygun toplama listesi yok. "
+msgstr "Kriterlerinizi karşılayan bir seçim listesi yok. Lütfen farklı kriterlerle tekrar deneyin"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -46429,14 +46562,14 @@ msgstr "Varyans"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Eldeki miktar veritabanından alınamadı."
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "Toplam stok miktarını almak için aşağıdaki SQL kullanıldı"
 
@@ -46470,13 +46603,13 @@ msgstr "Için gönderim ortalama maliyet ayarlaması için GL girişi"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Maliyet güncellenemedi, çünkü maliyet güncellenemedi çünkü"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Maliyeti güncellemek için aşağıdaki SQL kullanıldı"
 
@@ -47618,7 +47751,7 @@ msgstr "Ayarlama Miktarı"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "Ayarlanacak miktar. "
+msgstr "Ayarlanacak miktar. Doğal bir miktar stoğu azaltır ve pozitif bir miktar onu artırır."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -48900,7 +49033,7 @@ msgstr "Tarihine Göre Hazır Stok"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Aranacak stok kategorisini seçin. "
+msgstr "Aranacak stok kategorisini seçin. Tüm stok kategorilerini aramak için Tümünü seçin"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -50005,7 +50138,7 @@ msgstr "Kredi Notunda Sözleşme Kredileri"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Fatura Girişi'ne Geri Dön"
 
@@ -51209,15 +51342,15 @@ msgstr "Alınan GRN miktarını güncellemek için aşağıdaki SQL kullanıldı
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Sevkıyat için sevkıyat ücret kaydı"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "Sevkıyat ücret kaydını eklemek için aşağıdaki SQL kullanıldı"
 
@@ -51230,12 +51363,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Aşağıdaki SQL, sabit varlık maliyetinin güncellenmesini denemek için kullanıldı"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Sözleşme için sözleşme ücret kaydı"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "Sözleşme ücret kaydını eklemek için aşağıdaki SQL kullanıldı"
 
@@ -51436,14 +51569,14 @@ msgstr "Için bir Fatura Girmesi İçin Bir Tedarikçi Seçin"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "İzinleriniz malların alınmasına izin vermiyor. "
+msgstr "İzinleriniz malların alınmasına izin vermiyor. Satın alma siparişlerinin otomatik olarak alınması, yalnızca mal / hizmet almaya yetkili kullanıcılarla sınırlıdır"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
 msgstr "Seri numarası veya seri numarası girilmesini gerektiren kontrollü stok kalemlerinin otomatik olarak alınması şu an için yiyecek ve içecek değildir.  Yalnızca seri olmayan numaralandırılmış ürünlere sahip siparişler otomatik olarak alınabilir"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "KRİTİK HATA! "
 
@@ -51660,44 +51793,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "Faturalandırılan GRN miktarını güncellemek için aşağıdaki SQL kullanıldı"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "Fatura mal alındı ​​kaydı ile eşleştirilemedi, çünkü fatura"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Faturayı GRN'ye eşlemek için aşağıdaki SQL kullanıldı"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Teslimatın stok hareket kaydı, maliyetin gerçek maliyetle güncellenmesini sağlayamadı."
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Bu satın alma faturasındaki maliyet farklılıkları için satış analizi kayıtları güncellenemedi"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Faturalar için stok hareketleri bu satın alma faturasındaki maliyet farklılıkları için güncellenemez"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "KRİTİK HATA! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "Öğe maliyetinin güncellenmesini denemek için aşağıdaki SQL kullanıldı:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Tedarikçi fatura numarası"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Bu tedarikçi için başka bir Fatura girin"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Ödemeyi gir"
 
@@ -52028,7 +52159,7 @@ msgstr "Son Tedarikçi Numarası"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Tedarikçilerin kimlikleri otomatik olarak oluşturulacaksa, farklı tedarikçi türlerinin kendi başlangıç ​​numaraları olabilir. "
+msgstr "Tedarikçilerin kimlikleri otomatik olarak oluşturulacaksa, farklı tedarikçi türlerinin kendi başlangıç ​​numaraları olabilir. Bu tür için bir sonraki tedarikçinin numarasını girin."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52264,7 +52395,7 @@ msgstr "Bu tedarikçinin ait olduğu tedarikçi grubunu seçin."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Bu tedarikçinin referans aldığı satış elemanını seçin. "
+msgstr "Bu tedarikçinin başvurduğu satış görevlisini seçin. Bu tedarikçi bir satış elemanı değilse, Yok'u seçin."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -52462,7 +52593,7 @@ msgstr "Varsayılan tema"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:454
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
-msgstr "Giriş ekranı ve yeni kullanıcıların kurulumu için kullanılacak varsayılan tema. "
+msgstr "Giriş ekranı ve yeni kullanıcıların kurulumu için kullanılacak varsayılan tema. Kullanıcı teması seçimi onu geçersiz kılacaktır."
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:459
 msgid "Auto Update Exchange Rates Daily"
@@ -52593,11 +52724,6 @@ msgstr "Bağlantıların yalnızca güvenli soketler üzerinden yapılmasını z
 #: /home/tim/code/KwaMoja/SystemParameters.php:574
 msgid "Perform database maintenance at logon"
 msgstr "Oturum açma sırasında veritabanı bakımını yapın"
-
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
-msgid "Never"
-msgstr "Asla"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:597
 #: /home/tim/code/KwaMoja/SystemParameters.php:599
@@ -54155,7 +54281,7 @@ msgstr "7. gün için girilen saatler çok yüksek görünüyor - bu muhtemelen 
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Eğer zaman doldurulamazsa, hem iş emri hem de iş merkezi bunu yansıtmalıdır. "
+msgstr "Süre ücretlendirilemezse, hem iş emri hem de iş merkezi bunu yansıtmalıdır. Sadece bir iş emri seçilirse bir iş merkezi ayarlanabilir"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55038,7 +55164,7 @@ msgstr "Güvenlik Rolü Adı"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "Rol klinik bir görevdir. "
+msgstr "Rol klinik mi? Örneğin, doktor veya hemşire"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55168,7 +55294,7 @@ msgstr "Ayrıntılarını Düzenle"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Bu kullanıcı için şifreyi girin. "
+msgstr "Bu kullanıcı için parolayı girin. Boş bırakılırsa, şifre değişmeden kalacaktır."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55192,7 +55318,7 @@ msgstr "Evet olarak ayarlanırsa, kullanıcının bir sonraki Oturum Açma İşl
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Bu kullanıcının tam adını girin. "
+msgstr "Bu kullanıcının tam adını girin. Benzersiz olması gerekmez."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55204,7 +55330,7 @@ msgstr "Bu kullanıcının e-posta adresini girin."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Bu kullanıcının güvenlik rolünü seçin. "
+msgstr "Bu kullanıcının güvenlik rolünü seçin. Bu onların iş unvanına uygun olacaktır."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55269,7 +55395,7 @@ msgstr "Bu kullanıcı için kullanılacak temayı seçin."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Kullanıcıların dilini seçin. "
+msgstr "Kullanıcı dilini seçin. Tüm ekranlar bu dile çevrilecek"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55316,7 +55442,7 @@ msgstr "Engellendi seçilirse, bu kullanıcının oturum açmasına izin verilme
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Bu kullanıcı için ekranların çizileceği yazı tipi boyutunu seçin. "
+msgstr "Bu kullanıcı için ekranların çizileceği yazı tipi boyutunu seçin. Ana menü ekranından herhangi bir zamanda değiştirilebilir."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55379,7 +55505,7 @@ msgstr "İş Merkezleri"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Bu iş merkezi veritabanında zaten var. "
+msgstr "Bu çalışma merkezi veri tabanında zaten var. Lütfen farklı bir kod kullanın."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55461,7 +55587,7 @@ msgstr "Yeni İş Merkezi Oluşturun"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "Bu iş merkezinin tanımlanacağı alfasayısal kod. "
+msgstr "Bu çalışma merkezinin tanımlanacağı alfanümerik kod. En fazla 5 karakter kullanılabilir."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -56189,10 +56315,6 @@ msgstr "Bu komut, değiştirilen masraflar için Genel Defteri stok bakiyelerini
 #: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:51
 msgid "Update costs for all items listed in a bill of materials"
 msgstr "Bir malzeme listesinde listelenen tüm öğelerin maliyetlerini güncelleme"
-
-#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
-msgid "Run"
-msgstr "Koşmak"
 
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:3
 msgid "UTILITY PAGE To Changes A Customer Branch Code In All Tables"
@@ -58500,16 +58622,16 @@ msgstr "Dönem için satış analizi maliyet verilerini güncelleştirdi"
 msgid "Recalculation of GL Balances in Chart Details Table"
 msgstr "Grafik Ayrıntıları Tablosundaki GL Dengelerinin Yeniden Hesabı"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:30
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:36
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:54
 msgid "Do the Recalculation"
 msgstr "Yeniden Hesaplama Yap"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:30
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:36
 msgid "Are you sure you wish to re-post all general ledger transactions since the selected period this can take some time?"
 msgstr "Seçilen döneme ait bu işlemin biraz zaman alabileceğinden beri, tüm muhasebeyle ilgili işlemleri tekrar göndermek istediğinizden emin misiniz?"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:69
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:78
 msgid "All general ledger postings have been reposted from period"
 msgstr "Tüm muhasebe defteri deftere nakilleri dönemden yeniden kaydedildi"
 
@@ -60401,7 +60523,7 @@ msgstr "Yeni çalışan kaydı oluşturun"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Bu çalışanı tanımlamak için benzersiz bir alfa sayısal kod. "
+msgstr "Bu çalışanı tanımlamak için benzersiz bir alfa sayısal kod. 10 karaktere kadar kullanılabilir"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61604,7 +61726,7 @@ msgstr "Bordro dönemi oluştur"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "Bu ödeme süresinin bilineceği kimlik. "
+msgstr "Bu ödeme döneminin bilineceği kimlik. Bu bir tam sayı olmalıdır."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -67624,27 +67746,27 @@ msgstr "Yapılandırma parametreleri veritabanından alınamadı, çünkü"
 msgid "An error occurred accessing the database to retrieve the company information"
 msgstr "Şirket bilgisini almak için veritabanına erişirken bir hata oluştu"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "There is a problem in retrieving the pricing information for part"
 msgstr "Bölümün fiyat bilgilerini almakta bir sorun var"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "and for Customer"
 msgstr "ve Müşteri için"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "the error message returned by the SQL server was"
 msgstr "SQL sunucusu tarafından döndürülen hata iletisi"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "There is an error to retrieve price from price matrix for stock"
 msgstr "Stok için fiyat matrisinden fiyat almak için bir hata var"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "and the error message returned by SQL server is "
 msgstr "ve SQL sunucusu tarafından döndürülen hata iletisi"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:169
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:168
 msgid "Failed to retrieve price from price matrix"
 msgstr "Fiyat matrisinden fiyat alınamadı"
 
@@ -69740,9 +69862,8 @@ msgstr "için yeniden adlandırılamadı"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysqli.php:718
-#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
-msgid "Cannot update the auto increment field in table"
-msgstr "Tablodaki otomatik artış alanı güncellenemiyor"
+msgid "You are trying to set the auto increment number below the current number"
+msgstr "Otomatik artış numarasını mevcut numaranın altına ayarlamaya çalışıyorsunuz"
 
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:721
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:721
@@ -69750,6 +69871,10 @@ msgstr "Tablodaki otomatik artış alanı güncellenemiyor"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:713
 msgid "The auto increment field in table"
 msgstr "Tablodaki otomatik artış alanı"
+
+#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
+msgid "Cannot update the auto increment field in table"
+msgstr "Tablodaki otomatik artış alanı güncellenemiyor"
 
 #: /home/tim/code/KwaMoja/includes/UserLogin.php:47
 msgid "Could not retrieve user details on login because"
@@ -71330,7 +71455,7 @@ msgstr "Grafik notları"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG, vb. "
+msgstr "PT, ATG vb. günlük notlar"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"
@@ -72135,7 +72260,7 @@ msgstr "Bakteri mikroskobu."
 msgid "NoG.oxacil.resist.Staphyloc."
 msgstr "NoG.oxacil.resist.Staphyloc."
 
-#: /home/tim/code/KwaMoja/sql/updates/220.php:4
+#: /home/tim/code/KwaMoja/sql/updates/220.php:3
 msgid "Blood Laboratory Details"
 msgstr "Kan Laboratuvarı Detayları"
 
@@ -72982,6 +73107,9 @@ msgstr "Personel Kredileri"
 msgid "Staff Loan Repayments"
 msgstr "Personel Kredisi Geri Ödemeleri"
 
+#~ msgid "Item to bill"
+#~ msgstr "Faturalanacak öğe"
+
 #~ msgid "Blood Laboratory"
 #~ msgstr "Kan Laboratuvarı"
 
@@ -73095,9 +73223,6 @@ msgstr "Personel Kredisi Geri Ödemeleri"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "İzinleriniz malların alınmasına izin vermiyor.  Satınalma siparişlerinin otomatik olarak alınması, yalnızca mal / hizmet almaya yetkili kullanıcılar ile sınırlandırılmıştır"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "Fatura mal alındı ​​kaydı ile eşleştirilemedi, çünkü fatura"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "KRİTİK HATA!  BU HATASı DÜŞÜNMEMEK VE YARDIMINA GİTMEYİN.  Sabit kıymet maliyeti güncellenemedi çünkü"

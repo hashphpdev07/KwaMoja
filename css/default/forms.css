@@ -113,11 +113,13 @@ background-size:14px 14px;
 padding-left:24px;
 }
 form input[type="submit"]{
+background:#BFBFBF url(images/tick.png) center left 2%/24px no-repeat;
 padding-top: 6px;
 padding-bottom: 6px;
-padding-left: 16px;
+padding-left: 32px;
 padding-right: 16px;
 margin: 1px;
+margin-top:5px;
 border: 1px solid #588BB6;
 color:#1A1A1A;
 border-radius: 5px;
@@ -125,15 +127,16 @@ cursor: pointer;
 transition-duration:0.5s;
 }
 form input[type="submit"]:hover{
-background:#7F7F7F;
+background:#7F7F7F url(images/tick.png) center left 2%/24px no-repeat;
 color:#ffffff;
 transition-duration:0.5s;
 }
 form input[type="reset"]{
+background:#BFBFBF url(images/reset.png) center left 8%/16px no-repeat;
 padding-top: 6px;
 padding-bottom: 6px;
-padding-left: 16px;
-padding-right: 16px;
+padding-left: 28px;
+padding-right: 20px;
 margin: 1px;
 border: 1px solid #588BB6;
 color:#1A1A1A;

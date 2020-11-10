@@ -566,7 +566,7 @@ if ($_SESSION['RequireCustomerSelection'] == 1 or !isset($_SESSION['Items' . $Id
 		</fieldset>
 		<div class="centre">
 			<input type="submit" name="SearchCust" value="', _('Search Now'), '" />
-			<input type="submit" name="reset" value="', _('Reset'), '" />
+			<input type="reset" name="reset" value="', _('Reset'), '" />
 		</div>';
 
 	if (isset($Result_CustSelect)) {

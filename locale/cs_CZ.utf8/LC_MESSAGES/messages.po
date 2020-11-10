@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-19 00:04+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-27 23:22+0000\n"
+"PO-Revision-Date: 2020-10-27 23:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -366,7 +366,7 @@ msgstr "Opravdu chcete smazat tuto skupinu hodnocení?"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:151
 #: /home/tim/code/KwaMoja/PriceMatrix.php:310
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 #: /home/tim/code/KwaMoja/ProductSpecs.php:446
 #: /home/tim/code/KwaMoja/ProjectBOM.php:179
 #: /home/tim/code/KwaMoja/ProjectOtherReqts.php:110
@@ -526,6 +526,16 @@ msgstr "Měsíce pohybu zahrnout"
 msgid "The number of months stock movement to analyse."
 msgstr "Počet měsíčních skladových zásob k analýze."
 
+#: /home/tim/code/KwaMoja/ABCRankingGroups.php:213
+#: /home/tim/code/KwaMoja/ABCRankingMethods.php:112
+#: /home/tim/code/KwaMoja/ModuleEditor.php:87
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
+#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
+msgid "Save"
+msgstr "Uložit"
+
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:4
 msgid "Maintain ABC ranking methods"
 msgstr "Udržujte metody hodnocení ABC"
@@ -621,7 +631,7 @@ msgstr "Metoda hodnocení byla úspěšně uložena do databáze"
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:150
 #: /home/tim/code/KwaMoja/PriceMatrix.php:309
 #: /home/tim/code/KwaMoja/Prices.php:246
-#: /home/tim/code/KwaMoja/Prices_Customer.php:275
+#: /home/tim/code/KwaMoja/Prices_Customer.php:278
 #: /home/tim/code/KwaMoja/ProductSpecs.php:445
 #: /home/tim/code/KwaMoja/PurchData.php:325
 #: /home/tim/code/KwaMoja/QATests.php:455
@@ -745,6 +755,11 @@ msgstr "Hodnocení výsledků hodnocení"
 msgid "Ranking group"
 msgstr "Hodnostní skupina"
 
+#: /home/tim/code/KwaMoja/ABCRunAnalysis.php:146
+#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
+msgid "Run"
+msgstr "Běh"
+
 #: /home/tim/code/KwaMoja/ABCRunAnalysis.php:150
 msgid "Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one"
 msgstr "Mějte na paměti, že pokud provedete analýzu ABC v porovnání s prioritní skupinou, tato analýza bude smazána a nahrazena touto analýzou"
@@ -841,22 +856,22 @@ msgstr "byly změněny na skupinu účtů"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:177
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:210
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:280
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:385
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:179
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -892,7 +907,7 @@ msgstr "byly změněny na skupinu účtů"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:28
 #: /home/tim/code/KwaMoja/Prices.php:18
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:7
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
 #: /home/tim/code/KwaMoja/ProductSpecs.php:31
 #: /home/tim/code/KwaMoja/PurchData.php:253
 #: /home/tim/code/KwaMoja/PurchData.php:367
@@ -1295,6 +1310,10 @@ msgstr "Nadřazený název skupiny"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1335,10 +1354,10 @@ msgstr "Nadřazený název skupiny"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:98
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:146
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:67
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:70
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:450
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
@@ -1432,9 +1451,9 @@ msgstr "Nadřazený název skupiny"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:445
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:448
 #: /home/tim/code/KwaMoja/SalesCategories.php:348
-#: /home/tim/code/KwaMoja/SalesCategories.php:435
-#: /home/tim/code/KwaMoja/SalesCategories.php:439
-#: /home/tim/code/KwaMoja/SalesCategories.php:504
+#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:511
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:85
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:85
 #: /home/tim/code/KwaMoja/SalesPeople.php:207
@@ -1599,6 +1618,10 @@ msgstr "Ano"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -1639,10 +1662,10 @@ msgstr "Ano"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:97
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:142
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:145
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:69
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:72
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:408
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:46
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
@@ -1734,9 +1757,9 @@ msgstr "Ano"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:444
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:447
 #: /home/tim/code/KwaMoja/SalesCategories.php:350
-#: /home/tim/code/KwaMoja/SalesCategories.php:436
-#: /home/tim/code/KwaMoja/SalesCategories.php:438
-#: /home/tim/code/KwaMoja/SalesCategories.php:507
+#: /home/tim/code/KwaMoja/SalesCategories.php:443
+#: /home/tim/code/KwaMoja/SalesCategories.php:445
+#: /home/tim/code/KwaMoja/SalesCategories.php:514
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:83
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:83
 #: /home/tim/code/KwaMoja/SalesPeople.php:209
@@ -1951,12 +1974,12 @@ msgstr "Sekvence ve zkušebním zůstatku, kde se tato skupina objeví."
 #: /home/tim/code/KwaMoja/PaymentMethods.php:312
 #: /home/tim/code/KwaMoja/PaymentTerms.php:278
 #: /home/tim/code/KwaMoja/PriceMatrix.php:261
-#: /home/tim/code/KwaMoja/Prices_Customer.php:353
+#: /home/tim/code/KwaMoja/Prices_Customer.php:363
 #: /home/tim/code/KwaMoja/ProductSpecs.php:637
 #: /home/tim/code/KwaMoja/QATests.php:348
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:513
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:473
-#: /home/tim/code/KwaMoja/SalesCategories.php:455
+#: /home/tim/code/KwaMoja/SalesCategories.php:462
 #: /home/tim/code/KwaMoja/SalesCommissionTypes.php:221
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:291
 #: /home/tim/code/KwaMoja/SalesPeople.php:455
@@ -2067,7 +2090,7 @@ msgstr "Kód celé skupiny pro tuto část účtu"
 #: /home/tim/code/KwaMoja/AccountSections.php:237
 #: /home/tim/code/KwaMoja/GLAccounts.php:464
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
-msgstr "Vyberte jazyk pro tuto část účtu. "
+msgstr "Vyberte jazyk pro tuto část účtu. Všimněte si, že každý jazyk musí mít nastaveny všechny stejné sekce účtu."
 
 #: /home/tim/code/KwaMoja/AccountSections.php:243
 msgid "The account section description in"
@@ -2213,13 +2236,13 @@ msgstr "Kontaktní záznam byl smazán"
 #: /home/tim/code/KwaMoja/Customers.php:697
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:319
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:360
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
@@ -2338,7 +2361,7 @@ msgstr "Prohlášení"
 #: /home/tim/code/KwaMoja/GLStatements.php:137
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:56
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:465
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -2501,7 +2524,7 @@ msgstr "Poznámky pro zákazníka"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:131
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:625
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:129
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:486
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:483
 #: /home/tim/code/KwaMoja/MRPCalendar.php:209
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:400
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:318
@@ -2853,7 +2876,7 @@ msgstr "Skladem"
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:74
 #: /home/tim/code/KwaMoja/ReverseGRN.php:404
 #: /home/tim/code/KwaMoja/SalesCategories.php:203
-#: /home/tim/code/KwaMoja/SalesCategories.php:487
+#: /home/tim/code/KwaMoja/SalesCategories.php:494
 #: /home/tim/code/KwaMoja/SecurityTokens.php:121
 #: /home/tim/code/KwaMoja/SecurityTokens.php:163
 #: /home/tim/code/KwaMoja/SelectAsset.php:262
@@ -3352,6 +3375,7 @@ msgstr "nelze načíst, protože"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -3775,9 +3799,9 @@ msgstr "Vyberte poslední období v sestavě"
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:517
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:534
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:545
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:556
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:529
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:540
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:551
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
@@ -3800,7 +3824,7 @@ msgstr "Vyberte poslední období v sestavě"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:246
 #: /home/tim/code/KwaMoja/Projects.php:653
 #: /home/tim/code/KwaMoja/PurchData.php:382
-#: /home/tim/code/KwaMoja/SalesCategories.php:570
+#: /home/tim/code/KwaMoja/SalesCategories.php:577
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:231
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:231
 #: /home/tim/code/KwaMoja/SalesGraph.php:96
@@ -3864,7 +3888,7 @@ msgstr "Vyberte možnost Období"
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
 msgid "Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above."
-msgstr "V tomto seznamu vyberte předdefinované období. "
+msgstr "Z tohoto seznamu vyberte předdefinované období. Pokud zde provedete výběr, přepíše vše vybrané ve výše uvedených možnostech Od a Do."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:160
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:94
@@ -3972,7 +3996,7 @@ msgstr "Vyberte prosím alternativní období"
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:45
@@ -4582,8 +4606,8 @@ msgstr "uživatelské ID"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:215
 #: /home/tim/code/KwaMoja/ReorderLevel.php:236
 #: /home/tim/code/KwaMoja/ReorderLevel.php:238
-#: /home/tim/code/KwaMoja/SalesCategories.php:538
-#: /home/tim/code/KwaMoja/SalesCategories.php:541
+#: /home/tim/code/KwaMoja/SalesCategories.php:545
+#: /home/tim/code/KwaMoja/SalesCategories.php:548
 #: /home/tim/code/KwaMoja/SalesGraph.php:120
 #: /home/tim/code/KwaMoja/SalesGraph.php:122
 #: /home/tim/code/KwaMoja/SalesGraph.php:144
@@ -4695,10 +4719,10 @@ msgstr "Uživatel"
 #: /home/tim/code/KwaMoja/AuditTrail.php:186
 #: /home/tim/code/KwaMoja/CustomerBranches.php:108
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:241
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:243
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -5524,7 +5548,7 @@ msgstr "Zadejte kritéria vyhledávání"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5539,7 +5563,7 @@ msgstr "Zadejte texty výtažky v"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5558,7 +5582,7 @@ msgstr "Zadejte část popisu položek"
 #: /home/tim/code/KwaMoja/MRPDemands.php:324
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:288
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/Shipt_Select.php:205
@@ -5579,7 +5603,7 @@ msgstr "Zadejte výpis z"
 #: /home/tim/code/KwaMoja/MRPReport.php:574
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SalesInquiry.php:627
 #: /home/tim/code/KwaMoja/SalesInquiry.php:638
 #: /home/tim/code/KwaMoja/SalesInquiry.php:661
@@ -5631,7 +5655,7 @@ msgstr "Nebo zadejte část kódu položek"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:531
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:570
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:565
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:381
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
@@ -5641,7 +5665,7 @@ msgstr "Nebo zadejte část kódu položek"
 #: /home/tim/code/KwaMoja/PO_Items.php:1433
 #: /home/tim/code/KwaMoja/ProjectBOM.php:250
 #: /home/tim/code/KwaMoja/Projects.php:659
-#: /home/tim/code/KwaMoja/SalesCategories.php:578
+#: /home/tim/code/KwaMoja/SalesCategories.php:585
 #: /home/tim/code/KwaMoja/SelectAsset.php:118
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:210
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:941
@@ -7907,7 +7931,7 @@ msgstr "Zadali jste nesprávné současné heslo, zadejte jej znovu"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:26
 msgid "The new password is the same as the old. You must choose a new password."
-msgstr "Nové heslo je stejné jako staré. "
+msgstr "Nové heslo je stejné jako staré. Musíte zvolit nové heslo."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:31
 msgid "The confirmation and the new passwords are not the same."
@@ -7915,7 +7939,7 @@ msgstr "Potvrzení a nová hesla nejsou stejná."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "You are running in demonstration mode so the password cannot be changed. Click"
-msgstr "Běžíte v demonstračním režimu, takže heslo nelze změnit. "
+msgstr "Používáte demonstrační režim, takže heslo nelze změnit. Klepněte na"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
@@ -7939,11 +7963,11 @@ msgstr "tady"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:36
 msgid "to logout and Login again with your current password. Your password has not been changed"
-msgstr "odhlásit se a přihlásit se znovu pomocí aktuálního hesla. "
+msgstr "odhlásit a znovu se přihlásit pomocí aktuálního hesla. Vaše heslo nebylo změněno"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "Your password has benn updated. Click"
-msgstr "Vaše heslo bylo aktualizováno. "
+msgstr "Vaše heslo bylo aktualizováno. Klepněte na"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:43
 msgid "to logout and Login again with your new password."
@@ -7959,7 +7983,7 @@ msgstr "Změňte si své heslo"
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:54
 msgid "The admin has blocked your account until you change your password. Use this screen to change your password before continuing."
-msgstr "Správce zablokoval váš účet, dokud nezměníte své heslo. "
+msgstr "Správce zablokoval váš účet, dokud nezměníte heslo. Na této obrazovce můžete před pokračováním změnit heslo."
 
 #: /home/tim/code/KwaMoja/ChangePassword.php:72
 msgid "You must change your password"
@@ -8021,7 +8045,7 @@ msgstr "Nelze načíst data o nákladech"
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:317
 #: /home/tim/code/KwaMoja/SalesCategories.php:97
 #: /home/tim/code/KwaMoja/SalesCategories.php:111
-#: /home/tim/code/KwaMoja/SalesCategories.php:486
+#: /home/tim/code/KwaMoja/SalesCategories.php:493
 #: /home/tim/code/KwaMoja/SalesTopItemsInquiry.php:217
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:375
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:139
@@ -8186,7 +8210,7 @@ msgstr "Chcete-li vyhledat pracovní objednávky pro určitou položku, použijt
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:147
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:213
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:180
-#: /home/tim/code/KwaMoja/SalesCategories.php:534
+#: /home/tim/code/KwaMoja/SalesCategories.php:541
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:378
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:903
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:268
@@ -8249,7 +8273,7 @@ msgstr "SQL příkazy nebyly vráceny, protože"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:73
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
@@ -8417,9 +8441,9 @@ msgstr "Množství nevyřízené"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:491
 #: /home/tim/code/KwaMoja/Prices.php:222
 #: /home/tim/code/KwaMoja/PricesByCost.php:164
-#: /home/tim/code/KwaMoja/Prices_Customer.php:205
-#: /home/tim/code/KwaMoja/Prices_Customer.php:254
-#: /home/tim/code/KwaMoja/Prices_Customer.php:340
+#: /home/tim/code/KwaMoja/Prices_Customer.php:206
+#: /home/tim/code/KwaMoja/Prices_Customer.php:255
+#: /home/tim/code/KwaMoja/Prices_Customer.php:346
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:418
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:379
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:384
@@ -8559,6 +8583,7 @@ msgstr "Měnové kurzy nelze aktualizovat"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8587,6 +8612,7 @@ msgid "Validation failed"
 msgstr "Ověření selhalo"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8788,7 +8814,7 @@ msgstr "Účet GL pro dlužníky"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:377
 msgid "The general ledger account to act as the control for the accounts receivable transactions. This account should agree with the total aged debtors report."
-msgstr "Účet hlavní knihy, který slouží jako kontrola transakcí s pohledávkami. "
+msgstr "Účet hlavní knihy slouží jako kontrola transakcí pohledávek. Tento účet by měl souhlasit s celkovou zprávou o věku dlužníků."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:381
 msgid "Creditors Control GL Account"
@@ -8796,7 +8822,7 @@ msgstr "Účetní kontrola věřitelů GL"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:383
 msgid "The general ledger account to act as the control for the accounts payable transactions. This account should agree with the total aged creditors report."
-msgstr "Účet hlavní knihy, který bude sloužit jako kontrola transakcí se splatnými účty. "
+msgstr "Účet hlavní knihy slouží jako kontrola transakcí splatných účtů. Tento účet by měl souhlasit se zprávou o celkovém věku věřitelů."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:387
 msgid "Payroll Net Pay Clearing GL Account"
@@ -8812,7 +8838,7 @@ msgstr "Přijatý účet Clearing GL Account"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:395
 msgid "The general ledger account to act as the clearing account for Goods Received. When the GRN is raised an entry is posted here, and when the supplier invoice is posted, it will contra off this entry. This account should always reconcile back to zero."
-msgstr "Účet hlavní knihy jako zúčtovací účet pro přijaté zboží. "
+msgstr "Účet hlavní knihy, který bude fungovat jako zúčtovací účet pro přijaté zboží. Když se zvýší GRN, zaúčtuje se zde položka a když se zaúčtuje dodavatelská faktura, bude to proti tomuto vstupu. Tento účet by se měl vždy smířit zpět na nulu."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:399
 msgid "Sales Commission Accruals Account"
@@ -8820,7 +8846,7 @@ msgstr "Účet provizí z provize za prodej"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:401
 msgid "The general ledger account to act as the sales commission accruals account. Commission earned but not paid will be posted here, and cleared when the commission is paid."
-msgstr "Účet hlavní knihy, který bude působit jako účet časového rozlišení provize za prodej. "
+msgstr "Účet hlavní knihy, který bude fungovat jako účet časového rozlišení provizí za prodej. Zde vyplacená, ale nevyplacená provize bude vyvěšena a vyplacena, až bude provize vyplacena."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:405
 msgid "Retained Earning Clearing GL Account"
@@ -8828,7 +8854,7 @@ msgstr "Zachycený účet výplaty výplaty výplaty"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:407
 msgid "The general ledger account to act as the retained earnings account with the accumulated Profit/Loss. This account is managed by KwaMoja and once set up should not be accessed directly."
-msgstr "Účet hlavní knihy, který bude sloužit jako účet nerozděleného zisku s kumulovaným ziskem / ztrátou. "
+msgstr "Účet hlavní knihy, který bude fungovat jako účet nerozděleného zisku s kumulovaným ziskem / ztrátou. Tento účet je spravován společností KwaMoja a po nastavení by k němu neměl být přistupován přímo."
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:411
 msgid "Freight Re-charged GL Account"
@@ -9199,7 +9225,7 @@ msgstr "Tento Dispatch"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:254
 #: /home/tim/code/KwaMoja/Prices.php:221 /home/tim/code/KwaMoja/Prices.php:341
 #: /home/tim/code/KwaMoja/PricesByCost.php:266
-#: /home/tim/code/KwaMoja/Prices_Customer.php:347
+#: /home/tim/code/KwaMoja/Prices_Customer.php:356
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:997
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1021
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1101
@@ -9850,14 +9876,14 @@ msgstr "SQL byl použit k aktualizaci výchozího nosiče větve"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10226,14 +10252,14 @@ msgstr "KRITICKÁ CHYBA"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10947,8 +10973,8 @@ msgstr "Transakci s pevným majetkem nebylo možné vložit, protože"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "Bylo použito následující SQL pro vložení záznamu transakce s fixním majetkem"
 
@@ -11036,7 +11062,7 @@ msgstr "Datum faktury"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1874
 msgid "The date the goods/services were sent. This is the date that will appear as the invoice date."
-msgstr "Datum odeslání zboží / služeb. "
+msgstr "Datum odeslání zboží / služeb. Toto je datum, které se zobrazí jako datum faktury."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1878
 #: /home/tim/code/KwaMoja/PickingLists.php:688
@@ -11078,7 +11104,7 @@ msgstr "Text faktury"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1901
 msgid "Any text that should appear on the invoice. This text will be visible to the customer."
-msgstr "Jakýkoli text, který by se měl objevit na faktuře. "
+msgstr "Jakýkoli text, který by se měl objevit na faktuře. Tento text bude viditelný pro zákazníka."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1905
 msgid "Internal Comments"
@@ -11086,7 +11112,7 @@ msgstr "Interní komentáře"
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1907
 msgid "Any internal text for this invoice. This text will not be visible to the customer."
-msgstr "Jakýkoli interní text pro tuto fakturu. "
+msgstr "Jakýkoli interní text této faktury. Tento text nebude pro zákazníka viditelný."
 
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:1914
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:1053
@@ -12031,9 +12057,9 @@ msgstr "Umístění položky"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -12241,7 +12267,7 @@ msgstr "Smlouva: Vyberte zákazníka"
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:485
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:524
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:519
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
@@ -12365,8 +12391,8 @@ msgstr "Zákazník"
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:310
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:314
 #: /home/tim/code/KwaMoja/PricesByCost.php:163
-#: /home/tim/code/KwaMoja/Prices_Customer.php:253
-#: /home/tim/code/KwaMoja/Prices_Customer.php:326
+#: /home/tim/code/KwaMoja/Prices_Customer.php:254
+#: /home/tim/code/KwaMoja/Prices_Customer.php:331
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:970
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:474
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:219
@@ -13574,7 +13600,7 @@ msgstr "Nové číslo pracovní zakázky"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:123
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:182
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:452
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RecurringSalesOrdersProcess.php:88
 #: /home/tim/code/KwaMoja/ReverseGRN.php:342
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
@@ -13970,7 +13996,7 @@ msgstr "Úvěrové množství pro linku pro"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:484
 msgid "is more than the quantity invoiced. This check is made to ensure that the credit note is not duplicated."
-msgstr "je více než fakturované množství. "
+msgstr "je více než fakturované množství. Tato kontrola se provádí, aby se zajistilo, že dobropis nebude duplikován."
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:493
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:871
@@ -14096,7 +14122,7 @@ msgstr "Dopravní zásilka GL pro tento dobropis nemohla být vložena, protože
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -16238,10 +16264,10 @@ msgstr "Tuto větev použijte jako výchozí pro prodej v hotovosti"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:882
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:242
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:244
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:361
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:63
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
@@ -17677,7 +17703,7 @@ msgstr "Transakce datované od"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:80
 msgid "Choose the starting date for the report. Transactions on this date will be included."
-msgstr "Zvolte počáteční datum sestavy. "
+msgstr "Vyberte počáteční datum přehledu. Transakce k tomuto datu budou zahrnuty."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:83
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:15
@@ -17686,7 +17712,7 @@ msgstr "Transakce datované do"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:85
 msgid "Select the closing date for the report. Transactions on this date will be included."
-msgstr "Vyberte datum uzávěrky přehledu. "
+msgstr "Vyberte datum uzávěrky sestavy. Transakce k tomuto datu budou zahrnuty."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:91
 msgid "Unmatched"
@@ -17700,7 +17726,7 @@ msgstr "Vhodné"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:94
 msgid "Select whether to show only matched or unmatched transactions. To show all transactions choose All."
-msgstr "Vyberte, zda se mají zobrazovat pouze uzavřené nebo nesrovnatelné transakce. "
+msgstr "Vyberte, zda se mají zobrazovat pouze spárované nebo nespárované transakce. Chcete-li zobrazit všechny transakce, zvolte Vše."
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:109
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:115
@@ -17965,7 +17991,7 @@ msgstr "Úroveň zabezpečení"
 #: /home/tim/code/KwaMoja/DashboardConfig.php:109
 #: /home/tim/code/KwaMoja/JobScheduler.php:103
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:213
-#: /home/tim/code/KwaMoja/SalesCategories.php:510
+#: /home/tim/code/KwaMoja/SalesCategories.php:517
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
@@ -18208,11 +18234,11 @@ msgstr "Vytvořte podrobnosti kontejneru"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:362
 msgid "Enter an Id by which this container will be referred to. The ID can have up to 6 characters."
-msgstr "Zadejte ID, na které bude tento kontejner odkazován. "
+msgstr "Zadejte ID, na které bude tento kontejner odkazován. ID může mít až 6 znaků."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:368
 msgid "Enter a description of this container. The description can have up to 50 characters."
-msgstr "Zadejte popis tohoto kontejneru. "
+msgstr "Zadejte popis tohoto kontejneru. Popis může mít až 50 znaků."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:372
 msgid "Parent Container"
@@ -18228,19 +18254,19 @@ msgstr "Zadejte pořadové číslo tohoto kontejneru."
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:409
 msgid "Select Yes if this container can be used for directed put aways. Otherwise select No"
-msgstr "Vyberte Ano, pokud lze tento kontejner použít pro směrované putování. "
+msgstr "Vyberte Ano, pokud lze tento kontejner použít pro řízené odložení. Jinak vyberte Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:423
 msgid "Select Yes if this container can be used for directed picking. Otherwise select No"
-msgstr "Vyberte Ano, pokud lze tento kontejner použít pro řízené vychystávání. "
+msgstr "Pokud lze tento kontejner použít pro směrovaný výběr, vyberte Ano. Jinak vyberte Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:437
 msgid "Select Yes if this container can be replenished. Otherwise select No"
-msgstr "Pokud lze tento kontejner doplnit, vyberte Ano. "
+msgstr "Pokud lze tento kontejner doplnit, vyberte Ano. Jinak vyberte Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:451
 msgid "Select Yes if this container is designated as a quarantine rea. Otherwise select No"
-msgstr "Pokud je tento kontejner označen jako karanténa, vyberte možnost Ano. "
+msgstr "Pokud je tento kontejner označen jako karanténní rea, vyberte Ano. Jinak vyberte Ne"
 
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:455
 msgid "Position in Parent Container"
@@ -18697,7 +18723,7 @@ msgstr "Jméno oddělení by nemělo být prázdné"
 
 #: /home/tim/code/KwaMoja/Departments.php:34
 msgid "A department with this name already exists. Please choose a new name"
-msgstr "Oddělení s tímto názvem již existuje. "
+msgstr "Oddělení s tímto názvem již existuje. Zvolte prosím nové jméno"
 
 #: /home/tim/code/KwaMoja/Departments.php:48
 msgid "This department name already exists."
@@ -20143,7 +20169,7 @@ msgstr "Faktor název společnosti"
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:558
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:713
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:752
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:496
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:493
 #: /home/tim/code/KwaMoja/OrderDetails.php:124
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:866
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:888
@@ -20700,14 +20726,14 @@ msgid "long"
 msgstr "dlouho"
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:477
-#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:453
 #: /home/tim/code/KwaMoja/Stocks.php:1171
 msgid "Image File ("
 msgstr "Soubor obrázku ("
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:479
 #: /home/tim/code/KwaMoja/Manufacturers.php:315
-#: /home/tim/code/KwaMoja/SalesCategories.php:448
+#: /home/tim/code/KwaMoja/SalesCategories.php:455
 #: /home/tim/code/KwaMoja/Stocks.php:1174
 msgid "Clear Image"
 msgstr "Jasný obrázek"
@@ -21248,7 +21274,7 @@ msgstr "Vyberte formulář, který chcete upravit"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:204
 msgid "Select the form to be maintained. The xml files for these forms are stored under the companies directory"
-msgstr "Vyberte formulář, který chcete zachovat. "
+msgstr "Vyberte formulář, který chcete udržovat. Soubory xml pro tyto formuláře jsou uloženy v adresáři společností"
 
 #: /home/tim/code/KwaMoja/FormDesigner.php:221
 msgid "Enter the changes that you want in the form layout below."
@@ -21507,7 +21533,7 @@ msgstr "Vybrané účty"
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:50
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:69
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
-msgstr "Vyberte účty pro tento přehled. "
+msgstr "Vyberte účty pro tento přehled. Pomocí klávesy Shift na klávesnici vyberte více účtů."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
@@ -22940,7 +22966,7 @@ msgstr "Zadaný den nebyl platný, zadejte datum pro zpracování časopisu ve f
 
 #: /home/tim/code/KwaMoja/GLJournal.php:83
 msgid "There are no templates saved. You must first create a template."
-msgstr "Nejsou uloženy žádné šablony. "
+msgstr "Nejsou uloženy žádné šablony. Nejprve musíte vytvořit šablonu."
 
 #: /home/tim/code/KwaMoja/GLJournal.php:86
 msgid "Load journal from a template"
@@ -23012,7 +23038,7 @@ msgstr "Šablona byla úspěšně uložena"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:181
 msgid "A template with this description already exists. You must use a unique description"
-msgstr "Šablona s tímto popisem již existuje. "
+msgstr "Šablona s tímto popisem již existuje. Musíte použít jedinečný popis"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:192
 msgid "Save journal as a template"
@@ -23278,7 +23304,7 @@ msgstr "Účetní závěrka"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:99
 msgid "You must select at least one financial statement. Please select financial statements."
-msgstr "Musíte vybrat alespoň jeden finanční výkaz. "
+msgstr "Musíte vybrat alespoň jeden finanční výkaz. Vyberte finanční výkazy."
 
 #: /home/tim/code/KwaMoja/GLStatements.php:115
 msgid "In this set of financial statements:"
@@ -23490,7 +23516,7 @@ msgstr "Popis značky"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:408
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 #: /home/tim/code/KwaMoja/sql/updates/217.php:70
@@ -24109,7 +24135,7 @@ msgstr "Bylo použito následující SQL pro vložení záznamů sériových pol
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "náklady"
 
@@ -24118,8 +24144,8 @@ msgstr "náklady"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "KRITICKÁ CHYBA!  POZNÁMKA OTEVŘETE TUTO CHYBU A POMÁHE POMOC Operace s pevným majetkem nemohla být vložena, protože"
 
@@ -24129,7 +24155,7 @@ msgstr "KRITICKÁ CHYBA!  POZNÁMKA OTEVÍTE TUTO CHYBU A PÉČE POMOC.  Náklad
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "Následující SQL byl použit k pokusu o aktualizaci nákladů a datum zakoupení daného materiálu"
 
@@ -24474,7 +24500,7 @@ msgstr "Počáteční zůstatek k datu"
 #: /home/tim/code/KwaMoja/Payments.php:1397
 #: /home/tim/code/KwaMoja/Payments.php:1405
 #: /home/tim/code/KwaMoja/Payments.php:1407
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:32
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
 #: /home/tim/code/KwaMoja/SpecialOrder.php:126
@@ -24699,7 +24725,7 @@ msgid "SalesType/Price List"
 msgstr "Prodejní typ / ceník"
 
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:125
-#: /home/tim/code/KwaMoja/Prices_Customer.php:150
+#: /home/tim/code/KwaMoja/Prices_Customer.php:152
 #: /home/tim/code/KwaMoja/UploadPriceList.php:126
 msgid "The price could not be added because"
 msgstr "Cena nemohla být přidána, protože"
@@ -26074,7 +26100,7 @@ msgid "Created On"
 msgstr "Vytvořeno dne"
 
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:118
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:491
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:488
 msgid "Doctor"
 msgstr "Doktor"
 
@@ -26137,7 +26163,7 @@ msgstr "Číslo postele"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:74
@@ -26152,7 +26178,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:359
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:60
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
@@ -26558,6 +26584,89 @@ msgstr "Požádejte o bakteriologický test"
 msgid "Laboratory Maintenance"
 msgstr "Laboratorní údržba"
 
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
+#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+msgid "Billing Configuration"
+msgstr "Konfigurace fakturace"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
+msgid "Hospital Configuration"
+msgstr "Konfigurace nemocnice"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+msgid "The billing configuration could not be updated because"
+msgstr "Konfiguraci fakturace nelze aktualizovat, protože"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+msgid "Billing configuration updated"
+msgstr "Konfigurace fakturace byla aktualizována"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+msgid "Registration and Admissions"
+msgstr "Registrace a přijetí"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+msgid "Item to bill for patient registration"
+msgstr "Položka k vyúčtování za registraci pacienta"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+msgid "Do not Bill"
+msgstr "Neúčtuj"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+msgid "Item to bill for inpatient admissions"
+msgstr "Položka k vyúčtování hospitalizací"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+msgid "Item to bill for outpatient admissions"
+msgstr "Položka k vyúčtování ambulantního přijetí"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+msgid "Laboratory Billing"
+msgstr "Laboratorní fakturace"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+msgid "Payment must be made before Test"
+msgstr "Platba musí být provedena před testem"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+msgid "If not insured"
+msgstr "Pokud není pojištěn"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+msgid "Always"
+msgstr "Vždy"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/SystemParameters.php:592
+#: /home/tim/code/KwaMoja/SystemParameters.php:594
+msgid "Never"
+msgstr "Nikdy"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+msgid "Bill for bacteriology tests"
+msgstr "Účet za bakteriologické testy"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+msgid "Bill for blood tests"
+msgstr "Účet za krevní testy"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+msgid "Bill for medical tests"
+msgstr "Účet za lékařské testy"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+msgid "Bill for pathology tests"
+msgstr "Účet za patologické testy"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+msgid "Save Configuration"
+msgstr "Uložit konfiguraci"
+
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:5
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:11
 msgid "Blood Bank"
@@ -26568,9 +26677,9 @@ msgid "Pending Blood Requests"
 msgstr "Nevyřízené žádosti o krev"
 
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:32
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:4
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:3
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:43
 msgid "Blood Request"
 msgstr "Žádost o krev"
 
@@ -27027,8 +27136,8 @@ msgstr "Urogenitální systém"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:339
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -27039,8 +27148,8 @@ msgstr "mužský"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:333
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:340
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -27163,9 +27272,9 @@ msgid "Patient Discharge Details"
 msgstr "Podrobnosti o vyložení pacienta"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:240
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:242
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:51
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
@@ -27184,7 +27293,7 @@ msgid "Date of Birth"
 msgstr "Datum narození"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:407
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 #: /home/tim/code/KwaMoja/sql/updates/217.php:69
 msgid "Ward"
@@ -27410,8 +27519,8 @@ msgid "has been successfully updated"
 msgstr "byl úspěšně aktualizován"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:370
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -27427,8 +27536,8 @@ msgid "Sex"
 msgstr "Sex"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:448
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:449
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "Pojišťovna"
@@ -27502,7 +27611,7 @@ msgid "Requested Tests"
 msgstr "Požadované testy"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:782
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:394
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:391
 msgid "Label"
 msgstr "Označení"
 
@@ -27722,7 +27831,7 @@ msgstr "Doplňková poznámka"
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:145
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:436
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:476
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:473
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "Diagnóza"
@@ -27862,11 +27971,6 @@ msgstr "Funkční jednotka"
 msgid "Statement of Income and Expenditure for"
 msgstr "Výkaz příjmů a výdajů za rok 2007"
 
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
-msgid "Hospital Configuration"
-msgstr "Konfigurace nemocnice"
-
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:49
 msgid "The hospital configuration could not be updated because"
 msgstr "Konfiguraci nemocnice nebylo možné aktualizovat, protože"
@@ -27927,7 +28031,7 @@ msgstr "Typ dlužníka pro pojišťovací společnosti"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:165
 msgid "The debtor type that is used for insurance companies. All Insurancecompanies must be of this type."
-msgstr "Typ dlužníka, který se používá pro pojišťovny. "
+msgstr "Typ dlužníka, který se používá pro pojišťovny. Všechny pojišťovací společnosti musí být tohoto typu."
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:172
 msgid "The directory where QRcodes are stored"
@@ -28094,7 +28198,7 @@ msgstr "Drogy vydané od"
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
 msgid "Locations have not yet been defined. You must first"
-msgstr "Místa ještě nebyla definována. "
+msgstr "Místa dosud nebyla definována. Nejprve musíte"
 
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:839
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:819
@@ -28221,9 +28325,9 @@ msgid "This patient is not currently admitted as an inpatient"
 msgstr "Tento pacient není v současné době přijímán jako hospitalizovaný pacient"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:124
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:126
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
 #: /home/tim/code/KwaMoja/KCMCRegister.php:345
 msgid "Return to Patient Screen"
 msgstr "Návrat na obrazovku pacienta"
@@ -28234,9 +28338,9 @@ msgid "There was a problem inserting the encounter record because"
 msgstr "Při vkládání záznamu o setkání došlo k potížím, protože"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:75
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:108
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:128
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:110
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:130
 msgid "The SQL used to insert the encounter record was"
 msgstr "SQL použitý k vložení záznamu setkání byl"
 
@@ -28245,151 +28349,175 @@ msgstr "SQL použitý k vložení záznamu setkání byl"
 msgid "The patient was successfully admitted."
 msgstr "Pacient byl úspěšně přijat."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:91
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:92
-msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
-msgstr "Pacient je již přijat. "
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:94
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCRegister.php:130
+msgid "There was a problem inserting the billable items because"
+msgstr "Při vkládání fakturovatelných položek došlo k potížím, protože"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:107
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:109
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:96
+#: /home/tim/code/KwaMoja/KCMCRegister.php:131
+msgid "The SQL used to insert the billable items was"
+msgstr "SQL použitý k vložení fakturovatelných položek byl"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
+msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
+msgstr "Pacient je již přijat. Před opětovným přijetím musí být vybiti"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
 msgid "There was a problem updating the encounter record because"
 msgstr "Při aktualizaci záznamu o setkání došlo k potížím, protože"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:113
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:131
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:133
 msgid "The patient data was successfully updated."
 msgstr "Data pacientů byla úspěšně aktualizována."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:140
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:142
+#: /home/tim/code/KwaMoja/KCMCRegister.php:298
+msgid "There was a problem updating the billable items because"
+msgstr "Při aktualizaci fakturovatelných položek došlo k potížím, protože"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:141
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:143
+#: /home/tim/code/KwaMoja/KCMCRegister.php:299
+msgid "The SQL used to update the billable items was"
+msgstr "SQL použitý k aktualizaci fakturovatelných položek byl"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
 msgid "Search For Patient"
 msgstr "Vyhledejte pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:155
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:186
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:188
 msgid "Search for patient details"
 msgstr "Vyhledejte podrobnosti o pacientech"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:157
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:188
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:190
 msgid "File number"
 msgstr "Číslo souboru"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:190
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:192
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "Pokud je známo, zadejte celé číslo souboru pacienta nebo jeho část"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:162
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:193
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:195
 msgid "Patients name"
 msgstr "Jméno pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:164
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:195
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:197
 msgid "Enter all or part of the patients name if it is known"
 msgstr "Zadejte celé jméno pacienta nebo jeho část, pokud je známo"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:198
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:200
 msgid "Patients Address"
 msgstr "Adresa pacientů"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:169
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:200
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:202
 msgid "Enter all or part of the patients address if it is known"
 msgstr "Zadejte úplnou nebo částečnou adresu pacienta, pokud je známa"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:172
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:203
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:205
 msgid "Patients Phone Number"
 msgstr "Telefonní číslo pacientů"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:174
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:205
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "Zadejte celé telefonní číslo pacienta nebo jeho část, pokud je známo"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:208
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:239
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:241
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "Číslo pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:258
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:263
 msgid "Admit Patient"
 msgstr "Přijměte pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:237
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:264
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:270
 msgid "There are no patients matching this criteria"
 msgstr "Tomuto kritériu neodpovídají žádní pacienti"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "pan"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "slečna"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "Slečna, minout"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "paní"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "Dr"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:304
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:337
 msgid "Update Admission data for"
 msgstr "Aktualizovat údaje o přijetí pro"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "Admit"
 msgstr "Připustit"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
 msgid "as an inpatient"
 msgstr "jako lůžko"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:345
 msgid "Admission Date"
 msgstr "Datum přijetí"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:348
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:349
 msgid "Admission Time"
 msgstr "Čas přijetí"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:360
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:361
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:54
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:336
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:333
 #: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
 msgid "Blood Group"
 msgstr "Krevní skupina"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:364
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:365
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -28398,78 +28526,78 @@ msgstr "Krevní skupina"
 msgid "Gender"
 msgstr "Rod"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:376
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:377
 msgid "Admission Type"
 msgstr "Typ přijetí"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:386
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:387
 msgid "A type of admission."
 msgstr "Druh přijetí."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "White"
 msgstr "Bílý"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Green"
 msgstr "Zelený"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Yellow"
 msgstr "Žlutá"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Red"
 msgstr "Červené"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:391
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:392
 msgid "Triage Code"
 msgstr "Triage Code"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:401
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:402
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "Kód třídění pro tohoto pacienta, bílý je nejméně závažný a červený je nejzávažnější."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:417
 msgid "The ward that this patient is being admitted to."
 msgstr "Oddělení, do kterého je tento pacient přijat."
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:421
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:422
 msgid "Referrer Diagnosis"
 msgstr "Diagnostika doporučení"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 msgid "Referred By"
 msgstr "Doporučeno"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Referrer Therapy"
 msgstr "Terapie doporučení"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:436
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:437
 msgid "Referrer Notes"
 msgstr "Poznámky k doporučení"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:459
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:460
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "Pojišťovna, pokud existuje, do které tento pacient patří"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:464
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:465
 msgid "Insurance Number"
 msgstr "Cislo pojistence"
 
@@ -28920,7 +29048,7 @@ msgstr "Typ setkání Popis nemůže být prázdný"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:30
 msgid "The data cannot be input as there are errors. Please correct these errors and try again"
-msgstr "Data nemohou být zadána, protože existují chyby. "
+msgstr "Data nelze zadat, protože se vyskytly chyby. Opravte prosím tyto chyby a zkuste to znovu"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:51
 msgid "There was a problem inserting the encounter type record because"
@@ -29028,7 +29156,7 @@ msgstr "Přehledová obrazovka Ward"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:25
 msgid "The ward ID cannot be empty. Please enter a correct ID."
-msgstr "ID oddělení nemůže být prázdné. "
+msgstr "ID oddělení nemůže být prázdné. Zadejte správné ID."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:30
 msgid "The ward ID cannot be more than 35 characters long."
@@ -29036,7 +29164,7 @@ msgstr "ID oddělení nemůže být delší než 35 znaků."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:35
 msgid "The ward name cannot be empty. Please enter a correct name."
-msgstr "Název oddělení nemůže být prázdný. "
+msgstr "Název oddělení nemůže být prázdný. Zadejte správné jméno."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:40
 msgid "The ward name cannot be more than 35 characters long."
@@ -29044,7 +29172,7 @@ msgstr "Název oddělení nesmí být delší než 35 znaků."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:45
 msgid "The first room number cannot be empty. Please enter a correct number."
-msgstr "První číslo místnosti nemůže být prázdné. "
+msgstr "První číslo místnosti nesmí být prázdné. Zadejte prosím správné číslo."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:50
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:60
@@ -29053,7 +29181,7 @@ msgstr "Čísla pokojů musí být celá čísla."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:55
 msgid "The last room number cannot be empty. Please enter a correct number."
-msgstr "Číslo posledního pokoje nemůže být prázdné. "
+msgstr "Poslední číslo místnosti nesmí být prázdné. Zadejte prosím správné číslo."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:95
 msgid "There was a problem inserting the ward record because"
@@ -29142,7 +29270,7 @@ msgstr "Předpona místnosti"
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:378
 msgid "The prefix to come before the room number. A maximum of 4 characters may be used."
-msgstr "Předpona, která se objeví před číslem místnosti. "
+msgstr "Předčíslí před číslem místnosti. Lze použít maximálně 4 znaky."
 
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:400
 msgid "Amend the ward details"
@@ -29467,11 +29595,11 @@ msgstr "Přijměte ambulance"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "Tento pacient není v současné době přijímán jako ambulantní pacient"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "as an outpatient"
 msgstr "jako ambulance"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:418
 msgid "The department that this patient is being admitted to."
 msgstr "Oddělení, do kterého je tento pacient přijat."
 
@@ -29513,7 +29641,7 @@ msgstr "Zadejte další vklad"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:251
 msgid "A Cash Account has not yet been defined for this user. You must first"
-msgstr "Pro tohoto uživatele zatím nebyl definován hotovostní účet. "
+msgstr "Pro tohoto uživatele dosud nebyl definován hotovostní účet. Nejprve musíte"
 
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:274
 msgid "Process Payment"
@@ -29537,19 +29665,19 @@ msgstr "Nevyřízené žádosti o zkoušky"
 msgid "Date Batch Sent"
 msgstr "Datum šarže odesláno"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:81
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:84
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:91
 msgid "Edit Batch"
 msgstr "Upravit dávku"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:85
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:92
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "Zobrazit dávku"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:93
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
@@ -29558,7 +29686,7 @@ msgstr "Zobrazit dávku"
 msgid "Enter Results"
 msgstr "Zadejte výsledky"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:91
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:94
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:169
 msgid "Return to Bacteriology Centre"
 msgstr "Návrat do centra bakteriologie"
@@ -30157,7 +30285,7 @@ msgstr "Zaregistrujte pacienta"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:30
 msgid "That file number has already been used for another patient. Please select another file number."
-msgstr "Toto číslo souboru již bylo použito pro jiného pacienta. "
+msgstr "Toto číslo souboru již bylo použito pro jiného pacienta. Vyberte prosím jiné číslo souboru."
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:36
 msgid "You must input a file number"
@@ -30190,14 +30318,6 @@ msgstr "Při vkládání záznamu o pacientovi došlo k potížím, protože"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:109
 msgid "The SQL used to insert the patient record was"
 msgstr "SQL použité k vložení záznamu o pacientovi bylo"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:130
-msgid "There was a problem inserting the billable items because"
-msgstr "Při vkládání fakturovatelných položek došlo k potížím, protože"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:131
-msgid "The SQL used to insert the billable items was"
-msgstr "SQL použitý k vložení fakturovatelných položek byl"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:159
 msgid "There was a problem inserting the debtors record because"
@@ -30241,14 +30361,6 @@ msgstr "Při aktualizaci záznamu o pacientovi došlo k potížím, protože"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:289
 msgid "The SQL used to update the patient record was"
 msgstr "SQL použitý k aktualizaci záznamu o pacientovi byl"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:298
-msgid "There was a problem updating the billable items because"
-msgstr "Při aktualizaci fakturovatelných položek došlo k potížím, protože"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:299
-msgid "The SQL used to update the billable items was"
-msgstr "SQL použitý k aktualizaci fakturovatelných položek byl"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:313
 msgid "There was a problem updating the debtors record because"
@@ -30385,10 +30497,6 @@ msgstr "Země, kde je tento pacient občanem."
 msgid "The blood group of this patient"
 msgstr "Krevní skupina tohoto pacienta"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:665
-msgid "Item to bill"
-msgstr "Položka k vyúčtování"
-
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:5
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:99
@@ -30467,13 +30575,13 @@ msgid "Update Request"
 msgstr "Žádost o aktualizaci"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:469
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:511
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:320
 msgid "Send Request"
 msgstr "Poslat žádost"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -30481,7 +30589,7 @@ msgid "Search for Patients"
 msgstr "Hledání pacientů"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:487
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:526
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:337
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
@@ -30492,7 +30600,7 @@ msgid "Enter a partial Name"
 msgstr "Zadejte částečný název"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:498
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:537
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:532
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
@@ -30500,7 +30608,7 @@ msgid "Enter a partial patient file number"
 msgstr "Zadejte částečné číslo souboru pacienta"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:509
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:548
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:543
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
@@ -30509,7 +30617,7 @@ msgid "Enter a partial Phone Number"
 msgstr "Zadejte částečné telefonní číslo"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:520
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:559
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:554
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
@@ -30517,91 +30625,91 @@ msgstr "Zadejte částečné telefonní číslo"
 msgid "Enter part of the Address"
 msgstr "Zadejte část adresy"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:185
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:182
 msgid "Failed to insert the request into the database"
 msgstr "Nepodařilo se vložit požadavek do databáze"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:186
 msgid "The request was successfully sent"
 msgstr "Požadavek byl úspěšně odeslán"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:224
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:221
 msgid "Failed to update the request"
 msgstr "Požadavek se nepodařilo aktualizovat"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:228
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:225
 msgid "The request was successfully updated"
 msgstr "Požadavek byl úspěšně aktualizován"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:313
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:310
 msgid "General Details"
 msgstr "Obecné podrobnosti"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:357
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:354
 msgid "Rhesus Factor"
 msgstr "Rh faktor"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:376
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:373
 msgid "Kell"
 msgstr "Kell"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
-msgstr "Datum a protokol č. "
+msgstr "Datum a protokol č. zkoušky"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
 msgstr "S testovacím vzorkem (vzorky) z krevní banky"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:418
 msgid "Specimen Counts"
 msgstr "Počty vzorků"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
 msgid "Pure blood"
 msgstr "Čistá krev"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:429
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:426
 msgid "Red blood cell concentrate"
 msgstr "Koncentrát červených krvinek"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:434
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:431
 msgid "Leukocytedepleted red blood cell"
 msgstr "Leukocyty vylučovaly červené krvinky"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:439
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:436
 msgid "Washed red blood cells"
 msgstr "Promyté červené krvinky"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:441
 msgid "Platelet rich plasma"
 msgstr "Plazma bohatá na destičky"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:449
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:446
 msgid "Platelet concentrate"
 msgstr "Koncentrát krevních destiček"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:454
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:451
 msgid "Fresh frozen plasma"
 msgstr "Čerstvá zmrazená plazma"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:459
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:456
 msgid "Transfusion devices"
 msgstr "Transfuzní zařízení"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:471
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
 msgid "Transfusion date"
 msgstr "Datum transfuze"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:481
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:478
 msgid "Notes/special orders"
 msgstr "Poznámky / speciální objednávky"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:501
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "The ordering doctor is responsible for this order!"
 msgstr "Za tuto objednávku odpovídá objednatel!"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:502
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "For security reasons, only sample tubes with full name & birthdate will be accepted."
 msgstr "Z bezpečnostních důvodů budou akceptovány pouze zkumavky se vzorky s celým jménem a datem narození."
 
@@ -30772,7 +30880,7 @@ msgstr "Podpůrné informace"
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:253
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:313
 msgid "e.g. important Lab results, after Radiation in excision area, after Chemotherapy"
-msgstr "např. "
+msgstr "např. důležité laboratorní výsledky, po záření v oblasti excize, po chemoterapii"
 
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:257
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:317
@@ -32285,7 +32393,7 @@ msgstr "Nové informace o poloze"
 
 #: /home/tim/code/KwaMoja/Locations.php:568
 msgid "Enter the code to use for this location. The code can contain between 1 and 5 characters."
-msgstr "Zadejte kód, který chcete použít pro toto umístění. "
+msgstr "Zadejte kód, který chcete použít pro toto umístění. Kód může obsahovat 1 až 5 znaků."
 
 #: /home/tim/code/KwaMoja/Locations.php:618
 msgid "A description of this location using up to 50 characters."
@@ -33696,7 +33804,7 @@ msgid "Are you sure you wish to delete this brand?"
 msgstr "Opravdu chcete smazat tuto značku?"
 
 #: /home/tim/code/KwaMoja/Manufacturers.php:265
-#: /home/tim/code/KwaMoja/SalesCategories.php:488
+#: /home/tim/code/KwaMoja/SalesCategories.php:495
 msgid "Brand"
 msgstr "Značka"
 
@@ -33789,14 +33897,6 @@ msgstr "Název modulu"
 #: /home/tim/code/KwaMoja/ModuleEditor.php:73
 msgid "New Name"
 msgstr "Nové jméno"
-
-#: /home/tim/code/KwaMoja/ModuleEditor.php:87
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
-#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
-msgid "Save"
-msgstr "Uložit"
 
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:3
 msgid "Monthly Bank Transactions Inquiry"
@@ -35217,8 +35317,8 @@ msgstr "Nebyly zde vytištěny žádné údaje o ceně pro zadané zákazníky n
 #: /home/tim/code/KwaMoja/PDFPriceList.php:229
 #: /home/tim/code/KwaMoja/Prices.php:233
 #: /home/tim/code/KwaMoja/PricesByCost.php:208
-#: /home/tim/code/KwaMoja/Prices_Customer.php:210
-#: /home/tim/code/KwaMoja/Prices_Customer.php:266
+#: /home/tim/code/KwaMoja/Prices_Customer.php:211
+#: /home/tim/code/KwaMoja/Prices_Customer.php:269
 msgid "No End Date"
 msgstr "Ne Datum ukončení"
 
@@ -35263,7 +35363,7 @@ msgstr "Pro měnu"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:380
 msgid "Select the currencies to report on. To report on all currencies select All"
-msgstr "Vyberte měny, ve kterých chcete vykazovat. "
+msgstr "Vyberte měny, ve kterých chcete vykazovat. Chcete-li vykazovat ve všech měnách, vyberte Vše"
 
 #: /home/tim/code/KwaMoja/PDFPriceList.php:384
 msgid "Show Gross Profit %"
@@ -36990,7 +37090,7 @@ msgid "The quantity of the ordered item entered must be a positive amount"
 msgstr "Množství zadané položky musí být kladné"
 
 #: /home/tim/code/KwaMoja/PO_Items.php:550 /home/tim/code/KwaMoja/Prices.php:71
-#: /home/tim/code/KwaMoja/Prices_Customer.php:66
+#: /home/tim/code/KwaMoja/Prices_Customer.php:68
 #: /home/tim/code/KwaMoja/SpecialOrder.php:205
 msgid "The price entered must be numeric"
 msgstr "Zadaná cena musí být číselná"
@@ -37809,7 +37909,7 @@ msgstr "Pokud tento způsob platby používá předtištěné šablony, jako jso
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:302
 msgid "For use with point of sales application. Does the POS need to open the cash drawer for this payment method."
-msgstr "Pro použití s ​​aplikací místa prodeje. "
+msgstr "Pro použití s ​​aplikací v místě prodeje. Musí POS u této platební metody otevřít zásuvku na peníze."
 
 #: /home/tim/code/KwaMoja/PaymentMethods.php:305
 msgid "Payment Discount Percent on Receipts"
@@ -39404,20 +39504,20 @@ msgstr "Cena musí být uvedena jako kladné číslo"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:54
 #: /home/tim/code/KwaMoja/Prices.php:75
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:192
-#: /home/tim/code/KwaMoja/Prices_Customer.php:84
+#: /home/tim/code/KwaMoja/Prices_Customer.php:86
 msgid "The date this price is to take effect from must be entered in the format"
 msgstr "Datum uvedení této ceny do platnosti musí být uvedeno ve formátu"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:58
 #: /home/tim/code/KwaMoja/Prices.php:81
-#: /home/tim/code/KwaMoja/Prices_Customer.php:89
+#: /home/tim/code/KwaMoja/Prices_Customer.php:91
 msgid "The date this price is be in effect to must be entered in the format"
 msgstr "Datum uvedení této ceny do platnosti musí být uvedeno ve formátu"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:61
 #: /home/tim/code/KwaMoja/Prices.php:85
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:196
-#: /home/tim/code/KwaMoja/Prices_Customer.php:93
+#: /home/tim/code/KwaMoja/Prices_Customer.php:95
 msgid "The end date is expected to be after the start date, enter an end date after the start date for this price"
 msgstr "Očekává se, že datum ukončení bude po počátečním datu a zadáte datum ukončení od data zahájení této ceny"
 
@@ -39502,13 +39602,13 @@ msgid "Item Prices"
 msgstr "Položka Ceny"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 #: /home/tim/code/KwaMoja/RelatedItemsUpdate.php:37
 msgid "The part code entered does not exist in the database"
 msgstr "Zadaný kód součásti v databázi neexistuje"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 msgid "Only valid parts can have prices entered against them"
 msgstr "Pouze platné části mohou mít proti nim zaplacené ceny"
 
@@ -39524,22 +39624,22 @@ msgid "The product selection page should call this page with a valid product cod
 msgstr "Stránka s výběrem produktů by měla tuto stránku volat s platným kódem produktu"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "The part selected is a kit set item"
 msgstr "Vybraná část je položka sada soupravy"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "these items explode into their components when selected on an order"
 msgstr "tyto položky vybuchnou na jejich součásti při výběru na objednávku"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "prices must be set up for the components and no price can be set for the whole kit"
 msgstr "ceny musí být nastaveny pro komponenty a nelze nastavit cenu pro celou sadu"
 
 #: /home/tim/code/KwaMoja/Prices.php:89
-#: /home/tim/code/KwaMoja/Prices_Customer.php:97
+#: /home/tim/code/KwaMoja/Prices_Customer.php:99
 msgid "The end date is expected to be after today. There is no point entering a new price where the effective date is before today!"
 msgstr "Datum ukončení se očekává po dnešním dni.  Neexistuje žádný důvod pro zadání nové ceny, kdy je datum účinnosti před dneškem!"
 
@@ -39569,9 +39669,9 @@ msgstr "Přehled cen"
 
 #: /home/tim/code/KwaMoja/Prices.php:223
 #: /home/tim/code/KwaMoja/PricesByCost.php:165
-#: /home/tim/code/KwaMoja/Prices_Customer.php:206
-#: /home/tim/code/KwaMoja/Prices_Customer.php:255
-#: /home/tim/code/KwaMoja/Prices_Customer.php:344
+#: /home/tim/code/KwaMoja/Prices_Customer.php:207
+#: /home/tim/code/KwaMoja/Prices_Customer.php:256
+#: /home/tim/code/KwaMoja/Prices_Customer.php:351
 #: /home/tim/code/KwaMoja/SelectRecurringSalesOrder.php:105
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:165
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:266
@@ -39580,7 +39680,7 @@ msgid "End Date"
 msgstr "Datum ukončení"
 
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 msgid "Are you sure you wish to delete this price?"
 msgstr "Opravdu chcete tuto cenu smazat?"
 
@@ -39881,66 +39981,67 @@ msgstr "Zákazník musí být vybrán z obrazovky výběru zákazníka"
 msgid "then an item must be selected before this page is called"
 msgstr "musí být před voláním této stránky vybrána položka"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:328
 #: /home/tim/code/KwaMoja/SelectCustomer.php:239
 msgid "Special Customer Prices"
 msgstr "Speciální ceny zákazníků"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:78
+#: /home/tim/code/KwaMoja/Prices_Customer.php:80
 msgid "The branch code entered is not currently defined"
 msgstr "Zadaný kód pobočky není aktuálně definován"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:120
-#: /home/tim/code/KwaMoja/Prices_Customer.php:147
+#: /home/tim/code/KwaMoja/Prices_Customer.php:122
+#: /home/tim/code/KwaMoja/Prices_Customer.php:149
 msgid "Price Updated"
 msgstr "Cena byla aktualizována"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:141
+#: /home/tim/code/KwaMoja/Prices_Customer.php:143
 msgid "Price added"
 msgstr "Přidaná cena"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:148
+#: /home/tim/code/KwaMoja/Prices_Customer.php:150
 msgid "The price could not be updated because"
 msgstr "Cena nemohla být aktualizována, protože"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:174
+#: /home/tim/code/KwaMoja/Prices_Customer.php:176
 msgid "This price has been deleted"
 msgstr "Tato cena byla smazána"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:193
+#: /home/tim/code/KwaMoja/Prices_Customer.php:195
 msgid "Could not retrieve the normal prices set up because"
 msgstr "Nelze načíst běžné nastavené ceny, protože"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:194
-#: /home/tim/code/KwaMoja/Prices_Customer.php:242
+#: /home/tim/code/KwaMoja/Prices_Customer.php:196
+#: /home/tim/code/KwaMoja/Prices_Customer.php:243
 msgid "The SQL used to retrieve these records was"
 msgstr "SQL použitý k načtení těchto záznamů byl"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:201
+#: /home/tim/code/KwaMoja/Prices_Customer.php:202
 msgid "There are no default prices set up for this part"
 msgstr "Pro tuto část nejsou nastaveny žádné výchozí ceny"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:204
+#: /home/tim/code/KwaMoja/Prices_Customer.php:205
 msgid "Normal Price"
 msgstr "Běžná cena"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:241
+#: /home/tim/code/KwaMoja/Prices_Customer.php:242
 msgid "Could not retrieve the special prices set up because"
 msgstr "Nelze načíst speciální ceny, které byly nastaveny"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:248
+#: /home/tim/code/KwaMoja/Prices_Customer.php:249
 msgid "There are no special prices set up for this part"
 msgstr "Pro tuto část nejsou nastaveny žádné speciální ceny"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:252
+#: /home/tim/code/KwaMoja/Prices_Customer.php:253
 msgid "Special Price"
 msgstr "Speciální cena"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:261
+#: /home/tim/code/KwaMoja/Prices_Customer.php:264
 msgid "All Branches"
 msgstr "Všechny pobočky"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:329
+#: /home/tim/code/KwaMoja/Prices_Customer.php:333
 msgid "All branches"
 msgstr "Všechny pobočky"
 
@@ -43339,7 +43440,7 @@ msgstr "Žádná sada adresářů tmp.  Musíte mít ve svém PHP nastavenu adre
 #: /home/tim/code/KwaMoja/SalesCategories.php:42
 #: /home/tim/code/KwaMoja/Stocks.php:87 /home/tim/code/KwaMoja/Stocks.php:125
 msgid "The web server user does not have permission to upload files. Please speak to your system administrator"
-msgstr "Uživatel webového serveru nemá oprávnění k nahrávání souborů. "
+msgstr "Uživatel webového serveru nemá oprávnění k nahrávání souborů. Obraťte se na svého správce systému"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:69
 msgid "The item has been successfully added to the featured list"
@@ -43414,17 +43515,18 @@ msgid "A new Sales category record has been added"
 msgstr "Byl přidán nový záznam o kategorii prodeje"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:324
-#: /home/tim/code/KwaMoja/SalesCategories.php:408
+#: /home/tim/code/KwaMoja/SalesCategories.php:411
 msgid "Category Name"
 msgstr "Název Kategorie"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:325
-#: /home/tim/code/KwaMoja/SalesCategories.php:417
+#: /home/tim/code/KwaMoja/SalesCategories.php:420
 msgid "Parent Category"
 msgstr "Rodičovská Kategorie"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:357
-#: /home/tim/code/KwaMoja/SalesCategories.php:419
+#: /home/tim/code/KwaMoja/SalesCategories.php:423
+#: /home/tim/code/KwaMoja/SalesCategories.php:425
 msgid "No parent"
 msgstr "Žádný rodič"
 
@@ -43440,57 +43542,57 @@ msgstr "Opravdu chcete tuto kategorii prodeje smazat?"
 msgid "Edit Sales Category"
 msgstr "Upravit prodejní kategorii"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:405
+#: /home/tim/code/KwaMoja/SalesCategories.php:408
 msgid "New Sales Category"
 msgstr "Nová kategorie prodeje"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:410
+#: /home/tim/code/KwaMoja/SalesCategories.php:413
 msgid "The name by which this category will be called, using up to 50 characters"
 msgstr "Název, pod kterým bude tato kategorie volána, s použitím až 50 znaků"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:428
+#: /home/tim/code/KwaMoja/SalesCategories.php:435
 msgid "If this is a sub category of another sales category select the parent here"
 msgstr "Pokud se jedná o podkategorii jiné prodejní kategorie, vyberte zde rodiče"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:432
+#: /home/tim/code/KwaMoja/SalesCategories.php:439
 msgid "Is the category in active use?"
 msgstr "Je kategorie aktivně používána?"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:449
 msgid "Is the sales category in active use? Should it be displayed in your web shop?"
 msgstr "Je prodejní kategorie aktivně používána? "
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:449
+#: /home/tim/code/KwaMoja/SalesCategories.php:456
 msgid "Upload an image to be associated with this category"
 msgstr "Nahrajte obrázek, který bude přidružen k této kategorii"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:483
+#: /home/tim/code/KwaMoja/SalesCategories.php:490
 msgid "Inventory items for"
 msgstr "Položky inventáře pro"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:489
+#: /home/tim/code/KwaMoja/SalesCategories.php:496
 #: /home/tim/code/KwaMoja/includes/OcKwaMojaToOpenCartSync.php:454
 msgid "Featured"
 msgstr "Doporučené"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:505
+#: /home/tim/code/KwaMoja/SalesCategories.php:512
 msgid "Cancel Feature"
 msgstr "Zrušit funkci"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:508
+#: /home/tim/code/KwaMoja/SalesCategories.php:515
 msgid "Make Featured"
 msgstr "Vytvořit Doporučené"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:516
+#: /home/tim/code/KwaMoja/SalesCategories.php:523
 msgid "No Inventory items in this category"
 msgstr "Žádné položky inventáře v této kategorii"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:531
+#: /home/tim/code/KwaMoja/SalesCategories.php:538
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:563
 msgid "Select Stock Items"
 msgstr "Vyberte položky na skladě"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:562
+#: /home/tim/code/KwaMoja/SalesCategories.php:569
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:594
 msgid "Select the stock category to search in. To search in all categories, choose All."
 msgstr "Vyberte kategorii akcií, ve které chcete hledat. Chcete-li hledat ve všech kategoriích, zvolte Vše."
@@ -43578,15 +43680,15 @@ msgstr "Vytvořit podrobnosti o provizi"
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:271
 msgid "A commission rate can apply to only certain items. Select the stock category to which this commission rate applies. If it applies to all categories select All."
-msgstr "Sazba provize se může vztahovat pouze na určité položky. "
+msgstr "Sazba provize se může vztahovat pouze na určité položky. Vyberte kategorii akcií, na kterou se vztahuje tato sazba provize. Pokud se vztahuje na všechny kategorie, vyberte Vše."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:288
 msgid "A commission rate can apply to only a certain area. Select the area to which this commission rate applies. If it applies to all areas select All."
-msgstr "Sazba provize se může vztahovat pouze na určitou oblast. "
+msgstr "Sazba provize se může vztahovat pouze na určitou oblast. Vyberte oblast, na kterou se tato sazba provize vztahuje. Pokud se vztahuje na všechny oblasti, vyberte Vše."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:304
 msgid "Select the currency for this commission record. Only transactions in this currency will be included for commission purposes."
-msgstr "Vyberte měnu pro tento záznam provize. "
+msgstr "Vyberte měnu pro tento záznam provize. Zahrnuty budou pouze transakce v této měně pro účely provize."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:310
 msgid "The value at which this commission rate kicks in."
@@ -43594,7 +43696,7 @@ msgstr "Hodnota, za kterou tato sazba provize začíná."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:316
 msgid "This commission can apply for just a certain number of days after the customer has become active. Choose zero if the rate always applies."
-msgstr "Tato provize se může vztahovat na určitý počet dní po aktivaci zákazníka. "
+msgstr "Tato provize může platit pouze určitý počet dní poté, co se zákazník stal aktivním. Pokud sazba vždy platí, zvolte nulu."
 
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:321
 msgid "Commission Rate"
@@ -43627,7 +43729,7 @@ msgstr "Zaplaceno?"
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:101
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:101
 msgid "There are no commissions meeting this criteria. Please select different criteria and run the report again."
-msgstr "Tato kritéria nesplňují žádné provize. "
+msgstr "Tato kritéria nesplňují žádné provize. Vyberte prosím jiná kritéria a spusťte přehled znovu."
 
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:103
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:103
@@ -43827,15 +43929,15 @@ msgstr "Vytvořte nové podrobnosti o prodeji GL"
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:232
 msgid "Select an Area here. If this record is to refer to all areas that do not have a specific record then select Any Other."
-msgstr "Zde vyberte oblast. "
+msgstr "Zde vyberte oblast. Pokud má tento záznam odkazovat na všechny oblasti, které nemají konkrétní záznam, vyberte Libovolný jiný."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:252
 msgid "Select a Stock Category here. If this record is to refer to all categories that do not have a specific record then select Any Other."
-msgstr "Zde vyberte kategorii akcií. "
+msgstr "Zde vyberte kategorii akcií. Pokud má tento záznam odkazovat na všechny kategorie, které nemají konkrétní záznam, vyberte Libovolný jiný."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:273
 msgid "Select a Sales Type here. If this record is to refer to all types that do not have a specific record then select Any Other."
-msgstr "Zde vyberte typ prodeje. "
+msgstr "Zde vyberte typ prodeje. Pokud má tento záznam odkazovat na všechny typy, které nemají konkrétní záznam, vyberte Any Other."
 
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:277
 msgid "Post Sales to GL Account"
@@ -44188,7 +44290,7 @@ msgstr "Zadejte jméno, pod nímž bude tato prodejní osoba známa."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:343
 msgid "Select the sales area this person covers. If they cover more than one area then leave it blank."
-msgstr "Vyberte oblast prodeje, kterou tato osoba pokrývá. "
+msgstr "Vyberte prodejní oblast, kterou tato osoba pokrývá. Pokud pokrývají více než jednu oblast, ponechte toto pole prázdné."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:349
 msgid "Contact telephone number for this sales person."
@@ -44228,7 +44330,7 @@ msgstr "SQL, které bylo použito k získání informací o typu provize a kter�
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:425
 msgid "Select the calculation method used to calculate commission for this sales person. This is only used if a commission period was was selected."
-msgstr "Vyberte metodu výpočtu použitou pro výpočet provize pro tohoto prodejce. "
+msgstr "Vyberte metodu výpočtu použitou k výpočtu provize pro tohoto prodejce. Používá se pouze v případě, že bylo vybráno provizní období."
 
 #: /home/tim/code/KwaMoja/SalesPeople.php:438
 msgid "GL Commission Account"
@@ -44248,7 +44350,7 @@ msgstr "Zaškrtnutím tohoto políčka zobrazíte prodejní faktury"
 
 #: /home/tim/code/KwaMoja/SalesReport.php:275
 msgid "Original amounts in the customer's currency. GL amounts in the functional currency."
-msgstr "Původní částky v měně zákazníka. "
+msgstr "Původní částky v měně zákazníka. Částky GL ve funkční měně."
 
 #: /home/tim/code/KwaMoja/SalesTopCustomersInquiry.php:3
 #: /home/tim/code/KwaMoja/sql/updates/85.php:5
@@ -45435,7 +45537,7 @@ msgstr "Objednávka faktur"
 
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:505
 msgid "There are no picking lists meeting your criteria. Please retry with different criteria"
-msgstr "Neexistují žádné seznamy, které by splňovaly vaše kritéria. "
+msgstr "Vašim kritériím neexistují žádné výběry. Zkuste to znovu s jinými kritérii"
 
 #: /home/tim/code/KwaMoja/SelectProduct.php:7
 msgid "Search Inventory Items"
@@ -46429,14 +46531,14 @@ msgstr "Rozdíl"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "Množství po ruce nebylo možné načíst z databáze"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "Bylo použito následující SQL pro načtení celkového množství zásob"
 
@@ -46470,13 +46572,13 @@ msgstr "Položka GL pro průměrnou úpravu nákladů zásilky za rok 2009"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "Náklady nemohly být aktualizovány, protože"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "Byla použita následující SQL pro aktualizaci nákladů"
 
@@ -47618,7 +47720,7 @@ msgstr "Množství úprav"
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:632
 msgid "The quantity to be adjusted. A neative amount reduces stock, and a positive amount increases it."
-msgstr "Množství, které má být upraveno. "
+msgstr "Množství, které se má upravit. Čisté množství snižuje zásoby a kladné množství je zvyšuje."
 
 #: /home/tim/code/KwaMoja/StockAdjustments.php:660
 msgid "Enter Stock Adjustment"
@@ -48900,7 +49002,7 @@ msgstr "Skladem po ruce podle data"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:36
 msgid "Select the stock category to search through. To search over all stock categories select All"
-msgstr "Vyberte kategorii akcií, kterou chcete procházet. "
+msgstr "Vyberte kategorii akcií, kterou chcete prohledat. Chcete-li prohledat všechny kategorie akcií, vyberte Vše"
 
 #: /home/tim/code/KwaMoja/StockQuantityByDate.php:68
 msgid "Select the location of the stock items to report on"
@@ -50005,7 +50107,7 @@ msgstr "Smluvní úvěry na úvěrové poznámce"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "Zpět na položku faktury"
 
@@ -51209,15 +51311,15 @@ msgstr "Bylo použito následující SQL pro aktualizaci přidělených množstv
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "Záznam o poplatku za zásilku"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "Bylo použito následující SQL pro vložení záznamu o poplatku zásilky"
 
@@ -51230,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "Následující SQL byl použit k pokusu o aktualizaci nákladů na fixní náklady"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "Smlouva o poplatku za smlouvu"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "Bylo použito následující SQL pro vložení záznamu smlouvy o poplatku"
 
@@ -51436,14 +51538,14 @@ msgstr "Vyberte dodavatele a zadejte fakturu"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:146
 msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to those only users who are authorised to receive goods/services"
-msgstr "Vaše povolení neumožňují příjem zboží. "
+msgstr "Vaše oprávnění neumožňují příjem zboží. Automatické přijímání nákupních objednávek je omezeno pouze na ty uživatele, kteří mají oprávnění přijímat zboží / služby"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:173
 msgid "Auto receiving of controlled stock items that require serial number or batch number entry is not currently catered for. Only orders with normal non-serial numbered items can be received automatically"
 msgstr "Automatické přijímání položek kontrolovaných položek, které vyžadují zadání sériového čísla nebo čísla šarží, není aktuálně zajištěno.  Pouze objednávky s normálními neporusenými číslovými položkami lze přijímat automaticky"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "KRITICKÁ CHYBA! "
 
@@ -51660,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "Bylo použito následující SQL pro aktualizaci fakturované množství GRN"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "Fakturu nemohla být zmapována na přijatý záznam zboží, protože"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "Následující SQL mapování faktury na GRN byl použit"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "Záznam o pohybech zásob pro doručení nemohl provést aktualizaci nákladů na skutečné náklady"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "Záznamy o analýze prodeje nemohly být aktualizovány v souvislosti s nákladovými odchylkami na této nákupní faktuře"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "Pohyby akcií pro faktury nelze aktualizovat v případě cenových rozdílů na této nákupní faktuře"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "KRITICKÁ CHYBA! "
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "K pokusu o aktualizaci ceny aktiv byl použit následující SQL:"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "Číslo faktury dodavatele"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "Zadejte další fakturu pro tohoto dodavatele"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "Zadejte platbu"
 
@@ -52028,7 +52128,7 @@ msgstr "Poslední číslo dodavatele"
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:214
 msgid "If suppliers are to have their ID automatically generated, different supplier types can have their own starting number. Enter the number of the next supplier for this type."
-msgstr "Pokud mají dodavatelé automaticky generovat své ID, různé typy dodavatelů mohou mít své vlastní počáteční číslo. "
+msgstr "Pokud si mají dodavatelé nechat automaticky vygenerovat své ID, mohou mít různé typy dodavatelů své vlastní startovní číslo. Zadejte číslo dalšího dodavatele pro tento typ."
 
 #: /home/tim/code/KwaMoja/SupplierTypes.php:224
 msgid "Add Type"
@@ -52264,7 +52364,7 @@ msgstr "Vyberte skupinu dodavatelů, do které tento dodavatel patří."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:674
 msgid "Select the sales person that this supplier refers to. If this supplier is not a sales person then select None."
-msgstr "Vyberte prodejce, kterého se tento dodavatel týká. "
+msgstr "Vyberte prodejce, na kterého tento dodavatel odkazuje. Pokud tento dodavatel není prodejcem, vyberte Žádný."
 
 #: /home/tim/code/KwaMoja/Suppliers.php:680
 msgid "The tax reference for this supplier."
@@ -52462,7 +52562,7 @@ msgstr "Výchozí téma"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:454
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
-msgstr "Výchozí motiv, který se použije pro přihlašovací obrazovku a nastavení nových uživatelů. "
+msgstr "Výchozí motiv, který se má použít pro přihlašovací obrazovku a nastavení nových uživatelů. Výběr motivu uživatelů jej přepíše."
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:459
 msgid "Auto Update Exchange Rates Daily"
@@ -52593,11 +52693,6 @@ msgstr "Vynucení připojení pouze přes zabezpečené zásuvky - tedy pouze š
 #: /home/tim/code/KwaMoja/SystemParameters.php:574
 msgid "Perform database maintenance at logon"
 msgstr "Proveďte údržbu databáze při přihlášení"
-
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
-msgid "Never"
-msgstr "Nikdy"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:597
 #: /home/tim/code/KwaMoja/SystemParameters.php:599
@@ -54155,7 +54250,7 @@ msgstr "Hodiny zadané pro den 7 vypadají příliš vysoko - jedná se pravděp
 
 #: /home/tim/code/KwaMoja/Timesheets.php:153
 msgid "If the time is non-chargable then both the work order and the work centre must reflect this. Only if a work order is selected can a work centre be set"
-msgstr "Pokud není čas účtován, musí to odrážet jak pracovní řád, tak pracovní středisko. "
+msgstr "Pokud je čas neúčtovatelný, musí to odrážet jak pracovní příkaz, tak pracovní středisko. Pracovní středisko lze nastavit pouze v případě, že je vybrán pracovní příkaz"
 
 #: /home/tim/code/KwaMoja/Timesheets.php:157
 msgid "If a work order is selected then the work centre must be set"
@@ -55038,7 +55133,7 @@ msgstr "Název role zabezpečení"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:218
 msgid "Is the role a clinical one. For instance, doctor, or a nurse"
-msgstr "Je role klinická. "
+msgstr "Je role klinická. Například lékař nebo zdravotní sestra"
 
 #: /home/tim/code/KwaMoja/WWW_Access.php:223
 msgid "Enter Role"
@@ -55168,7 +55263,7 @@ msgstr "Upravit podrobnosti pro"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:528
 msgid "Enter the password for this user. If left empty then the password will remain unchanged."
-msgstr "Zadejte heslo pro tohoto uživatele. "
+msgstr "Zadejte heslo pro tohoto uživatele. Pokud zůstane prázdné, heslo zůstane nezměněno."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:532
 msgid "Insert New User Details"
@@ -55192,7 +55287,7 @@ msgstr "Pokud je nastaveno na Ano, musí uživatel změnit heslo při příští
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:594
 msgid "Enter the full name of this user. Does not have to be unique."
-msgstr "Zadejte celé jméno tohoto uživatele. "
+msgstr "Zadejte celé jméno tohoto uživatele. Nemusí být jedinečný."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:599
 msgid "Enter the telephone number of this user."
@@ -55204,7 +55299,7 @@ msgstr "Zadejte e-mailovou adresu tohoto uživatele."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:618
 msgid "Select the security role of this user. This will correspond with their job title."
-msgstr "Vyberte roli zabezpečení tohoto uživatele. "
+msgstr "Vyberte roli zabezpečení tohoto uživatele. To bude odpovídat jejich pracovní pozici."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:622
 msgid "User Can Create Tenders"
@@ -55269,7 +55364,7 @@ msgstr "Vyberte motiv, který se má použít pro tohoto uživatele."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:816
 msgid "Select the users language. All screens will be translated into this language"
-msgstr "Vyberte jazyk uživatele. "
+msgstr "Vyberte jazyk uživatelů. Všechny obrazovky budou přeloženy do tohoto jazyka"
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:826
 #: /home/tim/code/KwaMoja/WWW_Users.php:836
@@ -55316,7 +55411,7 @@ msgstr "Pokud vyberete možnost Blokováno, nebude se tento uživatel moci přih
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:944
 msgid "Select the font size that the screens will be drawn in for this user. It can be changed at any time from the main menu screen."
-msgstr "Vyberte velikost písma, ve kterém budou obrazovky pro tohoto uživatele nakresleny. "
+msgstr "Vyberte velikost písma, pro které budou obrazovky pro tohoto uživatele nakresleny. Lze jej kdykoli změnit na obrazovce hlavní nabídky."
 
 #: /home/tim/code/KwaMoja/WWW_Users.php:955
 msgid "Default Tag For User"
@@ -55379,7 +55474,7 @@ msgstr "Pracovní centra"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:28
 msgid "This work centre already exists in the database. Please use a different code."
-msgstr "Toto pracovní středisko již v databázi existuje. "
+msgstr "Toto pracovní středisko již v databázi existuje. Použijte jiný kód."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:32
 msgid "The Work Centre code must be at least 2 characters long"
@@ -55461,7 +55556,7 @@ msgstr "Vytvořte nové pracovní centrum"
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:218
 msgid "The alphanumeric code by which this work centre will be identified. Up to 5 characters can be used."
-msgstr "Alfanumerický kód, podle kterého bude toto pracovní středisko identifikováno. "
+msgstr "Alfanumerický kód, podle kterého bude toto pracovní středisko identifikováno. Lze použít až 5 znaků."
 
 #: /home/tim/code/KwaMoja/WorkCentres.php:226
 msgid "Work Centre Description"
@@ -56189,10 +56284,6 @@ msgstr "Tento skript nebude aktualizovat zůstatky zásob hlavní knihy pro změ
 #: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:51
 msgid "Update costs for all items listed in a bill of materials"
 msgstr "Aktualizujte náklady na všechny položky uvedené v nákladovém listu"
-
-#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
-msgid "Run"
-msgstr "Běh"
 
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:3
 msgid "UTILITY PAGE To Changes A Customer Branch Code In All Tables"
@@ -60401,7 +60492,7 @@ msgstr "Vytvořte nový záznam zaměstnance"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:372
 msgid "A unique alpha numeric code to identify this employee. Up to 10 characters can be used"
-msgstr "Jedinečný alfanumerický kód k identifikaci tohoto zaměstnance. "
+msgstr "Jedinečný alfanumerický kód k identifikaci tohoto zaměstnance. Lze použít až 10 znaků"
 
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:378
 msgid "The last, or family name of this employee"
@@ -61604,7 +61695,7 @@ msgstr "Vytvořte výplatní období"
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:170
 msgid "The ID by which this pay period will be known. This must be an integer."
-msgstr "ID, podle kterého bude toto výplatní období známo. "
+msgstr "ID, pod kterým bude toto výplatní období známo. Musí to být celé číslo."
 
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:178
 msgid "A short description of this pay period."
@@ -67624,27 +67715,27 @@ msgstr "Nelze získat konfigurační parametry z databáze, protože"
 msgid "An error occurred accessing the database to retrieve the company information"
 msgstr "Došlo k chybě v přístupu k databázi k načtení informací o společnosti"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "There is a problem in retrieving the pricing information for part"
 msgstr "Při načítání informací o cenách pro část je problém"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "and for Customer"
 msgstr "a pro zákazníka"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "the error message returned by the SQL server was"
 msgstr "chybová zpráva vrácená serverem SQL byla"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "There is an error to retrieve price from price matrix for stock"
 msgstr "Při načítání ceny z matice cen akcií došlo k chybě"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "and the error message returned by SQL server is "
 msgstr "a chybová zpráva vrácená serverem SQL je"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:169
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:168
 msgid "Failed to retrieve price from price matrix"
 msgstr "Nelze načíst cenu z matice ceny"
 
@@ -69740,9 +69831,8 @@ msgstr "nelze přejmenovat"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysqli.php:718
-#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
-msgid "Cannot update the auto increment field in table"
-msgstr "Nelze aktualizovat pole automatického přírůstku v tabulce"
+msgid "You are trying to set the auto increment number below the current number"
+msgstr "Pokoušíte se nastavit číslo automatického přírůstku pod aktuální číslo"
 
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:721
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:721
@@ -69750,6 +69840,10 @@ msgstr "Nelze aktualizovat pole automatického přírůstku v tabulce"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:713
 msgid "The auto increment field in table"
 msgstr "Pole automatického přírůstku v tabulce"
+
+#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
+msgid "Cannot update the auto increment field in table"
+msgstr "Nelze aktualizovat pole automatického přírůstku v tabulce"
 
 #: /home/tim/code/KwaMoja/includes/UserLogin.php:47
 msgid "Could not retrieve user details on login because"
@@ -71330,7 +71424,7 @@ msgstr "Poznámky k grafu"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:257
 msgid "PT,ATG,etc. daily notes"
-msgstr "PT, ATG atd. "
+msgstr "PT, ATG atd. denní poznámky"
 
 #: /home/tim/code/KwaMoja/sql/updates/217.php:258
 msgid "IV daily notes"
@@ -72135,7 +72229,7 @@ msgstr "Bakteriální mikroskop. NonEvid"
 msgid "NoG.oxacil.resist.Staphyloc."
 msgstr "NoG.oxacil.resist.Staphyloc."
 
-#: /home/tim/code/KwaMoja/sql/updates/220.php:4
+#: /home/tim/code/KwaMoja/sql/updates/220.php:3
 msgid "Blood Laboratory Details"
 msgstr "Podrobnosti o krevní laboratoři"
 
@@ -72982,6 +73076,9 @@ msgstr "Zaměstnanecké půjčky"
 msgid "Staff Loan Repayments"
 msgstr "Splátky zaměstnanců"
 
+#~ msgid "Item to bill"
+#~ msgstr "Položka k vyúčtování"
+
 #~ msgid "Blood Laboratory"
 #~ msgstr "Laboratoř krve"
 
@@ -73104,9 +73201,6 @@ msgstr "Splátky zaměstnanců"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "Vaše oprávnění neumožňují příjem zboží.  Automatické přijímání objednávek je omezeno pouze na ty uživatele, kteří jsou oprávněni přijímat zboží / služby"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "Fakturu nemohla být zmapována na přijatý záznam zboží, protože"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "KRITICKÁ CHYBA!  POZNÁMKA OTEVÍTE TUTO CHYBU A PÉČE POMOC.  Fixní náklady na aktiva nemohly být aktualizovány, protože"

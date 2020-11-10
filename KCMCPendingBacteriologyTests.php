@@ -50,6 +50,9 @@ while ($MyRow = DB_fetch_array($Result)) {
 
 	$PID = GetPIDFromEncounter($MyRow['encounter_nr']);
 
+	$CheckSQL = "SELECT nr FROM care_billable_items WHERE pid='" . $PID . "' AND is_paid==0";
+	$CheckResult = DB_query($CheckSQL);
+
 	$SQL = "SELECT pid,
 					hospital_file_nr,
 					name_first,

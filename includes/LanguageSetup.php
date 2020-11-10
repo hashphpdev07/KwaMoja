@@ -19,7 +19,7 @@ $_SESSION['DefaultLanguage'] = $DefaultLanguage;
 */
 if (isset($_POST['Language']) and CheckLanguageChoice($_POST['Language'])) {
 	$_SESSION['Language'] = $_POST['Language'];
-} else {
+} elseif (!isset($_SESSION['Language'])) {
 	$_SESSION['Language'] = $DefaultLanguage;
 }
 

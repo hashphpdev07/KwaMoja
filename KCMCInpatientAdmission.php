@@ -76,6 +76,26 @@ if (isset($_POST['Create'])) {
 		$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 		prnMsg(_('The patient was successfully admitted.'), 'success');
+
+		if (isset($_SESSION['InpatientAdmissionsBillingItem']) and $_SESSION['InpatientAdmissionsBillingItem'] != '') {
+
+			$SQL = "INSERT INTO care_billable_items (`pid`,
+													`stockid`,
+													`price_list`,
+													`create_id`,
+													`create_time`
+												) VALUES (
+													'" . $MyPIDRow['pid'] . "',
+													'" . $_SESSION['InpatientAdmissionsBillingItem'] . "',
+													'" . GetPriceListFromPID($MyPIDRow['pid']) . "',
+													'" . $_SESSION['UserID'] . "',
+													NOW()
+											)";
+			$ErrMsg = _('There was a problem inserting the billable items because');
+			$DbgMsg = _('The SQL used to insert the billable items was');
+			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+		}
+
 		unset($SelectedPatient);
 		unset($_POST['Diagnosis']);
 		unset($_POST['ReferredBy']);
@@ -109,6 +129,19 @@ if (isset($_POST['Create'])) {
 	$Result = DB_query($SQL, $ErrMsg, $DbgMsg);
 
 	prnMsg(_('The patient data was successfully updated.'), 'success');
+
+	if (isset($_SESSION['InpatientAdmissionsBillingItem']) and $_SESSION['InpatientAdmissionsBillingItem'] != '') {
+
+		$SQL = "UPDATE care_billable_items SET `stockid`='" . $_SESSION['InpatientAdmissionsBillingItem'] . "',
+												`price_list`='" . GetPriceListFromPID($MyPIDRow['pid']) . "',
+												`modify_id`='" . $_SESSION['UserID'] . "',
+												`modify_time`=NOW()
+											WHERE pid='" . $SelectedPatient . "'";
+		$ErrMsg = _('There was a problem updating the billable items because');
+		$DbgMsg = _('The SQL used to update the billable items was');
+		$Result = DB_query($SQL, $ErrMsg, $DbgMsg, true);
+	}
+
 	unset($SelectedPatient);
 	unset($_POST['Diagnosis']);
 	unset($_POST['ReferredBy']);

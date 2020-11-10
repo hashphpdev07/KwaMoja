@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-19 01:04+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
+"POT-Creation-Date: 2020-10-28 06:56+0000\n"
+"PO-Revision-Date: 2020-10-28 06:10+0000\n"
+"Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -366,7 +366,7 @@ msgstr "このランキンググループを削除してもよろしいですか
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:151
 #: /home/tim/code/KwaMoja/PriceMatrix.php:310
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 #: /home/tim/code/KwaMoja/ProductSpecs.php:446
 #: /home/tim/code/KwaMoja/ProjectBOM.php:179
 #: /home/tim/code/KwaMoja/ProjectOtherReqts.php:110
@@ -526,6 +526,16 @@ msgstr "含める運動の月"
 msgid "The number of months stock movement to analyse."
 msgstr "分析への在庫移動の月数。"
 
+#: /home/tim/code/KwaMoja/ABCRankingGroups.php:213
+#: /home/tim/code/KwaMoja/ABCRankingMethods.php:112
+#: /home/tim/code/KwaMoja/ModuleEditor.php:87
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
+#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
+#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
+msgid "Save"
+msgstr "セーブ"
+
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:4
 msgid "Maintain ABC ranking methods"
 msgstr "ABCランキング方法を維持する"
@@ -621,7 +631,7 @@ msgstr "ランキング方法が正常にデータベースに保存されまし
 #: /home/tim/code/KwaMoja/PcTypeTabs.php:150
 #: /home/tim/code/KwaMoja/PriceMatrix.php:309
 #: /home/tim/code/KwaMoja/Prices.php:246
-#: /home/tim/code/KwaMoja/Prices_Customer.php:275
+#: /home/tim/code/KwaMoja/Prices_Customer.php:278
 #: /home/tim/code/KwaMoja/ProductSpecs.php:445
 #: /home/tim/code/KwaMoja/PurchData.php:325
 #: /home/tim/code/KwaMoja/QATests.php:455
@@ -745,6 +755,11 @@ msgstr "ランキング解析の詳細"
 msgid "Ranking group"
 msgstr "ランキンググループ"
 
+#: /home/tim/code/KwaMoja/ABCRunAnalysis.php:146
+#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
+msgid "Run"
+msgstr "走る"
+
 #: /home/tim/code/KwaMoja/ABCRunAnalysis.php:150
 msgid "Please note if you run an ABC analysis against a ranking group that has been used before, that analysis will be deleted and replaced by this one"
 msgstr "前に使用したランク付けグループに対してABC分析を実行すると、その分析は削除され、この分析に置き換えられます"
@@ -841,22 +856,22 @@ msgstr "アカウントグループに変更されました"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:46
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:120
 #: /home/tim/code/KwaMoja/KCMCInPatientBilling.php:804
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:177
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:210
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:280
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:385
 #: /home/tim/code/KwaMoja/KCMCLabTests.php:546
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:15
 #: /home/tim/code/KwaMoja/KCMCOtherMedicalServices.php:540
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:179
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:212
 #: /home/tim/code/KwaMoja/KCMCPatientDeposit.php:202
 #: /home/tim/code/KwaMoja/KCMCPharmacy.php:732
 #: /home/tim/code/KwaMoja/KCMCRadiology.php:544
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:15
 #: /home/tim/code/KwaMoja/KCMCRegister.php:16
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -892,7 +907,7 @@ msgstr "アカウントグループに変更されました"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:28
 #: /home/tim/code/KwaMoja/Prices.php:18
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:7
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
 #: /home/tim/code/KwaMoja/ProductSpecs.php:31
 #: /home/tim/code/KwaMoja/PurchData.php:253
 #: /home/tim/code/KwaMoja/PurchData.php:367
@@ -1295,6 +1310,10 @@ msgstr "親グループ名"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1335,10 +1354,10 @@ msgstr "親グループ名"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:98
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:143
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:146
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:67
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:70
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:450
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:410
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:65
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:417
@@ -1432,9 +1451,9 @@ msgstr "親グループ名"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:445
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:448
 #: /home/tim/code/KwaMoja/SalesCategories.php:348
-#: /home/tim/code/KwaMoja/SalesCategories.php:435
-#: /home/tim/code/KwaMoja/SalesCategories.php:439
-#: /home/tim/code/KwaMoja/SalesCategories.php:504
+#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:511
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:85
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:85
 #: /home/tim/code/KwaMoja/SalesPeople.php:207
@@ -1599,6 +1618,10 @@ msgstr "はい"
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -1639,10 +1662,10 @@ msgstr "はい"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:97
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:142
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:145
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:69
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:72
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:53
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:451
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:411
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:408
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:46
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:63
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:418
@@ -1734,9 +1757,9 @@ msgstr "はい"
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:444
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:447
 #: /home/tim/code/KwaMoja/SalesCategories.php:350
-#: /home/tim/code/KwaMoja/SalesCategories.php:436
-#: /home/tim/code/KwaMoja/SalesCategories.php:438
-#: /home/tim/code/KwaMoja/SalesCategories.php:507
+#: /home/tim/code/KwaMoja/SalesCategories.php:443
+#: /home/tim/code/KwaMoja/SalesCategories.php:445
+#: /home/tim/code/KwaMoja/SalesCategories.php:514
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:83
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:83
 #: /home/tim/code/KwaMoja/SalesPeople.php:209
@@ -1951,12 +1974,12 @@ msgstr "このグループが表示される試算表のシーケンス。"
 #: /home/tim/code/KwaMoja/PaymentMethods.php:312
 #: /home/tim/code/KwaMoja/PaymentTerms.php:278
 #: /home/tim/code/KwaMoja/PriceMatrix.php:261
-#: /home/tim/code/KwaMoja/Prices_Customer.php:353
+#: /home/tim/code/KwaMoja/Prices_Customer.php:363
 #: /home/tim/code/KwaMoja/ProductSpecs.php:637
 #: /home/tim/code/KwaMoja/QATests.php:348
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:513
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:473
-#: /home/tim/code/KwaMoja/SalesCategories.php:455
+#: /home/tim/code/KwaMoja/SalesCategories.php:462
 #: /home/tim/code/KwaMoja/SalesCommissionTypes.php:221
 #: /home/tim/code/KwaMoja/SalesGLPostings.php:291
 #: /home/tim/code/KwaMoja/SalesPeople.php:455
@@ -2213,13 +2236,13 @@ msgstr "連絡先レコードが削除されました"
 #: /home/tim/code/KwaMoja/Customers.php:697
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:319
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:493
 #: /home/tim/code/KwaMoja/KCMCMaintainEncounterTypes.php:85
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:255
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:320
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:353
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:360
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:178
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:191
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:37
@@ -2338,7 +2361,7 @@ msgstr "ステートメント"
 #: /home/tim/code/KwaMoja/GLStatements.php:137
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:56
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:41
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:465
 #: /home/tim/code/KwaMoja/PDFQuotation.php:229
 #: /home/tim/code/KwaMoja/PDFQuotationPortrait.php:226
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:260
@@ -2501,7 +2524,7 @@ msgstr "顧客の注意事項"
 #: /home/tim/code/KwaMoja/KCMCLaboratoryReport.php:131
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:625
 #: /home/tim/code/KwaMoja/KCMCRadiologyReport.php:129
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:486
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:483
 #: /home/tim/code/KwaMoja/MRPCalendar.php:209
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:400
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:318
@@ -2853,7 +2876,7 @@ msgstr "株式"
 #: /home/tim/code/KwaMoja/ReorderLevelLocation.php:74
 #: /home/tim/code/KwaMoja/ReverseGRN.php:404
 #: /home/tim/code/KwaMoja/SalesCategories.php:203
-#: /home/tim/code/KwaMoja/SalesCategories.php:487
+#: /home/tim/code/KwaMoja/SalesCategories.php:494
 #: /home/tim/code/KwaMoja/SecurityTokens.php:121
 #: /home/tim/code/KwaMoja/SecurityTokens.php:163
 #: /home/tim/code/KwaMoja/SelectAsset.php:262
@@ -3352,6 +3375,7 @@ msgstr "取得できませんでした。"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -3775,9 +3799,9 @@ msgstr "レポートの最後の期間を選択します"
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:517
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:534
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:545
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:556
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:529
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:540
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:551
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:408
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:419
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:430
@@ -3800,7 +3824,7 @@ msgstr "レポートの最後の期間を選択します"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:246
 #: /home/tim/code/KwaMoja/Projects.php:653
 #: /home/tim/code/KwaMoja/PurchData.php:382
-#: /home/tim/code/KwaMoja/SalesCategories.php:570
+#: /home/tim/code/KwaMoja/SalesCategories.php:577
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:231
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:231
 #: /home/tim/code/KwaMoja/SalesGraph.php:96
@@ -3972,7 +3996,7 @@ msgstr "代替期間を選択してください"
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:45
@@ -4582,8 +4606,8 @@ msgstr "ユーザーID"
 #: /home/tim/code/KwaMoja/ProjectBOM.php:215
 #: /home/tim/code/KwaMoja/ReorderLevel.php:236
 #: /home/tim/code/KwaMoja/ReorderLevel.php:238
-#: /home/tim/code/KwaMoja/SalesCategories.php:538
-#: /home/tim/code/KwaMoja/SalesCategories.php:541
+#: /home/tim/code/KwaMoja/SalesCategories.php:545
+#: /home/tim/code/KwaMoja/SalesCategories.php:548
 #: /home/tim/code/KwaMoja/SalesGraph.php:120
 #: /home/tim/code/KwaMoja/SalesGraph.php:122
 #: /home/tim/code/KwaMoja/SalesGraph.php:144
@@ -4695,10 +4719,10 @@ msgstr "ユーザー"
 #: /home/tim/code/KwaMoja/AuditTrail.php:186
 #: /home/tim/code/KwaMoja/CustomerBranches.php:108
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:170
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:208
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:210
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:324
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:241
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:243
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
 #: /home/tim/code/KwaMoja/KCMCRegister.php:478
 #: /home/tim/code/KwaMoja/PO_Header.php:573
 #: /home/tim/code/KwaMoja/PO_Header.php:1002
@@ -5524,7 +5548,7 @@ msgstr "検索条件を入力してください"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5539,7 +5563,7 @@ msgstr "のテキスト抽出を入力"
 #: /home/tim/code/KwaMoja/MRPDemands.php:317
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:229
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:193
-#: /home/tim/code/KwaMoja/SalesCategories.php:566
+#: /home/tim/code/KwaMoja/SalesCategories.php:573
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:281
 #: /home/tim/code/KwaMoja/SelectQASamples.php:292
 #: /home/tim/code/KwaMoja/Shipt_Select.php:198
@@ -5558,7 +5582,7 @@ msgstr "アイテムの説明の一部を入力してください"
 #: /home/tim/code/KwaMoja/MRPDemands.php:324
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:288
 #: /home/tim/code/KwaMoja/SelectQASamples.php:297
 #: /home/tim/code/KwaMoja/Shipt_Select.php:205
@@ -5579,7 +5603,7 @@ msgstr "の抽出物を入力"
 #: /home/tim/code/KwaMoja/MRPReport.php:574
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:236
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:200
-#: /home/tim/code/KwaMoja/SalesCategories.php:573
+#: /home/tim/code/KwaMoja/SalesCategories.php:580
 #: /home/tim/code/KwaMoja/SalesInquiry.php:627
 #: /home/tim/code/KwaMoja/SalesInquiry.php:638
 #: /home/tim/code/KwaMoja/SalesInquiry.php:661
@@ -5631,7 +5655,7 @@ msgstr "または、商品コードの一部を入力してください"
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:534
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:221
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:531
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:570
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:565
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:444
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:381
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:166
@@ -5641,7 +5665,7 @@ msgstr "または、商品コードの一部を入力してください"
 #: /home/tim/code/KwaMoja/PO_Items.php:1433
 #: /home/tim/code/KwaMoja/ProjectBOM.php:250
 #: /home/tim/code/KwaMoja/Projects.php:659
-#: /home/tim/code/KwaMoja/SalesCategories.php:578
+#: /home/tim/code/KwaMoja/SalesCategories.php:585
 #: /home/tim/code/KwaMoja/SelectAsset.php:118
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:210
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:941
@@ -8021,7 +8045,7 @@ msgstr "費用データを取得できませんでした"
 #: /home/tim/code/KwaMoja/PDFShipLabel.php:317
 #: /home/tim/code/KwaMoja/SalesCategories.php:97
 #: /home/tim/code/KwaMoja/SalesCategories.php:111
-#: /home/tim/code/KwaMoja/SalesCategories.php:486
+#: /home/tim/code/KwaMoja/SalesCategories.php:493
 #: /home/tim/code/KwaMoja/SalesTopItemsInquiry.php:217
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:375
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:139
@@ -8186,7 +8210,7 @@ msgstr "特定の品目の作業オーダーを検索するには、以下の品
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:147
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:213
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:180
-#: /home/tim/code/KwaMoja/SalesCategories.php:534
+#: /home/tim/code/KwaMoja/SalesCategories.php:541
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:378
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:903
 #: /home/tim/code/KwaMoja/SelectPickingLists.php:268
@@ -8249,7 +8273,7 @@ msgstr "SQLによって返された作業指示はありませんでした。"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:73
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:189
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:202
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:48
@@ -8417,9 +8441,9 @@ msgstr "数量"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:491
 #: /home/tim/code/KwaMoja/Prices.php:222
 #: /home/tim/code/KwaMoja/PricesByCost.php:164
-#: /home/tim/code/KwaMoja/Prices_Customer.php:205
-#: /home/tim/code/KwaMoja/Prices_Customer.php:254
-#: /home/tim/code/KwaMoja/Prices_Customer.php:340
+#: /home/tim/code/KwaMoja/Prices_Customer.php:206
+#: /home/tim/code/KwaMoja/Prices_Customer.php:255
+#: /home/tim/code/KwaMoja/Prices_Customer.php:346
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:418
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:379
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:384
@@ -8559,6 +8583,7 @@ msgstr "通貨レートを更新できませんでした"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8587,6 +8612,7 @@ msgid "Validation failed"
 msgstr "検証に失敗しました"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -9199,7 +9225,7 @@ msgstr "このディスパッチ"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:254
 #: /home/tim/code/KwaMoja/Prices.php:221 /home/tim/code/KwaMoja/Prices.php:341
 #: /home/tim/code/KwaMoja/PricesByCost.php:266
-#: /home/tim/code/KwaMoja/Prices_Customer.php:347
+#: /home/tim/code/KwaMoja/Prices_Customer.php:356
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:997
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1021
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:1101
@@ -9850,14 +9876,14 @@ msgstr "ブランチのデフォルトキャリアを更新するために使用
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10226,14 +10252,14 @@ msgstr "クリティカル・エラー"
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1482
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1492
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/TaxAuthorities.php:137
 #: /home/tim/code/KwaMoja/Timesheets.php:407
 #: /home/tim/code/KwaMoja/Timesheets.php:439
@@ -10947,8 +10973,8 @@ msgstr "固定資産取引を挿入できませんでした。"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1233
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1324
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:349
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1746
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1835
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
 msgid "The following SQL to insert the fixed asset transaction record was used"
 msgstr "固定資産取引レコードを挿入する次のSQLが使用されました"
 
@@ -12031,9 +12057,9 @@ msgstr "アイテムの場所"
 #: /home/tim/code/KwaMoja/SupplierGroups.php:77
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1099
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1157
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 #: /home/tim/code/KwaMoja/Suppliers.php:283
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:289
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:284
@@ -12241,7 +12267,7 @@ msgstr "契約：顧客を選択"
 #: /home/tim/code/KwaMoja/Contracts.php:768
 #: /home/tim/code/KwaMoja/CustItem.php:214
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:485
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:524
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:519
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:398
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:335
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:119
@@ -12365,8 +12391,8 @@ msgstr "顧客"
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:310
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:314
 #: /home/tim/code/KwaMoja/PricesByCost.php:163
-#: /home/tim/code/KwaMoja/Prices_Customer.php:253
-#: /home/tim/code/KwaMoja/Prices_Customer.php:326
+#: /home/tim/code/KwaMoja/Prices_Customer.php:254
+#: /home/tim/code/KwaMoja/Prices_Customer.php:331
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:970
 #: /home/tim/code/KwaMoja/SelectCompletedOrder.php:474
 #: /home/tim/code/KwaMoja/SelectCreditItems.php:219
@@ -13574,7 +13600,7 @@ msgstr "新しい作業オーダー番号"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:123
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:182
 #: /home/tim/code/KwaMoja/ImportBankTrans.php:452
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RecurringSalesOrdersProcess.php:88
 #: /home/tim/code/KwaMoja/ReverseGRN.php:342
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
@@ -14096,7 +14122,7 @@ msgstr "このクレジットノートの貨物GLの転記は挿入できませ�
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:1568
 #: /home/tim/code/KwaMoja/GoodsReceived.php:842
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1336
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:375
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:589
 #: /home/tim/code/KwaMoja/WorkOrderReceive.php:757
@@ -16238,10 +16264,10 @@ msgstr "このブランチを現金販売のデフォルトとして使用しま
 #: /home/tim/code/KwaMoja/CustomerBranches.php:882
 #: /home/tim/code/KwaMoja/Customers.php:691
 #: /home/tim/code/KwaMoja/Customers.php:699
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:209
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:211
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:242
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:244
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:361
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:63
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:62
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:179
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:192
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:38
@@ -17965,7 +17991,7 @@ msgstr "セキュリティレベル"
 #: /home/tim/code/KwaMoja/DashboardConfig.php:109
 #: /home/tim/code/KwaMoja/JobScheduler.php:103
 #: /home/tim/code/KwaMoja/MailingGroupMaintenance.php:213
-#: /home/tim/code/KwaMoja/SalesCategories.php:510
+#: /home/tim/code/KwaMoja/SalesCategories.php:517
 #: /home/tim/code/KwaMoja/StockAdjustments.php:627
 #: /home/tim/code/KwaMoja/SupplierTenders.php:328
 #: /home/tim/code/KwaMoja/TaxGroups.php:387
@@ -20143,7 +20169,7 @@ msgstr "要因会社名"
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:558
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:713
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:752
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:496
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:493
 #: /home/tim/code/KwaMoja/OrderDetails.php:124
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:866
 #: /home/tim/code/KwaMoja/PrintCustTransPortrait.php:888
@@ -20700,14 +20726,14 @@ msgid "long"
 msgstr "長いです"
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:477
-#: /home/tim/code/KwaMoja/SalesCategories.php:446
+#: /home/tim/code/KwaMoja/SalesCategories.php:453
 #: /home/tim/code/KwaMoja/Stocks.php:1171
 msgid "Image File ("
 msgstr "画像ファイル （"
 
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:479
 #: /home/tim/code/KwaMoja/Manufacturers.php:315
-#: /home/tim/code/KwaMoja/SalesCategories.php:448
+#: /home/tim/code/KwaMoja/SalesCategories.php:455
 #: /home/tim/code/KwaMoja/Stocks.php:1174
 msgid "Clear Image"
 msgstr "クリア画像"
@@ -23490,7 +23516,7 @@ msgstr "タグの説明"
 #: /home/tim/code/KwaMoja/KCMCMaintainWardRooms.php:72
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:258
 #: /home/tim/code/KwaMoja/KCMCMaintainWards.php:344
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:375
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:408
 #: /home/tim/code/KwaMoja/prlAuthoriseLoans.php:68
 #: /home/tim/code/KwaMoja/prlLoanPayments.php:176
 #: /home/tim/code/KwaMoja/sql/updates/217.php:70
@@ -24109,7 +24135,7 @@ msgstr "シリアル在庫レコードを挿入する次のSQLが使用されま
 #: /home/tim/code/KwaMoja/GoodsReceived.php:736
 #: /home/tim/code/KwaMoja/ReverseGRN.php:179
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:346
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1832
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1831
 msgid "cost"
 msgstr "コスト"
 
@@ -24118,8 +24144,8 @@ msgstr "コスト"
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1232
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1323
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:348
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1745
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1834
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1744
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1833
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE The fixed asset transaction could not be inserted because"
 msgstr "クリティカル・エラー！ このエラーを指摘し、支援を見てください固定資産取引は挿入できませんでした。"
 
@@ -24129,7 +24155,7 @@ msgstr "クリティカル・エラー！ このエラーを指摘し、支援�
 
 #: /home/tim/code/KwaMoja/GoodsReceived.php:760
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:370
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1850
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
 msgid "The following SQL was used to attempt the update of the cost and the date the asset was purchased"
 msgstr "次のSQLを使用して、アセットが購入されたコストと日付の更新を試みました"
 
@@ -24474,7 +24500,7 @@ msgstr "開始時の残高"
 #: /home/tim/code/KwaMoja/Payments.php:1397
 #: /home/tim/code/KwaMoja/Payments.php:1405
 #: /home/tim/code/KwaMoja/Payments.php:1407
-#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:54
 #: /home/tim/code/KwaMoja/RevisionTranslations.php:32
 #: /home/tim/code/KwaMoja/SpecialOrder.php:121
 #: /home/tim/code/KwaMoja/SpecialOrder.php:126
@@ -24699,7 +24725,7 @@ msgid "SalesType/Price List"
 msgstr "販売タイプ/価格リスト"
 
 #: /home/tim/code/KwaMoja/ImportSalesPriceList.php:125
-#: /home/tim/code/KwaMoja/Prices_Customer.php:150
+#: /home/tim/code/KwaMoja/Prices_Customer.php:152
 #: /home/tim/code/KwaMoja/UploadPriceList.php:126
 msgid "The price could not be added because"
 msgstr "価格は追加できませんでした。"
@@ -26074,7 +26100,7 @@ msgid "Created On"
 msgstr "作成日"
 
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:118
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:491
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:488
 msgid "Doctor"
 msgstr "医師"
 
@@ -26137,7 +26163,7 @@ msgstr "ベッド数"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:181
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:59
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:44
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:74
@@ -26152,7 +26178,7 @@ msgstr "PID"
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:160
 #: /home/tim/code/KwaMoja/KCMCRegister.php:389
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:359
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:61
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:60
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:177
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:190
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:36
@@ -26558,6 +26584,89 @@ msgstr "細菌学テストをリクエストする"
 msgid "Laboratory Maintenance"
 msgstr "実験室のメンテナンス"
 
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
+#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+msgid "Billing Configuration"
+msgstr "課金設定"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
+#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
+msgid "Hospital Configuration"
+msgstr "病院の構成"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+msgid "The billing configuration could not be updated because"
+msgstr "次の理由により、課金設定を更新できませんでした"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+msgid "Billing configuration updated"
+msgstr "課金設定を更新しました"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+msgid "Registration and Admissions"
+msgstr "登録と入学"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+msgid "Item to bill for patient registration"
+msgstr "患者登録のために請求するアイテム"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+msgid "Do not Bill"
+msgstr "請求しない"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+msgid "Item to bill for inpatient admissions"
+msgstr "入院入院料"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+msgid "Item to bill for outpatient admissions"
+msgstr "外来入院請求"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+msgid "Laboratory Billing"
+msgstr "実験室請求"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+msgid "Payment must be made before Test"
+msgstr "テスト前に支払いを行う必要があります"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+msgid "If not insured"
+msgstr "保険に入っていない場合"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+msgid "Always"
+msgstr "常に"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/SystemParameters.php:592
+#: /home/tim/code/KwaMoja/SystemParameters.php:594
+msgid "Never"
+msgstr "絶対に"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+msgid "Bill for bacteriology tests"
+msgstr "細菌検査の請求書"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+msgid "Bill for blood tests"
+msgstr "血液検査の請求書"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+msgid "Bill for medical tests"
+msgstr "医療検査の請求書"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+msgid "Bill for pathology tests"
+msgstr "病理検査の請求書"
+
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+msgid "Save Configuration"
+msgstr "設定を保存"
+
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:5
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:11
 msgid "Blood Bank"
@@ -26568,9 +26677,9 @@ msgid "Pending Blood Requests"
 msgstr "保留中の血液要求"
 
 #: /home/tim/code/KwaMoja/KCMCBloodLaboratory.php:32
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:4
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:40
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:44
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:3
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:39
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:43
 msgid "Blood Request"
 msgstr "血液要求"
 
@@ -27027,8 +27136,8 @@ msgstr "泌尿生殖器系"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1142
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:224
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:299
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:306
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:339
 #: /home/tim/code/KwaMoja/KCMCRegister.php:548
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:467
@@ -27039,8 +27148,8 @@ msgstr "男性"
 
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:1147
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:225
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:300
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:333
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:340
 #: /home/tim/code/KwaMoja/KCMCRegister.php:549
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:582
 #: /home/tim/code/KwaMoja/prlnssf.php:468
@@ -27163,9 +27272,9 @@ msgid "Patient Discharge Details"
 msgstr "患者の退院の詳細"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:133
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:207
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:240
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:389
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:209
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:242
 #: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:35
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:51
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:37
@@ -27184,7 +27293,7 @@ msgid "Date of Birth"
 msgstr "生年月日"
 
 #: /home/tim/code/KwaMoja/KCMCDischargePatient.php:147
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:374
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:407
 #: /home/tim/code/KwaMoja/KCMCTransferBeds.php:253
 #: /home/tim/code/KwaMoja/sql/updates/217.php:69
 msgid "Ward"
@@ -27410,8 +27519,8 @@ msgid "has been successfully updated"
 msgstr "正常に更新されました"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:200
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:336
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:337
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:370
 #: /home/tim/code/KwaMoja/KCMCRegister.php:520
 #: /home/tim/code/KwaMoja/prlnssf.php:355
 msgid "Date Of Birth"
@@ -27427,8 +27536,8 @@ msgid "Sex"
 msgstr "性別"
 
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:249
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:415
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:416
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:448
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:449
 #: /home/tim/code/KwaMoja/KCMCRegister.php:619
 msgid "Insurance Company"
 msgstr "保険会社"
@@ -27502,7 +27611,7 @@ msgid "Requested Tests"
 msgstr "要求されたテスト"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:782
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:394
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:391
 msgid "Label"
 msgstr "ラベル"
 
@@ -27722,7 +27831,7 @@ msgstr "追記"
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:145
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:55
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:436
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:476
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:473
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:371
 msgid "Diagnosis"
 msgstr "診断"
@@ -27861,11 +27970,6 @@ msgstr "機能ユニット"
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 msgid "Statement of Income and Expenditure for"
 msgstr "収入と支出の声明"
-
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
-#: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
-msgid "Hospital Configuration"
-msgstr "病院の構成"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:49
 msgid "The hospital configuration could not be updated because"
@@ -28221,9 +28325,9 @@ msgid "This patient is not currently admitted as an inpatient"
 msgstr "この患者は現在入院患者として認められていません"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:124
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:18
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:126
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
 #: /home/tim/code/KwaMoja/KCMCRegister.php:345
 msgid "Return to Patient Screen"
 msgstr "患者画面に戻る"
@@ -28234,9 +28338,9 @@ msgid "There was a problem inserting the encounter record because"
 msgstr "遭遇レコードの挿入中に問題が発生しました"
 
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:75
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:108
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:128
 #: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:76
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:110
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:130
 msgid "The SQL used to insert the encounter record was"
 msgstr "遭遇レコードの挿入に使用されたSQLは"
 
@@ -28245,151 +28349,175 @@ msgstr "遭遇レコードの挿入に使用されたSQLは"
 msgid "The patient was successfully admitted."
 msgstr "患者は正常に入院しました。"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:91
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:92
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:94
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCRegister.php:130
+msgid "There was a problem inserting the billable items because"
+msgstr "請求可能なアイテムの挿入中に問題が発生しました"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:95
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:96
+#: /home/tim/code/KwaMoja/KCMCRegister.php:131
+msgid "The SQL used to insert the billable items was"
+msgstr "請求可能なアイテムを挿入するために使用されたSQLは"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:112
 msgid "The patient is already admitted. They must be discharged before they can be re-admitted"
 msgstr "患者はすでに入院しています。"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:107
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:109
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:127
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:129
 msgid "There was a problem updating the encounter record because"
 msgstr "エンカウンターレコードの更新中に問題が発生しました"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:111
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:113
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:131
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:133
 msgid "The patient data was successfully updated."
 msgstr "患者データは正常に更新されました。"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:133
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:135
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:140
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:142
+#: /home/tim/code/KwaMoja/KCMCRegister.php:298
+msgid "There was a problem updating the billable items because"
+msgstr "請求可能なアイテムの更新中に問題が発生しました"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:141
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:143
+#: /home/tim/code/KwaMoja/KCMCRegister.php:299
+msgid "The SQL used to update the billable items was"
+msgstr "請求可能なアイテムの更新に使用されたSQLは"
+
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:166
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:168
 msgid "Search For Patient"
 msgstr "患者を検索"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:153
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:155
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:186
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:188
 msgid "Search for patient details"
 msgstr "患者の詳細を検索"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:155
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:157
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:188
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:190
 msgid "File number"
 msgstr "ファイル番号"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:157
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:159
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:190
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:192
 msgid "Enter all or part of the patients file number if it is known"
 msgstr "既知の場合、患者ファイル番号の全部または一部を入力します"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:160
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:162
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:193
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:195
 msgid "Patients name"
 msgstr "患者名"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:162
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:164
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:195
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:197
 msgid "Enter all or part of the patients name if it is known"
 msgstr "わかっている場合は、患者名の全部または一部を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:165
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:167
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:198
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:200
 msgid "Patients Address"
 msgstr "患者の住所"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:167
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:169
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:200
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:202
 msgid "Enter all or part of the patients address if it is known"
 msgstr "わかっている場合は、患者の住所の全部または一部を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:170
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:172
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:203
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:205
 msgid "Patients Phone Number"
 msgstr "患者の電話番号"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:172
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:174
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:205
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:207
 msgid "Enter all or part of the patients phone number if it is known"
 msgstr "わかっている場合は、患者の電話番号の全部または一部を入力します"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:206
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:208
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:239
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:241
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:49
 msgid "Patient Number"
 msgstr "患者番号"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:225
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:230
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:258
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:263
 msgid "Admit Patient"
 msgstr "患者を受け入れる"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:231
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:237
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:264
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:270
 msgid "There are no patients matching this criteria"
 msgstr "この基準に一致する患者はいません"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mr"
 msgstr "氏"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Ms"
 msgstr "ミズ"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Miss"
 msgstr "お嬢"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Mrs"
 msgstr "夫人"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:290
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:297
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:323
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:330
 #: /home/tim/code/KwaMoja/KCMCRegister.php:450
 msgid "Dr"
 msgstr "博士"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:304
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:337
 msgid "Update Admission data for"
 msgstr "の入学データを更新"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "Admit"
 msgstr "認める"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:307
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:340
 msgid "as an inpatient"
 msgstr "入院患者として"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:311
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:312
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:345
 msgid "Admission Date"
 msgstr "入学日"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:315
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:316
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:348
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:349
 msgid "Admission Time"
 msgstr "入場時間"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:327
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:328
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:360
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:361
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:54
 #: /home/tim/code/KwaMoja/KCMCRegister.php:597
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:336
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:333
 #: /home/tim/code/KwaMoja/includes/KCMCDrawPatientLabel.php:51
 msgid "Blood Group"
 msgstr "血液型"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:331
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:332
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:364
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:365
 #: /home/tim/code/KwaMoja/KCMCRegister.php:551
 #: /home/tim/code/KwaMoja/prlEmployeeMaster.php:584
 #: /home/tim/code/KwaMoja/prlnssf.php:356
@@ -28398,78 +28526,78 @@ msgstr "血液型"
 msgid "Gender"
 msgstr "性別"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:343
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:344
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:376
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:377
 msgid "Admission Type"
 msgstr "入場タイプ"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:353
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:354
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:386
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:387
 msgid "A type of admission."
 msgstr "入場のタイプ。"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "White"
 msgstr "白い"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Green"
 msgstr "緑"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Yellow"
 msgstr "黄"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:356
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:357
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:390
 msgid "Red"
 msgstr "赤"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:358
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:359
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:391
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:392
 msgid "Triage Code"
 msgstr "トリアージコード"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:368
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:369
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:401
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:402
 msgid "The triage code for this patient, white being the least serious, and red being the most serious."
 msgstr "この患者のトリアージコード。白が最も深刻でなく、赤が最も深刻です。"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:384
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:417
 msgid "The ward that this patient is being admitted to."
 msgstr "この患者が入院している病棟。"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:388
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:389
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:421
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:422
 msgid "Referrer Diagnosis"
 msgstr "リファラー診断"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:393
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:394
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
 msgid "Referred By"
 msgstr "参照元"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:398
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:399
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
 msgid "Referrer Therapy"
 msgstr "リファラーセラピー"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:403
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:404
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:436
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:437
 msgid "Referrer Notes"
 msgstr "リファラーノート"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:426
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:427
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:459
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:460
 #: /home/tim/code/KwaMoja/KCMCRegister.php:630
 msgid "The insurance company, if any, that this patient belongs to"
 msgstr "この患者が属する保険会社（ある場合）"
 
-#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:431
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:432
+#: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:464
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:465
 msgid "Insurance Number"
 msgstr "保険番号"
 
@@ -29467,11 +29595,11 @@ msgstr "外来患者を認める"
 msgid "This patient is not currently admitted as an outpatient"
 msgstr "この患者は現在外来で入院していません"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:310
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:343
 msgid "as an outpatient"
 msgstr "外来患者として"
 
-#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:385
+#: /home/tim/code/KwaMoja/KCMCOutpatientAdmission.php:418
 msgid "The department that this patient is being admitted to."
 msgstr "この患者が入院している部門。"
 
@@ -29537,19 +29665,19 @@ msgstr "保留中のテストリクエスト"
 msgid "Date Batch Sent"
 msgstr "バッチ送信日"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:81
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:84
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:91
 msgid "Edit Batch"
 msgstr "バッチを編集"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:82
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:85
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:92
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:72
 msgid "View Batch"
 msgstr "バッチを表示"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:83
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:86
 #: /home/tim/code/KwaMoja/KCMCPendingBloodTests.php:93
 #: /home/tim/code/KwaMoja/KCMCPendingLaboratoryTests.php:87
 #: /home/tim/code/KwaMoja/KCMCPendingPathologyTests.php:73
@@ -29558,7 +29686,7 @@ msgstr "バッチを表示"
 msgid "Enter Results"
 msgstr "結果を入力"
 
-#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:91
+#: /home/tim/code/KwaMoja/KCMCPendingBacteriologyTests.php:94
 #: /home/tim/code/KwaMoja/KCMCViewBacteriologyTest.php:169
 msgid "Return to Bacteriology Centre"
 msgstr "細菌学センターに戻る"
@@ -30191,14 +30319,6 @@ msgstr "患者記録の挿入中に問題が発生しました"
 msgid "The SQL used to insert the patient record was"
 msgstr "患者記録の挿入に使用されたSQLは"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:130
-msgid "There was a problem inserting the billable items because"
-msgstr "請求可能なアイテムの挿入中に問題が発生しました"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:131
-msgid "The SQL used to insert the billable items was"
-msgstr "請求可能なアイテムを挿入するために使用されたSQLは"
-
 #: /home/tim/code/KwaMoja/KCMCRegister.php:159
 msgid "There was a problem inserting the debtors record because"
 msgstr "債務者レコードの挿入中に問題が発生しました"
@@ -30241,14 +30361,6 @@ msgstr "患者記録の更新中に問題が発生しました"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:289
 msgid "The SQL used to update the patient record was"
 msgstr "患者の記録を更新するために使用されたSQLは"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:298
-msgid "There was a problem updating the billable items because"
-msgstr "請求可能なアイテムの更新中に問題が発生しました"
-
-#: /home/tim/code/KwaMoja/KCMCRegister.php:299
-msgid "The SQL used to update the billable items was"
-msgstr "請求可能なアイテムの更新に使用されたSQLは"
 
 #: /home/tim/code/KwaMoja/KCMCRegister.php:313
 msgid "There was a problem updating the debtors record because"
@@ -30385,10 +30497,6 @@ msgstr "この患者が市民である国。"
 msgid "The blood group of this patient"
 msgstr "この患者の血液型"
 
-#: /home/tim/code/KwaMoja/KCMCRegister.php:665
-msgid "Item to bill"
-msgstr "請求するアイテム"
-
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:5
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:99
@@ -30467,13 +30575,13 @@ msgid "Update Request"
 msgstr "更新リクエスト"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:469
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:511
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:506
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:320
 msgid "Send Request"
 msgstr "リクエストを送信"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:482
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:516
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:395
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:332
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:116
@@ -30481,7 +30589,7 @@ msgid "Search for Patients"
 msgstr "患者を探す"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:487
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:526
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:521
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:400
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:337
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:121
@@ -30492,7 +30600,7 @@ msgid "Enter a partial Name"
 msgstr "部分的な名前を入力してください"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:498
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:537
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:532
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:411
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:348
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:133
@@ -30500,7 +30608,7 @@ msgid "Enter a partial patient file number"
 msgstr "患者ファイル番号の一部を入力してください"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:509
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:548
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:543
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:422
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:359
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:144
@@ -30509,7 +30617,7 @@ msgid "Enter a partial Phone Number"
 msgstr "電話番号の一部を入力してください"
 
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:520
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:559
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:554
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:433
 #: /home/tim/code/KwaMoja/KCMCRequestPathologyTest.php:370
 #: /home/tim/code/KwaMoja/KCMCSelectPatient.php:155
@@ -30517,91 +30625,91 @@ msgstr "電話番号の一部を入力してください"
 msgid "Enter part of the Address"
 msgstr "住所の一部を入力してください"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:185
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:182
 msgid "Failed to insert the request into the database"
 msgstr "リクエストをデータベースに挿入できませんでした"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:189
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:186
 msgid "The request was successfully sent"
 msgstr "リクエストは正常に送信されました"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:224
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:221
 msgid "Failed to update the request"
 msgstr "リクエストを更新できませんでした"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:228
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:225
 msgid "The request was successfully updated"
 msgstr "リクエストは正常に更新されました"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:313
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:310
 msgid "General Details"
 msgstr "一般的な詳細"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:357
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:354
 msgid "Rhesus Factor"
 msgstr "アカゲザル因子"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:376
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:373
 msgid "Kell"
 msgstr "ケル"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:385
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:382
 msgid "Date & protocol nr. of test by"
 msgstr "日付とプロトコル番号"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:407
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:404
 msgid "With match test sample(s) from the blood bank"
 msgstr "血液バンクからの一致テストサンプル"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:418
 msgid "Specimen Counts"
 msgstr "標本数"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:424
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:421
 msgid "Pure blood"
 msgstr "純粋な血"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:429
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:426
 msgid "Red blood cell concentrate"
 msgstr "赤血球濃縮液"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:434
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:431
 msgid "Leukocytedepleted red blood cell"
 msgstr "白血球除去赤血球"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:439
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:436
 msgid "Washed red blood cells"
 msgstr "洗浄された赤血球"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:444
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:441
 msgid "Platelet rich plasma"
 msgstr "血小板に富む血漿"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:449
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:446
 msgid "Platelet concentrate"
 msgstr "血小板濃縮液"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:454
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:451
 msgid "Fresh frozen plasma"
 msgstr "新鮮凍結血漿"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:459
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:456
 msgid "Transfusion devices"
 msgstr "輸血装置"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:471
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:468
 msgid "Transfusion date"
 msgstr "輸血日"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:481
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:478
 msgid "Notes/special orders"
 msgstr "注意事項/特別注文"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:501
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "The ordering doctor is responsible for this order!"
 msgstr "この注文は注文医師が担当します。"
 
-#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:502
+#: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:498
 msgid "For security reasons, only sample tubes with full name & birthdate will be accepted."
 msgstr "安全上の理由により、氏名と生年月日が記載されたサンプルチューブのみが受け入れられます。"
 
@@ -33696,7 +33804,7 @@ msgid "Are you sure you wish to delete this brand?"
 msgstr "このブランドを削除してもよろしいですか？"
 
 #: /home/tim/code/KwaMoja/Manufacturers.php:265
-#: /home/tim/code/KwaMoja/SalesCategories.php:488
+#: /home/tim/code/KwaMoja/SalesCategories.php:495
 msgid "Brand"
 msgstr "ブランド"
 
@@ -33789,14 +33897,6 @@ msgstr "モジュール名"
 #: /home/tim/code/KwaMoja/ModuleEditor.php:73
 msgid "New Name"
 msgstr "新しい名前"
-
-#: /home/tim/code/KwaMoja/ModuleEditor.php:87
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:557
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:587
-#: /home/tim/code/KwaMoja/SupplierPriceList.php:628
-#: /home/tim/code/KwaMoja/WorkOrderEntry.php:479
-msgid "Save"
-msgstr "セーブ"
 
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:3
 msgid "Monthly Bank Transactions Inquiry"
@@ -35217,8 +35317,8 @@ msgstr "指定された顧客またはカテゴリに対して印刷する価格
 #: /home/tim/code/KwaMoja/PDFPriceList.php:229
 #: /home/tim/code/KwaMoja/Prices.php:233
 #: /home/tim/code/KwaMoja/PricesByCost.php:208
-#: /home/tim/code/KwaMoja/Prices_Customer.php:210
-#: /home/tim/code/KwaMoja/Prices_Customer.php:266
+#: /home/tim/code/KwaMoja/Prices_Customer.php:211
+#: /home/tim/code/KwaMoja/Prices_Customer.php:269
 msgid "No End Date"
 msgstr "終了日なし"
 
@@ -36990,7 +37090,7 @@ msgid "The quantity of the ordered item entered must be a positive amount"
 msgstr "入力された注文アイテムの数量は正の数でなければなりません"
 
 #: /home/tim/code/KwaMoja/PO_Items.php:550 /home/tim/code/KwaMoja/Prices.php:71
-#: /home/tim/code/KwaMoja/Prices_Customer.php:66
+#: /home/tim/code/KwaMoja/Prices_Customer.php:68
 #: /home/tim/code/KwaMoja/SpecialOrder.php:205
 msgid "The price entered must be numeric"
 msgstr "入力された価格は数値でなければなりません"
@@ -39404,20 +39504,20 @@ msgstr "価格は正の数として入力する必要があります"
 #: /home/tim/code/KwaMoja/PriceMatrix.php:54
 #: /home/tim/code/KwaMoja/Prices.php:75
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:192
-#: /home/tim/code/KwaMoja/Prices_Customer.php:84
+#: /home/tim/code/KwaMoja/Prices_Customer.php:86
 msgid "The date this price is to take effect from must be entered in the format"
 msgstr "この価格を有効にする日付は、フォーマットで入力する必要があります"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:58
 #: /home/tim/code/KwaMoja/Prices.php:81
-#: /home/tim/code/KwaMoja/Prices_Customer.php:89
+#: /home/tim/code/KwaMoja/Prices_Customer.php:91
 msgid "The date this price is be in effect to must be entered in the format"
 msgstr "この価格が有効になる日付は、フォーマットで入力する必要があります"
 
 #: /home/tim/code/KwaMoja/PriceMatrix.php:61
 #: /home/tim/code/KwaMoja/Prices.php:85
 #: /home/tim/code/KwaMoja/PricesBasedOnMarkUp.php:196
-#: /home/tim/code/KwaMoja/Prices_Customer.php:93
+#: /home/tim/code/KwaMoja/Prices_Customer.php:95
 msgid "The end date is expected to be after the start date, enter an end date after the start date for this price"
 msgstr "終了日は開始日の後であることが予想され、この価格の開始日の後に終了日を入力します"
 
@@ -39502,13 +39602,13 @@ msgid "Item Prices"
 msgstr "商品価格"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 #: /home/tim/code/KwaMoja/RelatedItemsUpdate.php:37
 msgid "The part code entered does not exist in the database"
 msgstr "入力された部品コードがデータベースに存在しません"
 
 #: /home/tim/code/KwaMoja/Prices.php:45
-#: /home/tim/code/KwaMoja/Prices_Customer.php:45
+#: /home/tim/code/KwaMoja/Prices_Customer.php:46
 msgid "Only valid parts can have prices entered against them"
 msgstr "有効な部品のみが価格を入力することができます"
 
@@ -39524,22 +39624,22 @@ msgid "The product selection page should call this page with a valid product cod
 msgstr "製品選択ページは、このページを有効な製品コードで呼び出す必要があります"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "The part selected is a kit set item"
 msgstr "選択された部分はキットセット項目です"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "these items explode into their components when selected on an order"
 msgstr "これらのアイテムは、注文時に選択されるとコンポーネントに分解されます"
 
 #: /home/tim/code/KwaMoja/Prices.php:58
-#: /home/tim/code/KwaMoja/Prices_Customer.php:49
+#: /home/tim/code/KwaMoja/Prices_Customer.php:50
 msgid "prices must be set up for the components and no price can be set for the whole kit"
 msgstr "コンポーネントの価格を設定する必要があり、キット全体の価格を設定することはできません"
 
 #: /home/tim/code/KwaMoja/Prices.php:89
-#: /home/tim/code/KwaMoja/Prices_Customer.php:97
+#: /home/tim/code/KwaMoja/Prices_Customer.php:99
 msgid "The end date is expected to be after today. There is no point entering a new price where the effective date is before today!"
 msgstr "終了日は今日の後になると予想されます。 発効日が今日より前の場合、新しい価格を入力する必要はありません！"
 
@@ -39569,9 +39669,9 @@ msgstr "価格を見直す"
 
 #: /home/tim/code/KwaMoja/Prices.php:223
 #: /home/tim/code/KwaMoja/PricesByCost.php:165
-#: /home/tim/code/KwaMoja/Prices_Customer.php:206
-#: /home/tim/code/KwaMoja/Prices_Customer.php:255
-#: /home/tim/code/KwaMoja/Prices_Customer.php:344
+#: /home/tim/code/KwaMoja/Prices_Customer.php:207
+#: /home/tim/code/KwaMoja/Prices_Customer.php:256
+#: /home/tim/code/KwaMoja/Prices_Customer.php:351
 #: /home/tim/code/KwaMoja/SelectRecurringSalesOrder.php:105
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:165
 #: /home/tim/code/KwaMoja/prlEditPayroll.php:266
@@ -39580,7 +39680,7 @@ msgid "End Date"
 msgstr "終了日"
 
 #: /home/tim/code/KwaMoja/Prices.php:247
-#: /home/tim/code/KwaMoja/Prices_Customer.php:276
+#: /home/tim/code/KwaMoja/Prices_Customer.php:279
 msgid "Are you sure you wish to delete this price?"
 msgstr "この価格を削除してもよろしいですか？"
 
@@ -39881,66 +39981,67 @@ msgstr "顧客は、顧客選択画面から選択する必要があります"
 msgid "then an item must be selected before this page is called"
 msgstr "このページが呼び出される前にアイテムを選択する必要があります"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:31
+#: /home/tim/code/KwaMoja/Prices_Customer.php:32
+#: /home/tim/code/KwaMoja/Prices_Customer.php:328
 #: /home/tim/code/KwaMoja/SelectCustomer.php:239
 msgid "Special Customer Prices"
 msgstr "特別顧客価格"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:78
+#: /home/tim/code/KwaMoja/Prices_Customer.php:80
 msgid "The branch code entered is not currently defined"
 msgstr "入力された支店コードは現在定義されていません"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:120
-#: /home/tim/code/KwaMoja/Prices_Customer.php:147
+#: /home/tim/code/KwaMoja/Prices_Customer.php:122
+#: /home/tim/code/KwaMoja/Prices_Customer.php:149
 msgid "Price Updated"
 msgstr "価格更新"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:141
+#: /home/tim/code/KwaMoja/Prices_Customer.php:143
 msgid "Price added"
 msgstr "価格の追加"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:148
+#: /home/tim/code/KwaMoja/Prices_Customer.php:150
 msgid "The price could not be updated because"
 msgstr "価格は更新できませんでした。"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:174
+#: /home/tim/code/KwaMoja/Prices_Customer.php:176
 msgid "This price has been deleted"
 msgstr "この価格は削除されました"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:193
+#: /home/tim/code/KwaMoja/Prices_Customer.php:195
 msgid "Could not retrieve the normal prices set up because"
 msgstr "設定されている通常の価格を取得できませんでした。"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:194
-#: /home/tim/code/KwaMoja/Prices_Customer.php:242
+#: /home/tim/code/KwaMoja/Prices_Customer.php:196
+#: /home/tim/code/KwaMoja/Prices_Customer.php:243
 msgid "The SQL used to retrieve these records was"
 msgstr "これらのレコードを取得するために使用されるSQLは、"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:201
+#: /home/tim/code/KwaMoja/Prices_Customer.php:202
 msgid "There are no default prices set up for this part"
 msgstr "この部分にデフォルト価格は設定されていません"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:204
+#: /home/tim/code/KwaMoja/Prices_Customer.php:205
 msgid "Normal Price"
 msgstr "標準価格"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:241
+#: /home/tim/code/KwaMoja/Prices_Customer.php:242
 msgid "Could not retrieve the special prices set up because"
 msgstr "設定された特別価格を取得できませんでした。"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:248
+#: /home/tim/code/KwaMoja/Prices_Customer.php:249
 msgid "There are no special prices set up for this part"
 msgstr "この部分に特別価格は設定されていません"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:252
+#: /home/tim/code/KwaMoja/Prices_Customer.php:253
 msgid "Special Price"
 msgstr "特別価格"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:261
+#: /home/tim/code/KwaMoja/Prices_Customer.php:264
 msgid "All Branches"
 msgstr "すべての支店"
 
-#: /home/tim/code/KwaMoja/Prices_Customer.php:329
+#: /home/tim/code/KwaMoja/Prices_Customer.php:333
 msgid "All branches"
 msgstr "すべての支店"
 
@@ -43414,17 +43515,18 @@ msgid "A new Sales category record has been added"
 msgstr "新しい販売カテゴリレコードが追加されました"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:324
-#: /home/tim/code/KwaMoja/SalesCategories.php:408
+#: /home/tim/code/KwaMoja/SalesCategories.php:411
 msgid "Category Name"
 msgstr "種別名"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:325
-#: /home/tim/code/KwaMoja/SalesCategories.php:417
+#: /home/tim/code/KwaMoja/SalesCategories.php:420
 msgid "Parent Category"
 msgstr "親カテゴリ"
 
 #: /home/tim/code/KwaMoja/SalesCategories.php:357
-#: /home/tim/code/KwaMoja/SalesCategories.php:419
+#: /home/tim/code/KwaMoja/SalesCategories.php:423
+#: /home/tim/code/KwaMoja/SalesCategories.php:425
 msgid "No parent"
 msgstr "親なし"
 
@@ -43440,57 +43542,57 @@ msgstr "この販売カテゴリを削除してもよろしいですか？"
 msgid "Edit Sales Category"
 msgstr "販売カテゴリを編集"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:405
+#: /home/tim/code/KwaMoja/SalesCategories.php:408
 msgid "New Sales Category"
 msgstr "新しい販売カテゴリ"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:410
+#: /home/tim/code/KwaMoja/SalesCategories.php:413
 msgid "The name by which this category will be called, using up to 50 characters"
 msgstr "このカテゴリが呼び出される名前（最大50文字）"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:428
+#: /home/tim/code/KwaMoja/SalesCategories.php:435
 msgid "If this is a sub category of another sales category select the parent here"
 msgstr "これが別の販売カテゴリのサブカテゴリである場合、ここで親を選択します"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:432
+#: /home/tim/code/KwaMoja/SalesCategories.php:439
 msgid "Is the category in active use?"
 msgstr "カテゴリーは積極的に使用されていますか？"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:442
+#: /home/tim/code/KwaMoja/SalesCategories.php:449
 msgid "Is the sales category in active use? Should it be displayed in your web shop?"
 msgstr "販売カテゴリは積極的に使用されていますか？ "
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:449
+#: /home/tim/code/KwaMoja/SalesCategories.php:456
 msgid "Upload an image to be associated with this category"
 msgstr "このカテゴリに関連付ける画像をアップロードします"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:483
+#: /home/tim/code/KwaMoja/SalesCategories.php:490
 msgid "Inventory items for"
 msgstr "の在庫アイテム"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:489
+#: /home/tim/code/KwaMoja/SalesCategories.php:496
 #: /home/tim/code/KwaMoja/includes/OcKwaMojaToOpenCartSync.php:454
 msgid "Featured"
 msgstr "注目"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:505
+#: /home/tim/code/KwaMoja/SalesCategories.php:512
 msgid "Cancel Feature"
 msgstr "キャンセル機能"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:508
+#: /home/tim/code/KwaMoja/SalesCategories.php:515
 msgid "Make Featured"
 msgstr "注目を集める"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:516
+#: /home/tim/code/KwaMoja/SalesCategories.php:523
 msgid "No Inventory items in this category"
 msgstr "このカテゴリの商品アイテムはありません"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:531
+#: /home/tim/code/KwaMoja/SalesCategories.php:538
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:563
 msgid "Select Stock Items"
 msgstr "在庫品を選択"
 
-#: /home/tim/code/KwaMoja/SalesCategories.php:562
+#: /home/tim/code/KwaMoja/SalesCategories.php:569
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:594
 msgid "Select the stock category to search in. To search in all categories, choose All."
 msgstr "検索するストックカテゴリを選択します。すべてのカテゴリを検索するには、[すべて]を選択します。"
@@ -46429,14 +46531,14 @@ msgstr "分散"
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:229
 #: /home/tim/code/KwaMoja/SupplierCredit.php:866
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1221
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1565
 msgid "The quantity on hand could not be retrieved from the database"
 msgstr "手元の量をデータベースから検索できませんでした"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:230
 #: /home/tim/code/KwaMoja/SupplierCredit.php:867
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1222
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1567
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1566
 msgid "The following SQL to retrieve the total stock quantity was used"
 msgstr "総在庫数量を取得するための次のSQLが使用されました"
 
@@ -46470,13 +46572,13 @@ msgstr "出荷平均原価調整のGLエントリ"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:305
 #: /home/tim/code/KwaMoja/SupplierCredit.php:933
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1673
 msgid "The cost could not be updated because"
 msgstr "コストは更新できませんでした。"
 
 #: /home/tim/code/KwaMoja/ShipmentCosting.php:306
 #: /home/tim/code/KwaMoja/SupplierCredit.php:934
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1675
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1674
 msgid "The following SQL to update the cost was used"
 msgstr "コストを更新する次のSQLが使用されました"
 
@@ -50005,7 +50107,7 @@ msgstr "クレジットノートの契約クレジット"
 #: /home/tim/code/KwaMoja/SuppInvGRNs.php:143
 #: /home/tim/code/KwaMoja/SuppShiptChgs.php:18
 #: /home/tim/code/KwaMoja/SuppTransGLAnalysis.php:190
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1872
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1871
 msgid "Back to Invoice Entry"
 msgstr "請求書エントリに戻る"
 
@@ -51209,15 +51311,15 @@ msgstr "入金されたGRN数量を更新する以下のSQLが使用されまし
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1207
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1264
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1775
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1516
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1774
 msgid "The shipment charge record for the shipment"
 msgstr "出荷の出荷料金記録"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1208
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1265
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1518
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1777
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1517
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1776
 msgid "The following SQL to insert the Shipment charge record was used"
 msgstr "出荷料金レコードを挿入する次のSQLが使用されました"
 
@@ -51230,12 +51332,12 @@ msgid "The following SQL was used to attempt the update of the fixed asset cost"
 msgstr "次のSQLを使用して、固定資産コストの更新を試みました"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1292
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1803
 msgid "The contract charge record for contract"
 msgstr "契約の契約料金記録"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:1293
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1805
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1804
 msgid "The following SQL to insert the contract charge record was used"
 msgstr "契約料金レコードを挿入する次のSQLが使用されました"
 
@@ -51443,7 +51545,7 @@ msgid "Auto receiving of controlled stock items that require serial number or ba
 msgstr "シリアルナンバーまたはバッチナンバーの入力が必要な管理付き在庫品目の自動受領は現在注文されていません。 非シリアル番号の通常の注文を持つ注文のみが自動的に受信されます"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:369
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1849
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1848
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost and date purchased was not able to be updated because:"
 msgstr "クリティカル・エラー！"
 
@@ -51660,44 +51762,42 @@ msgid "The following SQL to update the GRN quantity invoiced was used"
 msgstr "請求されたGRN数量を更新する以下のSQLが使用されました"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:1498
-msgid ""
-"The invoice could not be mapped to the\n"
-"\t\t\t\t\tgoods received record because"
-msgstr ""
+msgid "The invoice could not be mapped to the goods received record because"
+msgstr "請求書は商品が受け取ったレコードにマップすることができませんでした。"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1500
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1499
 msgid "The following SQL to map the invoice to the GRN was used"
 msgstr "請求書をGRNにマップするための次のSQLが使用されました"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1545
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1544
 msgid "The stock movement record for the delivery could not have the cost updated to the actual cost"
 msgstr "配達の在庫移動記録では、実際の原価に更新された原価を使用できませんでした"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1586
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1585
 msgid "The sales analysis records could not be updated for the cost variances on this purchase invoice"
 msgstr "この購入請求書のコスト差異について販売分析レコードを更新することはできませんでした"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1647
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1646
 msgid "The stock movements for invoices cannot be updated for the cost variances on this purchase invoice"
 msgstr "請求書の在庫移動は、この購入請求書の原価差異に対して更新することはできません"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1752
 msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because:"
 msgstr "クリティカル・エラー！"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1754
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1753
 msgid "The following SQL was used to attempt the update of the asset cost:"
 msgstr "次のSQLを使用して、資産コストの更新を試みました。"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1855
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1854
 msgid "Supplier invoice number"
 msgstr "サプライヤ請求書番号"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1857
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1856
 msgid "Enter another Invoice for this Supplier"
 msgstr "このサプライヤに別の請求書を入力してください"
 
-#: /home/tim/code/KwaMoja/SupplierInvoice.php:1859
+#: /home/tim/code/KwaMoja/SupplierInvoice.php:1858
 msgid "Enter payment"
 msgstr "支払いを入力"
 
@@ -52593,11 +52693,6 @@ msgstr "安全なソケット（つまり、暗号化されたデータのみ）
 #: /home/tim/code/KwaMoja/SystemParameters.php:574
 msgid "Perform database maintenance at logon"
 msgstr "ログオン時にデータベースのメンテナンスを実行する"
-
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
-msgid "Never"
-msgstr "絶対に"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:597
 #: /home/tim/code/KwaMoja/SystemParameters.php:599
@@ -56189,10 +56284,6 @@ msgstr "このスクリプトは、変更されたコストの総勘定元帳の
 #: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:51
 msgid "Update costs for all items listed in a bill of materials"
 msgstr "部品表に記載されているすべてのアイテムの更新"
-
-#: /home/tim/code/KwaMoja/Z_BottomUpCosts.php:54
-msgid "Run"
-msgstr "走る"
 
 #: /home/tim/code/KwaMoja/Z_ChangeBranchCode.php:3
 msgid "UTILITY PAGE To Changes A Customer Branch Code In All Tables"
@@ -67624,27 +67715,27 @@ msgstr "データベースから構成パラメータを取得できませんで
 msgid "An error occurred accessing the database to retrieve the company information"
 msgstr "会社情報を取得するためにデータベースにアクセス中にエラーが発生しました"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "There is a problem in retrieving the pricing information for part"
 msgstr "部品の価格情報を取得する際に問題があります"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "and for Customer"
 msgstr "お客様のために"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:20
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:19
 msgid "the error message returned by the SQL server was"
 msgstr "SQLサーバーから返されたエラーメッセージは"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "There is an error to retrieve price from price matrix for stock"
 msgstr "株式の価格マトリックスから価格を取得する際にエラーが発生する"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:152
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:151
 msgid "and the error message returned by SQL server is "
 msgstr "SQL Serverによって返されたエラーメッセージは次のとおりです。"
 
-#: /home/tim/code/KwaMoja/includes/GetPrice.php:169
+#: /home/tim/code/KwaMoja/includes/GetPrice.php:168
 msgid "Failed to retrieve price from price matrix"
 msgstr "価格マトリックスから価格を取得できませんでした"
 
@@ -69740,9 +69831,8 @@ msgstr "名前を変更できませんでした"
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:718
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysqli.php:718
-#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
-msgid "Cannot update the auto increment field in table"
-msgstr "テーブルの自動インクリメントフィールドを更新できません"
+msgid "You are trying to set the auto increment number below the current number"
+msgstr "自動インクリメント番号を現在の番号より下に設定しようとしています"
 
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mariadb.php:721
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_mysql.php:721
@@ -69750,6 +69840,10 @@ msgstr "テーブルの自動インクリメントフィールドを更新でき
 #: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:713
 msgid "The auto increment field in table"
 msgstr "テーブルの自動インクリメントフィールド"
+
+#: /home/tim/code/KwaMoja/includes/UpgradeDB_postgres.php:710
+msgid "Cannot update the auto increment field in table"
+msgstr "テーブルの自動インクリメントフィールドを更新できません"
 
 #: /home/tim/code/KwaMoja/includes/UserLogin.php:47
 msgid "Could not retrieve user details on login because"
@@ -72135,7 +72229,7 @@ msgstr "細菌microscop.NonEvid"
 msgid "NoG.oxacil.resist.Staphyloc."
 msgstr "NoG.oxacil.resist.Staphyloc。"
 
-#: /home/tim/code/KwaMoja/sql/updates/220.php:4
+#: /home/tim/code/KwaMoja/sql/updates/220.php:3
 msgid "Blood Laboratory Details"
 msgstr "血液検査の詳細"
 
@@ -72982,6 +73076,9 @@ msgstr "スタッフローン"
 msgid "Staff Loan Repayments"
 msgstr "スタッフローン返済"
 
+#~ msgid "Item to bill"
+#~ msgstr "請求するアイテム"
+
 #~ msgid "Blood Laboratory"
 #~ msgstr "血液検査"
 
@@ -73113,9 +73210,6 @@ msgstr "スタッフローン返済"
 
 #~ msgid "Your permissions do not allow receiving of goods. Automatic receiving of purchase orders is restricted to only those users who are authorised to receive goods/services"
 #~ msgstr "あなたの許可は商品を受け取ることを許可していません。 購買発注の自動受信は、商品/サービスの受領を承認されたユーザーのみに限定されます"
-
-#~ msgid "The invoice could not be mapped to the goods received record because"
-#~ msgstr "請求書は商品が受け取ったレコードにマップすることができませんでした。"
 
 #~ msgid "CRITICAL ERROR! NOTE DOWN THIS ERROR AND SEEK ASSISTANCE. The fixed asset cost could not be updated because"
 #~ msgstr "クリティカル・エラー！ このエラーを指摘し、支援を参照してください。 固定資産コストは更新できませんでした。"

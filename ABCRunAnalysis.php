@@ -143,7 +143,7 @@ if (isset($_POST['Submit'])) {
 
 	echo '</fieldset>
 		<div class="centre">
-			<input type="submit" name="Submit" value="Run" />
+			<input type="submit" name="Submit" value="', _('Run'), '" />
 		</div>
 	</form>';
 

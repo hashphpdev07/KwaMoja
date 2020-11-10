@@ -783,7 +783,7 @@ if (!isset($_SESSION['Contract' . $Identifier]->DebtorNo) or $_SESSION['Contract
 		</fieldset>
 		<div class="centre">
 			<input type="submit" name="SearchCustomers" value="', _('Search Now'), '" />
-			<input type="submit" name="reset" value="', _('Reset'), '" />
+			<input type="reset" name="reset" value="', _('Reset'), '" />
 		</div>';
 
 	if (isset($Result_CustSelect)) {

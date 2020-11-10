@@ -657,7 +657,7 @@ if (!isset($_SESSION['Project' . $Identifier]->DonorNo) or $_SESSION['Project' .
 		</table>
 		<div class="centre">
 			<input type="submit" name="SearchDonors" value="' . _('Search Now') . '" />
-			<input type="submit" name="reset" value="' . _('Reset') . '" />
+			<input type="reset" name="reset" value="' . _('Reset') . '" />
 		</div>';
 
 	if (isset($Result_DonorSelect)) {

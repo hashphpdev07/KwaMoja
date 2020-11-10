@@ -1495,8 +1495,7 @@ if (!isset($_POST['PostInvoice'])) {
 
 			$SQL = "INSERT INTO suppinvstogrn VALUES ('" . $InvoiceNo . "',
 									'" . $EnteredGRN->GRNNo . "')";
-			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The invoice could not be mapped to the
-					goods received record because');
+			$ErrMsg = _('CRITICAL ERROR') . '! ' . _('NOTE DOWN THIS ERROR AND SEEK ASSISTANCE') . ': ' . _('The invoice could not be mapped to the goods received record because');
 			$DbgMsg = _('The following SQL to map the invoice to the GRN was used');
 			$Result = DB_query($SQL, $ErrMsg, $DbgMsg, True);
 

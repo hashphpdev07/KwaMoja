@@ -400,7 +400,10 @@ if (!isset($_GET['Select'])) {
 		$_POST['SalesCatName'] = '';
 		if (isset($ParentCategory)) {
 			$_POST['ParentCategory'] = $ParentCategory;
+		} else {
+			$_POST['ParentCategory'] = 0;
 		}
+
 		echo '<fieldset>
 				<legend>', _('New Sales Category'), '</legend>';
 	}
@@ -415,8 +418,12 @@ if (!isset($_GET['Select'])) {
 
 	echo '<field>
 			<label for="ParentCategory">', _('Parent Category'), '</label>
-			<select name="ParentCategory">
-				<option value="0">', _('No parent'), '</option>';
+			<select name="ParentCategory">';
+	if ($_POST['ParentCategory'] == 0) {
+		echo '<option value="0" selected="selected">', _('No parent'), '</option>';
+	} else {
+		echo '<option value="0">', _('No parent'), '</option>';
+	}
 	while ($MyRow = DB_fetch_array($Result)) {
 		if ($MyRow['salescatid'] == $_POST['ParentCategory']) {
 			echo '<option value="', $MyRow['salescatid'], '" selected="selected">', $MyRow['salescatname'], '</option>';
