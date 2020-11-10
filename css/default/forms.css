@@ -143,6 +143,22 @@ color:#1A1A1A;
 border-radius: 5px;
 cursor: pointer;
 }
+form input[type="submit"].previous_button {
+background:#BFBFBF url(images/previous.png) center left 2%/24px no-repeat;
+}
+form input[type="submit"].previous_button:hover {
+background:#7F7F7F url(images/previous.png) center left 2%/24px no-repeat;
+}
+form input[type="submit"].next_button {
+background:#BFBFBF url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
+form input[type="submit"].next_button:hover {
+background:#7F7F7F url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
 form .number {
 text-align:right;
 }

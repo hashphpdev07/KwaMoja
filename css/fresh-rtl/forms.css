@@ -126,6 +126,26 @@ border-radius: 5px;
 cursor: pointer;
 transition-duration:0.5s;
 }
+form input[type="submit"].previous_button {
+background:#F6F5F4 url(images/previous.png) center left 2%/24px no-repeat;
+padding-right:16px;
+padding-left:32px;
+}
+form input[type="submit"].previous_button:hover {
+background:url(images/previous.png) center left 2%/24px no-repeat;
+padding-right:16px;
+padding-left:32px;
+}
+form input[type="submit"].next_button {
+background:#F6F5F4 url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
+form input[type="submit"].next_button:hover {
+background:url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
 form .number {
 text-align:left;
 }

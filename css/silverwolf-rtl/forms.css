@@ -133,6 +133,26 @@ cursor: pointer;
 color:#1A1A1A;
 transition-duration:0.5s;
 }
+form input[type="submit"].previous_button {
+background:#E3E1E1 url(images/previous.png) center left 2%/24px no-repeat;
+padding-right:16px;
+padding-left:32px;
+}
+form input[type="submit"].previous_button:hover {
+background:#7F7F7F url(images/previous.png) center left 2%/24px no-repeat;
+padding-right:16px;
+padding-left:32px;
+}
+form input[type="submit"].next_button {
+background:#E3E1E1 url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
+form input[type="submit"].next_button:hover {
+background:#7F7F7F url(images/next.png) center right 2%/24px no-repeat;
+padding-right:32px;
+padding-left:16px;
+}
 form .number {
 text-align:left;
 }
