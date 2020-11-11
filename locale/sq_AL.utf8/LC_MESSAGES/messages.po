@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-28 11:56+0000\n"
-"PO-Revision-Date: 2020-10-28 11:10+0000\n"
+"POT-Creation-Date: 2020-11-11 01:30+0000\n"
+"PO-Revision-Date: 2020-11-11 01:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -181,6 +181,8 @@ msgstr "Lista e grupeve të rangimit ABC"
 #: /home/tim/code/KwaMoja/GLTags.php:53
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:495
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -232,6 +234,8 @@ msgstr "shtyp"
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:124
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:63
 #: /home/tim/code/KwaMoja/Factors.php:289
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:90
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:340
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:354
 #: /home/tim/code/KwaMoja/SupplierGroups.php:279
@@ -305,7 +309,7 @@ msgstr "Je i sigurt që dëshiron ta fshish këtë grup të rangut?"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
 #: /home/tim/code/KwaMoja/GLAccounts.php:499
-#: /home/tim/code/KwaMoja/GLJournal.php:647
+#: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:162
@@ -584,7 +588,8 @@ msgstr "Metoda e renditjes është ruajtur me sukses në bazën e të dhënave"
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
 #: /home/tim/code/KwaMoja/GLAccounts.php:498
-#: /home/tim/code/KwaMoja/GLJournal.php:646
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:228
+#: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:161
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:217
@@ -1307,13 +1312,16 @@ msgstr "Emri i Grupit Prind"
 #: /home/tim/code/KwaMoja/FormDesigner.php:95
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:164
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:173
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:219
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:196
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:214
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:230
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:246
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1615,13 +1623,16 @@ msgstr "po"
 #: /home/tim/code/KwaMoja/FormDesigner.php:93
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:166
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:175
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:169
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:172
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:217
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -2234,6 +2245,7 @@ msgstr "Regjistri i kontaktit është fshirë"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:443
 #: /home/tim/code/KwaMoja/Customers.php:689
 #: /home/tim/code/KwaMoja/Customers.php:697
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
@@ -2998,10 +3010,11 @@ msgstr "Ditët e Vjetra"
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:242
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:327
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:336
-#: /home/tim/code/KwaMoja/GLBudgets.php:223
-#: /home/tim/code/KwaMoja/GLBudgets.php:226
-#: /home/tim/code/KwaMoja/GLBudgets.php:229
-#: /home/tim/code/KwaMoja/GLJournal.php:652
+#: /home/tim/code/KwaMoja/GLBudgets.php:205
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:223
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:226
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:229
+#: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:250
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:271
@@ -3013,6 +3026,8 @@ msgstr "Ditët e Vjetra"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:668
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:683
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:702
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:259
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:331
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3375,7 +3390,7 @@ msgstr "nuk mund të shfrytëzohej sepse"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -3576,6 +3591,7 @@ msgstr "Trego një raport përmbledhës, ose përfshij detajet e transaksionit n
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3794,6 +3810,7 @@ msgstr "Zgjidhni periudhën e fundit në raport"
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
@@ -3871,6 +3888,7 @@ msgstr "OR"
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:116
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:71
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:238
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:238
@@ -3884,6 +3902,7 @@ msgstr "Zgjidh periudhën"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:240
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
@@ -4050,6 +4069,7 @@ msgstr "Të gjitha shumat e deklaruara në"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:499
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4075,6 +4095,7 @@ msgstr "llogari"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:500
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4207,6 +4228,7 @@ msgstr "Fitimi neto"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:428
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:729
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
 #: /home/tim/code/KwaMoja/SalesGraph.php:20
@@ -4762,7 +4784,7 @@ msgstr "Adresë"
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
-#: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:125
@@ -6751,7 +6773,7 @@ msgstr "Nuk është zgjedhur akoma"
 #: /home/tim/code/KwaMoja/FreightCosts.php:78
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:62
 #: /home/tim/code/KwaMoja/GLJournal.php:349
-#: /home/tim/code/KwaMoja/GLJournal.php:595
+#: /home/tim/code/KwaMoja/GLJournal.php:598
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
@@ -6917,7 +6939,7 @@ msgid "The SQL used to retrieve the bank account details was"
 msgstr "SQL për të rifituar detajet e llogarisë bankare ishte"
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:183
-#: /home/tim/code/KwaMoja/GLJournal.php:519
+#: /home/tim/code/KwaMoja/GLJournal.php:521
 #: /home/tim/code/KwaMoja/Locations.php:431
 #: /home/tim/code/KwaMoja/Locations.php:700
 msgid "GL Account Code"
@@ -8271,6 +8293,7 @@ msgstr "Asnjë urdhër pune nuk u kthye nga SQL sepse"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:480
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
+#: /home/tim/code/KwaMoja/GLBudgets.php:67
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
@@ -8583,7 +8606,7 @@ msgstr "Nuk mund të azhurnoi normat e monedhës"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8612,7 +8635,7 @@ msgid "Validation failed"
 msgstr "Vlefshmëria dështoi"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8920,7 +8943,7 @@ msgstr "Kur bëhet një transaksion i inventarit, duhet KwaMoja të krijojë sh�
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:108
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:657
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:138
-#: /home/tim/code/KwaMoja/GLBudgets.php:247
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:247
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:28
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:229
 #: /home/tim/code/KwaMoja/GLTags.php:94
@@ -12922,7 +12945,7 @@ msgstr "Neto"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:208
-#: /home/tim/code/KwaMoja/GLJournal.php:607
+#: /home/tim/code/KwaMoja/GLJournal.php:610
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:203
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:287
@@ -13941,9 +13964,9 @@ msgstr "faturuar"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
 #: /home/tim/code/KwaMoja/GLAccountReport.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:207
-#: /home/tim/code/KwaMoja/GLJournal.php:577
-#: /home/tim/code/KwaMoja/GLJournal.php:606
-#: /home/tim/code/KwaMoja/GLJournal.php:661
+#: /home/tim/code/KwaMoja/GLJournal.php:579
+#: /home/tim/code/KwaMoja/GLJournal.php:609
+#: /home/tim/code/KwaMoja/GLJournal.php:664
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:80
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:80
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:257
@@ -15229,7 +15252,7 @@ msgstr "Dështoi në marrjen e të dhënave të ngarkimit"
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:126
 #: /home/tim/code/KwaMoja/GLJournal.php:205
-#: /home/tim/code/KwaMoja/GLJournal.php:604
+#: /home/tim/code/KwaMoja/GLJournal.php:607
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:42
 #: /home/tim/code/KwaMoja/Payments.php:1244
 #: /home/tim/code/KwaMoja/RegularPaymentsProcess.php:206
@@ -16907,8 +16930,8 @@ msgstr "etiketë"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
 #: /home/tim/code/KwaMoja/GLJournal.php:221
-#: /home/tim/code/KwaMoja/GLJournal.php:540
-#: /home/tim/code/KwaMoja/GLJournal.php:626
+#: /home/tim/code/KwaMoja/GLJournal.php:542
+#: /home/tim/code/KwaMoja/GLJournal.php:629
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:123
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:301
 #: /home/tim/code/KwaMoja/MRPPlannedPurchaseOrders.php:349
@@ -17859,7 +17882,7 @@ msgstr "Shitjet ditore për"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
 msgid "Sunday"
 msgstr "e diel"
 
@@ -17868,7 +17891,7 @@ msgstr "e diel"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
 msgid "Monday"
 msgstr "e hënë"
 
@@ -17877,7 +17900,7 @@ msgstr "e hënë"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
 msgid "Tuesday"
 msgstr "e martë"
 
@@ -17886,7 +17909,7 @@ msgstr "e martë"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
 msgid "Wednesday"
 msgstr "e mërkurë"
 
@@ -17895,7 +17918,7 @@ msgstr "e mërkurë"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
 msgid "Thursday"
 msgstr "e enjte"
 
@@ -17904,7 +17927,7 @@ msgstr "e enjte"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
 msgid "Friday"
 msgstr "e premte"
 
@@ -17913,7 +17936,7 @@ msgstr "e premte"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:167
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
 msgid "Saturday"
 msgstr "e shtunë"
 
@@ -21643,14 +21666,16 @@ msgstr "Grafiku i llogarisë GL"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:31
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:26
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:26
 #: /home/tim/code/KwaMoja/SalesGraph.php:15
 msgid "The selected period from is actually after the period to! Please re-select the reporting period"
 msgstr "Periudha e zgjedhur nga është në të vërtetë pas periudhës për të!  Ju lutemi ri-zgjidhni periudhën raportuese"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:49
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:56
-#: /home/tim/code/KwaMoja/GLBudgets.php:49
-#: /home/tim/code/KwaMoja/GLJournal.php:508
+#: /home/tim/code/KwaMoja/GLBudgets.php:124
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:49
+#: /home/tim/code/KwaMoja/GLJournal.php:510
 #: /home/tim/code/KwaMoja/Payments.php:1170
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:308
 msgid "Select GL Account"
@@ -21731,6 +21756,7 @@ msgstr "Nëse llogaria e zgjedhur është normalisht një bilanc krediti, atëhe
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:32
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:178
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:178
@@ -21744,6 +21770,7 @@ msgstr "Zgjidh periudhën nga"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:204
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:204
 #: /home/tim/code/KwaMoja/SalesGraph.php:70
@@ -21754,6 +21781,7 @@ msgstr "Zgjidhni periudhën e fillimit për këtë raport"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:65
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:214
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:214
@@ -21766,6 +21794,7 @@ msgstr "Përzgjidh periudhën për"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:228
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:228
 #: /home/tim/code/KwaMoja/SalesGraph.php:93
@@ -21816,7 +21845,7 @@ msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "Nuk ka të dhëna të llogarisë GL për kriteret e dhëna në grafik"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets.php:191
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:191
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21826,7 +21855,7 @@ msgid "Actual"
 msgstr "aktual"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets.php:192
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:192
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21886,9 +21915,9 @@ msgstr "Trans nr"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
 #: /home/tim/code/KwaMoja/GLAccountReport.php:355
 #: /home/tim/code/KwaMoja/GLJournal.php:206
-#: /home/tim/code/KwaMoja/GLJournal.php:562
-#: /home/tim/code/KwaMoja/GLJournal.php:605
-#: /home/tim/code/KwaMoja/GLJournal.php:664
+#: /home/tim/code/KwaMoja/GLJournal.php:564
+#: /home/tim/code/KwaMoja/GLJournal.php:608
+#: /home/tim/code/KwaMoja/GLJournal.php:667
 msgid "Debit"
 msgstr "debi"
 
@@ -21898,7 +21927,7 @@ msgid "Total for period ending"
 msgstr "Totali për periudhën që përfundon"
 
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
-#: /home/tim/code/KwaMoja/GLBudgets.php:190
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:190
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:40
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
@@ -22547,89 +22576,209 @@ msgstr "Kete vit"
 #: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:499
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:410
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:721
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:345
 #, php-format
 msgid "Check Totals"
 msgstr "Kontrolloni Totali"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:5
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:5
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:5
 msgid "Create GL Budgets"
 msgstr "Krijo buxhetet GL"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:24
-msgid "Budget updated successfully"
-msgstr "Buxheti është përditësuar me sukses"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:29
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:15
+#: /home/tim/code/KwaMoja/GLBudgets.php:46
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:29
 msgid "Budgets"
 msgstr "buxhetet"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:36
-msgid "General ledger account selection"
-msgstr "Përzgjedhja e llogarisë së librit kryesor"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:22
+msgid "The end period cannot be before the start period"
+msgstr "Periudha e fundit nuk mund të jetë para periudhës së fillimit"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:54
-msgid "No General ledger accounts have been set up yet"
-msgstr "Ende nuk janë krijuar llogari të përgjithshme"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:61
+msgid "The budget header information has been successfully saved"
+msgstr "Informacioni i kreut të buxhetit është ruajtur me sukses"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:54
-msgid "budgets cannot be allocated until the GL accounts are set up"
-msgstr "buxhetet nuk mund të ndahen derisa të krijohen llogaritë e GL"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:63
+msgid "There was a problem saving the budget header information"
+msgstr "Kishte një problem në ruajtjen e informacionit të kreut të buxhetit"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:85
-msgid "Prev Account"
-msgstr "Llogaria paraprake"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:88
+msgid "Edit Budget Details"
+msgstr "Redakto detajet e buxhetit"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:86
-msgid "Select Account"
-msgstr "Zgjidh llogarinë"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:87
-msgid "Next Account"
-msgstr "Llogaria e ardhshme"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:100
-msgid "Cannot update GL budgets"
-msgstr "Nuk mund të rifreskohen buxhetet GL"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:101
-msgid "The SQL that failed to update the GL budgets was"
-msgstr "SQL që nuk arriti të përditësonte buxhetet e GL ishte"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:177
-msgid "Budget Entry"
-msgstr "Hyrja në Buxhet"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:179
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
-msgid "Last Financial Year"
-msgstr "Viti i fundit financiar"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:180
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:98
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:99
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:180
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:577
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:652
 msgid "This Financial Year"
 msgstr "Ky vit financiar"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:181
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:103
+msgid "Create New Budget"
+msgstr "Krijoni buxhet të ri"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:110
+msgid "Budget Owner"
+msgstr "Pronari i Buxhetit"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:123
+msgid "Name of budget"
+msgstr "Emri i buxhetit"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:128
+msgid "Budget Description"
+msgstr "Përshkrimi i buxhetit"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:136
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
+msgid "Start Period"
+msgstr "Periudha e fillimit"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:152
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
+msgid "End Period"
+msgstr "Periudha e përfundimit"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:165
+msgid "Default Budget for reports"
+msgstr "Buxheti i paracaktuar për raportet"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:181
+#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
+msgid "Update Details"
+msgstr "Detaje të azhurnuara"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:185
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
+msgid "Save Details"
+msgstr "Ruani Detajet"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
+msgid "Owner"
+msgstr "Pronar"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
+msgid "Start From Period"
+msgstr "Filloni nga periudha"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
+msgid "End In Period"
+msgstr "Fundi në Periudhë"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:209
+msgid "Is Primary?"
+msgstr "A është Primare?"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:5
+msgid "Enter GL Budget amounts"
+msgstr "Vendosni shumat e buxhetit"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:35
+msgid "The budget figures were update successfully"
+msgstr "Shifrat e buxhetit u azhurnuan me sukses"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:37
+msgid "There was a problem updating the budget figures"
+msgstr "Kishte një problem në azhurnimin e shifrave të buxhetit"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:46
+msgid "Select Budget"
+msgstr "Zgjidhni buxhetin"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:50
+msgid "Select a Budget"
+msgstr "Zgjidhni një buxhet"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:57
+msgid "Budget to enter amounts in"
+msgstr "Buxheti për të futur shumat"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:78
+msgid "Enter Budget Amounts"
+msgstr "Vendosni shumat e buxhetit"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:82
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:36
+msgid "General ledger account selection"
+msgstr "Përzgjedhja e llogarisë së librit kryesor"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:134
+#: /home/tim/code/KwaMoja/GLBudgets.php:136
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:85
+msgid "Prev Account"
+msgstr "Llogaria paraprake"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:138
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:86
+msgid "Select Account"
+msgstr "Zgjidh llogarinë"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:140
+#: /home/tim/code/KwaMoja/GLBudgets.php:142
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:87
+msgid "Next Account"
+msgstr "Llogaria e ardhshme"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:158
+msgid "Budget values for account"
+msgstr "Vlerat e buxhetit për llogari"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:212
+msgid "Update Budget"
+msgstr "Azhurnoni buxhetin"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:24
+msgid "Budget updated successfully"
+msgstr "Buxheti është përditësuar me sukses"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
+msgid "No General ledger accounts have been set up yet"
+msgstr "Ende nuk janë krijuar llogari të përgjithshme"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
+msgid "budgets cannot be allocated until the GL accounts are set up"
+msgstr "buxhetet nuk mund të ndahen derisa të krijohen llogaritë e GL"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:100
+msgid "Cannot update GL budgets"
+msgstr "Nuk mund të rifreskohen buxhetet GL"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:101
+msgid "The SQL that failed to update the GL budgets was"
+msgstr "SQL që nuk arriti të përditësonte buxhetet e GL ishte"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:177
+msgid "Budget Entry"
+msgstr "Hyrja në Buxhet"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:179
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
+msgid "Last Financial Year"
+msgstr "Viti i fundit financiar"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:181
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
 msgid "Next Financial Year"
 msgstr "Viti i ardhshëm financiar"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:184
-#: /home/tim/code/KwaMoja/GLBudgets.php:185
-#: /home/tim/code/KwaMoja/GLBudgets.php:186
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:184
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:185
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:186
 msgid "Year ended"
 msgstr "Viti përfundoi"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:234
-#: /home/tim/code/KwaMoja/GLBudgets.php:236
-#: /home/tim/code/KwaMoja/GLBudgets.php:238
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:234
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:236
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:238
 msgid "Annual Budget"
 msgstr "Buxheti vjetor"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:239
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:239
 msgid "Apportion Budget"
 msgstr "Buxheti i shpërndarjes"
 
@@ -22672,6 +22821,7 @@ msgstr "Pasqyra e flukseve të mjeteve monetare"
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:503
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22684,6 +22834,7 @@ msgstr "Periudha Aktuale"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:504
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -22994,8 +23145,8 @@ msgid "Journal Type"
 msgstr "Lloji i ditarit"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:101
-#: /home/tim/code/KwaMoja/GLJournal.php:490
-#: /home/tim/code/KwaMoja/GLJournal.php:493
+#: /home/tim/code/KwaMoja/GLJournal.php:492
+#: /home/tim/code/KwaMoja/GLJournal.php:495
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:47
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:726
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:730
@@ -23015,8 +23166,8 @@ msgid "Normal"
 msgstr "normal"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:103
-#: /home/tim/code/KwaMoja/GLJournal.php:489
-#: /home/tim/code/KwaMoja/GLJournal.php:492
+#: /home/tim/code/KwaMoja/GLJournal.php:491
+#: /home/tim/code/KwaMoja/GLJournal.php:494
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:49
 msgid "Reversing"
 msgstr "përmbysur"
@@ -23046,7 +23197,7 @@ msgid "Save journal as a template"
 msgstr "Ruani ditarin si një shabllon"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:197
-#: /home/tim/code/KwaMoja/GLJournal.php:600
+#: /home/tim/code/KwaMoja/GLJournal.php:603
 msgid "Journal Summary"
 msgstr "Përmbledhje e ditarit"
 
@@ -23055,8 +23206,8 @@ msgid "Template description"
 msgstr "Përshkrimi i shabllonit"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:204
-#: /home/tim/code/KwaMoja/GLJournal.php:538
-#: /home/tim/code/KwaMoja/GLJournal.php:603
+#: /home/tim/code/KwaMoja/GLJournal.php:540
+#: /home/tim/code/KwaMoja/GLJournal.php:606
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:294
 msgid "GL Tag"
 msgstr "GL Tag"
@@ -23066,7 +23217,7 @@ msgid "Save as template"
 msgstr "Ruani si shabllon"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:253
-#: /home/tim/code/KwaMoja/GLJournal.php:674
+#: /home/tim/code/KwaMoja/GLJournal.php:677
 msgid "Accept and Process Journal"
 msgstr "Prano dhe Procesi i Gazetës"
 
@@ -23127,19 +23278,19 @@ msgstr "Kodi manual GL i futur nuk ekziston në bazën e të dhënave"
 msgid "You must select a GL account code"
 msgstr "Ju duhet të zgjidhni një kod llogarie GL"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:474
+#: /home/tim/code/KwaMoja/GLJournal.php:476
 msgid "Journal Header Details"
 msgstr "Detaje për kokën e ditarit"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:477
+#: /home/tim/code/KwaMoja/GLJournal.php:479
 msgid "Date to Process Journal"
 msgstr "Data për të përpunuar gazetën"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:501
+#: /home/tim/code/KwaMoja/GLJournal.php:503
 msgid "Journal Line Entry"
 msgstr "Regjistrimi i linjës së ditarit"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:588
+#: /home/tim/code/KwaMoja/GLJournal.php:590
 #: /home/tim/code/KwaMoja/Payments.php:1183
 #: /home/tim/code/KwaMoja/Payments.php:1189
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:315
@@ -23147,19 +23298,19 @@ msgstr "Regjistrimi i linjës së ditarit"
 msgid "GL Narrative"
 msgstr "Përshkrimi i GL"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:658
+#: /home/tim/code/KwaMoja/GLJournal.php:661
 msgid "Required to balance"
 msgstr "Kërkohet për të balancuar"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:675
+#: /home/tim/code/KwaMoja/GLJournal.php:678
 msgid "Save as a template"
 msgstr "Ruani si shabllon"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:678
+#: /home/tim/code/KwaMoja/GLJournal.php:681
 msgid "The journal must balance ie debits equal to credits before it can be processed"
 msgstr "Ditari duhet të balancojë debatet e barabarta me kreditë para se të mund të përpunohen"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:681
+#: /home/tim/code/KwaMoja/GLJournal.php:684
 msgid "Load from a template"
 msgstr "Ngarkesa nga një shabllon"
 
@@ -23581,19 +23732,25 @@ msgstr "Dërguar"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:138
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Balanca ne gjyq"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:54
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:54
 msgid "Input criteria for inquiry"
 msgstr "Kriteret e hyrjes për hetim"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
 msgid "Show Trial Balance"
 msgstr "Trego bilancin e gjykimit"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
 msgid "Export to Spreadsheet"
 msgstr "Eksporto në Spreadsheet"
 
@@ -23603,20 +23760,25 @@ msgstr "Shtypni gabimin e bilancit të gjykimit"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:490
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
 msgid "Trial Balance Report"
 msgstr "Raporti i bilancit gjyqësor"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Bilanci gjyqësor për muajin"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "dhe për të"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
@@ -23624,6 +23786,7 @@ msgid " months to "
 msgstr "muaj deri"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:501
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
@@ -23631,6 +23794,7 @@ msgid "Month Actual"
 msgstr "Muaji aktual"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:502
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Muaji Buxheti"
@@ -26585,86 +26749,86 @@ msgstr "Kërkoni një Test Bakteriologjie"
 msgid "Laboratory Maintenance"
 msgstr "Mirëmbajtja e laboratorit"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
-#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:4
+#: /home/tim/code/KwaMoja/sql/updates/221.php:5
 msgid "Billing Configuration"
 msgstr "Konfigurimi i Faturimit"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:9
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
 msgid "Hospital Configuration"
 msgstr "Konfigurimi i spitalit"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:49
 msgid "The billing configuration could not be updated because"
 msgstr "Konfigurimi i faturimit nuk mund të azhurnohet sepse"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:57
 msgid "Billing configuration updated"
 msgstr "Konfigurimi i faturimit u azhurnua"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:73
 msgid "Registration and Admissions"
 msgstr "Regjistrimi dhe Pranimet"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:87
 msgid "Item to bill for patient registration"
 msgstr "Artikulli për t'u faturuar për regjistrimin e pacientit"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:89
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:115
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:141
 msgid "Do not Bill"
 msgstr "Mos e faturoni"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:113
 msgid "Item to bill for inpatient admissions"
 msgstr "Artikulli i faturimit për pranimet në spital"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:139
 msgid "Item to bill for outpatient admissions"
 msgstr "Artikulli i faturimit për pranimet ambulatore"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:156
 msgid "Laboratory Billing"
 msgstr "Faturimi laboratorik"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:159
 msgid "Payment must be made before Test"
 msgstr "Pagesa duhet të bëhet para Testit"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:176
 msgid "If not insured"
 msgstr "Nëse nuk është i siguruar"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
 msgid "Always"
 msgstr "Gjithmonë"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
 #: /home/tim/code/KwaMoja/SystemParameters.php:592
 #: /home/tim/code/KwaMoja/SystemParameters.php:594
 msgid "Never"
 msgstr "kurrë"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:183
 msgid "Bill for bacteriology tests"
 msgstr "Faturë për testet e bakteriologjisë"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:202
 msgid "Bill for blood tests"
 msgstr "Faturë për analizat e gjakut"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:220
 msgid "Bill for medical tests"
 msgstr "Faturë për teste mjekësore"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:236
 msgid "Bill for pathology tests"
 msgstr "Faturë për testet e patologjisë"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:254
 msgid "Save Configuration"
 msgstr "Ruaj konfigurimin"
 
@@ -27547,10 +27711,6 @@ msgstr "Kompania e sigurimeve"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:643
 msgid "Employer Company"
 msgstr "Kompania e punëdhënësve"
-
-#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
-msgid "Update Details"
-msgstr "Detaje të azhurnuara"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:3
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
@@ -31564,10 +31724,6 @@ msgstr "Receptorët e hormonit"
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:243
 msgid "Specials"
 msgstr "Speciale"
-
-#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
-msgid "Save Details"
-msgstr "Ruani Detajet"
 
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:387
 msgid "Return to Pathology Centre"
@@ -57259,14 +57415,6 @@ msgstr "Totali i regjistrimeve të shpërndarjes"
 msgid "Debtors Control Integrity"
 msgstr "Debitorët kontrollojnë integritetin"
 
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
-msgid "Start Period"
-msgstr "Periudha e fillimit"
-
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
-msgid "End Period"
-msgstr "Periudha e përfundimit"
-
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:66
 msgid "Bal B/F in GL"
 msgstr "Bal B / F në GL"
@@ -60274,7 +60422,7 @@ msgstr "Muaj FS"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:124
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepTax.php:126
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:107
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:114
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:245
 msgid "January"
 msgstr "janar"
@@ -60287,7 +60435,7 @@ msgstr "janar"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:125
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepTax.php:127
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:110
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:117
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:246
 msgid "February"
 msgstr "shkurt"
@@ -60300,7 +60448,7 @@ msgstr "shkurt"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:126
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepTax.php:128
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:113
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:120
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:247
 msgid "March"
 msgstr "marsh"
@@ -60313,7 +60461,7 @@ msgstr "marsh"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:127
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepTax.php:129
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:116
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:123
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:248
 msgid "April"
 msgstr "prill"
@@ -60326,7 +60474,7 @@ msgstr "prill"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:128
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepTax.php:130
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:119
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:126
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:249
 msgid "May"
 msgstr "Mund"
@@ -60339,7 +60487,7 @@ msgstr "Mund"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepTax.php:131
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:122
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:129
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:250
 msgid "June"
 msgstr "qershor"
@@ -60352,7 +60500,7 @@ msgstr "qershor"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepTax.php:132
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:125
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:132
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:251
 msgid "July"
 msgstr "korrik"
@@ -60365,7 +60513,7 @@ msgstr "korrik"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:136
 #: /home/tim/code/KwaMoja/prlRepTax.php:133
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:128
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:135
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:252
 msgid "August"
 msgstr "gusht"
@@ -60378,7 +60526,7 @@ msgstr "gusht"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:137
 #: /home/tim/code/KwaMoja/prlRepTax.php:134
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:131
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:138
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:253
 msgid "September"
 msgstr "shtator"
@@ -60391,7 +60539,7 @@ msgstr "shtator"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:138
 #: /home/tim/code/KwaMoja/prlRepTax.php:135
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:134
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:141
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:254
 msgid "October"
 msgstr "tetor"
@@ -60404,7 +60552,7 @@ msgstr "tetor"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:139
 #: /home/tim/code/KwaMoja/prlRepTax.php:136
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:137
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:144
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:255
 msgid "November"
 msgstr "nëntor"
@@ -60417,7 +60565,7 @@ msgstr "nëntor"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:140
 #: /home/tim/code/KwaMoja/prlRepTax.php:137
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:140
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:147
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:256
 msgid "December"
 msgstr "dhjetor"
@@ -63665,8 +63813,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "Kishte një problem të fshire historikun e skaduar të auditimit"
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1029
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1144
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1036
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1151
 msgid "An error occurred in retrieving the period number"
 msgstr "Ndodhi një gabim gjatë marrjes së numrit të periudhës"
 
@@ -67352,20 +67500,20 @@ msgstr "Rand i Afrikës së Jugut"
 msgid "Zambian kwacha"
 msgstr "Zambian kwacha"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:257
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:307
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:264
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:314
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr "Dita nuk duket të jetë në format të vlefshëm.  Data që po konvertohet nga formati SQL ishte:"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1017
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1024
 msgid "An error occurred in adding a new period number"
 msgstr "Ndodhi një gabim në shtimin e një numri të ri të periudhës"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1077
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1084
 msgid "Could not insert first period"
 msgstr "Nuk mund të futet periudha e parë"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1078
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1085
 msgid "Could not insert second period"
 msgstr "Nuk mund të futet periudha e dytë"
 
@@ -72234,6 +72382,19 @@ msgstr "NoG.oxacil.reziston.Stafilok."
 msgid "Blood Laboratory Details"
 msgstr "Detajet e laboratorit të gjakut"
 
+#: /home/tim/code/KwaMoja/sql/updates/222.php:3
+msgid "Create/Amend General Ledger Budgets"
+msgstr "Krijoni / Ndryshoni Buxhetet e Librit të Përgjithshëm"
+
+#: /home/tim/code/KwaMoja/sql/updates/222.php:4
+#: /home/tim/code/KwaMoja/sql/updates/42.php:211
+msgid "GL Budgets"
+msgstr "Buxhetet e GL"
+
+#: /home/tim/code/KwaMoja/sql/updates/222.php:5
+msgid "Create Budget Amounts"
+msgstr "Krijoni shumat e buxhetit"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "blerjet"
@@ -72648,10 +72809,6 @@ msgstr "Raportet e etiketave"
 #: /home/tim/code/KwaMoja/sql/updates/42.php:208
 msgid "Tax Reports"
 msgstr "Raportet Tatimore"
-
-#: /home/tim/code/KwaMoja/sql/updates/42.php:211
-msgid "GL Budgets"
-msgstr "Buxhetet e GL"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:216
 msgid "Add a new Asset"

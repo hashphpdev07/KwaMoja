@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: weberp\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-27 23:24+0000\n"
-"PO-Revision-Date: 2020-10-27 23:10+0000\n"
+"POT-Creation-Date: 2020-11-11 00:30+0000\n"
+"PO-Revision-Date: 2020-11-11 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: IT Palvelu\n"
 "Language: fi\n"
@@ -180,6 +180,8 @@ msgstr "Luettelo ABC-luokitusryhmistä"
 #: /home/tim/code/KwaMoja/GLTags.php:53
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:495
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -231,6 +233,8 @@ msgstr "Tulosta"
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:124
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:63
 #: /home/tim/code/KwaMoja/Factors.php:289
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:90
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:340
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:354
 #: /home/tim/code/KwaMoja/SupplierGroups.php:279
@@ -304,7 +308,7 @@ msgstr "Haluatko varmasti poistaa tämän sijoitusryhmän?"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
 #: /home/tim/code/KwaMoja/GLAccounts.php:499
-#: /home/tim/code/KwaMoja/GLJournal.php:647
+#: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:162
@@ -583,7 +587,8 @@ msgstr "Sijoitusmenetelmä on tallennettu onnistuneesti tietokantaan"
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
 #: /home/tim/code/KwaMoja/GLAccounts.php:498
-#: /home/tim/code/KwaMoja/GLJournal.php:646
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:228
+#: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:161
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:217
@@ -1306,13 +1311,16 @@ msgstr "Emoryhmän nimi"
 #: /home/tim/code/KwaMoja/FormDesigner.php:95
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:164
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:173
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:219
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:196
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:214
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:230
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:246
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1614,13 +1622,16 @@ msgstr "Kyllä"
 #: /home/tim/code/KwaMoja/FormDesigner.php:93
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:166
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:175
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:169
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:172
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:217
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -2233,6 +2244,7 @@ msgstr "Yhteystietue on poistettu"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:443
 #: /home/tim/code/KwaMoja/Customers.php:689
 #: /home/tim/code/KwaMoja/Customers.php:697
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
@@ -2997,10 +3009,11 @@ msgstr "Päiviä vanha"
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:242
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:327
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:336
-#: /home/tim/code/KwaMoja/GLBudgets.php:223
-#: /home/tim/code/KwaMoja/GLBudgets.php:226
-#: /home/tim/code/KwaMoja/GLBudgets.php:229
-#: /home/tim/code/KwaMoja/GLJournal.php:652
+#: /home/tim/code/KwaMoja/GLBudgets.php:205
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:223
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:226
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:229
+#: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:250
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:271
@@ -3012,6 +3025,8 @@ msgstr "Päiviä vanha"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:668
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:683
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:702
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:259
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:331
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3374,7 +3389,7 @@ msgstr "ei voitu hakea, koska"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -3575,6 +3590,7 @@ msgstr "Näytä yhteenvetoraportti tai sisällytä tapahtuman tiedot raporttiin.
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3793,6 +3809,7 @@ msgstr "Valitse raportin viimeinen jakso"
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
@@ -3870,6 +3887,7 @@ msgstr "TAI"
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:116
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:71
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:238
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:238
@@ -3883,6 +3901,7 @@ msgstr "Valitse Aika"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:240
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
@@ -4049,6 +4068,7 @@ msgstr "Kaikki ilmoitetut määrät"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:499
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4074,6 +4094,7 @@ msgstr "Tili"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:500
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4206,6 +4227,7 @@ msgstr "Nettotulo"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:428
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:729
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
 #: /home/tim/code/KwaMoja/SalesGraph.php:20
@@ -4761,7 +4783,7 @@ msgstr "Osoite"
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
-#: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:125
@@ -6750,7 +6772,7 @@ msgstr "Ei vielä valittu"
 #: /home/tim/code/KwaMoja/FreightCosts.php:78
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:62
 #: /home/tim/code/KwaMoja/GLJournal.php:349
-#: /home/tim/code/KwaMoja/GLJournal.php:595
+#: /home/tim/code/KwaMoja/GLJournal.php:598
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
@@ -6916,7 +6938,7 @@ msgid "The SQL used to retrieve the bank account details was"
 msgstr "Pankkitilitietojen noutamiseen käytetty SQL oli"
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:183
-#: /home/tim/code/KwaMoja/GLJournal.php:519
+#: /home/tim/code/KwaMoja/GLJournal.php:521
 #: /home/tim/code/KwaMoja/Locations.php:431
 #: /home/tim/code/KwaMoja/Locations.php:700
 msgid "GL Account Code"
@@ -8270,6 +8292,7 @@ msgstr "SQL ei palauttanut mitään tilauksia, koska"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:480
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
+#: /home/tim/code/KwaMoja/GLBudgets.php:67
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
@@ -8582,7 +8605,7 @@ msgstr "Valuuttakursseja ei voitu päivittää"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8611,7 +8634,7 @@ msgid "Validation failed"
 msgstr "Vahvistus epäonnistui"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8919,7 +8942,7 @@ msgstr "Kun varastotapahtuma on tehty, pitäisikö KwaMojan luoda vaaditut pää
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:108
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:657
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:138
-#: /home/tim/code/KwaMoja/GLBudgets.php:247
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:247
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:28
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:229
 #: /home/tim/code/KwaMoja/GLTags.php:94
@@ -12921,7 +12944,7 @@ msgstr "Netto"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:208
-#: /home/tim/code/KwaMoja/GLJournal.php:607
+#: /home/tim/code/KwaMoja/GLJournal.php:610
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:203
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:287
@@ -13940,9 +13963,9 @@ msgstr "Laskutettu"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
 #: /home/tim/code/KwaMoja/GLAccountReport.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:207
-#: /home/tim/code/KwaMoja/GLJournal.php:577
-#: /home/tim/code/KwaMoja/GLJournal.php:606
-#: /home/tim/code/KwaMoja/GLJournal.php:661
+#: /home/tim/code/KwaMoja/GLJournal.php:579
+#: /home/tim/code/KwaMoja/GLJournal.php:609
+#: /home/tim/code/KwaMoja/GLJournal.php:664
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:80
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:80
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:257
@@ -15228,7 +15251,7 @@ msgstr "Laskutustietojen noutaminen epäonnistui"
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:126
 #: /home/tim/code/KwaMoja/GLJournal.php:205
-#: /home/tim/code/KwaMoja/GLJournal.php:604
+#: /home/tim/code/KwaMoja/GLJournal.php:607
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:42
 #: /home/tim/code/KwaMoja/Payments.php:1244
 #: /home/tim/code/KwaMoja/RegularPaymentsProcess.php:206
@@ -16906,8 +16929,8 @@ msgstr "Tag"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
 #: /home/tim/code/KwaMoja/GLJournal.php:221
-#: /home/tim/code/KwaMoja/GLJournal.php:540
-#: /home/tim/code/KwaMoja/GLJournal.php:626
+#: /home/tim/code/KwaMoja/GLJournal.php:542
+#: /home/tim/code/KwaMoja/GLJournal.php:629
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:123
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:301
 #: /home/tim/code/KwaMoja/MRPPlannedPurchaseOrders.php:349
@@ -17858,7 +17881,7 @@ msgstr "Päivittäinen myynti"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
 msgid "Sunday"
 msgstr "Sunnuntai"
 
@@ -17867,7 +17890,7 @@ msgstr "Sunnuntai"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
 msgid "Monday"
 msgstr "Maanantai"
 
@@ -17876,7 +17899,7 @@ msgstr "Maanantai"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
 msgid "Tuesday"
 msgstr "Tiistai"
 
@@ -17885,7 +17908,7 @@ msgstr "Tiistai"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
 msgid "Wednesday"
 msgstr "Keskiviikko"
 
@@ -17894,7 +17917,7 @@ msgstr "Keskiviikko"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
 msgid "Thursday"
 msgstr "Torstai"
 
@@ -17903,7 +17926,7 @@ msgstr "Torstai"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
 msgid "Friday"
 msgstr "Perjantai"
 
@@ -17912,7 +17935,7 @@ msgstr "Perjantai"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:167
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
 msgid "Saturday"
 msgstr "Lauantai"
 
@@ -21113,6 +21136,7 @@ msgstr "Kiinteän omaisuuden siirto onnistui"
 #: /home/tim/code/KwaMoja/OffersReceived.php:46
 #: /home/tim/code/KwaMoja/SelectAsset.php:50
 #: /home/tim/code/KwaMoja/SelectWorkOrder.php:131
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:17
 msgid "Selection Criteria"
 msgstr "Valintakriteeri"
 
@@ -21641,14 +21665,16 @@ msgstr "PK-tilikaavio"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:31
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:26
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:26
 #: /home/tim/code/KwaMoja/SalesGraph.php:15
 msgid "The selected period from is actually after the period to! Please re-select the reporting period"
 msgstr "Valittu ajanjakso on todella ajanjakson jälkeen! Valitse raportointikausi uudelleen"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:49
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:56
-#: /home/tim/code/KwaMoja/GLBudgets.php:49
-#: /home/tim/code/KwaMoja/GLJournal.php:508
+#: /home/tim/code/KwaMoja/GLBudgets.php:124
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:49
+#: /home/tim/code/KwaMoja/GLJournal.php:510
 #: /home/tim/code/KwaMoja/Payments.php:1170
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:308
 msgid "Select GL Account"
@@ -21729,11 +21755,12 @@ msgstr "Jos valittu tili on tavallisesti saldosaldo, valitse tämä näyttääks
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:32
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:178
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:178
 #: /home/tim/code/KwaMoja/SalesGraph.php:41
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:14
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:19
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:24
 msgid "Select Period From"
 msgstr "Valitse Aika alkaen"
@@ -21742,6 +21769,7 @@ msgstr "Valitse Aika alkaen"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:204
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:204
 #: /home/tim/code/KwaMoja/SalesGraph.php:70
@@ -21752,6 +21780,7 @@ msgstr "Valitse tämän raportin alkamisjakso"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:65
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:214
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:214
@@ -21764,6 +21793,7 @@ msgstr "Valitse Ajanjakso"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:228
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:228
 #: /home/tim/code/KwaMoja/SalesGraph.php:93
@@ -21814,7 +21844,7 @@ msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "Kaavioon syötetyille ehdoille ei ole PK-tilitietoja"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets.php:191
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:191
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21824,7 +21854,7 @@ msgid "Actual"
 msgstr "Todellinen"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets.php:192
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:192
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21884,9 +21914,9 @@ msgstr "Trans-numero"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
 #: /home/tim/code/KwaMoja/GLAccountReport.php:355
 #: /home/tim/code/KwaMoja/GLJournal.php:206
-#: /home/tim/code/KwaMoja/GLJournal.php:562
-#: /home/tim/code/KwaMoja/GLJournal.php:605
-#: /home/tim/code/KwaMoja/GLJournal.php:664
+#: /home/tim/code/KwaMoja/GLJournal.php:564
+#: /home/tim/code/KwaMoja/GLJournal.php:608
+#: /home/tim/code/KwaMoja/GLJournal.php:667
 msgid "Debit"
 msgstr "Veloittaa"
 
@@ -21896,7 +21926,7 @@ msgid "Total for period ending"
 msgstr "Yhteensä päättyneen ajanjakson ajalta"
 
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
-#: /home/tim/code/KwaMoja/GLBudgets.php:190
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:190
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:40
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
@@ -22545,89 +22575,209 @@ msgstr "Tämä vuosi"
 #: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:499
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:410
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:721
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:345
 #, php-format
 msgid "Check Totals"
 msgstr "Tarkista yhteensä"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:5
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:5
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:5
 msgid "Create GL Budgets"
 msgstr "Luo PK-budjetit"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:24
-msgid "Budget updated successfully"
-msgstr "Budjetti päivitetty onnistuneesti"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:29
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:15
+#: /home/tim/code/KwaMoja/GLBudgets.php:46
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:29
 msgid "Budgets"
 msgstr "Budjetit"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:36
-msgid "General ledger account selection"
-msgstr "Pääkirjan tilin valinta"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:22
+msgid "The end period cannot be before the start period"
+msgstr "Lopetusjakso ei voi olla ennen alkamisjaksoa"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:54
-msgid "No General ledger accounts have been set up yet"
-msgstr "Pääkirjanpitotilejä ei ole vielä määritetty"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:61
+msgid "The budget header information has been successfully saved"
+msgstr "Budjetin otsikkotiedot on tallennettu"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:54
-msgid "budgets cannot be allocated until the GL accounts are set up"
-msgstr "budjetteja ei voida jakaa ennen kuin yleiset tilit on perustettu"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:63
+msgid "There was a problem saving the budget header information"
+msgstr "Budjetin otsikkotietojen tallentamisessa oli ongelma"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:85
-msgid "Prev Account"
-msgstr "Edellinen tili"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:88
+msgid "Edit Budget Details"
+msgstr "Muokkaa budjetin tietoja"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:86
-msgid "Select Account"
-msgstr "Valitse Tili"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:87
-msgid "Next Account"
-msgstr "Seuraava tili"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:100
-msgid "Cannot update GL budgets"
-msgstr "PK-budjetteja ei voi päivittää"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:101
-msgid "The SQL that failed to update the GL budgets was"
-msgstr "SQL, joka ei päivittänyt PK-budjetteja, oli"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:177
-msgid "Budget Entry"
-msgstr "Budjettikohta"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:179
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
-msgid "Last Financial Year"
-msgstr "Viime tilikausi"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:180
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:98
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:99
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:180
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:577
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:652
 msgid "This Financial Year"
 msgstr "Tämä tilikausi"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:181
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:103
+msgid "Create New Budget"
+msgstr "Luo uusi budjetti"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:110
+msgid "Budget Owner"
+msgstr "Budjetin omistaja"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:123
+msgid "Name of budget"
+msgstr "Budjetin nimi"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:128
+msgid "Budget Description"
+msgstr "Budjetin kuvaus"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:136
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
+msgid "Start Period"
+msgstr "Aloitusjakso"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:152
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
+msgid "End Period"
+msgstr "Lopetusjakso"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:165
+msgid "Default Budget for reports"
+msgstr "Oletusbudjetti raporteille"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:181
+#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
+msgid "Update Details"
+msgstr "Päivitä tiedot"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:185
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
+msgid "Save Details"
+msgstr "Tallenna tiedot"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
+msgid "Owner"
+msgstr "Omistaja"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
+msgid "Start From Period"
+msgstr "Aloita ajanjaksolta"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
+msgid "End In Period"
+msgstr "Loppu jaksoon"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:209
+msgid "Is Primary?"
+msgstr "Onko ensisijainen?"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:5
+msgid "Enter GL Budget amounts"
+msgstr "Syötä yleisen budjetin summat"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:35
+msgid "The budget figures were update successfully"
+msgstr "Budjettiluvut päivitettiin onnistuneesti"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:37
+msgid "There was a problem updating the budget figures"
+msgstr "Budjettilukujen päivittämisessä oli ongelma"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:46
+msgid "Select Budget"
+msgstr "Valitse Budjetti"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:50
+msgid "Select a Budget"
+msgstr "Valitse budjetti"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:57
+msgid "Budget to enter amounts in"
+msgstr "Budjetti summien syöttämiseksi"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:78
+msgid "Enter Budget Amounts"
+msgstr "Syötä budjettisummat"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:82
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:36
+msgid "General ledger account selection"
+msgstr "Pääkirjan tilin valinta"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:134
+#: /home/tim/code/KwaMoja/GLBudgets.php:136
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:85
+msgid "Prev Account"
+msgstr "Edellinen tili"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:138
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:86
+msgid "Select Account"
+msgstr "Valitse Tili"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:140
+#: /home/tim/code/KwaMoja/GLBudgets.php:142
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:87
+msgid "Next Account"
+msgstr "Seuraava tili"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:158
+msgid "Budget values for account"
+msgstr "Tilin budjettiarvot"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:212
+msgid "Update Budget"
+msgstr "Päivitä budjetti"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:24
+msgid "Budget updated successfully"
+msgstr "Budjetti päivitetty onnistuneesti"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
+msgid "No General ledger accounts have been set up yet"
+msgstr "Pääkirjanpitotilejä ei ole vielä määritetty"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
+msgid "budgets cannot be allocated until the GL accounts are set up"
+msgstr "budjetteja ei voida jakaa ennen kuin yleiset tilit on perustettu"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:100
+msgid "Cannot update GL budgets"
+msgstr "PK-budjetteja ei voi päivittää"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:101
+msgid "The SQL that failed to update the GL budgets was"
+msgstr "SQL, joka ei päivittänyt PK-budjetteja, oli"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:177
+msgid "Budget Entry"
+msgstr "Budjettikohta"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:179
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
+msgid "Last Financial Year"
+msgstr "Viime tilikausi"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:181
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
 msgid "Next Financial Year"
 msgstr "Seuraava tilikausi"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:184
-#: /home/tim/code/KwaMoja/GLBudgets.php:185
-#: /home/tim/code/KwaMoja/GLBudgets.php:186
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:184
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:185
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:186
 msgid "Year ended"
 msgstr "Vuosi päättyi"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:234
-#: /home/tim/code/KwaMoja/GLBudgets.php:236
-#: /home/tim/code/KwaMoja/GLBudgets.php:238
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:234
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:236
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:238
 msgid "Annual Budget"
 msgstr "Vuosittainen budjetti"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:239
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:239
 msgid "Apportion Budget"
 msgstr "Jaettu budjetti"
 
@@ -22670,6 +22820,7 @@ msgstr "Rahavirtalaskelma"
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:503
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22682,6 +22833,7 @@ msgstr "Aika Todellinen"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:504
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -22992,8 +23144,8 @@ msgid "Journal Type"
 msgstr "Päiväkirjan tyyppi"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:101
-#: /home/tim/code/KwaMoja/GLJournal.php:490
-#: /home/tim/code/KwaMoja/GLJournal.php:493
+#: /home/tim/code/KwaMoja/GLJournal.php:492
+#: /home/tim/code/KwaMoja/GLJournal.php:495
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:47
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:726
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:730
@@ -23013,8 +23165,8 @@ msgid "Normal"
 msgstr "Normaali"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:103
-#: /home/tim/code/KwaMoja/GLJournal.php:489
-#: /home/tim/code/KwaMoja/GLJournal.php:492
+#: /home/tim/code/KwaMoja/GLJournal.php:491
+#: /home/tim/code/KwaMoja/GLJournal.php:494
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:49
 msgid "Reversing"
 msgstr "Peruutus"
@@ -23044,7 +23196,7 @@ msgid "Save journal as a template"
 msgstr "Tallenna päiväkirja mallina"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:197
-#: /home/tim/code/KwaMoja/GLJournal.php:600
+#: /home/tim/code/KwaMoja/GLJournal.php:603
 msgid "Journal Summary"
 msgstr "Lehden yhteenveto"
 
@@ -23053,8 +23205,8 @@ msgid "Template description"
 msgstr "Mallin kuvaus"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:204
-#: /home/tim/code/KwaMoja/GLJournal.php:538
-#: /home/tim/code/KwaMoja/GLJournal.php:603
+#: /home/tim/code/KwaMoja/GLJournal.php:540
+#: /home/tim/code/KwaMoja/GLJournal.php:606
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:294
 msgid "GL Tag"
 msgstr "PK-tunniste"
@@ -23064,7 +23216,7 @@ msgid "Save as template"
 msgstr "Tallenna malliksi"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:253
-#: /home/tim/code/KwaMoja/GLJournal.php:674
+#: /home/tim/code/KwaMoja/GLJournal.php:677
 msgid "Accept and Process Journal"
 msgstr "Hyväksy ja käsittele päiväkirja"
 
@@ -23125,19 +23277,19 @@ msgstr "Manuaalisesti syötettyä PK-koodia ei ole tietokannassa"
 msgid "You must select a GL account code"
 msgstr "Sinun on valittava PK-tilikoodi"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:474
+#: /home/tim/code/KwaMoja/GLJournal.php:476
 msgid "Journal Header Details"
 msgstr "Päiväkirjaotsikon tiedot"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:477
+#: /home/tim/code/KwaMoja/GLJournal.php:479
 msgid "Date to Process Journal"
 msgstr "Päiväkirjan käsittelypäivä"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:501
+#: /home/tim/code/KwaMoja/GLJournal.php:503
 msgid "Journal Line Entry"
 msgstr "Päiväkirjarivin merkintä"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:588
+#: /home/tim/code/KwaMoja/GLJournal.php:590
 #: /home/tim/code/KwaMoja/Payments.php:1183
 #: /home/tim/code/KwaMoja/Payments.php:1189
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:315
@@ -23145,19 +23297,19 @@ msgstr "Päiväkirjarivin merkintä"
 msgid "GL Narrative"
 msgstr "PK kertomus"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:658
+#: /home/tim/code/KwaMoja/GLJournal.php:661
 msgid "Required to balance"
 msgstr "Vaaditaan tasapainottamiseksi"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:675
+#: /home/tim/code/KwaMoja/GLJournal.php:678
 msgid "Save as a template"
 msgstr "Tallenna mallina"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:678
+#: /home/tim/code/KwaMoja/GLJournal.php:681
 msgid "The journal must balance ie debits equal to credits before it can be processed"
 msgstr "Päiväkirjan on oltava tasapainossa eli hyvityksiä vastaava veloitus, ennen kuin sitä voidaan käsitellä"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:681
+#: /home/tim/code/KwaMoja/GLJournal.php:684
 msgid "Load from a template"
 msgstr "Lataa mallista"
 
@@ -23579,19 +23731,25 @@ msgstr "Lähetetty"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:138
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Koesaldo"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:54
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:54
 msgid "Input criteria for inquiry"
 msgstr "Kyselyn syöttökriteerit"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
 msgid "Show Trial Balance"
 msgstr "Näytä kokeilusaldo"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
 msgid "Export to Spreadsheet"
 msgstr "Vie taulukkolaskentaohjelmaan"
 
@@ -23601,20 +23759,25 @@ msgstr "Tulosta kokeilutaseen virhe"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:485
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:490
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
 msgid "Trial Balance Report"
 msgstr "Kokeilutaseraportti"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Kokeilusaldo kuukaudelle "
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr " ja myös "
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:494
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
@@ -23622,6 +23785,7 @@ msgid " months to "
 msgstr " kuukautta "
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:501
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
@@ -23629,6 +23793,7 @@ msgid "Month Actual"
 msgstr "Kuukausi Todellinen"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:502
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Kuukauden budjetti"
@@ -26583,86 +26748,86 @@ msgstr "Pyydä bakteriologista testiä"
 msgid "Laboratory Maintenance"
 msgstr "Laboratorion ylläpito"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
-#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:4
+#: /home/tim/code/KwaMoja/sql/updates/221.php:5
 msgid "Billing Configuration"
 msgstr "Laskutusasetukset"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:9
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
 msgid "Hospital Configuration"
 msgstr "Sairaalan kokoonpano"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:49
 msgid "The billing configuration could not be updated because"
 msgstr "Laskutusasetuksia ei voitu päivittää, koska"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:57
 msgid "Billing configuration updated"
 msgstr "Laskutusasetukset päivitettiin"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:73
 msgid "Registration and Admissions"
 msgstr "Ilmoittautuminen ja pääsy"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:87
 msgid "Item to bill for patient registration"
 msgstr "Laskutettava erä potilaan rekisteröinnistä"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:89
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:115
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:141
 msgid "Do not Bill"
 msgstr "Älä lasku"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:113
 msgid "Item to bill for inpatient admissions"
 msgstr "Erä laskutettavaksi sairaalahoitoon"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:139
 msgid "Item to bill for outpatient admissions"
 msgstr "Laskutuserä avohoidon vastaanotosta"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:156
 msgid "Laboratory Billing"
 msgstr "Laboratoriolaskutus"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:159
 msgid "Payment must be made before Test"
 msgstr "Maksu on suoritettava ennen testiä"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:176
 msgid "If not insured"
 msgstr "Jos ei ole vakuutettu"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
 msgid "Always"
 msgstr "Aina"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
 #: /home/tim/code/KwaMoja/SystemParameters.php:592
 #: /home/tim/code/KwaMoja/SystemParameters.php:594
 msgid "Never"
 msgstr "Ei koskaan"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:183
 msgid "Bill for bacteriology tests"
 msgstr "Lasku bakteriologisista testeistä"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:202
 msgid "Bill for blood tests"
 msgstr "Lasku verikokeista"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:220
 msgid "Bill for medical tests"
 msgstr "Lasku lääketieteellisistä kokeista"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:236
 msgid "Bill for pathology tests"
 msgstr "Lasku patologiatesteistä"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:254
 msgid "Save Configuration"
 msgstr "Tallenna kokoonpano"
 
@@ -27545,10 +27710,6 @@ msgstr "Vakuutusyhtiö"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:643
 msgid "Employer Company"
 msgstr "Työnantajayritys"
-
-#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
-msgid "Update Details"
-msgstr "Päivitä tiedot"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:3
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
@@ -31562,10 +31723,6 @@ msgstr "Hormonireseptorit"
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:243
 msgid "Specials"
 msgstr "Tarjoukset"
-
-#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
-msgid "Save Details"
-msgstr "Tallenna tiedot"
 
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:387
 msgid "Return to Pathology Centre"
@@ -57257,14 +57414,6 @@ msgstr "Jakotietueiden kokonaismäärä"
 msgid "Debtors Control Integrity"
 msgstr "Velalliset hallitsevat rehellisyyttä"
 
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
-msgid "Start Period"
-msgstr "Aloitusjakso"
-
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
-msgid "End Period"
-msgstr "Lopetusjakso"
-
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:66
 msgid "Bal B/F in GL"
 msgstr "Bal B / F PK: ssä"
@@ -58590,16 +58739,16 @@ msgstr "Päivitetty myyntianalyysin kustannustiedot ajanjaksolta"
 msgid "Recalculation of GL Balances in Chart Details Table"
 msgstr "PK-saldojen uudelleenlaskenta kaaviotietotaulukossa"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:30
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:36
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:54
 msgid "Do the Recalculation"
 msgstr "Suorita uudelleenlaskenta"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:30
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:36
 msgid "Are you sure you wish to re-post all general ledger transactions since the selected period this can take some time?"
 msgstr "Haluatko varmasti postittaa kaikki pääkirjakirjasiirrot, koska valitulla ajanjaksolla tämä voi viedä jonkin aikaa?"
 
-#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:69
+#: /home/tim/code/KwaMoja/Z_RePostGLFromPeriod.php:78
 msgid "All general ledger postings have been reposted from period"
 msgstr "Kaikki pääkirjakirjoitukset on lähetetty uudelleen ajanjaksolta"
 
@@ -60272,7 +60421,7 @@ msgstr "FS-kuukausi"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:124
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepTax.php:126
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:107
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:114
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:245
 msgid "January"
 msgstr "Tammikuu"
@@ -60285,7 +60434,7 @@ msgstr "Tammikuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:125
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepTax.php:127
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:110
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:117
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:246
 msgid "February"
 msgstr "Helmikuu"
@@ -60298,7 +60447,7 @@ msgstr "Helmikuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:126
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepTax.php:128
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:113
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:120
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:247
 msgid "March"
 msgstr "Maaliskuu"
@@ -60311,7 +60460,7 @@ msgstr "Maaliskuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:127
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepTax.php:129
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:116
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:123
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:248
 msgid "April"
 msgstr "Huhtikuu"
@@ -60324,7 +60473,7 @@ msgstr "Huhtikuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:128
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepTax.php:130
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:119
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:126
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:249
 msgid "May"
 msgstr "Toukokuu"
@@ -60337,7 +60486,7 @@ msgstr "Toukokuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepTax.php:131
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:122
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:129
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:250
 msgid "June"
 msgstr "Kesäkuu"
@@ -60350,7 +60499,7 @@ msgstr "Kesäkuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepTax.php:132
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:125
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:132
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:251
 msgid "July"
 msgstr "Heinäkuu"
@@ -60363,7 +60512,7 @@ msgstr "Heinäkuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:136
 #: /home/tim/code/KwaMoja/prlRepTax.php:133
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:128
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:135
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:252
 msgid "August"
 msgstr "Elokuu"
@@ -60376,7 +60525,7 @@ msgstr "Elokuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:137
 #: /home/tim/code/KwaMoja/prlRepTax.php:134
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:131
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:138
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:253
 msgid "September"
 msgstr "Syyskuu"
@@ -60389,7 +60538,7 @@ msgstr "Syyskuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:138
 #: /home/tim/code/KwaMoja/prlRepTax.php:135
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:134
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:141
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:254
 msgid "October"
 msgstr "Lokakuu"
@@ -60402,7 +60551,7 @@ msgstr "Lokakuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:139
 #: /home/tim/code/KwaMoja/prlRepTax.php:136
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:137
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:144
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:255
 msgid "November"
 msgstr "Marraskuu"
@@ -60415,7 +60564,7 @@ msgstr "Marraskuu"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:140
 #: /home/tim/code/KwaMoja/prlRepTax.php:137
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:140
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:147
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:256
 msgid "December"
 msgstr "Joulukuu"
@@ -63663,8 +63812,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "Vanhentuneen kirjausketjuhistorian poistamisessa oli ongelma"
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1029
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1144
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1036
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1151
 msgid "An error occurred in retrieving the period number"
 msgstr "Ajanjaksonumeron noutamisessa tapahtui virhe"
 
@@ -67350,20 +67499,20 @@ msgstr "Etelä-Afrikan rand"
 msgid "Zambian kwacha"
 msgstr "Sambian kwacha"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:257
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:307
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:264
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:314
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr "Päivämäärä ei näytä olevan kelvollisessa muodossa. SQL-muodosta muunnettava päivämäärä oli:"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1017
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1024
 msgid "An error occurred in adding a new period number"
 msgstr "Uuden jaksonumeron lisäämisessä tapahtui virhe"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1077
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1084
 msgid "Could not insert first period"
 msgstr "Ensimmäistä pistettä ei voitu lisätä"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1078
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1085
 msgid "Could not insert second period"
 msgstr "Toisen jakson lisääminen epäonnistui"
 
@@ -72232,6 +72381,19 @@ msgstr "NoG.oxacil.resist.Staphyloc."
 msgid "Blood Laboratory Details"
 msgstr "Verilaboratorion tiedot"
 
+#: /home/tim/code/KwaMoja/sql/updates/222.php:3
+msgid "Create/Amend General Ledger Budgets"
+msgstr "Luo / muuta pääkirjabudjetteja"
+
+#: /home/tim/code/KwaMoja/sql/updates/222.php:4
+#: /home/tim/code/KwaMoja/sql/updates/42.php:211
+msgid "GL Budgets"
+msgstr "PK-budjetit"
+
+#: /home/tim/code/KwaMoja/sql/updates/222.php:5
+msgid "Create Budget Amounts"
+msgstr "Luo budjettisummat"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "Ostot"
@@ -72646,10 +72808,6 @@ msgstr "Tag-raportit"
 #: /home/tim/code/KwaMoja/sql/updates/42.php:208
 msgid "Tax Reports"
 msgstr "Veroraportit"
-
-#: /home/tim/code/KwaMoja/sql/updates/42.php:211
-msgid "GL Budgets"
-msgstr "PK-budjetit"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:216
 msgid "Add a new Asset"

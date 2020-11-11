@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: webERP 4.15\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-10-28 17:23+0000\n"
-"PO-Revision-Date: 2020-10-28 17:10+0000\n"
+"POT-Creation-Date: 2020-11-11 01:03+0000\n"
+"PO-Revision-Date: 2020-11-11 01:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: Korean <human@humansoft.kr>\n"
 "Language: ko_KR\n"
@@ -235,6 +235,8 @@ msgstr "인쇄"
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:124
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:63
 #: /home/tim/code/KwaMoja/Factors.php:289
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:90
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:340
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:354
 #: /home/tim/code/KwaMoja/SupplierGroups.php:279
@@ -308,7 +310,7 @@ msgstr "이 순위 그룹을 삭제 하시겠습니까?"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
 #: /home/tim/code/KwaMoja/GLAccounts.php:499
-#: /home/tim/code/KwaMoja/GLJournal.php:647
+#: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:162
@@ -587,7 +589,8 @@ msgstr "순위 방법이 데이터베이스에 성공적으로 저장되었습�
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
 #: /home/tim/code/KwaMoja/GLAccounts.php:498
-#: /home/tim/code/KwaMoja/GLJournal.php:646
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:228
+#: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:161
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:217
@@ -1310,13 +1313,16 @@ msgstr "상위 그룹 이름"
 #: /home/tim/code/KwaMoja/FormDesigner.php:95
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:164
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:173
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:219
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:196
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:214
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:230
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:246
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:617
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:620
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:844
@@ -1618,13 +1624,16 @@ msgstr "네"
 #: /home/tim/code/KwaMoja/FormDesigner.php:93
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:166
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:175
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:169
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:172
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:217
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:198
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:216
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:232
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:248
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:197
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:215
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:231
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:247
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:618
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:621
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:845
@@ -2237,6 +2246,7 @@ msgstr "연락처 기록이 삭제되었습니다"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:443
 #: /home/tim/code/KwaMoja/Customers.php:689
 #: /home/tim/code/KwaMoja/Customers.php:697
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
@@ -3001,10 +3011,11 @@ msgstr "일 이전"
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:242
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:327
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:336
-#: /home/tim/code/KwaMoja/GLBudgets.php:223
-#: /home/tim/code/KwaMoja/GLBudgets.php:226
-#: /home/tim/code/KwaMoja/GLBudgets.php:229
-#: /home/tim/code/KwaMoja/GLJournal.php:652
+#: /home/tim/code/KwaMoja/GLBudgets.php:205
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:223
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:226
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:229
+#: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:250
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:271
@@ -3017,7 +3028,7 @@ msgstr "일 이전"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:683
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:702
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:259
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:324
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:331
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3380,7 +3391,7 @@ msgstr "because 검색 할 수 없습니다"
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:483
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:51
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
@@ -4774,7 +4785,7 @@ msgstr "주소"
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
-#: /home/tim/code/KwaMoja/GLJournal.php:486
+#: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
 #: /home/tim/code/KwaMoja/KCMCApplicationTypes.php:125
@@ -6763,7 +6774,7 @@ msgstr "그러나 선택되지 않음"
 #: /home/tim/code/KwaMoja/FreightCosts.php:78
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:62
 #: /home/tim/code/KwaMoja/GLJournal.php:349
-#: /home/tim/code/KwaMoja/GLJournal.php:595
+#: /home/tim/code/KwaMoja/GLJournal.php:598
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:129
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:178
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:221
@@ -6929,7 +6940,7 @@ msgid "The SQL used to retrieve the bank account details was"
 msgstr "은행 계좌 정보를 검색하는 데 사용되는 SQL이었다"
 
 #: /home/tim/code/KwaMoja/BankAccounts.php:183
-#: /home/tim/code/KwaMoja/GLJournal.php:519
+#: /home/tim/code/KwaMoja/GLJournal.php:521
 #: /home/tim/code/KwaMoja/Locations.php:431
 #: /home/tim/code/KwaMoja/Locations.php:700
 msgid "GL Account Code"
@@ -8283,6 +8294,7 @@ msgstr "어떤 작품 주문은 SQL 때문에에 의해 반환되지 않았다"
 #: /home/tim/code/KwaMoja/CollectiveWorkOrderCost.php:480
 #: /home/tim/code/KwaMoja/DiscountCategories.php:102
 #: /home/tim/code/KwaMoja/DiscountCategories.php:285
+#: /home/tim/code/KwaMoja/GLBudgets.php:67
 #: /home/tim/code/KwaMoja/GLJournal.php:109
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:371
 #: /home/tim/code/KwaMoja/KCMCRequestBloodTest.php:72
@@ -8595,7 +8607,7 @@ msgstr "통화 요금을 갱신 할 수 없습니다"
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
 #: /home/tim/code/KwaMoja/Customers.php:210
 #: /home/tim/code/KwaMoja/Donors.php:100
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
@@ -8624,7 +8636,7 @@ msgid "Validation failed"
 msgstr "검증에 실패했습니다"
 
 #: /home/tim/code/KwaMoja/CompanyPreferences.php:183
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:65
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:64
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
@@ -8932,7 +8944,7 @@ msgstr "재고 거래가 완료되면 KwaMoja가 필요한 총계정 원장 항�
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:108
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:657
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:138
-#: /home/tim/code/KwaMoja/GLBudgets.php:247
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:247
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:28
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:229
 #: /home/tim/code/KwaMoja/GLTags.php:94
@@ -12934,7 +12946,7 @@ msgstr "그물"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:208
-#: /home/tim/code/KwaMoja/GLJournal.php:607
+#: /home/tim/code/KwaMoja/GLJournal.php:610
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:203
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:287
@@ -13953,9 +13965,9 @@ msgstr "청구"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
 #: /home/tim/code/KwaMoja/GLAccountReport.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:207
-#: /home/tim/code/KwaMoja/GLJournal.php:577
-#: /home/tim/code/KwaMoja/GLJournal.php:606
-#: /home/tim/code/KwaMoja/GLJournal.php:661
+#: /home/tim/code/KwaMoja/GLJournal.php:579
+#: /home/tim/code/KwaMoja/GLJournal.php:609
+#: /home/tim/code/KwaMoja/GLJournal.php:664
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:80
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:80
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:257
@@ -15241,7 +15253,7 @@ msgstr "청구 데이터를 검색하지 못했습니다."
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:126
 #: /home/tim/code/KwaMoja/GLJournal.php:205
-#: /home/tim/code/KwaMoja/GLJournal.php:604
+#: /home/tim/code/KwaMoja/GLJournal.php:607
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:42
 #: /home/tim/code/KwaMoja/Payments.php:1244
 #: /home/tim/code/KwaMoja/RegularPaymentsProcess.php:206
@@ -16919,8 +16931,8 @@ msgstr "꼬리표"
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
 #: /home/tim/code/KwaMoja/GLJournal.php:221
-#: /home/tim/code/KwaMoja/GLJournal.php:540
-#: /home/tim/code/KwaMoja/GLJournal.php:626
+#: /home/tim/code/KwaMoja/GLJournal.php:542
+#: /home/tim/code/KwaMoja/GLJournal.php:629
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:123
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:301
 #: /home/tim/code/KwaMoja/MRPPlannedPurchaseOrders.php:349
@@ -17871,7 +17883,7 @@ msgstr "일일 판매"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:710
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:149
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
 msgid "Sunday"
 msgstr "일요일"
 
@@ -17880,7 +17892,7 @@ msgstr "일요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:711
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:152
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
 msgid "Monday"
 msgstr "월요일"
 
@@ -17889,7 +17901,7 @@ msgstr "월요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:712
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:155
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
 msgid "Tuesday"
 msgstr "화요일"
 
@@ -17898,7 +17910,7 @@ msgstr "화요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:713
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:158
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
 msgid "Wednesday"
 msgstr "수요일"
 
@@ -17907,7 +17919,7 @@ msgstr "수요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:714
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:161
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
 msgid "Thursday"
 msgstr "목요일"
 
@@ -17916,7 +17928,7 @@ msgstr "목요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:715
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:164
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
 msgid "Friday"
 msgstr "금요일"
 
@@ -17925,7 +17937,7 @@ msgstr "금요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:167
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
 msgid "Saturday"
 msgstr "토요일"
 
@@ -21662,8 +21674,9 @@ msgstr "에서 선택한 기간에 기간 후에 실제로! 보고 기간을 다
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:49
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:56
-#: /home/tim/code/KwaMoja/GLBudgets.php:49
-#: /home/tim/code/KwaMoja/GLJournal.php:508
+#: /home/tim/code/KwaMoja/GLBudgets.php:124
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:49
+#: /home/tim/code/KwaMoja/GLJournal.php:510
 #: /home/tim/code/KwaMoja/Payments.php:1170
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:308
 msgid "Select GL Account"
@@ -21833,7 +21846,7 @@ msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "그래프에 입력 한 기준에 대한 GL 계정 데이터가 없습니다."
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets.php:191
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:191
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21843,7 +21856,7 @@ msgid "Actual"
 msgstr "실제"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets.php:192
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:192
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21903,9 +21916,9 @@ msgstr "트랜스 번호"
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
 #: /home/tim/code/KwaMoja/GLAccountReport.php:355
 #: /home/tim/code/KwaMoja/GLJournal.php:206
-#: /home/tim/code/KwaMoja/GLJournal.php:562
-#: /home/tim/code/KwaMoja/GLJournal.php:605
-#: /home/tim/code/KwaMoja/GLJournal.php:664
+#: /home/tim/code/KwaMoja/GLJournal.php:564
+#: /home/tim/code/KwaMoja/GLJournal.php:608
+#: /home/tim/code/KwaMoja/GLJournal.php:667
 msgid "Debit"
 msgstr "직불"
 
@@ -21915,7 +21928,7 @@ msgid "Total for period ending"
 msgstr "기말 합계"
 
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
-#: /home/tim/code/KwaMoja/GLBudgets.php:190
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:190
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:40
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
@@ -22564,90 +22577,209 @@ msgstr "올해"
 #: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:499
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:410
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:721
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:338
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:345
 #, php-format
 msgid "Check Totals"
 msgstr "합계를 확인"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:5
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:5
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:5
 msgid "Create GL Budgets"
 msgstr "GL 예산 만들기"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:24
-msgid "Budget updated successfully"
-msgstr "예산 성공적으로 업데이트"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:29
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:15
+#: /home/tim/code/KwaMoja/GLBudgets.php:46
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:29
 msgid "Budgets"
 msgstr "예산"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:36
-msgid "General ledger account selection"
-msgstr "총계정 원장 계정 선택"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:22
+msgid "The end period cannot be before the start period"
+msgstr "종료 기간은 시작 기간 이전 일 수 없습니다."
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:54
-msgid "No General ledger accounts have been set up yet"
-msgstr "어떤 총계정 원장 계정은 아직 설정되어 있지 않은"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:61
+msgid "The budget header information has been successfully saved"
+msgstr "예산 헤더 정보가 성공적으로 저장되었습니다."
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:54
-msgid "budgets cannot be allocated until the GL accounts are set up"
-msgstr "GL 계정이 설정 될 때까지 예산을 할당 할 수 없습니다"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:63
+msgid "There was a problem saving the budget header information"
+msgstr "예산 헤더 정보를 저장하는 중에 문제가 발생했습니다."
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:85
-msgid "Prev Account"
-msgstr "이전 계정"
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:88
+msgid "Edit Budget Details"
+msgstr "예산 세부 정보 수정"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:86
-msgid "Select Account"
-msgstr "계정 선택"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:87
-msgid "Next Account"
-msgstr "다음 계정"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:100
-msgid "Cannot update GL budgets"
-msgstr "GL 예산을 업데이트 할 수 없습니다"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:101
-msgid "The SQL that failed to update the GL budgets was"
-msgstr "GL 예산을 업데이트하지 못했습니다 SQL이었다"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:177
-msgid "Budget Entry"
-msgstr "예산 입력"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:179
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
-msgid "Last Financial Year"
-msgstr "지난 회계 년도"
-
-#: /home/tim/code/KwaMoja/GLBudgets.php:180
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:98
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:99
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:180
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:577
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:652
 msgid "This Financial Year"
 msgstr "이 회계 연도"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:181
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:103
+msgid "Create New Budget"
+msgstr "새 예산 만들기"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:110
+msgid "Budget Owner"
+msgstr "예산 소유자"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:123
+msgid "Name of budget"
+msgstr "예산 명"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:128
+msgid "Budget Description"
+msgstr "예산 설명"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:136
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
+msgid "Start Period"
+msgstr "시작 기간"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:152
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
+msgid "End Period"
+msgstr "종료 기간"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:165
+msgid "Default Budget for reports"
+msgstr "보고서의 기본 예산"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:181
+#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
+msgid "Update Details"
+msgstr "업데이트 정보"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:185
+#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
+msgid "Save Details"
+msgstr "세부 정보 저장"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
+msgid "Owner"
+msgstr "소유자"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
+msgid "Start From Period"
+msgstr "기간 시작"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
+msgid "End In Period"
+msgstr "기간 종료"
+
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:209
+msgid "Is Primary?"
+msgstr "기본입니까?"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:5
+msgid "Enter GL Budget amounts"
+msgstr "GL 예산 금액 입력"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:35
+msgid "The budget figures were update successfully"
+msgstr "예산 수치가 성공적으로 업데이트되었습니다."
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:37
+msgid "There was a problem updating the budget figures"
+msgstr "예산 수치를 업데이트하는 중에 문제가 발생했습니다."
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:46
+msgid "Select Budget"
+msgstr "예산 선택"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:50
+msgid "Select a Budget"
+msgstr "예산 선택"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:57
+msgid "Budget to enter amounts in"
+msgstr "금액을 입력 할 예산"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:78
+msgid "Enter Budget Amounts"
+msgstr "예산 금액 입력"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:82
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:36
+msgid "General ledger account selection"
+msgstr "총계정 원장 계정 선택"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:134
+#: /home/tim/code/KwaMoja/GLBudgets.php:136
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:85
+msgid "Prev Account"
+msgstr "이전 계정"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:138
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:86
+msgid "Select Account"
+msgstr "계정 선택"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:140
+#: /home/tim/code/KwaMoja/GLBudgets.php:142
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:87
+msgid "Next Account"
+msgstr "다음 계정"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:158
+msgid "Budget values for account"
+msgstr "계정 예산 값"
+
+#: /home/tim/code/KwaMoja/GLBudgets.php:212
+msgid "Update Budget"
+msgstr "예산 업데이트"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:24
+msgid "Budget updated successfully"
+msgstr "예산 성공적으로 업데이트"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
+msgid "No General ledger accounts have been set up yet"
+msgstr "어떤 총계정 원장 계정은 아직 설정되어 있지 않은"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
+msgid "budgets cannot be allocated until the GL accounts are set up"
+msgstr "GL 계정이 설정 될 때까지 예산을 할당 할 수 없습니다"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:100
+msgid "Cannot update GL budgets"
+msgstr "GL 예산을 업데이트 할 수 없습니다"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:101
+msgid "The SQL that failed to update the GL budgets was"
+msgstr "GL 예산을 업데이트하지 못했습니다 SQL이었다"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:177
+msgid "Budget Entry"
+msgstr "예산 입력"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:179
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
+msgid "Last Financial Year"
+msgstr "지난 회계 년도"
+
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:181
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
 msgid "Next Financial Year"
 msgstr "다음 회계 연도"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:184
-#: /home/tim/code/KwaMoja/GLBudgets.php:185
-#: /home/tim/code/KwaMoja/GLBudgets.php:186
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:184
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:185
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:186
 msgid "Year ended"
 msgstr "연도 종료"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:234
-#: /home/tim/code/KwaMoja/GLBudgets.php:236
-#: /home/tim/code/KwaMoja/GLBudgets.php:238
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:234
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:236
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:238
 msgid "Annual Budget"
 msgstr "연간 예산"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:239
+#: /home/tim/code/KwaMoja/GLBudgets_old.php:239
 msgid "Apportion Budget"
 msgstr "배분 예산"
 
@@ -23014,8 +23146,8 @@ msgid "Journal Type"
 msgstr "저널 유형"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:101
-#: /home/tim/code/KwaMoja/GLJournal.php:490
-#: /home/tim/code/KwaMoja/GLJournal.php:493
+#: /home/tim/code/KwaMoja/GLJournal.php:492
+#: /home/tim/code/KwaMoja/GLJournal.php:495
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:47
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:726
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:730
@@ -23035,8 +23167,8 @@ msgid "Normal"
 msgstr "표준"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:103
-#: /home/tim/code/KwaMoja/GLJournal.php:489
-#: /home/tim/code/KwaMoja/GLJournal.php:492
+#: /home/tim/code/KwaMoja/GLJournal.php:491
+#: /home/tim/code/KwaMoja/GLJournal.php:494
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:49
 msgid "Reversing"
 msgstr "반전"
@@ -23066,7 +23198,7 @@ msgid "Save journal as a template"
 msgstr "저널을 템플릿으로 저장"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:197
-#: /home/tim/code/KwaMoja/GLJournal.php:600
+#: /home/tim/code/KwaMoja/GLJournal.php:603
 msgid "Journal Summary"
 msgstr "저널 요약"
 
@@ -23075,8 +23207,8 @@ msgid "Template description"
 msgstr "템플릿 설명"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:204
-#: /home/tim/code/KwaMoja/GLJournal.php:538
-#: /home/tim/code/KwaMoja/GLJournal.php:603
+#: /home/tim/code/KwaMoja/GLJournal.php:540
+#: /home/tim/code/KwaMoja/GLJournal.php:606
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:294
 msgid "GL Tag"
 msgstr "GL 태그"
@@ -23086,7 +23218,7 @@ msgid "Save as template"
 msgstr "템플릿으로 저장"
 
 #: /home/tim/code/KwaMoja/GLJournal.php:253
-#: /home/tim/code/KwaMoja/GLJournal.php:674
+#: /home/tim/code/KwaMoja/GLJournal.php:677
 msgid "Accept and Process Journal"
 msgstr "동의 및 저널을 처리"
 
@@ -23147,19 +23279,19 @@ msgstr "수동 입력 GL 코드는 데이터베이스에 존재하지 않는다"
 msgid "You must select a GL account code"
 msgstr "당신은 GL 계정 코드를 선택해야합니다"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:474
+#: /home/tim/code/KwaMoja/GLJournal.php:476
 msgid "Journal Header Details"
 msgstr "저널 헤더 세부 사항"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:477
+#: /home/tim/code/KwaMoja/GLJournal.php:479
 msgid "Date to Process Journal"
 msgstr "저널을 처리 할 수​​ 날짜"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:501
+#: /home/tim/code/KwaMoja/GLJournal.php:503
 msgid "Journal Line Entry"
 msgstr "저널 라인 입력"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:588
+#: /home/tim/code/KwaMoja/GLJournal.php:590
 #: /home/tim/code/KwaMoja/Payments.php:1183
 #: /home/tim/code/KwaMoja/Payments.php:1189
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:315
@@ -23167,19 +23299,19 @@ msgstr "저널 라인 입력"
 msgid "GL Narrative"
 msgstr "GL 내러티브"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:658
+#: /home/tim/code/KwaMoja/GLJournal.php:661
 msgid "Required to balance"
 msgstr "균형 필요"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:675
+#: /home/tim/code/KwaMoja/GLJournal.php:678
 msgid "Save as a template"
 msgstr "템플릿으로 저장"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:678
+#: /home/tim/code/KwaMoja/GLJournal.php:681
 msgid "The journal must balance ie debits equal to credits before it can be processed"
 msgstr "이 처리되기 전에 저널은 학점과 동일 즉, 차변의 균형을 맞추어야한다"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:681
+#: /home/tim/code/KwaMoja/GLJournal.php:684
 msgid "Load from a template"
 msgstr "템플릿에서로드"
 
@@ -26618,86 +26750,86 @@ msgstr "세균학 테스트 요청"
 msgid "Laboratory Maintenance"
 msgstr "실험실 유지 관리"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:5
-#: /home/tim/code/KwaMoja/sql/updates/221.php:6
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:4
+#: /home/tim/code/KwaMoja/sql/updates/221.php:5
 msgid "Billing Configuration"
 msgstr "결제 구성"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:10
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:9
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:4
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:9
 msgid "Hospital Configuration"
 msgstr "병원 구성"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:49
 msgid "The billing configuration could not be updated because"
 msgstr "결제 구성을 업데이트 할 수 없습니다."
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:58
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:57
 msgid "Billing configuration updated"
 msgstr "결제 구성이 업데이트되었습니다."
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:74
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:73
 msgid "Registration and Admissions"
 msgstr "등록 및 입학"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:88
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:87
 msgid "Item to bill for patient registration"
 msgstr "환자 등록 청구 항목"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:90
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:116
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:142
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:89
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:115
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:141
 msgid "Do not Bill"
 msgstr "청구하지 마십시오"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:114
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:113
 msgid "Item to bill for inpatient admissions"
 msgstr "입원 입원 청구 항목"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:140
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:139
 msgid "Item to bill for outpatient admissions"
 msgstr "외래 입원 청구 항목"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:157
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:156
 msgid "Laboratory Billing"
 msgstr "실험실 청구"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:160
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:159
 msgid "Payment must be made before Test"
 msgstr "시험 전에 지불해야합니다."
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:176
 msgid "If not insured"
 msgstr "보험에 가입하지 않은 경우"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:177
 msgid "Always"
 msgstr "항상"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:179
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
 #: /home/tim/code/KwaMoja/SystemParameters.php:592
 #: /home/tim/code/KwaMoja/SystemParameters.php:594
 msgid "Never"
 msgstr "어머 놀랐다"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:184
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:183
 msgid "Bill for bacteriology tests"
 msgstr "세균 검사에 대한 법안"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:203
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:202
 msgid "Bill for blood tests"
 msgstr "혈액 검사 청구서"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:221
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:220
 msgid "Bill for medical tests"
 msgstr "의료 검사 청구서"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:237
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:236
 msgid "Bill for pathology tests"
 msgstr "병리 검사 청구서"
 
-#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:255
+#: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:254
 msgid "Save Configuration"
 msgstr "구성 저장"
 
@@ -27580,10 +27712,6 @@ msgstr "보험 회사"
 #: /home/tim/code/KwaMoja/KCMCRegister.php:643
 msgid "Employer Company"
 msgstr "고용주 회사"
-
-#: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
-msgid "Update Details"
-msgstr "업데이트 정보"
 
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:3
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
@@ -31597,10 +31725,6 @@ msgstr "호르몬 수용체"
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:243
 msgid "Specials"
 msgstr "스페셜"
-
-#: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
-msgid "Save Details"
-msgstr "세부 정보 저장"
 
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:387
 msgid "Return to Pathology Centre"
@@ -57292,14 +57416,6 @@ msgstr "할당 레코드의 총"
 msgid "Debtors Control Integrity"
 msgstr "채무자 제어 무결성"
 
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
-msgid "Start Period"
-msgstr "시작 기간"
-
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
-msgid "End Period"
-msgstr "종료 기간"
-
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:66
 msgid "Bal B/F in GL"
 msgstr "벨 B GL에서 / F"
@@ -60307,7 +60423,7 @@ msgstr "FS 월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:124
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepTax.php:126
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:107
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:114
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:245
 msgid "January"
 msgstr "1월"
@@ -60320,7 +60436,7 @@ msgstr "1월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:125
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepTax.php:127
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:110
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:117
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:246
 msgid "February"
 msgstr "2월"
@@ -60333,7 +60449,7 @@ msgstr "2월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:126
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepTax.php:128
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:113
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:120
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:247
 msgid "March"
 msgstr "행진"
@@ -60346,7 +60462,7 @@ msgstr "행진"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:127
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepTax.php:129
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:116
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:123
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:248
 msgid "April"
 msgstr "4월"
@@ -60359,7 +60475,7 @@ msgstr "4월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:128
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepTax.php:130
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:119
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:126
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:249
 msgid "May"
 msgstr "할 수있다"
@@ -60372,7 +60488,7 @@ msgstr "할 수있다"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepTax.php:131
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:122
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:129
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:250
 msgid "June"
 msgstr "유월"
@@ -60385,7 +60501,7 @@ msgstr "유월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepTax.php:132
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:125
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:132
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:251
 msgid "July"
 msgstr "7월"
@@ -60398,7 +60514,7 @@ msgstr "7월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:136
 #: /home/tim/code/KwaMoja/prlRepTax.php:133
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:128
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:135
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:252
 msgid "August"
 msgstr "위엄있는"
@@ -60411,7 +60527,7 @@ msgstr "위엄있는"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:137
 #: /home/tim/code/KwaMoja/prlRepTax.php:134
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:131
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:138
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:253
 msgid "September"
 msgstr "9월"
@@ -60424,7 +60540,7 @@ msgstr "9월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:138
 #: /home/tim/code/KwaMoja/prlRepTax.php:135
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:134
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:141
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:254
 msgid "October"
 msgstr "10월"
@@ -60437,7 +60553,7 @@ msgstr "10월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:139
 #: /home/tim/code/KwaMoja/prlRepTax.php:136
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:137
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:144
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:255
 msgid "November"
 msgstr "11월"
@@ -60450,7 +60566,7 @@ msgstr "11월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:140
 #: /home/tim/code/KwaMoja/prlRepTax.php:137
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:140
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:147
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:256
 msgid "December"
 msgstr "12월"
@@ -63698,8 +63814,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "만료 된 감사 추적 기록을 삭제하는 문제가 발생했습니다"
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1029
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1144
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1036
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1151
 msgid "An error occurred in retrieving the period number"
 msgstr "오류가 기간 번호를 검색 발생"
 
@@ -67385,20 +67501,20 @@ msgstr "남아프리카 공화국 랜드"
 msgid "Zambian kwacha"
 msgstr "잠비아 크와 차"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:257
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:307
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:264
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:314
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr "날짜가 유효한 형식이 아닙니다. 된 날짜는 SQL 형식에서 변환되는 :"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1017
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1024
 msgid "An error occurred in adding a new period number"
 msgstr "오류가 새로운 기간 번호를 추가 발생"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1077
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1084
 msgid "Could not insert first period"
 msgstr "첫 번째 기간을 삽입 할 수 없습니다"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1078
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1085
 msgid "Could not insert second period"
 msgstr "두 번째 기간을 삽입 할 수 없습니다"
 
@@ -72267,6 +72383,19 @@ msgstr "NoG.oxacil.resist.Staphyloc."
 msgid "Blood Laboratory Details"
 msgstr "혈액 실험실 세부 정보"
 
+#: /home/tim/code/KwaMoja/sql/updates/222.php:3
+msgid "Create/Amend General Ledger Budgets"
+msgstr "General Ledger 예산 생성 / 수정"
+
+#: /home/tim/code/KwaMoja/sql/updates/222.php:4
+#: /home/tim/code/KwaMoja/sql/updates/42.php:211
+msgid "GL Budgets"
+msgstr "GL 예산"
+
+#: /home/tim/code/KwaMoja/sql/updates/222.php:5
+msgid "Create Budget Amounts"
+msgstr "예산 금액 생성"
+
 #: /home/tim/code/KwaMoja/sql/updates/42.php:32
 msgid "Purchases"
 msgstr "구매"
@@ -72681,10 +72810,6 @@ msgstr "태그 보고서"
 #: /home/tim/code/KwaMoja/sql/updates/42.php:208
 msgid "Tax Reports"
 msgstr "세금 보고서"
-
-#: /home/tim/code/KwaMoja/sql/updates/42.php:211
-msgid "GL Budgets"
-msgstr "GL 예산"
 
 #: /home/tim/code/KwaMoja/sql/updates/42.php:216
 msgid "Add a new Asset"
