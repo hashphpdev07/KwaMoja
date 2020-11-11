@@ -101,6 +101,13 @@ function MonthAndYearFromSQLDate($DateEntry) {
 
 }
 
+function MonthAndYearFromPeriodNo($PeriodNo) {
+	$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
+	$PeriodResult = DB_query($PeriodSQL);
+	$MyPeriodRow = DB_fetch_array($PeriodResult);
+	return MonthAndYearFromSQLDate($MyPeriodRow['lastdate_in_period']);
+}
+
 function GetMonthText($MonthNumber) {
 	switch ($MonthNumber) {
 		case 1:
