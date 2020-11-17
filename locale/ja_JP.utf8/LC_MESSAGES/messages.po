@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-11 00:59+0000\n"
-"PO-Revision-Date: 2020-11-11 00:11+0000\n"
+"POT-Creation-Date: 2020-11-17 00:41+0000\n"
+"PO-Revision-Date: 2020-11-17 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -168,21 +168,22 @@ msgstr "ABCランキンググループのリスト"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:830
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:448
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:160
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:448
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:698
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:211
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:698
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:495
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:190
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:186
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -234,8 +235,8 @@ msgstr "印刷"
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:124
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:63
 #: /home/tim/code/KwaMoja/Factors.php:289
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:90
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:89
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:203
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:340
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:354
 #: /home/tim/code/KwaMoja/SupplierGroups.php:279
@@ -588,7 +589,7 @@ msgstr "ランキング方法が正常にデータベースに保存されまし
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
 #: /home/tim/code/KwaMoja/GLAccounts.php:498
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:228
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:161
@@ -1250,9 +1251,10 @@ msgstr "TBにおける配列"
 #: /home/tim/code/KwaMoja/AccountGroups.php:332
 #: /home/tim/code/KwaMoja/AccountGroups.php:517
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:15
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:166
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:15
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:165
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:166
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:21
 msgid "Profit and Loss"
 msgstr "利益と損失"
@@ -1312,9 +1314,9 @@ msgstr "親グループ名"
 #: /home/tim/code/KwaMoja/FormDesigner.php:95
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:164
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:173
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:219
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:167
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:170
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:218
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
@@ -1499,32 +1501,33 @@ msgstr "親グループ名"
 #: /home/tim/code/KwaMoja/Stocks.php:1432
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:86
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:594
-#: /home/tim/code/KwaMoja/SystemParameters.php:534
-#: /home/tim/code/KwaMoja/SystemParameters.php:536
-#: /home/tim/code/KwaMoja/SystemParameters.php:566
-#: /home/tim/code/KwaMoja/SystemParameters.php:757
-#: /home/tim/code/KwaMoja/SystemParameters.php:777
-#: /home/tim/code/KwaMoja/SystemParameters.php:787
-#: /home/tim/code/KwaMoja/SystemParameters.php:803
-#: /home/tim/code/KwaMoja/SystemParameters.php:861
-#: /home/tim/code/KwaMoja/SystemParameters.php:907
-#: /home/tim/code/KwaMoja/SystemParameters.php:924
-#: /home/tim/code/KwaMoja/SystemParameters.php:934
-#: /home/tim/code/KwaMoja/SystemParameters.php:958
-#: /home/tim/code/KwaMoja/SystemParameters.php:1004
-#: /home/tim/code/KwaMoja/SystemParameters.php:1017
-#: /home/tim/code/KwaMoja/SystemParameters.php:1019
-#: /home/tim/code/KwaMoja/SystemParameters.php:1119
-#: /home/tim/code/KwaMoja/SystemParameters.php:1121
-#: /home/tim/code/KwaMoja/SystemParameters.php:1148
-#: /home/tim/code/KwaMoja/SystemParameters.php:1193
-#: /home/tim/code/KwaMoja/SystemParameters.php:1231
-#: /home/tim/code/KwaMoja/SystemParameters.php:1233
-#: /home/tim/code/KwaMoja/SystemParameters.php:1269
-#: /home/tim/code/KwaMoja/SystemParameters.php:1281
-#: /home/tim/code/KwaMoja/SystemParameters.php:1283
-#: /home/tim/code/KwaMoja/SystemParameters.php:1295
+#: /home/tim/code/KwaMoja/SystemParameters.php:540
+#: /home/tim/code/KwaMoja/SystemParameters.php:542
+#: /home/tim/code/KwaMoja/SystemParameters.php:572
+#: /home/tim/code/KwaMoja/SystemParameters.php:763
+#: /home/tim/code/KwaMoja/SystemParameters.php:783
+#: /home/tim/code/KwaMoja/SystemParameters.php:793
+#: /home/tim/code/KwaMoja/SystemParameters.php:809
+#: /home/tim/code/KwaMoja/SystemParameters.php:867
+#: /home/tim/code/KwaMoja/SystemParameters.php:913
+#: /home/tim/code/KwaMoja/SystemParameters.php:930
+#: /home/tim/code/KwaMoja/SystemParameters.php:940
+#: /home/tim/code/KwaMoja/SystemParameters.php:964
+#: /home/tim/code/KwaMoja/SystemParameters.php:1010
+#: /home/tim/code/KwaMoja/SystemParameters.php:1023
+#: /home/tim/code/KwaMoja/SystemParameters.php:1025
+#: /home/tim/code/KwaMoja/SystemParameters.php:1125
+#: /home/tim/code/KwaMoja/SystemParameters.php:1127
+#: /home/tim/code/KwaMoja/SystemParameters.php:1154
+#: /home/tim/code/KwaMoja/SystemParameters.php:1199
+#: /home/tim/code/KwaMoja/SystemParameters.php:1209
+#: /home/tim/code/KwaMoja/SystemParameters.php:1247
+#: /home/tim/code/KwaMoja/SystemParameters.php:1249
+#: /home/tim/code/KwaMoja/SystemParameters.php:1285
 #: /home/tim/code/KwaMoja/SystemParameters.php:1297
+#: /home/tim/code/KwaMoja/SystemParameters.php:1299
+#: /home/tim/code/KwaMoja/SystemParameters.php:1311
+#: /home/tim/code/KwaMoja/SystemParameters.php:1313
 #: /home/tim/code/KwaMoja/TaxGroups.php:316
 #: /home/tim/code/KwaMoja/TaxGroups.php:319
 #: /home/tim/code/KwaMoja/TaxGroups.php:377
@@ -1623,9 +1626,9 @@ msgstr "はい"
 #: /home/tim/code/KwaMoja/FormDesigner.php:93
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:166
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:175
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:169
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:172
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:217
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:216
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
@@ -1808,32 +1811,33 @@ msgstr "はい"
 #: /home/tim/code/KwaMoja/Stocks.php:1427
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:88
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:597
-#: /home/tim/code/KwaMoja/SystemParameters.php:533
-#: /home/tim/code/KwaMoja/SystemParameters.php:537
-#: /home/tim/code/KwaMoja/SystemParameters.php:567
-#: /home/tim/code/KwaMoja/SystemParameters.php:758
-#: /home/tim/code/KwaMoja/SystemParameters.php:778
-#: /home/tim/code/KwaMoja/SystemParameters.php:788
-#: /home/tim/code/KwaMoja/SystemParameters.php:804
-#: /home/tim/code/KwaMoja/SystemParameters.php:862
-#: /home/tim/code/KwaMoja/SystemParameters.php:908
-#: /home/tim/code/KwaMoja/SystemParameters.php:925
-#: /home/tim/code/KwaMoja/SystemParameters.php:935
-#: /home/tim/code/KwaMoja/SystemParameters.php:959
-#: /home/tim/code/KwaMoja/SystemParameters.php:1005
-#: /home/tim/code/KwaMoja/SystemParameters.php:1016
-#: /home/tim/code/KwaMoja/SystemParameters.php:1020
-#: /home/tim/code/KwaMoja/SystemParameters.php:1118
-#: /home/tim/code/KwaMoja/SystemParameters.php:1122
-#: /home/tim/code/KwaMoja/SystemParameters.php:1149
-#: /home/tim/code/KwaMoja/SystemParameters.php:1194
-#: /home/tim/code/KwaMoja/SystemParameters.php:1230
-#: /home/tim/code/KwaMoja/SystemParameters.php:1234
-#: /home/tim/code/KwaMoja/SystemParameters.php:1270
-#: /home/tim/code/KwaMoja/SystemParameters.php:1280
-#: /home/tim/code/KwaMoja/SystemParameters.php:1284
-#: /home/tim/code/KwaMoja/SystemParameters.php:1294
-#: /home/tim/code/KwaMoja/SystemParameters.php:1298
+#: /home/tim/code/KwaMoja/SystemParameters.php:539
+#: /home/tim/code/KwaMoja/SystemParameters.php:543
+#: /home/tim/code/KwaMoja/SystemParameters.php:573
+#: /home/tim/code/KwaMoja/SystemParameters.php:764
+#: /home/tim/code/KwaMoja/SystemParameters.php:784
+#: /home/tim/code/KwaMoja/SystemParameters.php:794
+#: /home/tim/code/KwaMoja/SystemParameters.php:810
+#: /home/tim/code/KwaMoja/SystemParameters.php:868
+#: /home/tim/code/KwaMoja/SystemParameters.php:914
+#: /home/tim/code/KwaMoja/SystemParameters.php:931
+#: /home/tim/code/KwaMoja/SystemParameters.php:941
+#: /home/tim/code/KwaMoja/SystemParameters.php:965
+#: /home/tim/code/KwaMoja/SystemParameters.php:1011
+#: /home/tim/code/KwaMoja/SystemParameters.php:1022
+#: /home/tim/code/KwaMoja/SystemParameters.php:1026
+#: /home/tim/code/KwaMoja/SystemParameters.php:1124
+#: /home/tim/code/KwaMoja/SystemParameters.php:1128
+#: /home/tim/code/KwaMoja/SystemParameters.php:1155
+#: /home/tim/code/KwaMoja/SystemParameters.php:1200
+#: /home/tim/code/KwaMoja/SystemParameters.php:1210
+#: /home/tim/code/KwaMoja/SystemParameters.php:1246
+#: /home/tim/code/KwaMoja/SystemParameters.php:1250
+#: /home/tim/code/KwaMoja/SystemParameters.php:1286
+#: /home/tim/code/KwaMoja/SystemParameters.php:1296
+#: /home/tim/code/KwaMoja/SystemParameters.php:1300
+#: /home/tim/code/KwaMoja/SystemParameters.php:1310
+#: /home/tim/code/KwaMoja/SystemParameters.php:1314
 #: /home/tim/code/KwaMoja/TaxGroups.php:317
 #: /home/tim/code/KwaMoja/TaxGroups.php:320
 #: /home/tim/code/KwaMoja/TaxGroups.php:379
@@ -2245,7 +2249,7 @@ msgstr "連絡先レコードが削除されました"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:443
 #: /home/tim/code/KwaMoja/Customers.php:689
 #: /home/tim/code/KwaMoja/Customers.php:697
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
@@ -2525,7 +2529,7 @@ msgstr "顧客の注意事項"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:252
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:107
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:161
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:354
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:89
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
@@ -3006,28 +3010,17 @@ msgstr "古い日"
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:91
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:882
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:938
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:230
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:242
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:327
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:336
-#: /home/tim/code/KwaMoja/GLBudgets.php:205
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:223
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:226
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:229
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:230
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:242
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:327
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:336
+#: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:250
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:271
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:293
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:391
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:544
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:578
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:668
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:683
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:702
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:259
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:331
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:342
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:400
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3072,7 +3065,6 @@ msgstr "古い日"
 #: /home/tim/code/KwaMoja/includes/PDFQuotationPageHeader.php:111
 #: /home/tim/code/KwaMoja/includes/PDFQuotationPortraitPageHeader.php:101
 #: /home/tim/code/KwaMoja/includes/PO_PDFOrderPageHeader.php:77
-#, php-format
 msgid "Total"
 msgstr "合計"
 
@@ -3099,11 +3091,10 @@ msgstr "高齢者の顧客口座分析"
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:99
@@ -3191,15 +3182,13 @@ msgstr "SQLによって顧客の詳細を取得できませんでした。なぜ
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:144
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:191
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:363
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:235
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:144
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:191
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:363
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:223
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:235
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:193
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:207
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:102
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:185
@@ -3344,7 +3333,7 @@ msgstr "顧客に対する未処理取引の詳細"
 #: /home/tim/code/KwaMoja/AgedDebtors.php:379
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:205
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
 #: /home/tim/code/KwaMoja/GLAccountReport.php:107
 #: /home/tim/code/KwaMoja/PO_Items.php:77
 #: /home/tim/code/KwaMoja/PO_Items.php:102
@@ -3387,9 +3376,8 @@ msgstr "取得できませんでした。"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:483
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
@@ -3437,7 +3425,7 @@ msgstr "取得できませんでした。"
 #: /home/tim/code/KwaMoja/StockTransfers.php:277
 #: /home/tim/code/KwaMoja/StockTransfers.php:445
 #: /home/tim/code/KwaMoja/StockUsage.php:140
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:62
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:103
 #: /home/tim/code/KwaMoja/Stocks.php:432 /home/tim/code/KwaMoja/Stocks.php:443
 #: /home/tim/code/KwaMoja/Stocks.php:704 /home/tim/code/KwaMoja/Stocks.php:717
 #: /home/tim/code/KwaMoja/SuppPaymentRun.php:105
@@ -3466,7 +3454,7 @@ msgstr "取得できませんでした。"
 #: /home/tim/code/KwaMoja/Z_DeleteInvoice.php:99
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:81
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:92
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:80
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:99
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:63
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:58
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:38
@@ -3590,8 +3578,8 @@ msgstr "概要レポートを表示するか、レポートにトランザクシ
 #: /home/tim/code/KwaMoja/AgedDebtors.php:548
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:125
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:142
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3734,7 +3722,8 @@ msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "包括利益計算書の水平分析"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:61
@@ -3742,7 +3731,8 @@ msgid "The selected period from is actually after the period to"
 msgstr "選択された期間は、実際には"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 msgid "Please reselect the reporting period"
@@ -3806,7 +3796,8 @@ msgstr "レポートの最後の期間を選択します"
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:128
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:129
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:128
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
@@ -3884,7 +3875,8 @@ msgstr "または"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:142
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:131
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:131
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
@@ -3899,7 +3891,8 @@ msgstr "期間を選択"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:144
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:134
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
@@ -3927,8 +3920,9 @@ msgstr "集計を選択すると、勘定グループレベルの合計に表示
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:55
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:139
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:85
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:162
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:139
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:351
@@ -3941,8 +3935,9 @@ msgstr "概要"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:163
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:97
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:86
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:56
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:86
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:140
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:100
 msgid "All Accounts"
@@ -3957,21 +3952,23 @@ msgstr "ゼロ残高を含むすべての勘定を表示する"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:171
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:104
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:94
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:62
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:146
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:94
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:170
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:146
 msgid "Check this box to display all accounts including those accounts with no balance"
 msgstr "バランスの取れていないアカウントを含むすべてのアカウントを表示するには、このチェックボックスをオンにします"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:176
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:109
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:99
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:151
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:99
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:151
 msgid "Show on Screen (HTML)"
 msgstr "画面に表示する（HTML）"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3980,8 +3977,9 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "期間は12ヶ月まで指定できます"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3990,8 +3988,9 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "システムは自動的に前年と同じ期間の比較を表示します"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4000,8 +3999,9 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "12ヶ月以上の期間が指定されている場合、これを行うことはできません"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4011,7 +4011,8 @@ msgstr "代替期間を選択してください"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -4027,7 +4028,8 @@ msgid "For"
 msgstr "ために"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4062,14 +4064,16 @@ msgstr "すべての金額は"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:81
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
 #: /home/tim/code/KwaMoja/GLAccounts.php:296
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:455
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:455
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:499
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:190
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4089,13 +4093,15 @@ msgstr "アカウント"
 #: /home/tim/code/KwaMoja/GLAccounts.php:349
 #: /home/tim/code/KwaMoja/GLAccounts.php:366
 #: /home/tim/code/KwaMoja/GLAccounts.php:479
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:456
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:216
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:456
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:500
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:191
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4139,15 +4145,13 @@ msgstr "相対的な変化の兆候：正の数値は、その口座の金額の
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:190
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:441
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:190
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:441
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:222
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:222
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:192
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:483
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 msgid "No general ledger accounts were returned by the SQL because"
@@ -4157,14 +4161,16 @@ msgstr "SQLによって総勘定元帳勘定が返されなかったため、"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:273
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:306
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:487
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:520
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:754
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:799
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1107
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1150
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:336
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:373
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:273
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:306
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:487
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:520
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:754
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:799
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1107
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1150
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4187,10 +4193,11 @@ msgstr "合計"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:579
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:901
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1249
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:455
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:369
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:579
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:901
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1249
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -4223,11 +4230,9 @@ msgstr "純利益"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1364
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1364
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:428
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:729
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
@@ -4250,7 +4255,7 @@ msgstr "財政状態計算書の水平分析の印刷"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:69
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:54
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:30
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:54
 msgid "Select the balance date"
 msgstr "残高日付を選択してください"
 
@@ -4269,14 +4274,15 @@ msgid "Absolute change signs: a positive number indicates a source of funds; a n
 msgstr "絶対的な変化の兆候：正の数は資金源を示します。 負の数は資金の適用を示します。"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:142
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:406
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:142
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:406
 msgid "The accumulated profits brought forward could not be calculated by the SQL because"
 msgstr "累積利益はSQLによって計算できませんでした。"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:355
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:703
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:473
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:355
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:703
 msgid "Check Total"
 msgstr "合計を確認する"
 
@@ -4664,11 +4670,11 @@ msgstr "ユーザーID"
 #: /home/tim/code/KwaMoja/SupplierTenders.php:386
 #: /home/tim/code/KwaMoja/SupplierTenders.php:388
 #: /home/tim/code/KwaMoja/SupplierTransInquiry.php:25
-#: /home/tim/code/KwaMoja/SystemParameters.php:492
 #: /home/tim/code/KwaMoja/SystemParameters.php:498
 #: /home/tim/code/KwaMoja/SystemParameters.php:504
 #: /home/tim/code/KwaMoja/SystemParameters.php:510
 #: /home/tim/code/KwaMoja/SystemParameters.php:516
+#: /home/tim/code/KwaMoja/SystemParameters.php:522
 #: /home/tim/code/KwaMoja/TopItems.php:49
 #: /home/tim/code/KwaMoja/TopItems.php:70
 #: /home/tim/code/KwaMoja/TopItems.php:72
@@ -4782,7 +4788,7 @@ msgstr "住所"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:28
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:105
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
@@ -7401,7 +7407,8 @@ msgid "Entry is expected in the format"
 msgstr "エントリはフォーマットで期待されます"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
 msgid "after"
 msgstr "後"
 
@@ -7497,7 +7504,7 @@ msgstr "量"
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:217
 #: /home/tim/code/KwaMoja/Shipt_Select.php:223
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:254
-#: /home/tim/code/KwaMoja/SystemParameters.php:831
+#: /home/tim/code/KwaMoja/SystemParameters.php:837
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:167
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:173
 msgid "Outstanding"
@@ -7701,7 +7708,7 @@ msgstr "数"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:225
 #: /home/tim/code/KwaMoja/BankReconciliation.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:183
 msgid "Cheque"
 msgstr "チェック"
@@ -8611,7 +8618,7 @@ msgstr "通貨レートを更新できませんでした"
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
-#: /home/tim/code/KwaMoja/SystemParameters.php:415
+#: /home/tim/code/KwaMoja/SystemParameters.php:421
 #: /home/tim/code/KwaMoja/prlALD.php:109 /home/tim/code/KwaMoja/prlBP.php:80
 #: /home/tim/code/KwaMoja/prlBankDetails.php:101
 #: /home/tim/code/KwaMoja/prlCostCenter.php:75
@@ -8639,7 +8646,7 @@ msgstr "検証に失敗しました"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
-#: /home/tim/code/KwaMoja/SystemParameters.php:415
+#: /home/tim/code/KwaMoja/SystemParameters.php:421
 #: /home/tim/code/KwaMoja/prlALD.php:109 /home/tim/code/KwaMoja/prlBP.php:80
 #: /home/tim/code/KwaMoja/prlBankDetails.php:101
 #: /home/tim/code/KwaMoja/prlCostCenter.php:75
@@ -8943,7 +8950,6 @@ msgstr "在庫取引が完了したら、KwaMojaは必要な総勘定元帳エ�
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:108
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:657
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:138
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:247
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:28
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:229
 #: /home/tim/code/KwaMoja/GLTags.php:94
@@ -8980,7 +8986,7 @@ msgstr "在庫取引が完了したら、KwaMojaは必要な総勘定元帳エ�
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:236
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:97
 #: /home/tim/code/KwaMoja/Stocks.php:1630
-#: /home/tim/code/KwaMoja/SystemParameters.php:1379
+#: /home/tim/code/KwaMoja/SystemParameters.php:1395
 #: /home/tim/code/KwaMoja/TaxAuthorityRates.php:83
 #: /home/tim/code/KwaMoja/UserGLAccounts.php:144
 #: /home/tim/code/KwaMoja/UserLocations.php:182
@@ -12769,8 +12775,8 @@ msgstr "顧客コードに対して"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:143
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:210
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:229
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:277
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
 #: /home/tim/code/KwaMoja/GLAccountReport.php:128
 msgid "could not be retrieved"
 msgstr "取得できませんでした"
@@ -12942,7 +12948,7 @@ msgstr "ネット"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:610
@@ -13693,7 +13699,7 @@ msgstr "インボイスへの領収書の割り当てを挿入できなかった
 #: /home/tim/code/KwaMoja/CounterSales.php:2155
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1459
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1462
-#: /home/tim/code/KwaMoja/SystemParameters.php:748
+#: /home/tim/code/KwaMoja/SystemParameters.php:754
 msgid "Frequently Ordered Items"
 msgstr "頻繁に注文されるアイテム"
 
@@ -13961,7 +13967,7 @@ msgid "Invoiced"
 msgstr "請求された"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:285
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
 #: /home/tim/code/KwaMoja/GLAccountReport.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:207
 #: /home/tim/code/KwaMoja/GLJournal.php:579
@@ -14482,7 +14488,7 @@ msgstr "EDI請求書の送信を有効にする"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:937
 #: /home/tim/code/KwaMoja/CustomerBranches.php:939
 #: /home/tim/code/KwaMoja/CustomerBranches.php:950
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 msgid "Disabled"
 msgstr "無効"
 
@@ -15445,7 +15451,7 @@ msgstr "割り当てられた"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:259
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:169
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:172
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:215
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:393
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:205
 #: /home/tim/code/KwaMoja/prlALD.php:146
@@ -16907,7 +16913,7 @@ msgid "Received"
 msgstr "受け取った"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
 #: /home/tim/code/KwaMoja/GLAccountReport.php:358
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:204
@@ -16928,7 +16934,7 @@ msgstr "タグ"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:335
 #: /home/tim/code/KwaMoja/GLJournal.php:221
 #: /home/tim/code/KwaMoja/GLJournal.php:542
 #: /home/tim/code/KwaMoja/GLJournal.php:629
@@ -16950,12 +16956,12 @@ msgstr "タグ"
 #: /home/tim/code/KwaMoja/Suppliers.php:624
 #: /home/tim/code/KwaMoja/Suppliers.php:641
 #: /home/tim/code/KwaMoja/Suppliers.php:665
-#: /home/tim/code/KwaMoja/SystemParameters.php:488
 #: /home/tim/code/KwaMoja/SystemParameters.php:494
 #: /home/tim/code/KwaMoja/SystemParameters.php:500
 #: /home/tim/code/KwaMoja/SystemParameters.php:506
 #: /home/tim/code/KwaMoja/SystemParameters.php:512
-#: /home/tim/code/KwaMoja/SystemParameters.php:1096
+#: /home/tim/code/KwaMoja/SystemParameters.php:518
+#: /home/tim/code/KwaMoja/SystemParameters.php:1102
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
 #: /home/tim/code/KwaMoja/sql/updates/217.php:19
@@ -17881,7 +17887,7 @@ msgstr "毎日の売上"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
-#: /home/tim/code/KwaMoja/SystemParameters.php:710
+#: /home/tim/code/KwaMoja/SystemParameters.php:716
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
 msgid "Sunday"
 msgstr "日曜日"
@@ -17890,7 +17896,7 @@ msgstr "日曜日"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
-#: /home/tim/code/KwaMoja/SystemParameters.php:711
+#: /home/tim/code/KwaMoja/SystemParameters.php:717
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
 msgid "Monday"
 msgstr "月曜"
@@ -17899,7 +17905,7 @@ msgstr "月曜"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
-#: /home/tim/code/KwaMoja/SystemParameters.php:712
+#: /home/tim/code/KwaMoja/SystemParameters.php:718
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
 msgid "Tuesday"
 msgstr "火曜日"
@@ -17908,7 +17914,7 @@ msgstr "火曜日"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
-#: /home/tim/code/KwaMoja/SystemParameters.php:713
+#: /home/tim/code/KwaMoja/SystemParameters.php:719
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
 msgid "Wednesday"
 msgstr "水曜日"
@@ -17917,7 +17923,7 @@ msgstr "水曜日"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
-#: /home/tim/code/KwaMoja/SystemParameters.php:714
+#: /home/tim/code/KwaMoja/SystemParameters.php:720
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
 msgid "Thursday"
 msgstr "木曜日"
@@ -17926,7 +17932,7 @@ msgstr "木曜日"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
-#: /home/tim/code/KwaMoja/SystemParameters.php:715
+#: /home/tim/code/KwaMoja/SystemParameters.php:721
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
 msgid "Friday"
 msgstr "金曜日"
@@ -17935,7 +17941,7 @@ msgstr "金曜日"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
-#: /home/tim/code/KwaMoja/SystemParameters.php:716
+#: /home/tim/code/KwaMoja/SystemParameters.php:722
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
 msgid "Saturday"
 msgstr "土曜日"
@@ -21544,8 +21550,9 @@ msgstr "複数のアカウントと期間を選択するには、キーボード
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:29
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:65
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:52
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:65
 msgid "Criteria for report"
 msgstr "レポートの基準"
 
@@ -21560,13 +21567,13 @@ msgid "Select the accounts for this report. Use the keyboard Shift key to select
 msgstr "このレポートのアカウントを選択します。"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:113
 #: /home/tim/code/KwaMoja/GLAccountReport.php:276
 msgid "For Period range"
 msgstr "期間範囲"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:74
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:94
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:95
 #: /home/tim/code/KwaMoja/GLAccountReport.php:297
 #: /home/tim/code/KwaMoja/Payments.php:1211
 #: /home/tim/code/KwaMoja/StockAdjustments.php:636
@@ -21576,7 +21583,7 @@ msgid "Select Tag"
 msgstr "タグを選択"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:83
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:96
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
 #: /home/tim/code/KwaMoja/GLAccountReport.php:299
 msgid "All tags"
 msgstr "すべてのタグ"
@@ -21591,7 +21598,7 @@ msgid "Make CSV File"
 msgstr "CSVファイルを作成する"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:107
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:138
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:139
 #: /home/tim/code/KwaMoja/GLAccountReport.php:18
 msgid "A period or range of periods must be selected from the list box"
 msgstr "リストボックスから期間または期間の範囲を選択する必要があります"
@@ -21608,7 +21615,7 @@ msgid "Could not open or create the file under"
 msgstr "ファイルを開いたり作成したりできませんでした"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
 #: /home/tim/code/KwaMoja/GLAccountReport.php:107
 msgid "The transactions for account"
 msgstr "アカウントの取引"
@@ -21619,16 +21626,16 @@ msgstr "期間中"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:210
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:229
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:277
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
 #: /home/tim/code/KwaMoja/GLAccountReport.php:128
 msgid "The chart details for account"
 msgstr "アカウントのチャートの詳細"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:216
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:218
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:249
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:254
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:250
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:255
 #: /home/tim/code/KwaMoja/GLAccountReport.php:134
 msgid "Brought Forward Balance"
 msgstr "前方のバランスをもたらした"
@@ -21649,7 +21656,7 @@ msgstr "総期間移動"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:279
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:281
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:373
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:374
 #: /home/tim/code/KwaMoja/GLAccountReport.php:202
 msgid "Balance C/Fwd"
 msgstr "バランスC / Fwd"
@@ -21674,7 +21681,6 @@ msgstr "選択された期間は、実際には期間の後です。 報告期�
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:49
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:56
 #: /home/tim/code/KwaMoja/GLBudgets.php:124
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:49
 #: /home/tim/code/KwaMoja/GLJournal.php:510
 #: /home/tim/code/KwaMoja/Payments.php:1170
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:308
@@ -21753,7 +21759,8 @@ msgid "If the selected account is normally a credit balance then select this to 
 msgstr "選択したアカウントが通常クレジット残高の場合、これを選択して、クレジットを正の値としてグラフを表示します"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:78
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:68
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
@@ -21767,7 +21774,8 @@ msgid "Select Period From"
 msgstr "期間を選択"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:106
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:93
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
@@ -21778,7 +21786,8 @@ msgid "Select the starting period for this report"
 msgstr "このレポートの開始期間を選択してください"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:116
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:108
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
@@ -21791,7 +21800,8 @@ msgid "Select Period To"
 msgstr "期間を選択"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:130
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:122
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
@@ -21845,7 +21855,6 @@ msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "グラフに入力された条件のGLアカウントデータがありません"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:191
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21855,7 +21864,6 @@ msgid "Actual"
 msgstr "実際の"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:192
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21868,51 +21876,51 @@ msgstr "予算"
 msgid "Select Different Criteria"
 msgstr "別の基準を選択"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:48
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
 msgid "The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details"
 msgstr "利益剰余金勘定はシステムによって個別に管理されるため、照会することはできません。 詳細はマニュアルを参照"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:50
 msgid "Select another account"
 msgstr "別のアカウントを選択"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:54
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:55
 msgid "Use the keyboard Shift key to select multiple periods"
 msgstr "複数のピリオドを選択するには、キーボードのShiftキーを使用します"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:79
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:80
 msgid "Inquiry Selection Criteria"
 msgstr "お問い合わせ選択基準"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:83
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:84
 msgid "Select a General Ledger account to report on."
 msgstr "レポートするGeneral Ledgerアカウントを選択します。"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:105
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:106
 msgid "Select a tag to filter the report on."
 msgstr "レポートをフィルタリングするタグを選択します。"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:123
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:124
 msgid "Select one or more financial periods to report on."
 msgstr "レポートする1​​つ以上の会計期間を選択します。"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:129
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:130
 msgid "Show Account Transactions"
 msgstr "勘定取引を表示する"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:197
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
 msgid "General Ledger account inquiry details"
 msgstr "総勘定元帳の照会の詳細"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:201
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
 msgid "Transactions for account"
 msgstr "アカウントの取引"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
 msgid "Trans no"
 msgstr "トランスナンバー"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
 #: /home/tim/code/KwaMoja/GLAccountReport.php:355
 #: /home/tim/code/KwaMoja/GLJournal.php:206
 #: /home/tim/code/KwaMoja/GLJournal.php:564
@@ -21921,13 +21929,12 @@ msgstr "トランスナンバー"
 msgid "Debit"
 msgstr "デビット"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:286
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:354
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:287
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:355
 msgid "Total for period ending"
 msgstr "期間終了の合計"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:190
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:40
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
@@ -21938,27 +21945,27 @@ msgstr "期間終了の合計"
 msgid "Period"
 msgstr "期間"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Account movement per transaction"
 msgstr "取引ごとの口座移動"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Movement per ChartDetails record"
 msgstr "ChartDetailsレコードごとの移動"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Period difference"
 msgstr "時差"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:370
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:371
 msgid "Total Movement for selected periods"
 msgstr "選択した期間の合計移動数"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:396
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
 msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
 msgstr "ChartDetailsテーブルには、トランザクションの合計と記録された動きの間に違いがあります"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:396
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
 msgid "A log of the account differences for the periods report shows below"
 msgstr "期間レポートの勘定差異のログは以下のとおりです"
 
@@ -22415,12 +22422,12 @@ msgstr "このアカウントに適用可能なキャッシュフローアクテ
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:427
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:112
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:113
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:188
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:10
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:22
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:22
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:112
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:113
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
 #: /home/tim/code/KwaMoja/sql/updates/42.php:206
 msgid "Balance Sheet"
@@ -22459,88 +22466,79 @@ msgid "Show All Accounts"
 msgstr "すべてのアカウントを表示"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:23
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:23
 msgid "Statement of Financial Position"
 msgstr "財政状態計算書"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time."
 msgstr "貸借対照表（または財政状態計算書）は、残高の要約です。 資産、負債および所有持分は、会計年度の終了などの特定の日に記載されている。  4つの基本的な財務諸表のうち、バランスシートは、単一の時点に適用される唯一の陳述書です。"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities."
 msgstr "貸借対照表には、資産、負債および所有持分の3つの部分があります。 資産の主要なカテゴリーが最初にリストされ、その後に債務が続きます。 資産と負債の差異は、資本または純資産、または企業の純資産または資本として知られ、会計方程式によれば、純資産は資産から負債を差し引いたものでなければならない。"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid " is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date."
 msgstr "見越ベースのシステム（現金ベースのシステムではない）です。 見越システムには、請求書が顧客に請求されたとき、および供給元請求書日付に基づいて費用が支払われたときの項目が含まれます。"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:79
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:79
 msgid "Select the period up to which you wish the balance sheet to be shown at."
 msgstr "貸借対照表を表示する期間を選択します。"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:83
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:53
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:137
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:83
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:160
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:137
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:136
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:98
 msgid "Detail Or Summary"
 msgstr "詳細または概要"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:88
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:88
 msgid "Show a summary report, or show all accounts."
 msgstr "概要レポートを表示するか、すべてのアカウントを表示します。"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:92
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:61
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:145
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:169
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:145
 msgid "Show all Accounts including zero balances"
 msgstr "ゼロ残高を含むすべての勘定を表示する"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:102
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:154
-msgid "Produce PDF Report"
-msgstr "PDFレポートを作成する"
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:99
+msgid "Show Balance Sheet"
+msgstr "貸借対照表を表示"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:360
-msgid "Print Balance Sheet Error"
-msgstr "残高印刷エラー"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:362
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:206
-#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
-#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
-#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
-#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
-#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
-msgid "There were no entries to print out for the selections specified"
-msgstr "指定された選択肢に対して印刷する項目がありませんでした"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:378
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:443
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:78
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:155
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:203
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:378
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:443
 msgid "HTML View"
 msgstr "HTMLビュー"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:447
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:159
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:447
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "バランスシート"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:458
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:465
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:167
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:218
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:225
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:458
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:465
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:709
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:718
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:221
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:229
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:709
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:718
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22549,126 +22547,116 @@ msgstr "バランスシート"
 msgid "Last Year"
 msgstr "昨年"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:718
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:509
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:488
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:718
 msgid "Select A Different Balance Date"
 msgstr "別の残高日付を選択"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:21
-msgid "Print Statement of Financial Position"
-msgstr "財政状態計算書の印刷"
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:102
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:154
+msgid "Produce PDF Report"
+msgstr "PDFレポートを作成する"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:67
-msgid "Show Balance Sheet"
-msgstr "貸借対照表を表示"
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:360
+msgid "Print Balance Sheet Error"
+msgstr "残高印刷エラー"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:165
-#: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1882
-msgid "Account Details"
-msgstr "アカウント詳細"
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:362
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:234
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
+#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
+#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
+#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
+#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
+msgid "There were no entries to print out for the selections specified"
+msgstr "指定された選択肢に対して印刷する項目がありませんでした"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:166
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:576
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:648
-msgid "This Year"
-msgstr "今年"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:499
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:410
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:721
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:345
-#, php-format
-msgid "Check Totals"
-msgstr "合計をチェックする"
-
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:5
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:5
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:4
 msgid "Create GL Budgets"
 msgstr "GL予算を作成する"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:15
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:14
 #: /home/tim/code/KwaMoja/GLBudgets.php:46
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:29
 msgid "Budgets"
 msgstr "予算"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:22
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:21
 msgid "The end period cannot be before the start period"
 msgstr "終了期間を開始期間より前にすることはできません"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:61
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:60
 msgid "The budget header information has been successfully saved"
 msgstr "予算ヘッダー情報が正常に保存されました"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:63
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:62
 msgid "There was a problem saving the budget header information"
 msgstr "予算ヘッダー情報の保存に問題がありました"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:88
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:87
 msgid "Edit Budget Details"
 msgstr "予算の詳細を編集する"
 
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:97
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:98
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:99
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:180
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:577
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:652
 msgid "This Financial Year"
 msgstr "この会計年度"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:103
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:102
 msgid "Create New Budget"
 msgstr "新しい予算を作成する"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:110
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:109
 msgid "Budget Owner"
 msgstr "予算の所有者"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:123
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:122
 msgid "Name of budget"
 msgstr "予算名"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:128
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:127
 msgid "Budget Description"
 msgstr "予算の説明"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:136
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:135
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
 msgid "Start Period"
 msgstr "開始期間"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:152
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:151
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
 msgid "End Period"
 msgstr "終了期限"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:165
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:164
 msgid "Default Budget for reports"
 msgstr "レポートのデフォルトの予算"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:181
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:180
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "更新の詳細"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:185
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:184
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
 msgid "Save Details"
 msgstr "詳細を保存"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
 msgid "Owner"
 msgstr "オーナー"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
 msgid "Start From Period"
 msgstr "期間から開始"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
 msgid "End In Period"
 msgstr "期間終了"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:209
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
 msgid "Is Primary?"
 msgstr "プライマリですか？"
 
@@ -22701,24 +22689,20 @@ msgid "Enter Budget Amounts"
 msgstr "予算額を入力してください"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:82
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:36
 msgid "General ledger account selection"
 msgstr "総勘定元帳勘定の選択"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:134
 #: /home/tim/code/KwaMoja/GLBudgets.php:136
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:85
 msgid "Prev Account"
 msgstr "前の勘定"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:138
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:86
 msgid "Select Account"
 msgstr "アカウントを選択"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:140
 #: /home/tim/code/KwaMoja/GLBudgets.php:142
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:87
 msgid "Next Account"
 msgstr "次のアカウント"
 
@@ -22726,61 +22710,9 @@ msgstr "次のアカウント"
 msgid "Budget values for account"
 msgstr "アカウントの予算値"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:212
+#: /home/tim/code/KwaMoja/GLBudgets.php:215
 msgid "Update Budget"
 msgstr "予算を更新する"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:24
-msgid "Budget updated successfully"
-msgstr "予算が正常に更新されました"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
-msgid "No General ledger accounts have been set up yet"
-msgstr "総勘定元帳のアカウントはまだ設定されていません"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
-msgid "budgets cannot be allocated until the GL accounts are set up"
-msgstr "GLアカウントが設定されるまで予算を割り当てることはできません"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:100
-msgid "Cannot update GL budgets"
-msgstr "GL予算を更新できません"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:101
-msgid "The SQL that failed to update the GL budgets was"
-msgstr "GL予算を更新できなかったSQLは"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:177
-msgid "Budget Entry"
-msgstr "予算入力"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:179
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
-msgid "Last Financial Year"
-msgstr "最後の会計年度"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:181
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
-msgid "Next Financial Year"
-msgstr "次の会計年度"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:184
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:185
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:186
-msgid "Year ended"
-msgstr "年末"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:234
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:236
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:238
-msgid "Annual Budget"
-msgstr "年度予算"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:239
-msgid "Apportion Budget"
-msgstr "配分予算"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:28
 msgid "Operating activities"
@@ -22816,12 +22748,14 @@ msgid "Statement of Cash Flows"
 msgstr "キャッシュ・フロー計算書"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:715
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:227
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:706
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:715
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:503
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:194
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22831,10 +22765,12 @@ msgid "Period Actual"
 msgstr "実際の期間"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:504
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:228
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:707
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:716
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:199
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:195
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -22978,13 +22914,13 @@ msgstr "キャッシュフロー活動はすべての口座でリセットされ
 #: /home/tim/code/KwaMoja/SupplierCredit.php:516
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:836
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:839
-#: /home/tim/code/KwaMoja/SystemParameters.php:461
-#: /home/tim/code/KwaMoja/SystemParameters.php:1033
-#: /home/tim/code/KwaMoja/SystemParameters.php:1035
-#: /home/tim/code/KwaMoja/SystemParameters.php:1048
-#: /home/tim/code/KwaMoja/SystemParameters.php:1050
-#: /home/tim/code/KwaMoja/SystemParameters.php:1160
-#: /home/tim/code/KwaMoja/SystemParameters.php:1162
+#: /home/tim/code/KwaMoja/SystemParameters.php:467
+#: /home/tim/code/KwaMoja/SystemParameters.php:1039
+#: /home/tim/code/KwaMoja/SystemParameters.php:1041
+#: /home/tim/code/KwaMoja/SystemParameters.php:1054
+#: /home/tim/code/KwaMoja/SystemParameters.php:1056
+#: /home/tim/code/KwaMoja/SystemParameters.php:1166
+#: /home/tim/code/KwaMoja/SystemParameters.php:1168
 msgid "Automatic"
 msgstr "自動"
 
@@ -23375,36 +23311,61 @@ msgid "Are you sure you wish to delete this template?"
 msgstr "このテンプレートを削除してもよろしいですか？"
 
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:16
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:16
 msgid "Statement of Comprehensive Income"
 msgstr "包括利益計算書"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line)."
 msgstr "損益計算書または営業声明とも呼ばれる損益計算書は、収益（売上高前の商品およびサービスの販売から受領した金額、一番上の行とも呼ばれる）がどのように変換されるかを示す陳述です （すべての収益と費用が会計処理された後の結果、最終的には収益となります）。"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "The purpose of the income statement is to show whether the company made or lost money during the period being reported."
 msgstr "損益計算書の目的は、報告期間中に会社が金銭を出したか、失ったかを示すことです。"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr "損益計算書は期間を表します。 これは、1つの瞬間を表すバランスシートとは対照的です。"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:142
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:143
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
+msgid "Budget To Show Comparisons With"
+msgstr "との比較を示すための予算"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:155
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
+msgid "Select the budget to make comparisons with."
+msgstr "比較する予算を選択します。"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:142
 msgid "Show report for all accounts, or just show summary report."
 msgstr "すべてのアカウントのレポートを表示するか、単に要約レポートを表示します。"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:147
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:171
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:147
 msgid "Show all accounts, or just accounts with balances."
 msgstr "すべてのアカウント、または残高のあるアカウントのみを表示します。"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:231
-msgid "Print Profit and Loss Error"
-msgstr "損益を印刷する"
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
+msgid "Show Profit and Loss Statement"
+msgstr "損益計算書を表示する"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:393
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:932
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1278
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:210
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:694
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:697
+msgid "General Ledger Profit Loss Inquiry"
+msgstr "総勘定元帳損益照会"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:484
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:393
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:932
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1278
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23415,40 +23376,45 @@ msgstr "損益を印刷する"
 msgid "Gross Profit Percent"
 msgstr "総利益率"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "利益"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "損失"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1346
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:526
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:982
+msgid "P/L Percent after"
+msgstr "P / L後のパーセント"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:651
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:616
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1346
 msgid "Net Profit Percent"
 msgstr "純利益パーセンテージ"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:694
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:697
-msgid "General Ledger Profit Loss Inquiry"
-msgstr "総勘定元帳損益照会"
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:231
+msgid "Print Profit and Loss Error"
+msgstr "損益を印刷する"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:717
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:708
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:717
 msgid "Period Variance"
 msgstr "期間差"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:982
-msgid "P/L Percent after"
-msgstr "P / L後のパーセント"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:26
 msgid "Financial Statements"
@@ -23728,13 +23694,10 @@ msgstr "掲示される"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:137
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:138
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "試算残高"
@@ -23744,60 +23707,61 @@ msgstr "試算残高"
 msgid "Input criteria for inquiry"
 msgstr "問い合わせの入力条件"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:124
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:146
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:141
 msgid "Show Trial Balance"
 msgstr "トライアル残高を表示する"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:126
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:148
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:143
 msgid "Export to Spreadsheet"
 msgstr "スプレッドシートにエクスポート"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:201
-msgid "Print Trial Balance Error"
-msgstr "トライアル残高の印刷エラー"
-
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:490
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:185
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:181
 msgid "Trial Balance Report"
 msgstr "トライアル残高レポート"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "その月の試算残高"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "そして、"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " months to "
 msgstr "数ヶ月まで"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:501
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:192
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
 msgid "Month Actual"
 msgstr "実際の月"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:502
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:193
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "月予算"
+
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:414
+msgid "Check Totals"
+msgstr "合計をチェックする"
 
 #: /home/tim/code/KwaMoja/GeneratePickingList.php:14
 #: /home/tim/code/KwaMoja/PDFPickingList.php:9
@@ -26202,8 +26166,8 @@ msgstr "毎時"
 #: /home/tim/code/KwaMoja/JobScheduler.php:176
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:166
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:85
-#: /home/tim/code/KwaMoja/SystemParameters.php:577
-#: /home/tim/code/KwaMoja/SystemParameters.php:579
+#: /home/tim/code/KwaMoja/SystemParameters.php:583
+#: /home/tim/code/KwaMoja/SystemParameters.php:585
 msgid "Daily"
 msgstr "毎日"
 
@@ -26219,8 +26183,8 @@ msgstr "毎日"
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:445
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:167
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:94
-#: /home/tim/code/KwaMoja/SystemParameters.php:582
-#: /home/tim/code/KwaMoja/SystemParameters.php:584
+#: /home/tim/code/KwaMoja/SystemParameters.php:588
+#: /home/tim/code/KwaMoja/SystemParameters.php:590
 msgid "Weekly"
 msgstr "毎週"
 
@@ -26807,8 +26771,8 @@ msgid "Always"
 msgstr "常に"
 
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
+#: /home/tim/code/KwaMoja/SystemParameters.php:598
+#: /home/tim/code/KwaMoja/SystemParameters.php:600
 msgid "Never"
 msgstr "絶対に"
 
@@ -28142,7 +28106,7 @@ msgstr "病院の構成が更新されました"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/ShopParameters.php:184
-#: /home/tim/code/KwaMoja/SystemParameters.php:425
+#: /home/tim/code/KwaMoja/SystemParameters.php:431
 msgid "General Settings"
 msgstr "一般設定"
 
@@ -28868,8 +28832,8 @@ msgstr "請求頻度"
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:169
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:103
 #: /home/tim/code/KwaMoja/SalesPeople.php:21
-#: /home/tim/code/KwaMoja/SystemParameters.php:587
-#: /home/tim/code/KwaMoja/SystemParameters.php:589
+#: /home/tim/code/KwaMoja/SystemParameters.php:593
+#: /home/tim/code/KwaMoja/SystemParameters.php:595
 msgid "Monthly"
 msgstr "毎月"
 
@@ -35308,7 +35272,7 @@ msgstr "注文請求レポート"
 #: /home/tim/code/KwaMoja/PcReportTab.php:96
 #: /home/tim/code/KwaMoja/PcReportTab.php:98
 #: /home/tim/code/KwaMoja/PcReportTab.php:106
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:85
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:104
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:70
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:63
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:45
@@ -43098,7 +43062,7 @@ msgstr "計算"
 
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:395
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:411
-#: /home/tim/code/KwaMoja/SystemParameters.php:1309
+#: /home/tim/code/KwaMoja/SystemParameters.php:1325
 msgid "Could not load periods table"
 msgstr "期間テーブルを読み込めませんでした"
 
@@ -48032,7 +47996,7 @@ msgstr "ストックタイプ"
 
 #: /home/tim/code/KwaMoja/StockCategories.php:326
 #: /home/tim/code/KwaMoja/StockCategories.php:442
-#: /home/tim/code/KwaMoja/SystemParameters.php:1357
+#: /home/tim/code/KwaMoja/SystemParameters.php:1373
 msgid "Default Tax Category"
 msgstr "デフォルトの税カテゴリ"
 
@@ -49639,7 +49603,7 @@ msgid "Show Graph Of Stock Usage"
 msgstr "株式使用のグラフを表示する"
 
 #: /home/tim/code/KwaMoja/StockUsage.php:138
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:60
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:101
 msgid "The stock usage for the selected criteria could not be retrieved because"
 msgstr "選択した条件の在庫使用を取得できませんでした。"
 
@@ -49652,12 +49616,12 @@ msgstr "使用法"
 msgid "Average Usage per month is"
 msgstr "1か月あたりの平均使用量"
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:58
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:68
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:99
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:109
 msgid "Stock Usage Graph Problem"
 msgstr "株価グラフ問題"
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:70
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:111
 msgid "There are no movements of this item from the selected location to graph"
 msgstr "選択した場所からグラフに移動するアイテムはありません"
 
@@ -51224,12 +51188,12 @@ msgstr "税計算の更新"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:514
 #: /home/tim/code/KwaMoja/SupplierCredit.php:517
-#: /home/tim/code/KwaMoja/SystemParameters.php:1032
-#: /home/tim/code/KwaMoja/SystemParameters.php:1036
-#: /home/tim/code/KwaMoja/SystemParameters.php:1047
-#: /home/tim/code/KwaMoja/SystemParameters.php:1051
-#: /home/tim/code/KwaMoja/SystemParameters.php:1159
-#: /home/tim/code/KwaMoja/SystemParameters.php:1163
+#: /home/tim/code/KwaMoja/SystemParameters.php:1038
+#: /home/tim/code/KwaMoja/SystemParameters.php:1042
+#: /home/tim/code/KwaMoja/SystemParameters.php:1053
+#: /home/tim/code/KwaMoja/SystemParameters.php:1057
+#: /home/tim/code/KwaMoja/SystemParameters.php:1165
+#: /home/tim/code/KwaMoja/SystemParameters.php:1169
 msgid "Manual Entry"
 msgstr "手動入力"
 
@@ -51788,7 +51752,7 @@ msgstr "入力は数値でなければなりません"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:837
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:840
-#: /home/tim/code/KwaMoja/SystemParameters.php:462
+#: /home/tim/code/KwaMoja/SystemParameters.php:468
 msgid "Manually"
 msgstr "手動で"
 
@@ -52541,12 +52505,12 @@ msgid "If the supplier requires a remittance advice with each payment then selec
 msgstr "サプライヤーが支払いごとに送金のアドバイスを必要とする場合は、ここで必須を選択します"
 
 #: /home/tim/code/KwaMoja/Suppliers.php:715
-#: /home/tim/code/KwaMoja/SystemParameters.php:887
+#: /home/tim/code/KwaMoja/SystemParameters.php:893
 msgid "Could not load shippers"
 msgstr "荷送人を積載できませんでした"
 
 #: /home/tim/code/KwaMoja/Suppliers.php:718
-#: /home/tim/code/KwaMoja/SystemParameters.php:890
+#: /home/tim/code/KwaMoja/SystemParameters.php:896
 msgid "Default Shipper"
 msgstr "デフォルト荷送人"
 
@@ -52618,913 +52582,925 @@ msgid "No less than 1 and more than 99 Quick entries allowed"
 msgstr "1つ以上のクイックエントリが許可されています"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:52
+msgid "Unexpected Show Zero Counts Within Stock Usage Graph Period Range value."
+msgstr "在庫使用量グラフの期間範囲値内に予期しないゼロカウントが表示されます。"
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:55
 msgid "The maximum number of serial numbers issued must be numeric and greater than zero"
 msgstr "発行されるシリアル番号の最大数は数値でゼロより大きくなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:55
+#: /home/tim/code/KwaMoja/SystemParameters.php:58
 msgid "Freight Charge Applies If Less Than must be a number"
 msgstr "貨物料金は、以下でなければならない。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:58
+#: /home/tim/code/KwaMoja/SystemParameters.php:61
 msgid "Standard Cost Decimal Places must be a number between 0 and 4"
 msgstr "標準原価小数点以下の桁数は0〜4の数値でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:61
+#: /home/tim/code/KwaMoja/SystemParameters.php:64
 msgid "Financial period per year must be a number between 1 and 12"
 msgstr "年間の財務期間は1から12の間の数値でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:64
+#: /home/tim/code/KwaMoja/SystemParameters.php:67
 msgid "The Tax Authority Reference Name must be 25 characters or less long"
 msgstr "税務機関の参照名は25文字以内でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:67
+#: /home/tim/code/KwaMoja/SystemParameters.php:70
 msgid "Over Charge Proportion must be a percentage"
 msgstr "過充電率はパーセンテージでなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:70
+#: /home/tim/code/KwaMoja/SystemParameters.php:73
 msgid "Over Receive Proportion must be a percentage"
 msgstr "過剰受信率はパーセンテージでなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:73
+#: /home/tim/code/KwaMoja/SystemParameters.php:76
 msgid "Lines per page must be greater than 1"
 msgstr "ページあたりの行数は1より大きくなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:76
+#: /home/tim/code/KwaMoja/SystemParameters.php:79
 msgid "The number of months of audit trail to keep must be zero or a positive number less than 100 months"
 msgstr "保持する監査証跡の月数はゼロまたは正の数で100カ月未満でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:79
+#: /home/tim/code/KwaMoja/SystemParameters.php:82
 msgid "DefaultTaxCategory must be between 1 and 9"
 msgstr "DefaultTaxCategoryは1〜9の間でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:82
+#: /home/tim/code/KwaMoja/SystemParameters.php:85
 msgid "Default maximum number of records to display must be between 1 and 500"
 msgstr "表示するレコードのデフォルトの最大数は、1〜500の間でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:85
+#: /home/tim/code/KwaMoja/SystemParameters.php:88
 msgid "The maximum size of item image files must be between 50 and 500 (NB this figure refers to KB)"
 msgstr "アイテム画像ファイルの最大サイズは50〜500でなければなりません（NBはKBを表します）"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:88
+#: /home/tim/code/KwaMoja/SystemParameters.php:91
 msgid "The Factory Manager Email address does not appear to be valid"
 msgstr "ファクトリマネージャの電子メールアドレスが有効ではないようです"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:91
+#: /home/tim/code/KwaMoja/SystemParameters.php:94
 msgid "The Purchasing Manager Email address does not appear to be valid"
 msgstr "購買管理者の電子メールアドレスが有効ではないようです"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:94
+#: /home/tim/code/KwaMoja/SystemParameters.php:97
 msgid "The Inventory Manager Email address does not appear to be valid"
 msgstr "在庫マネージャのメールアドレスが有効ではないようです"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:97
+#: /home/tim/code/KwaMoja/SystemParameters.php:100
 msgid "The number of frequently ordered items to display must be numeric"
 msgstr "表示する頻繁に順序付けられた項目の数は数値でなければなりません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:100
+#: /home/tim/code/KwaMoja/SystemParameters.php:103
 msgid "The SMTP setting should be selected as Yes or No"
 msgstr "SMTP設定はYesまたはNoとして選択する必要があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:103
+#: /home/tim/code/KwaMoja/SystemParameters.php:106
 msgid "The QualityProdSpecText may not be more than 5000 characters long."
 msgstr "QualityProdSpecTextの長さは、5000文字を超えてはなりません。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:106
+#: /home/tim/code/KwaMoja/SystemParameters.php:109
 msgid "The QualityCOAText may not be more than 5000 characters long."
 msgstr "QualityCOATextは5000文字を超えてはならない。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:109
+#: /home/tim/code/KwaMoja/SystemParameters.php:112
 msgid "The QualityLogSamples setting should be selected as Yes or No"
 msgstr "QualityLogSamples設定はYesまたはNoとして選択する必要があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:398
+#: /home/tim/code/KwaMoja/SystemParameters.php:404
 msgid "The system configuration could not be updated because"
 msgstr "システム構成を更新できませんでした。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:409
+#: /home/tim/code/KwaMoja/SystemParameters.php:415
 msgid "System configuration updated"
 msgstr "システム構成の更新"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:429
+#: /home/tim/code/KwaMoja/SystemParameters.php:435
 msgid "Default Date Format"
 msgstr "デフォルトの日付形式"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:437
+#: /home/tim/code/KwaMoja/SystemParameters.php:443
 msgid "The default date format for entry of dates and display."
 msgstr "日付と表示のデフォルトの日付書式。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:442
+#: /home/tim/code/KwaMoja/SystemParameters.php:448
 msgid "Default Theme"
 msgstr "デフォルトのテーマ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:454
+#: /home/tim/code/KwaMoja/SystemParameters.php:460
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
 msgstr "ログイン画面と新しいユーザーのセットアップに使用するデフォルトのテーマ。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:459
+#: /home/tim/code/KwaMoja/SystemParameters.php:465
 msgid "Auto Update Exchange Rates Daily"
 msgstr "毎日自動更新の為替レート"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:464
+#: /home/tim/code/KwaMoja/SystemParameters.php:470
 msgid "Automatic updates to exchange rates will retrieve the latest daily rates from either the European Central Bank or Google once per day - when the first user logs in for the day. Manual will never update the rates automatically - exchange rates will need to be maintained manually"
 msgstr "為替レートの自動更新では、欧州中央銀行またはGoogleのいずれかから、1日に1回（最初のユーザーがその日にログインしたとき）に最新の1日のレートを取得します。 マニュアルで料金が自動的に更新されることはありません。為替レートは手動で維持する必要があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:468
+#: /home/tim/code/KwaMoja/SystemParameters.php:474
 msgid "Source Exchange Rates From"
 msgstr "ソースの為替レート"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:470
+#: /home/tim/code/KwaMoja/SystemParameters.php:476
 msgid "European Central Bank"
 msgstr "欧州中央銀行"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:471
+#: /home/tim/code/KwaMoja/SystemParameters.php:477
 msgid "Google"
 msgstr "Google"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:473
+#: /home/tim/code/KwaMoja/SystemParameters.php:479
 msgid "Specify the source to use for exchange rates"
 msgstr "為替レートに使用するソースを指定する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:478
+#: /home/tim/code/KwaMoja/SystemParameters.php:484
 msgid "Months of Audit Trail to Retain"
 msgstr "保持する監査証跡の月間"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:480
+#: /home/tim/code/KwaMoja/SystemParameters.php:486
 msgid "If this parameter is set to 0 (zero) then no audit trail is retained. An audit trail is a log of which users performed which additions updates and deletes of database records. The full SQL is retained"
 msgstr "このパラメータを0（ゼロ）に設定すると、監査証跡は保持されません。 監査証跡とは、ユーザーがデータベースレコードの更新と削除を追加したログです。 完全なSQLは保持されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:485
+#: /home/tim/code/KwaMoja/SystemParameters.php:491
 msgid "Log Severity Level"
 msgstr "ログの重大度レベル"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:489
 #: /home/tim/code/KwaMoja/SystemParameters.php:495
 #: /home/tim/code/KwaMoja/SystemParameters.php:501
 #: /home/tim/code/KwaMoja/SystemParameters.php:507
 #: /home/tim/code/KwaMoja/SystemParameters.php:513
+#: /home/tim/code/KwaMoja/SystemParameters.php:519
 msgid "Errors Only"
 msgstr "エラーのみ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:490
 #: /home/tim/code/KwaMoja/SystemParameters.php:496
 #: /home/tim/code/KwaMoja/SystemParameters.php:502
 #: /home/tim/code/KwaMoja/SystemParameters.php:508
+#: /home/tim/code/KwaMoja/SystemParameters.php:514
 msgid "Errors and Warnings"
 msgstr "エラーと警告"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:491
 #: /home/tim/code/KwaMoja/SystemParameters.php:497
 #: /home/tim/code/KwaMoja/SystemParameters.php:503
 #: /home/tim/code/KwaMoja/SystemParameters.php:509
 #: /home/tim/code/KwaMoja/SystemParameters.php:515
+#: /home/tim/code/KwaMoja/SystemParameters.php:521
 msgid "Errors, Warnings and Info"
 msgstr "エラー、警告、情報"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:514
+#: /home/tim/code/KwaMoja/SystemParameters.php:520
 msgid "Errors andWarnings"
 msgstr "エラーと警告"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:519
+#: /home/tim/code/KwaMoja/SystemParameters.php:525
 msgid "Choose which Status messages to keep in your log file."
 msgstr "ログファイルに保存するステータスメッセージを選択します。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:524
+#: /home/tim/code/KwaMoja/SystemParameters.php:530
 msgid "Path to log files"
 msgstr "ログファイルへのパス"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:526
+#: /home/tim/code/KwaMoja/SystemParameters.php:532
 msgid "The path to the directory where the log files will be stored. Note the apache user must have write permissions on this directory."
 msgstr "ログファイルが保存されるディレクトリへのパス。  Apacheのユーザーは、このディレクトリに対して書き込み権限を持っている必要があります。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:530
+#: /home/tim/code/KwaMoja/SystemParameters.php:536
 msgid "Using Smtp Mail"
 msgstr "Smtpメールを使用する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:541
+#: /home/tim/code/KwaMoja/SystemParameters.php:547
 msgid "The default setting is using mail in default php.ini, if you choose Yes for this selection, you can use the SMTP set in the setup section."
 msgstr "デフォルト設定では、デフォルトのphp.iniでメールを使用しています。この選択肢で[はい]を選択した場合は、設定セクションでSMTPセットを使用できます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:293
 msgid "WackoWiki"
 msgstr "WackoWiki"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:295
 msgid "MediaWiki"
 msgstr "MediaWiki"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:297
 msgid "DokuWiki"
 msgstr "DokuWiki"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:547
+#: /home/tim/code/KwaMoja/SystemParameters.php:553
 msgid "Wiki application"
 msgstr "Wikiアプリケーション"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:553
+#: /home/tim/code/KwaMoja/SystemParameters.php:559
 msgid "This feature makes"
 msgstr "この機能により、"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:553
+#: /home/tim/code/KwaMoja/SystemParameters.php:559
 msgid "show links to a free form company knowledge base using a wiki. This allows sharing of important company information - about customers, suppliers and products and the set up of work flow menus and/or company procedures documentation"
 msgstr "wikiを使用してフリーフォームの企業ナレッジベースへのリンクを表示します。 これにより、重要な企業情報（顧客、サプライヤ、製品、およびワークフローメニューおよび/または会社手続き書類の設定に関する情報）の共有が可能になります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:557
+#: /home/tim/code/KwaMoja/SystemParameters.php:563
 msgid "Wiki Path"
 msgstr "ウィキパス"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:559
+#: /home/tim/code/KwaMoja/SystemParameters.php:565
 msgid "The path to the wiki installation to form the basis of wiki URLs - or the full URL of the wiki."
 msgstr "wiki URLの基礎をなすためのwikiインストールへのパス - またはwikiの完全なURL。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:564
+#: /home/tim/code/KwaMoja/SystemParameters.php:570
 msgid "Only allow secure socket connections"
 msgstr "安全なソケット接続のみを許可する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:569
+#: /home/tim/code/KwaMoja/SystemParameters.php:575
 msgid "Force connections to be only over secure sockets - ie encrypted data only"
 msgstr "安全なソケット（つまり、暗号化されたデータのみ）で接続を強制する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:574
+#: /home/tim/code/KwaMoja/SystemParameters.php:580
 msgid "Perform database maintenance at logon"
 msgstr "ログオン時にデータベースのメンテナンスを実行する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:597
-#: /home/tim/code/KwaMoja/SystemParameters.php:599
+#: /home/tim/code/KwaMoja/SystemParameters.php:603
+#: /home/tim/code/KwaMoja/SystemParameters.php:605
 msgid "Allow SysAdmin Access Only"
 msgstr "SysAdminアクセスのみを許可する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:603
+#: /home/tim/code/KwaMoja/SystemParameters.php:609
 msgid "Uses the function DB_Maintenance defined in ConnectDB_XXXX.php to perform database maintenance tasks, to run at regular intervals - checked at each and every user login"
 msgstr "ConnectDB_XXXX.phpで定義されたDB_Maintenance関数を使用して、定期的に実行するデータベースメンテナンスタスクを実行します。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:608
+#: /home/tim/code/KwaMoja/SystemParameters.php:614
 msgid "Google Translator API Key"
 msgstr "Google Translator API Key"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:610
+#: /home/tim/code/KwaMoja/SystemParameters.php:616
 msgid "Google Translator API Key to allow automatic translations. More info at https://cloud.google.com/translate/"
 msgstr "自動翻訳を可能にするGoogle Translator APIキー。 詳細はhttps://cloud.google.com/translate/をご覧ください。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:615
+#: /home/tim/code/KwaMoja/SystemParameters.php:621
 msgid "Country Of Operation"
 msgstr "運営国"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:617
-#: /home/tim/code/KwaMoja/SystemParameters.php:875
-#: /home/tim/code/KwaMoja/SystemParameters.php:893
-#: /home/tim/code/KwaMoja/SystemParameters.php:1360
+#: /home/tim/code/KwaMoja/SystemParameters.php:623
+#: /home/tim/code/KwaMoja/SystemParameters.php:881
+#: /home/tim/code/KwaMoja/SystemParameters.php:899
+#: /home/tim/code/KwaMoja/SystemParameters.php:1376
 msgid "Unavailable"
 msgstr "利用できません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:622
+#: /home/tim/code/KwaMoja/SystemParameters.php:628
 msgid "This parameter is only effective if Do Freight Calculation is set to Yes."
 msgstr "このパラメータは、Do Freight CalculationがYesに設定されている場合にのみ有効です。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:627
+#: /home/tim/code/KwaMoja/SystemParameters.php:633
 msgid "Report Page Length"
 msgstr "レポートページの長さ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:629
+#: /home/tim/code/KwaMoja/SystemParameters.php:635
 msgid "The number of lines per page on reports"
 msgstr "レポートのページごとの行数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:634
+#: /home/tim/code/KwaMoja/SystemParameters.php:640
 msgid "Default Maximum Number of Records to Show"
 msgstr "表示するデフォルトの最大レコード数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:636
+#: /home/tim/code/KwaMoja/SystemParameters.php:642
 msgid "When pages have code to limit the number of returned records - such as select customer, select supplier and select item, then this will be the default number of records to show for a user who has not changed this for themselves in user settings."
 msgstr "ページに返されるレコードの数を制限するコード（顧客の選択、サプライヤの選択、アイテムの選択など）がある場合、これはユーザー設定で変更されていないユーザーに対して表示されるデフォルトのレコード数になります。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:641
+#: /home/tim/code/KwaMoja/SystemParameters.php:647
 msgid "Maximum Size in KB of uploaded images"
 msgstr "アップロードされた画像の最大サイズ（KB単位）"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:643
+#: /home/tim/code/KwaMoja/SystemParameters.php:649
 msgid "Picture files of items can be uploaded to the server. The system will check that files uploaded are less than this size (in KB) before they will be allowed to be uploaded. Large pictures will make the system slow and will be difficult to view in the stock maintenance screen."
 msgstr "アイテムの画像ファイルをサーバーにアップロードすることができます。 アップロードが許可される前に、アップロードされたファイルがこのサイズ（KB単位）未満であるかどうかがチェックされます。 大きな画像を使用すると、システムが遅くなり、在庫保守画面で表示が困難になります。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:648
+#: /home/tim/code/KwaMoja/SystemParameters.php:654
 msgid "Number Of Month Must Be Shown"
 msgstr "月の数を表示する必要があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:650
+#: /home/tim/code/KwaMoja/SystemParameters.php:656
 msgid "Number of month must be shown on report can be changed with this parameters ex: in CustomerInquiry.php "
 msgstr "レポートに表示する必要がある月数は、このパラメータで変更することができます。例：CustomerInquiry.php"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:658
+#: /home/tim/code/KwaMoja/SystemParameters.php:664
 msgid "The directory where images are stored"
 msgstr "イメージが格納されているディレクトリ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:670
+#: /home/tim/code/KwaMoja/SystemParameters.php:676
 msgid "The directory under which all image files should be stored. Image files take the format of ItemCode.jpg - they must all be .jpg files and the part code will be the name of the image file. This is named automatically on upload. The system will check to ensure that the image is a .jpg file"
 msgstr "すべてのイメージファイルを格納するディレクトリ。 画像ファイルはItemCode.jpgの形式をとります。すべてが.jpgファイルでなければならず、パートコードは画像ファイルの名前になります。 これはアップロード時に自動的に名前が付けられます。 画像が.jpgファイルであることが確認されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:676
+#: /home/tim/code/KwaMoja/SystemParameters.php:682
 msgid "The directory where reports are stored"
 msgstr "レポートが格納されているディレクトリ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:690
+#: /home/tim/code/KwaMoja/SystemParameters.php:696
 msgid "The directory under which all report pdf files should be created in. A separate directory is recommended"
 msgstr "すべてのレポートpdfファイルを作成するディレクトリ。別のディレクトリが推奨されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:694
+#: /home/tim/code/KwaMoja/SystemParameters.php:700
 msgid "Geocode Customers and Suppliers"
 msgstr "ジオコードの顧客とサプライヤ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:697
-#: /home/tim/code/KwaMoja/SystemParameters.php:701
+#: /home/tim/code/KwaMoja/SystemParameters.php:703
+#: /home/tim/code/KwaMoja/SystemParameters.php:707
 msgid "Geocode Integration Enabled"
 msgstr "ジオコード統合を有効にする"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:698
-#: /home/tim/code/KwaMoja/SystemParameters.php:700
+#: /home/tim/code/KwaMoja/SystemParameters.php:704
+#: /home/tim/code/KwaMoja/SystemParameters.php:706
 msgid "Geocode Integration Disabled"
 msgstr "ジオコード統合が無効"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:704
+#: /home/tim/code/KwaMoja/SystemParameters.php:710
 msgid "This feature will give Latitude and Longitude coordinates to customers and suppliers. Requires access to a mapping provider. You must setup this facility under Main Menu - Setup - Geocode Setup. This feature is experimental."
 msgstr "この機能により、顧客とサプライヤに緯度と経度の座標が与えられます。 マッピングプロバイダへのアクセスが必要です。 この機能は、Main Menu  -  Setup  -  Geocode Setupで設定する必要があります。 この機能は実験的です。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:708
+#: /home/tim/code/KwaMoja/SystemParameters.php:714
 msgid "Last day of the week"
 msgstr "週の最後の日"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:718
+#: /home/tim/code/KwaMoja/SystemParameters.php:724
 msgid "Timesheet entry default to weeks ending on this day"
 msgstr "タイムシートエントリのデフォルトは、この日に終わる週です"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:723
+#: /home/tim/code/KwaMoja/SystemParameters.php:729
 msgid "Sales Order/Purchase Order Settings"
 msgstr "受注/発注設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:727
+#: /home/tim/code/KwaMoja/SystemParameters.php:733
 msgid "Romalpa Clause"
 msgstr "Romalpa Clause"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:729
+#: /home/tim/code/KwaMoja/SystemParameters.php:735
 msgid "This text appears on invoices and credit notes in small print. Normally a reservation of title clause that gives the company rights to collect goods which have not been paid for - to give some protection for bad debts."
 msgstr "このテキストは小冊子の請求書とクレジットメモに表示されます。 通常、支払われていない商品を回収する権利を会社に与えるタイトル句の予約 - 不良債権の保護を提供する。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:734
+#: /home/tim/code/KwaMoja/SystemParameters.php:740
 msgid "Terms and Conditions of Sale"
 msgstr "販売条件"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:736
+#: /home/tim/code/KwaMoja/SystemParameters.php:742
 msgid "The organisations terms and conditions of sale to be printed on order acknowledgements."
 msgstr "注文受領通知に印刷される組織の販売条件および条件。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:741
+#: /home/tim/code/KwaMoja/SystemParameters.php:747
 msgid "Quick Entries"
 msgstr "クイックエントリ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:743
+#: /home/tim/code/KwaMoja/SystemParameters.php:749
 msgid "This parameter defines the layout of the sales order entry screen. The number of fields available for quick entries. Any number from 1 to 99 can be entered."
 msgstr "このパラメータは、受注伝票入力画面のレイアウトを定義します。 クイックエントリに使用できるフィールドの数。  1~99の任意の数字を入力できます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:750
+#: /home/tim/code/KwaMoja/SystemParameters.php:756
 msgid "To show the most frequently ordered items enter the number of frequently ordered items you wish to display from 1 to 99. If you do not wish to display the frequently ordered item list enter 0."
 msgstr "最も頻繁に注文されたアイテムを表示するには、1から99までの頻繁に表示するアイテムの数を入力します。頻繁に表示されるアイテムのリストを表示しない場合は、0を入力します。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:755
+#: /home/tim/code/KwaMoja/SystemParameters.php:761
 msgid "Sales Order Allows Same Item Multiple Times"
 msgstr "複数の同じ商品を受注する受注"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:760
+#: /home/tim/code/KwaMoja/SystemParameters.php:766
 msgid "Is it allowed for the same item to appear multiple times on a sales order?"
 msgstr "同じ商品を注文書に複数回表示することは許可されていますか？"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:765
+#: /home/tim/code/KwaMoja/SystemParameters.php:771
 msgid "Order Entry allows Line Item Narrative"
 msgstr "オーダーエントリでは、品目の説明が許可されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:767
+#: /home/tim/code/KwaMoja/SystemParameters.php:773
 msgid "Allow Narrative Entry"
 msgstr "物語のエントリーを許可する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:768
+#: /home/tim/code/KwaMoja/SystemParameters.php:774
 msgid "No Narrative Line"
 msgstr "物語はない"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:770
+#: /home/tim/code/KwaMoja/SystemParameters.php:776
 msgid "Select whether or not to allow entry of narrative on order line items. This narrative will appear on invoices and packing slips. Useful mainly for service businesses."
 msgstr "オーダー明細に説明を入力するかどうかを選択します。 この物語は請求書と梱包明細書に表示されます。 主にサービス業に役立ちます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:775
+#: /home/tim/code/KwaMoja/SystemParameters.php:781
 msgid "A picking note must be produced before an order can be delivered"
 msgstr "オーダーを配信するには、ピッキング・ノートを作成する必要があります。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:780
+#: /home/tim/code/KwaMoja/SystemParameters.php:786
 msgid "Select whether or not a picking note must be produced before an order can be delivered to a customer."
 msgstr "注文書を顧客に引き渡す前にピッキング紙を作成する必要があるかどうかを選択します。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:785
+#: /home/tim/code/KwaMoja/SystemParameters.php:791
 msgid "Allow Sales Of Zero Cost Items"
 msgstr "ゼロコスト品目の販売を許可する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:790
+#: /home/tim/code/KwaMoja/SystemParameters.php:796
 msgid "If an item selected at order entry does not have a cost set up then if this parameter is set to No then the order line will not be able to be entered"
 msgstr "オーダーエントリで選択されたアイテムにコストが設定されていない場合、このパラメータがNoに設定されている場合、オーダーラインは入力できません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:794
+#: /home/tim/code/KwaMoja/SystemParameters.php:800
 msgid "Purchasing Manager Email Address"
 msgstr "購買担当者の電子メールアドレス"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:796
+#: /home/tim/code/KwaMoja/SystemParameters.php:802
 msgid "The email address for the purchasing manager, used to receive notifications by the tendering system"
 msgstr "入札システムによる通知の受信に使用される購買マネージャの電子メールアドレス"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:801
+#: /home/tim/code/KwaMoja/SystemParameters.php:807
 msgid "Automatically authorise purchase orders if user has authority"
 msgstr "ユーザーに権限がある場合は、購買発注を自動的に承認する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:806
+#: /home/tim/code/KwaMoja/SystemParameters.php:812
 msgid "If the user changing an existing purchase order or adding a new puchase order is set up to authorise purchase orders and the order is within their limit, then the purchase order status is automatically set to authorised"
 msgstr "既存の購買発注を変更するユーザーまたは新しいプッチ注文を追加するユーザーが発注を承認し、その発注が限度内に収まるように設定されている場合、発注ステータスは自動的に承認済みに設定されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:811
+#: /home/tim/code/KwaMoja/SystemParameters.php:817
 msgid "Maximum number of serial numbered items to be issued"
 msgstr "発行されるシリアル番号付きアイテムの最大数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:813
+#: /home/tim/code/KwaMoja/SystemParameters.php:819
 msgid "This parameter defines the Maximum number of serial numbered items that can be issued. It should be an integer greater than zero."
 msgstr "このパラメータは、発行可能なシリアル番号付きアイテムの最大数を定義します。 ゼロより大きい整数である必要があります。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:818
+#: /home/tim/code/KwaMoja/SystemParameters.php:824
 msgid "Format of Packing Slips"
 msgstr "パッキングスリップのフォーマット"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:820
+#: /home/tim/code/KwaMoja/SystemParameters.php:826
 msgid "Laser Printed"
 msgstr "レーザープリント"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:821
+#: /home/tim/code/KwaMoja/SystemParameters.php:827
 msgid "Special Stationery"
 msgstr "特別な文房具"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:823
+#: /home/tim/code/KwaMoja/SystemParameters.php:829
 msgid "Choose the format that packing notes should be printed by default"
 msgstr "パッキングノートをデフォルトで印刷する形式を選択する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:828
+#: /home/tim/code/KwaMoja/SystemParameters.php:834
 msgid "Invoice Quantity Default"
 msgstr "請求書数量デフォルト"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:830
+#: /home/tim/code/KwaMoja/SystemParameters.php:836
 msgid "0"
 msgstr "0"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:833
+#: /home/tim/code/KwaMoja/SystemParameters.php:839
 msgid "This setting controls the default behaviour of invoicing. Setting to 0 defaults the invocie quantity to zero to force entry. Set to outstanding to default the invoice quantity to the balance outstanding, after previous deliveries, on the sales order"
 msgstr "この設定は、請求処理のデフォルト動作を制御します。  0に設定すると、入力を強制するためにinvocie量がゼロにデフォルト設定されます。 未払いに設定して、請求書数量を未払い残高に設定します（前の出荷後、受注時）。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:838
+#: /home/tim/code/KwaMoja/SystemParameters.php:844
 msgid "Show company details on packing slips"
 msgstr "梱包明細書に会社の詳細を表示する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:840
+#: /home/tim/code/KwaMoja/SystemParameters.php:846
 msgid "Show Company Details"
 msgstr "会社の詳細を表示"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:841
+#: /home/tim/code/KwaMoja/SystemParameters.php:847
 msgid "Hide Company Details"
 msgstr "会社の詳細を隠す"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:843
+#: /home/tim/code/KwaMoja/SystemParameters.php:849
 msgid "Customer branches can be set by default not to print packing slips with the company logo and address. This is useful for companies that ship to customers customers and to show the source of the shipment would be inappropriate. There is an option on the setup of customer branches to ship blind, this setting is the default applied to all new customer branches"
 msgstr "顧客ブランチは、デフォルトで会社のロゴと住所の梱包明細書を印刷しないように設定することができます。 これは、顧客に顧客に出荷し、出荷元が不適切であることを示すために役立ちます。 盲目的に顧客ブランチをセットアップするオプションがあります。この設定は、すべての新規顧客ブランチに適用されるデフォルトです"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:848
+#: /home/tim/code/KwaMoja/SystemParameters.php:854
 msgid "Dispatch Cut-Off Time"
 msgstr "ディスパッチ・カットオフ時間"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:854
+#: /home/tim/code/KwaMoja/SystemParameters.php:860
 msgid "Orders entered after this time will default to be dispatched the following day, this can be over-ridden at the time of sales order entry"
 msgstr "この時間の後に入力された注文は、翌日に発送されるようにデフォルト設定されます。これは、受注時にオーバーライドされる可能性があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:859
+#: /home/tim/code/KwaMoja/SystemParameters.php:865
 msgid "Controlled Items Must Exist For Crediting"
 msgstr "コントロールされたアイテムがクレジットのために存在しなければならない"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:864
+#: /home/tim/code/KwaMoja/SystemParameters.php:870
 msgid "This parameter relates to the behaviour of the controlled items code. If a serial numbered item has not previously existed then a credit note for it will not be allowed if this is set to Yes"
 msgstr "このパラメータは、被制御項目コードの動作に関連します。 シリアル番号の付いた明細が以前に存在しなかった場合、これが[はい]に設定されている場合、クレジットノートは許可されません"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:869
+#: /home/tim/code/KwaMoja/SystemParameters.php:875
 msgid "Could not load price lists"
 msgstr "価格表を読み込めませんでした"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:872
+#: /home/tim/code/KwaMoja/SystemParameters.php:878
 msgid "Default Price List"
 msgstr "デフォルト価格表"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:882
+#: /home/tim/code/KwaMoja/SystemParameters.php:888
 msgid "This price list is used as a last resort where there is no price set up for an item in the price list that the customer is set up for"
 msgstr "この価格表は、顧客が設定されている価格表の明細に対して設定された価格がない最後の手段として使用されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:900
+#: /home/tim/code/KwaMoja/SystemParameters.php:906
 msgid "This shipper is used where the best shipper for a customer branch has not been defined previously"
 msgstr "この荷送人は、顧客支店の最適な荷送人が以前に定義されていない場合に使用されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:905
+#: /home/tim/code/KwaMoja/SystemParameters.php:911
 msgid "Do Freight Calculation"
 msgstr "貨物計算を行う"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:910
+#: /home/tim/code/KwaMoja/SystemParameters.php:916
 msgid "If this is set to Yes then the system will attempt to calculate the freight cost of a dispatch based on the weight and cubic and the data defined for each shipper and their rates for shipping to various locations. The results of this calculation will only be meaningful if the data is entered for the item weight and volume in the stock item setup for all items and the freight costs for each shipper properly maintained."
 msgstr "これが[はい]に設定されている場合、システムは、荷送人ごとに定義された重量とキュービックおよびデータ、およびさまざまな場所への出荷率に基づいて発送の運賃を計算しようとします。 この計算の結果は、すべての品目の在庫品目設定で品目重量と数量のデータが入力され、各荷送人の貨物コストが適切に管理されている場合にのみ意味を持ちます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:915
+#: /home/tim/code/KwaMoja/SystemParameters.php:921
 msgid "Apply freight charges if an order is less than"
 msgstr "注文が以下の場合は貨物料金を適用してください"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:917
+#: /home/tim/code/KwaMoja/SystemParameters.php:923
 msgid "This parameter is only effective if Do Freight Calculation is set to Yes. If it is set to 0 then freight is always charged. The total order value is compared to this value in deciding whether or not to charge freight"
 msgstr "このパラメータは、Do Freight CalculationがYesに設定されている場合にのみ有効です。  0に設定すると、貨物は常に充電されます。 合計秩序値は、貨物を充電するかどうかを決定する際にこの値と比較されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:922
+#: /home/tim/code/KwaMoja/SystemParameters.php:928
 msgid "Check Quantity Charged vs Deliver Qty"
 msgstr "小切手数量と小切手数量の確認"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:927
+#: /home/tim/code/KwaMoja/SystemParameters.php:933
 msgid "In entry of AP invoices this determines whether or not to check the quantities received into stock tie up with the quantities invoiced"
 msgstr "AP請求書の入力では、在庫に入荷された数量を請求対象数量と照合するかどうかを決定します"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:932
+#: /home/tim/code/KwaMoja/SystemParameters.php:938
 msgid "Check Price Charged vs Order Price"
 msgstr "価格の請求と注文価格の確認"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:937
+#: /home/tim/code/KwaMoja/SystemParameters.php:943
 msgid "In entry of AP invoices this parameter determines whether or not to check invoice prices tie up to ordered prices"
 msgstr "AP請求書入力時に、このパラメータは、請求書価格を発注価格に連動させるかどうかを決定します"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:942
+#: /home/tim/code/KwaMoja/SystemParameters.php:948
 msgid "Allowed Over Charge Proportion"
 msgstr "許容される過充電の割合"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:944
+#: /home/tim/code/KwaMoja/SystemParameters.php:950
 msgid "If check price charges vs Order price is set to yes then this proportion determines the percentage by which invoices can be overcharged with respect to price"
 msgstr "小切手価格料金と注文価格が「はい」に設定されている場合、この割合は、価格に対して請求額が課金される割合を決定します"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:949
+#: /home/tim/code/KwaMoja/SystemParameters.php:955
 msgid "Allowed Over Receive Proportion"
 msgstr "許容オーバー受信率"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:951
+#: /home/tim/code/KwaMoja/SystemParameters.php:957
 msgid "If check quantity charged vs delivery quantity is set to yes then this proportion determines the percentage by which invoices can be overcharged with respect to delivery"
 msgstr "小切手の数量と配送数量が「はい」に設定されている場合、この比率は、請求に関して請求金額が過大になる割合を決定します"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:956
+#: /home/tim/code/KwaMoja/SystemParameters.php:962
 msgid "Purchase Order Allows Same Item Multiple Times"
 msgstr "購買発注で同じ商品を複数回使用することができます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:961
+#: /home/tim/code/KwaMoja/SystemParameters.php:967
 msgid "If a purchase order can have the same item on the order several times this parameter should be set to yes"
 msgstr "購買発注に同じ注文が数回ある場合は、このパラメータをyesに設定する必要があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:966
+#: /home/tim/code/KwaMoja/SystemParameters.php:972
 msgid "Accounts Receivable/Payable Settings"
 msgstr "債権/債務の設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:970
+#: /home/tim/code/KwaMoja/SystemParameters.php:976
 msgid "First Overdue Deadline in (days)"
 msgstr "最初の期限締め切り期限（日）"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:972
+#: /home/tim/code/KwaMoja/SystemParameters.php:978
 msgid "Customer and supplier balances are displayed as overdue by this many days. This parameter is used on customer and supplier enquiry screens and aged listings"
 msgstr "顧客およびサプライヤの残高はこの数日前に期限切れと表示されます。 このパラメータは、顧客およびサプライヤの照会画面および老化リストで使用されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:977
+#: /home/tim/code/KwaMoja/SystemParameters.php:983
 msgid "Second Overdue Deadline in (days)"
 msgstr "2日後の締切日（日）"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:979
+#: /home/tim/code/KwaMoja/SystemParameters.php:985
 msgid "As above but the next level of overdue"
 msgstr "上記のように、期限切れの次のレベル"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:984
+#: /home/tim/code/KwaMoja/SystemParameters.php:990
 msgid "Default Credit Limit"
 msgstr "デフォルトの与信限度額"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:986
+#: /home/tim/code/KwaMoja/SystemParameters.php:992
 msgid "The default used in new customer set up"
 msgstr "新規顧客の設定で使用されるデフォルト"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:991
+#: /home/tim/code/KwaMoja/SystemParameters.php:997
 msgid "Check Credit Limits"
 msgstr "クレジット限度の確認"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:993
+#: /home/tim/code/KwaMoja/SystemParameters.php:999
 msgid "Do not check"
 msgstr "チェックしないでください"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:994
+#: /home/tim/code/KwaMoja/SystemParameters.php:1000
 msgid "Warn on breach"
 msgstr "違反を警告する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:995
+#: /home/tim/code/KwaMoja/SystemParameters.php:1001
 msgid "Prohibit Sales"
 msgstr "販売を禁止する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:997
+#: /home/tim/code/KwaMoja/SystemParameters.php:1003
 msgid "Credit limits can be checked at order entry to warn only or to stop the order from being entered where it would take a customer account balance over their limit"
 msgstr "与信限度は、発注時にのみ警告するか、または顧客の口座残高が限界を超えた場合に注文が入力されるのを止めるためにチェックすることができます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1002
+#: /home/tim/code/KwaMoja/SystemParameters.php:1008
 msgid "Show Settled Last Month"
 msgstr "先月決済を表示"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1007
+#: /home/tim/code/KwaMoja/SystemParameters.php:1013
 msgid "This setting refers to the format of customer statements. If the invoices and credit notes that have been paid and settled during the course of the current month should be shown then select Yes. Selecting No will only show currently outstanding invoices, credits and payments that have not been allocated"
 msgstr "この設定は顧客ステートメントのフォーマットを参照します。 当月の間に支払と決済が行われた請求書とクレジットメモが表示されたら、[はい]を選択します。 いいえを選択すると、割り当てられていない未払いの請求書、クレジット、支払いが表示されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1012
+#: /home/tim/code/KwaMoja/SystemParameters.php:1018
 msgid "All new branch codes must be authorised"
 msgstr "すべての新しいブランチコードは承認されている必要があります"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1023
+#: /home/tim/code/KwaMoja/SystemParameters.php:1029
 msgid "If enabled then all new customer branches are set to disabled by default."
 msgstr "有効にすると、新しい顧客ブランチはすべてデフォルトで無効に設定されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1028
+#: /home/tim/code/KwaMoja/SystemParameters.php:1034
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:600
 msgid "Create Debtor Codes Automatically"
 msgstr "債務者コードを自動的に作成する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1039
+#: /home/tim/code/KwaMoja/SystemParameters.php:1045
 msgid "Set to Automatic - customer codes are automatically created - as a sequential number"
 msgstr "自動 - 顧客コードが自動的に作成されます - 連続番号として設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1043
+#: /home/tim/code/KwaMoja/SystemParameters.php:1049
 msgid "Create Supplier Codes Automatically"
 msgstr "サプライヤコードを自動的に登録する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1054
+#: /home/tim/code/KwaMoja/SystemParameters.php:1060
 msgid "Set to Automatic - Supplier codes are automatically created - as a sequential number"
 msgstr "自動に設定 - サプライヤコードが自動的に作成されます - 連続番号として"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1058
+#: /home/tim/code/KwaMoja/SystemParameters.php:1064
 msgid "Extended Customer Information"
 msgstr "拡張された顧客情報"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1061
-#: /home/tim/code/KwaMoja/SystemParameters.php:1065
+#: /home/tim/code/KwaMoja/SystemParameters.php:1067
+#: /home/tim/code/KwaMoja/SystemParameters.php:1071
 msgid "Extended Customer Info Enabled"
 msgstr "拡張された顧客情報が有効"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1062
-#: /home/tim/code/KwaMoja/SystemParameters.php:1064
+#: /home/tim/code/KwaMoja/SystemParameters.php:1068
+#: /home/tim/code/KwaMoja/SystemParameters.php:1070
 msgid "Extended Customer Info Disabled"
 msgstr "拡張顧客情報が無効"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1068
+#: /home/tim/code/KwaMoja/SystemParameters.php:1074
 msgid "This feature will give extended information in the Select Customer screen."
 msgstr "この機能により、顧客の選択画面に拡張情報が表示されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1072
+#: /home/tim/code/KwaMoja/SystemParameters.php:1078
 msgid "Extended Supplier Information"
 msgstr "拡張サプライヤ情報"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1075
-#: /home/tim/code/KwaMoja/SystemParameters.php:1079
+#: /home/tim/code/KwaMoja/SystemParameters.php:1081
+#: /home/tim/code/KwaMoja/SystemParameters.php:1085
 msgid "Extended Supplier Info Enabled"
 msgstr "拡張サプライヤ情報が有効"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1076
-#: /home/tim/code/KwaMoja/SystemParameters.php:1078
+#: /home/tim/code/KwaMoja/SystemParameters.php:1082
+#: /home/tim/code/KwaMoja/SystemParameters.php:1084
 msgid "Extended Supplier Info Disabled"
 msgstr "拡張サプライヤ情報無効"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1082
+#: /home/tim/code/KwaMoja/SystemParameters.php:1088
 msgid "This feature will give extended information in the Select Supplier screen."
 msgstr "この機能により、サプライヤの選択画面に拡張情報が表示されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1087
+#: /home/tim/code/KwaMoja/SystemParameters.php:1093
 msgid "Inventory Settings"
 msgstr "インベントリ設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1094
+#: /home/tim/code/KwaMoja/SystemParameters.php:1100
 msgid "Languages to Maintain Translations for Item Descriptions"
 msgstr "アイテム説明の翻訳を維持するための言語"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1105
+#: /home/tim/code/KwaMoja/SystemParameters.php:1111
 msgid "Select the languages in which translations of the item description will be maintained. The default language is excluded."
 msgstr "商品説明の翻訳が維持される言語を選択します。 デフォルトの言語は除外されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1109
+#: /home/tim/code/KwaMoja/SystemParameters.php:1115
 msgid "Inventory Manager Email Address"
 msgstr "在庫マネージャのメールアドレス"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1111
+#: /home/tim/code/KwaMoja/SystemParameters.php:1117
 msgid "The email address for the inventory manager, where notifications of all manual stock adjustments created are sent by the system. Leave blank if no emails should be sent to the factory manager for manual stock adjustments"
 msgstr "作成されたすべての手動在庫調整の通知がシステムによって送信される在庫マネージャの電子メールアドレス。 手動在庫調整のために工場管理者に電子メールを送信しない場合は空白のままにしてください"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1115
+#: /home/tim/code/KwaMoja/SystemParameters.php:1121
 msgid "Prohibit Negative Stock"
 msgstr "負の在庫を禁止する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1125
+#: /home/tim/code/KwaMoja/SystemParameters.php:1131
 msgid "Setting this parameter to Yes prevents invoicing and the issue of stock if this would result in negative stock. The stock problem must be corrected before the invoice or issue is allowed to be processed."
 msgstr "このパラメータを[はい]に設定すると、負債が発生する場合は請求書発行と在庫の問題が回避されます。 在庫問題は、請求書または発行が処理される前に修正する必要があります。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1129
+#: /home/tim/code/KwaMoja/SystemParameters.php:1135
 msgid "Inventory Costing Method"
 msgstr "在庫原価計算方法"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1133
-#: /home/tim/code/KwaMoja/SystemParameters.php:1137
+#: /home/tim/code/KwaMoja/SystemParameters.php:1139
+#: /home/tim/code/KwaMoja/SystemParameters.php:1143
 msgid "Weighted Average Costing"
 msgstr "加重平均原価計算"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1134
-#: /home/tim/code/KwaMoja/SystemParameters.php:1136
+#: /home/tim/code/KwaMoja/SystemParameters.php:1140
+#: /home/tim/code/KwaMoja/SystemParameters.php:1142
 msgid "Standard Costing"
 msgstr "標準原価計算"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1141
+#: /home/tim/code/KwaMoja/SystemParameters.php:1147
 msgid "allows inventory to be costed based on the weighted average of items in stock or full standard costing with price variances reported. The selection here determines the method used and the general ledger postings resulting from purchase invoices and shipment closing"
 msgstr "ストック・アイテムの加重平均または全標準原価計算に基づいて報告された価格差異に基づいて在庫を原価計算することができます。 ここでの選択は、使用された方法と購買請求書および出荷完了に起因する総勘定元帳転記を決定します"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1146
+#: /home/tim/code/KwaMoja/SystemParameters.php:1152
 msgid "Show Stockid on images"
 msgstr "ストックダンスを画像に表示する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1151
+#: /home/tim/code/KwaMoja/SystemParameters.php:1157
 msgid "Show the code inside the thumbnail image of the items"
 msgstr "アイテムのサムネイル画像内にコードを表示する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1155
+#: /home/tim/code/KwaMoja/SystemParameters.php:1161
 msgid "Create Inventory Codes Automatically"
 msgstr "自動的に在庫コードを作成する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1166
+#: /home/tim/code/KwaMoja/SystemParameters.php:1172
 msgid "Set to Automatic - Inventory codes are automatically created - as a sequential number"
 msgstr "自動 - インベントリコードは自動的に作成されます - シリアル番号として設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1171
+#: /home/tim/code/KwaMoja/SystemParameters.php:1177
 msgid "Standard Cost Decimal Places"
 msgstr "標準原価小数点以下の桁数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1177
+#: /home/tim/code/KwaMoja/SystemParameters.php:1183
 msgid "Decimal Places to be used in Standard Cost"
 msgstr "標準原価で使用される小数点以下の桁数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1182
+#: /home/tim/code/KwaMoja/SystemParameters.php:1188
 msgid "Number Of Periods Of StockUsage"
 msgstr "StockUsageの期間数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1186
+#: /home/tim/code/KwaMoja/SystemParameters.php:1192
 msgid "In stock usage inquiries this determines how many periods of stock usage to show. An average is calculated over this many periods"
 msgstr "在庫使用の照会では、これによって在庫使用期間が決定されます。 平均はこの多くの期間にわたって計算されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1191
+#: /home/tim/code/KwaMoja/SystemParameters.php:1197
 msgid "Show order values on GRN"
 msgstr "GRNのオーダー値を表示する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1196
+#: /home/tim/code/KwaMoja/SystemParameters.php:1202
 msgid "Should the value of the purchased stock be shown on the GRN screen"
 msgstr "購入した株式の価値をGRN画面に表示するか"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1201
+#: /home/tim/code/KwaMoja/SystemParameters.php:1207
+msgid "Show Zero Counts Within Stock Usage Graph Period Range"
+msgstr "在庫使用量グラフの期間範囲内でゼロカウントを表示"
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:1212
+msgid "Show periods having zero counts within Stock Usage Graph. Choosing yes may show a wider period range than expected."
+msgstr "在庫使用量グラフ内にカウントがゼロの期間を表示します。 [はい]を選択すると、予想よりも広い期間範囲が表示される場合があります。"
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:1217
 msgid "Manufacturing/Quality Assurance Settings"
 msgstr "製造/品質保証の設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1205
+#: /home/tim/code/KwaMoja/SystemParameters.php:1221
 msgid "Working Days on a Week"
 msgstr "1週間の労働日数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1207
-#: /home/tim/code/KwaMoja/SystemParameters.php:1208
-#: /home/tim/code/KwaMoja/SystemParameters.php:1209
+#: /home/tim/code/KwaMoja/SystemParameters.php:1223
+#: /home/tim/code/KwaMoja/SystemParameters.php:1224
+#: /home/tim/code/KwaMoja/SystemParameters.php:1225
 msgid "working days"
 msgstr "営業日"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1211
+#: /home/tim/code/KwaMoja/SystemParameters.php:1227
 msgid "Number of working days on a week"
 msgstr "1週間の就業日数"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1215
+#: /home/tim/code/KwaMoja/SystemParameters.php:1231
 msgid "Text For Quality Product Specification"
 msgstr "品質製品仕様書のテキスト"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1217
+#: /home/tim/code/KwaMoja/SystemParameters.php:1233
 msgid "This text appears on product specifications"
 msgstr "このテキストは製品仕様に記載されています"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1221
+#: /home/tim/code/KwaMoja/SystemParameters.php:1237
 msgid "Text For Quality Product Certifications"
 msgstr "品質製品認証のためのテキスト"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1223
+#: /home/tim/code/KwaMoja/SystemParameters.php:1239
 msgid "This text appears on product certifications"
 msgstr "このテキストは製品認証に表示されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1227
+#: /home/tim/code/KwaMoja/SystemParameters.php:1243
 msgid "Auto Log Quality Samples"
 msgstr "自動ログ品質サンプル"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1238
+#: /home/tim/code/KwaMoja/SystemParameters.php:1254
 msgid "The flag determines if the system creates quality samples automatically for each lot during P/O Receipt and W/O Recipt transactions."
 msgstr "このフラグは、P / OレシートおよびW / Oレシートトランザクション中にロットごとに品質サンプルを自動的に作成するかどうかを決定します。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1242
+#: /home/tim/code/KwaMoja/SystemParameters.php:1258
 msgid "Factory Manager Email Address"
 msgstr "ファクトリマネージャの電子メールアドレス"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1244
+#: /home/tim/code/KwaMoja/SystemParameters.php:1260
 msgid "Work orders automatically created when sales orders are entered will be emailed to this address"
 msgstr "受注入力時に自動的に作成された作業指示書は、このアドレスに電子メールで送信されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1248
+#: /home/tim/code/KwaMoja/SystemParameters.php:1264
 msgid "Could not load locations table"
 msgstr "ロケーションテーブルを読み込めませんでした"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1252
+#: /home/tim/code/KwaMoja/SystemParameters.php:1268
 msgid "Default Factory Location"
 msgstr "デフォルトの工場所在地"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1262
+#: /home/tim/code/KwaMoja/SystemParameters.php:1278
 msgid "This location is the location where work orders will be created from when the auto create work orders option is activated"
 msgstr "この場所は、自動作業指示書作成オプションが有効化されてから作業指示書が作成される場所です"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1267
+#: /home/tim/code/KwaMoja/SystemParameters.php:1283
 msgid "Controlled Items Defined At Work Order Entry"
 msgstr "作業指示エントリで定義された制御項目"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1272
+#: /home/tim/code/KwaMoja/SystemParameters.php:1288
 msgid "When set to yes, controlled items are defined at the time of the work order creation. Otherwise controlled items (serial numbers and batch/roll/lot references) are entered at the time the finished items are received against the work order"
 msgstr "yesに設定すると、制御された項目は作業指示書の作成時に定義されます。 それ以外の場合、作業指示に対して仕上がり品目が受領された時点で、管理対象項目（シリアル番号とロット/ロット/ロット参照）が入力されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1277
+#: /home/tim/code/KwaMoja/SystemParameters.php:1293
 msgid "Auto Create Work Orders"
 msgstr "作業オーダーの自動作成"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1287
+#: /home/tim/code/KwaMoja/SystemParameters.php:1303
 msgid "Setting this parameter to Yes will ensure that when a sales order is placed if there is insufficient stock then a new work order is created at the default factory location"
 msgstr "このパラメータを[はい]に設定すると、在庫が不足している場合に受注が行われると、工場出荷時の既定の場所に新しい作業オーダーが作成されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1291
+#: /home/tim/code/KwaMoja/SystemParameters.php:1307
 msgid "Auto Issue Components"
 msgstr "自動発行コンポーネント"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1301
+#: /home/tim/code/KwaMoja/SystemParameters.php:1317
 msgid "When items are manufactured it is possible for the components of the item to be automatically decremented from stock in accordance with the Bill of Material setting"
 msgstr "品目が製造されると、明細の構成品目がBOM設定に従って在庫から自動的に減分されます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1306
+#: /home/tim/code/KwaMoja/SystemParameters.php:1322
 msgid "General Ledger Settings"
 msgstr "総勘定元帳の設定"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1313
+#: /home/tim/code/KwaMoja/SystemParameters.php:1329
 msgid "Prohibit GL Journals to Periods Prior To"
 msgstr "GLジャーナルの前の期間への禁止"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1326
+#: /home/tim/code/KwaMoja/SystemParameters.php:1342
 msgid "This allows all periods before the selected date to be locked from postings. All postings for transactions dated prior to this date will be posted in the period following this date."
 msgstr "これにより、選択した日付より前のすべての期間を転記からロックすることができます。 この日付以前の取引のすべての転記は、この日付の後の期間に転記されます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1330
+#: /home/tim/code/KwaMoja/SystemParameters.php:1346
 msgid "Prohibit GL Journals to Control Accounts"
 msgstr "GLジャーナルを管理してアカウントを禁止する"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1333
-#: /home/tim/code/KwaMoja/SystemParameters.php:1336
+#: /home/tim/code/KwaMoja/SystemParameters.php:1349
+#: /home/tim/code/KwaMoja/SystemParameters.php:1352
 msgid "Prohibited"
 msgstr "禁止されている"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1334
-#: /home/tim/code/KwaMoja/SystemParameters.php:1337
+#: /home/tim/code/KwaMoja/SystemParameters.php:1350
+#: /home/tim/code/KwaMoja/SystemParameters.php:1353
 msgid "Allowed"
 msgstr "許可"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1340
+#: /home/tim/code/KwaMoja/SystemParameters.php:1356
 msgid "Setting this to prohibited prevents accidentally entering a journal to the automatically posted and reconciled control accounts for creditors (AP) and debtors (AR)"
 msgstr "これを禁止に設定すると、自動的に転記され、調整された債権者（AP）と債務者（AR）の管理勘定に間違ってジャーナルを入力することを防ぎます。"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1345
+#: /home/tim/code/KwaMoja/SystemParameters.php:1361
 msgid "Financial Year Ends at End of"
 msgstr "会計年度の終わりは"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1349
+#: /home/tim/code/KwaMoja/SystemParameters.php:1365
 msgid "Defining the month in which the financial year ends enables the system to provide useful defaults for general ledger reports"
 msgstr "会計年度が終了する月を定義すると、システムは総勘定元帳レポートに有用なデフォルトを提供することができます"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1354
+#: /home/tim/code/KwaMoja/SystemParameters.php:1370
 msgid "Could not load tax categories table"
 msgstr "税カテゴリテーブルを読み込めませんでした"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1367
+#: /home/tim/code/KwaMoja/SystemParameters.php:1383
 msgid "This is the tax category used for entry of supplier invoices and the category at which freight attracts tax"
 msgstr "これは、仕入先請求書の入力に使用される税カテゴリと、貨物が税金を引き付けるカテゴリです"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1372
+#: /home/tim/code/KwaMoja/SystemParameters.php:1388
 msgid "Tax Authority Reference Name"
 msgstr "税務当局の参照名"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1374
+#: /home/tim/code/KwaMoja/SystemParameters.php:1390
 msgid "This parameter is what is displayed on tax invoices and credits for the tax authority of the company eg. in Australian this would by A.B.N.: - in NZ it would be GST No: in the UK it would be VAT Regn. No"
 msgstr "このパラメータは、税務書類および会社の税務当局のクレジットに表示されるものです。 オーストラリアではA.B.N.: NZではGST No：英国ではVAT Regnとなります。 いいえ"
 
@@ -63813,8 +63789,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "期限切れの監査証跡履歴の削除中に問題が発生しました"
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1036
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1151
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1041
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1156
 msgid "An error occurred in retrieving the period number"
 msgstr "期間番号の取得中にエラーが発生しました"
 
@@ -65012,6 +64988,10 @@ msgstr "ordernoキーとstkcodeキーは、これらの値のいずれかでな�
 msgid "Function Description go here"
 msgstr "機能説明はここに"
 
+#: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1882
+msgid "Account Details"
+msgstr "アカウント詳細"
+
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1883
 msgid "An array of index/value items describing the GL Account and fields to set."
 msgstr "GLアカウントと設定する項目を記述するインデックス/値項目の配列。"
@@ -65778,42 +65758,46 @@ msgstr "もう一度ログインしようとする"
 msgid "The configuration in the file config.php for the database user name and password do not provide the information required to connect to the database server"
 msgstr "データベースのユーザ名とパスワードのconfig.phpファイルの設定では、データベースサーバへの接続に必要な情報は提供されません"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:87
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:76
+msgid "There was a problem updating the general ledger totals. Please correct"
+msgstr "総勘定元帳の合計の更新に問題がありました。正してください"
+
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:106
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:72
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:65
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:47
 msgid "Database SQL Failure"
 msgstr "データベースのSQLエラー"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:93
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Error Rolling Back Transaction"
 msgstr "ロールバックトランザクションのエラー"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:93
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Database Rollback Error"
 msgstr "データベースのロールバックエラー"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:95
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Rolling Back Transaction OK"
 msgstr "ロールバック取引OK"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:95
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Database Rollback Due to Error Above"
 msgstr "上のエラーによるデータベースのロールバック"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:199
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:218
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:195
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:190
 msgid "The system has just run the regular database administration and optimisation routine."
@@ -67505,15 +67489,19 @@ msgstr "ザンビアクワチャ"
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr "日付は有効な形式ではないようです。  SQL形式から変換される日付は次のとおりです。"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1024
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1025
 msgid "An error occurred in adding a new period number"
 msgstr "新しい期間番号を追加する際にエラーが発生しました"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1084
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1030
+msgid "An error occurred in adding a new period number to the gltotals table"
+msgstr "gltotalsテーブルに新しい期間番号を追加するときにエラーが発生しました"
+
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1089
 msgid "Could not insert first period"
 msgstr "最初の期間を挿入できませんでした"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1085
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1090
 msgid "Could not insert second period"
 msgstr "第2の期間を挿入できませんでした"
 
@@ -68110,6 +68098,11 @@ msgstr "メールリストの取得に失敗しました"
 msgid "The SQL to update "
 msgstr "更新するSQL"
 
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:576
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:648
+msgid "This Year"
+msgstr "今年"
+
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:581
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:660
 msgid "Last Month"
@@ -68119,6 +68112,11 @@ msgstr "先月"
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:664
 msgid "Last Quarter"
 msgstr "前四半期"
+
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
+msgid "Last Financial Year"
+msgstr "最後の会計年度"
 
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:588
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:685
@@ -68134,6 +68132,11 @@ msgstr "次の四半期"
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:698
 msgid "Next Year"
 msgstr "来年"
+
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
+msgid "Next Financial Year"
+msgstr "次の会計年度"
 
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:768
 msgid "Select an Account Code"
@@ -73233,6 +73236,39 @@ msgstr "スタッフローン"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "スタッフローン返済"
+
+#~ msgid "Print Statement of Financial Position"
+#~ msgstr "財政状態計算書の印刷"
+
+#~ msgid "Print Trial Balance Error"
+#~ msgstr "トライアル残高の印刷エラー"
+
+#~ msgid "Budget updated successfully"
+#~ msgstr "予算が正常に更新されました"
+
+#~ msgid "No General ledger accounts have been set up yet"
+#~ msgstr "総勘定元帳のアカウントはまだ設定されていません"
+
+#~ msgid "budgets cannot be allocated until the GL accounts are set up"
+#~ msgstr "GLアカウントが設定されるまで予算を割り当てることはできません"
+
+#~ msgid "Cannot update GL budgets"
+#~ msgstr "GL予算を更新できません"
+
+#~ msgid "The SQL that failed to update the GL budgets was"
+#~ msgstr "GL予算を更新できなかったSQLは"
+
+#~ msgid "Budget Entry"
+#~ msgstr "予算入力"
+
+#~ msgid "Year ended"
+#~ msgstr "年末"
+
+#~ msgid "Annual Budget"
+#~ msgstr "年度予算"
+
+#~ msgid "Apportion Budget"
+#~ msgstr "配分予算"
 
 #~ msgid "Item to bill"
 #~ msgstr "請求するアイテム"

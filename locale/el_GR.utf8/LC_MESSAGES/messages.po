@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-11 00:14+0000\n"
-"PO-Revision-Date: 2020-11-11 00:11+0000\n"
+"POT-Creation-Date: 2020-11-17 00:09+0000\n"
+"PO-Revision-Date: 2020-11-17 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -168,21 +168,22 @@ msgstr "Λίστα ομάδων κατάταξης ABC"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:830
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:448
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:160
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:448
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:698
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:211
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:698
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:495
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:190
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:186
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -234,8 +235,8 @@ msgstr "Τυπώνω"
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:124
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:63
 #: /home/tim/code/KwaMoja/Factors.php:289
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:90
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:89
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:203
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:340
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:354
 #: /home/tim/code/KwaMoja/SupplierGroups.php:279
@@ -588,7 +589,7 @@ msgstr "Η μέθοδος κατάταξης αποθηκεύτηκε με επ�
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
 #: /home/tim/code/KwaMoja/GLAccounts.php:498
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:228
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:161
@@ -1250,9 +1251,10 @@ msgstr "Ακολουθία στην φυματίωση"
 #: /home/tim/code/KwaMoja/AccountGroups.php:332
 #: /home/tim/code/KwaMoja/AccountGroups.php:517
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:15
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:166
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:15
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:165
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:166
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:21
 msgid "Profit and Loss"
 msgstr "Κέρδος και ζημία"
@@ -1312,9 +1314,9 @@ msgstr "Όνομα ομάδας γονέων"
 #: /home/tim/code/KwaMoja/FormDesigner.php:95
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:164
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:173
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:219
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:167
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:170
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:218
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
@@ -1499,32 +1501,33 @@ msgstr "Όνομα ομάδας γονέων"
 #: /home/tim/code/KwaMoja/Stocks.php:1432
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:86
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:594
-#: /home/tim/code/KwaMoja/SystemParameters.php:534
-#: /home/tim/code/KwaMoja/SystemParameters.php:536
-#: /home/tim/code/KwaMoja/SystemParameters.php:566
-#: /home/tim/code/KwaMoja/SystemParameters.php:757
-#: /home/tim/code/KwaMoja/SystemParameters.php:777
-#: /home/tim/code/KwaMoja/SystemParameters.php:787
-#: /home/tim/code/KwaMoja/SystemParameters.php:803
-#: /home/tim/code/KwaMoja/SystemParameters.php:861
-#: /home/tim/code/KwaMoja/SystemParameters.php:907
-#: /home/tim/code/KwaMoja/SystemParameters.php:924
-#: /home/tim/code/KwaMoja/SystemParameters.php:934
-#: /home/tim/code/KwaMoja/SystemParameters.php:958
-#: /home/tim/code/KwaMoja/SystemParameters.php:1004
-#: /home/tim/code/KwaMoja/SystemParameters.php:1017
-#: /home/tim/code/KwaMoja/SystemParameters.php:1019
-#: /home/tim/code/KwaMoja/SystemParameters.php:1119
-#: /home/tim/code/KwaMoja/SystemParameters.php:1121
-#: /home/tim/code/KwaMoja/SystemParameters.php:1148
-#: /home/tim/code/KwaMoja/SystemParameters.php:1193
-#: /home/tim/code/KwaMoja/SystemParameters.php:1231
-#: /home/tim/code/KwaMoja/SystemParameters.php:1233
-#: /home/tim/code/KwaMoja/SystemParameters.php:1269
-#: /home/tim/code/KwaMoja/SystemParameters.php:1281
-#: /home/tim/code/KwaMoja/SystemParameters.php:1283
-#: /home/tim/code/KwaMoja/SystemParameters.php:1295
+#: /home/tim/code/KwaMoja/SystemParameters.php:540
+#: /home/tim/code/KwaMoja/SystemParameters.php:542
+#: /home/tim/code/KwaMoja/SystemParameters.php:572
+#: /home/tim/code/KwaMoja/SystemParameters.php:763
+#: /home/tim/code/KwaMoja/SystemParameters.php:783
+#: /home/tim/code/KwaMoja/SystemParameters.php:793
+#: /home/tim/code/KwaMoja/SystemParameters.php:809
+#: /home/tim/code/KwaMoja/SystemParameters.php:867
+#: /home/tim/code/KwaMoja/SystemParameters.php:913
+#: /home/tim/code/KwaMoja/SystemParameters.php:930
+#: /home/tim/code/KwaMoja/SystemParameters.php:940
+#: /home/tim/code/KwaMoja/SystemParameters.php:964
+#: /home/tim/code/KwaMoja/SystemParameters.php:1010
+#: /home/tim/code/KwaMoja/SystemParameters.php:1023
+#: /home/tim/code/KwaMoja/SystemParameters.php:1025
+#: /home/tim/code/KwaMoja/SystemParameters.php:1125
+#: /home/tim/code/KwaMoja/SystemParameters.php:1127
+#: /home/tim/code/KwaMoja/SystemParameters.php:1154
+#: /home/tim/code/KwaMoja/SystemParameters.php:1199
+#: /home/tim/code/KwaMoja/SystemParameters.php:1209
+#: /home/tim/code/KwaMoja/SystemParameters.php:1247
+#: /home/tim/code/KwaMoja/SystemParameters.php:1249
+#: /home/tim/code/KwaMoja/SystemParameters.php:1285
 #: /home/tim/code/KwaMoja/SystemParameters.php:1297
+#: /home/tim/code/KwaMoja/SystemParameters.php:1299
+#: /home/tim/code/KwaMoja/SystemParameters.php:1311
+#: /home/tim/code/KwaMoja/SystemParameters.php:1313
 #: /home/tim/code/KwaMoja/TaxGroups.php:316
 #: /home/tim/code/KwaMoja/TaxGroups.php:319
 #: /home/tim/code/KwaMoja/TaxGroups.php:377
@@ -1623,9 +1626,9 @@ msgstr "Ναί"
 #: /home/tim/code/KwaMoja/FormDesigner.php:93
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:166
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:175
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:169
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:172
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:217
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:216
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
@@ -1808,32 +1811,33 @@ msgstr "Ναί"
 #: /home/tim/code/KwaMoja/Stocks.php:1427
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:88
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:597
-#: /home/tim/code/KwaMoja/SystemParameters.php:533
-#: /home/tim/code/KwaMoja/SystemParameters.php:537
-#: /home/tim/code/KwaMoja/SystemParameters.php:567
-#: /home/tim/code/KwaMoja/SystemParameters.php:758
-#: /home/tim/code/KwaMoja/SystemParameters.php:778
-#: /home/tim/code/KwaMoja/SystemParameters.php:788
-#: /home/tim/code/KwaMoja/SystemParameters.php:804
-#: /home/tim/code/KwaMoja/SystemParameters.php:862
-#: /home/tim/code/KwaMoja/SystemParameters.php:908
-#: /home/tim/code/KwaMoja/SystemParameters.php:925
-#: /home/tim/code/KwaMoja/SystemParameters.php:935
-#: /home/tim/code/KwaMoja/SystemParameters.php:959
-#: /home/tim/code/KwaMoja/SystemParameters.php:1005
-#: /home/tim/code/KwaMoja/SystemParameters.php:1016
-#: /home/tim/code/KwaMoja/SystemParameters.php:1020
-#: /home/tim/code/KwaMoja/SystemParameters.php:1118
-#: /home/tim/code/KwaMoja/SystemParameters.php:1122
-#: /home/tim/code/KwaMoja/SystemParameters.php:1149
-#: /home/tim/code/KwaMoja/SystemParameters.php:1194
-#: /home/tim/code/KwaMoja/SystemParameters.php:1230
-#: /home/tim/code/KwaMoja/SystemParameters.php:1234
-#: /home/tim/code/KwaMoja/SystemParameters.php:1270
-#: /home/tim/code/KwaMoja/SystemParameters.php:1280
-#: /home/tim/code/KwaMoja/SystemParameters.php:1284
-#: /home/tim/code/KwaMoja/SystemParameters.php:1294
-#: /home/tim/code/KwaMoja/SystemParameters.php:1298
+#: /home/tim/code/KwaMoja/SystemParameters.php:539
+#: /home/tim/code/KwaMoja/SystemParameters.php:543
+#: /home/tim/code/KwaMoja/SystemParameters.php:573
+#: /home/tim/code/KwaMoja/SystemParameters.php:764
+#: /home/tim/code/KwaMoja/SystemParameters.php:784
+#: /home/tim/code/KwaMoja/SystemParameters.php:794
+#: /home/tim/code/KwaMoja/SystemParameters.php:810
+#: /home/tim/code/KwaMoja/SystemParameters.php:868
+#: /home/tim/code/KwaMoja/SystemParameters.php:914
+#: /home/tim/code/KwaMoja/SystemParameters.php:931
+#: /home/tim/code/KwaMoja/SystemParameters.php:941
+#: /home/tim/code/KwaMoja/SystemParameters.php:965
+#: /home/tim/code/KwaMoja/SystemParameters.php:1011
+#: /home/tim/code/KwaMoja/SystemParameters.php:1022
+#: /home/tim/code/KwaMoja/SystemParameters.php:1026
+#: /home/tim/code/KwaMoja/SystemParameters.php:1124
+#: /home/tim/code/KwaMoja/SystemParameters.php:1128
+#: /home/tim/code/KwaMoja/SystemParameters.php:1155
+#: /home/tim/code/KwaMoja/SystemParameters.php:1200
+#: /home/tim/code/KwaMoja/SystemParameters.php:1210
+#: /home/tim/code/KwaMoja/SystemParameters.php:1246
+#: /home/tim/code/KwaMoja/SystemParameters.php:1250
+#: /home/tim/code/KwaMoja/SystemParameters.php:1286
+#: /home/tim/code/KwaMoja/SystemParameters.php:1296
+#: /home/tim/code/KwaMoja/SystemParameters.php:1300
+#: /home/tim/code/KwaMoja/SystemParameters.php:1310
+#: /home/tim/code/KwaMoja/SystemParameters.php:1314
 #: /home/tim/code/KwaMoja/TaxGroups.php:317
 #: /home/tim/code/KwaMoja/TaxGroups.php:320
 #: /home/tim/code/KwaMoja/TaxGroups.php:379
@@ -2245,7 +2249,7 @@ msgstr "Η εγγραφή επαφής έχει διαγραφεί"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:443
 #: /home/tim/code/KwaMoja/Customers.php:689
 #: /home/tim/code/KwaMoja/Customers.php:697
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
@@ -2525,7 +2529,7 @@ msgstr "Σημειώσεις για τον Πελάτη"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:252
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:107
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:161
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:354
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:89
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
@@ -3006,28 +3010,17 @@ msgstr "Παλιές μέρες"
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:91
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:882
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:938
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:230
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:242
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:327
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:336
-#: /home/tim/code/KwaMoja/GLBudgets.php:205
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:223
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:226
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:229
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:230
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:242
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:327
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:336
+#: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:250
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:271
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:293
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:391
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:544
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:578
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:668
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:683
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:702
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:259
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:331
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:342
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:400
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3072,7 +3065,6 @@ msgstr "Παλιές μέρες"
 #: /home/tim/code/KwaMoja/includes/PDFQuotationPageHeader.php:111
 #: /home/tim/code/KwaMoja/includes/PDFQuotationPortraitPageHeader.php:101
 #: /home/tim/code/KwaMoja/includes/PO_PDFOrderPageHeader.php:77
-#, php-format
 msgid "Total"
 msgstr "Σύνολο"
 
@@ -3099,11 +3091,10 @@ msgstr "Ανάλυση λογαριασμού πελατών ηλικίας"
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:99
@@ -3191,15 +3182,13 @@ msgstr "Τα στοιχεία του πελάτη δεν ήταν δυνατό �
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:144
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:191
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:363
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:235
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:144
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:191
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:363
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:223
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:235
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:193
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:207
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:102
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:185
@@ -3344,7 +3333,7 @@ msgstr "Οι λεπτομέρειες των εκκρεμών συναλλαγώ
 #: /home/tim/code/KwaMoja/AgedDebtors.php:379
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:205
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
 #: /home/tim/code/KwaMoja/GLAccountReport.php:107
 #: /home/tim/code/KwaMoja/PO_Items.php:77
 #: /home/tim/code/KwaMoja/PO_Items.php:102
@@ -3387,9 +3376,8 @@ msgstr "δεν ήταν δυνατή η ανάκτηση επειδή"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:483
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
@@ -3437,7 +3425,7 @@ msgstr "δεν ήταν δυνατή η ανάκτηση επειδή"
 #: /home/tim/code/KwaMoja/StockTransfers.php:277
 #: /home/tim/code/KwaMoja/StockTransfers.php:445
 #: /home/tim/code/KwaMoja/StockUsage.php:140
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:62
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:103
 #: /home/tim/code/KwaMoja/Stocks.php:432 /home/tim/code/KwaMoja/Stocks.php:443
 #: /home/tim/code/KwaMoja/Stocks.php:704 /home/tim/code/KwaMoja/Stocks.php:717
 #: /home/tim/code/KwaMoja/SuppPaymentRun.php:105
@@ -3466,7 +3454,7 @@ msgstr "δεν ήταν δυνατή η ανάκτηση επειδή"
 #: /home/tim/code/KwaMoja/Z_DeleteInvoice.php:99
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:81
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:92
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:80
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:99
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:63
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:58
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:38
@@ -3590,8 +3578,8 @@ msgstr "Εμφανίστε μια συνοπτική αναφορά ή συμπ�
 #: /home/tim/code/KwaMoja/AgedDebtors.php:548
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:125
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:142
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3734,7 +3722,8 @@ msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "Οριζόντια ανάλυση της κατάστασης συνολικού εισοδήματος"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:61
@@ -3742,7 +3731,8 @@ msgid "The selected period from is actually after the period to"
 msgstr "Η επιλεγμένη περίοδος είναι στην πραγματικότητα μετά την περίοδο έως"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 msgid "Please reselect the reporting period"
@@ -3806,7 +3796,8 @@ msgstr "Επιλέξτε την τελευταία περίοδο της ανα�
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:128
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:129
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:128
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
@@ -3884,7 +3875,8 @@ msgstr "Ή"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:142
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:131
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:131
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
@@ -3899,7 +3891,8 @@ msgstr "Επιλέξτε Περίοδος"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:144
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:134
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
@@ -3927,8 +3920,9 @@ msgstr "Η επιλογή Περίληψη θα εμφανιστεί στα σύ
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:55
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:139
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:85
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:162
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:139
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:351
@@ -3941,8 +3935,9 @@ msgstr "Περίληψη"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:163
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:97
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:86
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:56
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:86
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:140
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:100
 msgid "All Accounts"
@@ -3957,21 +3952,23 @@ msgstr "Εμφάνιση όλων των λογαριασμών, συμπερι�
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:171
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:104
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:94
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:62
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:146
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:94
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:170
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:146
 msgid "Check this box to display all accounts including those accounts with no balance"
 msgstr "Επιλέξτε αυτό το πλαίσιο για να εμφανίσετε όλους τους λογαριασμούς, συμπεριλαμβανομένων των λογαριασμών που δεν έχουν υπόλοιπο"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:176
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:109
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:99
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:151
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:99
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:151
 msgid "Show on Screen (HTML)"
 msgstr "Εμφάνιση στην οθόνη (HTML)"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3980,8 +3977,9 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "Μπορεί να καθοριστεί περίοδος έως και 12 μηνών"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3990,8 +3988,9 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "το σύστημα εμφανίζει αυτόματα συγκριτικό στοιχείο για την ίδια περίοδο από το προηγούμενο έτος"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4000,8 +3999,9 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "δεν μπορεί να το πράξει εάν έχει καθοριστεί περίοδος μεγαλύτερης των 12 μηνών"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4011,7 +4011,8 @@ msgstr "Επιλέξτε ένα εναλλακτικό εύρος περιόδο
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -4027,7 +4028,8 @@ msgid "For"
 msgstr "Για"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4062,14 +4064,16 @@ msgstr "Όλα τα ποσά που αναφέρονται στο"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:81
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
 #: /home/tim/code/KwaMoja/GLAccounts.php:296
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:455
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:455
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:499
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:190
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4089,13 +4093,15 @@ msgstr "λογαριασμός"
 #: /home/tim/code/KwaMoja/GLAccounts.php:349
 #: /home/tim/code/KwaMoja/GLAccounts.php:366
 #: /home/tim/code/KwaMoja/GLAccounts.php:479
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:456
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:216
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:456
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:500
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:191
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4139,15 +4145,13 @@ msgstr "Σχετικά σημάδια αλλαγής: ένας θετικός α
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:190
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:441
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:190
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:441
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:222
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:222
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:192
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:483
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 msgid "No general ledger accounts were returned by the SQL because"
@@ -4157,14 +4161,16 @@ msgstr "Δεν έχουν επιστραφεί λογαριασμοί γενικ
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:273
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:306
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:487
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:520
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:754
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:799
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1107
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1150
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:336
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:373
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:273
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:306
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:487
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:520
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:754
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:799
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1107
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1150
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4187,10 +4193,11 @@ msgstr "σύνολο"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:579
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:901
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1249
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:455
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:369
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:579
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:901
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1249
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -4223,11 +4230,9 @@ msgstr "Καθαρό κέρδος"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1364
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1364
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:428
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:729
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
@@ -4250,7 +4255,7 @@ msgstr "Εκτύπωση οριζόντιας ανάλυσης της κατάσ
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:69
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:54
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:30
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:54
 msgid "Select the balance date"
 msgstr "Επιλέξτε την ημερομηνία υπολογισμού του υπολοίπου"
 
@@ -4269,14 +4274,15 @@ msgid "Absolute change signs: a positive number indicates a source of funds; a n
 msgstr "Σημάδια απόλυτης αλλαγής: ένας θετικός αριθμός δείχνει μια πηγή χρημάτων. ένας αρνητικός αριθμός υποδηλώνει την εφαρμογή χρημάτων."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:142
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:406
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:142
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:406
 msgid "The accumulated profits brought forward could not be calculated by the SQL because"
 msgstr "Τα συσσωρευμένα κέρδη που μεταφέρονται δεν μπορούν να υπολογιστούν από το SQL επειδή"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:355
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:703
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:473
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:355
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:703
 msgid "Check Total"
 msgstr "Ελέγξτε συνολικά"
 
@@ -4664,11 +4670,11 @@ msgstr "ταυτότητα χρήστη"
 #: /home/tim/code/KwaMoja/SupplierTenders.php:386
 #: /home/tim/code/KwaMoja/SupplierTenders.php:388
 #: /home/tim/code/KwaMoja/SupplierTransInquiry.php:25
-#: /home/tim/code/KwaMoja/SystemParameters.php:492
 #: /home/tim/code/KwaMoja/SystemParameters.php:498
 #: /home/tim/code/KwaMoja/SystemParameters.php:504
 #: /home/tim/code/KwaMoja/SystemParameters.php:510
 #: /home/tim/code/KwaMoja/SystemParameters.php:516
+#: /home/tim/code/KwaMoja/SystemParameters.php:522
 #: /home/tim/code/KwaMoja/TopItems.php:49
 #: /home/tim/code/KwaMoja/TopItems.php:70
 #: /home/tim/code/KwaMoja/TopItems.php:72
@@ -4782,7 +4788,7 @@ msgstr "Διεύθυνση"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:28
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:105
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
@@ -7401,7 +7407,8 @@ msgid "Entry is expected in the format"
 msgstr "Η είσοδος αναμένεται με τη μορφή"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
 msgid "after"
 msgstr "μετά"
 
@@ -7497,7 +7504,7 @@ msgstr "Ποσό"
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:217
 #: /home/tim/code/KwaMoja/Shipt_Select.php:223
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:254
-#: /home/tim/code/KwaMoja/SystemParameters.php:831
+#: /home/tim/code/KwaMoja/SystemParameters.php:837
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:167
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:173
 msgid "Outstanding"
@@ -7701,7 +7708,7 @@ msgstr "Αριθμός"
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:225
 #: /home/tim/code/KwaMoja/BankReconciliation.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:183
 msgid "Cheque"
 msgstr "Ελεγχος"
@@ -8611,7 +8618,7 @@ msgstr "Δεν ήταν δυνατή η ενημέρωση των τιμών σ�
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
-#: /home/tim/code/KwaMoja/SystemParameters.php:415
+#: /home/tim/code/KwaMoja/SystemParameters.php:421
 #: /home/tim/code/KwaMoja/prlALD.php:109 /home/tim/code/KwaMoja/prlBP.php:80
 #: /home/tim/code/KwaMoja/prlBankDetails.php:101
 #: /home/tim/code/KwaMoja/prlCostCenter.php:75
@@ -8639,7 +8646,7 @@ msgstr "Η επικύρωση απέτυχε"
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
-#: /home/tim/code/KwaMoja/SystemParameters.php:415
+#: /home/tim/code/KwaMoja/SystemParameters.php:421
 #: /home/tim/code/KwaMoja/prlALD.php:109 /home/tim/code/KwaMoja/prlBP.php:80
 #: /home/tim/code/KwaMoja/prlBankDetails.php:101
 #: /home/tim/code/KwaMoja/prlCostCenter.php:75
@@ -8943,7 +8950,6 @@ msgstr "Όταν πραγματοποιηθεί μια συναλλαγή απο
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:108
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:657
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:138
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:247
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:28
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:229
 #: /home/tim/code/KwaMoja/GLTags.php:94
@@ -8980,7 +8986,7 @@ msgstr "Όταν πραγματοποιηθεί μια συναλλαγή απο
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:236
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:97
 #: /home/tim/code/KwaMoja/Stocks.php:1630
-#: /home/tim/code/KwaMoja/SystemParameters.php:1379
+#: /home/tim/code/KwaMoja/SystemParameters.php:1395
 #: /home/tim/code/KwaMoja/TaxAuthorityRates.php:83
 #: /home/tim/code/KwaMoja/UserGLAccounts.php:144
 #: /home/tim/code/KwaMoja/UserLocations.php:182
@@ -12769,8 +12775,8 @@ msgstr "κατά τον κωδικό πελάτη"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:143
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:210
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:229
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:277
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
 #: /home/tim/code/KwaMoja/GLAccountReport.php:128
 msgid "could not be retrieved"
 msgstr "δεν ήταν δυνατή η ανάκτηση"
@@ -12942,7 +12948,7 @@ msgstr "Καθαρά"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:610
@@ -13693,7 +13699,7 @@ msgstr "Η SQL που απέτυχε να εισαγάγει την κατανο
 #: /home/tim/code/KwaMoja/CounterSales.php:2155
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1459
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1462
-#: /home/tim/code/KwaMoja/SystemParameters.php:748
+#: /home/tim/code/KwaMoja/SystemParameters.php:754
 msgid "Frequently Ordered Items"
 msgstr "Συχνά παραγγελθέντα αντικείμενα"
 
@@ -13961,7 +13967,7 @@ msgid "Invoiced"
 msgstr "Τιμολογήθηκε"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:285
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
 #: /home/tim/code/KwaMoja/GLAccountReport.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:207
 #: /home/tim/code/KwaMoja/GLJournal.php:579
@@ -14482,7 +14488,7 @@ msgstr "Ενεργοποίηση αποστολής τιμολογίων EDI"
 #: /home/tim/code/KwaMoja/CustomerBranches.php:937
 #: /home/tim/code/KwaMoja/CustomerBranches.php:939
 #: /home/tim/code/KwaMoja/CustomerBranches.php:950
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 msgid "Disabled"
 msgstr "άτομα με ειδικές ανάγκες"
 
@@ -15445,7 +15451,7 @@ msgstr "Κατανέμεται"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:259
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:169
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:172
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:215
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:393
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:205
 #: /home/tim/code/KwaMoja/prlALD.php:146
@@ -16907,7 +16913,7 @@ msgid "Received"
 msgstr "Λήψη"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
 #: /home/tim/code/KwaMoja/GLAccountReport.php:358
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:204
@@ -16928,7 +16934,7 @@ msgstr "Ετικέτα"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:335
 #: /home/tim/code/KwaMoja/GLJournal.php:221
 #: /home/tim/code/KwaMoja/GLJournal.php:542
 #: /home/tim/code/KwaMoja/GLJournal.php:629
@@ -16950,12 +16956,12 @@ msgstr "Ετικέτα"
 #: /home/tim/code/KwaMoja/Suppliers.php:624
 #: /home/tim/code/KwaMoja/Suppliers.php:641
 #: /home/tim/code/KwaMoja/Suppliers.php:665
-#: /home/tim/code/KwaMoja/SystemParameters.php:488
 #: /home/tim/code/KwaMoja/SystemParameters.php:494
 #: /home/tim/code/KwaMoja/SystemParameters.php:500
 #: /home/tim/code/KwaMoja/SystemParameters.php:506
 #: /home/tim/code/KwaMoja/SystemParameters.php:512
-#: /home/tim/code/KwaMoja/SystemParameters.php:1096
+#: /home/tim/code/KwaMoja/SystemParameters.php:518
+#: /home/tim/code/KwaMoja/SystemParameters.php:1102
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
 #: /home/tim/code/KwaMoja/sql/updates/217.php:19
@@ -17881,7 +17887,7 @@ msgstr "Καθημερινές πωλήσεις για"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
-#: /home/tim/code/KwaMoja/SystemParameters.php:710
+#: /home/tim/code/KwaMoja/SystemParameters.php:716
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
 msgid "Sunday"
 msgstr "Κυριακή"
@@ -17890,7 +17896,7 @@ msgstr "Κυριακή"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
-#: /home/tim/code/KwaMoja/SystemParameters.php:711
+#: /home/tim/code/KwaMoja/SystemParameters.php:717
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
 msgid "Monday"
 msgstr "Δευτέρα"
@@ -17899,7 +17905,7 @@ msgstr "Δευτέρα"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
-#: /home/tim/code/KwaMoja/SystemParameters.php:712
+#: /home/tim/code/KwaMoja/SystemParameters.php:718
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
 msgid "Tuesday"
 msgstr "Τρίτη"
@@ -17908,7 +17914,7 @@ msgstr "Τρίτη"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
-#: /home/tim/code/KwaMoja/SystemParameters.php:713
+#: /home/tim/code/KwaMoja/SystemParameters.php:719
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
 msgid "Wednesday"
 msgstr "Τετάρτη"
@@ -17917,7 +17923,7 @@ msgstr "Τετάρτη"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
-#: /home/tim/code/KwaMoja/SystemParameters.php:714
+#: /home/tim/code/KwaMoja/SystemParameters.php:720
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
 msgid "Thursday"
 msgstr "Πέμπτη"
@@ -17926,7 +17932,7 @@ msgstr "Πέμπτη"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
-#: /home/tim/code/KwaMoja/SystemParameters.php:715
+#: /home/tim/code/KwaMoja/SystemParameters.php:721
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
 msgid "Friday"
 msgstr "Παρασκευή"
@@ -17935,7 +17941,7 @@ msgstr "Παρασκευή"
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
-#: /home/tim/code/KwaMoja/SystemParameters.php:716
+#: /home/tim/code/KwaMoja/SystemParameters.php:722
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
 msgid "Saturday"
 msgstr "Σάββατο"
@@ -21544,8 +21550,9 @@ msgstr "Χρησιμοποιήστε το πλήκτρο Shift του πληκτ
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:29
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:65
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:52
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:65
 msgid "Criteria for report"
 msgstr "Κριτήρια αναφοράς"
 
@@ -21560,13 +21567,13 @@ msgid "Select the accounts for this report. Use the keyboard Shift key to select
 msgstr "Επιλέξτε τους λογαριασμούς για αυτήν την αναφορά. Χρησιμοποιήστε το πλήκτρο Shift πληκτρολογίου για να επιλέξετε πολλούς λογαριασμούς."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:113
 #: /home/tim/code/KwaMoja/GLAccountReport.php:276
 msgid "For Period range"
 msgstr "Για εύρος περιόδου"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:74
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:94
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:95
 #: /home/tim/code/KwaMoja/GLAccountReport.php:297
 #: /home/tim/code/KwaMoja/Payments.php:1211
 #: /home/tim/code/KwaMoja/StockAdjustments.php:636
@@ -21576,7 +21583,7 @@ msgid "Select Tag"
 msgstr "Επιλέξτε Ετικέτα"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:83
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:96
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
 #: /home/tim/code/KwaMoja/GLAccountReport.php:299
 msgid "All tags"
 msgstr "Όλες οι ετικέτες"
@@ -21591,7 +21598,7 @@ msgid "Make CSV File"
 msgstr "Δημιουργία αρχείου CSV"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:107
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:138
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:139
 #: /home/tim/code/KwaMoja/GLAccountReport.php:18
 msgid "A period or range of periods must be selected from the list box"
 msgstr "Πρέπει να επιλεγεί μια περίοδος ή ένα εύρος περιόδων από το πλαίσιο λίστας"
@@ -21608,7 +21615,7 @@ msgid "Could not open or create the file under"
 msgstr "Δεν ήταν δυνατό να ανοίξει ή να δημιουργηθεί το αρχείο κάτω από"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
 #: /home/tim/code/KwaMoja/GLAccountReport.php:107
 msgid "The transactions for account"
 msgstr "Οι συναλλαγές για λογαριασμό"
@@ -21619,16 +21626,16 @@ msgstr "για περίοδο"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:210
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:229
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:277
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
 #: /home/tim/code/KwaMoja/GLAccountReport.php:128
 msgid "The chart details for account"
 msgstr "Οι λεπτομέρειες του διαγράμματος για λογαριασμό"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:216
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:218
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:249
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:254
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:250
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:255
 #: /home/tim/code/KwaMoja/GLAccountReport.php:134
 msgid "Brought Forward Balance"
 msgstr "Προκαταρκτική ισορροπία"
@@ -21649,7 +21656,7 @@ msgstr "Συνολική κίνηση περιόδου"
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:279
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:281
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:373
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:374
 #: /home/tim/code/KwaMoja/GLAccountReport.php:202
 msgid "Balance C/Fwd"
 msgstr "Υπόλοιπο C / Fwd"
@@ -21674,7 +21681,6 @@ msgstr "Η επιλεγμένη περίοδος είναι στην πραγμ�
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:49
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:56
 #: /home/tim/code/KwaMoja/GLBudgets.php:124
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:49
 #: /home/tim/code/KwaMoja/GLJournal.php:510
 #: /home/tim/code/KwaMoja/Payments.php:1170
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:308
@@ -21753,7 +21759,8 @@ msgid "If the selected account is normally a credit balance then select this to 
 msgstr "Εάν ο επιλεγμένος λογαριασμός είναι κανονικά ένα πιστωτικό υπόλοιπο, επιλέξτε αυτό για να εμφανίσετε το γράφημα με τις πιστώσεις ως θετικές τιμές"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:78
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:68
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
@@ -21767,7 +21774,8 @@ msgid "Select Period From"
 msgstr "Επιλέξτε την περίοδο από"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:106
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:93
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
@@ -21778,7 +21786,8 @@ msgid "Select the starting period for this report"
 msgstr "Επιλέξτε την περίοδο έναρξης για αυτήν την αναφορά"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:116
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:108
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
@@ -21791,7 +21800,8 @@ msgid "Select Period To"
 msgstr "Επιλέξτε Περίοδος σε"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:130
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:122
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
@@ -21845,7 +21855,6 @@ msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "Δεν υπάρχουν δεδομένα λογαριασμού GL για τα κριτήρια που έχουν εισαχθεί στο γράφημα"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:191
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21855,7 +21864,6 @@ msgid "Actual"
 msgstr "Πραγματικός"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:192
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21868,51 +21876,51 @@ msgstr "Προϋπολογισμός"
 msgid "Select Different Criteria"
 msgstr "Επιλέξτε διαφορετικά κριτήρια"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:48
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
 msgid "The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details"
 msgstr "Η διαχείριση του λογαριασμού εις νέον διαχειρίζεται χωριστά από το σύστημα και ως εκ τούτου δεν μπορεί να ζητηθεί. Δείτε το εγχειρίδιο για λεπτομέρειες"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:50
 msgid "Select another account"
 msgstr "Επιλέξτε άλλο λογαριασμό"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:54
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:55
 msgid "Use the keyboard Shift key to select multiple periods"
 msgstr "Χρησιμοποιήστε το πλήκτρο Shift του πληκτρολογίου για να επιλέξετε πολλαπλές περιόδους"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:79
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:80
 msgid "Inquiry Selection Criteria"
 msgstr "Κριτήρια επιλογής έρευνας"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:83
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:84
 msgid "Select a General Ledger account to report on."
 msgstr "Επιλέξτε ένα λογαριασμό Γενικής Λογαριασμού για να αναφερθείτε."
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:105
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:106
 msgid "Select a tag to filter the report on."
 msgstr "Επιλέξτε μια ετικέτα για να φιλτράρετε την αναφορά."
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:123
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:124
 msgid "Select one or more financial periods to report on."
 msgstr "Επιλέξτε μία ή περισσότερες οικονομικές περιόδους για να αναφέρετε."
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:129
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:130
 msgid "Show Account Transactions"
 msgstr "Εμφάνιση συναλλαγών λογαριασμού"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:197
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
 msgid "General Ledger account inquiry details"
 msgstr "Στοιχεία διερεύνησης λογαριασμού γενικού βιβλίου"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:201
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
 msgid "Transactions for account"
 msgstr "Συναλλαγές για λογαριασμό"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
 msgid "Trans no"
 msgstr "Μεταφορά"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
 #: /home/tim/code/KwaMoja/GLAccountReport.php:355
 #: /home/tim/code/KwaMoja/GLJournal.php:206
 #: /home/tim/code/KwaMoja/GLJournal.php:564
@@ -21921,13 +21929,12 @@ msgstr "Μεταφορά"
 msgid "Debit"
 msgstr "Χρέωση"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:286
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:354
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:287
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:355
 msgid "Total for period ending"
 msgstr "Σύνολο για περίοδο που λήγει"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:190
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:40
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
@@ -21938,27 +21945,27 @@ msgstr "Σύνολο για περίοδο που λήγει"
 msgid "Period"
 msgstr "Περίοδος"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Account movement per transaction"
 msgstr "Μετακίνηση λογαριασμού ανά συναλλαγή"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Movement per ChartDetails record"
 msgstr "Κίνηση ανά καταγραφή ChartDetails"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Period difference"
 msgstr "Διαφορά περιόδου"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:370
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:371
 msgid "Total Movement for selected periods"
 msgstr "Συνολική κίνηση για επιλεγμένες περιόδους"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:396
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
 msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
 msgstr "Υπάρχουν διαφορές μεταξύ του αθροίσματος των συναλλαγών και των καταγεγραμμένων κινήσεων στον πίνακα ChartDetails"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:396
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
 msgid "A log of the account differences for the periods report shows below"
 msgstr "Ένα αρχείο καταγραφής των διαφορών λογαριασμού για την αναφορά περιόδων παρουσιάζεται παρακάτω"
 
@@ -22415,12 +22422,12 @@ msgstr "Επιλέξτε τη δραστηριότητα ταμειακών ρο
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:427
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:112
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:113
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:188
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:10
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:22
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:22
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:112
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:113
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
 #: /home/tim/code/KwaMoja/sql/updates/42.php:206
 msgid "Balance Sheet"
@@ -22459,88 +22466,79 @@ msgid "Show All Accounts"
 msgstr "Εμφάνιση όλων των λογαριασμών"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:23
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:23
 msgid "Statement of Financial Position"
 msgstr "Δήλωση οικονομικής κατάστασης"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time."
 msgstr "Ο Ισολογισμός (ή κατάσταση οικονομικής θέσης) είναι μια σύνοψη των υπολοίπων. Τα περιουσιακά στοιχεία, οι υποχρεώσεις και τα ίδια κεφάλαια παρατίθενται κατά μια συγκεκριμένη ημερομηνία, όπως το τέλος του οικονομικού έτους. Από τις τέσσερις βασικές οικονομικές καταστάσεις, ο ισολογισμός είναι η μόνη κατάσταση που ισχύει για ένα μόνο χρονικό σημείο."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities."
 msgstr "Ο ισολογισμός έχει τρία μέρη: περιουσιακά στοιχεία, υποχρεώσεις και ίδια κεφάλαια. Οι κύριες κατηγορίες περιουσιακών στοιχείων αναφέρονται πρώτα και ακολουθούνται από τις υποχρεώσεις. Η διαφορά μεταξύ των περιουσιακών στοιχείων και των υποχρεώσεων είναι γνωστή ως ίδια κεφάλαια ή καθαρή περιουσία ή καθαρή αξία ή κεφάλαιο της εταιρείας και σύμφωνα με τη λογιστική εξίσωση, η καθαρή αξία πρέπει να ισούται με τα περιουσιακά στοιχεία μείον τις υποχρεώσεις."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid " is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date."
 msgstr "είναι ένα σύστημα που βασίζεται σε δεδουλευμένη βάση (όχι σε σύστημα μετρητών). Τα συστήματα δεδουλευμένων περιλαμβάνουν στοιχεία όταν τιμολογούνται στον πελάτη και όταν οφείλονται τα έξοδα με βάση την ημερομηνία τιμολογίου του προμηθευτή."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:79
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:79
 msgid "Select the period up to which you wish the balance sheet to be shown at."
 msgstr "Επιλέξτε την περίοδο μέχρι την οποία θέλετε να εμφανίζεται ο ισολογισμός στο."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:83
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:53
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:137
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:83
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:160
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:137
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:136
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:98
 msgid "Detail Or Summary"
 msgstr "Λεπτομέρεια ή σύνοψη"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:88
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:88
 msgid "Show a summary report, or show all accounts."
 msgstr "Εμφανίστε μια συνοπτική αναφορά ή δείτε όλους τους λογαριασμούς."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:92
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:61
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:145
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:169
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:145
 msgid "Show all Accounts including zero balances"
 msgstr "Εμφάνιση όλων των λογαριασμών, συμπεριλαμβανομένων μηδενικών υπολοίπων"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:102
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:154
-msgid "Produce PDF Report"
-msgstr "Δημιουργία αναφοράς PDF"
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:99
+msgid "Show Balance Sheet"
+msgstr "Εμφάνιση ισολογισμού"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:360
-msgid "Print Balance Sheet Error"
-msgstr "Σφάλμα ισολογισμού φύλλου εκτύπωσης"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:362
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:206
-#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
-#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
-#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
-#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
-#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
-msgid "There were no entries to print out for the selections specified"
-msgstr "Δεν υπήρχαν καταχωρήσεις για εκτύπωση για τις επιλεγμένες επιλογές"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:378
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:443
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:78
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:155
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:203
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:378
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:443
 msgid "HTML View"
 msgstr "Προβολή HTML"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:447
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:159
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:447
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "Ισολογισμός ως"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:458
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:465
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:167
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:218
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:225
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:458
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:465
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:709
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:718
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:221
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:229
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:709
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:718
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22549,126 +22547,116 @@ msgstr "Ισολογισμός ως"
 msgid "Last Year"
 msgstr "Πέρυσι"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:718
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:509
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:488
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:718
 msgid "Select A Different Balance Date"
 msgstr "Επιλέξτε μια διαφορετική ημερομηνία ζυγοστάθμισης"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:21
-msgid "Print Statement of Financial Position"
-msgstr "Δήλωση Οικονομικής Θέσης"
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:102
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:154
+msgid "Produce PDF Report"
+msgstr "Δημιουργία αναφοράς PDF"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:67
-msgid "Show Balance Sheet"
-msgstr "Εμφάνιση ισολογισμού"
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:360
+msgid "Print Balance Sheet Error"
+msgstr "Σφάλμα ισολογισμού φύλλου εκτύπωσης"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:165
-#: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1882
-msgid "Account Details"
-msgstr "λεπτομέρειες λογαριασμού"
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:362
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:234
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
+#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
+#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
+#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
+#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
+msgid "There were no entries to print out for the selections specified"
+msgstr "Δεν υπήρχαν καταχωρήσεις για εκτύπωση για τις επιλεγμένες επιλογές"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:166
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:576
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:648
-msgid "This Year"
-msgstr "Αυτή την χρονιά"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:499
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:410
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:721
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:345
-#, php-format
-msgid "Check Totals"
-msgstr "Ελέγξτε τα σύνολα"
-
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:5
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:5
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:4
 msgid "Create GL Budgets"
 msgstr "Δημιουργία προϋπολογισμού GL"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:15
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:14
 #: /home/tim/code/KwaMoja/GLBudgets.php:46
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:29
 msgid "Budgets"
 msgstr "Προϋπολογισμοί"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:22
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:21
 msgid "The end period cannot be before the start period"
 msgstr "Η τελική περίοδος δεν μπορεί να είναι πριν από την περίοδο έναρξης"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:61
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:60
 msgid "The budget header information has been successfully saved"
 msgstr "Οι πληροφορίες κεφαλίδας προϋπολογισμού αποθηκεύτηκαν με επιτυχία"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:63
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:62
 msgid "There was a problem saving the budget header information"
 msgstr "Παρουσιάστηκε πρόβλημα κατά την αποθήκευση των πληροφοριών κεφαλίδας προϋπολογισμού"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:88
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:87
 msgid "Edit Budget Details"
 msgstr "Επεξεργασία λεπτομερειών προϋπολογισμού"
 
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:97
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:98
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:99
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:180
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:577
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:652
 msgid "This Financial Year"
 msgstr "Αυτό το οικονομικό έτος"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:103
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:102
 msgid "Create New Budget"
 msgstr "Δημιουργία νέου προϋπολογισμού"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:110
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:109
 msgid "Budget Owner"
 msgstr "Κάτοχος προϋπολογισμού"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:123
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:122
 msgid "Name of budget"
 msgstr "Όνομα προϋπολογισμού"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:128
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:127
 msgid "Budget Description"
 msgstr "Περιγραφή προϋπολογισμού"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:136
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:135
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
 msgid "Start Period"
 msgstr "Έναρξη περιόδου"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:152
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:151
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
 msgid "End Period"
 msgstr "Περίοδος λήξης"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:165
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:164
 msgid "Default Budget for reports"
 msgstr "Προεπιλεγμένος προϋπολογισμός για αναφορές"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:181
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:180
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "Λεπτομέρειες ενημέρωσης"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:185
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:184
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
 msgid "Save Details"
 msgstr "Αποθήκευση λεπτομερειών"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
 msgid "Owner"
 msgstr "Ιδιοκτήτης"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
 msgid "Start From Period"
 msgstr "Ξεκινήστε από την περίοδο"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
 msgid "End In Period"
 msgstr "Λήξη σε περίοδο"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:209
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
 msgid "Is Primary?"
 msgstr "Είναι πρωτοβάθμιο;"
 
@@ -22701,24 +22689,20 @@ msgid "Enter Budget Amounts"
 msgstr "Εισαγάγετε ποσά προϋπολογισμού"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:82
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:36
 msgid "General ledger account selection"
 msgstr "Επιλογή λογαριασμού γενικού μητρώου"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:134
 #: /home/tim/code/KwaMoja/GLBudgets.php:136
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:85
 msgid "Prev Account"
 msgstr "Προηγούμενος λογαριασμός"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:138
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:86
 msgid "Select Account"
 msgstr "Επιλέξτε Λογαριασμός"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:140
 #: /home/tim/code/KwaMoja/GLBudgets.php:142
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:87
 msgid "Next Account"
 msgstr "Επόμενος λογαριασμός"
 
@@ -22726,61 +22710,9 @@ msgstr "Επόμενος λογαριασμός"
 msgid "Budget values for account"
 msgstr "Τιμές προϋπολογισμού για λογαριασμό"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:212
+#: /home/tim/code/KwaMoja/GLBudgets.php:215
 msgid "Update Budget"
 msgstr "Ενημέρωση προϋπολογισμού"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:24
-msgid "Budget updated successfully"
-msgstr "Ο προϋπολογισμός ενημερώθηκε με επιτυχία"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
-msgid "No General ledger accounts have been set up yet"
-msgstr "Δεν έχουν οριστεί λογαριασμοί γενικού μητρώου"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
-msgid "budgets cannot be allocated until the GL accounts are set up"
-msgstr "οι προϋπολογισμοί δεν μπορούν να διατεθούν μέχρι να δημιουργηθούν οι λογαριασμοί GL"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:100
-msgid "Cannot update GL budgets"
-msgstr "Δεν είναι δυνατή η ενημέρωση των προϋπολογισμών GL"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:101
-msgid "The SQL that failed to update the GL budgets was"
-msgstr "Η SQL που απέτυχε να ενημερώσει τους προϋπολογισμούς GL ήταν"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:177
-msgid "Budget Entry"
-msgstr "Εγγραφή προϋπολογισμού"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:179
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
-msgid "Last Financial Year"
-msgstr "Τελευταίο οικονομικό έτος"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:181
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
-msgid "Next Financial Year"
-msgstr "Επόμενο οικονομικό έτος"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:184
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:185
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:186
-msgid "Year ended"
-msgstr "Έτος έληξε"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:234
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:236
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:238
-msgid "Annual Budget"
-msgstr "Ετήσιος προϋπολογισμός"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:239
-msgid "Apportion Budget"
-msgstr "Προϋπολογισμός αναλογίας"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:28
 msgid "Operating activities"
@@ -22816,12 +22748,14 @@ msgid "Statement of Cash Flows"
 msgstr "Κατάσταση ταμειακών ροών"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:715
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:227
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:706
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:715
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:503
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:194
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22831,10 +22765,12 @@ msgid "Period Actual"
 msgstr "Περίοδος Πραγματική"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:504
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:228
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:707
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:716
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:199
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:195
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -22978,13 +22914,13 @@ msgstr "Η δραστηριότητα των ταμειακών ροών επα�
 #: /home/tim/code/KwaMoja/SupplierCredit.php:516
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:836
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:839
-#: /home/tim/code/KwaMoja/SystemParameters.php:461
-#: /home/tim/code/KwaMoja/SystemParameters.php:1033
-#: /home/tim/code/KwaMoja/SystemParameters.php:1035
-#: /home/tim/code/KwaMoja/SystemParameters.php:1048
-#: /home/tim/code/KwaMoja/SystemParameters.php:1050
-#: /home/tim/code/KwaMoja/SystemParameters.php:1160
-#: /home/tim/code/KwaMoja/SystemParameters.php:1162
+#: /home/tim/code/KwaMoja/SystemParameters.php:467
+#: /home/tim/code/KwaMoja/SystemParameters.php:1039
+#: /home/tim/code/KwaMoja/SystemParameters.php:1041
+#: /home/tim/code/KwaMoja/SystemParameters.php:1054
+#: /home/tim/code/KwaMoja/SystemParameters.php:1056
+#: /home/tim/code/KwaMoja/SystemParameters.php:1166
+#: /home/tim/code/KwaMoja/SystemParameters.php:1168
 msgid "Automatic"
 msgstr "Αυτόματο"
 
@@ -23375,36 +23311,61 @@ msgid "Are you sure you wish to delete this template?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το πρότυπο;"
 
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:16
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:16
 msgid "Statement of Comprehensive Income"
 msgstr "Δήλωση συνολικού εισοδήματος"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line)."
 msgstr "Η δήλωση κερδών και ζημιών, η οποία ονομάζεται επίσης Κατάσταση Αποτελεσμάτων ή Κατάσταση Λειτουργιών, είναι η δήλωση που δείχνει πώς μετατρέπεται το εισόδημα (τα χρήματα που εισπράττονται από την πώληση προϊόντων και υπηρεσιών πριν από την εξόφληση, επίσης γνωστά ως η κορυφαία γραμμή) "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "The purpose of the income statement is to show whether the company made or lost money during the period being reported."
 msgstr "Ο σκοπός της κατάστασης λογαριασμού αποτελεσμάτων είναι να δείξει εάν η εταιρεία πραγματοποίησε ή έχασε χρήματα κατά την περίοδο αναφοράς."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr "Η κατάσταση αποτελεσμάτων αντιπροσωπεύει μια χρονική περίοδο. Αυτό έρχεται σε αντίθεση με τον Ισολογισμό, ο οποίος αντιπροσωπεύει μία στιγμή στο χρόνο."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:142
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:143
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
+msgid "Budget To Show Comparisons With"
+msgstr "Προϋπολογισμός για εμφάνιση συγκρίσεων με"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:155
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
+msgid "Select the budget to make comparisons with."
+msgstr "Επιλέξτε τον προϋπολογισμό για να κάνετε συγκρίσεις με."
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:142
 msgid "Show report for all accounts, or just show summary report."
 msgstr "Εμφάνιση αναφοράς για όλους τους λογαριασμούς ή απλά να εμφανιστεί συνοπτική αναφορά."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:147
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:171
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:147
 msgid "Show all accounts, or just accounts with balances."
 msgstr "Εμφάνιση όλων των λογαριασμών ή απλώς λογαριασμών με υπόλοιπα."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:231
-msgid "Print Profit and Loss Error"
-msgstr "Εκτύπωση λάθους κέρδους και ζημίας"
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
+msgid "Show Profit and Loss Statement"
+msgstr "Εμφάνιση κατάστασης αποτελεσμάτων"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:393
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:932
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1278
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:210
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:694
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:697
+msgid "General Ledger Profit Loss Inquiry"
+msgstr "Γενική Λογιστική Απώλεια Ζημιών"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:484
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:393
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:932
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1278
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23415,40 +23376,45 @@ msgstr "Εκτύπωση λάθους κέρδους και ζημίας"
 msgid "Gross Profit Percent"
 msgstr "Μικτό ποσοστό κέρδους"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "Κέρδος"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "Απώλεια"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1346
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:526
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:982
+msgid "P/L Percent after"
+msgstr "P / L Ποσοστό μετά"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:651
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:616
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1346
 msgid "Net Profit Percent"
 msgstr "Καθαρό Κέρδος"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:694
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:697
-msgid "General Ledger Profit Loss Inquiry"
-msgstr "Γενική Λογιστική Απώλεια Ζημιών"
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:231
+msgid "Print Profit and Loss Error"
+msgstr "Εκτύπωση λάθους κέρδους και ζημίας"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:717
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:708
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:717
 msgid "Period Variance"
 msgstr "Διακύμανση περιόδου"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:982
-msgid "P/L Percent after"
-msgstr "P / L Ποσοστό μετά"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:26
 msgid "Financial Statements"
@@ -23728,13 +23694,10 @@ msgstr "Δημοσιεύτηκε"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:137
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:138
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Ισοζύγιο"
@@ -23744,60 +23707,61 @@ msgstr "Ισοζύγιο"
 msgid "Input criteria for inquiry"
 msgstr "Κριτήρια εισαγωγής για έρευνα"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:124
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:146
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:141
 msgid "Show Trial Balance"
 msgstr "Εμφάνιση δείγματος δοκιμής"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:126
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:148
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:143
 msgid "Export to Spreadsheet"
 msgstr "Εξαγωγή σε υπολογιστικό φύλλο"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:201
-msgid "Print Trial Balance Error"
-msgstr "Εκτύπωση σφάλματος ισορροπίας δοκιμής"
-
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:490
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:185
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:181
 msgid "Trial Balance Report"
 msgstr "Έκθεση ισολογισμού δοκιμών"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Δοκιμαστικό Υπόλοιπο για το μήνα"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "και για το"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " months to "
 msgstr "μήνες έως"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:501
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:192
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
 msgid "Month Actual"
 msgstr "Μήνας Πραγματικός"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:502
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:193
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Προϋπολογισμός μηνών"
+
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:414
+msgid "Check Totals"
+msgstr "Ελέγξτε τα σύνολα"
 
 #: /home/tim/code/KwaMoja/GeneratePickingList.php:14
 #: /home/tim/code/KwaMoja/PDFPickingList.php:9
@@ -26202,8 +26166,8 @@ msgstr "Ωριαίος"
 #: /home/tim/code/KwaMoja/JobScheduler.php:176
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:166
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:85
-#: /home/tim/code/KwaMoja/SystemParameters.php:577
-#: /home/tim/code/KwaMoja/SystemParameters.php:579
+#: /home/tim/code/KwaMoja/SystemParameters.php:583
+#: /home/tim/code/KwaMoja/SystemParameters.php:585
 msgid "Daily"
 msgstr "Καθημερινά"
 
@@ -26219,8 +26183,8 @@ msgstr "Καθημερινά"
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:445
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:167
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:94
-#: /home/tim/code/KwaMoja/SystemParameters.php:582
-#: /home/tim/code/KwaMoja/SystemParameters.php:584
+#: /home/tim/code/KwaMoja/SystemParameters.php:588
+#: /home/tim/code/KwaMoja/SystemParameters.php:590
 msgid "Weekly"
 msgstr "Εβδομαδιαίος"
 
@@ -26807,8 +26771,8 @@ msgid "Always"
 msgstr "Πάντα"
 
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
+#: /home/tim/code/KwaMoja/SystemParameters.php:598
+#: /home/tim/code/KwaMoja/SystemParameters.php:600
 msgid "Never"
 msgstr "Ποτέ"
 
@@ -28142,7 +28106,7 @@ msgstr "Η διαμόρφωση του νοσοκομείου ενημερώθη
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/ShopParameters.php:184
-#: /home/tim/code/KwaMoja/SystemParameters.php:425
+#: /home/tim/code/KwaMoja/SystemParameters.php:431
 msgid "General Settings"
 msgstr "Γενικές Ρυθμίσεις"
 
@@ -28868,8 +28832,8 @@ msgstr "Συχνότητα χρέωσης"
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:169
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:103
 #: /home/tim/code/KwaMoja/SalesPeople.php:21
-#: /home/tim/code/KwaMoja/SystemParameters.php:587
-#: /home/tim/code/KwaMoja/SystemParameters.php:589
+#: /home/tim/code/KwaMoja/SystemParameters.php:593
+#: /home/tim/code/KwaMoja/SystemParameters.php:595
 msgid "Monthly"
 msgstr "Μηνιαίο"
 
@@ -35308,7 +35272,7 @@ msgstr "Παραγγείλει τιμολογημένη αναφορά"
 #: /home/tim/code/KwaMoja/PcReportTab.php:96
 #: /home/tim/code/KwaMoja/PcReportTab.php:98
 #: /home/tim/code/KwaMoja/PcReportTab.php:106
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:85
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:104
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:70
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:63
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:45
@@ -43098,7 +43062,7 @@ msgstr "Υπολογισμός"
 
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:395
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:411
-#: /home/tim/code/KwaMoja/SystemParameters.php:1309
+#: /home/tim/code/KwaMoja/SystemParameters.php:1325
 msgid "Could not load periods table"
 msgstr "Δεν ήταν δυνατή η φόρτωση πίνακα περιόδων"
 
@@ -48032,7 +47996,7 @@ msgstr "Τύπος αποθέματος"
 
 #: /home/tim/code/KwaMoja/StockCategories.php:326
 #: /home/tim/code/KwaMoja/StockCategories.php:442
-#: /home/tim/code/KwaMoja/SystemParameters.php:1357
+#: /home/tim/code/KwaMoja/SystemParameters.php:1373
 msgid "Default Tax Category"
 msgstr "Προκαθορισμένη φορολογική κατηγορία"
 
@@ -49639,7 +49603,7 @@ msgid "Show Graph Of Stock Usage"
 msgstr "Εμφάνιση γραφήματος χρήσης αποθεμάτων"
 
 #: /home/tim/code/KwaMoja/StockUsage.php:138
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:60
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:101
 msgid "The stock usage for the selected criteria could not be retrieved because"
 msgstr "Δεν ήταν δυνατή η ανάκτηση της χρήσης αποθεμάτων για τα επιλεγμένα κριτήρια επειδή"
 
@@ -49652,12 +49616,12 @@ msgstr "Χρήση"
 msgid "Average Usage per month is"
 msgstr "Η μέση χρήση ανά μήνα είναι"
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:58
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:68
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:99
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:109
 msgid "Stock Usage Graph Problem"
 msgstr "Προβλήματα γραφήματος χρήσης αποθεμάτων"
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:70
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:111
 msgid "There are no movements of this item from the selected location to graph"
 msgstr "Δεν υπάρχουν κινήσεις αυτού του στοιχείου από την επιλεγμένη θέση σε γράφημα"
 
@@ -51224,12 +51188,12 @@ msgstr "Ενημέρωση υπολογισμού φόρου"
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:514
 #: /home/tim/code/KwaMoja/SupplierCredit.php:517
-#: /home/tim/code/KwaMoja/SystemParameters.php:1032
-#: /home/tim/code/KwaMoja/SystemParameters.php:1036
-#: /home/tim/code/KwaMoja/SystemParameters.php:1047
-#: /home/tim/code/KwaMoja/SystemParameters.php:1051
-#: /home/tim/code/KwaMoja/SystemParameters.php:1159
-#: /home/tim/code/KwaMoja/SystemParameters.php:1163
+#: /home/tim/code/KwaMoja/SystemParameters.php:1038
+#: /home/tim/code/KwaMoja/SystemParameters.php:1042
+#: /home/tim/code/KwaMoja/SystemParameters.php:1053
+#: /home/tim/code/KwaMoja/SystemParameters.php:1057
+#: /home/tim/code/KwaMoja/SystemParameters.php:1165
+#: /home/tim/code/KwaMoja/SystemParameters.php:1169
 msgid "Manual Entry"
 msgstr "Μη αυτόματη είσοδος"
 
@@ -51788,7 +51752,7 @@ msgstr "Η είσοδος πρέπει να είναι αριθμητική"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:837
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:840
-#: /home/tim/code/KwaMoja/SystemParameters.php:462
+#: /home/tim/code/KwaMoja/SystemParameters.php:468
 msgid "Manually"
 msgstr "Μη αυτόματα"
 
@@ -52541,12 +52505,12 @@ msgid "If the supplier requires a remittance advice with each payment then selec
 msgstr "Αν ο προμηθευτής ζητήσει συμβουλές αποστολής με κάθε πληρωμή, επιλέξτε Απαιτείται εδώ"
 
 #: /home/tim/code/KwaMoja/Suppliers.php:715
-#: /home/tim/code/KwaMoja/SystemParameters.php:887
+#: /home/tim/code/KwaMoja/SystemParameters.php:893
 msgid "Could not load shippers"
 msgstr "Δεν ήταν δυνατή η φόρτωση των φορτωτών"
 
 #: /home/tim/code/KwaMoja/Suppliers.php:718
-#: /home/tim/code/KwaMoja/SystemParameters.php:890
+#: /home/tim/code/KwaMoja/SystemParameters.php:896
 msgid "Default Shipper"
 msgstr "Προεπιλεγμένος αποστολέας"
 
@@ -52618,913 +52582,925 @@ msgid "No less than 1 and more than 99 Quick entries allowed"
 msgstr "Δεν επιτρέπονται λιγότερες από 1 και περισσότερες από 99 Γρήγορες καταχωρήσεις"
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:52
+msgid "Unexpected Show Zero Counts Within Stock Usage Graph Period Range value."
+msgstr "Μη αναμενόμενο Εμφάνιση μηδενικών μετρήσεων εντός χρηματικού γραφήματος Περίοδος τιμή εύρους."
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:55
 msgid "The maximum number of serial numbers issued must be numeric and greater than zero"
 msgstr "Ο μέγιστος αριθμός σειριακών αριθμών που εκδίδονται πρέπει να είναι αριθμητικός και μεγαλύτερος από μηδέν"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:55
+#: /home/tim/code/KwaMoja/SystemParameters.php:58
 msgid "Freight Charge Applies If Less Than must be a number"
 msgstr "Η χρέωση φορτίου ισχύει εάν είναι μικρότερος από τον αριθμό"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:58
+#: /home/tim/code/KwaMoja/SystemParameters.php:61
 msgid "Standard Cost Decimal Places must be a number between 0 and 4"
 msgstr "Οι δεκαδικοί τόποι τυπικού κόστους πρέπει να είναι αριθμός μεταξύ 0 και 4"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:61
+#: /home/tim/code/KwaMoja/SystemParameters.php:64
 msgid "Financial period per year must be a number between 1 and 12"
 msgstr "Η οικονομική περίοδος ανά έτος πρέπει να είναι αριθμός μεταξύ 1 και 12"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:64
+#: /home/tim/code/KwaMoja/SystemParameters.php:67
 msgid "The Tax Authority Reference Name must be 25 characters or less long"
 msgstr "Το όνομα αναφοράς της φορολογικής αρχής πρέπει να είναι τουλάχιστον 25 χαρακτήρες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:67
+#: /home/tim/code/KwaMoja/SystemParameters.php:70
 msgid "Over Charge Proportion must be a percentage"
 msgstr "Υπερβολική χρέωση Το ποσοστό πρέπει να είναι ένα ποσοστό"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:70
+#: /home/tim/code/KwaMoja/SystemParameters.php:73
 msgid "Over Receive Proportion must be a percentage"
 msgstr "Πάνω από το ποσοστό λήψης πρέπει να είναι ένα ποσοστό"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:73
+#: /home/tim/code/KwaMoja/SystemParameters.php:76
 msgid "Lines per page must be greater than 1"
 msgstr "Οι γραμμές ανά σελίδα πρέπει να είναι μεγαλύτερες από 1"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:76
+#: /home/tim/code/KwaMoja/SystemParameters.php:79
 msgid "The number of months of audit trail to keep must be zero or a positive number less than 100 months"
 msgstr "Ο αριθμός των μηνών της διαδρομής ελέγχου που πρέπει να τηρείται πρέπει να είναι μηδέν ή θετικός αριθμός μικρότερος των 100 μηνών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:79
+#: /home/tim/code/KwaMoja/SystemParameters.php:82
 msgid "DefaultTaxCategory must be between 1 and 9"
 msgstr "Το DefaultTaxCategory πρέπει να είναι μεταξύ 1 και 9"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:82
+#: /home/tim/code/KwaMoja/SystemParameters.php:85
 msgid "Default maximum number of records to display must be between 1 and 500"
 msgstr "Ο προεπιλεγμένος μέγιστος αριθμός εγγραφών που πρέπει να εμφανίζονται πρέπει να είναι μεταξύ 1 και 500"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:85
+#: /home/tim/code/KwaMoja/SystemParameters.php:88
 msgid "The maximum size of item image files must be between 50 and 500 (NB this figure refers to KB)"
 msgstr "Το μέγιστο μέγεθος των αρχείων εικόνας αντικειμένων πρέπει να είναι μεταξύ 50 και 500 (ΣΗΜΕΙΩΣΗ: αυτό το νούμερο αναφέρεται σε KB)"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:88
+#: /home/tim/code/KwaMoja/SystemParameters.php:91
 msgid "The Factory Manager Email address does not appear to be valid"
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου Factory Manager δεν φαίνεται να είναι έγκυρη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:91
+#: /home/tim/code/KwaMoja/SystemParameters.php:94
 msgid "The Purchasing Manager Email address does not appear to be valid"
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου του Διαχειριστή Προμηθειών δεν φαίνεται να είναι έγκυρη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:94
+#: /home/tim/code/KwaMoja/SystemParameters.php:97
 msgid "The Inventory Manager Email address does not appear to be valid"
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου του Διαχειριστή απογραφής δεν φαίνεται να είναι έγκυρη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:97
+#: /home/tim/code/KwaMoja/SystemParameters.php:100
 msgid "The number of frequently ordered items to display must be numeric"
 msgstr "Ο αριθμός των συχνά ταξινομημένων αντικειμένων που πρέπει να εμφανίζονται πρέπει να είναι αριθμητικός"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:100
+#: /home/tim/code/KwaMoja/SystemParameters.php:103
 msgid "The SMTP setting should be selected as Yes or No"
 msgstr "Η ρύθμιση SMTP θα πρέπει να επιλεγεί ως Ναι ή Όχι"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:103
+#: /home/tim/code/KwaMoja/SystemParameters.php:106
 msgid "The QualityProdSpecText may not be more than 5000 characters long."
 msgstr "Το QualityProdSpecText δεν μπορεί να έχει μήκος μεγαλύτερο από 5000 χαρακτήρες."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:106
+#: /home/tim/code/KwaMoja/SystemParameters.php:109
 msgid "The QualityCOAText may not be more than 5000 characters long."
 msgstr "Το QualityCOAText δεν μπορεί να έχει μήκος πάνω από 5000 χαρακτήρες."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:109
+#: /home/tim/code/KwaMoja/SystemParameters.php:112
 msgid "The QualityLogSamples setting should be selected as Yes or No"
 msgstr "Η ρύθμιση QualityLogSamples θα πρέπει να επιλεγεί ως Ναι ή Όχι"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:398
+#: /home/tim/code/KwaMoja/SystemParameters.php:404
 msgid "The system configuration could not be updated because"
 msgstr "Δεν ήταν δυνατή η ενημέρωση της διαμόρφωσης του συστήματος επειδή"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:409
+#: /home/tim/code/KwaMoja/SystemParameters.php:415
 msgid "System configuration updated"
 msgstr "Η διαμόρφωση του συστήματος ενημερώθηκε"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:429
+#: /home/tim/code/KwaMoja/SystemParameters.php:435
 msgid "Default Date Format"
 msgstr "Προεπιλεγμένη μορφή ημερομηνίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:437
+#: /home/tim/code/KwaMoja/SystemParameters.php:443
 msgid "The default date format for entry of dates and display."
 msgstr "Η προεπιλεγμένη μορφή ημερομηνίας για την εισαγωγή ημερομηνιών και την εμφάνιση."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:442
+#: /home/tim/code/KwaMoja/SystemParameters.php:448
 msgid "Default Theme"
 msgstr "Προεπιλεγμένο θέμα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:454
+#: /home/tim/code/KwaMoja/SystemParameters.php:460
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
 msgstr "Το προεπιλεγμένο θέμα που θα χρησιμοποιηθεί για την οθόνη σύνδεσης και τη ρύθμιση νέων χρηστών. Η επιλογή θέματος χρηστών θα την αντικαταστήσει."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:459
+#: /home/tim/code/KwaMoja/SystemParameters.php:465
 msgid "Auto Update Exchange Rates Daily"
 msgstr "Αυτόματη ενημέρωση των τιμών συναλλάγματος καθημερινά"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:464
+#: /home/tim/code/KwaMoja/SystemParameters.php:470
 msgid "Automatic updates to exchange rates will retrieve the latest daily rates from either the European Central Bank or Google once per day - when the first user logs in for the day. Manual will never update the rates automatically - exchange rates will need to be maintained manually"
 msgstr "Οι αυτόματες ενημερώσεις στις συναλλαγματικές ισοτιμίες θα ανακτούν τις πιο πρόσφατες ημερήσιες τιμές είτε από την Ευρωπαϊκή Κεντρική Τράπεζα είτε από την Google μία φορά την ημέρα - όταν ο πρώτος χρήστης συνδέεται για την ημέρα. Το εγχειρίδιο δεν θα ενημερώσει ποτέ αυτόματα τις τιμές - οι συναλλαγματικές ισοτιμίες θα πρέπει να διατηρηθούν χειροκίνητα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:468
+#: /home/tim/code/KwaMoja/SystemParameters.php:474
 msgid "Source Exchange Rates From"
 msgstr "Τιμές ανταλλαγής πηγών από"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:470
+#: /home/tim/code/KwaMoja/SystemParameters.php:476
 msgid "European Central Bank"
 msgstr "Ευρωπαϊκή Κεντρική Τράπεζα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:471
+#: /home/tim/code/KwaMoja/SystemParameters.php:477
 msgid "Google"
 msgstr "Google"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:473
+#: /home/tim/code/KwaMoja/SystemParameters.php:479
 msgid "Specify the source to use for exchange rates"
 msgstr "Καθορίστε την πηγή που θα χρησιμοποιήσετε για τις συναλλαγματικές ισοτιμίες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:478
+#: /home/tim/code/KwaMoja/SystemParameters.php:484
 msgid "Months of Audit Trail to Retain"
 msgstr "Μήνες του Διαγράμματος Ελέγχου για Διατήρηση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:480
+#: /home/tim/code/KwaMoja/SystemParameters.php:486
 msgid "If this parameter is set to 0 (zero) then no audit trail is retained. An audit trail is a log of which users performed which additions updates and deletes of database records. The full SQL is retained"
 msgstr "Εάν αυτή η παράμετρος έχει οριστεί σε 0 (μηδέν), τότε δεν διατηρείται ίχνος ελέγχου. Ένα ίχνος ελέγχου είναι ένα αρχείο καταγραφής των χρηστών που πραγματοποιούν προσθήκες ενημερώσεις και διαγραφές εγγραφών βάσης δεδομένων. Η πλήρης SQL διατηρείται"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:485
+#: /home/tim/code/KwaMoja/SystemParameters.php:491
 msgid "Log Severity Level"
 msgstr "Επίπεδο σοβαρότητας λογοτύπου"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:489
 #: /home/tim/code/KwaMoja/SystemParameters.php:495
 #: /home/tim/code/KwaMoja/SystemParameters.php:501
 #: /home/tim/code/KwaMoja/SystemParameters.php:507
 #: /home/tim/code/KwaMoja/SystemParameters.php:513
+#: /home/tim/code/KwaMoja/SystemParameters.php:519
 msgid "Errors Only"
 msgstr "Μόνο σφάλματα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:490
 #: /home/tim/code/KwaMoja/SystemParameters.php:496
 #: /home/tim/code/KwaMoja/SystemParameters.php:502
 #: /home/tim/code/KwaMoja/SystemParameters.php:508
+#: /home/tim/code/KwaMoja/SystemParameters.php:514
 msgid "Errors and Warnings"
 msgstr "Σφάλματα και προειδοποιήσεις"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:491
 #: /home/tim/code/KwaMoja/SystemParameters.php:497
 #: /home/tim/code/KwaMoja/SystemParameters.php:503
 #: /home/tim/code/KwaMoja/SystemParameters.php:509
 #: /home/tim/code/KwaMoja/SystemParameters.php:515
+#: /home/tim/code/KwaMoja/SystemParameters.php:521
 msgid "Errors, Warnings and Info"
 msgstr "Σφάλματα, προειδοποιήσεις και πληροφορίες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:514
+#: /home/tim/code/KwaMoja/SystemParameters.php:520
 msgid "Errors andWarnings"
 msgstr "Σφάλματα και προειδοποιήσεις"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:519
+#: /home/tim/code/KwaMoja/SystemParameters.php:525
 msgid "Choose which Status messages to keep in your log file."
 msgstr "Επιλέξτε ποια μηνύματα κατάστασης θα διατηρούνται στο αρχείο καταγραφής σας."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:524
+#: /home/tim/code/KwaMoja/SystemParameters.php:530
 msgid "Path to log files"
 msgstr "Διαδρομή για την καταγραφή αρχείων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:526
+#: /home/tim/code/KwaMoja/SystemParameters.php:532
 msgid "The path to the directory where the log files will be stored. Note the apache user must have write permissions on this directory."
 msgstr "Η διαδρομή προς τον κατάλογο όπου θα αποθηκευτούν τα αρχεία καταγραφής. Σημειώστε ότι ο χρήστης apache πρέπει να έχει δικαιώματα εγγραφής σε αυτόν τον κατάλογο."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:530
+#: /home/tim/code/KwaMoja/SystemParameters.php:536
 msgid "Using Smtp Mail"
 msgstr "Χρησιμοποιώντας το Smtp Mail"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:541
+#: /home/tim/code/KwaMoja/SystemParameters.php:547
 msgid "The default setting is using mail in default php.ini, if you choose Yes for this selection, you can use the SMTP set in the setup section."
 msgstr "Η προεπιλεγμένη ρύθμιση χρησιμοποιεί την αλληλογραφία στο προεπιλεγμένο php.ini, αν επιλέξετε Ναι για αυτήν την επιλογή, μπορείτε να χρησιμοποιήσετε το σύνολο SMTP στην ενότητα εγκατάστασης."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:293
 msgid "WackoWiki"
 msgstr "WackoWiki"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:295
 msgid "MediaWiki"
 msgstr "MediaWiki"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:297
 msgid "DokuWiki"
 msgstr "DokuWiki"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:547
+#: /home/tim/code/KwaMoja/SystemParameters.php:553
 msgid "Wiki application"
 msgstr "Wiki εφαρμογή"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:553
+#: /home/tim/code/KwaMoja/SystemParameters.php:559
 msgid "This feature makes"
 msgstr "Αυτό το χαρακτηριστικό κάνει"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:553
+#: /home/tim/code/KwaMoja/SystemParameters.php:559
 msgid "show links to a free form company knowledge base using a wiki. This allows sharing of important company information - about customers, suppliers and products and the set up of work flow menus and/or company procedures documentation"
 msgstr "εμφάνιση συνδέσμων σε μια βάση γνώσεων εταιρειών ελεύθερης μορφής χρησιμοποιώντας ένα wiki. Αυτό επιτρέπει την ανταλλαγή σημαντικών εταιρικών πληροφοριών - σχετικά με πελάτες, προμηθευτές και προϊόντα και τη δημιουργία μενού ροής εργασίας ή / και τεκμηρίωσης εταιρικών διαδικασιών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:557
+#: /home/tim/code/KwaMoja/SystemParameters.php:563
 msgid "Wiki Path"
 msgstr "Wiki Path"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:559
+#: /home/tim/code/KwaMoja/SystemParameters.php:565
 msgid "The path to the wiki installation to form the basis of wiki URLs - or the full URL of the wiki."
 msgstr "Η διαδρομή προς την εγκατάσταση του wiki για να αποτελέσει τη βάση των διευθύνσεων wiki - ή την πλήρη διεύθυνση URL του wiki."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:564
+#: /home/tim/code/KwaMoja/SystemParameters.php:570
 msgid "Only allow secure socket connections"
 msgstr "Επιτρέψτε μόνο τις ασφαλείς συνδέσεις υποδοχών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:569
+#: /home/tim/code/KwaMoja/SystemParameters.php:575
 msgid "Force connections to be only over secure sockets - ie encrypted data only"
 msgstr "Οι συνδέσεις δύναμης να είναι μόνο σε ασφαλείς υποδοχές - δηλ. Μόνο κρυπτογραφημένα δεδομένα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:574
+#: /home/tim/code/KwaMoja/SystemParameters.php:580
 msgid "Perform database maintenance at logon"
 msgstr "Εκτέλεση συντήρησης βάσεων δεδομένων κατά τη σύνδεση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:597
-#: /home/tim/code/KwaMoja/SystemParameters.php:599
+#: /home/tim/code/KwaMoja/SystemParameters.php:603
+#: /home/tim/code/KwaMoja/SystemParameters.php:605
 msgid "Allow SysAdmin Access Only"
 msgstr "Να επιτρέπεται η πρόσβαση μόνο στο SysAdmin"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:603
+#: /home/tim/code/KwaMoja/SystemParameters.php:609
 msgid "Uses the function DB_Maintenance defined in ConnectDB_XXXX.php to perform database maintenance tasks, to run at regular intervals - checked at each and every user login"
 msgstr "Χρησιμοποιεί τη συνάρτηση DB_Maintenance που ορίζεται στο ConnectDB_XXXX.php για την εκτέλεση εργασιών συντήρησης βάσεων δεδομένων, για την εκτέλεση σε τακτά χρονικά διαστήματα - Έλεγχος σε κάθε σύνδεση χρήστη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:608
+#: /home/tim/code/KwaMoja/SystemParameters.php:614
 msgid "Google Translator API Key"
 msgstr "Κλειδί API μεταφραστή Google"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:610
+#: /home/tim/code/KwaMoja/SystemParameters.php:616
 msgid "Google Translator API Key to allow automatic translations. More info at https://cloud.google.com/translate/"
 msgstr "Κλειδί API μεταφραστή Google για να επιτρέπονται αυτόματες μεταφράσεις. Περισσότερες πληροφορίες στη διεύθυνση https://cloud.google.com/translate/"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:615
+#: /home/tim/code/KwaMoja/SystemParameters.php:621
 msgid "Country Of Operation"
 msgstr "Χώρα Λειτουργίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:617
-#: /home/tim/code/KwaMoja/SystemParameters.php:875
-#: /home/tim/code/KwaMoja/SystemParameters.php:893
-#: /home/tim/code/KwaMoja/SystemParameters.php:1360
+#: /home/tim/code/KwaMoja/SystemParameters.php:623
+#: /home/tim/code/KwaMoja/SystemParameters.php:881
+#: /home/tim/code/KwaMoja/SystemParameters.php:899
+#: /home/tim/code/KwaMoja/SystemParameters.php:1376
 msgid "Unavailable"
 msgstr "Μη διαθέσιμο"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:622
+#: /home/tim/code/KwaMoja/SystemParameters.php:628
 msgid "This parameter is only effective if Do Freight Calculation is set to Yes."
 msgstr "Αυτή η παράμετρος είναι αποτελεσματική μόνο εάν ο Υπολογισμός Μεταφοράς Πορθμείου έχει οριστεί σε Ναι."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:627
+#: /home/tim/code/KwaMoja/SystemParameters.php:633
 msgid "Report Page Length"
 msgstr "Αναφορά μήκους σελίδας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:629
+#: /home/tim/code/KwaMoja/SystemParameters.php:635
 msgid "The number of lines per page on reports"
 msgstr "Ο αριθμός των γραμμών ανά σελίδα στις αναφορές"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:634
+#: /home/tim/code/KwaMoja/SystemParameters.php:640
 msgid "Default Maximum Number of Records to Show"
 msgstr "Προεπιλεγμένος μέγιστος αριθμός εγγραφών προς εμφάνιση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:636
+#: /home/tim/code/KwaMoja/SystemParameters.php:642
 msgid "When pages have code to limit the number of returned records - such as select customer, select supplier and select item, then this will be the default number of records to show for a user who has not changed this for themselves in user settings."
 msgstr "Όταν οι σελίδες έχουν κωδικό για τον περιορισμό του αριθμού των εγγραφών που έχουν επιστραφεί - όπως επιλέξτε τον πελάτη, επιλέξτε τον προμηθευτή και επιλέξτε στοιχείο, τότε αυτός θα είναι ο προεπιλεγμένος αριθμός εγγραφών που θα εμφανιστούν για έναν χρήστη που δεν το έχει αλλάξει αυτόνομα στις ρυθμίσεις του χρήστη."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:641
+#: /home/tim/code/KwaMoja/SystemParameters.php:647
 msgid "Maximum Size in KB of uploaded images"
 msgstr "Μέγιστο μέγεθος σε KB των μεταφορτωμένων εικόνων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:643
+#: /home/tim/code/KwaMoja/SystemParameters.php:649
 msgid "Picture files of items can be uploaded to the server. The system will check that files uploaded are less than this size (in KB) before they will be allowed to be uploaded. Large pictures will make the system slow and will be difficult to view in the stock maintenance screen."
 msgstr "Τα αρχεία εικόνων των αντικειμένων μπορούν να φορτωθούν στον διακομιστή. Το σύστημα θα ελέγξει εάν τα αρχεία που μεταφορτώνονται είναι μικρότερα από αυτό το μέγεθος (σε KB) προτού επιτραπεί η μεταφόρτωσή τους. Μεγάλες εικόνες θα κάνουν το σύστημα αργό και θα είναι δύσκολο να το δείτε στην οθόνη συντήρησης αποθεμάτων."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:648
+#: /home/tim/code/KwaMoja/SystemParameters.php:654
 msgid "Number Of Month Must Be Shown"
 msgstr "Ο αριθμός μηνός πρέπει να εμφανίζεται"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:650
+#: /home/tim/code/KwaMoja/SystemParameters.php:656
 msgid "Number of month must be shown on report can be changed with this parameters ex: in CustomerInquiry.php "
 msgstr "Ο αριθμός μηνός που πρέπει να εμφανίζεται στην αναφορά μπορεί να αλλάξει με αυτές τις παραμέτρους ex: στο CustomerInquiry.php"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:658
+#: /home/tim/code/KwaMoja/SystemParameters.php:664
 msgid "The directory where images are stored"
 msgstr "Ο κατάλογος όπου αποθηκεύονται οι εικόνες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:670
+#: /home/tim/code/KwaMoja/SystemParameters.php:676
 msgid "The directory under which all image files should be stored. Image files take the format of ItemCode.jpg - they must all be .jpg files and the part code will be the name of the image file. This is named automatically on upload. The system will check to ensure that the image is a .jpg file"
 msgstr "Ο κατάλογος στον οποίο πρέπει να αποθηκεύονται όλα τα αρχεία εικόνας. Τα αρχεία εικόνας έχουν τη μορφή ItemCode.jpg - πρέπει όλα να είναι αρχεία .jpg και ο κωδικός τμήματος θα είναι το όνομα του αρχείου εικόνας. Αυτό ονομάζεται αυτόματα κατά τη μεταφόρτωση. Το σύστημα θα ελέγξει για να βεβαιωθεί ότι η εικόνα είναι αρχείο .jpg"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:676
+#: /home/tim/code/KwaMoja/SystemParameters.php:682
 msgid "The directory where reports are stored"
 msgstr "Ο κατάλογος όπου αποθηκεύονται οι αναφορές"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:690
+#: /home/tim/code/KwaMoja/SystemParameters.php:696
 msgid "The directory under which all report pdf files should be created in. A separate directory is recommended"
 msgstr "Ο κατάλογος κάτω από τον οποίο πρέπει να δημιουργούνται όλα τα αρχεία pdf αναφοράς. Συνιστάται ένας ξεχωριστός κατάλογος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:694
+#: /home/tim/code/KwaMoja/SystemParameters.php:700
 msgid "Geocode Customers and Suppliers"
 msgstr "Πελάτες και προμηθευτές γεωκωδών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:697
-#: /home/tim/code/KwaMoja/SystemParameters.php:701
+#: /home/tim/code/KwaMoja/SystemParameters.php:703
+#: /home/tim/code/KwaMoja/SystemParameters.php:707
 msgid "Geocode Integration Enabled"
 msgstr "Ενσωμάτωση γεωκωδικού Ενεργοποίηση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:698
-#: /home/tim/code/KwaMoja/SystemParameters.php:700
+#: /home/tim/code/KwaMoja/SystemParameters.php:704
+#: /home/tim/code/KwaMoja/SystemParameters.php:706
 msgid "Geocode Integration Disabled"
 msgstr "Η ενσωμάτωση του γεωκώδικα είναι απενεργοποιημένη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:704
+#: /home/tim/code/KwaMoja/SystemParameters.php:710
 msgid "This feature will give Latitude and Longitude coordinates to customers and suppliers. Requires access to a mapping provider. You must setup this facility under Main Menu - Setup - Geocode Setup. This feature is experimental."
 msgstr "Αυτή η δυνατότητα θα δώσει συντεταγμένες γεωγραφικού πλάτους και μήκους σε πελάτες και προμηθευτές. Απαιτείται πρόσβαση σε έναν πάροχο χαρτογράφησης. Πρέπει να ρυθμίσετε αυτήν τη δυνατότητα στο Κύριο μενού - Ρύθμιση - Ρύθμιση γεωκωδικού. Αυτή η δυνατότητα είναι πειραματική."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:708
+#: /home/tim/code/KwaMoja/SystemParameters.php:714
 msgid "Last day of the week"
 msgstr "Τελευταία ημέρα της εβδομάδας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:718
+#: /home/tim/code/KwaMoja/SystemParameters.php:724
 msgid "Timesheet entry default to weeks ending on this day"
 msgstr "Καταχώριση προεπιλεγμένων καταλόγων σε εβδομάδες που λήγουν την ημέρα αυτή"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:723
+#: /home/tim/code/KwaMoja/SystemParameters.php:729
 msgid "Sales Order/Purchase Order Settings"
 msgstr "Παραγγελίες πωλήσεων / Ρυθμίσεις παραγγελίας αγοράς"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:727
+#: /home/tim/code/KwaMoja/SystemParameters.php:733
 msgid "Romalpa Clause"
 msgstr "Ρήτρα Romalpa"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:729
+#: /home/tim/code/KwaMoja/SystemParameters.php:735
 msgid "This text appears on invoices and credit notes in small print. Normally a reservation of title clause that gives the company rights to collect goods which have not been paid for - to give some protection for bad debts."
 msgstr "Αυτό το κείμενο εμφανίζεται σε τιμολόγια και πιστωτικές σημειώσεις με μικρή εκτύπωση. Κανονικά μια ρήτρα επιφύλαξης τίτλου που δίνει στην εταιρεία δικαιώματα συλλογής αγαθών που δεν έχουν πληρωθεί - για να παρέχει κάποια προστασία από επισφαλείς απαιτήσεις."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:734
+#: /home/tim/code/KwaMoja/SystemParameters.php:740
 msgid "Terms and Conditions of Sale"
 msgstr "Όροι και Προϋποθέσεις πώλησης"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:736
+#: /home/tim/code/KwaMoja/SystemParameters.php:742
 msgid "The organisations terms and conditions of sale to be printed on order acknowledgements."
 msgstr "Οι όροι και οι όροι πώλησης των οργανώσεων πρέπει να εκτυπώνονται με παραγγελίες."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:741
+#: /home/tim/code/KwaMoja/SystemParameters.php:747
 msgid "Quick Entries"
 msgstr "Γρήγορες καταχωρήσεις"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:743
+#: /home/tim/code/KwaMoja/SystemParameters.php:749
 msgid "This parameter defines the layout of the sales order entry screen. The number of fields available for quick entries. Any number from 1 to 99 can be entered."
 msgstr "Αυτή η παράμετρος καθορίζει τη διάταξη της οθόνης καταχώρησης παραγγελίας. Ο αριθμός των διαθέσιμων πεδίων για γρήγορες καταχωρήσεις. Μπορείτε να εισαγάγετε οποιονδήποτε αριθμό από το 1 έως το 99."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:750
+#: /home/tim/code/KwaMoja/SystemParameters.php:756
 msgid "To show the most frequently ordered items enter the number of frequently ordered items you wish to display from 1 to 99. If you do not wish to display the frequently ordered item list enter 0."
 msgstr "Για να εμφανίσετε τα πιο συχνά ταξινομημένα αντικείμενα, καταχωρίστε τον αριθμό των συχνά παραγγελθέντων αντικειμένων που θέλετε να εμφανίσετε από το 1 έως το 99. Εάν δεν θέλετε να εμφανίσετε τη λίστα των συχνά ταξινομημένων αντικειμένων, πληκτρολογήστε 0."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:755
+#: /home/tim/code/KwaMoja/SystemParameters.php:761
 msgid "Sales Order Allows Same Item Multiple Times"
 msgstr "Η εντολή πωλήσεων επιτρέπει το ίδιο στοιχείο με πολλαπλούς χρόνους"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:760
+#: /home/tim/code/KwaMoja/SystemParameters.php:766
 msgid "Is it allowed for the same item to appear multiple times on a sales order?"
 msgstr "Επιτρέπεται το ίδιο στοιχείο να εμφανίζεται πολλές φορές σε μια εντολή πωλήσεων;"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:765
+#: /home/tim/code/KwaMoja/SystemParameters.php:771
 msgid "Order Entry allows Line Item Narrative"
 msgstr "Η καταχώρηση παραγγελίας επιτρέπει την περιγραφή του στοιχείου γραμμής"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:767
+#: /home/tim/code/KwaMoja/SystemParameters.php:773
 msgid "Allow Narrative Entry"
 msgstr "Να επιτρέπεται η αφήγηση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:768
+#: /home/tim/code/KwaMoja/SystemParameters.php:774
 msgid "No Narrative Line"
 msgstr "Δεν υπάρχει αφηρημένη γραμμή"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:770
+#: /home/tim/code/KwaMoja/SystemParameters.php:776
 msgid "Select whether or not to allow entry of narrative on order line items. This narrative will appear on invoices and packing slips. Useful mainly for service businesses."
 msgstr "Επιλέξτε αν θα επιτρέπεται ή όχι η καταχώριση της αφήγησης σε στοιχεία γραμμής παραγγελίας. Αυτή η αφήγηση θα εμφανίζεται στα τιμολόγια και τα δελτία συσκευασίας. Χρήσιμο κυρίως για επιχειρήσεις παροχής υπηρεσιών."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:775
+#: /home/tim/code/KwaMoja/SystemParameters.php:781
 msgid "A picking note must be produced before an order can be delivered"
 msgstr "Πριν από την παραγγελία μπορεί να παραδοθεί ένα δελτίο παραλαβής"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:780
+#: /home/tim/code/KwaMoja/SystemParameters.php:786
 msgid "Select whether or not a picking note must be produced before an order can be delivered to a customer."
 msgstr "Επιλέξτε αν πρέπει να δημιουργηθεί ή όχι ένα σημείωμα συλλογής προτού παραδοθεί μια παραγγελία σε έναν πελάτη."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:785
+#: /home/tim/code/KwaMoja/SystemParameters.php:791
 msgid "Allow Sales Of Zero Cost Items"
 msgstr "Επιτρέψτε πωλήσεις στοιχείων μηδενικού κόστους"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:790
+#: /home/tim/code/KwaMoja/SystemParameters.php:796
 msgid "If an item selected at order entry does not have a cost set up then if this parameter is set to No then the order line will not be able to be entered"
 msgstr "Αν ένα αντικείμενο που έχει επιλεγεί κατά την καταχώρηση παραγγελίας δεν έχει ρυθμιστεί το κόστος τότε εάν αυτή η παράμετρος έχει οριστεί σε Όχι τότε η γραμμή παραγγελίας δεν θα μπορεί να εισαχθεί"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:794
+#: /home/tim/code/KwaMoja/SystemParameters.php:800
 msgid "Purchasing Manager Email Address"
 msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου του Διαχειριστή Προμηθειών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:796
+#: /home/tim/code/KwaMoja/SystemParameters.php:802
 msgid "The email address for the purchasing manager, used to receive notifications by the tendering system"
 msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου του διαχειριστή αγορών, που χρησιμοποιείται για τη λήψη ειδοποιήσεων από το σύστημα υποβολής προσφορών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:801
+#: /home/tim/code/KwaMoja/SystemParameters.php:807
 msgid "Automatically authorise purchase orders if user has authority"
 msgstr "Αυτόματη εξουσιοδότηση εντολών αγοράς εάν ο χρήστης έχει εξουσιοδότηση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:806
+#: /home/tim/code/KwaMoja/SystemParameters.php:812
 msgid "If the user changing an existing purchase order or adding a new puchase order is set up to authorise purchase orders and the order is within their limit, then the purchase order status is automatically set to authorised"
 msgstr "Εάν ο χρήστης αλλάξει μια υπάρχουσα εντολή αγοράς ή προσθέσει μια νέα εντολή puchase έχει ρυθμιστεί για να εξουσιοδοτήσει εντολές αγοράς και η παραγγελία είναι εντός του ορίου, τότε η κατάσταση της εντολής αγοράς ορίζεται αυτόματα σε εξουσιοδοτημένη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:811
+#: /home/tim/code/KwaMoja/SystemParameters.php:817
 msgid "Maximum number of serial numbered items to be issued"
 msgstr "Μέγιστος αριθμός αύξοντων αριθμών που πρόκειται να εκδοθούν"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:813
+#: /home/tim/code/KwaMoja/SystemParameters.php:819
 msgid "This parameter defines the Maximum number of serial numbered items that can be issued. It should be an integer greater than zero."
 msgstr "Αυτή η παράμετρος καθορίζει τον μέγιστο αριθμό σειριακών αριθμημένων στοιχείων που μπορούν να εκδοθούν. Πρέπει να είναι ακέραιος αριθμός μεγαλύτερος από το μηδέν."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:818
+#: /home/tim/code/KwaMoja/SystemParameters.php:824
 msgid "Format of Packing Slips"
 msgstr "Μορφή των πλακιδίων συσκευασίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:820
+#: /home/tim/code/KwaMoja/SystemParameters.php:826
 msgid "Laser Printed"
 msgstr "Εκτύπωση με λέιζερ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:821
+#: /home/tim/code/KwaMoja/SystemParameters.php:827
 msgid "Special Stationery"
 msgstr "Ειδικό γραφείο"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:823
+#: /home/tim/code/KwaMoja/SystemParameters.php:829
 msgid "Choose the format that packing notes should be printed by default"
 msgstr "Επιλέξτε τη μορφή που θα πρέπει να εκτυπώνονται από προεπιλογή οι σημειώσεις συσκευασίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:828
+#: /home/tim/code/KwaMoja/SystemParameters.php:834
 msgid "Invoice Quantity Default"
 msgstr "Προεπιλογή ποσότητας τιμολογίου"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:830
+#: /home/tim/code/KwaMoja/SystemParameters.php:836
 msgid "0"
 msgstr "0"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:833
+#: /home/tim/code/KwaMoja/SystemParameters.php:839
 msgid "This setting controls the default behaviour of invoicing. Setting to 0 defaults the invocie quantity to zero to force entry. Set to outstanding to default the invoice quantity to the balance outstanding, after previous deliveries, on the sales order"
 msgstr "Αυτή η ρύθμιση ελέγχει την προεπιλεγμένη συμπεριφορά τιμολόγησης. Ορισμός σε 0 προεπιλογή της ποσότητας invocie στο μηδέν για να αναγκαστεί η είσοδος. Ορίστε σε εκκρεμότητα ως προεπιλογή την ποσότητα τιμολογίου στο υπόλοιπο, μετά τις προηγούμενες παραδόσεις, στην παραγγελία πώλησης"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:838
+#: /home/tim/code/KwaMoja/SystemParameters.php:844
 msgid "Show company details on packing slips"
 msgstr "Εμφάνιση στοιχείων της εταιρείας σχετικά με τις συσκευασίες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:840
+#: /home/tim/code/KwaMoja/SystemParameters.php:846
 msgid "Show Company Details"
 msgstr "Εμφάνιση στοιχείων της εταιρείας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:841
+#: /home/tim/code/KwaMoja/SystemParameters.php:847
 msgid "Hide Company Details"
 msgstr "Απόκρυψη στοιχείων της εταιρείας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:843
+#: /home/tim/code/KwaMoja/SystemParameters.php:849
 msgid "Customer branches can be set by default not to print packing slips with the company logo and address. This is useful for companies that ship to customers customers and to show the source of the shipment would be inappropriate. There is an option on the setup of customer branches to ship blind, this setting is the default applied to all new customer branches"
 msgstr "Τα υποκαταστήματα πελατών μπορούν να ρυθμιστούν από προεπιλογή να μην εκτυπώνουν τα δελτία συσκευασίας με το λογότυπο και τη διεύθυνση της εταιρείας. Αυτό είναι χρήσιμο για εταιρείες που αποστέλλουν σε πελάτες πελάτες και για να δείξουν την πηγή της αποστολής θα ήταν ακατάλληλη. Υπάρχει μια επιλογή για τη ρύθμιση των υποκαταστημάτων πελατών για αποστολή τυφλών, αυτή η ρύθμιση είναι η προεπιλογή που εφαρμόζεται σε όλα τα νέα καταστήματα πελατών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:848
+#: /home/tim/code/KwaMoja/SystemParameters.php:854
 msgid "Dispatch Cut-Off Time"
 msgstr "Χρόνος αποκοπής αποστολής"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:854
+#: /home/tim/code/KwaMoja/SystemParameters.php:860
 msgid "Orders entered after this time will default to be dispatched the following day, this can be over-ridden at the time of sales order entry"
 msgstr "Οι εντολές που εισάγονται μετά από αυτή την ώρα θα αποσταλούν εκ των προτέρων την επόμενη ημέρα, κάτι που μπορεί να παρακαμφθεί κατά τη στιγμή της εισαγωγής της εντολής πώλησης"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:859
+#: /home/tim/code/KwaMoja/SystemParameters.php:865
 msgid "Controlled Items Must Exist For Crediting"
 msgstr "Τα ελεγχόμενα στοιχεία πρέπει να υπάρχουν για πίστωση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:864
+#: /home/tim/code/KwaMoja/SystemParameters.php:870
 msgid "This parameter relates to the behaviour of the controlled items code. If a serial numbered item has not previously existed then a credit note for it will not be allowed if this is set to Yes"
 msgstr "Αυτή η παράμετρος σχετίζεται με τη συμπεριφορά του κώδικα ελεγχόμενων στοιχείων. Εάν δεν υπήρχε προηγουμένως ένα σειριακό αριθμημένο στοιχείο, τότε δεν θα επιτρέπεται πιστωτικό σημείωμα για αυτό εάν έχει οριστεί σε Ναι"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:869
+#: /home/tim/code/KwaMoja/SystemParameters.php:875
 msgid "Could not load price lists"
 msgstr "Δεν ήταν δυνατή η φόρτωση των τιμοκαταλόγων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:872
+#: /home/tim/code/KwaMoja/SystemParameters.php:878
 msgid "Default Price List"
 msgstr "Προεπιλεγμένος τιμοκατάλογος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:882
+#: /home/tim/code/KwaMoja/SystemParameters.php:888
 msgid "This price list is used as a last resort where there is no price set up for an item in the price list that the customer is set up for"
 msgstr "Αυτός ο τιμοκατάλογος χρησιμοποιείται ως έσχατη λύση, όπου δεν υπάρχει τιμή που έχει οριστεί για ένα στοιχείο του τιμοκαταλόγου που ο πελάτης έχει συσταθεί για"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:900
+#: /home/tim/code/KwaMoja/SystemParameters.php:906
 msgid "This shipper is used where the best shipper for a customer branch has not been defined previously"
 msgstr "Αυτός ο αποστολέας χρησιμοποιείται όταν ο καλύτερος αποστολέας για ένα υποκατάστημα πελάτη δεν έχει οριστεί προηγουμένως"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:905
+#: /home/tim/code/KwaMoja/SystemParameters.php:911
 msgid "Do Freight Calculation"
 msgstr "Υπολογίστε τον Υπολογισμό των Μεταφορών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:910
+#: /home/tim/code/KwaMoja/SystemParameters.php:916
 msgid "If this is set to Yes then the system will attempt to calculate the freight cost of a dispatch based on the weight and cubic and the data defined for each shipper and their rates for shipping to various locations. The results of this calculation will only be meaningful if the data is entered for the item weight and volume in the stock item setup for all items and the freight costs for each shipper properly maintained."
 msgstr "Εάν αυτό έχει οριστεί σε Ναι, τότε το σύστημα θα επιχειρήσει να υπολογίσει το κόστος μεταφοράς μιας αποστολής με βάση το βάρος και το κυβικό και τα δεδομένα που ορίζονται για κάθε αποστολέα και τις τιμές τους για αποστολή σε διάφορες τοποθεσίες. Τα αποτελέσματα αυτού του υπολογισμού θα έχουν νόημα μόνο εάν τα δεδομένα εισαχθούν για το βάρος και τον όγκο του αντικειμένου στη διαμόρφωση του αποθέματος για όλα τα είδη και το κόστος μεταφοράς για κάθε αποστολέα διατηρείται σωστά."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:915
+#: /home/tim/code/KwaMoja/SystemParameters.php:921
 msgid "Apply freight charges if an order is less than"
 msgstr "Εφαρμόστε τέλη μεταφοράς εάν μια παραγγελία είναι μικρότερη από"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:917
+#: /home/tim/code/KwaMoja/SystemParameters.php:923
 msgid "This parameter is only effective if Do Freight Calculation is set to Yes. If it is set to 0 then freight is always charged. The total order value is compared to this value in deciding whether or not to charge freight"
 msgstr "Αυτή η παράμετρος είναι αποτελεσματική μόνο εάν ο υπολογισμός της μεταφοράς εμπορευμάτων έχει οριστεί σε Ναι. Εάν έχει οριστεί σε 0, τότε το φορτίο χρεώνεται πάντα. Η συνολική αξία παραγγελίας συγκρίνεται με αυτήν την τιμή για να αποφασίσει εάν θα χρεώσει ή όχι το φορτίο"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:922
+#: /home/tim/code/KwaMoja/SystemParameters.php:928
 msgid "Check Quantity Charged vs Deliver Qty"
 msgstr "Έλεγχος Ποσότητας Φόρτισης vs Παράδοση Ποσ"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:927
+#: /home/tim/code/KwaMoja/SystemParameters.php:933
 msgid "In entry of AP invoices this determines whether or not to check the quantities received into stock tie up with the quantities invoiced"
 msgstr "Κατά την καταχώριση των τιμολογίων AP, αυτό καθορίζει εάν πρέπει να ελέγχεται ή όχι η ποσότητα που εισάγεται στο απόθεμα με τις τιμολογημένες ποσότητες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:932
+#: /home/tim/code/KwaMoja/SystemParameters.php:938
 msgid "Check Price Charged vs Order Price"
 msgstr "Έλεγχος τιμής χρεώνεται vs τιμή παραγγελίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:937
+#: /home/tim/code/KwaMoja/SystemParameters.php:943
 msgid "In entry of AP invoices this parameter determines whether or not to check invoice prices tie up to ordered prices"
 msgstr "Κατά την καταχώριση των τιμολογίων AP, αυτή η παράμετρος καθορίζει εάν οι τιμές των τιμολογίων πρέπει να ελέγχονται ή όχι σε δεσμευμένες τιμές"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:942
+#: /home/tim/code/KwaMoja/SystemParameters.php:948
 msgid "Allowed Over Charge Proportion"
 msgstr "Επιτρεπόμενη αναλογία χρέωσης"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:944
+#: /home/tim/code/KwaMoja/SystemParameters.php:950
 msgid "If check price charges vs Order price is set to yes then this proportion determines the percentage by which invoices can be overcharged with respect to price"
 msgstr "Εάν τα τέλη τιμής ελέγχου έναντι της τιμής παραγγελίας έχουν οριστεί σε ναι τότε αυτή η αναλογία καθορίζει το ποσοστό με το οποίο τα τιμολόγια μπορούν να υπερφορτωθούν σε σχέση με την τιμή"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:949
+#: /home/tim/code/KwaMoja/SystemParameters.php:955
 msgid "Allowed Over Receive Proportion"
 msgstr "Επιτρέπεται να λαμβάνεται αναλογία"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:951
+#: /home/tim/code/KwaMoja/SystemParameters.php:957
 msgid "If check quantity charged vs delivery quantity is set to yes then this proportion determines the percentage by which invoices can be overcharged with respect to delivery"
 msgstr "Εάν η ποσότητα ελέγχου που χρεώνεται έναντι της ποσότητας παράδοσης έχει οριστεί σε ναι τότε αυτή η αναλογία καθορίζει το ποσοστό με το οποίο τα τιμολόγια μπορούν να υπερφορτωθούν σε σχέση με την παράδοση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:956
+#: /home/tim/code/KwaMoja/SystemParameters.php:962
 msgid "Purchase Order Allows Same Item Multiple Times"
 msgstr "Εντολή αγοράς επιτρέπει το ίδιο στοιχείο πολλαπλούς χρόνους"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:961
+#: /home/tim/code/KwaMoja/SystemParameters.php:967
 msgid "If a purchase order can have the same item on the order several times this parameter should be set to yes"
 msgstr "Εάν μια εντολή αγοράς μπορεί να έχει το ίδιο στοιχείο στην παραγγελία αρκετές φορές, αυτή η παράμετρος θα πρέπει να είναι ναι"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:966
+#: /home/tim/code/KwaMoja/SystemParameters.php:972
 msgid "Accounts Receivable/Payable Settings"
 msgstr "Ρυθμίσεις εισπρακτέων / πληρωτέων λογαριασμών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:970
+#: /home/tim/code/KwaMoja/SystemParameters.php:976
 msgid "First Overdue Deadline in (days)"
 msgstr "Πρώτα καθυστερημένη προθεσμία στις (ημέρες)"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:972
+#: /home/tim/code/KwaMoja/SystemParameters.php:978
 msgid "Customer and supplier balances are displayed as overdue by this many days. This parameter is used on customer and supplier enquiry screens and aged listings"
 msgstr "Τα υπόλοιπα πελατών και προμηθευτών εμφανίζονται ως καθυστερημένα από πολλές ημέρες. Αυτή η παράμετρος χρησιμοποιείται σε οθόνες ερωτήσεων πελατών και προμηθευτών και σε λίστες ηλικίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:977
+#: /home/tim/code/KwaMoja/SystemParameters.php:983
 msgid "Second Overdue Deadline in (days)"
 msgstr "Δεύτερη προθεσμία καθυστέρησης σε (ημέρες)"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:979
+#: /home/tim/code/KwaMoja/SystemParameters.php:985
 msgid "As above but the next level of overdue"
 msgstr "Όπως παραπάνω, αλλά το επόμενο επίπεδο καθυστερήσεων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:984
+#: /home/tim/code/KwaMoja/SystemParameters.php:990
 msgid "Default Credit Limit"
 msgstr "Προεπιλεγμένο πιστωτικό όριο"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:986
+#: /home/tim/code/KwaMoja/SystemParameters.php:992
 msgid "The default used in new customer set up"
 msgstr "Η προεπιλογή που χρησιμοποιείται για τη δημιουργία νέου πελάτη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:991
+#: /home/tim/code/KwaMoja/SystemParameters.php:997
 msgid "Check Credit Limits"
 msgstr "Ελέγξτε τα πιστωτικά όρια"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:993
+#: /home/tim/code/KwaMoja/SystemParameters.php:999
 msgid "Do not check"
 msgstr "Μην ελέγχετε"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:994
+#: /home/tim/code/KwaMoja/SystemParameters.php:1000
 msgid "Warn on breach"
 msgstr "Προειδοποίηση για παραβίαση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:995
+#: /home/tim/code/KwaMoja/SystemParameters.php:1001
 msgid "Prohibit Sales"
 msgstr "Απαγόρευση πωλήσεων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:997
+#: /home/tim/code/KwaMoja/SystemParameters.php:1003
 msgid "Credit limits can be checked at order entry to warn only or to stop the order from being entered where it would take a customer account balance over their limit"
 msgstr "Τα πιστωτικά όρια μπορούν να ελεγχθούν κατά την είσοδο εντολής για προειδοποίηση μόνο ή για να σταματήσει η καταχώρηση της παραγγελίας όπου θα πάρει ένα υπόλοιπο λογαριασμού πελατών πέρα ​​από το όριο τους"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1002
+#: /home/tim/code/KwaMoja/SystemParameters.php:1008
 msgid "Show Settled Last Month"
 msgstr "Εμφάνιση ρυθμιζόμενου τελευταίου μήνα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1007
+#: /home/tim/code/KwaMoja/SystemParameters.php:1013
 msgid "This setting refers to the format of customer statements. If the invoices and credit notes that have been paid and settled during the course of the current month should be shown then select Yes. Selecting No will only show currently outstanding invoices, credits and payments that have not been allocated"
 msgstr "Αυτή η ρύθμιση αναφέρεται στη μορφή των δηλώσεων πελατών. Εάν πρέπει να εμφανίζονται τα τιμολόγια και οι πιστωτικές σημειώσεις που έχουν πληρωθεί και διακανονιστεί κατά τη διάρκεια του τρέχοντος μήνα, επιλέξτε Ναι. Επιλέγοντας Όχι θα εμφανίζονται μόνο τα τρέχοντα τιμολόγια, πιστώσεις και πληρωμές που δεν έχουν εκχωρηθεί"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1012
+#: /home/tim/code/KwaMoja/SystemParameters.php:1018
 msgid "All new branch codes must be authorised"
 msgstr "Όλοι οι νέοι κώδικες υποκαταστημάτων πρέπει να είναι εγκεκριμένοι"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1023
+#: /home/tim/code/KwaMoja/SystemParameters.php:1029
 msgid "If enabled then all new customer branches are set to disabled by default."
 msgstr "Εάν είναι ενεργοποιημένη τότε όλα τα νέα υποκαταστήματα πελατών είναι απενεργοποιημένα από προεπιλογή."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1028
+#: /home/tim/code/KwaMoja/SystemParameters.php:1034
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:600
 msgid "Create Debtor Codes Automatically"
 msgstr "Δημιουργήστε αυτόματα τους κωδικούς του οφειλέτη"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1039
+#: /home/tim/code/KwaMoja/SystemParameters.php:1045
 msgid "Set to Automatic - customer codes are automatically created - as a sequential number"
 msgstr "Ορίστε αυτόματα - δημιουργούνται αυτόματα οι κωδικοί των πελατών - ως διαδοχικός αριθμός"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1043
+#: /home/tim/code/KwaMoja/SystemParameters.php:1049
 msgid "Create Supplier Codes Automatically"
 msgstr "Δημιουργία αυτόματων κωδικών προμηθευτών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1054
+#: /home/tim/code/KwaMoja/SystemParameters.php:1060
 msgid "Set to Automatic - Supplier codes are automatically created - as a sequential number"
 msgstr "Ορίστε αυτόματα - Δημιουργούνται αυτόματα οι κωδικοί προμηθευτών - ως διαδοχικός αριθμός"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1058
+#: /home/tim/code/KwaMoja/SystemParameters.php:1064
 msgid "Extended Customer Information"
 msgstr "Εκτεταμένες πληροφορίες Πελατών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1061
-#: /home/tim/code/KwaMoja/SystemParameters.php:1065
+#: /home/tim/code/KwaMoja/SystemParameters.php:1067
+#: /home/tim/code/KwaMoja/SystemParameters.php:1071
 msgid "Extended Customer Info Enabled"
 msgstr "Οι διευρυμένες πληροφορίες πελάτη είναι ενεργοποιημένες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1062
-#: /home/tim/code/KwaMoja/SystemParameters.php:1064
+#: /home/tim/code/KwaMoja/SystemParameters.php:1068
+#: /home/tim/code/KwaMoja/SystemParameters.php:1070
 msgid "Extended Customer Info Disabled"
 msgstr "Οι εκτεταμένες πληροφορίες πελάτη είναι απενεργοποιημένες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1068
+#: /home/tim/code/KwaMoja/SystemParameters.php:1074
 msgid "This feature will give extended information in the Select Customer screen."
 msgstr "Αυτή η λειτουργία θα παρέχει διευρυμένες πληροφορίες στην οθόνη Επιλογή πελάτη."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1072
+#: /home/tim/code/KwaMoja/SystemParameters.php:1078
 msgid "Extended Supplier Information"
 msgstr "Εκτεταμένες πληροφορίες προμηθευτή"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1075
-#: /home/tim/code/KwaMoja/SystemParameters.php:1079
+#: /home/tim/code/KwaMoja/SystemParameters.php:1081
+#: /home/tim/code/KwaMoja/SystemParameters.php:1085
 msgid "Extended Supplier Info Enabled"
 msgstr "Έχουν ενεργοποιηθεί οι πληροφορίες για προχωρημένους προμηθευτές"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1076
-#: /home/tim/code/KwaMoja/SystemParameters.php:1078
+#: /home/tim/code/KwaMoja/SystemParameters.php:1082
+#: /home/tim/code/KwaMoja/SystemParameters.php:1084
 msgid "Extended Supplier Info Disabled"
 msgstr "Οι εκτεταμένες πληροφορίες προμηθευτή είναι απενεργοποιημένες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1082
+#: /home/tim/code/KwaMoja/SystemParameters.php:1088
 msgid "This feature will give extended information in the Select Supplier screen."
 msgstr "Αυτή η λειτουργία θα δώσει εκτεταμένες πληροφορίες στην οθόνη Επιλογή προμηθευτή."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1087
+#: /home/tim/code/KwaMoja/SystemParameters.php:1093
 msgid "Inventory Settings"
 msgstr "Ρυθμίσεις Αποθέματος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1094
+#: /home/tim/code/KwaMoja/SystemParameters.php:1100
 msgid "Languages to Maintain Translations for Item Descriptions"
 msgstr "Γλώσσες για τη διατήρηση μεταφράσεων για περιγραφές αντικειμένων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1105
+#: /home/tim/code/KwaMoja/SystemParameters.php:1111
 msgid "Select the languages in which translations of the item description will be maintained. The default language is excluded."
 msgstr "Επιλέξτε τις γλώσσες στις οποίες θα διατηρηθούν οι μεταφράσεις της περιγραφής των στοιχείων. Η προεπιλεγμένη γλώσσα εξαιρείται."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1109
+#: /home/tim/code/KwaMoja/SystemParameters.php:1115
 msgid "Inventory Manager Email Address"
 msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου του Διαχειριστή Αποθέματος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1111
+#: /home/tim/code/KwaMoja/SystemParameters.php:1117
 msgid "The email address for the inventory manager, where notifications of all manual stock adjustments created are sent by the system. Leave blank if no emails should be sent to the factory manager for manual stock adjustments"
 msgstr "Η διεύθυνση email για τον διαχειριστή αποθέματος, όπου αποστέλλονται ειδοποιήσεις από όλες τις μη αυτόματες προσαρμογές αποθεμάτων που έχουν δημιουργηθεί. Αφήστε κενό εάν δεν πρέπει να σταλούν email στον διαχειριστή εργοστασίων για μη αυτόματες προσαρμογές αποθεμάτων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1115
+#: /home/tim/code/KwaMoja/SystemParameters.php:1121
 msgid "Prohibit Negative Stock"
 msgstr "Απαγόρευση αρνητικών αποθεμάτων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1125
+#: /home/tim/code/KwaMoja/SystemParameters.php:1131
 msgid "Setting this parameter to Yes prevents invoicing and the issue of stock if this would result in negative stock. The stock problem must be corrected before the invoice or issue is allowed to be processed."
 msgstr "Η ρύθμιση αυτής της παραμέτρου σε Ναι αποτρέπει την τιμολόγηση και την έκδοση αποθεμάτων εάν αυτό θα είχε ως αποτέλεσμα αρνητικό απόθεμα. Το πρόβλημα της μετοχής πρέπει να διορθωθεί πριν επιτραπεί η επεξεργασία του τιμολογίου ή του ζητήματος."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1129
+#: /home/tim/code/KwaMoja/SystemParameters.php:1135
 msgid "Inventory Costing Method"
 msgstr "Μέθοδος κοστολόγησης αποθέματος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1133
-#: /home/tim/code/KwaMoja/SystemParameters.php:1137
+#: /home/tim/code/KwaMoja/SystemParameters.php:1139
+#: /home/tim/code/KwaMoja/SystemParameters.php:1143
 msgid "Weighted Average Costing"
 msgstr "Σταθμισμένο μέσο κόστος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1134
-#: /home/tim/code/KwaMoja/SystemParameters.php:1136
+#: /home/tim/code/KwaMoja/SystemParameters.php:1140
+#: /home/tim/code/KwaMoja/SystemParameters.php:1142
 msgid "Standard Costing"
 msgstr "Τυπική κοστολόγηση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1141
+#: /home/tim/code/KwaMoja/SystemParameters.php:1147
 msgid "allows inventory to be costed based on the weighted average of items in stock or full standard costing with price variances reported. The selection here determines the method used and the general ledger postings resulting from purchase invoices and shipment closing"
 msgstr "επιτρέπει την απογραφή του αποθέματος βάσει του σταθμισμένου μέσου όρου των αντικειμένων σε απόθεμα ή του πλήρους τυποποιημένου κόστους με αναφορές διακυμάνσεων τιμών. Η επιλογή εδώ καθορίζει τη μέθοδο που χρησιμοποιείται και τις γενικές καταχωρίσεις καθολικών που προκύπτουν από τιμολόγια αγοράς και κλείσιμο αποστολής"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1146
+#: /home/tim/code/KwaMoja/SystemParameters.php:1152
 msgid "Show Stockid on images"
 msgstr "Εμφάνιση Stockid στις εικόνες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1151
+#: /home/tim/code/KwaMoja/SystemParameters.php:1157
 msgid "Show the code inside the thumbnail image of the items"
 msgstr "Εμφανίστε τον κώδικα μέσα στη μικρογραφία των αντικειμένων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1155
+#: /home/tim/code/KwaMoja/SystemParameters.php:1161
 msgid "Create Inventory Codes Automatically"
 msgstr "Δημιουργία κωδικών αποθέματος αυτόματα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1166
+#: /home/tim/code/KwaMoja/SystemParameters.php:1172
 msgid "Set to Automatic - Inventory codes are automatically created - as a sequential number"
 msgstr "Ορίστε αυτόματα - Δημιουργούνται αυτόματα οι κωδικοί αποθέματος - ως διαδοχικός αριθμός"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1171
+#: /home/tim/code/KwaMoja/SystemParameters.php:1177
 msgid "Standard Cost Decimal Places"
 msgstr "Στατιστικά δεκαδικά μέρη κόστους"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1177
+#: /home/tim/code/KwaMoja/SystemParameters.php:1183
 msgid "Decimal Places to be used in Standard Cost"
 msgstr "Δεκαδικοί τόποι που θα χρησιμοποιηθούν στο κανονικό κόστος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1182
+#: /home/tim/code/KwaMoja/SystemParameters.php:1188
 msgid "Number Of Periods Of StockUsage"
 msgstr "Αριθμός περιόδων αποθήκευσης"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1186
+#: /home/tim/code/KwaMoja/SystemParameters.php:1192
 msgid "In stock usage inquiries this determines how many periods of stock usage to show. An average is calculated over this many periods"
 msgstr "Σε έρευνες σχετικά με τη χρήση αποθεμάτων, αυτό καθορίζει πόσες περιόδους χρήσης αποθεμάτων θα εμφανίζονται. Ο μέσος όρος υπολογίζεται για πολλές περιόδους"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1191
+#: /home/tim/code/KwaMoja/SystemParameters.php:1197
 msgid "Show order values on GRN"
 msgstr "Εμφάνιση τιμών παραγγελίας σε GRN"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1196
+#: /home/tim/code/KwaMoja/SystemParameters.php:1202
 msgid "Should the value of the purchased stock be shown on the GRN screen"
 msgstr "Εάν η αξία του αγορασθέντος αποθέματος εμφανίζεται στην οθόνη GRN"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1201
+#: /home/tim/code/KwaMoja/SystemParameters.php:1207
+msgid "Show Zero Counts Within Stock Usage Graph Period Range"
+msgstr "Εμφάνιση μηδενικών μετρήσεων εντός εύρους περιόδου γραφήματος χρήσης αποθεμάτων"
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:1212
+msgid "Show periods having zero counts within Stock Usage Graph. Choosing yes may show a wider period range than expected."
+msgstr "Εμφάνιση περιόδων με μηδενικό αριθμό στο γράφημα χρήσης αποθεμάτων. Η επιλογή ναι μπορεί να δείχνει μεγαλύτερο εύρος περιόδου από το αναμενόμενο."
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:1217
 msgid "Manufacturing/Quality Assurance Settings"
 msgstr "Ρυθμίσεις κατασκευής / διασφάλισης ποιότητας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1205
+#: /home/tim/code/KwaMoja/SystemParameters.php:1221
 msgid "Working Days on a Week"
 msgstr "Εργάσιμες ημέρες σε μια εβδομάδα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1207
-#: /home/tim/code/KwaMoja/SystemParameters.php:1208
-#: /home/tim/code/KwaMoja/SystemParameters.php:1209
+#: /home/tim/code/KwaMoja/SystemParameters.php:1223
+#: /home/tim/code/KwaMoja/SystemParameters.php:1224
+#: /home/tim/code/KwaMoja/SystemParameters.php:1225
 msgid "working days"
 msgstr "εργάσιμες μέρες"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1211
+#: /home/tim/code/KwaMoja/SystemParameters.php:1227
 msgid "Number of working days on a week"
 msgstr "Αριθμός εργάσιμων ημερών την εβδομάδα"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1215
+#: /home/tim/code/KwaMoja/SystemParameters.php:1231
 msgid "Text For Quality Product Specification"
 msgstr "Κείμενο για ποιοτική προδιαγραφή προϊόντων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1217
+#: /home/tim/code/KwaMoja/SystemParameters.php:1233
 msgid "This text appears on product specifications"
 msgstr "Αυτό το κείμενο εμφανίζεται στις προδιαγραφές του προϊόντος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1221
+#: /home/tim/code/KwaMoja/SystemParameters.php:1237
 msgid "Text For Quality Product Certifications"
 msgstr "Κείμενο για πιστοποιητικά ποιότητας προϊόντων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1223
+#: /home/tim/code/KwaMoja/SystemParameters.php:1239
 msgid "This text appears on product certifications"
 msgstr "Αυτό το κείμενο εμφανίζεται στις πιστοποιήσεις προϊόντων"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1227
+#: /home/tim/code/KwaMoja/SystemParameters.php:1243
 msgid "Auto Log Quality Samples"
 msgstr "Δείγματα ποιότητας αυτόματης καταγραφής"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1238
+#: /home/tim/code/KwaMoja/SystemParameters.php:1254
 msgid "The flag determines if the system creates quality samples automatically for each lot during P/O Receipt and W/O Recipt transactions."
 msgstr "Η σημαία καθορίζει αν το σύστημα δημιουργεί αυτόματα δείγματα ποιότητας για κάθε παρτίδα κατά τη διάρκεια των συναλλαγών παραλαβής P / O και W / O Recipt."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1242
+#: /home/tim/code/KwaMoja/SystemParameters.php:1258
 msgid "Factory Manager Email Address"
 msgstr "Διεύθυνση ηλεκτρονικού ταχυδρομείου διευθυντή εργοστασίου"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1244
+#: /home/tim/code/KwaMoja/SystemParameters.php:1260
 msgid "Work orders automatically created when sales orders are entered will be emailed to this address"
 msgstr "Οι εντολές εργασίας που δημιουργούνται αυτόματα όταν εισάγονται εντολές πώλησης θα αποστέλλονται μέσω ηλεκτρονικού ταχυδρομείου σε αυτήν τη διεύθυνση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1248
+#: /home/tim/code/KwaMoja/SystemParameters.php:1264
 msgid "Could not load locations table"
 msgstr "Δεν ήταν δυνατή η φόρτωση πίνακα τοποθεσιών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1252
+#: /home/tim/code/KwaMoja/SystemParameters.php:1268
 msgid "Default Factory Location"
 msgstr "Προεπιλεγμένη τοποθεσία εργοστασίου"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1262
+#: /home/tim/code/KwaMoja/SystemParameters.php:1278
 msgid "This location is the location where work orders will be created from when the auto create work orders option is activated"
 msgstr "Αυτή η θέση είναι η θέση όπου θα δημιουργηθούν οι εντολές εργασίας από την ενεργοποίηση της επιλογής αυτόματης δημιουργίας παραγγελιών εργασίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1267
+#: /home/tim/code/KwaMoja/SystemParameters.php:1283
 msgid "Controlled Items Defined At Work Order Entry"
 msgstr "Ελεγχόμενη εισαγωγή αντικειμένων που καθορίζονται στην εργασία"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1272
+#: /home/tim/code/KwaMoja/SystemParameters.php:1288
 msgid "When set to yes, controlled items are defined at the time of the work order creation. Otherwise controlled items (serial numbers and batch/roll/lot references) are entered at the time the finished items are received against the work order"
 msgstr "Όταν οριστεί ναι, τα ελεγχόμενα στοιχεία ορίζονται κατά τη στιγμή της δημιουργίας της εντολής εργασίας. Διαφορετικά, τα ελεγχόμενα στοιχεία (σειριακοί αριθμοί και αναφορές παρτίδας / ρολού / παρτίδας) εισάγονται τη στιγμή που τα τελικά στοιχεία παραλαμβάνονται έναντι της παραγγελίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1277
+#: /home/tim/code/KwaMoja/SystemParameters.php:1293
 msgid "Auto Create Work Orders"
 msgstr "Δημιουργία αυτόματων εντολών εργασίας"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1287
+#: /home/tim/code/KwaMoja/SystemParameters.php:1303
 msgid "Setting this parameter to Yes will ensure that when a sales order is placed if there is insufficient stock then a new work order is created at the default factory location"
 msgstr "Ο ορισμός αυτής της παραμέτρου σε Ναι θα εξασφαλίσει ότι όταν μια εντολή πωλήσεων τοποθετείται εάν δεν υπάρχει επαρκές απόθεμα τότε δημιουργείται νέα εντολή εργασίας στην προεπιλεγμένη εργοστασιακή θέση"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1291
+#: /home/tim/code/KwaMoja/SystemParameters.php:1307
 msgid "Auto Issue Components"
 msgstr "Εξαρτήματα αυτόματης έκδοσης"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1301
+#: /home/tim/code/KwaMoja/SystemParameters.php:1317
 msgid "When items are manufactured it is possible for the components of the item to be automatically decremented from stock in accordance with the Bill of Material setting"
 msgstr "Όταν κατασκευάζονται αντικείμενα, είναι δυνατόν τα εξαρτήματα του αντικειμένου να μειώνονται αυτόματα από το απόθεμα σύμφωνα με τη ρύθμιση Bill of Material"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1306
+#: /home/tim/code/KwaMoja/SystemParameters.php:1322
 msgid "General Ledger Settings"
 msgstr "Ρυθμίσεις γενικού βιβλίου"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1313
+#: /home/tim/code/KwaMoja/SystemParameters.php:1329
 msgid "Prohibit GL Journals to Periods Prior To"
 msgstr "Απαγόρευση GL περιοδικών σε περιόδους πριν από"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1326
+#: /home/tim/code/KwaMoja/SystemParameters.php:1342
 msgid "This allows all periods before the selected date to be locked from postings. All postings for transactions dated prior to this date will be posted in the period following this date."
 msgstr "Αυτό επιτρέπει σε όλες τις περιόδους πριν από την επιλεγμένη ημερομηνία να κλειδωθούν από τις δημοσιεύσεις. Όλες οι καταχωρίσεις για συναλλαγές με ημερομηνία πριν από αυτήν την ημερομηνία θα δημοσιευτούν στην περίοδο που ακολουθεί αυτήν την ημερομηνία."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1330
+#: /home/tim/code/KwaMoja/SystemParameters.php:1346
 msgid "Prohibit GL Journals to Control Accounts"
 msgstr "Απαγορεύστε τα περιοδικά GL να ελέγχουν λογαριασμούς"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1333
-#: /home/tim/code/KwaMoja/SystemParameters.php:1336
+#: /home/tim/code/KwaMoja/SystemParameters.php:1349
+#: /home/tim/code/KwaMoja/SystemParameters.php:1352
 msgid "Prohibited"
 msgstr "Απαγορευμένος"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1334
-#: /home/tim/code/KwaMoja/SystemParameters.php:1337
+#: /home/tim/code/KwaMoja/SystemParameters.php:1350
+#: /home/tim/code/KwaMoja/SystemParameters.php:1353
 msgid "Allowed"
 msgstr "Επιτρέπεται"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1340
+#: /home/tim/code/KwaMoja/SystemParameters.php:1356
 msgid "Setting this to prohibited prevents accidentally entering a journal to the automatically posted and reconciled control accounts for creditors (AP) and debtors (AR)"
 msgstr "Η τοποθέτηση αυτού του στόχου σε απαγορευμένες εμποδίζει την τυχαία είσοδο ενός περιοδικού σε αυτόματα αναρτημένους και συμφωνημένους λογαριασμούς ελέγχου για τους πιστωτές (AP) και τους οφειλέτες (AR)"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1345
+#: /home/tim/code/KwaMoja/SystemParameters.php:1361
 msgid "Financial Year Ends at End of"
 msgstr "Το οικονομικό έτος λήγει στο τέλος της"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1349
+#: /home/tim/code/KwaMoja/SystemParameters.php:1365
 msgid "Defining the month in which the financial year ends enables the system to provide useful defaults for general ledger reports"
 msgstr "Ο καθορισμός του μηνός κατά τον οποίο λήγει το οικονομικό έτος επιτρέπει στο σύστημα να παρέχει χρήσιμες προεπιλογές για τις εκθέσεις του γενικού μητρώου"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1354
+#: /home/tim/code/KwaMoja/SystemParameters.php:1370
 msgid "Could not load tax categories table"
 msgstr "Δεν ήταν δυνατή η φόρτωση του πίνακα φορολογικών κατηγοριών"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1367
+#: /home/tim/code/KwaMoja/SystemParameters.php:1383
 msgid "This is the tax category used for entry of supplier invoices and the category at which freight attracts tax"
 msgstr "Αυτή είναι η φορολογική κατηγορία που χρησιμοποιείται για την εισαγωγή των τιμολογίων προμηθευτών και η κατηγορία στην οποία τα εμπορεύματα προσελκύουν φόρο"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1372
+#: /home/tim/code/KwaMoja/SystemParameters.php:1388
 msgid "Tax Authority Reference Name"
 msgstr "Όνομα αναφοράς φορολογικής αρχής"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1374
+#: /home/tim/code/KwaMoja/SystemParameters.php:1390
 msgid "This parameter is what is displayed on tax invoices and credits for the tax authority of the company eg. in Australian this would by A.B.N.: - in NZ it would be GST No: in the UK it would be VAT Regn. No"
 msgstr "Αυτή η παράμετρος είναι αυτή που εμφανίζεται στα φορολογικά τιμολόγια και πιστώσεις για τη φορολογική αρχή της εταιρείας, π.χ. στην Αυστραλία, αυτό θα ήταν από το A.B.N .: - στη Νέα Ζηλανδία θα ήταν GST No: στο Ηνωμένο Βασίλειο θα ήταν ΦΠΑ Regn. Οχι"
 
@@ -63813,8 +63789,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "Παρουσιάστηκε ένα πρόβλημα κατά τη διαγραφή του ιστορικού διαδρομής ελέγχου που έληξε"
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1036
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1151
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1041
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1156
 msgid "An error occurred in retrieving the period number"
 msgstr "Παρουσιάστηκε σφάλμα κατά την ανάκτηση του αριθμού περιόδου"
 
@@ -65012,6 +64988,10 @@ msgstr "Τα πλήκτρα orderno και stkcode πρέπει να είναι 
 msgid "Function Description go here"
 msgstr "Λειτουργία Περιγραφή εδώ"
 
+#: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1882
+msgid "Account Details"
+msgstr "λεπτομέρειες λογαριασμού"
+
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1883
 msgid "An array of index/value items describing the GL Account and fields to set."
 msgstr "Μια σειρά αντικειμένων ευρετηρίου / αξίας που περιγράφουν τον Λογαριασμό GL και πεδία που πρέπει να ορίσετε."
@@ -65778,42 +65758,46 @@ msgstr "για να προσπαθήσετε ξανά να συνδεθείτε"
 msgid "The configuration in the file config.php for the database user name and password do not provide the information required to connect to the database server"
 msgstr "Η διαμόρφωση στο αρχείο config.php για το όνομα χρήστη και τον κωδικό πρόσβασης της βάσης δεδομένων δεν παρέχει τις πληροφορίες που απαιτούνται για τη σύνδεση με το διακομιστή βάσης δεδομένων"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:87
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:76
+msgid "There was a problem updating the general ledger totals. Please correct"
+msgstr "Παρουσιάστηκε ένα πρόβλημα με την ενημέρωση των γενικών συνολικών καθολικών. Παρακαλώ διορθώστε"
+
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:106
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:72
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:65
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:47
 msgid "Database SQL Failure"
 msgstr "Αποτυχία SQL βάσης δεδομένων"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:93
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Error Rolling Back Transaction"
 msgstr "Διόρθωση σφαλμάτων συναλλαγής"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:93
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Database Rollback Error"
 msgstr "Σφάλμα αντιστροφής της βάσης δεδομένων"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:95
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Rolling Back Transaction OK"
 msgstr "Ενεργοποίηση της ροής συναλλαγής Εντάξει"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:95
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Database Rollback Due to Error Above"
 msgstr "Επαναφορά βάσης δεδομένων λόγω σφάλματος παραπάνω"
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:199
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:218
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:195
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:190
 msgid "The system has just run the regular database administration and optimisation routine."
@@ -67505,15 +67489,19 @@ msgstr "Ζάμπια kwacha"
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr "Η ημερομηνία δεν φαίνεται να είναι έγκυρη. Η ημερομηνία που μετατράπηκε από τη μορφή SQL ήταν:"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1024
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1025
 msgid "An error occurred in adding a new period number"
 msgstr "Παρουσιάστηκε σφάλμα κατά την προσθήκη νέου αριθμού περιόδου"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1084
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1030
+msgid "An error occurred in adding a new period number to the gltotals table"
+msgstr "Παρουσιάστηκε σφάλμα κατά την προσθήκη ενός νέου αριθμού τελείας στον πίνακα gltotals"
+
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1089
 msgid "Could not insert first period"
 msgstr "Δεν ήταν δυνατή η εισαγωγή της πρώτης περιόδου"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1085
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1090
 msgid "Could not insert second period"
 msgstr "Δεν ήταν δυνατή η εισαγωγή δεύτερης περιόδου"
 
@@ -68110,6 +68098,11 @@ msgstr "Αποτυχία ανάκτησης λίστας αλληλογραφί�
 msgid "The SQL to update "
 msgstr "Το SQL για ενημέρωση"
 
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:576
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:648
+msgid "This Year"
+msgstr "Αυτή την χρονιά"
+
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:581
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:660
 msgid "Last Month"
@@ -68119,6 +68112,11 @@ msgstr "Τον προηγούμενο μήνα"
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:664
 msgid "Last Quarter"
 msgstr "Τελευταίο τέταρτο"
+
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
+msgid "Last Financial Year"
+msgstr "Τελευταίο οικονομικό έτος"
 
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:588
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:685
@@ -68134,6 +68132,11 @@ msgstr "Επόμενο Τρίμηνο"
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:698
 msgid "Next Year"
 msgstr "Του χρόνου"
+
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
+msgid "Next Financial Year"
+msgstr "Επόμενο οικονομικό έτος"
 
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:768
 msgid "Select an Account Code"
@@ -73233,6 +73236,39 @@ msgstr "Δάνεια Προσωπικού"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Αποπληρωμές δανείου προσωπικού"
+
+#~ msgid "Print Statement of Financial Position"
+#~ msgstr "Δήλωση Οικονομικής Θέσης"
+
+#~ msgid "Print Trial Balance Error"
+#~ msgstr "Εκτύπωση σφάλματος ισορροπίας δοκιμής"
+
+#~ msgid "Budget updated successfully"
+#~ msgstr "Ο προϋπολογισμός ενημερώθηκε με επιτυχία"
+
+#~ msgid "No General ledger accounts have been set up yet"
+#~ msgstr "Δεν έχουν οριστεί λογαριασμοί γενικού μητρώου"
+
+#~ msgid "budgets cannot be allocated until the GL accounts are set up"
+#~ msgstr "οι προϋπολογισμοί δεν μπορούν να διατεθούν μέχρι να δημιουργηθούν οι λογαριασμοί GL"
+
+#~ msgid "Cannot update GL budgets"
+#~ msgstr "Δεν είναι δυνατή η ενημέρωση των προϋπολογισμών GL"
+
+#~ msgid "The SQL that failed to update the GL budgets was"
+#~ msgstr "Η SQL που απέτυχε να ενημερώσει τους προϋπολογισμούς GL ήταν"
+
+#~ msgid "Budget Entry"
+#~ msgstr "Εγγραφή προϋπολογισμού"
+
+#~ msgid "Year ended"
+#~ msgstr "Έτος έληξε"
+
+#~ msgid "Annual Budget"
+#~ msgstr "Ετήσιος προϋπολογισμός"
+
+#~ msgid "Apportion Budget"
+#~ msgstr "Προϋπολογισμός αναλογίας"
 
 #~ msgid "Item to bill"
 #~ msgstr "Θέμα προς χρέωση"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-11 00:00+0000\n"
-"PO-Revision-Date: 2020-11-11 00:11+0000\n"
+"POT-Creation-Date: 2020-11-17 00:00+0000\n"
+"PO-Revision-Date: 2020-11-17 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -167,21 +167,22 @@ msgstr "كبأ بيترتلا تاعومجم ةمئاق "
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:830
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:448
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:160
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:448
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:698
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:211
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:698
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:495
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:169
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:190
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:186
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -233,8 +234,8 @@ msgstr "ةعابط "
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:124
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:63
 #: /home/tim/code/KwaMoja/Factors.php:289
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:90
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:89
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:203
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:340
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:354
 #: /home/tim/code/KwaMoja/SupplierGroups.php:279
@@ -587,7 +588,7 @@ msgstr "تانايبلا ةدعاق يف حاجنب بيترتلا ةقيرط ظ
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
 #: /home/tim/code/KwaMoja/GLAccounts.php:498
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:228
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:161
@@ -1249,9 +1250,10 @@ msgstr "لسلا يف لسلست "
 #: /home/tim/code/KwaMoja/AccountGroups.php:332
 #: /home/tim/code/KwaMoja/AccountGroups.php:517
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:15
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:166
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:15
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:165
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:166
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:21
 msgid "Profit and Loss"
 msgstr "ةراسخلاو حبرلا "
@@ -1311,9 +1313,9 @@ msgstr "رومألا ءايلوأ ةعومجم مسا "
 #: /home/tim/code/KwaMoja/FormDesigner.php:95
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:164
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:173
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:219
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:167
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:170
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:218
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:69
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:372
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:383
@@ -1498,32 +1500,33 @@ msgstr "رومألا ءايلوأ ةعومجم مسا "
 #: /home/tim/code/KwaMoja/Stocks.php:1432
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:86
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:594
-#: /home/tim/code/KwaMoja/SystemParameters.php:534
-#: /home/tim/code/KwaMoja/SystemParameters.php:536
-#: /home/tim/code/KwaMoja/SystemParameters.php:566
-#: /home/tim/code/KwaMoja/SystemParameters.php:757
-#: /home/tim/code/KwaMoja/SystemParameters.php:777
-#: /home/tim/code/KwaMoja/SystemParameters.php:787
-#: /home/tim/code/KwaMoja/SystemParameters.php:803
-#: /home/tim/code/KwaMoja/SystemParameters.php:861
-#: /home/tim/code/KwaMoja/SystemParameters.php:907
-#: /home/tim/code/KwaMoja/SystemParameters.php:924
-#: /home/tim/code/KwaMoja/SystemParameters.php:934
-#: /home/tim/code/KwaMoja/SystemParameters.php:958
-#: /home/tim/code/KwaMoja/SystemParameters.php:1004
-#: /home/tim/code/KwaMoja/SystemParameters.php:1017
-#: /home/tim/code/KwaMoja/SystemParameters.php:1019
-#: /home/tim/code/KwaMoja/SystemParameters.php:1119
-#: /home/tim/code/KwaMoja/SystemParameters.php:1121
-#: /home/tim/code/KwaMoja/SystemParameters.php:1148
-#: /home/tim/code/KwaMoja/SystemParameters.php:1193
-#: /home/tim/code/KwaMoja/SystemParameters.php:1231
-#: /home/tim/code/KwaMoja/SystemParameters.php:1233
-#: /home/tim/code/KwaMoja/SystemParameters.php:1269
-#: /home/tim/code/KwaMoja/SystemParameters.php:1281
-#: /home/tim/code/KwaMoja/SystemParameters.php:1283
-#: /home/tim/code/KwaMoja/SystemParameters.php:1295
+#: /home/tim/code/KwaMoja/SystemParameters.php:540
+#: /home/tim/code/KwaMoja/SystemParameters.php:542
+#: /home/tim/code/KwaMoja/SystemParameters.php:572
+#: /home/tim/code/KwaMoja/SystemParameters.php:763
+#: /home/tim/code/KwaMoja/SystemParameters.php:783
+#: /home/tim/code/KwaMoja/SystemParameters.php:793
+#: /home/tim/code/KwaMoja/SystemParameters.php:809
+#: /home/tim/code/KwaMoja/SystemParameters.php:867
+#: /home/tim/code/KwaMoja/SystemParameters.php:913
+#: /home/tim/code/KwaMoja/SystemParameters.php:930
+#: /home/tim/code/KwaMoja/SystemParameters.php:940
+#: /home/tim/code/KwaMoja/SystemParameters.php:964
+#: /home/tim/code/KwaMoja/SystemParameters.php:1010
+#: /home/tim/code/KwaMoja/SystemParameters.php:1023
+#: /home/tim/code/KwaMoja/SystemParameters.php:1025
+#: /home/tim/code/KwaMoja/SystemParameters.php:1125
+#: /home/tim/code/KwaMoja/SystemParameters.php:1127
+#: /home/tim/code/KwaMoja/SystemParameters.php:1154
+#: /home/tim/code/KwaMoja/SystemParameters.php:1199
+#: /home/tim/code/KwaMoja/SystemParameters.php:1209
+#: /home/tim/code/KwaMoja/SystemParameters.php:1247
+#: /home/tim/code/KwaMoja/SystemParameters.php:1249
+#: /home/tim/code/KwaMoja/SystemParameters.php:1285
 #: /home/tim/code/KwaMoja/SystemParameters.php:1297
+#: /home/tim/code/KwaMoja/SystemParameters.php:1299
+#: /home/tim/code/KwaMoja/SystemParameters.php:1311
+#: /home/tim/code/KwaMoja/SystemParameters.php:1313
 #: /home/tim/code/KwaMoja/TaxGroups.php:316
 #: /home/tim/code/KwaMoja/TaxGroups.php:319
 #: /home/tim/code/KwaMoja/TaxGroups.php:377
@@ -1622,9 +1625,9 @@ msgstr "العف معن "
 #: /home/tim/code/KwaMoja/FormDesigner.php:93
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:166
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:175
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:169
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:172
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:217
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:168
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:171
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:216
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:88
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:370
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:381
@@ -1807,32 +1810,33 @@ msgstr "العف معن "
 #: /home/tim/code/KwaMoja/Stocks.php:1427
 #: /home/tim/code/KwaMoja/SuppContractChgs.php:88
 #: /home/tim/code/KwaMoja/SupplierPriceList.php:597
-#: /home/tim/code/KwaMoja/SystemParameters.php:533
-#: /home/tim/code/KwaMoja/SystemParameters.php:537
-#: /home/tim/code/KwaMoja/SystemParameters.php:567
-#: /home/tim/code/KwaMoja/SystemParameters.php:758
-#: /home/tim/code/KwaMoja/SystemParameters.php:778
-#: /home/tim/code/KwaMoja/SystemParameters.php:788
-#: /home/tim/code/KwaMoja/SystemParameters.php:804
-#: /home/tim/code/KwaMoja/SystemParameters.php:862
-#: /home/tim/code/KwaMoja/SystemParameters.php:908
-#: /home/tim/code/KwaMoja/SystemParameters.php:925
-#: /home/tim/code/KwaMoja/SystemParameters.php:935
-#: /home/tim/code/KwaMoja/SystemParameters.php:959
-#: /home/tim/code/KwaMoja/SystemParameters.php:1005
-#: /home/tim/code/KwaMoja/SystemParameters.php:1016
-#: /home/tim/code/KwaMoja/SystemParameters.php:1020
-#: /home/tim/code/KwaMoja/SystemParameters.php:1118
-#: /home/tim/code/KwaMoja/SystemParameters.php:1122
-#: /home/tim/code/KwaMoja/SystemParameters.php:1149
-#: /home/tim/code/KwaMoja/SystemParameters.php:1194
-#: /home/tim/code/KwaMoja/SystemParameters.php:1230
-#: /home/tim/code/KwaMoja/SystemParameters.php:1234
-#: /home/tim/code/KwaMoja/SystemParameters.php:1270
-#: /home/tim/code/KwaMoja/SystemParameters.php:1280
-#: /home/tim/code/KwaMoja/SystemParameters.php:1284
-#: /home/tim/code/KwaMoja/SystemParameters.php:1294
-#: /home/tim/code/KwaMoja/SystemParameters.php:1298
+#: /home/tim/code/KwaMoja/SystemParameters.php:539
+#: /home/tim/code/KwaMoja/SystemParameters.php:543
+#: /home/tim/code/KwaMoja/SystemParameters.php:573
+#: /home/tim/code/KwaMoja/SystemParameters.php:764
+#: /home/tim/code/KwaMoja/SystemParameters.php:784
+#: /home/tim/code/KwaMoja/SystemParameters.php:794
+#: /home/tim/code/KwaMoja/SystemParameters.php:810
+#: /home/tim/code/KwaMoja/SystemParameters.php:868
+#: /home/tim/code/KwaMoja/SystemParameters.php:914
+#: /home/tim/code/KwaMoja/SystemParameters.php:931
+#: /home/tim/code/KwaMoja/SystemParameters.php:941
+#: /home/tim/code/KwaMoja/SystemParameters.php:965
+#: /home/tim/code/KwaMoja/SystemParameters.php:1011
+#: /home/tim/code/KwaMoja/SystemParameters.php:1022
+#: /home/tim/code/KwaMoja/SystemParameters.php:1026
+#: /home/tim/code/KwaMoja/SystemParameters.php:1124
+#: /home/tim/code/KwaMoja/SystemParameters.php:1128
+#: /home/tim/code/KwaMoja/SystemParameters.php:1155
+#: /home/tim/code/KwaMoja/SystemParameters.php:1200
+#: /home/tim/code/KwaMoja/SystemParameters.php:1210
+#: /home/tim/code/KwaMoja/SystemParameters.php:1246
+#: /home/tim/code/KwaMoja/SystemParameters.php:1250
+#: /home/tim/code/KwaMoja/SystemParameters.php:1286
+#: /home/tim/code/KwaMoja/SystemParameters.php:1296
+#: /home/tim/code/KwaMoja/SystemParameters.php:1300
+#: /home/tim/code/KwaMoja/SystemParameters.php:1310
+#: /home/tim/code/KwaMoja/SystemParameters.php:1314
 #: /home/tim/code/KwaMoja/TaxGroups.php:317
 #: /home/tim/code/KwaMoja/TaxGroups.php:320
 #: /home/tim/code/KwaMoja/TaxGroups.php:379
@@ -2244,7 +2248,7 @@ msgstr "لاصتالا تاهج لجس فذح مت "
 #: /home/tim/code/KwaMoja/CustomerBranches.php:443
 #: /home/tim/code/KwaMoja/Customers.php:689
 #: /home/tim/code/KwaMoja/Customers.php:697
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:201
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:165
 #: /home/tim/code/KwaMoja/KCMCInpatientAdmission.php:352
@@ -2524,7 +2528,7 @@ msgstr "ليمعلل تاظحالم "
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:252
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:107
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:161
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
 #: /home/tim/code/KwaMoja/GLAccountReport.php:354
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:89
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
@@ -3005,28 +3009,17 @@ msgstr "يلاوخلا مايألا "
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:91
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:882
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:938
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:230
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:242
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:327
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:336
-#: /home/tim/code/KwaMoja/GLBudgets.php:205
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:223
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:226
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:229
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:230
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:242
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:327
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:336
+#: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:250
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:271
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:293
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:391
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:544
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:578
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:668
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:683
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:702
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:259
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:331
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:342
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:400
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3071,7 +3064,6 @@ msgstr "يلاوخلا مايألا "
 #: /home/tim/code/KwaMoja/includes/PDFQuotationPageHeader.php:111
 #: /home/tim/code/KwaMoja/includes/PDFQuotationPortraitPageHeader.php:101
 #: /home/tim/code/KwaMoja/includes/PO_PDFOrderPageHeader.php:77
-#, php-format
 msgid "Total"
 msgstr "عومجم "
 
@@ -3098,11 +3090,10 @@ msgstr "نينسملا ءالمعلا باسح ليلحت "
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:99
@@ -3190,15 +3181,13 @@ msgstr "نأل لكس ةطساوب ليمعلا ليصافت عاجرتسا رذ
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:144
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:191
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:363
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:235
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:144
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:191
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:363
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:223
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:235
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:193
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:207
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:102
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:185
@@ -3343,7 +3332,7 @@ msgstr "ليمعلل ةقلعملا تالماعملا ليصافت "
 #: /home/tim/code/KwaMoja/AgedDebtors.php:379
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:205
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
 #: /home/tim/code/KwaMoja/GLAccountReport.php:107
 #: /home/tim/code/KwaMoja/PO_Items.php:77
 #: /home/tim/code/KwaMoja/PO_Items.php:102
@@ -3386,9 +3375,8 @@ msgstr "نأل اهعاجرتسا رذعت "
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:483
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
@@ -3436,7 +3424,7 @@ msgstr "نأل اهعاجرتسا رذعت "
 #: /home/tim/code/KwaMoja/StockTransfers.php:277
 #: /home/tim/code/KwaMoja/StockTransfers.php:445
 #: /home/tim/code/KwaMoja/StockUsage.php:140
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:62
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:103
 #: /home/tim/code/KwaMoja/Stocks.php:432 /home/tim/code/KwaMoja/Stocks.php:443
 #: /home/tim/code/KwaMoja/Stocks.php:704 /home/tim/code/KwaMoja/Stocks.php:717
 #: /home/tim/code/KwaMoja/SuppPaymentRun.php:105
@@ -3465,7 +3453,7 @@ msgstr "نأل اهعاجرتسا رذعت "
 #: /home/tim/code/KwaMoja/Z_DeleteInvoice.php:99
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:81
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:92
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:80
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:99
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:63
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:58
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:38
@@ -3589,8 +3577,8 @@ msgstr ".ريرقتلا يف ةلماعملا ليصافت نيمضت وأ ،ص�
 #: /home/tim/code/KwaMoja/AgedDebtors.php:548
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:125
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:125
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:142
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3733,7 +3721,8 @@ msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "لماشلا لخدلا نايبل يقفألا ليلحتلا "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:61
@@ -3741,7 +3730,8 @@ msgid "The selected period from is actually after the period to"
 msgstr "ىلإ ةرتفلا دعب عقاولا يف وه نم ةراتخملا ةرتفلا "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 msgid "Please reselect the reporting period"
@@ -3805,7 +3795,8 @@ msgstr "ريرقتلا يف ةريخألا ةرتفلا ددح "
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:128
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:129
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:128
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
@@ -3883,7 +3874,8 @@ msgstr "وأ "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:142
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:131
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:131
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
@@ -3898,7 +3890,8 @@ msgstr "ةرتفلا ددح "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:144
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:133
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:134
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:133
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
@@ -3926,8 +3919,9 @@ msgstr "باسحلا ةعومجم ىوتسم ىلع عيماجملا ىلع صخ
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:55
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:139
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:85
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:162
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:139
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:351
@@ -3940,8 +3934,9 @@ msgstr "صخلم "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:163
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:97
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:86
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:56
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:86
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:140
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:100
 msgid "All Accounts"
@@ -3956,21 +3951,23 @@ msgstr "ةدصرألا رفصلا كلذ يف امب تاباسحلا عيمج �
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:171
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:104
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:94
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:62
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:146
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:94
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:170
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:146
 msgid "Check this box to display all accounts including those accounts with no balance"
 msgstr "ديصر اهل سيل يتلا تاباسحلا كلذ يف امب تاباسحلا عيمج ضرعل عبرملا اذه ددح "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:176
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:109
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:99
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:151
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:99
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:151
 msgid "Show on Screen (HTML)"
 msgstr ")لمته( ةشاشلا ىلع ضرع "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3979,8 +3976,9 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "ةدملا يف ارهش 21 ىلإ لصت ةرتف ديدحت نكميو "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3989,8 +3987,9 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "قباسلا ماعلا نم ةرتفلا سفنل ةنراقم ايئاقلت رهظي ماظنلا نإف "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3999,8 +3998,9 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "ارهش 21 نم رثكأ ةرتف ديدحت مت اذإ كلذب مايقلا نكمي ال هنإف "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4010,7 +4010,8 @@ msgstr "ليدب ينمز قاطن ديدحت ىجري "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -4026,7 +4027,8 @@ msgid "For"
 msgstr "ىلع نع ىلإ "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4061,14 +4063,16 @@ msgstr "يف ةروكذملا غلابملا عيمج "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:81
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
 #: /home/tim/code/KwaMoja/GLAccounts.php:296
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:455
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:455
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:704
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:704
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:499
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:173
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:190
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4088,13 +4092,15 @@ msgstr "باسحلا "
 #: /home/tim/code/KwaMoja/GLAccounts.php:349
 #: /home/tim/code/KwaMoja/GLAccounts.php:366
 #: /home/tim/code/KwaMoja/GLAccounts.php:479
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:456
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:216
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:456
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:705
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:705
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:500
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:174
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:191
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4138,15 +4144,13 @@ msgstr ".باسحلا كلذ غلبم يف ضافخنا ىلإ يبلسلا مق
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:190
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:441
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:190
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:441
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:222
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:689
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:222
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:192
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:483
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 msgid "No general ledger accounts were returned by the SQL because"
@@ -4156,14 +4160,16 @@ msgstr "هنأل لكس ةطساوب ماعلا ذاتسألا رتفد تابا
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:273
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:306
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:487
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:520
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:754
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:799
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1107
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1150
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:336
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:373
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:273
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:306
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:487
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:520
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:754
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:799
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1107
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1150
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4186,10 +4192,11 @@ msgstr "عومجم "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:579
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:901
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1249
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:455
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:369
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:579
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:901
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1249
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -4222,11 +4229,9 @@ msgstr "حبرلا يفاص "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1364
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1364
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:428
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:729
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
@@ -4249,7 +4254,7 @@ msgstr "يلاملا عضولا نايبل يقفأ ليلحت تنيرب "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:69
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:54
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:30
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:54
 msgid "Select the balance date"
 msgstr "ديصرلا خيرات ددح "
 
@@ -4268,14 +4273,15 @@ msgid "Absolute change signs: a positive number indicates a source of funds; a n
 msgstr ".لاومألا قيبطت ىلإ يبلس مقر ريشي .لاومألل ردصم ىلإ يباجيإلا مقرلا ريشي :ةقلطملا رييغتلا تامالع "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:142
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:406
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:142
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:406
 msgid "The accumulated profits brought forward could not be calculated by the SQL because"
 msgstr "هنأل لكس لبق نم اهراضحإ مت يتلا ةمكارتملا حابرألا باسح نكمي ال "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:355
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:703
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:473
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:355
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:703
 msgid "Check Total"
 msgstr "عومجملا ققحت "
 
@@ -4663,11 +4669,11 @@ msgstr "مدختسملا فرعم "
 #: /home/tim/code/KwaMoja/SupplierTenders.php:386
 #: /home/tim/code/KwaMoja/SupplierTenders.php:388
 #: /home/tim/code/KwaMoja/SupplierTransInquiry.php:25
-#: /home/tim/code/KwaMoja/SystemParameters.php:492
 #: /home/tim/code/KwaMoja/SystemParameters.php:498
 #: /home/tim/code/KwaMoja/SystemParameters.php:504
 #: /home/tim/code/KwaMoja/SystemParameters.php:510
 #: /home/tim/code/KwaMoja/SystemParameters.php:516
+#: /home/tim/code/KwaMoja/SystemParameters.php:522
 #: /home/tim/code/KwaMoja/TopItems.php:49
 #: /home/tim/code/KwaMoja/TopItems.php:70
 #: /home/tim/code/KwaMoja/TopItems.php:72
@@ -4781,7 +4787,7 @@ msgstr "ناونع "
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:28
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:105
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
 #: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
@@ -7400,7 +7406,8 @@ msgid "Entry is expected in the format"
 msgstr "لكشلا يف لوخدلا عقوتملا نمو "
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
 msgid "after"
 msgstr "دعب "
 
@@ -7496,7 +7503,7 @@ msgstr "ةيمك "
 #: /home/tim/code/KwaMoja/PO_SelectPurchOrder.php:217
 #: /home/tim/code/KwaMoja/Shipt_Select.php:223
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:254
-#: /home/tim/code/KwaMoja/SystemParameters.php:831
+#: /home/tim/code/KwaMoja/SystemParameters.php:837
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:167
 #: /home/tim/code/KwaMoja/includes/PDFStatementPageHeader.php:173
 msgid "Outstanding"
@@ -7700,7 +7707,7 @@ msgstr "مقر "
 
 #: /home/tim/code/KwaMoja/BankReconciliation.php:225
 #: /home/tim/code/KwaMoja/BankReconciliation.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:183
 msgid "Cheque"
 msgstr "نم ققحتلا "
@@ -8610,7 +8617,7 @@ msgstr "تالمعلا راعسأ ثيدحت رذعت "
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:137
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
-#: /home/tim/code/KwaMoja/SystemParameters.php:415
+#: /home/tim/code/KwaMoja/SystemParameters.php:421
 #: /home/tim/code/KwaMoja/prlALD.php:109 /home/tim/code/KwaMoja/prlBP.php:80
 #: /home/tim/code/KwaMoja/prlBankDetails.php:101
 #: /home/tim/code/KwaMoja/prlCostCenter.php:75
@@ -8638,7 +8645,7 @@ msgstr "ققحتلا ةيلمع تقفخأ "
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:64
 #: /home/tim/code/KwaMoja/ShopParameters.php:174
 #: /home/tim/code/KwaMoja/Suppliers.php:326
-#: /home/tim/code/KwaMoja/SystemParameters.php:415
+#: /home/tim/code/KwaMoja/SystemParameters.php:421
 #: /home/tim/code/KwaMoja/prlALD.php:109 /home/tim/code/KwaMoja/prlBP.php:80
 #: /home/tim/code/KwaMoja/prlBankDetails.php:101
 #: /home/tim/code/KwaMoja/prlCostCenter.php:75
@@ -8942,7 +8949,6 @@ msgstr "عند إجراء معاملة مخزون ، يجب على KwaMoja إن�
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:108
 #: /home/tim/code/KwaMoja/FixedAssetItems.php:657
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:138
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:247
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:28
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:229
 #: /home/tim/code/KwaMoja/GLTags.php:94
@@ -8979,7 +8985,7 @@ msgstr "عند إجراء معاملة مخزون ، يجب على KwaMoja إن�
 #: /home/tim/code/KwaMoja/StockCostUpdate.php:236
 #: /home/tim/code/KwaMoja/StockReorderLevel.php:97
 #: /home/tim/code/KwaMoja/Stocks.php:1630
-#: /home/tim/code/KwaMoja/SystemParameters.php:1379
+#: /home/tim/code/KwaMoja/SystemParameters.php:1395
 #: /home/tim/code/KwaMoja/TaxAuthorityRates.php:83
 #: /home/tim/code/KwaMoja/UserGLAccounts.php:144
 #: /home/tim/code/KwaMoja/UserLocations.php:182
@@ -12768,8 +12774,8 @@ msgstr "ليمعلا زمر دض "
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:143
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:210
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:229
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:277
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
 #: /home/tim/code/KwaMoja/GLAccountReport.php:128
 msgid "could not be retrieved"
 msgstr "اهعاجرتسا رذعت "
@@ -12941,7 +12947,7 @@ msgstr "ةكبش "
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/GLAccountReport.php:357
 #: /home/tim/code/KwaMoja/GLJournal.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:610
@@ -13692,7 +13698,7 @@ msgstr "ناك ةروتافلا ىلإ لاصيإلا صيصخت جاردإ يف
 #: /home/tim/code/KwaMoja/CounterSales.php:2155
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1459
 #: /home/tim/code/KwaMoja/SelectOrderItems.php:1462
-#: /home/tim/code/KwaMoja/SystemParameters.php:748
+#: /home/tim/code/KwaMoja/SystemParameters.php:754
 msgid "Frequently Ordered Items"
 msgstr "رركتم لكشب اهبلط متي يتلا رصانعلا "
 
@@ -13960,7 +13966,7 @@ msgid "Invoiced"
 msgstr "ريتاوف "
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:285
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
 #: /home/tim/code/KwaMoja/GLAccountReport.php:356
 #: /home/tim/code/KwaMoja/GLJournal.php:207
 #: /home/tim/code/KwaMoja/GLJournal.php:579
@@ -14481,7 +14487,7 @@ msgstr "تانايبلل ينورتكلالا لدابتلا ريتاوف لاس
 #: /home/tim/code/KwaMoja/CustomerBranches.php:937
 #: /home/tim/code/KwaMoja/CustomerBranches.php:939
 #: /home/tim/code/KwaMoja/CustomerBranches.php:950
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 msgid "Disabled"
 msgstr "قاعم "
 
@@ -15444,7 +15450,7 @@ msgstr "صيصخت "
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:259
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:169
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:172
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:215
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:393
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:205
 #: /home/tim/code/KwaMoja/prlALD.php:146
@@ -16906,7 +16912,7 @@ msgid "Received"
 msgstr "مالتسالا مت "
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
 #: /home/tim/code/KwaMoja/GLAccountReport.php:358
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:204
@@ -16927,7 +16933,7 @@ msgstr "ةقاطب "
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:334
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:335
 #: /home/tim/code/KwaMoja/GLJournal.php:221
 #: /home/tim/code/KwaMoja/GLJournal.php:542
 #: /home/tim/code/KwaMoja/GLJournal.php:629
@@ -16949,12 +16955,12 @@ msgstr "ةقاطب "
 #: /home/tim/code/KwaMoja/Suppliers.php:624
 #: /home/tim/code/KwaMoja/Suppliers.php:641
 #: /home/tim/code/KwaMoja/Suppliers.php:665
-#: /home/tim/code/KwaMoja/SystemParameters.php:488
 #: /home/tim/code/KwaMoja/SystemParameters.php:494
 #: /home/tim/code/KwaMoja/SystemParameters.php:500
 #: /home/tim/code/KwaMoja/SystemParameters.php:506
 #: /home/tim/code/KwaMoja/SystemParameters.php:512
-#: /home/tim/code/KwaMoja/SystemParameters.php:1096
+#: /home/tim/code/KwaMoja/SystemParameters.php:518
+#: /home/tim/code/KwaMoja/SystemParameters.php:1102
 #: /home/tim/code/KwaMoja/WWW_Users.php:957
 #: /home/tim/code/KwaMoja/includes/DefineSuppTransClass.php:304
 #: /home/tim/code/KwaMoja/sql/updates/217.php:19
@@ -17880,7 +17886,7 @@ msgstr "ل ةيمويلا تاعيبملا "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
-#: /home/tim/code/KwaMoja/SystemParameters.php:710
+#: /home/tim/code/KwaMoja/SystemParameters.php:716
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
 msgid "Sunday"
 msgstr "دحألا "
@@ -17889,7 +17895,7 @@ msgstr "دحألا "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
-#: /home/tim/code/KwaMoja/SystemParameters.php:711
+#: /home/tim/code/KwaMoja/SystemParameters.php:717
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
 msgid "Monday"
 msgstr "نينثإلا "
@@ -17898,7 +17904,7 @@ msgstr "نينثإلا "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
-#: /home/tim/code/KwaMoja/SystemParameters.php:712
+#: /home/tim/code/KwaMoja/SystemParameters.php:718
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
 msgid "Tuesday"
 msgstr "ءاثالثلا "
@@ -17907,7 +17913,7 @@ msgstr "ءاثالثلا "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
-#: /home/tim/code/KwaMoja/SystemParameters.php:713
+#: /home/tim/code/KwaMoja/SystemParameters.php:719
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
 msgid "Wednesday"
 msgstr "ءاعبرألا "
@@ -17916,7 +17922,7 @@ msgstr "ءاعبرألا "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
-#: /home/tim/code/KwaMoja/SystemParameters.php:714
+#: /home/tim/code/KwaMoja/SystemParameters.php:720
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
 msgid "Thursday"
 msgstr "سيمخلا "
@@ -17925,7 +17931,7 @@ msgstr "سيمخلا "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
-#: /home/tim/code/KwaMoja/SystemParameters.php:715
+#: /home/tim/code/KwaMoja/SystemParameters.php:721
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
 msgid "Friday"
 msgstr "ةعمجلا موي "
@@ -17934,7 +17940,7 @@ msgstr "ةعمجلا موي "
 #: /home/tim/code/KwaMoja/KCMCEnterLaboratoryTestResults.php:27
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
-#: /home/tim/code/KwaMoja/SystemParameters.php:716
+#: /home/tim/code/KwaMoja/SystemParameters.php:722
 #: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
 msgid "Saturday"
 msgstr "تبسلا موي "
@@ -21543,8 +21549,9 @@ msgstr "ةددعتم تارتفو تاباسح ديدحتل حيتافملا ة�
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:29
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:65
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:52
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:65
 msgid "Criteria for report"
 msgstr "ريرقتلا ريياعم "
 
@@ -21559,13 +21566,13 @@ msgid "Select the accounts for this report. Use the keyboard Shift key to select
 msgstr "حدد الحسابات لهذا التقرير. استخدم مفتاح Shift الخاص بلوحة المفاتيح لتحديد حسابات متعددة."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:54
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:112
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:113
 #: /home/tim/code/KwaMoja/GLAccountReport.php:276
 msgid "For Period range"
 msgstr "ىدملا ةرتفل "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:74
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:94
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:95
 #: /home/tim/code/KwaMoja/GLAccountReport.php:297
 #: /home/tim/code/KwaMoja/Payments.php:1211
 #: /home/tim/code/KwaMoja/StockAdjustments.php:636
@@ -21575,7 +21582,7 @@ msgid "Select Tag"
 msgstr "ةمالع ددح "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:83
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:96
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
 #: /home/tim/code/KwaMoja/GLAccountReport.php:299
 msgid "All tags"
 msgstr "تامالعلا عيمج "
@@ -21590,7 +21597,7 @@ msgid "Make CSV File"
 msgstr "فسك فلم لعج "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:107
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:138
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:139
 #: /home/tim/code/KwaMoja/GLAccountReport.php:18
 msgid "A period or range of periods must be selected from the list box"
 msgstr "ةمئاقلا عبرم نم تارتفلا نم قاطن وأ ةرتف ديدحت بجي "
@@ -21607,7 +21614,7 @@ msgid "Could not open or create the file under"
 msgstr "هئاشنإ وأ فلملا حتف رذعت "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
 #: /home/tim/code/KwaMoja/GLAccountReport.php:107
 msgid "The transactions for account"
 msgstr "باسحلل تالماعملا "
@@ -21618,16 +21625,16 @@ msgstr "ةرتفل "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:210
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:229
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:277
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
 #: /home/tim/code/KwaMoja/GLAccountReport.php:128
 msgid "The chart details for account"
 msgstr "باسحلل ططخملا ليصافت "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:216
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:218
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:249
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:254
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:250
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:255
 #: /home/tim/code/KwaMoja/GLAccountReport.php:134
 msgid "Brought Forward Balance"
 msgstr "ديصرلا مامألا ىلإ تبلج "
@@ -21648,7 +21655,7 @@ msgstr "ةرتفلا ةكرح يلامجإ "
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:279
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:281
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:373
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:374
 #: /home/tim/code/KwaMoja/GLAccountReport.php:202
 msgid "Balance C/Fwd"
 msgstr "دوف / C نزاوتلا "
@@ -21673,7 +21680,6 @@ msgstr "ريراقتلا دادعإ ةرتف ديدحت ةداعإ ىجري !ى�
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:49
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:56
 #: /home/tim/code/KwaMoja/GLBudgets.php:124
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:49
 #: /home/tim/code/KwaMoja/GLJournal.php:510
 #: /home/tim/code/KwaMoja/Payments.php:1170
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:308
@@ -21752,7 +21758,8 @@ msgid "If the selected account is normally a credit balance then select this to 
 msgstr "إذا كان الحساب المحدد عبارة عن رصيد دائن ، فحدد هذا لإظهار الرسم البياني مع الأرصدة كقيم إيجابية"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:78
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:67
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:68
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:67
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
@@ -21766,7 +21773,8 @@ msgid "Select Period From"
 msgstr "نم ةرتفلا ددح "
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:106
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:93
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:92
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
@@ -21777,7 +21785,8 @@ msgid "Select the starting period for this report"
 msgstr "حدد فترة البداية لهذا التقرير"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:116
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:107
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:108
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:107
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
@@ -21790,7 +21799,8 @@ msgid "Select Period To"
 msgstr "ىلإ ةرتفلا ددح "
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:130
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:121
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:122
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:121
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
@@ -21844,7 +21854,6 @@ msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "لا توجد بيانات حساب GL للمعايير التي تم إدخالها إلى الرسم البياني"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:191
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21854,7 +21863,6 @@ msgid "Actual"
 msgstr "يلعف "
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:238
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:192
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21867,51 +21875,51 @@ msgstr "ةينازيم "
 msgid "Select Different Criteria"
 msgstr "حدد معايير مختلفة"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:48
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
 msgid "The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details"
 msgstr "ليصافتلا ىلع لوصحلل ليلدلا عجار .اهنع راسفتسالا نكمي ال يلاتلابو ،ماظنلا لبق نم لصفنم لكشب ةاقبتسملا حابرألا باسح ةرادإ متت "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:50
 msgid "Select another account"
 msgstr "رخآ اباسح ددح "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:54
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:55
 msgid "Use the keyboard Shift key to select multiple periods"
 msgstr "ةددعتم تارتف ديدحتل حيتافملا ةحولل تفيش حاتفم مدختسا "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:79
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:80
 msgid "Inquiry Selection Criteria"
 msgstr "راسفتسالا رايتخا ريياعم "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:83
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:84
 msgid "Select a General Ledger account to report on."
 msgstr "حدد حساب دفتر الأستاذ العام للإبلاغ عنه."
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:105
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:106
 msgid "Select a tag to filter the report on."
 msgstr "اختر علامة لتصفية التقرير."
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:123
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:124
 msgid "Select one or more financial periods to report on."
 msgstr "حدد فترة مالية واحدة أو أكثر للإبلاغ عنها."
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:129
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:130
 msgid "Show Account Transactions"
 msgstr "باسحلا تالماعم ضرع "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:197
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
 msgid "General Ledger account inquiry details"
 msgstr "ماعلا ذاتسألا رتفد نع مالعتسالا ليصافت "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:201
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
 msgid "Transactions for account"
 msgstr "باسحلل تالماعملا "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
 msgid "Trans no"
 msgstr "ون زنارت "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
 #: /home/tim/code/KwaMoja/GLAccountReport.php:355
 #: /home/tim/code/KwaMoja/GLJournal.php:206
 #: /home/tim/code/KwaMoja/GLJournal.php:564
@@ -21920,13 +21928,12 @@ msgstr "ون زنارت "
 msgid "Debit"
 msgstr "نيدم "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:286
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:354
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:287
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:355
 msgid "Total for period ending"
 msgstr "ةيهتنملا ةرتفلل يلامجإلا "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:190
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:40
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
@@ -21937,27 +21944,27 @@ msgstr "ةيهتنملا ةرتفلل يلامجإلا "
 msgid "Period"
 msgstr "ةرتف "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Account movement per transaction"
 msgstr "ةلماعم لكل باسحلا ةكرح "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Movement per ChartDetails record"
 msgstr "لجس زلياتدتراشت لكل ةكرح "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:306
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
 msgid "Period difference"
 msgstr "ينمزلا قرافلا "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:370
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:371
 msgid "Total Movement for selected periods"
 msgstr "ةراتخم تارتفل ةكرحلا يلامجإ "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:396
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
 msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
 msgstr "زلياتيدتراشت لودج يف ةلجسملا تاكرحلاو تالماعملا عومجم نيب تافالتخا كانه "
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:396
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
 msgid "A log of the account differences for the periods report shows below"
 msgstr "تارتفلا ريرقت يف باسحلا يف تافالتخالا لجس هاندأ رهظي "
 
@@ -22414,12 +22421,12 @@ msgstr "حدد نشاط التدفق النقدي (إن وجد) الذي ينط�
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:427
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:112
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:113
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:188
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:10
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:22
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:22
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:112
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:113
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
 #: /home/tim/code/KwaMoja/sql/updates/42.php:206
 msgid "Balance Sheet"
@@ -22458,88 +22465,79 @@ msgid "Show All Accounts"
 msgstr "تاباسحلا عيمج ضرع "
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:23
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:23
 msgid "Statement of Financial Position"
 msgstr "بيان المركز المالي"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time."
 msgstr ".ةدحاو ةينمز ةطقن ىلع قبطني يذلا ديحولا نايبلا يه ةيمومعلا ةينازيملا نإف ،ةعبرألا ةيساسألا ةيلاملا تانايبلا نيب نمو .ةيلاملا ةنسلا ةياهن لثم ،ددحم خيرات يف ةيكلملا قوقحو تابولطملاو تادوجوملا جاردإ متي .ةدصرألل صخلم يه )يلاملا زكرملا نايب وأ( ةيمومعلا ةينازيملا "
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities."
 msgstr ".تابولطملا اهنم احورطم تادوجوملل ايواسم ةميقلا يفاص نوكي نأ بجي ،ةيبساحملا ةلداعملل اقفوو اهلامسأر وأ ةكرشلا لام سأر يفاص وأ تادوجوملا يفاص وأ ةيكلملا قوقح مساب فرعي تابولطملاو تادوجوملا نيب قرفلا نإ .تابولطملا اهعبتتو لاوأ تادوجوملل ةيسيئرلا تائفلا درس متي .ةيكلملا قوقحو تابولطملاو تادوجوملا :ءازجأ ةثالث ةيمومعلا ةينازيملا نمضتت "
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:24
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid " is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date."
 msgstr ".دروملا ةروتاف خيرات ساسأ ىلع ةقحتسم تاقفنلا نوكت امدنعو ،ليمعلل اهل ريتاوف رادصإ متي امدنع دونبلا قاقحتسالا ةمظنأ نمضتت .)دقنلا ىلع مئاق ماظن سيلو( قاقحتسالا ىلع مئاق ماظن وه "
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:79
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:79
 msgid "Select the period up to which you wish the balance sheet to be shown at."
 msgstr "حدد الفترة التي تريد أن تظهر فيها الميزانية العمومية في."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:83
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:53
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:137
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:83
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:160
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:137
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:136
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:98
 msgid "Detail Or Summary"
 msgstr "صخلم وأ ليصافتلا "
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:88
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:88
 msgid "Show a summary report, or show all accounts."
 msgstr "عرض تقرير ملخص ، أو إظهار جميع الحسابات."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:92
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:61
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:145
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:169
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:145
 msgid "Show all Accounts including zero balances"
 msgstr "ةدصرألا رفصلا كلذ يف امب تاباسحلا عيمج ضرع "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:102
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:154
-msgid "Produce PDF Report"
-msgstr "فدب ريرقت جاتنإ "
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:99
+msgid "Show Balance Sheet"
+msgstr "ةيمومعلا ةينازيملا ضرع "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:360
-msgid "Print Balance Sheet Error"
-msgstr "رورإ ةيمومعلا ةينازيملا ةعابط "
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:362
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:206
-#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
-#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
-#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
-#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
-#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
-msgid "There were no entries to print out for the selections specified"
-msgstr "ةددحملا تارايتخالل ةعابطلل تالاخدإ كانه نكت مل "
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:378
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:443
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:78
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:155
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:203
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:378
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:443
 msgid "HTML View"
 msgstr "لمته ضرع "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:447
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:159
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:447
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "يف امك ةيمومعلا ةينازيملا "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:458
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:465
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:167
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:218
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:225
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:458
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:465
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:709
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:718
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:221
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:229
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:709
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:718
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22548,126 +22546,116 @@ msgstr "يف امك ةيمومعلا ةينازيملا "
 msgid "Last Year"
 msgstr "يضاملا ماعلا "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:718
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:509
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:488
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:718
 msgid "Select A Different Balance Date"
 msgstr "فلتخم ديصر خيرات ددح "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:21
-msgid "Print Statement of Financial Position"
-msgstr "ةعابطلل يلاملا زكرملا نايب "
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:102
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:154
+msgid "Produce PDF Report"
+msgstr "فدب ريرقت جاتنإ "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:67
-msgid "Show Balance Sheet"
-msgstr "ةيمومعلا ةينازيملا ضرع "
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:360
+msgid "Print Balance Sheet Error"
+msgstr "رورإ ةيمومعلا ةينازيملا ةعابط "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:165
-#: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1882
-msgid "Account Details"
-msgstr "باسحلا ليصافت "
+#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:362
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:234
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
+#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
+#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
+#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
+#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
+msgid "There were no entries to print out for the selections specified"
+msgstr "ةددحملا تارايتخالل ةعابطلل تالاخدإ كانه نكت مل "
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:166
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:576
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:648
-msgid "This Year"
-msgstr "ماعلا اذه "
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet_new.php:499
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:410
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:721
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:345
-#, php-format
-msgid "Check Totals"
-msgstr "عيماجملا نم ققحت "
-
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:5
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:5
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:4
 msgid "Create GL Budgets"
 msgstr "لغ تاينازيملا ءاشنإ "
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:15
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:14
 #: /home/tim/code/KwaMoja/GLBudgets.php:46
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:29
 msgid "Budgets"
 msgstr "تاينازيملا "
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:22
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:21
 msgid "The end period cannot be before the start period"
 msgstr "لا يمكن أن تكون فترة النهاية قبل فترة البدء"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:61
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:60
 msgid "The budget header information has been successfully saved"
 msgstr "تم حفظ معلومات رأس الميزانية بنجاح"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:63
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:62
 msgid "There was a problem saving the budget header information"
 msgstr "حدثت مشكلة في حفظ معلومات رأس الميزانية"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:88
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:87
 msgid "Edit Budget Details"
 msgstr "تحرير تفاصيل الميزانية"
 
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:97
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:98
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:99
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:180
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:577
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:652
 msgid "This Financial Year"
 msgstr "ةيلاملا ةنسلا هذه "
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:103
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:102
 msgid "Create New Budget"
 msgstr "إنشاء ميزانية جديدة"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:110
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:109
 msgid "Budget Owner"
 msgstr "مالك الميزانية"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:123
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:122
 msgid "Name of budget"
 msgstr "اسم الميزانية"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:128
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:127
 msgid "Budget Description"
 msgstr "وصف الميزانية"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:136
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:135
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:33
 msgid "Start Period"
 msgstr "ءدبلا ةرتف "
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:152
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:151
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:36
 msgid "End Period"
 msgstr "ةرتفلا ةياهن "
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:165
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:164
 msgid "Default Budget for reports"
 msgstr "الميزانية الافتراضية للتقارير"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:181
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:180
 #: /home/tim/code/KwaMoja/KCMCEditPatientDetails.php:280
 msgid "Update Details"
 msgstr "تحديث التفاصيل"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:185
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:184
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:380
 msgid "Save Details"
 msgstr "حفظ التفاصيل"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:205
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:204
 msgid "Owner"
 msgstr "صاحب"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:206
 msgid "Start From Period"
 msgstr "تبدأ من الفترة"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:207
 msgid "End In Period"
 msgstr "تنتهي في الفترة"
 
-#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:209
+#: /home/tim/code/KwaMoja/GLBudgetHeaders.php:208
 msgid "Is Primary?"
 msgstr "أساسي؟"
 
@@ -22700,24 +22688,20 @@ msgid "Enter Budget Amounts"
 msgstr "أدخل مبالغ الميزانية"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:82
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:36
 msgid "General ledger account selection"
 msgstr "اختيار حساب دفتر الأستاذ العام"
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:134
 #: /home/tim/code/KwaMoja/GLBudgets.php:136
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:85
 msgid "Prev Account"
 msgstr "قباسلا باسحلا "
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:138
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:86
 msgid "Select Account"
 msgstr "باسح ددح "
 
 #: /home/tim/code/KwaMoja/GLBudgets.php:140
 #: /home/tim/code/KwaMoja/GLBudgets.php:142
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:87
 msgid "Next Account"
 msgstr "يلاتلا باسحلا "
 
@@ -22725,61 +22709,9 @@ msgstr "يلاتلا باسحلا "
 msgid "Budget values for account"
 msgstr "قيم الميزانية للحساب"
 
-#: /home/tim/code/KwaMoja/GLBudgets.php:212
+#: /home/tim/code/KwaMoja/GLBudgets.php:215
 msgid "Update Budget"
 msgstr "تحديث الميزانية"
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:24
-msgid "Budget updated successfully"
-msgstr "حاجنب ةينازيملا ثيدحت مت "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
-msgid "No General ledger accounts have been set up yet"
-msgstr "نآلا ىتح ماعلا ذاتسألا رتفد تاباسح ءاشنإ متي مل "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:54
-msgid "budgets cannot be allocated until the GL accounts are set up"
-msgstr "لغ تاباسح دادعإ متي ىتح تاينازيملا صيصخت نكمي ال "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:100
-msgid "Cannot update GL budgets"
-msgstr "لغ تاينازيم ثيدحت نكمي ال "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:101
-msgid "The SQL that failed to update the GL budgets was"
-msgstr "لغ تاينازيم ثيدحت يف تلشف يتلا لكس تناك "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:177
-msgid "Budget Entry"
-msgstr "ةينازيملا لوخد "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:179
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
-msgid "Last Financial Year"
-msgstr "ةيلام ةنس رخآ "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:181
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
-#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
-msgid "Next Financial Year"
-msgstr "ةيلاتلا ةيلاملا ةنسلا "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:184
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:185
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:186
-msgid "Year ended"
-msgstr "ةنسلا تهتنا "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:234
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:236
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:238
-msgid "Annual Budget"
-msgstr "ةيونسلا ةينازيملا "
-
-#: /home/tim/code/KwaMoja/GLBudgets_old.php:239
-msgid "Apportion Budget"
-msgstr "ةينازيملا عيزوت "
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:28
 msgid "Operating activities"
@@ -22815,12 +22747,14 @@ msgid "Statement of Cash Flows"
 msgstr "ةيدقنلا تاقفدتلا نايب "
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:715
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:227
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:706
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:715
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:503
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:177
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:194
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22830,10 +22764,12 @@ msgid "Period Actual"
 msgstr "ةيلعفلا ةرتفلا "
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:707
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:716
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:504
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:228
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:707
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:716
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:199
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:195
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -22977,13 +22913,13 @@ msgstr "تاباسحلا عيمج يف ةيدقنلا تاقفدتلا طاشن 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:516
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:836
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:839
-#: /home/tim/code/KwaMoja/SystemParameters.php:461
-#: /home/tim/code/KwaMoja/SystemParameters.php:1033
-#: /home/tim/code/KwaMoja/SystemParameters.php:1035
-#: /home/tim/code/KwaMoja/SystemParameters.php:1048
-#: /home/tim/code/KwaMoja/SystemParameters.php:1050
-#: /home/tim/code/KwaMoja/SystemParameters.php:1160
-#: /home/tim/code/KwaMoja/SystemParameters.php:1162
+#: /home/tim/code/KwaMoja/SystemParameters.php:467
+#: /home/tim/code/KwaMoja/SystemParameters.php:1039
+#: /home/tim/code/KwaMoja/SystemParameters.php:1041
+#: /home/tim/code/KwaMoja/SystemParameters.php:1054
+#: /home/tim/code/KwaMoja/SystemParameters.php:1056
+#: /home/tim/code/KwaMoja/SystemParameters.php:1166
+#: /home/tim/code/KwaMoja/SystemParameters.php:1168
 msgid "Automatic"
 msgstr "يئاقلت "
 
@@ -23374,36 +23310,61 @@ msgid "Are you sure you wish to delete this template?"
 msgstr "هل أنت متأكد أنك تريد حذف هذا القالب؟"
 
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:16
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:16
 msgid "Statement of Comprehensive Income"
 msgstr "بيان الدخل الشامل"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line)."
 msgstr ".( ةيئاهنلا ةجيتنلا مساب اضيأ فرعت يتلاو ،تافورصملاو تاداريلإا عيمج باستحا دعب ةجيتنلا )لخدلا يفاص يف )يولعلا رطسلا مساب اضيأ فورعملا ،تاقفنلا جارخإ متي نأ لبق تامدخلاو تاجتنملا عيب نم ةدراولا لاومألا( تاداريإلا ليوحت ةيفيك ىلإ ريشي يذلا نايبلا وه اذهو ،تايلمعلا نايب وأ ،لخدلا نايب اضيأ ىمسيو ،ةراسخلاو حبرلا نايب "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "The purpose of the income statement is to show whether the company made or lost money during the period being reported."
 msgstr ".اهنع غالبإلا مت يتلا ةرتفلا لالخ لاملا تدقف وأ تدقف دق ةكرشلا تناك اذإ ام راهظإ وه لخدلا نايب نم ضرغلا "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr ".بسانملا تقولا يف ةدحاو ةظحل لثمت يتلاو ،ةيمومعلا ةينازيملا عم ضقانتي اذه .نمزلا نم ةرتف ةراسخلاو حبرلا نايب لثمي "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:142
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:143
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
+msgid "Budget To Show Comparisons With"
+msgstr "الميزانية لإظهار المقارنات مع"
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:155
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
+msgid "Select the budget to make comparisons with."
+msgstr "حدد الميزانية لإجراء مقارنات معها."
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:142
 msgid "Show report for all accounts, or just show summary report."
 msgstr "عرض تقرير لجميع الحسابات ، أو مجرد عرض تقرير موجز."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:147
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:171
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:147
 msgid "Show all accounts, or just accounts with balances."
 msgstr "عرض جميع الحسابات ، أو الحسابات فقط مع الأرصدة."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:231
-msgid "Print Profit and Loss Error"
-msgstr "ةراسخلاو حبرلا عبطا "
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
+msgid "Show Profit and Loss Statement"
+msgstr "إظهار بيان الربح والخسارة"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:393
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:932
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1278
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:210
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:694
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:697
+msgid "General Ledger Profit Loss Inquiry"
+msgstr "حابرألا ةراسخ قيقحت ماعلا ذاتسألا رتفد "
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:484
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:393
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:932
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1278
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23414,40 +23375,45 @@ msgstr "ةراسخلاو حبرلا عبطا "
 msgid "Gross Profit Percent"
 msgstr "حبرلا يلامجإ ةبسن "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "حبر "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "ةراسخ "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:1346
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:526
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:982
+msgid "P/L Percent after"
+msgstr "دعب ةيوئملا ةبسنلا L / P "
+
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:651
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:616
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1346
 msgid "Net Profit Percent"
 msgstr "حبرلا يفاص ةبسن "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:694
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:697
-msgid "General Ledger Profit Loss Inquiry"
-msgstr "حابرألا ةراسخ قيقحت ماعلا ذاتسألا رتفد "
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:231
+msgid "Print Profit and Loss Error"
+msgstr "ةراسخلاو حبرلا عبطا "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:717
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:708
+#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:717
 msgid "Period Variance"
 msgstr "ةرتفلا قورف "
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:982
-msgid "P/L Percent after"
-msgstr "دعب ةيوئملا ةبسنلا L / P "
 
 #: /home/tim/code/KwaMoja/GLStatements.php:26
 msgid "Financial Statements"
@@ -23727,13 +23693,10 @@ msgstr "رشن "
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:137
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:138
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "ةعجارملا نازيم "
@@ -23743,60 +23706,61 @@ msgstr "ةعجارملا نازيم "
 msgid "Input criteria for inquiry"
 msgstr "قيقحتلل لاخدإلا ريياعم "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:124
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:124
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:146
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:141
 msgid "Show Trial Balance"
 msgstr "ةبرجتلا ديصر راهظإ "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:126
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:148
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:143
 msgid "Export to Spreadsheet"
 msgstr "تانايبلا لودج ىلإ ريدصت "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:201
-msgid "Print Trial Balance Error"
-msgstr "ةيبيرجتلا ةخسنلا ديصر يف أطخ تنيرب "
-
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:485
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:490
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:161
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:164
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:185
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:181
 msgid "Trial Balance Report"
 msgstr "ةعجارملا نازيم ريرقت "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "رهشل يبيرجتلا ديصرلا "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "و "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:494
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:168
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " months to "
 msgstr "ىلإ رهشأ "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:501
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:175
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:192
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
 msgid "Month Actual"
 msgstr "يلعفلا رهشلا "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:502
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:176
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:193
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "ةينازيملا رهش "
+
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:414
+msgid "Check Totals"
+msgstr "عيماجملا نم ققحت "
 
 #: /home/tim/code/KwaMoja/GeneratePickingList.php:14
 #: /home/tim/code/KwaMoja/PDFPickingList.php:9
@@ -26201,8 +26165,8 @@ msgstr "رارمتساب "
 #: /home/tim/code/KwaMoja/JobScheduler.php:176
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:166
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:85
-#: /home/tim/code/KwaMoja/SystemParameters.php:577
-#: /home/tim/code/KwaMoja/SystemParameters.php:579
+#: /home/tim/code/KwaMoja/SystemParameters.php:583
+#: /home/tim/code/KwaMoja/SystemParameters.php:585
 msgid "Daily"
 msgstr "يمويلا "
 
@@ -26218,8 +26182,8 @@ msgstr "يمويلا "
 #: /home/tim/code/KwaMoja/RecurringSalesOrders.php:445
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:167
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:94
-#: /home/tim/code/KwaMoja/SystemParameters.php:582
-#: /home/tim/code/KwaMoja/SystemParameters.php:584
+#: /home/tim/code/KwaMoja/SystemParameters.php:588
+#: /home/tim/code/KwaMoja/SystemParameters.php:590
 msgid "Weekly"
 msgstr "يعوبسأ "
 
@@ -26806,8 +26770,8 @@ msgid "Always"
 msgstr "دائما"
 
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:178
-#: /home/tim/code/KwaMoja/SystemParameters.php:592
-#: /home/tim/code/KwaMoja/SystemParameters.php:594
+#: /home/tim/code/KwaMoja/SystemParameters.php:598
+#: /home/tim/code/KwaMoja/SystemParameters.php:600
 msgid "Never"
 msgstr "ادبأ "
 
@@ -28141,7 +28105,7 @@ msgstr "مستشفى التكوين المحدثة"
 
 #: /home/tim/code/KwaMoja/KCMCHospitalConfiguration.php:74
 #: /home/tim/code/KwaMoja/ShopParameters.php:184
-#: /home/tim/code/KwaMoja/SystemParameters.php:425
+#: /home/tim/code/KwaMoja/SystemParameters.php:431
 msgid "General Settings"
 msgstr "ةماعلا تادادعالا "
 
@@ -28867,8 +28831,8 @@ msgstr "تردد الفواتير"
 #: /home/tim/code/KwaMoja/RegularPaymentsSetup.php:169
 #: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:103
 #: /home/tim/code/KwaMoja/SalesPeople.php:21
-#: /home/tim/code/KwaMoja/SystemParameters.php:587
-#: /home/tim/code/KwaMoja/SystemParameters.php:589
+#: /home/tim/code/KwaMoja/SystemParameters.php:593
+#: /home/tim/code/KwaMoja/SystemParameters.php:595
 msgid "Monthly"
 msgstr "ايرهش "
 
@@ -35307,7 +35271,7 @@ msgstr "ةروتاف ريرقت رماوأ "
 #: /home/tim/code/KwaMoja/PcReportTab.php:96
 #: /home/tim/code/KwaMoja/PcReportTab.php:98
 #: /home/tim/code/KwaMoja/PcReportTab.php:106
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:85
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:104
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:70
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:63
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:45
@@ -43097,7 +43061,7 @@ msgstr "ةيباسح ةيلمع "
 
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:395
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:411
-#: /home/tim/code/KwaMoja/SystemParameters.php:1309
+#: /home/tim/code/KwaMoja/SystemParameters.php:1325
 msgid "Could not load periods table"
 msgstr "تارتف لودج ليمحت رذعت "
 
@@ -48031,7 +47995,7 @@ msgstr "مهسألا عون "
 
 #: /home/tim/code/KwaMoja/StockCategories.php:326
 #: /home/tim/code/KwaMoja/StockCategories.php:442
-#: /home/tim/code/KwaMoja/SystemParameters.php:1357
+#: /home/tim/code/KwaMoja/SystemParameters.php:1373
 msgid "Default Tax Category"
 msgstr "ةيضارتفالا ةيبيرضلا ةئفلا "
 
@@ -49638,7 +49602,7 @@ msgid "Show Graph Of Stock Usage"
 msgstr "مادختسالا مهسألا نم ينايبلا مسرلا ضرع "
 
 #: /home/tim/code/KwaMoja/StockUsage.php:138
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:60
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:101
 msgid "The stock usage for the selected criteria could not be retrieved because"
 msgstr "هنأل ةددحملا ريياعملل مهسألا مادختسا عاجرتسا رذعت "
 
@@ -49651,12 +49615,12 @@ msgstr "لامعتسا "
 msgid "Average Usage per month is"
 msgstr "وه رهشلا يف مادختسالا​​ طسوتم "
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:58
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:68
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:99
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:109
 msgid "Stock Usage Graph Problem"
 msgstr "ينايبلا مسرلا ةلكشم مادختسا مهسألا "
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:70
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:111
 msgid "There are no movements of this item from the selected location to graph"
 msgstr "ينايبلا مسرلا ىلإ ددحملا عقوملا نم دنبلا اذهل تاكرحت دجوت ال "
 
@@ -51223,12 +51187,12 @@ msgstr "بئارضلا باسح ثيدحت "
 
 #: /home/tim/code/KwaMoja/SupplierCredit.php:514
 #: /home/tim/code/KwaMoja/SupplierCredit.php:517
-#: /home/tim/code/KwaMoja/SystemParameters.php:1032
-#: /home/tim/code/KwaMoja/SystemParameters.php:1036
-#: /home/tim/code/KwaMoja/SystemParameters.php:1047
-#: /home/tim/code/KwaMoja/SystemParameters.php:1051
-#: /home/tim/code/KwaMoja/SystemParameters.php:1159
-#: /home/tim/code/KwaMoja/SystemParameters.php:1163
+#: /home/tim/code/KwaMoja/SystemParameters.php:1038
+#: /home/tim/code/KwaMoja/SystemParameters.php:1042
+#: /home/tim/code/KwaMoja/SystemParameters.php:1053
+#: /home/tim/code/KwaMoja/SystemParameters.php:1057
+#: /home/tim/code/KwaMoja/SystemParameters.php:1165
+#: /home/tim/code/KwaMoja/SystemParameters.php:1169
 msgid "Manual Entry"
 msgstr "يوديلا لاخدإلا "
 
@@ -51787,7 +51751,7 @@ msgstr "يجب أن يكون الإدخال رقميًا"
 
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:837
 #: /home/tim/code/KwaMoja/SupplierInvoice.php:840
-#: /home/tim/code/KwaMoja/SystemParameters.php:462
+#: /home/tim/code/KwaMoja/SystemParameters.php:468
 msgid "Manually"
 msgstr "ايودي "
 
@@ -52540,12 +52504,12 @@ msgid "If the supplier requires a remittance advice with each payment then selec
 msgstr "إذا كان المورد يحتاج إلى نصيحة حول التحويلات مع كل دفعة ، فاختر مطلوب هنا"
 
 #: /home/tim/code/KwaMoja/Suppliers.php:715
-#: /home/tim/code/KwaMoja/SystemParameters.php:887
+#: /home/tim/code/KwaMoja/SystemParameters.php:893
 msgid "Could not load shippers"
 msgstr "نينحاشلا ليمحت رذعت "
 
 #: /home/tim/code/KwaMoja/Suppliers.php:718
-#: /home/tim/code/KwaMoja/SystemParameters.php:890
+#: /home/tim/code/KwaMoja/SystemParameters.php:896
 msgid "Default Shipper"
 msgstr "نحاشلا يضارتفالا "
 
@@ -52617,913 +52581,925 @@ msgid "No less than 1 and more than 99 Quick entries allowed"
 msgstr "عيرس لاخدإ 99 نم رثكأو 1 نع لقي ال امب حمسي "
 
 #: /home/tim/code/KwaMoja/SystemParameters.php:52
+msgid "Unexpected Show Zero Counts Within Stock Usage Graph Period Range value."
+msgstr "إظهار الأعداد الصفرية غير المتوقعة ضمن قيمة نطاق فترة الرسم البياني لاستخدام المخزون."
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:55
 msgid "The maximum number of serial numbers issued must be numeric and greater than zero"
 msgstr "رفصلا نم ربكأو يمقر ةرداصلا ةيلسلستلا ماقرألل ىصقألا ددعلا نوكي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:55
+#: /home/tim/code/KwaMoja/SystemParameters.php:58
 msgid "Freight Charge Applies If Less Than must be a number"
 msgstr "امقر نوكي نأ بجي نم لقأ ناك اذإ قبطني نحشلا موسر "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:58
+#: /home/tim/code/KwaMoja/SystemParameters.php:61
 msgid "Standard Cost Decimal Places must be a number between 0 and 4"
 msgstr "4 و 0 نيب امقر ةيسايقلا ةفلكتلل ةيرشعلا نكامألا نوكت نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:61
+#: /home/tim/code/KwaMoja/SystemParameters.php:64
 msgid "Financial period per year must be a number between 1 and 12"
 msgstr "21 و 1 نيب ةنسلا يف ةيلاملا ةرتفلا نوكت نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:64
+#: /home/tim/code/KwaMoja/SystemParameters.php:67
 msgid "The Tax Authority Reference Name must be 25 characters or less long"
 msgstr "لقأ وأ افرح 52 بئارضلا ةحلصمل يعجرملا مسالا نوكي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:67
+#: /home/tim/code/KwaMoja/SystemParameters.php:70
 msgid "Over Charge Proportion must be a percentage"
 msgstr "ةيوئم ةبسن نوكت نأ بجي ةبسن نم رثكأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:70
+#: /home/tim/code/KwaMoja/SystemParameters.php:73
 msgid "Over Receive Proportion must be a percentage"
 msgstr "ةيوئم ةبسن ةاقلتملا ةبسنلا نوكت نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:73
+#: /home/tim/code/KwaMoja/SystemParameters.php:76
 msgid "Lines per page must be greater than 1"
 msgstr "1 نم ربكأ ةحفصلا يف طوطخلا نوكت نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:76
+#: /home/tim/code/KwaMoja/SystemParameters.php:79
 msgid "The number of months of audit trail to keep must be zero or a positive number less than 100 months"
 msgstr "رهش 001 نم لقأ يباجيإ ددع وأ رفص اهب ظافتحالا بجي يتلا قيقدتلا رهشأ ددع نوكي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:79
+#: /home/tim/code/KwaMoja/SystemParameters.php:82
 msgid "DefaultTaxCategory must be between 1 and 9"
 msgstr "9 و 1 نيب يروغيتاكسكاتلوفيد نوكي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:82
+#: /home/tim/code/KwaMoja/SystemParameters.php:85
 msgid "Default maximum number of records to display must be between 1 and 500"
 msgstr "005 و 1 نيب هضرع بولطملا تالجسلا ددعل يضارتفالا ىصقألا دحلا نوكي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:85
+#: /home/tim/code/KwaMoja/SystemParameters.php:88
 msgid "The maximum size of item image files must be between 50 and 500 (NB this figure refers to KB)"
 msgstr ")بك ىلإ مقرلا اذه ريشي بن( 005 و 05 نيب نوكي نأ بجي دنبلا روصلا تافلم مجحل ىصقألا دحلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:88
+#: /home/tim/code/KwaMoja/SystemParameters.php:91
 msgid "The Factory Manager Email address does not appear to be valid"
 msgstr "احلاص عنصملا ريدمل ينورتكلإلا ديربلا ناونع ودبي ال "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:91
+#: /home/tim/code/KwaMoja/SystemParameters.php:94
 msgid "The Purchasing Manager Email address does not appear to be valid"
 msgstr "احلاص تايرتشملا ريدمل ينورتكلإلا ديربلا ناونع ودبي ال "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:94
+#: /home/tim/code/KwaMoja/SystemParameters.php:97
 msgid "The Inventory Manager Email address does not appear to be valid"
 msgstr "احلاص نوزخملا ريدمل ينورتكلإلا ديربلا ناونع ودبي ال "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:97
+#: /home/tim/code/KwaMoja/SystemParameters.php:100
 msgid "The number of frequently ordered items to display must be numeric"
 msgstr "يمقر اهضرعل رركتم لكشب اهضرع متي يتلا رصانعلا ددع نوكي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:100
+#: /home/tim/code/KwaMoja/SystemParameters.php:103
 msgid "The SMTP setting should be selected as Yes or No"
 msgstr "ال وأ معن مساب بتمس دادعإ ديدحت بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:103
+#: /home/tim/code/KwaMoja/SystemParameters.php:106
 msgid "The QualityProdSpecText may not be more than 5000 characters long."
 msgstr ".فرح 0005 نع كتسكيبزدوربتيلاوك لوط ديزي ال دق "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:106
+#: /home/tim/code/KwaMoja/SystemParameters.php:109
 msgid "The QualityCOAText may not be more than 5000 characters long."
 msgstr ".فرح 0005 نع تسكتاوكيتيلاوك لوط ديزي ال دق "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:109
+#: /home/tim/code/KwaMoja/SystemParameters.php:112
 msgid "The QualityLogSamples setting should be selected as Yes or No"
 msgstr "ال وأ معن هنأ ىلع سلبماغولغيتيلاوك دادعإ ديدحت بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:398
+#: /home/tim/code/KwaMoja/SystemParameters.php:404
 msgid "The system configuration could not be updated because"
 msgstr "هنأل ماظنلا ةئيهت ثيدحت رذعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:409
+#: /home/tim/code/KwaMoja/SystemParameters.php:415
 msgid "System configuration updated"
 msgstr "ماظنلا ةئيهت ثيدحت مت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:429
+#: /home/tim/code/KwaMoja/SystemParameters.php:435
 msgid "Default Date Format"
 msgstr "يضارتفالا خيراتلا قيسنت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:437
+#: /home/tim/code/KwaMoja/SystemParameters.php:443
 msgid "The default date format for entry of dates and display."
 msgstr ".ةشاشلاو خيراوتلا لاخدإل يضارتفالا خيراتلا قيسنت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:442
+#: /home/tim/code/KwaMoja/SystemParameters.php:448
 msgid "Default Theme"
 msgstr "يضارتفالا عوضوملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:454
+#: /home/tim/code/KwaMoja/SystemParameters.php:460
 msgid "The default theme to use for the login screen and the setup of new users. The users theme selection will override it."
 msgstr "الموضوع الافتراضي المراد استخدامه لشاشة تسجيل الدخول وإعداد المستخدمين الجدد. اختيار موضوع المستخدمين سوف يتجاوزها."
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:459
+#: /home/tim/code/KwaMoja/SystemParameters.php:465
 msgid "Auto Update Exchange Rates Daily"
 msgstr "ايموي فرصلا راعسأ يئاقلت ثيدحت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:464
+#: /home/tim/code/KwaMoja/SystemParameters.php:470
 msgid "Automatic updates to exchange rates will retrieve the latest daily rates from either the European Central Bank or Google once per day - when the first user logs in for the day. Manual will never update the rates automatically - exchange rates will need to be maintained manually"
 msgstr "ايودي فرصلا راعسأ ىلع ظافحلا ىلإ جاتحت فوس - ايئاقلت راعسأ ثيدحت ادبأ ليلد فوس .مويلا اذهل لوخدلا لوألا مدختسملا لجسي امدنع - ايموي ةدحاو ةرم لغوغ وأ يبوروألا يزكرملا كنبلا نم ةيمويلا راعسألا ثدحأ ىلع فرصلا راعسأل ةيئاقلتلا تاثيدحتلا لصحتس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:468
+#: /home/tim/code/KwaMoja/SystemParameters.php:474
 msgid "Source Exchange Rates From"
 msgstr "نم فرصلا راعسأ ردصملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:470
+#: /home/tim/code/KwaMoja/SystemParameters.php:476
 msgid "European Central Bank"
 msgstr "يبوروألا يزكرملا كنبلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:471
+#: /home/tim/code/KwaMoja/SystemParameters.php:477
 msgid "Google"
 msgstr "لجوج "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:473
+#: /home/tim/code/KwaMoja/SystemParameters.php:479
 msgid "Specify the source to use for exchange rates"
 msgstr "فرصلا راعسأل همادختسا دارملا ردصملا ددح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:478
+#: /home/tim/code/KwaMoja/SystemParameters.php:484
 msgid "Months of Audit Trail to Retain"
 msgstr "ظافتحالل ليرت قيقدتلا نم رهشأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:480
+#: /home/tim/code/KwaMoja/SystemParameters.php:486
 msgid "If this parameter is set to 0 (zero) then no audit trail is retained. An audit trail is a log of which users performed which additions updates and deletes of database records. The full SQL is retained"
 msgstr "لماكلا لكس ظافتحالا متي .تانايبلا ةدعاق تالجس فذحو تاثيدحتلا تافاضإلا نومدختسملا هب ماق يذلا لجس وه قيقدتلا راسم .قيقدتلا برد يأ ظافتحالا متي مث )رفص( 0 ىلإ ةملعملا هذه نييعت مت اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:485
+#: /home/tim/code/KwaMoja/SystemParameters.php:491
 msgid "Log Severity Level"
 msgstr "ةروطخلا ىوتسم لجس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:489
 #: /home/tim/code/KwaMoja/SystemParameters.php:495
 #: /home/tim/code/KwaMoja/SystemParameters.php:501
 #: /home/tim/code/KwaMoja/SystemParameters.php:507
 #: /home/tim/code/KwaMoja/SystemParameters.php:513
+#: /home/tim/code/KwaMoja/SystemParameters.php:519
 msgid "Errors Only"
 msgstr "طقف ءاطخألا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:490
 #: /home/tim/code/KwaMoja/SystemParameters.php:496
 #: /home/tim/code/KwaMoja/SystemParameters.php:502
 #: /home/tim/code/KwaMoja/SystemParameters.php:508
+#: /home/tim/code/KwaMoja/SystemParameters.php:514
 msgid "Errors and Warnings"
 msgstr "تاريذحتلاو ءاطخألا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:491
 #: /home/tim/code/KwaMoja/SystemParameters.php:497
 #: /home/tim/code/KwaMoja/SystemParameters.php:503
 #: /home/tim/code/KwaMoja/SystemParameters.php:509
 #: /home/tim/code/KwaMoja/SystemParameters.php:515
+#: /home/tim/code/KwaMoja/SystemParameters.php:521
 msgid "Errors, Warnings and Info"
 msgstr "تامولعملاو تاريذحتلاو ءاطخألا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:514
+#: /home/tim/code/KwaMoja/SystemParameters.php:520
 msgid "Errors andWarnings"
 msgstr "زغنينراوو ءاطخأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:519
+#: /home/tim/code/KwaMoja/SystemParameters.php:525
 msgid "Choose which Status messages to keep in your log file."
 msgstr ".لجسلا فلم يف اهب ظافتحالا بجي يتلا ةلاحلا لئاسر رتخا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:524
+#: /home/tim/code/KwaMoja/SystemParameters.php:530
 msgid "Path to log files"
 msgstr "تافلملا ليجستل راسم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:526
+#: /home/tim/code/KwaMoja/SystemParameters.php:532
 msgid "The path to the directory where the log files will be stored. Note the apache user must have write permissions on this directory."
 msgstr ".ليلدلا اذه ىلع ةباتكلا تانوذأ هيدل نوكي نأ بجي يشتابأ مدختسم نأ ظحال .لجسلا تافلم نيزخت متيس ثيح ليلدلا ىلإ راسملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:530
+#: /home/tim/code/KwaMoja/SystemParameters.php:536
 msgid "Using Smtp Mail"
 msgstr "بتمس ديربلا مادختسا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:541
+#: /home/tim/code/KwaMoja/SystemParameters.php:547
 msgid "The default setting is using mail in default php.ini, if you choose Yes for this selection, you can use the SMTP set in the setup section."
 msgstr ".دادعإلا مسق يف بتمس ةعومجم مادختسا كنكمي ،ديدحتلا اذهل معن ترتخا اذإ ،يضارتفالا ini.php يف ديربلا مدختسي يضارتفالا دادعإلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:293
 msgid "WackoWiki"
 msgstr "ikiWokcaW "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:295
 msgid "MediaWiki"
 msgstr "يكيوايديم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:544
+#: /home/tim/code/KwaMoja/SystemParameters.php:550
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:297
 msgid "DokuWiki"
 msgstr "يكيو وكود "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:547
+#: /home/tim/code/KwaMoja/SystemParameters.php:553
 msgid "Wiki application"
 msgstr "يكيو قيبطت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:553
+#: /home/tim/code/KwaMoja/SystemParameters.php:559
 msgid "This feature makes"
 msgstr "لعجت ةزيملا هذه "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:553
+#: /home/tim/code/KwaMoja/SystemParameters.php:559
 msgid "show links to a free form company knowledge base using a wiki. This allows sharing of important company information - about customers, suppliers and products and the set up of work flow menus and/or company procedures documentation"
 msgstr "ةكرشلا تاءارجإ قئاثو وأ / و لمعلا قفدت مئاوق دادعإو تاجتنملاو نيدروملاو ءالمعلا لوح - ةكرشلا نع ةماه تامولعم ةكراشمب حمسي اذهو .يكيو مادختساب رح لكش ةكرش ةفرعملا ةدعاق ىلإ طباور ضرع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:557
+#: /home/tim/code/KwaMoja/SystemParameters.php:563
 msgid "Wiki Path"
 msgstr "يكيو راسم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:559
+#: /home/tim/code/KwaMoja/SystemParameters.php:565
 msgid "The path to the wiki installation to form the basis of wiki URLs - or the full URL of the wiki."
 msgstr ".يكيولل لماكلا لرو ناونع وأ - يكيو لرو نيوانع ساسأ ليكشتل يكيو تيبثت ىلإ راسملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:564
+#: /home/tim/code/KwaMoja/SystemParameters.php:570
 msgid "Only allow secure socket connections"
 msgstr "نمآ ذخأم تالاصتا طقف حمست "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:569
+#: /home/tim/code/KwaMoja/SystemParameters.php:575
 msgid "Force connections to be only over secure sockets - ie encrypted data only"
 msgstr "طقف ةرفشملا تانايبلا يأ - ةنمآ ذخآم ىلع طقف نوكتل تالاصتالا ضرف "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:574
+#: /home/tim/code/KwaMoja/SystemParameters.php:580
 msgid "Perform database maintenance at logon"
 msgstr "لوخدلا ليجست دنع تانايبلا ةدعاق ةنايص ءادأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:597
-#: /home/tim/code/KwaMoja/SystemParameters.php:599
+#: /home/tim/code/KwaMoja/SystemParameters.php:603
+#: /home/tim/code/KwaMoja/SystemParameters.php:605
 msgid "Allow SysAdmin Access Only"
 msgstr "طقف سيسأ نيمداسيس ل حامسلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:603
+#: /home/tim/code/KwaMoja/SystemParameters.php:609
 msgid "Uses the function DB_Maintenance defined in ConnectDB_XXXX.php to perform database maintenance tasks, to run at regular intervals - checked at each and every user login"
 msgstr "مدختسملا لوخد ليجست لك يف ققحتلا - ةمظتنم تارتف ىلع ليغشتل ،تانايبلا ةدعاق ةنايص ماهم ذيفنتل php.XXXX_BDtcennoC يف ةفرعملا ecnanetniaM_BD ةلادلا مدختسي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:608
+#: /home/tim/code/KwaMoja/SystemParameters.php:614
 msgid "Google Translator API Key"
 msgstr "لغوغ مجرتم تاقيبطت ةجمرب ةهجاو حاتفم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:610
+#: /home/tim/code/KwaMoja/SystemParameters.php:616
 msgid "Google Translator API Key to allow automatic translations. More info at https://cloud.google.com/translate/"
 msgstr "/etalsnart/moc.elgoog.duolc//:sptth ىلع تامولعملا نم ديزم .ةيئاقلتلا ةمجرتلل حامسلل لغوغ مجرتم تاقيبطت ةجمرب ةهجاو حاتفم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:615
+#: /home/tim/code/KwaMoja/SystemParameters.php:621
 msgid "Country Of Operation"
 msgstr "ةيلمعلا دلب "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:617
-#: /home/tim/code/KwaMoja/SystemParameters.php:875
-#: /home/tim/code/KwaMoja/SystemParameters.php:893
-#: /home/tim/code/KwaMoja/SystemParameters.php:1360
+#: /home/tim/code/KwaMoja/SystemParameters.php:623
+#: /home/tim/code/KwaMoja/SystemParameters.php:881
+#: /home/tim/code/KwaMoja/SystemParameters.php:899
+#: /home/tim/code/KwaMoja/SystemParameters.php:1376
 msgid "Unavailable"
 msgstr "هرفوتم ريغ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:622
+#: /home/tim/code/KwaMoja/SystemParameters.php:628
 msgid "This parameter is only effective if Do Freight Calculation is set to Yes."
 msgstr ".معن ىلإ نحشلا باسح نييعت مت اذإ طقف ةلاعف ةملعملا هذه "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:627
+#: /home/tim/code/KwaMoja/SystemParameters.php:633
 msgid "Report Page Length"
 msgstr "ةحفصلا لوط نع غالبإلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:629
+#: /home/tim/code/KwaMoja/SystemParameters.php:635
 msgid "The number of lines per page on reports"
 msgstr "عدد الأسطر لكل صفحة في التقارير"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:634
+#: /home/tim/code/KwaMoja/SystemParameters.php:640
 msgid "Default Maximum Number of Records to Show"
 msgstr "اهضرع متي يتلا تالجسلا ددعل ىصقألا دحلا يضارتفالا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:636
+#: /home/tim/code/KwaMoja/SystemParameters.php:642
 msgid "When pages have code to limit the number of returned records - such as select customer, select supplier and select item, then this will be the default number of records to show for a user who has not changed this for themselves in user settings."
 msgstr ".مدختسملا تادادعإ يف هسفنأل كلذ ريغي مل مدختسمل اهضرع متي يتلا تالجسلل يضارتفالا مقرلا وه اذه نوكيسف ،رصنعلا ددحو دروملا ددح ،ليمع ديدحت لثم - اهعاجرإ مت يتلا تالجسلا ددع نم دحلل دوك تاحفصلل نوكي امدنع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:641
+#: /home/tim/code/KwaMoja/SystemParameters.php:647
 msgid "Maximum Size in KB of uploaded images"
 msgstr "اهليمحت مت يتلا روصلا نم تيابوليكلاب ىصقألا مجحلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:643
+#: /home/tim/code/KwaMoja/SystemParameters.php:649
 msgid "Picture files of items can be uploaded to the server. The system will check that files uploaded are less than this size (in KB) before they will be allowed to be uploaded. Large pictures will make the system slow and will be difficult to view in the stock maintenance screen."
 msgstr ".مهسألا ةنايص ةشاش يف رظني نأ بعصلا نم نوكيسو ائيطب ماظنلا لعجيس ةريبكلا روصلا .اهليمحتب اهل حامسلا لبق )تيابوليكلاب( مجحلا اذه نم لقأ اهليمحت مت يتلا تافلملا نأ نم ماظنلا ققحتيس .مداخلا ىلإ رصانعلا نم روصلا تافلم ليمحت نكمي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:648
+#: /home/tim/code/KwaMoja/SystemParameters.php:654
 msgid "Number Of Month Must Be Shown"
 msgstr "رهظت نأ بجي رهشلا ددع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:650
+#: /home/tim/code/KwaMoja/SystemParameters.php:656
 msgid "Number of month must be shown on report can be changed with this parameters ex: in CustomerInquiry.php "
 msgstr "php.yriuqnIremotsuC يف :نيقباسلا تاملعملا هذه عم رييغت نكمي ريرقتلا ىلع رهظت نأ بجي رهشلا ددع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:658
+#: /home/tim/code/KwaMoja/SystemParameters.php:664
 msgid "The directory where images are stored"
 msgstr "روصلا نيزخت متي ثيح ليلدلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:670
+#: /home/tim/code/KwaMoja/SystemParameters.php:676
 msgid "The directory under which all image files should be stored. Image files take the format of ItemCode.jpg - they must all be .jpg files and the part code will be the name of the image file. This is named automatically on upload. The system will check to ensure that the image is a .jpg file"
 msgstr "غبج فلم ةروصلا نأ نم دكأتلل صحفب ماظنلا موقيس .ليمحتلا دنع ايئاقلت اذه ةيمست متي .ةروصلا فلم مسا ءزجلا زمر نوكي فوسو غبج تافلم عيمج نوكت نأ بجي - gpj.edoCmeti قيسنت ذخأت روصلا تافلم .روصلا تافلم عيمج نيزخت متي نأ بجي يذلا ليلدلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:676
+#: /home/tim/code/KwaMoja/SystemParameters.php:682
 msgid "The directory where reports are stored"
 msgstr "ريراقتلا نيزخت متي ثيح ليلدلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:690
+#: /home/tim/code/KwaMoja/SystemParameters.php:696
 msgid "The directory under which all report pdf files should be created in. A separate directory is recommended"
 msgstr "لصفنم ليلد ىصويو .هيف ريرقتلا فدب تافلم عيمج ءاشنإ متي نأ بجي يذلا ليلدلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:694
+#: /home/tim/code/KwaMoja/SystemParameters.php:700
 msgid "Geocode Customers and Suppliers"
 msgstr "ايفارغج نيدروملاو ءالمعلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:697
-#: /home/tim/code/KwaMoja/SystemParameters.php:701
+#: /home/tim/code/KwaMoja/SystemParameters.php:703
+#: /home/tim/code/KwaMoja/SystemParameters.php:707
 msgid "Geocode Integration Enabled"
 msgstr "دوكوج لماكت نيكمت مت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:698
-#: /home/tim/code/KwaMoja/SystemParameters.php:700
+#: /home/tim/code/KwaMoja/SystemParameters.php:704
+#: /home/tim/code/KwaMoja/SystemParameters.php:706
 msgid "Geocode Integration Disabled"
 msgstr "دوكوج لماكت ليطعت مت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:704
+#: /home/tim/code/KwaMoja/SystemParameters.php:710
 msgid "This feature will give Latitude and Longitude coordinates to customers and suppliers. Requires access to a mapping provider. You must setup this facility under Main Menu - Setup - Geocode Setup. This feature is experimental."
 msgstr ".ةيبيرجت ةزيملا هذه .يفارغجلا زيمرتلا دادعإ - دادعإلا - ةيسيئرلا ةمئاقلا تحت قفرملا اذه دادعإ كيلع بجي .نييعت رفوم ىلإ لوصولا بلطتي .نيدروملاو ءالمعلل قسني لوطلا طخو ضرعلا طخ يطعت ةزيملا هذهو "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:708
+#: /home/tim/code/KwaMoja/SystemParameters.php:714
 msgid "Last day of the week"
 msgstr "آخر يوم في الأسبوع"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:718
+#: /home/tim/code/KwaMoja/SystemParameters.php:724
 msgid "Timesheet entry default to weeks ending on this day"
 msgstr "إدخال الجدول الزمني الافتراضي إلى الأسابيع التي تنتهي في هذا اليوم"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:723
+#: /home/tim/code/KwaMoja/SystemParameters.php:729
 msgid "Sales Order/Purchase Order Settings"
 msgstr "أمر المبيعات / إعدادات أمر الشراء"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:727
+#: /home/tim/code/KwaMoja/SystemParameters.php:733
 msgid "Romalpa Clause"
 msgstr "ابلامور دنب "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:729
+#: /home/tim/code/KwaMoja/SystemParameters.php:735
 msgid "This text appears on invoices and credit notes in small print. Normally a reservation of title clause that gives the company rights to collect goods which have not been paid for - to give some protection for bad debts."
 msgstr ".ةمودعملا نويدلل ةيامحلا ضعب ريفوتل - اهعفد متي مل يتلا عئاضبلا عمج قوقح ةكرشلا حنمي ةيكلملا دنب ىلع ظفحت كانه نوكي ام ةداعو .ةعوبطم ةروص يف ةينامتئالا تاركذملاو ريتاوفلا يف صنلا اذه رهظي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:734
+#: /home/tim/code/KwaMoja/SystemParameters.php:740
 msgid "Terms and Conditions of Sale"
 msgstr "عيبلا ماكحأو طورش "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:736
+#: /home/tim/code/KwaMoja/SystemParameters.php:742
 msgid "The organisations terms and conditions of sale to be printed on order acknowledgements."
 msgstr ".ةمظنملا لبق نم ةقبطملا عيبلا طورشو طورش "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:741
+#: /home/tim/code/KwaMoja/SystemParameters.php:747
 msgid "Quick Entries"
 msgstr "ةعيرس تالاقم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:743
+#: /home/tim/code/KwaMoja/SystemParameters.php:749
 msgid "This parameter defines the layout of the sales order entry screen. The number of fields available for quick entries. Any number from 1 to 99 can be entered."
 msgstr ".اهلاخدإ نكمي 99 ىلإ 1 نم ددع يأ .ةعيرسلا تالاخدإلل ةحاتملا لوقحلا ددع .تاعيبملا رمأ لاخدإ ةشاش طيطخت ةملعملا هذه ددحت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:750
+#: /home/tim/code/KwaMoja/SystemParameters.php:756
 msgid "To show the most frequently ordered items enter the number of frequently ordered items you wish to display from 1 to 99. If you do not wish to display the frequently ordered item list enter 0."
 msgstr ".0 لخدأ رركتم لكشب اهبلط متي يتلا رصانعلا ةمئاق ضرع يف بغرت ال تنك اذإ .99 ىلإ 1 نم اهضرع يف بغرت يتلاو رركتم لكشب اهبلط متي يتلا رصانعلا ددع لخدأ رركتم لكشب اهبلط متي يتلا رصانعلا ضرعل "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:755
+#: /home/tim/code/KwaMoja/SystemParameters.php:761
 msgid "Sales Order Allows Same Item Multiple Times"
 msgstr "تارم ةدع هسفن رصنعلا حمسي تاعيبملا رمأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:760
+#: /home/tim/code/KwaMoja/SystemParameters.php:766
 msgid "Is it allowed for the same item to appear multiple times on a sales order?"
 msgstr "هل يُسمح لنفس العنصر بالظهور عدة مرات في أمر مبيعات؟"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:765
+#: /home/tim/code/KwaMoja/SystemParameters.php:771
 msgid "Order Entry allows Line Item Narrative"
 msgstr "درسلا دنبلا طخ حمسي ماظنلا لوخد "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:767
+#: /home/tim/code/KwaMoja/SystemParameters.php:773
 msgid "Allow Narrative Entry"
 msgstr "درسلا لوخد حامسلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:768
+#: /home/tim/code/KwaMoja/SystemParameters.php:774
 msgid "No Narrative Line"
 msgstr "درس طخ دجوي ال "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:770
+#: /home/tim/code/KwaMoja/SystemParameters.php:776
 msgid "Select whether or not to allow entry of narrative on order line items. This narrative will appear on invoices and packing slips. Useful mainly for service businesses."
 msgstr ".تامدخلا تاكرشلل اساسأ ةديفم .تالز ةئبعتو ريتاوفلا ىلع درسلا اذه رهظي فوس .ال مأ بلطلا دونب ىلع درسلا لوخدب حامسلا متيس ناك اذإ ام ددح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:775
+#: /home/tim/code/KwaMoja/SystemParameters.php:781
 msgid "A picking note must be produced before an order can be delivered"
 msgstr "رمأ ميلست متي نأ لبق رايتخا ةركذم جاتنإ متي نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:780
+#: /home/tim/code/KwaMoja/SystemParameters.php:786
 msgid "Select whether or not a picking note must be produced before an order can be delivered to a customer."
 msgstr ".ليمعلا ىلإ رمأ ميلست متي نأ لبق رايتخا ةركذم رادصإ بجي ناك اذإ ام ددح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:785
+#: /home/tim/code/KwaMoja/SystemParameters.php:791
 msgid "Allow Sales Of Zero Cost Items"
 msgstr "دونبلا فيلاكت رفص نم تاعيبملا حامسلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:790
+#: /home/tim/code/KwaMoja/SystemParameters.php:796
 msgid "If an item selected at order entry does not have a cost set up then if this parameter is set to No then the order line will not be able to be entered"
 msgstr "اهلاخدإ ىلع ةرداق نوكت نل بلطلا طخ مث ال ىلإ ةملعملا هذه نييعت مت اذإ مث دادعإ ةفلكت هيدل سيل ماظنلا لاخدإ يف ددحملا رصنعلا ناك اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:794
+#: /home/tim/code/KwaMoja/SystemParameters.php:800
 msgid "Purchasing Manager Email Address"
 msgstr "تايرتشملا ريدمل ينورتكلإلا ديربلا ناونع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:796
+#: /home/tim/code/KwaMoja/SystemParameters.php:802
 msgid "The email address for the purchasing manager, used to receive notifications by the tendering system"
 msgstr "ةصقانملا ماظن لبق نم تاراطخإلا يقلتل مدختسي ،ءارشلا ريدمل ينورتكلإلا ديربلا ناونع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:801
+#: /home/tim/code/KwaMoja/SystemParameters.php:807
 msgid "Automatically authorise purchase orders if user has authority"
 msgstr "ةطلسلا هيدل مدختسملا ناك اذإ ءارشلا رماوأ ايئاقلت نذأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:806
+#: /home/tim/code/KwaMoja/SystemParameters.php:812
 msgid "If the user changing an existing purchase order or adding a new puchase order is set up to authorise purchase orders and the order is within their limit, then the purchase order status is automatically set to authorised"
 msgstr "نذأ ىلإ ايئاقلت ءارشلا رمأ ةلاح نييعت متي مث ،اهدودح يف وه ماظنلاو ءارشلا رماوأ ضيوفتل ةديدج سيشوب رمأ ةفاضإ وأ ةدوجوملا ءارشلا رمأ رييغت مدختسملا نييعت مت اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:811
+#: /home/tim/code/KwaMoja/SystemParameters.php:817
 msgid "Maximum number of serial numbered items to be issued"
 msgstr "الحد الأقصى لعدد العناصر ذات التسلسل المراد إصدارها"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:813
+#: /home/tim/code/KwaMoja/SystemParameters.php:819
 msgid "This parameter defines the Maximum number of serial numbered items that can be issued. It should be an integer greater than zero."
 msgstr ".رفصلا نم ربكأ حيحص ددع نوكي نأ بجي .اهرادصإ نكمي يتلا ةمقرملا ةلسلسملا رصانعلا ددعل ىصقألا دحلا ةملعملا هذه ددحت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:818
+#: /home/tim/code/KwaMoja/SystemParameters.php:824
 msgid "Format of Packing Slips"
 msgstr "ةئبعتلا تالز لكش "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:820
+#: /home/tim/code/KwaMoja/SystemParameters.php:826
 msgid "Laser Printed"
 msgstr "ةعوبطملا رزيللا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:821
+#: /home/tim/code/KwaMoja/SystemParameters.php:827
 msgid "Special Stationery"
 msgstr "ةصاخلا ةيساطرقلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:823
+#: /home/tim/code/KwaMoja/SystemParameters.php:829
 msgid "Choose the format that packing notes should be printed by default"
 msgstr "يضارتفا لكشب هيلع ةئبعتلا تاظحالم ةعابط بجي يذلا لكشلا رتخا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:828
+#: /home/tim/code/KwaMoja/SystemParameters.php:834
 msgid "Invoice Quantity Default"
 msgstr "ةيضارتفالا ةروتافلا ةيمك "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:830
+#: /home/tim/code/KwaMoja/SystemParameters.php:836
 msgid "0"
 msgstr "0 "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:833
+#: /home/tim/code/KwaMoja/SystemParameters.php:839
 msgid "This setting controls the default behaviour of invoicing. Setting to 0 defaults the invocie quantity to zero to force entry. Set to outstanding to default the invoice quantity to the balance outstanding, after previous deliveries, on the sales order"
 msgstr "تاعيبملا رمأ ىلع ،ةقباسلا ميلستلا دعب ،مئاقلا ديصرلا ىلإ ةروتافلا ةيمك يضارتفالا ىلإ ةقلعملا ىلإ نييعت .لوخدلا رابجإل رفصلا ىلإ يسوفنإ ةيمك ايضارتفا 0 ىلإ دادعإلا .ةروتافلل يضارتفالا كولسلا يف دادعإلا اذه مكحتي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:838
+#: /home/tim/code/KwaMoja/SystemParameters.php:844
 msgid "Show company details on packing slips"
 msgstr "ةئبعتلا مئاسق ىلع ةكرشلا ليصافت ضرع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:840
+#: /home/tim/code/KwaMoja/SystemParameters.php:846
 msgid "Show Company Details"
 msgstr "ةكرشلا ليصافت ضرع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:841
+#: /home/tim/code/KwaMoja/SystemParameters.php:847
 msgid "Hide Company Details"
 msgstr "ةكرشلا ليصافت ءافخإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:843
+#: /home/tim/code/KwaMoja/SystemParameters.php:849
 msgid "Customer branches can be set by default not to print packing slips with the company logo and address. This is useful for companies that ship to customers customers and to show the source of the shipment would be inappropriate. There is an option on the setup of customer branches to ship blind, this setting is the default applied to all new customer branches"
 msgstr "ةديدجلا ءالمعلا عورف عيمج ىلع قبطملا يضارتفالا وه دادعإلا اذهو ،ىمعأ نحشل ءالمعلا عورف دادعإ ىلع رايخ كانه .بسانم ريغ نوكيس نحشلا ردصم راهظإو ءالمعلا ءالمعلل ةنيفسلا يتلا تاكرشلل ديفم اذهو .ناونعلاو ةكرشلا راعش عم ةئبعتلا تالز ةعابط مدع ايضارتفا نييعت نكمي ءالمعلا عورف "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:848
+#: /home/tim/code/KwaMoja/SystemParameters.php:854
 msgid "Dispatch Cut-Off Time"
 msgstr "تقولا عطق لاسرإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:854
+#: /home/tim/code/KwaMoja/SystemParameters.php:860
 msgid "Orders entered after this time will default to be dispatched the following day, this can be over-ridden at the time of sales order entry"
 msgstr "تاعيبملا رمأ لاخدإ تقو يف ةطرفملا نوكي نأ نكمي اذهو ،يلاتلا مويلا يف اهلاسرإ متيس يضارتفالا تقولا اذه دعب تلخد رماوأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:859
+#: /home/tim/code/KwaMoja/SystemParameters.php:865
 msgid "Controlled Items Must Exist For Crediting"
 msgstr "تادامتعالا ىلع لوصحلل ةدوجوم اهيلع رطيست يتلا دونبلا نوكت نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:864
+#: /home/tim/code/KwaMoja/SystemParameters.php:870
 msgid "This parameter relates to the behaviour of the controlled items code. If a serial numbered item has not previously existed then a credit note for it will not be allowed if this is set to Yes"
 msgstr "معن ىلع هنييعت مت اذإ هل نامتئا ةظحالمب حامسلا متي نلف ،اقبسم لسلستم لسقرم رصنع دوجو مدع ةلاح يف .ةباقرلل ةعضاخلا رصانعلا زمر كولسب ةملعملا هذه قلعتتو "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:869
+#: /home/tim/code/KwaMoja/SystemParameters.php:875
 msgid "Could not load price lists"
 msgstr "راعسألا مئاوق ليمحت رذعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:872
+#: /home/tim/code/KwaMoja/SystemParameters.php:878
 msgid "Default Price List"
 msgstr "ةيضارتفالا راعسألا ةمئاق "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:882
+#: /home/tim/code/KwaMoja/SystemParameters.php:888
 msgid "This price list is used as a last resort where there is no price set up for an item in the price list that the customer is set up for"
 msgstr "ل هدادعإ مت دق ليمعلا نأ راعسألا ةمئاق يف رصنعل ددحم رعس دجوي ال ثيح ريخأ أجلمك هذه راعسألا ةمئاق مادختسا متي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:900
+#: /home/tim/code/KwaMoja/SystemParameters.php:906
 msgid "This shipper is used where the best shipper for a customer branch has not been defined previously"
 msgstr "اقباس ءالمعلا عرفل نحاشلا لضفأ فيرعت متي مل ثيح نحاشلا اذه مدختسي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:905
+#: /home/tim/code/KwaMoja/SystemParameters.php:911
 msgid "Do Freight Calculation"
 msgstr "نحشلا باسح له "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:910
+#: /home/tim/code/KwaMoja/SystemParameters.php:916
 msgid "If this is set to Yes then the system will attempt to calculate the freight cost of a dispatch based on the weight and cubic and the data defined for each shipper and their rates for shipping to various locations. The results of this calculation will only be meaningful if the data is entered for the item weight and volume in the stock item setup for all items and the freight costs for each shipper properly maintained."
 msgstr ".حيحص لكشب هتنايص مت نحاش لكل نحشلا فيلاكتو دونبلا عيمجل نوزخملا دنب دادعإ يف همجحو رصنعلا نزو لجأ نم تانايبلا لاخدإ مت اذإ الإ ىزغم تاذ باسحلا اذه جئاتن نوكت نلو .ةفلتخم عقاوم ىلإ نحشلل اهتالدعمو نحاشلا لكل ةددحملا تانايبلاو بعكملاو نزولا ساسأ ىلع دافيإ نم نحشلا ةفلكت باسحل ماظنلا لواحيس مث معن ىلع اذه نييعت مت اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:915
+#: /home/tim/code/KwaMoja/SystemParameters.php:921
 msgid "Apply freight charges if an order is less than"
 msgstr "نم لقأ رمأ اذإ نحشلا موسر قيبطت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:917
+#: /home/tim/code/KwaMoja/SystemParameters.php:923
 msgid "This parameter is only effective if Do Freight Calculation is set to Yes. If it is set to 0 then freight is always charged. The total order value is compared to this value in deciding whether or not to charge freight"
 msgstr "ال مأ نحشلا نحش متيس ناك اذإ ام ريرقت يف ةميقلا هذه عم يلكلا بلطلا ةميق ةنراقم متت .مهتا امئاد نحشلا مث 0 ىلإ هنييعت مت اذإ .معن ىلإ نحشلا باسح نييعت مت اذإ طقف ةلاعف ةملعملا هذه "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:922
+#: /home/tim/code/KwaMoja/SystemParameters.php:928
 msgid "Check Quantity Charged vs Deliver Qty"
 msgstr "ةيمكلا ميلست لباقم مهتا ةيمكلا نم ققحتلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:927
+#: /home/tim/code/KwaMoja/SystemParameters.php:933
 msgid "In entry of AP invoices this determines whether or not to check the quantities received into stock tie up with the quantities invoiced"
 msgstr "ريتاوف تايمك عم لداعتلا نوزخملا يف ةدراولا تايمكلا نم ققحتلل نكي مل وأ ناك اذإ ام اذه ددحي بأ ريتاوفلا لوخد دنع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:932
+#: /home/tim/code/KwaMoja/SystemParameters.php:938
 msgid "Check Price Charged vs Order Price"
 msgstr "بلطلا رعس لباقم دجرش راعسألا نم ققحتلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:937
+#: /home/tim/code/KwaMoja/SystemParameters.php:943
 msgid "In entry of AP invoices this parameter determines whether or not to check invoice prices tie up to ordered prices"
 msgstr "ةبولطملا راعسألا ىلإ لصي ام طبر ريتاوفلا راعسأ نم ققحتلل نكي مل وأ ناك اذإ ام ةملعملا هذه ددحت بأ ريتاوفلا لاخدإ دنع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:942
+#: /home/tim/code/KwaMoja/SystemParameters.php:948
 msgid "Allowed Over Charge Proportion"
 msgstr "اهب حومسملا تاقفنلا ةبسن "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:944
+#: /home/tim/code/KwaMoja/SystemParameters.php:950
 msgid "If check price charges vs Order price is set to yes then this proportion determines the percentage by which invoices can be overcharged with respect to price"
 msgstr "رعسلاب قلعتي اميف طرفم لكشب ريتاوفلا ليمحت اهلالخ نم نكمي يتلا ةيوئملا ةبسنلا ددحت ةبسنلا هذه نإف ،معن ىلع بلطلا رعس لباقم رعسلا موسر نم ققحتلا مت اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:949
+#: /home/tim/code/KwaMoja/SystemParameters.php:955
 msgid "Allowed Over Receive Proportion"
 msgstr "ةاقلتملا ةبسنلا ربع هب حومسملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:951
+#: /home/tim/code/KwaMoja/SystemParameters.php:957
 msgid "If check quantity charged vs delivery quantity is set to yes then this proportion determines the percentage by which invoices can be overcharged with respect to delivery"
 msgstr "ميلستلاب قلعتي اميف طرفم لكشب ريتاوفلا ليمحت اهلالخ نم نكمي يتلا ةيوئملا ةبسنلا ددحت ةبسنلا هذه نإف ،معن ىلإ ميلستلا ةيمك لباقم تاكيشلا ةيمك ديدحت مت اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:956
+#: /home/tim/code/KwaMoja/SystemParameters.php:962
 msgid "Purchase Order Allows Same Item Multiple Times"
 msgstr "تارم ةدع رصنعلا سفنل حمسي ءارشلا رمأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:961
+#: /home/tim/code/KwaMoja/SystemParameters.php:967
 msgid "If a purchase order can have the same item on the order several times this parameter should be set to yes"
 msgstr "معن ىلع ةملعملا هذه نييعت بجي تارم ةدع بيترتلا ىلع دنبلا سفن هل نوكي نأ نكمي ءارشلا رمأ ناك اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:966
+#: /home/tim/code/KwaMoja/SystemParameters.php:972
 msgid "Accounts Receivable/Payable Settings"
 msgstr "عفدلا تادادعإ / ةقحتسملا تاباسحلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:970
+#: /home/tim/code/KwaMoja/SystemParameters.php:976
 msgid "First Overdue Deadline in (days)"
 msgstr ")مايأ( يف لوألا رخأتملا يئاهنلا دعوملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:972
+#: /home/tim/code/KwaMoja/SystemParameters.php:978
 msgid "Customer and supplier balances are displayed as overdue by this many days. This parameter is used on customer and supplier enquiry screens and aged listings"
 msgstr "ةميدقلا مئاوقلاو قيقحتلا تاشاش دروملاو ءالمعلا ىلع ةملعملا هذه مادختسا متي .مايألا هذه ترخأت امك نيدروملاو ءالمعلا ةدصرأ ضرع متي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:977
+#: /home/tim/code/KwaMoja/SystemParameters.php:983
 msgid "Second Overdue Deadline in (days)"
 msgstr ")مايأ( يف يناثلا رخأتملا يئاهنلا دعوملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:979
+#: /home/tim/code/KwaMoja/SystemParameters.php:985
 msgid "As above but the next level of overdue"
 msgstr "ةرخأتملا نم يلاتلا ىوتسملا نكلو هالعأ نيبم وه امك "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:984
+#: /home/tim/code/KwaMoja/SystemParameters.php:990
 msgid "Default Credit Limit"
 msgstr "يضارتفالا نامتئالا دح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:986
+#: /home/tim/code/KwaMoja/SystemParameters.php:992
 msgid "The default used in new customer set up"
 msgstr "ددجلا ءالمعلا دادعإ يف مدختسملا يضارتفالا دادعإلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:991
+#: /home/tim/code/KwaMoja/SystemParameters.php:997
 msgid "Check Credit Limits"
 msgstr "نامتئالا دودح نم ققحت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:993
+#: /home/tim/code/KwaMoja/SystemParameters.php:999
 msgid "Do not check"
 msgstr "ققحتت ال "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:994
+#: /home/tim/code/KwaMoja/SystemParameters.php:1000
 msgid "Warn on breach"
 msgstr "لالخإلا ىلع ريذحت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:995
+#: /home/tim/code/KwaMoja/SystemParameters.php:1001
 msgid "Prohibit Sales"
 msgstr "تاعيبملا رظح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:997
+#: /home/tim/code/KwaMoja/SystemParameters.php:1003
 msgid "Credit limits can be checked at order entry to warn only or to stop the order from being entered where it would take a customer account balance over their limit"
 msgstr "اهدودح ىلع ءالمعلا باسح ديصر ذخأت فوس اهنأ ثيح اهلاخدإ نم رمألا فقول وأ طقف ريذحتلل ماظنلا لوخد دنع نامتئالا دودح نم ققحتلا نكمي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1002
+#: /home/tim/code/KwaMoja/SystemParameters.php:1008
 msgid "Show Settled Last Month"
 msgstr "يضاملا رهشلا رقتسم ضرع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1007
+#: /home/tim/code/KwaMoja/SystemParameters.php:1013
 msgid "This setting refers to the format of customer statements. If the invoices and credit notes that have been paid and settled during the course of the current month should be shown then select Yes. Selecting No will only show currently outstanding invoices, credits and payments that have not been allocated"
 msgstr "ايلاح اهصيصخت متي مل يتلا تاعفدلاو تانامتئالاو ريتاوفلا ضرع ىلإالديدحت يدؤيس .معن ددح مث ،يلاحلا رهشلا لالخ اهتيوستو اهعفد مت يتلا تاعاذإلاو ريتاوفلا ضرع يغبني ناك اذإ .ءالمعلا تانايب قيسنت ىلإ دادعإلا اذه ريشي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1012
+#: /home/tim/code/KwaMoja/SystemParameters.php:1018
 msgid "All new branch codes must be authorised"
 msgstr "ةديدجلا عورفلا زومر عيمج صيخرت بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1023
+#: /home/tim/code/KwaMoja/SystemParameters.php:1029
 msgid "If enabled then all new customer branches are set to disabled by default."
 msgstr ".يضارتفا لكشب ليطعت ىلإ ددجلا ءالمعلا عورف عيمج نييعت متي ،كلذ نيكمت مت اذإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1028
+#: /home/tim/code/KwaMoja/SystemParameters.php:1034
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:600
 msgid "Create Debtor Codes Automatically"
 msgstr "ايئاقلت نيدملا زومر ءاشنإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1039
+#: /home/tim/code/KwaMoja/SystemParameters.php:1045
 msgid "Set to Automatic - customer codes are automatically created - as a sequential number"
 msgstr "ةعباتتم مقرك - ايئاقلت ءالمعلا زومر ءاشنإ متي - يئاقلت ىلإ نييعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1043
+#: /home/tim/code/KwaMoja/SystemParameters.php:1049
 msgid "Create Supplier Codes Automatically"
 msgstr "ايئاقلت دروملا زومر ءاشنإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1054
+#: /home/tim/code/KwaMoja/SystemParameters.php:1060
 msgid "Set to Automatic - Supplier codes are automatically created - as a sequential number"
 msgstr "لسلستم مقرك - ايئاقلت نيدروملا زومر ءاشنإ متي - يئاقلت ىلإ نييعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1058
+#: /home/tim/code/KwaMoja/SystemParameters.php:1064
 msgid "Extended Customer Information"
 msgstr "ةعسوملا ءالمعلا تامولعم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1061
-#: /home/tim/code/KwaMoja/SystemParameters.php:1065
+#: /home/tim/code/KwaMoja/SystemParameters.php:1067
+#: /home/tim/code/KwaMoja/SystemParameters.php:1071
 msgid "Extended Customer Info Enabled"
 msgstr "ةعسوملا ليمعلا تامولعم نيكمت مت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1062
-#: /home/tim/code/KwaMoja/SystemParameters.php:1064
+#: /home/tim/code/KwaMoja/SystemParameters.php:1068
+#: /home/tim/code/KwaMoja/SystemParameters.php:1070
 msgid "Extended Customer Info Disabled"
 msgstr "ةعسوملا ليمعلا تامولعم ليطعت مت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1068
+#: /home/tim/code/KwaMoja/SystemParameters.php:1074
 msgid "This feature will give extended information in the Select Customer screen."
 msgstr ".ليمعلا ديدحت ةشاش يف ةعسوم تامولعم ةزيملا هذه مدقتس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1072
+#: /home/tim/code/KwaMoja/SystemParameters.php:1078
 msgid "Extended Supplier Information"
 msgstr "ةعسوملا دروملا تامولعم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1075
-#: /home/tim/code/KwaMoja/SystemParameters.php:1079
+#: /home/tim/code/KwaMoja/SystemParameters.php:1081
+#: /home/tim/code/KwaMoja/SystemParameters.php:1085
 msgid "Extended Supplier Info Enabled"
 msgstr "نيكمت دروملا تامولعم ديدمت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1076
-#: /home/tim/code/KwaMoja/SystemParameters.php:1078
+#: /home/tim/code/KwaMoja/SystemParameters.php:1082
+#: /home/tim/code/KwaMoja/SystemParameters.php:1084
 msgid "Extended Supplier Info Disabled"
 msgstr "ليطعت دروملا تامولعم ديدمت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1082
+#: /home/tim/code/KwaMoja/SystemParameters.php:1088
 msgid "This feature will give extended information in the Select Supplier screen."
 msgstr ".دروملا ديدحت ةشاش يف ةعسوم تامولعم ةزيملا هذه مدقتس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1087
+#: /home/tim/code/KwaMoja/SystemParameters.php:1093
 msgid "Inventory Settings"
 msgstr "إعدادات المخزون"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1094
+#: /home/tim/code/KwaMoja/SystemParameters.php:1100
 msgid "Languages to Maintain Translations for Item Descriptions"
 msgstr "دنبلا فاصوأل تامجرتلا ىلع ظافحلل تاغل "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1105
+#: /home/tim/code/KwaMoja/SystemParameters.php:1111
 msgid "Select the languages in which translations of the item description will be maintained. The default language is excluded."
 msgstr ".ةيضارتفالا ةغللا داعبتسا متي .رصنعلا فصو تامجرت ىلع ظافحلا متيس يتلا تاغللا ددح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1109
+#: /home/tim/code/KwaMoja/SystemParameters.php:1115
 msgid "Inventory Manager Email Address"
 msgstr "نوزخملا ريدمل ينورتكلإلا ديربلا ناونع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1111
+#: /home/tim/code/KwaMoja/SystemParameters.php:1117
 msgid "The email address for the inventory manager, where notifications of all manual stock adjustments created are sent by the system. Leave blank if no emails should be sent to the factory manager for manual stock adjustments"
 msgstr "ايودي نوزخملا ةيوستل عنصملا ريدم ىلإ ينورتكلإ ديرب لئاسر لاسرإ متي مل اذإ اغراف هكرتا .ماظنلا ةطساوب اهؤاشنإ مت يتلا يوديلا نوزخملا تاليدعت عيمج تاراعشإ لاسرإ متي ثيح ،نوزخملا ريدمل ينورتكلإلا ديربلا ناونع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1115
+#: /home/tim/code/KwaMoja/SystemParameters.php:1121
 msgid "Prohibit Negative Stock"
 msgstr "ةيبلسلا مهسألا عنم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1125
+#: /home/tim/code/KwaMoja/SystemParameters.php:1131
 msgid "Setting this parameter to Yes prevents invoicing and the issue of stock if this would result in negative stock. The stock problem must be corrected before the invoice or issue is allowed to be processed."
 msgstr ".ةلكشملا وأ ةروتافلا زيهجتب حامسلا لبق نوزخملا ةلكشم حيحصت بجي .يبلس نوزخم ىلإ يدؤيس كلذ ناك اذإ نوزخملا ةلأسمو ةرتوفلا عنم ىلإ معن ىلإ ةملعملا هذه نييعت يدؤي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1129
+#: /home/tim/code/KwaMoja/SystemParameters.php:1135
 msgid "Inventory Costing Method"
 msgstr "نوزخملا ةفلكت ريدقت ةقيرط "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1133
-#: /home/tim/code/KwaMoja/SystemParameters.php:1137
+#: /home/tim/code/KwaMoja/SystemParameters.php:1139
+#: /home/tim/code/KwaMoja/SystemParameters.php:1143
 msgid "Weighted Average Costing"
 msgstr "فيلاكتلل حجرملا​​ طسوتملا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1134
-#: /home/tim/code/KwaMoja/SystemParameters.php:1136
+#: /home/tim/code/KwaMoja/SystemParameters.php:1140
+#: /home/tim/code/KwaMoja/SystemParameters.php:1142
 msgid "Standard Costing"
 msgstr "ةيسايقلا ةفلكتلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1141
+#: /home/tim/code/KwaMoja/SystemParameters.php:1147
 msgid "allows inventory to be costed based on the weighted average of items in stock or full standard costing with price variances reported. The selection here determines the method used and the general ledger postings resulting from purchase invoices and shipment closing"
 msgstr "نحشلا قالغإو ءارشلا ريتاوف نع ةجتانلا ماعلا ذاتسألا رتفد تاليجستو ةمدختسملا ةقيرطلا انه رايتخالا ددحيو .اهنع غلبملا راعسألا يف قورفلا عم ةلماكلا ةيسايقلا فيلاكتلا وأ نوزخملا يف دونبلل حجرملا​​ طسوتملا ساسأ ىلع نوزخملا ديدحتب حمسي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1146
+#: /home/tim/code/KwaMoja/SystemParameters.php:1152
 msgid "Show Stockid on images"
 msgstr "روصلا ىلع نوزخملا راهظإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1151
+#: /home/tim/code/KwaMoja/SystemParameters.php:1157
 msgid "Show the code inside the thumbnail image of the items"
 msgstr "رصانعلل ةرغصملا ةروصلا لخاد ةرفشلا ضرع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1155
+#: /home/tim/code/KwaMoja/SystemParameters.php:1161
 msgid "Create Inventory Codes Automatically"
 msgstr "ايئاقلت نوزخملا زومر ءاشنإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1166
+#: /home/tim/code/KwaMoja/SystemParameters.php:1172
 msgid "Set to Automatic - Inventory codes are automatically created - as a sequential number"
 msgstr "ةعباتتم مقرك - ايئاقلت درجلا زومر ءاشنإ متي - يئاقلت ىلإ نييعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1171
+#: /home/tim/code/KwaMoja/SystemParameters.php:1177
 msgid "Standard Cost Decimal Places"
 msgstr "ةفلكتلل ةيسايقلا ةيرشعلا نكامألا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1177
+#: /home/tim/code/KwaMoja/SystemParameters.php:1183
 msgid "Decimal Places to be used in Standard Cost"
 msgstr "ةيسايقلا ةفلكتلا يف اهمادختسا متيس يتلا نكامألا يرشع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1182
+#: /home/tim/code/KwaMoja/SystemParameters.php:1188
 msgid "Number Of Periods Of StockUsage"
 msgstr "جيسوكوتس نم تارتفلا ددع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1186
+#: /home/tim/code/KwaMoja/SystemParameters.php:1192
 msgid "In stock usage inquiries this determines how many periods of stock usage to show. An average is calculated over this many periods"
 msgstr "ةديدعلا تارتفلا هذه ىدم ىلع​​ طسوتملا بسحيو .راهظإل نوزخملا مادختسا تارتف ددع مك ددحي اذه نوزخملا مادختسا تاراسفتسالا يف "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1191
+#: /home/tim/code/KwaMoja/SystemParameters.php:1197
 msgid "Show order values on GRN"
 msgstr "نغ ىلع تابلطلا ميق ضرع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1196
+#: /home/tim/code/KwaMoja/SystemParameters.php:1202
 msgid "Should the value of the purchased stock be shown on the GRN screen"
 msgstr "نغ ةشاش ىلع اهؤارش مت يتلا مهسألا ةميق رهظت نأ بجي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1201
+#: /home/tim/code/KwaMoja/SystemParameters.php:1207
+msgid "Show Zero Counts Within Stock Usage Graph Period Range"
+msgstr "إظهار الأعداد الصفرية ضمن نطاق فترة الرسم البياني لاستخدام المخزون"
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:1212
+msgid "Show periods having zero counts within Stock Usage Graph. Choosing yes may show a wider period range than expected."
+msgstr "إظهار الفترات التي لا تحتوي على أي عدد ضمن الرسم البياني لاستخدام المخزون. قد يُظهر اختيار  نطاقًا زمنيًا أوسع من المتوقع."
+
+#: /home/tim/code/KwaMoja/SystemParameters.php:1217
 msgid "Manufacturing/Quality Assurance Settings"
 msgstr "إعدادات ضمان الجودة / التصنيع"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1205
+#: /home/tim/code/KwaMoja/SystemParameters.php:1221
 msgid "Working Days on a Week"
 msgstr "عوبسألا رادم ىلع لمعلا مايأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1207
-#: /home/tim/code/KwaMoja/SystemParameters.php:1208
-#: /home/tim/code/KwaMoja/SystemParameters.php:1209
+#: /home/tim/code/KwaMoja/SystemParameters.php:1223
+#: /home/tim/code/KwaMoja/SystemParameters.php:1224
+#: /home/tim/code/KwaMoja/SystemParameters.php:1225
 msgid "working days"
 msgstr "لمعلا مايأ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1211
+#: /home/tim/code/KwaMoja/SystemParameters.php:1227
 msgid "Number of working days on a week"
 msgstr "عوبسألا يف لمعلا مايأ ددع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1215
+#: /home/tim/code/KwaMoja/SystemParameters.php:1231
 msgid "Text For Quality Product Specification"
 msgstr "جتنملا تافصاوم ةدوجلل صن "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1217
+#: /home/tim/code/KwaMoja/SystemParameters.php:1233
 msgid "This text appears on product specifications"
 msgstr "جتنملا تافصاوم ىلع صنلا اذه رهظي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1221
+#: /home/tim/code/KwaMoja/SystemParameters.php:1237
 msgid "Text For Quality Product Certifications"
 msgstr "جتنملا تاداهش ةدوجلل صن "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1223
+#: /home/tim/code/KwaMoja/SystemParameters.php:1239
 msgid "This text appears on product certifications"
 msgstr "جتنملا تاداهش ىلع صنلا اذه رهظي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1227
+#: /home/tim/code/KwaMoja/SystemParameters.php:1243
 msgid "Auto Log Quality Samples"
 msgstr "تانيعلا ليجست تارايسلا ةدوج "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1238
+#: /home/tim/code/KwaMoja/SystemParameters.php:1254
 msgid "The flag determines if the system creates quality samples automatically for each lot during P/O Receipt and W/O Recipt transactions."
 msgstr ".تبيسير تالماعملا O / W و مالتسا O / P لالخ ريثكلا لكل ايئاقلت ةدوجلا تانيع قلخي ماظنلا ناك اذإ ام ملعلا ددحي "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1242
+#: /home/tim/code/KwaMoja/SystemParameters.php:1258
 msgid "Factory Manager Email Address"
 msgstr "عنصملل ينورتكلإلا ديربلا ريدم ناونع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1244
+#: /home/tim/code/KwaMoja/SystemParameters.php:1260
 msgid "Work orders automatically created when sales orders are entered will be emailed to this address"
 msgstr "ناونعلا اذه ىلإ تاعيبملا رماوأ لاخدإ دنع ايئاقلت اهؤاشنإ متي يتلا لمعلا تابلط لاسرإ متيس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1248
+#: /home/tim/code/KwaMoja/SystemParameters.php:1264
 msgid "Could not load locations table"
 msgstr "عقاوملا لودج ليمحت رذعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1252
+#: /home/tim/code/KwaMoja/SystemParameters.php:1268
 msgid "Default Factory Location"
 msgstr "يضارتفالا عنصملا عقوم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1262
+#: /home/tim/code/KwaMoja/SystemParameters.php:1278
 msgid "This location is the location where work orders will be created from when the auto create work orders option is activated"
 msgstr "يئاقلتلا لمعلا رماوأ ءاشنإ رايخ طيشنت دنع نم لمعلا رماوأ ءاشنإ هيف متيس يذلا ناكملا وه عقوملا اذه "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1267
+#: /home/tim/code/KwaMoja/SystemParameters.php:1283
 msgid "Controlled Items Defined At Work Order Entry"
 msgstr "لمعلا رمأ لاخدإ دنع اهفيرعت متي اهيف مكحتلا متي يتلا رصانعلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1272
+#: /home/tim/code/KwaMoja/SystemParameters.php:1288
 msgid "When set to yes, controlled items are defined at the time of the work order creation. Otherwise controlled items (serial numbers and batch/roll/lot references) are entered at the time the finished items are received against the work order"
 msgstr "لمعلا رمأ لباقم ةيئاهنلا رصانعلا مالتسا هيف متي يذلا تقولا يف اهلاخدإ متيف )توللا / ةعفدلا / عجارملاو ةيلسلستلا ماقرألا( ىرخأ ةقيرطب اهيف مكحتلا متي يتلا دونبلا امأ .لمعلا رمأ ءاشنإ تقو يف اهيلع رطيست يتلا رصانعلا فيرعت متي ،معن ىلإ نييعت دنع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1277
+#: /home/tim/code/KwaMoja/SystemParameters.php:1293
 msgid "Auto Create Work Orders"
 msgstr "لمعلا رماوأ ءاشنإ تارايسلا "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1287
+#: /home/tim/code/KwaMoja/SystemParameters.php:1303
 msgid "Setting this parameter to Yes will ensure that when a sales order is placed if there is insufficient stock then a new work order is created at the default factory location"
 msgstr "يضارتفالا عنصملا عقوم يف ديدج لمع رمأ ءاشنإ متي ،فاك نوزخم دوجو مدع ةلاح يف تاعيبملا رمأ عضو دنع هنأ نم دكأتلا ىلإ معن ىلإ ةملعملا هذه نييعت يدؤيس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1291
+#: /home/tim/code/KwaMoja/SystemParameters.php:1307
 msgid "Auto Issue Components"
 msgstr "تارايسلا ةلكشم تانوكم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1301
+#: /home/tim/code/KwaMoja/SystemParameters.php:1317
 msgid "When items are manufactured it is possible for the components of the item to be automatically decremented from stock in accordance with the Bill of Material setting"
 msgstr "داوملا نوناق دادعإل اقفو نوزخملا نم ايئاقلت ضفخنت نأ دنبلا تانوكمل نكمملا نمف داوملا عينصت متي امدنع "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1306
+#: /home/tim/code/KwaMoja/SystemParameters.php:1322
 msgid "General Ledger Settings"
 msgstr "إعدادات دفتر الأستاذ العام"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1313
+#: /home/tim/code/KwaMoja/SystemParameters.php:1329
 msgid "Prohibit GL Journals to Periods Prior To"
 msgstr "لبق تارتفل لغ تالجملا رظح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1326
+#: /home/tim/code/KwaMoja/SystemParameters.php:1342
 msgid "This allows all periods before the selected date to be locked from postings. All postings for transactions dated prior to this date will be posted in the period following this date."
 msgstr ".خيراتلا اذهل ةيلاتلا ةرتفلا يف خيراتلا اذه لبق ةخرؤملا تالماعملاب ةصاخلا تانييعتلا عيمج رشنتسو .تارشنلا نم ددحملا خيراتلا نيمأت متي نأ لبق تارتفلا عيمجل حمسي اذهو "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1330
+#: /home/tim/code/KwaMoja/SystemParameters.php:1346
 msgid "Prohibit GL Journals to Control Accounts"
 msgstr "تاباسحلا يف مكحتلل لغ تايرود رظح "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1333
-#: /home/tim/code/KwaMoja/SystemParameters.php:1336
+#: /home/tim/code/KwaMoja/SystemParameters.php:1349
+#: /home/tim/code/KwaMoja/SystemParameters.php:1352
 msgid "Prohibited"
 msgstr "عونمم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1334
-#: /home/tim/code/KwaMoja/SystemParameters.php:1337
+#: /home/tim/code/KwaMoja/SystemParameters.php:1350
+#: /home/tim/code/KwaMoja/SystemParameters.php:1353
 msgid "Allowed"
 msgstr "حمس "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1340
+#: /home/tim/code/KwaMoja/SystemParameters.php:1356
 msgid "Setting this to prohibited prevents accidentally entering a journal to the automatically posted and reconciled control accounts for creditors (AP) and debtors (AR)"
 msgstr ")رأ( نينيدملاو )بأ( نينئادلل ايئاقلت ةقباطملاو ةروشنملا ةبقارملا تاباسح ىلإ أطخلا قيرط نع ةلجملا لوخد عنم ىلإ رظحلا اذه ديدحت يدؤيو "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1345
+#: /home/tim/code/KwaMoja/SystemParameters.php:1361
 msgid "Financial Year Ends at End of"
 msgstr "نهاية السنة المالية في نهاية"
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1349
+#: /home/tim/code/KwaMoja/SystemParameters.php:1365
 msgid "Defining the month in which the financial year ends enables the system to provide useful defaults for general ledger reports"
 msgstr "ماعلا ذاتسألا رتفد ريراقتل ةديفم تاءافعإ ميدقت نم ماظنلا نكمي ةيلاملا ةنسلا هيف يهتنت يذلا رهشلا ديدحت نإ "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1354
+#: /home/tim/code/KwaMoja/SystemParameters.php:1370
 msgid "Could not load tax categories table"
 msgstr "ةيبيرضلا تائفلا لودج ليمحت رذعت "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1367
+#: /home/tim/code/KwaMoja/SystemParameters.php:1383
 msgid "This is the tax category used for entry of supplier invoices and the category at which freight attracts tax"
 msgstr "بئارضلا بئارضلا اهيف بذجت يتلا ةئفلاو نيدروملا ريتاوف لوخدل ةمدختسملا ةيبيرضلا ةئفلا يه هذه "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1372
+#: /home/tim/code/KwaMoja/SystemParameters.php:1388
 msgid "Tax Authority Reference Name"
 msgstr "بئارضلا ةحلصم عجرم عجرم "
 
-#: /home/tim/code/KwaMoja/SystemParameters.php:1374
+#: /home/tim/code/KwaMoja/SystemParameters.php:1390
 msgid "This parameter is what is displayed on tax invoices and credits for the tax authority of the company eg. in Australian this would by A.B.N.: - in NZ it would be GST No: in the UK it would be VAT Regn. No"
 msgstr "ال .ةفاضملا ةميقلا ةبيرض نغير نوكيس ةدحتملا ةكلمملا يف :ال تسغ نوكيس زن يف - :N.B.A لبق نم اذه ايلارتسأ يف .لاثملا ليبس ىلع ةكرشلل ةيبيرضلا ةحلصملل تادامتعالاو ةيبيرضلا ريتاوفلا ىلع هضرع متي ام يه ةملعملا هذه "
 
@@ -63812,8 +63788,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "قيقدتلا ةيحالص ءاهتنا لجس فذح ءانثأ ةلكشم تثدح "
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1036
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1151
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1041
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1156
 msgid "An error occurred in retrieving the period number"
 msgstr "ةرتفلا مقر عاجرتسا ءانثأ أطخ ثدح "
 
@@ -65011,6 +64987,10 @@ msgstr ".ميقلا هذه نم ةدحاو دوكتس و ونردروأ حيتا
 msgid "Function Description go here"
 msgstr "انه بهذا يفيظولا فصولا "
 
+#: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1882
+msgid "Account Details"
+msgstr "باسحلا ليصافت "
+
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:1883
 msgid "An array of index/value items describing the GL Account and fields to set."
 msgstr ".اهنييعت بولطملا لوقحلاو لغ باسح فصت يتلا ةميقلا / سرهفلا رصانع نم فيفص "
@@ -65777,42 +65757,46 @@ msgstr "ىرخأ ةرم لوخدلا ليجست ةلواحمل "
 msgid "The configuration in the file config.php for the database user name and password do not provide the information required to connect to the database server"
 msgstr "تانايبلا ةدعاق مقلمب لاصتالل ةبولطملا تامولعملا رفوت ال رورملا ةملكو تانايبلا ةدعاق مدختسم مسا php.gifnoc فلم يف نيوكتلا "
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:87
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:76
+msgid "There was a problem updating the general ledger totals. Please correct"
+msgstr "حدثت مشكلة أثناء تحديث مجاميع دفتر الأستاذ العام. يرجى تصحيح"
+
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:106
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:72
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:65
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:47
 msgid "Database SQL Failure"
 msgstr "تانايبلا ةدعاق لكس لشف "
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:93
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Error Rolling Back Transaction"
 msgstr "ةلماعملا نع عجارتلا يف أطخ ثدح "
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:93
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Database Rollback Error"
 msgstr "تانايبلا ةدعاق ةداعتسا يف أطخ "
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:95
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Rolling Back Transaction OK"
 msgstr "قفاوم ةقفصلا ىرخأ ةرم لوادتملا "
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:95
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Database Rollback Due to Error Above"
 msgstr "هالعأ أطخ ببسب تانايبلا ةدعاق ةداعتسا "
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:199
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:218
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:195
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:190
 msgid "The system has just run the regular database administration and optimisation routine."
@@ -67504,15 +67488,19 @@ msgstr "ايبماز اشاوك "
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr ":لكس قيسنت نم هليوحت متي يذلا خيراتلا ناك .حلاص قيسنتب خيراتلا نأ ودبي ال "
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1024
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1025
 msgid "An error occurred in adding a new period number"
 msgstr "ديدج ةرتف مقر ةفاضإ ءانثأ أطخ ثدح "
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1084
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1030
+msgid "An error occurred in adding a new period number to the gltotals table"
+msgstr "حدث خطأ في إضافة رقم فترة جديد إلى جدول gltotals"
+
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1089
 msgid "Could not insert first period"
 msgstr "ىلوألا ةرتفلا جاردإ رذعت "
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1085
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1090
 msgid "Could not insert second period"
 msgstr "ةيناثلا ةرتفلا جاردإ رذعت "
 
@@ -68109,6 +68097,11 @@ msgstr "ديربلا مئاوق دادرتسا قفخأ "
 msgid "The SQL to update "
 msgstr "ثيدحتل لكس "
 
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:576
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:648
+msgid "This Year"
+msgstr "ماعلا اذه "
+
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:581
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:660
 msgid "Last Month"
@@ -68118,6 +68111,11 @@ msgstr "الشهر الماضي"
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:664
 msgid "Last Quarter"
 msgstr "الربع الأخير"
+
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:584
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:677
+msgid "Last Financial Year"
+msgstr "ةيلام ةنس رخآ "
 
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:588
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:685
@@ -68133,6 +68131,11 @@ msgstr "الربع القادم"
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:698
 msgid "Next Year"
 msgstr "العام القادم"
+
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:591
+#: /home/tim/code/KwaMoja/includes/MiscFunctions.php:702
+msgid "Next Financial Year"
+msgstr "ةيلاتلا ةيلاملا ةنسلا "
 
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:768
 msgid "Select an Account Code"
@@ -73232,6 +73235,39 @@ msgstr "نيفظوملا ضورق "
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "نيفظوملا ضورق تاديدست "
+
+#~ msgid "Print Statement of Financial Position"
+#~ msgstr "ةعابطلل يلاملا زكرملا نايب "
+
+#~ msgid "Print Trial Balance Error"
+#~ msgstr "ةيبيرجتلا ةخسنلا ديصر يف أطخ تنيرب "
+
+#~ msgid "Budget updated successfully"
+#~ msgstr "حاجنب ةينازيملا ثيدحت مت "
+
+#~ msgid "No General ledger accounts have been set up yet"
+#~ msgstr "نآلا ىتح ماعلا ذاتسألا رتفد تاباسح ءاشنإ متي مل "
+
+#~ msgid "budgets cannot be allocated until the GL accounts are set up"
+#~ msgstr "لغ تاباسح دادعإ متي ىتح تاينازيملا صيصخت نكمي ال "
+
+#~ msgid "Cannot update GL budgets"
+#~ msgstr "لغ تاينازيم ثيدحت نكمي ال "
+
+#~ msgid "The SQL that failed to update the GL budgets was"
+#~ msgstr "لغ تاينازيم ثيدحت يف تلشف يتلا لكس تناك "
+
+#~ msgid "Budget Entry"
+#~ msgstr "ةينازيملا لوخد "
+
+#~ msgid "Year ended"
+#~ msgstr "ةنسلا تهتنا "
+
+#~ msgid "Annual Budget"
+#~ msgstr "ةيونسلا ةينازيملا "
+
+#~ msgid "Apportion Budget"
+#~ msgstr "ةينازيملا عيزوت "
 
 #~ msgid "Item to bill"
 #~ msgstr "عنصر إلى الفاتورة"
