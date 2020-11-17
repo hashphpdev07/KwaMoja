@@ -5,7 +5,7 @@
  * the input of criteria screen while the user is selecting the criteria
  * the system is posting any unposted transactions
 */
-
+$PageSecurity = 1;
 include ('includes/session.php');
 $Title = _('Trial Balance');
 include ('includes/SQL_CommonFunctions.php');
@@ -118,6 +118,28 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			<fieldhelp>', _('Select a predefined period from this list. If a selection is made here it will override anything selected in the From and To options above.'), '</fieldhelp>
 		</field>';
 
+	$SQL = "SELECT `id`,
+					`name`,
+					`current`
+				FROM glbudgetheaders";
+	$Result = DB_query($SQL);
+	echo '<field>
+			<label for="SelectedBudget">', _('Budget To Show Comparisons With'), '</label>
+			<select name="SelectedBudget">';
+	while ($MyRow = DB_fetch_array($Result)) {
+		if (!isset($_POST['SelectedBudget']) and $MyRow['current'] == 1) {
+			$_POST['SelectedBudget'] = $MyRow['id'];
+		}
+		if ($MyRow['id'] == $_POST['SelectedBudget']) {
+			echo '<option selected="selected" value="', $MyRow['id'], '">', $MyRow['name'], '</option>';
+		} else {
+			echo '<option value="', $MyRow['id'], '">', $MyRow['name'], '</option>';
+		}
+	}
+	echo '<fieldhelp>', _('Select the budget to make comparisons with.'), '</fieldhelp>
+		</select>
+	</field>';
+
 	echo '</fieldset>';
 
 	echo '<div class="centre">
@@ -126,316 +148,19 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			<input type="submit" name="ExportCSV" value="' . _('Export to Spreadsheet') . '" />
 		</div>';
 
-	/*Now do the posting while the user is thinking about the period to select */
+	echo '</form>';
+	include ('includes/footer.php');
 
-	include ('includes/GLPostings.php');
-
-} else if (isset($_POST['PrintPDF'])) {
-
-	include ('includes/PDFStarter.php');
-
-	$PDF->addInfo('Title', _('Trial Balance'));
-	$PDF->addInfo('Subject', _('Trial Balance'));
-	$PageNumber = 0;
-	$FontSize = 10;
-	$line_height = 12;
-
-	if ($_POST['Period'] != '') {
-		$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
-		$_POST['PeriodTo'] = ReportPeriod($_POST['Period'], 'To');
-	}
-
-	$NumberOfMonths = $_POST['PeriodTo'] - $_POST['PeriodFrom'] + 1;
-
-	$SQL = "SELECT lastdate_in_period
-			FROM periods
-			WHERE periodno='" . $_POST['PeriodTo'] . "'";
-	$PrdResult = DB_query($SQL);
-	$MyRow = DB_fetch_row($PrdResult);
-	$PeriodToDate = MonthAndYearFromSQLDate($MyRow[0]);
-
-	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
-
-	$SQL = "SELECT accountgroups.groupname,
-			accountgroups.parentgroupname,
-			accountgroups.pandl,
-			chartdetails.accountcode ,
-			chartmaster.accountname,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.actual ELSE 0 END) AS monthactual,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.budget ELSE 0 END) AS monthbudget,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
-		FROM chartmaster
-			INNER JOIN accountgroups ON chartmaster.groupcode = accountgroups.groupcode AND chartmaster.language=accountgroups.language
-			INNER JOIN chartdetails ON chartmaster.accountcode= chartdetails.accountcode
-			INNER JOIN glaccountusers ON glaccountusers.accountcode=chartmaster.accountcode AND glaccountusers.userid='" . $_SESSION['UserID'] . "' AND glaccountusers.canview=1
-		WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
-		GROUP BY accountgroups.groupcode,
-				accountgroups.parentgroupname,
-				accountgroups.pandl,
-				accountgroups.sequenceintb,
-				chartdetails.accountcode,
-				chartmaster.accountname
-		ORDER BY accountgroups.pandl desc,
-			accountgroups.sequenceintb,
-			accountgroups.groupcode,
-			chartdetails.accountcode";
-
-	$AccountsResult = DB_query($SQL);
-	if (DB_error_no() != 0) {
-		$Title = _('Trial Balance') . ' - ' . _('Problem Report') . '....';
-		$ViewTopic = 'GeneralLedger';
-		$BookMark = 'TrialBalance';
-		include ('includes/header.php');
-		prnMsg(_('No general ledger accounts were returned by the SQL because') . ' - ' . DB_error_msg());
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		if ($Debug == 1) {
-			echo '<br />' . $SQL;
-		}
-		include ('includes/footer.php');
-		exit;
-	}
-	if (DB_num_rows($AccountsResult) == 0) {
-		$Title = _('Print Trial Balance Error');
-		$ViewTopic = 'GeneralLedger';
-		$BookMark = 'TrialBalance';
-		include ('includes/header.php');
-		echo '<p>';
-		prnMsg(_('There were no entries to print out for the selections specified'));
-		echo '<br /><a href="' . $RootPath . '/index.php">' . _('Back to the menu') . '</a>';
-		include ('includes/footer.php');
-		exit;
-	}
-
-	include ('includes/PDFTrialBalancePageHeader.php');
-
-	$j = 1;
-	$Level = 1;
-	$ActGrp = '';
-	$ParentGroups = array();
-	$ParentGroups[$Level] = '';
-	$GrpActual = array(0);
-	$GrpBudget = array(0);
-	$GrpPrdActual = array(0);
-	$GrpPrdBudget = array(0);
-	$PeriodProfitLoss = 0;
-	$PeriodBudgetProfitLoss = 0;
-	$MonthProfitLoss = 0;
-	$MonthBudgetProfitLoss = 0;
-	$BFwdProfitLoss = 0;
-	$CheckMonth = 0;
-	$CheckBudgetMonth = 0;
-	$CheckPeriodActual = 0;
-	$CheckPeriodBudget = 0;
-
-	while ($MyRow = DB_fetch_array($AccountsResult)) {
-
-		if ($MyRow['groupname'] != $ActGrp) {
-
-			if ($ActGrp != '') {
-
-				// Print heading if at end of page
-				if ($YPos < ($Bottom_Margin + (2 * $line_height))) {
-					include ('includes/PDFTrialBalancePageHeader.php');
-				}
-				if ($MyRow['parentgroupname'] == $ActGrp) {
-					$Level++;
-					$ParentGroups[$Level] = $MyRow['groupname'];
-				} elseif ($MyRow['parentgroupname'] == $ParentGroups[$Level]) {
-					$YPos-= (.5 * $line_height);
-					$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
-					$PDF->setFont('', 'B');
-					$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
-					$LeftOvers = $PDF->addTextWrap($Left_Margin + 60, $YPos, 190, $FontSize, $ParentGroups[$Level]);
-					$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-					$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-					$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-					$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-					$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
-					/*Draw the bottom line */
-					$YPos-= (2 * $line_height);
-					$PDF->setFont('', '');
-					$ParentGroups[$Level] = $MyRow['groupname'];
-					$GrpActual[$Level] = 0;
-					$GrpBudget[$Level] = 0;
-					$GrpPrdActual[$Level] = 0;
-					$GrpPrdBduget[$Level] = 0;
-
-				} else {
-					do {
-						$YPos-= $line_height;
-						$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
-						$PDF->setFont('', 'B');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 60, $YPos, 190, $FontSize, $ParentGroups[$Level]);
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
-						/*Draw the bottom line */
-						$YPos-= (2 * $line_height);
-						$PDF->setFont('', '');
-						$ParentGroups[$Level] = '';
-						$GrpActual[$Level] = 0;
-						$GrpBudget[$Level] = 0;
-						$GrpPrdActual[$Level] = 0;
-						$GrpPrdBduget[$Level] = 0;
-						$Level--;
-					} while ($Level > 0 and $MyRow['parentgroupname'] != $ParentGroups[$Level]);
-
-					if ($Level > 0) {
-						$YPos-= $line_height;
-						$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
-						$PDF->setFont('', 'B');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 60, $YPos, 190, $FontSize, $ParentGroups[$Level]);
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-						$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
-						/*Draw the bottom line */
-						$YPos-= (2 * $line_height);
-						$PDF->setFont('', '');
-						$GrpActual[$Level] = 0;
-						$GrpBudget[$Level] = 0;
-						$GrpPrdActual[$Level] = 0;
-						$GrpPrdBduget[$Level] = 0;
-					} else {
-						$Level = 1;
-					}
-				}
-			}
-			$YPos-= (2 * $line_height);
-			// Print account group name
-			$PDF->setFont('', 'B');
-			$ActGrp = $MyRow['groupname'];
-			$ParentGroups[$Level] = $MyRow['groupname'];
-			$FontSize = 10;
-			$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 200, $FontSize, $MyRow['groupname']);
-			$FontSize = 8;
-			$PDF->setFont('', '');
-			$YPos-= (2 * $line_height);
-		}
-
-		if ($MyRow['pandl'] == 1) {
-
-			$AccountPeriodActual = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
-			$AccountPeriodBudget = $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
-
-			$PeriodProfitLoss+= $AccountPeriodActual;
-			$PeriodBudgetProfitLoss+= $AccountPeriodBudget;
-			$MonthProfitLoss+= $MyRow['monthactual'];
-			$MonthBudgetProfitLoss+= $MyRow['monthbudget'];
-			$BFwdProfitLoss+= $MyRow['firstprdbfwd'];
-		} else {
-			/*PandL ==0 its a balance sheet account */
-			if ($MyRow['accountcode'] == $RetainedEarningsAct) {
-				$AccountPeriodActual = $BFwdProfitLoss + $MyRow['lastprdcfwd'];
-				$AccountPeriodBudget = $BFwdProfitLoss + $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
-			} else {
-				$AccountPeriodActual = $MyRow['lastprdcfwd'];
-				$AccountPeriodBudget = $MyRow['firstprdbfwd'] + $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
-			}
-
-		}
-		for ($i = 0;$i <= $Level;$i++) {
-			if (!isset($GrpActual[$i])) {
-				$GrpActual[$i] = 0;
-			}
-			$GrpActual[$i]+= $MyRow['monthactual'];
-			if (!isset($GrpBudget[$i])) {
-				$GrpBudget[$i] = 0;
-			}
-			$GrpBudget[$i]+= $MyRow['monthbudget'];
-			if (!isset($GrpPrdActual[$i])) {
-				$GrpPrdActual[$i] = 0;
-			}
-			$GrpPrdActual[$i]+= $AccountPeriodActual;
-			if (!isset($GrpPrdBudget[$i])) {
-				$GrpPrdBudget[$i] = 0;
-			}
-			$GrpPrdBudget[$i]+= $AccountPeriodBudget;
-		}
-
-		$CheckMonth+= $MyRow['monthactual'];
-		$CheckBudgetMonth+= $MyRow['monthbudget'];
-		$CheckPeriodActual+= $AccountPeriodActual;
-		$CheckPeriodBudget+= $AccountPeriodBudget;
-
-		// Print heading if at end of page
-		if ($YPos < ($Bottom_Margin)) {
-			include ('includes/PDFTrialBalancePageHeader.php');
-		}
-
-		// Print total for each account
-		$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, $MyRow['accountcode']);
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 60, $YPos, 190, $FontSize, $MyRow['accountname']);
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($MyRow['monthactual'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($MyRow['monthbudget'], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$YPos-= $line_height;
-
-	} //end of while loop
-	
-
-	while ($Level > 0 and $MyRow['parentgroupname'] != $ParentGroups[$Level]) {
-
-		$YPos-= (.5 * $line_height);
-		$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
-		$PDF->setFont('', 'B');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Total'));
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 60, $YPos, 190, $FontSize, $ParentGroups[$Level]);
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-		$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
-		/*Draw the bottom line */
-		$YPos-= (2 * $line_height);
-		$ParentGroups[$Level] = '';
-		$GrpActual[$Level] = 0;
-		$GrpBudget[$Level] = 0;
-		$GrpPrdActual[$Level] = 0;
-		$GrpPrdBduget[$Level] = 0;
-		$Level--;
-	}
-
-	$YPos-= (2 * $line_height);
-	$PDF->line($Left_Margin + 250, $YPos + $line_height, $Left_Margin + 500, $YPos + $line_height);
-	$LeftOvers = $PDF->addTextWrap($Left_Margin, $YPos, 60, $FontSize, _('Check Totals'));
-	$LeftOvers = $PDF->addTextWrap($Left_Margin + 250, $YPos, 70, $FontSize, locale_number_format($CheckMonth, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$LeftOvers = $PDF->addTextWrap($Left_Margin + 310, $YPos, 70, $FontSize, locale_number_format($CheckBudgetMonth, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$LeftOvers = $PDF->addTextWrap($Left_Margin + 370, $YPos, 70, $FontSize, locale_number_format($CheckPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$LeftOvers = $PDF->addTextWrap($Left_Margin + 430, $YPos, 70, $FontSize, locale_number_format($CheckPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']), 'right');
-	$PDF->line($Left_Margin + 250, $YPos, $Left_Margin + 500, $YPos);
-
-	$PDF->OutputD($_SESSION['DatabaseName'] . '_GL_Trial_Balance_' . Date('Y-m-d') . '.pdf');
-	$PDF->__destruct();
-	exit;
-} elseif (isset($_POST['ExportCSV'])) {
-	include ('includes/header.php');
-
-	if ($_POST['Period'] != '') {
-		$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
-		$_POST['PeriodTo'] = ReportPeriod($_POST['Period'], 'To');
-	}
-
-	echo '<div class="centre"><a href="GLTrialBalance.php">' . _('Select A Different Period') . '</a></div>';
-	echo '<meta http-equiv="Refresh" content="0; url=' . $RootPath . '/GLTrialBalance_csv.php?PeriodFrom=' . $_POST['PeriodFrom'] . '&PeriodTo=' . $_POST['PeriodTo'] . '">';
-} else {
+} else if (isset($_POST['ShowTB'])) {
 
 	$ViewTopic = 'GeneralLedger';
 	$BookMark = 'TrialBalance';
 	include ('includes/header.php');
+
 	echo '<form method="post" action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '">';
 	echo '<input type="hidden" name="FormID" value="' . $_SESSION['FormID'] . '" />';
-	echo '<input type="hidden" name="PeriodFrom" value="' . $_POST['PeriodFrom'] . '" />
-			<input type="hidden" name="PeriodTo" value="' . $_POST['PeriodTo'] . '" />';
+	echo '<input type="hidden" name="PeriodFrom" value="' . $_POST['PeriodFrom'] . '" />';
+	echo '<input type="hidden" name="PeriodTo" value="' . $_POST['PeriodTo'] . '" />';
 
 	if ($_POST['Period'] != '') {
 		$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
@@ -453,281 +178,272 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
 
-	$SQL = "SELECT accountgroups.groupname,
-			accountgroups.parentgroupname,
-			accountgroups.pandl,
-			chartdetails.accountcode ,
-			chartmaster.accountname,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwdbudget ELSE 0 END) AS firstprdbudgetbfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.actual ELSE 0 END) AS monthactual,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.budget ELSE 0 END) AS monthbudget,
-			Sum(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwdbudget + chartdetails.budget ELSE 0 END) AS lastprdbudgetcfwd
-		FROM chartmaster
-			INNER JOIN accountgroups ON chartmaster.groupcode = accountgroups.groupcode AND chartmaster.language=accountgroups.language
-			INNER JOIN chartdetails ON chartmaster.accountcode= chartdetails.accountcode
-			INNER JOIN glaccountusers ON glaccountusers.accountcode=chartmaster.accountcode AND glaccountusers.userid='" . $_SESSION['UserID'] . "' AND glaccountusers.canview=1
-		WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
-		GROUP BY accountgroups.groupcode,
-				accountgroups.pandl,
-				accountgroups.sequenceintb,
-				accountgroups.parentgroupname,
-				chartdetails.accountcode,
-				chartmaster.accountname
-		ORDER BY accountgroups.pandl desc,
-			accountgroups.sequenceintb,
-			accountgroups.groupcode,
-			chartdetails.accountcode";
+	echo '<p class="page_title_text">
+			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/gl.png" title="', _('Trial Balance'), '" alt="', _('Print'), '" />', ' ', _('Trial Balance Report'), '
+		</p>';
 
-	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was') . ': ');
-
-	echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/magnifier.png" title="' . _('Trial Balance') . '" alt="' . _('Print') . '" />' . ' ' . _('Trial Balance Report') . '</p>';
-
-	/*show a table of the accounts info returned by the SQL
-	 Account Code ,   Account Name , Month Actual, Month Budget, Period Actual, Period Budget */
-
-	echo '<table cellpadding="2" summary="' . _('Trial Balance Report') . '">';
+	echo '<table cellpadding="2" summary="', _('Trial Balance Report'), '">';
 	echo '<thead>
 			<tr>
 				<th colspan="6">
-					<b>' . _('Trial Balance for the month of ') . $PeriodToDate . _(' and for the ') . $NumberOfMonths . _(' months to ') . $PeriodToDate . '</b>
-					<img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/printer.png" class="PrintIcon" title="' . _('Print') . '" alt="' . _('Print') . '" onclick="window.print();" />
+					<b>', _('Trial Balance for the month of '), $PeriodToDate, _(' and for the '), $NumberOfMonths, _(' months to '), $PeriodToDate, '</b>
+					<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/printer.png" class="PrintIcon" title="', _('Print'), '" alt="', _('Print'), '" onclick="window.print();" />
 				</th>
 			</tr>
 			<tr>
-				<th>' . _('Account') . '</th>
-				<th>' . _('Account Name') . '</th>
-				<th>' . _('Month Actual') . '</th>
-				<th>' . _('Month Budget') . '</th>
-				<th>' . _('Period Actual') . '</th>
-				<th>' . _('Period Budget') . '</th>
+				<th>', _('Account'), '</th>
+				<th>', _('Account Name'), '</th>
+				<th>', _('Month Actual'), '</th>
+				<th>', _('Month Budget'), '</th>
+				<th>', _('Period Actual'), '</th>
+				<th>', _('Period Budget'), '</th>
 			</tr>
 		</thead>';
 
-	$ActGrp = '';
-	$ParentGroups = array();
-	$Level = 1; //level of nested sub-groups
-	$ParentGroups[$Level] = '';
-	$GrpActual = array(0);
-	$GrpBudget = array(0);
-	$GrpPrdActual = array(0);
-	$GrpPrdBudget = array(0);
+	/* Firstly get the account totals for this period */
+	$ThisMonthSQL = "SELECT account,
+							SUM(amount) AS monthtotal
+						FROM gltotals
+						WHERE period='" . $_POST['PeriodTo'] . "'
+						GROUP BY account";
+	$ThisMonthResult = DB_query($ThisMonthSQL);
+	$ThisMonthArray = array();
 
-	$PeriodProfitLoss = 0;
-	$PeriodBudgetProfitLoss = 0;
-	$MonthProfitLoss = 0;
-	$MonthBudgetProfitLoss = 0;
-	$BFwdProfitLoss = 0;
-	$CheckMonth = 0;
-	$CheckBudgetMonth = 0;
-	$CheckPeriodActual = 0;
-	$CheckPeriodBudget = 0;
-
-	$j = 0;
-	echo '<tbody>';
-
-	while ($MyRow = DB_fetch_array($AccountsResult)) {
-
-		if ($MyRow['groupname'] != $ActGrp) {
-			if ($ActGrp != '') { //so its not the first account group of the first account displayed
-				if ($MyRow['parentgroupname'] == $ActGrp) {
-					$Level++;
-					$ParentGroups[$Level] = $MyRow['groupname'];
-					$GrpActual[$Level] = 0;
-					$GrpBudget[$Level] = 0;
-					$GrpPrdActual[$Level] = 0;
-					$GrpPrdBudget[$Level] = 0;
-					$ParentGroups[$Level] = '';
-				} elseif ($ParentGroups[$Level] == $MyRow['parentgroupname']) {
-					printf('<tr>
-						<td colspan="2"><i>%s ' . _('Total') . ' </i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						</tr>', $ParentGroups[$Level], locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
-
-					$GrpActual[$Level] = 0;
-					$GrpBudget[$Level] = 0;
-					$GrpPrdActual[$Level] = 0;
-					$GrpPrdBudget[$Level] = 0;
-					$ParentGroups[$Level] = $MyRow['groupname'];
-				} else {
-					do {
-						printf('<tr>
-							<td colspan="2"><i>%s ' . _('Total') . ' </i></td>
-							<td class="number"><i>%s</i></td>
-							<td class="number"><i>%s</i></td>
-							<td class="number"><i>%s</i></td>
-							<td class="number"><i>%s</i></td>
-							</tr>', $ParentGroups[$Level], locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
-
-						$GrpActual[$Level] = 0;
-						$GrpBudget[$Level] = 0;
-						$GrpPrdActual[$Level] = 0;
-						$GrpPrdBudget[$Level] = 0;
-						$ParentGroups[$Level] = '';
-						$Level--;
-
-						++$j;
-					} while ($Level > 0 and $MyRow['groupname'] != $ParentGroups[$Level]);
-
-					if ($Level > 0) {
-						printf('<tr>
-						<td colspan="2"><i>%s ' . _('Total') . ' </i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						</tr>', $ParentGroups[$Level], locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
-
-						$GrpActual[$Level] = 0;
-						$GrpBudget[$Level] = 0;
-						$GrpPrdActual[$Level] = 0;
-						$GrpPrdBudget[$Level] = 0;
-						$ParentGroups[$Level] = '';
-					} else {
-						$Level = 1;
-					}
-				}
-			}
-			$ParentGroups[$Level] = $MyRow['groupname'];
-			$ActGrp = $MyRow['groupname'];
-			printf('<tr>
-						<td colspan="6"><h2>%s</h2></td>
-					</tr>', $MyRow['groupname']);
-		}
-
-		if ($MyRow['pandl'] == 1) {
-
-			$AccountPeriodActual = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
-			$AccountPeriodBudget = $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
-
-			$PeriodProfitLoss+= $AccountPeriodActual;
-			$PeriodBudgetProfitLoss+= $AccountPeriodBudget;
-			$MonthProfitLoss+= $MyRow['monthactual'];
-			$MonthBudgetProfitLoss+= $MyRow['monthbudget'];
-			$BFwdProfitLoss+= $MyRow['firstprdbfwd'];
-		} else {
-			/*PandL ==0 its a balance sheet account */
-			if ($MyRow['accountcode'] == $RetainedEarningsAct) {
-				$AccountPeriodActual = $BFwdProfitLoss + $MyRow['lastprdcfwd'];
-				$AccountPeriodBudget = $BFwdProfitLoss + $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
-			} else {
-				$AccountPeriodActual = $MyRow['lastprdcfwd'];
-				$AccountPeriodBudget = $MyRow['firstprdbfwd'] + $MyRow['lastprdbudgetcfwd'] - $MyRow['firstprdbudgetbfwd'];
-			}
-
-		}
-
-		if (!isset($GrpActual[$Level])) {
-			$GrpActual[$Level] = 0;
-		}
-		if (!isset($GrpBudget[$Level])) {
-			$GrpBudget[$Level] = 0;
-		}
-		if (!isset($GrpPrdActual[$Level])) {
-			$GrpPrdActual[$Level] = 0;
-		}
-		if (!isset($GrpPrdBudget[$Level])) {
-			$GrpPrdBudget[$Level] = 0;
-		}
-		$GrpActual[$Level]+= $MyRow['monthactual'];
-		$GrpBudget[$Level]+= $MyRow['monthbudget'];
-		$GrpPrdActual[$Level]+= $AccountPeriodActual;
-		$GrpPrdBudget[$Level]+= $AccountPeriodBudget;
-
-		$CheckMonth+= $MyRow['monthactual'];
-		$CheckBudgetMonth+= $MyRow['monthbudget'];
-		$CheckPeriodActual+= $AccountPeriodActual;
-		$CheckPeriodBudget+= $AccountPeriodBudget;
-
-		$ActEnquiryURL = '<a href="' . $RootPath . '/GLAccountInquiry.php?PeriodFrom=' . $_POST['PeriodFrom'] . '&amp;PeriodTo=' . $_POST['PeriodTo'] . '&amp;Account=' . $MyRow['accountcode'] . '&amp;Show=Yes">' . $MyRow['accountcode'] . '</a>';
-
-		printf('<tr class="striped_row">
-					<td>%s</td>
-					<td>%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-					<td class="number">%s</td>
-				</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format($MyRow['monthactual'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($MyRow['monthbudget'], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($AccountPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']));
-
-		++$j;
-	}
-	//end of while loop
-	
-
-	if ($ActGrp != '') { //so its not the first account group of the first account displayed
-		if ($MyRow['parentgroupname'] == $ActGrp) {
-			$Level++;
-			$ParentGroups[$Level] = $MyRow['groupname'];
-		} elseif ($ParentGroups[$Level] == $MyRow['parentgroupname']) {
-			printf('<tr>
-					<td colspan="2"><i>%s ' . _('Total') . ' </i></td>
-					<td class="number"><i>%s</i></td>
-					<td class="number"><i>%s</i></td>
-					<td class="number"><i>%s</i></td>
-					<td class="number"><i>%s</i></td>
-					</tr>', $ParentGroups[$Level], locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
-
-			$GrpActual[$Level] = 0;
-			$GrpBudget[$Level] = 0;
-			$GrpPrdActual[$Level] = 0;
-			$GrpPrdBudget[$Level] = 0;
-			$ParentGroups[$Level] = $MyRow['groupname'];
-		} else {
-			do {
-				printf('<tr>
-						<td colspan="2"><i>%s ' . _('Total') . ' </i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						</tr>', $ParentGroups[$Level], locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
-
-				$GrpActual[$Level] = 0;
-				$GrpBudget[$Level] = 0;
-				$GrpPrdActual[$Level] = 0;
-				$GrpPrdBudget[$Level] = 0;
-				$ParentGroups[$Level] = '';
-				$Level--;
-
-				++$j;
-			} while (isset($ParentGroups[$Level]) and ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0));
-
-			if ($Level > 0) {
-				printf('<tr>
-						<td colspan="2"><i>%s ' . _('Total') . ' </i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						<td class="number"><i>%s</i></td>
-						</tr>', $ParentGroups[$Level], locale_number_format($GrpActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($GrpPrdBudget[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
-
-				$GrpActual[$Level] = 0;
-				$GrpBudget[$Level] = 0;
-				$GrpPrdActual[$Level] = 0;
-				$GrpPrdBudget[$Level] = 0;
-				$ParentGroups[$Level] = '';
-			} else {
-				$Level = 1;
-			}
-		}
+	while ($ThisMonthRow = DB_fetch_array($ThisMonthResult)) {
+		$ThisMonthArray[$ThisMonthRow['account']] = $ThisMonthRow['monthtotal'];
 	}
 
-	printf('<tr>
-				<td colspan="2"><b>' . _('Check Totals') . '</b></td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-				<td class="number">%s</td>
-			</tr>', locale_number_format($CheckMonth, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($CheckBudgetMonth, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($CheckPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']), locale_number_format($CheckPeriodBudget, $_SESSION['CompanyRecord']['decimalplaces']));
-	echo '</tbody>';
+	/* Then get this periods cumulative P&L accounts */
+	$ThisPeriodPLSQL = "SELECT account,
+								SUM(amount) AS periodtotal
+						FROM gltotals
+						INNER JOIN chartmaster
+							ON gltotals.account=chartmaster.accountcode
+						INNER JOIN accountgroups
+							ON chartmaster.groupcode=accountgroups.groupcode
+						WHERE period<='" . $_POST['PeriodTo'] . "'
+							AND period>='" . $_POST['PeriodFrom'] . "'
+							AND pandl=1
+						GROUP BY account";
+	$ThisPeriodPLResult = DB_query($ThisPeriodPLSQL);
+	$ThisPeriodArray = array();
+
+	while ($ThisPeriodPLRow = DB_fetch_array($ThisPeriodPLResult)) {
+		$ThisPeriodArray[$ThisPeriodPLRow['account']] = $ThisPeriodPLRow['periodtotal'];
+	}
+
+	/* Then get this periods cumulative BS accounts */
+	$ThisPeriodBSSQL = "SELECT account,
+								SUM(amount) AS periodtotal
+						FROM gltotals
+						INNER JOIN chartmaster
+							ON gltotals.account=chartmaster.accountcode
+						INNER JOIN accountgroups
+							ON chartmaster.groupcode=accountgroups.groupcode
+						WHERE period<='" . $_POST['PeriodTo'] . "'
+							AND pandl=0
+						GROUP BY account";
+	$ThisPeriodBSResult = DB_query($ThisPeriodBSSQL);
+
+	while ($ThisPeriodBSRow = DB_fetch_array($ThisPeriodBSResult)) {
+		$ThisPeriodArray[$ThisPeriodBSRow['account']] = $ThisPeriodBSRow['periodtotal'];
+	}
+
+	/* Get the retained earnings amount */
+	$RetainedEarningsSQL = "SELECT SUM(amount) AS retainedearnings
+							FROM gltotals
+							INNER JOIN chartmaster
+								ON gltotals.account=chartmaster.accountcode
+							INNER JOIN accountgroups
+								ON chartmaster.groupcode=accountgroups.groupcode
+							WHERE period<'" . $_POST['PeriodFrom'] . "'
+								AND pandl=1";
+	$RetainedEarningsResult = DB_query($RetainedEarningsSQL);
+	$RetainedEarningsRow = DB_fetch_array($RetainedEarningsResult);
+
+	// Get all account codes
+	$SQL = "SELECT chartmaster.accountcode,
+					chartmaster.groupcode,
+					group_,
+					chartmaster.language,
+					accountname,
+					pandl
+			FROM chartmaster
+			INNER JOIN glaccountusers
+				ON glaccountusers.accountcode=chartmaster.accountcode
+				AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
+				AND glaccountusers.canview=1
+			INNER JOIN accountgroups
+				ON accountgroups.groupcode=chartmaster.groupcode
+			WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+			ORDER BY groupcode,
+					accountcode";
+	$AccountListResult = DB_query($SQL);
+	$AccountListRow = DB_fetch_array($AccountListResult);
+
+	echo '<tr><td></td></tr>';
+	echo '<tr class="total_row">
+			<td>', $AccountListRow['group_'], '</td>
+			<td colspan="6"></td>
+		</tr>';
+
+	$LastGroup = $AccountListRow['groupcode'];
+	$LastGroupName = $AccountListRow['group_'];
+
+	$SQL = "SELECT amount AS monthbudget
+			FROM glbudgetdetails
+			WHERE account='" . $AccountListRow['accountcode'] . "'
+				AND period='" . $_POST['PeriodTo'] . "'
+				AND headerid='" . $_POST['SelectedBudget'] . "'";
+	$MonthBudgetResult = DB_query($SQL);
+	$MonthBudgetRow = DB_fetch_array($MonthBudgetResult);
+	if (!isset($MonthBudgetRow['monthbudget'])) {
+		$MonthBudgetRow['monthbudget'] = 0;
+	}
+
+	$SQL = "SELECT SUM(amount) AS periodbudget
+			FROM glbudgetdetails
+			WHERE account='" . $AccountListRow['accountcode'] . "'
+				AND period>='" . $_POST['PeriodFrom'] . "'
+				AND period<='" . $_POST['PeriodTo'] . "'
+				AND headerid='" . $_POST['SelectedBudget'] . "'";
+	$PeriodBudgetResult = DB_query($SQL);
+	$PeriodBudgetRow = DB_fetch_array($PeriodBudgetResult);
+	if (!isset($PeriodBudgetRow['periodbudget'])) {
+		$PeriodBudgetRow['periodbudget'] = 0;
+	}
+
+	if (!isset($ThisMonthArray[$AccountListRow['accountcode']])) {
+		$ThisMonthArray[$AccountListRow['accountcode']] = 0;
+	}
+	if (!isset($ThisPeriodArray[$AccountListRow['accountcode']])) {
+		$ThisPeriodArray[$AccountListRow['accountcode']] = 0;
+	}
+
+	echo '<tr class="striped_row">
+			<td><a href="', $RootPath, '/GLAccountInquiry.php?PeriodFrom=', $_POST['PeriodFrom'], '&amp;PeriodTo=', $_POST['PeriodTo'], '&amp;Account=', $AccountListRow['accountcode'], '&amp;Show=Yes">', $AccountListRow['accountcode'], '</a></td>
+			<td>', $AccountListRow['accountname'], '</td>
+			<td class="number">', locale_number_format($ThisMonthArray[$AccountListRow['accountcode']], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($MonthBudgetRow['monthbudget'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($ThisPeriodArray[$AccountListRow['accountcode']], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($PeriodBudgetRow['periodbudget'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+		</tr>';
+
+	$MonthActualGroupTotal = $ThisMonthArray[$AccountListRow['accountcode']];
+	$MonthBudgetGroupTotal = $MonthBudgetRow['monthbudget'];
+	$PeriodActualGroupTotal = $ThisPeriodArray[$AccountListRow['accountcode']];
+	$PeriodBudgetGroupTotal = $PeriodBudgetRow['periodbudget'];
+
+	$CumulativeMonthActualGroupTotal = 0;
+	$CumulativePeriodActualGroupTotal = 0;
+
+	while ($AccountListRow = DB_fetch_array($AccountListResult)) {
+		if (!isset($ThisMonthArray[$AccountListRow['accountcode']])) {
+			$ThisMonthArray[$AccountListRow['accountcode']] = 0;
+		}
+		if (!isset($ThisPeriodArray[$AccountListRow['accountcode']])) {
+			$ThisPeriodArray[$AccountListRow['accountcode']] = 0;
+		}
+		if ($_SESSION['CompanyRecord']['retainedearnings'] == $AccountListRow['accountcode']) {
+			$ThisMonthArray[$AccountListRow['accountcode']] = 0;
+			$ThisPeriodArray[$AccountListRow['accountcode']] = $RetainedEarningsRow['retainedearnings'];
+		}
+		if ($AccountListRow['groupcode'] != $LastGroup) {
+			echo '<tr><td></td></tr>';
+			echo '<tr class="total_row">
+					<td>', _('Total'), '</td>
+					<td>', $LastGroupName, '</td>
+					<td class="number">', locale_number_format($MonthActualGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($MonthBudgetGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($PeriodActualGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+					<td class="number">', locale_number_format($PeriodBudgetGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				</tr>';
+			echo '<tr><td></td></tr>';
+
+			echo '<tr><td></td></tr>';
+			echo '<tr class="total_row">
+					<td>', $AccountListRow['group_'], '</td>
+					<td colspan="6"></td>
+				</tr>';
+
+			$LastGroup = $AccountListRow['groupcode'];
+			$LastGroupName = $AccountListRow['group_'];
+
+			$CumulativeMonthActualGroupTotal+= $MonthActualGroupTotal;
+			$CumulativePeriodActualGroupTotal+= $PeriodActualGroupTotal;
+
+			$MonthActualGroupTotal = 0;
+			$MonthBudgetGroupTotal = 0;
+			$PeriodActualGroupTotal = 0;
+			$PeriodBudgetGroupTotal = 0;
+
+		}
+
+		$SQL = "SELECT amount AS monthbudget
+				FROM glbudgetdetails
+				WHERE account='" . $AccountListRow['accountcode'] . "'
+					AND period='" . $_POST['PeriodTo'] . "'
+					AND headerid='" . $_POST['SelectedBudget'] . "'";
+		$MonthBudgetResult = DB_query($SQL);
+		$MonthBudgetRow = DB_fetch_array($MonthBudgetResult);
+		if (!isset($MonthBudgetRow['monthbudget'])) {
+			$MonthBudgetRow['monthbudget'] = 0;
+		}
+
+		$SQL = "SELECT SUM(amount) AS periodbudget
+				FROM glbudgetdetails
+				WHERE account='" . $AccountListRow['accountcode'] . "'
+					AND period>='" . $_POST['PeriodFrom'] . "'
+					AND period<='" . $_POST['PeriodTo'] . "'
+					AND headerid='" . $_POST['SelectedBudget'] . "'";
+		$PeriodBudgetResult = DB_query($SQL);
+		$PeriodBudgetRow = DB_fetch_array($PeriodBudgetResult);
+		if (!isset($PeriodBudgetRow['periodbudget'])) {
+			$PeriodBudgetRow['periodbudget'] = 0;
+		}
+
+		echo '<tr class="striped_row">
+				<td><a href="', $RootPath, '/GLAccountInquiry.php?PeriodFrom=', $_POST['PeriodFrom'], '&amp;PeriodTo=', $_POST['PeriodTo'], '&amp;Account=', $AccountListRow['accountcode'], '&amp;Show=Yes">', $AccountListRow['accountcode'], '</a></td>
+				<td>', $AccountListRow['accountname'], '</td>
+				<td class="number">', locale_number_format($ThisMonthArray[$AccountListRow['accountcode']], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($MonthBudgetRow['monthbudget'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($ThisPeriodArray[$AccountListRow['accountcode']], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+				<td class="number">', locale_number_format($PeriodBudgetRow['periodbudget'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			</tr>';
+		$MonthActualGroupTotal+= $ThisMonthArray[$AccountListRow['accountcode']];
+		$MonthBudgetGroupTotal+= $MonthBudgetRow['monthbudget'];
+		$PeriodActualGroupTotal+= $ThisPeriodArray[$AccountListRow['accountcode']];
+		$PeriodBudgetGroupTotal+= $PeriodBudgetRow['periodbudget'];
+	}
+	echo '<tr><td></td></tr>';
+	echo '<tr class="total_row">
+			<td>', _('Total'), '</td>
+			<td>', $LastGroupName, '</td>
+			<td class="number">', locale_number_format($MonthActualGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($MonthBudgetGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($PeriodActualGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number">', locale_number_format($PeriodBudgetGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+		</tr>';
+	echo '<tr><td></td></tr>';
+
+	$CumulativeMonthActualGroupTotal+= $MonthActualGroupTotal;
+	$CumulativePeriodActualGroupTotal+= $PeriodActualGroupTotal;
+
+	echo '<tr><td></td></tr>';
+	echo '<tr class="total_row">
+			<td>', _('Check Totals'), '</td>
+			<td></td>
+			<td class="number">', locale_number_format($CumulativeMonthActualGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number"></td>
+			<td class="number">', locale_number_format($CumulativePeriodActualGroupTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+			<td class="number"></td>
+		</tr>';
+	echo '<tr><td></td></tr>';
+
 	echo '</table>';
-	echo '<div class="centre"><input type="submit" name="NewReport" value="' . _('Select A Different Period') . '" /></div>';
-} echo '</form>';
-include ('includes/footer.php');
+
+	echo '</form>';
+	include ('includes/footer.php');
+}
 
 ?>

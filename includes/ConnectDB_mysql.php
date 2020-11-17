@@ -1,5 +1,4 @@
 <?php
-
 define('LIKE', 'LIKE');
 
 global $db; // Make sure it IS global, regardless of our context
@@ -33,17 +32,16 @@ if (!$db) {
 	exit;
 }
 
-if (! mysql_select_db($_SESSION['DatabaseName'],$db)) {
+if (!mysql_select_db($_SESSION['DatabaseName'], $db)) {
 	echo '<br />' . _('The company name entered does not correspond to a database on the database server specified in the config.php configuration file. Try logging in with a different company name');
 	echo '<br /><a href="index.php">' . _('Back to login page') . '</A>';
-	unset ($_SESSION['DatabaseName']);
+	unset($_SESSION['DatabaseName']);
 	exit;
 }
 
-require_once($PathPrefix . 'includes/MiscFunctions.php');
+require_once ($PathPrefix . 'includes/MiscFunctions.php');
 
 //DB wrapper functions to change only once for whole application
-
 function DB_connect($Host, $DBUser, $DBPassword, $DBPort) {
 	return mysql_connect($Host, $DBUser, $DBPassword, $_SESSION['DatabaseName'], $DBPort);
 }
@@ -65,7 +63,7 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 
 	if (DB_error_no() != 0 and $TrapErrors == true) {
 		if ($TrapErrors) {
-			require_once($PathPrefix . 'includes/header.php');
+			require_once ($PathPrefix . 'includes/header.php');
 		}
 		prnMsg($ErrorMessage . '<br />' . DB_error_msg(), 'error', _('Database Error') . ' ' . DB_error_no());
 		if ($Debug == 1) {
@@ -81,7 +79,7 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 			}
 		}
 		if ($TrapErrors) {
-			include($PathPrefix . 'includes/footer.php');
+			include ($PathPrefix . 'includes/footer.php');
 			exit;
 		}
 	} elseif (isset($_SESSION['MonthsAuditTrail']) and (DB_error_no() == 0 and $_SESSION['MonthsAuditTrail'] > 0)) {
@@ -89,6 +87,25 @@ function DB_query($SQL, $ErrorMessage = '', $DebugMessage = '', $Transaction = f
 		$SQLArray = explode(' ', $SQL);
 
 		if (($SQLArray[0] == 'INSERT') or ($SQLArray[0] == 'UPDATE') or ($SQLArray[0] == 'DELETE')) {
+
+			if ($SQLArray[0] == 'INSERT' and $SQLArray[2] == 'gltrans') {
+				$FieldsString = trim($SQLArray[3], '(');
+				$FieldsString = trim(mb_substr($FieldsString, 0, mb_strpos($FieldsString, ')')));
+				$FieldNames = array_map('trim', explode(',', $FieldsString));
+				$ValuesString = trim($SQLArray[4], '(');
+				$ValuesString = trim(mb_substr($ValuesString, 0, mb_strpos($ValuesString, ')')));
+				$FieldValues = explode(',', $ValuesString);
+				$Account = $FieldValues[array_search('account', $FieldNames) ];
+				$Period = $FieldValues[array_search('periodno', $FieldNames) ];
+				$Amount = $FieldValues[array_search('amount', $FieldNames) ];
+				$UpdateGlSQL = "UPDATE gltotals SET amount=amount+" . $Amount . "
+										WHERE account=" . $Account . "
+										AND period=" . $Period;
+				$UpdateResult = mysql_query($db, $UpdateGlSQL);
+				if (mysql_errno($db) != 0) {
+					prnMsg(_('There was a problem updating the general ledger totals. Please correct'), 'error');
+				}
+			}
 
 			if ($SQLArray[2] != 'audittrail') { // to ensure the auto delete of audit trail history is not logged
 				$AuditSQL = "INSERT INTO audittrail (transactiondate,
@@ -204,7 +221,6 @@ function DB_Maintenance() {
 				WHERE confname='DB_Maintenance_LastRun'");
 }
 
-
 function DB_Txn_Begin() {
 	global $db;
 	mysql_query("SET autocommit=0", $db);
@@ -253,7 +269,7 @@ function DB_set_timezone() {
 	$Sign = ($Minutes < 0 ? -1 : 1);
 	$Minutes = abs($Minutes);
 	$Hours = floor($Minutes / 60);
-	$Minutes -= $Hours * 60;
+	$Minutes-= $Hours * 60;
 	$Offset = sprintf('%+d:%02d', $Hours * $Sign, $Minutes);
 	$Result = DB_query("SET time_zone='" . $Offset . "'");
 }
