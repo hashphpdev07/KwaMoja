@@ -18,6 +18,7 @@ if (isset($_POST['Account'])) {
 	$SelectedAccount = $_POST['Account'];
 } elseif (isset($_GET['Account'])) {
 	$SelectedAccount = $_GET['Account'];
+	$_POST['Account'] = $_GET['Account'];
 }
 
 if (isset($_POST['PeriodTo'])) {
