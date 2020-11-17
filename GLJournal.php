@@ -337,7 +337,7 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 	echo '<br />
 			<a href="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '?NewJournal=Yes">', _('Enter Another General Ledger Journal'), '</a>';
 	/*And post the journal too */
-	include ('includes/GLPostings.php');
+	//	include ('includes/GLPostings.php');
 	include ('includes/footer.php');
 	exit;
 
@@ -470,6 +470,8 @@ if (!is_date($_SESSION['JournalDetail']->JnlDate)) {
 	$_SESSION['JournalDetail']->JnlDate = Date($_SESSION['DefaultDateFormat'], mktime(0, 0, 0, date('m'), 0, date('Y')));
 }
 
+echo '<fieldset style="text-align:center;">';
+
 echo '<fieldset>
 		<legend>', _('Journal Header Details'), '</legend>';
 
@@ -590,6 +592,7 @@ echo '<field>
 	</field>
 </fieldset>';
 /*Close the main table */
+echo '</fieldset>';
 
 echo '<div class="centre">
 		<input type="submit" name="Process" value="', _('Accept'), '" />
