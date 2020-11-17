@@ -82,7 +82,7 @@ function is_date($DateEntry) {
 } //end of is_date function
 
 
-function MonthAndYearFromSQLDate($DateEntry) {
+function MonthAndYearFromSQLDate($DateEntry, $useShortMonthAndYear = false) {
 
 	if (mb_strpos($DateEntry, '/')) {
 		$Date_Array = explode('/', $DateEntry);
@@ -96,9 +96,19 @@ function MonthAndYearFromSQLDate($DateEntry) {
 		$Date_Array[2] = mb_substr($Date_Array[2], 0, 2);
 	}
 
-	$MonthName = GetMonthText(date('n', mktime(0, 0, 0, (int)$Date_Array[1], (int)$Date_Array[2], (int)$Date_Array[0])));
-	return $MonthName . ' ' . date('Y', mktime(0, 0, 0, (int)$Date_Array[1], (int)$Date_Array[2], (int)$Date_Array[0]));
+	$MonthAndYear = '';
+	$TimeStamp = mktime(0, 0, 0, (int)$Date_Array[1], (int)$Date_Array[2], (int)$Date_Array[0]);
 
+	if ($UseShortMonthAndYear) {
+		// 2-digit month and year: 04/20.
+		// Useful for Graphs with many plot references.
+		$MonthAndYear = date('m/y', $TimeStamp);
+	} else {
+		$MonthName = GetMonthText(date('n', $TimeStamp));
+		$MonthAndYear = $MonthName . ' ' . date('Y', $TimeStamp);
+	}
+
+	return $MonthAndYear;
 }
 
 function MonthAndYearFromPeriodNo($PeriodNo) {
@@ -1017,13 +1027,18 @@ function CalcEarliestDispatchDate() {
 
 function CreatePeriod($PeriodNo, $PeriodEnd) {
 	$GetPrdSQL = "INSERT INTO periods (periodno,
-													lastdate_in_period)
-												VALUES (
-													'" . $PeriodNo . "',
-													'" . Date('Y-m-d', $PeriodEnd) . "')";
+										lastdate_in_period
+									) VALUES (
+										'" . $PeriodNo . "',
+										'" . Date('Y-m-d', $PeriodEnd) . "'
+									)";
 	$ErrMsg = _('An error occurred in adding a new period number');
 	$GetPrdResult = DB_query($GetPrdSQL, $ErrMsg);
 
+	$TotalsSQL = "INSERT INTO gltotals (account, period, amount)
+				SELECT accountcode, '" . $PeriodNo . "', 0 FROM chartmaster";
+	$ErrMsg = _('An error occurred in adding a new period number to the gltotals table');
+	$TotalsdResult = DB_query($TotalsSQL, $ErrMsg);
 }
 
 function PeriodExists($TransDate) {

@@ -47,6 +47,9 @@ if (isset($_POST['submit'])) {
 	} elseif (mb_strlen($_POST['X_QuickEntries']) > 2 or !is_numeric($_POST['X_QuickEntries']) or $_POST['X_QuickEntries'] < 1 or $_POST['X_QuickEntries'] > 99) {
 		$InputError = 1;
 		prnMsg(_('No less than 1 and more than 99 Quick entries allowed'), 'error');
+	} elseif (!in_array(intval($_POST['X_StockUsageShowZeroWithinPeriodRange']), [0, 1])) {
+		$InputError = 1;
+		prnMsg(_('Unexpected Show Zero Counts Within Stock Usage Graph Period Range value.'), 'error');
 	} elseif (!is_numeric($_POST['X_MaxSerialItemsIssued']) or $_POST['X_MaxSerialItemsIssued'] < 1) {
 		$InputError = 1;
 		prnMsg(_('The maximum number of serial numbers issued must be numeric and greater than zero'), 'error');
@@ -181,6 +184,9 @@ if (isset($_POST['submit'])) {
 		}
 		if ($_SESSION['NumberOfPeriodsOfStockUsage'] != $_POST['X_NumberOfPeriodsOfStockUsage']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_NumberOfPeriodsOfStockUsage'] . "' WHERE confname = 'NumberOfPeriodsOfStockUsage'";
+		}
+		if ($_SESSION['StockUsageShowZeroWithinPeriodRange'] != $_POST['X_StockUsageShowZeroWithinPeriodRange']) {
+			$SQL[] = "UPDATE config SET confvalue = '" . intval($_POST['X_StockUsageShowZeroWithinPeriodRange']) . "' WHERE confname = 'StockUsageShowZeroWithinPeriodRange'";
 		}
 		if ($_SESSION['Check_Qty_Charged_vs_Del_Qty'] != $_POST['X_Check_Qty_Charged_vs_Del_Qty']) {
 			$SQL[] = "UPDATE config SET confvalue = '" . $_POST['X_Check_Qty_Charged_vs_Del_Qty'] . "' WHERE confname = 'Check_Qty_Charged_vs_Del_Qty'";
@@ -1195,6 +1201,16 @@ echo '<field>
 		</select>
 	<fieldhelp>', _('Should the value of the purchased stock be shown on the GRN screen'), '</fieldhelp>
 </field>';
+
+// StockUsageShowZeroWithinPeriodRange
+echo '<field>
+		<label for="X_StockUsageShowZeroWithinPeriodRange">', _('Show Zero Counts Within Stock Usage Graph Period Range'), ':</label>
+		<select name="X_StockUsageShowZeroWithinPeriodRange">
+			<option ', ($_SESSION['StockUsageShowZeroWithinPeriodRange'] ? 'selected="selected" ' : ''), 'value="1">', _('Yes'), '</option>
+			<option ', (!$_SESSION['StockUsageShowZeroWithinPeriodRange'] ? 'selected="selected" ' : ''), 'value="0">', _('No'), '</option>
+		</select>
+		<fieldhelp>', _('Show periods having zero counts within Stock Usage Graph. Choosing yes may show a wider period range than expected.'), '</fieldhelp>
+	</field>';
 
 echo '</fieldset>'; // end Inventory settings
 echo '<fieldset style="min-width:55%";>
