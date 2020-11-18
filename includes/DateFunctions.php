@@ -82,7 +82,7 @@ function is_date($DateEntry) {
 } //end of is_date function
 
 
-function MonthAndYearFromSQLDate($DateEntry, $useShortMonthAndYear = false) {
+function MonthAndYearFromSQLDate($DateEntry, $UseShortMonthAndYear = false) {
 
 	if (mb_strpos($DateEntry, '/')) {
 		$Date_Array = explode('/', $DateEntry);
