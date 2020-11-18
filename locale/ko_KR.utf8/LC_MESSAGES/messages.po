@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: webERP 4.15\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-17 00:43+0000\n"
-"PO-Revision-Date: 2020-11-17 00:11+0000\n"
+"POT-Creation-Date: 2020-11-18 00:03+0000\n"
+"PO-Revision-Date: 2020-11-18 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: Korean <human@humansoft.kr>\n"
 "Language: ko_KR\n"
@@ -171,20 +171,16 @@ msgstr "ABC 랭킹 그룹 목록"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:448
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:211
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:698
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:208
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:182
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:190
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:186
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -1252,10 +1248,6 @@ msgstr "결핵에서 순서"
 #: /home/tim/code/KwaMoja/AccountGroups.php:332
 #: /home/tim/code/KwaMoja/AccountGroups.php:517
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:15
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:15
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:165
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:166
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:21
 msgid "Profit and Loss"
 msgstr "손익"
@@ -3011,17 +3003,11 @@ msgstr "일 이전"
 #: /home/tim/code/KwaMoja/CustomerPurchases.php:91
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:882
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:938
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:230
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:242
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:327
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:336
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:354
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:420
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:342
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:400
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3092,9 +3078,6 @@ msgstr "노인 고객 계정 분석"
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:220
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
@@ -3183,11 +3166,6 @@ msgstr "고객의 세부 사항은 SQL 때문에 검색 할 수 없습니다"
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:144
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:191
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:363
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:223
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:235
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
@@ -3377,7 +3355,6 @@ msgstr "because 검색 할 수 없습니다"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
@@ -3426,7 +3403,7 @@ msgstr "because 검색 할 수 없습니다"
 #: /home/tim/code/KwaMoja/StockTransfers.php:277
 #: /home/tim/code/KwaMoja/StockTransfers.php:445
 #: /home/tim/code/KwaMoja/StockUsage.php:140
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:103
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:102
 #: /home/tim/code/KwaMoja/Stocks.php:432 /home/tim/code/KwaMoja/Stocks.php:443
 #: /home/tim/code/KwaMoja/Stocks.php:704 /home/tim/code/KwaMoja/Stocks.php:717
 #: /home/tim/code/KwaMoja/SuppPaymentRun.php:105
@@ -3456,7 +3433,7 @@ msgstr "because 검색 할 수 없습니다"
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:81
 #: /home/tim/code/KwaMoja/Z_UpdateItemCosts.php:92
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:99
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:63
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:61
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:58
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:38
 #: /home/tim/code/KwaMoja/includes/OcOpenCartGeneralFunctions.php:616
@@ -3580,7 +3557,6 @@ msgstr "요약 보고서를 표시하거나 보고서에 거래 세부 정보를
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:147
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:142
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3723,8 +3699,7 @@ msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "포괄 손익 계산서의 수평 분석"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:25
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 #: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:61
@@ -3732,8 +3707,7 @@ msgid "The selected period from is actually after the period to"
 msgstr "에서 선택한 기간에 기간 후에 실제로"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:57
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:27
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:26
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:25
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:9
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:10
 msgid "Please reselect the reporting period"
@@ -3797,12 +3771,10 @@ msgstr "보고서에서 마지막 기간을 선택하십시오."
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:129
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:128
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:127
 #: /home/tim/code/KwaMoja/GLStatements.php:230
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:100
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:109
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:109
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:522
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:207
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:495
@@ -3876,12 +3848,10 @@ msgstr "또는"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:142
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:131
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:130
 #: /home/tim/code/KwaMoja/GLStatements.php:233
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:107
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:116
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:116
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:71
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:238
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:238
@@ -3892,11 +3862,9 @@ msgstr "기간 선택"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:144
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:133
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:118
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:118
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:240
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:240
 #: /home/tim/code/KwaMoja/SalesGraph.php:105
@@ -3921,9 +3889,7 @@ msgstr "선택 개요 계정 그룹 레벨에서 합계에 표시됩니다"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:85
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:162
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:139
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:160
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:138
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:99
 #: /home/tim/code/KwaMoja/KCMCYellowPaper.php:351
@@ -3936,9 +3902,7 @@ msgstr "개요"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:163
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:97
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:86
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:86
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:140
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:161
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:139
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:100
 msgid "All Accounts"
@@ -3953,23 +3917,17 @@ msgstr "제로 잔액을 포함한 모든 계정 표시"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:171
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:104
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:94
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:94
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:170
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:146
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:168
 msgid "Check this box to display all accounts including those accounts with no balance"
 msgstr "더 균형 해당 계정을 포함한 모든 계정을 표시하려면이 상자를 선택"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:176
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:109
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:99
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:151
 msgid "Show on Screen (HTML)"
 msgstr "화면에 표시 (HTML)"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3978,9 +3936,7 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "기간 12 개월 기간까지 지정할 수 있습니다"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3989,9 +3945,7 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "시스템이 자동으로 전년 같은 기간에 대한 비교를 보여줍니다"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4000,9 +3954,7 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "이상 12 개월 기간이 지정되어 있으면이 할 수 없어"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:197
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:177
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:650
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -4012,8 +3964,7 @@ msgstr "다른 기간 범위를 선택하세요"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -4029,8 +3980,7 @@ msgid "For"
 msgstr "용"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:637
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4067,14 +4017,11 @@ msgstr "에 명시된 모든 금액"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
 #: /home/tim/code/KwaMoja/GLAccounts.php:296
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:455
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:704
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:194
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:190
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4094,15 +4041,12 @@ msgstr "계정"
 #: /home/tim/code/KwaMoja/GLAccounts.php:349
 #: /home/tim/code/KwaMoja/GLAccounts.php:366
 #: /home/tim/code/KwaMoja/GLAccounts.php:479
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:216
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:456
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:705
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:195
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:191
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4146,11 +4090,7 @@ msgstr "상대 변경 기호 : 양수는 해당 계정의 금액이 증가했음
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:190
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:441
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:222
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:689
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
@@ -4162,16 +4102,8 @@ msgstr "어떤 총계정 원장 계정은 SQL 때문에에 의해 반환되지 �
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:336
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:373
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:273
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:306
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:487
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:520
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:754
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:799
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1107
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1150
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:333
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:370
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4194,11 +4126,7 @@ msgstr "합계"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:455
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:369
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:579
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:901
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1249
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:449
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -4231,10 +4159,8 @@ msgstr "순이익"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1364
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
 #: /home/tim/code/KwaMoja/SalesGraph.php:20
@@ -4256,7 +4182,6 @@ msgstr "재무 상태 표의 수평 분석 인쇄"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:69
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:54
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:54
 msgid "Select the balance date"
 msgstr "균형 날짜를 선택"
 
@@ -4275,15 +4200,11 @@ msgid "Absolute change signs: a positive number indicates a source of funds; a n
 msgstr "절대 변경 기호 : 양수는 자금 출처를 나타냅니다. 음수는 자금 적용을 나타냅니다."
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:142
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:406
 msgid "The accumulated profits brought forward could not be calculated by the SQL because"
 msgstr "앞으로 이동 한 누적 이익은 SQL 때문에 계산할 수 없습니다"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:473
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:355
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:703
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:472
 msgid "Check Total"
 msgstr "총 점검"
 
@@ -5264,7 +5185,7 @@ msgstr "부분"
 #: /home/tim/code/KwaMoja/StockLocTransfer.php:375
 #: /home/tim/code/KwaMoja/StockMovements.php:138
 #: /home/tim/code/KwaMoja/StockStatus.php:325
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:11
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:10
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:254
 #: /home/tim/code/KwaMoja/SuppCreditGRNs.php:255
 #: /home/tim/code/KwaMoja/SupplierCredit.php:306
@@ -7408,8 +7329,7 @@ msgid "Entry is expected in the format"
 msgstr "항목 형식으로 예상된다"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
 msgid "after"
 msgstr "후"
 
@@ -7986,7 +7906,7 @@ msgstr "데모 모드에서 실행 중이므로 암호를 변경할 수 없습�
 #: /home/tim/code/KwaMoja/SalesCommissionRates.php:11
 #: /home/tim/code/KwaMoja/SelectCustomer.php:533
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:31
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:31
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:30
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:31
 msgid "here"
 msgstr "여기에"
@@ -17548,7 +17468,7 @@ msgstr "새로운 고객을 만들려면 먼저 하나 이상의 판매 유형 /
 #: /home/tim/code/KwaMoja/Customers.php:353
 #: /home/tim/code/KwaMoja/KCMCAddPatientNotes.php:135
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:31
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:31
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:30
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:31
 msgid "Click"
 msgstr "클릭"
@@ -17889,7 +17809,7 @@ msgstr "일일 판매"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:264
 #: /home/tim/code/KwaMoja/SystemParameters.php:716
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:156
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:166
 msgid "Sunday"
 msgstr "일요일"
 
@@ -17898,7 +17818,7 @@ msgstr "일요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:269
 #: /home/tim/code/KwaMoja/SystemParameters.php:717
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:159
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:169
 msgid "Monday"
 msgstr "월요일"
 
@@ -17907,7 +17827,7 @@ msgstr "월요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:274
 #: /home/tim/code/KwaMoja/SystemParameters.php:718
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:162
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:172
 msgid "Tuesday"
 msgstr "화요일"
 
@@ -17916,7 +17836,7 @@ msgstr "화요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:279
 #: /home/tim/code/KwaMoja/SystemParameters.php:719
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:165
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:175
 msgid "Wednesday"
 msgstr "수요일"
 
@@ -17925,7 +17845,7 @@ msgstr "수요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:284
 #: /home/tim/code/KwaMoja/SystemParameters.php:720
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:168
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:178
 msgid "Thursday"
 msgstr "목요일"
 
@@ -17934,7 +17854,7 @@ msgstr "목요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:289
 #: /home/tim/code/KwaMoja/SystemParameters.php:721
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:171
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:181
 msgid "Friday"
 msgstr "금요일"
 
@@ -17943,7 +17863,7 @@ msgstr "금요일"
 #: /home/tim/code/KwaMoja/KCMCViewLaboratoryTest.php:21
 #: /home/tim/code/KwaMoja/MRPCalendar.php:259
 #: /home/tim/code/KwaMoja/SystemParameters.php:722
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:174
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:184
 msgid "Saturday"
 msgstr "토요일"
 
@@ -21551,9 +21471,7 @@ msgstr "여러 계정 및 기간을 선택 키보드의 Shift 키를 사용하�
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:29
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:52
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:65
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:64
 msgid "Criteria for report"
 msgstr "신고 기준"
 
@@ -21674,7 +21592,6 @@ msgstr "GL 계정 그래프"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:31
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:26
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:26
 #: /home/tim/code/KwaMoja/SalesGraph.php:15
 msgid "The selected period from is actually after the period to! Please re-select the reporting period"
 msgstr "에서 선택한 기간에 기간 후에 실제로! 보고 기간을 다시 선택하세요"
@@ -21760,11 +21677,9 @@ msgid "If the selected account is normally a credit balance then select this to 
 msgstr "선택한 계정이 일반적으로 신용 잔액 인 경우이를 선택하여 신용이있는 그래프를 양수 값으로 표시합니다."
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:78
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:68
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:67
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:56
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:32
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:178
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:178
@@ -21775,11 +21690,9 @@ msgid "Select Period From"
 msgstr "에서 선택 기간"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:106
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:92
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:91
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:82
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:204
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:204
 #: /home/tim/code/KwaMoja/SalesGraph.php:70
@@ -21787,11 +21700,9 @@ msgid "Select the starting period for this report"
 msgstr "이 보고서의 시작 기간을 선택하십시오."
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:116
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:108
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:107
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:106
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:92
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:65
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:214
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:214
@@ -21801,11 +21712,9 @@ msgid "Select Period To"
 msgstr "를 선택 기간"
 
 #: /home/tim/code/KwaMoja/GLAccountGraph.php:130
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:122
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:121
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:120
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:106
 #: /home/tim/code/KwaMoja/SalesCommissionReports.php:228
 #: /home/tim/code/KwaMoja/SalesCommissionStatements.php:228
 #: /home/tim/code/KwaMoja/SalesGraph.php:93
@@ -21842,7 +21751,7 @@ msgstr "시대"
 #: /home/tim/code/KwaMoja/SalesInquiry.php:874
 #: /home/tim/code/KwaMoja/SalesInquiry.php:1104
 #: /home/tim/code/KwaMoja/StockUsage.php:148
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:10
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:9
 #: /home/tim/code/KwaMoja/prlSelectPayTrans.php:93
 msgid "Month"
 msgstr "달"
@@ -22424,11 +22333,6 @@ msgstr "이 계정에 적용 할 수있는 현금 흐름 활동 (있는 경우)�
 #: /home/tim/code/KwaMoja/GLAccounts.php:427
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:22
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:112
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:113
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:140
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:188
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
 #: /home/tim/code/KwaMoja/sql/updates/42.php:206
 msgid "Balance Sheet"
@@ -22467,50 +22371,39 @@ msgid "Show All Accounts"
 msgstr "모든 계정보기"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:23
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:23
 msgid "Statement of Financial Position"
 msgstr "금융 의견서"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "Balance Sheet (or statement of financial position) is a summary  of balances. Assets, liabilities and ownership equity are listed as of a specific date, such as the end of its financial year. Of the four basic financial statements, the balance sheet is the only statement which applies to a single point in time."
 msgstr "대차 대조표 (또는 재무 상태의 문) 균형을 요약 한 것입니다. 자산, 부채 및 소유 지분은 이러한 자사의 회계 연도 말 같은 특정 날짜를 기준으로 나열되어 있습니다. 네 가지 기본 재무 제표, 대차 대조표는 시간의 한 지점에 적용되는 유일한 문입니다."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
 msgid "The balance sheet has three parts: assets, liabilities and ownership equity. The main categories of assets are listed first and are followed by the liabilities. The difference between the assets and the liabilities is known as equity or the net assets or the net worth or capital of the company and according to the accounting equation, net worth must equal assets minus liabilities."
 msgstr "자산, 부채 및 소유 자산 : 대차 대조표는 세 부분으로 구성되어 있습니다. 자산의 주요 범주는 먼저 나열하고 부채가 따른다. 자산과 부채의 차이는 회사의 주식 또는 순자산 또는 순 가치 또는 자본으로 알려져 있으며, 회계 방정식에 따라, 순자산은 자산을 뺀 부채와 동일해야합니다."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:47
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:47
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:48
 msgid " is an accrual based system (not a cash based system).  Accrual systems include items when they are invoiced to the customer, and when expenses are owed based on the supplier invoice date."
 msgstr "발생 기반 시스템입니다 (현금 기반 시스템이 아님). 발생 시스템에는 고객에게 송장을 발행 한 항목과 공급자 송장 날짜를 기준으로 비용을 지불해야하는 항목이 포함됩니다."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:79
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:79
 msgid "Select the period up to which you wish the balance sheet to be shown at."
 msgstr "대차 대조표를 표시 할 기간을 선택하십시오."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:83
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:83
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:160
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:137
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:158
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:136
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:98
 msgid "Detail Or Summary"
 msgstr "세부 정보 또는 요약"
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:88
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:88
 msgid "Show a summary report, or show all accounts."
 msgstr "요약 보고서를 표시하거나 모든 계정을 표시합니다."
 
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:92
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:92
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:169
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:145
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:167
 msgid "Show all Accounts including zero balances"
 msgstr "제로 잔액을 포함한 모든 계정보기"
 
@@ -22518,28 +22411,21 @@ msgstr "제로 잔액을 포함한 모든 계정보기"
 msgid "Show Balance Sheet"
 msgstr "대차 대조표 표시"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:203
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:378
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:443
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:202
 msgid "HTML View"
 msgstr "HTML보기"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:447
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:206
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "대차 대조표에로"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:218
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:225
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:458
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:465
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:217
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:221
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:229
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:709
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:718
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:226
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22548,30 +22434,9 @@ msgstr "대차 대조표에로"
 msgid "Last Year"
 msgstr "작년"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:488
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:718
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:487
 msgid "Select A Different Balance Date"
 msgstr "다른 균형 날짜를 선택"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:102
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:154
-msgid "Produce PDF Report"
-msgstr "PDF 보고서를"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:360
-msgid "Print Balance Sheet Error"
-msgstr "인쇄 대차 대조표 오류"
-
-#: /home/tim/code/KwaMoja/GLBalanceSheet_old.php:362
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:234
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
-#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
-#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
-#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
-#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
-#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
-msgid "There were no entries to print out for the selections specified"
-msgstr "지정된 선택을 위해 인쇄 할 항목은 없었다"
 
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:4
 msgid "Create GL Budgets"
@@ -22749,14 +22614,11 @@ msgid "Statement of Cash Flows"
 msgstr "현금 흐름표"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:219
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:227
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:706
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:715
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:198
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:194
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22766,12 +22628,9 @@ msgid "Period Actual"
 msgstr "실제 기간"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:220
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:228
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:707
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:716
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:195
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -23312,61 +23171,49 @@ msgid "Are you sure you wish to delete this template?"
 msgstr "이 템플릿을 삭제 하시겠습니까?"
 
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:16
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:16
 msgid "Statement of Comprehensive Income"
 msgstr "포괄 손익 계산서"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:48
 msgid "Profit and loss statement, also called an Income Statement, or Statement of Operations, this is the statement that indicates how the revenue (money received from the sale of products and services before expenses are taken out, also known as the top line) is transformed into the net income (the result after all revenues and expenses have been accounted for, also known as the bottom line)."
 msgstr "손익 계산서 (손익 계산서 또는 운영 명세서라고도 함)는 수익 (비용이 인출되기 전에 제품 및 서비스 판매에서받은 돈, 최상위 라인이라고도 함)이 어떻게 변환되는지를 나타내는 명세서입니다. 순이익 (모든 수익과 지출이 계산 된 후의 결과로, 수익이라고도 함)."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:48
 msgid "The purpose of the income statement is to show whether the company made or lost money during the period being reported."
 msgstr "손익 계산서의 목적은 회사가 만든 또는 기간이보고되는 동안 돈을 잃은 여부를 표시하는 것입니다."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:50
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:49
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:48
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr "손익 계산서는 일정 기간을 나타냅니다. 이것은 한 순간을 나타내는 대차 대조표와 대조됩니다."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:143
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:127
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:126
 msgid "Budget To Show Comparisons With"
 msgstr "비교를 표시 할 예산"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:155
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:139
 msgid "Select the budget to make comparisons with."
 msgstr "비교할 예산을 선택하십시오."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:165
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:142
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
 msgid "Show report for all accounts, or just show summary report."
 msgstr "모든 계정에 대한 보고서를 표시하거나 요약 보고서 만 표시합니다."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:147
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:169
 msgid "Show all accounts, or just accounts with balances."
 msgstr "모든 계정을 표시하거나 잔액이있는 계정 만 표시합니다."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:177
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:175
 msgid "Show Profit and Loss Statement"
 msgstr "손익 계산서 표시"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:210
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:694
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:697
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "총계정 원장 이익 손실 조회"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:484
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:393
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:932
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1278
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:477
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23377,45 +23224,27 @@ msgstr "총계정 원장 이익 손실 조회"
 msgid "Gross Profit Percent"
 msgstr "총 이익 비율"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "이익"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:501
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:621
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:594
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:955
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1314
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "손실"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:526
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:982
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:518
 msgid "P/L Percent after"
 msgstr "P / L 비율 후"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:651
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:616
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:1346
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:645
 msgid "Net Profit Percent"
 msgstr "순이익 비율"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:231
-msgid "Print Profit and Loss Error"
-msgstr "인쇄 손익 오류"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:708
-#: /home/tim/code/KwaMoja/GLProfit_Loss_old.php:717
-msgid "Period Variance"
-msgstr "기간 차이"
 
 #: /home/tim/code/KwaMoja/GLStatements.php:26
 msgid "Financial Statements"
@@ -23580,6 +23409,15 @@ msgstr "소득과 지출"
 msgid "Print Income and Expenditure Error"
 msgstr "인쇄 소득과 지출의 오류"
 
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
+#: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
+#: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
+#: /home/tim/code/KwaMoja/prlRepPayrollRegister.php:137
+#: /home/tim/code/KwaMoja/prlRepTaxYTD.php:105
+msgid "There were no entries to print out for the selections specified"
+msgstr "지정된 선택을 위해 인쇄 할 항목은 없었다"
+
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:397
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:784
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:347
@@ -23696,49 +23534,38 @@ msgstr "게시"
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:10
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "시산표"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:54
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:54
 msgid "Input criteria for inquiry"
 msgstr "조회 기준 입력"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:146
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:141
 msgid "Show Trial Balance"
 msgstr "쇼 시산표"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:148
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:143
 msgid "Export to Spreadsheet"
 msgstr "스프레드 시트로 내보내기"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:182
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:185
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:178
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:181
 msgid "Trial Balance Report"
 msgstr "시산표 보고서"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:189
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "한달 동안 시산표"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:189
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "과의"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:189
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:185
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
@@ -23746,7 +23573,6 @@ msgid " months to "
 msgstr "개월"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:196
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:192
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
@@ -23754,13 +23580,11 @@ msgid "Month Actual"
 msgstr "실제 월"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:197
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:193
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "월 예산"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:434
-#: /home/tim/code/KwaMoja/GLTrialBalance_new.php:414
 msgid "Check Totals"
 msgstr "합계를 확인"
 
@@ -35274,7 +35098,7 @@ msgstr "주문 보고서 인보이스"
 #: /home/tim/code/KwaMoja/PcReportTab.php:98
 #: /home/tim/code/KwaMoja/PcReportTab.php:106
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:104
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:70
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:68
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:63
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:45
 msgid "Database Error"
@@ -49604,12 +49428,12 @@ msgid "Show Graph Of Stock Usage"
 msgstr "스톡 사용량 그래프 표시"
 
 #: /home/tim/code/KwaMoja/StockUsage.php:138
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:101
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:100
 msgid "The stock usage for the selected criteria could not be retrieved because"
 msgstr "선택한 기준에 대한 재고의 사용은 때문에 검색 할 수 없습니다"
 
 #: /home/tim/code/KwaMoja/StockUsage.php:149
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:9
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:8
 msgid "Usage"
 msgstr "용법"
 
@@ -49617,12 +49441,12 @@ msgstr "용법"
 msgid "Average Usage per month is"
 msgstr "월 평균 사용이다"
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:99
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:109
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:98
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:108
 msgid "Stock Usage Graph Problem"
 msgstr "스톡 사용 그래프 문제"
 
-#: /home/tim/code/KwaMoja/StockUsageGraph.php:111
+#: /home/tim/code/KwaMoja/StockUsageGraph.php:110
 msgid "There are no movements of this item from the selected location to graph"
 msgstr "그래프로이 항목의 더 움직임이 선택한 위치에서이 없습니다"
 
@@ -60399,7 +60223,7 @@ msgstr "FS 월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:124
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepTax.php:126
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:114
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:124
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:245
 msgid "January"
 msgstr "1월"
@@ -60412,7 +60236,7 @@ msgstr "1월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:125
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepTax.php:127
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:117
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:127
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:246
 msgid "February"
 msgstr "2월"
@@ -60425,7 +60249,7 @@ msgstr "2월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:126
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepTax.php:128
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:120
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:130
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:247
 msgid "March"
 msgstr "행진"
@@ -60438,7 +60262,7 @@ msgstr "행진"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:127
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepTax.php:129
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:123
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:133
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:248
 msgid "April"
 msgstr "4월"
@@ -60451,7 +60275,7 @@ msgstr "4월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:128
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepTax.php:130
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:126
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:136
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:249
 msgid "May"
 msgstr "할 수있다"
@@ -60464,7 +60288,7 @@ msgstr "할 수있다"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:129
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepTax.php:131
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:129
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:139
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:250
 msgid "June"
 msgstr "유월"
@@ -60477,7 +60301,7 @@ msgstr "유월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:130
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepTax.php:132
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:132
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:142
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:251
 msgid "July"
 msgstr "7월"
@@ -60490,7 +60314,7 @@ msgstr "7월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:131
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:136
 #: /home/tim/code/KwaMoja/prlRepTax.php:133
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:135
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:145
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:252
 msgid "August"
 msgstr "위엄있는"
@@ -60503,7 +60327,7 @@ msgstr "위엄있는"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:132
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:137
 #: /home/tim/code/KwaMoja/prlRepTax.php:134
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:138
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:148
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:253
 msgid "September"
 msgstr "9월"
@@ -60516,7 +60340,7 @@ msgstr "9월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:133
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:138
 #: /home/tim/code/KwaMoja/prlRepTax.php:135
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:141
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:151
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:254
 msgid "October"
 msgstr "10월"
@@ -60529,7 +60353,7 @@ msgstr "10월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:134
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:139
 #: /home/tim/code/KwaMoja/prlRepTax.php:136
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:144
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:154
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:255
 msgid "November"
 msgstr "11월"
@@ -60542,7 +60366,7 @@ msgstr "11월"
 #: /home/tim/code/KwaMoja/prlRepPHPremium.php:135
 #: /home/tim/code/KwaMoja/prlRepSSSPremium.php:140
 #: /home/tim/code/KwaMoja/prlRepTax.php:137
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:147
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:157
 #: /home/tim/code/KwaMoja/includes/prlFunctions.php:256
 msgid "December"
 msgstr "12월"
@@ -63790,8 +63614,8 @@ msgid "There was a problem deleting expired audit-trail history"
 msgstr "만료 된 감사 추적 기록을 삭제하는 문제가 발생했습니다"
 
 #: /home/tim/code/KwaMoja/api/api_salesorders.php:1369
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1041
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1156
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1051
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1166
 msgid "An error occurred in retrieving the period number"
 msgstr "오류가 기간 번호를 검색 발생"
 
@@ -65730,7 +65554,7 @@ msgid "The company database being logged into cannot contain any of the illegal 
 msgstr "이 회사의 데이터베이스는 불법 문자를 포함 할 수 없습니다에 기록되는"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB.php:9
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:38
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:37
 #: /home/tim/code/KwaMoja/includes/ConnectDB_postgres.php:35
 msgid "Back to login page"
 msgstr "돌아 가기 페이지 로그인하기"
@@ -65748,63 +65572,65 @@ msgid "The company name abbreviation entered at login must also have a company d
 msgstr "로그인 할 때 입력 한 회사 이름 약어는 회사 디렉토리가 정의되어 있어야합니다. 시스템 관리자에게 문의하십시오"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:31
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:31
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:30
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:31
 msgid "to try logging in again"
 msgstr "다시 로그인 시도"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:36
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:28
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:27
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:36
 msgid "The configuration in the file config.php for the database user name and password do not provide the information required to connect to the database server"
 msgstr "데이터베이스 사용자 이름과 암호에 대한 파일 config.php를의 구성은 데이터베이스 서버에 연결하는 데 필요한 정보를 제공하지 않습니다"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:76
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:106
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:98
 msgid "There was a problem updating the general ledger totals. Please correct"
 msgstr "총계정 원장 합계를 업데이트하는 중에 문제가 발생했습니다. 수정 해주세요"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:106
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:72
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:70
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:65
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:47
 msgid "Database SQL Failure"
 msgstr "데이터베이스 SQL 실패"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:76
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Error Rolling Back Transaction"
 msgstr "롤백 트랜잭션 오류"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:112
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:76
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:71
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:53
 msgid "Database Rollback Error"
 msgstr "데이터베이스 롤백 오류"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Rolling Back Transaction OK"
 msgstr "롤백 트랜잭션 확인"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:114
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:80
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:78
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:73
 #: /home/tim/code/KwaMoja/includes/OcOpenCartConnectDB.php:55
 msgid "Database Rollback Due to Error Above"
 msgstr "위를 오류로 데이터베이스 롤백 인해"
 
 #: /home/tim/code/KwaMoja/includes/ConnectDB_mariadb.php:218
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:195
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:190
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:212
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysqli.php:208
 msgid "The system has just run the regular database administration and optimisation routine."
 msgstr "이 시스템은 일반 데이터베이스 관리 및 최적화 루틴을 실행하고있다."
 
-#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:37
+#: /home/tim/code/KwaMoja/includes/ConnectDB_mysql.php:36
 msgid "The company name entered does not correspond to a database on the database server specified in the config.php configuration file. Try logging in with a different company name"
 msgstr "입력 회사 이름 config.php를 구성 파일에 지정된 데이터베이스 서버의 데이터베이스에 대응하지 않는다. 다른 회사 이름으로 로그인 시도"
 
@@ -67485,24 +67311,24 @@ msgstr "남아프리카 공화국 랜드"
 msgid "Zambian kwacha"
 msgstr "잠비아 크와 차"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:264
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:314
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:274
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:324
 msgid "The date does not appear to be in a valid format. The date being converted from SQL format was:"
 msgstr "날짜가 유효한 형식이 아닙니다. 된 날짜는 SQL 형식에서 변환되는 :"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1025
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1035
 msgid "An error occurred in adding a new period number"
 msgstr "오류가 새로운 기간 번호를 추가 발생"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1030
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1040
 msgid "An error occurred in adding a new period number to the gltotals table"
 msgstr "gltotals 테이블에 새 기간 번호를 추가하는 중에 오류가 발생했습니다."
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1089
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1099
 msgid "Could not insert first period"
 msgstr "첫 번째 기간을 삽입 할 수 없습니다"
 
-#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1090
+#: /home/tim/code/KwaMoja/includes/DateFunctions.php:1100
 msgid "Could not insert second period"
 msgstr "두 번째 기간을 삽입 할 수 없습니다"
 
@@ -73237,6 +73063,18 @@ msgstr "직원 대출"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "직원 대출 상환"
+
+#~ msgid "Produce PDF Report"
+#~ msgstr "PDF 보고서를"
+
+#~ msgid "Print Balance Sheet Error"
+#~ msgstr "인쇄 대차 대조표 오류"
+
+#~ msgid "Print Profit and Loss Error"
+#~ msgstr "인쇄 손익 오류"
+
+#~ msgid "Period Variance"
+#~ msgstr "기간 차이"
 
 #~ msgid "Print Statement of Financial Position"
 #~ msgstr "재무 상태의 인쇄 문"
