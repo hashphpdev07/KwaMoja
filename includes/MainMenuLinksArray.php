@@ -1,11 +1,10 @@
 <?php
-
 unset($_SESSION['ModuleLink']);
 unset($_SESSION['ReportList']);
 unset($_SESSION['ModuleList']);
 unset($_SESSION['MenuItems']);
 
-$SQL = "SELECT SQL_CACHE `modulelink`,
+$SQL = "SELECT `modulelink`,
 				`reportlink` ,
 				`modulename`
 			FROM modules
@@ -18,7 +17,7 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$_SESSION['ReportList'][$MyRow['modulelink']] = $MyRow['reportlink'];
 	$_SESSION['ModuleList'][] = _($MyRow['modulename']);
 }
-$SQL = "SELECT SQL_CACHE `modulelink`,
+$SQL = "SELECT `modulelink`,
 				`menusection` ,
 				`caption` ,
 				`url`
@@ -32,6 +31,6 @@ while ($MyRow = DB_fetch_array($Result)) {
 	$_SESSION['MenuItems'][$MyRow['modulelink']][$MyRow['menusection']]['URL'][] = $MyRow['url'];
 }
 
-include('includes/PluginMenuLinksArray.php');
+include ('includes/PluginMenuLinksArray.php');
 
 ?>
