@@ -190,7 +190,6 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 	$PeriodToDate = MonthAndYearFromSQLDate($MyRow[0]);
 
 	if ($NumberOfMonths > 12) {
-		include ('includes/header.php');
 		echo '<p>';
 		prnMsg(_('A period up to 12 months in duration can be specified') . ' - ' . _('the system automatically shows a comparative for the same period from the previous year') . ' - ' . _('it cannot do this if a period of more than 12 months is specified') . '. ' . _('Please select an alternative period range'), 'error');
 		include ('includes/footer.php');
@@ -272,8 +271,10 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 					AND glaccountusers.canview=1
 				INNER JOIN accountgroups
 					ON accountgroups.groupcode=chartmaster.groupcode
+					AND accountgroups.language=chartmaster.language
 				INNER JOIN accountsection
 					ON accountsection.sectionid=accountgroups.sectioninaccounts
+					AND accountgroups.language=accountsection.language
 				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 					AND pandl=1
 				ORDER BY sequenceintb,

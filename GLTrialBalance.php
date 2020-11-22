@@ -221,9 +221,11 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 							ON gltotals.account=chartmaster.accountcode
 						INNER JOIN accountgroups
 							ON chartmaster.groupcode=accountgroups.groupcode
+							AND accountgroups.language=chartmaster.language
 						WHERE period<='" . $_POST['PeriodTo'] . "'
 							AND period>='" . $_POST['PeriodFrom'] . "'
 							AND pandl=1
+							AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 						GROUP BY account";
 	$ThisPeriodPLResult = DB_query($ThisPeriodPLSQL);
 	$ThisPeriodArray = array();
@@ -240,8 +242,10 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 							ON gltotals.account=chartmaster.accountcode
 						INNER JOIN accountgroups
 							ON chartmaster.groupcode=accountgroups.groupcode
+							AND accountgroups.language=chartmaster.language
 						WHERE period<='" . $_POST['PeriodTo'] . "'
 							AND pandl=0
+							AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 						GROUP BY account";
 	$ThisPeriodBSResult = DB_query($ThisPeriodBSSQL);
 
@@ -256,7 +260,9 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 								ON gltotals.account=chartmaster.accountcode
 							INNER JOIN accountgroups
 								ON chartmaster.groupcode=accountgroups.groupcode
+								AND accountgroups.language=chartmaster.language
 							WHERE period<'" . $_POST['PeriodFrom'] . "'
+								AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 								AND pandl=1";
 	$RetainedEarningsResult = DB_query($RetainedEarningsSQL);
 	$RetainedEarningsRow = DB_fetch_array($RetainedEarningsResult);
@@ -275,6 +281,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 				AND glaccountusers.canview=1
 			INNER JOIN accountgroups
 				ON accountgroups.groupcode=chartmaster.groupcode
+				AND accountgroups.language=chartmaster.language
 			WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 			ORDER BY groupcode,
 					accountcode";

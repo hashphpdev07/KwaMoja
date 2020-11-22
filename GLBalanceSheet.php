@@ -130,7 +130,9 @@ if (!isset($_POST['PeriodTo']) or isset($_POST['NewReport'])) {
 										ON gltotals.account=chartmaster.accountcode
 									INNER JOIN accountgroups
 										ON chartmaster.groupcode=accountgroups.groupcode
+										AND accountgroups.language=chartmaster.language
 									WHERE period<='" . $_POST['PeriodTo'] . "'
+										AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 										AND pandl=1";
 	$ThisYearRetainedEarningsResult = DB_query($ThisYearRetainedEarningsSQL);
 	$ThisYearRetainedEarningsRow = DB_fetch_array($ThisYearRetainedEarningsResult);
@@ -141,7 +143,9 @@ if (!isset($_POST['PeriodTo']) or isset($_POST['NewReport'])) {
 										ON gltotals.account=chartmaster.accountcode
 									INNER JOIN accountgroups
 										ON chartmaster.groupcode=accountgroups.groupcode
+										AND accountgroups.language=chartmaster.language
 									WHERE period<='" . ($_POST['PeriodTo'] - 12) . "'
+										AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 										AND pandl=1";
 	$LastYearRetainedEarningsResult = DB_query($LastYearRetainedEarningsSQL);
 	$LastYearRetainedEarningsRow = DB_fetch_array($LastYearRetainedEarningsResult);
@@ -164,8 +168,10 @@ if (!isset($_POST['PeriodTo']) or isset($_POST['NewReport'])) {
 					AND glaccountusers.canview=1
 				INNER JOIN accountgroups
 					ON accountgroups.groupcode=chartmaster.groupcode
+					AND accountgroups.language=chartmaster.language
 				INNER JOIN accountsection
 					ON accountsection.sectionid=accountgroups.sectioninaccounts
+					AND accountgroups.language=accountsection.language
 				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
 					AND pandl=0
 				ORDER BY sequenceintb,
