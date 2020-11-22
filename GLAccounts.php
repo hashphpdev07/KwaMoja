@@ -131,6 +131,12 @@ if (isset($_POST['submit']) and $_POST['submit'] == _('Enter Information')) {
 				prnMsg(_('The new general ledger account has been added'), 'success');
 			}
 		}
+
+		$TotalsSQL = "INSERT INTO gltotals (account, period, amount)
+						SELECT '" . $_POST['AccountCode'] . " periodno, 0 FROM periods";
+		$ErrMsg = _('An error occurred in adding a new account number to the gltotals table');
+		$TotalsResult = DB_query($TotalsSQL, $ErrMsg);
+
 	} elseif ($InputError != 1) {
 
 		/*SelectedAccount is null cos no item selected on first time round so must be adding a	record must be submitting new entries */
@@ -161,6 +167,11 @@ if (isset($_POST['submit']) and $_POST['submit'] == _('Enter Information')) {
 
 			prnMsg(_('The new general ledger account has been added'), 'success');
 		}
+
+		$TotalsSQL = "INSERT INTO gltotals (account, period, amount)
+						SELECT '" . $_POST['AccountCode'] . " periodno, 0 FROM periods";
+		$ErrMsg = _('An error occurred in adding a new account number to the gltotals table');
+		$TotalsResult = DB_query($TotalsSQL, $ErrMsg);
 	}
 
 	unset($_POST['Group']);
