@@ -356,6 +356,9 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 	} elseif ($_POST['Credit'] > 0) {
 		$_POST['GLAmount'] = - filter_number_format($_POST['Credit']);
 	}
+	if (!isset($_POST['tag'])) {
+		$_POST['tag'] = array('0');
+	}
 	if ($_POST['GLManualCode'] != '') {
 		// If a manual code was entered need to check it exists and isnt a bank account
 		$AllowThisPosting = true; //by default
@@ -381,9 +384,6 @@ if (isset($_POST['CommitBatch']) and $_POST['CommitBatch'] == _('Accept and Proc
 					AND language='" . $_SESSION['ChartLanguage'] . "'";
 			$Result = DB_query($SQL);
 
-			if (!isset($_POST['tag'])) {
-				$_POST['tag'] = array('0');
-			}
 			if (DB_num_rows($Result) == 0) {
 				prnMsg(_('The manual GL code entered does not exist in the database') . ' - ' . _('so this GL analysis item could not be added'), 'warn');
 				unset($_POST['GLManualCode']);
