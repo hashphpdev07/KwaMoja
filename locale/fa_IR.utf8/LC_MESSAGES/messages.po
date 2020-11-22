@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-18 00:01+0000\n"
-"PO-Revision-Date: 2020-11-18 00:11+0000\n"
+"POT-Creation-Date: 2020-11-22 00:04+0000\n"
+"PO-Revision-Date: 2020-11-22 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -32,7 +32,7 @@ msgstr "یدنب هبتر هورگ دادعت CBA "
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
 #: /home/tim/code/KwaMoja/Factors.php:137
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:126
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:94
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
 #: /home/tim/code/KwaMoja/Locations.php:378
@@ -174,7 +174,7 @@ msgstr "یدنب هبتر هورگ CBA تسرهف "
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:208
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
@@ -305,7 +305,7 @@ msgstr "؟دینک فذح ار یدنب هبتر هورگ نیا دیهاوخ ی
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:138
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 #: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
@@ -584,7 +584,7 @@ msgstr "هریخذ هداد هاگیاپ هب تیقفوم اب تسا هدش ی
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:171
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
-#: /home/tim/code/KwaMoja/GLAccounts.php:498
+#: /home/tim/code/KwaMoja/GLAccounts.php:509
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
@@ -1116,8 +1116,8 @@ msgstr "دنا هدش داجیا هورگ نیا زا هدافتسا اب لک �
 #: /home/tim/code/KwaMoja/Departments.php:141
 #: /home/tim/code/KwaMoja/Factors.php:131
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:121
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:167
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:176
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:184
@@ -1900,7 +1900,7 @@ msgstr "هورگ باسح تاعالطا شیاریو "
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:430
 #: /home/tim/code/KwaMoja/AccountGroups.php:458
-#: /home/tim/code/KwaMoja/GLAccounts.php:480
+#: /home/tim/code/KwaMoja/GLAccounts.php:491
 msgid "Account Group Code"
 msgstr "هورگ دک باسح "
 
@@ -1913,7 +1913,7 @@ msgid "The integer group code for this account group"
 msgstr "کد گروه عدد صحیح برای این گروه حساب"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:470
-#: /home/tim/code/KwaMoja/GLAccounts.php:481
+#: /home/tim/code/KwaMoja/GLAccounts.php:492
 msgid "Account Group Name"
 msgstr "هورگ باسح مان "
 
@@ -1968,7 +1968,7 @@ msgstr "توالی موجود در تراز آزمایشی که این گروه 
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:159
 #: /home/tim/code/KwaMoja/FreightCosts.php:387
 #: /home/tim/code/KwaMoja/GLAccounts.php:55
-#: /home/tim/code/KwaMoja/GLAccounts.php:409
+#: /home/tim/code/KwaMoja/GLAccounts.php:420
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:258
 #: /home/tim/code/KwaMoja/Labels.php:534
 #: /home/tim/code/KwaMoja/Locations.php:756
@@ -2095,7 +2095,7 @@ msgid "The integer group code for this account section"
 msgstr "کد گروه عدد صحیح برای این بخش حساب"
 
 #: /home/tim/code/KwaMoja/AccountSections.php:237
-#: /home/tim/code/KwaMoja/GLAccounts.php:464
+#: /home/tim/code/KwaMoja/GLAccounts.php:475
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
 msgstr "زبان این بخش حساب را انتخاب کنید. توجه داشته باشید که هر زبان باید همان بخشهای حساب را تنظیم کند."
 
@@ -3005,8 +3005,8 @@ msgstr "یمیدق زور "
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3926,7 +3926,7 @@ msgid "Show on Screen (HTML)"
 msgstr ")LMTH( شیامن هحفص یور رب شیامن "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3935,7 +3935,7 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "دوش صخشم دناوت یم تدم لوط رد هام 21 ات هرود کی "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3944,7 +3944,7 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "لبق لاس زا هباشم تدم یارب هسیاقم کی دهد یم ناشن راکدوخ روط هب متسیس "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3953,7 +3953,7 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "تسا هدش صخشم تسا هام 21 زا شیب هرود کی رگا راک نیا ماجنا ناوت یمن ار نآ "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3963,7 +3963,7 @@ msgstr "دینک باختنا ار نیزگیاج هرود یعیسو کی اف�
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -3979,7 +3979,7 @@ msgid "For"
 msgstr "یارب "
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4015,10 +4015,10 @@ msgstr "رد هدشرکذ غلابم همه "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:194
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
@@ -4037,13 +4037,13 @@ msgstr "باسح "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
-#: /home/tim/code/KwaMoja/GLAccounts.php:349
-#: /home/tim/code/KwaMoja/GLAccounts.php:366
-#: /home/tim/code/KwaMoja/GLAccounts.php:479
+#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:377
+#: /home/tim/code/KwaMoja/GLAccounts.php:490
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:195
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
@@ -4101,8 +4101,8 @@ msgstr "دندش هدنادرگزاب لیلد LQS طسوت لک رتفد باس
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:333
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:370
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4125,7 +4125,7 @@ msgstr "عمج "
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:449
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -7328,7 +7328,7 @@ msgid "Entry is expected in the format"
 msgstr "دور یم راظتنا بلاق رد دورو "
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
 msgid "after"
 msgstr "زا دعب "
 
@@ -22142,28 +22142,28 @@ msgid "Not set up"
 msgstr "تسا هدشن میظنت "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:9
-#: /home/tim/code/KwaMoja/GLAccounts.php:398
+#: /home/tim/code/KwaMoja/GLAccounts.php:409
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:26
 msgid "No effect on cash flow"
 msgstr "یدقن نایرج رب یریثات چیه "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:11
-#: /home/tim/code/KwaMoja/GLAccounts.php:399
+#: /home/tim/code/KwaMoja/GLAccounts.php:410
 msgid "Operating activity"
 msgstr "لماع تیلاعف "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:13
-#: /home/tim/code/KwaMoja/GLAccounts.php:400
+#: /home/tim/code/KwaMoja/GLAccounts.php:411
 msgid "Investing activity"
 msgstr "یراذگ هیامرس تیلاعف "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:15
-#: /home/tim/code/KwaMoja/GLAccounts.php:401
+#: /home/tim/code/KwaMoja/GLAccounts.php:412
 msgid "Financing activity"
 msgstr "یلام نیمات یاه تیلاعف "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:17
-#: /home/tim/code/KwaMoja/GLAccounts.php:402
+#: /home/tim/code/KwaMoja/GLAccounts.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:34
 msgid "Cash or cash equivalent"
 msgstr "لداعم دقن لوپ ای و یدقن "
@@ -22199,91 +22199,96 @@ msgid "The general ledger account has been updated"
 msgstr "تسا هدش زور هب لک رتفد باسح "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:114
-#: /home/tim/code/KwaMoja/GLAccounts.php:145
+#: /home/tim/code/KwaMoja/GLAccounts.php:151
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:190
 msgid "Could not add the new account code"
 msgstr "دینک هفاضا دیدج یربراک باسح دک دناوت یم "
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:131
-#: /home/tim/code/KwaMoja/GLAccounts.php:162
+#: /home/tim/code/KwaMoja/GLAccounts.php:168
 msgid "The new general ledger account has been added"
 msgstr "تسا هدش هفاضا دیدج لک رتفد باسح "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:137
+#: /home/tim/code/KwaMoja/GLAccounts.php:173
+msgid "An error occurred in adding a new account number to the gltotals table"
+msgstr "هنگام افزودن شماره حساب جدید به جدول gltotals خطایی روی داد"
+
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "Cannot delete this account because chart details have been created using this account and at least one period has postings to it."
 msgstr ".تسا نآ هب یهگآ یاراد هرود کی لقادح و دنا هدش داجیا باسح نیا زا هدافتسا اب رادومن تایئزج نوچ دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "chart details that require this account code"
 msgstr "باسح دک نیا هب زاین هک لودج تایئزج "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:190
+#: /home/tim/code/KwaMoja/GLAccounts.php:201
 msgid "Could not test for existing transactions because"
 msgstr "تسین نومزآ لیلد هب دوجوم تالماعم ماجنا یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "Cannot delete this account because transactions have been created using this account."
 msgstr ".تسا هدش داجیا باسح نیا زا هدافتسا اب تالماعم نوچ دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "transactions that require this account code"
 msgstr "باسح دک نیا هب زاین هک تسا تالماعم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:210
+#: /home/tim/code/KwaMoja/GLAccounts.php:221
 msgid "Could not test for default company GL codes because"
 msgstr "اریز مینک شیامزآ LG یاهدک ضرف شیپ روط هب تکرش یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:217
+#: /home/tim/code/KwaMoja/GLAccounts.php:228
 msgid "Cannot delete this account because it is used as one of the company default accounts"
 msgstr "هدافتسا ضرف شیپ روط هب تکرش یاه باسح زا یکی ناونع هب هک تسا نآ لیلد دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:225
+#: /home/tim/code/KwaMoja/GLAccounts.php:236
 msgid "Could not test for tax authority GL codes because"
 msgstr "اریز مینک شیامزآ LG دک تایلام هرادا یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:231
+#: /home/tim/code/KwaMoja/GLAccounts.php:242
 msgid "Cannot delete this account because it is used as one of the tax authority accounts"
 msgstr "هدافتسا تایلام هرادا یاه باسح زا یکی ناونع هب هک تسا نآ لیلد دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:238
+#: /home/tim/code/KwaMoja/GLAccounts.php:249
 msgid "Could not test for existing sales interface GL codes because"
 msgstr "تسین نومزآ نوچ LG شورف طبار یاهدک دوجوم یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:245
+#: /home/tim/code/KwaMoja/GLAccounts.php:256
 msgid "Cannot delete this account because it is used by one of the sales GL posting interface records"
 msgstr "هدافتسا لاسرا طبار قباوس LG شورف زا یکی طسوت هک تسا نآ نوچ دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:252
+#: /home/tim/code/KwaMoja/GLAccounts.php:263
 msgid "Could not test for existing cost of sales interface codes because"
 msgstr "اریز مینک شیامزآ شورف طبار یاهدک زا دوجوم یاه هنیزه یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:259
+#: /home/tim/code/KwaMoja/GLAccounts.php:270
 msgid "Cannot delete this account because it is used by one of the cost of sales GL posting interface records"
 msgstr "هدافتسا لاسرا طبار قباوس LG شورف یاه هنیزه زا یکی طسوت هک تسا نآ نوچ دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:270
+#: /home/tim/code/KwaMoja/GLAccounts.php:281
 msgid "Could not test for existing stock GL codes because"
 msgstr "دینک تست ار دوجوم لیلد هب LG ماهس یاهدک یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:277
+#: /home/tim/code/KwaMoja/GLAccounts.php:288
 msgid "Cannot delete this account because it is used by one of the stock GL posting interface records"
 msgstr "هدافتسا لاسرا طبار قباوس LG ماهس زا یکی طسوت هک تسا نآ نوچ دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:282
+#: /home/tim/code/KwaMoja/GLAccounts.php:293
 msgid "Could not test for existing bank account GL codes because"
 msgstr "دینک تست ار دوجوم لیلد هب LG باسح یاهدک کناب یارب دناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:289
+#: /home/tim/code/KwaMoja/GLAccounts.php:300
 msgid "Cannot delete this account because it is used by one the defined bank accounts"
 msgstr "دریگ رارق هدافتسا دروم هدش فیرعت یکناب یاه باسح زا یکی طسوت هک تسا نآ لیلد دینک فذح ار باسح نیا دیناوت یم "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:337
+#: /home/tim/code/KwaMoja/GLAccounts.php:348
 msgid "Edit Account Details"
 msgstr "جزئیات حساب را ویرایش کنید"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:339
-#: /home/tim/code/KwaMoja/GLAccounts.php:358
-#: /home/tim/code/KwaMoja/GLAccounts.php:478
+#: /home/tim/code/KwaMoja/GLAccounts.php:350
+#: /home/tim/code/KwaMoja/GLAccounts.php:369
+#: /home/tim/code/KwaMoja/GLAccounts.php:489
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
@@ -22298,38 +22303,38 @@ msgstr "جزئیات حساب را ویرایش کنید"
 msgid "Account Code"
 msgstr "باسح دک "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:351
-#: /home/tim/code/KwaMoja/GLAccounts.php:368
+#: /home/tim/code/KwaMoja/GLAccounts.php:362
+#: /home/tim/code/KwaMoja/GLAccounts.php:379
 msgid "The name of the general ledger account in"
 msgstr "نام حساب کاربری عمومی در"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:356
+#: /home/tim/code/KwaMoja/GLAccounts.php:367
 msgid "New Account Details"
 msgstr "جزئیات حساب جدید"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:371
 msgid "The code by which this general ledger code will be known."
 msgstr "کدی که با استفاده از آن کد رهبری عمومی شناخته می شود."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:381
+#: /home/tim/code/KwaMoja/GLAccounts.php:392
 #: /home/tim/code/KwaMoja/Z_ImportGLAccountGroups.php:28
 msgid "Account Group"
 msgstr "هورگ باسح "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:392
+#: /home/tim/code/KwaMoja/GLAccounts.php:403
 msgid "Select the Account Group that this account belongs to."
 msgstr "گروه حساب را انتخاب کنید که این حساب به آن تعلق دارد."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:396
-#: /home/tim/code/KwaMoja/GLAccounts.php:483
+#: /home/tim/code/KwaMoja/GLAccounts.php:407
+#: /home/tim/code/KwaMoja/GLAccounts.php:494
 msgid "Cash Flows Activity"
 msgstr "تیلاعف یدقن یاه نایرج "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:404
+#: /home/tim/code/KwaMoja/GLAccounts.php:415
 msgid "Select the cash flow activity (if any) applicable to this account."
 msgstr "فعالیت گردش وجه نقد (در صورت وجود) قابل اجرا برای این حساب را انتخاب کنید."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:427
+#: /home/tim/code/KwaMoja/GLAccounts.php:438
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
@@ -22337,35 +22342,35 @@ msgstr "فعالیت گردش وجه نقد (در صورت وجود) قابل ا
 msgid "Balance Sheet"
 msgstr "همانزارت "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:428
+#: /home/tim/code/KwaMoja/GLAccounts.php:439
 msgid "Profit/Loss"
 msgstr "نایز / دوس "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:438
+#: /home/tim/code/KwaMoja/GLAccounts.php:449
 msgid "The chart accounts could not be retrieved because"
 msgstr "دشاب یمن یبایزاب لباق لیلد هب دناوت یم لودج باسح "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:446
+#: /home/tim/code/KwaMoja/GLAccounts.php:457
 msgid "Language selection"
 msgstr "انتخاب زبان"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:449
+#: /home/tim/code/KwaMoja/GLAccounts.php:460
 msgid "Language to show"
 msgstr "زبان برای نشان دادن"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:470
+#: /home/tim/code/KwaMoja/GLAccounts.php:481
 msgid "Select Language"
 msgstr "زبان را انتخاب کنید"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:482
+#: /home/tim/code/KwaMoja/GLAccounts.php:493
 msgid "P/L or B/S"
 msgstr "S / B ای و L / P "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 msgid "Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised."
 msgstr ".درک لصاح نانیمطا اه هداد تیمامت ماجنا زا نانیمطا یارب تروص ره رد دش دهاوخ یفاضا یاه کچ ؟دینک فذح ار باسح نیا دیهاوخیم هک دیتسه نئمطم امش ایآ "
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:509
+#: /home/tim/code/KwaMoja/GLAccounts.php:520
 msgid "Show All Accounts"
 msgstr "باسح مامت شیامن "
 
@@ -22423,8 +22428,8 @@ msgstr "رد ناونع هب همانزارت "
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:226
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22613,8 +22618,8 @@ msgid "Statement of Cash Flows"
 msgstr "دقن لوپ شدرگ شرازگ "
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:198
@@ -22627,8 +22632,8 @@ msgid "Period Actual"
 msgstr "یعقاو هرود "
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:199
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
@@ -23037,29 +23042,29 @@ msgstr "هلجم "
 msgid "Enter Another General Ledger Journal"
 msgstr "یمومع هلجم رجل زا رگید یکی دینک دراو ار "
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
+#: /home/tim/code/KwaMoja/GLJournal.php:367
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 msgid "GL Journals involving the debtors control account cannot be entered. The general ledger debtors ledger (AR) integration is enabled so control accounts are automatically maintained by "
 msgstr "ظفح طسوت راکدوخ روط هب لرتنک باسح نیاربانب تسا لاعف ماغدا )RA( رتفد یلک روط هب نیعم ناراکهدب .دوش دراو دناوت یمن ناراکهدب لرتنک باسح هب طوبرم تالجم LG "
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:367
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid ". This setting can be disabled in System Configuration"
 msgstr ". این تنظیم را می توان در پیکربندی سیستم غیرفعال کرد"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid "GL Journals involving the creditors control account cannot be entered. The general ledger creditors ledger (AP) integration is enabled so control accounts are automatically maintained by "
 msgstr "ظفح طسوت راکدوخ روط هب لرتنک باسح نیاربانب تسا لاعف ماغدا )PA( رتفد یلک روط هب نیعم ناراکبلط .دوش دراو دناوت یمن ناراکبلط لرتنک باسح هب طوبرم تالجم LG "
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "GL Journals involving a bank account cannot be entered"
 msgstr "دوش دراو دناوت یمن یکناب باسح کی هب طوبرم تالجم LG "
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "Bank account general ledger entries must be entered by either a bank account receipt or a bank account payment"
 msgstr "دراو یکناب باسح تخادرپ ای یکناب باسح تفایرد زا کی ره طسوت دیاب یلک روط هب نیعم هتشون یکناب باسح "
@@ -23207,12 +23212,12 @@ msgstr "نمایش همه حساب ها ، یا فقط حساب های موجو�
 msgid "Show Profit and Loss Statement"
 msgstr "نمایش صورت سود و زیان"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:202
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "نداد تسد زا مالعتسا دوس رجل یمومع "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:477
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23223,25 +23228,25 @@ msgstr "نداد تسد زا مالعتسا دوس رجل یمومع "
 msgid "Gross Profit Percent"
 msgstr "صلاخان دوس دصرد "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "دوس "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "نایز "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:518
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
 msgid "P/L Percent after"
 msgstr "زا سپ دصرد L / P "
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:645
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
 msgid "Net Profit Percent"
 msgstr "صلاخ دوس دصرد "
 
@@ -23583,7 +23588,7 @@ msgstr "یعقاو هام "
 msgid "Month Budget"
 msgstr "هام رد هجدوب "
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
 msgid "Check Totals"
 msgstr "عومجم یسررب "
 

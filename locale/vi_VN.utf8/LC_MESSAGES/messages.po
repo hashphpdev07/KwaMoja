@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-18 00:04+0000\n"
-"PO-Revision-Date: 2020-11-18 00:11+0000\n"
+"POT-Creation-Date: 2020-11-22 00:22+0000\n"
+"PO-Revision-Date: 2020-11-22 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -32,7 +32,7 @@ msgstr "Số nhóm xếp hạng ABC"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
 #: /home/tim/code/KwaMoja/Factors.php:137
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:126
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:94
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
 #: /home/tim/code/KwaMoja/Locations.php:378
@@ -174,7 +174,7 @@ msgstr "Danh sách các Nhóm Xếp hạng ABC"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:208
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
@@ -305,7 +305,7 @@ msgstr "Bạn có chắc chắn muốn xóa nhóm xếp hạng này?"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:138
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 #: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
@@ -584,7 +584,7 @@ msgstr "Phương pháp xếp hạng đã được lưu thành công vào cơ s�
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:171
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
-#: /home/tim/code/KwaMoja/GLAccounts.php:498
+#: /home/tim/code/KwaMoja/GLAccounts.php:509
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
@@ -1116,8 +1116,8 @@ msgstr "Không thể xóa nhóm tài khoản này bởi vì tài khoản sổ c�
 #: /home/tim/code/KwaMoja/Departments.php:141
 #: /home/tim/code/KwaMoja/Factors.php:131
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:121
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:167
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:176
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:184
@@ -1900,7 +1900,7 @@ msgstr "Chỉnh sửa Chi tiết Nhóm Tài khoản"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:430
 #: /home/tim/code/KwaMoja/AccountGroups.php:458
-#: /home/tim/code/KwaMoja/GLAccounts.php:480
+#: /home/tim/code/KwaMoja/GLAccounts.php:491
 msgid "Account Group Code"
 msgstr "Mã Nhóm Tài khoản"
 
@@ -1913,7 +1913,7 @@ msgid "The integer group code for this account group"
 msgstr "Mã nhóm số nguyên cho nhóm tài khoản này"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:470
-#: /home/tim/code/KwaMoja/GLAccounts.php:481
+#: /home/tim/code/KwaMoja/GLAccounts.php:492
 msgid "Account Group Name"
 msgstr "Tên nhóm tài khoản"
 
@@ -1968,7 +1968,7 @@ msgstr "Trình tự trong số dư thử nghiệm nơi nhóm này sẽ xuất hi
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:159
 #: /home/tim/code/KwaMoja/FreightCosts.php:387
 #: /home/tim/code/KwaMoja/GLAccounts.php:55
-#: /home/tim/code/KwaMoja/GLAccounts.php:409
+#: /home/tim/code/KwaMoja/GLAccounts.php:420
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:258
 #: /home/tim/code/KwaMoja/Labels.php:534
 #: /home/tim/code/KwaMoja/Locations.php:756
@@ -2095,7 +2095,7 @@ msgid "The integer group code for this account section"
 msgstr "Mã nhóm số nguyên cho phần tài khoản này"
 
 #: /home/tim/code/KwaMoja/AccountSections.php:237
-#: /home/tim/code/KwaMoja/GLAccounts.php:464
+#: /home/tim/code/KwaMoja/GLAccounts.php:475
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
 msgstr "Chọn ngôn ngữ cho phần tài khoản này. Lưu ý rằng mỗi ngôn ngữ phải thiết lập tất cả các phần tài khoản giống nhau."
 
@@ -3005,8 +3005,8 @@ msgstr "Ngày cũ"
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3926,7 +3926,7 @@ msgid "Show on Screen (HTML)"
 msgstr "Hiển thị trên màn hình (HTML)"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3935,7 +3935,7 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "Có thể chỉ định một khoảng thời gian lên đến 12 tháng"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3944,7 +3944,7 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "hệ thống tự động cho thấy một so sánh cho cùng kỳ từ năm trước"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3953,7 +3953,7 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "nó không thể làm điều này nếu một khoảng thời gian hơn 12 tháng được chỉ định"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3963,7 +3963,7 @@ msgstr "Vui lòng chọn một khoảng thời gian khác"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -3979,7 +3979,7 @@ msgid "For"
 msgstr "Cho"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4015,10 +4015,10 @@ msgstr "Tất cả số tiền ghi trong"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:194
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
@@ -4037,13 +4037,13 @@ msgstr "Tài khoản"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
-#: /home/tim/code/KwaMoja/GLAccounts.php:349
-#: /home/tim/code/KwaMoja/GLAccounts.php:366
-#: /home/tim/code/KwaMoja/GLAccounts.php:479
+#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:377
+#: /home/tim/code/KwaMoja/GLAccounts.php:490
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:195
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
@@ -4101,8 +4101,8 @@ msgstr "Không có tài khoản sổ cái chung nào được SQL trả về b�
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:333
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:370
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4125,7 +4125,7 @@ msgstr "toàn bộ"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:449
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -7328,7 +7328,7 @@ msgid "Entry is expected in the format"
 msgstr "Mục dự kiến ​​sẽ có trong định dạng"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
 msgid "after"
 msgstr "sau"
 
@@ -22142,28 +22142,28 @@ msgid "Not set up"
 msgstr "Chưa thiết lập"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:9
-#: /home/tim/code/KwaMoja/GLAccounts.php:398
+#: /home/tim/code/KwaMoja/GLAccounts.php:409
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:26
 msgid "No effect on cash flow"
 msgstr "Không ảnh hưởng đến dòng tiền"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:11
-#: /home/tim/code/KwaMoja/GLAccounts.php:399
+#: /home/tim/code/KwaMoja/GLAccounts.php:410
 msgid "Operating activity"
 msgstr "Hoạt động điều hành"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:13
-#: /home/tim/code/KwaMoja/GLAccounts.php:400
+#: /home/tim/code/KwaMoja/GLAccounts.php:411
 msgid "Investing activity"
 msgstr "Hoạt động đầu tư"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:15
-#: /home/tim/code/KwaMoja/GLAccounts.php:401
+#: /home/tim/code/KwaMoja/GLAccounts.php:412
 msgid "Financing activity"
 msgstr "Hoạt động tài chính"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:17
-#: /home/tim/code/KwaMoja/GLAccounts.php:402
+#: /home/tim/code/KwaMoja/GLAccounts.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:34
 msgid "Cash or cash equivalent"
 msgstr "Tiền mặt hoặc tương đương tiền"
@@ -22199,91 +22199,96 @@ msgid "The general ledger account has been updated"
 msgstr "Tài khoản sổ cái chung đã được cập nhật"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:114
-#: /home/tim/code/KwaMoja/GLAccounts.php:145
+#: /home/tim/code/KwaMoja/GLAccounts.php:151
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:190
 msgid "Could not add the new account code"
 msgstr "Không thể thêm mã tài khoản mới"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:131
-#: /home/tim/code/KwaMoja/GLAccounts.php:162
+#: /home/tim/code/KwaMoja/GLAccounts.php:168
 msgid "The new general ledger account has been added"
 msgstr "Tài khoản sổ cái tổng quát mới đã được thêm vào"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:137
+#: /home/tim/code/KwaMoja/GLAccounts.php:173
+msgid "An error occurred in adding a new account number to the gltotals table"
+msgstr "Đã xảy ra lỗi khi thêm số tài khoản mới vào bảng gltotals"
+
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "Cannot delete this account because chart details have been created using this account and at least one period has postings to it."
 msgstr "Không thể xóa tài khoản này vì chi tiết biểu đồ đã được tạo bằng tài khoản này và ít nhất một khoảng thời gian đã đăng lên nó."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "chart details that require this account code"
 msgstr "chi tiết bảng biểu yêu cầu mã tài khoản này"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:190
+#: /home/tim/code/KwaMoja/GLAccounts.php:201
 msgid "Could not test for existing transactions because"
 msgstr "Không thể kiểm tra các giao dịch hiện tại vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "Cannot delete this account because transactions have been created using this account."
 msgstr "Không thể xóa tài khoản này vì các giao dịch đã được tạo bằng tài khoản này."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "transactions that require this account code"
 msgstr "các giao dịch yêu cầu mã tài khoản này"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:210
+#: /home/tim/code/KwaMoja/GLAccounts.php:221
 msgid "Could not test for default company GL codes because"
 msgstr "Không thể kiểm tra mã GL công ty mặc định vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:217
+#: /home/tim/code/KwaMoja/GLAccounts.php:228
 msgid "Cannot delete this account because it is used as one of the company default accounts"
 msgstr "Không thể xóa tài khoản này vì nó được sử dụng làm một trong các tài khoản mặc định của công ty"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:225
+#: /home/tim/code/KwaMoja/GLAccounts.php:236
 msgid "Could not test for tax authority GL codes because"
 msgstr "Không thể kiểm tra mã GL của cơ quan thuế vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:231
+#: /home/tim/code/KwaMoja/GLAccounts.php:242
 msgid "Cannot delete this account because it is used as one of the tax authority accounts"
 msgstr "Không thể xóa tài khoản này bởi vì nó được sử dụng làm một trong các tài khoản của cơ quan thuế"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:238
+#: /home/tim/code/KwaMoja/GLAccounts.php:249
 msgid "Could not test for existing sales interface GL codes because"
 msgstr "Không thể kiểm tra mã GL giao diện hiện tại của giao diện bán hàng vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:245
+#: /home/tim/code/KwaMoja/GLAccounts.php:256
 msgid "Cannot delete this account because it is used by one of the sales GL posting interface records"
 msgstr "Không thể xóa tài khoản này bởi vì nó được sử dụng bởi một trong các bản ghi giao diện đăng bán hàng GL"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:252
+#: /home/tim/code/KwaMoja/GLAccounts.php:263
 msgid "Could not test for existing cost of sales interface codes because"
 msgstr "Không thể kiểm tra giá trị mã giao diện bán hàng hiện có vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:259
+#: /home/tim/code/KwaMoja/GLAccounts.php:270
 msgid "Cannot delete this account because it is used by one of the cost of sales GL posting interface records"
 msgstr "Không thể xóa tài khoản này bởi vì nó được sử dụng bởi một trong các chi phí bán hàng Hồ sơ giao dịch đăng GL"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:270
+#: /home/tim/code/KwaMoja/GLAccounts.php:281
 msgid "Could not test for existing stock GL codes because"
 msgstr "Không thể kiểm tra mã GL cổ phiếu hiện tại vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:277
+#: /home/tim/code/KwaMoja/GLAccounts.php:288
 msgid "Cannot delete this account because it is used by one of the stock GL posting interface records"
 msgstr "Không thể xóa tài khoản này vì nó được sử dụng bởi một trong các bản ghi giao dịch chứng khoán đăng GL"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:282
+#: /home/tim/code/KwaMoja/GLAccounts.php:293
 msgid "Could not test for existing bank account GL codes because"
 msgstr "Không thể kiểm tra mã GL tài khoản ngân hàng hiện tại vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:289
+#: /home/tim/code/KwaMoja/GLAccounts.php:300
 msgid "Cannot delete this account because it is used by one the defined bank accounts"
 msgstr "Không thể xóa tài khoản này bởi vì nó được sử dụng bởi một trong những tài khoản ngân hàng được xác định"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:337
+#: /home/tim/code/KwaMoja/GLAccounts.php:348
 msgid "Edit Account Details"
 msgstr "Chỉnh sửa chi tiết tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:339
-#: /home/tim/code/KwaMoja/GLAccounts.php:358
-#: /home/tim/code/KwaMoja/GLAccounts.php:478
+#: /home/tim/code/KwaMoja/GLAccounts.php:350
+#: /home/tim/code/KwaMoja/GLAccounts.php:369
+#: /home/tim/code/KwaMoja/GLAccounts.php:489
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
@@ -22298,38 +22303,38 @@ msgstr "Chỉnh sửa chi tiết tài khoản"
 msgid "Account Code"
 msgstr "Mã tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:351
-#: /home/tim/code/KwaMoja/GLAccounts.php:368
+#: /home/tim/code/KwaMoja/GLAccounts.php:362
+#: /home/tim/code/KwaMoja/GLAccounts.php:379
 msgid "The name of the general ledger account in"
 msgstr "Tên của tài khoản sổ cái chung trong"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:356
+#: /home/tim/code/KwaMoja/GLAccounts.php:367
 msgid "New Account Details"
 msgstr "Chi tiết tài khoản mới"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:371
 msgid "The code by which this general ledger code will be known."
 msgstr "Mã mà theo đó mã sổ cái chung này sẽ được biết đến."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:381
+#: /home/tim/code/KwaMoja/GLAccounts.php:392
 #: /home/tim/code/KwaMoja/Z_ImportGLAccountGroups.php:28
 msgid "Account Group"
 msgstr "Nhóm tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:392
+#: /home/tim/code/KwaMoja/GLAccounts.php:403
 msgid "Select the Account Group that this account belongs to."
 msgstr "Chọn Nhóm Tài khoản mà tài khoản này thuộc về."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:396
-#: /home/tim/code/KwaMoja/GLAccounts.php:483
+#: /home/tim/code/KwaMoja/GLAccounts.php:407
+#: /home/tim/code/KwaMoja/GLAccounts.php:494
 msgid "Cash Flows Activity"
 msgstr "Hoạt động Cash Flow"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:404
+#: /home/tim/code/KwaMoja/GLAccounts.php:415
 msgid "Select the cash flow activity (if any) applicable to this account."
 msgstr "Chọn hoạt động dòng tiền (nếu có) áp dụng cho tài khoản này."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:427
+#: /home/tim/code/KwaMoja/GLAccounts.php:438
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
@@ -22337,35 +22342,35 @@ msgstr "Chọn hoạt động dòng tiền (nếu có) áp dụng cho tài kho�
 msgid "Balance Sheet"
 msgstr "Bảng cân đối kế toán"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:428
+#: /home/tim/code/KwaMoja/GLAccounts.php:439
 msgid "Profit/Loss"
 msgstr "Mất lợi nhuận"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:438
+#: /home/tim/code/KwaMoja/GLAccounts.php:449
 msgid "The chart accounts could not be retrieved because"
 msgstr "Không thể truy lục các tài khoản biểu đồ vì"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:446
+#: /home/tim/code/KwaMoja/GLAccounts.php:457
 msgid "Language selection"
 msgstr "Sự lựa chọn ngôn ngữ"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:449
+#: /home/tim/code/KwaMoja/GLAccounts.php:460
 msgid "Language to show"
 msgstr "Ngôn ngữ để hiển thị"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:470
+#: /home/tim/code/KwaMoja/GLAccounts.php:481
 msgid "Select Language"
 msgstr "Chọn ngôn ngữ"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:482
+#: /home/tim/code/KwaMoja/GLAccounts.php:493
 msgid "P/L or B/S"
 msgstr "P / L hoặc B / S"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 msgid "Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised."
 msgstr "Bạn có chắc chắn muốn xóa tài khoản này?  Các kiểm tra bổ sung sẽ được thực hiện trong bất kỳ trường hợp nào để đảm bảo tính toàn vẹn dữ liệu không bị ảnh hưởng."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:509
+#: /home/tim/code/KwaMoja/GLAccounts.php:520
 msgid "Show All Accounts"
 msgstr "Hiển thị Tất cả Tài khoản"
 
@@ -22423,8 +22428,8 @@ msgstr "Bảng cân đối kế toán tại"
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:226
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22613,8 +22618,8 @@ msgid "Statement of Cash Flows"
 msgstr "Báo cáo lưu chuyển tiền mặt"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:198
@@ -22627,8 +22632,8 @@ msgid "Period Actual"
 msgstr "Giai đoạn thực tế"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:199
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
@@ -23037,29 +23042,29 @@ msgstr "Tạp chí"
 msgid "Enter Another General Ledger Journal"
 msgstr "Nhập Tạp chí Chung khác"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
+#: /home/tim/code/KwaMoja/GLJournal.php:367
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 msgid "GL Journals involving the debtors control account cannot be entered. The general ledger debtors ledger (AR) integration is enabled so control accounts are automatically maintained by "
 msgstr "Các tạp chí GL có liên quan đến tài khoản kiểm soát của người nợ không thể được nhập.  Việc tích hợp sổ cái khoản nợ chung (AR) được kích hoạt để các tài khoản kiểm soát được tự động duy trì bởi"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:367
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid ". This setting can be disabled in System Configuration"
 msgstr ".  Cài đặt này có thể bị vô hiệu trong Cấu hình Hệ thống"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid "GL Journals involving the creditors control account cannot be entered. The general ledger creditors ledger (AP) integration is enabled so control accounts are automatically maintained by "
 msgstr "GL tạp chí liên quan đến tài khoản kiểm soát chủ nợ không thể được nhập.  Sự tích hợp sổ cái sổ cái tổng hợp (AP) được kích hoạt để các tài khoản kiểm soát được tự động duy trì bởi"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "GL Journals involving a bank account cannot be entered"
 msgstr "Các tạp chí GL có liên quan đến tài khoản ngân hàng không thể được nhập"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "Bank account general ledger entries must be entered by either a bank account receipt or a bank account payment"
 msgstr "Các mục nhập tài khoản ngân hàng chung của tài khoản ngân hàng phải được nhập bằng biên lai ngân hàng hoặc thanh toán tài khoản ngân hàng"
@@ -23207,12 +23212,12 @@ msgstr "Hiển thị tất cả các tài khoản, hoặc chỉ các tài khoả
 msgid "Show Profit and Loss Statement"
 msgstr "Hiển thị báo cáo lãi và lỗ"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:202
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "Suy thoái lợi nhuận"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:477
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23223,25 +23228,25 @@ msgstr "Suy thoái lợi nhuận"
 msgid "Gross Profit Percent"
 msgstr "Tỷ suất lợi nhuận gộp"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "Lợi nhuận"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "Mất"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:518
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
 msgid "P/L Percent after"
 msgstr "P / L Phần trăm sau"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:645
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
 msgid "Net Profit Percent"
 msgstr "Phần trăm lợi nhuận ròng"
 
@@ -23583,7 +23588,7 @@ msgstr "Tháng thực tế"
 msgid "Month Budget"
 msgstr "Ngân sách Tháng"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
 msgid "Check Totals"
 msgstr "Kiểm tra tổng số"
 

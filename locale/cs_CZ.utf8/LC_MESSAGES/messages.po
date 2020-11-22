@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-18 00:01+0000\n"
-"PO-Revision-Date: 2020-11-18 00:11+0000\n"
+"POT-Creation-Date: 2020-11-22 00:00+0000\n"
+"PO-Revision-Date: 2020-11-22 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -32,7 +32,7 @@ msgstr "Číslo skupiny ABC"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
 #: /home/tim/code/KwaMoja/Factors.php:137
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:126
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:94
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
 #: /home/tim/code/KwaMoja/Locations.php:378
@@ -174,7 +174,7 @@ msgstr "Seznam skupin ABC"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:208
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
@@ -305,7 +305,7 @@ msgstr "Opravdu chcete smazat tuto skupinu hodnocení?"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:138
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 #: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
@@ -584,7 +584,7 @@ msgstr "Metoda hodnocení byla úspěšně uložena do databáze"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:171
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
-#: /home/tim/code/KwaMoja/GLAccounts.php:498
+#: /home/tim/code/KwaMoja/GLAccounts.php:509
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
@@ -1116,8 +1116,8 @@ msgstr "Tuto skupinu účtů nelze odstranit, protože účty hlavní knihy byly
 #: /home/tim/code/KwaMoja/Departments.php:141
 #: /home/tim/code/KwaMoja/Factors.php:131
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:121
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:167
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:176
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:184
@@ -1900,7 +1900,7 @@ msgstr "Upravit podrobnosti o skupině účtu"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:430
 #: /home/tim/code/KwaMoja/AccountGroups.php:458
-#: /home/tim/code/KwaMoja/GLAccounts.php:480
+#: /home/tim/code/KwaMoja/GLAccounts.php:491
 msgid "Account Group Code"
 msgstr "Kód skupiny účtů"
 
@@ -1913,7 +1913,7 @@ msgid "The integer group code for this account group"
 msgstr "Kód celé skupiny pro tuto skupinu účtů"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:470
-#: /home/tim/code/KwaMoja/GLAccounts.php:481
+#: /home/tim/code/KwaMoja/GLAccounts.php:492
 msgid "Account Group Name"
 msgstr "Název skupiny účtů"
 
@@ -1968,7 +1968,7 @@ msgstr "Sekvence ve zkušebním zůstatku, kde se tato skupina objeví."
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:159
 #: /home/tim/code/KwaMoja/FreightCosts.php:387
 #: /home/tim/code/KwaMoja/GLAccounts.php:55
-#: /home/tim/code/KwaMoja/GLAccounts.php:409
+#: /home/tim/code/KwaMoja/GLAccounts.php:420
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:258
 #: /home/tim/code/KwaMoja/Labels.php:534
 #: /home/tim/code/KwaMoja/Locations.php:756
@@ -2095,7 +2095,7 @@ msgid "The integer group code for this account section"
 msgstr "Kód celé skupiny pro tuto část účtu"
 
 #: /home/tim/code/KwaMoja/AccountSections.php:237
-#: /home/tim/code/KwaMoja/GLAccounts.php:464
+#: /home/tim/code/KwaMoja/GLAccounts.php:475
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
 msgstr "Vyberte jazyk pro tuto část účtu. Všimněte si, že každý jazyk musí mít nastaveny všechny stejné sekce účtu."
 
@@ -3005,8 +3005,8 @@ msgstr "Staré dny"
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3926,7 +3926,7 @@ msgid "Show on Screen (HTML)"
 msgstr "Zobrazit na obrazovce (HTML)"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3935,7 +3935,7 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "Lze stanovit dobu trvání až 12 měsíců"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3944,7 +3944,7 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "systém automaticky zobrazí srovnávací údaje za stejné období od předchozího roku"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3953,7 +3953,7 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "nemůže to udělat, pokud je upřesněno období delší než 12 měsíců"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3963,7 +3963,7 @@ msgstr "Vyberte prosím alternativní období"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -3979,7 +3979,7 @@ msgid "For"
 msgstr "Pro"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4015,10 +4015,10 @@ msgstr "Všechny částky uvedené v"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:194
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
@@ -4037,13 +4037,13 @@ msgstr "Účet"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
-#: /home/tim/code/KwaMoja/GLAccounts.php:349
-#: /home/tim/code/KwaMoja/GLAccounts.php:366
-#: /home/tim/code/KwaMoja/GLAccounts.php:479
+#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:377
+#: /home/tim/code/KwaMoja/GLAccounts.php:490
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:195
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
@@ -4101,8 +4101,8 @@ msgstr "Žádný účty obecné knihy nebyly SQL vráceny, protože"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:333
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:370
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4125,7 +4125,7 @@ msgstr "celkový"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:449
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -7328,7 +7328,7 @@ msgid "Entry is expected in the format"
 msgstr "Vstup je očekáván ve formátu"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
 msgid "after"
 msgstr "po"
 
@@ -22142,28 +22142,28 @@ msgid "Not set up"
 msgstr "Není nastaveno"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:9
-#: /home/tim/code/KwaMoja/GLAccounts.php:398
+#: /home/tim/code/KwaMoja/GLAccounts.php:409
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:26
 msgid "No effect on cash flow"
 msgstr "Žádný vliv na peněžní tok"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:11
-#: /home/tim/code/KwaMoja/GLAccounts.php:399
+#: /home/tim/code/KwaMoja/GLAccounts.php:410
 msgid "Operating activity"
 msgstr "Provozní činnost"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:13
-#: /home/tim/code/KwaMoja/GLAccounts.php:400
+#: /home/tim/code/KwaMoja/GLAccounts.php:411
 msgid "Investing activity"
 msgstr "Investiční činnost"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:15
-#: /home/tim/code/KwaMoja/GLAccounts.php:401
+#: /home/tim/code/KwaMoja/GLAccounts.php:412
 msgid "Financing activity"
 msgstr "Finanční činnost"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:17
-#: /home/tim/code/KwaMoja/GLAccounts.php:402
+#: /home/tim/code/KwaMoja/GLAccounts.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:34
 msgid "Cash or cash equivalent"
 msgstr "Hotovost nebo peněžní ekvivalent"
@@ -22199,91 +22199,96 @@ msgid "The general ledger account has been updated"
 msgstr "Účet hlavní knihy byl aktualizován"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:114
-#: /home/tim/code/KwaMoja/GLAccounts.php:145
+#: /home/tim/code/KwaMoja/GLAccounts.php:151
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:190
 msgid "Could not add the new account code"
 msgstr "Nelze přidat nový kód účtu"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:131
-#: /home/tim/code/KwaMoja/GLAccounts.php:162
+#: /home/tim/code/KwaMoja/GLAccounts.php:168
 msgid "The new general ledger account has been added"
 msgstr "Byl přidán nový účet hlavní knihy"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:137
+#: /home/tim/code/KwaMoja/GLAccounts.php:173
+msgid "An error occurred in adding a new account number to the gltotals table"
+msgstr "Při přidávání nového čísla účtu do tabulky gltotals došlo k chybě"
+
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "Cannot delete this account because chart details have been created using this account and at least one period has postings to it."
 msgstr "Tento účet nelze vymazat, protože údaje o grafu byly vytvořeny pomocí tohoto účtu a alespoň jedno období má k němu příspěvky."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "chart details that require this account code"
 msgstr "grafy, které vyžadují tento kód účtu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:190
+#: /home/tim/code/KwaMoja/GLAccounts.php:201
 msgid "Could not test for existing transactions because"
 msgstr "Nelze testovat stávající transakce, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "Cannot delete this account because transactions have been created using this account."
 msgstr "Tento účet nelze vymazat, protože transakce byly vytvořeny pomocí tohoto účtu."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "transactions that require this account code"
 msgstr "transakce vyžadující tento kód účtu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:210
+#: /home/tim/code/KwaMoja/GLAccounts.php:221
 msgid "Could not test for default company GL codes because"
 msgstr "Nelze testovat standardní kódy firem GL, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:217
+#: /home/tim/code/KwaMoja/GLAccounts.php:228
 msgid "Cannot delete this account because it is used as one of the company default accounts"
 msgstr "Tento účet nelze odstranit, protože je používán jako jeden z firemních výchozích účtů"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:225
+#: /home/tim/code/KwaMoja/GLAccounts.php:236
 msgid "Could not test for tax authority GL codes because"
 msgstr "Nelze testovat pro daňové orgány GL kódy, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:231
+#: /home/tim/code/KwaMoja/GLAccounts.php:242
 msgid "Cannot delete this account because it is used as one of the tax authority accounts"
 msgstr "Tento účet nelze odstranit, protože se používá jako jeden z účtů daně"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:238
+#: /home/tim/code/KwaMoja/GLAccounts.php:249
 msgid "Could not test for existing sales interface GL codes because"
 msgstr "Nelze testovat existující kódy GL pro prodejní rozhraní, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:245
+#: /home/tim/code/KwaMoja/GLAccounts.php:256
 msgid "Cannot delete this account because it is used by one of the sales GL posting interface records"
 msgstr "Tento účet nelze odstranit, protože je používán jedním z prodejních záznamů rozhraní GL pro prodej"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:252
+#: /home/tim/code/KwaMoja/GLAccounts.php:263
 msgid "Could not test for existing cost of sales interface codes because"
 msgstr "Nelze otestovat existující kódy rozhraní pro prodejní náklady, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:259
+#: /home/tim/code/KwaMoja/GLAccounts.php:270
 msgid "Cannot delete this account because it is used by one of the cost of sales GL posting interface records"
 msgstr "Tento účet nelze odstranit, protože je používán jednou z nákladů na prodej GL záznamů rozhraní"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:270
+#: /home/tim/code/KwaMoja/GLAccounts.php:281
 msgid "Could not test for existing stock GL codes because"
 msgstr "Nelze testovat existující kódy GL, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:277
+#: /home/tim/code/KwaMoja/GLAccounts.php:288
 msgid "Cannot delete this account because it is used by one of the stock GL posting interface records"
 msgstr "Tento účet nelze smazat, protože je používán jedním z paměťových záznamů rozhraní GL"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:282
+#: /home/tim/code/KwaMoja/GLAccounts.php:293
 msgid "Could not test for existing bank account GL codes because"
 msgstr "Nelze testovat existující bankovní účet GL kódů, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:289
+#: /home/tim/code/KwaMoja/GLAccounts.php:300
 msgid "Cannot delete this account because it is used by one the defined bank accounts"
 msgstr "Tento účet nelze odstranit, protože je používán jedním z definovaných bankovních účtů"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:337
+#: /home/tim/code/KwaMoja/GLAccounts.php:348
 msgid "Edit Account Details"
 msgstr "Upravit podrobnosti o účtu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:339
-#: /home/tim/code/KwaMoja/GLAccounts.php:358
-#: /home/tim/code/KwaMoja/GLAccounts.php:478
+#: /home/tim/code/KwaMoja/GLAccounts.php:350
+#: /home/tim/code/KwaMoja/GLAccounts.php:369
+#: /home/tim/code/KwaMoja/GLAccounts.php:489
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
@@ -22298,38 +22303,38 @@ msgstr "Upravit podrobnosti o účtu"
 msgid "Account Code"
 msgstr "Kód účtu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:351
-#: /home/tim/code/KwaMoja/GLAccounts.php:368
+#: /home/tim/code/KwaMoja/GLAccounts.php:362
+#: /home/tim/code/KwaMoja/GLAccounts.php:379
 msgid "The name of the general ledger account in"
 msgstr "Název účtu hlavní knihy v"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:356
+#: /home/tim/code/KwaMoja/GLAccounts.php:367
 msgid "New Account Details"
 msgstr "Nové podrobnosti o účtu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:371
 msgid "The code by which this general ledger code will be known."
 msgstr "Kód, podle kterého bude tento kód hlavní knihy znám."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:381
+#: /home/tim/code/KwaMoja/GLAccounts.php:392
 #: /home/tim/code/KwaMoja/Z_ImportGLAccountGroups.php:28
 msgid "Account Group"
 msgstr "Skupina účtů"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:392
+#: /home/tim/code/KwaMoja/GLAccounts.php:403
 msgid "Select the Account Group that this account belongs to."
 msgstr "Vyberte skupinu účtů, do které tento účet patří."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:396
-#: /home/tim/code/KwaMoja/GLAccounts.php:483
+#: /home/tim/code/KwaMoja/GLAccounts.php:407
+#: /home/tim/code/KwaMoja/GLAccounts.php:494
 msgid "Cash Flows Activity"
 msgstr "Aktivita peněžních toků"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:404
+#: /home/tim/code/KwaMoja/GLAccounts.php:415
 msgid "Select the cash flow activity (if any) applicable to this account."
 msgstr "Vyberte aktivitu peněžních toků (pokud existují) použitou pro tento účet."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:427
+#: /home/tim/code/KwaMoja/GLAccounts.php:438
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
@@ -22337,35 +22342,35 @@ msgstr "Vyberte aktivitu peněžních toků (pokud existují) použitou pro tent
 msgid "Balance Sheet"
 msgstr "Rozvaha"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:428
+#: /home/tim/code/KwaMoja/GLAccounts.php:439
 msgid "Profit/Loss"
 msgstr "Ztráta zisku"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:438
+#: /home/tim/code/KwaMoja/GLAccounts.php:449
 msgid "The chart accounts could not be retrieved because"
 msgstr "Grafové účty nemohly být načteny, protože"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:446
+#: /home/tim/code/KwaMoja/GLAccounts.php:457
 msgid "Language selection"
 msgstr "Výběr jazyka"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:449
+#: /home/tim/code/KwaMoja/GLAccounts.php:460
 msgid "Language to show"
 msgstr "Jazyk k zobrazení"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:470
+#: /home/tim/code/KwaMoja/GLAccounts.php:481
 msgid "Select Language"
 msgstr "Zvolte jazyk"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:482
+#: /home/tim/code/KwaMoja/GLAccounts.php:493
 msgid "P/L or B/S"
 msgstr "P / L nebo B / S"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 msgid "Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised."
 msgstr "Opravdu chcete smazat tento účet?  V každém případě budou provedeny další kontroly, aby nedošlo k ohrožení integrity dat."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:509
+#: /home/tim/code/KwaMoja/GLAccounts.php:520
 msgid "Show All Accounts"
 msgstr "Zobrazit všechny účty"
 
@@ -22423,8 +22428,8 @@ msgstr "Rozvaha k datu"
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:226
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22613,8 +22618,8 @@ msgid "Statement of Cash Flows"
 msgstr "Výkaz peněžních toků"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:198
@@ -22627,8 +22632,8 @@ msgid "Period Actual"
 msgstr "Období Aktuální"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:199
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
@@ -23037,29 +23042,29 @@ msgstr "Časopis"
 msgid "Enter Another General Ledger Journal"
 msgstr "Zadejte jiný deník hlavní knihy"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
+#: /home/tim/code/KwaMoja/GLJournal.php:367
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 msgid "GL Journals involving the debtors control account cannot be entered. The general ledger debtors ledger (AR) integration is enabled so control accounts are automatically maintained by "
 msgstr "GL Žurnály zahrnující kontrolní účet dlužníků nelze zadat.  Integrovaná kniha dlužníků knih (AR) je povolena, takže kontrolní účty jsou automaticky udržovány"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:367
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid ". This setting can be disabled in System Configuration"
 msgstr ".  Toto nastavení může být deaktivováno v Konfiguraci systému"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid "GL Journals involving the creditors control account cannot be entered. The general ledger creditors ledger (AP) integration is enabled so control accounts are automatically maintained by "
 msgstr "GL Žurnály zahrnující kontrolní účet věřitelů nelze zadat.  Integrovaná kniha věřitelů (AP) integrace je povolena, takže kontrolní účty jsou automaticky udržovány"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "GL Journals involving a bank account cannot be entered"
 msgstr "GL Žurnály zahrnující bankovní účet nelze zadat"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "Bank account general ledger entries must be entered by either a bank account receipt or a bank account payment"
 msgstr "Záznamy hlavní knihy bankového účtu musí být zadány buď bankovním účtem nebo bankovním účtem"
@@ -23207,12 +23212,12 @@ msgstr "Zobrazit všechny účty, nebo jen účty se zůstatky."
 msgid "Show Profit and Loss Statement"
 msgstr "Zobrazit výkaz zisku a ztráty"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:202
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "Zúčtování ztráty z hlavní knihy"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:477
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23223,25 +23228,25 @@ msgstr "Zúčtování ztráty z hlavní knihy"
 msgid "Gross Profit Percent"
 msgstr "Hrubý procentický zisk"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "Zisk"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "Ztráta"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:518
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
 msgid "P/L Percent after"
 msgstr "P / L Procento po"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:645
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
 msgid "Net Profit Percent"
 msgstr "Čistý zisk"
 
@@ -23583,7 +23588,7 @@ msgstr "Aktuální měsíc"
 msgid "Month Budget"
 msgstr "Měsíční rozpočet"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
 msgid "Check Totals"
 msgstr "Zkontrolujte součty"
 

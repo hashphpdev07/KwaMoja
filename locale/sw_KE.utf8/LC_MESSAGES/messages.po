@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-18 00:04+0000\n"
-"PO-Revision-Date: 2020-11-18 00:11+0000\n"
+"POT-Creation-Date: 2020-11-22 00:20+0000\n"
+"PO-Revision-Date: 2020-11-22 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -32,7 +32,7 @@ msgstr "Nambari ya kikundi cha ABC cha cheo"
 #: /home/tim/code/KwaMoja/CustomerTypes.php:150
 #: /home/tim/code/KwaMoja/Factors.php:137
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:126
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/InternalStockCategoriesByRole.php:94
 #: /home/tim/code/KwaMoja/KCMCDischargeTypes.php:95
 #: /home/tim/code/KwaMoja/Locations.php:378
@@ -174,7 +174,7 @@ msgstr "Orodha ya vikundi vya cheo vya ABC"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:208
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
 #: /home/tim/code/KwaMoja/GLTags.php:53
@@ -305,7 +305,7 @@ msgstr "Una uhakika unataka kufuta kikundi hiki cha cheo?"
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:138
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:172
 #: /home/tim/code/KwaMoja/FreightCosts.php:260
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 #: /home/tim/code/KwaMoja/GLJournal.php:650
 #: /home/tim/code/KwaMoja/GLJournalTemplates.php:55
 #: /home/tim/code/KwaMoja/GLTags.php:130
@@ -584,7 +584,7 @@ msgstr "Njia ya cheo imehifadhiwa kwa ufanisi kwenye orodha"
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:171
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:109
 #: /home/tim/code/KwaMoja/FreightCosts.php:259
-#: /home/tim/code/KwaMoja/GLAccounts.php:498
+#: /home/tim/code/KwaMoja/GLAccounts.php:509
 #: /home/tim/code/KwaMoja/GLBudgetHeaders.php:227
 #: /home/tim/code/KwaMoja/GLJournal.php:649
 #: /home/tim/code/KwaMoja/GLTags.php:129
@@ -1116,8 +1116,8 @@ msgstr "Haiwezi kufuta kikundi hiki cha akaunti kwa sababu akaunti nyingi za kio
 #: /home/tim/code/KwaMoja/Departments.php:141
 #: /home/tim/code/KwaMoja/Factors.php:131
 #: /home/tim/code/KwaMoja/FixedAssetCategories.php:121
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:167
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:176
 #: /home/tim/code/KwaMoja/KCMCInsuranceCompanyDetails.php:184
@@ -1900,7 +1900,7 @@ msgstr "Hariri Maelezo ya Kundi la Akaunti"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:430
 #: /home/tim/code/KwaMoja/AccountGroups.php:458
-#: /home/tim/code/KwaMoja/GLAccounts.php:480
+#: /home/tim/code/KwaMoja/GLAccounts.php:491
 msgid "Account Group Code"
 msgstr "Kanuni ya Kundi la Akaunti"
 
@@ -1913,7 +1913,7 @@ msgid "The integer group code for this account group"
 msgstr "Nambari ya kikundi nambari ya kikundi hiki cha akaunti"
 
 #: /home/tim/code/KwaMoja/AccountGroups.php:470
-#: /home/tim/code/KwaMoja/GLAccounts.php:481
+#: /home/tim/code/KwaMoja/GLAccounts.php:492
 msgid "Account Group Name"
 msgstr "Jina la Kikundi cha Akaunti"
 
@@ -1968,7 +1968,7 @@ msgstr "Mlolongo katika usawa wa jaribio ambapo kikundi hiki kitatokea."
 #: /home/tim/code/KwaMoja/FixedAssetLocations.php:159
 #: /home/tim/code/KwaMoja/FreightCosts.php:387
 #: /home/tim/code/KwaMoja/GLAccounts.php:55
-#: /home/tim/code/KwaMoja/GLAccounts.php:409
+#: /home/tim/code/KwaMoja/GLAccounts.php:420
 #: /home/tim/code/KwaMoja/GeocodeSetup.php:258
 #: /home/tim/code/KwaMoja/Labels.php:534
 #: /home/tim/code/KwaMoja/Locations.php:756
@@ -2095,7 +2095,7 @@ msgid "The integer group code for this account section"
 msgstr "Nambari ya kikundi nambari ya sehemu hii ya akaunti"
 
 #: /home/tim/code/KwaMoja/AccountSections.php:237
-#: /home/tim/code/KwaMoja/GLAccounts.php:464
+#: /home/tim/code/KwaMoja/GLAccounts.php:475
 msgid "Select the language for this account section. Note each language must have all the same account sections setup."
 msgstr "Chagua lugha ya sehemu hii ya akaunti. Kumbuka kila lugha lazima iwe na usanidi wa sehemu sawa za akaunti."
 
@@ -3005,8 +3005,8 @@ msgstr "Siku za Kale"
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:354
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:420
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3926,7 +3926,7 @@ msgid "Show on Screen (HTML)"
 msgstr "Onyesha kwenye Skrini (HTML)"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3935,7 +3935,7 @@ msgid "A period up to 12 months in duration can be specified"
 msgstr "Kipindi hadi miezi 12 kwa muda kinaweza kutajwa"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3944,7 +3944,7 @@ msgid "the system automatically shows a comparative for the same period from the
 msgstr "mfumo wa moja kwa moja unaonyesha kulinganisha kwa kipindi kama hicho tangu mwaka uliopita"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3953,7 +3953,7 @@ msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "haiwezi kufanya hivyo ikiwa kipindi cha miezi 12 kinaelezwa"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:195
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
@@ -3963,7 +3963,7 @@ msgstr "Tafadhali chagua aina mbadala ya kipindi"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
 #: /home/tim/code/KwaMoja/KCMCEnterPathologyTestResults.php:46
 #: /home/tim/code/KwaMoja/KCMCRequestBacteriologyTest.php:95
@@ -3979,7 +3979,7 @@ msgid "For"
 msgstr "Kwa"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:201
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
@@ -4015,10 +4015,10 @@ msgstr "Kiasi chochote kinachojulikana"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
-#: /home/tim/code/KwaMoja/GLAccounts.php:296
+#: /home/tim/code/KwaMoja/GLAccounts.php:307
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:194
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
@@ -4037,13 +4037,13 @@ msgstr "Akaunti"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
-#: /home/tim/code/KwaMoja/GLAccounts.php:349
-#: /home/tim/code/KwaMoja/GLAccounts.php:366
-#: /home/tim/code/KwaMoja/GLAccounts.php:479
+#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:377
+#: /home/tim/code/KwaMoja/GLAccounts.php:490
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:195
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
@@ -4101,8 +4101,8 @@ msgstr "Hakuna akaunti za kiongozi wa jumla zilizorejeshwa na SQL kwa sababu"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:333
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:370
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
@@ -4125,7 +4125,7 @@ msgstr "jumla"
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:449
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
@@ -7328,7 +7328,7 @@ msgid "Entry is expected in the format"
 msgstr "Kuingia kunatarajiwa katika muundo"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
 msgid "after"
 msgstr "baada"
 
@@ -22142,28 +22142,28 @@ msgid "Not set up"
 msgstr "Sio kuanzisha"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:9
-#: /home/tim/code/KwaMoja/GLAccounts.php:398
+#: /home/tim/code/KwaMoja/GLAccounts.php:409
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:26
 msgid "No effect on cash flow"
 msgstr "Hakuna athari kwenye mtiririko wa fedha"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:11
-#: /home/tim/code/KwaMoja/GLAccounts.php:399
+#: /home/tim/code/KwaMoja/GLAccounts.php:410
 msgid "Operating activity"
 msgstr "Shughuli ya uendeshaji"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:13
-#: /home/tim/code/KwaMoja/GLAccounts.php:400
+#: /home/tim/code/KwaMoja/GLAccounts.php:411
 msgid "Investing activity"
 msgstr "Shughuli ya uwekezaji"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:15
-#: /home/tim/code/KwaMoja/GLAccounts.php:401
+#: /home/tim/code/KwaMoja/GLAccounts.php:412
 msgid "Financing activity"
 msgstr "Shughuli za fedha"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:17
-#: /home/tim/code/KwaMoja/GLAccounts.php:402
+#: /home/tim/code/KwaMoja/GLAccounts.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:34
 msgid "Cash or cash equivalent"
 msgstr "Fedha au fedha sawa"
@@ -22199,91 +22199,96 @@ msgid "The general ledger account has been updated"
 msgstr "Akaunti ya kiongozi wa jumla imesasishwa"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:114
-#: /home/tim/code/KwaMoja/GLAccounts.php:145
+#: /home/tim/code/KwaMoja/GLAccounts.php:151
 #: /home/tim/code/KwaMoja/GLCashFlowsSetup.php:190
 msgid "Could not add the new account code"
 msgstr "Haikuweza kuongeza msimbo mpya wa akaunti"
 
 #: /home/tim/code/KwaMoja/GLAccounts.php:131
-#: /home/tim/code/KwaMoja/GLAccounts.php:162
+#: /home/tim/code/KwaMoja/GLAccounts.php:168
 msgid "The new general ledger account has been added"
 msgstr "Akaunti mpya ya kiongozi wa kiwanja imeongezwa"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:137
+#: /home/tim/code/KwaMoja/GLAccounts.php:173
+msgid "An error occurred in adding a new account number to the gltotals table"
+msgstr "Hitilafu ilitokea wakati wa kuongeza nambari mpya ya akaunti kwenye jedwali la gltotals"
+
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "Cannot delete this account because chart details have been created using this account and at least one period has postings to it."
 msgstr "Haiwezi kufuta akaunti hii kwa sababu maelezo ya chati yameumbwa kwa kutumia akaunti hii na angalau kipindi kimoja kinajitokeza."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:183
+#: /home/tim/code/KwaMoja/GLAccounts.php:194
 msgid "chart details that require this account code"
 msgstr "maelezo ya chati ambayo yanahitaji code hii ya akaunti"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:190
+#: /home/tim/code/KwaMoja/GLAccounts.php:201
 msgid "Could not test for existing transactions because"
 msgstr "Haikuweza kupima kwa shughuli zilizopo kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "Cannot delete this account because transactions have been created using this account."
 msgstr "Haiwezi kufuta akaunti hii kwa sababu shughuli zimeundwa kwa kutumia akaunti hii."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:197
+#: /home/tim/code/KwaMoja/GLAccounts.php:208
 msgid "transactions that require this account code"
 msgstr "shughuli zinazohitaji code hii ya akaunti"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:210
+#: /home/tim/code/KwaMoja/GLAccounts.php:221
 msgid "Could not test for default company GL codes because"
 msgstr "Haikuweza kupima kwa kampuni ya default GL kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:217
+#: /home/tim/code/KwaMoja/GLAccounts.php:228
 msgid "Cannot delete this account because it is used as one of the company default accounts"
 msgstr "Haiwezi kufuta akaunti hii kwa sababu inatumiwa kama moja ya akaunti za msingi za kampuni"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:225
+#: /home/tim/code/KwaMoja/GLAccounts.php:236
 msgid "Could not test for tax authority GL codes because"
 msgstr "Haikuweza kupima mamlaka ya kodi GL codes kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:231
+#: /home/tim/code/KwaMoja/GLAccounts.php:242
 msgid "Cannot delete this account because it is used as one of the tax authority accounts"
 msgstr "Haiwezi kufuta akaunti hii kwa sababu inatumiwa kama moja ya akaunti za mamlaka ya kodi"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:238
+#: /home/tim/code/KwaMoja/GLAccounts.php:249
 msgid "Could not test for existing sales interface GL codes because"
 msgstr "Haikuweza kupima kwa codes zilizopo zilizopo za mauzo ya GL kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:245
+#: /home/tim/code/KwaMoja/GLAccounts.php:256
 msgid "Cannot delete this account because it is used by one of the sales GL posting interface records"
 msgstr "Haiwezi kufuta akaunti hii kwa sababu hutumiwa na moja ya kumbukumbu za mauzo ya GL posting interface"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:252
+#: /home/tim/code/KwaMoja/GLAccounts.php:263
 msgid "Could not test for existing cost of sales interface codes because"
 msgstr "Haikuweza kupima gharama zilizopo za codes za mauzo kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:259
+#: /home/tim/code/KwaMoja/GLAccounts.php:270
 msgid "Cannot delete this account because it is used by one of the cost of sales GL posting interface records"
 msgstr "Haiwezi kufuta akaunti hii kwa sababu inatumiwa na gharama moja ya kumbukumbu za mauzo ya GL posting interface"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:270
+#: /home/tim/code/KwaMoja/GLAccounts.php:281
 msgid "Could not test for existing stock GL codes because"
 msgstr "Haikuweza kupima codes zilizopo za hisa za GL kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:277
+#: /home/tim/code/KwaMoja/GLAccounts.php:288
 msgid "Cannot delete this account because it is used by one of the stock GL posting interface records"
 msgstr "Haiwezi kufuta akaunti hii kwa sababu inatumiwa na rekodi ya interface ya GL ya usajili"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:282
+#: /home/tim/code/KwaMoja/GLAccounts.php:293
 msgid "Could not test for existing bank account GL codes because"
 msgstr "Haikuweza kupima kwa codes zilizopo za akaunti za benki za BK kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:289
+#: /home/tim/code/KwaMoja/GLAccounts.php:300
 msgid "Cannot delete this account because it is used by one the defined bank accounts"
 msgstr "Haiwezi kufuta akaunti hii kwa sababu inatumiwa na akaunti moja za benki zilizoelezwa"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:337
+#: /home/tim/code/KwaMoja/GLAccounts.php:348
 msgid "Edit Account Details"
 msgstr "Hariri Maelezo ya Akaunti"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:339
-#: /home/tim/code/KwaMoja/GLAccounts.php:358
-#: /home/tim/code/KwaMoja/GLAccounts.php:478
+#: /home/tim/code/KwaMoja/GLAccounts.php:350
+#: /home/tim/code/KwaMoja/GLAccounts.php:369
+#: /home/tim/code/KwaMoja/GLAccounts.php:489
 #: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
@@ -22298,38 +22303,38 @@ msgstr "Hariri Maelezo ya Akaunti"
 msgid "Account Code"
 msgstr "Msimbo wa Akaunti"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:351
-#: /home/tim/code/KwaMoja/GLAccounts.php:368
+#: /home/tim/code/KwaMoja/GLAccounts.php:362
+#: /home/tim/code/KwaMoja/GLAccounts.php:379
 msgid "The name of the general ledger account in"
 msgstr "Jina la akaunti ya jumla ya ndani"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:356
+#: /home/tim/code/KwaMoja/GLAccounts.php:367
 msgid "New Account Details"
 msgstr "Maelezo mpya ya Akaunti"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:360
+#: /home/tim/code/KwaMoja/GLAccounts.php:371
 msgid "The code by which this general ledger code will be known."
 msgstr "Nambari ambayo nambari hii ya jumla inayoongoza itajulikana."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:381
+#: /home/tim/code/KwaMoja/GLAccounts.php:392
 #: /home/tim/code/KwaMoja/Z_ImportGLAccountGroups.php:28
 msgid "Account Group"
 msgstr "Kikundi cha Akaunti"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:392
+#: /home/tim/code/KwaMoja/GLAccounts.php:403
 msgid "Select the Account Group that this account belongs to."
 msgstr "Chagua Kikundi cha Akaunti ambacho akaunti hii ni ya."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:396
-#: /home/tim/code/KwaMoja/GLAccounts.php:483
+#: /home/tim/code/KwaMoja/GLAccounts.php:407
+#: /home/tim/code/KwaMoja/GLAccounts.php:494
 msgid "Cash Flows Activity"
 msgstr "Shughuli ya mtiririko wa fedha"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:404
+#: /home/tim/code/KwaMoja/GLAccounts.php:415
 msgid "Select the cash flow activity (if any) applicable to this account."
 msgstr "Chagua shughuli ya mtiririko wa pesa (ikiwa ipo) inayotumika kwenye akaunti hii."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:427
+#: /home/tim/code/KwaMoja/GLAccounts.php:438
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:22
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:110
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:22
@@ -22337,35 +22342,35 @@ msgstr "Chagua shughuli ya mtiririko wa pesa (ikiwa ipo) inayotumika kwenye akau
 msgid "Balance Sheet"
 msgstr "Karatasi ya Mizani"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:428
+#: /home/tim/code/KwaMoja/GLAccounts.php:439
 msgid "Profit/Loss"
 msgstr "Faida / Kupoteza"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:438
+#: /home/tim/code/KwaMoja/GLAccounts.php:449
 msgid "The chart accounts could not be retrieved because"
 msgstr "Akaunti za chati haikuweza kupatikana kwa sababu"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:446
+#: /home/tim/code/KwaMoja/GLAccounts.php:457
 msgid "Language selection"
 msgstr "Uchaguzi wa lugha"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:449
+#: /home/tim/code/KwaMoja/GLAccounts.php:460
 msgid "Language to show"
 msgstr "Lugha ya kuonyesha"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:470
+#: /home/tim/code/KwaMoja/GLAccounts.php:481
 msgid "Select Language"
 msgstr "Chagua Lugha"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:482
+#: /home/tim/code/KwaMoja/GLAccounts.php:493
 msgid "P/L or B/S"
 msgstr "P / L au B / S"
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:499
+#: /home/tim/code/KwaMoja/GLAccounts.php:510
 msgid "Are you sure you wish to delete this account? Additional checks will be performed in any event to ensure data integrity is not compromised."
 msgstr "Una uhakika unataka kufuta akaunti hii?  Ukaguzi wa ziada utafanyika katika tukio lolote ili kuhakikisha utimilifu wa data hauathiri."
 
-#: /home/tim/code/KwaMoja/GLAccounts.php:509
+#: /home/tim/code/KwaMoja/GLAccounts.php:520
 msgid "Show All Accounts"
 msgstr "Onyesha Akaunti zote"
 
@@ -22423,8 +22428,8 @@ msgstr "Karatasi ya usawa kama"
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:218
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:226
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:583
 #: /home/tim/code/KwaMoja/includes/MiscFunctions.php:673
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:28
@@ -22613,8 +22618,8 @@ msgid "Statement of Cash Flows"
 msgstr "Taarifa ya mtiririko wa fedha"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:198
@@ -22627,8 +22632,8 @@ msgid "Period Actual"
 msgstr "Kipindi cha kweli"
 
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:225
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:199
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
@@ -23037,29 +23042,29 @@ msgstr "Journal"
 msgid "Enter Another General Ledger Journal"
 msgstr "Ingiza Jalada Jingine Ledger Journal"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
+#: /home/tim/code/KwaMoja/GLJournal.php:367
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 msgid "GL Journals involving the debtors control account cannot be entered. The general ledger debtors ledger (AR) integration is enabled so control accounts are automatically maintained by "
 msgstr "Majarida ya GL yaliyoshirikisha akaunti ya udhibiti wa wadeni haiwezi kuingizwa.  Usingizi wa jumla wa wadeni wa wadeni (AR) umewezeshwa hivyo akaunti za udhibiti zinahifadhiwa moja kwa moja na"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:364
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:367
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:409
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid ". This setting can be disabled in System Configuration"
 msgstr ".  Mpangilio huu unaweza kuzimwa katika Upangiaji wa Mfumo"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:368
+#: /home/tim/code/KwaMoja/GLJournal.php:371
 #: /home/tim/code/KwaMoja/GLJournal.php:414
 msgid "GL Journals involving the creditors control account cannot be entered. The general ledger creditors ledger (AP) integration is enabled so control accounts are automatically maintained by "
 msgstr "Majarida ya GL yaliyoshirikisha akaunti ya udhibiti wa wadeni hayawezi kuingizwa.  Ushirikiano wa kiongozi wa wadogo wa wadogo wa wadogo (AP) umewezeshwa hivyo akaunti za udhibiti zinahifadhiwa moja kwa moja na"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "GL Journals involving a bank account cannot be entered"
 msgstr "Majarida ya GL yaliyoshirikisha akaunti ya benki haiwezi kuingizwa"
 
-#: /home/tim/code/KwaMoja/GLJournal.php:373
+#: /home/tim/code/KwaMoja/GLJournal.php:376
 #: /home/tim/code/KwaMoja/GLJournal.php:424
 msgid "Bank account general ledger entries must be entered by either a bank account receipt or a bank account payment"
 msgstr "Akaunti ya jumla ya akaunti ya akaunti ya benki lazima iingizwe na ripoti ya akaunti ya benki au malipo ya akaunti ya benki"
@@ -23207,12 +23212,12 @@ msgstr "Onyesha akaunti zote, au akaunti tu zilizo na mizani."
 msgid "Show Profit and Loss Statement"
 msgstr "Onyesha Taarifa ya Faida na Hasara"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:203
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:202
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:206
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "Uchunguzi wa Kupoteza Faida kwa ujumla"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:477
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
@@ -23223,25 +23228,25 @@ msgstr "Uchunguzi wa Kupoteza Faida kwa ujumla"
 msgid "Gross Profit Percent"
 msgstr "Percent Percent Profit"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "Faida"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:493
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:617
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "Kupoteza"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:518
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
 msgid "P/L Percent after"
 msgstr "P / L Asilimia baada"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:645
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
 msgid "Net Profit Percent"
 msgstr "Percent Net Faida"
 
@@ -23583,7 +23588,7 @@ msgstr "Mwezi halisi"
 msgid "Month Budget"
 msgstr "Bajeti ya Mwezi"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:434
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
 msgid "Check Totals"
 msgstr "Angalia Jumla"
 
