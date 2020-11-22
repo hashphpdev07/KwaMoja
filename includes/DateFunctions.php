@@ -1038,7 +1038,7 @@ function CreatePeriod($PeriodNo, $PeriodEnd) {
 	$TotalsSQL = "INSERT INTO gltotals (account, period, amount)
 				SELECT accountcode, '" . $PeriodNo . "', 0 FROM chartmaster";
 	$ErrMsg = _('An error occurred in adding a new period number to the gltotals table');
-	$TotalsdResult = DB_query($TotalsSQL, $ErrMsg);
+	$TotalsResult = DB_query($TotalsSQL, $ErrMsg);
 }
 
 function PeriodExists($TransDate) {
