@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-22 00:22+0000\n"
-"PO-Revision-Date: 2020-11-22 00:11+0000\n"
+"POT-Creation-Date: 2020-11-26 00:03+0000\n"
+"PO-Revision-Date: 2020-11-26 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -151,8 +151,8 @@ msgstr "Danh sách các Nhóm Xếp hạng ABC"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:119
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:58
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:211
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:138
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:208
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:135
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:215
 #: /home/tim/code/KwaMoja/BOMIndented.php:188
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:179
@@ -168,18 +168,18 @@ msgstr "Danh sách các Nhóm Xếp hạng ABC"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:830
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:199
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:213
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:87
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:153
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:562
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:570
 #: /home/tim/code/KwaMoja/GLTags.php:53
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:190
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -439,7 +439,7 @@ msgstr "Bạn có chắc chắn muốn xóa nhóm xếp hạng này?"
 #: /home/tim/code/KwaMoja/prlPH.php:166
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:134
 #: /home/tim/code/KwaMoja/prlPaye.php:181
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:152
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:151
 #: /home/tim/code/KwaMoja/prlSC.php:132 /home/tim/code/KwaMoja/prlSSC.php:174
 #: /home/tim/code/KwaMoja/prlSSS.php:174
 #: /home/tim/code/KwaMoja/prlSelectLoan.php:68
@@ -2360,8 +2360,8 @@ msgstr "Tuyên bố"
 
 #: /home/tim/code/KwaMoja/AddCustomerContacts.php:138
 #: /home/tim/code/KwaMoja/AddCustomerContacts.php:257
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 #: /home/tim/code/KwaMoja/Customers.php:693
 #: /home/tim/code/KwaMoja/Customers.php:701
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:179
@@ -2510,8 +2510,8 @@ msgstr "Ghi chú dành cho khách hàng"
 #: /home/tim/code/KwaMoja/AddCustomerTypeNotes.php:195
 #: /home/tim/code/KwaMoja/AgedControlledInventory.php:51
 #: /home/tim/code/KwaMoja/BankMatching.php:272
-#: /home/tim/code/KwaMoja/BankReconciliation.php:222
-#: /home/tim/code/KwaMoja/BankReconciliation.php:284
+#: /home/tim/code/KwaMoja/BankReconciliation.php:220
+#: /home/tim/code/KwaMoja/BankReconciliation.php:282
 #: /home/tim/code/KwaMoja/ContractCosting.php:175
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:154
 #: /home/tim/code/KwaMoja/CustomerAccount.php:269
@@ -2521,9 +2521,9 @@ msgstr "Ghi chú dành cho khách hàng"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:252
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:107
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:161
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
-#: /home/tim/code/KwaMoja/GLAccountReport.php:354
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:89
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
+#: /home/tim/code/KwaMoja/GLAccountReport.php:349
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
 #: /home/tim/code/KwaMoja/GoodsReceived.php:140
 #: /home/tim/code/KwaMoja/JobCards.php:189
@@ -2571,7 +2571,7 @@ msgstr "Ghi chú dành cho khách hàng"
 #: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:10
 #: /home/tim/code/KwaMoja/prlOTFile.php:112
 #: /home/tim/code/KwaMoja/prlOthIncome.php:105
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:107
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:106
 #: /home/tim/code/KwaMoja/prlSelectOthIncome.php:52
 #: /home/tim/code/KwaMoja/prlTardiness.php:104
 #: /home/tim/code/KwaMoja/includes/OcOpenCartToKwaMojaSync.php:456
@@ -2948,7 +2948,7 @@ msgstr "cổ phần"
 #: /home/tim/code/KwaMoja/prlOTFile.php:127
 #: /home/tim/code/KwaMoja/prlOthIncome.php:116
 #: /home/tim/code/KwaMoja/prlOthIncome.php:154
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:119
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:118
 #: /home/tim/code/KwaMoja/prlTardiness.php:115
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:4753
 #: /home/tim/code/KwaMoja/dashboard/latest_grns.php:42
@@ -3005,8 +3005,8 @@ msgstr "Ngày cũ"
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:360
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:426
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3077,7 +3077,7 @@ msgstr "Phân tích Tài khoản Khách hàng Người cao tuổi"
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:99
@@ -3165,8 +3165,8 @@ msgstr "Không thể truy xuất chi tiết về khách hàng bởi SQL vì"
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:232
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:102
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:185
@@ -3310,9 +3310,9 @@ msgstr "Các chi tiết của các giao dịch chưa thanh toán cho khách hàn
 
 #: /home/tim/code/KwaMoja/AgedDebtors.php:379
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:205
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
-#: /home/tim/code/KwaMoja/GLAccountReport.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:195
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:191
+#: /home/tim/code/KwaMoja/GLAccountReport.php:106
 #: /home/tim/code/KwaMoja/PO_Items.php:77
 #: /home/tim/code/KwaMoja/PO_Items.php:102
 #: /home/tim/code/KwaMoja/PO_Items.php:566
@@ -3332,7 +3332,7 @@ msgstr "không thể truy xuất vì"
 
 #: /home/tim/code/KwaMoja/AgedDebtors.php:382
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:208
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:260
 #: /home/tim/code/KwaMoja/Areas.php:81
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:197
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:226
@@ -3354,7 +3354,7 @@ msgstr "không thể truy xuất vì"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:555
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
@@ -3555,7 +3555,6 @@ msgstr "Hiển thị báo cáo tóm tắt hoặc bao gồm chi tiết giao dịc
 #: /home/tim/code/KwaMoja/AgedDebtors.php:548
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3691,8 +3690,8 @@ msgstr "Không có"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:29
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:70
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:203
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:199
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:200
 #: /home/tim/code/KwaMoja/sql/updates/135.php:4
 msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "Phân tích theo chiều ngang của báo cáo về thu nhập toàn diện"
@@ -3768,7 +3767,7 @@ msgstr "Chọn khoảng thời gian cuối cùng trong báo cáo"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:139
 #: /home/tim/code/KwaMoja/DiscountCategories.php:146
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:138
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:160
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:127
 #: /home/tim/code/KwaMoja/GLStatements.php:230
@@ -3839,13 +3838,13 @@ msgstr "Chọn khoảng thời gian cuối cùng trong báo cáo"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:153
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:602
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:912
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:123
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:122
 #: /home/tim/code/KwaMoja/prlTardiness.php:118
 msgid "OR"
 msgstr "HOẶC LÀ"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:142
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:164
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:130
 #: /home/tim/code/KwaMoja/GLStatements.php:233
@@ -3859,7 +3858,7 @@ msgid "Select Period"
 msgstr "Chọn Giai đoạn"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:144
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:166
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
@@ -3882,9 +3881,9 @@ msgid "Selecting Summary will show on the totals at the account group level"
 msgstr "Chọn Tóm lược sẽ hiển thị trên tổng số ở cấp nhóm tài khoản"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:162
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:218
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:96
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:145
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
@@ -3925,43 +3924,43 @@ msgstr "Chọn hộp này để hiển thị tất cả các tài khoản kể c
 msgid "Show on Screen (HTML)"
 msgstr "Hiển thị trên màn hình (HTML)"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "A period up to 12 months in duration can be specified"
 msgstr "Có thể chỉ định một khoảng thời gian lên đến 12 tháng"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "the system automatically shows a comparative for the same period from the previous year"
 msgstr "hệ thống tự động cho thấy một so sánh cho cùng kỳ từ năm trước"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "nó không thể làm điều này nếu một khoảng thời gian hơn 12 tháng được chỉ định"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "Please select an alternative period range"
 msgstr "Vui lòng chọn một khoảng thời gian khác"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
@@ -3978,17 +3977,17 @@ msgstr "Vui lòng chọn một khoảng thời gian khác"
 msgid "For"
 msgstr "Cho"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
 #: /home/tim/code/KwaMoja/includes/PDFTaxPageHeader.php:26
 msgid "months to"
 msgstr "tháng để"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:206
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:132
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:203
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:129
 #: /home/tim/code/KwaMoja/Contracts.php:844
 #: /home/tim/code/KwaMoja/CustomerAccount.php:237
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
@@ -4012,15 +4011,16 @@ msgstr "tháng để"
 msgid "All amounts stated in"
 msgstr "Tất cả số tiền ghi trong"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:212
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:139
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:81
 #: /home/tim/code/KwaMoja/GLAccounts.php:307
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:220
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:578
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:193
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4034,18 +4034,19 @@ msgstr "Tất cả số tiền ghi trong"
 msgid "Account"
 msgstr "Tài khoản"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:213
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:140
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
 #: /home/tim/code/KwaMoja/GLAccounts.php:360
 #: /home/tim/code/KwaMoja/GLAccounts.php:377
 #: /home/tim/code/KwaMoja/GLAccounts.php:490
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:221
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:579
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4058,59 +4059,59 @@ msgstr "Tài khoản"
 msgid "Account Name"
 msgstr "Tên tài khoản"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:220
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:147
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:217
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:144
 msgid "Current period"
 msgstr "Giai đoạn hiện tại"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:221
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:148
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:218
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:145
 msgid "Last period"
 msgstr "Thời kỳ cuối cùng"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:222
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:149
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:219
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:146
 msgid "Absolute change"
 msgstr "Thay đổi tuyệt đối"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:223
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:150
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:220
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:147
 msgid "Relative change"
 msgstr "Thay đổi tương đối"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
 msgid "Absolute change signs: a positive number indicates a change that increases the net profit; a negative number indicates a change that decreases the net profit."
 msgstr "Dấu hiệu thay đổi tuyệt đối: một con số tích cực cho thấy một sự thay đổi làm tăng lợi nhuận ròng;  một con số âm cho thấy một sự thay đổi làm giảm lợi nhuận ròng."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 msgid "Relative change signs: a positive number indicates an increase in the amount of that account; a negative number indicates a decrease in the amount of that account."
 msgstr "Dấu hiệu thay đổi tương đối: một con số dương cho thấy sự gia tăng số tiền của tài khoản đó;  một con số âm cho biết số tiền của tài khoản đó giảm."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:260
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:214
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:555
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 msgid "No general ledger accounts were returned by the SQL because"
 msgstr "Không có tài khoản sổ cái chung nào được SQL trả về bởi vì"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:295
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:441
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:622
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:654
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:816
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:844
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:291
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:310
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:495
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:526
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:334
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:371
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:260
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:287
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:412
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:437
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:614
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:642
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:783
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:807
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:214
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:241
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:366
@@ -4122,14 +4123,14 @@ msgstr "Không có tài khoản sổ cái chung nào được SQL trả về b�
 msgid "total"
 msgstr "toàn bộ"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:371
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:566
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:902
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:450
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:337
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:482
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:693
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:853
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:291
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:436
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:664
@@ -4147,18 +4148,18 @@ msgstr "toàn bộ"
 msgid "Gross Profit"
 msgstr "Lợi nhuận gộp"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:386
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:382
 msgid "Earnings after"
 msgstr "Thu nhập sau"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:558
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:586
 msgid "Net Profit"
 msgstr "Lợi nhuận ròng"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:602
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:893
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
@@ -4170,8 +4171,8 @@ msgstr "Chọn một khoảng thời gian khác"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:30
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:61
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:128
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:129
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:125
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:126
 msgid "Horizontal Analysis of Statement of Financial Position"
 msgstr "Phân tích theo chiều ngang của Báo cáo về Tình hình Tài chính"
 
@@ -4188,22 +4189,18 @@ msgstr "Chọn ngày cân đối"
 msgid "Choose the period on which to base the report."
 msgstr "Chọn khoảng thời gian dựa vào báo cáo."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:131
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:128
 #: /home/tim/code/KwaMoja/includes/PDFDebtorBalsPageHeader.php:18
 #: /home/tim/code/KwaMoja/includes/PDFSupplierBalsPageHeader.php:18
 msgid "as at"
 msgstr "như lúc"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 msgid "Absolute change signs: a positive number indicates a source of funds; a negative number indicates an application of funds."
 msgstr "Dấu hiệu thay đổi tuyệt đối: một số dương cho thấy một nguồn quỹ;  một con số âm cho thấy một ứng dụng của quỹ."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-msgid "The accumulated profits brought forward could not be calculated by the SQL because"
-msgstr "Lợi nhuận lũy kế mang về không thể tính bởi SQL bởi vì"
-
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:472
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:399
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:478
 msgid "Check Total"
 msgstr "Kiểm tra tổng"
 
@@ -4698,8 +4695,8 @@ msgid "Address"
 msgstr "Địa chỉ nhà"
 
 #: /home/tim/code/KwaMoja/AuditTrail.php:187
-#: /home/tim/code/KwaMoja/BankReconciliation.php:223
-#: /home/tim/code/KwaMoja/BankReconciliation.php:285
+#: /home/tim/code/KwaMoja/BankReconciliation.php:221
+#: /home/tim/code/KwaMoja/BankReconciliation.php:283
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:25
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:155
 #: /home/tim/code/KwaMoja/CustomerAccount.php:267
@@ -4709,8 +4706,8 @@ msgstr "Địa chỉ nhà"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:28
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:105
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
-#: /home/tim/code/KwaMoja/GLAccountReport.php:352
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
+#: /home/tim/code/KwaMoja/GLAccountReport.php:347
 #: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
@@ -4893,8 +4890,8 @@ msgstr "Mã"
 #: /home/tim/code/KwaMoja/AutomaticTranslationDescriptions.php:47
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:57
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:339
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:27
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:45
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:41
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:47
 #: /home/tim/code/KwaMoja/POReport.php:510
 #: /home/tim/code/KwaMoja/POReport.php:1346
 #: /home/tim/code/KwaMoja/PcReportExpense.php:109
@@ -5821,7 +5818,7 @@ msgstr "Bill Of Material liệt kê cho các bộ phận từ"
 
 #: /home/tim/code/KwaMoja/BOMListing.php:39
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:156
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:161
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:66
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:175
@@ -6238,8 +6235,8 @@ msgstr "Bất kỳ ý kiến ​​cho dòng BOM này xuất hiện trên một 
 #: /home/tim/code/KwaMoja/Payments.php:1235
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:190
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:405
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:337
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:454
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:334
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:451
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:334
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:728
 #: /home/tim/code/KwaMoja/PcExpenses.php:335
@@ -6257,7 +6254,7 @@ msgstr "Bất kỳ ý kiến ​​cho dòng BOM này xuất hiện trên một 
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:57
 #: /home/tim/code/KwaMoja/prlOTFile.php:159
 #: /home/tim/code/KwaMoja/prlOthIncome.php:148
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:141
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:140
 #: /home/tim/code/KwaMoja/prlTardiness.php:137
 msgid "Cancel"
 msgstr "Hủy"
@@ -6710,8 +6707,8 @@ msgstr "Chưa chọn"
 #: /home/tim/code/KwaMoja/Payments.php:1234
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:189
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:404
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:336
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:453
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:333
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:450
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:333
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:727
 #: /home/tim/code/KwaMoja/PcExpenses.php:334
@@ -6731,8 +6728,8 @@ msgstr "Chưa chọn"
 #: /home/tim/code/KwaMoja/prlOTFile.php:159
 #: /home/tim/code/KwaMoja/prlOthIncome.php:78
 #: /home/tim/code/KwaMoja/prlOthIncome.php:148
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:81
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:141
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:80
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:140
 #: /home/tim/code/KwaMoja/prlTardiness.php:78
 #: /home/tim/code/KwaMoja/prlTardiness.php:137
 msgid "Accept"
@@ -7160,9 +7157,9 @@ msgstr "Hiển thị các giao dịch có ngày lớn hơn hoặc bằng giá tr
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:59
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:240
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:85
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:199
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:174
-#: /home/tim/code/KwaMoja/GLAccountReport.php:116
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:198
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:196
+#: /home/tim/code/KwaMoja/GLAccountReport.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsersCopyAuthority.php:29
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:118
 #: /home/tim/code/KwaMoja/GLStatements.php:112
@@ -7328,7 +7325,7 @@ msgid "Entry is expected in the format"
 msgstr "Mục dự kiến ​​sẽ có trong định dạng"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
 msgid "after"
 msgstr "sau"
 
@@ -7360,7 +7357,7 @@ msgstr "Ref"
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:327
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1022
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:114
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:96
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:202
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:279
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:395
@@ -7416,8 +7413,8 @@ msgid "Amount"
 msgstr "Số tiền"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:274
-#: /home/tim/code/KwaMoja/BankReconciliation.php:228
-#: /home/tim/code/KwaMoja/BankReconciliation.php:290
+#: /home/tim/code/KwaMoja/BankReconciliation.php:226
+#: /home/tim/code/KwaMoja/BankReconciliation.php:288
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:356
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:360
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:272
@@ -7559,33 +7556,33 @@ msgstr "Ngày kê khai ngân hàng"
 msgid "Select the date of the bank staement you are reconciling"
 msgstr "Chọn ngày tổ chức ngân hàng mà bạn đang đối chiếu"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:150
+#: /home/tim/code/KwaMoja/BankReconciliation.php:148
 msgid "Show bank reconciliation statement"
 msgstr "Hiển thị bảng sao kê ngân hàng"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:161
+#: /home/tim/code/KwaMoja/BankReconciliation.php:159
 #: /home/tim/code/KwaMoja/Currencies.php:171
 msgid "The bank account balance could not be returned by the SQL because"
 msgstr "Không thể trả lại số dư tài khoản ngân hàng bằng SQL vì"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:176
+#: /home/tim/code/KwaMoja/BankReconciliation.php:174
 msgid "Could not retrieve the currency and exchange rate for the selected bank account"
 msgstr "Không thể lấy được đồng tiền và tỷ giá cho tài khoản ngân hàng đã chọn"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:182
+#: /home/tim/code/KwaMoja/BankReconciliation.php:180
 msgid "Balance as at"
 msgstr "Số dư tại"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:215
+#: /home/tim/code/KwaMoja/BankReconciliation.php:213
 msgid "The unpresented cheques could not be retrieved by the SQL because"
 msgstr "Không thể truy xuất các kiểm tra không có tên bởi SQL bởi vì"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:219
+#: /home/tim/code/KwaMoja/BankReconciliation.php:217
 msgid "Add back unpresented cheques"
 msgstr "Thêm lại séc không có tiền"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:224
-#: /home/tim/code/KwaMoja/BankReconciliation.php:286
+#: /home/tim/code/KwaMoja/BankReconciliation.php:222
+#: /home/tim/code/KwaMoja/BankReconciliation.php:284
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:156
 #: /home/tim/code/KwaMoja/CustomerAccount.php:268
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:325
@@ -7626,15 +7623,15 @@ msgstr "Thêm lại séc không có tiền"
 msgid "Number"
 msgstr "Con số"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:225
-#: /home/tim/code/KwaMoja/BankReconciliation.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/BankReconciliation.php:223
+#: /home/tim/code/KwaMoja/BankReconciliation.php:285
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:205
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:183
 msgid "Cheque"
 msgstr "Kiểm tra"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:226
-#: /home/tim/code/KwaMoja/BankReconciliation.php:288
+#: /home/tim/code/KwaMoja/BankReconciliation.php:224
+#: /home/tim/code/KwaMoja/BankReconciliation.php:286
 #: /home/tim/code/KwaMoja/ContractCosting.php:174
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:157
 #: /home/tim/code/KwaMoja/CustomerAccount.php:271
@@ -7643,7 +7640,7 @@ msgstr "Kiểm tra"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:975
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:110
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:165
-#: /home/tim/code/KwaMoja/GLAccountReport.php:353
+#: /home/tim/code/KwaMoja/GLAccountReport.php:348
 #: /home/tim/code/KwaMoja/GoodsReceived.php:152
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:167
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:319
@@ -7674,45 +7671,45 @@ msgstr "Kiểm tra"
 msgid "Reference"
 msgstr "Tài liệu tham khảo"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:227
-#: /home/tim/code/KwaMoja/BankReconciliation.php:289
+#: /home/tim/code/KwaMoja/BankReconciliation.php:225
+#: /home/tim/code/KwaMoja/BankReconciliation.php:287
 msgid "Orig Amount"
 msgstr "Số tiền Orig"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:252
+#: /home/tim/code/KwaMoja/BankReconciliation.php:250
 msgid "Total of all unpresented cheques"
 msgstr "Tổng số tất cả séc không có chứng nhận"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:276
+#: /home/tim/code/KwaMoja/BankReconciliation.php:274
 msgid "The uncleared deposits could not be retrieved by the SQL because"
 msgstr "Các khoản tiền gửi không rõ ràng không thể được lấy ra bởi SQL bởi vì"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:281
+#: /home/tim/code/KwaMoja/BankReconciliation.php:279
 msgid "Less deposits not cleared"
 msgstr "Ít khoản tiền gửi không được thanh toán"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:315
+#: /home/tim/code/KwaMoja/BankReconciliation.php:313
 msgid "Total of all uncleared deposits"
 msgstr "Tổng số tiền gửi không rõ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:323
+#: /home/tim/code/KwaMoja/BankReconciliation.php:321
 msgid "Bank statement balance should be"
 msgstr "Số dư báo cáo của ngân hàng nên"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:333
+#: /home/tim/code/KwaMoja/BankReconciliation.php:331
 msgid "Enter the actual bank statement balance"
 msgstr "Nhập số dư ngân hàng thực tế"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
-#: /home/tim/code/KwaMoja/BankReconciliation.php:350
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
+#: /home/tim/code/KwaMoja/BankReconciliation.php:348
 msgid "Calculate and Post Exchange Difference"
 msgstr "Tính toán và đăng báo chênh lệch"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
 msgid "This will create a general ledger journal to write off the exchange difference in the current balance of the account. It is important that the exchange rate above reflects the current value of the bank account currency"
 msgstr "Điều này sẽ tạo ra một tạp chí sổ cái chung để ghi chênh lệch tỷ giá trong số dư hiện tại của tài khoản.  Điều quan trọng là tỷ giá ở trên phản ánh giá trị hiện tại của đồng tiền tài khoản ngân hàng"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
 #: /home/tim/code/KwaMoja/CounterReturns.php:732
 #: /home/tim/code/KwaMoja/CounterSales.php:822
 #: /home/tim/code/KwaMoja/Customers.php:731
@@ -7722,17 +7719,17 @@ msgstr "Điều này sẽ tạo ra một tạp chí sổ cái chung để ghi ch
 msgid "Are You Sure?"
 msgstr "Bạn có chắc không?"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:347
+#: /home/tim/code/KwaMoja/BankReconciliation.php:345
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
 msgstr "Thông thường các tài khoản ngoại tệ có chênh lệch tỷ giá hối đoái cần được phản ánh khi tỷ giá hối đoái thay đổi. Điều chỉnh này được lập bằng cách sử dụng tỷ giá hối đoái được thiết lập trong bảng tiền tệ (xem tab thiết lập). Bảng này phải được duy trì với tỷ giá hối đoái hiện tại trước khi chạy đối chiếu. Nếu bạn muốn lập sổ nhật ký để phản ánh chênh lệch tỷ giá hối đoái theo tỷ giá hối đoái hiện hành để điều chỉnh đối chiếu với số dư thực tế trên bảng kê ngân hàng, hãy nhấp vào bên dưới."
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:358
-#: /home/tim/code/KwaMoja/BankReconciliation.php:363
+#: /home/tim/code/KwaMoja/BankReconciliation.php:356
+#: /home/tim/code/KwaMoja/BankReconciliation.php:361
 msgid "Match off cleared payments"
 msgstr "Phù hợp với thanh toán đã thanh toán"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:359
-#: /home/tim/code/KwaMoja/BankReconciliation.php:364
+#: /home/tim/code/KwaMoja/BankReconciliation.php:357
+#: /home/tim/code/KwaMoja/BankReconciliation.php:362
 msgid "Match off cleared deposits"
 msgstr "Phạt tiền ký quỹ đã xóa"
 
@@ -8889,9 +8886,9 @@ msgstr "Khi giao dịch hàng tồn kho được thực hiện, KwaMoja có nên
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:146
 #: /home/tim/code/KwaMoja/Payments.php:1144
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:107
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:302
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:299
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:160
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:420
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:417
 #: /home/tim/code/KwaMoja/PickingLists.php:435
 #: /home/tim/code/KwaMoja/PickingLists.php:714
 #: /home/tim/code/KwaMoja/PricesByCost.php:231
@@ -11090,7 +11087,7 @@ msgstr "Bạn sẽ tự động được chuyển tiếp đến trang Hợp đ�
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:262
 #: /home/tim/code/KwaMoja/EmailCustStatements.php:13
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:20
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:288
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:282
 #: /home/tim/code/KwaMoja/POReport.php:1311
 #: /home/tim/code/KwaMoja/PO_Header.php:240
 #: /home/tim/code/KwaMoja/ProjectBOM.php:41
@@ -12693,11 +12690,9 @@ msgstr "chống mã khách hàng"
 #: /home/tim/code/KwaMoja/CounterReturns.php:155
 #: /home/tim/code/KwaMoja/CounterSales.php:166
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:143
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
-#: /home/tim/code/KwaMoja/GLAccountReport.php:128
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:204
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:230
+#: /home/tim/code/KwaMoja/GLAccountReport.php:123
 msgid "could not be retrieved"
 msgstr "không thể lấy được"
 
@@ -12868,11 +12863,11 @@ msgstr "Mạng lưới"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
-#: /home/tim/code/KwaMoja/GLAccountReport.php:357
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
+#: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:610
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:203
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:287
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:130
@@ -13887,8 +13882,8 @@ msgid "Invoiced"
 msgstr "Đã lập hóa đơn"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:285
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
-#: /home/tim/code/KwaMoja/GLAccountReport.php:356
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
+#: /home/tim/code/KwaMoja/GLAccountReport.php:351
 #: /home/tim/code/KwaMoja/GLJournal.php:207
 #: /home/tim/code/KwaMoja/GLJournal.php:579
 #: /home/tim/code/KwaMoja/GLJournal.php:609
@@ -15371,7 +15366,7 @@ msgstr "Phân bổ"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:259
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:169
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:172
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:215
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:393
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:205
 #: /home/tim/code/KwaMoja/prlALD.php:146
@@ -16743,12 +16738,12 @@ msgid "The date when the receipts are banked."
 msgstr "Ngày mà các biên lai được đánh dấu."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:892
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:235
 msgid "No currencies are defined yet"
 msgstr "Không có đơn vị tiền tệ nào được xác định"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:892
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:235
 msgid "Receipts cannot be entered until a currency is defined"
 msgstr "Bạn không thể nhập biên nhận cho đến khi một đơn vị tiền tệ được xác định"
 
@@ -16833,9 +16828,9 @@ msgid "Received"
 msgstr "Nhận"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
-#: /home/tim/code/KwaMoja/GLAccountReport.php:358
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountReport.php:353
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:97
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:204
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:292
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:351
@@ -16854,7 +16849,6 @@ msgstr "Nhãn"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:335
 #: /home/tim/code/KwaMoja/GLJournal.php:221
 #: /home/tim/code/KwaMoja/GLJournal.php:542
 #: /home/tim/code/KwaMoja/GLJournal.php:629
@@ -17012,8 +17006,8 @@ msgstr "Chọn loại giao dịch cần báo cáo."
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:338
 #: /home/tim/code/KwaMoja/FreightCosts.php:96
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:118
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:26
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:44
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:40
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:46
 #: /home/tim/code/KwaMoja/GLStatements.php:112
 #: /home/tim/code/KwaMoja/PcReportExpense.php:105
 #: /home/tim/code/KwaMoja/PcReportTab.php:137
@@ -17054,7 +17048,7 @@ msgstr "Từ"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:64
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:88
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:98
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:51
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:53
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:20
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:88
 #: /home/tim/code/KwaMoja/SupplierTransInquiry.php:67
@@ -17683,7 +17677,7 @@ msgid "Could not retrieve the bank account details"
 msgstr "Không thể truy xuất chi tiết tài khoản ngân hàng"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:152
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:79
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:81
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:145
 msgid "There are no transactions for this account in the date range selected"
 msgstr "Không có giao dịch nào cho tài khoản này trong phạm vi ngày được chọn"
@@ -17694,7 +17688,7 @@ msgid "Account Transactions For"
 msgstr "Giao dịch Tài khoản cho"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:156
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 #: /home/tim/code/KwaMoja/SalesCategoryPeriodInquiry.php:165
 msgid "Between"
 msgstr "Giữa"
@@ -17721,7 +17715,7 @@ msgid "Balances Brought Forward"
 msgstr "Cân bằng đã được chuyển tiếp"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:247
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:163
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:165
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:257
 msgid "Select Another Date"
 msgstr "Chọn Ngày khác"
@@ -20484,16 +20478,16 @@ msgstr "đã được nhập thành công"
 msgid "Return to main menu"
 msgstr "Quay lại thực đơn chính"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:260
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:259
 msgid "Process Journal"
 msgstr "Nhật ký quá trình"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:264
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:269
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:263
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:268
 msgid "Date to Process Depreciation"
 msgstr "Ngày để tiến hành khấu hao"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:276
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:275
 msgid "Commit Depreciation"
 msgstr "Cam kết khấu hao"
 
@@ -20954,7 +20948,7 @@ msgid "Show Assets"
 msgstr "Hiển thị nội dung"
 
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:340
-#: /home/tim/code/KwaMoja/GLAccountReport.php:338
+#: /home/tim/code/KwaMoja/GLAccountReport.php:333
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:45
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:236
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:567
@@ -21450,49 +21444,49 @@ msgid "If the shipper has a minimum charge per package enter that here, or enter
 msgstr "Nếu người gửi hàng có một khoản phí tối thiểu cho mỗi gói, hãy nhập số đó vào đây hoặc nhập số không nếu không áp dụng chage tối thiểu."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:3
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:16
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:15
 #: /home/tim/code/KwaMoja/GLAccountReport.php:4
-#: /home/tim/code/KwaMoja/GLAccountReport.php:232
+#: /home/tim/code/KwaMoja/GLAccountReport.php:227
 msgid "General Ledger Account Report"
 msgstr "Báo cáo Tài khoản Chung"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:16
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:15
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:4
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:11
-#: /home/tim/code/KwaMoja/GLAccountReport.php:232
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:10
+#: /home/tim/code/KwaMoja/GLAccountReport.php:227
 msgid "General Ledger Account Inquiry"
 msgstr "Tài khoản Chung"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:19
-#: /home/tim/code/KwaMoja/GLAccountReport.php:235
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:18
+#: /home/tim/code/KwaMoja/GLAccountReport.php:230
 msgid "Use the keyboard Shift key to select multiple accounts and periods"
 msgstr "Sử dụng phím Shift bàn phím để chọn nhiều tài khoản và các khoảng thời gian"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:29
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:28
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:64
 msgid "Criteria for report"
 msgstr "Tiêu chí báo cáo"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:31
-#: /home/tim/code/KwaMoja/GLAccountReport.php:259
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:30
+#: /home/tim/code/KwaMoja/GLAccountReport.php:254
 msgid "Selected Accounts"
 msgstr "Tài khoản đã Chọn"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:50
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:69
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:49
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:68
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
 msgstr "Chọn tài khoản cho báo cáo này. Sử dụng phím Shift trên bàn phím để chọn nhiều tài khoản."
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:54
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:53
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:113
-#: /home/tim/code/KwaMoja/GLAccountReport.php:276
+#: /home/tim/code/KwaMoja/GLAccountReport.php:271
 msgid "For Period range"
 msgstr "Đối với khoảng thời gian"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:74
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:95
-#: /home/tim/code/KwaMoja/GLAccountReport.php:297
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:73
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:94
+#: /home/tim/code/KwaMoja/GLAccountReport.php:292
 #: /home/tim/code/KwaMoja/Payments.php:1211
 #: /home/tim/code/KwaMoja/StockAdjustments.php:636
 #: /home/tim/code/KwaMoja/StockTransfers.php:875
@@ -21500,86 +21494,82 @@ msgstr "Đối với khoảng thời gian"
 msgid "Select Tag"
 msgstr "Chọn Thẻ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:83
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
-#: /home/tim/code/KwaMoja/GLAccountReport.php:299
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:82
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:96
+#: /home/tim/code/KwaMoja/GLAccountReport.php:294
 msgid "All tags"
 msgstr "Tất cả các thẻ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:92
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:91
 msgid "Select the tag for this report, or select All to show all transactions."
 msgstr "Chọn thẻ cho báo cáo này hoặc chọn Tất cả để hiển thị tất cả các giao dịch."
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:98
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:97
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:286
 msgid "Make CSV File"
 msgstr "Tạo tệp CSV"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:106
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:139
-#: /home/tim/code/KwaMoja/GLAccountReport.php:18
+#: /home/tim/code/KwaMoja/GLAccountReport.php:17
 msgid "A period or range of periods must be selected from the list box"
 msgstr "Một khoảng thời gian hoặc phạm vi của các khoảng thời gian phải được chọn từ hộp danh sách"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:112
-#: /home/tim/code/KwaMoja/GLAccountReport.php:23
-#: /home/tim/code/KwaMoja/GLAccountReport.php:217
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:111
+#: /home/tim/code/KwaMoja/GLAccountReport.php:22
+#: /home/tim/code/KwaMoja/GLAccountReport.php:212
 msgid "An account or range of accounts must be selected from the list box"
 msgstr "Tài khoản hoặc phạm vi tài khoản phải được chọn từ hộp danh sách"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:126
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:125
 #: /home/tim/code/KwaMoja/StockQties_csv.php:38
 msgid "Could not open or create the file under"
 msgstr "Không thể mở hoặc tạo tệp theo"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
-#: /home/tim/code/KwaMoja/GLAccountReport.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:195
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:191
+#: /home/tim/code/KwaMoja/GLAccountReport.php:106
 msgid "The transactions for account"
 msgstr "Các giao dịch cho tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:199
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:198
 msgid "for period"
 msgstr "cho kỳ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
-#: /home/tim/code/KwaMoja/GLAccountReport.php:128
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:204
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:230
+#: /home/tim/code/KwaMoja/GLAccountReport.php:123
 msgid "The chart details for account"
 msgstr "Các chi tiết biểu đồ cho tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:216
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:218
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:250
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:255
-#: /home/tim/code/KwaMoja/GLAccountReport.php:134
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:212
+#: /home/tim/code/KwaMoja/GLAccountReport.php:129
 msgid "Brought Forward Balance"
 msgstr "Cân bằng chuyển tiếp"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:240
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:242
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:265
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:267
-#: /home/tim/code/KwaMoja/GLAccountReport.php:150
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:234
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:259
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:261
+#: /home/tim/code/KwaMoja/GLAccountReport.php:145
 msgid "Period Total"
 msgstr "Tổng thời gian"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:272
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:274
-#: /home/tim/code/KwaMoja/GLAccountReport.php:199
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:266
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:268
+#: /home/tim/code/KwaMoja/GLAccountReport.php:194
 msgid "Total Period Movement"
 msgstr "Tổng thời gian chuyển động"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:279
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:281
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:374
-#: /home/tim/code/KwaMoja/GLAccountReport.php:202
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:273
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:275
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:365
+#: /home/tim/code/KwaMoja/GLAccountReport.php:197
 msgid "Balance C/Fwd"
 msgstr "Cân bằng C / Fwd"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:288
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:282
 #: /home/tim/code/KwaMoja/POReport.php:1311
 #: /home/tim/code/KwaMoja/StockQties_csv.php:50
 msgid "to view the file"
@@ -21675,7 +21665,19 @@ msgstr "Đảo ngược đồ thị"
 msgid "If the selected account is normally a credit balance then select this to show the graph with credits as positive values"
 msgstr "Nếu tài khoản được chọn thường là số dư tín dụng thì hãy chọn tài khoản này để hiển thị biểu đồ với các khoản tín dụng là giá trị dương"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:78
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:83
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
+msgid "Budget To Show Comparisons With"
+msgstr "Ngân sách để Hiển thị So sánh Với"
+
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:95
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
+msgid "Select the budget to make comparisons with."
+msgstr "Chọn ngân sách để so sánh với."
+
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:100
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
@@ -21688,7 +21690,7 @@ msgstr "Nếu tài khoản được chọn thường là số dư tín dụng th
 msgid "Select Period From"
 msgstr "Chọn Giai đoạn Từ"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:106
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:128
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:91
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
@@ -21698,7 +21700,7 @@ msgstr "Chọn Giai đoạn Từ"
 msgid "Select the starting period for this report"
 msgstr "Chọn thời gian bắt đầu cho báo cáo này"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:116
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:106
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
@@ -21710,7 +21712,7 @@ msgstr "Chọn thời gian bắt đầu cho báo cáo này"
 msgid "Select Period To"
 msgstr "Chọn Giai đoạn Để"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:130
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:152
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:120
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
@@ -21720,21 +21722,21 @@ msgstr "Chọn Giai đoạn Để"
 msgid "Select the end period for this report"
 msgstr "Chọn thời gian kết thúc cho báo cáo này"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:149
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:171
 msgid "Show Account Graph"
 msgstr "Hiển thị biểu đồ tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:160
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:182
 msgid "GL Account Graph - Actual vs. Budget"
 msgstr "Biểu đồ tài khoản GL - Thực tế so với ngân sách"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:174
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:196
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:392
 #: /home/tim/code/KwaMoja/SalesGraph.php:276
 msgid "From Period"
 msgstr "Từ thời kỳ"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:194
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:212
 #: /home/tim/code/KwaMoja/POReport.php:481
 #: /home/tim/code/KwaMoja/POReport.php:705
 #: /home/tim/code/KwaMoja/POReport.php:706
@@ -21755,15 +21757,15 @@ msgstr "Từ thời kỳ"
 msgid "Month"
 msgstr "tháng"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:213
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:231
 msgid "The GL Account graph data for the selected criteria could not be retrieved because"
 msgstr "Không thể truy xuất dữ liệu biểu đồ Tài khoản GL cho các tiêu chí đã chọn vì"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:218
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:236
 msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "Không có dữ liệu Tài khoản GL cho các tiêu chí được nhập vào biểu đồ"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:238
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:269
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21772,7 +21774,7 @@ msgstr "Không có dữ liệu Tài khoản GL cho các tiêu chí được nh�
 msgid "Actual"
 msgstr "Thực tế"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:238
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:269
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21781,29 +21783,35 @@ msgstr "Thực tế"
 msgid "Budget"
 msgstr "Ngân sách"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:250
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:281
 msgid "Select Different Criteria"
 msgstr "Chọn tiêu chí khác nhau"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:48
 msgid "The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details"
 msgstr "Tài khoản thu nhập được giữ lại được quản lý riêng biệt bởi hệ thống và do đó không thể hỏi được.  Xem hướng dẫn để biết chi tiết"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:50
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
 msgid "Select another account"
 msgstr "Chọn tài khoản khác"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:55
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:54
 msgid "Use the keyboard Shift key to select multiple periods"
 msgstr "Sử dụng phím Shift bàn phím để chọn nhiều khoảng thời gian"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:80
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:79
 msgid "Inquiry Selection Criteria"
 msgstr "Tiêu chí lựa chọn điều tra"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:84
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:83
 msgid "Select a General Ledger account to report on."
 msgstr "Chọn một tài khoản Sổ Cái để báo cáo."
+
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:322
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:329
+msgid "No tag selected"
+msgstr "Không có thẻ nào được chọn"
 
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:106
 msgid "Select a tag to filter the report on."
@@ -21817,20 +21825,20 @@ msgstr "Chọn một hoặc nhiều kỳ tài chính để báo cáo."
 msgid "Show Account Transactions"
 msgstr "Hiển thị Giao dịch Tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
 msgid "General Ledger account inquiry details"
 msgstr "Chi tiết yêu cầu tìm kiếm tài khoản General Ledger"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
 msgid "Transactions for account"
 msgstr "Giao dịch cho tài khoản"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:204
 msgid "Trans no"
 msgstr "Trans no"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
-#: /home/tim/code/KwaMoja/GLAccountReport.php:355
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/GLAccountReport.php:350
 #: /home/tim/code/KwaMoja/GLJournal.php:206
 #: /home/tim/code/KwaMoja/GLJournal.php:564
 #: /home/tim/code/KwaMoja/GLJournal.php:608
@@ -21838,65 +21846,41 @@ msgstr "Trans no"
 msgid "Debit"
 msgstr "Ghi nợ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:355
-msgid "Total for period ending"
-msgstr "Tổng cộng cho giai đoạn kết thúc"
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:239
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:246
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:284
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:291
+msgid "Balance brought forward from"
+msgstr "Số dư mang lại từ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-#: /home/tim/code/KwaMoja/GLTransInquiry.php:40
-#: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
-#: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
-#: /home/tim/code/KwaMoja/SalesCommissionStatements.php:67
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:65
-#: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:13
-#: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:86
-msgid "Period"
-msgstr "Giai đoạn"
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:264
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:352
+msgid "Totals for period ending"
+msgstr "Tổng số cuối kỳ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Account movement per transaction"
-msgstr "Chuyển động tài khoản cho mỗi giao dịch"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Movement per ChartDetails record"
-msgstr "Phong trào mỗi bản ghi ChartDetails"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Period difference"
-msgstr "Chênh lệch kỳ"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:371
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:362
 msgid "Total Movement for selected periods"
 msgstr "Tổng số Phong trào cho các giai đoạn đã chọn"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
-msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
-msgstr "Có sự khác biệt giữa tổng của các giao dịch và các chuyển động ghi lại trong bảng ChartDetails"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
-msgid "A log of the account differences for the periods report shows below"
-msgstr "Bản ghi sự khác nhau về tài khoản cho báo cáo giai đoạn hiển thị bên dưới"
-
+#: /home/tim/code/KwaMoja/GLAccountReport.php:31
 #: /home/tim/code/KwaMoja/GLAccountReport.php:32
-#: /home/tim/code/KwaMoja/GLAccountReport.php:33
-#: /home/tim/code/KwaMoja/GLAccountReport.php:336
+#: /home/tim/code/KwaMoja/GLAccountReport.php:331
 msgid "GL Account Report"
 msgstr "Báo cáo tài khoản GL"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:116
+#: /home/tim/code/KwaMoja/GLAccountReport.php:115
 msgid "Listing for Period"
 msgstr "Danh sách cho thời gian"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:245
+#: /home/tim/code/KwaMoja/GLAccountReport.php:240
 msgid "Selection Criteria for Report"
 msgstr "Tiêu chí lựa chọn cho báo cáo"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:313
+#: /home/tim/code/KwaMoja/GLAccountReport.php:308
 msgid "Run Report"
 msgstr "Chạy báo cáo"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:338
+#: /home/tim/code/KwaMoja/GLAccountReport.php:333
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:45
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:236
 #: /home/tim/code/KwaMoja/MRPPlannedPurchaseOrders.php:396
@@ -22289,7 +22273,7 @@ msgstr "Chỉnh sửa chi tiết tài khoản"
 #: /home/tim/code/KwaMoja/GLAccounts.php:350
 #: /home/tim/code/KwaMoja/GLAccounts.php:369
 #: /home/tim/code/KwaMoja/GLAccounts.php:489
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
 #: /home/tim/code/KwaMoja/PcExpenses.php:281
@@ -22415,17 +22399,17 @@ msgstr "Hiển thị tất cả Tài khoản bao gồm số dư bằng không"
 msgid "Show Balance Sheet"
 msgstr "Hiển thị bảng cân đối kế toán"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:202
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
 msgid "HTML View"
 msgstr "Chế độ Xem HTML"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:206
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:212
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "Bảng cân đối kế toán tại"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:217
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:223
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:230
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
@@ -22438,7 +22422,7 @@ msgstr "Bảng cân đối kế toán tại"
 msgid "Last Year"
 msgstr "Năm ngoái"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:487
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:493
 msgid "Select A Different Balance Date"
 msgstr "Chọn Ngày Số dư Khác"
 
@@ -22620,9 +22604,10 @@ msgstr "Báo cáo lưu chuyển tiền mặt"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:580
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:586
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22634,7 +22619,8 @@ msgstr "Giai đoạn thực tế"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:199
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -23119,38 +23105,38 @@ msgstr "Tải từ mẫu"
 msgid "General Ledger Journal Inquiry"
 msgstr "Báo cáo tạp chí General Ledger"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 msgid "Journal Number Range"
 msgstr "Phạm vi Số Tạp chí"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:43
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:45
 msgid "Journals Dated Between"
 msgstr "Tạp chí"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:81
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:83
 msgid "General ledger journal listing"
 msgstr "Danh sách tạp chí chung"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:84
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:86
 msgid "General Ledger Jornals"
 msgstr "Báo Chí Ledger"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:90
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:92
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:213
 msgid "Journal Number"
 msgstr "Số tạp chí"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:92
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
 #: /home/tim/code/KwaMoja/PcExpenses.php:168
 #: /home/tim/code/KwaMoja/includes/PDFGLJournalHeader.php:21
 msgid "Account Description"
 msgstr "Mô tả tài khoản"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:142
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:144
 msgid "Others"
 msgstr "Khác"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:143
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:145
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:137
 #: /home/tim/code/KwaMoja/PDFChequeListing.php:177
 msgid "Other GL Accounts"
@@ -23190,16 +23176,6 @@ msgstr "Mục đích của báo cáo kết quả kinh doanh là để cho biết
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr "Báo cáo Lãi và Lỗ biểu diễn một khoảng thời gian.  Điều này trái với Bảng cân đối, thể hiện một khoảnh khắc trong thời gian."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
-msgid "Budget To Show Comparisons With"
-msgstr "Ngân sách để Hiển thị So sánh Với"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
-msgid "Select the budget to make comparisons with."
-msgstr "Chọn ngân sách để so sánh với."
-
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
 msgid "Show report for all accounts, or just show summary report."
 msgstr "Hiển thị báo cáo cho tất cả các tài khoản, hoặc chỉ hiển thị báo cáo tóm tắt."
@@ -23217,10 +23193,10 @@ msgstr "Hiển thị báo cáo lãi và lỗ"
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "Suy thoái lợi nhuận"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:478
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:348
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:704
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:864
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:302
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:680
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:886
@@ -23228,25 +23204,25 @@ msgstr "Suy thoái lợi nhuận"
 msgid "Gross Profit Percent"
 msgstr "Tỷ suất lợi nhuận gộp"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:618
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:491
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "Lợi nhuận"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:618
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:491
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "Mất"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:519
 msgid "P/L Percent after"
 msgstr "P / L Phần trăm sau"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:646
 msgid "Net Profit Percent"
 msgstr "Phần trăm lợi nhuận ròng"
 
@@ -23355,7 +23331,7 @@ msgid "Check this box to show the notes that summarize the significant accountin
 msgstr "Chọn hộp này để hiển thị các ghi chú tóm tắt các chính sách kế toán quan trọng và thông tin giải thích khác"
 
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:3
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:568
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:564
 msgid "Income and Expenditure by Tag"
 msgstr "Thu nhập và Chi tiêu theo Tag"
 
@@ -23399,21 +23375,21 @@ msgstr "Trình bày báo cáo về thu nhập và chi tiêu"
 msgid "PrintPDF"
 msgstr "PrintPDF"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:161
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:162
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:157
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:158
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:119
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:120
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:171
 msgid "Income and Expenditure"
 msgstr "Thu nhập và chi tiêu"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:231
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:227
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:182
 msgid "Print Income and Expenditure Error"
 msgstr "Lỗi Thu nhập và Lãng phí"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:230
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
 #: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
 #: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
@@ -23422,29 +23398,29 @@ msgstr "Lỗi Thu nhập và Lãng phí"
 msgid "There were no entries to print out for the selections specified"
 msgstr "Không có mục để in ra cho các lựa chọn được chỉ định"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:397
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:784
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:393
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:753
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:347
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:736
 msgid "Detailed"
 msgstr "Chi tiết"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 msgid "Statement of Income and Expenditure for Tag"
 msgstr "Bản kê khai thu nhập và chi phí cho thẻ"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 msgid "during the"
 msgstr "trong"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:943
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:885
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:916
 #, php-format
 msgid "Surplus"
 msgstr "Số dư"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:943
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:885
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:916
 #, php-format
 msgid "Deficit"
@@ -23526,6 +23502,16 @@ msgstr "Trang này yêu cầu một loại và số lượng giao dịch hợp l
 msgid "No transaction of this type with id"
 msgstr "Không có giao dịch loại này có id"
 
+#: /home/tim/code/KwaMoja/GLTransInquiry.php:40
+#: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
+#: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
+#: /home/tim/code/KwaMoja/SalesCommissionStatements.php:67
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:65
+#: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:13
+#: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:86
+msgid "Period"
+msgstr "Giai đoạn"
+
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:46
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:97
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:116
@@ -23537,7 +23523,7 @@ msgstr "Đã đăng"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Cân bằng thử nghiệm"
@@ -23550,45 +23536,47 @@ msgstr "Nhập tiêu chuẩn cho yêu cầu"
 msgid "Show Trial Balance"
 msgstr "Hiển thị số dư dùng thử"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:148
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
 msgid "Export to Spreadsheet"
 msgstr "Xuất sang bảng tính"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:185
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:184
 msgid "Trial Balance Report"
 msgstr "Báo cáo Trial Balance"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Số dư dùng thử trong tháng"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "và cho"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " months to "
 msgstr "tháng để"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
 msgid "Month Actual"
 msgstr "Tháng thực tế"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Ngân sách Tháng"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:440
 msgid "Check Totals"
 msgstr "Kiểm tra tổng số"
 
@@ -24571,7 +24559,7 @@ msgstr "Thanh toán vào Tài khoản Nhà cung cấp"
 
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:134
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:136
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:227
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:226
 msgid "GL Payment"
 msgstr "Thanh toán GL"
 
@@ -24581,7 +24569,7 @@ msgstr "Biên nhận vào Tài khoản Khách hàng"
 
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:165
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:167
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:228
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:227
 msgid "GL Receipt"
 msgstr "Biên nhận GL"
 
@@ -24726,7 +24714,7 @@ msgstr "Giá hiệu quả từ"
 #: /home/tim/code/KwaMoja/UploadPriceList.php:165
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:496
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:598
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:248
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:247
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:235
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:338
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:339
@@ -24740,7 +24728,7 @@ msgstr "Cập nhật dử liệu"
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:497
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:599
 #: /home/tim/code/KwaMoja/Z_ImportFixedAssets.php:298
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:249
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:248
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:236
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:339
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:340
@@ -25880,7 +25868,7 @@ msgstr "Kỹ thuật viên"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:276
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:138
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
 msgid "Hours"
@@ -38437,8 +38425,8 @@ msgid "The assignment of cash record could not be deleted because"
 msgstr "Việc phân công biên lai tiền mặt không thể bị xóa bởi vì"
 
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:172
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:319
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:437
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:316
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:434
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:311
 msgid "Select Tab"
 msgstr "Chọn Tab"
@@ -38540,8 +38528,8 @@ msgstr "Có một vấn đề cho phép tiền mặt và giao dịch chưa đư�
 msgid "This cash has already been authorised, and cannot be posted again"
 msgstr "Tiền mặt này đã được ủy quyền và không thể được gửi lại"
 
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:322
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:439
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:319
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:436
 msgid "Authorise expenses to Petty Cash Tab"
 msgstr "Ủy quyền chi tiêu cho Thẻ Tiền mặt"
 
@@ -42297,27 +42285,27 @@ msgstr "In lại nhãn QA"
 msgid "General Ledger Retained Earnings Reconciliation"
 msgstr "Tổng kết Thu nhập Thu nhập Ròng"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:33
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:32
 msgid "Year End"
 msgstr "Hết năm"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:34
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:33
 msgid "Profit/Loss for Year"
 msgstr "Lợi nhuận / năm cho năm"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:38
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:37
 msgid "Opening Balances"
 msgstr "Số dư mở"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:65
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:64
 msgid "Retained Earnings per Balance Sheet"
 msgstr "Thu nhập được giữ lại trên một bảng cân đối kế toán"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:79
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:78
 msgid "Select Year End for the Reconcilation"
 msgstr "Chọn Năm Cuối cho Hòa giải"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:89
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:88
 msgid "Show Reconciliation"
 msgstr "Hiển thị hoà giải"
 
@@ -58208,39 +58196,39 @@ msgstr "Tất cả các giao dịch phải trong cùng kỳ"
 msgid "The total of the transactions must balance back to zero"
 msgstr "Tổng số các giao dịch phải cân bằng trở lại bằng không"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "This function loads a set of general ledger transactions from a comma separated variable (csv) file."
 msgstr "Hàm này tải một tập hợp các giao dịch sổ cái chung từ một tệp biến đổi bằng dấu phẩy (csv)."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The file must contain six columns, and the first row should be the following headers"
 msgstr "Tệp phải chứa sáu cột, và hàng đầu tiên phải là tiêu đề sau"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "followed by rows containing these six fields for each price to be uploaded."
 msgstr "tiếp theo là các hàng có chứa sáu trường này cho mỗi giá sẽ được tải lên."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The total of the transactions must come back to zero. Debits are positive, credits are negative."
 msgstr "Tổng số các giao dịch phải trở lại bằng không.  Các khoản nợ là tích cực, tín dụng là tiêu cực."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "All the transactions must be within the same accounting period."
 msgstr "Tất cả các giao dịch phải trong cùng một kỳ kế toán."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The Account field must have a corresponding entry in the chartmaster table."
 msgstr "Trường tài khoản phải có một mục nhập tương ứng trong bảng chartmaster."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:224
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:223
 msgid "Select Transaction Type"
 msgstr "Chọn loại giao dịch"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:226
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:225
 msgid "GL Journal"
 msgstr "GL Journal"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:231
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:230
 msgid "Select Currency"
 msgstr "Chọn Tiền tệ"
 
@@ -59571,7 +59559,7 @@ msgstr "Chỉnh sửa hồ sơ vay nhân viên"
 #: /home/tim/code/KwaMoja/prlOthIncome.php:155
 #: /home/tim/code/KwaMoja/prlPaye.php:135
 #: /home/tim/code/KwaMoja/prlPaye.php:247
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:147
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:146
 #: /home/tim/code/KwaMoja/prlSelectDeduction.php:56
 #: /home/tim/code/KwaMoja/prlSelectLoan.php:43
 #: /home/tim/code/KwaMoja/prlTardiness.php:144
@@ -61210,7 +61198,7 @@ msgstr "Ngày nhập không hợp lệ hãy nhập ngày giờ làm thêm"
 #: /home/tim/code/KwaMoja/prlOTFile.php:40
 #: /home/tim/code/KwaMoja/prlOTFile.php:179
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:36
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:159
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:158
 msgid "Accept and Process Overtime"
 msgstr "Chấp nhận và làm thêm giờ"
 
@@ -61260,7 +61248,7 @@ msgstr "Nhân viên"
 
 #: /home/tim/code/KwaMoja/prlOTFile.php:135
 #: /home/tim/code/KwaMoja/prlOthIncome.php:124
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:128
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:127
 #: /home/tim/code/KwaMoja/prlTardiness.php:123
 msgid "No Empoloyee accounts have been set up yet"
 msgstr "Không có tài khoản Empoloyee nào được thiết lập"
@@ -61815,25 +61803,25 @@ msgstr "SQL mà không để chèn thời gian bình thường Trans ghi đượ
 msgid "Regular Time"
 msgstr "Thường xuyên"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:109
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:108
 msgid "RT Ref"
 msgstr "RT Ref"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:116
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:115
 msgid "Regular Time Line Entry"
 msgstr "Nhập thời gian thường xuyên"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:121
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:120
 #: /home/tim/code/KwaMoja/prlTardiness.php:116
 msgid "Enter Employee Manually"
 msgstr "Nhập nhân viên theo cách thủ công"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:123
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:122
 #: /home/tim/code/KwaMoja/prlTardiness.php:118
 msgid "Select Employee Name"
 msgstr "Chọn Tên nhân viên"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:146
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:145
 msgid "RT Hour"
 msgstr "Giờ RT"
 
@@ -73067,6 +73055,27 @@ msgstr "Cho vay nhân viên"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Trả nợ nhân viên"
+
+#~ msgid "The accumulated profits brought forward could not be calculated by the SQL because"
+#~ msgstr "Lợi nhuận lũy kế mang về không thể tính bởi SQL bởi vì"
+
+#~ msgid "Total for period ending"
+#~ msgstr "Tổng cộng cho giai đoạn kết thúc"
+
+#~ msgid "Account movement per transaction"
+#~ msgstr "Chuyển động tài khoản cho mỗi giao dịch"
+
+#~ msgid "Movement per ChartDetails record"
+#~ msgstr "Phong trào mỗi bản ghi ChartDetails"
+
+#~ msgid "Period difference"
+#~ msgstr "Chênh lệch kỳ"
+
+#~ msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
+#~ msgstr "Có sự khác biệt giữa tổng của các giao dịch và các chuyển động ghi lại trong bảng ChartDetails"
+
+#~ msgid "A log of the account differences for the periods report shows below"
+#~ msgstr "Bản ghi sự khác nhau về tài khoản cho báo cáo giai đoạn hiển thị bên dưới"
 
 #~ msgid "Produce PDF Report"
 #~ msgstr "Sản xuất Báo cáo PDF"

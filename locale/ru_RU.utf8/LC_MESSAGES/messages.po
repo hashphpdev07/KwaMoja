@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-22 00:18+0000\n"
-"PO-Revision-Date: 2020-11-22 00:11+0000\n"
+"POT-Creation-Date: 2020-11-26 00:02+0000\n"
+"PO-Revision-Date: 2020-11-26 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -151,8 +151,8 @@ msgstr "Список групп рейтинга ABC"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:119
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:58
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:211
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:138
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:208
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:135
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:215
 #: /home/tim/code/KwaMoja/BOMIndented.php:188
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:179
@@ -168,18 +168,18 @@ msgstr "Список групп рейтинга ABC"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:830
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:199
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:213
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:87
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:153
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:562
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:570
 #: /home/tim/code/KwaMoja/GLTags.php:53
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:190
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -439,7 +439,7 @@ msgstr "Вы уверены, что хотите удалить эту рейт�
 #: /home/tim/code/KwaMoja/prlPH.php:166
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:134
 #: /home/tim/code/KwaMoja/prlPaye.php:181
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:152
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:151
 #: /home/tim/code/KwaMoja/prlSC.php:132 /home/tim/code/KwaMoja/prlSSC.php:174
 #: /home/tim/code/KwaMoja/prlSSS.php:174
 #: /home/tim/code/KwaMoja/prlSelectLoan.php:68
@@ -2360,8 +2360,8 @@ msgstr "утверждение"
 
 #: /home/tim/code/KwaMoja/AddCustomerContacts.php:138
 #: /home/tim/code/KwaMoja/AddCustomerContacts.php:257
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 #: /home/tim/code/KwaMoja/Customers.php:693
 #: /home/tim/code/KwaMoja/Customers.php:701
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:179
@@ -2510,8 +2510,8 @@ msgstr "Примечания для клиента"
 #: /home/tim/code/KwaMoja/AddCustomerTypeNotes.php:195
 #: /home/tim/code/KwaMoja/AgedControlledInventory.php:51
 #: /home/tim/code/KwaMoja/BankMatching.php:272
-#: /home/tim/code/KwaMoja/BankReconciliation.php:222
-#: /home/tim/code/KwaMoja/BankReconciliation.php:284
+#: /home/tim/code/KwaMoja/BankReconciliation.php:220
+#: /home/tim/code/KwaMoja/BankReconciliation.php:282
 #: /home/tim/code/KwaMoja/ContractCosting.php:175
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:154
 #: /home/tim/code/KwaMoja/CustomerAccount.php:269
@@ -2521,9 +2521,9 @@ msgstr "Примечания для клиента"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:252
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:107
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:161
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
-#: /home/tim/code/KwaMoja/GLAccountReport.php:354
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:89
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
+#: /home/tim/code/KwaMoja/GLAccountReport.php:349
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
 #: /home/tim/code/KwaMoja/GoodsReceived.php:140
 #: /home/tim/code/KwaMoja/JobCards.php:189
@@ -2571,7 +2571,7 @@ msgstr "Примечания для клиента"
 #: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:10
 #: /home/tim/code/KwaMoja/prlOTFile.php:112
 #: /home/tim/code/KwaMoja/prlOthIncome.php:105
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:107
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:106
 #: /home/tim/code/KwaMoja/prlSelectOthIncome.php:52
 #: /home/tim/code/KwaMoja/prlTardiness.php:104
 #: /home/tim/code/KwaMoja/includes/OcOpenCartToKwaMojaSync.php:456
@@ -2948,7 +2948,7 @@ msgstr "Акции"
 #: /home/tim/code/KwaMoja/prlOTFile.php:127
 #: /home/tim/code/KwaMoja/prlOthIncome.php:116
 #: /home/tim/code/KwaMoja/prlOthIncome.php:154
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:119
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:118
 #: /home/tim/code/KwaMoja/prlTardiness.php:115
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:4753
 #: /home/tim/code/KwaMoja/dashboard/latest_grns.php:42
@@ -3005,8 +3005,8 @@ msgstr "Дни старые"
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:360
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:426
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3077,7 +3077,7 @@ msgstr "Анализ состояния клиентов"
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:99
@@ -3165,8 +3165,8 @@ msgstr "Данные клиента не могут быть получены SQ
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:232
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:102
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:185
@@ -3310,9 +3310,9 @@ msgstr "Сведения о непогашенных транзакциях дл
 
 #: /home/tim/code/KwaMoja/AgedDebtors.php:379
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:205
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
-#: /home/tim/code/KwaMoja/GLAccountReport.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:195
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:191
+#: /home/tim/code/KwaMoja/GLAccountReport.php:106
 #: /home/tim/code/KwaMoja/PO_Items.php:77
 #: /home/tim/code/KwaMoja/PO_Items.php:102
 #: /home/tim/code/KwaMoja/PO_Items.php:566
@@ -3332,7 +3332,7 @@ msgstr "не может быть восстановлено, потому что
 
 #: /home/tim/code/KwaMoja/AgedDebtors.php:382
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:208
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:260
 #: /home/tim/code/KwaMoja/Areas.php:81
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:197
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:226
@@ -3354,7 +3354,7 @@ msgstr "не может быть восстановлено, потому что
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:555
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
@@ -3555,7 +3555,6 @@ msgstr "Показать сводный отчет или включить де�
 #: /home/tim/code/KwaMoja/AgedDebtors.php:548
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3691,8 +3690,8 @@ msgstr "N / A"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:29
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:70
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:203
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:199
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:200
 #: /home/tim/code/KwaMoja/sql/updates/135.php:4
 msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "Горизонтальный анализ отчета о совокупном доходе"
@@ -3768,7 +3767,7 @@ msgstr "Выберите последний период в отчете"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:139
 #: /home/tim/code/KwaMoja/DiscountCategories.php:146
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:138
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:160
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:127
 #: /home/tim/code/KwaMoja/GLStatements.php:230
@@ -3839,13 +3838,13 @@ msgstr "Выберите последний период в отчете"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:153
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:602
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:912
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:123
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:122
 #: /home/tim/code/KwaMoja/prlTardiness.php:118
 msgid "OR"
 msgstr "ИЛИ"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:142
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:164
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:130
 #: /home/tim/code/KwaMoja/GLStatements.php:233
@@ -3859,7 +3858,7 @@ msgid "Select Period"
 msgstr "Выберите период"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:144
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:166
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
@@ -3882,9 +3881,9 @@ msgid "Selecting Summary will show on the totals at the account group level"
 msgstr "Выбор сводки будет отображаться по итоговым значениям на уровне группы учетных записей"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:162
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:218
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:96
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:145
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
@@ -3925,43 +3924,43 @@ msgstr "Установите этот флажок, чтобы отобрази�
 msgid "Show on Screen (HTML)"
 msgstr "Показать на экране (HTML)"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "A period up to 12 months in duration can be specified"
 msgstr "Можно указать период до 12 месяцев."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "the system automatically shows a comparative for the same period from the previous year"
 msgstr "система автоматически показывает сравнительный показатель за тот же период с предыдущего года"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "он не может это сделать, если указан период более 12 месяцев"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "Please select an alternative period range"
 msgstr "Выберите альтернативный период"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
@@ -3978,17 +3977,17 @@ msgstr "Выберите альтернативный период"
 msgid "For"
 msgstr "Для"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
 #: /home/tim/code/KwaMoja/includes/PDFTaxPageHeader.php:26
 msgid "months to"
 msgstr "месяцев до"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:206
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:132
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:203
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:129
 #: /home/tim/code/KwaMoja/Contracts.php:844
 #: /home/tim/code/KwaMoja/CustomerAccount.php:237
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
@@ -4012,15 +4011,16 @@ msgstr "месяцев до"
 msgid "All amounts stated in"
 msgstr "Все суммы, указанные в"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:212
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:139
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:81
 #: /home/tim/code/KwaMoja/GLAccounts.php:307
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:220
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:578
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:193
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4034,18 +4034,19 @@ msgstr "Все суммы, указанные в"
 msgid "Account"
 msgstr "Счет"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:213
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:140
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
 #: /home/tim/code/KwaMoja/GLAccounts.php:360
 #: /home/tim/code/KwaMoja/GLAccounts.php:377
 #: /home/tim/code/KwaMoja/GLAccounts.php:490
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:221
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:579
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4058,59 +4059,59 @@ msgstr "Счет"
 msgid "Account Name"
 msgstr "Имя пользователя"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:220
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:147
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:217
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:144
 msgid "Current period"
 msgstr "Текущий период"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:221
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:148
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:218
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:145
 msgid "Last period"
 msgstr "Последний период"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:222
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:149
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:219
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:146
 msgid "Absolute change"
 msgstr "Абсолютное изменение"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:223
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:150
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:220
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:147
 msgid "Relative change"
 msgstr "Относительное изменение"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
 msgid "Absolute change signs: a positive number indicates a change that increases the net profit; a negative number indicates a change that decreases the net profit."
 msgstr "Абсолютные знаки изменения: положительное число указывает на изменение, которое увеличивает чистую прибыль;  отрицательное число указывает на изменение, которое уменьшает чистую прибыль."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 msgid "Relative change signs: a positive number indicates an increase in the amount of that account; a negative number indicates a decrease in the amount of that account."
 msgstr "Знаки относительных изменений: положительное число указывает на увеличение суммы этой учетной записи;  отрицательное число указывает на уменьшение суммы этой учетной записи."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:260
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:214
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:555
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 msgid "No general ledger accounts were returned by the SQL because"
 msgstr "SQL не возвращает учетные записи с общей бухгалтерской книги, поскольку"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:295
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:441
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:622
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:654
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:816
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:844
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:291
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:310
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:495
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:526
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:334
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:371
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:260
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:287
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:412
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:437
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:614
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:642
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:783
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:807
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:214
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:241
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:366
@@ -4122,14 +4123,14 @@ msgstr "SQL не возвращает учетные записи с общей 
 msgid "total"
 msgstr "Всего"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:371
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:566
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:902
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:450
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:337
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:482
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:693
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:853
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:291
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:436
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:664
@@ -4147,18 +4148,18 @@ msgstr "Всего"
 msgid "Gross Profit"
 msgstr "Валовая прибыль"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:386
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:382
 msgid "Earnings after"
 msgstr "Заработок после"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:558
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:586
 msgid "Net Profit"
 msgstr "Чистая прибыль"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:602
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:893
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
@@ -4170,8 +4171,8 @@ msgstr "Выберите другой период"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:30
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:61
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:128
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:129
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:125
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:126
 msgid "Horizontal Analysis of Statement of Financial Position"
 msgstr "Горизонтальный анализ отчета о финансовом положении"
 
@@ -4188,22 +4189,18 @@ msgstr "Выберите дату баланса"
 msgid "Choose the period on which to base the report."
 msgstr "Выберите период, на котором будет основываться отчет."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:131
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:128
 #: /home/tim/code/KwaMoja/includes/PDFDebtorBalsPageHeader.php:18
 #: /home/tim/code/KwaMoja/includes/PDFSupplierBalsPageHeader.php:18
 msgid "as at"
 msgstr "по состоянию на"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 msgid "Absolute change signs: a positive number indicates a source of funds; a negative number indicates an application of funds."
 msgstr "Абсолютные знаки изменения: положительное число указывает источник средств;  отрицательное число указывает на применение средств."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-msgid "The accumulated profits brought forward could not be calculated by the SQL because"
-msgstr "Накопленная прибыль не была рассчитана SQL, потому что"
-
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:472
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:399
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:478
 msgid "Check Total"
 msgstr "Проверить общее количество"
 
@@ -4698,8 +4695,8 @@ msgid "Address"
 msgstr "Адрес"
 
 #: /home/tim/code/KwaMoja/AuditTrail.php:187
-#: /home/tim/code/KwaMoja/BankReconciliation.php:223
-#: /home/tim/code/KwaMoja/BankReconciliation.php:285
+#: /home/tim/code/KwaMoja/BankReconciliation.php:221
+#: /home/tim/code/KwaMoja/BankReconciliation.php:283
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:25
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:155
 #: /home/tim/code/KwaMoja/CustomerAccount.php:267
@@ -4709,8 +4706,8 @@ msgstr "Адрес"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:28
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:105
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
-#: /home/tim/code/KwaMoja/GLAccountReport.php:352
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
+#: /home/tim/code/KwaMoja/GLAccountReport.php:347
 #: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
@@ -4893,8 +4890,8 @@ msgstr "Код"
 #: /home/tim/code/KwaMoja/AutomaticTranslationDescriptions.php:47
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:57
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:339
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:27
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:45
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:41
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:47
 #: /home/tim/code/KwaMoja/POReport.php:510
 #: /home/tim/code/KwaMoja/POReport.php:1346
 #: /home/tim/code/KwaMoja/PcReportExpense.php:109
@@ -5821,7 +5818,7 @@ msgstr "Список материалов для деталей между"
 
 #: /home/tim/code/KwaMoja/BOMListing.php:39
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:156
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:161
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:66
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:175
@@ -6238,8 +6235,8 @@ msgstr "Любые комментарии для этой строки спец�
 #: /home/tim/code/KwaMoja/Payments.php:1235
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:190
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:405
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:337
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:454
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:334
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:451
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:334
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:728
 #: /home/tim/code/KwaMoja/PcExpenses.php:335
@@ -6257,7 +6254,7 @@ msgstr "Любые комментарии для этой строки спец�
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:57
 #: /home/tim/code/KwaMoja/prlOTFile.php:159
 #: /home/tim/code/KwaMoja/prlOthIncome.php:148
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:141
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:140
 #: /home/tim/code/KwaMoja/prlTardiness.php:137
 msgid "Cancel"
 msgstr "Отмена"
@@ -6710,8 +6707,8 @@ msgstr "Еще не выбран"
 #: /home/tim/code/KwaMoja/Payments.php:1234
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:189
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:404
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:336
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:453
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:333
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:450
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:333
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:727
 #: /home/tim/code/KwaMoja/PcExpenses.php:334
@@ -6731,8 +6728,8 @@ msgstr "Еще не выбран"
 #: /home/tim/code/KwaMoja/prlOTFile.php:159
 #: /home/tim/code/KwaMoja/prlOthIncome.php:78
 #: /home/tim/code/KwaMoja/prlOthIncome.php:148
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:81
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:141
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:80
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:140
 #: /home/tim/code/KwaMoja/prlTardiness.php:78
 #: /home/tim/code/KwaMoja/prlTardiness.php:137
 msgid "Accept"
@@ -7160,9 +7157,9 @@ msgstr "Показать транзакции, дата которых боль�
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:59
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:240
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:85
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:199
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:174
-#: /home/tim/code/KwaMoja/GLAccountReport.php:116
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:198
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:196
+#: /home/tim/code/KwaMoja/GLAccountReport.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsersCopyAuthority.php:29
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:118
 #: /home/tim/code/KwaMoja/GLStatements.php:112
@@ -7328,7 +7325,7 @@ msgid "Entry is expected in the format"
 msgstr "Запись ожидается в формате"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
 msgid "after"
 msgstr "после"
 
@@ -7360,7 +7357,7 @@ msgstr "ссылка"
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:327
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1022
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:114
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:96
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:202
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:279
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:395
@@ -7416,8 +7413,8 @@ msgid "Amount"
 msgstr "Количество"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:274
-#: /home/tim/code/KwaMoja/BankReconciliation.php:228
-#: /home/tim/code/KwaMoja/BankReconciliation.php:290
+#: /home/tim/code/KwaMoja/BankReconciliation.php:226
+#: /home/tim/code/KwaMoja/BankReconciliation.php:288
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:356
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:360
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:272
@@ -7559,33 +7556,33 @@ msgstr "Дата выписки по счету"
 msgid "Select the date of the bank staement you are reconciling"
 msgstr "Выберите дату банковского чека, который вы сверяете"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:150
+#: /home/tim/code/KwaMoja/BankReconciliation.php:148
 msgid "Show bank reconciliation statement"
 msgstr "Показать выписку о банковской справке"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:161
+#: /home/tim/code/KwaMoja/BankReconciliation.php:159
 #: /home/tim/code/KwaMoja/Currencies.php:171
 msgid "The bank account balance could not be returned by the SQL because"
 msgstr "SQL-счет не может быть возвращен SQL-кодом"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:176
+#: /home/tim/code/KwaMoja/BankReconciliation.php:174
 msgid "Could not retrieve the currency and exchange rate for the selected bank account"
 msgstr "Не удалось получить валюту и обменный курс для выбранного банковского счета"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:182
+#: /home/tim/code/KwaMoja/BankReconciliation.php:180
 msgid "Balance as at"
 msgstr "Баланс по состоянию на"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:215
+#: /home/tim/code/KwaMoja/BankReconciliation.php:213
 msgid "The unpresented cheques could not be retrieved by the SQL because"
 msgstr "Непредвиденные проверки не могли быть получены SQL, потому что"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:219
+#: /home/tim/code/KwaMoja/BankReconciliation.php:217
 msgid "Add back unpresented cheques"
 msgstr "Добавить обратно непредвиденные проверки"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:224
-#: /home/tim/code/KwaMoja/BankReconciliation.php:286
+#: /home/tim/code/KwaMoja/BankReconciliation.php:222
+#: /home/tim/code/KwaMoja/BankReconciliation.php:284
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:156
 #: /home/tim/code/KwaMoja/CustomerAccount.php:268
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:325
@@ -7626,15 +7623,15 @@ msgstr "Добавить обратно непредвиденные прове�
 msgid "Number"
 msgstr "Число"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:225
-#: /home/tim/code/KwaMoja/BankReconciliation.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/BankReconciliation.php:223
+#: /home/tim/code/KwaMoja/BankReconciliation.php:285
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:205
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:183
 msgid "Cheque"
 msgstr "Проверить"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:226
-#: /home/tim/code/KwaMoja/BankReconciliation.php:288
+#: /home/tim/code/KwaMoja/BankReconciliation.php:224
+#: /home/tim/code/KwaMoja/BankReconciliation.php:286
 #: /home/tim/code/KwaMoja/ContractCosting.php:174
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:157
 #: /home/tim/code/KwaMoja/CustomerAccount.php:271
@@ -7643,7 +7640,7 @@ msgstr "Проверить"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:975
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:110
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:165
-#: /home/tim/code/KwaMoja/GLAccountReport.php:353
+#: /home/tim/code/KwaMoja/GLAccountReport.php:348
 #: /home/tim/code/KwaMoja/GoodsReceived.php:152
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:167
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:319
@@ -7674,45 +7671,45 @@ msgstr "Проверить"
 msgid "Reference"
 msgstr "Справка"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:227
-#: /home/tim/code/KwaMoja/BankReconciliation.php:289
+#: /home/tim/code/KwaMoja/BankReconciliation.php:225
+#: /home/tim/code/KwaMoja/BankReconciliation.php:287
 msgid "Orig Amount"
 msgstr "Сумма оригинала"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:252
+#: /home/tim/code/KwaMoja/BankReconciliation.php:250
 msgid "Total of all unpresented cheques"
 msgstr "Всего всех непредставленных чеков"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:276
+#: /home/tim/code/KwaMoja/BankReconciliation.php:274
 msgid "The uncleared deposits could not be retrieved by the SQL because"
 msgstr "Нерасчищенные депозиты не могли быть получены SQL, потому что"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:281
+#: /home/tim/code/KwaMoja/BankReconciliation.php:279
 msgid "Less deposits not cleared"
 msgstr "Меньше депозитов не очищено"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:315
+#: /home/tim/code/KwaMoja/BankReconciliation.php:313
 msgid "Total of all uncleared deposits"
 msgstr "Всего нерасчищенных депозитов"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:323
+#: /home/tim/code/KwaMoja/BankReconciliation.php:321
 msgid "Bank statement balance should be"
 msgstr "Баланс выписки по счету должен быть"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:333
+#: /home/tim/code/KwaMoja/BankReconciliation.php:331
 msgid "Enter the actual bank statement balance"
 msgstr "Введите фактический баланс банковской выписки"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
-#: /home/tim/code/KwaMoja/BankReconciliation.php:350
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
+#: /home/tim/code/KwaMoja/BankReconciliation.php:348
 msgid "Calculate and Post Exchange Difference"
 msgstr "Вычислить и обменять по почте"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
 msgid "This will create a general ledger journal to write off the exchange difference in the current balance of the account. It is important that the exchange rate above reflects the current value of the bank account currency"
 msgstr "Это создаст журнал главной книги, чтобы списать валютную разницу в текущем балансе учетной записи.  Важно, чтобы обменный курс выше отражает текущую стоимость валюты банковского счета"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
 #: /home/tim/code/KwaMoja/CounterReturns.php:732
 #: /home/tim/code/KwaMoja/CounterSales.php:822
 #: /home/tim/code/KwaMoja/Customers.php:731
@@ -7722,17 +7719,17 @@ msgstr "Это создаст журнал главной книги, чтобы
 msgid "Are You Sure?"
 msgstr "Ты уверен?"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:347
+#: /home/tim/code/KwaMoja/BankReconciliation.php:345
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
 msgstr "Курсовые разницы на счетах в иностранной валюте обычно отражаются при изменении обменного курса. Эта выверка подготовлена ​​с использованием обменного курса, установленного в таблице валют (см. Вкладку настройки). Перед выполнением сверки необходимо вести эту таблицу с текущим обменным курсом. Если вы хотите создать журнал для отражения курсовой разницы на основе текущего обменного курса, чтобы скорректировать сверку с фактическим балансом банковской выписки, щелкните ниже."
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:358
-#: /home/tim/code/KwaMoja/BankReconciliation.php:363
+#: /home/tim/code/KwaMoja/BankReconciliation.php:356
+#: /home/tim/code/KwaMoja/BankReconciliation.php:361
 msgid "Match off cleared payments"
 msgstr "Отключить очищенные платежи"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:359
-#: /home/tim/code/KwaMoja/BankReconciliation.php:364
+#: /home/tim/code/KwaMoja/BankReconciliation.php:357
+#: /home/tim/code/KwaMoja/BankReconciliation.php:362
 msgid "Match off cleared deposits"
 msgstr "Сопоставьте очищенные отложения"
 
@@ -8889,9 +8886,9 @@ msgstr "После завершения транзакции инвентари�
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:146
 #: /home/tim/code/KwaMoja/Payments.php:1144
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:107
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:302
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:299
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:160
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:420
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:417
 #: /home/tim/code/KwaMoja/PickingLists.php:435
 #: /home/tim/code/KwaMoja/PickingLists.php:714
 #: /home/tim/code/KwaMoja/PricesByCost.php:231
@@ -11090,7 +11087,7 @@ msgstr "Вы должны автоматически перенаправлят�
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:262
 #: /home/tim/code/KwaMoja/EmailCustStatements.php:13
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:20
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:288
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:282
 #: /home/tim/code/KwaMoja/POReport.php:1311
 #: /home/tim/code/KwaMoja/PO_Header.php:240
 #: /home/tim/code/KwaMoja/ProjectBOM.php:41
@@ -12693,11 +12690,9 @@ msgstr "против кода клиента"
 #: /home/tim/code/KwaMoja/CounterReturns.php:155
 #: /home/tim/code/KwaMoja/CounterSales.php:166
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:143
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
-#: /home/tim/code/KwaMoja/GLAccountReport.php:128
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:204
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:230
+#: /home/tim/code/KwaMoja/GLAccountReport.php:123
 msgid "could not be retrieved"
 msgstr "не удалось найти"
 
@@ -12868,11 +12863,11 @@ msgstr "Сеть"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
-#: /home/tim/code/KwaMoja/GLAccountReport.php:357
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
+#: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:610
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:203
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:287
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:130
@@ -13887,8 +13882,8 @@ msgid "Invoiced"
 msgstr "Фактурная"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:285
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
-#: /home/tim/code/KwaMoja/GLAccountReport.php:356
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
+#: /home/tim/code/KwaMoja/GLAccountReport.php:351
 #: /home/tim/code/KwaMoja/GLJournal.php:207
 #: /home/tim/code/KwaMoja/GLJournal.php:579
 #: /home/tim/code/KwaMoja/GLJournal.php:609
@@ -15371,7 +15366,7 @@ msgstr "Выделено"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:259
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:169
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:172
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:215
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:393
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:205
 #: /home/tim/code/KwaMoja/prlALD.php:146
@@ -16743,12 +16738,12 @@ msgid "The date when the receipts are banked."
 msgstr "Дата поступления чеков в банк."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:892
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:235
 msgid "No currencies are defined yet"
 msgstr "Валюта пока не определена"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:892
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:235
 msgid "Receipts cannot be entered until a currency is defined"
 msgstr "Квитанции не могут быть введены до тех пор, пока не будет определена валюта"
 
@@ -16833,9 +16828,9 @@ msgid "Received"
 msgstr "Получено"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
-#: /home/tim/code/KwaMoja/GLAccountReport.php:358
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountReport.php:353
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:97
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:204
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:292
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:351
@@ -16854,7 +16849,6 @@ msgstr "Тег"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:335
 #: /home/tim/code/KwaMoja/GLJournal.php:221
 #: /home/tim/code/KwaMoja/GLJournal.php:542
 #: /home/tim/code/KwaMoja/GLJournal.php:629
@@ -17012,8 +17006,8 @@ msgstr "Выберите тип транзакции для отчета."
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:338
 #: /home/tim/code/KwaMoja/FreightCosts.php:96
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:118
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:26
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:44
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:40
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:46
 #: /home/tim/code/KwaMoja/GLStatements.php:112
 #: /home/tim/code/KwaMoja/PcReportExpense.php:105
 #: /home/tim/code/KwaMoja/PcReportTab.php:137
@@ -17054,7 +17048,7 @@ msgstr "Из"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:64
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:88
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:98
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:51
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:53
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:20
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:88
 #: /home/tim/code/KwaMoja/SupplierTransInquiry.php:67
@@ -17683,7 +17677,7 @@ msgid "Could not retrieve the bank account details"
 msgstr "Не удалось получить данные банковского счета"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:152
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:79
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:81
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:145
 msgid "There are no transactions for this account in the date range selected"
 msgstr "Для этого аккаунта нет транзакций в выбранном диапазоне дат"
@@ -17694,7 +17688,7 @@ msgid "Account Transactions For"
 msgstr "Операции со счетами для"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:156
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 #: /home/tim/code/KwaMoja/SalesCategoryPeriodInquiry.php:165
 msgid "Between"
 msgstr "Между"
@@ -17721,7 +17715,7 @@ msgid "Balances Brought Forward"
 msgstr "Балансы, выпущенные вперед"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:247
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:163
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:165
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:257
 msgid "Select Another Date"
 msgstr "Выберите другую дату"
@@ -20484,16 +20478,16 @@ msgstr "успешно введена"
 msgid "Return to main menu"
 msgstr "Вернуться в главное меню"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:260
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:259
 msgid "Process Journal"
 msgstr "Журнал процессов"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:264
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:269
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:263
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:268
 msgid "Date to Process Depreciation"
 msgstr "Дата для амортизации"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:276
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:275
 msgid "Commit Depreciation"
 msgstr "Начисление амортизации"
 
@@ -20954,7 +20948,7 @@ msgid "Show Assets"
 msgstr "Показать активы"
 
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:340
-#: /home/tim/code/KwaMoja/GLAccountReport.php:338
+#: /home/tim/code/KwaMoja/GLAccountReport.php:333
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:45
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:236
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:567
@@ -21450,49 +21444,49 @@ msgid "If the shipper has a minimum charge per package enter that here, or enter
 msgstr "Если грузоотправитель имеет минимальную плату за посылку, введите ее здесь или введите ноль, если минимальная оплата не применяется."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:3
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:16
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:15
 #: /home/tim/code/KwaMoja/GLAccountReport.php:4
-#: /home/tim/code/KwaMoja/GLAccountReport.php:232
+#: /home/tim/code/KwaMoja/GLAccountReport.php:227
 msgid "General Ledger Account Report"
 msgstr "Отчет Главной книги"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:16
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:15
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:4
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:11
-#: /home/tim/code/KwaMoja/GLAccountReport.php:232
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:10
+#: /home/tim/code/KwaMoja/GLAccountReport.php:227
 msgid "General Ledger Account Inquiry"
 msgstr "Запрос учетной записи Главной книги"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:19
-#: /home/tim/code/KwaMoja/GLAccountReport.php:235
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:18
+#: /home/tim/code/KwaMoja/GLAccountReport.php:230
 msgid "Use the keyboard Shift key to select multiple accounts and periods"
 msgstr "Используйте клавишу Shift клавиатуры для выбора нескольких учетных записей и периодов"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:29
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:28
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:64
 msgid "Criteria for report"
 msgstr "Критерии для отчета"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:31
-#: /home/tim/code/KwaMoja/GLAccountReport.php:259
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:30
+#: /home/tim/code/KwaMoja/GLAccountReport.php:254
 msgid "Selected Accounts"
 msgstr "Выбранные учетные записи"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:50
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:69
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:49
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:68
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
 msgstr "Выберите учетные записи для этого отчета. Используйте клавишу Shift на клавиатуре, чтобы выбрать несколько учетных записей."
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:54
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:53
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:113
-#: /home/tim/code/KwaMoja/GLAccountReport.php:276
+#: /home/tim/code/KwaMoja/GLAccountReport.php:271
 msgid "For Period range"
 msgstr "Для диапазона периода"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:74
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:95
-#: /home/tim/code/KwaMoja/GLAccountReport.php:297
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:73
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:94
+#: /home/tim/code/KwaMoja/GLAccountReport.php:292
 #: /home/tim/code/KwaMoja/Payments.php:1211
 #: /home/tim/code/KwaMoja/StockAdjustments.php:636
 #: /home/tim/code/KwaMoja/StockTransfers.php:875
@@ -21500,86 +21494,82 @@ msgstr "Для диапазона периода"
 msgid "Select Tag"
 msgstr "Выбрать тег"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:83
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
-#: /home/tim/code/KwaMoja/GLAccountReport.php:299
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:82
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:96
+#: /home/tim/code/KwaMoja/GLAccountReport.php:294
 msgid "All tags"
 msgstr "Все теги"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:92
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:91
 msgid "Select the tag for this report, or select All to show all transactions."
 msgstr "Выберите тег для этого отчета или выберите Все, чтобы показать все транзакции."
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:98
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:97
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:286
 msgid "Make CSV File"
 msgstr "Сделать файл CSV"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:106
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:139
-#: /home/tim/code/KwaMoja/GLAccountReport.php:18
+#: /home/tim/code/KwaMoja/GLAccountReport.php:17
 msgid "A period or range of periods must be selected from the list box"
 msgstr "Период или диапазон периодов должны быть выбраны из списка"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:112
-#: /home/tim/code/KwaMoja/GLAccountReport.php:23
-#: /home/tim/code/KwaMoja/GLAccountReport.php:217
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:111
+#: /home/tim/code/KwaMoja/GLAccountReport.php:22
+#: /home/tim/code/KwaMoja/GLAccountReport.php:212
 msgid "An account or range of accounts must be selected from the list box"
 msgstr "Учетная запись или диапазон учетных записей должны быть выбраны из списка"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:126
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:125
 #: /home/tim/code/KwaMoja/StockQties_csv.php:38
 msgid "Could not open or create the file under"
 msgstr "Не удалось открыть или создать файл в"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
-#: /home/tim/code/KwaMoja/GLAccountReport.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:195
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:191
+#: /home/tim/code/KwaMoja/GLAccountReport.php:106
 msgid "The transactions for account"
 msgstr "Сделки для счета"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:199
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:198
 msgid "for period"
 msgstr "за период"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
-#: /home/tim/code/KwaMoja/GLAccountReport.php:128
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:204
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:230
+#: /home/tim/code/KwaMoja/GLAccountReport.php:123
 msgid "The chart details for account"
 msgstr "Детали диаграммы для учетной записи"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:216
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:218
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:250
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:255
-#: /home/tim/code/KwaMoja/GLAccountReport.php:134
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:212
+#: /home/tim/code/KwaMoja/GLAccountReport.php:129
 msgid "Brought Forward Balance"
 msgstr "Баланс вперед"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:240
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:242
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:265
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:267
-#: /home/tim/code/KwaMoja/GLAccountReport.php:150
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:234
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:259
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:261
+#: /home/tim/code/KwaMoja/GLAccountReport.php:145
 msgid "Period Total"
 msgstr "Период Всего"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:272
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:274
-#: /home/tim/code/KwaMoja/GLAccountReport.php:199
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:266
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:268
+#: /home/tim/code/KwaMoja/GLAccountReport.php:194
 msgid "Total Period Movement"
 msgstr "Общее движение периода"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:279
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:281
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:374
-#: /home/tim/code/KwaMoja/GLAccountReport.php:202
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:273
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:275
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:365
+#: /home/tim/code/KwaMoja/GLAccountReport.php:197
 msgid "Balance C/Fwd"
 msgstr "Баланс C / Fwd"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:288
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:282
 #: /home/tim/code/KwaMoja/POReport.php:1311
 #: /home/tim/code/KwaMoja/StockQties_csv.php:50
 msgid "to view the file"
@@ -21675,7 +21665,19 @@ msgstr "Инвертировать график"
 msgid "If the selected account is normally a credit balance then select this to show the graph with credits as positive values"
 msgstr "Если выбранный счет обычно является кредитным балансом, выберите этот параметр, чтобы отобразить график с кредитами в качестве положительных значений."
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:78
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:83
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
+msgid "Budget To Show Comparisons With"
+msgstr "Бюджет для сравнения с"
+
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:95
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
+msgid "Select the budget to make comparisons with."
+msgstr "Выберите бюджет для сравнения."
+
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:100
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
@@ -21688,7 +21690,7 @@ msgstr "Если выбранный счет обычно является кр�
 msgid "Select Period From"
 msgstr "Выберите период с"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:106
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:128
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:91
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
@@ -21698,7 +21700,7 @@ msgstr "Выберите период с"
 msgid "Select the starting period for this report"
 msgstr "Выберите начальный период для этого отчета"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:116
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:106
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
@@ -21710,7 +21712,7 @@ msgstr "Выберите начальный период для этого от�
 msgid "Select Period To"
 msgstr "Выберите период для"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:130
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:152
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:120
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
@@ -21720,21 +21722,21 @@ msgstr "Выберите период для"
 msgid "Select the end period for this report"
 msgstr "Выберите период окончания для этого отчета"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:149
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:171
 msgid "Show Account Graph"
 msgstr "Показать график аккаунта"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:160
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:182
 msgid "GL Account Graph - Actual vs. Budget"
 msgstr "График счетов GL - фактический и бюджетный"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:174
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:196
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:392
 #: /home/tim/code/KwaMoja/SalesGraph.php:276
 msgid "From Period"
 msgstr "С периода"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:194
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:212
 #: /home/tim/code/KwaMoja/POReport.php:481
 #: /home/tim/code/KwaMoja/POReport.php:705
 #: /home/tim/code/KwaMoja/POReport.php:706
@@ -21755,15 +21757,15 @@ msgstr "С периода"
 msgid "Month"
 msgstr "Месяц"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:213
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:231
 msgid "The GL Account graph data for the selected criteria could not be retrieved because"
 msgstr "Не удалось получить данные графика счета GL по выбранным критериям, поскольку"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:218
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:236
 msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "Для критериев, введенных в график, отсутствуют данные учетной записи GL"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:238
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:269
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21772,7 +21774,7 @@ msgstr "Для критериев, введенных в график, отсу�
 msgid "Actual"
 msgstr "фактический"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:238
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:269
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21781,29 +21783,35 @@ msgstr "фактический"
 msgid "Budget"
 msgstr "бюджет"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:250
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:281
 msgid "Select Different Criteria"
 msgstr "Выберите разные критерии"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:48
 msgid "The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details"
 msgstr "Система учета нераспределенной прибыли управляется отдельно системой и поэтому не может быть запрошена.  Подробнее см. Руководство"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:50
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
 msgid "Select another account"
 msgstr "Выберите другую учетную запись"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:55
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:54
 msgid "Use the keyboard Shift key to select multiple periods"
 msgstr "Используйте клавишу Shift клавиатуры для выбора нескольких периодов"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:80
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:79
 msgid "Inquiry Selection Criteria"
 msgstr "Критерии выбора запроса"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:84
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:83
 msgid "Select a General Ledger account to report on."
 msgstr "Выберите учетную запись в Главной книге, чтобы сообщить о ней."
+
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:322
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:329
+msgid "No tag selected"
+msgstr "Тег не выбран"
 
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:106
 msgid "Select a tag to filter the report on."
@@ -21817,20 +21825,20 @@ msgstr "Выберите один или несколько финансовых
 msgid "Show Account Transactions"
 msgstr "Показать транзакции счета"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
 msgid "General Ledger account inquiry details"
 msgstr "Подробности главной учетной записи"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
 msgid "Transactions for account"
 msgstr "Сделки для счета"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:204
 msgid "Trans no"
 msgstr "Trans no"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
-#: /home/tim/code/KwaMoja/GLAccountReport.php:355
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/GLAccountReport.php:350
 #: /home/tim/code/KwaMoja/GLJournal.php:206
 #: /home/tim/code/KwaMoja/GLJournal.php:564
 #: /home/tim/code/KwaMoja/GLJournal.php:608
@@ -21838,65 +21846,41 @@ msgstr "Trans no"
 msgid "Debit"
 msgstr "Дебет"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:355
-msgid "Total for period ending"
-msgstr "Итого за конец периода"
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:239
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:246
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:284
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:291
+msgid "Balance brought forward from"
+msgstr "Баланс перенесен из"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-#: /home/tim/code/KwaMoja/GLTransInquiry.php:40
-#: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
-#: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
-#: /home/tim/code/KwaMoja/SalesCommissionStatements.php:67
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:65
-#: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:13
-#: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:86
-msgid "Period"
-msgstr "период"
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:264
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:352
+msgid "Totals for period ending"
+msgstr "Итоги на конец периода"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Account movement per transaction"
-msgstr "Движение счета за транзакцию"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Movement per ChartDetails record"
-msgstr "Движение за запись в формате ChartDetails"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Period difference"
-msgstr "Разница периодов"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:371
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:362
 msgid "Total Movement for selected periods"
 msgstr "Общее движение за выбранные периоды"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
-msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
-msgstr "Существуют различия между суммой транзакций и записанными движениями в таблице ChartDetails"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
-msgid "A log of the account differences for the periods report shows below"
-msgstr "Журнал различий учетной записи для отчета о периодах показан ниже"
-
+#: /home/tim/code/KwaMoja/GLAccountReport.php:31
 #: /home/tim/code/KwaMoja/GLAccountReport.php:32
-#: /home/tim/code/KwaMoja/GLAccountReport.php:33
-#: /home/tim/code/KwaMoja/GLAccountReport.php:336
+#: /home/tim/code/KwaMoja/GLAccountReport.php:331
 msgid "GL Account Report"
 msgstr "Отчет о счете GL"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:116
+#: /home/tim/code/KwaMoja/GLAccountReport.php:115
 msgid "Listing for Period"
 msgstr "Листинг на период"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:245
+#: /home/tim/code/KwaMoja/GLAccountReport.php:240
 msgid "Selection Criteria for Report"
 msgstr "Критерии выбора для отчета"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:313
+#: /home/tim/code/KwaMoja/GLAccountReport.php:308
 msgid "Run Report"
 msgstr "Отчет о запуске"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:338
+#: /home/tim/code/KwaMoja/GLAccountReport.php:333
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:45
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:236
 #: /home/tim/code/KwaMoja/MRPPlannedPurchaseOrders.php:396
@@ -22289,7 +22273,7 @@ msgstr "Изменить данные учетной записи"
 #: /home/tim/code/KwaMoja/GLAccounts.php:350
 #: /home/tim/code/KwaMoja/GLAccounts.php:369
 #: /home/tim/code/KwaMoja/GLAccounts.php:489
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
 #: /home/tim/code/KwaMoja/PcExpenses.php:281
@@ -22415,17 +22399,17 @@ msgstr "Показать все учетные записи, включая ну
 msgid "Show Balance Sheet"
 msgstr "Показать баланс"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:202
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
 msgid "HTML View"
 msgstr "Просмотр HTML"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:206
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:212
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "Баланс по состоянию на"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:217
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:223
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:230
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
@@ -22438,7 +22422,7 @@ msgstr "Баланс по состоянию на"
 msgid "Last Year"
 msgstr "В прошлом году"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:487
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:493
 msgid "Select A Different Balance Date"
 msgstr "Выберите другую дату баланса"
 
@@ -22620,9 +22604,10 @@ msgstr "Отчет о движении денежных потоков"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:580
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:586
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22634,7 +22619,8 @@ msgstr "Период Фактический"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:199
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -23119,38 +23105,38 @@ msgstr "Загрузить из шаблона"
 msgid "General Ledger Journal Inquiry"
 msgstr "Журнал журнала Главной книги"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 msgid "Journal Number Range"
 msgstr "Диапазон номеров журнала"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:43
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:45
 msgid "Journals Dated Between"
 msgstr "Журналы, посредине"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:81
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:83
 msgid "General ledger journal listing"
 msgstr "Общий журнал"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:84
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:86
 msgid "General Ledger Jornals"
 msgstr "Газеты Главной книги"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:90
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:92
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:213
 msgid "Journal Number"
 msgstr "Номер журнала"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:92
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
 #: /home/tim/code/KwaMoja/PcExpenses.php:168
 #: /home/tim/code/KwaMoja/includes/PDFGLJournalHeader.php:21
 msgid "Account Description"
 msgstr "Описание учетной записи"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:142
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:144
 msgid "Others"
 msgstr "другие"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:143
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:145
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:137
 #: /home/tim/code/KwaMoja/PDFChequeListing.php:177
 msgid "Other GL Accounts"
@@ -23190,16 +23176,6 @@ msgstr "Цель отчета о прибылях и убытках - показ
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr "Отчет о прибылях и убытках представляет собой период времени.  Это контрастирует с Балансом, который представляет собой единственный момент времени."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
-msgid "Budget To Show Comparisons With"
-msgstr "Бюджет для сравнения с"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
-msgid "Select the budget to make comparisons with."
-msgstr "Выберите бюджет для сравнения."
-
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
 msgid "Show report for all accounts, or just show summary report."
 msgstr "Показать отчет для всех учетных записей или просто показать сводный отчет."
@@ -23217,10 +23193,10 @@ msgstr "Показать отчет о прибылях и убытках"
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "Запрос справки о прибыли от основной книги"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:478
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:348
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:704
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:864
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:302
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:680
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:886
@@ -23228,25 +23204,25 @@ msgstr "Запрос справки о прибыли от основной кн
 msgid "Gross Profit Percent"
 msgstr "Процент валовой прибыли"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:618
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:491
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "прибыль"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:618
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:491
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "потеря"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:519
 msgid "P/L Percent after"
 msgstr "P / L Процент после"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:646
 msgid "Net Profit Percent"
 msgstr "Процент чистой прибыли"
 
@@ -23355,7 +23331,7 @@ msgid "Check this box to show the notes that summarize the significant accountin
 msgstr "Установите этот флажок, чтобы отобразить примечания, в которых обобщены основные положения учетной политики и другая пояснительная информация."
 
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:3
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:568
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:564
 msgid "Income and Expenditure by Tag"
 msgstr "Доходы и расходы по тегу"
 
@@ -23399,21 +23375,21 @@ msgstr "Показать отчет о прибылях и убытках"
 msgid "PrintPDF"
 msgstr "PrintPDF"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:161
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:162
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:157
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:158
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:119
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:120
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:171
 msgid "Income and Expenditure"
 msgstr "Доходы и расходы"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:231
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:227
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:182
 msgid "Print Income and Expenditure Error"
 msgstr "Ошибка при печати и расходах"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:230
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
 #: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
 #: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
@@ -23422,29 +23398,29 @@ msgstr "Ошибка при печати и расходах"
 msgid "There were no entries to print out for the selections specified"
 msgstr "Не было записей для распечатки для указанных выборов"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:397
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:784
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:393
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:753
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:347
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:736
 msgid "Detailed"
 msgstr "детализированный"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 msgid "Statement of Income and Expenditure for Tag"
 msgstr "Отчет о прибылях и убытках для бирки"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 msgid "during the"
 msgstr "в течение"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:943
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:885
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:916
 #, php-format
 msgid "Surplus"
 msgstr "прибавочный"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:943
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:885
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:916
 #, php-format
 msgid "Deficit"
@@ -23526,6 +23502,16 @@ msgstr "Эта страница требует действительного т
 msgid "No transaction of this type with id"
 msgstr "Никакой транзакции этого типа с идентификатором"
 
+#: /home/tim/code/KwaMoja/GLTransInquiry.php:40
+#: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
+#: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
+#: /home/tim/code/KwaMoja/SalesCommissionStatements.php:67
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:65
+#: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:13
+#: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:86
+msgid "Period"
+msgstr "период"
+
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:46
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:97
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:116
@@ -23537,7 +23523,7 @@ msgstr "Сообщение"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Пробный баланс"
@@ -23550,45 +23536,47 @@ msgstr "Входные критерии для запроса"
 msgid "Show Trial Balance"
 msgstr "Показать пробный баланс"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:148
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
 msgid "Export to Spreadsheet"
 msgstr "Экспорт в электронную таблицу"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:185
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:184
 msgid "Trial Balance Report"
 msgstr "Пробный баланс"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Пробный баланс за месяц"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "и для"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " months to "
 msgstr "месяцев до"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
 msgid "Month Actual"
 msgstr "Месяц Фактический"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Месячный бюджет"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:440
 msgid "Check Totals"
 msgstr "Проверка итогов"
 
@@ -24571,7 +24559,7 @@ msgstr "Оплата счета поставщика"
 
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:134
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:136
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:227
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:226
 msgid "GL Payment"
 msgstr "GL-платеж"
 
@@ -24581,7 +24569,7 @@ msgstr "Получение на счет клиента"
 
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:165
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:167
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:228
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:227
 msgid "GL Receipt"
 msgstr "Получение GL"
 
@@ -24726,7 +24714,7 @@ msgstr "Цены, действующие с"
 #: /home/tim/code/KwaMoja/UploadPriceList.php:165
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:496
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:598
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:248
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:247
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:235
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:338
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:339
@@ -24740,7 +24728,7 @@ msgstr "Загрузить файл"
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:497
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:599
 #: /home/tim/code/KwaMoja/Z_ImportFixedAssets.php:298
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:249
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:248
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:236
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:339
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:340
@@ -25880,7 +25868,7 @@ msgstr "техник"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:276
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:138
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
 msgid "Hours"
@@ -38437,8 +38425,8 @@ msgid "The assignment of cash record could not be deleted because"
 msgstr "Назначение кассовой записи невозможно удалить, поскольку"
 
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:172
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:319
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:437
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:316
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:434
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:311
 msgid "Select Tab"
 msgstr "Выберите вкладку"
@@ -38540,8 +38528,8 @@ msgstr "Возникла проблема с авторизацией денеж
 msgid "This cash has already been authorised, and cannot be posted again"
 msgstr "Эти деньги уже были авторизованы и не могут быть отправлены снова"
 
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:322
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:439
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:319
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:436
 msgid "Authorise expenses to Petty Cash Tab"
 msgstr "Авторизовать расходы на вкладку Petty Cash"
 
@@ -42297,27 +42285,27 @@ msgstr "Перепечатка метки QA"
 msgid "General Ledger Retained Earnings Reconciliation"
 msgstr "Непрерывная выручка от основной книги"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:33
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:32
 msgid "Year End"
 msgstr "Конец года"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:34
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:33
 msgid "Profit/Loss for Year"
 msgstr "Прибыль / убыток за год"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:38
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:37
 msgid "Opening Balances"
 msgstr "Открытые балансы"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:65
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:64
 msgid "Retained Earnings per Balance Sheet"
 msgstr "Нераспределенная прибыль на баланс"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:79
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:78
 msgid "Select Year End for the Reconcilation"
 msgstr "Выберите Год окончания для согласования"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:89
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:88
 msgid "Show Reconciliation"
 msgstr "Показать примирение"
 
@@ -58208,39 +58196,39 @@ msgstr "Все транзакции должны быть в тот же пер�
 msgid "The total of the transactions must balance back to zero"
 msgstr "Сумма транзакций должна балансироваться до нуля"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "This function loads a set of general ledger transactions from a comma separated variable (csv) file."
 msgstr "Эта функция загружает набор транзакций главной книги из файла с переменной запятой (csv)."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The file must contain six columns, and the first row should be the following headers"
 msgstr "Файл должен содержать шесть столбцов, а в первой строке должны быть следующие заголовки"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "followed by rows containing these six fields for each price to be uploaded."
 msgstr "за которыми следуют строки, содержащие эти шесть полей, для каждой цены, которую нужно загрузить."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The total of the transactions must come back to zero. Debits are positive, credits are negative."
 msgstr "Сумма транзакций должна быть равна нулю.  Дебиты положительные, кредиты отрицательные."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "All the transactions must be within the same accounting period."
 msgstr "Все транзакции должны быть в течение одного отчетного периода."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The Account field must have a corresponding entry in the chartmaster table."
 msgstr "Поле Account должно иметь соответствующую запись в таблице chartmaster."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:224
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:223
 msgid "Select Transaction Type"
 msgstr "Выберите тип транзакции"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:226
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:225
 msgid "GL Journal"
 msgstr "GL Journal"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:231
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:230
 msgid "Select Currency"
 msgstr "Выберите валюту"
 
@@ -59571,7 +59559,7 @@ msgstr "Изменить файл ссуды сотрудника"
 #: /home/tim/code/KwaMoja/prlOthIncome.php:155
 #: /home/tim/code/KwaMoja/prlPaye.php:135
 #: /home/tim/code/KwaMoja/prlPaye.php:247
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:147
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:146
 #: /home/tim/code/KwaMoja/prlSelectDeduction.php:56
 #: /home/tim/code/KwaMoja/prlSelectLoan.php:43
 #: /home/tim/code/KwaMoja/prlTardiness.php:144
@@ -61210,7 +61198,7 @@ msgstr "Указанная дата недействительна, введит
 #: /home/tim/code/KwaMoja/prlOTFile.php:40
 #: /home/tim/code/KwaMoja/prlOTFile.php:179
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:36
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:159
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:158
 msgid "Accept and Process Overtime"
 msgstr "Принять и обработать сверхурочные"
 
@@ -61260,7 +61248,7 @@ msgstr "Сотрудник"
 
 #: /home/tim/code/KwaMoja/prlOTFile.php:135
 #: /home/tim/code/KwaMoja/prlOthIncome.php:124
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:128
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:127
 #: /home/tim/code/KwaMoja/prlTardiness.php:123
 msgid "No Empoloyee accounts have been set up yet"
 msgstr "Нет учетных записей Empoloyee"
@@ -61815,25 +61803,25 @@ msgstr "SQL, который не смог вставить запись Trans"
 msgid "Regular Time"
 msgstr "Регулярное время"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:109
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:108
 msgid "RT Ref"
 msgstr "RT Ref"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:116
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:115
 msgid "Regular Time Line Entry"
 msgstr "Регулярный ввод строки времени"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:121
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:120
 #: /home/tim/code/KwaMoja/prlTardiness.php:116
 msgid "Enter Employee Manually"
 msgstr "Ввести сотрудника вручную"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:123
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:122
 #: /home/tim/code/KwaMoja/prlTardiness.php:118
 msgid "Select Employee Name"
 msgstr "Выберите имя сотрудника"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:146
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:145
 msgid "RT Hour"
 msgstr "Час RT"
 
@@ -73067,6 +73055,27 @@ msgstr "Кредиты для персонала"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Погашение займов сотрудникам"
+
+#~ msgid "The accumulated profits brought forward could not be calculated by the SQL because"
+#~ msgstr "Накопленная прибыль не была рассчитана SQL, потому что"
+
+#~ msgid "Total for period ending"
+#~ msgstr "Итого за конец периода"
+
+#~ msgid "Account movement per transaction"
+#~ msgstr "Движение счета за транзакцию"
+
+#~ msgid "Movement per ChartDetails record"
+#~ msgstr "Движение за запись в формате ChartDetails"
+
+#~ msgid "Period difference"
+#~ msgstr "Разница периодов"
+
+#~ msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
+#~ msgstr "Существуют различия между суммой транзакций и записанными движениями в таблице ChartDetails"
+
+#~ msgid "A log of the account differences for the periods report shows below"
+#~ msgstr "Журнал различий учетной записи для отчета о периодах показан ниже"
 
 #~ msgid "Produce PDF Report"
 #~ msgstr "Произвести PDF-отчет"

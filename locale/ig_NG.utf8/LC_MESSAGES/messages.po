@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: tim@weberpafrica.com\n"
-"POT-Creation-Date: 2020-11-22 00:11+0000\n"
-"PO-Revision-Date: 2020-11-22 00:11+0000\n"
+"POT-Creation-Date: 2020-11-26 00:01+0000\n"
+"PO-Revision-Date: 2020-11-26 00:11+0000\n"
 "Last-Translator: Tim Schofield <tim@weberpafrica.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -151,8 +151,8 @@ msgstr "Ndepụta nke Otu ABC"
 
 #: /home/tim/code/KwaMoja/ABCRankingGroups.php:119
 #: /home/tim/code/KwaMoja/ABCRankingMethods.php:58
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:211
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:138
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:208
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:135
 #: /home/tim/code/KwaMoja/BOMExtendedQty.php:215
 #: /home/tim/code/KwaMoja/BOMIndented.php:188
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:179
@@ -168,18 +168,18 @@ msgstr "Ndepụta nke Otu ABC"
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:621
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:830
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:832
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:199
 #: /home/tim/code/KwaMoja/GLAccountUsers.php:141
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:207
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:213
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:127
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:85
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:151
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:87
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:153
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:207
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:566
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:574
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:562
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:570
 #: /home/tim/code/KwaMoja/GLTags.php:53
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:190
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
 #: /home/tim/code/KwaMoja/JobCards.php:43
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:19
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:509
@@ -439,7 +439,7 @@ msgstr "O doro gi anya na ichoro ikpochapu ndi otu a?"
 #: /home/tim/code/KwaMoja/prlPH.php:166
 #: /home/tim/code/KwaMoja/prlPayPeriod.php:134
 #: /home/tim/code/KwaMoja/prlPaye.php:181
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:152
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:151
 #: /home/tim/code/KwaMoja/prlSC.php:132 /home/tim/code/KwaMoja/prlSSC.php:174
 #: /home/tim/code/KwaMoja/prlSSS.php:174
 #: /home/tim/code/KwaMoja/prlSelectLoan.php:68
@@ -2360,8 +2360,8 @@ msgstr "Nkwupụta"
 
 #: /home/tim/code/KwaMoja/AddCustomerContacts.php:138
 #: /home/tim/code/KwaMoja/AddCustomerContacts.php:257
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 #: /home/tim/code/KwaMoja/Customers.php:693
 #: /home/tim/code/KwaMoja/Customers.php:701
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:179
@@ -2510,8 +2510,8 @@ msgstr "Ihe edeturu maka ndị ahịa"
 #: /home/tim/code/KwaMoja/AddCustomerTypeNotes.php:195
 #: /home/tim/code/KwaMoja/AgedControlledInventory.php:51
 #: /home/tim/code/KwaMoja/BankMatching.php:272
-#: /home/tim/code/KwaMoja/BankReconciliation.php:222
-#: /home/tim/code/KwaMoja/BankReconciliation.php:284
+#: /home/tim/code/KwaMoja/BankReconciliation.php:220
+#: /home/tim/code/KwaMoja/BankReconciliation.php:282
 #: /home/tim/code/KwaMoja/ContractCosting.php:175
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:154
 #: /home/tim/code/KwaMoja/CustomerAccount.php:269
@@ -2521,9 +2521,9 @@ msgstr "Ihe edeturu maka ndị ahịa"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:252
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:107
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:161
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
-#: /home/tim/code/KwaMoja/GLAccountReport.php:354
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:89
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:206
+#: /home/tim/code/KwaMoja/GLAccountReport.php:349
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:41
 #: /home/tim/code/KwaMoja/GoodsReceived.php:140
 #: /home/tim/code/KwaMoja/JobCards.php:189
@@ -2571,7 +2571,7 @@ msgstr "Ihe edeturu maka ndị ahịa"
 #: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:10
 #: /home/tim/code/KwaMoja/prlOTFile.php:112
 #: /home/tim/code/KwaMoja/prlOthIncome.php:105
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:107
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:106
 #: /home/tim/code/KwaMoja/prlSelectOthIncome.php:52
 #: /home/tim/code/KwaMoja/prlTardiness.php:104
 #: /home/tim/code/KwaMoja/includes/OcOpenCartToKwaMojaSync.php:456
@@ -2948,7 +2948,7 @@ msgstr "Ngwa ahia"
 #: /home/tim/code/KwaMoja/prlOTFile.php:127
 #: /home/tim/code/KwaMoja/prlOthIncome.php:116
 #: /home/tim/code/KwaMoja/prlOthIncome.php:154
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:119
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:118
 #: /home/tim/code/KwaMoja/prlTardiness.php:115
 #: /home/tim/code/KwaMoja/api/api_xml-rpc.php:4753
 #: /home/tim/code/KwaMoja/dashboard/latest_grns.php:42
@@ -3005,8 +3005,8 @@ msgstr "Oldbọchị Ochie"
 #: /home/tim/code/KwaMoja/GLBudgets.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:655
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:199
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:361
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:427
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:360
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:426
 #: /home/tim/code/KwaMoja/InventoryValuation.php:202
 #: /home/tim/code/KwaMoja/MaterialsNotUsed.php:66
 #: /home/tim/code/KwaMoja/OffersReceived.php:109
@@ -3077,7 +3077,7 @@ msgstr "Nnyocha Ndị Ahịa nke Ochie"
 #: /home/tim/code/KwaMoja/BOMIndentedReverse.php:125
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:64
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:76
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:485
 #: /home/tim/code/KwaMoja/InternalStockRequestInquiry.php:215
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:99
@@ -3165,8 +3165,8 @@ msgstr "Ndị SQL enweghị ike weghachite nkọwa ndị ahịa ahụ n'ihi na"
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:67
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:79
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:148
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:236
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:232
 #: /home/tim/code/KwaMoja/GetStockImage.php:146
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:102
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:185
@@ -3310,9 +3310,9 @@ msgstr "Nkọwa nke azụmahịa ndị pụtara ìhè maka onye ahịa"
 
 #: /home/tim/code/KwaMoja/AgedDebtors.php:379
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:205
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
-#: /home/tim/code/KwaMoja/GLAccountReport.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:195
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:191
+#: /home/tim/code/KwaMoja/GLAccountReport.php:106
 #: /home/tim/code/KwaMoja/PO_Items.php:77
 #: /home/tim/code/KwaMoja/PO_Items.php:102
 #: /home/tim/code/KwaMoja/PO_Items.php:566
@@ -3332,7 +3332,7 @@ msgstr "enweghị ike weghachite ya n'ihi"
 
 #: /home/tim/code/KwaMoja/AgedDebtors.php:382
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:208
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:260
 #: /home/tim/code/KwaMoja/Areas.php:81
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:197
 #: /home/tim/code/KwaMoja/ConfirmDispatch_Invoice.php:226
@@ -3354,7 +3354,7 @@ msgstr "enweghị ike weghachite ya n'ihi"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:776
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:99
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:428
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:555
 #: /home/tim/code/KwaMoja/KCMCBillingConfiguration.php:50
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:211
 #: /home/tim/code/KwaMoja/KCMCDailyWardNotes.php:295
@@ -3555,7 +3555,6 @@ msgstr "Gosi akụkọ nchịkọta, ma ọ bụ tinye nkọwapụta azụmahị
 #: /home/tim/code/KwaMoja/AgedDebtors.php:548
 #: /home/tim/code/KwaMoja/AgedSuppliers.php:353
 #: /home/tim/code/KwaMoja/DebtorsAtPeriodEnd.php:186
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
 #: /home/tim/code/KwaMoja/InventoryPlanning.php:537
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:443
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:211
@@ -3691,8 +3690,8 @@ msgstr "N / A"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:29
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:70
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:203
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:199
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:200
 #: /home/tim/code/KwaMoja/sql/updates/135.php:4
 msgid "Horizontal Analysis of Statement of Comprehensive Income"
 msgstr "Nnyocha nyocha a na-ahụ anya na nkwupụta nke Ego zuru oke"
@@ -3768,7 +3767,7 @@ msgstr "Họrọ oge ikpeazụ na akụkọ"
 #: /home/tim/code/KwaMoja/DiscountCategories.php:139
 #: /home/tim/code/KwaMoja/DiscountCategories.php:146
 #: /home/tim/code/KwaMoja/FixedAssetTransfer.php:95
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:138
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:160
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:699
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:127
 #: /home/tim/code/KwaMoja/GLStatements.php:230
@@ -3839,13 +3838,13 @@ msgstr "Họrọ oge ikpeazụ na akụkọ"
 #: /home/tim/code/KwaMoja/TestPlanResults.php:153
 #: /home/tim/code/KwaMoja/WorkOrderEntry.php:602
 #: /home/tim/code/KwaMoja/WorkOrderIssue.php:912
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:123
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:122
 #: /home/tim/code/KwaMoja/prlTardiness.php:118
 msgid "OR"
 msgstr "MA"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:154
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:142
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:164
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:706
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:130
 #: /home/tim/code/KwaMoja/GLStatements.php:233
@@ -3859,7 +3858,7 @@ msgid "Select Period"
 msgstr "Họrọ Oge"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:156
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:144
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:166
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:708
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:132
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:109
@@ -3882,9 +3881,9 @@ msgid "Selecting Summary will show on the totals at the account group level"
 msgstr "Ahọpụta nchikota ga-egosiputa nghakọta nke ọkwa otu ahụ"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:162
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:218
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:96
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:145
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:203
 #: /home/tim/code/KwaMoja/EDIMessageFormat.php:205
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:85
@@ -3925,43 +3924,43 @@ msgstr "Lelee igbe a iji gosipụta akaụntụ niile gụnyere akaụntụ nd�
 msgid "Show on Screen (HTML)"
 msgstr "Gosi na enyo (HTML)"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "A period up to 12 months in duration can be specified"
 msgstr "Enwere ike ịkọwa ihe ruru oge ọnwa iri na abụọ"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "the system automatically shows a comparative for the same period from the previous year"
 msgstr "Usoro ahụ na - egosiputa otu oge n'otu oge na afọ gara aga"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "it cannot do this if a period of more than 12 months is specified"
 msgstr "ọ nweghị ike ịme nke a ma ọ bụrụ na akọwapụtara oge karịa ọnwa iri na abụọ"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:188
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:185
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:194
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:171
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:519
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:167
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:515
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:130
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:467
 msgid "Please select an alternative period range"
 msgstr "Biko họrọ oge ọzọ"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
 #: /home/tim/code/KwaMoja/FreightCosts.php:93
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
 #: /home/tim/code/KwaMoja/KCMCEnterBacteriologyTestResults.php:720
@@ -3978,17 +3977,17 @@ msgstr "Biko họrọ oge ọzọ"
 msgid "For"
 msgstr "N'ihi na"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:205
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:202
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:200
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 #: /home/tim/code/KwaMoja/Tax.php:22
 #: /home/tim/code/KwaMoja/includes/PDFTaxPageHeader.php:26
 msgid "months to"
 msgstr "ọnwa ka"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:206
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:132
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:203
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:129
 #: /home/tim/code/KwaMoja/Contracts.php:844
 #: /home/tim/code/KwaMoja/CustomerAccount.php:237
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:161
@@ -4012,15 +4011,16 @@ msgstr "ọnwa ka"
 msgid "All amounts stated in"
 msgstr "Niile ego kwuru na"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:215
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:142
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:82
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:212
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:139
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:81
 #: /home/tim/code/KwaMoja/GLAccounts.php:307
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:214
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:220
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:132
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:213
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:582
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:578
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:193
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:200
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:516
 #: /home/tim/code/KwaMoja/PrintCustTrans.php:65
@@ -4034,18 +4034,19 @@ msgstr "Niile ego kwuru na"
 msgid "Account"
 msgstr "Akaụntụ"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:216
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:143
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:213
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:140
 #: /home/tim/code/KwaMoja/BankAccountBalances.php:18
 #: /home/tim/code/KwaMoja/GLAccounts.php:360
 #: /home/tim/code/KwaMoja/GLAccounts.php:377
 #: /home/tim/code/KwaMoja/GLAccounts.php:490
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:215
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:221
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:133
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:28
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:214
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:583
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:579
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:194
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:517
 #: /home/tim/code/KwaMoja/SelectGLAccount.php:102
 #: /home/tim/code/KwaMoja/SupplierCredit.php:446
@@ -4058,59 +4059,59 @@ msgstr "Akaụntụ"
 msgid "Account Name"
 msgstr "Aha akaụntụ"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:220
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:147
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:217
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:144
 msgid "Current period"
 msgstr "Oge ugbu a"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:221
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:148
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:218
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:145
 msgid "Last period"
 msgstr "Oge ikpeazu"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:222
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:149
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:219
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:146
 msgid "Absolute change"
 msgstr "Mgbanwe zuru oke"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:223
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:150
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:220
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:147
 msgid "Relative change"
 msgstr "Mgbanwe mgbanwe"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
 msgid "Absolute change signs: a positive number indicates a change that increases the net profit; a negative number indicates a change that decreases the net profit."
 msgstr "Ihe ịrịba ama mgbanwe zuru oke: ọnụọgụ dị mma na-egosi mgbanwe na-abawanye uru net; "
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:229
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:226
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 msgid "Relative change signs: a positive number indicates an increase in the amount of that account; a negative number indicates a decrease in the amount of that account."
 msgstr "Ihe ịrịba ama mgbanwe mgbanwe: ọnụ ọgụgụ dị mma na-egosi mmụba na akaụntụ ahụ; "
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:264
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:208
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:260
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:214
 #: /home/tim/code/KwaMoja/GLCodesInquiry.php:19
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:221
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:559
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:217
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:555
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:173
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:505
 msgid "No general ledger accounts were returned by the SQL because"
 msgstr "Onweghi onye na edebere ihe ndia na SQL weghachitere nihi na"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:295
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:314
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:467
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:498
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:332
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:369
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:264
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:291
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:416
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:441
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:622
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:654
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:816
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:844
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:291
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:310
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:495
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:526
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:334
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:371
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:260
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:287
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:412
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:437
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:614
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:642
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:783
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:807
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:214
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:241
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:366
@@ -4122,14 +4123,14 @@ msgstr "Onweghi onye na edebere ihe ndia na SQL weghachitere nihi na"
 msgid "total"
 msgstr "mkpokọta"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:375
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:538
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:371
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:566
 #: /home/tim/code/KwaMoja/Contracts.php:965
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:448
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:341
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:486
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:720
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:902
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:450
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:337
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:482
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:693
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:853
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:291
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:436
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:664
@@ -4147,18 +4148,18 @@ msgstr "mkpokọta"
 msgid "Gross Profit"
 msgstr "Mkpokọta uru"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:386
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:382
 msgid "Earnings after"
 msgstr "Enweta ya ma"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:558
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:586
 msgid "Net Profit"
 msgstr "Net Uru"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:574
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:391
+#: /home/tim/code/KwaMoja/AnalysisHorizontalIncome.php:602
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:413
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:631
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:954
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:893
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:27
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:928
 #: /home/tim/code/KwaMoja/SalesGraph.php:16
@@ -4170,8 +4171,8 @@ msgstr "Họrọ Oge Iche"
 
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:30
 #: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:61
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:128
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:129
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:125
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:126
 msgid "Horizontal Analysis of Statement of Financial Position"
 msgstr "Nnyocha nyocha nke hito na nkwupụta nke ọnọdụ ego"
 
@@ -4188,22 +4189,18 @@ msgstr "Họrọ akara itule"
 msgid "Choose the period on which to base the report."
 msgstr "Họrọ oge ị ga-eji kọsa akụkọ ahụ."
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:131
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:128
 #: /home/tim/code/KwaMoja/includes/PDFDebtorBalsPageHeader.php:18
 #: /home/tim/code/KwaMoja/includes/PDFSupplierBalsPageHeader.php:18
 msgid "as at"
 msgstr "dị ka na"
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:156
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:153
 msgid "Absolute change signs: a positive number indicates a source of funds; a negative number indicates an application of funds."
 msgstr "Ihe ịrịba ama mgbanwe zuru oke: ọnụọgụ dị mma na-egosi isi mmalite ego; "
 
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:173
-msgid "The accumulated profits brought forward could not be calculated by the SQL because"
-msgstr "Nchịkọta agbakwụgo wetaragogo n'ihu SQL enweghị ike ịgbakọ ya"
-
-#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:377
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:472
+#: /home/tim/code/KwaMoja/AnalysisHorizontalPosition.php:399
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:478
 msgid "Check Total"
 msgstr "Lelee nchikota"
 
@@ -4698,8 +4695,8 @@ msgid "Address"
 msgstr "Adreesị"
 
 #: /home/tim/code/KwaMoja/AuditTrail.php:187
-#: /home/tim/code/KwaMoja/BankReconciliation.php:223
-#: /home/tim/code/KwaMoja/BankReconciliation.php:285
+#: /home/tim/code/KwaMoja/BankReconciliation.php:221
+#: /home/tim/code/KwaMoja/BankReconciliation.php:283
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:25
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:155
 #: /home/tim/code/KwaMoja/CustomerAccount.php:267
@@ -4709,8 +4706,8 @@ msgstr "Adreesị"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:28
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:105
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:164
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
-#: /home/tim/code/KwaMoja/GLAccountReport.php:352
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:203
+#: /home/tim/code/KwaMoja/GLAccountReport.php:347
 #: /home/tim/code/KwaMoja/GLJournal.php:488
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:125
 #: /home/tim/code/KwaMoja/KCMCAnaesthesiaTypes.php:196
@@ -4893,8 +4890,8 @@ msgstr "Koodu"
 #: /home/tim/code/KwaMoja/AutomaticTranslationDescriptions.php:47
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:57
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:339
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:27
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:45
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:41
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:47
 #: /home/tim/code/KwaMoja/POReport.php:510
 #: /home/tim/code/KwaMoja/POReport.php:1346
 #: /home/tim/code/KwaMoja/PcReportExpense.php:109
@@ -5821,7 +5818,7 @@ msgstr "Ofgba Ofgwọ Ihe Ndekọ Maka Ihe"
 
 #: /home/tim/code/KwaMoja/BOMListing.php:39
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:156
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 #: /home/tim/code/KwaMoja/PDFPeriodStockTransListing.php:161
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:66
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:175
@@ -6238,8 +6235,8 @@ msgstr "Ihe ọ bụla kwuru maka eriri BOM a gosipụtara n'usoro ọrụ."
 #: /home/tim/code/KwaMoja/Payments.php:1235
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:190
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:405
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:337
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:454
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:334
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:451
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:334
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:728
 #: /home/tim/code/KwaMoja/PcExpenses.php:335
@@ -6257,7 +6254,7 @@ msgstr "Ihe ọ bụla kwuru maka eriri BOM a gosipụtara n'usoro ọrụ."
 #: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:57
 #: /home/tim/code/KwaMoja/prlOTFile.php:159
 #: /home/tim/code/KwaMoja/prlOthIncome.php:148
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:141
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:140
 #: /home/tim/code/KwaMoja/prlTardiness.php:137
 msgid "Cancel"
 msgstr "Kagbuo"
@@ -6710,8 +6707,8 @@ msgstr "Ahọpụtabeghị"
 #: /home/tim/code/KwaMoja/Payments.php:1234
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:189
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:404
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:336
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:453
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:333
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:450
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:333
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:727
 #: /home/tim/code/KwaMoja/PcExpenses.php:334
@@ -6731,8 +6728,8 @@ msgstr "Ahọpụtabeghị"
 #: /home/tim/code/KwaMoja/prlOTFile.php:159
 #: /home/tim/code/KwaMoja/prlOthIncome.php:78
 #: /home/tim/code/KwaMoja/prlOthIncome.php:148
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:81
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:141
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:80
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:140
 #: /home/tim/code/KwaMoja/prlTardiness.php:78
 #: /home/tim/code/KwaMoja/prlTardiness.php:137
 msgid "Accept"
@@ -7160,9 +7157,9 @@ msgstr "Gosi azụmahịa nwere ụbọchị karịrị nke a"
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:59
 #: /home/tim/code/KwaMoja/FTP_RadioBeacon.php:240
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:85
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:199
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:174
-#: /home/tim/code/KwaMoja/GLAccountReport.php:116
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:198
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:196
+#: /home/tim/code/KwaMoja/GLAccountReport.php:115
 #: /home/tim/code/KwaMoja/GLAccountUsersCopyAuthority.php:29
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:118
 #: /home/tim/code/KwaMoja/GLStatements.php:112
@@ -7328,7 +7325,7 @@ msgid "Entry is expected in the format"
 msgstr "A na-atụ anya ntinye na usoro ahụ"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:180
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
 msgid "after"
 msgstr "mgbe"
 
@@ -7360,7 +7357,7 @@ msgstr "Ref"
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:327
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1022
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:114
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:96
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:202
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:279
 #: /home/tim/code/KwaMoja/KCMCInsuranceInvoice.php:395
@@ -7416,8 +7413,8 @@ msgid "Amount"
 msgstr "Onu"
 
 #: /home/tim/code/KwaMoja/BankMatching.php:274
-#: /home/tim/code/KwaMoja/BankReconciliation.php:228
-#: /home/tim/code/KwaMoja/BankReconciliation.php:290
+#: /home/tim/code/KwaMoja/BankReconciliation.php:226
+#: /home/tim/code/KwaMoja/BankReconciliation.php:288
 #: /home/tim/code/KwaMoja/PDFOrderStatus.php:356
 #: /home/tim/code/KwaMoja/PDFOrdersInvoiced.php:360
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:272
@@ -7559,33 +7556,33 @@ msgstr "Statebọchị Nkwuba Bank"
 msgid "Select the date of the bank staement you are reconciling"
 msgstr "Họrọ ụbọchị nke staement nke ụlọ akụ ị na-agbazi"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:150
+#: /home/tim/code/KwaMoja/BankReconciliation.php:148
 msgid "Show bank reconciliation statement"
 msgstr "Gosi nkwupụta nkwanye akụ n’ụlọ akụ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:161
+#: /home/tim/code/KwaMoja/BankReconciliation.php:159
 #: /home/tim/code/KwaMoja/Currencies.php:171
 msgid "The bank account balance could not be returned by the SQL because"
 msgstr "SQL enweghị ike iweghachi ego nke ụlọ akụ ahụ n'ihi na"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:176
+#: /home/tim/code/KwaMoja/BankReconciliation.php:174
 msgid "Could not retrieve the currency and exchange rate for the selected bank account"
 msgstr "Enweghi ike iweghachite ego na ọnụego mgbanwe maka akaụntụ akụ ahọrọ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:182
+#: /home/tim/code/KwaMoja/BankReconciliation.php:180
 msgid "Balance as at"
 msgstr "Izu ike dika na"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:215
+#: /home/tim/code/KwaMoja/BankReconciliation.php:213
 msgid "The unpresented cheques could not be retrieved by the SQL because"
 msgstr "Ndị SQL enweghị ike weghachite akwụkwọ ndị ahụ egosighi"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:219
+#: /home/tim/code/KwaMoja/BankReconciliation.php:217
 msgid "Add back unpresented cheques"
 msgstr "Tinye azụ ndenye ego adịghị edepụtara"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:224
-#: /home/tim/code/KwaMoja/BankReconciliation.php:286
+#: /home/tim/code/KwaMoja/BankReconciliation.php:222
+#: /home/tim/code/KwaMoja/BankReconciliation.php:284
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:156
 #: /home/tim/code/KwaMoja/CustomerAccount.php:268
 #: /home/tim/code/KwaMoja/CustomerAllocations.php:325
@@ -7626,15 +7623,15 @@ msgstr "Tinye azụ ndenye ego adịghị edepụtara"
 msgid "Number"
 msgstr "Nọmba"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:225
-#: /home/tim/code/KwaMoja/BankReconciliation.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/BankReconciliation.php:223
+#: /home/tim/code/KwaMoja/BankReconciliation.php:285
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:205
 #: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:183
 msgid "Cheque"
 msgstr "Lelee"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:226
-#: /home/tim/code/KwaMoja/BankReconciliation.php:288
+#: /home/tim/code/KwaMoja/BankReconciliation.php:224
+#: /home/tim/code/KwaMoja/BankReconciliation.php:286
 #: /home/tim/code/KwaMoja/ContractCosting.php:174
 #: /home/tim/code/KwaMoja/CustWhereAlloc.php:157
 #: /home/tim/code/KwaMoja/CustomerAccount.php:271
@@ -7643,7 +7640,7 @@ msgstr "Lelee"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:975
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:110
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:165
-#: /home/tim/code/KwaMoja/GLAccountReport.php:353
+#: /home/tim/code/KwaMoja/GLAccountReport.php:348
 #: /home/tim/code/KwaMoja/GoodsReceived.php:152
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:167
 #: /home/tim/code/KwaMoja/PDFRemittanceAdvice.php:319
@@ -7674,45 +7671,45 @@ msgstr "Lelee"
 msgid "Reference"
 msgstr "Kwuru"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:227
-#: /home/tim/code/KwaMoja/BankReconciliation.php:289
+#: /home/tim/code/KwaMoja/BankReconciliation.php:225
+#: /home/tim/code/KwaMoja/BankReconciliation.php:287
 msgid "Orig Amount"
 msgstr "Ọnụ ego mbụ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:252
+#: /home/tim/code/KwaMoja/BankReconciliation.php:250
 msgid "Total of all unpresented cheques"
 msgstr "Ngụkọta akwụkwọ ndenye ego ndị a na-egosighi"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:276
+#: /home/tim/code/KwaMoja/BankReconciliation.php:274
 msgid "The uncleared deposits could not be retrieved by the SQL because"
 msgstr "Enweghi ike iweghachite nkwuputa ego ndị ahụ egosighi site na SQL n'ihi"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:281
+#: /home/tim/code/KwaMoja/BankReconciliation.php:279
 msgid "Less deposits not cleared"
 msgstr "Ntinye obere ego adịghị ehicha"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:315
+#: /home/tim/code/KwaMoja/BankReconciliation.php:313
 msgid "Total of all uncleared deposits"
 msgstr "Nchịkọta ego niile edoghị anya"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:323
+#: /home/tim/code/KwaMoja/BankReconciliation.php:321
 msgid "Bank statement balance should be"
 msgstr "Ego nkwupụta ụlọ akụ kwesịrị ịbụ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:333
+#: /home/tim/code/KwaMoja/BankReconciliation.php:331
 msgid "Enter the actual bank statement balance"
 msgstr "Tinye ego nkwupụta nke ụlọ akụ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
-#: /home/tim/code/KwaMoja/BankReconciliation.php:350
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
+#: /home/tim/code/KwaMoja/BankReconciliation.php:348
 msgid "Calculate and Post Exchange Difference"
 msgstr "Gbakọọ iche na Post mgbanwe"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
 msgid "This will create a general ledger journal to write off the exchange difference in the current balance of the account. It is important that the exchange rate above reflects the current value of the bank account currency"
 msgstr "Nke a ga - emepụta akwụkwọ akụkọ izugbe iji dee ọdịiche mgbanwe na nghazi nke akaụntụ ahụ ugbu a. Ọ dị mkpa na ọnụego mgbanwe dị n'elu na-egosipụta uru ego ego ụlọ akụ bara ugbu a"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:337
+#: /home/tim/code/KwaMoja/BankReconciliation.php:335
 #: /home/tim/code/KwaMoja/CounterReturns.php:732
 #: /home/tim/code/KwaMoja/CounterSales.php:822
 #: /home/tim/code/KwaMoja/Customers.php:731
@@ -7722,17 +7719,17 @@ msgstr "Nke a ga - emepụta akwụkwọ akụkọ izugbe iji dee ọdịiche mg
 msgid "Are You Sure?"
 msgstr "O doro gị anya?"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:347
+#: /home/tim/code/KwaMoja/BankReconciliation.php:345
 msgid "It is normal for foreign currency accounts to have exchange differences that need to be reflected as the exchange rate varies. This reconciliation is prepared using the exchange rate set up in the currencies table (see the set-up tab). This table must be maintained with the current exchange rate before running the reconciliation. If you wish to create a journal to reflect the exchange difference based on the current exchange rate to correct the reconciliation to the actual bank statement balance click below."
 msgstr "Ọ bụ ihe nkịtị maka akụkọ ego mba ofesi inwe mgbanwe mgbanwe dị iche iche kwesịrị ịdị ka nke a gbanwere. A kwadoro nkwekọrịta a site na iji ọnụego mgbanwe etinyere na tebụl ego (lee taabụ setịpụrụ). A ghaghi idobe okpokoro a na mgbanwe mgbanwe ugbu a tupu ị na-eme udo. Ọ bụrụ n'ịchọrọ ịmepụta akwụkwọ akụkọ iji gosipụta mgbanwe mgbanwe dabere na ọnụego mgbanwe dị ugbu a iji dozie mgbatị ahụ na ọkwa nkwụnye ego ụlọ akụ pịa n'okpuru."
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:358
-#: /home/tim/code/KwaMoja/BankReconciliation.php:363
+#: /home/tim/code/KwaMoja/BankReconciliation.php:356
+#: /home/tim/code/KwaMoja/BankReconciliation.php:361
 msgid "Match off cleared payments"
 msgstr "Ekwela ka ego kwụrụ ụgwọ"
 
-#: /home/tim/code/KwaMoja/BankReconciliation.php:359
-#: /home/tim/code/KwaMoja/BankReconciliation.php:364
+#: /home/tim/code/KwaMoja/BankReconciliation.php:357
+#: /home/tim/code/KwaMoja/BankReconciliation.php:362
 msgid "Match off cleared deposits"
 msgstr "Echichara ego ejiri ego"
 
@@ -8889,9 +8886,9 @@ msgstr "Mgbe emere ahia ahia, KwaMoja mebere ndenye General Ledger achọrọ"
 #: /home/tim/code/KwaMoja/PO_AuthoriseMyOrders.php:146
 #: /home/tim/code/KwaMoja/Payments.php:1144
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:107
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:302
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:299
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:160
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:420
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:417
 #: /home/tim/code/KwaMoja/PickingLists.php:435
 #: /home/tim/code/KwaMoja/PickingLists.php:714
 #: /home/tim/code/KwaMoja/PricesByCost.php:231
@@ -11090,7 +11087,7 @@ msgstr "Ekwesịrị ịfefe ihu na peeji nke nkwekọrịta na akpaghị aka. �
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:262
 #: /home/tim/code/KwaMoja/EmailCustStatements.php:13
 #: /home/tim/code/KwaMoja/EmailCustTrans.php:20
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:288
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:282
 #: /home/tim/code/KwaMoja/POReport.php:1311
 #: /home/tim/code/KwaMoja/PO_Header.php:240
 #: /home/tim/code/KwaMoja/ProjectBOM.php:41
@@ -12693,11 +12690,9 @@ msgstr "megide koodu ndị ahịa"
 #: /home/tim/code/KwaMoja/CounterReturns.php:155
 #: /home/tim/code/KwaMoja/CounterSales.php:166
 #: /home/tim/code/KwaMoja/DeliveryDetails.php:143
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
-#: /home/tim/code/KwaMoja/GLAccountReport.php:128
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:204
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:230
+#: /home/tim/code/KwaMoja/GLAccountReport.php:123
 msgid "could not be retrieved"
 msgstr "enweghi ike weghachite ya"
 
@@ -12868,11 +12863,11 @@ msgstr "Net"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1026
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1192
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:166
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
-#: /home/tim/code/KwaMoja/GLAccountReport.php:357
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:207
+#: /home/tim/code/KwaMoja/GLAccountReport.php:352
 #: /home/tim/code/KwaMoja/GLJournal.php:208
 #: /home/tim/code/KwaMoja/GLJournal.php:610
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:203
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:287
 #: /home/tim/code/KwaMoja/InternalStockRequest.php:130
@@ -13887,8 +13882,8 @@ msgid "Invoiced"
 msgstr "Invoiti"
 
 #: /home/tim/code/KwaMoja/Credit_Invoice.php:285
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:214
-#: /home/tim/code/KwaMoja/GLAccountReport.php:356
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:210
+#: /home/tim/code/KwaMoja/GLAccountReport.php:351
 #: /home/tim/code/KwaMoja/GLJournal.php:207
 #: /home/tim/code/KwaMoja/GLJournal.php:579
 #: /home/tim/code/KwaMoja/GLJournal.php:609
@@ -15371,7 +15366,7 @@ msgstr "N'akụkụ"
 #: /home/tim/code/KwaMoja/CustomerInquiry.php:259
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:169
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:172
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:215
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:211
 #: /home/tim/code/KwaMoja/PO_SelectOSPurchOrder.php:393
 #: /home/tim/code/KwaMoja/SupplierInquiry.php:205
 #: /home/tim/code/KwaMoja/prlALD.php:146
@@ -16743,12 +16738,12 @@ msgid "The date when the receipts are banked."
 msgstr "Bọchị a ga-amachibido ịnata ego ndị ọzọ ego."
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:892
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:235
 msgid "No currencies are defined yet"
 msgstr "Onweghị ego akọwapụtara ma"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:892
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:236
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:235
 msgid "Receipts cannot be entered until a currency is defined"
 msgstr "Enweghị ike itinye nzipu ozi rue mgbe egosiri ego"
 
@@ -16833,9 +16828,9 @@ msgid "Received"
 msgstr "Anata"
 
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1027
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:212
-#: /home/tim/code/KwaMoja/GLAccountReport.php:358
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:95
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountReport.php:353
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:97
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:204
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:292
 #: /home/tim/code/KwaMoja/InternalStockRequestFulfill.php:351
@@ -16854,7 +16849,6 @@ msgstr "Kpido"
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1040
 #: /home/tim/code/KwaMoja/CustomerReceipt.php:1208
 #: /home/tim/code/KwaMoja/DefineWarehouse.php:380
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:335
 #: /home/tim/code/KwaMoja/GLJournal.php:221
 #: /home/tim/code/KwaMoja/GLJournal.php:542
 #: /home/tim/code/KwaMoja/GLJournal.php:629
@@ -17012,8 +17006,8 @@ msgstr "Họrọ ụdị azụmahịa ị ga-akọ mee."
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:338
 #: /home/tim/code/KwaMoja/FreightCosts.php:96
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:118
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:26
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:44
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:40
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:46
 #: /home/tim/code/KwaMoja/GLStatements.php:112
 #: /home/tim/code/KwaMoja/PcReportExpense.php:105
 #: /home/tim/code/KwaMoja/PcReportTab.php:137
@@ -17054,7 +17048,7 @@ msgstr "Site na"
 #: /home/tim/code/KwaMoja/CustomerTransInquiry.php:64
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:88
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:98
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:51
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:53
 #: /home/tim/code/KwaMoja/KCMCUnbilledItems.php:20
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:88
 #: /home/tim/code/KwaMoja/SupplierTransInquiry.php:67
@@ -17683,7 +17677,7 @@ msgid "Could not retrieve the bank account details"
 msgstr "Enweghi ike iweghachite nkọwapụta ego nke ụlọ akụ"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:152
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:79
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:81
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:145
 msgid "There are no transactions for this account in the date range selected"
 msgstr "Enweghị azụmahịa maka akaụntụ a na mpaghara ahọrọ"
@@ -17694,7 +17688,7 @@ msgid "Account Transactions For"
 msgstr "Akaụntụ Akaụntụ Maka"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:156
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 #: /home/tim/code/KwaMoja/SalesCategoryPeriodInquiry.php:165
 msgid "Between"
 msgstr "N’agbata"
@@ -17721,7 +17715,7 @@ msgid "Balances Brought Forward"
 msgstr "Egosiputa Balan Gi Egwu"
 
 #: /home/tim/code/KwaMoja/DailyBankTransactions.php:247
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:163
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:165
 #: /home/tim/code/KwaMoja/MonthlyBankTransactions.php:257
 msgid "Select Another Date"
 msgstr "Họrọ .bọchị Ọzọ"
@@ -20484,16 +20478,16 @@ msgstr "abanyelarị nke ọma"
 msgid "Return to main menu"
 msgstr "Laghachi na menu menu"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:260
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:259
 msgid "Process Journal"
 msgstr "Journal Journal"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:264
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:269
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:263
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:268
 msgid "Date to Process Depreciation"
 msgstr "Tobọchị iji kwalite mmụta ego"
 
-#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:276
+#: /home/tim/code/KwaMoja/FixedAssetDepreciation.php:275
 msgid "Commit Depreciation"
 msgstr "Kweta Inwe Ekele"
 
@@ -20954,7 +20948,7 @@ msgid "Show Assets"
 msgstr "Gosi Àkets"
 
 #: /home/tim/code/KwaMoja/FixedAssetRegister.php:340
-#: /home/tim/code/KwaMoja/GLAccountReport.php:338
+#: /home/tim/code/KwaMoja/GLAccountReport.php:333
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:45
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:236
 #: /home/tim/code/KwaMoja/KCMCPrintInsuranceInvoice.php:567
@@ -21450,49 +21444,49 @@ msgid "If the shipper has a minimum charge per package enter that here, or enter
 msgstr "Ọ bụrụ na onye na-ere ụgbọ mmiri nwere ụgwọ opekempe na ngwugwu ọ bụla, tinye ebe a, ma ọ bụ tinye efu ma ọ bụrụ na enweghị chage na-erite ya."
 
 #: /home/tim/code/KwaMoja/GLAccountCSV.php:3
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:16
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:15
 #: /home/tim/code/KwaMoja/GLAccountReport.php:4
-#: /home/tim/code/KwaMoja/GLAccountReport.php:232
+#: /home/tim/code/KwaMoja/GLAccountReport.php:227
 msgid "General Ledger Account Report"
 msgstr "Nchịkọta Akaụntụ General Ledger"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:16
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:15
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:4
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:11
-#: /home/tim/code/KwaMoja/GLAccountReport.php:232
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:10
+#: /home/tim/code/KwaMoja/GLAccountReport.php:227
 msgid "General Ledger Account Inquiry"
 msgstr "Nnyocha General Ledger"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:19
-#: /home/tim/code/KwaMoja/GLAccountReport.php:235
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:18
+#: /home/tim/code/KwaMoja/GLAccountReport.php:230
 msgid "Use the keyboard Shift key to select multiple accounts and periods"
 msgstr "Jiri igodo Shift iji họrọ otutu akaụntụ na oge"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:29
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:28
 #: /home/tim/code/KwaMoja/GLBalanceSheet.php:52
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:64
 msgid "Criteria for report"
 msgstr "Iwu maka mkpesa"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:31
-#: /home/tim/code/KwaMoja/GLAccountReport.php:259
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:30
+#: /home/tim/code/KwaMoja/GLAccountReport.php:254
 msgid "Selected Accounts"
 msgstr "Akaụntụ A Ahọrọ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:50
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:69
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:49
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:68
 msgid "Select the accounts for this report. Use the keyboard Shift key to select multiple accounts."
 msgstr "Họrọ akaụntụ maka akụkọ a. Jiri keyboard Shift key họrọ ọtụtụ akaụntụ."
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:54
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:53
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:113
-#: /home/tim/code/KwaMoja/GLAccountReport.php:276
+#: /home/tim/code/KwaMoja/GLAccountReport.php:271
 msgid "For Period range"
 msgstr "N'ihi na Oge"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:74
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:95
-#: /home/tim/code/KwaMoja/GLAccountReport.php:297
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:73
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:94
+#: /home/tim/code/KwaMoja/GLAccountReport.php:292
 #: /home/tim/code/KwaMoja/Payments.php:1211
 #: /home/tim/code/KwaMoja/StockAdjustments.php:636
 #: /home/tim/code/KwaMoja/StockTransfers.php:875
@@ -21500,86 +21494,82 @@ msgstr "N'ihi na Oge"
 msgid "Select Tag"
 msgstr "Họrọ Kpido"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:83
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
-#: /home/tim/code/KwaMoja/GLAccountReport.php:299
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:82
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:96
+#: /home/tim/code/KwaMoja/GLAccountReport.php:294
 msgid "All tags"
 msgstr "Niile na mkpado"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:92
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:91
 msgid "Select the tag for this report, or select All to show all transactions."
 msgstr "Họrọ mkpado maka akụkọ a, ma ọ bụ họrọ Ha niile iji gosi azụmahịa niile."
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:98
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:97
 #: /home/tim/code/KwaMoja/SalesAnalRepts.php:286
 msgid "Make CSV File"
 msgstr "Mee CSV Faịlị"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:106
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:139
-#: /home/tim/code/KwaMoja/GLAccountReport.php:18
+#: /home/tim/code/KwaMoja/GLAccountReport.php:17
 msgid "A period or range of periods must be selected from the list box"
 msgstr "Ekwesịrị ịhọrọ oge ma ọ bụ oge gafere na igbe ndepụta"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:112
-#: /home/tim/code/KwaMoja/GLAccountReport.php:23
-#: /home/tim/code/KwaMoja/GLAccountReport.php:217
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:111
+#: /home/tim/code/KwaMoja/GLAccountReport.php:22
+#: /home/tim/code/KwaMoja/GLAccountReport.php:212
 msgid "An account or range of accounts must be selected from the list box"
 msgstr "A ga-ahọrọ akaụntụ ma ọ bụ mpaghara akaụntụ site na igbe ndepụta"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:126
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:125
 #: /home/tim/code/KwaMoja/StockQties_csv.php:38
 msgid "Could not open or create the file under"
 msgstr "Enweghi ike imeghe ma obu mepụta faiti n’okpuru"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:196
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:195
-#: /home/tim/code/KwaMoja/GLAccountReport.php:107
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:195
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:191
+#: /home/tim/code/KwaMoja/GLAccountReport.php:106
 msgid "The transactions for account"
 msgstr "Azụmahịa maka akaụntụ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:199
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:198
 msgid "for period"
 msgstr "maka oge"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:230
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:278
-#: /home/tim/code/KwaMoja/GLAccountReport.php:128
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:204
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:230
+#: /home/tim/code/KwaMoja/GLAccountReport.php:123
 msgid "The chart details for account"
 msgstr "Nkọwapụta eserese maka akaụntụ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:216
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:218
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:250
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:255
-#: /home/tim/code/KwaMoja/GLAccountReport.php:134
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:210
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:212
+#: /home/tim/code/KwaMoja/GLAccountReport.php:129
 msgid "Brought Forward Balance"
 msgstr "Ego n'ihu na nkwụghachi ego"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:240
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:242
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:265
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:267
-#: /home/tim/code/KwaMoja/GLAccountReport.php:150
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:234
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:236
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:259
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:261
+#: /home/tim/code/KwaMoja/GLAccountReport.php:145
 msgid "Period Total"
 msgstr "Oge Ọnụ"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:272
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:274
-#: /home/tim/code/KwaMoja/GLAccountReport.php:199
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:266
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:268
+#: /home/tim/code/KwaMoja/GLAccountReport.php:194
 msgid "Total Period Movement"
 msgstr "Ngụkọta oge"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:279
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:281
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:374
-#: /home/tim/code/KwaMoja/GLAccountReport.php:202
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:273
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:275
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:365
+#: /home/tim/code/KwaMoja/GLAccountReport.php:197
 msgid "Balance C/Fwd"
 msgstr "Balance C / Fwd"
 
-#: /home/tim/code/KwaMoja/GLAccountCSV.php:288
+#: /home/tim/code/KwaMoja/GLAccountCSV.php:282
 #: /home/tim/code/KwaMoja/POReport.php:1311
 #: /home/tim/code/KwaMoja/StockQties_csv.php:50
 msgid "to view the file"
@@ -21675,7 +21665,19 @@ msgstr "Eserese eserese"
 msgid "If the selected account is normally a credit balance then select this to show the graph with credits as positive values"
 msgstr "Ọ bụrụ na akaụntụ ahọrọ ahọtara ego ọfụma mgbe ahọpụtara nke a iji gosipụta eserese ya na kredit dị ka ụkpụrụ dị mma"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:78
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:83
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
+msgid "Budget To Show Comparisons With"
+msgstr "Ego iji gosipụta atụnyere"
+
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:95
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
+msgid "Select the budget to make comparisons with."
+msgstr "Họrọ mmefu ego iji jiri ya tụnyere."
+
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:100
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:66
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:43
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:56
@@ -21688,7 +21690,7 @@ msgstr "Ọ bụrụ na akaụntụ ahọrọ ahọtara ego ọfụma mgbe ahọ
 msgid "Select Period From"
 msgstr "Họrọ Oge Site na"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:106
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:128
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:91
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:69
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:82
@@ -21698,7 +21700,7 @@ msgstr "Họrọ Oge Site na"
 msgid "Select the starting period for this report"
 msgstr "Họrọ oge mmalite maka akụkọ a"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:116
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:138
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:106
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:83
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:92
@@ -21710,7 +21712,7 @@ msgstr "Họrọ oge mmalite maka akụkọ a"
 msgid "Select Period To"
 msgstr "Họrọ Oge Ka"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:130
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:152
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:120
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:97
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:106
@@ -21720,21 +21722,21 @@ msgstr "Họrọ Oge Ka"
 msgid "Select the end period for this report"
 msgstr "Họrọ oge ngwụcha maka akụkọ a"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:149
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:171
 msgid "Show Account Graph"
 msgstr "Gosi eserese Akaụntụ"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:160
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:182
 msgid "GL Account Graph - Actual vs. Budget"
 msgstr "Eserese nke GL - Nhazi vs. Mmefu ego"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:174
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:196
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:392
 #: /home/tim/code/KwaMoja/SalesGraph.php:276
 msgid "From Period"
 msgstr "Site na Oge"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:194
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:212
 #: /home/tim/code/KwaMoja/POReport.php:481
 #: /home/tim/code/KwaMoja/POReport.php:705
 #: /home/tim/code/KwaMoja/POReport.php:706
@@ -21755,15 +21757,15 @@ msgstr "Site na Oge"
 msgid "Month"
 msgstr "Ọnwa"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:213
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:231
 msgid "The GL Account graph data for the selected criteria could not be retrieved because"
 msgstr "Enweghi ike iweghachite data gL nke Akaụntụ maka akara ahọpụtara maka"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:218
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:236
 msgid "There is not GL Account data for the criteria entered to graph"
 msgstr "Onweghi data GL no na ntinye aka na akara"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:238
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:269
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:254
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:434
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:437
@@ -21772,7 +21774,7 @@ msgstr "Onweghi data GL no na ntinye aka na akara"
 msgid "Actual"
 msgstr "N'ezie"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:238
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:269
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:249
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:256
 #: /home/tim/code/KwaMoja/SalesAnalReptCols.php:433
@@ -21781,29 +21783,35 @@ msgstr "N'ezie"
 msgid "Budget"
 msgstr "Mmefu ego"
 
-#: /home/tim/code/KwaMoja/GLAccountGraph.php:250
+#: /home/tim/code/KwaMoja/GLAccountGraph.php:281
 msgid "Select Different Criteria"
 msgstr "Họrọ Ọnọdụ Dị Iche"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:48
 msgid "The retained earnings account is managed separately by the system, and therefore cannot be inquired upon. See manual for details"
 msgstr "Usoro ahụ na-ejikwa akaụntụ nnata ego ejirila, yabụ enweghị ike ịjụ ya. Hụ ntuziaka maka nkọwa"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:50
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:49
 msgid "Select another account"
 msgstr "Họrọ nnabata ọzọ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:55
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:54
 msgid "Use the keyboard Shift key to select multiple periods"
 msgstr "Jiri igodo Shift iji họrọ otutu oge"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:80
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:79
 msgid "Inquiry Selection Criteria"
 msgstr "Achọpụta Usoro Nhọrọ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:84
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:83
 msgid "Select a General Ledger account to report on."
 msgstr "Họrọ akaụntụ General Ledger iji kọọ."
+
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:97
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:322
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:329
+msgid "No tag selected"
+msgstr "Enweghị aha ahọrọ"
 
 #: /home/tim/code/KwaMoja/GLAccountInquiry.php:106
 msgid "Select a tag to filter the report on."
@@ -21817,20 +21825,20 @@ msgstr "Họrọ otu oge ma ọ bụ karịa ego iji kọọ banyere ya."
 msgid "Show Account Transactions"
 msgstr "Gosi Azụma Akaụntụ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:194
 msgid "General Ledger account inquiry details"
 msgstr "Ozi nyocha akaụntụ General Ledger"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:202
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:198
 msgid "Transactions for account"
 msgstr "Azụmaahịa maka akaụntụ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:208
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:204
 msgid "Trans no"
 msgstr "Ntughari mba"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:213
-#: /home/tim/code/KwaMoja/GLAccountReport.php:355
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:209
+#: /home/tim/code/KwaMoja/GLAccountReport.php:350
 #: /home/tim/code/KwaMoja/GLJournal.php:206
 #: /home/tim/code/KwaMoja/GLJournal.php:564
 #: /home/tim/code/KwaMoja/GLJournal.php:608
@@ -21838,65 +21846,41 @@ msgstr "Ntughari mba"
 msgid "Debit"
 msgstr "Debit"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:287
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:355
-msgid "Total for period ending"
-msgstr "Ngụkọta nke oge agwụcha"
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:239
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:246
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:284
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:291
+msgid "Balance brought forward from"
+msgstr "E guzobere itule n'ihu"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-#: /home/tim/code/KwaMoja/GLTransInquiry.php:40
-#: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
-#: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
-#: /home/tim/code/KwaMoja/SalesCommissionStatements.php:67
-#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:65
-#: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:13
-#: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:86
-msgid "Period"
-msgstr "Oge"
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:264
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:352
+msgid "Totals for period ending"
+msgstr "Ihe niile maka oge na-agwụ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Account movement per transaction"
-msgstr "Akaụntụ Akaụntụ kwa azụmahịa"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Movement per ChartDetails record"
-msgstr "Mmeghari maka ihe ndekọ ChartDetails"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:307
-msgid "Period difference"
-msgstr "Oge dị iche"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:371
+#: /home/tim/code/KwaMoja/GLAccountInquiry.php:362
 msgid "Total Movement for selected periods"
 msgstr "Mkpokọta ngagharị maka oge ahọrọ"
 
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
-msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
-msgstr "E nwere ọdịiche dị n'etiti nchikota nke azụmahịa na ebugharị edere na tebụlụ ChartDetails"
-
-#: /home/tim/code/KwaMoja/GLAccountInquiry.php:397
-msgid "A log of the account differences for the periods report shows below"
-msgstr "Ndekọ nke ọdịiche dị na akaụntụ maka akụkọ oge na-egosi n'okpuru"
-
+#: /home/tim/code/KwaMoja/GLAccountReport.php:31
 #: /home/tim/code/KwaMoja/GLAccountReport.php:32
-#: /home/tim/code/KwaMoja/GLAccountReport.php:33
-#: /home/tim/code/KwaMoja/GLAccountReport.php:336
+#: /home/tim/code/KwaMoja/GLAccountReport.php:331
 msgid "GL Account Report"
 msgstr "Nleba Akaụntụ GL"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:116
+#: /home/tim/code/KwaMoja/GLAccountReport.php:115
 msgid "Listing for Period"
 msgstr "Ndepụta oge"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:245
+#: /home/tim/code/KwaMoja/GLAccountReport.php:240
 msgid "Selection Criteria for Report"
 msgstr "Iwu Nhọrọ maka Report"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:313
+#: /home/tim/code/KwaMoja/GLAccountReport.php:308
 msgid "Run Report"
 msgstr "Gbaa ọsọ"
 
-#: /home/tim/code/KwaMoja/GLAccountReport.php:338
+#: /home/tim/code/KwaMoja/GLAccountReport.php:333
 #: /home/tim/code/KwaMoja/InventoryPlanningPrefSupplier.php:45
 #: /home/tim/code/KwaMoja/InventoryQuantities.php:236
 #: /home/tim/code/KwaMoja/MRPPlannedPurchaseOrders.php:396
@@ -22289,7 +22273,7 @@ msgstr "Dezie nkọwapụta Akaụntụ"
 #: /home/tim/code/KwaMoja/GLAccounts.php:350
 #: /home/tim/code/KwaMoja/GLAccounts.php:369
 #: /home/tim/code/KwaMoja/GLAccounts.php:489
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:91
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:93
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:250
 #: /home/tim/code/KwaMoja/PcExpenses.php:167
 #: /home/tim/code/KwaMoja/PcExpenses.php:281
@@ -22415,17 +22399,17 @@ msgstr "Gosi akaụntụ niile tinyere ego itule"
 msgid "Show Balance Sheet"
 msgstr "Gosi Balance Sheet"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:202
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:208
 msgid "HTML View"
 msgstr "Nlele HTML"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:206
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:212
 #: /home/tim/code/KwaMoja/includes/PDFBalanceSheetPageHeader.php:20
 msgid "Balance Sheet as at"
 msgstr "Mpempe akwụkwọ Balance dị ka na"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:217
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:224
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:223
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:230
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:404
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:217
@@ -22438,7 +22422,7 @@ msgstr "Mpempe akwụkwọ Balance dị ka na"
 msgid "Last Year"
 msgstr "Afọ gara aga"
 
-#: /home/tim/code/KwaMoja/GLBalanceSheet.php:487
+#: /home/tim/code/KwaMoja/GLBalanceSheet.php:493
 msgid "Select A Different Balance Date"
 msgstr "Họrọ nbọchị Iche iche"
 
@@ -22620,9 +22604,10 @@ msgstr "Nkwupụta nke ego efu"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:134
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:223
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:584
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:590
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:580
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:586
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:519
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:526
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:31
@@ -22634,7 +22619,8 @@ msgstr "Oge Arụ Ọrụ"
 #: /home/tim/code/KwaMoja/GLCashFlowsIndirect.php:173
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:216
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:224
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:199
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:198
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:32
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:33
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:33
@@ -23119,38 +23105,38 @@ msgstr "Ibu site na ndebiri"
 msgid "General Ledger Journal Inquiry"
 msgstr "Nnyocha General Ledger"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:25
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:39
 msgid "Journal Number Range"
 msgstr "Nọmba Journal"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:43
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:45
 msgid "Journals Dated Between"
 msgstr "Akwụkwọ akụkọ n'etiti"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:81
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:83
 msgid "General ledger journal listing"
 msgstr "Ndepụta akwụkwọ akụkọ onye isi General"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:84
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:86
 msgid "General Ledger Jornals"
 msgstr "General Ledger Jornals"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:90
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:92
 #: /home/tim/code/KwaMoja/KCMCViewPathologyTest.php:213
 msgid "Journal Number"
 msgstr "Nọmba Journal"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:92
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:94
 #: /home/tim/code/KwaMoja/PcExpenses.php:168
 #: /home/tim/code/KwaMoja/includes/PDFGLJournalHeader.php:21
 msgid "Account Description"
 msgstr "Nkọwa akaụntụ"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:142
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:144
 msgid "Others"
 msgstr "Ndị ọzọ"
 
-#: /home/tim/code/KwaMoja/GLJournalInquiry.php:143
+#: /home/tim/code/KwaMoja/GLJournalInquiry.php:145
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:137
 #: /home/tim/code/KwaMoja/PDFChequeListing.php:177
 msgid "Other GL Accounts"
@@ -23190,16 +23176,6 @@ msgstr "Ebumnuche nke nkwupụta ego enweta bụ igosi ma ụlọ ọrụ ahụ 
 msgid "The Profit and Loss statement represents a period of time. This contrasts with the Balance Sheet, which represents a single moment in time."
 msgstr "Nkwupụta uru na ọnwụ na-anọchite anya oge. Nke a dị iche na mpempe akwụkwọ Balance, nke na-anọchite anya otu oge na oge."
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:141
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:127
-msgid "Budget To Show Comparisons With"
-msgstr "Ego iji gosipụta atụnyere"
-
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:153
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:139
-msgid "Select the budget to make comparisons with."
-msgstr "Họrọ mmefu ego iji jiri ya tụnyere."
-
 #: /home/tim/code/KwaMoja/GLProfit_Loss.php:163
 msgid "Show report for all accounts, or just show summary report."
 msgstr "Gosi mkpesa maka akaụntụ niile, ma ọ bụ gosi naanị akụkọ nchịkọta."
@@ -23217,10 +23193,10 @@ msgstr "Gosi Nkwupụta Uru na Mfu"
 msgid "General Ledger Profit Loss Inquiry"
 msgstr "Nnukwu onye nyocha General Ledger"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:476
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:352
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:735
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:917
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:478
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:348
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:704
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:864
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:302
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:680
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:886
@@ -23228,25 +23204,25 @@ msgstr "Nnukwu onye nyocha General Ledger"
 msgid "Gross Profit Percent"
 msgstr "Pasent Uru Pasent Pasent"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:618
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:491
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Profit"
 msgstr "Uru"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:492
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:616
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:495
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:494
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:618
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:491
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:445
 msgid "Loss"
 msgstr "Ibelata"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:517
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:519
 msgid "P/L Percent after"
 msgstr "P / L pasent ka emechara"
 
-#: /home/tim/code/KwaMoja/GLProfit_Loss.php:644
+#: /home/tim/code/KwaMoja/GLProfit_Loss.php:646
 msgid "Net Profit Percent"
 msgstr "Net Uru Uru"
 
@@ -23355,7 +23331,7 @@ msgid "Check this box to show the notes that summarize the significant accountin
 msgstr "Lelee igbe a iji gosi ndetu nke na-achịkọta usoro iwu dị iche iche maka ịhazi ego yana ozi nkọwa ndị ọzọ"
 
 #: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:3
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:568
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:564
 msgid "Income and Expenditure by Tag"
 msgstr "Ego na mmefu site na Tag"
 
@@ -23399,21 +23375,21 @@ msgstr "Gosipụta Nkwupụta nke Ego Nweta na Mmefu"
 msgid "PrintPDF"
 msgstr "PrintPDF"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:161
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:162
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:219
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:157
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:158
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:215
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:119
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:120
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:171
 msgid "Income and Expenditure"
 msgstr "Ego na mmefu"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:231
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:227
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:182
 msgid "Print Income and Expenditure Error"
 msgstr "Bipụta ndudue na mmefu"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:234
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:230
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:185
 #: /home/tim/code/KwaMoja/prlRepPaySlip.php:308
 #: /home/tim/code/KwaMoja/prlRepPayrollRegYTD.php:136
@@ -23422,29 +23398,29 @@ msgstr "Bipụta ndudue na mmefu"
 msgid "There were no entries to print out for the selections specified"
 msgstr "Onweghi ntinye iji depụta ya maka udiri achoro"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:397
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:784
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:393
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:753
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:347
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:736
 msgid "Detailed"
 msgstr "Ihe zuru ezu"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 msgid "Statement of Income and Expenditure for Tag"
 msgstr "Nkwupụta nke Inata na Mmefu maka Kpido"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:573
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:569
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:512
 msgid "during the"
 msgstr "n'oge"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:943
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:885
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:916
 #, php-format
 msgid "Surplus"
 msgstr "Isi"
 
-#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:943
+#: /home/tim/code/KwaMoja/GLTagProfit_Loss.php:885
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:916
 #, php-format
 msgid "Deficit"
@@ -23526,6 +23502,16 @@ msgstr "Peeji a chọrọ ụdị na ọnụ ọgụgụ azụmahịa dị mma"
 msgid "No transaction of this type with id"
 msgstr "Enweghị azụmahịa na ụdị a na id"
 
+#: /home/tim/code/KwaMoja/GLTransInquiry.php:40
+#: /home/tim/code/KwaMoja/SalesByTypePeriodInquiry.php:371
+#: /home/tim/code/KwaMoja/SalesCommissionReports.php:67
+#: /home/tim/code/KwaMoja/SalesCommissionStatements.php:67
+#: /home/tim/code/KwaMoja/Z_CheckDebtorsControl.php:65
+#: /home/tim/code/KwaMoja/Z_CheckGLTransBalance.php:13
+#: /home/tim/code/KwaMoja/Z_UpdateChartDetailsBFwd.php:86
+msgid "Period"
+msgstr "Oge"
+
 #: /home/tim/code/KwaMoja/GLTransInquiry.php:46
 #: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:97
 #: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:116
@@ -23537,7 +23523,7 @@ msgstr "Edebere"
 
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:10
 #: /home/tim/code/KwaMoja/GLTrialBalance.php:36
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
 #: /home/tim/code/KwaMoja/sql/updates/42.php:196
 msgid "Trial Balance"
 msgstr "Balance Ọnwụnwa"
@@ -23550,45 +23536,47 @@ msgstr "Ntinye ederede maka nyocha"
 msgid "Show Trial Balance"
 msgstr "Gosi Balance Ọnwụnwa"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:148
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:147
 msgid "Export to Spreadsheet"
 msgstr "Mbupụ na Spreadsheet"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:182
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:185
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:181
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:184
 msgid "Trial Balance Report"
 msgstr "Akuko Izere Ọnwụnwa"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid "Trial Balance for the month of "
 msgstr "Itule ọnwụnwa maka ọnwa nke"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " and for the "
 msgstr "ọzọ kwa"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:189
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:188
 #: /home/tim/code/KwaMoja/includes/PDFProfitAndLossPageHeader.php:21
 #: /home/tim/code/KwaMoja/includes/PDFTagProfitAndLossPageHeader.php:20
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:23
 msgid " months to "
 msgstr "ọnwa ka"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:195
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:518
 #: /home/tim/code/KwaMoja/KCMCFunctionalUnitPL.php:525
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:30
 msgid "Month Actual"
 msgstr "Arụ ọnwa"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:197
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:196
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:462
 #: /home/tim/code/KwaMoja/includes/PDFTrialBalancePageHeader.php:31
 msgid "Month Budget"
 msgstr "Ego nke ọnwa"
 
-#: /home/tim/code/KwaMoja/GLTrialBalance.php:441
+#: /home/tim/code/KwaMoja/GLTrialBalance.php:440
 msgid "Check Totals"
 msgstr "Lelee Totals"
 
@@ -24571,7 +24559,7 @@ msgstr "Paymentkwụ togwọ na Akaụntụ"
 
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:134
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:136
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:227
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:226
 msgid "GL Payment"
 msgstr "Lkwụ Ggwọ GL"
 
@@ -24581,7 +24569,7 @@ msgstr "Inata na Akaụntụ Ahịa"
 
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:165
 #: /home/tim/code/KwaMoja/ImportBankTransAnalysis.php:167
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:228
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:227
 msgid "GL Receipt"
 msgstr "Nnata GL"
 
@@ -24726,7 +24714,7 @@ msgstr "Ahịa dị mma si"
 #: /home/tim/code/KwaMoja/UploadPriceList.php:165
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:496
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:598
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:248
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:247
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:235
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:338
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:339
@@ -24740,7 +24728,7 @@ msgstr "Bulite faịlụ"
 #: /home/tim/code/KwaMoja/Z_ImportCustBranch.php:497
 #: /home/tim/code/KwaMoja/Z_ImportDebtors.php:599
 #: /home/tim/code/KwaMoja/Z_ImportFixedAssets.php:298
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:249
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:248
 #: /home/tim/code/KwaMoja/Z_ImportPurchaseData.php:236
 #: /home/tim/code/KwaMoja/Z_ImportStocks.php:339
 #: /home/tim/code/KwaMoja/Z_ImportSuppliers.php:340
@@ -25880,7 +25868,7 @@ msgstr "Nkà"
 
 #: /home/tim/code/KwaMoja/JobCards.php:190
 #: /home/tim/code/KwaMoja/KCMCRequestLaboratoryTest.php:276
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:139
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:138
 #: /home/tim/code/KwaMoja/prlSelectRT.php:60
 #: /home/tim/code/KwaMoja/prlSelectTD.php:60
 msgid "Hours"
@@ -38437,8 +38425,8 @@ msgid "The assignment of cash record could not be deleted because"
 msgstr "Enweghị ike ihichapụ ọrụ ndekọ ego ego n'ihi"
 
 #: /home/tim/code/KwaMoja/PcAssignCashToTab.php:172
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:319
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:437
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:316
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:434
 #: /home/tim/code/KwaMoja/PcClaimExpensesFromTab.php:311
 msgid "Select Tab"
 msgstr "Họrọ Tab"
@@ -38540,8 +38528,8 @@ msgstr "Enwere nsogbu ịnye ikike inye ego ahụ, egosighi azụmahịa ahụ"
 msgid "This cash has already been authorised, and cannot be posted again"
 msgstr "Egolarị ego nke ego a, enweghị ike ịdebe ya ọzọ"
 
-#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:322
-#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:439
+#: /home/tim/code/KwaMoja/PcAuthorizeCheque.php:319
+#: /home/tim/code/KwaMoja/PcAuthorizeExpenses.php:436
 msgid "Authorise expenses to Petty Cash Tab"
 msgstr "Nye ikike ịkwụ ụgwọ Petty Cash Tab"
 
@@ -42297,27 +42285,27 @@ msgstr "Mbinye akara QA Label"
 msgid "General Ledger Retained Earnings Reconciliation"
 msgstr "General Ledger Edozigharị Ego Ego"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:33
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:32
 msgid "Year End"
 msgstr "Afọ Afọ"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:34
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:33
 msgid "Profit/Loss for Year"
 msgstr "Uru / Efu maka Afọ"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:38
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:37
 msgid "Opening Balances"
 msgstr "Ohere mepere"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:65
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:64
 msgid "Retained Earnings per Balance Sheet"
 msgstr "Ego ejigharịgo ego akwụkwọ ego ọ bụla"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:79
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:78
 msgid "Select Year End for the Reconcilation"
 msgstr "Họrọ Afọ Ọgwụ maka nrụkọ"
 
-#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:89
+#: /home/tim/code/KwaMoja/RetainedEarningsReconciliation.php:88
 msgid "Show Reconciliation"
 msgstr "Gosi Ndozigharị"
 
@@ -58208,39 +58196,39 @@ msgstr "Azụmaahịa niile ga-adịrị n'otu oge"
 msgid "The total of the transactions must balance back to zero"
 msgstr "Mkpokọta azụmahịa ndị ahụ aghaghị ịlaghachi azụ azụ"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "This function loads a set of general ledger transactions from a comma separated variable (csv) file."
 msgstr "Ọrụ a na-ebunye setịpụrụ nghazi setịpụrụ na faịlị kewapụrụ faịlụ (csv)."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The file must contain six columns, and the first row should be the following headers"
 msgstr "Faịlụ ahụ kwesiri inwe kọlụm isii, eriri nke mbụ kwesịrị ịbụ ndị isi ndị a"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "followed by rows containing these six fields for each price to be uploaded."
 msgstr "sorokwa ahịrị nwere ubi isii a maka ego ị ga-ebugo."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The total of the transactions must come back to zero. Debits are positive, credits are negative."
 msgstr "Ọnụ ọgụgụ nke azụmahịa ahụ ga-alaghachi na efu. Gwọ ji mma, kredit adịghị mma."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "All the transactions must be within the same accounting period."
 msgstr "Azụmaahịa a niile ga-anọrịrị n'otu oge ahụ."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:221
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:220
 msgid "The Account field must have a corresponding entry in the chartmaster table."
 msgstr "Ogige ihe ndekọ ahụ ga-enwerịrị ntinye ya na tebụl chartmaster."
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:224
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:223
 msgid "Select Transaction Type"
 msgstr "Họrọ actiondị azụmahịa"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:226
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:225
 msgid "GL Journal"
 msgstr "GL Journal"
 
-#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:231
+#: /home/tim/code/KwaMoja/Z_ImportGLTransactions.php:230
 msgid "Select Currency"
 msgstr "Họrọ Ego"
 
@@ -59571,7 +59559,7 @@ msgstr "Dezie faịlụ ego ịgbazinye ọrụ"
 #: /home/tim/code/KwaMoja/prlOthIncome.php:155
 #: /home/tim/code/KwaMoja/prlPaye.php:135
 #: /home/tim/code/KwaMoja/prlPaye.php:247
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:147
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:146
 #: /home/tim/code/KwaMoja/prlSelectDeduction.php:56
 #: /home/tim/code/KwaMoja/prlSelectLoan.php:43
 #: /home/tim/code/KwaMoja/prlTardiness.php:144
@@ -61210,7 +61198,7 @@ msgstr "Enteredbọchị ọ bụla etinyere esighi ezi"
 #: /home/tim/code/KwaMoja/prlOTFile.php:40
 #: /home/tim/code/KwaMoja/prlOTFile.php:179
 #: /home/tim/code/KwaMoja/prlRegTimeEntry.php:36
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:159
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:158
 msgid "Accept and Process Overtime"
 msgstr "Nabata na Nhazi Oge"
 
@@ -61260,7 +61248,7 @@ msgstr "Onye were ya n’ọrụ"
 
 #: /home/tim/code/KwaMoja/prlOTFile.php:135
 #: /home/tim/code/KwaMoja/prlOthIncome.php:124
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:128
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:127
 #: /home/tim/code/KwaMoja/prlTardiness.php:123
 msgid "No Empoloyee accounts have been set up yet"
 msgstr "Onweghi akaụntụ Empoloyee ka akwadoro"
@@ -61815,25 +61803,25 @@ msgstr "SQL nke na-etinyeghị oge ndekọ ndekọ ahụ bụ"
 msgid "Regular Time"
 msgstr "Oge Oge"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:109
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:108
 msgid "RT Ref"
 msgstr "RT Ref"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:116
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:115
 msgid "Regular Time Line Entry"
 msgstr "Ntinye Oge Nhazi Oge"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:121
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:120
 #: /home/tim/code/KwaMoja/prlTardiness.php:116
 msgid "Enter Employee Manually"
 msgstr "Banye Ọrụ Were aka"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:123
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:122
 #: /home/tim/code/KwaMoja/prlTardiness.php:118
 msgid "Select Employee Name"
 msgstr "Họrọ Aha Were n'Ọrụ"
 
-#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:146
+#: /home/tim/code/KwaMoja/prlRegTimeEntry.php:145
 msgid "RT Hour"
 msgstr "Oge awa"
 
@@ -73067,6 +73055,27 @@ msgstr "Mgbazinye ndị ọrụ"
 #: /home/tim/code/KwaMoja/sql/updates/99.php:145
 msgid "Staff Loan Repayments"
 msgstr "Lokwụ gwọ Ọrụ na Staffgwọ Ọrụ"
+
+#~ msgid "The accumulated profits brought forward could not be calculated by the SQL because"
+#~ msgstr "Nchịkọta agbakwụgo wetaragogo n'ihu SQL enweghị ike ịgbakọ ya"
+
+#~ msgid "Total for period ending"
+#~ msgstr "Ngụkọta nke oge agwụcha"
+
+#~ msgid "Account movement per transaction"
+#~ msgstr "Akaụntụ Akaụntụ kwa azụmahịa"
+
+#~ msgid "Movement per ChartDetails record"
+#~ msgstr "Mmeghari maka ihe ndekọ ChartDetails"
+
+#~ msgid "Period difference"
+#~ msgstr "Oge dị iche"
+
+#~ msgid "There are differences between the sum of the transactions and the recorded movements in the ChartDetails table"
+#~ msgstr "E nwere ọdịiche dị n'etiti nchikota nke azụmahịa na ebugharị edere na tebụlụ ChartDetails"
+
+#~ msgid "A log of the account differences for the periods report shows below"
+#~ msgstr "Ndekọ nke ọdịiche dị na akaụntụ maka akụkọ oge na-egosi n'okpuru"
 
 #~ msgid "Produce PDF Report"
 #~ msgstr "Mepụta Ntinye PDF"
