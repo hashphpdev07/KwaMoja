@@ -109,9 +109,6 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['NewReport'])) {
 			<input name="ShowBalanceSheet" type="submit" value="', _('Show on Screen (HTML)'), '" />
 		</div>';
 
-	// Now do the posting while the user is thinking about the period to select:
-	include ('includes/GLPostings.php');
-
 } else {
 
 	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
@@ -158,52 +155,60 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['NewReport'])) {
 			</tr>
 		</tfoot>
 		<tbody>'; // thead and tfoot used in conjunction with tbody enable scrolling of the table body independently of the header and footer. Also, when printing a large table that spans multiple pages, these elements can enable the table header to be printed at the top of each page.
-	// Calculate B/Fwd retained earnings:
-	$SQL = "SELECT Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwd,
-					Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS accumprofitbfwdly
+	/* Get the retained earnings amount */
+	$ThisYearRetainedEarningsSQL = "SELECT ROUND(SUM(amount),3) AS retainedearnings
+									FROM gltotals
+									INNER JOIN chartmaster
+										ON gltotals.account=chartmaster.accountcode
+									INNER JOIN accountgroups
+										ON chartmaster.groupcode=accountgroups.groupcode
+										AND accountgroups.language=chartmaster.language
+									WHERE period<='" . $_POST['BalancePeriodEnd'] . "'
+										AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+										AND pandl=1";
+	$ThisYearRetainedEarningsResult = DB_query($ThisYearRetainedEarningsSQL);
+	$ThisYearRetainedEarningsRow = DB_fetch_array($ThisYearRetainedEarningsResult);
+
+	$LastYearRetainedEarningsSQL = "SELECT ROUND(SUM(amount),3) AS retainedearnings
+									FROM gltotals
+									INNER JOIN chartmaster
+										ON gltotals.account=chartmaster.accountcode
+									INNER JOIN accountgroups
+										ON chartmaster.groupcode=accountgroups.groupcode
+										AND accountgroups.language=chartmaster.language
+									WHERE period<='" . ($_POST['BalancePeriodEnd'] - 12) . "'
+										AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+										AND pandl=1";
+	$LastYearRetainedEarningsResult = DB_query($LastYearRetainedEarningsSQL);
+	$LastYearRetainedEarningsRow = DB_fetch_array($LastYearRetainedEarningsResult);
+
+	$SQL = "SELECT sectionid,
+					sectionname,
+					parentgroupname,
+					parentgroupcode,
+					chartmaster.groupcode,
+					chartmaster.accountcode,
+					group_ AS groupname,
+					chartmaster.language,
+					accountname,
+					sectioninaccounts,
+					pandl
 				FROM chartmaster
+				INNER JOIN glaccountusers
+					ON glaccountusers.accountcode=chartmaster.accountcode
+					AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
+					AND glaccountusers.canview=1
 				INNER JOIN accountgroups
-					ON chartmaster.groupcode=accountgroups.groupcode
-					AND chartmaster.language=accountgroups.language
-				INNER JOIN chartdetails
-					ON chartmaster.accountcode= chartdetails.accountcode
-				WHERE accountgroups.pandl=1
-					AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
-
-	$AccumProfitResult = DB_query($SQL, _('The accumulated profits brought forward could not be calculated by the SQL because'));
-
-	$AccumProfitRow = DB_fetch_array($AccumProfitResult);
-	/*should only be one row returned */
-
-	$SQL = "SELECT accountgroups.sectioninaccounts,
-					accountgroups.groupname,
-					accountgroups.parentgroupname,
-					chartdetails.accountcode,
-					chartmaster.accountname,
-					Sum(CASE WHEN chartdetails.period='" . $_POST['BalancePeriodEnd'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwd,
-					Sum(CASE WHEN chartdetails.period='" . ($_POST['BalancePeriodEnd'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS balancecfwdly
-		FROM chartmaster
-			INNER JOIN accountgroups
-				ON chartmaster.groupcode=accountgroups.groupcode
-				AND chartmaster.language=accountgroups.language
-			INNER JOIN chartdetails
-				ON chartmaster.accountcode=chartdetails.accountcode
-			INNER JOIN glaccountusers
-				ON glaccountusers.accountcode=chartmaster.accountcode
-				AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
-				AND glaccountusers.canview=1
-		WHERE accountgroups.pandl=0
-			AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
-		GROUP BY accountgroups.groupname,
-				chartdetails.accountcode,
-				chartmaster.accountname,
-				accountgroups.parentgroupname,
-				accountgroups.sequenceintb,
-				accountgroups.sectioninaccounts
-		ORDER BY accountgroups.sectioninaccounts,
-				accountgroups.sequenceintb,
-				accountgroups.groupname,
-				chartdetails.accountcode";
+					ON accountgroups.groupcode=chartmaster.groupcode
+					AND accountgroups.language=chartmaster.language
+				INNER JOIN accountsection
+					ON accountsection.sectionid=accountgroups.sectioninaccounts
+					AND accountgroups.language=accountsection.language
+				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+					AND pandl=0
+				ORDER BY sequenceintb,
+						groupcode,
+						accountcode";
 
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'));
 
@@ -231,12 +236,28 @@ if (!isset($_POST['BalancePeriodEnd']) or isset($_POST['NewReport'])) {
 					</tr>';
 
 	while ($MyRow = DB_fetch_array($AccountsResult)) {
-		$AccountBalance = $MyRow['balancecfwd'];
-		$AccountBalanceLY = $MyRow['balancecfwdly'];
+		$ThisYearSQL = "SELECT account,
+					SUM(amount) AS accounttotal
+				FROM gltotals
+				WHERE period<='" . $_POST['BalancePeriodEnd'] . "'
+					AND account='" . $MyRow['accountcode'] . "'";
+		$ThisYearResult = DB_query($ThisYearSQL);
+		$ThisYearRow = DB_fetch_array($ThisYearResult);
+
+		$LastYearSQL = "SELECT account,
+					SUM(amount) AS accounttotal
+				FROM gltotals
+				WHERE period<='" . ($_POST['BalancePeriodEnd'] - 12) . "'
+					AND account='" . $MyRow['accountcode'] . "'";
+		$LastYearResult = DB_query($LastYearSQL);
+		$LastYearRow = DB_fetch_array($LastYearResult);
+
+		$AccountBalance = $ThisYearRow['accounttotal'];
+		$AccountBalanceLY = $LastYearRow['accounttotal'];
 
 		if ($MyRow['accountcode'] == $RetainedEarningsAct) {
-			$AccountBalance+= $AccumProfitRow['accumprofitbfwd'];
-			$AccountBalanceLY+= $AccumProfitRow['accumprofitbfwdly'];
+			$AccountBalance+= $ThisYearRetainedEarningsRow['retainedearnings'];
+			$AccountBalanceLY+= $LastYearRetainedEarningsRow['retainedearnings'];
 		}
 
 		if ($MyRow['groupname'] != $ActGrp and $ActGrp != '') {
