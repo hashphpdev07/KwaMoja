@@ -34,7 +34,7 @@ if (isset($_POST['PeriodFrom']) and isset($_POST['PeriodTo'])) {
 
 }
 
-if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport = 'on') {
+if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport == 'on') {
 
 	echo '<form method="post" action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
@@ -73,6 +73,28 @@ if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport =
 			<td><input type="checkbox" name="InvertGraph" /></td>
 			<td><fieldhelp>', _('If the selected account is normally a credit balance then select this to show the graph with credits as positive values'), '</fieldhelp>
 		</field>';
+
+	$SQL = "SELECT `id`,
+					`name`,
+					`current`
+				FROM glbudgetheaders";
+	$Result = DB_query($SQL);
+	echo '<field>
+			<label for="SelectedBudget">', _('Budget To Show Comparisons With'), '</label>
+			<select name="SelectedBudget">';
+	while ($MyRow = DB_fetch_array($Result)) {
+		if (!isset($_POST['SelectedBudget']) and $MyRow['current'] == 1) {
+			$_POST['SelectedBudget'] = $MyRow['id'];
+		}
+		if ($MyRow['id'] == $_POST['SelectedBudget']) {
+			echo '<option selected="selected" value="', $MyRow['id'], '">', $MyRow['name'], '</option>';
+		} else {
+			echo '<option value="', $MyRow['id'], '">', $MyRow['name'], '</option>';
+		}
+	}
+	echo '<fieldhelp>', _('Select the budget to make comparisons with.'), '</fieldhelp>
+		</select>
+	</field>';
 
 	echo '<field>
 			<label for="PeriodFrom">', _('Select Period From'), ':</label>
@@ -175,18 +197,14 @@ if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport =
 
 	$WhereClause = "WHERE " . $WhereClause . " periods.periodno>='" . $_POST['PeriodFrom'] . "' AND periods.periodno <= '" . $_POST['PeriodTo'] . "'";
 
-	$SQL = "SELECT periods.periodno,
-				periods.lastdate_in_period,
-				chartmaster.group_ AS group_,
-				chartdetails.budget AS budget,
-				(CASE WHEN chartdetails.actual=0 THEN 0 ELSE chartdetails.actual END) AS actual
-		FROM periods
-		INNER JOIN chartdetails ON periods.periodno=chartdetails.period
-		INNER JOIN chartmaster ON chartdetails.accountcode=chartmaster.accountcode " . $WhereClause . "
-		AND chartdetails.accountcode = '" . $SelectedAccount . "'
-		GROUP BY periods.periodno,
-			periods.lastdate_in_period
-		ORDER BY periods.periodno";
+	$SQL = "SELECT amount AS actual,
+					period
+				FROM gltotals
+				WHERE period>='" . $_POST['PeriodFrom'] . "'
+					AND period <='" . $_POST['PeriodTo'] . "'
+					AND account='" . $SelectedAccount . "'
+				GROUP BY period
+				ORDER BY period";
 
 	$Graph->SetTitle($GraphTitle);
 	$Graph->SetTitleColor('blue');
@@ -223,10 +241,23 @@ if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport =
 	$GraphArray = array();
 	$i = 0;
 	while ($MyRow = DB_fetch_array($SalesResult)) {
+		$SQL = "SELECT SUM(amount) AS budget
+				FROM glbudgetdetails
+				WHERE account='" . $SelectedAccount . "'
+					AND period='" . $MyRow['period'] . "'
+					AND headerid='" . $_POST['SelectedBudget'] . "'";
+		$PeriodBudgetResult = DB_query($SQL);
+		$PeriodBudgetRow = DB_fetch_array($PeriodBudgetResult);
+		if (!isset($PeriodBudgetRow['periodbudget'])) {
+			$PeriodBudgetRow['periodbudget'] = 0;
+		}
+		$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $MyRow['period'] . "'";
+		$PeriodResult = DB_query($PeriodSQL);
+		$PeriodRow = DB_fetch_array($PeriodResult);
 		if (!isset($_POST['InvertGraph'])) {
-			$GraphArray[$i] = array(MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), $MyRow['actual'], $MyRow['budget']);
+			$GraphArray[$i] = array(MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']), $MyRow['actual'], $PeriodBudgetRow['budget']);
 		} else {
-			$GraphArray[$i] = array(MonthAndYearFromSQLDate($MyRow['lastdate_in_period']), -$MyRow['actual'], $MyRow['budget']);
+			$GraphArray[$i] = array(MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']), -$MyRow['actual'], $PeriodBudgetRow['budget']);
 		}
 		++$i;
 	}
@@ -242,7 +273,7 @@ if ((!isset($_POST['PeriodFrom']) or !isset($_POST['PeriodTo'])) or $NewReport =
 	$Graph->DrawGraph();
 	echo '<table class="selection">
 			<tr>
-				<td><p><img src="companies/', $_SESSION['DatabaseName'], '/reports/glaccountgraph.png" alt="Sales Report Graph"></img></p></td>
+				<td><p><img class="Graph" src="companies/', $_SESSION['DatabaseName'], '/reports/glaccountgraph.png" alt="Sales Report Graph"></img></p></td>
 			</tr>
 		  </table>';
 
