@@ -5,7 +5,6 @@ $Title = _('General Ledger Account Inquiry');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountInquiry';
 include ('includes/header.php');
-include ('includes/GLPostings.php');
 
 echo '<p class="page_title_text">
 		<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Account Inquiry'), '" alt="', _('General Ledger Account Inquiry'), '" />', ' ', _('General Ledger Account Inquiry'), '
@@ -88,13 +87,14 @@ echo '<fieldhelp>', _('Select a General Ledger account to report on.'), '</field
 $SQL = "SELECT tagref,
 			tagdescription
 		FROM tags
-		ORDER BY tagdescription";
+		ORDER BY tagref";
 $Result = DB_query($SQL);
 
 echo '<field>
 		<label for="tag">', _('Select Tag'), ':</label>
 		<select name="tag">';
-echo '<option value="0">0 - ', _('All tags'), '</option>';
+echo '<option value="-1">', _('All tags'), '</option>';
+echo '<option value="0">0 - ', _('No tag selected'), '</option>';
 while ($MyRow = DB_fetch_array($Result)) {
 	if (isset($_POST['tag']) and $_POST['tag'] == $MyRow['tagref']) {
 		echo '<option selected="selected" value="', $MyRow['tagref'], '">', $MyRow['tagref'], ' - ', $MyRow['tagdescription'], '</option>';
@@ -140,6 +140,9 @@ if (isset($_POST['Show'])) {
 		include ('includes/footer.php');
 		exit;
 	}
+	if ($_POST['tag'] == - 1) {
+		$_POST['tag'] = '%%';
+	}
 	/*Is the account a balance sheet or a profit and loss account */
 	$Result = DB_query("SELECT pandl
 				FROM accountgroups
@@ -164,26 +167,19 @@ if (isset($_POST['Show'])) {
 					narrative,
 					chequeno,
 					amount,
-					periodno,
-					gltags.tagref AS tag,
-					tagdescription
+					periodno
 				FROM gltrans
 				INNER JOIN systypes
 					ON systypes.typeid=gltrans.type
 				INNER JOIN gltags
-					ON gltrans.counterindex=gltags.counterindex
-				LEFT JOIN tags
-					ON gltags.tagref = tags.tagref
+					ON gltags.counterindex=gltrans.counterindex
 				WHERE gltrans.account = '" . $SelectedAccount . "'
-					AND posted=1
 					AND periodno>='" . $FirstPeriodSelected . "'
-					AND periodno<='" . $LastPeriodSelected . "'";
-
-	if ($_POST['tag'] != 0) {
-		$SQL = $SQL . " AND gltags.tagref='" . $_POST['tag'] . "'";
-	}
-
-	$SQL = $SQL . " ORDER BY periodno, gltrans.trandate, counterindex";
+					AND periodno<='" . $LastPeriodSelected . "'
+					AND gltags.tagref LIKE '" . $_POST['tag'] . "'
+				ORDER BY periodno,
+						gltrans.trandate,
+						counterindex";
 
 	$NameSQL = "SELECT accountname
 					FROM chartmaster
@@ -216,98 +212,87 @@ if (isset($_POST['Show'])) {
 				</tr>
 			</thead>';
 
-	if ($PandLAccount == True) {
-		$RunningTotal = 0;
-	} else {
-		// added to fix bug with Brought Forward Balance always being zero
-		$SQL = "SELECT bfwd,
-						actual,
-						period
-					FROM chartdetails
-					WHERE chartdetails.accountcode='" . $SelectedAccount . "'
-					AND chartdetails.period='" . $FirstPeriodSelected . "'";
-
-		$ErrMsg = _('The chart details for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved');
-		$ChartDetailsResult = DB_query($SQL, $ErrMsg);
-		$ChartDetailRow = DB_fetch_array($ChartDetailsResult);
-
-		if ($_POST['tag'] == 0) {
-			$_POST['tag'] = '%%';
-		}
-		$BfwdSQL = "SELECT sum(amount) as bfwd
-						FROM gltrans
-						INNER JOIN gltags
-							ON gltrans.counterindex=gltags.counterindex
-						WHERE account='" . $SelectedAccount . "'
-							AND periodno<" . $FirstPeriodSelected . "
-							AND gltags.tagref like '" . $_POST['tag'] . "'";
-		$BfwdResult = DB_query($BfwdSQL);
-		$BfwdRow = DB_fetch_array($BfwdResult);
-
-		$RunningTotal = $BfwdRow['bfwd'];
-		if ($RunningTotal < 0) { //its a credit balance b/fwd
-			echo '<tr>
-					<td colspan="5"><b>', _('Brought Forward Balance'), '</b></td>
-					<td class="number"><b>', locale_number_format(-$RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-				</tr>';
-		} else { //its a debit balance b/fwd
-			echo '<tr>
-					<td colspan="4"><b>', _('Brought Forward Balance'), '</b></td>
-					<td class="number"><b>', locale_number_format($RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-				</tr>';
-		}
-	}
 	$PeriodTotal = 0;
 	$PeriodNo = - 9999;
-	$ShowIntegrityReport = False;
 	$j = 1;
 
 	$IntegrityReport = '';
 	while ($MyRow = DB_fetch_array($TransResult)) {
 		if ($MyRow['periodno'] != $PeriodNo) {
+			if ($PeriodNo == - 9999) {
+
+				$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . ($FirstPeriodSelected - 1) . "'";
+				$PeriodResult = DB_query($PeriodSQL);
+				$PeriodRow = DB_fetch_array($PeriodResult);
+				$PreviousPeriodName = _(MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']));
+
+				$BFSQL = "SELECT SUM(amount) AS bftotal FROM gltotals WHERE account='" . $SelectedAccount . "' and period<'" . $FirstPeriodSelected . "'";
+				$BFResult = DB_query($BFSQL);
+				$BFRow = DB_fetch_array($BFResult);
+
+				if ($PandLAccount == True) {
+					$BFRow['bftotal'] = 0;
+				}
+
+				if ($BFRow['bftotal'] >= 0) {
+					echo '<tr class="total_row">
+							<td colspan="6">', _('Balance brought forward from'), ' ', $PreviousPeriodName, '</td>
+							<td class="number">', locale_number_format($BFRow['bftotal'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td></td>
+						</tr>';
+				} else {
+					echo '<tr class="total_row">
+							<td colspan="6">', _('Balance brought forward from'), ' ', $PreviousPeriodName, '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$BFRow['bftotal'], $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+						</tr>';
+				}
+				$RunningTotal = $BFRow['bftotal'];
+				$PeriodTotalCredit = 0;
+				$PeriodTotalDebit = 0;
+			}
 			if ($PeriodNo != - 9999) { //ie its not the first time around
 				/*Get the ChartDetails balance b/fwd and the actual movement in the account for the period as recorded in the chart details - need to ensure integrity of transactions to the chart detail movements. Also, for a balance sheet account it is the balance carried forward that is important, not just the transactions*/
-
-				$SQL = "SELECT bfwd,
-								actual,
-								period
-							FROM chartdetails
-							WHERE chartdetails.accountcode='" . $SelectedAccount . "'
-								AND chartdetails.period='" . $PeriodNo . "'";
-
-				$ErrMsg = _('The chart details for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved');
-				$ChartDetailsResult = DB_query($SQL, $ErrMsg);
-				$ChartDetailRow = DB_fetch_array($ChartDetailsResult);
 
 				if ($PeriodNo != - 9999) {
 					$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
 					$PeriodResult = DB_query($PeriodSQL);
 					$PeriodRow = DB_fetch_array($PeriodResult);
-					echo '<tr>
-							<td colspan="4"><b>', _('Total for period ending'), ' ', ConvertSQLDate($PeriodRow['lastdate_in_period']), '</b></td>';
-					if ($PeriodTotal < 0) { //its a credit balance b/fwd
-						if ($PandLAccount == True) {
-							//							$RunningTotal = 0;
-							
-						}
-						echo '<td></td>
-								<td class="number"><b>', locale_number_format(-$PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-								<td></td>
-							</tr>';
-					} else { //its a debit balance b/fwd
-						if ($PandLAccount == True) {
-							//								$RunningTotal = 0;
-							
-						}
-						echo '<td class="number"><b>', locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-								<td colspan="2"></td>
-							</tr>';
-					}
+					echo '<tr class="total_row">
+							<td colspan="6"><b>', _('Totals for period ending'), ' ', ConvertSQLDate($PeriodRow['lastdate_in_period']), '</b></td>
+							<td class="number"><b>', locale_number_format($PeriodTotalDebit, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
+							<td class="number"><b>', locale_number_format($PeriodTotalCredit, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
+							<td></td>
+						</tr>';
+					$PeriodTotalCredit = 0;
+					$PeriodTotalDebit = 0;
 				}
-				$IntegrityReport.= '<br />' . _('Period') . ': ' . $PeriodNo . _('Account movement per transaction') . ': ' . locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Movement per ChartDetails record') . ': ' . locale_number_format($ChartDetailRow['actual'], $_SESSION['CompanyRecord']['decimalplaces']) . ' ' . _('Period difference') . ': ' . locale_number_format($PeriodTotal - $ChartDetailRow['actual'], 3);
 
-				if (ABS($PeriodTotal - $ChartDetailRow['actual']) > 0.01 and $_POST['tag'] == 0) {
-					$ShowIntegrityReport = True;
+				$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
+				$PeriodResult = DB_query($PeriodSQL);
+				$PeriodRow = DB_fetch_array($PeriodResult);
+				$PeriodName = _(MonthAndYearFromSQLDate($PeriodRow['lastdate_in_period']));
+
+				$BFSQL = "SELECT SUM(amount) AS bftotal FROM gltotals WHERE account='" . $SelectedAccount . "' and period<='" . $PeriodNo . "'";
+				$BFResult = DB_query($BFSQL);
+				$BFRow = DB_fetch_array($BFResult);
+
+				if ($BFRow['bftotal'] >= 0) {
+					echo '<tr class="total_row">
+							<td colspan="6">', _('Balance brought forward from'), ' ', $PeriodName, '</td>
+							<td class="number">', locale_number_format($RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+							<td></td>
+						</tr>';
+				} else {
+					echo '<tr class="total_row">
+							<td colspan="6">', _('Balance brought forward from'), ' ', $PeriodName, '</td>
+							<td></td>
+							<td class="number">', locale_number_format(-$RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</td>
+							<td></td>
+						</tr>';
 				}
 			}
 			$PeriodNo = $MyRow['periodno'];
@@ -320,27 +305,39 @@ if (isset($_POST['Show'])) {
 		if ($MyRow['amount'] >= 0) {
 			$DebitAmount = locale_number_format($MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']);
 			$CreditAmount = '';
+			$PeriodTotalDebit+= $MyRow['amount'];
 		} else {
 			$CreditAmount = locale_number_format(-$MyRow['amount'], $_SESSION['CompanyRecord']['decimalplaces']);
 			$DebitAmount = '';
+			$PeriodTotalCredit-= $MyRow['amount'];
 		}
 
 		$FormatedTranDate = ConvertSQLDate($MyRow['trandate']);
 		$URL_to_TransDetail = $RootPath . '/GLTransInquiry.php?TypeID=' . urlencode($MyRow['type']) . '&amp;TransNo=' . urlencode($MyRow['typeno']);
 
-		$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $MyRow['tag'] . "'";
-		$TagResult = DB_query($TagSQL);
-		$TagRow = DB_fetch_array($TagResult);
-		if ($TagRow['tagdescription'] == '') {
-			$TagRow['tagdescription'] = _('None');
+		$TagDescriptions = '';
+		$TagListSQL = "SELECT tagref FROM gltags WHERE counterindex='" . $MyRow['counterindex'] . "'";
+		$TagListResult = DB_query($TagListSQL);
+		if (DB_num_rows($TagListResult) == 0) {
+			$TagDescriptions.= '0 - ' . _('No tag selected') . '<br />';
 		}
+		while ($TagListRow = DB_fetch_array($TagListResult)) {
+			$TagSQL = "SELECT tagdescription FROM tags WHERE tagref='" . $TagListRow['tagref'] . "'";
+			$TagResult = DB_query($TagSQL);
+			$TagRow = DB_fetch_array($TagResult);
+			if ($TagListRow['tagref'] == 0) {
+				$TagRow['tagdescription'] = _('No tag selected');
+			}
+			$TagDescriptions.= $TagListRow['tagref'] . ' - ' . $TagRow['tagdescription'] . '<br />';
+		}
+
 		echo '<tr class="striped_row">
 				<td>', _($MyRow['typename']), '</td>
 				<td class="number"><a href="', $URL_to_TransDetail, '">', $MyRow['typeno'], '</a></td>
 				<td>', $MyRow['chequeno'], '</td>
 				<td>', $FormatedTranDate, '</td>
 				<td>', $MyRow['narrative'], '</td>
-				<td>', $TagRow['tagdescription'], '</td>
+				<td>', $TagDescriptions, '</td>
 				<td class="number">', $DebitAmount, '</td>
 				<td class="number">', $CreditAmount, '</td>
 				<td class="number"><b>', locale_number_format($RunningTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
@@ -351,21 +348,15 @@ if (isset($_POST['Show'])) {
 		$PeriodSQL = "SELECT lastdate_in_period FROM periods WHERE periodno='" . $PeriodNo . "'";
 		$PeriodResult = DB_query($PeriodSQL);
 		$PeriodRow = DB_fetch_array($PeriodResult);
-		echo '<tr>
-				<td colspan="5"><b>', _('Total for period ending'), ' ', ConvertSQLDate($PeriodRow['lastdate_in_period']), '</b></td>';
-		if ($PeriodTotal < 0) { //its a credit balance b/fwd
-			echo '<td></td>
-					<td class="number"><b>', locale_number_format(-$PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-					<td></td>
-				</tr>';
-		} else { //its a debit balance b/fwd
-			echo '<td class="number"><b>', locale_number_format($PeriodTotal, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
-					<td colspan="4"></td>
-				</tr>';
-		}
+		echo '<tr class="total_row">
+				<td colspan="6"><b>', _('Totals for period ending'), ' ', ConvertSQLDate($PeriodRow['lastdate_in_period']), '</b></td>
+				<td class="number"><b>', locale_number_format($PeriodTotalDebit, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
+				<td class="number"><b>', locale_number_format($PeriodTotalCredit, $_SESSION['CompanyRecord']['decimalplaces']), '</b></td>
+				<td></td>
+			</tr>';
 	}
 
-	echo '<tr>
+	echo '<tr class="total_row">
 			<td colspan="6"><b>';
 	if ($PandLAccount == True) {
 		echo _('Total Movement for selected periods');
@@ -379,23 +370,18 @@ if (isset($_POST['Show'])) {
 		echo '<td class="number">
 				<b>', locale_number_format(($RunningTotal), $_SESSION['CompanyRecord']['decimalplaces']), '</b>
 			</td>
+			<td></td>
 		</tr>';
 	} else {
 		echo '<td class="number" colspan="2">
 				<b>', locale_number_format((-$RunningTotal), $_SESSION['CompanyRecord']['decimalplaces']), '</b>
 			</td>
+			<td></td>
 		</tr>';
 	}
 	echo '</table>';
 }
 /* end of if Show button hit */
 
-if (isset($ShowIntegrityReport) and $ShowIntegrityReport == True) {
-	if (!isset($IntegrityReport)) {
-		$IntegrityReport = '';
-	}
-	prnMsg(_('There are differences between the sum of the transactions and the recorded movements in the ChartDetails table') . '. ' . _('A log of the account differences for the periods report shows below'), 'warn');
-	echo '<p>' . $IntegrityReport;
-}
 include ('includes/footer.php');
 ?>
