@@ -69,8 +69,7 @@ if ($_POST['CommitBatch'] == _('Accept and Process Overtime')) {
 
 	/*Set up a newy in case user wishes to enter another */
 	echo "<BR><A HREF='" . basename(__FILE__) . '?' . SID . "&NewRT=Yes'>" . _('Enter Another Overtime Data') . '</A>';
-	/*And post the journal too */
-	//include ('includes/GLPostings.php');
+
 	exit;
 } elseif (isset($_GET['Delete'])) {
 	/* User hit delete the line from the ot */
