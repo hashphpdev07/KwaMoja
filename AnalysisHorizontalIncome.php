@@ -176,9 +176,6 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			<input name="ShowPL" type="submit" value="', _('Show on Screen (HTML)'), '" />
 		</div>';
 
-	// Now do the posting while the user is thinking about the period to select:
-	include ('includes/GLPostings.php');
-
 } else {
 
 	$NumberOfMonths = $_POST['PeriodTo'] - $_POST['PeriodFrom'] + 1;
@@ -231,36 +228,34 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			</tr>
 		</tfoot>
 		<tbody>'; // thead and tfoot used in conjunction with tbody enable scrolling of the table body independently of the header and footer. Also, when printing a large table that spans multiple pages, these elements can enable the table header to be printed at the top of each page.
-	$SQL = "SELECT accountgroups.sectioninaccounts,
-					accountgroups.parentgroupname,
-					accountgroups.groupname,
-					chartdetails.accountcode,
-					chartmaster.accountname,
-					SUM(CASE WHEN chartdetails.period='" . $_POST['PeriodFrom'] . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwd,
-					SUM(CASE WHEN chartdetails.period='" . $_POST['PeriodTo'] . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwd,
-					SUM(CASE WHEN chartdetails.period='" . ($_POST['PeriodFrom'] - 12) . "' THEN chartdetails.bfwd ELSE 0 END) AS firstprdbfwdly,
-					SUM(CASE WHEN chartdetails.period='" . ($_POST['PeriodTo'] - 12) . "' THEN chartdetails.bfwd + chartdetails.actual ELSE 0 END) AS lastprdcfwdly
+	// Get all account codes
+	$SQL = "SELECT sectionid,
+					sectionname,
+					parentgroupname,
+					parentgroupcode,
+					chartmaster.groupcode,
+					chartmaster.accountcode,
+					group_ AS groupname,
+					chartmaster.language,
+					accountname,
+					sectioninaccounts,
+					pandl
 				FROM chartmaster
-				INNER JOIN accountgroups
-					ON chartmaster.groupcode=accountgroups.groupcode
-					AND chartmaster.language=accountgroups.language
-				INNER JOIN chartdetails
-					ON chartmaster.accountcode= chartdetails.accountcode
 				INNER JOIN glaccountusers
 					ON glaccountusers.accountcode=chartmaster.accountcode
 					AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
 					AND glaccountusers.canview=1
-			WHERE accountgroups.pandl=1
-				AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
-			GROUP BY accountgroups.sectioninaccounts,
-					accountgroups.parentgroupname,
-					accountgroups.groupname,
-					chartdetails.accountcode,
-					chartmaster.accountname
-			ORDER BY accountgroups.sectioninaccounts,
-					accountgroups.sequenceintb,
-					accountgroups.groupname,
-					chartdetails.accountcode";
+				INNER JOIN accountgroups
+					ON accountgroups.groupcode=chartmaster.groupcode
+					AND accountgroups.language=chartmaster.language
+				INNER JOIN accountsection
+					ON accountsection.sectionid=accountgroups.sectioninaccounts
+					AND accountgroups.language=accountsection.language
+				WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+					AND pandl=1
+				ORDER BY sequenceintb,
+						groupcode,
+						accountcode";
 	$AccountsResult = DB_query($SQL, _('No general ledger accounts were returned by the SQL because'), _('The SQL that failed was'));
 
 	$PeriodTotal = 0;
@@ -418,8 +413,40 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 		}
 
 		// Set totals for account, groups, section and period:
-		$AccountTotal = $MyRow['lastprdcfwd'] - $MyRow['firstprdbfwd'];
-		$AccountTotalLY = $MyRow['lastprdcfwdly'] - $MyRow['firstprdbfwdly'];
+		$FirstPeriodSQL = "SELECT account,
+					SUM(amount) AS accounttotal
+				FROM gltotals
+				WHERE period<'" . $_POST['PeriodFrom'] . "'
+					AND account='" . $MyRow['accountcode'] . "'";
+		$FirstPeriodResult = DB_query($FirstPeriodSQL);
+		$FirstPeriodRow = DB_fetch_array($FirstPeriodResult);
+
+		$LastPeriodSQL = "SELECT account,
+					SUM(amount) AS accounttotal
+				FROM gltotals
+				WHERE period<'" . $_POST['PeriodTo'] . "'
+					AND account='" . $MyRow['accountcode'] . "'";
+		$LastPeriodResult = DB_query($LastPeriodSQL);
+		$LastPeriodRow = DB_fetch_array($LastPeriodResult);
+
+		$LYFirstPeriodSQL = "SELECT account,
+					SUM(amount) AS accounttotal
+				FROM gltotals
+				WHERE period<'" . ($_POST['PeriodFrom'] - 12) . "'
+					AND account='" . $MyRow['accountcode'] . "'";
+		$LYFirstPeriodResult = DB_query($LYFirstPeriodSQL);
+		$LYFirstPeriodRow = DB_fetch_array($LYFirstPeriodResult);
+
+		$LYLastPeriodSQL = "SELECT account,
+					SUM(amount) AS accounttotal
+				FROM gltotals
+				WHERE period<'" . ($_POST['PeriodTo'] - 12) . "'
+					AND account='" . $MyRow['accountcode'] . "'";
+		$LYLastPeriodResult = DB_query($LYLastPeriodSQL);
+		$LYLastPeriodRow = DB_fetch_array($LYLastPeriodResult);
+
+		$AccountTotal = $LastPeriodRow['accounttotal'] - $FirstPeriodRow['accounttotal'];
+		$AccountTotalLY = $LYLastPeriodRow['accounttotal'] - $LYFirstPeriodRow['accounttotal'];
 		for ($i = 0;$i <= $Level;$i++) {
 			if (!isset($GrpTotalLY[$i])) {
 				$GrpTotalLY[$i] = 0;
