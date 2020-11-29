@@ -251,8 +251,7 @@ if (isset($_POST['CommitDepreciation']) and $InputError == false) {
 	prnMsg(_('Depreciation') . ' ' . $TransNo . ' ' . _('has been successfully entered'), 'success');
 	unset($_POST['ProcessDate']);
 	echo '<a href="index.php">', _('Return to main menu'), '</a>';
-	/*And post the journal too */
-	include ('includes/GLPostings.php');
+
 } else {
 	echo '<form action="', htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8'), '" method="post" id="form">';
 	echo '<input type="hidden" name="FormID" value="', $_SESSION['FormID'], '" />';
