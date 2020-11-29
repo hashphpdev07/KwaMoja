@@ -411,9 +411,6 @@ if (isset($_POST['Submit']) or isset($_POST['update']) or isset($SelectedTabs) o
 			<td class="number">', locale_number_format($Amount['0'], $CurrDecimalPlaces), '</td>
 			<td colspan="7"></td>
 		</tr>';
-
-	// Do the postings
-	include ('includes/GLPostings.php');
 	echo '</table>';
 
 	echo '<div class="centre">
