@@ -143,8 +143,6 @@ echo '<field>
 	</field>';
 /*Now do the posting while the user is thinking about the bank account to select */
 
-include ('includes/GLPostings.php');
-
 echo '</fieldset>';
 echo '<div class="centre">
 		<input type="submit" name="ShowRec" value="', _('Show bank reconciliation statement'), '" />
