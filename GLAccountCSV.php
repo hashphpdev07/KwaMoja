@@ -4,7 +4,6 @@ $Title = _('General Ledger Account Report');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountCSV';
 include ('includes/header.php');
-include ('includes/GLPostings.php');
 
 if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
@@ -200,12 +199,7 @@ if (isset($_POST['MakeCSV'])) {
 		if ($PandLAccount == True) {
 			$RunningTotal = 0;
 		} else {
-			$SQL = "SELECT bfwd,
-					actual,
-					period
-				FROM chartdetails
-				WHERE chartdetails.accountcode= '" . $SelectedAccount . "'
-				AND chartdetails.period='" . $FirstPeriodSelected . "'";
+			$SQL = "SELECT SUM(amount) AS bfwd FROM gltotals WHERE account='" . $SelectedAccount . "' AND period='" . $FirstPeriodSelected . "'";
 
 			$ErrMsg = _('The chart details for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved');
 			$ChartDetailsResult = DB_query($SQL, $ErrMsg);
