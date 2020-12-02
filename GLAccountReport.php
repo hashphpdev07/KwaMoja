@@ -4,7 +4,6 @@ include ('includes/session.php');
 $Title = _('General Ledger Account Report');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountReport';
-include ('includes/header.php');
 
 if (isset($_POST['Period'])) {
 	$SelectedPeriod = $_POST['Period'];
@@ -118,12 +117,8 @@ if (isset($_POST['RunReport'])) {
 		if ($PandLAccount == True) {
 			$RunningTotal = 0;
 		} else {
-			$SQL = "SELECT bfwd,
-						actual,
-						period
-					FROM chartdetails
-					WHERE chartdetails.accountcode='" . $SelectedAccount . "'
-					AND chartdetails.period='" . $FirstPeriodSelected . "'";
+
+			$SQL = "SELECT SUM(amount) AS bfwd FROM gltotals WHERE account='" . $SelectedAccount . "' AND period='" . $FirstPeriodSelected . "'";
 
 			$ErrMsg = _('The chart details for account') . ' ' . $SelectedAccount . ' ' . _('could not be retrieved');
 			$ChartDetailsResult = DB_query($SQL, $ErrMsg);
@@ -226,7 +221,7 @@ if (isset($_POST['RunReport'])) {
 }
 /* end of if PrintReport button hit */
 else {
-	include ('includes/GLPostings.php');
+	include ('includes/header.php');
 
 	echo '<p class="page_title_text">
 			<img src="', $RootPath, '/css/', $_SESSION['Theme'], '/images/transactions.png" title="', _('General Ledger Account Inquiry'), '" alt="', _('General Ledger Account Inquiry'), '" />', ' ', _('General Ledger Account Report'), '
