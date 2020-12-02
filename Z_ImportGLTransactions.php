@@ -212,7 +212,6 @@ if (isset($_FILES['userfile']) and $_FILES['userfile']['name']) { //start file p
 	}
 
 	fclose($FileHandle);
-	include ('includes/GLPostings.php');
 
 } else { //show file upload form
 	echo '<form action="' . htmlspecialchars(basename(__FILE__), ENT_QUOTES, 'UTF-8') . '" method="post" enctype="multipart/form-data">';
