@@ -1,11 +1,7 @@
 @font-face {
-font-family: 'Ubuntu';
-font-style: normal;
-font-weight: 400;
-src: local('Ubuntu'), url(https://fonts.googleapis.com/css?family=Ubuntu);
 }
 body {
-font-family:Arial, Verdana, Helvetica, sans-serif;
+font-family:sans-serif;
 font-size:10pt;
 margin:0;
 padding:0;
@@ -37,7 +33,7 @@ width:90%;
 height:auto;
 }
 a {
-color:#0088CD;
+color:#4D4D4D;
 text-decoration:none;
 }
 a:hover {

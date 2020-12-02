@@ -80,4 +80,5 @@ table th .PrintIcon {
 float:left;
 cursor:pointer;
 width:32px;
+margin-left:5px;
 }
