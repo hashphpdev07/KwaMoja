@@ -5,7 +5,6 @@ $Title = _('General Ledger Retained Earnings Reconciliation');
 $ViewTopic = 'GeneralLedger';
 $BookMark = 'GLAccountInquiry';
 include ('includes/header.php');
-include ('includes/GLPostings.php');
 
 echo '<p class="page_title_text" ><img src="' . $RootPath . '/css/' . $_SESSION['Theme'] . '/images/transactions.png" title="' . $Title . '" alt="' . $Title . '" />' . ' ' . $Title . '</p>';
 
