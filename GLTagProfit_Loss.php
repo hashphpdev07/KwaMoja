@@ -147,10 +147,6 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			<input type="submit" name="PrintPDF" value="', _('PrintPDF'), '" />
 		</div>';
 
-	/*Now do the posting while the user is thinking about the period to select */
-
-	include ('includes/GLPostings.php');
-
 } else if (isset($_POST['PrintPDF'])) {
 
 	$tagsql = "SELECT tagdescription FROM tags WHERE tagref='" . $_POST['tag'] . "'";
@@ -615,10 +611,6 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			if ($MyRow['parentgroupname'] != $ActGrp and $ActGrp != '') {
 				while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
 					if ($_POST['Detail'] == 'Detailed') {
-						echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="6"><hr /></td>
-						</tr>';
 						$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');
 					} else {
 						$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level];
@@ -626,15 +618,15 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 					if ($Section == 3) {
 						/*Income */
-						printf('<tr>
-									<td colspan="2"><h4><i>%s </i></h4></td>
+						printf('<tr class="total_row">
+									<td colspan="2"><i>%s </i></td>
 									<td></td>
 									<td class="number">%s</td>
 								</tr>', $ActGrpLabel, locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
 					} else {
 						/*Costs */
-						printf('<tr>
-									<td colspan="2"><h4><i>%s </i></h4></td>
+						printf('<tr class="total_row">
+									<td colspan="2"><i>%s </i></td>
 									<td class="number">%s</td>
 									<td></td>
 								</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
@@ -647,10 +639,6 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 				} //end while
 				//still need to print out the old group totals
 				if ($_POST['Detail'] == 'Detailed') {
-					echo '<tr>
-								<td colspan="2"></td>
-								<td colspan="6"><hr /></td>
-							</tr>';
 					$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');
 				} else {
 					$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level];
@@ -658,15 +646,15 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 				if ($Section == 4) {
 					/*Income */
-					printf('<tr>
-								<td colspan="2"><h4><i>%s </i></h4></td>
+					printf('<tr class="total_row">
+								<td colspan="2"><i>%s </i></td>
 								<td></td>
 								<td class="number">%s</td>
 							</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
 				} else {
 					/*Costs */
-					printf('<tr>
-								<td colspan="2"><h4><i>%s</i></h4></td>
+					printf('<tr class="total_row">
+								<td colspan="2"><i>%s</i></td>
 								<td class="number">%s</td>
 								<td></td>
 							</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
@@ -682,25 +670,14 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 				if ($Section == 4) {
 					/*Income*/
 
-					echo '<tr>
-							<td colspan="2"></td>
-		  					<td><hr /></td>
-							<td></td>
-							<td><hr /></td>
-						</tr>';
-
-					printf('<tr>
+					printf('<tr class="total_row">
 								<td colspan="2"><h2>%s</h2></td>
 								<td></td>
 								<td class="number">%s</td>
 							</tr>', $Sections[$Section], locale_number_format($SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']));
 
 				} else {
-					echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="2"><hr /></td>
-						</tr>';
-					printf('<tr>
+					printf('<tr class="total_row">
 								<td colspan="2"><h2>%s</h2></td>
 								<td></td>
 								<td class="number">%s</td>
@@ -712,11 +689,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 				if ($Section == 2) {
 					/*Cost of Sales - need sub total for Gross Profit*/
-					echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="5"><hr /></td>
-						</tr>';
-					printf('<tr>
+					printf('<tr class="total_row">
 								<td colspan="2"><h2>' . _('Gross Profit') . '</h2></td>
 								<td></td>
 								<td class="number">%s</td>
@@ -727,11 +700,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 					} else {
 						$PrdGPPercent = 0;
 					}
-					echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="6"><hr /></td>
-						</tr>';
-					printf('<tr>
+					printf('<tr class="total_row">
 							<td colspan="2"><h4><i>' . _('Gross Profit Percent') . '</i></h4></td>
 							<td></td>
 							<td class="number"><i>%s</i></td>
@@ -760,7 +729,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			$ActGrp = $MyRow['groupname'];
 			if ($_POST['Detail'] == 'Detailed') {
 				printf('<tr>
-							<td colspan="6"><h4><b>%s</b></h4></td>
+							<td colspan="6"><b>%s</b></td>
 						</tr>', $MyRow['groupname']);
 
 			}
@@ -791,12 +760,14 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 							<td>%s</td>
 							<td></td>
 							<td class="number">%s</td>
+							<td></td>
 						</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']));
 			} else {
 				printf('<tr class="striped_row">
 							<td>%s</td>
 							<td>%s</td>
 							<td class="number">%s</td>
+							<td></td>
 						</tr>', $ActEnquiryURL, htmlspecialchars($MyRow['accountname'], ENT_QUOTES, 'UTF-8', false), locale_number_format(-$AccountPeriodActual, $_SESSION['CompanyRecord']['decimalplaces']));
 			}
 
@@ -809,25 +780,21 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 		if ($MyRow['parentgroupname'] != $ActGrp and $ActGrp != '') {
 			while ($MyRow['groupname'] != $ParentGroups[$Level] and $Level > 0) {
 				if ($_POST['Detail'] == 'Detailed') {
-					echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="4"><hr /></td>
-						</tr>';
 					$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');
 				} else {
 					$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level];
 				}
 				if ($Section == 4) {
 					/*Income */
-					echo '<tr>
-							<td colspan="2"><h4><i>' . $ActGrpLabel . '</i></h4></td>
+					echo '<tr class="total_row">
+							<td colspan="2"><i>' . $ActGrpLabel . '</i></td>
 							<td></td>
 							<td class="number">' . locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 						</tr>';
 				} else {
 					/*Costs */
-					echo '<tr>
-							<td colspan="2"><h4><i>' . $ActGrpLabel . '</i></h4></td>
+					echo '<tr class="total_row">
+							<td colspan="2"><i>' . $ActGrpLabel . '</i></td>
 							<td class="number">' . locale_number_format($GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 						</tr>';
 				}
@@ -837,10 +804,6 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			} //end while
 			//still need to print out the old group totals
 			if ($_POST['Detail'] == 'Detailed') {
-				echo '<tr>
-							<td colspan="2"></td>
-							<td colspan="4"><hr /></td>
-						</tr>';
 				$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level] . ' ' . _('total');
 			} else {
 				$ActGrpLabel = str_repeat('___', $Level) . $ParentGroups[$Level];
@@ -848,14 +811,14 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 			if ($Section == 4) {
 				/*Income */
-				printf('<tr>
+				printf('<tr class="total_row">
 						<td colspan="2"><h4><i>%s</i></h4></td>
 						<td></td>
 						<td class="number">%s</td>
 						</tr>', $ActGrpLabel, locale_number_format(-$GrpPrdActual[$Level], $_SESSION['CompanyRecord']['decimalplaces']));
 			} else {
 				/*Costs */
-				printf('<tr>
+				printf('<tr class="total_row">
 						<td colspan="2"><h4><i>%s </i></h4></td>
 						<td class="number">%s</td>
 						<td></td>
@@ -871,22 +834,14 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 		if ($Section == 4) {
 			/*Income*/
 
-			echo '<tr>
-					<td colspan="2"></td>
-					<td colspan="2"><hr /></td>
-				</tr>
-				<tr>
+			echo '<tr class="total_row">
 					<td colspan="2"><h2>' . $Sections[$Section] . '</h2></td>
 					<td></td>
 					<td class="number">' . locale_number_format($SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
 				</tr>';
 			$TotalIncome = $SectionPrdActual;
 		} else {
-			echo '<tr>
-					<td colspan="2"></td>
-					<td colspan="2"><hr /></td>
-				</tr>
-				<tr>
+			echo '<tr class="total_row">
 					<td colspan="2"><h2>' . $Sections[$Section] . '</h2></td>
 					<td></td>
 					<td class="number">' . locale_number_format(-$SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
@@ -894,11 +849,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 		}
 		if ($Section == 2) {
 			/*Cost of Sales - need sub total for Gross Profit*/
-			echo '<tr>
-					<td colspan="2"></td>
-					<td colspan="2"><hr /></td>
-				</tr>
-				<tr>
+			echo '<tr class="total_row">
 					<td colspan="2"><h2>' . _('Gross Profit') . '</h2></td>
 					<td></td>
 					<td class="number">' . locale_number_format($TotalIncome - $SectionPrdActual, $_SESSION['CompanyRecord']['decimalplaces']) . '</td>
@@ -909,11 +860,7 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 			} else {
 				$PrdGPPercent = 0;
 			}
-			echo '<tr>
-					<td colspan="2"></td>
-					<td colspan="2"><hr /></td>
-				</tr>
-				<tr>
+			echo '<tr class="total_row">
 					<td colspan="2"><h4><i>' . _('Gross Profit Percent') . '</i></h4></td>
 					<td></td>
 					<td class="number"><i>' . locale_number_format($PrdGPPercent, 1) . '%</i></td>
@@ -934,21 +881,13 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 	}
 
-	echo '<tr>
-			<td colspan="2"></td>
-			<td colspan="2"><hr /></td>
-		</tr>';
-
-	printf('<tr style="background-color:#ffffff">
+	printf('<tr class="total_row">
 			<td colspan="2"><h2><b>' . _('Surplus') . ' - ' . _('Deficit') . '</b></h2></td>
 			<td></td>
 			<td class="number">%s</td>
 			</tr>', locale_number_format($PeriodProfitLoss, $_SESSION['CompanyRecord']['decimalplaces']));
 
-	echo '<tr>
-			<td colspan="2"></td>
-			<td colspan="4"><hr /></td>
-		</tr>
+	echo '</tr>
 		</table>
 		<div class="centre">
 			<input type="submit" name="NewReport" value="' . _('Select A Different Period') . '" />
