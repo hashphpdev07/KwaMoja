@@ -133,7 +133,7 @@ if (isset($_POST['submit']) and $_POST['submit'] == _('Enter Information')) {
 		}
 
 		$TotalsSQL = "INSERT INTO gltotals (account, period, amount)
-						SELECT '" . $_POST['AccountCode'] . " periodno, 0 FROM periods";
+						SELECT '" . $_POST['AccountCode'] . "', periodno, 0 FROM periods";
 		$ErrMsg = _('An error occurred in adding a new account number to the gltotals table');
 		$TotalsResult = DB_query($TotalsSQL, $ErrMsg);
 
@@ -169,7 +169,7 @@ if (isset($_POST['submit']) and $_POST['submit'] == _('Enter Information')) {
 		}
 
 		$TotalsSQL = "INSERT INTO gltotals (account, period, amount)
-						SELECT '" . $_POST['AccountCode'] . " periodno, 0 FROM periods";
+						SELECT '" . $_POST['AccountCode'] . "', periodno, 0 FROM periods";
 		$ErrMsg = _('An error occurred in adding a new account number to the gltotals table');
 		$TotalsResult = DB_query($TotalsSQL, $ErrMsg);
 	}
