@@ -143,9 +143,8 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 	echo '</fieldset>';
 
 	echo '<div class="centre">
-			<input type="submit" name="ShowTB" value="' . _('Show Trial Balance') . '" />
-			<input type="submit" name="PrintPDF" value="' . _('Print PDF') . '" />
-			<input type="submit" name="ExportCSV" value="' . _('Export to Spreadsheet') . '" />
+			<input type="submit" name="ShowTB" value="', _('Show Trial Balance'), '" />
+			<input type="submit" name="ExportCSV" value="', _('Export to Spreadsheet'), '" />
 		</div>';
 
 	echo '</form>';
@@ -451,6 +450,151 @@ if ((!isset($_POST['PeriodFrom']) and !isset($_POST['PeriodTo'])) or isset($_POS
 
 	echo '</form>';
 	include ('includes/footer.php');
+} else if (isset($_POST['ExportCSV'])) {
+
+	if ($_POST['Period'] != '') {
+		$_POST['PeriodFrom'] = ReportPeriod($_POST['Period'], 'From');
+		$_POST['PeriodTo'] = ReportPeriod($_POST['Period'], 'To');
+	}
+
+	$RetainedEarningsAct = $_SESSION['CompanyRecord']['retainedearnings'];
+
+	$CSVFile = _('Account') . ',' . _('Account Name') . ',' . _('Month Actual') . ',' . _('Month Budget') . ',' . _('Period Actual') . ',' . _('Period Budget') . "\n";
+
+	/* Firstly get the account totals for this period */
+	$ThisMonthSQL = "SELECT account,
+							ROUND(SUM(amount),2) AS monthtotal
+						FROM gltotals
+						WHERE period='" . $_POST['PeriodTo'] . "'
+						GROUP BY account";
+	$ThisMonthResult = DB_query($ThisMonthSQL);
+	$ThisMonthArray = array();
+
+	while ($ThisMonthRow = DB_fetch_array($ThisMonthResult)) {
+		$ThisMonthArray[$ThisMonthRow['account']] = $ThisMonthRow['monthtotal'];
+	}
+
+	/* Then get this periods cumulative P&L accounts */
+	$ThisPeriodPLSQL = "SELECT account,
+								ROUND(SUM(amount),2) AS periodtotal
+						FROM gltotals
+						INNER JOIN chartmaster
+							ON gltotals.account=chartmaster.accountcode
+						INNER JOIN accountgroups
+							ON chartmaster.groupcode=accountgroups.groupcode
+							AND accountgroups.language=chartmaster.language
+						WHERE period<='" . $_POST['PeriodTo'] . "'
+							AND period>='" . $_POST['PeriodFrom'] . "'
+							AND pandl=1
+							AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+						GROUP BY account";
+	$ThisPeriodPLResult = DB_query($ThisPeriodPLSQL);
+	$ThisPeriodArray = array();
+
+	while ($ThisPeriodPLRow = DB_fetch_array($ThisPeriodPLResult)) {
+		$ThisPeriodArray[$ThisPeriodPLRow['account']] = $ThisPeriodPLRow['periodtotal'];
+	}
+
+	/* Then get this periods cumulative BS accounts */
+	$ThisPeriodBSSQL = "SELECT account,
+								ROUND(SUM(amount),2) AS periodtotal
+						FROM gltotals
+						INNER JOIN chartmaster
+							ON gltotals.account=chartmaster.accountcode
+						INNER JOIN accountgroups
+							ON chartmaster.groupcode=accountgroups.groupcode
+							AND accountgroups.language=chartmaster.language
+						WHERE period<='" . $_POST['PeriodTo'] . "'
+							AND pandl=0
+							AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+						GROUP BY account";
+	$ThisPeriodBSResult = DB_query($ThisPeriodBSSQL);
+
+	while ($ThisPeriodBSRow = DB_fetch_array($ThisPeriodBSResult)) {
+		$ThisPeriodArray[$ThisPeriodBSRow['account']] = $ThisPeriodBSRow['periodtotal'];
+	}
+
+	/* Get the retained earnings amount */
+	$RetainedEarningsSQL = "SELECT ROUND(SUM(amount),2) AS retainedearnings
+							FROM gltotals
+							INNER JOIN chartmaster
+								ON gltotals.account=chartmaster.accountcode
+							INNER JOIN accountgroups
+								ON chartmaster.groupcode=accountgroups.groupcode
+								AND accountgroups.language=chartmaster.language
+							WHERE period<'" . $_POST['PeriodFrom'] . "'
+								AND chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+								AND pandl=1";
+	$RetainedEarningsResult = DB_query($RetainedEarningsSQL);
+	$RetainedEarningsRow = DB_fetch_array($RetainedEarningsResult);
+
+	// Get all account codes
+	$SQL = "SELECT chartmaster.accountcode,
+					chartmaster.groupcode,
+					group_,
+					chartmaster.language,
+					accountname,
+					pandl
+			FROM chartmaster
+			INNER JOIN glaccountusers
+				ON glaccountusers.accountcode=chartmaster.accountcode
+				AND glaccountusers.userid='" . $_SESSION['UserID'] . "'
+				AND glaccountusers.canview=1
+			INNER JOIN accountgroups
+				ON accountgroups.groupcode=chartmaster.groupcode
+				AND accountgroups.language=chartmaster.language
+			WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'
+			ORDER BY groupcode,
+					accountcode";
+	$AccountListResult = DB_query($SQL);
+	$AccountListRow = DB_fetch_array($AccountListResult);
+
+	while ($AccountListRow = DB_fetch_array($AccountListResult)) {
+		if (!isset($ThisMonthArray[$AccountListRow['accountcode']])) {
+			$ThisMonthArray[$AccountListRow['accountcode']] = 0;
+		}
+		if (!isset($ThisPeriodArray[$AccountListRow['accountcode']])) {
+			$ThisPeriodArray[$AccountListRow['accountcode']] = 0;
+		}
+		if ($_SESSION['CompanyRecord']['retainedearnings'] == $AccountListRow['accountcode']) {
+			$ThisMonthArray[$AccountListRow['accountcode']] = 0;
+			$ThisPeriodArray[$AccountListRow['accountcode']] = $RetainedEarningsRow['retainedearnings'];
+		}
+
+		$SQL = "SELECT amount AS monthbudget
+				FROM glbudgetdetails
+				WHERE account='" . $AccountListRow['accountcode'] . "'
+					AND period='" . $_POST['PeriodTo'] . "'
+					AND headerid='" . $_POST['SelectedBudget'] . "'";
+		$MonthBudgetResult = DB_query($SQL);
+		$MonthBudgetRow = DB_fetch_array($MonthBudgetResult);
+		if (!isset($MonthBudgetRow['monthbudget'])) {
+			$MonthBudgetRow['monthbudget'] = 0;
+		}
+
+		$SQL = "SELECT SUM(amount) AS periodbudget
+				FROM glbudgetdetails
+				WHERE account='" . $AccountListRow['accountcode'] . "'
+					AND period>='" . $_POST['PeriodFrom'] . "'
+					AND period<='" . $_POST['PeriodTo'] . "'
+					AND headerid='" . $_POST['SelectedBudget'] . "'";
+		$PeriodBudgetResult = DB_query($SQL);
+		$PeriodBudgetRow = DB_fetch_array($PeriodBudgetResult);
+		if (!isset($PeriodBudgetRow['periodbudget'])) {
+			$PeriodBudgetRow['periodbudget'] = 0;
+		}
+
+		$CSVFile.= $AccountListRow['accountcode'] . ',' . html_entity_decode(str_replace(',', '', $AccountListRow['accountname'])) . ',' . $ThisMonthArray[$AccountListRow['accountcode']] . ',' . $MonthBudgetRow['monthbudget'] . ',' . $ThisPeriodArray[$AccountListRow['accountcode']] . ',' . $PeriodBudgetRow['periodbudget'] . "\n";
+
+	}
+	header('Content-Encoding: UTF-8');
+	header('Content-type: text/csv; charset=UTF-8');
+	header("Content-disposition: attachment; filename=GL_Trial_Balance_" . $_POST['PeriodFrom'] . '-' . $_POST['PeriodTo'] . '.csv');
+	header("Pragma: public");
+	header("Expires: 0");
+	echo "\xEF\xBB\xBF"; // UTF-8 BOM
+	echo $CSVFile;
+
 }
 
 ?>
