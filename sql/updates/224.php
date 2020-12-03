@@ -10,21 +10,24 @@ $SQL = "TRUNCATE gltotals";
 $Result = DB_query($SQL);
 
 $PeriodsSQL = "SELECT periodno FROM periods";
-$PeriodsResult = DB_query($PeriodSQL);
+$PeriodsResult = DB_query($PeriodsSQL);
 while ($PeriodRow = DB_fetch_array($PeriodsResult)) {
-	$CreateEntriesSQL = "INSERT INTO gltotals (account, period, amount) SELECT accountcode, '" . $PeriodRow['periodno'] . "', 0 FROM chartmaster";
+	$CreateEntriesSQL = "INSERT INTO gltotals (account, period, amount) SELECT accountcode, '" . $PeriodRow['periodno'] . "', 0 FROM chartmaster WHERE chartmaster.language='" . $_SESSION['ChartLanguage'] . "'";
 	$CreateEntriesResult = DB_query($CreateEntriesSQL);
 }
 
 $TotalsSQL = "SELECT account, period FROM gltotals";
 $TotalsResult = DB_query($TotalsSQL);
 while ($TotalsRow = DB_fetch_array($TotalsResult)) {
-	$TotalSum = "SELECT SUM(amount) as total FROM gltrans WHERE account='" . $TotalsRow['account'] . "' AND periodno='" . $TotalsRow['periodno'] . "'";
+	$TotalSum = "SELECT SUM(amount) as total FROM gltrans WHERE account='" . $TotalsRow['account'] . "' AND periodno='" . $TotalsRow['period'] . "'";
 	$TotalResult = DB_query($TotalSum);
 	$TotalRow = DB_fetch_array($TotalResult);
+	if (!isset($TotalRow['total']) or $TotalRow['total'] == '') {
+		$TotalRow['total'] = 0;
+	}
 	$UpdateSQL = "UPDATE gltotals SET amount='" . $TotalRow['total'] . "'
 									WHERE account='" . $TotalsRow['account'] . "'
-									AND periodno='" . $TotalsRow['periodno'] . "'";
+									AND period='" . $TotalsRow['period'] . "'";
 	$UpdateResult = DB_query($UpdateSQL);
 }
 
