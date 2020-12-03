@@ -21,28 +21,30 @@ if (!isset($_POST['Show'])) {
 	$MyRow = DB_fetch_array($Result);
 	$MaxJournalNumberUsed = $MyRow['typeno'];
 
+	if (Date('m') > $_SESSION['YearEnd']) {
+		$FromDate = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y')));
+	} else {
+		$FromDate = Date($_SESSION['DefaultDateFormat'], Mktime(0, 0, 0, $_SESSION['YearEnd'] + 1, 1, Date('Y') - 1));
+	}
+
+	$ToDate = Date($_SESSION['DefaultDateFormat']);
+
+	$StartPeriod = GetPeriod($FromDate);
+	$SQL = "SELECT MIN(typeno) AS firstjournal FROM gltrans WHERE type=0 AND periodno='" . $StartPeriod . "'";
+	$Result = DB_query($SQL);
+	$MyRow = DB_fetch_array($Result);
+	$FirstJournalNumberUsed = $MyRow['firstjournal'];
+
 	echo '<field>
 			<label>', _('Journal Number Range'), ' (', _('Between'), ' 1 ', _('and'), ' ', $MaxJournalNumberUsed, ')</label>
-			', _('From'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberFrom" size="10" required="required" maxlength="11" value="1" />', '
+			', _('From'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberFrom" size="10" required="required" maxlength="11" value="', $FirstJournalNumberUsed, '" />', '
 			', _('To'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" class="number" name="NumberTo" size="10" required="required" maxlength="11" value="', $MaxJournalNumberUsed, '" />
 		</field>';
 
-	$SQL = "SELECT MIN(trandate) AS fromdate,
-					MAX(trandate) AS todate FROM gltrans WHERE type=0";
-	$Result = DB_query($SQL);
-	$MyRow = DB_fetch_array($Result);
-	if (isset($MyRow['fromdate']) and $MyRow['fromdate'] != '') {
-		$FromDate = $MyRow['fromdate'];
-		$ToDate = $MyRow['todate'];
-	} else {
-		$FromDate = date('Y-m-d');
-		$ToDate = date('Y-m-d');
-	}
-
 	echo '<field>
 			<label>', _('Journals Dated Between'), ':</label>
-			', _('From'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" name="FromTransDate" class="date" maxlength="10" size="11" value="', ConvertSQLDate($FromDate), '" />
-			', _('To'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" name="ToTransDate" class="date" maxlength="10" size="11" value="', ConvertSQLDate($ToDate), '" />
+			', _('From'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" name="FromTransDate" class="date" maxlength="10" size="11" value="', $FromDate, '" />
+			', _('To'), ':', '&nbsp;&nbsp;&nbsp;<input type="text" name="ToTransDate" class="date" maxlength="10" size="11" value="', $ToDate, '" />
 		</field>';
 
 	echo '</fieldset>';
